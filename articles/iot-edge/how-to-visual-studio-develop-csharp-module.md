@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 You can turn your business logic into modules for Azure IoT Edge. This article shows you how to use Visual Studio 2017 as the main tool to develop and debug C# modules.
 
-The Azure IoT Edge Tool for Visual Studio provides the following benefits:
+The Azure IoT Edge Tools for Visual Studio provides the following benefits:
 
 - Create, edit, build, run, and debug Azure IoT Edge solutions and modules on your local development computer.
 - Deploy your Azure IoT Edge solution to Azure IoT Edge device via Azure IoT Hub.
