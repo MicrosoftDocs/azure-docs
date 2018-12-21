@@ -16,7 +16,7 @@ ms.custom: seodec2018
 
 As data volumes grow or processing needs change, you might find that default indexing strategies are no longer practical. For Azure Search, there are several approaches for accommodating larger data sets, ranging from how you structure a data upload request, to using a source-specific indexer for scheduled and distributed workloads.
 
-The techniques described in [parallel indexing](#parallel-indexing) are helpful for computationally intensive indexing, such as image analysis or natural language processing in [cognitive search pipelines](cognitive-search-concept-intro.md).
+The same techniques for large data apply equally to long-running processs. In particular, the steps outlined in [parallel indexing](#parallel-indexing) are helpful for computationally intensive indexing, such as image analysis or natural language processing in [cognitive search pipelines](cognitive-search-concept-intro.md).
 
 ## Batch indexing
 
