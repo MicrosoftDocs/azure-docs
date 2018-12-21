@@ -65,8 +65,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - name: Code Samples
-      href: sdk.md
+    - html: <a href="sdk.md">Code Samples</a>
 - title: Reference
   items:
   - type: list
