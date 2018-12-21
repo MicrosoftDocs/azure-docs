@@ -52,7 +52,7 @@ Traditionally, subscriptions in API Management were always associated with a sin
 When we introduced the [Consumption](https://aka.ms/apimconsumptionblog) tier of API Management, we made a few changes to streamline key management:
 - First, we added two more subscription scopes: all APIs and a single API. The scope of subscriptions is no longer limited to an API product. It's now possible to create keys that grant access to an API, or all APIs within an API Management instance, without needing to create a product and add the APIs to it first. Also, each API Management instance now comes with an immutable, all-APIs subscription. This subscription makes it easier and more straightforward to test and debug APIs within the test console.
 
-- Second, API Management now allows users **standalone** subscriptions. Subscriptions are no longer required to be associated with a developer account. This feature is useful in scenarios such as when several developers or teams share a subscription.
+- Second, API Management now allows **standalone** subscriptions. Subscriptions are no longer required to be associated with a developer account. This feature is useful in scenarios such as when several developers or teams share a subscription.
 
 - Finally, API publishers can now [create subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure portal:
 
