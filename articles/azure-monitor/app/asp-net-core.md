@@ -30,15 +30,15 @@ This article walks you through the steps of creating a sample ASP.NET Core [Razo
 1. Right-click **Visual Studio 2017**, and then select **Run as administrator**.
 2. Select **File** > **New** > **Project** (Ctrl+Shift+N).
 
-   ![Screenshot of Visual Studio new project menu](./media/app-insights-asp-net-core/001-new-project.png)
+   ![Screenshot of Visual Studio new project menu](./media/asp-net-core/001-new-project.png)
 
 3. Expand **Visual C#**. Select **.NET Core** > **ASP.NET Core Web Application**. Enter a project name and a solution name, and then select **Create new Git repository**.
 
-   ![Screenshot of Visual Studio new project wizard](./media/app-insights-asp-net-core/002-asp-net-core-web-application.png)
+   ![Screenshot of Visual Studio new project wizard](./media/asp-net-core/002-asp-net-core-web-application.png)
 
 4. Select **.NET Core** > **ASP.NET Core 2.0** **Web Application** > **OK**.
 
-    ![Screenshot of Visual Studio new project template selection](./media/app-insights-asp-net-core/003-web-application.png)
+    ![Screenshot of Visual Studio new project template selection](./media/asp-net-core/003-web-application.png)
 
 ## Application Insights Search
 
@@ -46,28 +46,28 @@ In Visual Studio 2015 Update 2 or later with an ASP.NET Core 2+ based project, y
 
 To test this functionality:
 
-1. Run your app. To run your app, select the **IIS Express** icon (![Screenshot of Visual Studio IIS Express icon](./media/app-insights-asp-net-core/004-iis-express.png)).
+1. Run your app. To run your app, select the **IIS Express** icon (![Screenshot of Visual Studio IIS Express icon](./media/asp-net-core/004-iis-express.png)).
 
 2. Select **View** > **Other Windows** > **Application Insights Search**.
 
-   ![Screenshot of Visual Studio diagnostic tools selection](./media/app-insights-asp-net-core/005-view-other-windows-search.png)
+   ![Screenshot of Visual Studio diagnostic tools selection](./media/asp-net-core/005-view-other-windows-search.png)
 
 3. Currently, the debug session telemetry is available only for local analysis. To fully enable Application Insights, select **Telemetry Readiness** in the upper right corner, or complete the steps listed in the next section.
 
-   ![Screenshot of Visual Studio Application Insights Search](./media/app-insights-asp-net-core/006-search.png)
+   ![Screenshot of Visual Studio Application Insights Search](./media/asp-net-core/006-search.png)
 
 > [!NOTE]
-> To learn more about how Visual Studio lights up features like [Application Insights Search](app-insights-visual-studio.md) and [CodeLens](app-insights-visual-studio-codelens.md) locally before you add Application Insights to your ASP.NET Core project, see [Application Insights Search continued](#application-insights-search-continued).
+> To learn more about how Visual Studio lights up features like [Application Insights Search](../../application-insights/app-insights-visual-studio.md) and [CodeLens](../../application-insights/app-insights-visual-studio-codelens.md) locally before you add Application Insights to your ASP.NET Core project, see [Application Insights Search continued](#application-insights-search-continued).
 
 ## Add Application Insights Telemetry
 
 1. Select **Project** > **Add Application Insights Telemetry**. (Or, you can right-click **Connected Services**, and then select **Add Connected Service**.)
 
-    ![Screenshot of Visual Studio new project selection menu](./media/app-insights-asp-net-core/007-project-add-telemetry.png)
+    ![Screenshot of Visual Studio new project selection menu](./media/asp-net-core/007-project-add-telemetry.png)
 
 2. Select **Get Started**. (Depending on your version of Visual Studio, the text might vary slightly. Some earlier versions have a **Start Free** button instead.)
 
-    ![Screenshot of Application Insights Get Started button](./media/app-insights-asp-net-core/008-get-started.png)
+    ![Screenshot of Application Insights Get Started button](./media/asp-net-core/008-get-started.png)
 
 3. Select your subscription, then select **Resource** > **Register**.
 
@@ -79,7 +79,7 @@ Select **View** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Project** > **Changes**
 
 - Four total changes appear:
 
-  ![Screenshot of files changed by adding Application Insights](./media/app-insights-asp-net-core/009-changes.png)
+  ![Screenshot of files changed by adding Application Insights](./media/asp-net-core/009-changes.png)
 
 - One new file is created:
 
@@ -180,11 +180,11 @@ Select **View** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Project** > **Changes**
 
 To automate requests to your app by using synthetic transactions:
 
-1. To run your app, select the ![Screenshot of Visual Studio IIS Express icon](./media/app-insights-asp-net-core/004-iis-express.png) icon.
+1. To run your app, select the ![Screenshot of Visual Studio IIS Express icon](./media/asp-net-core/004-iis-express.png) icon.
 
 2. Copy the URL from the browser address bar. The URL is in the format `http://localhost:<port number>`.
 
-   ![Screenshot of browser URL in the address bar](./media/app-insights-asp-net-core/0013-copy-url.png)
+   ![Screenshot of browser URL in the address bar](./media/asp-net-core/0013-copy-url.png)
 
 3. Run the following PowerShell loop to create 100 synthetic transactions by using your test app. Modify the port number after `localhost:` to match the URl that you copied in the preceding step. For example:
 
@@ -201,7 +201,7 @@ After you run the PowerShell commands in the preceding section, open Application
 
 In the Visual Studio menu, select **Project** > **Application Insights** > **Open Application Insights Portal**.
 
-   ![Screenshot of Application Insights Overview](./media/app-insights-asp-net-core/010-portal.png)
+   ![Screenshot of Application Insights Overview](./media/asp-net-core/010-portal.png)
 
 > [!NOTE]
 > In the preceding example screenshot, **Live Stream**, **Page View Load Time**, and **Failed Requests** aren't collected. The next section walks you through the steps for adding each of these. If you're already collecting **Live Stream** and **Page View Load Time**, complete the steps only for **Failed Requests**.
@@ -214,7 +214,7 @@ Technically, failed requests are being collected, but no failed requests have oc
 
 1. In **Solution Explorer**, expand **Pages** > **About.cshtml**, and then open *About.cshtml.cs*.
 
-   ![Screenshot of Visual Studio Solution Explorer](./media/app-insights-asp-net-core/011-about.png)
+   ![Screenshot of Visual Studio Solution Explorer](./media/asp-net-core/011-about.png)
 
 2. Add an exception under ``Message=``, and then save the change to the file.
 
@@ -246,7 +246,7 @@ To access the Live Stream functionality of Application Insights with ASP.NET Cor
 
 In Visual Studio, select **Project** > **Manage NuGet Packages** > **Microsoft.ApplicationInsights.AspNetCore** > (version) **2.2.0** > **Update**.
 
-  ![Screenshot of NuGet Package Manager](./media/app-insights-asp-net-core/012-nuget-update.png)
+  ![Screenshot of NuGet Package Manager](./media/asp-net-core/012-nuget-update.png)
 
 Multiple confirmation prompts appear. Read and accept if you agree with the changes.
 
@@ -271,7 +271,7 @@ Multiple confirmation prompts appear. Read and accept if you agree with the chan
 
 To test and confirm that everything is working:
 
-1. Run your app. To run your app, select the ![Screenshot of Visual Studio IIS Express icon](./media/app-insights-asp-net-core/004-iis-express.png) icon.
+1. Run your app. To run your app, select the ![Screenshot of Visual Studio IIS Express icon](./media/asp-net-core/004-iis-express.png) icon.
 
 2. Go to the **About** page to trigger the test exception. (If you're in debug mode, in Visual Studio, select **Continue** for the exception to show up in Application Insights.)
 
@@ -282,11 +282,11 @@ To test and confirm that everything is working:
    > [!TIP]
    > If you don't see your new traffic, check the value for **Time range**, and then select **Refresh**.
 
-   ![Screenshot of the overview window](./media/app-insights-asp-net-core/0019-overview-updated.png)
+   ![Screenshot of the overview window](./media/asp-net-core/0019-overview-updated.png)
 
 5. Select **Live Stream**.
 
-   ![Screenshot of Live Metrics Stream](./media/app-insights-asp-net-core/0020-live-metrics-stream.png)
+   ![Screenshot of Live Metrics Stream](./media/asp-net-core/0020-live-metrics-stream.png)
 
    (If your PowerShell script is still running, you should see live metrics. If your PowerShell script has stopped running, run the script again with Live Stream open.)
 
@@ -331,7 +331,7 @@ The _unconfigured_ reference in each instance of Application Insights telemetry 
 
 The functionality is possible in part because the NuGet package _Microsoft.AspNetCore.All_ takes [_Microsoft.ASPNetCoreApplicationInsights.HostingStartup_](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.applicationinsights.hostingstartup.applicationinsightshostingstartup?view=aspnetcore-2.1) as a dependency.
 
-![Screenshot of NuGet dependency graph for Microsoft.AspNETCore.all](./media/app-insights-asp-net-core/013-dependency.png)
+![Screenshot of NuGet dependency graph for Microsoft.AspNETCore.all](./media/asp-net-core/013-dependency.png)
 
 Outside of Visual Studio, if you were editing a ASP.NET Core project in VSCode or another editor, these assemblies wouldn't automatically load during debug if you haven't explicitly added Application Insights to your project.
 
@@ -355,7 +355,7 @@ CoreCLR still loads _Microsoft.AspNetCore.ApplicationInsights.HostingStartup.dll
 
 If you want to completely disable Application Insights in your Visual Studio .NET Core project, the preferred method is to select **Tools** > **Options** > **Projects and Solutions** > **Web Projects**. Select the **Disable local Application Insights for ASP.NET Core web projects** check box. This functionality was added in Visual Studio 15.6.
 
-![Screenshot of Visual Studio Options Window Web Projects screen](./media/app-insights-asp-net-core/014-disable.png)
+![Screenshot of Visual Studio Options Window Web Projects screen](./media/asp-net-core/014-disable.png)
 
 If you're running an earlier version of Visual Studio and you want to completely remove all assemblies that were loaded via *IHostingStartup*, you have two options:
 
@@ -399,7 +399,7 @@ The issue with using either of these methods is that they don't disable only App
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
 ## Next steps
-* [Explore User Flows](app-insights-usage-flows.md) to understand how users navigate through your app.
+* [Explore User Flows](../../application-insights/app-insights-usage-flows.md) to understand how users navigate through your app.
 * [Configure snapshot collection](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications) to see the state of source code and variables at the moment an exception is thrown.
-* [Use the API](../azure-monitor/app/api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
-* Use [availability tests](app-insights-monitor-web-app-availability.md) to check your app constantly from around the world.
+* [Use the API](../../azure-monitor/app/api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
+* Use [availability tests](../../application-insights/app-insights-monitor-web-app-availability.md) to check your app constantly from around the world.

@@ -7,6 +7,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/bing-visual-search/tutorial-bing-visual-search-single-page-app-source.md",
+            "redirect_url": "/azure/cognitive-services/bing-visual-search/tutorial-bing-visual-search-single-page-app",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/bing-visual-search/sdk.md",
+            "redirect_url": "/azure/cognitive-services/bing-visual-search/visual-search-sdk-c-sharp",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/machine-learning/service/how-to-deploy-to-aks.md",
             "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
             "redirect_document_id": false
@@ -8182,37 +8192,37 @@
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1802.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1803.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1804.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1805.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },        
         {
             "source_path": "articles/azure-stack/azure-stack-update-1710.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1711.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1712.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
@@ -32378,8 +32388,13 @@
         },
         {
             "source_path":  "articles/log-analytics/log-analytics-usage.md",
-            "redirect_url":  "/azure/azure-monitor/platform/data-usage",
-            "redirect_document_id":  true
+            "redirect_url":  "/azure/azure-monitor/platform/manage-cost-storage",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/azure-monitor/platform/data-usage.md",
+            "redirect_url":  "/azure/azure-monitor/platform/manage-cost-storage",
+            "redirect_document_id":  false
         },
         {
             "source_path":  "articles/monitoring-and-diagnostics/alert-activity-log.md",
@@ -32872,6 +32887,21 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/application-insights/app-insights-asp-net.md",
+            "redirect_url":  "/azure/azure-monitor/app/asp-net",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-asp-net-core.md",
+            "redirect_url":  "/azure/azure-monitor/app/asp-net-core",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-asp-net-dependencies.md",
+            "redirect_url":  "/azure/azure-monitor/app/asp-net-dependencies",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
@@ -33285,6 +33315,11 @@
 			{
 			"source_path": "articles/application-insights/app-insights-analytics-import.md",
 			"redirect_url": "/azure/azure-monitor/platform/data-collector-api",
+			"redirect_document_id": false
+        },
+				{
+			"source_path": "articles/application-insights/app-insights-pricing-enterprise-details.md",
+			"redirect_url": "/azure/application-insights/app-insights-pricing",
 			"redirect_document_id": false
         }
     ]

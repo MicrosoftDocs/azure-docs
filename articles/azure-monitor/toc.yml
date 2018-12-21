@@ -292,7 +292,7 @@
       - name: ASP.NET apps
         items:
         - name: Web apps
-          href: ../application-insights/app-insights-asp-net.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net.md
         - name: Status Monitor
           href: ../application-insights/app-insights-monitor-performance-live-website-now.md?toc=/azure/azure-monitor/toc.json
         - name: Windows services
@@ -300,7 +300,7 @@
         - name: Windows desktop
           href: ../application-insights/app-insights-windows-desktop.md?toc=/azure/azure-monitor/toc.json
         - name: ASP.NET Core
-          href: ../application-insights/app-insights-asp-net-core.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-core.md
           items:
           - name: Profiler for Linux App services
             href: ../application-insights/app-insights-profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json
@@ -317,7 +317,7 @@
         - name: Performance counters
           href: ../application-insights/app-insights-performance-counters.md?toc=/azure/azure-monitor/toc.json
         - name: Dependencies
-          href: ../application-insights/app-insights-asp-net-dependencies.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-dependencies.md
         - name: Release annotations
           href: app/annotations.md
         - name: ApplicationInsights.config
@@ -828,14 +828,10 @@
     items:
     - name: Usage and estimated costs
       href: platform/usage-estimated-costs.md
-    - name: Application data volume and retention
+    - name: Application usage and costs
       href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
-    - name: Application enterprise plan details
-      href: ../application-insights/app-insights-pricing-enterprise-details.md?toc=/azure/azure-monitor/toc.json
-    - name: Log data volume and retention
+    - name: Log data usage and costs
       href: platform/manage-cost-storage.md
-    - name: Log data monitor usage
-      href: platform/data-usage.md
   - name: Automate 
     items:
     - name: PowerShell
