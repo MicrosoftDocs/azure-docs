@@ -101,6 +101,8 @@ If only one child (origin or destination) of a hierarchical entity is present, i
 
     [![Screenshot of Locations entity labeled in utterances](media/luis-quickstart-intent-and-hier-entity/all-intents-marked-with-origin-and-destination-location.png "Screenshot of Locations entity labeled in utterances")](media/luis-quickstart-intent-and-hier-entity/all-intents-marked-with-origin-and-destination-location.png#lightbox)
 
+    The red underline indicates LUIS is not confident about the entity. Training resolves this. 
+
 ## Add example utterances to the None intent 
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
@@ -156,7 +158,7 @@ If only one child (origin or destination) of a hierarchical entity is present, i
     }
     ```
     
-    The correct intent is predicted and the entities array has both the origin and destination values in the corresponding **entity** property.
+    The correct intent is predicted and the entities array has both the origin and destination values in the corresponding **entities** property.
     
 ## Clean up resources
 

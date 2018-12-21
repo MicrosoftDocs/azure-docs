@@ -178,6 +178,8 @@ The primary, _canonical_, name for each item is the department name. Examples of
 ## Next steps
 This tutorial created a new intent, added example utterances, then created a list entity to extract exact text matches from utterances. After training, and publishing the app, a query to the endpoint identified the intention and returned the extracted data.
 
+Continue with this app, [adding a composite entity](luis-tutorial-composite-entity.md).
+
 > [!div class="nextstepaction"]
 > [Add a hierarchical entity to the app](luis-quickstart-intent-and-hier-entity.md)
 

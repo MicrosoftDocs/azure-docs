@@ -18,15 +18,7 @@ ms.author: diberry
 
 In this tutorial, extract machine-learned data of employment job name from an utterance using the **Simple** entity. To increase the extraction accuracy, add a phrase list of terms specific to the simple entity.
 
-This tutorial adds a new simple entity to extract the job name. The purpose of the simple entity in this LUIS app is to teach LUIS what a job name is and where it can be found in an utterance. The part of the utterance that is the job name can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of job names  across all intents that use job names.  
-
-The simple entity is a good fit for this type of data when:
-
-* Data is a single concept.
-* Data is not well-formatted such as a regular expression.
-* Data is not common such as a prebuilt entity of phone number or data.
-* Data is not matched exactly to a list of known words, such as a list entity.
-* Data does not contain other data items such as a composite entity or hierarchical entity.
+The simple entity detects a single data concept contained in words or phrases.
 
 **In this tutorial, you learn how to:**
 
@@ -43,7 +35,16 @@ The simple entity is a good fit for this type of data when:
 
 
 ## Simple entity
-The simple entity detects a single data concept contained in words or phrases.
+
+This tutorial adds a new simple entity to extract the job name. The purpose of the simple entity in this LUIS app is to teach LUIS what a job name is and where it can be found in an utterance. The part of the utterance that is the job name can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of job names  across all intents that use job names.  
+
+The simple entity is a good fit for this type of data when:
+
+* Data is a single concept.
+* Data is not well-formatted such as a regular expression.
+* Data is not common such as a prebuilt entity of phone number or data.
+* Data is not matched exactly to a list of known words, such as a list entity.
+* Data does not contain other data items such as a composite entity or hierarchical entity.
 
 Consider the following utterances from a chat bot:
 
@@ -72,9 +73,13 @@ This LUIS app has job names in several intents. By labeling these words in all t
 
 Once the entities are marked in the example utterances, it is important to add a phrase list to boost the signal of the simple entity. A phrase list is **not** used as an exact match and does not need to be every possible value you expect. 
 
-## Import app
+## Use existing app
 
-Import app from intents only 
+1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json) from the Intents tutorial.
+
+2. Import the JSON into a new app.
+
+3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `simple`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
 ## Mark entities in example utterances of an intent
 
@@ -90,13 +95,16 @@ Import app from intents only
 
     ![Create simple entity pop-up modal dialog with name of Job and type of simple](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-1. In the utterance, `Submit resume for engineering position`, label the word `engineering` as a Job entity. Select the word `engineering`, then select **Job** from the pop-up menu. 
+1. In the remaining utterances,mark the job-related words with **Job** entity by selecting the word or phrase, then selecting **Job** from the pop-up menu. 
 
     [![Screenshot of LUIS labeling job entity highlighted](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Screenshot of LUIS labeling job entity highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
-    All the utterances are labeled but five utterances aren't enough to teach LUIS about job-related words and phrases. The jobs that use the number value do not need more examples because that uses a regular expression entity. The jobs that are words or phrases need at least 15 more examples. 
 
-1. Add more utterances and mark the job words or phrases as **Job** entity. The job types are general across employment for an employment service. If you wanted jobs related to a specific industry, the job words should reflect that. 
+## Add more example utterances and mark entity
+
+Simple entities need many examples in order to have a high confidence of prediction. 
+ 
+1. Add more utterances and mark the job words or phrases as **Job** entity. 
 
     |Utterance|Job entity|
     |:--|:--|
@@ -117,9 +125,7 @@ Import app from intents only
     |My curriculum vitae for professor of biology is enclosed.|professor of biology|
     |I would like to apply for the position in photography.|photography|git 
 
-## Label entity in remaining example utterances
-
-Marking the entity shows LUIS where the entity is found in the example utterances.
+## Mark job entity in other intents
 
 1. Select **Intents** from the left menu.
 
@@ -135,6 +141,8 @@ Marking the entity shows LUIS where the entity is found in the example utterance
 
     There are other example utterances but they do not contain job words.
 
+    If there are more example utterances in one intent than another intent, that intent has a higher likelyhood of being the highest predicted intext. 
+
 ## Train the app so the changes to the intent can be tested 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
@@ -147,70 +155,42 @@ Marking the entity shows LUIS where the entity is found in the example utterance
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Go to the end of the URL in the address and enter `Here is my c.v. for the programmer job`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `ApplyForJob` utterances.
+2. Go to the end of the URL in the address and enter `Here is my c.v. for the engineering job`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `ApplyForJob` utterances.
 
     ```json
     {
-      "query": "Here is my c.v. for the programmer job",
+      "query": "Here is my c.v. for the engineering job",
       "topScoringIntent": {
         "intent": "ApplyForJob",
-        "score": 0.9826467
+        "score": 0.98052007
       },
       "intents": [
         {
           "intent": "ApplyForJob",
-          "score": 0.9826467
+          "score": 0.98052007
         },
         {
           "intent": "GetJobInformation",
-          "score": 0.0218927357
-        },
-        {
-          "intent": "MoveEmployee",
-          "score": 0.007849265
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.00349470088
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00348804821
+          "score": 0.03424581
         },
         {
           "intent": "None",
-          "score": 0.00319909188
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.00222647213
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00211193133
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.00172086991
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.00138010911
+          "score": 0.0015820954
         }
       ],
       "entities": [
         {
-          "entity": "programmer",
+          "entity": "engineering",
           "type": "Job",
           "startIndex": 24,
-          "endIndex": 33,
-          "score": 0.5230502
+          "endIndex": 34,
+          "score": 0.668959737
         }
       ]
     }
     ```
     
-    LUIS found the correct intent, **ApplyForJob**, and extracted the correct entity, **Job**, with a value of `programmer`.
+    LUIS found the correct intent, **ApplyForJob**, and extracted the correct entity, **Job**, with a value of `engineering`.
 
 
 ## Names are tricky
@@ -220,51 +200,23 @@ In the following JSON, LUIS responds with the correct intent, `ApplyForJob`, but
 
 ```json
 {
-  "query": "This is the lead welder paperwork.",
+  "query": "This is the lead welder paperwork",
   "topScoringIntent": {
     "intent": "ApplyForJob",
-    "score": 0.468558252
+    "score": 0.860295951
   },
   "intents": [
     {
       "intent": "ApplyForJob",
-      "score": 0.468558252
+      "score": 0.860295951
     },
     {
       "intent": "GetJobInformation",
-      "score": 0.0102701457
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.009442534
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00639619166
+      "score": 0.07265678
     },
     {
       "intent": "None",
-      "score": 0.005859333
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.005087704
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00315379258
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00259344373
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.00193389168
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.000420796918
+      "score": 0.00482481951
     }
   ],
   "entities": []
@@ -279,82 +231,54 @@ Open the [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-servi
 
 1. In the **Build** section of the LUIS app, select **Phrase lists** found under the **Improve app performance** menu.
 
-2. Select **Create new phrase list**. 
+1. Select **Create new phrase list**. 
 
-3. Name the new phrase list `Job` and copy the list from jobs-phrase-list.csv into the **Values** text box. Select enter. 
+1. Name the new phrase list `JobNames` and copy the list from jobs-phrase-list.csv into the **Values** text box. Select enter. 
 
     [![Screenshot of create new phrase list dialog pop-up](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot of create new phrase list dialog pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     If you want more words added to the phrase list, review the **Related Values** and add any that are relevant. 
 
-4. Select **Save** to activate the phrase list.
+1. Select **Save** to activate the phrase list.
 
     [![Screenshot of create new phrase list dialog pop-up with words in phrase list values box](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot of create new phrase list dialog pop-up with words in phrase list values box")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. [Train](#train) and [publish](#publish) the app again to use phrase list.
+1. [Train](#train) and [publish](#publish) the app again to use phrase list.
 
-6. Requery at the endpoint with the same utterance: `This is the lead welder paperwork.`
+1. Requery at the endpoint with the same utterance: `This is the lead welder paperwork.`
 
     The JSON response includes the extracted entity:
 
     ```json
-    {
-        "query": "This is the lead welder paperwork.",
-        "topScoringIntent": {
-            "intent": "ApplyForJob",
-            "score": 0.920025647
+      {
+      "query": "This is the lead welder paperwork.",
+      "topScoringIntent": {
+        "intent": "ApplyForJob",
+        "score": 0.983076453
+      },
+      "intents": [
+        {
+          "intent": "ApplyForJob",
+          "score": 0.983076453
         },
-        "intents": [
-            {
-            "intent": "ApplyForJob",
-            "score": 0.920025647
-            },
-            {
-            "intent": "GetJobInformation",
-            "score": 0.003800706
-            },
-            {
-            "intent": "Utilities.StartOver",
-            "score": 0.00299335527
-            },
-            {
-            "intent": "MoveEmployee",
-            "score": 0.0027167045
-            },
-            {
-            "intent": "None",
-            "score": 0.00259556063
-            },
-            {
-            "intent": "FindForm",
-            "score": 0.00224019377
-            },
-            {
-            "intent": "Utilities.Stop",
-            "score": 0.00200693542
-            },
-            {
-            "intent": "Utilities.Cancel",
-            "score": 0.00195913855
-            },
-            {
-            "intent": "Utilities.Help",
-            "score": 0.00162656687
-            },
-            {
-            "intent": "Utilities.Confirm",
-            "score": 0.0002851904
-            }
-        ],
-        "entities": [
-            {
-            "entity": "lead welder",
-            "type": "Job",
-            "startIndex": 12,
-            "endIndex": 22,
-            "score": 0.8295959
-            }
-        ]
+        {
+          "intent": "GetJobInformation",
+          "score": 0.0120766377
+        },
+        {
+          "intent": "None",
+          "score": 0.00248388131
+        }
+      ],
+      "entities": [
+        {
+          "entity": "lead welder",
+          "type": "Job",
+          "startIndex": 12,
+          "endIndex": 22,
+          "score": 0.8373154
+        }
+      ]
     }
     ```
 
