@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 12/19/2018
+ms.date: 12/20/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ---
@@ -81,4 +81,4 @@ Access to Microsoft Online Services may require the user also be assigned a lice
 
 - [Start using PIM](pim-getting-started.md)
 - [Assign Azure AD directory roles in PIM](pim-how-to-add-role-to-user.md)
-
+- [Assign Azure resource roles in PIM](pim-resource-roles-assign-roles.md)
