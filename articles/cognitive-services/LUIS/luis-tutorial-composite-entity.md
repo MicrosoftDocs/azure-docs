@@ -317,7 +317,7 @@ LUIS provides several prebuilt entities for common data extraction.
 
 ## Related information
 
-* [Composite entity](luis-concept-entity-types.md#composite) conceptual information
+* [Composite entity](luis-concept-entity-types.md) conceptual information
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)
 * [How to test in LUIS portal](luis-interactive-test.md)
