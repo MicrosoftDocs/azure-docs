@@ -43,7 +43,7 @@ The following image illustrates the Stream Analytics pipeline, Your Stream Analy
 
 ## Key capabilities and benefits
 
-Azure Stream Analytics is designed to be easy to use, flexible, reliable, and scalable to any job size. It is available across multiple azure regions. Following image illustrates the key capabilities of Azure Stream Analytics:
+Azure Stream Analytics is designed to be easy to use, flexible, reliable, and scalable to any job size. It is available across multiple Azure regions. Following image illustrates the key capabilities of Azure Stream Analytics:
 
 ![Stream Analytics key capabilities](./media/stream-analytics-introduction/stream-analytics-key-capabilities.png)
 
