@@ -125,7 +125,7 @@ The server variables mentioned above are the variables that provide information 
 
 ## Need help?
 
-Contact us at [AppGwHeaderRewriteHelp@microsoft.com](mailto:AppGwHeaderRewriteHelp@microsoft.com) in case you need any help with this capability.
+Contact us at [AGHeaderRewriteHelp@microsoft.com](mailto:AGHeaderRewriteHelp@microsoft.com) in case you need any help with this capability.
 
 ## Next steps
 
