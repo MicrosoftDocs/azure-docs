@@ -74,6 +74,8 @@ A list entity is a good choice for this type of data when:
     |Steve Standish to 1234|
     |Tanner Thompson to 3456|
 
+    [![Screenshot of intent with example utterances](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "Screenshot of intent with example utterances")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
+
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## Department list entity
@@ -98,7 +100,7 @@ The primary, _canonical_, name for each item is the department name. Examples of
 
 1. In the entity pop-up dialog, enter `Department` for the entity name, and  **List** for entity type. Select **Done**.  
 
-    [![Screenshot of creating new entity pop-up dialog](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Screenshot of creating new entity pop-up dialog")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
+    [![Screenshot of creating new entity pop-up dialog](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "Screenshot of creating new entity pop-up dialog")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
 
 1. On the Department entity page, enter `Accounting` as the new value.
 
