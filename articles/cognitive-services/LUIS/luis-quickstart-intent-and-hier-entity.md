@@ -21,7 +21,7 @@ In this tutorial, find related pieces of data based on context. For example, an 
 **In this tutorial, you learn how to:**
 
 > [!div class="checklist"]
-> * Use existing tutorial app
+> * Create new app
 > * Add intent 
 > * Add location hierarchical entity with origin and destination children
 > * Train
@@ -32,14 +32,14 @@ In this tutorial, find related pieces of data based on context. For example, an 
 
 ## Hierarchical data
 
-This app determines where an employee is to be moved from the origin city to the destination city. It uses the hierarchical entity to determine the locations within the utterance. The purpose of the **hierarchical** entity is to find related data within the utterance based on context. 
+This app determines where an employee is to be moved from the origin city to the destination city. It uses the hierarchical entity to determine the locations within the utterance. 
 
-The hierarchical entity is a good fit for this type of data because the two pieces of data:
+The hierarchical entity is a good fit for this type of data because the two pieces of data, child locations:
 
 * Are simple entities.
 * Are related to each other in the context of the utterance.
-* Use specific word choice to indicate each location. Examples of these words include: from/to, leaving/headed to, away from/toward.
-* Both locations are frequently in the same utterance. 
+* Use specific word choice to indicate each entity. Examples of these words include: from/to, leaving/headed to, away from/toward.
+* Both children are frequently in the same utterance. 
 * Need to be grouped and processed by client app as a unit of information.
 
 ## Create a new app
