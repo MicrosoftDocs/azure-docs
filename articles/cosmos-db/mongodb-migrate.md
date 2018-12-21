@@ -15,9 +15,9 @@ ms.custom: mvc
 Customer intent: As a developer, I want to migrate the data from my existing MongoDB workloads to a MongoDB API account in Azure Cosmos DB, so that the overhead to manage resources is handled by Azure Cosmos DB.
 ---
 
-# Tutorial: Migrate your data to an Azure Cosmos DB MongoDB API account
+# Tutorial: Migrate your data to a MongoDB API account in Azure Cosmos DB
 
-As a developer, you might have applications that use NoSQL document data. You can use a MongoDB API account in Azure Cosmos DB to store and access this document data. You can also migrate data from your existing applications to the MongoDB API. This tutorial provides instructions on how to migrate data stored in MongoDB to an Azure Cosmos DB MongoDB API account. If you import data from MongoDB and plan to use it with the Azure Cosmos DB SQL API, you should use the [Data Migration tool](import-data.md) to import the data.
+As a developer, you might have applications that use NoSQL document data. You can use a MongoDB API account in Azure Cosmos DB to store and access this document data. You can also migrate data from your existing applications to the MongoDB API. This tutorial provides instructions on how to migrate data stored in MongoDB to a MongoDB API account in Azure Cosmos DB. If you import data from MongoDB and plan to use it with the Azure Cosmos DB SQL API, you should use the [Data Migration tool](import-data.md) to import the data.
 
 In this tutorial, you will:
 
@@ -63,7 +63,7 @@ The command returns the following results:
 
 #### Calculate the approximate RU charge for a single document write
 
-From the MongoDB Shell, connect to your Azure Cosmos DB MongoDB API account. You can find instructions in [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md).
+From the MongoDB Shell, connect to your MongoDB API account in Azure Cosmos DB. You can find instructions in [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md).
 
 Next, run a sample insert command by using one of your sample documents:
    
@@ -180,7 +180,7 @@ mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u co
 
 When you no longer need the resources, you can delete the resource group, Azure Cosmos DB account, and all the related resources. Use the following steps to delete the resource group:
 
-1. Navigate to the resource group where you created the Azure Cosmos DB account.
+1. Go to the resource group where you created the Azure Cosmos DB account.
 1. Select **Delete resource group**.
 1. Confirm the name of the resource group to delete, and select **Delete**.
 
