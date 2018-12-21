@@ -30,11 +30,11 @@ You can test a new OEM package when there has been a change to the firmware or d
 
 ## Managing packages for validation
 
-When using the **Package Validation** workflow to validate a package, you will need to provide a URL to an **Azure Storage blob**. This blob is the OEM package that was installed on the solution at deployment time. Create the blob using the Azure Storage Account you created during setup (see [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md)).
+When using the **package validation** workflow to validate a package, you will need to provide a URL to an **Azure Storage blob**. This blob is the OEM package that was installed on the solution at deployment time. Create the blob using the Azure Storage Account you created during setup (see [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md)).
 
 ### Prerequisite: Provision a storage container
 
-Create a container in your storage account for package blobs. This container can be used for all your Package Validation runs.
+Create a container in your storage account for package blobs. This container can be used for all your package validation runs.
 
 1. In the [Azure Portal](https://portal.azure.com), go to the storage account created in [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md).
 2. On the left blade under **Blob Service**, select on **Containers**.
@@ -51,7 +51,7 @@ Create a container in your storage account for package blobs. This container can
 
 ### Generate package blob URL for VaaS
 
-When creating a **Package Validation** workflow in the VaaS portal, you will need to provide a URL to the Azure Storage blob containing your package.
+When creating a **package validation** workflow in the VaaS portal, you will need to provide a URL to the Azure Storage blob containing your package.
 
 #### Option 1: Generating an account SAS URL
 
@@ -65,7 +65,7 @@ When creating a **Package Validation** workflow in the VaaS portal, you will nee
 
 5. Select **Generate blob SAS token and URL**
 
-Use **Blob SAS URL** when starting a new **Package Validation** workflow in the VaaS portal.
+Use **Blob SAS URL** when starting a new **package validation** workflow in the VaaS portal.
 
 #### Option 2: Using public read container
 
@@ -76,21 +76,21 @@ Use **Blob SAS URL** when starting a new **Package Validation** workflow in the 
 
 2. In the package container, select on the package blob in the container to open the properties pane.
 
-3. Copy the **URL**. Use this value when starting a new **Package Validation** workflow in the VaaS portal.
+3. Copy the **URL**. Use this value when starting a new **package validation** workflow in the VaaS portal.
 
 ## Apply monthly update
 
 [!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
 
-## Create a Package Validation workflow
+## Create a package validation workflow
 
 1. Sign in to the [VaaS portal](https://azurestackvalidation.com).
 
 2. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
 
-3. Select **Start** on the **Package Validation** tile.
+3. Select **Start** on the **package validation** tile.
 
-    ![Package Validations workflow tile](media/tile_validation-package.png)
+    ![Package validations workflow tile](media/tile_validation-package.png)
 
 4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 
@@ -108,28 +108,27 @@ Use **Blob SAS URL** when starting a new **Package Validation** workflow in the 
 9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     You will be redirected to the tests summary page.
 
-## Run Package Validation tests
+## Run package validation tests
 
 1. In the **Package validation tests summary** page, you will see a list of the tests required for completing validation. Tests in this workflow run for approximately 24 hours.
 
-2. Select the following tests:
-    - OEM Extension Package Verification
-    - Cloud Simulation Engine
-
-
-3. In the validation workflows, **scheduling** a test uses the workflow-level common parameters that you specified during workflow creation (see [Workflow common parameters for Azure Stack Validation as a Service](azure-stack-vaas-parameters.md)). If any of test parameter values become invalid, you must resupply them as instructed in [Modify workflow parameters](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+    In the validation workflows, **scheduling** a test uses the workflow-level common parameters that you specified during workflow creation (see [Workflow common parameters for Azure Stack Validation as a Service](../azure-stack-vaas-parameters.md)). If any of test parameter values become invalid, you must resupply them as instructed in [Modify workflow parameters](../azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 
     > [!NOTE]
     > Scheduling a validation test over an existing instance will create a new instance in place of the old instance in the portal. Logs for the old instance will be retained but are not accessible from the portal.  
     Once a test has completed successfully, the **Schedule** action becomes disabled.
 
-4. Select the agent that will run the test. For information about adding local test execution agents, see [Deploy the local agent](azure-stack-vaas-local-agent.md).
+2. Select the agent that will run the test. For information about adding local test execution agents, see [Deploy the local agent](../azure-stack-vaas-local-agent.md).
 
-5. Select **Schedule** from the context menu to open a prompt for scheduling the test instance.
+3. For each of the following tests, do step four and five:
+    - OEM Extension Package Verification
+    - Cloud Simulation Engine
 
-6. Review the test parameters and then select **Submit** to schedule the test for execution.
+4. Select **Schedule** from the context menu to open a prompt for scheduling the test instance.
 
-When all tests have successfully completed, send the name of your VaaS Solution and Package Validation to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) to request package signing.
+5. Review the test parameters and then select **Submit** to schedule the test for execution.
+
+When all tests have successfully completed, send the name of your VaaS solution and package validation to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) to request package signing.
 
 ## Next steps
 

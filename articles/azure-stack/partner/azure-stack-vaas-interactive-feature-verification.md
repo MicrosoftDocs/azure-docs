@@ -101,7 +101,7 @@ The Disk Identification Test prompts show on the computer that runs the VaaS age
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
-4.  Once the precheck script is completed successfully, execute the manual scenario (Disk replacement) as per the **Documentation** and **Validation** links from the **Information** tab.
+4.  Once the precheck script is completed successfully, run the manual scenario (Disk replacement) as per the **Documentation** and **Validation** links from the **Information** tab.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
