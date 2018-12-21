@@ -25,10 +25,10 @@ Set an [alert](../azure-monitor/app/alerts.md) on **Server response time**. A th
 
 Your app might also show signs of strain by returning failure codes. Set an alert on **Failed requests**.
 
-If you want to set an alert on **Server exceptions**, you might have to do [some additional setup](app-insights-asp-net-exceptions.md) in order to see data.
+If you want to set an alert on **Server exceptions**, you might have to do [some additional setup](../azure-monitor/app/asp-net-exceptions.md) in order to see data.
 
 ### Email on exceptions
-1. [Set up exception monitoring](app-insights-asp-net-exceptions.md)
+1. [Set up exception monitoring](../azure-monitor/app/asp-net-exceptions.md)
 2. [Set an alert](../azure-monitor/app/alerts.md) on the Exception count metric
 
 ### Email on an event in my app
