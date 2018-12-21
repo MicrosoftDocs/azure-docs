@@ -33,8 +33,6 @@ The rest of this article elaborates more fully on these answers. It's designed t
 
 In order to get this functionality, you install an Application Insights SDK in your application, which becomes part of its code. When your app is running, the SDK monitors its operation and sends telemetry to the Application Insights service. This is a cloud service hosted by [Microsoft Azure](https://azure.com). (But Application Insights works for any applications, not just those that are hosted in Azure.)
 
-![The SDK in your app sends telemetry to the Application Insights service.](./media/app-insights-data-retention-privacy/01-scheme.png)
-
 The Application Insights service stores and analyzes the telemetry. To see the analysis or search through the stored telemetry, you sign in to your Azure account and open the Application Insights resource for your application. You can also share access to the data with other members of your team, or with specified Azure subscribers.
 
 You can have data exported from the Application Insights service, for example to a database or to external tools. You provide each tool with a special key that you obtain from the service. The key can be revoked if necessary. 
