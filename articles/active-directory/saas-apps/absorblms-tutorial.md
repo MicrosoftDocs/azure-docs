@@ -100,11 +100,21 @@ To configure Azure AD single sign-on with Absorb LMS, perform the following step
 
     ![Absorb LMS Domain and URLs single sign-on information](common/idp-intiated.png)
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<subdomain>.myabsorb.com/Account/SAML`
+	If you are using **For Absorb 5 - UI**
+
+	a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://company.myabsorb.com/account/saml`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<subdomain>.myabsorb.com/Account/SAML`
+    `https://company.myabsorb.com/account/saml`
+
+	If you are using **Absorb 5 - New Learner Experience**
+
+	a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://company.myabsorb.com/api/rest/v2/authentication/saml`
+
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Absorb LMS Client support team](https://support.absorblms.com/hc/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -254,6 +264,12 @@ To set up a user account, do the following:
 
 	![The Only Allow SSO Login toggle](./media/absorblms-tutorial/save.png)
 
+	> [!NOTE]
+	> We recently came out with User Provisioning functionality, and our documentation is found [here](https://support.absorblms.com/hc/en-us/articles/360014083294-Incoming-SAML-2-0-SSO-Account-Provisioning). The statement should be more like: By Default, User Provisioning is not enabled in SSO. If the client enables the feature and has set it up according to the above documentation, then the user will be provisioned in Absorb LMS.
+
+	> [!NOTE]
+	> Our documentation outlines this, but User PRovisioing is only available on Absorb 5 - New Learner Experience with ACS URL https://company.myabsorb.com/api/rest/v2/authentication/saml
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
@@ -267,4 +283,3 @@ When you click the Absorb LMS tile in the Access Panel, you should be automatica
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
