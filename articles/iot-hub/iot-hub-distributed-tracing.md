@@ -18,7 +18,7 @@ Azure IoT Hub distributed tracing helps developers analyze and diagnose IoT Hub 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Distributed tracing for IoT Hub works by adding correlation IDs (following the [proposed W3C Trace Context format](https://github.com/w3c/trace-context)) to a subset (or all, configured via device twin) of your IoT device-to-cloud messages headers. When IoT Hub sees that a message has arrived with a trace context, it can log the messages arrival time, egress time, and destination to [Azure Monitor diagnostic logs](iot-hub-monitor-resource-health.md). As more Azure services begin to support distributed tracing, you can start tracing IoT messages lifecyles throughout Azure. 
+Distributed tracing for IoT Hub works by adding correlation IDs (following the [proposed W3C Trace Context format](https://github.com/w3c/trace-context)) to a subset (or all, configured via device twin) of your IoT device-to-cloud messages headers. When IoT Hub sees that a message has arrived with a trace context, it can log the messages arrival time, egress time, and destination to [Azure Monitor diagnostic logs](iot-hub-monitor-resource-health.md). As more Azure services begin to support distributed tracing, you can start tracing IoT messages life cycles throughout Azure. 
 
 ## Prerequisites
 
@@ -28,9 +28,9 @@ Distributed tracing for IoT Hub works by adding correlation IDs (following the [
 
 ## Enable distributed tracing for IoT Hub and client devices
 
-There are three components to this: device app, device twin, and diagnostic settings. You have to make code changes to every device app that you want to have correlation IDs from, then you have to make sure that you have the proper sampling rate, then you have to make sure that the correct diagnostic setting is on. 
+There are three components to enabling distributed tracing for IoT Hub: device app, device twin, and diagnostic settings. You must make code changes to every device app that you want to have correlation IDs from, then make sure that you have the proper sampling rate and the correct diagnostic setting is on. 
 
-Then, every time you add a device to your fleet, you must make sure the the code is the updated and the twin is properly configured.
+Then, every time you add a device to your fleet, you must make sure the code is the updated and the twin is properly configured.
 
 ### Enable logging to Azure Monitor diagnostic logs
 
@@ -42,19 +42,19 @@ To learn more about enabling and storing diagnostic logs for IoT Hub, see [Monit
 
 ### Deploy client application to your IoT device
 
-To make annotating messages in W3C format easier, use Azure IoT client SDK version X for C. There are two parts of the SDK offering. First, the `OPTION_DIAGNOSTIC_SAMPLING_PERCENTAGE` can be used to determine the percentage of messages that should have the trace header (0 - 100%). Second, since you'll probably want to be able to change the percentage of messages sampled without modifying code every time, you can call the the `IoTHub_GetTwin()` API to listen to cloud side "commands" for this percentage value (twin costs bandwidth, that's why we made this explicit).
+To make annotating messages in W3C format easier, use Azure IoT client SDK version X for C. There are two parts of the SDK offering. First, the `OPTION_DIAGNOSTIC_SAMPLING_PERCENTAGE` can be used to determine the percentage of messages that should have the trace header (0 - 100%). Second, since you'll probably want to be able to change the percentage of messages sampled without modifying code every time, you can call the `IoTHub_GetTwin()` API to listen to cloud side "commands" for this percentage value.
 
 Then you can also use [automatic device configuration](iot-hub-auto-device-config.md) to update your entire fleet to sample at a specific percentage, let's say.
 
-For an client side app that can receive sampling decisions from the cloud, check out [this sample](link-pending).
+For a client app that can receive sampling decisions from the cloud, check out [this sample](link-pending).
 
-You must do this for every device or module that you want to enable distributed tracing from.
+You must update every device or module that you want to enable distributed tracing from.
 
 Other languages are coming later.
 	
 ### Enable and configure distributed tracing for your device without changing application code
 
-IoT Hub uses the twin to communicate the sampling decision with the device, so you can use whatever way you like (JSON editor in portal, API, etc.) to update it. We even made a little control in the portal to make this a little easier.
+IoT Hub uses the twin to communicate the sampling decision with the device, so you can use whatever way you like (JSON editor in portal, API, etc.) to update it. For the best experience, use the Azure portal:
 
 1. Go to your IoT hub in Azure portal, then click **IoT devices**
 1. Click your device
@@ -62,15 +62,15 @@ IoT Hub uses the twin to communicate the sampling decision with the device, so y
 
     ![Enable distributed tracing in Azure portal](./media/iot-hub-distributed-tracing/azure-portal.png)
 
-1. Choose a **Sampling rate** between 0 and 100%.
+1. Choose a **Sampling rate** between 0% and 100%.
 1. Click **Save**
-1. If successfully acked by device, there will be a checkmark (? pending)
+1. If successfully acknowledged by device, a check mark is shown (*pending*)
 
-Note that this doesn't do anything unless your device is set up to listen this by following the [Deploy client application to your IoT device](#deploy-client-application-to-your-IoT-device) section.
+This doesn't do anything unless your device is set up to listen to twin changes by following the [Deploy client application to your IoT device](#deploy-client-application-to-your-IoT-device) section.
 
 #### Twin schema
 
-The exact JSON schema looks like this. Changes in the UX directly updates the [desired properties section](iot-hub-devguide-device-twins.md#device-twins) and vise versa.
+The exact JSON schema is shown in the following snippet. Changes in the UX directly update the [desired properties section](iot-hub-devguide-device-twins.md#device-twins) and vise versa.
 
 ```json
 {
@@ -115,7 +115,7 @@ The exact JSON schema looks like this. Changes in the UX directly updates the [d
 
 If you've set up [Log Analytics with diagnostic logs](), query by looking for logs in the `DistributedTracing` category. For example, you may want to trace one message with a specific trace ID. Here's how it would look.
 
-Query to show lifecyle of message with correlation ID `8cd869a412459a25f5b4f31311223344`:
+Query to show life cycle of message with correlation ID `8cd869a412459a25f5b4f31311223344`:
 
 ```
 AzureDiagnostics
@@ -132,10 +132,10 @@ Example logs as shown by Log Analytics:
 
 ### Application Map
 
-It would be impractical to try understand the big picture and identify issues with just raw logs. You would need visualization. Fortunately, we've built a sample app to help you do this exact thing. It works by piping date from IoT Hub to Azure Monitor, which pipes to storage, then to [Application Map](../application-insights/app-insights-app-map.md).
+It would be impractical to identify issues with just raw logs. You would need visualization. Fortunately, we've built a sample app to help you do this exact thing. It works by piping date from IoT Hub to Azure Monitor, which pipes to storage, then to [Application Map](../application-insights/app-insights-app-map.md).
 
 > [!div class="button"]
-<a href="https://aka.ms/iottracingsample target="_blank">Get the sample on Github</a>
+<a href="https://aka.ms/iottracingsample" target="_blank">Get the sample on Github</a>
 
 
 Here's what it looks like
@@ -151,7 +151,7 @@ Here's what it looks like
 
 - Proposal for W3C Trace Context standard is still in draft.
 - The only language supported by client SDK is C for now.
-- For Basic SKUs, the cloud-to-device twin capability is not available. However, IoT Hub will still log to Azure Monitor if it sees a properly-composed trace context header.
+- For Basic SKUs, the cloud-to-device twin capability is not available. However, IoT Hub will still log to Azure Monitor if it sees a properly composed trace context header.
 - We will be implementing an explicit throttle control to prevent abuse
 
 ## Next steps
