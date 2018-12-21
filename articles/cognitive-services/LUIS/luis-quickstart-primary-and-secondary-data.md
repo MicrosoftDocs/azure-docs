@@ -129,17 +129,9 @@ Simple entities need many examples in order to have a high confidence of predict
 
 1. Select **Intents** from the left menu.
 
-2. Select **GetJobInformation** from the list of intents. 
+1. Select **GetJobInformation** from the list of intents. 
 
-3. Label the jobs in the example utterances:
-
-    |Utterance|Job entity|
-    |:--|:--|
-    |Is there any work in databases?|databases|
-    |Looking for a new situation with responsibilities in accounting|accounting|
-    |What positions are available for senior engineers?|senior engineers|
-
-    There are other example utterances but they do not contain job words.
+1. Label the jobs in the example utterances
 
     If there are more example utterances in one intent than another intent, that intent has a higher likelyhood of being the highest predicted intext. 
 

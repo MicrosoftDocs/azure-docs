@@ -55,8 +55,6 @@
       href: luis-tutorial-composite-entity.md
     - name: Get names with simple entities
       href: luis-quickstart-primary-and-secondary-data.md
-    - name: Get key phrases
-      href: luis-quickstart-intent-and-key-phrase.md
   - name: Improve app
     items:
     - name: 1. Fix unsure predictions
