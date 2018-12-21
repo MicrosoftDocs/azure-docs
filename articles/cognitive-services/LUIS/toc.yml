@@ -57,15 +57,15 @@
       href: luis-quickstart-primary-and-secondary-data.md
   - name: Improve app
     items:
-    - name: 1. Fix unsure predictions
+    - name: Fix unsure predictions
       href: luis-tutorial-review-endpoint-utterances.md
-    - name: 2. Batch test datasets
+    - name: Batch test datasets
       href: luis-tutorial-batch-testing.md
-    - name: 3. Add common utterance formats
+    - name: Add common utterance formats
       href: luis-tutorial-pattern.md
-    - name: 4. Extract contextually-related patterns
+    - name: Extract contextually-related patterns
       href: luis-tutorial-pattern-roles.md
-    - name: 5. Extract free-form data
+    - name: Extract free-form data
       href: luis-tutorial-pattern-any.md
   - name: Use bot
     items:
