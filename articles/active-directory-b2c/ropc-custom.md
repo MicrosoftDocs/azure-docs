@@ -33,7 +33,7 @@ The following flows aren't supported:
 
 ## Prerequisites
 
-Complete the steps in [Get started with custom policies in Azure Active Directory B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+Complete the steps in [Get started with custom policies in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
 ## Register an application
 
