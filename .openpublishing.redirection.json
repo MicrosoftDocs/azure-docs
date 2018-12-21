@@ -1,6 +1,96 @@
 {
     "redirections": [
-
+        
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/demo-vr-app-launcher.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/overview",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/1-hello-world.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/01-hello-world",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/2-wait-vs-nonwait-actions.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/03-wait-vs-nonwait-actions",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/3-introduction-to-entities.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/04-introduction-to-entities",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/4-expected-entity.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/05-expected-entity",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/5-negatable-entities.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/06-negatable-entities",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/6-multi-value-entities.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/07-multi-value-entities",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/7-built-in-entities.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/08-pre-trained-entities",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/8-alternative-inputs.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/10-alternative-inputs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/9-log-dialogs.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/11-log-dialogs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/10-entity-detection-callback.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/12-entity-detection-callback",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/11-session-callbacks.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/13-session-callbacks",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/12-api-calls.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/14-api-calls",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/13-cards-1.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/15-cards",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/14-cards-2.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/15-cards",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/15-branching-and-undo.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/17-branch-undo",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/16-versioning-and-tagging.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/18-version-tag",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/17-hybrid-bots.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/16-hybrid-bots",
+            "redirect_document_id":  true
+        },
         {
             "source_path": "articles/machine-learning/service/how-to-deploy-to-aci.md",
             "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
