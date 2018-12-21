@@ -15,7 +15,7 @@ ms.author: tomfitz
 
 # Authenticate requests across tenants
 
-When creating a multi-tenant application, you may need to handle authentication requests for resources that are in different tenants. Azure Resource Manager provides a header value for storing auxiliary tokens to authenticate the requests to different tenants.
+When creating a multi-tenant application, you may need to handle authentication requests for resources that are in different tenants. A common scenario is when a virtual machine in one tenant must join a virtual network in another tenant. Azure Resource Manager provides a header value for storing auxiliary tokens to authenticate the requests to different tenants.
 
 ## Header values for authentication
 
