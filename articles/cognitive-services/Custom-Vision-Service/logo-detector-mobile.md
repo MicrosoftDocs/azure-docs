@@ -23,7 +23,7 @@ This tutorial will show you how to:
 > [!div class="checklist"]
 > - Create a custom object detector to recognize Azure service logos
 > - Connect your app to Azure Computer Vision and Custom Vision
-> - Create an Azure Service Principal account to deploy Azure services from the app
+> - Create an Azure service principal account to deploy Azure services from the app
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 
@@ -65,6 +65,8 @@ When you have tagged an image, navigate to the right to tag the next one. Exit o
 
 In the left pane, set the **Tags** switch to **Tagged**, and you should see all of your images. Then click the green button at the top of the page to train the model. This will teach the algorithm to recognize the same tags in new images. It will also test the model on some of your existing images to generate accuracy scores.
 
+![the Custom Vision website, on the Training Images tab; the Train button is outlined](media/azure-logo-tutorial/train-model.png)
+
 ## Get the prediction URL
 
 Once your model is trained, you are ready to integrate it into the app. To do this, you'll need to get the endpoint URL (the address of your model, which the app will query) and the prediction key (to grant the app access to prediction requests). In the **Performance** tab, click the **Prediction URL** button at the top of the page.
@@ -100,13 +102,11 @@ Then, open the *Source\VisualProvision\AppSettings.cs* file and populate the `Co
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=27-30)]
 
 
-## Create a Service Principal
+## Create a service principal
 
-The app requires an [Azure Service Principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) account to deploy the Azure services from the app itself .
+The app requires an Azure service principal account to deploy services to your Azure subscription. A service principal lets you delegate specific permissions to an app using role-based access control. See the [service principals guide](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-create-service-principals) if you'd like to learn more.
 
-You can create a Service Principal either using Azure Cloud Shell or by using the Azure CLI, as follows:
-
-First log in and select the subscription you'd like to use.
+You can create a service principal either using Azure Cloud Shell or by using the Azure CLI, as follows. First, log in and select the subscription you'd like to use.
 
 ```console
 az login
@@ -114,7 +114,7 @@ az account list
 az account set --subscription "<subscription name or subscription id>"
 ```
 
-Then create your Service Principal (note that it may take some time to complete).
+Then create your service principal (note that it may take some time to complete).
 
 ```console
 az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongPassword>
@@ -137,7 +137,7 @@ Take note of the `clientId`, and `tenantId` values. Add them to the appropriate 
 
 ## Run the app
 
-At this point, you;ve given the app a reference to: a trained Custom Vision model; the Computer Vision service; and a Service Principal account. In Visual Studio, select either the VisualProvision.Android or VisualProvision.iOS project in the solution explorer, and choose a corresponding emulator or connected mobile device from the dropdown menu in the main toolbar (note that you need a MacOS device to run an iOS emulator). Then, run the app.
+At this point, you;ve given the app a reference to: a trained Custom Vision model; the Computer Vision service; and a service principal account. In Visual Studio, select either the VisualProvision.Android or VisualProvision.iOS project in the solution explorer, and choose a corresponding emulator or connected mobile device from the dropdown menu in the main toolbar (note that you need a MacOS device to run an iOS emulator). Then, run the app.
 
 ## Clean up resources 
 
