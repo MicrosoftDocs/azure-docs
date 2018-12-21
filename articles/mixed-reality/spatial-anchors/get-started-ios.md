@@ -15,8 +15,8 @@ ms.service: spatial-anchors
 # Quickstart: Create an iOS app with Spatial Anchors
 
 [Spatial Anchors](overview.md) is a cross-platform developer service that makes it easy for you to create
-Mixed Reality experiences.​ This quickstart shows how to create an iOS app using spatial anchors. When you're finished,
-you'll have an ARKit iOS app that can save and recall a spatial anchor.
+Mixed Reality experiences.​ This quickstart shows how to create an iOS app using spatial anchors in either Swift or
+Objective-C. When you're finished, you'll have an ARKit iOS app that can save and recall a spatial anchor.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -24,10 +24,70 @@ you'll have an ARKit iOS app that can save and recall a spatial anchor.
 
 Before you get started, here's a list of prerequisites:
 
-- A macOS machine with <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10.0+</a> and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
-- An <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
+- A developer enabled macOS machine with <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 9.4+</a> and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
+- A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
 
 [!INCLUDE [Clean-up section](../../../includes/spatial-anchors-get-started-create-resource.md)]
+
+## Open the sample project
+
+Clone the [samples repository](https://mixedrealitycloud.visualstudio.com/_git/Mixed%20Reality%20Cloud%20Preview) by running the following command:
+
+```bash
+git clone https://mixedrealitycloud.visualstudio.com/Mixed%20Reality%20Cloud%20Preview/_git/Mixed%20Reality%20Cloud%20Preview mixedreality.spatialanchors.samples
+```
+
+Install the necessary pods using CocoaPods:
+
+# [Swift](#tab/openproject-swift)
+
+Navigate to `native.ios/samples/SampleSwift/`.
+
+```bash
+cd ./native.ios/samples/SampleSwift/
+```
+
+# [Objective-C](#tab/openproject-objc)
+
+Navigate to `native.ios/samples/SampleObjC/`.
+
+```bash
+cd ./native.ios/samples/SampleObjC/
+```
+
+***
+
+Run `pod install` to install the CocoaPods for the project.
+
+Now open the `.xcworkspace` in Xcode.
+
+# [Swift](#tab/openproject-swift)
+
+```bash
+open ./SampleSwift.xcworkspace
+```
+
+# [Objective-C](#tab/openproject-objc)
+
+```bash
+open ./SampleObjC.xcworkspace
+```
+
+***
+
+## Deploy the app to your iOS device
+
+Connect the iOS device to the Mac and set the **active scheme** to your iOS device.
+
+![Select Your Device](./media/get-started-ios/select-device.png)
+
+Select **Build and then run the current scheme**.
+
+![Select Your Device](./media/get-started-ios/deploy-run.png)
+
+> [!NOTE]
+> If you see a `library not found for -lPods-SampleObjC` error, you likely opened the `.xcodeproj` file instead of the
+> `.xcworkspace`. Open the `.xcworkspace` and try again.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
