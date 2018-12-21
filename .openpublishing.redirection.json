@@ -32942,6 +32942,46 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/application-insights/app-insights-azure-web-apps.md",
+            "redirect_url":  "/azure/azure-monitor/app/azure-web-apps",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-cloudservices.md",
+            "redirect_url":  "/azure/azure-monitor/app/cloudservices",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-code-sample-export-sql-stream-analytics.md",
+            "redirect_url":  "/azure/azure-monitor/app/code-sample-export-sql-stream-analytics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-configuration-with-applicationinsights-config.md",
+            "redirect_url":  "/azure/azure-monitor/app/configuration-with-applicationinsights-config",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/application-insights-console.md",
+            "redirect_url":  "/azure/azure-monitor/app/console",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/application-insights-correlation.md",
+            "redirect_url":  "/azure/azure-monitor/app/correlation",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-custom-data-correlation.md",
+            "redirect_url":  "/azure/azure-monitor/app/custom-data-correlation",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/application-insights-custom-operations-tracking.md",
+            "redirect_url":  "/azure/azure-monitor/app/custom-operations-tracking",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
