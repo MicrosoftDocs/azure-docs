@@ -139,8 +139,6 @@ Also, if you plan to create own object detection project with Custom Vision, you
 
 On the [Custom Vision website](https://customvision.ai), navigate to **Projects** and select the trash can under My New Project.
 
-![Screenshot of a panel labelled My New Project with a trash can icon](../media/csharp-tutorial/delete_od_project.png)
-
 ## Next steps
 
 In this tutorial, you set up and explored a full-featured Xamarin.Forms app that utilizes the Custom Vision service to detect logos in mobile camera images. Next, learn best practices for building a Custom Vision model, so that when you create one for your own app, you can make it powerful and accurate.
