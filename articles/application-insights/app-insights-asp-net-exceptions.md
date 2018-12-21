@@ -20,7 +20,7 @@ Exceptions in your live web app are reported by [Application Insights](app-insig
 
 ## Set up exception reporting
 * To have exceptions reported from your server app:
-  * Install [Application Insights SDK](app-insights-asp-net.md) in your app code, or
+  * Install [Application Insights SDK](../azure-monitor/app/asp-net.md) in your app code, or
   * IIS web servers: Run [Application Insights Agent](app-insights-monitor-performance-live-website-now.md); or
   * Azure web apps: Add the [Application Insights Extension](app-insights-azure-web-apps.md)
   * Java web apps: Install the [Java agent](app-insights-java-agent.md)
@@ -94,7 +94,7 @@ To see these events, open [Search](app-insights-diagnostic-search.md), open Filt
 ### How to see request POST data
 Request details don't include the data sent to your app in a POST call. To have this data reported:
 
-* [Install the SDK](app-insights-asp-net.md) in your application project.
+* [Install the SDK](../azure-monitor/app/asp-net.md) in your application project.
 * Insert code in your application to call [Microsoft.ApplicationInsights.TrackTrace()](../azure-monitor/app/api-custom-events-metrics.md#tracktrace). Send the POST data in the message parameter. There is a limit to the permitted size, so you should try to send just the essential data.
 * When you investigate a failed request, find the associated traces.
 
@@ -484,6 +484,6 @@ This is different from the 'Exceptions' count calculated by the Application Insi
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## Next steps
-* [Monitor REST, SQL, and other calls to dependencies](app-insights-asp-net-dependencies.md)
+* [Monitor REST, SQL, and other calls to dependencies](../azure-monitor/app/asp-net-dependencies.md)
 * [Monitor page load times, browser exceptions, and AJAX calls](app-insights-javascript.md)
 * [Monitor performance counters](app-insights-performance-counters.md)

@@ -44,7 +44,7 @@ If you're using System.Diagnostics.Trace, you need to add an entry to web.config
    </configuration>
 ```
 ## Configure Application Insights to collect logs
-**[Add Application Insights to your project](app-insights-asp-net.md)** if you haven't done that yet. You'll see an option to include the log collector.
+**[Add Application Insights to your project](../azure-monitor/app/asp-net.md)** if you haven't done that yet. You'll see an option to include the log collector.
 
 Or **Configure Application Insights** by right-clicking your project in Solution Explorer. Select the option to **Configure trace collection**.
 
