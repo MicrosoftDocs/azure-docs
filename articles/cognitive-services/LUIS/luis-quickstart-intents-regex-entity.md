@@ -105,6 +105,8 @@ Create a regular expression entity to tell LUIS what an HRF-number format is in 
 
     Because the entity is not a machine-learned entity, the entity is applied to the utterances and displayed in the LUIS website as soon as it is created.
 
+## Add example utterances to the None intent 
+
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
 ## Train the app before testing or publishing

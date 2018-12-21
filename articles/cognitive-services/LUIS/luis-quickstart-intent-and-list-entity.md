@@ -94,21 +94,25 @@ The primary, _canonical_, name for each item is the department name. Examples of
 
 1. Select **Entities** in the left panel.
 
-2. Select **Create new entity**.
+1. Select **Create new entity**.
 
-3. In the entity pop-up dialog, enter `Department` for the entity name, and  **List** for entity type. Select **Done**.  
+1. In the entity pop-up dialog, enter `Department` for the entity name, and  **List** for entity type. Select **Done**.  
 
     [![Screenshot of creating new entity pop-up dialog](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Screenshot of creating new entity pop-up dialog")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
 
-4. On the Department entity page, enter `Accounting` as the new value.
+1. On the Department entity page, enter `Accounting` as the new value.
 
     [![Screenshot of entering value](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Screenshot of entering value")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
-5. For Synonyms, add the synonyms from the previous table.
+1. For Synonyms, add the synonyms from the previous table.
 
     [![Screenshot of entering synonyms](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Screenshot of entering synonyms")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
-6. Continue adding all the canonical names and their synonyms. 
+1. Continue adding all the canonical names and their synonyms. 
+
+## Add example utterances to the None intent 
+
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md]
 
 ## Train the app so the changes to the intent can be tested 
 
@@ -122,7 +126,7 @@ The primary, _canonical_, name for each item is the department name. Examples of
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-2. Go to the end of the URL in the address and enter `shift Joe Smith to IT`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `TransferEmployeeToDepartment` intent with `Department` extracted.
+1. Go to the end of the URL in the address and enter `shift Joe Smith to IT`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `TransferEmployeeToDepartment` intent with `Department` extracted.
 
   ```json
     {

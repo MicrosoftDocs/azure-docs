@@ -364,7 +364,7 @@ Open the [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-servi
 
 ## Related information
 
-* [Simple entity](luis-concept-entity-types.md#simple) conceptual information
+* [Simple entity](luis-concept-entity-types.md) conceptual information
 * [Phrase list](luis-concept-feature.md) conceptual information
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)

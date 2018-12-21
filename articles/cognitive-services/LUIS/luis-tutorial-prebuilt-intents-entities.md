@@ -76,6 +76,8 @@ LUIS provides several prebuilt entities for common data extraction.
 
     These entities will help you add name and place recognition to your client application.
 
+## Add example utterances to the None intent 
+
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md]
 
 ## Train the app so the changes to the intent can be tested 

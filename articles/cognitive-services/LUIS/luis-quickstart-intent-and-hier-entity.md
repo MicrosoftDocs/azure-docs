@@ -97,6 +97,11 @@ If only one child (origin or destination) of a hierarchical entity is present, i
 
     [![Screenshot of Locations entity labeled in utterances](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Screenshot of Locations entity labeled in utterances")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
+## Add example utterances to the None intent 
+
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md]
+
+
 ## Train the app so the changes to the intent can be tested 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
@@ -217,7 +222,7 @@ If only one child (origin or destination) of a hierarchical entity is present, i
 
 ## Related information
 
-* [Hierarchical entity](luis-concept-entity-types.md#hierarchical) conceptual information
+* [Hierarchical entity](luis-concept-entity-types.md) conceptual information
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)
 * [How to test in LUIS portal](luis-interactive-test.md)
