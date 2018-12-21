@@ -1,5 +1,5 @@
 ---
-title: Configure hybrid Azure Active Directory joined devices | Microsoft Docs
+title: Control the hybrid Azure AD join of your devices | Microsoft Docs
 description: Learn how to configure hybrid Azure Active Directory joined devices.
 services: active-directory
 documentationcenter: ''
@@ -90,7 +90,7 @@ You need to link the GPO to a location of your choice. For example, to set this 
 
 ### Configuration Manager controlled deployment 
 
-You can control the device registration behavior of your current devices by configuring the following client setting: **Automatically register new Windows 10 domain joined devices with azure Active Directory**.
+You can control the device registration behavior of your current devices by configuring the following client setting: **Automatically register new Windows 10 domain joined devices with Azure Active Directory**.
 
 To configure the client setting:
 
@@ -110,18 +110,17 @@ You need to link this client setting to a location of your choice. For example, 
 > [!Important]
 > Although the preceding configuration takes care of existing domain-joined Windows 10 devices, devices that are newly joining the domain might still try to complete the hybrid Azure AD join because of the potential delay in the application of Group Policy or Configuration Manager settings on the devices. 
 >
-> To avoid this, we recommend that you create a new sysprep image (used as an example for a provisioning method) from a device that was never previously hybrid Azure AD joined and that already has the above group policy setting applied or Configuration Manager client setting applied. You must also use the new image for provisioning new computers that join your organization's domain. 
+> To avoid this, we recommend that you create a new Sysprep image (used as an example for a provisioning method). Create it from a device that was never previously hybrid Azure AD joined and that already has the Group Policy setting or Configuration Manager client setting applied. You must also use the new image for provisioning new computers that join your organization's domain. 
 
 ## Control Windows down-level devices
 
-To register Windows down-level devices, you need to download and install Windows Installer package (.msi) from Download Center on the [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554) page.
+To register Windows down-level devices, you need to download and install the Windows Installer package (.msi) from Download Center on the [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554) page.
 
-You can deploy the package by using a software distribution system like System Center Configuration Manager. The package supports the standard silent install options with the quiet parameter. [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) Current Branch offers additional benefits from earlier versions, like the ability to track completed registrations.
+You can deploy the package by using a software distribution system like [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). The package supports the standard silent installation options with the quiet parameter. The current branch of Configuration Manager offers additional benefits from earlier versions, like the ability to track completed registrations.
 
 The installer creates a scheduled task on the system that runs in the user’s context. The task is triggered when the user signs in to Windows. The task silently joins the device with Azure AD with the user credentials after authenticating with Azure AD.
 
-
-To control the device registration, you should deploy the Windows Installer package only to a selected group of Windows down-level devices. If you have verified that everything works as expected, you are ready to rollout the package to all down-level devices.
+To control the device registration, you should deploy the Windows Installer package only to a selected group of Windows down-level devices. If you have verified that everything works as expected, you're ready to roll out the package to all down-level devices.
 
 
 ## Next steps
