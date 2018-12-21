@@ -163,7 +163,7 @@ To configure Azure AD single sign-on with Absorb LMS, perform the following step
 
 	e. In the **Id Property** box, select the attribute that you configured as the user identifier in Azure AD. For example, if *userPrincipalName* is selected in Azure AD, select **Username**.
 
-    f. Select **Sha1** as a **Signature Type**.
+    f. Select **Sha256** as a **Signature Type**.
 
 	g. In the **Login URL** box, paste the **User Access URL** from the application's **Properties** page of the Azure portal.
 
@@ -228,11 +228,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Absorb LMS test user
 
-For Azure AD users to sign in to Absorb LMS, they must be set up in Absorb LMS.  
+For Azure AD users to sign in to Absorb LMS, they must be set up in Absorb LMS. In the case of Absorb LMS, provisioning is a manual task.
 
-For Absorb LMS, setup is a manual task.
-
-To set up a user account, do the following:
+**To configure user provisioning, perform the following steps:**
 
 1. Sign in to your Absorb LMS company site as an administrator.
 
@@ -265,10 +263,7 @@ To set up a user account, do the following:
 	![The Only Allow SSO Login toggle](./media/absorblms-tutorial/save.png)
 
 	> [!NOTE]
-	> We recently came out with User Provisioning functionality, and our documentation is found [here](https://support.absorblms.com/hc/en-us/articles/360014083294-Incoming-SAML-2-0-SSO-Account-Provisioning). The statement should be more like: By Default, User Provisioning is not enabled in SSO. If the client enables the feature and has set it up according to the above documentation, then the user will be provisioned in Absorb LMS.
-
-	> [!NOTE]
-	> Our documentation outlines this, but User PRovisioing is only available on Absorb 5 - New Learner Experience with ACS URL https://company.myabsorb.com/api/rest/v2/authentication/saml
+	> By Default, User Provisioning is not enabled in SSO. If the customer wants to enable this feature, they have to set it up as mentioned in [this](https://support.absorblms.com/hc/en-us/articles/360014083294-Incoming-SAML-2-0-SSO-Account-Provisioning) documentation. Also please note that User Provisioing is only available on **Absorb 5 - New Learner Experience** with ACS URL-`https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
 ### Test single sign-on
 
