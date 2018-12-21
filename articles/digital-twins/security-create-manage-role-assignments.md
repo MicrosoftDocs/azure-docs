@@ -14,35 +14,37 @@ ms.author: lyrana
 
 Azure Digital Twins uses role-based access control ([RBAC](./security-role-based-access-control.md)) to manage access to resources.
 
-Each role assignment includes:
+## Role assignments: an overview
 
-* **Object identifier**: An Azure Active Directory ID, service principal object ID, or domain name
-* **Object identifier type**
-* **Role definition ID**
-* **Space path**
-* **Tenant ID**: In most cases, an Azure Active Directory tenant ID
+Each role assignment conforms to the following definition:
 
-[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+```JSON
+{
+  "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+  "objectId": "be2c6dfe-c3e5-4c7a-b2da-c941715fbc5f",
+  "objectIdType": "ServicePrincipalId",
+  "Path": "/",
+  "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
+```
 
-## Role definition identifiers
+| Attribute | Name | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| RoleId | Role definition identifier | Yes | | The unique ID of the desired role assignment. Find role definitions and their identifier by querying the System API or reviewing table below. |
+| objectId | Object identifier | Yes | | An Azure Active Directory ID, service principal object ID, or domain name. What or whom the role assignment is assigned to. The role assignment must be formatted according to its associated type. For the `DomainName` objectIdType, objectId must begin with the `“@”` character. |
+| objectIdType | Object identifier type | Yes | | The kind of Object Identifier used. See **Supported ObjectIdTypes** below. |
+| Path | Space path | Yes | | The full access path to the `Space` object. An example is `/{Guid}/{Guid}`. If an identifier needs the role assignment for the entire graph, specify `"/"`. This character designates the root, but its use is discouraged. Always follow the Principle of Least Privilege. |
+| tenantId | Tenant identifier | Varies | | In most cases, an Azure Active Directory tenant ID. Disallowed for `DeviceId` and `TenantId` ObjectIdTypes. Required for `UserId` and `ServicePrincipalId` ObjectIdTypes. Optional for the DomainName ObjectIdType. |
 
-The following table shows what can be obtained by querying the system/roles API.
+### Supported role definition identifiers
 
-| **Role** | **Identifier** |
-| --- | --- |
-| Space Administrator | 98e44ad7-28d4-4007-853b-b9968ad132d1 |
-| User Administrator| dfaac54c-f583-4dd2-b45d-8d4bbc0aa1ac |
-| Device Administrator | 3cdfde07-bc16-40d9-bed3-66d49a8f52ae |
-| Key Administrator | 5a0b1afc-e118-4068-969f-b50efb8e5da6 |
-| Token Administrator | 38a3bb21-5424-43b4-b0bf-78ee228840c3 |
-| User | b1ffdb77-c635-4e7e-ad25-948237d85b30 |
-| Support Specialist | 6e46958b-dc62-4e7c-990c-c3da2e030969 |
-| Device Installer | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
-| Gateway Device | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |
+Each role assignments associates a role definition with an entity in your Azure Digital Twins environment.
 
-## Supported ObjectIdTypes
+[!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 
-The supported `ObjectIdTypes`:
+### Supported object identifier types
+
+Previously, the **objectIdType** attribute was introduced. The following list contains the supported values or Object Identifier Types for that attribute:
 
 * `UserId`
 * `DeviceId`
@@ -51,21 +53,96 @@ The supported `ObjectIdTypes`:
 * `ServicePrincipalId`
 * `UserDefinedFunctionId`
 
-## Create a role assignment
+## Role assignment operations
 
-```plaintext
-HTTP POST YOUR_MANAGEMENT_API_URL/roleassignments
+Azure Digital Twins supports full *CREATE*, *READ*, *UPDATE*, and *DELETE* operations for roles and role assignments.
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
+[!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
+
+<div id="grant"></div>
+
+### Granting permissions to your service principal
+
+Granting permissions to your service principal is often one of the first steps you'll take when working with Azure Digital Twins. It entails:
+
+1. Logging in to your Azure instance through PowerShell.
+1. Acquiring your service principal information.
+1. Assigning the desired role to your service principal.
+
+Your application ID is supplied to you in Azure Active Directory. To learn more about configuring and provisioning an Azure Digital Twins in Active Directory, read through the [Quickstart](./quickstart-view-occupancy-dotnet.md).
+
+Once you have the application ID, execute the following PowerShell commands:
+
+```cmd
+Login-AzureRmAccount
+Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
 ```
 
-| **Name** | **Required** | **Type** | **Description** |
-| --- | --- | --- | --- |
-| roleId| Yes |String | The role definition identifier. Find role definitions and their identifiers by querying the system API. |
-| objectId | Yes |String | The object ID for the role assignment that must be formatted according to its associated type. For the `DomainName` ObjectIdType, ObjectId must begin with the `“@”` character. |
-| objectIdType | Yes |String | The type of the role assignment. Must be one of the following rows in this table. |
-| tenantId | Varies | String |The tenant identifier. Disallowed for `DeviceId` and `TenantId` ObjectIdTypes. Required for `UserId` and `ServicePrincipalId` ObjectIdTypes. Optional for the DomainName ObjectIdType. |
-| path* | Yes | String |The full access path to the `Space` object. An example is `/{Guid}/{Guid}`. If an identifier needs the role assignment for the entire graph, specify `"/"`. This character designates the root, but its use is discouraged. Always follow the Principle of Least Privilege. |
+A user with the **Admin** role can then assign the Space Administrator role to a user by making an authenticated HTTP POST request to the URL:
 
-## Sample configuration
+```plaintext
+YOUR_MANAGEMENT_API_URL/roleassignments
+```
+
+With the following JSON body:
+
+```JSON
+{
+  "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+  "objectId": "YOUR_SERVICE_PRINCIPLE_OBJECT_ID",
+  "objectIdType": "ServicePrincipalId",
+  "Path": "/",
+  "tenantId": "YOUR_TENANT_ID"
+}
+```
+
+### Get a specific role assignment
+
+To get a specific role assignment, make an authenticated HTTP GET request to:
+
+```plaintext
+YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
+```
+
+| **Name** | **In** | **Required** |	**Type** |	**Description** |
+| --- | --- | --- | --- | --- |
+| YOUR_PATH | Path | True | String |	The full path to the space |
+
+### Revoking permissions
+
+To revoke permissions to a recipient, delete the role assignment by making an authenticated HTTP DELETE request:
+
+```plaintext
+YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
+```
+
+| **Name** | **In** | **Required** | **Type** | **Description** |
+| --- | --- | --- | --- | --- |
+| YOUR_ROLE_ID | Path | True | String |	Role Assignment ID |
+
+### Create a role assignment
+
+To create a role assignment, make an authenticated HTTP POST request to the URL:
+
+```plaintext
+YOUR_MANAGEMENT_API_URL/roleassignments
+```
+
+Verify that the JSON body conforms to the following schema:
+
+```JSON
+{
+  "RoleId": "YOUR_ROLE_ID",
+  "objectId": "YOUR_SERVICE_PRINCIPLE_OBJECT_ID",
+  "objectIdType": "YOUR_OBJECT_ID_TYPE",
+  "Path": "/",
+  "tenantId": "YOUR_TENANT_ID"
+}
+```
+
+## Example with configuration settings
 
 In this example, a user needs administrative access to a floor of a tenant space.
 
@@ -102,84 +179,8 @@ All users who are part of a domain receive read access for spaces, sensors, and 
     }
   ```
 
-Use GET to get a role assignment.
-
-```plaintext
-HTTP GET YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
-```
-
-| **Name** | **In** | **Required** |	**Type** |	**Description** |
-| --- | --- | --- | --- | --- |
-| YOUR_PATH | Path | True | String |	The full path to the space |
-
-Use DELETE to delete a role assignment.
-
-```plaintext
-HTTP DELETE YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
-```
-
-| **Name** | **In** | **Required** | **Type** | **Description** |
-| --- | --- | --- | --- | --- |
-| YOUR_ROLE_ID | Path | True | String |	Role Assignment ID |
-
 ## Next steps
 
-To review Azure Digital Twins role-based-access-control, read [API authentication](./security-authenticating-apis.md).
+To review Azure Digital Twins role-based-access-control, read [Role-base-access-control](./security-authenticating-apis.md).
 
 To learn about Azure Digital Twins API authentication, read [API authentication](./security-authenticating-apis.md).
-
-
-
-### Granting permissions
-
-Granting permissions to a user entails:
-
-1. Logging in to your Azure instance through PowerShell.
-1. Acquiring your ServicePrincipal information.
-1. Creating a role assignment.
-1. Assigning the role to a user.
-
-```csharp
-Login-AzureRmAccount
-Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
-```
-
-A user with the **Admin** role can then assign the ServicePrincipal role to a user by making an authenticated HTTP POST request to the URL:
-
-```plaintext
-```
-
-```JSON
-{
-  "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
-  "objectId": "be2c6dfe-c3e5-4c7a-b2da-c941715fbc5f",
-  "objectIdType": "ServicePrincipalId",
-  "Path": "/",
-  "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-}
-```
-
-### Revoking permissions
-
-To revoke permissions to a recipient, delete the role assignment.
-
-```csharp
-Login-AzureRmAccount
-Connect-AzureAD
-Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
-```
-
-A user with the **Admin** role can then remove a role assignment by making an authenticated HTTP POST request to the URL:
-
-```plaintext
-```
-
-```JSON
-{
-  "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
-  "objectId": "be2c6dfe-c3e5-4c7a-b2da-c941715fbc5f",
-  "objectIdType": "ServicePrincipalId",
-  "Path": "/",
-  "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-}
-```

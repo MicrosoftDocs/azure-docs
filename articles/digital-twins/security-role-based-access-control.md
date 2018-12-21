@@ -44,19 +44,9 @@ A developer might use RBAC to:
 
 ### Role definitions
 
-A role definition is a collection of permissions and is sometimes called a role. The role definition lists the allowed operations, which include create, read, update, and delete. It also specifies to which object types these permissions apply.
+A role definition is a collection of permissions and is sometimes called a role. The role definition lists the allowed operations, which include *CREATE*, *READ*, *UPDATE*, and *DELETE*. It also specifies to which object types permissions apply to.
 
-The following roles are available in Azure Digital Twins:
-
-- **Space Administrator**: Create, read, update, and delete permission for the specified space and all nodes underneath. Global permission.
-- **User Administrator**: Create, read, update, and delete permission for users and user-related objects. Read permission for spaces.
-- **Device Administrator**: Create, read, update, and delete permission for devices and device-related objects. Read permission for spaces.
-- **Key Administrator**: Create, read, update, and delete permission for access keys. Read permission for spaces.
-- **Token Administrator**: Read and update permission for access keys. Read permission for spaces.
-- **User**: Read permission for spaces, sensors, and users, which includes their corresponding related objects.
-- **Support Specialist**: Read permission for everything except access keys.
-- **Device Installer**: Read and update permission for devices and sensors, which includes their corresponding related objects. Read permission for spaces.
-- **Gateway Device**: Create permission for sensors. Read permission for devices and sensors, which includes their corresponding related objects.
+[!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 
 >[!NOTE]
 > To retrieve the full definitions for the previous roles, query the system/roles API.
@@ -72,6 +62,9 @@ The `ObjectIdType` refers to the type of identity that's given a role. Apart fro
 - The `ServicePrincipalId` type assigns a role to a service principal object ID.
 - The `UserDefinedFunctionId` type assigns a role to a user-defined function (UDF).
 
+> [!TIP]
+> Learn how to grant permissions to your service principal by reading [Creating and managing role assignments](./security-create-manage-role-assignments.md#grant).
+
 The following reference documentation articles describe:
 
 - How to [Query or the object ID for a user](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
@@ -86,4 +79,4 @@ For example, a user is given a role assignment with the role `DeviceInstaller` f
 
 ## Next steps
 
-To learn more about managing Azure Digital Twins role assignments, read [Create and manage role assignments](./security-create-manage-role-assignments.md).
+To learn more about creating and managing Azure Digital Twins role assignments, read [Create and manage role assignments](./security-create-manage-role-assignments.md).
