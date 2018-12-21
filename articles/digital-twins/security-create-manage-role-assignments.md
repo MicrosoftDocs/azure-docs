@@ -89,10 +89,10 @@ With the following JSON body:
 
 ```JSON
 {
-  "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+  "roleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
   "objectId": "YOUR_SERVICE_PRINCIPLE_OBJECT_ID",
   "objectIdType": "ServicePrincipalId",
-  "Path": "YOUR_PATH",
+  "path": "YOUR_PATH",
   "tenantId": "YOUR_TENANT_ID"
 }
 ```
@@ -107,9 +107,61 @@ To list all available role assignments, make an authenticated HTTP GET request t
 YOUR_MANAGEMENT_API_URL/system/roles
 ```
 
-### Get a specific role assignment
+A successful request will return a JSON array with entries for each role assignment:
 
-To get a specific role assignment, make an authenticated HTTP GET request to:
+```JSON
+[
+    {
+        "id": "3cdfde07-bc16-40d9-bed3-66d49a8f52ae",
+        "name": "DeviceAdministrator",
+        "permissions": [
+            {
+                "notActions": [],
+                "actions": [
+                    "Read",
+                    "Create",
+                    "Update",
+                    "Delete"
+                ],
+                "condition": "@Resource.Type Any_of {'Device', 'DeviceBlobMetadata', 'DeviceExtendedProperty', 'Sensor', 'SensorBlobMetadata', 'SensorExtendedProperty'} || ( @Resource.Type == 'ExtendedType' && (!Exists @Resource.Category || @Resource.Category Any_of { 'DeviceSubtype', 'DeviceType', 'DeviceBlobType', 'DeviceBlobSubtype', 'SensorBlobSubtype', 'SensorBlobType', 'SensorDataSubtype', 'SensorDataType', 'SensorDataUnitType', 'SensorPortType', 'SensorType' } ) )"
+            },
+            {
+                "notActions": [],
+                "actions": [
+                    "Read"
+                ],
+                "condition": "@Resource.Type == 'Space' && @Resource.Category == 'WithoutSpecifiedRbacResourceTypes' || @Resource.Type Any_of {'ExtendedPropertyKey', 'SpaceExtendedProperty', 'SpaceBlobMetadata', 'SpaceResource', 'Matcher'}"
+            }
+        ],
+        "accessControlPath": "/system",
+        "friendlyPath": "/system",
+        "accessControlType": "System"
+    }
+]
+```
+
+<div id="check"></div>
+
+### Check a specific role assignment
+
+To check a specific role assignment, make an authenticated HTTP GET request to:
+
+```plaintext
+YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
+```
+
+| **Parameter value** | **Required** |	**Type** |	**Description** |
+| --- | --- | --- | --- | --- |
+| YOUR_USER_ID |  True | String |	The objectId for the UserId objectIdType. |
+| YOUR_PATH | Path | String |	The chosen path to check access for. |
+| YOUR_ACCESS_TYPE |  True | String |	The access type to check for. |
+| YOUR_RESOURCE_TYPE | True | String |	The resource to check. |
+
+A successful request will return a boolean `true` or `false` to indicate whether the access type has been assigned to the user for the given path and resource.
+
+### Get role assignments by path
+
+To get all role assignments for a path, make an authenticated HTTP GET request to:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
@@ -117,19 +169,35 @@ YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 
 | **Name** | **In** | **Required** |	**Type** |	**Description** |
 | --- | --- | --- | --- | --- |
-| YOUR_PATH | Path | True | String |	The full path to the space |
+| YOUR_PATH | Path | True | String |	The full path to the space. |
+
+A successful request will return a JSON array with each role assignment associated with the selected **path** parameter:
+
+```JSON
+[
+    {
+        "id": "0000c484-698e-46fd-a3fd-c12aa11e53a1",
+        "roleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+        "objectId": "0de38846-1aa5-000c-a46d-ea3d8ca8ee5e",
+        "objectIdType": "UserId",
+        "path": "/"
+    }
+]
+```
 
 ### Revoke a permission
 
 To revoke a permissions from a recipient, delete the role assignment by making an authenticated HTTP DELETE request:
 
 ```plaintext
-YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
+YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 ```
 
 | **Name** | **In** | **Required** | **Type** | **Description** |
 | --- | --- | --- | --- | --- |
-| YOUR_ROLE_ID | Path | True | String |	Role Assignment ID |
+| YOUR_ROLE_ASSIGNMENT_ID | Path | True | String | The **id** of the role assignment to remove. |
+
+A successful DELETE request will return a 204 Status. Verify the removal of the role assignment by [checking](#check) whether the role assignment still holds.
 
 ### Create a role assignment
 
@@ -143,10 +211,10 @@ Verify that the JSON body conforms to the following schema:
 
 ```JSON
 {
-  "RoleId": "YOUR_ROLE_ID",
+  "roleId": "YOUR_ROLE_ID",
   "objectId": "YOUR_SERVICE_PRINCIPLE_OBJECT_ID",
   "objectIdType": "YOUR_OBJECT_ID_TYPE",
-  "Path": "YOUR_PATH",
+  "path": "YOUR_PATH",
   "tenantId": "YOUR_TENANT_ID"
 }
 ```
@@ -159,11 +227,11 @@ The following examples demonstrate how to configure your JSON body in several co
 
    ```JSON
    {
-    "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
-    "ObjectId" : " 0fc863aa-eb51-4704-a312-7d635d70e000",
-    "ObjectIdType" : "UserId",
-    "TenantId": " a0c20ae6-e830-4c60-993d-a00ce6032724",
-    "Path": "/ 000e349c-c0ea-43d4-93cf-6b00abd23a44/ d84e82e6-84d5-45a4-bd9d-006a000e3bab"
+    "roleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+    "objectId" : " 0fc863aa-eb51-4704-a312-7d635d70e000",
+    "objectIdType" : "UserId",
+    "tenantId": " a0c20ae6-e830-4c60-993d-a00ce6032724",
+    "path": "/ 000e349c-c0ea-43d4-93cf-6b00abd23a44/ d84e82e6-84d5-45a4-bd9d-006a000e3bab"
    }
    ```
 
@@ -171,11 +239,11 @@ The following examples demonstrate how to configure your JSON body in several co
 
    ```JSON
    {
-    "RoleId": "98e44ad7-28d4-0007-853b-b9968ad132d1",
-    "ObjectId" : "cabf7aaa-af0b-41c5-000a-ce2f4c20000b",
-    "ObjectIdType" : "ServicePrincipalId",
-    "TenantId": " a0c20ae6-e000-4c60-993d-a91ce6000724",
-    "Path": "/"
+    "roleId": "98e44ad7-28d4-0007-853b-b9968ad132d1",
+    "objectId" : "cabf7aaa-af0b-41c5-000a-ce2f4c20000b",
+    "objectIdType" : "ServicePrincipalId",
+    "tenantId": " a0c20ae6-e000-4c60-993d-a91ce6000724",
+    "path": "/"
    }
     ```
 
@@ -183,10 +251,10 @@ The following examples demonstrate how to configure your JSON body in several co
 
    ```JSON
    {
-    "RoleId": " b1ffdb77-c635-4e7e-ad25-948237d85b30",
-    "ObjectId" : "@microsoft.com",
-    "ObjectIdType" : "DomainName",
-    "Path": "/000e349c-c0ea-43d4-93cf-6b00abd23a00"
+    "roleId": " b1ffdb77-c635-4e7e-ad25-948237d85b30",
+    "objectId" : "@microsoft.com",
+    "objectIdType" : "DomainName",
+    "path": "/000e349c-c0ea-43d4-93cf-6b00abd23a00"
    }
    ```
 
