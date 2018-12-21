@@ -79,4 +79,4 @@ For this demo, we'll open an existing Train Dialog and create a new Train Dialog
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Versioning and tagging](./18-versioning-and-tagging.md)
+> [Versioning and tagging](./18-version-tag.md)
