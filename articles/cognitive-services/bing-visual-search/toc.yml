@@ -59,7 +59,6 @@
   - name: Create a Single-page Web app
     href: tutorial-bing-visual-search-single-page-app.md
 - name: Reference
-  expanded: true
   items:
   - name: REST v7 API
     href: https://aka.ms/bingvisualsearchreferencedoc
