@@ -91,7 +91,7 @@
 #### [Test Drive tab](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
 #### [Marketplace tab](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
 #### [Support tab](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
-<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 ### [Publish Azure application offer](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 ### [Update existing offer](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
@@ -195,10 +195,6 @@
 #### [Offer settings tab](./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md)
 #### [Storefront details tab](./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md)
 ### [Publish consulting service offer](./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md) 
-
-## [Manage publisher profile](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
-## [Manage users](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
-## [GDPR compliance](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
 
 ## Test Drive
 ### [What is Test Drive?](./cloud-partner-portal-orig/what-is-test-drive.md)

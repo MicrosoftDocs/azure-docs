@@ -28,6 +28,8 @@
     href: ./ansible-create-configure-vmss.md
   - name: Deploy app to VMSS
     href: ./ansible-deploy-app-vmss.md
+  - name: Autoscale VMSS
+    href: ./ansible-auto-scale-vmss.md
   - name: Create and configure AKS clusters
     href: ./ansible-create-configure-aks.md
   - name: Create and configure Azure Application Gateway

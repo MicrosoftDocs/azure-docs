@@ -162,7 +162,7 @@ Remove the `AdaptiveSamplingTelemetryProcessor` node from the .config file.
 
 ```
 
-([Learn about telemetry processors](app-insights-api-filtering-sampling.md#filtering).)
+([Learn about telemetry processors](../azure-monitor/app/api-filtering-sampling.md#filtering).)
 
 <a name="other-web-pages"></a>
 
@@ -286,7 +286,7 @@ Instead of setting the sampling parameter in the .config file, you can programma
 
 ```
 
-([Learn about telemetry processors](app-insights-api-filtering-sampling.md#filtering).)
+([Learn about telemetry processors](../azure-monitor/app/api-filtering-sampling.md#filtering).)
 
 ## When to use sampling?
 Adaptive sampling is automatically enabled if you use the ASP.NET SDK version 2.0.0-beta3 or later. Regardless of which version of the SDK you use, you can enable ingestion sampling to allow Application Insights to sample the collected data.
@@ -319,7 +319,7 @@ The main advantages of sampling are:
 If the conditions to use the other forms of sampling do not apply, we recommend adaptive sampling. This is enabled by default in the ASP.NET server SDK, version 2.0.0-beta3 or later. It will not reduce traffic until a certain minimum rate is reached, therefore, low-use sites will not be affected.
 
 ## How do I know whether sampling is in operation?
-To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](app-insights-analytics.md) such as this:
+To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](../azure-monitor/app/analytics.md) such as this:
 
 ```
 union * 
@@ -392,5 +392,5 @@ The client-side (JavaScript) SDK participates in fixed-rate sampling in conjunct
 * Initialize a separate instance of TelemetryClient with a new TelemetryConfiguration (not the default Active one). Use that to send your rare events.
 
 ## Next steps
-* [Filtering](app-insights-api-filtering-sampling.md) can provide more strict control of what your SDK sends.
+* [Filtering](../azure-monitor/app/api-filtering-sampling.md) can provide more strict control of what your SDK sends.
 

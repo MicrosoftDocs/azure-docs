@@ -68,9 +68,9 @@ The event types are:
 * **Trace** - [Diagnostic logs](app-insights-asp-net-trace-logs.md) including TrackTrace, log4Net, NLog, and System.Diagnostic.Trace calls.
 * **Request** - HTTP requests received by your server application, including pages, scripts, images, style files, and data. These events are used to create the request and response overview charts.
 * **Page View** - [Telemetry sent by the web client](app-insights-javascript.md), used to create page view reports. 
-* **Custom Event** - If you inserted calls to TrackEvent() in order to [monitor usage](app-insights-api-custom-events-metrics.md), you can search them here.
+* **Custom Event** - If you inserted calls to TrackEvent() in order to [monitor usage](../azure-monitor/app/api-custom-events-metrics.md), you can search them here.
 * **Exception** - Uncaught [exceptions in the server](app-insights-asp-net-exceptions.md), and those that you log by using TrackException().
-* **Dependency** - [Calls from your server application](app-insights-asp-net-dependencies.md) to other services such as REST APIs or databases, and AJAX calls from your [client code](app-insights-javascript.md).
+* **Dependency** - [Calls from your server application](../azure-monitor/app/asp-net-dependencies.md) to other services such as REST APIs or databases, and AJAX calls from your [client code](app-insights-javascript.md).
 * **Availability** - Results of [availability tests](app-insights-monitor-web-app-availability.md).
 
 ## Filter on property values
@@ -100,7 +100,7 @@ Find all the items with the same property value:
 > To write more complex queries, open [**Analytics**](../azure-monitor/log-query/get-started-portal.md) from the top of the Search blade.
 > 
 
-You can search for terms in any of the property values. This is particularly useful if you have written [custom events](app-insights-api-custom-events-metrics.md) with property values. 
+You can search for terms in any of the property values. This is particularly useful if you have written [custom events](../azure-monitor/app/api-custom-events-metrics.md) with property values. 
 
 You might want to set a time range, as searches over a shorter range are faster. 
 
@@ -142,7 +142,7 @@ The first time you do this, you are asked to configure a link to your Azure DevO
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:
 
 * Capture log traces from your favorite logging framework in [.NET](app-insights-asp-net-trace-logs.md) or [Java](app-insights-java-trace-logs.md). This means you can search through your log traces and correlate them with page views, exceptions, and other events. 
-* [Write code](app-insights-api-custom-events-metrics.md) to send custom events, page views, and exceptions. 
+* [Write code](../azure-monitor/app/api-custom-events-metrics.md) to send custom events, page views, and exceptions. 
 
 [Learn how to send logs and custom telemetry to Application Insights](app-insights-asp-net-trace-logs.md).
 

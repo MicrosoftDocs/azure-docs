@@ -1309,6 +1309,6 @@ This code must be executed before creating a mobile client reference using the *
 [19]: https://www.odata.org/documentation/odata-version-3-0/
 [20]: https://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[22]: ../app-service/configure-authentication-provider-aad.md
 [Future]: https://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: https://developer.android.com/reference/android/os/AsyncTask.html

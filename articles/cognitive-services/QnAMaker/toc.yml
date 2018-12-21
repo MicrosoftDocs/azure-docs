@@ -83,7 +83,7 @@
     items:
     - name: Create and publish a knowledge base
       href: Quickstarts/create-publish-knowledge-base.md
-    - name: Create a knowledge base
+    - name: Add chit-chat to knowledge base
       href: How-to/chit-chat-knowledge-base.md
     - name: Migrate a knowledge base from Preview
       href: Tutorials/migrate-knowledge-base.md
