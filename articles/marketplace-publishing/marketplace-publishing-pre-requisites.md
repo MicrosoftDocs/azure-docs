@@ -3,7 +3,7 @@ title: Non-technical prerequisites for creating an offer for the Azure Marketpla
 description: Understand the requirements for creating and deploying an offer to the Azure Marketplace for others to purchase.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 
@@ -15,6 +15,8 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
+
+ROBOTS: NOINDEX
 
 ---
 # General prerequisites for creating an offer for the Azure Marketplace

@@ -3,7 +3,7 @@ title: Prepare and test your offer for deployment to the Azure Marketplace | Mic
 description: Detailed instructions on providing marketing content, configuring pricing plans, and testing your offer before deploying to the Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 
@@ -15,6 +15,8 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
+
+ROBOTS: NOINDEX
 
 ---
 # Complete the offer creation with marketing content

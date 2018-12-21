@@ -3,7 +3,7 @@ title: Get pre-approved through the Microsoft Azure Certified program | Microsof
 description: Learn about the Microsoft Azure Certified partner program and how to get to sell your virtual machine image, solution template, developer service, or data service on the Azure Marketplace
 services: marketplace-publishing
 documentationcenter: na
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 tags: ''
@@ -16,6 +16,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hascipio
+
+ROBOTS: NOINDEX
 
 ---
 # Get pre-approved via the Microsoft Azure Certified program

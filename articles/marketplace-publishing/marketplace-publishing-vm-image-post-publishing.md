@@ -3,7 +3,7 @@ title: Managing your virtual machine image in the Azure Marketplace | Microsoft 
 description: Detailed guide on how to manage your virtual machine image in the Azure Marketplace after initial publication
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 
@@ -15,6 +15,8 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
+
+ROBOTS: NOINDEX
 
 ---
 # Post-production guide for virtual machine offers in the Azure Marketplace

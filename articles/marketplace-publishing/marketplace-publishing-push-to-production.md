@@ -3,7 +3,7 @@ title: Deploy your offer to the Azure Marketplace | Microsoft Docs
 description: Learn about and walk through the instructions to deploy your offer--virtual machine image, developer service, data service, etc.--to the Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 
@@ -15,6 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
+
+ROBOTS: NOINDEX
 
 ---
 # Deploy your offer to the Azure Marketplace

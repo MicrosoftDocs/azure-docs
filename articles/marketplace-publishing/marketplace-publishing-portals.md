@@ -3,7 +3,7 @@ title: Overview of the various portals needed to create an offer for the Marketp
 description: Overview of the various portals needed to create an offer for the Marketplace
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 
@@ -15,6 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio
+
+ROBOTS: NOINDEX
 
 ---
 # Portals you will need

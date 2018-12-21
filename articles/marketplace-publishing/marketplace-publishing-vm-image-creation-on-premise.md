@@ -3,7 +3,7 @@ title: Creating an on-premises virtual machine image for the Azure Marketplace |
 description: Understand and execute the steps to create an on-premises VM image and deploy to the Azure Marketplace for others to purchase.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 
@@ -15,6 +15,8 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
+
+ROBOTS: NOINDEX
 
 ---
 # Develop an on-premises virtual machine image for the Azure Marketplace

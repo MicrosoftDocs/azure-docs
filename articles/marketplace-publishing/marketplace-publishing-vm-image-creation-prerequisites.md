@@ -3,7 +3,7 @@ title: Technical prerequisites for creating a virtual machine image for the Azur
 description: Understand the requirements for creating and deploying a virtual machine image to the Azure Marketplace for others to purchase.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 
@@ -15,6 +15,8 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
+
+ROBOTS: NOINDEX
 
 ---
 # Technical prerequisites for creating a virtual machine image for the Azure Marketplace
