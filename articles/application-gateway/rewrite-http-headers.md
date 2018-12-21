@@ -117,7 +117,7 @@ The server variables mentioned above are the variables that provide information 
 
 - Rewriting the Connect, Upgrade and Host headers is not supported yet.
 
-- Two important server variables, client_ip (the IP address of the client making the request) and cookie_name (the name cookie), are not supported yet. The client_ip server variable is particularly useful in scenarios where customers intend to rewrite the x-forwarded-for header set by Application Gateway, so that the header contains only the IP address of the client and not the port information.
+- Two important server variables, client_ip (the IP address of the client making the request) and cookie_*name* (the *name* cookie), are not supported yet. The client_ip server variable is particularly useful in scenarios where customers intend to rewrite the x-forwarded-for header set by Application Gateway, so that the header contains only the IP address of the client and not the port information.
 
   Both these server variables will soon be supported.
 
