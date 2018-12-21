@@ -504,7 +504,7 @@ catch (ex)
 
 The SDKs catch many exceptions automatically, so you don't always have to call TrackException explicitly.
 
-* ASP.NET: [Write code to catch exceptions](../../application-insights/app-insights-asp-net-exceptions.md).
+* ASP.NET: [Write code to catch exceptions](../../azure-monitor/app/asp-net-exceptions.md).
 * J2EE: [Exceptions are caught automatically](../../application-insights/app-insights-java-get-started.md#exceptions-and-request-failures).
 * JavaScript: Exceptions are caught automatically. If you want to disable automatic collection, add a line to the code snippet that you insert in your webpages:
 
@@ -544,7 +544,7 @@ exceptions
 
 Use TrackTrace to help diagnose problems by sending a "breadcrumb trail" to Application Insights. You can send chunks of diagnostic data and inspect them in [Diagnostic Search](../../application-insights/app-insights-diagnostic-search.md).
 
-In .NET [Log adapters](../../application-insights/app-insights-asp-net-trace-logs.md) use this API to send third-party logs to the portal.
+In .NET [Log adapters](../../azure-monitor/app/asp-net-trace-logs.md) use this API to send third-party logs to the portal.
 
 In Java for [Standard loggers like Log4J, Logback](../../application-insights/app-insights-java-trace-logs.md) use Application Insights Log4j or Logback Appenders to send third-party logs to the portal.
 

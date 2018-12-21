@@ -32902,6 +32902,46 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/application-insights/app-insights-asp-net-exceptions.md",
+            "redirect_url":  "/azure/azure-monitor/app/asp-net-exceptions",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-asp-net-more.md",
+            "redirect_url":  "/azure/azure-monitor/app/asp-net-more",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-asp-net-trace-logs.md",
+            "redirect_url":  "/azure/azure-monitor/app/asp-net-trace-logs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-asp-net-troubleshoot-no-data.md",
+            "redirect_url":  "/azure/azure-monitor/app/asp-net-troubleshoot-no-data",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/auto-collect-dependencies.md",
+            "redirect_url":  "/azure/azure-monitor/app/auto-collect-dependencies",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/automate-custom-reports.md",
+            "redirect_url":  "/azure/azure-monitor/app/automate-custom-reports",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-automate-with-flow.md",
+            "redirect_url":  "/azure/azure-monitor/app/automate-with-flow",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/automate-with-logic-apps.md",
+            "redirect_url":  "/azure/azure-monitor/app/automate-with-logic-apps",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true

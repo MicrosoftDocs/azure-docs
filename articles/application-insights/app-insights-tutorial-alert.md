@@ -83,7 +83,7 @@ In addition to sending alerts from an availability test, you can create an alert
 ## Proactively send information
 Alerts are created in reaction to a particular set of issues identified in your application, and you typically reserve alerts for critical conditions requiring immediate attention.  You can proactively receive information about your application with a Logic App that runs automatically on a schedule.  For example, you could have a mail sent to administrators daily with summary information that requires further evaluation.
 
-For details on creating a Logic App with Application Insights, see [Automate Application Insights processes by using Logic Apps](automate-with-logic-apps.md)
+For details on creating a Logic App with Application Insights, see [Automate Application Insights processes by using Logic Apps](../azure-monitor/app/automate-with-logic-apps.md)
 
 ## Next steps
 Now that you've learned how to alert on issues, advance to the next tutorial to learn how to analyze how users are interacting with your application.
