@@ -114,70 +114,67 @@ A contingency conditional access policy is a **disabled policy** that omits Azur
   * Configure a backup policy that sends the restricted session claim to Exchange and SharePoint.
   * If your organization uses Microsoft Cloud App Security, consider falling back to a policy that engages MCAS and then MCAS Allows read-only access but not uploads.
 
-The following example: **Option A - Contingency CA policies**, allows specific targeted users access to mission critical apps (Exchange and SharePoint) for browsers only, on a targeted platform (Windows) only, when they are accessing the app from a target network (their corporate network). It will also exclude emergency accounts and core administrators.
-In this example, you will require a named network location **CorpNetwork** and a security group **ContingencyAccess** with the target users, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts.
+The following example: **Example A - Contingency CA policy to restore Access to mission-critical Collaboration Apps**, is a typical corporate contingency. In this scenario, the organization typically requires MFA for all Exchange Online and SharePoint Online access, and the disruption in this case is the MFA provider for the customer has an outage (whether Azure MFA, on-premises MFA provider, or third-party MFA). This policy mitigates this outage by allowing specific targeted users access to these apps from trusted Windows devices only when they are accessing the app from their trusted corporate network. It will also exclude emergency accounts and core administrators from these restrictions. This example will require a named network location **CorpNetwork** and a security group **ContingencyAccess** with the target users, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts. The contingency requires four policies to provide the desired access.
 
-**Option A - Contingency CA policies 1:**
+**Example A - Contingency CA policies to restore Access to mission-critical Collaboration Apps:**
 
-* Policy 1: Block access to people outside target groups
-  * Users and Groups: Include all users. Exclude ContingencyAccess, CoreAdmins, and EmergencyAccess
-  * Cloud Apps: Include all apps
-  * Conditions: (None)
-  * Grant Control: Block
+* Policy 1: Require Domain Joined devices for Exchange and SharePoint
+  * Users and Groups: Include ContingencyAccess. Exclude CoreAdmins, and EmergencyAccess
+  * Cloud Apps: Exchange Online and SharePoint Online
+  * Conditions: Any
+  * Grant Control: Require Domain Joined
   * State: Disabled
-* Policy 2: Block platforms other than windows
+* Policy 2: Block platforms other than Windows
   * Users and Groups: Include all users. Exclude CoreAdmins, and EmergencyAccess
-  * Cloud Apps: Include all apps
+  * Cloud Apps: Exchange Online and SharePoint Online
   * Conditions: Device Platform Include All Platforms, exclude Windows
   * Grant Control: Block
   * State: Disabled
 * Policy 3: Block networks other than CorpNetwork
   * Users and Groups: Include all users. Exclude CoreAdmins, and EmergencyAccess
-  * Cloud Apps: Include all apps
+  * Cloud Apps: Exchange Online and SharePoint Online
   * Conditions: Locations Include any location, exclude CorpNetwork
   * Grant Control: Block
   * State: Disabled
-* Policy 4: Block apps other than Sharepoint Online and Exchange Online
-  * Users and Groups: Include all users. Exclude CoreAdmins, and EmergencyAccess
-  * Cloud Apps: Include all apps except Sharepoint and Exchange Online
-  * Conditions: Locations Include All Platforms, exclude CorpNetwork
-  * Grant Control: Block
-  * State: Disabled
-* Policy 5: Block clients other than browsers
-  * Users and Groups: Include all users. Exclude CoreAdmins, and EmergencyAccess
-  * Cloud Apps: Include all apps  
-  * Conditions: Client apps: Mobile apps, and desktop clients, modern auth clients, other clients
-  * Grant Control: Block
-  * State: Disabled
-* Policy 6: Block EAS Explicitly
-  * Users and Groups: Include all users. Exclude CoreAdmins, and EmergencyAccess
+* Policy 4: Block EAS Explicitly
+  * Users and Groups: Include all users
   * Cloud Apps: Include Exchange Online
   * Conditions: Client apps: Exchange Active Sync
   * Grant Control: Block
   * State: Disabled
 
- This next example, **Option B - Contingency CA policies**, is suited for organizations that only performed MFA when outside corporate network. These contingency policies will grant critical users from outside the corporate network access only via browsers to SharePoint Online, Exchange Online, a CRM SaaS app, and a critical LOB procurement app. This example is a variation of the more restrictive set of policies in example 1. These policies will also exclude emergency accounts and core administrators.
+Order of activation:
 
-**Option B - Contingency CA policies:**
+1. Exclude ContingencyAccess, CoreAdmins, and EmergencyAccess from the existing MFA policy. Verify a user in ContingencyAccess can access SharePoint Online and Exchange Online.
+2. Enable Policy 1: Verify users on Domain Joined devices who are not in the exclude groups are able to access Exchange Online and SharePoint Online. Verify users in the Exclude group can access SharePoint Online and Exchange from any device.
+3. Enable Policy 2: Verify users who are not in the exclude group cannot get to SharePoint Online and Exchange Online from their mobile devices. Verify users in the Exclude group can access SharePoint and Exchange from any device (Windows/iOS/Android).
+4. Enable Policy 3: Verify users who are not in the exclude groups cannot access SharePoint and Exchange off the corporate network, even with a domain joined machine. Verify users in the Exclude group can access SharePoint and Exchange from any network.
+5. Enable Policy 4: Verify all users cannot get Exchange Online from the native mail applications on mobile devices.
+6. Disable the existing MFA policy for SharePoint and Exchange.
 
-* Policy 1: Block non-target apps
-  * Users and Groups: Include all users. Exclude CoreAdmins, and EmergencyAccess
-  * Cloud Apps: Include all apps except Sharepoint, Exchange Online, CRM SaaS App, and LOB App
-  * Conditions: Locations Include All Platforms, exclude CorpNetwork
+In this next example, **Example B - Contingency CA policies to allow mobile access to Salesforce**, a business app’s access is restored. In this scenario, the customer typically requires their sales employees access to Salesforce (configured for single-sign on with Azure AD) from mobile devices to only be allowed from compliant devices. The disruption in this case is that there is an issue with evaluating device compliance and the outage is happening at a sensitive time where the sales team needs access to Salesforce to close deals. These contingency policies will grant critical users access to Salesforce from a mobile device so that they can continue to close deals and not disrupt the business. In this example, **SalesforceContingency** contains all the Sales employees who need to retain access and **SalesAdmins** contains necessary admins of Salesforce.
+
+**Example B - Contingency CA policies:**
+
+* Policy 1: Block everyone not in the SalesContingency team
+  * Users and Groups: Include all users. Exclude SalesAdmins and SalesforceContingency
+  * Cloud Apps: Salesforce.
+  * Conditions: None
   * Grant Control: Block
   * State: Disabled
-* Policy 2: Block clients other than browsers
-  * Users and Groups: Include all users. Exclude CoreAdmins, and EmergencyAccess
-  * Cloud Apps: Include all apps  
-  * Conditions: Client apps: Mobile apps, and desktop clients, modern auth clients, other clients
+* Policy 2: Block the Sales team from any platform other than mobile (to reduce surface area of attack)
+  * Users and Groups: Include SalesforceContingency. Exclude SalesAdmins
+  * Cloud Apps: Salesforce
+  * Conditions: Device Platform Include All Platforms, exclude iOS and Android
   * Grant Control: Block
   * State: Disabled
-* Policy 3: Block EAS Explicitly
-  * Users and Groups: Include all users. Exclude CoreAdmins, and EmergencyAccess
-  * Cloud Apps: Include Exchange Online
-  * Conditions: Client apps: Exchange Active Sync 
-  * Grant Control: Block
-  * State: Disabled
+
+Order of activation:
+
+1. Exclude SalesAdmins and SalesforceContingency from the existing device compliance policy for Salesforce. Verify a user in the SalesforceContingency group can access Salesforce.
+2. Enable Policy 1: Verify users outside of SalesContingency cannot access Salesforce. Verify users in the SalesAdmins and SalesforceContingency can access Salesforce.
+3. Enable Policy 2: Verify users in the SalesContigency group cannot access Salesforce from their Windows/Mac laptops but can still access from their mobile devices. Verify SalesAdmin can still access Salesforce from any device.
+4. Disable the existing device compliance policy for Salesforce.
 
 ### Deploy password hash sync even if you are federated or use pass-through authentication
 
