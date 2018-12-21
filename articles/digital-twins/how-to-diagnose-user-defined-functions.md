@@ -25,7 +25,7 @@ Logs and metrics for your Azure Digital Twins instance are exposed through Azure
 > [!NOTE]
 > You may experience a 5 minute delay when sending events to **Log Analytics** for the first time.
 
-Read the article ["Collect and consume log data from your Azure resources"](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) to enable diagnostic settings for your Azure Digital Twins instance through the Portal, Azure CLI, or PowerShell. Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
+Read the article ["Collect and consume log data from your Azure resources"](../azure-monitor/platform/diagnostic-logs-overview.md) to enable diagnostic settings for your Azure Digital Twins instance through the Portal, Azure CLI, or PowerShell. Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
 
 ### Trace sensor telemetry
 

@@ -16,7 +16,7 @@ ms.author: mbullwin
 # Application Insights for web pages
 Find out about the performance and usage of your web page or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. And by inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
 
-Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](app-insights-java-get-started.md) or [ASP.NET](app-insights-asp-net.md), you can integrate telemetry from your server and clients.
+Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](app-insights-java-get-started.md) or [ASP.NET](../azure-monitor/app/asp-net.md), you can integrate telemetry from your server and clients.
 
 ![In portal.azure.com, open your app's resource and click Browser](./media/app-insights-javascript/03.png)
 
@@ -222,7 +222,7 @@ The page name can contain the same characters as a URL, but anything after "#" o
 Want to find out what your users do with your app?
 
 * [Learn about the user behavior analytics tools](app-insights-usage-overview.md)
-* [Learn about custom events and metrics API](app-insights-api-custom-events-metrics.md).
+* [Learn about custom events and metrics API](../azure-monitor/app/api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
 
@@ -233,6 +233,6 @@ Want to find out what your users do with your app?
 
 ## <a name="next"></a> Next steps
 * [Track usage](app-insights-usage-overview.md)
-* [Custom events and metrics](app-insights-api-custom-events-metrics.md)
+* [Custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-usage-overview.md)
 

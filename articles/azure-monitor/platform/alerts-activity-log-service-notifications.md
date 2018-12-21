@@ -191,7 +191,7 @@ After you create an alert, it's visible in the **Alerts** section of **Monitor**
 
 ## Next steps
 - Learn how to [configure webhook notifications for existing problem management systems](../../service-health/service-health-alert-webhook-guide.md).
-- Learn about [service health notifications](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Learn about [service health notifications](../../azure-monitor/platform/service-notifications.md).
 - Learn about [notification rate limiting](../../azure-monitor/platform/alerts-rate-limiting.md).
 - Review the [activity log alert webhook schema](../../azure-monitor/platform/activity-log-alerts-webhook.md).
 - Get an [overview of activity log alerts](../../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts. 

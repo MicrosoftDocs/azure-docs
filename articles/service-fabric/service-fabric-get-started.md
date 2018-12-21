@@ -62,8 +62,8 @@ If you only need the SDK, you can install this package:
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
 The current versions are:
-* Service Fabric SDK and Tools 3.3.617
-* Service Fabric runtime 6.4.617
+* Service Fabric SDK and Tools 3.3.622
+* Service Fabric runtime 6.4.622
 * Service Fabric Tools for Visual Studio 2015 2.4.11116.1
 * Visual Studio 2017 15.9 includes Service Fabric Tools for Visual Studio 2.4.11024.1 
 

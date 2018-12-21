@@ -90,7 +90,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
 * **Cluster size**: Check, increase and decrease the number of cluster worker nodes. See [Scale clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
     * **Quota limits**: Display the used and available cores for your subscription.
     * **SSH + Cluster login**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-* **Data Lake Store Gen1**: Configure access Data Lake Store Gen1.  See [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* **Data Lake Storage Gen1**: Configure access Data Lake Storage Gen1.  See [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
     * **Storage accounts**: View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.
     * **Applications**: Add/remove HDInsight applications.  See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
     * **Script Actions**: Run Bash scripts on the cluster. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
@@ -137,15 +137,14 @@ See also [Pause/shut down clusters](#pauseshut-down-clusters).
 
 ## Add additional storage accounts
 
-You can add additional Azure Storage accounts and Azure Data Lake Store accounts after a cluster is created. For more information, see [Add additional storage accounts to HDInsight](./hdinsight-hadoop-add-storage.md).
+You can add additional Azure Storage accounts and Azure Data Lake Storage accounts after a cluster is created. For more information, see [Add additional storage accounts to HDInsight](./hdinsight-hadoop-add-storage.md).
 
 ## Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by an Azure HDInsight cluster, without having to re-create the cluster.
 
-> [!NOTE]
+> [!NOTE]  
 > Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](#list-and-show-clusters).
->
->
+
 **To scale clusters**
 
 1. Sign in to the [Portal][azure-portal].
@@ -184,7 +183,7 @@ The impact of changing the number of data nodes varies for each type of cluster 
   * Storm web UI
   * Command-line interface (CLI) tool
 
-    Refer to the [Apache Storm documentation](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
+    Refer to the [Apache Storm documentation](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
 
     The Storm web UI is available on the HDInsight cluster:
 
@@ -243,10 +242,8 @@ An HDInsight cluster can have two user accounts. The HDInsight cluster user acco
 ### Change the cluster user password
 You can use the Ambari Web UI to change the Cluster user password. To log in to Ambari, you must use the existing cluster username and password.
 
-> [!NOTE]
+> [!NOTE]  
 > Changing the cluster user (admin) password may cause script actions run against this cluster to fail. If you have any persisted script actions that target worker nodes, these scripts may fail when you add nodes to the cluster through resize operations. For more information on script actions, see [Customize HDInsight clusters using script actions](hdinsight-hadoop-customize-cluster-linux.md).
->
->
 
 1. Sign in to the Ambari Web UI using the HDInsight cluster user credentials. The default username is **admin**. The URL is **https://&lt;HDInsight Cluster Name>azurehdinsight.net**.
 2. Click **Admin** from the top menu, and then click "Manage Ambari".
@@ -259,7 +256,7 @@ Ambari then changes the password on all nodes in the cluster.
 ### Change the SSH user password
 1. Using a text editor, save the following text as a file named **changepassword.sh**.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > You must use an editor that uses LF as the line ending. If the editor uses CRLF, then the script does not work.
 
     ```bash
@@ -314,13 +311,13 @@ See [List and show clusters](#list-and-show-clusters).
 
 ## Find the storage accounts
 
-HDInsight clusters use either an Azure Storage account or an Azure Data Lake Store to store data. Each HDInsight cluster can have one default storage account and a number of linked storage accounts. To list the storage accounts, you first open the cluster from the portal, and then click **Storage accounts**:
+HDInsight clusters use either an Azure Storage account or Azure Data Lake Storage to store data. Each HDInsight cluster can have one default storage account and a number of linked storage accounts. To list the storage accounts, you first open the cluster from the portal, and then click **Storage accounts**:
 
 ![HDInsight cluster storage accounts](./media/hdinsight-administer-use-portal-linux/hdinsight-storage-accounts.png)
 
 On the previous screenshot, there is a __Default__ column indicating whether the account is the default storage account.
 
-To list the Data Lake Store accounts, click **Data Lake Store access** in the previous screenshot.
+To list the Data Lake Storage accounts, click **Data Lake Storage access** in the previous screenshot.
 
 ## Run Apache Hive queries
 You cannot run Hive job directly from the Azure portal, but you can use the Hive View on Ambari Web UI.
@@ -352,7 +349,7 @@ Using the Azure portal, you can browse the content of the default container.
 ## Monitor cluster usage
 The **Usage** section of the HDInsight cluster blade displays information about the number of cores available to your subscription for use with HDInsight, as well as the number of cores allocated to this cluster and how they are allocated for the nodes within this cluster. See [List and show clusters](#list-and-show-clusters).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > To monitor the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
 ## Connect to a cluster

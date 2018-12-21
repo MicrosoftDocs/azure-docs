@@ -24,7 +24,7 @@ ms.custom: seodec18
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to use an existing MongoDB app written in Node.js and connect it to your Azure Cosmos DB database, which supports MongoDB client connections by using the [MongoDB API](mongodb-introduction.md). In other words, your Node.js application only knows that it's connecting to a database using MongoDB APIs. It is transparent to the application that the data is stored in Azure Cosmos DB.
+This quickstart demonstrates how to use an existing MongoDB app written in Node.js and connect it to your Azure Cosmos DB database, which supports MongoDB client connections by using the [Azure Cosmos DB for MongoDB API](mongodb-introduction.md). In other words, your Node.js application only knows that it's connecting to a database using the Azure Cosmos DB for MongoDB API. It is transparent to the application that the data is stored in Azure Cosmos DB.
 
 When you are done, you will have a MEAN application (MongoDB, Express, Angular, and Node.js) running on [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

@@ -1,7 +1,7 @@
 ---
 title: Reviewing endpoint utterances
 titleSuffix: Azure Cognitive Services
-description: Improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity. You should review endpoint utterances as a regular part of you scheduled LUIS maintenance. 
+description: Improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/18/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand why and when to review endpoint utterances. 
 
@@ -45,13 +45,13 @@ Continue with the app created in the last tutorial, named **HumanResources**.
 
 If you do not have the HumanResources app from the previous tutorial, use the following steps:
 
-1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
 
 2. Import the JSON into a new app.
 
 3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `review`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
-    If you use this tutorial as a new, imported app, you also need to train, publish, then add the utterances to the endpoint with a [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) or from the endpoint in a browser. The utterances to add are:
+    If you use this tutorial as a new, imported app, you also need to train, publish, then add the utterances to the endpoint with a [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) or from the endpoint in a browser. The utterances to add are:
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 
