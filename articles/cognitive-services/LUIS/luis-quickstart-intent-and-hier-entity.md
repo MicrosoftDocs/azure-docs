@@ -99,8 +99,7 @@ If only one child (origin or destination) of a hierarchical entity is present, i
 
 ## Add example utterances to the None intent 
 
-[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md]
-
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
 ## Train the app so the changes to the intent can be tested 
 

@@ -112,7 +112,7 @@ The primary, _canonical_, name for each item is the department name. Examples of
 
 ## Add example utterances to the None intent 
 
-[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md]
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
 ## Train the app so the changes to the intent can be tested 
 
