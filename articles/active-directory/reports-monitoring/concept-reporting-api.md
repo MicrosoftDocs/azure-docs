@@ -48,7 +48,7 @@ The Microsoft Graph API endpoint for audit logs is `https://graph.microsoft.com/
 In addition, you can use the [Identity Protection risk events API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) to gain programmatic access to security detections using Microsoft Graph. For more information, see [Get started with Azure Active Directory Identity Protection and Microsoft Graph](../identity-protection/graph-get-started.md). 
 
 > [!NOTE]
->  The https:\/\/graph.windows.net\/\<tenant-name\>\/reports\/ endpoint is deprecated. Use the new API endpoints described above to programmatically access the activity and security reports.
+>  The **https:\/\/graph.windows.net\/\<tenant-name\>\/reports\/** endpoint is deprecated. Use the new API endpoints described above to programmatically access the activity and security reports.
   
 ## APIs with Graph Explorer
 
