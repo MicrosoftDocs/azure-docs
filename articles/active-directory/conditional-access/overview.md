@@ -25,7 +25,7 @@ ms.reviewer: calebb
 
 Security is a top concern for organizations using the cloud. A key aspect of cloud security is identity and access when it comes to managing your cloud resources. In a mobile-first, cloud-first world, users can access your organization's resources using a variety of devices and apps from anywhere. As a result of this, just focusing on who can access a resource is not sufficient anymore. To master the balance between security and productivity, you also need to factor how a resource is accessed into an access control decision. With Azure Active Directory (Azure AD) conditional access, you can address this requirement. Conditional access is a capability of Azure Active Directory. With conditional access, you can implement automated access control decisions for accessing your cloud apps that are based on conditions. 
 
-Conditional access policies are enforced when the first-factor authentication has been completed. In other words, conditional access is not intended to be a mechanism to, for example counter measure denial-of-service (DoS) attacks.  
+Conditional access policies are enforced after the first-factor authentication has been completed. Therefore, conditional access is not intended as a first line defense for scenarios like denial-of-service (DoS) attacks, but can utilize signals from these events (e.g. the sign-in risk level, location of the request, and so on) to determine access.  
 
 ![Control](./media/overview/81.png)
 
