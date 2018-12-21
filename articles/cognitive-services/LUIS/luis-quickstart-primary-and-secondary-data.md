@@ -24,7 +24,7 @@ The simple entity detects a single data concept contained in words or phrases.
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Import app
+> * Import example app
 > * Add simple entity to extract jobs from app
 > * Add phrase list to boost signal of job words
 > * Train 
@@ -73,9 +73,9 @@ This LUIS app has job names in several intents. By labeling these words in all t
 
 Once the entities are marked in the example utterances, it is important to add a phrase list to boost the signal of the simple entity. A phrase list is **not** used as an exact match and does not need to be every possible value you expect. 
 
-## Use existing app
+## Import example app
 
-1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json) from the Intents tutorial.
+1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/intentonly.json) from the Intents tutorial.
 
 2. Import the JSON into a new app.
 
@@ -280,6 +280,7 @@ Open the [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-servi
 
 ## Related information
 
+* [Intents without entities tutorial](luis-intents-only.md)
 * [Simple entity](luis-concept-entity-types.md) conceptual information
 * [Phrase list](luis-concept-feature.md) conceptual information
 * [How to train](luis-how-to-train.md)

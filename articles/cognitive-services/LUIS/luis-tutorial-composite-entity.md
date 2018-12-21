@@ -28,7 +28,7 @@ The composite entity is a good fit for this type of data because the data:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Create app
+> * Import example app
 > * Create intent
 > * Add composite entity 
 > * Train
@@ -37,9 +37,9 @@ The composite entity is a good fit for this type of data because the data:
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Use existing app
+## Import example app
 
-1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-list-HumanResources.json) from the List entity tutorial.
+1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) from the List entity tutorial.
 
 2. Import the JSON into a new app.
 
@@ -192,6 +192,7 @@ LUIS provides several prebuilt entities for common data extraction.
 
 ## Related information
 
+* [List entity tutorial](luis-intents-only.md)
 * [Composite entity](luis-concept-entity-types.md) conceptual information
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)
