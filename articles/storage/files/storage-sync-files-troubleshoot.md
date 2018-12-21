@@ -465,15 +465,23 @@ By setting this registry value, the Azure File Sync agent will accept any locall
 | **Error string** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Remediation required** | Yes |
 
-This error commonly occurs because the server time is incorrect or the certificate used for authentication is expired. If the server time is correct, perform the following steps to renew the expired certificate:
+This error can be caused by:
 
-1. Open the Certificates MMC snap-in, select Computer Account and navigate to Certificates (Local Computer)\Personal\Certificates.
-2. Check if the client authentication certificate is expired. If the certificate is expired, close the Certificates MMC snap-in and proceeed with the remaining steps. 
-3. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
-4. Run the following PowerShell commands on the server:
+- Server time is incorrect
+- Server endpoint deletion failed
+- Certificate used for authentication is expired. 
+	To check if the certificate is expired, perform the following steps:  
+	1. Open the Certificates MMC snap-in, select Computer Account and navigate to Certificates (Local Computer)\Personal\Certificates.
+	2. Check if the client authentication certificate is expired.
+
+If the server time is correct, perform the following steps to resolve the issue:
+
+1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
+2. Run the following PowerShell commands on the server:
 
     ```PowerShell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+    Login-AzureRmStorageSync -SubscriptionID <guid> -TenantID <guid>
     Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
 

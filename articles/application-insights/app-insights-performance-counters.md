@@ -123,6 +123,6 @@ Performance counters are supported only if the application is targeting the full
 Like other metrics, you can [set an alert](../azure-monitor/app/alerts.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
 
 ## <a name="next"></a>Next steps
-* [Dependency tracking](app-insights-asp-net-dependencies.md)
+* [Dependency tracking](../azure-monitor/app/asp-net-dependencies.md)
 * [Exception tracking](app-insights-asp-net-exceptions.md)
 

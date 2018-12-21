@@ -103,7 +103,7 @@ There are several ways to get started. Begin with whichever works best for you. 
   * [**Azure web app or VM**](app-insights-monitor-performance-live-website-now.md)
   * [**J2EE**](app-insights-java-live.md)
 * **At development time: add Application Insights to your code.** Allows you to write custom telemetry and to instrument back-end and desktop apps.
-  * [Visual Studio](app-insights-asp-net.md) 2013 update 2 or later.
+  * [Visual Studio](../azure-monitor/app/asp-net.md) 2013 update 2 or later.
   * [Java](app-insights-java-get-started.md)
   * [Node.js](app-insights-nodejs.md)
   * [Other platforms](app-insights-platforms.md)
@@ -120,7 +120,7 @@ Get started at runtime with:
 
 Get started at development time with:
 
-* [ASP.NET](app-insights-asp-net.md)
+* [ASP.NET](../azure-monitor/app/asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [Node.js](app-insights-nodejs.md)
 
@@ -147,7 +147,7 @@ Get started at development time with:
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
-[greenbrown]: app-insights-asp-net.md
+[greenbrown]: ../azure-monitor/app/asp-net.md
 [ios]: app-insights-mobile-center-quickstart.md
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
