@@ -31,7 +31,7 @@ This article assumes that you are familiar with:
 ## When to use the Application Health extension
 The Application Health extension is deployed inside a virtual machine scale set instance and reports on VM health from inside the scale set instance. You can configure the extension to probe on an application endpoint and update the status of the application on that instance. This instance status is checked by Azure to determine whether an instance is eligible for upgrade operations.
 
-Because the extension reports health from within a VM, the extension can be used in situations where external probes such as Application Health Probes (that utilize custom Azure Load Balancer [probes](../load-balancer/load-balancer-custom-probe-overview) can’t be leveraged.
+Because the extension reports health from within a VM, the extension can be used in situations where external probes such as Application Health Probes (that utilize custom Azure Load Balancer [probes](../load-balancer/load-balancer-custom-probe-overview.md)) can’t be leveraged.
 
 ## Extension schema
 
@@ -105,7 +105,7 @@ Use `PATCH` to edit an already deployed extension.
 
 ### Azure PowerShell
 
-Use the [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet to add the Application Health extension to the VM scale set model definition.
+Use the [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet to add the Application Health extension to the scale set model definition.
 
 The following example adds the Application Health extension to the `extensionProfile` in a scale set model of a Windows-based scale set.
 
@@ -141,7 +141,7 @@ Update-AzureRmVmss -ResourceGroupName $vmScaleSetResourceGroup `
 ```
 ### Azure CLI 2.0
 
-Use [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) to add the Application Health extension to the VM scale set model definition.
+Use [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) to add the Application Health extension to the scale set model definition.
 
 The following example adds the Application Health extension to the scale set model of a Windows-based scale set.
 
@@ -159,11 +159,11 @@ az vmss extension set \
 ## Troubleshoot
 Extension execution output is logged to files found in the following directories:
 
-```windows
+```Windows
 C:\WindowsAzure\Logs\Plugins\Microsoft.ManagedServices.ApplicationHealthWindows\<version>\
 ```
 
-```linux
+```Linux
 /var/lib/waagent/apphealth
 ```
 
