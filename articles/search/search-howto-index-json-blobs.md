@@ -25,7 +25,7 @@ JSON blobs in Azure Blob storage are typically either a single JSON document or 
 
 ## Use the portal
 
-The easiest method for indexing JSON documents is to use a wizard in the [Azure portal](https://portal.azure.com/). By parsing metadata in the Azure blob container, the [**Import data** wizard](search-import-data-portal.md) can create a default index, map source fields to target index fields, and load the index in a single operation. Depending on the size and complexity of source data, you could have an operational full text search index in minutes.
+The easiest method for indexing JSON documents is to use a wizard in the [Azure portal](https://portal.azure.com/). By parsing metadata in the Azure blob container, the [**Import data**](search-import-data-portal.md) wizard can create a default index, map source fields to target index fields, and load the index in a single operation. Depending on the size and complexity of source data, you could have an operational full text search index in minutes.
 
 ### 1 - Prepare source data
 
@@ -71,13 +71,13 @@ Take a moment to review your selections. Once you run the wizard, physical data 
 
 ### 6 - Create indexer
 
-Fully specified, the data source and index specifications are saved as named resources in your Azure Search service. Naming the indexer allows it to exist as a standalone resource, which you can schedule and manage independently of the index and data source object, also created by the wizard.
+Fully specified, the wizard creates three distinct objects in your search service. A data source object and index object are saved as named resources in your Azure Search service. The last step creates an indexer object. Naming the indexer allows it to exist as a standalone resource, which you can schedule and manage independently of the index and data source object, created in the same wizard sequence.
 
 If you are not familiar with indexers, an *indexer* is a resource in Azure Search that crawls an external data source for searchable content. The output of the **Import data** wizard is an indexer that crawls your JSON data source, extracts searchable content, and imports it into an index on Azure Search.
 
    ![Blob indexer definition](media/search-howto-index-json/import-wizard-json-indexer.png)
 
-Click **OK** to run the wizard.
+Click **OK** to run the wizard and create all objects. Indexing commences immediately.
 
 You can monitor data import in the portal pages. Progress notifications indicate indexing status and how many documents are uploaded. When indexing is complete, you can use [Search explorer](search-explorer.md) to query your index.
 
@@ -292,7 +292,7 @@ The following example is a fully specified indexer payload, including field mapp
 The .NET SDK has fully parity with the REST API. We recommend that you review the previous REST API section to learn concepts, workflow, and requirements. You can then refer to following .NET API reference documentation to implement a JSON indexer in managed code.
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [microsoft.azure.search.models.datasourcetype?](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
 + [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
 + [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
@@ -301,4 +301,4 @@ The .NET SDK has fully parity with the REST API. We recommend that you review th
 + [Indexers in Azure Search](search-indexer-overview.md)
 + [Indexing Azure Blob Storage with Azure Search](search-howto-index-json-blobs.md)
 + [Indexing CSV blobs with Azure Search blob indexer](search-howto-index-csv-blobs.md)
-+ [Tutorial: Search semi-structured data from Azure Blob storage ](search-semi-structured-data.md)
++ [Tutorial: Search semi-structured data from Azure Blob storage](search-semi-structured-data.md)
