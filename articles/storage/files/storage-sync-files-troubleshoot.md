@@ -677,7 +677,7 @@ if ($storageAccount -eq $null) {
 2. Inside the storage account, the **Allow access from all networks** radio button should be selected.
     ![A screenshot showing the storage account firewall and network rules disabled.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
 
-# [PowerShell](#tab/aure-powershell)
+# [PowerShell](#tab/azure-powershell)
 ```PowerShell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
