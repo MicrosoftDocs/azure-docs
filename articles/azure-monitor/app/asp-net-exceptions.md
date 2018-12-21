@@ -22,7 +22,7 @@ Exceptions in your live web app are reported by [Application Insights](../../app
 * To have exceptions reported from your server app:
   * Install [Application Insights SDK](../../azure-monitor/app/asp-net.md) in your app code, or
   * IIS web servers: Run [Application Insights Agent](../../application-insights/app-insights-monitor-performance-live-website-now.md); or
-  * Azure web apps: Add the [Application Insights Extension](../../application-insights/app-insights-azure-web-apps.md)
+  * Azure web apps: Add the [Application Insights Extension](../../azure-monitor/app/azure-web-apps.md)
   * Java web apps: Install the [Java agent](../../application-insights/app-insights-java-agent.md)
 * Install the [JavaScript snippet](../../application-insights/app-insights-javascript.md) in your web pages to catch browser exceptions.
 * In some application frameworks or with some settings, you need to take some extra steps to catch more exceptions:

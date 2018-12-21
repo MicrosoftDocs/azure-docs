@@ -41,14 +41,14 @@ Max length: 64
 
 ## Operation id
 
-A unique identifier of the root operation. This identifier allows to group telemetry across multiple components. See [telemetry correlation](application-insights-correlation.md) for details. The operation id is created by either a request or a page view. All other telemetry sets this field to the value for the containing request or page view. 
+A unique identifier of the root operation. This identifier allows to group telemetry across multiple components. See [telemetry correlation](../azure-monitor/app/correlation.md) for details. The operation id is created by either a request or a page view. All other telemetry sets this field to the value for the containing request or page view. 
 
 Max length: 128
 
 
 ## Parent operation ID
 
-The unique identifier of the telemetry item's immediate parent. See [telemetry correlation](application-insights-correlation.md) for details.
+The unique identifier of the telemetry item's immediate parent. See [telemetry correlation](../azure-monitor/app/correlation.md) for details.
 
 Max length: 128
 
@@ -131,4 +131,4 @@ Max length: 256
 
 - Learn how to [extend and filter telemetry](../azure-monitor/app/api-filtering-sampling.md).
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
-- Check out standard context properties collection [configuration](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
+- Check out standard context properties collection [configuration](../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
