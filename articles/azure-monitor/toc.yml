@@ -828,7 +828,7 @@
     items:
     - name: Usage and estimated costs
       href: platform/usage-estimated-costs.md
-    - name: Application data volume and retention
+    - name: Application usage and costs
       href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
     - name: Log data usage and costs
       href: platform/manage-cost-storage.md
