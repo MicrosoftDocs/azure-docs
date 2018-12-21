@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/20/2018
+ms.date: 12/21/2018
 ms.author: jeedes
 
 ---
@@ -240,11 +240,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create AirWatch test user
 
-To enable Azure AD users to log in to AirWatch, they must be provisioned in to AirWatch.
+To enable Azure AD users to log in to AirWatch, they must be provisioned in to AirWatch. In the case of AirWatch, provisioning is a manual task.
 
-* When AirWatch, provisioning is a manual task.
-
-**To provision a user account, perform the following steps:**
+**To configure user provisioning, perform the following steps:**
 
 1. Log in to your **AirWatch** company site as administrator.
 
