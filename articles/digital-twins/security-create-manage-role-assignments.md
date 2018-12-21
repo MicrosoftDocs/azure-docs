@@ -44,14 +44,9 @@ Each role assignments associates a role definition with an entity in your Azure 
 
 ### Supported object identifier types
 
-Previously, the **objectIdType** attribute was introduced. The following list contains the supported values or Object Identifier Types for that attribute:
+Previously, the **objectIdType** attribute was introduced.
 
-* `UserId`
-* `DeviceId`
-* `DomainName`
-* `TenantId`
-* `ServicePrincipalId`
-* `UserDefinedFunctionId`
+[!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
 
 ## Role assignment operations
 
@@ -142,7 +137,7 @@ Verify that the JSON body conforms to the following schema:
 }
 ```
 
-## Example with configuration settings
+## Examples with configuration
 
 In this example, a user needs administrative access to a floor of a tenant space.
 
