@@ -87,8 +87,6 @@ Otherwise, your project type isn't directly supported by the Application Insight
 ## 'Access denied' on opening Application Insights from Visual Studio
 *The 'Open Application Insights' menu command takes me to the Azure portal, but I get an 'access denied' error.*
 
-![](./media/app-insights-asp-net-troubleshoot-no-data/access-denied.png)
-
 The Microsoft sign-in that you last used on your default browser doesn't have access to [the resource that was created when Application Insights was added to this app](../azure-monitor/app/asp-net.md). There are two likely reasons: 
 
 * You have more than one Microsoft account - maybe a work and a personal Microsoft account? The sign-in that you last used on your default browser was for a different account than the one that has access to [add Application Insights to the project](../azure-monitor/app/asp-net.md). 
@@ -135,7 +133,6 @@ Fix:
   * In Visual Studio Solution Explorer, right-click the project and choose Application Insights, Configure. Reset the app to send telemetry to the right resource.
   * If you can't find the matching keys, check that you are using the same sign-in credentials in Visual Studio as in to the portal.
     
-    ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * In the [Microsoft Azure home dashboard](https://portal.azure.com), look at the Service Health map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
 * Check also [our status blog](https://blogs.msdn.microsoft.com/servicemap-status/).
 * Did you write any code for the [server-side SDK](../azure-monitor/app/api-custom-events-metrics.md) that might change the instrumentation key in `TelemetryClient` instances or in `TelemetryContext`? Or did you write a [filter or sampling configuration](../azure-monitor/app/api-filtering-sampling.md) that might be filtering out too much?
