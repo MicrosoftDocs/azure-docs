@@ -95,7 +95,7 @@ The following example shows how to send a speech recognition request to Speech R
 > [!NOTE]
 > Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_SUBSCRIPTION_KEY` with your own subscription key.
 
-# [PowerShell](#tab/Powershell)
+# [PowerShell](#tab/azure-powershell)
 
 ```Powershell
 
