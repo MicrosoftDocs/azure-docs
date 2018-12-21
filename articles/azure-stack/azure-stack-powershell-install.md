@@ -110,7 +110,6 @@ Run the following PowerShell script to install these modules on your development
     # Remove incompatible storage module installed by AzureRM.Storage
     Uninstall-Module Azure.Storage -RequiredVersion 4.6.1 -Force
 
-
     # Load the modules explicitly specifying the versions
     Import-Module -Name Azure.Storage -RequiredVersion 4.5.0
     Import-Module -Name AzureRM.Storage -RequiredVersion 5.0.4
