@@ -52,13 +52,15 @@ Previously, the **objectIdType** attribute was introduced.
 
 ## Role assignment operations
 
-Azure Digital Twins supports full *CREATE*, *READ*, *UPDATE*, and *DELETE* operations for roles and role assignments.
+Azure Digital Twins supports full *CREATE*, *READ*, and *DELETE* operations for role assignments. *UPDATE* operations are handled by adding role assignments, removing role assignments, or modifying the [Spatial Intelligence Graph](./concepts-objectmodel-spatialgraph.md) nodes that role assignments give access to.
 
-[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+![Role assignment endpoints][1]
 
-The supplies Swagger reference documentation contains further information about all available API endpoints, request operations, and definitions.
+The supplied Swagger reference documentation contains further information about all available API endpoints, request operations, and definitions.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 <div id="grant"></div>
 
@@ -100,6 +102,8 @@ With the following JSON body:
 <div id="all"></div>
 
 ### Retrieve all role assignments
+
+![System roles][2]
 
 To list all available role assignments, make an authenticated HTTP GET request to:
 
@@ -153,7 +157,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 | **Parameter value** | **Required** |	**Type** |	**Description** |
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  True | String |	The objectId for the UserId objectIdType. |
-| YOUR_PATH | Path | String |	The chosen path to check access for. |
+| YOUR_PATH | True | String |	The chosen path to check access for. |
 | YOUR_ACCESS_TYPE |  True | String |	The access type to check for. |
 | YOUR_RESOURCE_TYPE | True | String |	The resource to check. |
 
@@ -167,9 +171,9 @@ To get all role assignments for a path, make an authenticated HTTP GET request t
 YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
-| **Name** | **In** | **Required** |	**Type** |	**Description** |
-| --- | --- | --- | --- | --- |
-| YOUR_PATH | Path | True | String |	The full path to the space. |
+| Value | Replace with |
+| --- | --- |
+| YOUR_PATH | The full path to the space |
 
 A successful request will return a JSON array with each role assignment associated with the selected **path** parameter:
 
@@ -193,9 +197,9 @@ To revoke a permissions from a recipient, delete the role assignment by making a
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 ```
 
-| **Name** | **In** | **Required** | **Type** | **Description** |
-| --- | --- | --- | --- | --- |
-| YOUR_ROLE_ASSIGNMENT_ID | Path | True | String | The **id** of the role assignment to remove. |
+| Parameter | Replace with |
+| --- | --- |
+| *YOUR_ROLE_ASSIGNMENT_ID* | The **id** of the role assignment to remove |
 
 A successful DELETE request will return a 204 response status. Verify the removal of the role assignment by [checking](#check) whether the role assignment still holds.
 
@@ -265,3 +269,7 @@ The following examples demonstrate how to configure your JSON body in several co
 To review Azure Digital Twins role-based-access-control, read [Role-base-access-control](./security-authenticating-apis.md).
 
 To learn about Azure Digital Twins API authentication, read [API authentication](./security-authenticating-apis.md).
+
+<!-- Images -->
+[1]: media/security-roles/roleassignments.png
+[2]: media/security-roles/system.png
