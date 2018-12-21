@@ -336,10 +336,6 @@ Once an orchestration function is given more work to do (for example, a response
 
 The replay behavior creates constraints on the type of code that can be written in an orchestrator function. For example, orchestrator code must be deterministic, as it will be replayed multiple times and must produce the same result each time. The complete list of constraints can be found in the [Orchestrator code constraints](durable-functions-checkpointing-and-replay.md#orchestrator-code-constraints) section of the **Checkpointing and restart** article.
 
-## Language support
-
-Currently C# (Functions v1 and v2), F# and JavaScript (Functions v2 only) are the only supported languages for Durable Functions. This includes orchestrator functions and activity functions. In the future, we will add support for all languages that Azure Functions supports. See the Azure Functions [GitHub repository issues list](https://github.com/Azure/azure-functions-durable-extension/issues) to see the latest status of our additional language support work.
-
 ## Monitoring and diagnostics
 
 The Durable Functions extension automatically emits structured tracking data to [Application Insights](../functions-monitoring.md) when the function app is configured with an Application Insights instrumentation key. This tracking data can be used to monitor the behavior and progress of your orchestrations.
