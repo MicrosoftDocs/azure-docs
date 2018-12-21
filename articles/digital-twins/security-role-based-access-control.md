@@ -1,16 +1,16 @@
 ---
-title: Understand Azure Digital Twins role-based access control | Microsoft Docs
+title: 'Understand Azure Digital Twins role-based access control | Microsoft Docs'
 description: Learn authentication in Digital Twins with role-based access control.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 12/20/2018
 ms.author: lyrana
 ---
 
-# Role-based access control
+# Role-based access control in Azure Digital Twins
 
 Azure Digital Twins enables precise access control to specific data, resources, and actions in your spatial graph. It does so through granular role and permission management called role-based access control (RBAC). RBAC consists of _roles_ and _role assignments_. Roles identify the level of permissions. Role assignments associate a role with a user or device.
 
@@ -19,10 +19,10 @@ Using RBAC, permission can be granted to:
 - A user.
 - A device.
 - A service principal.
-- A user-defined function. 
-- All users who belong to a domain. 
+- A user-defined function.
+- All users who belong to a domain.
 - A tenant.
- 
+
 The degree of access also can be fine-tuned.
 
 RBAC is unique in that permissions are inherited down the spatial graph.
@@ -31,10 +31,10 @@ RBAC is unique in that permissions are inherited down the spatial graph.
 
 A developer might use RBAC to:
 
-* Grant a user the ability to manage devices for an entire building, or only for a specific room or floor.
-* Grant an administrator global access to all spatial graph nodes for an entire graph, or only for a section of the graph.
-* Grant a support specialist read access to the graph, except for access keys.
-* Grant every member of a domain read access to all graph objects.
+- Grant a user the ability to manage devices for an entire building, or only for a specific room or floor.
+- Grant an administrator global access to all spatial graph nodes for an entire graph, or only for a section of the graph.
+- Grant a support specialist read access to the graph, except for access keys.
+- Grant every member of a domain read access to all graph objects.
 
 ## RBAC best practices
 
@@ -48,15 +48,15 @@ A role definition is a collection of permissions and is sometimes called a role.
 
 The following roles are available in Azure Digital Twins:
 
-* **Space Administrator**: Create, read, update, and delete permission for the specified space and all nodes underneath. Global permission.
-* **User Administrator**: Create, read, update, and delete permission for users and user-related objects. Read permission for spaces.
-* **Device Administrator**: Create, read, update, and delete permission for devices and device-related objects. Read permission for spaces.
-* **Key Administrator**: Create, read, update, and delete permission for access keys. Read permission for spaces.
-* **Token Administrator**: Read and update permission for access keys. Read permission for spaces.
-* **User**: Read permission for spaces, sensors, and users, which includes their corresponding related objects.
-* **Support Specialist**: Read permission for everything except access keys.
-* **Device Installer**: Read and update permission for devices and sensors, which includes their corresponding related objects. Read permission for spaces.
-* **Gateway Device**: Create permission for sensors. Read permission for devices and sensors, which includes their corresponding related objects.
+- **Space Administrator**: Create, read, update, and delete permission for the specified space and all nodes underneath. Global permission.
+- **User Administrator**: Create, read, update, and delete permission for users and user-related objects. Read permission for spaces.
+- **Device Administrator**: Create, read, update, and delete permission for devices and device-related objects. Read permission for spaces.
+- **Key Administrator**: Create, read, update, and delete permission for access keys. Read permission for spaces.
+- **Token Administrator**: Read and update permission for access keys. Read permission for spaces.
+- **User**: Read permission for spaces, sensors, and users, which includes their corresponding related objects.
+- **Support Specialist**: Read permission for everything except access keys.
+- **Device Installer**: Read and update permission for devices and sensors, which includes their corresponding related objects. Read permission for spaces.
+- **Gateway Device**: Create permission for sensors. Read permission for devices and sensors, which includes their corresponding related objects.
 
 >[!NOTE]
 > To retrieve the full definitions for the previous roles, query the system/roles API.
@@ -74,66 +74,16 @@ The `ObjectIdType` refers to the type of identity that's given a role. Apart fro
 
 The following reference documentation articles describe:
 
-- How to [Query or the object ID for a user](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0)
-- How to [Obtain the object ID for a service principal](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1)
-- How to [Retrieve the object ID for an Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
+- How to [Query or the object ID for a user](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
+- How to [Obtain the object ID for a service principal](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1).
+- How to [Retrieve the object ID for an Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 
 ## Role assignments
 
-An Azure Digital Twins role assignment associates an object, such as a user or an Azure AD tenant, with a role and a space. Permissions are granted to all objects that belong to that space. The space includes the entire spatial graph beneath it.
+To grant permissions to a recipient, create a role assignment. To revoke permissions, remove the role assignment. An Azure Digital Twins role assignment associates an object, such as a user or an Azure AD tenant, with a role and a space. Permissions are granted to all objects that belong to that space. The space includes the entire spatial graph beneath it.
 
 For example, a user is given a role assignment with the role `DeviceInstaller` for the root node of a spatial graph, which represents a building. The user can then read and update devices for that node and all other child spaces in the building.
 
-### Granting permissions
-
-To grant permissions to a recipient, create a role assignment. Then, assign that role to a user.
-
-```csharp
-Login-AzureRmAccount
-Connect-AzureAD
-Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
-```
-
-A user with the **Admin** role can then assign the ServicePrincipal role to a user by making an authenticated HTTP POST request to the URL:
-
-```plaintext
-```
-
-```JSON
-{
-  "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
-  "objectId": "be2c6dfe-c3e5-4c7a-b2da-c941715fbc5f",
-  "objectIdType": "ServicePrincipalId",
-  "Path": "/",
-  "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-}
-```
-
-### Revoking permissions
-
-To revoke permissions to a recipient, delete the role assignment.
-
-```csharp
-Login-AzureRmAccount
-Connect-AzureAD
-Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
-```
-
-A user with the **Admin** role can then remove a role assignment by making an authenticated HTTP POST request to the URL:
-
-```plaintext
-```
-
-```JSON
-{
-  "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
-  "objectId": "be2c6dfe-c3e5-4c7a-b2da-c941715fbc5f",
-  "objectIdType": "ServicePrincipalId",
-  "Path": "/",
-  "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-}
-```
-
 ## Next steps
 
-To learn about Azure Digital Twins security, read [Create and manage role assignments](./security-create-manage-role-assignments.md).
+To learn more about managing Azure Digital Twins role assignments, read [Create and manage role assignments](./security-create-manage-role-assignments.md).

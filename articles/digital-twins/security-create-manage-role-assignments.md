@@ -1,16 +1,16 @@
 ---
-title: Understand Azure Digital Twins device connectivity and authentication | Microsoft Docs
-description: Use Azure Digital Twins to connect and authenticate devices
+title: 'Create and manage role assignments in Azure Digital Twins | Microsoft Docs'
+description: Create and manage role assignments in Azure Digital Twins.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/20/2018
 ms.author: lyrana
 ---
 
-# Create and manage role assignments
+# Create and manage role assignments in Azure Digital Twins
 
 Azure Digital Twins uses role-based access control ([RBAC](./security-role-based-access-control.md)) to manage access to resources.
 
@@ -124,4 +124,62 @@ HTTP DELETE YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
 
 ## Next steps
 
-To learn about Azure Digital Twins security, read [API authentication](./security-authenticating-apis.md).
+To review Azure Digital Twins role-based-access-control, read [API authentication](./security-authenticating-apis.md).
+
+To learn about Azure Digital Twins API authentication, read [API authentication](./security-authenticating-apis.md).
+
+
+
+### Granting permissions
+
+Granting permissions to a user entails:
+
+1. Logging in to your Azure instance through PowerShell.
+1. Acquiring your ServicePrincipal information.
+1. Creating a role assignment.
+1. Assigning the role to a user.
+
+```csharp
+Login-AzureRmAccount
+Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
+```
+
+A user with the **Admin** role can then assign the ServicePrincipal role to a user by making an authenticated HTTP POST request to the URL:
+
+```plaintext
+```
+
+```JSON
+{
+  "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+  "objectId": "be2c6dfe-c3e5-4c7a-b2da-c941715fbc5f",
+  "objectIdType": "ServicePrincipalId",
+  "Path": "/",
+  "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
+```
+
+### Revoking permissions
+
+To revoke permissions to a recipient, delete the role assignment.
+
+```csharp
+Login-AzureRmAccount
+Connect-AzureAD
+Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
+```
+
+A user with the **Admin** role can then remove a role assignment by making an authenticated HTTP POST request to the URL:
+
+```plaintext
+```
+
+```JSON
+{
+  "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+  "objectId": "be2c6dfe-c3e5-4c7a-b2da-c941715fbc5f",
+  "objectIdType": "ServicePrincipalId",
+  "Path": "/",
+  "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
+```
