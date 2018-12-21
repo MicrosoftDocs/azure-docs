@@ -92,3 +92,5 @@ You now have an overview of Azure Stream Analytics. Next, you can dive deep and 
 
 * [Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md).
 * [Create a Stream Analytics job by using Azure PowerShell](stream-analytics-quick-create-powershell.md).
+* [Create a Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md).
+
