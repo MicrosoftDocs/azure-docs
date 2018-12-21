@@ -142,13 +142,13 @@ The **Backup jobs** blade opens and displays the list of jobs.
 
 ![List of VMs in a vault](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
 
-**Progress bar** is now available in **Restore Details** blade. The **Restore Details** blade can be opened by clicking any restore job which has status ***in-progress***. The **Progress bar** is available in all variants of restores like ***Create New***, ***Restore Disk*** and ***Replace existing***. The details carried by Restore Progress bar are ***estimated time of restore***, ***percentage of restore*** and ***number of bytes transferred***.
+**Progress bar** is now available in the **Restore Details** blade. The **Restore Details** blade can be opened by clicking any restore job which has status **in-progress**. The **Progress bar** is available in all variants of restores like **Create New**, **Restore Disk** and **Replace existing**. The details carried by Restore Progress bar are **estimated time of restore**, **percentage of restore** and **number of bytes transferred**.
 
 Restore Progress bar details are given below:
 
-1. **Estimated time of restore** initially provides the time taken to complete the restore operation. As the operation progresses, the time taken reduces and reaches 0 once the restore operation completes.
-2. **Percentage of restore** provides the data how much percentage of restore operation is completed.
-3. **Number of bytes transferred** is available in the sub task when restore happens through Create New VM. This provides the details of how many numbers of bytes were transferred against the total number of bytes to be transferred.
+- **Estimated time of restore** initially provides the time taken to complete the restore operation. As the operation progresses, the time taken reduces and reaches 0 once the restore operation completes.
+- **Percentage of restore** provides the data how much percentage of restore operation is completed.
+- **Number of bytes transferred** is available in the sub task when restore happens through Create New VM. This provides the details of how many numbers of bytes were transferred against the total number of bytes to be transferred.
 
 
 ## Use templates to customize a restored VM

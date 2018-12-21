@@ -62,7 +62,7 @@ The following table explains different types of consistency.
 
 **Snapshot** | **VSS-based** | **Details** | **Recovery**
 --- | --- | --- | ---
-**Application-consistent** | Yes (Windows only) | App-consistent backups capture memory content and pending I/O operations. App-consistent snapshots use VSS writer (or pre/post script for Linux) to that ensure the consistency of app data before a backup occurs. | When recovering with an app-consistent snapshot, the VM boots up. There's no data corruption or loss. The apps start in a consistent state.
+**Application-consistent** | Yes (Windows only) | App-consistent backups capture memory content and pending I/O operations. App-consistent snapshots use VSS writer (or pre/post script for Linux) that ensure the consistency of app data before a backup occurs. | When recovering with an app-consistent snapshot, the VM boots up. There's no data corruption or loss. The apps start in a consistent state.
 **File system consistent** | Yes (Windows only) |  File consistent backups provide consistent backups of disk files by taking a snapshot of all files at the same time.<br/><br/> Azure Backup recovery points are file consistent for:<br/><br/> -Linux VMs backups that don't have pre/post scripts, or that have script that failed.<br/><br/> - Windows VM backups where VSS failed. | When recovering with a file-consistent snapshot, the VM boots up. There's no data corruption or loss. Apps needs to implement their own "fix-up" mechanism to make sure that restored data is consistent.
 **Crash-consistent** | No | Crash consistency often happens when an Azure VM shuts down at the time of backup.  Only the data that already exists on the disk at the time of backup is captured and backed up.<br/><br/> A crash-consistent recovery point doesn't guarantee data consistency for the operating system or the app. | There are no guarantees, but usually the VM boots, and follows with a disk check to fix corruption errors. Any in-memory data or write that weren't transferred to disk are lost. Apps implement their own data verification. For example, for a database app, if a transaction log has entries that aren't in the database, the database software rolls until data is consistent.
 
@@ -107,7 +107,7 @@ While most backup time is spent reading and copying data, other operations add t
 
 - **Install backup extension**: Time needed to install or update the backup extension.
 - **Trigger snapshot**: Time taken to trigger a snapshot. Snapshots are triggered close to the scheduled backup time.
-- **Queue wait time**: Since the Backup service processes jobs from multiple customer storage account at the same time, snapshot data may not immediately be copied to the Recovery Services vault. At peak load times, it can take up to eight hours before the backups are processed. However, the total VM backup time is less than 24 hours for daily backup policies.
+- **Queue wait time**: Since the Backup service processes jobs from multiple customer storage accounts at the same time, snapshot data may not immediately be copied to the Recovery Services vault. At peak load times, it can take up to eight hours before the backups are processed. However, the total VM backup time is less than 24 hours for daily backup policies.
 - **Initial backup**: Although the total backup time of less than 24 hours is valid for incremental backups, it might not be for the first backup. Time needed will depend on size of the data and when the backup is taken.
 - **Data transfer time**: Time needed for backup service to compute the incremental changes from previous backup and transfer those changes to vault storage.
 
@@ -138,7 +138,7 @@ Situations that can affect backup time include the following:
 
 A restore operation consists of two main tasks: copying data back from the vault to the chosen storage account, and creating the virtual machine. The time needed to copy data from the vault depends on where the backups are stored in Azure, and the storage account location. Time taken to copy data depends upon:
 
-- **Queue wait time**: Since the service processes restore jobs from multiple storage account at the same time, restore requests are put in a queue.
+- **Queue wait time**: Since the service processes restore jobs from multiple storage accounts at the same time, restore requests are put in a queue.
 - **Data copy time**: Data is copied from the vault to the storage account. Restore time depends on IOPS and throughput of the selected storage account which the Azure Backup service uses. To reduce the copying time during the restore process, select a storage account not loaded with other application writes and reads.
 
 ## Best practices
@@ -154,7 +154,7 @@ We suggest following these practices while configuring VM backups:
     - Don't restore a VM running on premium storage to the same storage account. If the restore operation process coincides with the backup operation, it reduces the available IOPS for backup.
     - For Premium VM backup on VM backup stack V1, you should allocate only 50% of the total storage account space so the Backup service can copy the snapshot to storage account, and transfer data from the storage account to the vault.
 - It is recommended to use different storage accounts instead of using the same storage accounts in order to restore VMs from a single vault. This will avoid throttling and result in 100% restore success with good performance.
-- Note that the restores from tier 1 storage layer will be completed in minutes against the tier 2 storage restores which takes few hours. We recommend you to use [Instant RP feature](backup-upgrade-to-vm-backup-stack-v2.md) for faster restores. This is only applicable managed Azure VMs.
+- The restores from tier 1 storage layer will be completed in minutes against the tier 2 storage restores which takes few hours. We recommend you to use [Instant RP feature](backup-upgrade-to-vm-backup-stack-v2.md) for faster restores. This is only applicable managed Azure VMs.
 
 
 ## Backup costs
