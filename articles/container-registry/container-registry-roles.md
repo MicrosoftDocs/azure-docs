@@ -14,13 +14,11 @@ ms.author: danlep
 
 The Azure Container Registry service supports a set of Azure roles that provide different levels of permissions to an Azure container registry. Use Azure [role-based access control](../role-based-access-control/index.yml) (RBAC) to assign specific permissions to users or service principals that need to interact with a registry.
 
-The following table lists the container registry roles that you can [assign](../role-based-access-control/role-assignments-portal.md) to an Azure identity, and the corresponding permissions of each role.
-
 | Role/Permission       | [Access Resource Manager](#access-resource-manage)| [Create/delete registry](#create/delete-registry) | [Push image](#push-image) | [Pull image](#pull-image) | [Change policies](#change-polices) |   [Sign images](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- |
 | Owner | X | X | X | X | X |  |  
 | Contributor | X | X | X | X | X |  |  
-| Reader | X |  |  | X |  |  |  |   |
+| Reader | X |  |  | X |  |  | 
 | AcrPush |  |  | X | X |  |  |  
 | AcrPull |  |  |  | X |  |  |  
 | AcrImageSigner |  |  |  |  |  | X |
@@ -51,11 +49,11 @@ The ability to create and delete Azure container registries.
 
 ## Push image
 
-The ability to `docker push` an image to a registry. Requires [authentication](container-registry-authentication.md) with the registry using the authorized identity. 
+The ability to `docker push` an image, or push another supported artifact, to a registry. Requires [authentication](container-registry-authentication.md) with the registry using the authorized identity. 
 
 ## Pull image
 
-The ability to `docker pull` an image, that has not been quarantined, from a registry. Requires [authentication](container-registry-authentication.md) with the registry using the authorized identity.
+The ability to `docker pull` a non-quarantined image, or pull another supported artifact, from a registry. Requires [authentication](container-registry-authentication.md) with the registry using the authorized identity.
 
 ## Change policies
 
@@ -66,5 +64,7 @@ The ability to configure policies on a registry. Policies include image purging,
 The ability to sign images, usually assigned to an automated process, which would use a service principal. This permission is typically combined with [push image](#push-image) to allow pushing a trusted image to a registry. For details, see [Content trust in Azure Container Registry](container-registry-content-trust.md).
 
 ## Next steps
+
+* Learn more about assigning RBAC roles to an Azure identity by using the [Azure portal](../role-based-access-control/role-assignments-portal.md), the [Azure CLI](../role-based-access-control/role-assignments-cli.md), or other Azure tools.
 
 * Learn about [authentication options](container-registry-authentication.md) for Azure Container Registry.
