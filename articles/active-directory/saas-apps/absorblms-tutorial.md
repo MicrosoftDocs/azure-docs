@@ -100,7 +100,7 @@ To configure Azure AD single sign-on with Absorb LMS, perform the following step
 
     ![Absorb LMS Domain and URLs single sign-on information](common/idp-intiated.png)
 
-	If you are using **For Absorb 5 - UI**
+	If you are using **Absorb 5 - UI** use the following configuration:
 
 	a. In the **Identifier** text box, type a URL using the following pattern:
     `https://company.myabsorb.com/account/saml`
@@ -108,7 +108,7 @@ To configure Azure AD single sign-on with Absorb LMS, perform the following step
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://company.myabsorb.com/account/saml`
 
-	If you are using **Absorb 5 - New Learner Experience**
+	If you are using **Absorb 5 - New Learner Experience** use the following configuration:
 
 	a. In the **Identifier** text box, type a URL using the following pattern:
     `https://company.myabsorb.com/api/rest/v2/authentication/saml`
