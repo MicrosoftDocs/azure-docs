@@ -36,22 +36,21 @@ Queue              Max   Tot Ena Str   Que   Run   Hld   Wat   Trn   Ext Type
 ---------------- ----- ----- --- --- ----- ----- ----- ----- ----- ----- ----
 workq                0     0 yes yes     0     0     0     0     0     0 Exec
 [name@ip-00000000 ~]$ pbsnodes -Sa
-vnode           state           OS       hardware host            queue        mem     ncpus   nmics   ngpus  comment
---------------- --------------- -------- -------- --------------- ---------- -------- ------- ------- ------- ---------
+pbsnodes: Server has no node list
 ```
 
-Change to the "demo" directory and submit the LAMMPS job using the existing `runpi.sh` script:
+You can submit a demo LAMMPS job by running `qsub run_lammps.sh` which submits a single job that runs a dipole example. 
 
-```CMD
-cd demo
-./runpi.sh
+``` output
+[name@ip-00000000 ~]$ qsub run_lammps.sh
+1.ip-00000000
 ```
-
-The `runpi.sh` script prepares a sample job that contains 1000 individual tasks, and submits that job using the `qsub` command. You can view the contents of the script by running the `cat` command.
 
 Verify that the job is now in the queue with `qstat -Q` and that execute nodes are provisioned with `pbsnodes -Sa`:
 
 ``` output
+[name@ip-00000000 ~]$ qsub run_lammps.sh
+1.ip-00000000
 [name@ip-00000000 ~]$ qstat -Q
 Queue              Max   Tot Ena Str   Que   Run   Hld   Wat   Trn   Ext Type
 ---------------- ----- ----- --- --- ----- ----- ----- ----- ----- ----- ----
