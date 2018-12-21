@@ -24,7 +24,7 @@ This guide provides key concepts and instructions for Java developers using in A
 
 ## Logging and debugging apps
 
-Performance reports, traffic visualizations, and health checkups are available for eeach app through the Azure portal. See the [Azure App Service diagnostics overview](/azure/app-service/app-service-diagnostics) for more information on how to access and use these diagnostic tools.
+Performance reports, traffic visualizations, and health checkups are available for eeach app through the Azure portal. See the [Azure App Service diagnostics overview](/azure/app-service/overview-diagnostics) for more information on how to access and use these diagnostic tools.
 
 ## Application performance monitoring
 
@@ -50,11 +50,11 @@ Then stream logs to your console using `az webapp log tail`:
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
 
-For more information, see [Streaming logs with the Azure CLI](../web-sites-enable-diagnostic-log.md#streaming-with-azure-cli).
+For more information, see [Streaming logs with the Azure CLI](../troubleshoot-diagnostic-logs.md#streaming-with-azure-cli).
 
 ### App logging
 
-Enable [application logging](/azure/app-service/web-sites-enable-diagnostic-log#enablediag) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, configure the application to write output to a Blob storage container.
+Enable [application logging](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, configure the application to write output to a Blob storage container.
 
 If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](/azure/application-insights/app-insights-java-trace-logs). 
 
@@ -256,7 +256,7 @@ Next, determine if the data source should be available to one application or to 
 
     3. Connect to the local tunneling port with your SFTP client and upload the files to the `/home/tomcat/lib` folder.
 
-    Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+    Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 2. If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat/conf` and use the updated configuration.
 

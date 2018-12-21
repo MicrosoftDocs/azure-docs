@@ -49,7 +49,7 @@ The lib folder has .jar files that contain the implementation for the export/imp
 
 Run the [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) script from the ZooKeeper nodes to export and then import data. Update the script to the correct Hortonworks Data Platform (HDP) version. (We are working on making these scripts generic in HDInsight. Generic scripts can run from any node on the cluster without modifications by the user.)
 
-The export command writes the metadata to an Apache Hadoop Distributed File System (HDFS) path (in an Azure Blob Storage or Azure Data Lake Store store) at a location that you set.
+The export command writes the metadata to an Apache Hadoop Distributed File System (HDFS) path (in Azure Blob Storage or Azure Data Lake Storage) at a location that you set.
 
 ### Examples
 
@@ -83,7 +83,7 @@ Storm binaries for the current HDP stack are in /usr/hdp/current/storm-client. T
 There might be multiple binaries for specific HDP versions in /usr/hdp (for example, /usr/hdp/2.5.0.1233/storm). The /usr/hdp/current/storm-client folder is symlinked to the latest version that is running on the cluster.
 
 For more information, see [Connect to an HDInsight cluster by using SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) and 
-[Storm](http://storm.apache.org/).
+[Apache Storm](https://storm.apache.org/).
  
 ## How do I determine the deployment topology of a Storm cluster?
 First, identify all components that are installed with HDInsight Storm. A Storm cluster consists of four node categories:

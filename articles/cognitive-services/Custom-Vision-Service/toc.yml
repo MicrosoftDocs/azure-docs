@@ -1,4 +1,5 @@
 - name: Custom Vision Service Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Custom Vision?

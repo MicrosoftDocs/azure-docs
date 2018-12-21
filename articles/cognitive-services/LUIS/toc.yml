@@ -78,7 +78,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://github.com/Microsoft/LUIS-Samples
+    href: https://github.com/Azure-Samples/cognitive-services-language-understanding
 - name: Concepts
   items:
   - name: Best practices

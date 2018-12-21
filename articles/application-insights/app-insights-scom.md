@@ -86,13 +86,13 @@ You can verify which instances of the app it has found:
 ![In Monitoring, open Application Insights](./media/app-insights-scom/100.png)
 
 ## View telemetry in Application Insights
-In the [Azure portal](https://portal.azure.com), browse to the resource for your app. You [see charts showing telemetry](app-insights-dashboards.md) from your app. (If it hasn't shown up on the main page yet, click Live Metrics Stream.)
+In the [Azure portal](https://portal.azure.com), browse to the resource for your app. You [see charts showing telemetry](../azure-monitor/app/app-insights-dashboards.md) from your app. (If it hasn't shown up on the main page yet, click Live Metrics Stream.)
 
 ## Next steps
-* [Set up a dashboard](app-insights-dashboards.md) to bring together the most important charts monitoring this and other apps.
+* [Set up a dashboard](../azure-monitor/app/app-insights-dashboards.md) to bring together the most important charts monitoring this and other apps.
 * [Learn about metrics](app-insights-metrics-explorer.md)
-* [Set up alerts](app-insights-alerts.md)
+* [Set up alerts](../azure-monitor/app/alerts.md)
 * [Diagnosing performance issues](app-insights-detect-triage-diagnose.md)
-* [Powerful Analytics queries](app-insights-analytics.md)
+* [Powerful Analytics queries](../azure-monitor/app/analytics.md)
 * [Availability web tests](app-insights-monitor-web-app-availability.md)
 
