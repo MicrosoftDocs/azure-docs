@@ -38,6 +38,8 @@
       href: assets-concept.md        
     - name: Content key policies
       href: content-key-policy-concept.md 
+    - name: LiveEvents or LiveOutput
+      href: live-events-outputs-concept.md    
     - name: Streaming endpoints
       href: streaming-endpoint-concept.md
     - name: Streaming locators
@@ -46,8 +48,6 @@
       href: streaming-policy-concept.md
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md   
-    - name: LiveEvents or LiveOutput
-      href: live-events-outputs-concept.md
   - name: Encoding content
     href: encoding-concept.md
     items:
