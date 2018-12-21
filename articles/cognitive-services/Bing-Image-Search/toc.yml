@@ -72,7 +72,7 @@
   - name: Azure CLI reference
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: SDKs
-      items:
+    items:
       - name: .NET
         href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-dotnet
       - name: Java

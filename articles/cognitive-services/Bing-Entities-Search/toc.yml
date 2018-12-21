@@ -52,7 +52,7 @@
   - name: Bing Entity Search API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference
   - name: SDKs
-      items:
+    items:
       - name: .NET
         href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-dotnet
       - name: Java

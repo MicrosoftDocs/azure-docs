@@ -64,7 +64,7 @@
   - name: REST v7 API
     href: https://aka.ms/bingvisualsearchreferencedoc
   - name: SDKs
-      items:
+    items:
       - name: .NET
         href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet
       - name: Java
