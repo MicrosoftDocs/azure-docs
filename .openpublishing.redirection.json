@@ -8182,37 +8182,37 @@
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1802.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1803.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1804.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1805.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },        
         {
             "source_path": "articles/azure-stack/azure-stack-update-1710.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1711.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1712.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
@@ -32844,6 +32844,31 @@
         {
             "source_path":  "articles/application-insights/app-insights-api-custom-events-metrics.md",
             "redirect_url":  "/azure/azure-monitor/app/api-custom-events-metrics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-analytics-troubleshooting.md",
+            "redirect_url":  "/azure/azure-monitor/app/analytics-troubleshooting",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-annotations.md",
+            "redirect_url":  "/azure/azure-monitor/app/annotations",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-api-filtering-sampling.md",
+            "redirect_url":  "/azure/azure-monitor/app/api-filtering-sampling",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-dashboards.md",
+            "redirect_url":  "/azure/azure-monitor/app/app-insights-dashboards",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-app-map.md",
+            "redirect_url":  "/azure/azure-monitor/app/app-map",
             "redirect_document_id":  true
         },
         {
