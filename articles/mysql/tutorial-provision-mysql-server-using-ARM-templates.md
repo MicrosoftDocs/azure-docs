@@ -27,7 +27,7 @@ In this tutorial, you use Azure ARM Templates and other utilities to learn how t
 
 ## Create an Azure Database for MySQL server with VNet Service Endpoint using ARM Template
 
-The JSON template reference for an Azure Database for MySQL server can be found [here](https://docs.microsoft.com/en-us/azure/templates/microsoft.dbformysql/servers). Below is the sample JSON template that can be used to create a new server running Azure Database for MySQL with VNet integration:
+The JSON template reference for an Azure Database for MySQL server can be found [here](https://docs.microsoft.com/en-us/azure/templates/microsoft.dbformysql/servers). Below is the sample JSON template that can be used to create a new server running Azure Database for MySQL with VNet Service Endpoint:
 
 ```json
 {
@@ -89,12 +89,13 @@ In this request, the values that need to be customized are:
 If you are looking to build an ARM template to automate Azure Database for MySQL deployments for your organization, the recommendation would be to start from the sample [ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) in Azure Quickstart GitHub Gallery first and build on top of it. 
 
 If you are new to ARM templates and would like to try it, you can start by following these steps:
-+	Clone or download the Sample [ARM Template]((https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) from Azure Quickstart gallery.  
++	Clone or download the Sample [ARM Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) from Azure Quickstart gallery.  
 +	Modify the azuredeploy.parameters.json to update the parameter values based on your preference and save the file. 
-+	Use Azure cli to create the Azure MySQL server using the following commands
++	Use Azure CLI to create the Azure MySQL server using the following commands
 
 You may use the Azure Cloud Shell in the browser, or Install Azure CLI on your own computer to run the code blocks in this tutorial.
-[!INCLUDE cloud-shell-try-it]
+
+[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 ```azurecli-interactive
 az login
