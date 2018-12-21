@@ -54,7 +54,7 @@ Mongoose is an object data modeling (ODM) library for MongoDB and Node.js. You c
     * Requires Mongoose.
     * Overrides the Mongo promise to use the basic promise that's built into ES6/ES2015 and later versions.
     * Calls on an env file that lets you set up certain things based on whether you're in staging, production, or development. You'll create that file in the next section.
-    * Include the MongoDB connection string, which is set in the env file.
+    * Includes the MongoDB connection string, which is set in the env file.
     * Creates a connect function that calls Mongoose.
 
     ```javascript
@@ -133,7 +133,7 @@ Next, you need to define the schema of the data to store in Azure Cosmos DB by d
    * Creates a new schema with an ID, name, and saying.
    * Creates a model by using the schema.
    * Exports the model. 
-   * Name the collection **Heroes** (instead of **Heros**, which is the default name of the collection based on Mongoose plural naming rules).
+   * Names the collection **Heroes** (instead of **Heros**, which is the default name of the collection based on Mongoose plural naming rules).
 
    ```javascript
    const mongoose = require('mongoose');
@@ -168,8 +168,8 @@ After you create the hero model, you need to define a service to read the data, 
    * Connects to the database.
    * Creates a `docquery` variable that uses the `hero.find` method to define a query that returns all heroes.
    * Runs a query with the `docquery.exec` function with a promise to get a list of all heroes, where the response status is 200. 
-   * If the status is 500, send back the error message.
-   * Because we're using modules, it gets the heroes. 
+   * Sends back the error message if the status is 500.
+   * Gets the heroes because we're using modules. 
 
    ```javascript
    const Hero = require('./hero.model');
@@ -196,7 +196,7 @@ After you create the hero model, you need to define a service to read the data, 
 
 ## Configure routes
 
-Next, you need to set up routes to handle the URLs for get, create, read, and delete requests. The routing methods specify a callback function (also called _handler functions_). These functions are called when the application receives a request to the specified endpoint and HTTP method. Use the following steps to add the Hero service and to define your routes:
+Next, you need to set up routes to handle the URLs for get, create, read, and delete requests. The routing methods specify callback functions (also called _handler functions_). These functions are called when the application receives a request to the specified endpoint and HTTP method. Use the following steps to add the Hero service and to define your routes:
 
 1. In Visual Studio Code, in the **routes.js** file, comment out the `res.send` function that sends the sample hero data. Add a line to call the `heroService.getHeroes` function instead.
 
@@ -229,7 +229,7 @@ Next, run the app by using the following steps:
 
 1. In Visual Studio Code, save all your changes. On the left, select the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png), and then select the **Start Debugging** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
-1. Now switch to the browser. Open the **Developer tools** and the **Network tab**. Navigate to http://localhost:3000 and there you see our application.
+1. Now switch to the browser. Open the **Developer tools** and the **Network tab**. Go to http://localhost:3000, and there you see our application.
 
     ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 
@@ -239,7 +239,7 @@ There are no heroes stored yet in the app. In the next part of this tutorial, we
 
 When you no longer need the resources, you can delete the resource group, Azure Cosmos DB account, and all the related resources. Use the following steps to delete the resource group:
 
- 1. Navigate to the resource group where you created the Azure Cosmos DB account.
+ 1. Go to the resource group where you created the Azure Cosmos DB account.
  1. Select **Delete resource group**.
  1. Confirm the name of the resource group to delete, and select **Delete**.
 
