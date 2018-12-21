@@ -115,7 +115,7 @@ Application Map automatically discovers your application topology, laying the pe
 ![Application Map](./media/app-insights-devops/050.png)
 
 ## Application Insights Analytics
-With [Analytics](app-insights-analytics.md), you can write arbitrary queries in a powerful SQL-like language.  Diagnosing across the entire app stack becomes easy as various perspectives get connected and you can ask the right questions to correlate Service Performance with Business Metrics and Customer Experience. 
+With [Analytics](../azure-monitor/app/analytics.md), you can write arbitrary queries in a powerful SQL-like language.  Diagnosing across the entire app stack becomes easy as various perspectives get connected and you can ask the right questions to correlate Service Performance with Business Metrics and Customer Experience. 
 
 You can query all your telemetry instance and metric raw data stored in the portal. The language includes filter, join, aggregation, and other operations. You can calculate fields and perform statistical analysis. There are both tabular and graphical visualizations.
 
@@ -168,6 +168,6 @@ When an alert is raised, Application Insights can automatically create a work it
 Getting started with Application Insights is easy. The main options are:
 
 * Instrument an already-running web app. This gives you all the built-in performance telemetry. It's available for [Java](app-insights-java-live.md) and [IIS servers](app-insights-monitor-performance-live-website-now.md), and also for [Azure App Service](app-insights-overview.md).
-* Instrument your project during development. You can do this for [ASP.NET](app-insights-asp-net.md) or [Java](app-insights-java-get-started.md) apps, as well as [Node.js](app-insights-nodejs.md) and a host of [other types](app-insights-platforms.md). 
+* Instrument your project during development. You can do this for [ASP.NET](../azure-monitor/app/asp-net.md) or [Java](app-insights-java-get-started.md) apps, as well as [Node.js](app-insights-nodejs.md) and a host of [other types](app-insights-platforms.md). 
 * Instrument [any web page](app-insights-javascript.md) by adding a short code snippet.
 

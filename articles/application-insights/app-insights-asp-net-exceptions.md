@@ -20,7 +20,7 @@ Exceptions in your live web app are reported by [Application Insights](app-insig
 
 ## Set up exception reporting
 * To have exceptions reported from your server app:
-  * Install [Application Insights SDK](app-insights-asp-net.md) in your app code, or
+  * Install [Application Insights SDK](../azure-monitor/app/asp-net.md) in your app code, or
   * IIS web servers: Run [Application Insights Agent](app-insights-monitor-performance-live-website-now.md); or
   * Azure web apps: Add the [Application Insights Extension](app-insights-azure-web-apps.md)
   * Java web apps: Install the [Java agent](app-insights-java-agent.md)
@@ -77,8 +77,8 @@ To get diagnostic data specific to your app, you can insert code to send your ow
 
 You have several options:
 
-* [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) is typically used for monitoring usage patterns, but the data it sends also appears under Custom Events in diagnostic search. Events are named, and can carry string properties and numeric metrics on which you can [filter your diagnostic searches](app-insights-diagnostic-search.md).
-* [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) lets you send longer data such as POST information.
+* [TrackEvent()](../azure-monitor/app/api-custom-events-metrics.md#trackevent) is typically used for monitoring usage patterns, but the data it sends also appears under Custom Events in diagnostic search. Events are named, and can carry string properties and numeric metrics on which you can [filter your diagnostic searches](app-insights-diagnostic-search.md).
+* [TrackTrace()](../azure-monitor/app/api-custom-events-metrics.md#tracktrace) lets you send longer data such as POST information.
 * [TrackException()](#exceptions) sends stack traces. [More about exceptions](#exceptions).
 * If you already use a logging framework like Log4Net or NLog, you can [capture those logs](app-insights-asp-net-trace-logs.md) and see them in diagnostic search alongside request and exception data.
 
@@ -94,8 +94,8 @@ To see these events, open [Search](app-insights-diagnostic-search.md), open Filt
 ### How to see request POST data
 Request details don't include the data sent to your app in a POST call. To have this data reported:
 
-* [Install the SDK](app-insights-asp-net.md) in your application project.
-* Insert code in your application to call [Microsoft.ApplicationInsights.TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace). Send the POST data in the message parameter. There is a limit to the permitted size, so you should try to send just the essential data.
+* [Install the SDK](../azure-monitor/app/asp-net.md) in your application project.
+* Insert code in your application to call [Microsoft.ApplicationInsights.TrackTrace()](../azure-monitor/app/api-custom-events-metrics.md#tracktrace). Send the POST data in the message parameter. There is a limit to the permitted size, so you should try to send just the essential data.
 * When you investigate a failed request, find the associated traces.
 
 ![Drill through](./media/app-insights-asp-net-exceptions/060-req-related.png)
@@ -484,6 +484,6 @@ This is different from the 'Exceptions' count calculated by the Application Insi
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## Next steps
-* [Monitor REST, SQL, and other calls to dependencies](app-insights-asp-net-dependencies.md)
+* [Monitor REST, SQL, and other calls to dependencies](../azure-monitor/app/asp-net-dependencies.md)
 * [Monitor page load times, browser exceptions, and AJAX calls](app-insights-javascript.md)
 * [Monitor performance counters](app-insights-performance-counters.md)
