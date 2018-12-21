@@ -17,7 +17,7 @@ ms.author: v-jaswel
 This tutorial shows how to add and use a simple card in your bot.
 
 > [!NOTE]
-> Conversation Learner currently expects your card definition files to be located in a directory called "cards" which is present in the directory where the Bot is started. We will make this configurable in the future.
+> Conversation Learner currently expects your card definition files to be located in a directory called "cards" which is present in the directory where the Bot is started.
 
 ## Video
 
