@@ -127,4 +127,4 @@ With what you have learned above you should be able to combine Conversation Lear
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Branching and undo](./17-branching-and-undo.md)
+> [Branching and undo](./17-branch-undo.md)
