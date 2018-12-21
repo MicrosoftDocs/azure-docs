@@ -1,0 +1,203 @@
+---
+title: 'Tutorial: Provision an Azure Database for MySQL server using ARM Templates'
+description: This tutorial explains how to provision and automate Azure Database for MySQL server deployments using ARM Templates.
+author: savjani
+ms.author: pariks
+ms.service: mysql
+ms.devlang: json
+ms.topic: tutorial
+ms.date: 12/21/2018
+ms.custom: mvc
+---
+
+# Tutorial: Provision an Azure Database for MySQL server using ARM Templates
+
+The [Azure Database for MySQL REST API](https://docs.microsoft.com/en-us/rest/api/mysql/) enables DevOps engineers to automate and integrate provisioning, configuration and operations of managed MySQL servers and databases in Azure.  The API allows the creation, enumeration, management and deletion of MySQL servers and databases on the Azure Database for MySQL service.
+
+Azure Resource Manager (ARM) templates leverage the underlying REST API to declare and program the Azure resources required for deployments at scale, aligning with infrastructure as a code concept. The template parameterizes the Azure resource name, SKU, network, firewall configuration, and settings, allowing it to be created one time and used multiple times.  ARM templates can be easily created using [Azure portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) or [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). They enable application packaging, standardization, and deployment automation, which can be integrated in the DevOps CI/CD pipeline.  For instance, if you are looking to quickly deploy a Web App with Azure Database for MySQL backend, you can perform the end-to-end deployment using this [QuickStart template](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) from the GitHub gallery.
+
+In this tutorial, you use Azure ARM Templates and other utilities to learn how to:
+
+> [!div class="checklist"]
+> * Create an Azure Database for MySQL
+> * Configure the VNet Service Endpoints
+> * Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Load sample data
+> * Query data
+> * Update data
+
+## Create an Azure Database for MySQL server
+
+The JSON template reference for an Azure Database for MySQL server can be found [here](https://docs.microsoft.com/en-us/azure/templates/microsoft.dbformysql/servers). Below is the sample JSON template that can be used to create a new server running Azure Database for MySQL with VNet integration:
+
+```json
+{
+  "apiVersion": "2017-12-01",
+  "type": "Microsoft.DBforMySQL/servers",
+  "name": "string",
+  "location": "string",
+  "tags": "string",
+  "properties": {
+    "version": "string",
+    "sslEnforcement": "string",
+    "administratorLogin": "string",
+    "administratorLoginPassword": "string",
+    "storageProfile": {
+      "storageMB": "string",
+      "backupRetentionDays": "string",
+      "geoRedundantBackup": "string"
+    }
+  },
+  "sku": {
+    "name": "string",
+    "tier": "string",
+    "capacity": "string",
+    "family": "string"
+  },
+  "resources": [
+    {
+      "name": "AllowSubnet",
+      "type": "virtualNetworkRules",
+      "apiVersion": "2017-12-01",
+      "properties": {
+        "virtualNetworkSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
+        "ignoreMissingVnetServiceEndpoint": true
+      },
+      "dependsOn": [
+        "[concat('Microsoft.DBforMySQL/servers/', parameters('serverName'))]"
+      ]
+    }
+  ]
+}
+```
+In this request, the values that need to be customized are:
++	`name` - Specify the name of your MySQL Server (without domain name).
++	`location` - Specify a valid Azure data center region for your MySQL Server. For e.g. – westus2.
++	`properties/version` - Specify the MySQL server version to deploy. For e.g. 5.6 or 5.7.
++	`properties/administratorLogin` - Specify the MySQL admin login for the server. The admin sign-in name cannot be azure_superuser, admin, administrator, root, guest, or public.
++	`properties/administratorLoginPassword` - Specify the password for the MySQL admin user specified above.
++	`properties/sslEnforcement` - Specify Enabled/Disabled.
++	`storageProfile/storageMB` - Specify the max provisioned storage size required for the server in megabytes. E.g. – 5120.
++	`storageProfile/backupRetentionDays` - Specify the desired backup retention period in days. E.g – 7. 
++	`storageProfile/geoRedundantBackup` - Specify Enabled/Disabled depending on Geo-DR requirements. E.g. – Disabled
++	`sku/tier` - Specify Basic, GeneralPurpose or MemoryOptimized.
++	`sku/capacity` - Specify the vCore capacity. Possible values - 2,4,8,16,32 
++	`sku/family` - Specify Gen4 or Gen5.
++	`sku/name` - Specify TierPrefix_family_capacity. E.g. – B_Gen4_1, GP_Gen5_16, MO_Gen5_32. Please see the [pricing tiers](./concepts-pricing-tiers.md) documentation to understand the valid values per region and per tier.
++	`resources/properties/virtualNetworkSubnetId` - Specify the Azure identifier of the subnet in VNet where Azure MySQL server should be placed. If you are not familiar with VNet Service endpoint, please refer VNet service endpoint for MySQL servers.
++	`tags(optional)` - Specify optional tags are key:value pairs that you would use to categorize the resources for billing etc.
+
+If you are looking to build an ARM template to automate Azure Database for MySQL deployments for your organization, the recommendation would be to start from the sample [ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) in our Azure quickstart gallery first and build on top of it. 
+
+If you are new to ARM templates and would like to try it, you can start by following these steps:
++1.	Clone or download the sample arm-template from Azure Quickstart gallery.  
++2.	Modify the azuredeploy.parameters.json to update the parameter values based on your preference and save the file. 
++3.	Use Azure cli to create the Azure MySQL server using the following commands
+
+```azurecli-interactive
+az login
+az group create -n ExampleResourceGroup  -l “West US2”
+az group deployment create -g $ ExampleResourceGroup   --template-file $ {templateloc} --parameters $ {parametersloc}
+```
+
+## Get the connection information
+To connect to your server, you need to provide host information and access credentials.
+```azurecli-interactive
+az mysql server show --resource-group myresourcegroup --name mydemoserver
+```
+
+The result is in JSON format. Make a note of the **fullyQualifiedDomainName** and **administratorLogin**.
+```json
+{
+  "administratorLogin": "myadmin",
+  "administratorLoginPassword": null,
+  "fullyQualifiedDomainName": "mydemoserver.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/mydemoserver",
+  "location": "westus2",
+  "name": "mydemoserver",
+  "resourceGroup": "myresourcegroup",
+ "sku": {
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
+    "size": null,
+    "tier": "GeneralPurpose"
+  },
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
+  "tags": null,
+  "type": "Microsoft.DBforMySQL/servers",
+  "userVisibleState": "Ready",
+  "version": "5.7"
+}
+```
+
+## Connect to the server using mysql
+Use the [mysql command-line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to establish a connection to your Azure Database for MySQL server. In this example, the command is:
+```cmd
+mysql -h mydemoserver.database.windows.net -u myadmin@mydemoserver -p
+```
+
+## Create a blank database
+Once you’re connected to the server, create a blank database.
+```sql
+mysql> CREATE DATABASE mysampledb;
+```
+
+At the prompt, run the following command to switch the connection to this newly created database:
+```sql
+mysql> USE mysampledb;
+```
+
+## Create tables in the database
+Now that you know how to connect to the Azure Database for MySQL database, complete some basic tasks.
+
+First, create a table and load it with some data. Let's create a table that stores inventory information.
+```sql
+CREATE TABLE inventory (
+	id serial PRIMARY KEY, 
+	name VARCHAR(50), 
+	quantity INTEGER
+);
+```
+
+## Load data into the tables
+Now that you have a table, insert some data into it. At the open command prompt window, run the following query to insert some rows of data.
+```sql
+INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
+INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
+```
+
+Now you have two rows of sample data into the table you created earlier.
+
+## Query and update the data in the tables
+Execute the following query to retrieve information from the database table.
+```sql
+SELECT * FROM inventory;
+```
+
+You can also update the data in the tables.
+```sql
+UPDATE inventory SET quantity = 200 WHERE name = 'banana';
+```
+
+The row gets updated accordingly when you retrieve data.
+```sql
+SELECT * FROM inventory;
+```
+
+## Next steps
+In this tutorial you learned to:
+> [!div class="checklist"]
+> * Create an Azure Database for MySQL server
+> * Configure the server firewall
+> * Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Load sample data
+> * Query data
+> * Update data
+
+> [How to connect applications to Azure Database for MySQL](./howto-connection-string.md)
