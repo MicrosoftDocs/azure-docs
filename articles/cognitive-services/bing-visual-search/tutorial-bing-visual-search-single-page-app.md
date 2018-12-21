@@ -22,7 +22,7 @@ The full source code for this application (after extending it to use the Bing Vi
 
 ## Prerequisites
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## Call the Bing Visual Search API and handle the response
 

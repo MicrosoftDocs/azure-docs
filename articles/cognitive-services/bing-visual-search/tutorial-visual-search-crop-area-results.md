@@ -35,7 +35,7 @@ This tutorial illustrates how to:
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## Specify the image crop area
 

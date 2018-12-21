@@ -33,7 +33,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 * [Python 3.x](https://www.python.org/)
 
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Initialize the application
 

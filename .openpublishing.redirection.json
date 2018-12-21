@@ -7,13 +7,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/bing-visual-search/tutorial-image-post-source.md",
-            "redirect_url": "/azure/cognitive-services/bing-visual-search/tutorial-image-post",
+            "source_path": "articles/cognitive-services/bing-visual-search/tutorial-bing-visual-search-single-page-app-source.md",
+            "redirect_url": "/azure/cognitive-services/bing-visual-search/tutorial-bing-visual-search-single-page-app",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/cognitive-services/bing-visual-search/sdk.md",
-            "redirect_url": "/azure/cognitive-services/bing-visual-search/visual-search-sdk-c-sharp.md",
+            "redirect_url": "/azure/cognitive-services/bing-visual-search/visual-search-sdk-c-sharp",
             "redirect_document_id": true
         },
         {

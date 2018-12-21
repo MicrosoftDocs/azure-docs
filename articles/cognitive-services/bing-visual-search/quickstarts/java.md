@@ -35,7 +35,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 * [Apache HttpComponents](http://hc.apache.org/downloads.cgi)
 
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## Create and initialize a project
 

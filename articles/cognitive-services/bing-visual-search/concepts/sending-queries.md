@@ -24,7 +24,7 @@ You can get get insights about an image in three ways:
 - Uploading an image (in binary)
 
 
-## Bing Visual Search Requests
+## Bing Visual Search requests
 
 If you send Visual Search an image token or URL, the following shows the JSON object that you must include in the body of the POST. 
 
