@@ -9,7 +9,6 @@ ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
@@ -105,7 +104,7 @@ failed database call in the associated list of dependency calls.
 ![failed request](./media/app-insights-detect-triage-diagnose/23.png)
 
 ## Detect exceptions
-With a little bit of setup, [exceptions](app-insights-asp-net-exceptions.md) are reported to Application Insights automatically. They can also be captured explicitly by inserting calls to [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) into the code:  
+With a little bit of setup, [exceptions](app-insights-asp-net-exceptions.md) are reported to Application Insights automatically. They can also be captured explicitly by inserting calls to [TrackException()](../azure-monitor/app/api-custom-events-metrics.md#trackexception) into the code:  
 
     var telemetry = new TelemetryClient();
     ...

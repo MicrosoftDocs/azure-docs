@@ -704,7 +704,7 @@ OriginalUrl.
 |----------|-----------------|--------------|
 |xsl-transform|Root element.|Yes|
 |parameter|Used to define variables used in the transform|No|
-|xsl:stylesheet|Root stylesheet element. All elements and attributes defined within follow the standard [XSLT specification](http://www.w3.org/TR/xslt)|Yes|
+|xsl:stylesheet|Root stylesheet element. All elements and attributes defined within follow the standard [XSLT specification](https://www.w3.org/TR/xslt)|Yes|
 
 ### Usage
  This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).

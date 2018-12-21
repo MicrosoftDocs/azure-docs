@@ -5,11 +5,11 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/04/2018
+ms.date: 11/27/2018
 ms.author: ramamill
 ---
 
-ms.author: ramamill
+
 
 # Install the Mobility service manually on VMware VMs and physical servers
 

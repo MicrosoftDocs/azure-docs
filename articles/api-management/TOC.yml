@@ -49,6 +49,8 @@
               href: api-management-howto-policies.md
             - name: Policy reference index
               href: api-management-policies.md
+      - name: Subscriptions
+        href: api-management-subscriptions.md
       - name: Manage using automation
         href: automation-manage-api-management.md
       - name: Error handling
@@ -91,6 +93,14 @@
         items:
             - name: Add caching to improve performance
               href: api-management-howto-cache.md
+            - name: Use an external cache
+              href: api-management-howto-cache-external.md
+      - name: Secure your APIs
+        items:
+            - name: Create Subscriptions
+              href: api-management-howto-create-subscriptions.md
+            - name: Secure APIs using client certificate authentication
+              href: api-management-howto-mutual-certificates-for-clients.md
       - name: Secure your backend
         items:
             - name: Protect your API with Azure AD
@@ -139,8 +149,6 @@
               href: api-management-sample-send-request.md
             - name: Manage secrets using properties
               href: api-management-howto-properties.md
-            - name: Secure APIs using client certificate authentication
-              href: api-management-howto-mutual-certificates-for-clients.md
             - name: Access restriction policies
               href: api-management-access-restriction-policies.md
             - name: Advanced policies
@@ -222,14 +230,14 @@
       - name: MSDN forum
         href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt
       - name: Stack Overflow
-        href: http://stackoverflow.com/questions/tagged/azure-api-management
+        href: https://stackoverflow.com/questions/tagged/azure-api-management
       - name: Videos
         href: https://azure.microsoft.com/documentation/videos/index/?services=api-management
       - name: Roadmap
-        href: http://aka.ms/apimroadmap
+        href: https://aka.ms/apimroadmap
       - name: Power BI solution template for API Management
-        href: http://aka.ms/apimpbi
+        href: https://aka.ms/apimpbi
       - name: Blog
-        href: http://aka.ms/apimblog
+        href: https://aka.ms/apimblog
       - name: Feature requests
-        href: http://aka.ms/apimwish
+        href: https://aka.ms/apimwish

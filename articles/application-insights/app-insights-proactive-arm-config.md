@@ -5,17 +5,14 @@ services: application-insights
 documentationcenter: ''
 author: harelbr
 manager: carmonm
-
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-
 ---
 
 # Manage Application Insights smart detection rules using Azure Resource Manager templates

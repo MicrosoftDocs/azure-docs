@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 11/28/2018
 ms.author: douglasl
 
 ---
@@ -129,9 +129,8 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 		"apiVersion": "2017-09-01-preview",
 		"type": "Microsoft.DataFactory/factories",
 		"location": "[parameters('dataFactoryLocation')]",
-		"properties": {
-			"loggingStorageAccountName": "[parameters('storageAccountName')]",
-			"loggingStorageAccountKey": "[parameters('storageAccountKey')]"
+		"identity": {
+			"type": "SystemAssigned"
 		},
 		"resources": [{
 				"type": "linkedservices",

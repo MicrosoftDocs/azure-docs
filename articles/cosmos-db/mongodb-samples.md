@@ -1,11 +1,9 @@
 ---
-title: Use MongoDB APIs to build an Azure Cosmos DB app | Microsoft Docs
+title: Use Azure Cosmos DB for MongoDB API to build a Node.js app
 description: A tutorial that creates an online database using the Azure Cosmos DB APIs for MongoDB.
 keywords: mongodb examples
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
-editor: ''
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
@@ -15,7 +13,7 @@ ms.date: 03/23/2018
 ms.author: sngun
 
 ---
-# Build an Azure Cosmos DB: API for MongoDB app using Node.js
+# Build an Azure Cosmos DB for MongoDB API app using Node.js
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -24,11 +22,11 @@ ms.author: sngun
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 
-This example shows you how to build an Azure Cosmos DB: API for MongoDB console app using Node.js.
+This example shows you how to build an Azure Cosmos DB for MongoDB API console app using Node.js.
 
 To use this example, you must:
 
-* [Create](create-mongodb-dotnet.md#create-account) an Azure Cosmos DB: API for MongoDB account.
+* [Create](create-mongodb-dotnet.md#create-account) a Cosmos account configured for MongoDB API.
 * Retrieve your MongoDB [connection string](connect-mongodb-account.md) information.
 
 ## Create the app
@@ -170,4 +168,5 @@ To use this example, you must:
 3. Open your favorite terminal, run **npm install mongodb --save**, then run your app with **node app.js**
 
 ## Next steps
-* Learn how to [use MongoChef](mongodb-mongochef.md) with your Azure Cosmos DB: API for MongoDB account.
+
+* Learn how to [use MongoChef](mongodb-mongochef.md) with your Cosmos account configured for MongoDB API.

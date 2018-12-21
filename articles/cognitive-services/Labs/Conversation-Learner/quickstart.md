@@ -159,7 +159,7 @@ This uses the standard configuration, which lets you run your bot locally, and s
 
 - Tag questions on [Stack Overflow](https://stackoverflow.com) with "microsoft cognitive"
 - Request a feature on our [User Voice page](https://aka.ms/conversation-learner-uservoice)
-- Open an issue on our [github repo](https://github.com/Microsoft/ConversationLearner-Samples)
+- Open an issue on our [GitHub repo](https://github.com/Microsoft/ConversationLearner-Samples)
 
 ## Contributing
 

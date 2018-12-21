@@ -1,20 +1,16 @@
-﻿---
+---
 title: Filter Azure Application Insights telemetry in your Java web app | Microsoft Docs
 description: Reduce telemetry traffic by filtering out the events you don't need to monitor.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
-
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-
 ---
 # Filter telemetry in your Java web app
 
@@ -158,7 +154,7 @@ Filter out telemetry for specific synthetic sources:
 
 ### Telemetry Event filter
 
-Filters custom events (logged using [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent)).
+Filters custom events (logged using [TrackEvent()](../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -174,7 +170,7 @@ Filters custom events (logged using [TrackEvent()](app-insights-api-custom-event
 
 ### Trace Telemetry filter
 
-Filters log traces (logged using [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) or a [logging framework collector](app-insights-java-trace-logs.md)).
+Filters log traces (logged using [TrackTrace()](../azure-monitor/app/api-custom-events-metrics.md#tracktrace) or a [logging framework collector](app-insights-java-trace-logs.md)).
 
 ```XML
 

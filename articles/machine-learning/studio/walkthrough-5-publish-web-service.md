@@ -1,12 +1,11 @@
 ---
-title: 'Step 5: Deploy the Machine Learning Studio web service | Microsoft Docs'
+title: 'Step 5: Deploy web service - Azure Machine Learning Studio | Microsoft Docs'
 description: 'Step 5 of the Develop a predictive solution walkthrough: Deploy a predictive experiment in Machine Learning Studio as a web service.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning

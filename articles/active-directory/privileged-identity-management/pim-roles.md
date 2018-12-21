@@ -70,7 +70,7 @@ Access to Microsoft Online Services may require the user also be assigned a lice
 
 ## Assign a license to a user in Azure AD
 
-1. Sign in to the [Azure portal](http://portal.azure.com) with a Global Administrator or Owner role.
+1. Sign in to the [Azure portal](https://portal.azure.com) with a Global Administrator or Owner role.
 
 1. Select the Azure AD directory you want to work with and that has licenses associated with it.
 

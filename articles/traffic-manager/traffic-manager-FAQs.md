@@ -131,7 +131,7 @@ Yes, only API version 2017-03-01 and newer supports the Geographic routing type.
 ## Traffic Manager Subnet traffic routing method
 
 ### What are some use cases where subnet routing is useful?
-Subnet routing allows you to differentiate the experience you deliver for specific sets of users identified by the source IP of their DNS requests IP address. An example would be showing different content if users are connecting to a website fro your corporate HQ. Another would be restricting users from certain ISPs to only access endpoints that support only IPv4 connections if those ISPs have sub-par performance when IPv6 is used.
+Subnet routing allows you to differentiate the experience you deliver for specific sets of users identified by the source IP of their DNS requests IP address. An example would be showing different content if users are connecting to a website from your corporate HQ. Another would be restricting users from certain ISPs to only access endpoints that support only IPv4 connections if those ISPs have sub-par performance when IPv6 is used.
 Another reason to use Subnet routing method is in conjunction with other profiles in a nested profile set. For example, if you want to use Geographic routing method for geo-fencing your users, but for a specific ISP you want to do a different routing method, you can have a profile withy Subnet routing method as the parent profile and override that ISP to use a specific child profile and have the standard Geographic profile for everyone else.
 
 ### How does Traffic Manager know the IP address of the end user?

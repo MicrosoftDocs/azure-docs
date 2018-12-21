@@ -219,14 +219,14 @@ To register the application in Azure Active Directory:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the left, click **App registrations**. If you don't see app registrations, click on **more services**.  
->[!NOTE]
-You must select the same directory that contains the Azure subscription with which you created your key vault. 
+    > [!NOTE]
+    > You must select the same directory that contains the Azure subscription with which you created your key vault. 
 3. Click **New application registration**.
 4. On the **Create** blade provide a name for your application, and then select **WEB APPLICATION AND/OR WEB API** (the default) and specify the **SIGN-ON URL** for your web application. If you don't have this information at this time, you can make it up for this step (for example, you could specify http://test1.contoso.com ). It does not matter if these sites exist. 
 
     ![New application registration](./media/key-vault-get-started/new-application-registration.png)
-    >[!WARNING]
-    Make sure that you chose **WEB APPLICATION AND/OR WEB API** if you did not you will not see the **keys** option under settings.
+    > [!WARNING]
+    > Make sure that you chose **WEB APPLICATION AND/OR WEB API** if you did not you will not see the **keys** option under settings.
 
 5. Click the **Create** button.
 6. When the app registration is completed, you will see the list of registered apps. Find the app that you registered and click on it.

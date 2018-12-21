@@ -1,13 +1,14 @@
 ---
-title: Understanding the Azure Resource Graph query language
+title: Understand the query language
 description: Describes how the query language for Azure Resource Graph works.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
+ms.custom: seodec18
 ---
 # Understanding the Azure Resource Graph query language
 
@@ -49,6 +50,7 @@ Here is the list of supported functions in Resource Graph:
 - [strcat()](/azure/kusto/query/strcatfunction)
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
 - [tostring()](/azure/kusto/query/tostringfunction)
+- [zip()](/azure/kusto/query/zipfunction)
 
 ## Next steps
 

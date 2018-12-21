@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-
 ---
 # Exploring Metrics in Application Insights
 Metrics in [Application Insights][start] are measured values and counts of events that are sent in telemetry from your application. They help you detect performance issues and watch trends in how your application is being used. There's a wide range of standard metrics, and you can also create your own custom metrics and events.
@@ -137,7 +134,7 @@ You can also filter by **Source of synthetic traffic**.
 ### To add properties to the filter list
 Would you like to filter telemetry on a category of your own choosing? For example, maybe you divide up your users into different categories, and you would like segment your data by these categories.
 
-[Create your own property](app-insights-api-custom-events-metrics.md#properties). Set it in a [Telemetry Initializer](app-insights-api-custom-events-metrics.md#defaults) to have it appear in all telemetry - including the standard telemetry sent by different SDK modules.
+[Create your own property](../azure-monitor/app/api-custom-events-metrics.md#properties). Set it in a [Telemetry Initializer](../azure-monitor/app/api-custom-events-metrics.md#defaults) to have it appear in all telemetry - including the standard telemetry sent by different SDK modules.
 
 ## Edit the chart type
 Notice that you can switch between grids and graphs:
@@ -179,7 +176,7 @@ If you want data continuously exported so that you can process it externally, co
 If you want even richer views of your data, you can [export to Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## Analytics
-[Analytics](app-insights-analytics.md) is a more versatile way to analyze your telemetry using a powerful query language. Use it if you want to combine or compute results from metrics, or perform an in-depth exploration of your app's recent performance. 
+[Analytics](../azure-monitor/app/analytics.md) is a more versatile way to analyze your telemetry using a powerful query language. Use it if you want to combine or compute results from metrics, or perform an in-depth exploration of your app's recent performance. 
 
 From a metric chart, you can click the Analytics icon to get directly to the equivalent Analytics query.
 
@@ -202,6 +199,6 @@ From a metric chart, you can click the Analytics icon to get directly to the equ
 
 <!--Link references-->
 
-[alerts]: app-insights-alerts.md
+[alerts]: ../azure-monitor/app/alerts.md
 [start]: app-insights-overview.md
-[track]: app-insights-api-custom-events-metrics.md
+[track]: ../azure-monitor/app/api-custom-events-metrics.md

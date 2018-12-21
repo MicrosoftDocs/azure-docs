@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 11/28/2018
 ms.author: jingwang
 
 ---
@@ -39,7 +39,10 @@ For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Project Service Automation
 - Dynamics 365 for Marketing
 
-Other application types e.g. Operations and Finance, Talent, etc. are not supported.
+Other application types e.g. Finance and Operations, Talent, etc. are not supported by this connector.
+
+>[!TIP]
+>To copy data from **Dynamics 365 Finance and Operations**, you can use the [Dynamics AX connector](connector-dynamics-ax.md).
 
 ## Get started
 

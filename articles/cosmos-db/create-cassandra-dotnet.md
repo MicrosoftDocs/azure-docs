@@ -113,7 +113,7 @@ This step is optional. If you're interested to learn how the code creates the da
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. The connection string information enables your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), select **Connection String**.
+1. In the [Azure portal](https://portal.azure.com/), select **Connection String**.
 
     Use the ![Copy button](./media/create-cassandra-dotnet/copy.png) button on the right side of the screen to copy the USERNAME value.
 

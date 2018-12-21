@@ -4,7 +4,7 @@ description: Addresses frequently asked questions about Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.author: snehaa
 ---
 
@@ -41,9 +41,14 @@ Azure Migrate is a migration planning tool and Azure Site Recovery Deployment Pl
 
 **Disaster Recovery from VMware/Hyper-V to Azure**: If you intend to do disaster recovery (DR) on Azure using Azure Site Recovery (Site Recovery), use Site Recovery Deployment Planner for DR planning. Site Recovery Deployment Planner does a deep, ASR-specific assessment of your on-premises environment. It provides recommendations that are required by Site Recovery for successful DR operations such as replication, failover of your virtual machines.  
 
-### Which Azure regions are supported by Azure Migrate?
+### Which Azure geographies are supported by Azure Migrate?
 
-Azure Migrate currently supports East US and West Central US as migration project locations. Even though you can only create migration projects in West Central US and East US, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project location is only used to store the discovered data.
+Azure Migrate currently supports United States and Azure Government as the project geographies. Even though you can only create migration projects in these geographies, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project geography is only used to store the discovered metadata.
+
+**Geography** | **Metadata storage location**
+--- | ---
+Unites States | West Central US or East US
+Azure Government | US Gov Virginia
 
 ### How does the on-premises site connect to Azure Migrate?
 
@@ -132,9 +137,12 @@ You can discover 1500 virtual machines in a single migration project. If you hav
 Azure Migrate currently does not support cost estimation for [Enterprise Agreement offer](https://azure.microsoft.com/offers/enterprise-agreement-support/). The workaround is to specify Pay-As-You-Go as the offer and manually specifying the discount percentage (applicable to the subscription) in the 'Discount' field of the assessment properties.
 
   ![Discount](./media/resources-faq/discount.png)
-  
+
 
 ## Dependency visualization
+
+> [!NOTE]
+> The dependency visualization functionality is not available in Azure Government.
 
 ### What is dependency visualization?
 
@@ -146,7 +154,7 @@ No. Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/pr
 
 ### Do I need to install anything for dependency visualization?
 
-To use dependency visualization, you need to download and install agents on each on-premises machine that you want to evaluate. 
+To use dependency visualization, you need to download and install agents on each on-premises machine that you want to evaluate.
 
 - [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) needs to be installed on each machine.
 - The [Dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) needs to be installed on each machine.

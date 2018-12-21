@@ -1,10 +1,12 @@
 ---
-title: Outbound connections in Azure | Microsoft Docs
+title: Outbound connections in Azure
+titlesuffix: Azure Load Balancer
 description: This article explains how Azure enables VMs to communicate with public internet services.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

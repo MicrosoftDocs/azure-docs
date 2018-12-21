@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure Event Hubs Dedicated capacity | Microsoft Docs
-description: Overview of Microsoft Azure Event Hubs Dedicated capacity.
+title: Overview of dedicated event hubs - Azure Event Hubs | Microsoft Docs
+description: This article provides an overview of dedciated Azure Event Hubs, which offers single-tenant deployments of event hubs.  
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -13,7 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---

@@ -105,6 +105,8 @@
   items:
   - name: Tagging images
     href: concept-tagging-images.md
+  - name: Detecting objects
+    href: concept-object-detection.md
   - name: Categorizing images
     href: concept-categorizing-images.md
   - name: Describing images

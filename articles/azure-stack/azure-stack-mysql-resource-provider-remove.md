@@ -22,7 +22,7 @@ ms.reviewer: quying
 Before you remove the MySQL resource provider, you must remove all the provider dependencies. You'll also need a copy of the deployment package that was used to install the resource provider.
 
 > [!NOTE]
-> You can find the download links for the resource provider installers in [Deploy the resource provider prerequisites](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+> You can find the download links for the resource provider installers in [Deploy the resource provider prerequisites](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 Removing the MySQL resource provider does not delete tenant databases from hosting servers.
 

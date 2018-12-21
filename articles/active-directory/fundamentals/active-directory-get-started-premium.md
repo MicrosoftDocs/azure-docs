@@ -1,6 +1,6 @@
 ---
-title: How to sign up for Azure Active Directory Premium editions | Microsoft Docs
-description: Step-by-step instructions about how to sign up for Azure Active Directory Premium editions.
+title: Sign up for premium editions - Azure Active Directory| Microsoft Docs
+description: Instructions about how to sign up for Azure Active Directory Premium editions.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.custom: it-pro
+ms.custom: "it-pro, seodec18"
 ---
 
-# How to: Sign up for Azure Active Directory Premium
-You can purchase and associate Azure Active Directory (Azure AD) Premium with your Azure subscription. If you need to create a new Azure subscription, you'll also need to activate your licensing plan and Azure AD service access.
+# Sign up for Azure Active Directory Premium editions
+You can purchase and associate Azure Active Directory (Azure AD) Premium editions with your Azure subscription. If you need to create a new Azure subscription, you'll also need to activate your licensing plan and Azure AD service access.
 
 > [!NOTE]
 >Azure AD Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure AD Premium and Basic editions aren't currently supported in the Azure service operated by 21Vianet in China. For more information, talk to us using the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).

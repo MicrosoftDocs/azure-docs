@@ -1,5 +1,5 @@
 ---
-title: Create and configure an Azure Database for MySQL server by using Ansible (preview)
+title: Create and configure an Azure Database for MySQL server by using Ansible
 description: Learn how to use Ansible to create and configure an Azure Database for MySQL server
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, mysql, database
@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 09/23/2018
 ---
 
-# Create and configure an Azure Database for MySQL server by using Ansible (preview)
+# Create and configure an Azure Database for MySQL server by using Ansible
 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. Ansible enables you to automate the deployment and configuration of resources in your environment. 
 
 This quickstart shows you how use Ansible to create an Azure Database for MySQL server and configure its firewall rule. You can finish those tasks in about five minutes by using the Azure portal.
@@ -20,7 +20,7 @@ This quickstart shows you how use Ansible to create an Azure Database for MySQL 
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7 is required to run the following the sample playbooks in this tutorial. You can install the Ansible 2.7 RC version by running `sudo pip install ansible[azure]==2.7.0rc2`. After Ansible 2.7 is released, you won't need to specify the version here because the default version will be 2.7.
+> Ansible 2.7 is required to run the following the sample playbooks in this tutorial. 
 
 ## Create a resource group
 A resource group is a logical container in which Azure resources are deployed and managed.  

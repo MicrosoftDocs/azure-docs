@@ -70,7 +70,7 @@ The following example shows the Azure AD B2C technical profile encryption sectio
 
 ```XML
 <KeyDescriptor use="encryption">
-  <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+  <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
     <X509Data>
       <X509Certificate>valid certificate</X509Certificate>
     </X509Data>

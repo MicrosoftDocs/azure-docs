@@ -16,7 +16,7 @@ ms.author: hrasheed
 
 The [Apache Ambari](https://ambari.apache.org/) Web UI for HDInsight contains a [Apache TEZ](https://tez.apache.org/) view that can be used to understand and debug jobs that use Tez. The Tez view allows you to visualize the job as a graph of connected items, drill into each item, and retrieve statistics and logging information.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Prerequisites
@@ -99,6 +99,6 @@ Use the following steps to run a Hive query that uses Tez:
 
 Now that you have learned how to use the Apache Tez view, learn more about [Using Apache Hive on HDInsight](hadoop/hdinsight-use-hive.md).
 
-For more detailed technical information on Apache Tez, see the [Apache Tez page at Hortonworks](http://hortonworks.com/hadoop/tez/).
+For more detailed technical information on Apache Tez, see the [Apache Tez page at Hortonworks](https://hortonworks.com/hadoop/tez/).
 
 For more information on using Apache Ambari with HDInsight, see [Manage HDInsight clusters using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
