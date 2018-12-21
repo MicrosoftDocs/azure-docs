@@ -44,7 +44,7 @@ If you don't have a reference on Application Insights SDK yet:
 
 * Add the Application Insights SDK to your project:
 
-  * [ASP.NET project](../../application-insights/app-insights-asp-net.md)
+  * [ASP.NET project](../../azure-monitor/app/asp-net.md)
   * [Java project](../../application-insights/app-insights-java-get-started.md)
   * [Node.js project](../../application-insights/app-insights-nodejs.md)
   * [JavaScript in each webpage](../../application-insights/app-insights-javascript.md) 
@@ -663,7 +663,7 @@ finally
 }
 ```
 
-Remember that the server SDKs include a [dependency module](../../application-insights/app-insights-asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically--for example, to databases and REST APIs. You have to install an agent on your server to make the module work. 
+Remember that the server SDKs include a [dependency module](../../azure-monitor/app/asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically--for example, to databases and REST APIs. You have to install an agent on your server to make the module work. 
 
 In Java, certain dependency calls can be automatically tracked using [Java Agent](../../application-insights/app-insights-java-agent.md).
 

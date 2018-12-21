@@ -70,7 +70,7 @@ The event types are:
 * **Page View** - [Telemetry sent by the web client](app-insights-javascript.md), used to create page view reports. 
 * **Custom Event** - If you inserted calls to TrackEvent() in order to [monitor usage](../azure-monitor/app/api-custom-events-metrics.md), you can search them here.
 * **Exception** - Uncaught [exceptions in the server](app-insights-asp-net-exceptions.md), and those that you log by using TrackException().
-* **Dependency** - [Calls from your server application](app-insights-asp-net-dependencies.md) to other services such as REST APIs or databases, and AJAX calls from your [client code](app-insights-javascript.md).
+* **Dependency** - [Calls from your server application](../azure-monitor/app/asp-net-dependencies.md) to other services such as REST APIs or databases, and AJAX calls from your [client code](app-insights-javascript.md).
 * **Availability** - Results of [availability tests](app-insights-monitor-web-app-availability.md).
 
 ## Filter on property values

@@ -89,7 +89,7 @@ In the Application Insights resource, aggregated remote dependency and method ex
 
 To search for individual instances of dependency, exception, and method reports, open [Search][diagnostic].
 
-[Diagnosing dependency issues - learn more](app-insights-asp-net-dependencies.md#diagnosis).
+[Diagnosing dependency issues - learn more](../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 
 ## Questions? Problems?
 * No data? [Set firewall exceptions](app-insights-ip-addresses.md)
