@@ -74,8 +74,6 @@ LUIS provides several prebuilt entities for common data extraction.
 
     This entity helps you add name recognition to your client application.
 
-[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
-
 ## Create composite entity from example utterances
 
 1. Select **Intents** from the left navigation.
@@ -100,11 +98,6 @@ LUIS provides several prebuilt entities for common data extraction.
 1. Select the last word in the composite entity then select **TransferEmployeeInfo** from the pop-up menu. 
 
 1. Verify all utterances in the intent are labeled with the composite entity. 
-
-## Add example utterances to the None intent 
-
-[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
-
 
 ## Train the app so the changes to the intent can be tested 
 
