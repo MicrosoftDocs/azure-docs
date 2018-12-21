@@ -36,7 +36,7 @@ Application Insights has a rich out of the box experience when using Service Fab
 
 ![Application Insights Overview](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 
-On the right panel in the preceding image, there are two main types of entries in the list: requests and events. Requests are calls made to the app's API through HTTP requests in this case, and events are custom events, which act as telemetry you can add anywhere in your code. You can further explore instrumenting your applications in [Application Insights API for custom events and metrics](../application-insights/app-insights-api-custom-events-metrics.md). Clicking on a request would display further details as shown in the following image, including data specific to Service Fabric, which is collected in the Application Insights Service Fabric nuget package. This info is useful for troubleshooting and knowing what the state of your application is, and all of this information is searchable within Application Insights
+On the right panel in the preceding image, there are two main types of entries in the list: requests and events. Requests are calls made to the app's API through HTTP requests in this case, and events are custom events, which act as telemetry you can add anywhere in your code. You can further explore instrumenting your applications in [Application Insights API for custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md). Clicking on a request would display further details as shown in the following image, including data specific to Service Fabric, which is collected in the Application Insights Service Fabric nuget package. This info is useful for troubleshooting and knowing what the state of your application is, and all of this information is searchable within Application Insights
 
 ![Application Insights Request Details](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
@@ -44,14 +44,14 @@ Application Insights has a designated view for querying against all the data tha
 
 ![Application Insights Request Details](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
-To further explore the capabilities of the Application Insights portal, head over to the [Application Insights portal documentation](../application-insights/app-insights-dashboards.md).
+To further explore the capabilities of the Application Insights portal, head over to the [Application Insights portal documentation](../azure-monitor/app/app-insights-dashboards.md).
 
 ### Configuring Application Insights with WAD
 
 >[!NOTE]
 >This is only applicable to Windows clusters at the moment.
 
-There are two primary ways to send data from WAD to Azure Application Insights, which is achieved by adding an Application Insights sink to the WAD configuration, as detailed in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+There are two primary ways to send data from WAD to Azure Application Insights, which is achieved by adding an Application Insights sink to the WAD configuration, as detailed in [this article](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 #### Add an Application Insights Instrumentation Key when creating a cluster in Azure portal
 
@@ -85,7 +85,7 @@ In the "WadCfg" of the Resource Manager template, add a "Sink" by including the 
 
 In both the preceding code snippets, the name "applicationInsights" was used to describe the sink. This is not a requirement and as long as the name of the sink is included in "sinks", you can set the name to any string.
 
-Currently, logs from the cluster show up as **traces** in Application Insights' log viewer. Since most of the traces coming from the platform are of level "Informational", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error." This can be done by adding "Channels" to your sink, as demonstrated in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Currently, logs from the cluster show up as **traces** in Application Insights' log viewer. Since most of the traces coming from the platform are of level "Informational", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error." This can be done by adding "Channels" to your sink, as demonstrated in [this article](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 >[!NOTE]
 >If you use an incorrect Application Insights Key either in portal or in your Resource Manager template, you will have to manually change the key and update the cluster / redeploy it.
@@ -119,9 +119,9 @@ Once you have configured Application Insights as an output for your events and l
 
 *Metrics Explorer* is a useful tool for creating custom dashboards based on metrics that your applications, services, and cluster may be reporting. See [Exploring Metrics in Application Insights](../application-insights/app-insights-metrics-explorer.md) to set up a few charts for yourself based on the data you are collecting.
 
-Clicking **Analytics** will take you to the Application Insights Analytics portal, where you can query events and traces with greater scope and optionality. Read more about this at [Analytics in Application Insights](../application-insights/app-insights-analytics.md).
+Clicking **Analytics** will take you to the Application Insights Analytics portal, where you can query events and traces with greater scope and optionality. Read more about this at [Analytics in Application Insights](../azure-monitor/app/analytics.md).
 
 ## Next steps
 
-* [Set up Alerts in AI](../application-insights/app-insights-alerts.md) to be notified about changes in performance or usage
+* [Set up Alerts in AI](../azure-monitor/app/alerts.md) to be notified about changes in performance or usage
 * [Smart Detection in Application Insights](../application-insights/app-insights-proactive-diagnostics.md) performs a proactive analysis of the telemetry being sent to Application Insights to warn you of potential performance problems

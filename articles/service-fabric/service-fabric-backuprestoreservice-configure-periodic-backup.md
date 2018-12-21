@@ -134,6 +134,9 @@ A backup policy consists of the following configurations:
         }
         ```
 
+> [!IMPORTANT]
+> Due to an issue in the runtime, ensure that the retention duration in the retention policy is configured to be less than 24 days or else it would result in Backup Restore service to go into quorum loss post replica failover.
+
 ## Enable periodic backup
 After defining backup policy to fulfill data backup requirements, the backup policy should be appropriately associated either with an _application_, or _service_, or a _partition_.
 

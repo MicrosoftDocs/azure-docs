@@ -123,6 +123,8 @@
         href: service-fabric-reliable-services-introduction.md
       - name: Service partitioning
         href: service-fabric-concepts-partitioning.md
+      - name: Reconfiguring stateful services
+        href: service-fabric-concepts-reconfiguration.md
       - name: Reliable Services lifecycle - C#
         href: service-fabric-reliable-services-lifecycle.md
       - name: Reliable Services lifecycle - Java
@@ -660,7 +662,7 @@
         href: service-fabric-diagnostics-oms-containers.md
     - name: Monitor clusters
       items:
-      - name: Congifure Log Analytics to collect cluster events
+      - name: Configure Log Analytics to collect cluster events
         href: service-fabric-diagnostics-oms-setup.md
       - name: Monitor your cluster with Log Analytics
         href: service-fabric-diagnostics-event-analysis-oms.md
@@ -798,8 +800,6 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Common questions
     href: service-fabric-common-questions.md
-  - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/service-fabric/
   - name: MSDN Forum
     href: https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric
   - name: Pricing

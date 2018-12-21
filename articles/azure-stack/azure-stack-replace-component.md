@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
 
 ---
@@ -39,9 +39,9 @@ The following flow diagram shows the general FRU process to replace a non hot-sw
 
 ![Flow diagram showing component replacement flow](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
-*This action may not be required based on the physical condition of the hardware.
+* This action may not be required based on the physical condition of the hardware.
 
-**Whether your OEM hardware vendor performs the component replacement and updates the firmware could vary based on your support contract.
+** Whether your OEM hardware vendor performs the component replacement and updates the firmware could vary based on your support contract.
 
 ## Review alert information
 
@@ -51,21 +51,23 @@ The Azure Stack health and monitoring system track the health of network adapter
 
 The following steps provide a high-level overview of the component replacement process. Do not follow these steps without referring to your OEM-provided FRU documentation.
 
-1. Use the [Drain](azure-stack-node-actions.md#scale-unit-node-actions) action to put the scale unit node into maintenance mode. This action may not be required based on the physical condition of the hardware.
+1. Use the Shutdown action to gracefully shut down the scale unit node. This action may not be required based on the physical condition of the hardware.
 
-   > [!NOTE]
-   > In any case, only one node can be drained and powered off at the same time without breaking the S2D (Storage Spaces Direct).
+2. In an unlikely case the shutdown action does fail, use the [Drain](azure-stack-node-actions.md#drain) action to put the scale unit node into maintenance mode. This action may not be required based on the physical condition of the hardware.
 
-2. After the scale unit node is in maintenance mode, use the [Power off](azure-stack-node-actions.md#scale-unit-node-actions) action. This action may not be required based on the physical condition of the hardware.
+   > [!NOTE]  
+   > In any case, only one node can be disabled and powered off at the same time without breaking the S2D (Storage Spaces Direct).
 
-   > [!NOTE]
+3. After the scale unit node is in maintenance mode, use the [Power off](azure-stack-node-actions.md#scale-unit-node-actions) action. This action may not be required based on the physical condition of the hardware.
+
+   > [!NOTE]  
    > In the unlikely case that the power off action doesn't work, use the baseboard management controller (BMC) web interface instead.
 
-3. Replace the damaged hardware component. Whether your OEM hardware vendor performs the component replacement could vary based on your support contract.  
-4. Update the firmware. Follow your vendor-specific firmware update process using the hardware lifecycle host to make sure the replaced hardware component has the approved firmware level applied. Whether your OEM hardware vendor performs this step could vary based on your support contract.  
-5. Use the [Repair](azure-stack-node-actions.md#scale-unit-node-actions) action to bring the scale unit node back into the scale unit.
-6. Use the privileged endpoint to [check the status of virtual disk repair](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). With new data drives, a full storage repair job can take multiple hours depending on system load and consumed space.
-7. After the repair action has finished, validate that all active alerts have been automatically closed.
+4. Replace the damaged hardware component. Whether your OEM hardware vendor performs the component replacement could vary based on your support contract.  
+5. Update the firmware. Follow your vendor-specific firmware update process using the hardware lifecycle host to make sure the replaced hardware component has the approved firmware level applied. Whether your OEM hardware vendor performs this step could vary based on your support contract.  
+6. Use the [Repair](azure-stack-node-actions.md#scale-unit-node-actions) action to bring the scale unit node back into the scale unit.
+7. Use the privileged endpoint to [check the status of virtual disk repair](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). With new data drives, a full storage repair job can take multiple hours depending on system load and consumed space.
+8. After the repair action has finished, validate that all active alerts have been automatically closed.
 
 ## Next steps
 

@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 The following tools are widely used in web development, but if you are familiar with another tool, the instructions in this article should still apply.
 
 + [Postman desktop app](https://www.getpostman.com/)
-+ [Telerik Fiddler](http://www.telerik.com/fiddler)
++ [Telerik Fiddler](https://www.telerik.com/fiddler)
 
 ## Get the api-key and endpoint
 

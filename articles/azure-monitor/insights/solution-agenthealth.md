@@ -111,4 +111,4 @@ The following table provides sample log searches for records collected by this s
 
 ## Next steps
 
-* Learn about [Alerts in Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) for details on generating alerts from Log Analytics. 
+* Learn about [Alerts in Log Analytics](../../azure-monitor/platform/alerts-overview.md) for details on generating alerts from Log Analytics. 

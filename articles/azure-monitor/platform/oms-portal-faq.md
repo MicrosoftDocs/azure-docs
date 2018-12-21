@@ -28,7 +28,7 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 ![Log Analytics workspace](media/oms-portal-faq/log-analytics.png)
 
 ## How do I manage permissions?
-If you don't have access to your Log Analytics workspace in the Azure portal, you need to configure your permissions using [Azure role-based access](../../role-based-access-control/role-assignments-portal.md). For details on managing workspace permissions, see [Manage workspaces](manage-access.md#manage-accounts-and-users). For information on managing permissions for alerts, see [Get started with roles, permissions, and security with Azure Monitor](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+If you don't have access to your Log Analytics workspace in the Azure portal, you need to configure your permissions using [Azure role-based access](../../role-based-access-control/role-assignments-portal.md). For details on managing workspace permissions, see [Manage workspaces](manage-access.md#manage-accounts-and-users). For information on managing permissions for alerts, see [Get started with roles, permissions, and security with Azure Monitor](../../azure-monitor/platform/roles-permissions-security.md).
 
 ## How do I create a new workspace? 
 From the list of workspaces in the Azure portal, click **Add** in the list of workspaces.  For complete details, see [Create a Log Analytics workspace in the Azure portal](../learn/quick-create-workspace.md).

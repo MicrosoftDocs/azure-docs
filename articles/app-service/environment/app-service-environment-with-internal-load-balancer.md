@@ -1,5 +1,5 @@
 ---
-title: Creating and using an Internal Load Balancer with an App Service Environment - Azure | Microsoft Docs
+title: Create and use internal load balancer with App Service environment - Azure | Microsoft Docs
 description: Creating and using an ASE with an ILB
 services: app-service
 documentationcenter: ''

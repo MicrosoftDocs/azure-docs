@@ -67,7 +67,7 @@ from azureml.core.model import Model
 
 model = Model.register(model_path = "model.pkl",
                        model_name = "Mymodel",
-                       tags = ["0.1"],
+                       tags = {"key": "0.1"},
                        description = "test",
                        workspace = ws)
 ```
@@ -135,7 +135,7 @@ When you get to deployment, the process is slightly different depending on the c
 * [Azure Container Instances](#aci)
 * [Azure Kubernetes Services](#aks)
 * [Project Brainwave (field-programmable gate arrays)](#fpga)
-* [Azure IoT Edge devices](#iot)
+* [Azure IoT Edge devices](#iotedge)
 
 ### <a id="aci"></a> Deploy to Azure Container Instances
 
@@ -159,7 +159,7 @@ To deploy to Azure Container Instances, use the following steps:
     > [!TIP]
     > If there are errors during deployment, use `service.get_logs()` to view the AKS service logs. The logged information may indicate the cause of the error.
 
-For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.comS/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py) classes.
+For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
 
 ### <a id="aks"></a> Deploy to Azure Kubernetes Service
 
@@ -180,6 +180,7 @@ To deploy to Azure Kubernetes Service, use the following steps:
 
     > [!IMPORTANT]
     > Creating the AKS cluster is a one time process for your workspace. Once created, you can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, then you must create a new cluster the next time you need to deploy.
+    > For [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), if you pick custom values for agent_count and vm_size, then you need to make sure agent_count multiplied by vm_size is greater than or equal to 12 virtual CPUs. For example, if you use a vm_size of "Standard_D3_v2", which has 4 virtual CPUs, then you should pick an agent_count of 3 or greater.
 
     ```python
     from azureml.core.compute import AksCompute, ComputeTarget
@@ -205,6 +206,7 @@ To deploy to Azure Kubernetes Service, use the following steps:
     > If you already have AKS cluster in your Azure subscription, and it is version 1.11.*, you can use it to deploy your image. The following code demonstrates how to attach an existing cluster to your workspace:
     >
     > ```python
+    > from azureml.core.compute import AksCompute, ComputeTarget
     > # Set the resource group that contains the AKS cluster and the cluster name
     > resource_group = 'myresourcegroup'
     > cluster_name = 'mycluster'
@@ -212,7 +214,7 @@ To deploy to Azure Kubernetes Service, use the following steps:
     > # Attatch the cluster to your workgroup
     > attach_config = AksCompute.attach_configuration(resource_group = resource_group,
     >                                          cluster_name = cluster_name)
-    > compute = ComputeTarget.attach(ws, 'mycompute', attach_config)
+    > aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
     > 
     > # Wait for the operation to complete
     > aks_target.wait_for_completion(True)
@@ -254,27 +256,103 @@ An Azure IoT Edge device is a Linux or Windows-based device that runs the Azure 
 
 Azure IoT Edge modules are deployed to your device from a container registry. When you create an image from your model, it is stored in the container registry for your workspace.
 
-Use the following steps to get the container registry credentials for your Azure Machine Learning service workspace:
+#### Set up your environment
 
-1. Sign in to the [Azure portal](https://portal.azure.com/signin/index).
+* A development environment. For more information, see the [How to configure a development environment](how-to-configure-environment.md) document.
 
-1. Go to your Azure Machine Learning service workspace and select __Overview__. To go to the container registry settings, select the __Registry__ link.
+* An [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription. 
 
-    ![An image of the container registry entry](./media/how-to-deploy-and-where/findregisteredcontainer.png)
+* A trained model. For an example of how to train a model, see the [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) document. A pre-trained model is available on the [AI Toolkit for Azure IoT Edge GitHub repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
-1. Once in the container registry, select **Access Keys** and then enable the admin user.
+#### Prepare the IoT device
+You must create an IoT hub and register a device or reuse one you have with [this script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister).
 
-    ![An image of the access keys screen](./media/how-to-deploy-and-where/findaccesskey.png)
+``` bash
+ssh <yourusername>@<yourdeviceip>
+sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
+sudo chmod +x createNregister
+sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
+```
 
-1. Save the values for **login server**, **username**, and **password**. 
+Save the resulting connection string after "cs":"{copy this string}".
 
-Once you have the credentials, use the steps in the [Deploy Azure IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) document to deploy the image to your device. When configuring the __Registry settings__ for the device, use the __login server__, __username__, and __password__ for your workspace container registry.
+Initialize your device by downloading [this script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) into an UbuntuX64 IoT edge node or DSVM to run the following commands:
+
+```bash
+ssh <yourusername>@<yourdeviceip>
+sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge
+sudo chmod +x installIoTEdge
+sudo ./installIoTEdge
+```
+
+The IoT Edge node is ready to recieve the connection string for your IoT Hub. Look for the line ```device_connection_string:``` and paste the connection string from above in between the quotes.
+
+You can also learn how to register your device and install the IoT runtime step by step by following the [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md) document.
+
+
+#### Get the container registry credentials
+To deploy an IoT Edge module to your device, Azure IoT needs the credentials for the container registry that Azure Machine Learning service stores docker images in.
+
+You can easily retrieve the necessary container registry credentials in two ways:
+
++ **In the Azure Portal**:
+
+  1. Sign in to the [Azure portal](https://portal.azure.com/signin/index).
+
+  1. Go to your Azure Machine Learning service workspace and select __Overview__. To go to the container registry settings, select the __Registry__ link.
+
+     ![An image of the container registry entry](./media/how-to-deploy-and-where/findregisteredcontainer.png)
+
+  1. Once in the container registry, select **Access Keys** and then enable the admin user.
+ 
+     ![An image of the access keys screen](./media/how-to-deploy-and-where/findaccesskey.png)
+
+  1. Save the values for **login server**, **username**, and **password**. 
+
++ **With a Python script**:
+
+  1. Use the following Python script after the code you ran above to create a container:
+
+     ```python
+     # Getting your container details
+     container_reg = ws.get_details()["containerRegistry"]
+     reg_name=container_reg.split("/")[-1]
+     container_url = "\"" + image.image_location + "\","
+     subscription_id = ws.subscription_id
+     from azure.mgmt.containerregistry import ContainerRegistryManagementClient
+     from azure.mgmt import containerregistry
+     client = ContainerRegistryManagementClient(ws._auth,subscription_id)
+     result= client.registries.list_credentials(resource_group_name, reg_name, custom_headers=None, raw=False)
+     username = result.username
+     password = result.passwords[0].value
+     print('ContainerURL{}'.format(image.image_location))
+     print('Servername: {}'.format(reg_name))
+     print('Username: {}'.format(username))
+     print('Password: {}'.format(password))
+     ```
+  1. Save the values for ContainerURL, servername, username, and password. 
+
+     These credentials are necessary to provide the IoT Edge device access to images in your private container registry.
+
+#### Deploy the model to the device
+
+You can easily deploy a model by running [this script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel) and providing the following information from the steps above:
+container registry Name, username, password, image location url, desired deployment name, IoT Hub name, and the device ID you created. You can do this in the VM by following these steps: 
+
+```bash 
+wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel
+sudo chmod +x deploymodel
+sudo ./deploymodel <ContainerRegistryName> <username> <password> <imageLocationURL> <DeploymentID> <IoTHubname> <DeviceID>
+```
+
+Alternatively, you can follow the steps in the [Deploy Azure IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) document to deploy the image to your device. When configuring the __Registry settings__ for the device, use the __login server__, __username__, and __password__ for your workspace container registry.
 
 > [!NOTE]
 > If you're unfamiliar with Azure IoT, see the following documents for information on getting started with the service:
 >
 > * [Quickstart: Deploy your first IoT Edge module to a Linux device](../../iot-edge/quickstart-linux.md)
 > * [Quickstart: Deploy your first IoT Edge module to a Windows device](../../iot-edge/quickstart.md)
+
 
 ## Testing web service deployments
 

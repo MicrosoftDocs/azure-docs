@@ -22,7 +22,7 @@ Learn how to run Hive queries by using Apache Ambari Hive View. The Hive View al
 
 * A Linux-based Apache Hadoop on HDInsight cluster version 3.4 or greater.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * A web browser
@@ -77,7 +77,7 @@ Learn how to run Hive queries by using Apache Ambari Hive View. The Hive View al
 
    * `SELECT`: Selects a count of all rows where column t4 contains the value [ERROR].
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Leave the __Database__ selection at __default__. The examples in this document use the default database included with HDInsight.
 
 5. To start the query, use the **Execute** button below the worksheet. The button turns orange and the text changes to **Stop**.
@@ -89,7 +89,7 @@ Learn how to run Hive queries by using Apache Ambari Hive View. The Hive View al
 
     You can use the **Logs** tab to view the logging information that the job created.
 
-   > [!TIP]
+   > [!TIP]  
    > Download or save results from the **Save results** drop-down dialog box in the upper left of the **Query Process Results** section.
 
 ### Visual explain
@@ -102,7 +102,7 @@ The **Visual Explain** view of the query can be helpful in understanding the flo
 
 To display the Tez UI for the query, select the **Tez** tab below the worksheet.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Tez is not used to resolve all queries. You can resolve many queries without using Tez. 
 
 If Tez was used to resolve the query, the Directed Acyclic Graph (DAG) is displayed. If you want to view the DAG for queries you've run in the past, or if you want to debug the Tez process, use the [Tez View](../hdinsight-debug-ambari-tez-view.md) instead.
@@ -125,7 +125,7 @@ From the **Query** tab, you can optionally save queries. After you save a query,
 
 ![Image of saved queries tab](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
-> [!TIP]
+> [!TIP]  
 > Saved queries are stored in the default cluster storage. You can find the saved queries under the path `/user/<username>/hive/scripts`. These are stored as plain-text `.hql` files.
 >
 > If you delete the cluster, but keep the storage, you can use a utility like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) or Data Lake Storage Explorer (from the [Azure Portal](https://portal.azure.com)) to retrieve the queries.
@@ -161,8 +161,8 @@ You can then use the UDF in your query. For example, `SELECT myawesomeudf(name) 
 
 For more information on using UDFs with Hive on HDInsight, see the following articles:
 
-* [Using Python with Hive and Pig in HDInsight](python-udf-hdinsight.md)
-* [How to add a custom Hive UDF to HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Using Python with Apache Hive and Apache Pig in HDInsight](python-udf-hdinsight.md)
+* [How to add a custom Apache Hive UDF to HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## Hive settings
 
@@ -172,9 +172,9 @@ You can change various Hive settings, such as changing the execution engine for 
 
 For general information on Hive on HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For information on other ways you can work with Hadoop on HDInsight:
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)

@@ -19,7 +19,7 @@ ms.author: daviste
 # Debug your applications with Azure Application Insights in Visual Studio
 In Visual Studio (2015 and later), you can analyze performance and diagnose issues in your ASP.NET web app both in debugging and in production, using telemetry from [Azure Application Insights](app-insights-overview.md).
 
-If you created your ASP.NET web app using Visual Studio 2017 or later, it already has the Application Insights SDK. Otherwise, if you haven't done so already, [add Application Insights to your app](app-insights-asp-net.md).
+If you created your ASP.NET web app using Visual Studio 2017 or later, it already has the Application Insights SDK. Otherwise, if you haven't done so already, [add Application Insights to your app](../azure-monitor/app/asp-net.md).
 
 To monitor your app when it's in live production, you normally view the Application Insights telemetry in the [Azure portal](https://portal.azure.com), where you can set alerts and apply powerful monitoring tools. But for debugging, you can also search and analyze the telemetry in Visual Studio. You can use Visual Studio to analyze telemetry both from your production site and from debugging runs on your development machine. In the latter case, you can analyze debugging runs even if you haven't yet configured the SDK to send telemetry to the Azure portal. 
 
@@ -66,7 +66,7 @@ In the Code Lens line above each handler method, you see a count of the requests
 ![Exception stack trace](./media/app-insights-visual-studio/21.png)
 
 > [!NOTE] 
-> Code Lens shows Application Insights data only if you have [configured your app to send telemetry to the Application Insights portal](app-insights-asp-net.md).
+> Code Lens shows Application Insights data only if you have [configured your app to send telemetry to the Application Insights portal](../azure-monitor/app/asp-net.md).
 >
 
 [More about Application Insights in Code Lens](app-insights-visual-studio-codelens.md)
@@ -87,7 +87,7 @@ To find anomalies in your data, choose one of the anomaly options under the "Vie
 
 This is desirable if you have already published a previous version of your app. You don't want the telemetry from your debugging sessions to be mixed up with the telemetry on the Application Insights portal from the published app.
 
-It's also useful if you have some [custom telemetry](app-insights-api-custom-events-metrics.md) that you want to debug before sending telemetry to the portal.
+It's also useful if you have some [custom telemetry](../azure-monitor/app/api-custom-events-metrics.md) that you want to debug before sending telemetry to the portal.
 
 * *At first, I fully configured Application Insights to send telemetry to the portal. But now I'd like to see the telemetry only in Visual Studio.*
   
@@ -99,5 +99,5 @@ It's also useful if you have some [custom telemetry](app-insights-api-custom-eve
 |  |  |
 | --- | --- |
 | **[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |![Visual studio](./media/app-insights-visual-studio/64.png) |
-| **[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>View dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and exported telemetry data. |![Visual studio](./media/app-insights-visual-studio/62.png) |
+| **[Working with the Application Insights portal](../azure-monitor/app/app-insights-dashboards.md)**<br/>View dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and exported telemetry data. |![Visual studio](./media/app-insights-visual-studio/62.png) |
 

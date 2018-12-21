@@ -46,7 +46,7 @@ For this example, start by loading data into a data flow. You reuse this data wi
 
 ```python
 import azureml.dataprep as dprep
-t = dprep.smart_read_file('./data/fixed_width_file.txt')
+t = dprep.auto_read_file('./data/fixed_width_file.txt')
 t = t.to_number('Column3')
 t.head(10)
 ```
