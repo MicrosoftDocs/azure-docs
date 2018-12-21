@@ -22,18 +22,18 @@ A compute target is a resource where you run your training script, or you host y
 There are three broad categories of compute targets that Azure Machine Learning supports:
 
 * __Local__: Your local machine, or a cloud-based virtual machine (VM) that you use as a development and experimentation environment. 
-* __Managed compute__: Azure Machine Learning Compute is a compute offering that's managed by the Azure Machine Learning service. The offering allows you to easily create a single or multi-node compute for training, testing, and batch inferencing.
+* __Managed compute__: The Azure Machine Learning Compute environment is a compute offering that's managed by the Azure Machine Learning service. The offering allows you to easily create a single or multi-node compute for training, testing, and batch inferencing.
 * __Attached compute__: You can also bring your own Azure cloud compute and attach it to Azure Machine Learning. Read more about supported compute types and how to use them in the following sections.
 
 
 ## Supported compute targets
 
-Azure Machine Learning service has varying support across the various compute targets. A typical model development lifecycle starts with development and experimentation on a small amount of data. At this stage, we recommend you use a local environment like your local computer or a cloud-based VM. As you scale up your training on larger data sets, or do distributed training, use Azure Machine Learning Compute to create a single or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios can vary as described in the following table:
+Azure Machine Learning service has varying support across the various compute targets. A typical model development lifecycle starts with development and experimentation on a small amount of data. At this stage, we recommend you use a local environment like your local computer or a cloud-based VM. As you scale up your training on larger data sets, or do distributed training, use an Azure Machine Learning compute to create a single or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios can vary as described in the following table:
 
 |Compute target| GPU acceleration | Automated<br/> hyperparameter tuning | Automated</br> machine learning | Pipeline friendly|
 |----|:----:|:----:|:----:|:----:|
 |[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; |
-|[Azure Machine Learning Compute](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
+|[An Azure Machine Learning compute](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[Remote VM](#vm) | ✓ | ✓ | ✓ | ✓ |
 |[Azure Databricks](#databricks)| &nbsp; | &nbsp; | ✓ | ✓[*](#pipeline-only) |
 |[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
@@ -43,14 +43,14 @@ Azure Machine Learning service has varying support across the various compute ta
 > <a id="pipeline-only"></a>__*__ _Azure Databricks and Azure Data Lake Analytics can only be used in a pipeline._<br/>
 > For more information on pipelines, see [Pipelines in Azure Machine Learning](concept-ml-pipelines.md).
 >
-> Azure Machine Learning Compute must be created from within a workspace. You can't attach existing instances to a workspace.
+> An Azure Machine Learning compute must be created from within a workspace. You can't attach existing instances to a workspace.
 >
 > Other compute targets must be created outside Azure Machine Learning and then attached to your workspace.
 >
 > When you train a model, some compute targets rely on Docker container images. The GPU base image must be used on Microsoft Azure Services only. For model training, the services include:
-> * Azure Machine Learning Compute
-> * Azure Kubernetes
-> * Linux (Ubuntu) Data Science Virtual Machine (DSVM)
+> * The Azure Machine Learning Compute environment
+> * Azure Kubernetes Service
+> * Windows Data Science Virtual Machine (DSVM)
 
 ## Workflow
 
@@ -115,28 +115,28 @@ run_config_system_managed.auto_prepare_environment = True
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
 
-## <a id="amlcompute"></a>Azure Machine Learning Compute
+## <a id="amlcompute"></a>Azure Machine Learning Compute environment
 
-Azure Machine Learning Compute is a managed-compute infrastructure that allows the user to easily create a single or multi-node compute. The compute is created within your workspace region as a resource that can be shared with other users in your workspace. The compute scales up automatically when a job is submitted, and can be put in an Azure Virtual Network. The compute executes in a containerized environment and packages your model dependencies in a Docker container.
+The Azure Machine Learning Compute environment is a managed-compute infrastructure that allows the user to easily create a single or multi-node compute. The compute is created within your workspace region as a resource that can be shared with other users in your workspace. The compute scales up automatically when a job is submitted, and can be put in an Azure virtual network. The compute executes in a containerized environment and packages your model dependencies in a Docker container.
 
-You can use Azure Machine Learning Compute to distribute the training process across a cluster of CPU or GPU compute nodes in the cloud. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
+You can use the Azure Machine Learning Compute environment to distribute the training process across a cluster of CPU or GPU compute nodes in the cloud. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
 
 > [!NOTE]
-> Azure Machine Learning Compute has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
+> The Azure Machine Learning Compute environment has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
 
-You can create Azure Machine Learning Compute on-demand when you schedule a run, or as a persistent resource.
+You can create an Azure Machine Learning compute on demand when you schedule a run, or as a persistent resource.
 
 ### Run-based creation
 
-You can create Azure Machine Learning Compute as a compute target at run time. The compute is automatically created for your run and scales up to the number of **max_nodes** that you specify in your run config. The compute is deleted automatically after the run completes.
+You can create an Azure Machine Learning compute as a compute target at run time. The compute is automatically created for your run and scales up to the number of **max_nodes** that you specify in your run config. The compute is deleted automatically after the run completes.
 
 > [!IMPORTANT]
-> Run-based creation of Azure Machine Learning compute is currently in Preview. Don't use run-based creation if you use automated hyperparameter tuning or automated machine learning. To use hyperparameter tuning or automated machine learning, create the Azure Machine Learning compute before you submit a run.
+> Run-based creation of an Azure Machine Learning compute is currently in Preview. Don't use run-based creation if you use automated hyperparameter tuning or automated machine learning. To use hyperparameter tuning or automated machine learning, create the Azure Machine Learning compute before you submit a run.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
 
-# First, list the supported VM families for Azure Machine Learning Compute
+# First, list the supported VM families for the Azure Machine Learning Compute environment
 AmlCompute.supported_vmsizes()
 
 from azureml.core.runconfig import RunConfiguration
@@ -155,12 +155,12 @@ run_config.amlcompute.vm_size = 'STANDARD_D2_V2'
 
 ### Persistent compute: Basic
 
-A persistent Azure Machine Learning Compute can be reused across jobs. The compute can be shared with other users in the workspace and is kept between jobs.
+A persistent Azure Machine Learning compute can be reused across jobs. The compute can be shared with other users in the workspace and is kept between jobs.
 
-To create a persistent Azure Machine Learning Compute resource, you specify the **vm_size** and **max_nodes** properties. Azure Machine Learning then uses smart defaults for the other properties. The compute autoscales down to zero nodes when it isn't used, and creates dedicated VMs to run your jobs as needed. 
+To create a persistent Azure Machine Learning compute resource, you specify the **vm_size** and **max_nodes** properties. Azure Machine Learning then uses smart defaults for the other properties. The compute autoscales down to zero nodes when it isn't used, and creates dedicated VMs to run your jobs as needed. 
 
-* **vm_size**: The VM family of the nodes created by Azure Machine Learning Compute.
-* **max_nodes**: The maximum number of nodes to autoscale up to when you run a job on Azure Machine Learning Compute.
+* **vm_size**: The VM family of the nodes created by the Azure Machine Learning compute.
+* **max_nodes**: The maximum number of nodes to autoscale up to when you run a job on the Azure Machine Learning compute.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -184,19 +184,19 @@ cpu_cluster.wait_for_completion(show_output=True)
 
 ### Persistent compute: Advanced
 
-You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.
+You can also configure several advanced properties when you create an Azure Machine Learning compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure virtual network in your subscription.
 
 Along with the **vm_size** and **max_nodes** properties, you can also use the following properties:
 
-* **min_nodes**: The minimum number of nodes to downscale to when you run a job on Azure Machine Learning Compute. The default minimum is zero (0) nodes.
-* **vm_priority**: The type of VM to use when you create an Azure Machine Learning Compute resource. Choose between **dedicated** (default) and **lowpriority**. Low priority VMs use the excess capacity in Azure. These VMs are cheaper, but runs can be pre-empted when these VMs are used.
+* **min_nodes**: The minimum number of nodes to downscale to when you run a job on an Azure Machine Learning compute. The default minimum is zero (0) nodes.
+* **vm_priority**: The type of VM to use when you create an Azure Machine Learning compute resource. Choose between **dedicated** (default) and **lowpriority**. Low priority VMs use the excess capacity in Azure. These VMs are cheaper, but runs can be pre-empted when these VMs are used.
 * **idle_seconds_before_scaledown**: The amount of idle time to wait after a run completes, and before the autoscale up to the number of **min_nodes**. The default idle time is 120 seconds.
-* **vnet_resourcegroup_name**: The resource group of the __existing__ virtual network. Azure Machine Learning Compute is created within this virtual network.
+* **vnet_resourcegroup_name**: The resource group of the __existing__ virtual network. The Azure Machine Learning compute is created within this virtual network.
 * **vnet_name**: The name of the virtual network. The virtual network must be in the same region as your Azure Machine Learning workspace.
-* **subnet_name**: The name of subnet within the virtual network. Azure Machine Learning Compute resources are assigned IP addresses from this subnet range.
+* **subnet_name**: The name of subnet within the virtual network. The Azure Machine Learning compute resources are assigned IP addresses from this subnet range.
 
 > [!TIP]
-> When you create a persistent Azure Machine Learning Compute resource, you can update properties like the number of **min_nodes** or **max_nodes**. To update a property, call the `update()` function for the property.
+> When you create a persistent Azure Machine Learning compute resource, you can update properties like the number of **min_nodes** or **max_nodes**. To update a property, call the `update()` function for the property.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -256,7 +256,7 @@ The following steps use the SDK to configure a DSVM as a training target:
     #                                                  private_key_file="path-to-file",
     #                                                  private_key_passphrase="passphrase")
 
-    # Attach the compute
+    # Attach the compute target
     compute = ComputeTarget.attach(ws, "attach-dsvm", attach_config)
 
     compute.wait_for_completion(show_output=True)
@@ -515,7 +515,7 @@ Follow the previous steps to view the list of compute targets. Then use these st
 1. Select **Machine Learning Compute** as the type of compute to use for __Training__.
 
     > [!IMPORTANT]
-    > You can only create Azure Machine Learning Compute as the managed-compute resource for training.
+    > You can only create an Azure Machine Learning compute as the managed-compute resource for training.
 
 1. Fill out the form. Provide values for the required properties, especially **VM Family**, and the **maximum nodes** to use to spin up the compute. 
 1. Select __Create__.
