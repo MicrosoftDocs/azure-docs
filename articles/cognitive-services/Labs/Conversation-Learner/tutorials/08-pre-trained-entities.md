@@ -78,4 +78,4 @@ Pre-Trained Entities recognize common types of Entities, such as numbers, dates,
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Entity Resolvers](./09-EntityResolvers.md)
+> [Entity Resolvers](./09-entity-resolvers.md)
