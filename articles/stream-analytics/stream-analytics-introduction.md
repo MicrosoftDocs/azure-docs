@@ -17,8 +17,7 @@ ms.custom: seodec18
 
 # What is Azure Stream Analytics?
 
-Azure Stream Analytics is an event-processing engine that allows you to examine high volumes of data streaming from devices. Incoming data can be from devices, sensors, web sites, social media feeds, applications, and more. It also supports extracting information from data streams, identifying patterns, and relationships. You can then use these patterns to trigger other actions downstream, like 
-s, feed information to a reporting tool, or store it for later use.
+Azure Stream Analytics is an event-processing engine that allows you to examine high volumes of data streaming from devices. Incoming data can be from devices, sensors, web sites, social media feeds, applications, and more. It also supports extracting information from data streams, identifying patterns, and relationships. You can then use these patterns to trigger other actions downstream, such as create alerts, feed information to a reporting tool, or store it for later use.
 
 Following are some examples where Azure Stream Analytics can be used: 
 
@@ -77,7 +76,7 @@ As a cloud service, Stream Analytics is optimized for cost. There are no upfront
 
 ## Reliability 
 
-Stream Analytics guarantees exactly-once event processing and at-least-once delivery of events, so events are never lost. It has built-in recovery capabilities in case the delivery of an event fails. Also, Stream Analytics provides built-in checkpointing to maintain the state of your job and provides repeatable results.
+Stream Analytics guarantees exactly once event processing and at-least-once delivery of events, so events are never lost. It has built-in recovery capabilities in case the delivery of an event fails. Also, Stream Analytics provides built-in checkpointing to maintain the state of your job and provides repeatable results.
 
 As a managed service, Stream Analytics guarantees event processing with a 99.9% availability. For more information, see  the [Stream Analytics SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) page for more details. 
 
