@@ -33357,7 +33357,12 @@
 			"redirect_url": "/azure/azure-monitor/platform/data-collector-api",
 			"redirect_document_id": false
         },
-				{
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-key-phrase.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-reference-prebuilt-keyphrase",
+            "redirect_document_id": true
+        },
+		{
 			"source_path": "articles/application-insights/app-insights-pricing-enterprise-details.md",
 			"redirect_url": "/azure/application-insights/app-insights-pricing",
 			"redirect_document_id": false
