@@ -39,6 +39,8 @@
       href: tutorial-design-database-using-portal.md
     - name: Azure CLI
       href: tutorial-design-database-using-cli.md
+    - name: ARM Templates
+      href: tutorial-provision-mysql-server-using-ARM-templates.md
   - name: 2 - Create a Web App
     items:
     - name: Wordpress - Portal
