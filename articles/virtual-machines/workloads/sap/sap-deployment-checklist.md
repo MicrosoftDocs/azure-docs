@@ -91,17 +91,39 @@ The pilot can run before or in parallel to project planning and preparation. The
 		5.	For SAP HANA more details are documented in [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations)
 	3.	Networking
 		1.	Test and evaluate your VNet infrastructure and the distribution of your SAP applications across or within the different VNets
-			1.	Evaluate the approach of hub and spoke or microsegmentation within a single VNet based on
+			1.	Evaluate the approach of hub and spoke virtual network architecture or microsegmentation within a single Azure virtual network based on
 				1.	Costs due to data exchange between [peered Azure VNets](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). For costs check [Virtual Network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/)
-a.	VM Types are certified as per Note 1928533 - SAP Applications on Azure - Supported Products and Azure VM types
-b.	DB & APP VMs are on the same vNet and no traffic redirection or inspection between DB & APP VMs
-c.	Run /SSA/CAT in SE38 and record results – target range for DB Acc and E DB Acc = 50-60 for VMs
-d.	Accelerated Networking enabled 
-e.	Write Accelerator enabled (Hana DB /log only) 
-f.	Validate Linux Kernel and package updates against “Known good” configurations. Update Windows OS to latest available patch 
-g.	Ensure DB version is up to date and supported in SAP PAM 
-h.	ASC or NSG protect DB & APP server – NFS, Netbios and DBMS blocked. OS level firewall enabled 
-i.	Confirm disk configuration – Premium Storage should always be used for DBMS servers.  Managed Disks used.  File System type and block size correct.  For Hana follow template #8
+				2.	Advantage of fast disconnect of the peering between Vnets in comparision to change NSG to isolate a subnet within a virtual network for cases where applications or VMs hosted in a subnet of the virtual network became a security risk
+				3.	Central logging and auditing of network traffic between on-premise, outside world and the virtual datacenter you built up in Azure
+			2.	Evaluate and test data path between SAP application layer and SAP DBMS layer. 
+				1.	Any placement of [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application and the DBMS layer of a SAP NetWeaver, Hybris or S/4HANA based SAP systems is not supported at all
+				2.	Placing SAP application layer and SAP DBMS in different Azure virtual networks that are not peered are not supported
+				3.	[Azure ASG and NSG rules](https://docs.microsoft.com/azure/virtual-network/security-overview) are supported to be used to define routes between the SAP application layer and SAP DBMS layer
+			3.	Make sure that [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled on the VMs used on the SAP application layer and the SAP DBMS layer. Keep in mind that different OS levels are needed to support Accelerated Networking in Azure:
+				1.	Windows Server 2012 R2 or newer releases
+				2.	SUSE Linux 12 SP3 or newer releases
+				3.	RHEL 7.4 or newer releases
+				4.	Oracle Linux 7.5. Using the RHCKL kernel, the release needs to be 3.10.0-862.13.1.el7. Using the Oracle UEK kernel release 5 is required
+			4.	 Test and evaluate the network latency between SAP aplication layer VM and DBMS VM according to SAP support note [#500235](https://launchpad.support.sap.com/#/notes/500235) and SAP support note [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Evaluate the results against network latency guidance of SAP support note [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). The network latency should be in the moderate and good range. Exceptions apply to traffic between VMs and HANA Large Instance units as documented [here](#1100926](https://launchpad.support.sap.com/#/notes/1100926/E)
+			5.	 Make sure that ILB deployments are set up to use Direct Server Return. This will reduce latency in cases where Azure ILBs are used for high availability configurations on the DBMS layer
+	6.	 Timeout settings
+		1.	 Check SAP NetWeaver developer traces of the different SAP instances and make sure that no connection breaks between enqueue server and the SAP work processes are noted. These connection braks can be avoided by setting these two registry parameters:
+			1.	 HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 120000 - see also [this article](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10))
+			2.	 HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval = 120000 - see also [this article](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) 
+		2.	 In order to avoid GUI time outs between one-premise deployed SAP GUI interfaces and SAP application layers deployed in Azure, check whether the following parameters are set in the default.pfl or the instance profile:
+			1.	 rdisp/keepalive_timeout = 3600
+			2.	 rdisp/keepalive = 20
+		3.	 If you use a Windows Failover Cluster configuration, make sure that the time to react on non-responsive nodes is set correctly for Azure. The Microsoft article [Tuning Failover Cluster Network Thresholds](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/) lists parameters and how those impact failover senitivity. Of the parameters listed these two should be set with the value:
+			1.	 SameSubNetDelay = 2
+			2.	 SameSubNetThreshold = 15
+5.	 Test your high availability and disaster recovery procedures
+	1.	 Simulate failover situations by shutting down VMs or putting operating systems in panic mode in order to figure out whether your failover configurations work as designed. 
+	2.	 Measure your times it takes to failover. If the times take too long, consider:
+		1.	 For SUSE Linux use SBD devices instead of the Azure Fencing Agent to speed up failover
+		2.	 For SAP HANA, if the reload of data takes too long consider to provision more storage bandwidth
+	3.	 Test backup and restore sequence and tune if necessary
+
+
 3.	Azure platform availability check 
 a.	Open Support Request to Microsoft support
 i.	List all VMs & RG 
