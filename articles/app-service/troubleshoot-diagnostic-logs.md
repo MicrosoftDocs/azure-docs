@@ -118,7 +118,7 @@ This command saves the logs for the app named 'appname' to a file named **diagno
 Visual Studio Application Insights provides tools for filtering and searching logs, and for correlating the logs with requests and other events.
 
 1. Add the Application Insights SDK to your project in Visual Studio.
-   * In Solution Explorer, right-click your project and choose Add Application Insights. The interface guides you through steps that include creating an Application Insights resource. [Learn more](../application-insights/app-insights-asp-net.md)
+   * In Solution Explorer, right-click your project and choose Add Application Insights. The interface guides you through steps that include creating an Application Insights resource. [Learn more](../azure-monitor/app/asp-net.md)
 2. Add the Trace Listener package to your project.
    * Right-click your project and choose Manage NuGet Packages. Select `Microsoft.ApplicationInsights.TraceListener` [Learn more](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Upload your project and run it to generate log data.
