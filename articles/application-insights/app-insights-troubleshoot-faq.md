@@ -99,7 +99,7 @@ From server web apps:
 * [Dependencies](app-insights-asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue. 
 * [Exceptions](app-insights-asp-net-exceptions.md) and stack traces.
 * [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](app-insights-monitor-performance-live-website-now.md), [Azure monitoring](app-insights-azure-web-apps.md), or the [Application Insights collectd writer](app-insights-java-collectd.md).
-* [Custom events and metrics](app-insights-api-custom-events-metrics.md) that you code.
+* [Custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md) that you code.
 * [Trace logs](app-insights-asp-net-trace-logs.md) if you configure the appropriate collector.
 
 From [client web pages](app-insights-javascript.md):
@@ -108,7 +108,7 @@ From [client web pages](app-insights-javascript.md):
 * [AJAX calls](app-insights-asp-net-dependencies.md) Requests made from a running script.
 * Page view load data
 * User and session counts
-* [Authenticated user IDs](app-insights-api-custom-events-metrics.md#authenticated-users)
+* [Authenticated user IDs](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)
 
 From other sources, if you configure them:
 
@@ -124,7 +124,7 @@ Yes, in the server you can write:
 * Telemetry Processor to filter or add properties to selected telemetry items before they are sent from your app.
 * Telemetry Initializer to add properties to all items of telemetry.
 
-Learn more for [ASP.NET](app-insights-api-filtering-sampling.md) or [Java](app-insights-java-filter-telemetry.md).
+Learn more for [ASP.NET](../azure-monitor/app/api-filtering-sampling.md) or [Java](app-insights-java-filter-telemetry.md).
 
 ## How are City, Country and other geo location data calculated?
 
@@ -179,19 +179,19 @@ Use a single resource for all the components or roles in a single business syste
 * The JavaScript SDK sets a user cookie on the web client, to identify returning users, and a session cookie to group activities.
 * If there is no client-side script, you can [set cookies at the server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * If one real user uses your site in different browsers, or using in-private/incognito browsing, or different machines, then they will be counted more than once.
-* To identify a logged-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
+* To identify a logged-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
 
 ## <a name="q17"></a> Have I enabled everything in Application Insights?
 | What you should see | How to get it | Why you want it |
 | --- | --- | --- |
 | Availability charts |[Web tests](app-insights-monitor-web-app-availability.md) |Know your web app is up |
-| Server app perf: response times, ... |[Add Application Insights to your project](app-insights-asp-net.md) or [Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md) (or write your own code to [track dependencies](app-insights-api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
+| Server app perf: response times, ... |[Add Application Insights to your project](app-insights-asp-net.md) or [Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md) (or write your own code to [track dependencies](../azure-monitor/app/api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
 | Dependency telemetry |[Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md) |Diagnose issues with databases or other external components |
 | Get stack traces from exceptions |[Insert TrackException calls in your code](app-insights-asp-net-exceptions.md) (but some are reported automatically) |Detect and diagnose exceptions |
 | Search log traces |[Add a logging adapter](app-insights-asp-net-trace-logs.md) |Diagnose exceptions, perf issues |
 | Client usage basics: page views, sessions, ... |[JavaScript initializer in web pages](app-insights-javascript.md) |Usage analytics |
-| Client custom metrics |[Tracking calls in web pages](app-insights-api-custom-events-metrics.md) |Enhance user experience |
-| Server custom metrics |[Tracking calls in server](app-insights-api-custom-events-metrics.md) |Business intelligence |
+| Client custom metrics |[Tracking calls in web pages](../azure-monitor/app/api-custom-events-metrics.md) |Enhance user experience |
+| Server custom metrics |[Tracking calls in server](../azure-monitor/app/api-custom-events-metrics.md) |Business intelligence |
 
 ## Why are the counts in Search and Metrics charts unequal?
 
@@ -220,7 +220,7 @@ You can't set up a Metric Explorer report or set up continuous export.
 
 ### Querying the telemetry
 
-Use the [REST API](https://dev.applicationinsights.io/) to run [Analytics](app-insights-analytics.md) queries.
+Use the [REST API](https://dev.applicationinsights.io/) to run [Analytics](../azure-monitor/app/analytics.md) queries.
 
 ## How can I set an alert on an event?
 
@@ -235,7 +235,7 @@ This doesn't depend on where your Application Insights resource is hosted. It ju
 
 ## Can I send telemetry to the Application Insights portal?
 
-We recommend you use our SDKs and use the [SDK API](app-insights-api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app-insights-platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
+We recommend you use our SDKs and use the [SDK API](../azure-monitor/app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app-insights-platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
 
 ## Can I monitor an intranet web server?
 

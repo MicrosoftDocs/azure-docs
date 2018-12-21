@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dependency Tracking in Azure Application Insights | Microsoft Docs
 description: Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights.
 services: application-insights
@@ -30,7 +30,7 @@ The out-of-the-box dependency monitor currently reports calls to these  types of
 
 Monitoring works by using [byte code instrumentation](https://msdn.microsoft.com/library/z9z62c29.aspx) around select methods or based on DiagnosticSource callbacks (in the latest .NET SDKs) from the .NET Framework. Performance overhead is minimal.
 
-You can also write your own SDK calls to monitor other dependencies, both in the client and server code, using the [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
+You can also write your own SDK calls to monitor other dependencies, both in the client and server code, using the [TrackDependency API](../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 > [!NOTE]
 > Azure Cosmos DB is tracked automatically only if [HTTP/HTTPS](../cosmos-db/performance-tips.md#networking) is used. TCP mode won't be captured by Application Insights.
@@ -57,9 +57,9 @@ Application Map acts as a visual aid to discovering dependencies between the com
 ![Application Map](./media/app-insights-asp-net-dependencies/08.png)
 
 * **Navigate from the boxes** to relevant dependency and other charts.
-* **Pin the map** to the [dashboard](app-insights-dashboards.md), where it will be fully functional.
+* **Pin the map** to the [dashboard](../azure-monitor/app/app-insights-dashboards.md), where it will be fully functional.
 
-[Learn more](app-insights-app-map.md).
+[Learn more](../azure-monitor/app/app-map.md).
 
 ## Performance and failure blades
 The performance blade shows the duration of dependency calls made by the server app. There's a summary chart and a table segmented by call.
@@ -171,7 +171,7 @@ You can track dependencies in the [Log Analytics query language](https://aka.ms/
 ## Custom dependency tracking
 The standard dependency-tracking module automatically discovers external dependencies such as databases and REST APIs. But you might want some additional components to be treated in the same way.
 
-You can write code that sends dependency information, using the same [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency) that is used by the standard modules.
+You can write code that sends dependency information, using the same [TrackDependency API](../azure-monitor/app/api-custom-events-metrics.md#trackdependency) that is used by the standard modules.
 
 For example, if you build your code with an assembly that you didn't write yourself, you could time all the calls to it, to find out what contribution it makes to your response times. To have this data displayed in the dependency charts in Application Insights, send it using `TrackDependency`.
 

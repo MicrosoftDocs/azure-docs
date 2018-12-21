@@ -27,8 +27,8 @@ To follow the instructions in this article, you need:
 
 ### Resource Manager templates
 A Resource Manager template makes it easy to create the following resoruces for your application in a single, coordinated operation:
-* HDInsight clusters and their dependent resources (such as the default storage account)
-* Other resources (such as Azure SQL Database to use [Apache Sqoop](http://sqoop.apache.org/))
+* HDInsight clusters and their dependent resources (such as the default storage account).
+* Other resources (such as Azure SQL Database to use [Apache Sqoop](https://sqoop.apache.org/)).
 
 In the template, you define the resources that are needed for the application. You also specify deployment parameters to input values for different environments. The template consists of JSON and expressions that you use to construct values for your deployment.
 
