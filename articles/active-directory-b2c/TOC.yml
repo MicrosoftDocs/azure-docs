@@ -88,6 +88,8 @@
     items:
     - name: Collect logs using Application Insights
       href: active-directory-b2c-troubleshoot-custom.md
+    - name: Confgure ROPC
+      href: ropc-custom.md
     - name: Configure user input
       href: active-directory-b2c-configure-signup-self-asserted-custom.md
     - name: Create a custom policy

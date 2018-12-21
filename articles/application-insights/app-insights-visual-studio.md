@@ -19,7 +19,7 @@ ms.author: daviste
 # Debug your applications with Azure Application Insights in Visual Studio
 In Visual Studio (2015 and later), you can analyze performance and diagnose issues in your ASP.NET web app both in debugging and in production, using telemetry from [Azure Application Insights](app-insights-overview.md).
 
-If you created your ASP.NET web app using Visual Studio 2017 or later, it already has the Application Insights SDK. Otherwise, if you haven't done so already, [add Application Insights to your app](app-insights-asp-net.md).
+If you created your ASP.NET web app using Visual Studio 2017 or later, it already has the Application Insights SDK. Otherwise, if you haven't done so already, [add Application Insights to your app](../azure-monitor/app/asp-net.md).
 
 To monitor your app when it's in live production, you normally view the Application Insights telemetry in the [Azure portal](https://portal.azure.com), where you can set alerts and apply powerful monitoring tools. But for debugging, you can also search and analyze the telemetry in Visual Studio. You can use Visual Studio to analyze telemetry both from your production site and from debugging runs on your development machine. In the latter case, you can analyze debugging runs even if you haven't yet configured the SDK to send telemetry to the Azure portal. 
 
@@ -66,7 +66,7 @@ In the Code Lens line above each handler method, you see a count of the requests
 ![Exception stack trace](./media/app-insights-visual-studio/21.png)
 
 > [!NOTE] 
-> Code Lens shows Application Insights data only if you have [configured your app to send telemetry to the Application Insights portal](app-insights-asp-net.md).
+> Code Lens shows Application Insights data only if you have [configured your app to send telemetry to the Application Insights portal](../azure-monitor/app/asp-net.md).
 >
 
 [More about Application Insights in Code Lens](app-insights-visual-studio-codelens.md)
