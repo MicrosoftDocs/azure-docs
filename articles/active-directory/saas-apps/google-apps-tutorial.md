@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/20/2018
+ms.date: 12/21/2018
 ms.author: jeedes
 
 ---
@@ -69,7 +69,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 6. **Q: What should I do when I get an "invalid email" error message?**
 
-	For this setup, the email attribute is required for the users to be able to sign-in. This attribute cannot be set manually.
+	A: For this setup, the email attribute is required for the users to be able to sign-in. This attribute cannot be set manually.
 
 	The email attribute is autopopulated for any user with a valid Exchange license. If user is not email-enabled, this error will be received as the application needs to get this attribute to give access.
 
