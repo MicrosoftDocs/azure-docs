@@ -100,7 +100,7 @@ Add a new intent to capture employee feedback from members of the company.
 
 1. Select **Manage** in the top right navigation, then select **Publish settings** from the left menu.
 
-2. Select **Sentiment Analysis** to enable this setting. 
+1. Select **Sentiment Analysis** to enable this setting. 
 
     ![Turn on Sentiment Analysis as publishing setting](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
@@ -112,7 +112,7 @@ Add a new intent to capture employee feedback from members of the company.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Go to the end of the URL in the address and enter `Jill Jones work with the media team on the public portal was amazing`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `EmployeeFeedback` intent with the sentiment analysis extracted.
+1. Go to the end of the URL in the address and enter `Jill Jones work with the media team on the public portal was amazing`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `EmployeeFeedback` intent with the sentiment analysis extracted.
     
     ```json
     {

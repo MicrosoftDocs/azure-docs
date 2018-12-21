@@ -12,7 +12,6 @@ ms.date: 12/21/2018
 ms.author: diberry
 --- 
 ## Add example utterances to the None intent 
-
 The client application needs to know if an utterance is not meaningful or appropriate for the application. The **None** intent is added to each application as part of the creation process to determine if an utterance can't be answered by the client application.
 
 If LUIS returns the **None** intent for an utterance, your client application can ask if the user wants to end the conversation or give more directions for continuing the conversation. 

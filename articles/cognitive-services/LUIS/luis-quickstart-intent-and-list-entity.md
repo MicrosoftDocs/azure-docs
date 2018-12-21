@@ -74,13 +74,11 @@ A list entity is a good choice for this type of data when:
     |Steve Standish to 1234|
     |Tanner Thompson to 3456|
 
-    [ ![Screenshot of Intent page with new utterances highlighted](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
-
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## Department list entity
 
-Now that the **MoveEmployee** intent has example utterances, LUIS needs to understand what a department is. 
+Now that the **TransferEmployeeToDepartment** intent has example utterances, LUIS needs to understand what is a department. 
 
 The primary, _canonical_, name for each item is the department name. Examples of the synonyms of each canonical name are: 
 
@@ -124,119 +122,40 @@ The primary, _canonical_, name for each item is the department name. Examples of
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-2. Go to the end of the URL in the address and enter `shift 123-45-6789 from Z-1242 to T-54672`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `MoveEmployee` intent with `Employee` extracted.
+2. Go to the end of the URL in the address and enter `shift Joe Smith to IT`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `TransferEmployeeToDepartment` intent with `Department` extracted.
 
   ```json
-  {
-    "query": "shift 123-45-6789 from Z-1242 to T-54672",
-    "topScoringIntent": {
-      "intent": "MoveEmployee",
-      "score": 0.9882801
-    },
-    "intents": [
-      {
-        "intent": "MoveEmployee",
-        "score": 0.9882801
+    {
+      "query": "shift Joe Smith to IT",
+      "topScoringIntent": {
+        "intent": "TransferEmployeeToDepartment",
+        "score": 0.9775754
       },
-      {
-        "intent": "FindForm",
-        "score": 0.016044287
-      },
-      {
-        "intent": "GetJobInformation",
-        "score": 0.007611245
-      },
-      {
-        "intent": "ApplyForJob",
-        "score": 0.007063288
-      },
-      {
-        "intent": "Utilities.StartOver",
-        "score": 0.00684710965
-      },
-      {
-        "intent": "None",
-        "score": 0.00304174074
-      },
-      {
-        "intent": "Utilities.Help",
-        "score": 0.002981
-      },
-      {
-        "intent": "Utilities.Confirm",
-        "score": 0.00212222221
-      },
-      {
-        "intent": "Utilities.Cancel",
-        "score": 0.00191026414
-      },
-      {
-        "intent": "Utilities.Stop",
-        "score": 0.0007461446
-      }
-    ],
-    "entities": [
-      {
-        "entity": "123 - 45 - 6789",
-        "type": "Employee",
-        "startIndex": 6,
-        "endIndex": 16,
-        "resolution": {
-          "values": [
-            "Employee-24612"
-          ]
+      "intents": [
+        {
+          "intent": "TransferEmployeeToDepartment",
+          "score": 0.9775754
+        },
+        {
+          "intent": "None",
+          "score": 0.0154493852
         }
-      },
-      {
-        "entity": "123",
-        "type": "builtin.number",
-        "startIndex": 6,
-        "endIndex": 8,
-        "resolution": {
-          "value": "123"
+      ],
+      "entities": [
+        {
+          "entity": "it",
+          "type": "Department",
+          "startIndex": 19,
+          "endIndex": 20,
+          "resolution": {
+            "values": [
+              "Information Technology"
+            ]
+          }
         }
-      },
-      {
-        "entity": "45",
-        "type": "builtin.number",
-        "startIndex": 10,
-        "endIndex": 11,
-        "resolution": {
-          "value": "45"
-        }
-      },
-      {
-        "entity": "6789",
-        "type": "builtin.number",
-        "startIndex": 13,
-        "endIndex": 16,
-        "resolution": {
-          "value": "6789"
-        }
-      },
-      {
-        "entity": "-1242",
-        "type": "builtin.number",
-        "startIndex": 24,
-        "endIndex": 28,
-        "resolution": {
-          "value": "-1242"
-        }
-      },
-      {
-        "entity": "-54672",
-        "type": "builtin.number",
-        "startIndex": 34,
-        "endIndex": 39,
-        "resolution": {
-          "value": "-54672"
-        }
-      }
-    ]
-  }
+      ]
+    }
   ```
-
-  The employee was found and returned as type `Employee` with a resolution value of `Employee-24612`.
 
 ## Clean up resources
 
