@@ -20,7 +20,7 @@ Using the [Azure portal][azure-portal], you can manage [Apache Hadoop](https://h
 
 **Prerequisites**
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- An existing Apache Hadoop cluster in HDInsight.  See [Create Linux-based clusters in HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal).
+- An existing Apache Hadoop cluster in HDInsight.  See [Create Linux-based clusters in HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Getting Started
 Sign in to [https://portal.azure.com](https://portal.azure.com).
