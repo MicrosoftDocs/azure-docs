@@ -82,7 +82,7 @@ Popular alerts include:
 
 * [Browser metrics][client], especially Browser **page load times**, are good for web applications. If your page has many scripts, you should look for **browser exceptions**. In order to get these metrics and alerts, you have to set up [web page monitoring][client].
 * **Server response time** for the server side of web applications. As well as setting up alerts, keep an eye on this metric to see if it varies disproportionately with high request rates: variation might indicate that your app is running out of resources. 
-* **Server exceptions** - to see them, you have to do some [additional setup](../../application-insights/app-insights-asp-net-exceptions.md).
+* **Server exceptions** - to see them, you have to do some [additional setup](../../azure-monitor/app/asp-net-exceptions.md).
 
 Don't forget that [proactive failure rate diagnostics](../../application-insights/app-insights-proactive-failure-diagnostics.md) automatically monitor the rate at which your app responds to requests with failure codes. 
 

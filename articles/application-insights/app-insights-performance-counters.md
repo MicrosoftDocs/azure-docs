@@ -114,7 +114,7 @@ Like other telemetry, **performanceCounters** also has a column `cloud_RoleInsta
 
 * *Exception rate* is a system performance counter. The CLR counts all the handled and unhandled exceptions that are thrown, and divides the total in a sampling interval by the length of the interval. The Application Insights SDK collects this result and sends it to the portal.
 
-* *Exceptions* is a count of the TrackException reports received by the portal in the sampling interval of the chart. It includes only the handled exceptions where you have written TrackException calls in your code, and doesn't include all [unhandled exceptions](app-insights-asp-net-exceptions.md). 
+* *Exceptions* is a count of the TrackException reports received by the portal in the sampling interval of the chart. It includes only the handled exceptions where you have written TrackException calls in your code, and doesn't include all [unhandled exceptions](../azure-monitor/app/asp-net-exceptions.md). 
 
 ## Performance counters in ASP.Net Core applications
 Performance counters are supported only if the application is targeting the full .NET Framework. There is no ability to collect Performance counters for .Net Core applications.
@@ -124,5 +124,5 @@ Like other metrics, you can [set an alert](../azure-monitor/app/alerts.md) to wa
 
 ## <a name="next"></a>Next steps
 * [Dependency tracking](../azure-monitor/app/asp-net-dependencies.md)
-* [Exception tracking](app-insights-asp-net-exceptions.md)
+* [Exception tracking](../azure-monitor/app/asp-net-exceptions.md)
 

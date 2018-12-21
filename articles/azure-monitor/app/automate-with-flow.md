@@ -35,7 +35,7 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 1. Select **Schedule**, and then select **Schedule - Recurrence**.
 1. In the **Frequency** box, select **Day**, and in the **Interval** box, enter **1**.
 
-    ![Microsoft Flow trigger dialog box](./media/app-insights-automate-with-flow/flow1.png)
+    ![Microsoft Flow trigger dialog box](./media/automate-with-flow/flow1.png)
 
 
 ### Step 3: Add an Application Insights action
@@ -43,17 +43,17 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 1. Search for **Azure Application Insights**.
 1. Click **Azure Application Insights - Visualize Analytics query Preview**.
 
-    ![Run Analytics query window](./media/app-insights-automate-with-flow/flow2.png)
+    ![Run Analytics query window](./media/automate-with-flow/flow2.png)
 
 ### Step 4: Connect to an Application Insights resource
 
 To complete this step, you need an application ID and an API key for your resource. You can retrieve them from the Azure portal, as shown in the following diagram:
 
-![Application ID in the Azure portal](./media/app-insights-automate-with-flow/appid.png) 
+![Application ID in the Azure portal](./media/automate-with-flow/appid.png) 
 
 - Provide a name for your connection, along with the application ID and API key.
 
-    ![Microsoft Flow connection window](./media/app-insights-automate-with-flow/flow3.png)
+    ![Microsoft Flow connection window](./media/automate-with-flow/flow3.png)
 
 ### Step 5: Specify the Analytics query and chart type
 This example query selects the failed requests within the last day and correlates them with exceptions that occurred as part of the operation. Analytics correlates them based on the operation_Id identifier. The query then segments the results by using the autocluster algorithm. 
@@ -73,7 +73,7 @@ When you create your own queries, verify that they are working properly in Analy
     | evaluate autocluster()
     ```
     
-    ![Analytics query configuration window](./media/app-insights-automate-with-flow/flow4.png)
+    ![Analytics query configuration window](./media/automate-with-flow/flow4.png)
 
 ### Step 6: Configure the flow to send email
 
@@ -81,7 +81,7 @@ When you create your own queries, verify that they are working properly in Analy
 1. Search for **Office 365 Outlook**.
 1. Click **Office 365 Outlook - Send an email**.
 
-    ![Office 365 Outlook selection window](./media/app-insights-automate-with-flow/flow2b.png)
+    ![Office 365 Outlook selection window](./media/automate-with-flow/flow2b.png)
 
 1. In the **Send an email** window, do the following:
 
@@ -93,7 +93,7 @@ When you create your own queries, verify that they are working properly in Analy
 
    d. Click **Show advanced options**.
 
-    ![Office 365 Outlook configuration](./media/app-insights-automate-with-flow/flow5.png)
+    ![Office 365 Outlook configuration](./media/automate-with-flow/flow5.png)
 
 1. On the dynamic content menu, do the following:
 
@@ -103,23 +103,23 @@ When you create your own queries, verify that they are working properly in Analy
     
     c. In the **Is HTML** box, select **Yes**.
 
-    ![Office 365 email configuration window](./media/app-insights-automate-with-flow/flow7.png)
+    ![Office 365 email configuration window](./media/automate-with-flow/flow7.png)
 
 ### Step 7: Save and test your flow
 - In the **Flow name** box, add a name for your flow, and then click **Create flow**.
 
-    ![Flow-creation window](./media/app-insights-automate-with-flow/flow8.png)
+    ![Flow-creation window](./media/automate-with-flow/flow8.png)
 
 You can wait for the trigger to run this action, or you can run the flow immediately by [running the trigger on demand](https://flow.microsoft.com/blog/run-now-and-six-more-services/).
 
 When the flow runs, the recipients you have specified in the email list receive an email message that looks like the following:
 
-![Sample email](./media/app-insights-automate-with-flow/flow9.png)
+![Sample email](./media/automate-with-flow/flow9.png)
 
 
 ## Next steps
 
-- Learn more about creating [Analytics queries](../azure-monitor/log-query/get-started-queries.md).
+- Learn more about creating [Analytics queries](../../azure-monitor/log-query/get-started-queries.md).
 - Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
 
 
