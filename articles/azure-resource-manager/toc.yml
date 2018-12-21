@@ -19,6 +19,8 @@
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
   - name: Create multiple instances
     href: resource-manager-tutorial-create-multiple-instances.md
+  - name: Move resources
+    href: resource-manager-tutorial-move-resources.md
   - name: Set resource deployment order
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
   - name: Use conditions
@@ -82,6 +84,8 @@
   items:
   - name: Create templates
     items:
+    - name: Create template
+      href: how-to-create-template.md
     - name: Create resource groups and resources at subscription
       href: deploy-to-subscription.md
     - name: Define resource dependencies

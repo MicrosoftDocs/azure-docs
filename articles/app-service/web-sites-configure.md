@@ -59,7 +59,7 @@ For technical reasons, enabling Java for your app disables the .NET, PHP, and Py
 
 **ARR Affinity**. In an app that's scaled out to multiple VM instances, ARR Affinity cookies guarantee that the client is routed to the same instance for the life of the session. To improve the performance of stateless applications, set this option to **Off**.   
 
-**Auto Swap**. If you enable Auto Swap for a deployment slot, App Service will automatically swap the app into production when you push an update to that slot. For more information, see [Deploy to staging slots for apps in Azure App Service](web-sites-staged-publishing.md).
+**Auto Swap**. If you enable Auto Swap for a deployment slot, App Service will automatically swap the app into production when you push an update to that slot. For more information, see [Deploy to staging slots for apps in Azure App Service](deploy-staging-slots.md).
 
 ### Debugging
 **Remote Debugging**. Enables remote debugging. When enabled, you can use the remote debugger in Visual Studio to connect directly to your app. Remote debugging will remain enabled for 48 hours. 
@@ -172,7 +172,7 @@ For more information, see [How to: Monitor web endpoint status].
 [ASP.NET SignalR]: https://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Configure a custom domain name in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
-[Deploy to Staging Environments for Azure App Service]: ./web-sites-staged-publishing.md
+[Deploy to Staging Environments for Azure App Service]: ./deploy-staging-slots.md
 [Enable HTTPS for an app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
 [How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Monitoring basics in Azure App Service]: ./web-sites-monitor.md

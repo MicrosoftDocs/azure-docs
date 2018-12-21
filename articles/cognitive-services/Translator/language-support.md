@@ -34,7 +34,6 @@ The V3 Translator API is neural by default and statistical systems are only avai
 |:-----|:-----:|:-----|:-----|
 |Afrikaans|	`af`	|Statistical only|	Neural|
 |Arabic|	`ar`	|Neural available|	Neural|
-|Arabic, Levantine|	`apc`	|Neural available|	Neural|
 |Bangla|	`bn`	|Neural available|	Neural|
 |Bosnian (Latin)|	`bs`	|Neural available|	Neural|
 |Bulgarian|	`bg`	|Neural available|	Neural|
