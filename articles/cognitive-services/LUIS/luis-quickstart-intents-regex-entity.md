@@ -71,7 +71,7 @@ A regular expression is a good choice for this type of data when:
     |Where is hrf-345678?|
     |When was hrf-456098 updated?|
     |Did John Smith update hrf-234639 last week?|
-    |How many version of hrf-345123 are there?|
+    |How many versions of hrf-345123 are there?|
     |Who needs to authorize form hrf-123456?|
     |How many people need to sign off on hrf-345678?|
     |hrf-234123 date?|

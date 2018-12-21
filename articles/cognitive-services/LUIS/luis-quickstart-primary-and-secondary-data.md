@@ -95,7 +95,7 @@ Once the entities are marked in the example utterances, it is important to add a
 
     ![Create simple entity pop-up modal dialog with name of Job and type of simple](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-1. In the remaining utterances,mark the job-related words with **Job** entity by selecting the word or phrase, then selecting **Job** from the pop-up menu. 
+1. In the remaining utterances, mark the job-related words with **Job** entity by selecting the word or phrase, then selecting **Job** from the pop-up menu. 
 
     [![Screenshot of LUIS labeling job entity highlighted](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Screenshot of LUIS labeling job entity highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
@@ -133,7 +133,7 @@ Simple entities need many examples in order to have a high confidence of predict
 
 1. Label the jobs in the example utterances
 
-    If there are more example utterances in one intent than another intent, that intent has a higher likelyhood of being the highest predicted intext. 
+    If there are more example utterances in one intent than another intent, that intent has a higher likelihood of being the highest predicted intext. 
 
 ## Train the app so the changes to the intent can be tested 
 
@@ -219,7 +219,7 @@ Because a name can be anything, LUIS predicts entities more accurately if it has
 
 ## To boost signal of the job-related words, add a phrase list of job-related words
 
-Open the [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) from the Azure-Samples GitHub repository. The list is over one thousand job words and phrases. Look through the list for job words that are meaningful to you. If your words or phrases are not on the list, add your own.
+Open the [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) from the Azure-Samples GitHub repository. The list is over 1,000 job words and phrases. Look through the list for job words that are meaningful to you. If your words or phrases are not on the list, add your own.
 
 1. In the **Build** section of the LUIS app, select **Phrase lists** found under the **Improve app performance** menu.
 

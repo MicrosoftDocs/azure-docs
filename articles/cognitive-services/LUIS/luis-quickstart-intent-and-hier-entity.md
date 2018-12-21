@@ -14,7 +14,7 @@ ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
 --- 
 
-# Tutorial: Extract contextually-related data from an utterance
+# Tutorial: Extract contextually related data from an utterance
 
 In this tutorial, find related pieces of data based on context. For example, an origin and destination locations for a transfer from one city to another. Both pieces of data may be required and they are related to each other.  
 
@@ -175,7 +175,7 @@ If only one child (origin or destination) of a hierarchical entity is present, i
 
 ## Next steps
 
-This tutorial created a new intent and added example utterances for the contextually-learned data of origin and destination locations. Once the app is trained and published, a client-application can use that information to create a move ticket with the relevant information.
+This tutorial created a new intent and added example utterances for the contextually learned data of origin and destination locations. Once the app is trained and published, a client-application can use that information to create a move ticket with the relevant information.
 
 > [!div class="nextstepaction"] 
 > [Learn how to add a composite entity](luis-tutorial-composite-entity.md) 

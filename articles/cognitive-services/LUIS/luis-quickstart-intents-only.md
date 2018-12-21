@@ -53,7 +53,7 @@ This app has a few intents.
 
 ## Create intent for job information
 
-1. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent is predicted any time a user wants information about open jobs in the company. 
+1. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent is predicted when a user wants information about open jobs in the company. 
 
     ![Screenshot of Language Understanding (LUIS) New intent dialog](media/luis-quickstart-intents-only/create-intent.png "Screenshot of Language Understanding (LUIS) New intent dialog")
 
@@ -71,7 +71,7 @@ This app has a few intents.
     |Is there an internship in the san francisco office?|
     |Is there any part-time work for people in college?|
     |Looking for a new situation with responsibilities in accounting|
-    |Looking for a job in new york city for bilinguial speakers.|
+    |Looking for a job in new york city for bilingual speakers.|
     |Looking for a new situation with responsibilities in accounting.|
     |New jobs?|
     |Show me all the jobs for engineers that were added in the last 2 days.|

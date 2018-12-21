@@ -35,7 +35,7 @@ In this tutorial, understand how to get entity data that matches a predefined li
 
 A list entity is an exact text match to the words in the utterance. 
 
-Each item on the list can include a list of synonyms. For the human resources app, a company department can be identified be several key pieces of information such as an official name, common acronyms, and billing department codes. 
+Each item on the list can include a list of synonyms. For the human resources app, a company department can be identified by several key pieces of information such as an official name, common acronyms, and billing department codes. 
 
 The Human Resources app needs to determine the department an employee is transferring to. 
 
