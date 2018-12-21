@@ -14,14 +14,14 @@ ms.author: v-jaswel
 
 # How to use Conversation Learner with other bot building technologies
 
-This tutorial covers how to use Conversation Learner with other bot building technologies and how memory (or state) can be shared between these technologies 
+This tutorial covers how to use Conversation Learner with other bot building technologies and how memory (or state) can be shared between these technologies. 
 
 ## Video
 
-[![Tutorial 15 Preview](https://aka.ms/cl-tutorial-15-preview)](https://aka.ms/blis-tutorial-15)
+[![Hybrid Bots Tutorial Preview](https://aka.ms/cl_Tutorial_v3_Hybrid_Applications_Preview)](https://aka.ms/cl_Tutorial_v3_Hybrid_Applications)
 
 ## Requirements
-This tutorial requires using the bot emulator to create log dialogs, not the Log Dialog Web UI.  
+This tutorial requires using the bot emulator to create log dialogs, not the Log Dialog Web UI. More information on setting up the Bot Framework Emulator is available [here](https://docs.microsoft.com/azure/bot-service/bot-service-debug-emulator?view=azure-bot-service-4.0). 
 
 This tutorial requires that the hybrid tutorial bot is running:
 
@@ -29,30 +29,28 @@ This tutorial requires that the hybrid tutorial bot is running:
 
 ## Details
 
-While Conversation Learner is in control, all state relative to the Conversation Learner Session must be stored in the Conversation Learner’s memory manager. This is necessary as the machine learning uses the state to determine how to drive the conversation. External state can be passed into the Conversation Learner in the OnSessionStartCallback that is called when the session begins. Internal can be returned out by the OnSessionEndCallback when the session terminates.
+While Conversation Learner is in control, all state relative to the Conversation Learner Session must be stored in the Conversation Learner’s memory manager. This is necessary as the machine learning uses the state to determine how to drive the conversation. External state can be passed into the Conversation Learner in the OnSessionStartCallback that is called when the session begins. Internal state can be returned out by the OnSessionEndCallback when the session terminates.
 
 You can almost think of Conversation Learner as a function call that takes some initial state and returns values.
 
 In this example, you will create a hybrid bot using two different systems:
-1. A Conversation Learner Model <br />
-Uses conversation learner model to determine the next action of the bot based on the current session.
-This part of the bot takes one piece of initial state `isOpen` (which indicates whether a store is open or closed) and returns another piece of state `purchaseItem` (the name of an item the user purchases.)
+1. A Conversation Learner Model <br/>
+	Uses conversation learner model to determine the next action of the bot based on the current session.This part of the bot takes one piece of initial state `isOpen` (which indicates whether a store is open or closed) and returns another piece of state `purchaseItem` (the name of an item the user purchases).
 
 2. Text matching <br />
-Simply looks at incoming text for specific strings and responds.
-This part of the bot manages the Bots' other storage mechanisms and is responsible for starting the CL session. Specifically it manages three variables: `usingConversationLearner`, `storeIsOpen`, and `purchaseItem`.
+	Simply looks at incoming text for specific strings and responds.This part of the bot manages the Bots' other storage mechanisms and is responsible for starting the CL session. Specifically it manages three variables: `usingConversationLearner`, `storeIsOpen`, and `purchaseItem`.
 
 Let’s start by taking a look at the model used in this demo.
 
 ### Open the demo
 
-In the model list of the web UI, click on Tutorial-15-Hybrid.
+In the web UI, click on "Import Tutorials" and select the model named "Tutorial-16-HybridBot".
 
 ## Entities
 
 Open the entities page and notice two entities: `isOpen` and `purchaseItem`
 
-To understand how these entities are used, open the file: `C:\<installedpath\>\src\demos\tutorialHybrid.ts` to look at the callbacks.
+To understand how these entities are used, open the file: `C:\<installedpath>\src\demos\tutorialHybrid.ts` to look at the callbacks.
 
 Notice that the code in `OnSessionStartCallback` copies the value of `storeIsOpen` from BotBuilder conversation storage as the value of the `isOpen` entity so it is available to Conversation Learner. See the following code:
 
@@ -70,8 +68,8 @@ Notice the model has four actions.
 
 The intended rules for the actions are as follows:
 
-- If the `isOpen` entity is set, the Bot will ask "What would you like to buy?" and store that in the `puchaseItem` slot
-- If `isOpen` isn’t set, the Bot will say "I’m sorry we’re closed"
+- If the `isOpen` entity is set, the Bot will ask "What would you like to buy?" and store that in the `puchaseItem` slot.
+- If `isOpen` isn’t set, the Bot will say "I’m sorry we’re closed".
 - The other two Actions are of the type `END_SESSION`.
 - The END_SESSION Action indicates to ConversationLearner that the conversation has completed.
 
@@ -124,4 +122,9 @@ Unlike single Conversation Leaner model bots you won’t be able to test this in
 
 ## Conclusion
 
-With what you have learned above you should be able to combine Conversation Learner with any other Bot technology
+With what you have learned above you should be able to combine Conversation Learner with any other Bot building technology.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Branching and undo](./17-branch-undo.md)
