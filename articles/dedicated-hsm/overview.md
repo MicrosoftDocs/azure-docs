@@ -61,7 +61,7 @@ Azure Dedicated HSM is most suitable for “lift-and-shift” scenarios that req
 
 - Migrating applications from on-premises to Azure Virtual Machines
 - Migrating applications from Amazon AWS EC2 to virtual machines that use the AWS Cloud HSM Classic service (Amazon is not offering this service to new customers)
-- Running shrink-wrapped software in Virtual Machines such as Apache/Ngnix SSL Offload, Oracle TDE, and ADCS
+- Running shrink-wrapped software such as Apache/Ngnix SSL Offload, Oracle TDE, and ADCS in Azure Virtual Machines 
 
 ### Not a fit
 
