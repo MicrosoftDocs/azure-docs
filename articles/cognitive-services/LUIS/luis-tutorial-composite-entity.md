@@ -192,7 +192,7 @@ LUIS provides several prebuilt entities for common data extraction.
 
 ## Related information
 
-* [List entity tutorial](luis-intents-only.md)
+* [List entity tutorial](luis-quickstart-intents-only.md)
 * [Composite entity](luis-concept-entity-types.md) conceptual information
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)

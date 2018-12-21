@@ -280,7 +280,7 @@ Open the [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-servi
 
 ## Related information
 
-* [Intents without entities tutorial](luis-intents-only.md)
+* [Intents without entities tutorial](luis-quickstart-intents-only.md)
 * [Simple entity](luis-concept-entity-types.md) conceptual information
 * [Phrase list](luis-concept-feature.md) conceptual information
 * [How to train](luis-how-to-train.md)
