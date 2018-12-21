@@ -30,11 +30,11 @@ You can test a new OEM package when there has been a change to the firmware or d
 
 ## Managing packages for validation
 
-When using the **Solution Validation** workflow to validate a package, you will need to provide a URL to an **Azure Storage blob**. This blob is the OEM package that was installed on the solution at deployment time. Create the blob using the Azure Storage Account you created during setup (see [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md)).
+When using the **Package Validation** workflow to validate a package, you will need to provide a URL to an **Azure Storage blob**. This blob is the OEM package that was installed on the solution at deployment time. Create the blob using the Azure Storage Account you created during setup (see [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md)).
 
 ### Prerequisite: Provision a storage container
 
-Create a container in your storage account for package blobs. This container can be used for all your Solution Validation runs.
+Create a container in your storage account for package blobs. This container can be used for all your Package Validation runs.
 
 1. In the [Azure Portal](https://portal.azure.com), go to the storage account created in [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md).
 2. On the left blade under **Blob Service**, select on **Containers**.
@@ -51,7 +51,7 @@ Create a container in your storage account for package blobs. This container can
 
 ### Generate package blob URL for VaaS
 
-When creating a **Solution Validation** workflow in the VaaS portal, you will need to provide a URL to the Azure Storage blob containing your package.
+When creating a **Package Validation** workflow in the VaaS portal, you will need to provide a URL to the Azure Storage blob containing your package.
 
 #### Option 1: Generating an account SAS URL
 
@@ -65,7 +65,7 @@ When creating a **Solution Validation** workflow in the VaaS portal, you will ne
 
 5. Select **Generate blob SAS token and URL**
 
-Use **Blob SAS URL** when starting a new **Solution Validation** workflow in the VaaS portal.
+Use **Blob SAS URL** when starting a new **Package Validation** workflow in the VaaS portal.
 
 #### Option 2: Using public read container
 
@@ -76,19 +76,19 @@ Use **Blob SAS URL** when starting a new **Solution Validation** workflow in the
 
 2. In the package container, select on the package blob in the container to open the properties pane.
 
-3. Copy the **URL**. Use this value when starting a new **Solution Validation** workflow in the VaaS portal.
+3. Copy the **URL**. Use this value when starting a new **Package Validation** workflow in the VaaS portal.
 
 ## Apply monthly update
 
 [!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
 
-## Create a Solution Validation workflow
+## Create a Package Validation workflow
 
 1. Sign in to the [VaaS portal](https://azurestackvalidation.com).
 
 2. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
 
-3. Select **Start** on the **Solution Validation** tile.
+3. Select **Start** on the **Package Validation** tile.
 
     ![Package validations workflow tile](media/tile_validation-package.png)
 
@@ -108,9 +108,9 @@ Use **Blob SAS URL** when starting a new **Solution Validation** workflow in the
 9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     You will be redirected to the tests summary page.
 
-## Run Solution Validation tests
+## Run Package Validation tests
 
-1. In the **Solution Validation tests summary** page, you will see a list of the tests required for completing validation. Tests in this workflow run for approximately 24 hours.
+1. In the **Package Validation tests summary** page, you will see a list of the tests required for completing validation. Tests in this workflow run for approximately 24 hours.
 
     In the validation workflows, **scheduling** a test uses the workflow-level common parameters that you specified during workflow creation (see [Workflow common parameters for Azure Stack Validation as a Service](azure-stack-vaas-parameters.md)). If any of test parameter values become invalid, you must resupply them as instructed in [Modify workflow parameters](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 
@@ -128,7 +128,7 @@ Use **Blob SAS URL** when starting a new **Solution Validation** workflow in the
 
 5. Review the test parameters and then select **Submit** to schedule the test for execution.
 
-When all tests have successfully completed, send the name of your VaaS solution and Solution Validation to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) to request package signing.
+When all tests have successfully completed, send the name of your VaaS solution and Package Validation to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) to request package signing.
 
 ## Next steps
 
