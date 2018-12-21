@@ -29,11 +29,8 @@ Windows 8, Windows Server 2012, and later versions of each system negotiate requ
 
 ### Solution for cause 1
 
-1. Verify the [Secure transfer required](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account.
-2. Connect from a client that does one of the following:
-
-    - Meets the requirements of Windows 8 and Windows Server 2012 or later versions
-    - Connects from a virtual machine in the same datacenter as the Azure storage account that is used for the Azure file share
+1. Connect from a client that supports SMB encryption (Windows 8, Windows Server 2012 or later) or connect from a virtual machine in the same datacenter as the Azure storage account that is used for the Azure file share.
+2. Verify the [Secure transfer required](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account if the client does not support SMB encryption.
 
 ### Cause 2: Virtual network or firewall rules are enabled on the storage account 
 
@@ -119,7 +116,26 @@ Error 1816 happens when you reach the upper limit of concurrent open handles tha
 
 Reduce the number of concurrent open handles by closing some handles, and then retry. For more information, see [Microsoft Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
+<a id="accessdeniedportal"></a>
+## Error “Access denied” when browsing to an Azure file share in the portal
 
+When you browse to an Azure file share in the portal, you may receive the following error:
+
+Access denied  
+You do not have access  
+Looks like you don't have access to this content. To get access, please contact the owner.  
+
+### Cause 1: Your user account does not have access to the storage account
+
+### Solution for cause 1
+
+Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+
+### Cause 2: Virtual network or firewall rules are enabled on the storage account
+
+### Solution for cause 2
+
+Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="slowfilecopying"></a>
 ## Slow file copying to and from Azure Files in Windows

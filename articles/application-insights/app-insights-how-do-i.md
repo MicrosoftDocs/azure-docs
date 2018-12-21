@@ -76,7 +76,7 @@ Some points to consider:
 
 ## Separate telemetry from different versions
 
-* Multiple roles in an app: Use a single Application Insights resource, and filter on [cloud_Rolename](app-insights-app-map.md).
+* Multiple roles in an app: Use a single Application Insights resource, and filter on [cloud_Rolename](../azure-monitor/app/app-map.md).
 * Separating development, test, and release versions: Use different Application Insights resources. Pick up the instrumentation keys from web.config. [Learn more](app-insights-separate-resources.md)
 * Reporting build versions: Add a property using a telemetry initializer. [Learn more](app-insights-separate-resources.md)
 
@@ -110,7 +110,7 @@ You can then:
 ![](./media/app-insights-how-do-i/115-metrics.png)
 
 ## Modify property names or values
-Create a [filter](app-insights-api-filtering-sampling.md#filtering). This lets you modify or filter telemetry before it is sent from your app to Application Insights.
+Create a [filter](../azure-monitor/app/api-filtering-sampling.md#filtering). This lets you modify or filter telemetry before it is sent from your app to Application Insights.
 
 ## List specific users and their usage
 If you just want to [search for specific users](#search-specific-users), you can set the [authenticated user id](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
@@ -122,7 +122,7 @@ If you want a list of users with data such as what pages they look at or how oft
 
 ## Reduce traffic from my app to Application Insights
 * In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), disable any modules you don't need, such the performance counter collector.
-* Use [Sampling and filtering](app-insights-api-filtering-sampling.md) at the SDK.
+* Use [Sampling and filtering](../azure-monitor/app/api-filtering-sampling.md) at the SDK.
 * In your web pages, Limit the number of Ajax calls reported for every page view. In the script snippet after `instrumentationKey:...` , insert: `,maxAjaxCallsPerView:3` (or a suitable number).
 * If you're using [TrackMetric](../azure-monitor/app/api-custom-events-metrics.md#trackmetric), compute the aggregate of batches of metric values before sending the result. There's an overload of TrackMetric() that provides for that.
 

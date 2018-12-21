@@ -44,7 +44,7 @@ If you don't have a reference on Application Insights SDK yet:
 
 * Add the Application Insights SDK to your project:
 
-  * [ASP.NET project](../../application-insights/app-insights-asp-net.md)
+  * [ASP.NET project](../../azure-monitor/app/asp-net.md)
   * [Java project](../../application-insights/app-insights-java-get-started.md)
   * [Node.js project](../../application-insights/app-insights-nodejs.md)
   * [JavaScript in each webpage](../../application-insights/app-insights-javascript.md) 
@@ -663,7 +663,7 @@ finally
 }
 ```
 
-Remember that the server SDKs include a [dependency module](../../application-insights/app-insights-asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically--for example, to databases and REST APIs. You have to install an agent on your server to make the module work. 
+Remember that the server SDKs include a [dependency module](../../azure-monitor/app/asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically--for example, to databases and REST APIs. You have to install an agent on your server to make the module work. 
 
 In Java, certain dependency calls can be automatically tracked using [Java Agent](../../application-insights/app-insights-java-agent.md).
 
@@ -991,19 +991,19 @@ Individual telemetry calls can override the default values in their property dic
 
 *For JavaScript web clients*, [use JavaScript telemetry initializers](#js-initializer).
 
-*To add properties to all telemetry*, including the data from standard collection modules, [implement `ITelemetryInitializer`](../../application-insights/app-insights-api-filtering-sampling.md#add-properties).
+*To add properties to all telemetry*, including the data from standard collection modules, [implement `ITelemetryInitializer`](../../azure-monitor/app/api-filtering-sampling.md#add-properties).
 
 ## Sampling, filtering, and processing telemetry
 
 You can write code to process your telemetry before it's sent from the SDK. The processing includes data that's sent from the standard telemetry modules, such as HTTP request collection and dependency collection.
 
-[Add properties](../../application-insights/app-insights-api-filtering-sampling.md#add-properties) to telemetry by implementing `ITelemetryInitializer`. For example, you can add version numbers or values that are calculated from other properties.
+[Add properties](../../azure-monitor/app/api-filtering-sampling.md#add-properties) to telemetry by implementing `ITelemetryInitializer`. For example, you can add version numbers or values that are calculated from other properties.
 
-[Filtering](../../application-insights/app-insights-api-filtering-sampling.md#filtering) can modify or discard telemetry before it's sent from the SDK by implementing `ITelemetryProcesor`. You control what is sent or discarded, but you have to account for the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
+[Filtering](../../azure-monitor/app/api-filtering-sampling.md#filtering) can modify or discard telemetry before it's sent from the SDK by implementing `ITelemetryProcesor`. You control what is sent or discarded, but you have to account for the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
 
-[Sampling](../../application-insights/app-insights-api-filtering-sampling.md) is a packaged solution to reduce the volume of data that's sent from your app to the portal. It does so without affecting the displayed metrics. And it does so without affecting your ability to diagnose problems by navigating between related items such as exceptions, requests, and page views.
+[Sampling](../../azure-monitor/app/api-filtering-sampling.md) is a packaged solution to reduce the volume of data that's sent from your app to the portal. It does so without affecting the displayed metrics. And it does so without affecting your ability to diagnose problems by navigating between related items such as exceptions, requests, and page views.
 
-[Learn more](../../application-insights/app-insights-api-filtering-sampling.md).
+[Learn more](../../azure-monitor/app/api-filtering-sampling.md).
 
 ## Disabling telemetry
 

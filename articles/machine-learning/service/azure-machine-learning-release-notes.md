@@ -9,7 +9,7 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 12/04/2018
+ms.date: 12/20/2018
 ms.custom: seodec18
 ---
 
@@ -17,9 +17,17 @@ ms.custom: seodec18
 
 In this article, learn about the Azure Machine Learning service releases. 
 
-## 2018-12-19
+## 2018-12-20: 
+
+### Azure Machine Learning SDK for Python v1.0.6
+
++ **SDK reference docs**: https://aka.ms/aml-sdk
+
++ **Bug fixes**: This release mostly contains minor bug fixes
 
 ### Azure Machine Learning Data Prep SDK v1.0.4
+
++ **SDK reference docs**: https://aka.ms/data-prep-sdk
 
 + **New features**
   + `to_bool` function now allows mismatched values to be converted to Error values. This is the new default mismatch behavior for `to_bool` and `set_column_types`, whereas the previous default behavior was to convert mismatched values to False.
@@ -31,9 +39,8 @@ In this article, learn about the Azure Machine Learning service releases.
   + Fixed a bug that crashed `set_column_types` in Python 3.5.2.
   + Fixed a bug that crashed when connecting to Datastore using an AML image.
 
-+ **More information**
-  * [Data Prep SDK Reference Docs](https://aka.ms/data-prep-sdk)
-  * [Data Prep SDK Notebooks](https://aka.ms/aml-data-prep-notebooks) for getting started tutorials, case studies, and how-to guides.
++ **Updates**
+  * [Example Notebooks](https://aka.ms/aml-data-prep-notebooks) for getting started tutorials, case studies, and how-to guides.
 
 ## 2018-12-04: General Availability
 

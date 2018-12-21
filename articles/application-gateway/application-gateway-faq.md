@@ -100,6 +100,8 @@ New Application Gateway v1 SKU deployments can take up to 20 minutes to provisio
 
 V2 SKU deployments can take about five to six minutes to provision.
 
+Does Application Gateway support x-forwarded-for headers?
+
 ## Configuration
 
 ### Is Application Gateway always deployed in a virtual network?

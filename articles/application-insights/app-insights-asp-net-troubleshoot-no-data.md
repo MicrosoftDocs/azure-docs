@@ -53,7 +53,7 @@ Fix:
 
 * Check that you provided sign-in credentials for the right Azure account. 
 * In your browser, check that you have access to the [Azure portal](https://portal.azure.com). Open Settings and see if there is any restriction.
-* [Add Application Insights to your existing project](app-insights-asp-net.md): In Solution Explorer, right click your project and choose "Add Application Insights."
+* [Add Application Insights to your existing project](../azure-monitor/app/asp-net.md): In Solution Explorer, right click your project and choose "Add Application Insights."
 * If it still isn't working, follow the [manual procedure](app-insights-windows-services.md) to add a resource in the portal and then add the SDK to your project. 
 
 ## <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
@@ -89,9 +89,9 @@ Otherwise, your project type isn't directly supported by the Application Insight
 
 ![](./media/app-insights-asp-net-troubleshoot-no-data/access-denied.png)
 
-The Microsoft sign-in that you last used on your default browser doesn't have access to [the resource that was created when Application Insights was added to this app](app-insights-asp-net.md). There are two likely reasons: 
+The Microsoft sign-in that you last used on your default browser doesn't have access to [the resource that was created when Application Insights was added to this app](../azure-monitor/app/asp-net.md). There are two likely reasons: 
 
-* You have more than one Microsoft account - maybe a work and a personal Microsoft account? The sign-in that you last used on your default browser was for a different account than the one that has access to [add Application Insights to the project](app-insights-asp-net.md). 
+* You have more than one Microsoft account - maybe a work and a personal Microsoft account? The sign-in that you last used on your default browser was for a different account than the one that has access to [add Application Insights to the project](../azure-monitor/app/asp-net.md). 
   
   * Fix: Click your name at top right of the browser window, and sign out. Then sign in with the account that has access. Then on the left navigation bar, click Application Insights and select your app.
 * Someone else added Application Insights to the project, and they forgot to give you [access to the resource group](app-insights-resources-roles-access-control.md) in which it was created. 
@@ -116,7 +116,7 @@ Fix:
 ## Where do I find my telemetry?
 *I signed in to the [Microsoft Azure portal](https://portal.azure.com), and I'm looking at the Azure home dashboard. So where do I find my Application Insights data?*
 
-* On the left navigation bar, click Application Insights, then your app name. If you don't have any projects there, you need to [add or configure Application Insights in your web project](app-insights-asp-net.md).
+* On the left navigation bar, click Application Insights, then your app name. If you don't have any projects there, you need to [add or configure Application Insights in your web project](../azure-monitor/app/asp-net.md).
   
     There you'll see some summary charts. You can click through them to see more detail.
 * In Visual Studio, while you're debugging your app, click the Application Insights button.
@@ -138,8 +138,8 @@ Fix:
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * In the [Microsoft Azure home dashboard](https://portal.azure.com), look at the Service Health map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
 * Check also [our status blog](https://blogs.msdn.microsoft.com/servicemap-status/).
-* Did you write any code for the [server-side SDK](../azure-monitor/app/api-custom-events-metrics.md) that might change the instrumentation key in `TelemetryClient` instances or in `TelemetryContext`? Or did you write a [filter or sampling configuration](app-insights-api-filtering-sampling.md) that might be filtering out too much?
-* If you edited ApplicationInsights.config, carefully check the configuration of [TelemetryInitializers and TelemetryProcessors](app-insights-api-filtering-sampling.md). An incorrectly-named type or parameter can cause the SDK to send no data.
+* Did you write any code for the [server-side SDK](../azure-monitor/app/api-custom-events-metrics.md) that might change the instrumentation key in `TelemetryClient` instances or in `TelemetryContext`? Or did you write a [filter or sampling configuration](../azure-monitor/app/api-filtering-sampling.md) that might be filtering out too much?
+* If you edited ApplicationInsights.config, carefully check the configuration of [TelemetryInitializers and TelemetryProcessors](../azure-monitor/app/api-filtering-sampling.md). An incorrectly-named type or parameter can cause the SDK to send no data.
 
 ## <a name="q04"></a>No data on Page Views, Browsers, Usage
 *I see data in Server Response Time and Server Requests charts, but no data in Page View Load time, or in the Browser or Usage blades.*
@@ -151,7 +151,7 @@ The data comes from scripts in the web pages.
 * Use the browser's debug feature (F12 on some browsers, then choose Network) to verify that data is being sent to `dc.services.visualstudio.com`.
 
 ## No dependency or exception data
-See [dependency telemetry](app-insights-asp-net-dependencies.md) and [exception telemetry](app-insights-asp-net-exceptions.md).
+See [dependency telemetry](../azure-monitor/app/asp-net-dependencies.md) and [exception telemetry](app-insights-asp-net-exceptions.md).
 
 ## No performance data
 Performance data (CPU, IO rate, and so on) is available for [Java web services](app-insights-java-collectd.md), [Windows desktop apps](app-insights-windows-desktop.md), [IIS web apps and services if you install status monitor](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-overview.md). you'll find it under Settings, Servers.
