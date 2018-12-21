@@ -32,9 +32,9 @@ Because this article uses Visual Studio 2017 as the main development tool, insta
 
 After your Visual Studio 2017 is ready, you also need the following tools and components:
 
-- Download and install [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) from the Visual Studio marketplace to create IoT Edge project in Visual Studio 2017.
+- Download and install [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) from the Visual Studio marketplace to create an IoT Edge project in Visual Studio 2017.
 
-- Download and install [Docker Community Edition](https://docs.docker.com/install/) on your development machine to build and run your module images. You need to properly set the Docker CE running in Linux container mode or Windows container mode.
+- Download and install [Docker Community Edition](https://docs.docker.com/install/) on your development machine to build and run your module images. You'll need to set Docker CE to run in either Linux container mode or Windows container mode.
 
 - Set up your local development environment to debug, run, and test your IoT Edge solution by installing the [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/). Install [Python (2.7/3.6) and Pip](https://www.python.org/) and then install the **iotedgehubdev** package by running the following command in your terminal. Make sure your Azure IoT EdgeHub Dev Tool version is greater than 0.3.0.
 
