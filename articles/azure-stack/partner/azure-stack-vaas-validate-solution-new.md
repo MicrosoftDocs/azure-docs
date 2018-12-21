@@ -29,7 +29,7 @@ To certify your solution, run the solution validation workflow twice. Run it onc
 
 [!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
-## Create a solution validation workflow
+## Create a Solution Validation workflow
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
 
@@ -44,7 +44,7 @@ To certify your solution, run the solution validation workflow twice. Run it onc
     - **Maximum**: the solution is configured with the maximum supported number of nodes.
 6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
-    ![Solution validation information](media/workflow_validation-solution_info.png)
+    ![Solution Validation information](media/workflow_validation-solution_info.png)
 
 7. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
@@ -55,17 +55,17 @@ To certify your solution, run the solution validation workflow twice. Run it onc
 9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     You will be redirected to the tests summary page.
 
-## Run solution validation tests
+## Run Solution Validation tests
 
-In the **Solution validation tests summary** page, you will see a list of the tests required for completing validation.
+In the **Solution Validation tests summary** page, you will see a list of the tests required for completing validation.
 
-In the validation workflows, **scheduling** a test uses the workflow-level common parameters that you specified during workflow creation (see [Workflow common parameters for Azure Stack Validation as a Service](../azure-stack-vaas-parameters.md)). If any of test parameter values become invalid, you must resupply them as instructed in [Modify workflow parameters](../azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+In the validation workflows, **scheduling** a test uses the workflow-level common parameters that you specified during workflow creation (see [Workflow common parameters for Azure Stack Validation as a Service](azure-stack-vaas-parameters.md)). If any of test parameter values become invalid, you must resupply them as instructed in [Modify workflow parameters](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 
 > [!NOTE]
 > Scheduling a validation test over an existing instance will create a new instance in place of the old instance in the portal. Logs for the old instance will be retained but are not accessible from the portal.  
 Once a test has completed successfully, the **Schedule** action becomes disabled.
 
-1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](azure-stack-vaas-workflow-step_select-agent.md)]
+1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
 
 2. Select the following tests:
     - Cloud Simulation Engine
@@ -80,7 +80,7 @@ Once a test has completed successfully, the **Schedule** action becomes disabled
 
 4. Review the test parameters and then select **Submit** to schedule the test for execution.
 
-![Schedule solution validation test](media/workflow_validation-solution_schedule-test.png)
+![Schedule Solution Validation test](media/workflow_validation-solution_schedule-test.png)
 
 ## Next steps
 
