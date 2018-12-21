@@ -20,11 +20,11 @@ Each role assignment conforms to the following definition:
 
 ```JSON
 {
-  "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
-  "objectId": "be2c6dfe-c3e5-4c7a-b2da-c941715fbc5f",
+  "RoleId": "00e00ad7-00d4-4007-853b-b9968ad000d1",
+  "objectId": "be2c6daa-a3a0-0c0a-b0da-c000000fbc5f",
   "objectIdType": "ServicePrincipalId",
   "Path": "/",
-  "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+  "tenantId": "00f000bf-86f1-00aa-91ab-2d7cd000db47"
 }
 ```
 
@@ -92,7 +92,7 @@ With the following JSON body:
   "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
   "objectId": "YOUR_SERVICE_PRINCIPLE_OBJECT_ID",
   "objectIdType": "ServicePrincipalId",
-  "Path": "/",
+  "Path": "YOUR_PATH",
   "tenantId": "YOUR_TENANT_ID"
 }
 ```
@@ -146,47 +146,49 @@ Verify that the JSON body conforms to the following schema:
   "RoleId": "YOUR_ROLE_ID",
   "objectId": "YOUR_SERVICE_PRINCIPLE_OBJECT_ID",
   "objectIdType": "YOUR_OBJECT_ID_TYPE",
-  "Path": "/",
+  "Path": "YOUR_PATH",
   "tenantId": "YOUR_TENANT_ID"
 }
 ```
 
-## Examples with configuration
+## Configuration examples
 
-In this example, a user needs administrative access to a floor of a tenant space.
+The following examples demonstrate how to configure your JSON body in several commonly encountered role-assignment scenarios.
 
-  ```JSON
-    {
-      "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
-      "ObjectId" : " 0fc863bb-eb51-4704-a312-7d635d70e599",
-      "ObjectIdType" : "UserId",
-      "TenantId": " a0c20ae6-e830-4c60-993d-a91ce6032724",
-      "Path": "/ 091e349c-c0ea-43d4-93cf-6b57abd23a44/ d84e82e6-84d5-45a4-bd9d-006a118e3bab"
-    }
-  ```
+* **Example**: A user needs administrative access to a floor of a tenant space.
 
-In this example, an application runs test scenarios mocking devices and sensors.
+   ```JSON
+   {
+    "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+    "ObjectId" : " 0fc863aa-eb51-4704-a312-7d635d70e000",
+    "ObjectIdType" : "UserId",
+    "TenantId": " a0c20ae6-e830-4c60-993d-a00ce6032724",
+    "Path": "/ 000e349c-c0ea-43d4-93cf-6b00abd23a44/ d84e82e6-84d5-45a4-bd9d-006a000e3bab"
+   }
+   ```
 
-  ```JSON
-    {
-      "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
-      "ObjectId" : "cabf7acd-af0b-41c5-959a-ce2f4c26565b",
-      "ObjectIdType" : "ServicePrincipalId",
-      "TenantId": " a0c20ae6-e830-4c60-993d-a91ce6032724",
-      "Path": "/"
-    }
-  ```
+* **Example**: An application runs test scenarios mocking devices and sensors.
 
-All users who are part of a domain receive read access for spaces, sensors, and users. This access includes their corresponding related objects.
+   ```JSON
+   {
+    "RoleId": "98e44ad7-28d4-0007-853b-b9968ad132d1",
+    "ObjectId" : "cabf7aaa-af0b-41c5-000a-ce2f4c20000b",
+    "ObjectIdType" : "ServicePrincipalId",
+    "TenantId": " a0c20ae6-e000-4c60-993d-a91ce6000724",
+    "Path": "/"
+   }
+    ```
 
-  ```JSON
-    {
-      "RoleId": " b1ffdb77-c635-4e7e-ad25-948237d85b30",
-      "ObjectId" : "@microsoft.com",
-      "ObjectIdType" : "DomainName",
-      "Path": "/091e349c-c0ea-43d4-93cf-6b57abd23a44"
-    }
-  ```
+* **Example**: All users who are part of a domain receive read access for spaces, sensors, and users. This access includes their corresponding related objects.
+
+   ```JSON
+   {
+    "RoleId": " b1ffdb77-c635-4e7e-ad25-948237d85b30",
+    "ObjectId" : "@microsoft.com",
+    "ObjectIdType" : "DomainName",
+    "Path": "/000e349c-c0ea-43d4-93cf-6b00abd23a00"
+   }
+   ```
 
 ## Next steps
 
