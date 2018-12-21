@@ -50,12 +50,12 @@ Review the [publishing process and guidelines](https://docs.microsoft.com/dynami
 
 See [Dynamics 365 for Customer Engagement offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-customer-engagement-offer) for how to publish the offer in Cloud Partner Portal.
 
-## Next Steps
+## Next steps
 
 If you haven't already done so, 
 
-- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace
+- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
 
 If you are registered and working in Cloud Partner Portal, 
 
-- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer
+- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer.

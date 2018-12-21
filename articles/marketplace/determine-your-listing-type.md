@@ -69,7 +69,7 @@ The publishing options available offer differentiated customer engagement while 
 >[!Note]
 >When using the Transact publishing option, it is important to understand the pricing, billing, invoicing, and payout considerations before selecting an offer type and creating your offer. Review the [Marketplace Billing and Commercial Considerations article to learn more](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
-## Next Steps
+## Next steps
 
 *   Once you decide on a publishing option, you are ready to [select the offer type](./publisher-guide-by-offer-type.md) that will be used to present your offer.
 *	Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.

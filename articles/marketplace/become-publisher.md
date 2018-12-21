@@ -101,8 +101,8 @@ Once you have completed the [Dev Center](https://developer.microsoft.com/store/r
 
 
 ## Next steps
-* Learn about the marketplace storefronts: [Comparing AppSource and the Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
-*	[Determine the listing type for your solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+* Learn about the marketplace storefronts: [Comparing AppSource and the Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+*	[Determine the listing type for your solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
 ---  
