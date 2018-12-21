@@ -13,7 +13,7 @@ ms.author: diberry
 ms.service: cognitive-services
 ---
 
-# Add intents 
+# Add intents to determine user intention of utterances
 
 Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intention. 
 

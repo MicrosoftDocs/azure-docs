@@ -51,8 +51,9 @@ China | China East, China North, China North2, China East2
 
 >[!NOTE]
 >
-> For Brazil South region, you can replicate and fail over to one of the following: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US regions.</br>
-> It should be noted that Site Recovery has only enabled Brazil South to be used as a source region from where VMs can be protected. It cannot be used  as a Target DR region for any of the Azure regions like South Central US. The reason being latency observed due to geographical distance it is recommended to select any other America's region other than Brazil South.  
+> For Brazil South region, you can replicate and fail over to one of the following: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US regions.
+>
+> It should be noted that Site Recovery has only enabled Brazil South to be used as a source region from where VMs can be protected. It cannot be used as a Target DR region for any of the Azure regions like South Central US. The reason being latency observed due to geographical distance it is recommended to select any other America's region other than Brazil South.
 
 ## Cache storage
 
@@ -122,10 +123,10 @@ Debian 8 | 9.17, 9.18 | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default to 4.4.162-94.69-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.19 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default to 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default to 4.4.138-94.39-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.17 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default to 4.4.126-94.22-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default<br/><br/> SP2 4.4.21-69-default to 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.98-default<br/><br/>SP3 4.4.73-5-default to 4.4.162-94.69-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.19 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.93-default<br/><br/> SP2 4.4.21-69-default to 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.80-default<br/><br/>SP3 4.4.73-5-default to 4.4.140-94.42-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.93-default<br/><br/> SP2 4.4.21-69-default to 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.80-default<br/><br/>SP3 4.4.73-5-default to 4.4.138-94.39-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.17 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.88-default<br/><br/> SP2 4.4.21-69-default to 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default<br/><br/>SP3 4.4.73-5-default to 4.4.126-94.22-default |
 
 ## Replicated machines - Linux file system/guest storage
 
@@ -140,12 +141,12 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.17 | SP1 3.12.49-11-default to
 --- | --- | ---
 Size | Any Azure VM size with at least 2 CPU cores and 1-GB RAM | Verify [Azure virtual machine sizes](../virtual-machines/windows/sizes.md).
 Availability sets | Supported | If you enable replication for an Azure VM with the default options, an availability set is created automatically based on the source region settings. You can modify these settings.
-Availability zones | Supported |  
+Availability zones | Supported |
 Hybrid Use Benefit (HUB) | Supported | If the source VM has a HUB license enabled, a test failover or failed over VM also uses the HUB license.
 VM scale sets | Not supported |
 Azure gallery images - Microsoft published | Supported | Supported if the VM runs on a supported operating system.
-Azure Gallery images - Third party  published | Supported | Supported if the VM runs on a supported operating system.
-Custom images - Third party  published | Supported | Supported if the VM runs on a supported operating system.
+Azure Gallery images - Third party published | Supported | Supported if the VM runs on a supported operating system.
+Custom images - Third party published | Supported | Supported if the VM runs on a supported operating system.
 VMs migrated using Site Recovery | Supported | If a VMware VM or physical machine was migrated to Azure using Site Recovery, you need to uninstall the older version of Mobility service running on the machine, and restart the machine before replicating it to another Azure region.
 
 ## Replicated machines - disk actions
@@ -172,12 +173,12 @@ Data disk maximum number | Up to 64, in accordance with support for a specific A
 Data disk change rate | Maximum of 10 MBps per disk for premium storage. Maximum of 2 MBps per disk for Standard storage. | If the average data change rate on the disk is continuously higher than the maximum, replication won't catch up.<br/><br/>  However, if the maximum is exceeded sporadically, replication can catch up, but you might see slightly delayed recovery points.
 Data disk - standard storage account | Supported |
 Data disk - premium storage account | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk, to ensure you have the same storage configuration in the target region.
-Managed disk - standard | Supported in Azure regions in which Azure Site Recovery is supported. |  
+Managed disk - standard | Supported in Azure regions in which Azure Site Recovery is supported. |
 Managed disk - premium | Supported in Azure regions in which Azure Site Recovery is supported. |
 Standard SSD | Not Supported |
 Redundancy | LRS and GRS are supported.<br/><br/> ZRS isn't supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
-Storage Spaces | Supported |   	 	 
+Storage Spaces | Supported |
 Encryption at rest (SSE) | Supported | SSE is the default setting on storage accounts.	 
 Azure Disk Encryption (ADE) for Windows OS | VMs enabled for [encryption with Azure AD app](https://aka.ms/ade-aad-app) are supported |
 Azure Disk Encryption (ADE) for Linux OS | Not supported |
@@ -188,7 +189,7 @@ Scale-out File Server  | Not supported|
 LRS | Supported |
 GRS | Supported |
 RA-GRS | Supported |
-ZRS | Not supported |  
+ZRS | Not supported |
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
 Azure Storage firewalls for Virtual networks  | Supported | If you are restricting the virtual network access to storage accounts, ensure you ['Allow trusted Microsoft services'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 General purpose V2 storage accounts (Both Hot and Cool tier) | No | Transaction costs increase substantially compared to General purpose V1 storage accounts
@@ -198,7 +199,7 @@ General purpose V2 storage accounts (Both Hot and Cool tier) | No | Transaction 
 
 ## Azure Site Recovery limits to replicate Data change rates
 The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they cannot cover all possible application I/O combinations. Actual results can vary based on your application I/O mix. We should also note that there are two limits to consider, per disk data churn and per virtual machine data churn.
-For example, if we look at  Premium P20 disk in the below table, Site Recovery can handle 5 MB/s churn per disk with at max of five such disks per VM  due to the limit of 25 MB/s total churn per VM.
+For example, if we look at Premium P20 disk in the below table, Site Recovery can handle 5 MB/s churn per disk with at max of five such disks per VM due to the limit of 25 MB/s total churn per VM.
 
 **Replication storage target** | **Average source disk I/O size** |**Average source disk data churn** | **Total source disk data churn per day**
 ---|---|---|---
@@ -215,13 +216,13 @@ NIC | Maximum number supported for a specific Azure VM size | NICs are created w
 Internet Load Balancer | Supported | Associate the preconfigured load balancer using an Azure Automation script in a recovery plan.
 Internal Load balancer | Supported | Associate the preconfigured load balancer using an Azure Automation script in a recovery plan.
 Public IP address | Supported | Associate an existing public IP address with the NIC. Or, create a public IP address and associate it with the NIC using an Azure Automation script in a recovery plan.
-NSG on NIC | Supported | Associate the NSG with the NIC using an Azure Automation script in a recovery plan.  
+NSG on NIC | Supported | Associate the NSG with the NIC using an Azure Automation script in a recovery plan.
 NSG on subnet | Supported | Associate the NSG with the subnet using an Azure Automation script in a recovery plan.
 Reserved (static) IP address | Supported | If the NIC on the source VM has a static IP address, and the target subnet has the same IP address available, it's assigned to the failed over VM.<br/><br/> If the target subnet doesn't have the same IP address available, one of the available IP addresses in the subnet is reserved for the VM.<br/><br/> You can also specify a fixed IP address and subnet in **Replicated items** > **Settings** > **Compute and Network** > **Network interfaces**.
 Dynamic IP address | Supported | If the NIC on the source has dynamic IP addressing, the NIC on the failed over VM is also dynamic by default.<br/><br/> You can modify this to a fixed IP address if required.
 Traffic Manager 	| Supported | You can preconfigure Traffic Manager so that traffic is routed to the endpoint in the source region on a regular basis, and to the endpoint in the target region in case of failover.
 Azure DNS | Supported |
-Custom DNS	| Supported | 	 
+Custom DNS	| Supported |
 Unauthenticated Proxy | Supported | Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)	 
 Authenticated Proxy | Not supported | If the VM is using an authenticated proxy for outbound connectivity, it cannot be replicated using Azure Site Recovery.	 
 Site to Site VPN with on-premises (with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site recovery traffic is not routed to on-premises. Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)	 

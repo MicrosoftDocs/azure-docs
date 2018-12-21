@@ -37,7 +37,7 @@ The following environments are supported:
 
 ### Configure snapshot collection for ASP.NET applications
 
-1. [Enable Application Insights in your web app](app-insights-asp-net.md), if you haven't done it yet.
+1. [Enable Application Insights in your web app](../azure-monitor/app/asp-net.md), if you haven't done it yet.
 
 2. Include the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
@@ -80,7 +80,7 @@ The following environments are supported:
 
 ### Configure snapshot collection for ASP.NET Core 2.0 applications
 
-1. [Enable Application Insights in your ASP.NET Core web app](app-insights-asp-net-core.md), if you haven't done it yet.
+1. [Enable Application Insights in your ASP.NET Core web app](../azure-monitor/app/asp-net-core.md), if you haven't done it yet.
 
     > [!NOTE]
     > Be sure that your application references version 2.1.1, or newer, of the Microsoft.ApplicationInsights.AspNetCore package.

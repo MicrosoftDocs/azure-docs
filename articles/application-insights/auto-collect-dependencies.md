@@ -89,8 +89,8 @@ Below is the currently supported list of dependency calls that are automatically
 
 ## Next steps
 
-- Set up custom dependency tracking for [.NET](app-insights-asp-net-dependencies.md).
+- Set up custom dependency tracking for [.NET](../azure-monitor/app/asp-net-dependencies.md).
 - Set up custom dependency tracking for [Java](app-insights-java-agent.md).
-- [Write custom dependency telemetry](app-insights-api-custom-events-metrics.md#trackdependency)
+- [Write custom dependency telemetry](../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
 - Check out [platforms](app-insights-platforms.md) supported by Application Insights.

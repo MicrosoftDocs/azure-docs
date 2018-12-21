@@ -30,7 +30,7 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
     `<InstrumentationKey>`*your key*`</InstrumentationKey>` 
    
     If you use ApplicationInsights.config, make sure its properties in Solution Explorer are set to **Build Action = Content, Copy to Output Directory = Copy**.
-5. [Use the API](app-insights-api-custom-events-metrics.md) to send telemetry.
+5. [Use the API](../azure-monitor/app/api-custom-events-metrics.md) to send telemetry.
 6. Run your app, and see the telemetry in the resource you created in the Azure Portal.
 
 ## <a name="telemetry"></a>Example code
@@ -71,8 +71,8 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
 ```
 
 ## Next steps
-* [Create a dashboard](app-insights-dashboards.md)
+* [Create a dashboard](../azure-monitor/app/app-insights-dashboards.md)
 * [Diagnostic Search](app-insights-diagnostic-search.md)
 * [Explore metrics](app-insights-metrics-explorer.md)
-* [Write Analytics queries](app-insights-analytics.md)
+* [Write Analytics queries](../azure-monitor/app/analytics.md)
 

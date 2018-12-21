@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
-ms.component: activitylog
+ms.component: logs
 ---
 # Azure Activity Log event schema
 The **Azure Activity Log** is a log that provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema per category of data. The schema of the data differs depending on if you are reading the data in the portal, PowerShell, CLI, or directly via the REST API versus [streaming the data to storage or Event Hubs using a Log Profile](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). The examples below show the schema as made available via the portal, PowerShell, CLI, and REST API. A mapping of those properties to the [Azure diagnostic logs schema](./tutorial-dashboards.md) is provided at the end of the article.
@@ -185,7 +185,7 @@ This category contains the record of any service health incidents that have occu
   }
 }
 ```
-Refer to the [service health notifications](./../../monitoring-and-diagnostics/monitoring-service-notifications.md) article for documentation about the values in the properties.
+Refer to the [service health notifications](./../../azure-monitor/platform/service-notifications.md) article for documentation about the values in the properties.
 
 ## Resource health
 This category contains the record of any resource health events that have occurred to your Azure resources. An example of the type of event you would see in this category is "Virtual Machine health status changed to unavailable." Resource health events can represent one of four health statuses: Available, Unavailable, Degraded, and Unknown. Additionally, resource health events can be categorized as being Platform Initiated or User Initiated.
@@ -671,4 +671,4 @@ When streaming the Azure Activity Log to a storage account or Event Hubs namespa
 
 ## Next steps
 * [Learn more about the Activity Log (formerly Audit Logs)](../../azure-monitor/platform/activity-logs-overview.md)
-* [Stream the Azure Activity Log to Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+* [Stream the Azure Activity Log to Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

@@ -26,7 +26,7 @@ On the client side, Application Insights can take telemetry from web pages and a
 ## <a name="setup"></a>Set up performance monitoring
 If you haven't yet added Application Insights to your project (that is, if it doesn't have ApplicationInsights.config), choose one of these ways to get started:
 
-* [ASP.NET web apps](app-insights-asp-net.md)
+* [ASP.NET web apps](../azure-monitor/app/asp-net.md)
   * [Add exception monitoring](app-insights-asp-net-exceptions.md)
   * [Add dependency monitoring](app-insights-monitor-performance-live-website-now.md)
 * [J2EE web apps](app-insights-java-get-started.md)
@@ -148,7 +148,7 @@ The performance investigation experience shows relevant insights along side the 
 
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-asp-net.md
+[greenbrown]: ../azure-monitor/app/asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md

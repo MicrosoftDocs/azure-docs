@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure web app performance | Microsoft Docs
+title: Monitor Azure App Service performance | Microsoft Docs
 description: Application performance monitoring for Azure web apps. Chart load and response time, dependency information and set alerts on performance.
 services: application-insights
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.date: 10/25/2018
 ms.author: mbullwin
 
 ---
-# Monitor Azure web app performance
-In the [Azure Portal](https://portal.azure.com) you can set up application performance monitoring for your [Azure web apps](../app-service/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instruments your app to send telemetry about its activities to the Application Insights service, where it is stored and analyzed. There, metric charts and search tools can be used to help diagnose issues, improve performance, and assess usage.
+# Monitor Azure App Service performance
+In the [Azure Portal](https://portal.azure.com) you can set up application performance monitoring for your web apps, mobile back ends, and API apps in [Azure App Service](../app-service/overview.md). [Azure Application Insights](app-insights-overview.md) instruments your app to send telemetry about its activities to the Application Insights service, where it is stored and analyzed. There, metric charts and search tools can be used to help diagnose issues, improve performance, and assess usage.
 
 ## Run time or build time
 You can configure monitoring by instrumenting the app in either of two ways:
@@ -62,7 +62,7 @@ Later, you can build the app with Application Insights if you want.
 * In Azure, open the web app control blade, and under Settings, open **Application Insights**. You can turn off Application Insights by clicking **Disable** at the top, or select a new resource in the **Change your resource** section.
 
 ## Build the app with Application Insights
-Application Insights can provide more detailed telemetry by installing an SDK into your app. In particular, you can collect trace logs, [write custom telemetry](app-insights-api-custom-events-metrics.md), and get more detailed exception reports.
+Application Insights can provide more detailed telemetry by installing an SDK into your app. In particular, you can collect trace logs, [write custom telemetry](../azure-monitor/app/api-custom-events-metrics.md), and get more detailed exception reports.
 
 1. **In Visual Studio** (2013 update 2 or later), configure Application Insights for your project.
 
@@ -86,7 +86,7 @@ Application Insights can provide more detailed telemetry by installing an SDK in
 ## More telemetry
 
 * [Web page load data](app-insights-javascript.md)
-* [Custom telemetry](app-insights-api-custom-events-metrics.md)
+* [Custom telemetry](../azure-monitor/app/api-custom-events-metrics.md)
 
 ## Video
 

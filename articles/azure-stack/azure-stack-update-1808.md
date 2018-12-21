@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -250,7 +250,6 @@ The following are post-installation known issues for this build version.
 <!-- 2368581 - IS. ASDK --> 
 - An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a **Fabric VM creation error**, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
 
-
 ### Compute
 
 <!-- 3164607 – IS, ASDK -->
@@ -312,7 +311,7 @@ Usage reports produced from the Azure Stack usage APIs show correct quantities a
 
    To find the CPU Percentage chart for the VM, go to the **Metrics** blade and show all the supported Windows VM guest metrics.
 
-
+- A Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, please use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
 
 ### Networking  
 
@@ -358,8 +357,10 @@ Usage reports produced from the Azure Stack usage APIs show correct quantities a
 
 
 ## Download the update
-You can download the Azure Stack 1808 update package from [here](https://aka.ms/azurestackupdatedownload).
-  
+
+You can download the Azure Stack 1808 update package from [here](https://aka.ms/azurestackupdatedownload). 
+
+In connected scenarios only, Azure Stack deployments periodically check a secured endpoint and automatically notify you if an update is available for your cloud. For more information, see [managing updates for Azure Stack](azure-stack-updates.md).
 
 ## Next steps
 - To review the servicing policy for Azure Stack integrated systems, and what you must do to keep your system in a supported state, see [Azure Stack servicing policy](azure-stack-servicing-policy.md).  
