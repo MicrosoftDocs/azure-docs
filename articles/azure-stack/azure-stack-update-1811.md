@@ -258,7 +258,7 @@ The following are post-installation known issues for this build version.
 <!-- 2869209 – IS, ASDK --> 
 - When using the [**Add-AzsPlatformImage** cmdlet](/powershell/module/azs.compute.admin/add-azsplatformimage), you must use the **-OsUri** parameter as the storage account URI where the disk is uploaded. If you use the local path of the disk, the cmdlet fails with the following error: 
 
-    `Long running operation failed with status 'Failed'`. 
+    `Long running operation failed with status 'Failed'`
 
 <!--  2795678 – IS, ASDK --> 
 - When you use the portal to create virtual machines (VMs) in a premium VM size (DS,Ds_v2,FS,FSv2), the VM is created in a standard storage account. Creation in a standard storage account does not affect functionally, IOPs, or billing. You can safely ignore the warning that says: 
