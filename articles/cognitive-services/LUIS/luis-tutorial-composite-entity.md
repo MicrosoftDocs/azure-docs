@@ -41,7 +41,7 @@ Continue with the app created in the last tutorial, named **HumanResources**.
 
 If you do not have the HumanResources app from the previous tutorial, use the following steps:
 
-1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
+1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
 
 2. Import the JSON into a new app.
 
@@ -109,7 +109,7 @@ The extracted data from the endpoint should contain this information and return 
 
 5. Select the first entity, `Employee`, then select **Wrap in composite entity** in the pop-up menu list. 
 
-    [![Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+    [![Screenshot of wrapping entity in composite entity highlighted](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot of wrapping entity in composite entity highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
 6. Then immediately select the last entity, `datetimeV2` in the utterance. A green bar is drawn under the selected words indicating a composite entity. In the pop-up menu, enter the composite name `RequestEmployeeMove` then select enter. 
