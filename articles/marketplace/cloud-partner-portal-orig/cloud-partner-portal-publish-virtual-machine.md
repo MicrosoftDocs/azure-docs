@@ -236,7 +236,7 @@ The next section to complete will be the VM Images section. Before going
 to this section, you need to have the VHD that you want to publish
 ready. Here are some links helping you to create your VHD:
 
--   [Technical prerequisites for creating a virtual machine image for the Azure Marketplace](../cloud-partner-portal/virtual-machine/cpp-prerequisites#technical-requirements.md)
+-   [Technical prerequisites for creating a virtual machine image for the Azure Marketplace](../cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
 -   [Creating and uploading a Linux VHD](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 -   [Create & test a Linux VM from an image](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 -   [Creating and uploading a Windows VHD ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
