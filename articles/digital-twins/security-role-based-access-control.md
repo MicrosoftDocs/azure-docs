@@ -50,6 +50,7 @@ A role definition is a collection of permissions and is sometimes called a role.
 
 >[!NOTE]
 > To retrieve the full definitions for the previous roles, query the system/roles API.
+> Learn more by reading [Creating and managing role assignments](./security-create-manage-role-assignments.md#all).
 
 ### Object types
 

@@ -28,17 +28,19 @@ Each role assignment conforms to the following definition:
 }
 ```
 
+The table below describes each attribute:
+
 | Attribute | Name | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| RoleId | Role definition identifier | Yes | | The unique ID of the desired role assignment. Find role definitions and their identifier by querying the System API or reviewing table below. |
-| objectId | Object identifier | Yes | | An Azure Active Directory ID, service principal object ID, or domain name. What or whom the role assignment is assigned to. The role assignment must be formatted according to its associated type. For the `DomainName` objectIdType, objectId must begin with the `“@”` character. |
-| objectIdType | Object identifier type | Yes | | The kind of Object Identifier used. See **Supported ObjectIdTypes** below. |
-| Path | Space path | Yes | | The full access path to the `Space` object. An example is `/{Guid}/{Guid}`. If an identifier needs the role assignment for the entire graph, specify `"/"`. This character designates the root, but its use is discouraged. Always follow the Principle of Least Privilege. |
-| tenantId | Tenant identifier | Varies | | In most cases, an Azure Active Directory tenant ID. Disallowed for `DeviceId` and `TenantId` ObjectIdTypes. Required for `UserId` and `ServicePrincipalId` ObjectIdTypes. Optional for the DomainName ObjectIdType. |
+| RoleId | Role definition identifier | Yes | String | The unique ID of the desired role assignment. Find role definitions and their identifier by querying the System API or reviewing table below. |
+| objectId | Object identifier | Yes | String | An Azure Active Directory ID, service principal object ID, or domain name. What or whom the role assignment is assigned to. The role assignment must be formatted according to its associated type. For the `DomainName` objectIdType, objectId must begin with the `“@”` character. |
+| objectIdType | Object identifier type | Yes | String | The kind of Object Identifier used. See **Supported ObjectIdTypes** below. |
+| Path | Space path | Yes | String | The full access path to the `Space` object. An example is `/{Guid}/{Guid}`. If an identifier needs the role assignment for the entire graph, specify `"/"`. This character designates the root, but its use is discouraged. Always follow the Principle of Least Privilege. |
+| tenantId | Tenant identifier | Varies | String | In most cases, an Azure Active Directory tenant ID. Disallowed for `DeviceId` and `TenantId` ObjectIdTypes. Required for `UserId` and `ServicePrincipalId` ObjectIdTypes. Optional for the DomainName ObjectIdType. |
 
 ### Supported role definition identifiers
 
-Each role assignments associates a role definition with an entity in your Azure Digital Twins environment.
+Each role assignment associates a role definition with an entity in your Azure Digital Twins environment.
 
 [!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 
@@ -54,11 +56,13 @@ Azure Digital Twins supports full *CREATE*, *READ*, *UPDATE*, and *DELETE* opera
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
+The supplies Swagger reference documentation contains further information about all available API endpoints, request operations, and definitions.
+
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 <div id="grant"></div>
 
-### Granting permissions to your service principal
+### Grant permissions to your service principal
 
 Granting permissions to your service principal is often one of the first steps you'll take when working with Azure Digital Twins. It entails:
 
@@ -70,7 +74,7 @@ Your application ID is supplied to you in Azure Active Directory. To learn more 
 
 Once you have the application ID, execute the following PowerShell commands:
 
-```cmd
+```shell
 Login-AzureRmAccount
 Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
 ```
@@ -93,6 +97,16 @@ With the following JSON body:
 }
 ```
 
+<div id="all"></div>
+
+### Retrieve all role assignments
+
+To list all available role assignments, make an authenticated HTTP GET request to:
+
+```plaintext
+YOUR_MANAGEMENT_API_URL/system/roles
+```
+
 ### Get a specific role assignment
 
 To get a specific role assignment, make an authenticated HTTP GET request to:
@@ -105,9 +119,9 @@ YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 | --- | --- | --- | --- | --- |
 | YOUR_PATH | Path | True | String |	The full path to the space |
 
-### Revoking permissions
+### Revoke a permission
 
-To revoke permissions to a recipient, delete the role assignment by making an authenticated HTTP DELETE request:
+To revoke a permissions from a recipient, delete the role assignment by making an authenticated HTTP DELETE request:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
