@@ -19,7 +19,7 @@
   - name: Hello world
     href: tutorials/01-hello-world.md
   - name: Introduction to training
-    href: tutorials/02-IntroToTraining.md
+    href: tutorials/02-intro-to-training.md
   - name: Wait versus non-wait actions
     href: tutorials/03-wait-vs-nonwait-actions.md
   - name: Introduction to entities
@@ -33,7 +33,7 @@
   - name: Pre-Trained entities
     href: tutorials/08-pre-trained-entities.md
   - name: Entity resolvers
-    href: tutorials/09-EntityResolvers.md
+    href: tutorials/09-entity-resolvers.md
   - name: Alternative inputs
     href: tutorials/10-alternative-inputs.md
   - name: Log dialogs
@@ -49,9 +49,9 @@
   - name: Hybrid Bots
     href: tutorials/16-hybrid-bots.md
   - name: Branching and undo
-    href: tutorials/17-branching-and-undo.md
+    href: tutorials/17-branch-undo.md
   - name: Versioning and tagging
-    href: tutorials/18-versioning-and-tagging.md
+    href: tutorials/18-version-tag.md
   - name: Demo - password reset
     href: tutorials/demo-password-reset.md
   - name: Demo - pizza order
