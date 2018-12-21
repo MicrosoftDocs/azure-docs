@@ -16,7 +16,7 @@ ms.author: diberry
 # Tutorial: Group and extract related data
 In this tutorial, add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 
-The purpose of the composite entity is to group related entities into a parent category entity. The information exists as separate entities before a composite is created. It is similar to hierarchical entity but can contain different types of entities. 
+The purpose of the composite entity is to group related entities into a parent category entity. The information exists as separate entities before a composite is created. It is similar to an hierarchical entity but can contain different types of entities. 
 
 The composite entity is a good fit for this type of data because the data:
 
@@ -29,6 +29,7 @@ The composite entity is a good fit for this type of data because the data:
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Create app
+> * Create intent
 > * Add composite entity 
 > * Train
 > * Publish
@@ -38,7 +39,7 @@ The composite entity is a good fit for this type of data because the data:
 
 ## Use existing app
 
-1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json) from the Regular Expression entity tutorial.
+1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-list-HumanResources.json) from the List entity tutorial.
 
 2. Import the JSON into a new app.
 
@@ -48,7 +49,7 @@ The composite entity is a good fit for this type of data because the data:
 
 In this app, the department name is defined in the **Department** list entity and includes synonyms. 
 
-The **TransferEmployeeToDepartment** intent has example utterances to request an employee be moved from one department to another. 
+The **TransferEmployeeToDepartment** intent has example utterances to request an employee be moved to a new department. 
 
 Example utterances for this intent include:
 
@@ -56,23 +57,8 @@ Example utterances for this intent include:
 |--|
 |move John W. Smith to the accounting department|
 |transfer Jill Jones from to R&D|
-|Dept 1234 has a new member named Bill Bradstreet|
-|Place John Jackson in Engineering |
-|move Debra Doughtery to Inside Sales|
-|mv Jill Jones to IT|
-|Shift Alice Anderson to DevOps|
-|Carl Chamerlin to Finance|
-|Steve Standish to 1234|
-|Tanner Thompson to 3456|
-
  
 The move request should include the department name, and the employee name. 
-
-The extracted data from the endpoint should contain this information and return it in the `TransferEmployeeInfo` composite entity:
-
-```json
-
-```
 
 ## Add the PersonName prebuilt entity to help with common data type extraction
 
@@ -80,11 +66,11 @@ LUIS provides several prebuilt entities for common data extraction.
 
 1. Select **Build** from the top navigation, then select **Entities** from the left navigation menu.
 
-2. Select **Manage prebuilt entity** button.
+1. Select **Manage prebuilt entity** button.
 
-3. Select **[PersonName](luis-reference-prebuilt-person.md)** from the list of prebuilt entities then select **Done**.
+1. Select **[PersonName](luis-reference-prebuilt-person.md)** from the list of prebuilt entities then select **Done**.
 
-    ![Screenshot of number select in prebuilt entities dialog](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+    ![Screenshot of number select in prebuilt entities dialog](./media/luis-tutorial-composite-entity/add-personname-prebuilt-entity.png)
 
     This entity helps you add name recognition to your client application.
 
@@ -92,9 +78,13 @@ LUIS provides several prebuilt entities for common data extraction.
 
 ## Create composite entity from example utterances
 
-1. In the first utterance, select the first entity, `john smith`, then select **Wrap in composite entity** in the pop-up menu list. 
+1. Select **Intents** from the left navigation.
 
-    [![Screenshot of wrapping entity in composite entity highlighted](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot of wrapping entity in composite entity highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+1. Select **TransferEmployeeToDepartment** from the intents list.
+
+1. In the first utterance, select the first entity, `john smith`, then select **Start wrapping composite entity** in the pop-up menu list. 
+
+    [![Screenshot of wrapping entity in composite entity highlighted](media/luis-tutorial-composite-entity/start-wrapping-composite-entity.png "Screenshot of wrapping entity in composite entity highlighted")](media/luis-tutorial-composite-entity/start-wrapping-composite-entity.png#lightbox)
 
 
 1. Then immediately select the last entity, `accting` in the utterance. A green bar is drawn under the selected words indicating a composite entity. In the pop-up menu, enter the composite name `TransferEmployeeInfo` then select enter. 

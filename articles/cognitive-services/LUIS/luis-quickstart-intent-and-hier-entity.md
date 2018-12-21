@@ -99,7 +99,7 @@ If only one child (origin or destination) of a hierarchical entity is present, i
 
 1. Label the other locations in all the other utterances. When all locations are marked, the utterances begin to look like a pattern. 
 
-    [![Screenshot of Locations entity labeled in utterances](media/luis-quickstart-intent-and-hier-entity/all-intents-marked-with-origin-and-destination-location.png "Screenshot of Locations entity labeled in utterances")](media/luis-quickstart-intent-and-hier-entityall-intents-marked-with-origin-and-destination-location.png#lightbox)
+    [![Screenshot of Locations entity labeled in utterances](media/luis-quickstart-intent-and-hier-entity/all-intents-marked-with-origin-and-destination-location.png "Screenshot of Locations entity labeled in utterances")](media/luis-quickstart-intent-and-hier-entity/all-intents-marked-with-origin-and-destination-location.png#lightbox)
 
 ## Add example utterances to the None intent 
 
