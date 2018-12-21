@@ -17,7 +17,7 @@ ms.component: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C provides support for the SAML 2.0 identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With SAML technical profile you can federate with a SAML based identity provider, such as [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) and [Salesforce](active-directory-b2c-setup-sf-app-custom.md), allowing your users to sign-in with their existing social or enterprise identities.
+Azure Active Directory (Azure AD) B2C provides support for the SAML 2.0 identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With a SAML technical profile you can federate with a SAML-based identity provider, such as [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) and [Salesforce](active-directory-b2c-setup-sf-app-custom.md). This federation allows your users to sign in with their existing social or enterprise identities.
 
 ## Metadata exchange
 
@@ -46,7 +46,7 @@ To build a trust between Azure AD B2C and your SAML identity provider, you need 
 The certificate is used in the following ways:
 
 - Azure AD B2C generates and signs a SAML request, using the Azure AD B2C private key of the certificate. The SAML request is sent to the identity provider, which validates the request using Azure AD B2C public key of the certificate. The Azure AD B2C public certificate is accessible through technical profile metadata. Alternatively, you can manually upload the .cer file to your SAML identity provider.
-- The identity provider signs the data sent to Azure AD B2C using the identity provider's private key of the certificate. Azure AD B2C validates the data using the identity provider's public certificate. Each identity provider has different steps for setup, look at your identity providers’s documentation for guidance on how to do so. In Azure AD B2C, your policy needs access to the certificate public key using the identity provider's metadata.
+- The identity provider signs the data sent to Azure AD B2C using the identity provider's private key of the certificate. Azure AD B2C validates the data using the identity provider's public certificate. Each identity provider has different steps for setup, look at your identity provider’s documentation for guidance on how to do so. In Azure AD B2C, your policy needs access to the certificate public key using the identity provider's metadata.
 
 A self-signed certificate is acceptable for most scenarios. For production environments, it is recommended to use an X509 certificate that is issued by a certificate authority. Also, as described later in this document, for a non-production environment you can disable the SAML signing on both sides.
 
@@ -110,7 +110,7 @@ The following example shows the claims returned by the Facebook identity provide
 - The **socialIdpUserId** claim is mapped to the **assertionSubjectName** claim.
 - The **first_name** claim is mapped to the **givenName** claim.
 - The **last_name** claim is mapped to the **surname** claim.
-- The **displayName** claim without name mapping..
+- The **displayName** claim without name mapping.
 - The **email** claim without name mapping.
  
 The technical profile also returns claims that aren't returned by the identity provider: 
