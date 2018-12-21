@@ -45,7 +45,7 @@ Application Insights SDKs are available for a range of application types: web se
 ### How is the data is collected?
 There are three sources of data:
 
-* The SDK, which you integrate with your app either [in development](app-insights-asp-net.md) or [at run time](app-insights-monitor-performance-live-website-now.md). There are different SDKs for different application types. There's also an [SDK for web pages](app-insights-javascript.md), which loads into the end-user's browser along with the page.
+* The SDK, which you integrate with your app either [in development](../azure-monitor/app/asp-net.md) or [at run time](app-insights-monitor-performance-live-website-now.md). There are different SDKs for different application types. There's also an [SDK for web pages](app-insights-javascript.md), which loads into the end-user's browser along with the page.
   
   * Each SDK has a number of [modules](app-insights-configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
   * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
@@ -55,12 +55,12 @@ There are three sources of data:
 ### What kinds of data are collected?
 The main categories are:
 
-* [Web server telemetry](app-insights-asp-net.md) - HTTP requests.  Uri, time taken to process the request, response code, client IP address. Session id.
+* [Web server telemetry](../azure-monitor/app/asp-net.md) - HTTP requests.  Uri, time taken to process the request, response code, client IP address. Session id.
 * [Web pages](app-insights-javascript.md) - Page, user and session counts. Page load times. Exceptions. Ajax calls.
 * Performance counters - Memory, CPU, IO, Network occupancy.
 * Client and server context - OS, locale, device type, browser, screen resolution.
 * [Exceptions](app-insights-asp-net-exceptions.md) and crashes - **stack dumps**, build id, CPU type. 
-* [Dependencies](app-insights-asp-net-dependencies.md) - calls to external services such as REST, SQL, AJAX. URI or connection string, duration, success, command.
+* [Dependencies](../azure-monitor/app/asp-net-dependencies.md) - calls to external services such as REST, SQL, AJAX. URI or connection string, duration, success, command.
 * [Availability tests](app-insights-monitor-web-app-availability.md) - duration of test and steps, responses.
 * [Trace logs](app-insights-asp-net-trace-logs.md) and [custom telemetry](../azure-monitor/app/api-custom-events-metrics.md) - **anything you code into your logs or telemetry**.
 
@@ -291,7 +291,7 @@ This product includes GeoLite2 data created by MaxMind, available from [https://
 [apiproperties]: ../azure-monitor/app/api-custom-events-metrics.md#properties
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
-[greenbrown]: app-insights-asp-net.md
+[greenbrown]: ../azure-monitor/app/asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/

@@ -27,7 +27,7 @@ You can write and configure plug-ins for the Application Insights SDK to customi
 
 Before you start:
 
-* Install the Application Insights [SDK for ASP.NET](../../application-insights/app-insights-asp-net.md) or [SDK for Java](../../application-insights/app-insights-java-get-started.md) in your app.
+* Install the Application Insights [SDK for ASP.NET](../../azure-monitor/app/asp-net.md) or [SDK for Java](../../application-insights/app-insights-java-get-started.md) in your app.
 
 <a name="filtering"></a>
 
