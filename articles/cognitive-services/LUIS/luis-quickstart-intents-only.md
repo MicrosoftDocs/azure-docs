@@ -14,7 +14,7 @@ ms.author: diberry
 #Customer intent: As a new user, I want to create a Human Resources app, so that I can analyze user text in that subject domain.
 ---
 
-# Tutorial: Build custom app to determine user intentions
+# Tutorial: Build LUIS app to determine user intentions
 
 In this tutorial, you create a custom Human Resources (HR) app that predicts a user's intention based on the utterance (text). 
 

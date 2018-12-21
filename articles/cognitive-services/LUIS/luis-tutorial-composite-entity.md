@@ -82,35 +82,24 @@ LUIS provides several prebuilt entities for common data extraction.
 
 1. Select **TransferEmployeeToDepartment** from the intents list.
 
-1. In the first utterance, select the first entity, `john smith`, then select **Start wrapping composite entity** in the pop-up menu list. 
+1. In the first utterance, select the personName entity, `John Jackson`, then select **Start wrapping composite entity** in the pop-up menu list for the following utterance:
 
-    [![Screenshot of wrapping entity in composite entity highlighted](media/luis-tutorial-composite-entity/start-wrapping-composite-entity.png "Screenshot of wrapping entity in composite entity highlighted")](media/luis-tutorial-composite-entity/start-wrapping-composite-entity.png#lightbox)
+    `place John Jackson in engineering`
 
+1. Then immediately select the last entity, `engineering` in the utterance. A green bar is drawn under the selected words indicating a composite entity. In the pop-up menu, enter the composite name `TransferEmployeeInfo` then select enter. 
 
-1. Then immediately select the last entity, `accting` in the utterance. A green bar is drawn under the selected words indicating a composite entity. In the pop-up menu, enter the composite name `TransferEmployeeInfo` then select enter. 
-
-    [![Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite and creating entity highlighted](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite and creating entity highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
-
-1. In **What type of entity do you want to create?**, all the fields required are in the list. Select **Done**. 
+1. In **What type of entity do you want to create?**, all the fields required are in the list: `personName` and `Department`. Select **Done**. 
 
     Notice that the prebuilt entity, personName, was added to the composite entity. If you could have a prebuilt entity appear between the beginning and ending tokens of a composite entity, the composite entity must contain those prebuilt entities. If the prebuilt entities are not included, the composite entity is not correctly predicted but each individual element is.
-
-    ![Screenshot of LUIS on 'MoveEmployee' intent adding another entity in pop-up window](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
 
 ## Label example utterances with composite entity
 
 
 1. In each example utterance, select the left-most entity that should be in the composite. Then select **Wrap in composite entity**.
 
-    [![Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
-
 1. Select the last word in the composite entity then select **TransferEmployeeInfo** from the pop-up menu. 
 
-    [![Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite highlighted](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
-
 1. Verify all utterances in the intent are labeled with the composite entity. 
-
-    [![Screenshot of LUIS on 'MoveEmployee' with all utterances labeled](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Screenshot of LUIS on 'MoveEmployee' with all utterances labeled")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## Add example utterances to the None intent 
 
@@ -129,169 +118,65 @@ LUIS provides several prebuilt entities for common data extraction.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Go to the end of the URL in the address and enter `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`. The last querystring parameter is `q`, the utterance query. 
+2. Go to the end of the URL in the address and enter `Move Jill Jones to DevOps`. The last querystring parameter is `q`, the utterance query. 
 
     Since this test is to verify the composite is extracted correctly, a test can either include an existing sample utterance or a new utterance. A good test is to include all the child entities in the composite entity.
 
     ```json
     {
-      "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
+      "query": "Move Jill Jones to DevOps",
       "topScoringIntent": {
-        "intent": "MoveEmployee",
-        "score": 0.9959525
+        "intent": "TransferEmployeeToDepartment",
+        "score": 0.9882747
       },
       "intents": [
         {
-          "intent": "MoveEmployee",
-          "score": 0.9959525
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.009858314
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.00728598563
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.0058053555
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.005371796
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00266987388
+          "intent": "TransferEmployeeToDepartment",
+          "score": 0.9882747
         },
         {
           "intent": "None",
-          "score": 0.00123299169
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.00116407464
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00102653319
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.0006628214
+          "score": 0.00925369747
         }
       ],
       "entities": [
         {
-          "entity": "march 3 2 p.m",
-          "type": "builtin.datetimeV2.datetime",
-          "startIndex": 41,
-          "endIndex": 54,
-          "resolution": {
-            "values": [
-              {
-                "timex": "XXXX-03-03T14",
-                "type": "datetime",
-                "value": "2018-03-03 14:00:00"
-              },
-              {
-                "timex": "XXXX-03-03T14",
-                "type": "datetime",
-                "value": "2019-03-03 14:00:00"
-              }
-            ]
-          }
-        },
-        {
           "entity": "jill jones",
-          "type": "Employee",
+          "type": "builtin.personName",
           "startIndex": 5,
-          "endIndex": 14,
+          "endIndex": 14
+        },
+        {
+          "entity": "devops",
+          "type": "Department",
+          "startIndex": 19,
+          "endIndex": 24,
           "resolution": {
             "values": [
-              "Employee-45612"
+              "Development Operations"
             ]
           }
         },
         {
-          "entity": "z - 2345",
-          "type": "Locations::Destination",
-          "startIndex": 31,
-          "endIndex": 36,
-          "score": 0.9690751
-        },
-        {
-          "entity": "a - 1234",
-          "type": "Locations::Origin",
-          "startIndex": 21,
-          "endIndex": 26,
-          "score": 0.9713137
-        },
-        {
-          "entity": "-1234",
-          "type": "builtin.number",
-          "startIndex": 22,
-          "endIndex": 26,
-          "resolution": {
-            "value": "-1234"
-          }
-        },
-        {
-          "entity": "-2345",
-          "type": "builtin.number",
-          "startIndex": 32,
-          "endIndex": 36,
-          "resolution": {
-            "value": "-2345"
-          }
-        },
-        {
-          "entity": "3",
-          "type": "builtin.number",
-          "startIndex": 47,
-          "endIndex": 47,
-          "resolution": {
-            "value": "3"
-          }
-        },
-        {
-          "entity": "2",
-          "type": "builtin.number",
-          "startIndex": 50,
-          "endIndex": 50,
-          "resolution": {
-            "value": "2"
-          }
-        },
-        {
-          "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-          "type": "RequestEmployeeMove",
+          "entity": "jill jones to devops",
+          "type": "TransferEmployeeInfo",
           "startIndex": 5,
-          "endIndex": 54,
-          "score": 0.4027723
+          "endIndex": 24,
+          "score": 0.9607566
         }
       ],
       "compositeEntities": [
         {
-          "parentType": "RequestEmployeeMove",
-          "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+          "parentType": "TransferEmployeeInfo",
+          "value": "jill jones to devops",
           "children": [
             {
-              "type": "builtin.datetimeV2.datetime",
-              "value": "march 3 2 p.m"
-            },
-            {
-              "type": "Locations::Destination",
-              "value": "z - 2345"
-            },
-            {
-              "type": "Employee",
+              "type": "builtin.personName",
               "value": "jill jones"
             },
             {
-              "type": "Locations::Origin",
-              "value": "a - 1234"
+              "type": "Department",
+              "value": "devops"
             }
           ]
         }

@@ -55,7 +55,7 @@ A regular expression is a good choice for this type of data when:
 
 ## Create intent for finding form
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 1. Select **Create new intent**. 
 
