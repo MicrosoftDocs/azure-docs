@@ -50,3 +50,4 @@ If you haven't already done so,
 If you're registered and are creating a new offer or working on an existing one,
 
 - [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer
+- See [Containers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) for more information

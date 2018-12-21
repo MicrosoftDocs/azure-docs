@@ -58,7 +58,7 @@ The storefront where your offer will be presented, Azure Marketplace and/or AppS
 
 ## Choose a publishing option
 
-The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [Go-To-Market benefits](https://partner.microsoft.com/en-US/reach-customers/gtm). Select from three possible publishing options before using the Cloud Partner Portal to create a marketplace offer. Note the calls-to-action that correspond with the publishing option:
+The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [Go-To-Market benefits](https://partner.microsoft.com/reach-customers/gtm). Select from three possible publishing options before using the Cloud Partner Portal to create a marketplace offer. Note the calls-to-action that correspond with the publishing option:
 
 | **Publishing option**    | **Description**  |
 | :------------------- | :-------------------|

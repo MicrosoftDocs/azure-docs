@@ -32,7 +32,7 @@ Review the [publishing process and guidelines](https://docs.microsoft.com/office
 
 ### Power Apps
 
-Learn about how customers can [test drive your app on AppSource.](https://powerapps.microsoft.com/en-us/blog/appsource-test-drive/)
+Learn about how customers can [test drive your app on AppSource.](https://powerapps.microsoft.com/blog/appsource-test-drive/)
 
 ### Power BI
 
@@ -43,8 +43,12 @@ Review the [publishing process and guidelines.](https://docs.microsoft.com/power
 #### Dynamics 365 for Finance and Operations
 When building for Enterprise Edition, review the [publishing process and guidelines](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
+See [Dynamics 365 for Finance and Operations offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer) for how to publish the offer in Cloud Partner Portal.
+
 ### Dynamics 365 for Customer Engagement
-Review the [publishing process and guidelines](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource)
+Review the [publishing process and guidelines](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource).
+
+See [Dynamics 365 for Customer Engagement offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-customer-engagement-offer) for how to publish the offer in Cloud Partner Portal.
 
 ## Next Steps
 

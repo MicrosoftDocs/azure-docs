@@ -91,7 +91,7 @@ For video tutorials, review the following:
 * [Microsoft Azure Videos focused on Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
 
 Free Azure Active Directory training is available at  
-* [Microsoft Azure for IT Pros Content Series: Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+* [Microsoft Azure for IT Pros Content Series: Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 In addition, Azure Active Directory provides a site to check for Service Updates   
 * [Azure AD Service updates](https://azure.microsoft.com/updates/?product=active-directory)
@@ -149,3 +149,4 @@ If you haven't already done so,
 If you're registered and are creating a new offer or working on an existing one,
 
 - [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer
+- See [Azure SaaS application offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer) for more information
