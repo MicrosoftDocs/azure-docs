@@ -175,6 +175,13 @@ For more information, see [Azure Stack syslog forwarding](../azure-stack-integra
 
 - <!-- 3078022 - IS, ASDK --> If a VM was stop-deallocated before 1808 it could not be re-allocated after the 1808 update.  This issue is fixed in 1809. Instances that were in this state and could not be started can be started in 1809 with this fix. The fix also prevents this issue from reoccurring.
 
+<!-- TBD -  IS ASDK --> 
+- When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
+
+  As a workaround, create a new VM image with a dummy VHD that can be created through Hyper-V (New-VHD -Path C:\dummy.vhd -Fixed -SizeBytes 1 GB). This process should fix the problem that prevents deleting the failed item. Then, 15 minutes after creating the dummy image, you can successfully delete it.
+
+  You can then retry the download of the VM image that previously failed.
+
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
 ### Changes
@@ -242,12 +249,7 @@ For more information, see [Azure Stack syslog forwarding](../azure-stack-integra
 <!-- TBD -  IS ASDK --> 
 - Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
-<!-- TBD -  IS ASDK --> 
-- When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
 
-  As a workaround, create a new VM image with a dummy VHD that can be created through Hyper-V (New-VHD -Path C:\dummy.vhd -Fixed -SizeBytes 1 GB). This process should fix the problem that prevents deleting the failed item. Then, 15 minutes after creating the dummy image, you can successfully delete it.
-
-  You can then retry the download of the VM image that previously failed.
 
 <!-- TBD -  IS ASDK --> 
 - If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
