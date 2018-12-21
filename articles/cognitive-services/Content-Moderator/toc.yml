@@ -1,8 +1,10 @@
 - name: Content Moderator Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Content Moderator?
     href: overview.md
+    expanded: true
 - name: Quickstarts
   items:
   - name: Getting started

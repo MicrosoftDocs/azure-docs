@@ -14,7 +14,7 @@ ms.date: 09/10/2018
 ms.author: diberry
 ---
 
-# Publish your trained app
+# Publish your active, trained app to a staging or production endpoint
 
 When you finish building and testing your active LUIS app, make it available to your client application by publishing it to the endpoint. 
 

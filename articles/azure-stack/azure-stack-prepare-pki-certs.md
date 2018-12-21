@@ -1,5 +1,5 @@
 ﻿---
-title: Prepare Azure Stack Public Key Infrastructure certificates for Azure Stack integrated systems deployment | Microsoft Docs
+title: Prepare Azure Stack Public Key Infrastructure certificates for Azure Stack integrated systems deployment or secret rotation| Microsoft Docs
 description: Describes how to prepare the Azure Stack PKI certificates for Azure Stack integrated systems.
 services: azure-stack
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.author: mabrigg
 ms.reviewer: ppacent
 ---
 
-# Prepare Azure Stack PKI certificates for deployment
+# Prepare Azure Stack PKI certificates for use in deployment or rotation
 The certificate files [obtained from your CA of choice](azure-stack-get-pki-certs.md) must be imported and exported with properties matching Azure Stack’s certificate requirements.
 
 
 ## Prepare certificates for deployment
-Use these steps to prepare and validate the Azure Stack PKI certificates: 
+Use these steps to prepare and validate the Azure Stack PKI certificates that will be used for deploying a new Azure Stack environment or for rotating secrets in an existing Azure Stack environment: 
 
 ### Import the certificate
 
