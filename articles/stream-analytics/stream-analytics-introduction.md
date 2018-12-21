@@ -29,7 +29,7 @@ Following are some examples where Azure Stream Analytics can be used:
 
 ## How does Stream Analytics work?
 
-Azure Stream Analytics starts with a source of streaming data that is ingested into Azure Event Hub, Azure IoT Hub or from a data store like Azure Blob Storage. To examine the streams, you create a Stream Analytics job that specifies the input source that streams data. The job also specifies a transformation query that defines how to look for data, patterns, or relationships. The transformation query leverages a SQL-like query language that is used to filter, sort, aggregate, and join streaming data over a period of time. When executing the job, you can adjust the event ordering options, and duration of time windows when performing aggregation operations.
+Azure Stream Analytics starts with a source of streaming data that is ingested into Azure Event Hub, Azure IoT Hub or from a data store like Azure Blob Storage. To examine the streams, you create a Stream Analytics job that specifies the input source that streams data. The job also specifies a transformation query that defines how to look for data, patterns, or relationships. The transformation query uses a SQL query language that is used to filter, sort, aggregate, and join streaming data over a period of time. When executing the job, you can adjust the event ordering options, and duration of time windows when performing aggregation operations.
 
 After analyzing the incoming data, you specify an output for the transformed data, and you can control what to do in response to the information you've analyzed. For example, you can take actions like:
 
@@ -65,6 +65,11 @@ You can extend the capabilities of the query language by defining and invoking a
 
 Azure Stream Analytics is a fully managed serverless (PaaS) offering on Azure. Which means you don’t have to provision any hardware or manage clusters to run your jobs. Azure Stream Analytics fully manages your job, by taking care of setting up complex compute clusters in the cloud and the performance tuning necessary to run the job. Integration with Azure Event Hubs and Azure IoT Hub allows jobs to ingest millions of events per second coming from connected devices, clickstreams, and log files, to name a few. Using the partitioning feature of event hubs, you can partition computations into logical steps, each with the ability to be further partitioned to increase scalability.
 
+## Run in the cloud on in the intelligent Edge
+
+Azure Stream Analytics can run in the cloud, for large scale analytics, or run on the intelligent Edge for ultra-low latency analytics.
+Azure Stream Analytics uses the same query language on both cloud and intelligent Edge, enabling developers to build truly hybrid architectures for stream processing.
+
 ## Low Total Cost of Ownership
 
 As a cloud service, Stream Analytics is optimized for cost. There are no upfront costs involved, you only pay for the [streaming units you consume](stream-analytics-streaming-unit-consumption.md), and the amount of data processed. There is no commitment or cluster provisioning required. You can scale the job up or down your steaming jobs based on your business needs. 
@@ -76,7 +81,8 @@ Stream Analytics guarantees exactly once event processing and at least once deli
 
 ## Performance
 
-Azure Stream Analytics is optimized for high performance, it can process streaming data and perform in memory computations. It allows you to scale-up or scale-down to handle real-time and complex event processing applications. Stream Analytics supports performance by partitioning. A complex query can be parallelized and executed on multiple streaming nodes. 
+Azure Stream Analytics is optimized for high performance and low latency, it can process streaming data and perform in memory computations. It allows you to scale-up and scale-out to handle large real-time and complex event processing applications. Stream Analytics supports performance by partitioning, allowing complex queries to  be parallelized and executed on multiple streaming nodes.
+Azure Stream Analytics is built on [Trill](https://github.com/Microsoft/Trill), a high-performance in-memory streaming analytics engine developped in collaboration with Microsoft Research. 
 
 ## Next steps
 
