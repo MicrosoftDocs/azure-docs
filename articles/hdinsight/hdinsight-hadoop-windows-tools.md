@@ -53,7 +53,7 @@ Examples of tasks you can do with the .NET SDK in Visual Studio:
 * [Run Apache Hive queries using the .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 * [Use C# user-defined functions with Apache Hive and Apache Pig streaming on Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-> TIP   
+> [!TIP]
 > If you're running .NET solutions with Windows-based HDInsight clusters, it's a good time to plan a migration to Linux-based clusters. For more information, see [Migrate .NET solution for Windows-based HDInsight to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 
 ## Intellij IDEA and Eclipse IDE for Spark clusters
