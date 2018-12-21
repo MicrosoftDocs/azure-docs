@@ -288,7 +288,7 @@ The following are post-installation known issues for this build version.
    - If you update the quota value to 0, it is equivalent to the default value of 2048 GiB. As a workaround, set the quota value to 1.
 
 <!-- TBD - IS ASDK --> 
-After applying the 1809 update, you might encounter the following issues when deploying VMs with Managed Disks:
+- After applying the 1809 update, you might encounter the following issues when deploying VMs with Managed Disks:
 
    - If the subscription was created before the 1808 update, deploying a VM with Managed Disks might fail with an internal error message. To resolve the error, follow these steps for each subscription:
       1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
