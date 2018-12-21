@@ -82,7 +82,6 @@
         href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch
       - name: Go - Custom Image Search
         href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch
-      
 - name: Resources
   items:
   - name: Pricing

@@ -57,7 +57,7 @@ sections:
 - title: Samples
   items:
   - type: paragraph
-    text: 'Find samples for Bing Spell Check API:'
+    text: 'Find samples for Bing Video API:'
   - type: list
     style: unordered
     items:
