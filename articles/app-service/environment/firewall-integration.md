@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/20/2018
 ms.author: ccompy
 
 ---
@@ -30,13 +30,24 @@ The solution to securing outbound addresses lies in use of a firewall device tha
 
 The steps to lock down egress from your ASE with Azure Firewall are:
 
+1. Enable service endpoints to SQL, Storage and Event Hub on your ASE subnet. To do this go into the networking portal > subnets and select Microsoft.EventHub, Microsoft.SQL and Microsoft.Storage from the Service endpoints dropdown.
+
+  ![select service endpoints][2]
+  
 1. Create an Azure Firewall in the VNet where your ASE is, or will be. [Azure Firewall documenation](https://docs.microsoft.com/azure/firewall/)
-2. From the Azure Firewall UI, select the App Service Environment FQDN Tag
-3. Create a route table with the management addresses from [App Service Environment management addresses]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) with a next hop of Internet. The route table entries are required to avoid asymmetric routing problems.
-4. Add routes for the IP address dependencies noted below in the IP address dependencies with a next hop of Internet.
-5. Add a route to your route table for 0.0.0.0/0 with the next hop being your Azure Firewall.
-6. Create Service Endpoints for your ASE subnet to Azure SQL and Azure Storage.
-7. Assign the route table you created to your ASE subnet.
+1. From Azure Firewall UI > Rules > Application rule collection, select Add application rule collection. Provide a name, priority, and set Allow. In the FQDN tags section, provide a name, set the source addresses to * and select the App Service Environment FQDN Tag. 
+   
+   ![Add application rule][1]
+   
+1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority and set Allow. In the Rules section, provide a name, select Any, set * to Source and Destination addresses, and set the ports to 123. This is to allow the system to perform clock sync using NTP.
+
+   ![Add NTP network rule][3]
+
+1. Create a route table with the management addresses from [App Service Environment management addresses]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) with a next hop of Internet. The route table entries are required to avoid asymmetric routing problems. Add routes for the IP address dependencies noted below in the IP address dependencies with a next hop of Internet. Add a route to your route table for 0.0.0.0/0 with the next hop being your Azure Firewall private IP address. 
+
+   ![Creating a route table][4]
+   
+1. Assign the route table you created to your ASE subnet.
 
 ## Application traffic 
 
@@ -168,3 +179,8 @@ The Azure App Service has a number of external dependencies. They can be categor
 |packages.treasuredata.com:80|
 |security.ubuntu.com:80 |
 
+<!--Image references-->
+[1]: ./media/firewall-integration/firewall-apprule.png
+[2]: ./media/firewall-integration/firewall-serviceendpoints.png
+[1]: ./media/firewall-integration/firewall-ntprule.png
+[1]: ./media/firewall-integration/firewall-routetable.png
