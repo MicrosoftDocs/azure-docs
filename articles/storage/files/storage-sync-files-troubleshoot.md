@@ -567,7 +567,7 @@ This error occurs because of an internal problem with the sync database. This er
 
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 1. Navigate to the sync group within the Storage Sync Service.
 2. Select the cloud endpoint within the sync group.
 3. Note the Azure file share name in the opened pane.
