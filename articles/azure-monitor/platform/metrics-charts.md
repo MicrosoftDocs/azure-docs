@@ -44,7 +44,7 @@ Metrics in Microsoft Azure are the series of measured values and counts that are
 
 6. After selecting a metric, the chart will render with the default aggregation for the selected metric. At this point you can just click away from the **metrics selector** to close it. You can also optionally switch the chart to a different aggregation. For some metrics, switching aggregation allows you to choose which value you want to see on the chart. For example, you can switch between the average, minimum and maximum values. 
 
-7. By clicking on the Add Metric and repeating steps 3-6 you can add more metrics on the same chart.
+7. By clicking on **Add metric** and repeating steps 3-6, you can add more metrics on the same chart.
 
    > [!NOTE]
    > You typically don’t want to have metrics with different units of measure (i.e. “milliseconds” and “kilobytes”) or with significantly different scale on one chart. Instead, consider using multiple charts. Click on the Add Chart button to create multiple charts in Metrics Explorer.
@@ -55,7 +55,7 @@ You can apply filters to the charts that show metrics with dimensions. For examp
 
 ### To add a filter
 
-1. Click on the Add Filter above the chart
+1. Select **Add filter** above the chart
 
 2. Select which dimension (property) you want to filter
 
