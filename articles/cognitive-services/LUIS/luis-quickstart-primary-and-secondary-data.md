@@ -25,8 +25,8 @@ The simple entity detects a single data concept contained in words or phrases.
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Import example app
-> * Add simple entity to extract jobs from app
-> * Add phrase list to boost signal of job words
+> * Add simple entity 
+> * Add phrase list to boost signal words
 > * Train 
 > * Publish 
 > * Get intents and entities from endpoint

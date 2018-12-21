@@ -22,7 +22,7 @@ In this tutorial, create an app to extract consistently-formatted data from an u
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Create a new app 
-> * Add FindForm intent
+> * Add intent
 > * Add regular expression entity 
 > * Train
 > * Publish

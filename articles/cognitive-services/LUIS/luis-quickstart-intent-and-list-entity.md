@@ -23,7 +23,7 @@ In this tutorial, understand how to get entity data that matches a predefined li
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Create app
-> * Add MoveEmployee intent
+> * Add intent
 > * Add list entity 
 > * Train 
 > * Publish
