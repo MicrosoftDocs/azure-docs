@@ -1,5 +1,6 @@
 ---
-title: Azure Load Balancer overview | Microsoft Docs
+title: What is Azure Load Balancer?
+titlesuffix: Azure Load Balancer
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the Load Balancer works and leverage it in the cloud.
 services: load-balancer
 documentationcenter: na
@@ -8,6 +9,7 @@ ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
 ms.devlang: na
 ms.topic: overview
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/09/2017
+ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
 ---
 # Smart Detection - Failure Anomalies
 [Application Insights](app-insights-overview.md) automatically notifies you in near real time if your web app experiences an abnormal rise in the rate of failed requests. It detects an unusual rise in the rate of HTTP requests or dependency calls that are reported as failed. For requests, failed requests are usually those with response codes of 400 or higher. To help you triage and diagnose the problem, an analysis of the characteristics of the failures and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up nor configuration, as it uses machine learning algorithms to predict the normal failure rate.
 
-This feature works for Java and ASP.NET web apps, hosted in the cloud or on your own servers. It also works for any app that generates request or dependency telemetry - for example, if you have a worker role that calls [TrackRequest()](app-insights-api-custom-events-metrics.md#trackrequest) or [TrackDependency()](app-insights-api-custom-events-metrics.md#trackdependency).
+This feature works for Java and ASP.NET web apps, hosted in the cloud or on your own servers. It also works for any app that generates request or dependency telemetry - for example, if you have a worker role that calls [TrackRequest()](../azure-monitor/app/api-custom-events-metrics.md#trackrequest) or [TrackDependency()](../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 After setting up [Application Insights for your project](app-insights-overview.md), and provided your app generates a certain minimum amount of telemetry, Smart Detection of failure anomalies takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
 
@@ -39,10 +39,10 @@ Notice that it tells you:
 * Links directly to relevant searches on the telemetry in Application Insights.
 
 ## Benefits of Smart Detection
-Ordinary [metric alerts](app-insights-alerts.md) tell you there might be a problem. But Smart Detection starts the diagnostic work for you, performing a lot of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
+Ordinary [metric alerts](../azure-monitor/app/alerts.md) tell you there might be a problem. But Smart Detection starts the diagnostic work for you, performing a lot of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
 
 ## How it works
-Smart  Detection monitors the telemetry received from your app, and in particular the failure rates. This rule counts the number of requests for which the `Successful request` property is false, and the number of dependency calls for which the `Successful call` property is false. For requests, by default, `Successful request == (resultCode < 400)` (unless you have written custom code to [filter](app-insights-api-filtering-sampling.md#filtering) or generate your own [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest) calls). 
+Smart  Detection monitors the telemetry received from your app, and in particular the failure rates. This rule counts the number of requests for which the `Successful request` property is false, and the number of dependency calls for which the `Successful call` property is false. For requests, by default, `Successful request == (resultCode < 400)` (unless you have written custom code to [filter](../azure-monitor/app/api-filtering-sampling.md#filtering) or generate your own [TrackRequest](../azure-monitor/app/api-custom-events-metrics.md#trackrequest) calls). 
 
 Your app's performance has a typical pattern of behavior. Some requests or dependency calls will be more prone to failure than others; and the overall failure rate may go up as load increases. Smart Detection uses machine learning to find these anomalies.
 
@@ -50,11 +50,19 @@ As telemetry comes into Application Insights from your web app, Smart Detection 
 
 When an analysis is triggered, the service performs a cluster analysis on the failed request, to try to identify a pattern of values that characterize the failures. In the example above, the analysis has discovered that most failures are about a specific result code, request name, Server URL host, and role instance. By contrast, the analysis has discovered that the client operating system property is distributed over multiple values, and so it is not listed.
 
-When your service is instrumented with these telemetry calls, the analyser looks for an exception and a dependency failure that are associated with requests in the cluster it has identified, together with an example of any trace logs associated with those requests.
+When your service is instrumented with these telemetry calls, the analyzer looks for an exception and a dependency failure that are associated with requests in the cluster it has identified, together with an example of any trace logs associated with those requests.
 
 The resulting analysis is sent to you as alert, unless you have configured it not to.
 
-Like the [alerts you set manually](app-insights-alerts.md), you can inspect the state of the alert and configure it in the Alerts blade of your Application Insights resource. But unlike other alerts, you don't need to set up or configure Smart Detection. If you want, you can disable it or change its target email addresses.
+Like the [alerts you set manually](../azure-monitor/app/alerts.md), you can inspect the state of the alert and configure it in the Alerts blade of your Application Insights resource. But unlike other alerts, you don't need to set up or configure Smart Detection. If you want, you can disable it or change its target email addresses.
+
+### Alert logic details
+
+The alerts are triggered by our proprietary machine learning algorithm so we can't share the exact implementation details. With that said, we understand that you sometimes need to know more about how the underlying logic works. The primary factors that are evaluated to determine if an alert should be triggered are: 
+
+* Analysis of the failure percentage of requests/dependencies in a rolling time window of 20 minutes.
+* A comparison of the failure percentage of the last 20 minutes to the rate in the last 40 minutes and the past seven days, and looking for significant deviations that exceed X-times that standard deviation.
+* Using an adaptive limit for the minimum failure percentage, which varies based on the app’s volume of requests/dependencies.
 
 ## Configure alerts
 You can disable Smart Detection, change the email recipients, create a webhook, or opt in to more detailed alert messages.
@@ -99,7 +107,7 @@ Click **Smart Detection** to get to the most recent alert:
 ## What's the difference ...
 Smart Detection of failure anomalies complements other similar but distinct features of Application Insights.
 
-* [Metric Alerts](app-insights-alerts.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, Smart Detection of failure anomalies covers a small range of critical metrics (currently only failed request rate), designed to notify you in near real time manner once your web app's failed request rate increases significantly compared to web app's normal behavior.
+* [Metric Alerts](../azure-monitor/app/alerts.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, Smart Detection of failure anomalies covers a small range of critical metrics (currently only failed request rate), designed to notify you in near real time manner once your web app's failed request rate increases significantly compared to web app's normal behavior.
 
     Smart Detection automatically adjusts its threshold in response to prevailing conditions.
 
@@ -140,9 +148,9 @@ These diagnostic tools help you inspect the telemetry from your app:
 
 * [Metric explorer](app-insights-metrics-explorer.md)
 * [Search explorer](app-insights-diagnostic-search.md)
-* [Analytics - powerful query language](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Analytics - powerful query language](../azure-monitor/log-query/get-started-portal.md)
 
 Smart detections are completely automatic. But maybe you'd like to set up some more alerts?
 
-* [Manually configured metric alerts](app-insights-alerts.md)
+* [Manually configured metric alerts](../azure-monitor/app/alerts.md)
 * [Availability web tests](app-insights-monitor-web-app-availability.md)

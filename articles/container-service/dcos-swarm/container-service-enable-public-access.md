@@ -1,5 +1,5 @@
 ---
-title: Enable access to Azure DC/OS container app
+title: (DEPRECATED) Enable access to Azure DC/OS container app
 description: How to enable public access to DC/OS containers in Azure Container Service.
 services: container-service
 author: sauryadas
@@ -12,7 +12,9 @@ ms.author: saudas
 ms.custom: mvc
 ---
 
-# Enable public access to an Azure Container Service application
+# (DEPRECATED) Enable public access to an Azure Container Service application
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Any DC/OS container in the ACS [public agent pool](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) is automatically exposed to the internet. By default, ports **80**, **443**, **8080** are opened, and any (public) container listening on those ports are accessible. This article shows you how to open more ports for your applications in Azure Container Service.
 

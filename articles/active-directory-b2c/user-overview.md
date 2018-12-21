@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -21,7 +21,7 @@ The following types of accounts are available:
 
 - **Work account** - A work account can access resources in a tenant, and with an administrator role, can manage tenants.
 - **Guest account** - A guest account can only be a Microsoft account or an Azure Active Directory user that can be used to access applications or manage tenants. 
-- **Consumer account** - A consumer account is created by going through a sign-up policy in an Azure AD B2C application or by using Azure AD Graph API, and is used by users of the applications that are registered with Azure AD B2C. 
+- **Consumer account** - A consumer account is created by going through a sign-up user flow in an Azure AD B2C application or by using Azure AD Graph API, and is used by users of the applications that are registered with Azure AD B2C. 
 
 ## Work account
 
@@ -69,7 +69,7 @@ You can also use the [Microsoft Graph API](https://developer.microsoft.com/en-us
 
 ## Consumer user
 
-The consumer user can sign in to applications secured by Azure AD B2C, but cannot access Azure resources such as the Azure portal.  The consumer user can use a local account or federated accounts, such as Facebook or Twitter. A consumer account is created by using a [sign-up or sign-in policy](../active-directory-b2c/active-directory-b2c-reference-policies.md).
+The consumer user can sign in to applications secured by Azure AD B2C, but cannot access Azure resources such as the Azure portal.  The consumer user can use a local account or federated accounts, such as Facebook or Twitter. A consumer account is created by using a [sign-up or sign-in user flow](../active-directory-b2c/active-directory-b2c-reference-policies.md).
 
 You can specify the data that is collected when a consumer user account is created by using custom user attributes. For more information, see [Define custom attributes in Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
 

@@ -62,7 +62,7 @@ To use access reviews, you must have one of the following licenses:
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license
 
-For more information, see [How to: Sign up for Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) or [Enterprise Mobility + Security E5 Trial](http://aka.ms/emse5trial).
+For more information, see [How to: Sign up for Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) or [Enterprise Mobility + Security E5 Trial](https://aka.ms/emse5trial).
 
 ## Get started with access reviews
 

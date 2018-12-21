@@ -230,8 +230,8 @@ Yes. Data is encrypted on the on-premises  machine using AES256. The data is sen
 ### Is the backup data on Azure encrypted as well?
 
 Yes. The data in Azure is encrypted-at-rest.
-- For on-premises backup, encryption-at-reset is provided using the passphrase you provide when backing up to Azure.
-- For Azure VMs, data is encrypted-at-reset using Storage Service Encryption (SSE).
+- For on-premises backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure.
+- For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE).
 
 Microsoft does not decrypt the backup data at any point.
 

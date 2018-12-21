@@ -5,7 +5,7 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: ramamill
 ms.topic: conceptual
 

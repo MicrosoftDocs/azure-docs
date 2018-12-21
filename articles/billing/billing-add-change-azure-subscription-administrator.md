@@ -22,9 +22,6 @@ ms.author: cwatson
 
 To manage access to Azure resources, you must have the appropriate administrator role. This article describes how to add or change the administrator role for a user at the subscription level.
 
-> [!div class="nextstepaction"]
-> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
-
 ## What administrator role do I use?
 
 Azure has several different roles. To manage access to resources, you can use the classic subscription administrator roles, such as Service administrator and Co-administrator, or a newer authorization system called role-based access control (RBAC). To ensure better control and to simplify access management, we recommend that you use RBAC for all access management needs. If possible, we recommend that you reconfigure existing access policies using RBAC. For more information, see [What is role-based access control (RBAC)](../role-based-access-control/overview.md) and [Understand the different roles in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
@@ -38,10 +35,10 @@ To add someone as an administrator for an Azure subscription, assign them the [O
 1. Visit [**Subscriptions** in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Select the subscription that you want to give access.
 3. Select **Access control (IAM)** in the list.
-4. Select **Add**.
-   (If the Add button is missing, you do not have permission to add permissions.)
+4. Select **Add role assignment**.
+   (If the Add role assignment button is missing, you do not have permission to add permissions.)
 5. In the **Role** box, select **Owner**. 
-6. In the **Assign access to** box, select **Azure AD user, group, or application**. 
+6. In the **Assign access to** box, select **Azure AD user, group, or service principal**. 
 7. In the **Select** box, type the email address of the user you want to add as Owner. Select the user, and then select **Save**.
 
     ![Screenshot that shows the Owner role selected](./media/billing-add-change-azure-subscription-administrator/add-role.png)

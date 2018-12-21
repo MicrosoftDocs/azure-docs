@@ -119,7 +119,7 @@ When the flow runs, the recipients you have specified in the email list receive 
 
 ## Next steps
 
-- Learn more about creating [Analytics queries](../log-analytics/query-language/get-started-queries.md).
+- Learn more about creating [Analytics queries](../azure-monitor/log-query/get-started-queries.md).
 - Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

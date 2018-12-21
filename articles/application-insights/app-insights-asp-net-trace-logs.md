@@ -19,7 +19,7 @@ ms.author: mbullwin
 If you use NLog, log4Net or System.Diagnostics.Trace for diagnostic tracing in your ASP.NET application, you can have your logs sent to [Azure Application Insights][start], where you can explore and search them. Your logs will be merged with the other telemetry coming from your application, so that you can identify the traces associated with servicing each user request, and correlate them with other events and exception reports.
 
 > [!NOTE]
-> Do you need the log capture module? It's a useful adapter for 3rd-party loggers, but if you aren't already using NLog, log4Net or System.Diagnostics.Trace, consider just calling [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) directly.
+> Do you need the log capture module? It's a useful adapter for 3rd-party loggers, but if you aren't already using NLog, log4Net or System.Diagnostics.Trace, consider just calling [Application Insights TrackTrace()](../azure-monitor/app/api-custom-events-metrics.md#tracktrace) directly.
 >
 >
 
@@ -44,7 +44,7 @@ If you're using System.Diagnostics.Trace, you need to add an entry to web.config
    </configuration>
 ```
 ## Configure Application Insights to collect logs
-**[Add Application Insights to your project](app-insights-asp-net.md)** if you haven't done that yet. You'll see an option to include the log collector.
+**[Add Application Insights to your project](../azure-monitor/app/asp-net.md)** if you haven't done that yet. You'll see an option to include the log collector.
 
 Or **Configure Application Insights** by right-clicking your project in Solution Explorer. Select the option to **Configure trace collection**.
 
@@ -148,10 +148,6 @@ Run your app, either in debug mode or deploy it live.
 
 In your app's overview blade in [the Application Insights portal][portal], choose [Search][diagnostic].
 
-![In Application Insights, choose Search](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
-
-![Search](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
-
 You can, for example:
 
 * Filter on log traces, or on items with specific properties
@@ -174,13 +170,13 @@ You can, for example:
 Use the [Java log adapters](app-insights-java-trace-logs.md).
 
 ### There's no Application Insights option on the project context menu
-* Check Application Insights tools is installed on this development machine. In Visual Studio menu Tools, Extensions and Updates, look for Application Insights Tools. If it isn't in the Installed tab, open the Online tab and install it.
+* Check that Application Insights tools are installed on this development machine. In Visual Studio menu Tools, Extensions and Updates, look for Application Insights Tools. If it isn't in the Installed tab, open the Online tab and install it.
 * This might be a type of project not supported by Application Insights tools. Use [manual installation](#manual-installation).
 
 ### No log adapter option in the configuration tool
 * You need to install the logging framework first.
 * If you're using System.Diagnostics.Trace, make sure you [configured it in `web.config`](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
-* Have you got the latest version of Application Insights? In Visual Studio **Tools** menu, choose **Extensions and Updates**, and open the **Updates** tab. If Developer Analytics tools is there, click to update it.
+* Have you got the latest version of Application Insights? In Visual Studio **Tools** menu, choose **Extensions and Updates**, and open the **Updates** tab. If Developer Analytics tools are there, click to update it.
 
 ### <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
 Looks like you installed the logging adapter Nuget package without installing Application Insights.
@@ -191,7 +187,7 @@ In Solution Explorer, right-click `ApplicationInsights.config` and choose **Upda
 It can sometimes take a while for all the events and requests to get through the pipeline.
 
 ### <a name="limits"></a>How much data is retained?
-Several factors impact the amount of data retained. See the [limits](app-insights-api-custom-events-metrics.md#limits) section of the customer event metrics page for more information. 
+Several factors impact the amount of data retained. See the [limits](../azure-monitor/app/api-custom-events-metrics.md#limits) section of the customer event metrics page for more information. 
 
 ### I'm not seeing some of the log entries that I expect
 If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)

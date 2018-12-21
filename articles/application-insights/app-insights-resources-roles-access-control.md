@@ -58,7 +58,7 @@ Choose **Access control (IAM)** from the left-hand menu.
 
 ![Screenshot of Access control button in Azure portal](./media/app-insights-resources-roles-access-control/0001-access-control.png)
 
-Select **Add**
+Select **Add role assignment**
 
 ![Screenshot of Access control menu with add button highlighted in red](./media/app-insights-resources-roles-access-control/0002-add.png)
 

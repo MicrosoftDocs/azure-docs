@@ -38,7 +38,7 @@ When you need to pass a secure value (like a password) as a parameter during dep
 
    ![Select access control](./media/key-vault-access/access-control.png)
 
-1. Select **Add**.
+1. Select **Add role assignment**.
 
    ![Select add](./media/key-vault-access/add-access-control.png)
 

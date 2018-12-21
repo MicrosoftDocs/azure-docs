@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
@@ -76,7 +76,12 @@ The following properties are supported for Oracle Service Cloud linked service:
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Oracle Service Cloud dataset.
 
-To copy data from Oracle Service Cloud, set the type property of the dataset to **OracleServiceCloudObject**. There is no additional type-specific property in this type of dataset.
+To copy data from Oracle Service Cloud, set the type property of the dataset to **OracleServiceCloudObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **OracleServiceCloudObject** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -88,7 +93,8 @@ To copy data from Oracle Service Cloud, set the type property of the dataset to 
         "linkedServiceName": {
             "referenceName": "<OracleServiceCloud linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 
@@ -105,7 +111,7 @@ To copy data from Oracle Service Cloud, set the source type in the copy activity
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **OracleServiceCloudSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 

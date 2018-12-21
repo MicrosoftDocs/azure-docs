@@ -1,6 +1,6 @@
 ---
-title: Send events to Azure Event Hubs using Node.js | Microsoft Docs
-description: Get started sending events to Event Hubs using Node.js.
+title: Send events using Node.js - Azure Event Hubs | Microsoft Docs
+description: This article provides a walkthrough for creating a Node.js application that sends events from Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
@@ -8,7 +8,8 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
@@ -32,8 +33,10 @@ To complete this tutorial, you need the following prerequisites:
 ## Create an Event Hubs namespace and an event hub
 The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps in this tutorial.
 
+Get the connection string for the event hub namespace by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the connection string later in this tutorial.
+
 ## Clone the sample Git repository
-Clone the sample Git repository from [Github](https://github.com/Azure/azure-event-hubs-node) on your machine. 
+Clone the sample Git repository from [GitHub](https://github.com/Azure/azure-event-hubs-node) on your machine. 
 
 ## Install Node.js package
 Install Node.js package for Azure Event Hubs on your machine. 
@@ -43,7 +46,7 @@ npm install @azure/event-hubs
 ```
 
 ## Clone the Git repository
-Download or clone the [sample](https://github.com/Azure/azure-event-hubs-node/tree/master/client/examples) from Github. 
+Download or clone the [sample](https://github.com/Azure/azure-event-hubs-node/tree/master/client/examples) from GitHub. 
 
 ## Send events
 The SDK you have cloned contains multiple samples that show you how to send events to an event hub using node.js. In this quickstart, you use the **simpleSender.js** example. To observe events being received, open another terminal, and receive events using the [receive sample](event-hubs-node-get-started-receive.md).

@@ -18,7 +18,7 @@ ms.author: mbullwin
 These items are implementations of [Application Insights](app-insights-overview.md) that we've heard about, including some by third parties.
 
 ## Languages - officially supported by Application Insights team
-* [C#|VB (.NET)](app-insights-asp-net.md)
+* [C#|VB (.NET)](../azure-monitor/app/asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [JavaScript web pages](app-insights-javascript.md)
 * [Node.JS](app-insights-nodejs.md)
@@ -31,13 +31,13 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [Anything else](#projects)
 
 ## Platforms and frameworks
-* [ASP.NET](app-insights-asp-net.md)
+* [ASP.NET](../azure-monitor/app/asp-net.md)
 * [ASP.NET - for apps that are already live](app-insights-monitor-performance-live-website-now.md)
-* [ASP.NET Core](app-insights-asp-net-core.md)
+* [ASP.NET Core](../azure-monitor/app/asp-net-core.md)
 * [Android](app-insights-mobile-center-quickstart.md) (App Center)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
-* [Azure Web Apps](app-insights-azure-web-apps.md)
+* [Azure App Service](app-insights-azure-web-apps.md)
 * [Azure Cloud Services](app-insights-cloudservices.md)&#151;including both web and worker roles
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
@@ -50,7 +50,7 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [SAFE Stack](https://safe-stack.github.io/docs/template-azure-ai/)
-* [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
+* [Spring](https://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 * [Universal Windows app](app-insights-mobile-center-quickstart.md) (App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
 * [Windows desktop applications, services, and worker roles](app-insights-windows-desktop.md)

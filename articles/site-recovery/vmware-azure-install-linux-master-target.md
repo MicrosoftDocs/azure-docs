@@ -4,7 +4,7 @@ description: Learn how to set up a Linux master target server for failback to an
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
 
 ---

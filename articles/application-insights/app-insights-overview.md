@@ -55,15 +55,15 @@ There are plenty of ways to explore your data. Check out these articles:
 
 |  |  |
 | --- | --- |
-| [**Smart detection and manual alerts**](app-insights-proactive-diagnostics.md)<br/>Automatic alerts adapt to your app's normal patterns of telemetry and trigger when there's something outside the usual pattern. You can also [set alerts](app-insights-alerts.md) on particular levels of custom or standard metrics. |![Alert sample](./media/app-insights-overview/alerts-tn.png) |
-| [**Application map**](app-insights-app-map.md)<br/>The components of your app, with key metrics and alerts. |![Application map](./media/app-insights-overview/appmap-tn.png)  |
+| [**Smart detection and manual alerts**](app-insights-proactive-diagnostics.md)<br/>Automatic alerts adapt to your app's normal patterns of telemetry and trigger when there's something outside the usual pattern. You can also [set alerts](../azure-monitor/app/alerts.md) on particular levels of custom or standard metrics. |![Alert sample](./media/app-insights-overview/alerts-tn.png) |
+| [**Application map**](../azure-monitor/app/app-map.md)<br/>The components of your app, with key metrics and alerts. |![Application map](./media/app-insights-overview/appmap-tn.png)  |
 | [**Profiler**](app-insights-profiler.md)<br/>Inspect the execution profiles of sampled requests. |![Profiler](./media/app-insights-overview/profiler.png) |
 | [**Usage analysis**](app-insights-usage-overview.md)<br/>Analyze user segmentation and retention.|![Retention tool](./media/app-insights-overview/retention.png) |
 | [**Diagnostic search for instance data**](app-insights-diagnostic-search.md)<br/>Search and filter events such as requests, exceptions, dependency calls, log traces, and page views.  |![Search telemetry](./media/app-insights-overview/search-tn.png) |
 | [**Metrics Explorer for aggregated data**](app-insights-metrics-explorer.md)<br/>Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times. |![Metrics](./media/app-insights-overview/metrics-tn.png) |
-| [**Dashboards**](app-insights-dashboards.md#dashboards)<br/>Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room. |![Dashboards sample](./media/app-insights-overview/dashboard-tn.png) |
+| [**Dashboards**](../azure-monitor/app/app-insights-dashboards.md#dashboards)<br/>Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room. |![Dashboards sample](./media/app-insights-overview/dashboard-tn.png) |
 | [**Live Metrics Stream**](app-insights-live-stream.md)<br/>When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected. |![Live metrics sample](./media/app-insights-overview/live-metrics-tn.png) |
-| [**Analytics**](app-insights-analytics.md)<br/>Answer tough questions about your app's performance and usage by using this powerful query language. |![Analytics sample](./media/app-insights-overview/analytics-tn.png) |
+| [**Analytics**](../azure-monitor/app/analytics.md)<br/>Answer tough questions about your app's performance and usage by using this powerful query language. |![Analytics sample](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](app-insights-visual-studio.md)<br/>See performance data in the code. Go to code from stack traces.|![Visual studio](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Snapshot debugger**](app-insights-snapshot-debugger.md)<br/>Debug snapshots sampled from live operations, with parameter values.|![Visual studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](app-insights-export-power-bi.md)<br/>Integrate usage metrics with other business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
@@ -75,7 +75,7 @@ There are plenty of ways to explore your data. Check out these articles:
 ### Monitor
 Install Application Insights in your app, set up [availability web tests](app-insights-monitor-web-app-availability.md), and:
 
-* Set up a [dashboard](app-insights-dashboards.md) for your team room to keep an eye on load, responsiveness, and the performance of your dependencies, page loads, and AJAX calls.
+* Set up a [dashboard](../azure-monitor/app/app-insights-dashboards.md) for your team room to keep an eye on load, responsiveness, and the performance of your dependencies, page loads, and AJAX calls.
 * Discover which are the slowest and most failing requests.
 * Watch [Live Stream](app-insights-live-stream.md) when you deploy a new release, to know immediately about any degradation.
 
@@ -94,7 +94,7 @@ When you receive an alert or discover a problem:
 * Base the next development cycle on hard evidence from your telemetry.
 
 ## Get started
-Application Insights is one of the many services hosted within Microsoft Azure, and telemetry is sent there for analysis and presentation. So before you do anything else, you'll need a subscription to [Microsoft Azure](http://azure.com). It's free to sign up, and if you choose the basic [pricing plan](https://azure.microsoft.com/pricing/details/application-insights/) of Application Insights, there's no charge until your application has grown to have substantial usage. If your organization already has a subscription, they could add your Microsoft account to it.
+Application Insights is one of the many services hosted within Microsoft Azure, and telemetry is sent there for analysis and presentation. So before you do anything else, you'll need a subscription to [Microsoft Azure](https://azure.com). It's free to sign up, and if you choose the basic [pricing plan](https://azure.microsoft.com/pricing/details/application-insights/) of Application Insights, there's no charge until your application has grown to have substantial usage. If your organization already has a subscription, they could add your Microsoft account to it.
 
 There are several ways to get started. Begin with whichever works best for you. You can add the others later.
 
@@ -103,7 +103,7 @@ There are several ways to get started. Begin with whichever works best for you. 
   * [**Azure web app or VM**](app-insights-monitor-performance-live-website-now.md)
   * [**J2EE**](app-insights-java-live.md)
 * **At development time: add Application Insights to your code.** Allows you to write custom telemetry and to instrument back-end and desktop apps.
-  * [Visual Studio](app-insights-asp-net.md) 2013 update 2 or later.
+  * [Visual Studio](../azure-monitor/app/asp-net.md) 2013 update 2 or later.
   * [Java](app-insights-java-get-started.md)
   * [Node.js](app-insights-nodejs.md)
   * [Other platforms](app-insights-platforms.md)
@@ -120,7 +120,7 @@ Get started at runtime with:
 
 Get started at development time with:
 
-* [ASP.NET](app-insights-asp-net.md)
+* [ASP.NET](../azure-monitor/app/asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [Node.js](app-insights-nodejs.md)
 
@@ -128,7 +128,7 @@ Get started at development time with:
 * Questions and Issues:
   * [Troubleshooting][qna]
   * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
-  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+  * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * Your suggestions:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
 * Blog:
@@ -147,11 +147,11 @@ Get started at development time with:
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
-[greenbrown]: app-insights-asp-net.md
+[greenbrown]: ../azure-monitor/app/asp-net.md
 [ios]: app-insights-mobile-center-quickstart.md
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: app-insights-platforms.md
-[portal]: http://portal.azure.com/
+[portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md

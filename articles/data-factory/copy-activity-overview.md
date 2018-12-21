@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
@@ -169,6 +169,7 @@ Copy activity execution details and performance characteristics are also returne
 | dataRead | Data size read from source | Int64 value in **bytes** |
 | dataWritten | Data size written to sink | Int64 value in **bytes** |
 | filesRead | Number of files being copied when copying data from file storage. | Int64 value (no unit) |
+| fileScanned | Number of files being scanned from the source file storage. | Int64 value (no unit) |
 | filesWritten | Number of files being copied when copying data to file storage. | Int64 value (no unit) |
 | rowsCopied | Number of rows being copied (not applicable for binary copy). | Int64 value (no unit) |
 | rowsSkipped | Number of incompatible rows being skipped. You can turn on the feature by set "enableSkipIncompatibleRow" to true. | Int64 value (no unit) |

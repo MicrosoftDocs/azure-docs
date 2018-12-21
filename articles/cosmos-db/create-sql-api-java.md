@@ -1,9 +1,8 @@
 ---
-title: Create an Azure Cosmos DB document database with Java | Microsoft Docs | Microsoft Docs'
+title: Create an Azure Cosmos DB document database with Java'
 description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB SQL API
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -18,6 +17,7 @@ ms.author: moderakh
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
+> * [.NET (Preview)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -35,7 +35,7 @@ In addition:
 * [Java Development Kit (JDK) 1.8+](https://aka.ms/azure-jdks)
     * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
-* [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a [Maven](http://maven.apache.org/) binary archive
+* [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a [Maven](https://maven.apache.org/) binary archive
     * On Ubuntu, you can run `apt-get install maven` to install Maven.
 * [Git](https://www.git-scm.com/)
     * On Ubuntu, you can run `sudo apt-get install git` to install Git.

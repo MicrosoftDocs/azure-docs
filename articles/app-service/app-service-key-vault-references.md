@@ -1,5 +1,5 @@
 ---
-title: Key Vault references in App Service and Azure Functions | Microsoft Docs
+title: Key Vault references - Azure App Service | Microsoft Docs
 description: Conceptual reference and setup guide for Azure Key Vault references in Azure App Service and Azure Functions
 services: app-service
 author: mattchenderson
@@ -12,6 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
+ms.custom: seodec18
 
 ---
 
@@ -28,7 +29,7 @@ In order to read secrets from Key Vault, you need to have a vault created and gi
 
 1. Create a key vault by following the [Key Vault quickstart](../key-vault/quick-create-cli.md).
 
-1. Create a [system-assigned managed identity](app-service-managed-service-identity.md) for your application.
+1. Create a [system-assigned managed identity](overview-managed-identity.md) for your application.
 
    > [!NOTE] 
    > Key Vault references currently only support system-assigned managed identities. User-assigned identities cannot be used.

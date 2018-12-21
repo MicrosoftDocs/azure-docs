@@ -173,8 +173,9 @@ For example, if the customer purchases using a credit card:
 |Payout Calculation Date (monthly on the 15th) | Oct 1, 2018 |
 |Payout Date | Oct 15, 2018 |
 
-If the customer purchases using an Enterprise Agreement:  
-|Description    |    Date  |
+If the customer purchases using an Enterprise Agreement:
+
+| Description |    Date  |
 |----------|----------|
 |Order Period | Aug 15, 2018 - Aug 30, 2018 |
 |Term Ending (quarter) | Sept 30, 2018 |

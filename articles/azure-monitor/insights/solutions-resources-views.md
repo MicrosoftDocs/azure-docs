@@ -6,16 +6,13 @@ documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
-
 ms.assetid: 570b278c-2d47-4e5a-9828-7f01f31ddf8c
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-
 ---
 # Views in management solutions (Preview)
 > [!NOTE]
@@ -86,7 +83,7 @@ Note that you could copy the entire view resource from your exported view file, 
 * Variables should be defined in the solution and used in the appropriate properties.
 
 ### Log Analytics API version
-All Log Analytics resources defined in a Resource Manager template have a property **apiVersion** that defines the version of the API the resource should use.  This version is different for views with queries that use the [legacy and the upgraded query language](../../log-analytics/log-analytics-queries.md).  
+All Log Analytics resources defined in a Resource Manager template have a property **apiVersion** that defines the version of the API the resource should use.  This version is different for views with queries that use the [legacy and the upgraded query language](../../azure-monitor/log-query/log-query-overview.md).  
 
  The following table specifies the Log Analytics API versions for views in legacy and upgraded workspaces: 
 

@@ -6,7 +6,8 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
-ms.date: 11/2/2017
+ms.date: 12/06/2018
+ms.custom: seodec18
 ---
 
 # Troubleshoot Apache Spark by using Azure HDInsight
@@ -212,7 +213,7 @@ The most likely cause of this exception is that not enough heap memory is alloca
 
 ### Additional reading
 
-- [Apache Spark memory management overview](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
+- [Apache Spark memory management overview](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 - [Debug an Apache Spark application on an HDInsight cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 

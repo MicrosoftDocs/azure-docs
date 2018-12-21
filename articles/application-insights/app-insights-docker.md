@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor Docker applications in Azure Application Insights | Microsoft Docs
 description: Docker perf counters, events and exceptions can be displayed on Application Insights, along with the telemetry from the containerized apps.
 services: application-insights
@@ -10,7 +10,6 @@ ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: mbullwin
@@ -98,7 +97,7 @@ Request telemetry sent from the application instrumented with AI SDK, is enriche
 *How do I get telemetry from the app itself?*
 
 * Install the Application Insights SDK in the app. 
-Learn how for: [Java web apps](app-insights-java-get-started.md), [Windows web apps](app-insights-asp-net.md).
+Learn how for: [Java web apps](app-insights-java-get-started.md), [Windows web apps](../azure-monitor/app/asp-net.md).
 
 ## Video
 
@@ -108,4 +107,4 @@ Learn how for: [Java web apps](app-insights-java-get-started.md), [Windows web a
 
 * [Application Insights for Java](app-insights-java-get-started.md)
 * [Application Insights for Node.js](app-insights-nodejs.md)
-* [Application Insights for ASP.NET](app-insights-asp-net.md)
+* [Application Insights for ASP.NET](../azure-monitor/app/asp-net.md)

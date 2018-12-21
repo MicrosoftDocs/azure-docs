@@ -15,7 +15,7 @@ ms.author: mbullwin
 ---
 # Manually configure Application Insights for .NET applications
 
-You can configure [Application Insights](app-insights-overview.md) to monitor a wide variety of applications or application roles, components, or microservices. For web apps and services, Visual Studio offers [one-step configuration](app-insights-asp-net.md). For other types of .NET application, such as backend server roles or desktop applications, you can configure Application Insights manually.
+You can configure [Application Insights](app-insights-overview.md) to monitor a wide variety of applications or application roles, components, or microservices. For web apps and services, Visual Studio offers [one-step configuration](../azure-monitor/app/asp-net.md). For other types of .NET application, such as backend server roles or desktop applications, you can configure Application Insights manually.
 
 ![Example performance monitoring charts](./media/app-insights-windows-services/10-perf.png)
 
@@ -23,7 +23,7 @@ You can configure [Application Insights](app-insights-overview.md) to monitor a 
 
 You need:
 
-* A subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your [Microsoft account](http://live.com).
+* A subscription to [Microsoft Azure](https://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your [Microsoft account](https://live.com).
 * Visual Studio 2013 or later.
 
 ## <a name="add"></a>1. Choose an Application Insights resource
@@ -84,7 +84,7 @@ If you made any customizations to ApplicationInsights.config, save a copy of it 
 * Set the instrumentation key in code, for example in `main()`: 
   
     `TelemetryConfiguration.Active.InstrumentationKey = "` *your key* `";` 
-* [Write your own telemetry using the API](app-insights-api-custom-events-metrics.md#ikey).
+* [Write your own telemetry using the API](../azure-monitor/app/api-custom-events-metrics.md#ikey).
 
 **If you installed other Application Insights packages,** you can, if you prefer, use the .config file to set the instrumentation key:
 

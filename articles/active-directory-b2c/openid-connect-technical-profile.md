@@ -17,7 +17,7 @@ ms.component: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C provides support for the [OpenId Connect](http://openid.net/2015/04/17/openid-connect-certification-program/) protocol identity provider. OpenID Connect 1.0 defines an identity layer on top of OAuth 2.0 and represents the state of the art in modern authentication protocols.  With OpenId Connect technical profile you can federate with an OpenId Connect based identity provider, such as Azure AD, allowing you users to sign-in with their existing social or enterprise identities.
+Azure Active Directory (Azure AD) B2C provides support for the [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) protocol identity provider. OpenID Connect 1.0 defines an identity layer on top of OAuth 2.0 and represents the state of the art in modern authentication protocols.  With OpenId Connect technical profile you can federate with an OpenId Connect based identity provider, such as Azure AD, allowing you users to sign-in with their existing social or enterprise identities.
 
 ## Protocol
 

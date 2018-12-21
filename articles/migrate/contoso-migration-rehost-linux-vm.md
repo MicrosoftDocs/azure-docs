@@ -141,7 +141,7 @@ Contoso needs a couple of Azure components for Site Recovery:
     - The storage account must be in the same region as the Recovery Services vault.
     - They use a general purpose account, with standard storage, and LRS replication.
 
-    ![Site Recovery storage](./media/contoso-migration-rehost-linux-vm/asr-storage.png)
+      ![Site Recovery storage](./media/contoso-migration-rehost-linux-vm/asr-storage.png)
 
 2. With the network and storage account in place, they create a vault (ContosoMigrationVault), and place it in the **ContosoFailoverRG** resource group, in the primary East US 2 region.
 
