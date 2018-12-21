@@ -223,7 +223,7 @@ So that's how one team use Application Insights not just to fix individual issue
 ## Next steps
 You can get started in several ways, depending on the characteristics of your application. Pick what suits you best:
 
-* [ASP.NET web application](app-insights-asp-net.md)
+* [ASP.NET web application](../azure-monitor/app/asp-net.md)
 * [Java web application](app-insights-java-get-started.md)
 * [Node.js web application](app-insights-nodejs.md)
 * Already deployed apps, hosted on [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md), or [Azure](app-insights-overview.md).

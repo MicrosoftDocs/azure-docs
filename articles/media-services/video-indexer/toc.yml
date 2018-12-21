@@ -78,4 +78,6 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Regions
     href: regions.md
+  - name: FAQ
+    href: faq.md
     

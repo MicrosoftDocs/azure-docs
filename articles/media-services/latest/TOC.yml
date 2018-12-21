@@ -29,16 +29,8 @@
   items:
   - name: Migrate from v2 to v3
     href: migrate-from-v2-to-v3.md
-  - name: Analyzing content
-    href: analyzing-video-audio-files-concept.md
-  - name: Encoding content
-    href: encoding-concept.md
-    items:
-    - name: Media Encoder standard formats
-      href: media-encoder-standard-formats.md
-    - name: Autogen adaptive bitrate ladder
-      href: autogen-bitrate-ladder.md
-  - name: Examining entities
+  - name: Entities
+    href: entities-overview.md
     items:
     - name: Account and Asset filters 
       href: filters-dynamic-manifest-overview.md      
@@ -46,6 +38,8 @@
       href: assets-concept.md        
     - name: Content key policies
       href: content-key-policy-concept.md 
+    - name: LiveEvents and LiveOutputs
+      href: live-events-outputs-concept.md    
     - name: Streaming endpoints
       href: streaming-endpoint-concept.md
     - name: Streaming locators
@@ -53,9 +47,14 @@
     - name: Streaming policies
       href: streaming-policy-concept.md
     - name: Transforms and Jobs
-      href: transforms-jobs-concept.md
-  - name: Examining storage accounts
-    href: storage-account-concept.md
+      href: transforms-jobs-concept.md   
+  - name: Encoding content
+    href: encoding-concept.md
+    items:
+    - name: Media Encoder standard formats
+      href: media-encoder-standard-formats.md
+    - name: Autogen adaptive bitrate ladder
+      href: autogen-bitrate-ladder.md
   - name: Handling Event Grid events
     href: reacting-to-media-services-events.md      
   - name: Protecting content
@@ -64,6 +63,8 @@
       href: content-protection-overview.md
     - name: Multi-DRM system with access control
       href: design-multi-drm-system-with-access-control.md
+  - name: Analyzing content
+    href: analyzing-video-audio-files-concept.md
   - name: Streaming live events
     href: live-streaming-overview.md
     items:
@@ -77,6 +78,8 @@
       href: live-event-states-billing.md
     - name: Latency
       href: live-event-latency.md
+  - name: Sorage accounts
+    href: storage-account-concept.md
 - name: How-to guides
   items:
   - name: Create an account - CLI
