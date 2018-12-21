@@ -14,8 +14,10 @@ ms.topic: conceptual
 ms.custom: seodec2018
 ---
 
-# Indexing JSON blobs with Azure Search blob indexer
+# Indexing JSON blobs with Azure Search Blob indexer
 This article shows you how to configure an Azure Search blob indexer to extract structured content from JSON blobs in Azure Blob storage.
+
+You can use the portal, REST API, or .NET SDK to index JSON content. The common requirement across all approaches is that JSON documents reside in a blob container in an Azure Storage account. For guidance on pushing JSON documents from other non-Azure platforms, see [Data import in Azure Search](search-what-is-data-import.md).
 
 JSON blobs in Azure Blob storage are typically either a single JSON document or a JSON array. The blob indexer in Azure Search can parse either construction, depending on how you set the **parsingMode** parameter on the request.
 
@@ -24,6 +26,59 @@ JSON blobs in Azure Blob storage are typically either a single JSON document or 
 | One per blob | `json` | Parses JSON blobs as a single chunk of text. Each JSON blob becomes a single Azure Search document. | Generally available in both [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) APIs. |
 | Multiple per blob | `jsonArray` | Parses a JSON array in the blob, where each element of the array becomes a separate Azure Search document.  | Generally available in both [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) APIs. |
 
+
+## Index JSON using the portal
+
+The easiest method for indexing JSON documents is to use a wizard in the [Azure portal](https://ortal.azure.com/). By parsing metadata in the Azure blob container, the **Import data** wizard can create a default index, map source fields to target index fields, and load the index in a single operation. Depending on the size and complexity of source data, you could have an operational full text search index in minutes.
+
+
+### 1 - Prepare source data
+
+You should have an Azure storage account, with Blob storage, and a container of JSON documents. If you are unfamiliar with any of these tasks, review the prerequisite "Set up Azure Blob service and load sample data" in the [cognitive search-quickstart](cognitive-search-quickstart-blob#prerequisites).
+
+### 2 - Start Import data wizard
+
+You can start the wizard from the command bar in Azure Search service page, or by clicking **Add Azure Search** in the **Blob service** section of your storage account's left navigation pane.
+
+### 3 - Set the data source
+
+In **Import data**, the data source selection must be **Azure Blob Storage**, with the following provisions:
+
+   + **Data to extract** should be *Content and metadata*. Choosing this option allows the wizard to infer an index schema and map the fields for import.
+   
+   + **Parsing mode** should be set to *JSON array* or *JSON*.
+   
+   + **Storage container** must specify your storage account and container, or a connection string that resolves to the container. You can get connection strings on the Blob service portal page.
+
+   ![Blob data source definition](media/import-wizard-data-source.png)
+
+### 4 - Skip the "Add cognitive search" page in the wizard
+
+Adding cognitive skills is not necessary for JSON data import. To skip the page, click the next page **Customize target index**.
+
+### 5 - Set index attributes
+
+The wizard generates a default index based on metadata and data sampling. In the Index page, you should see a list of fields with a data type and a series of checkboxes for setting index attributes. 
+
+The defaults often produce a workable solution: selecting a field to serve as the key or document ID to uniquely identify each document, as well as fields that are good candidates for full text search and retrievable in a result set. 
+
+You can accept the defaults, or review the description of [index attributes](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) and [language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) to override or supplement the initial values. 
+
+Take a moment to review your selections. Once you run the wizard, physical data structures are created and you won't be able to edit these fields without dropping and recreating all objects.
+
+### 6 - Create indexer
+
+Fully specified, the data source and index specifications are saved as named resources in your Azure Search service. Naming the indexer allows it to exist as a standalone resource, which you can schedule and manage independently of the index and data source object, also created by the wziard.
+
+If you are not familiar with indexers, an *indexer* is a resource in Azure Search that crawls an external data source for searchable content. The output of the **Import data** wizard is an indexer that crawls your JSON data source, extracts searchable content, and imports it into an index on Azure Search.
+
+Click **OK** to run the wizard.
+
+You can monitor data import in the wizard. Progress notifications indicate indexing status and how many documents are uploaded. When indexing is complete, you can use [Search explorer](search-explorer.md) to query your index.
+
+## JSON indexing using REST APIs
+
+## JSON indexing using .NET SDK
 
 ## Setting up JSON indexing
 Indexing JSON blobs is similar to the regular document extraction in a three-part workflow common to all indexers in Azure Search.
@@ -185,7 +240,7 @@ You can also refer to individual array elements by using a zero-based index. For
 >
 >
 
-## Example: Indexer request with field mappings
+## REST Example: Indexer request with field mappings
 
 The following example is a fully specified indexer payload, including field mappings:
 
@@ -206,9 +261,6 @@ The following example is a fully specified indexer payload, including field mapp
         ]
     }
 
-
-## Help us make Azure Search better
-If you have feature requests or ideas for improvements, reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## See also
 
