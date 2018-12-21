@@ -21,7 +21,7 @@ This tutorial covers how to use Conversation Learner with other bot building tec
 [![Hybrid Bots Tutorial Preview](https://aka.ms/cl_Tutorial_v3_Hybrid_Applications_Preview)](https://aka.ms/cl_Tutorial_v3_Hybrid_Applications)
 
 ## Requirements
-This tutorial requires using the bot emulator to create log dialogs, not the Log Dialog Web UI. More information on setting up the Bot Framework Emulator is available [here](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-debug-emulator?view=azure-bot-service-4.0). 
+This tutorial requires using the bot emulator to create log dialogs, not the Log Dialog Web UI. More information on setting up the Bot Framework Emulator is available [here](https://docs.microsoft.com/azure/bot-service/bot-service-debug-emulator?view=azure-bot-service-4.0). 
 
 This tutorial requires that the hybrid tutorial bot is running:
 
