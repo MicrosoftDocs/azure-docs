@@ -17,7 +17,8 @@ ms.custom: seodec18
 
 # What is Azure Stream Analytics?
 
-Azure Stream Analytics is an event-processing engine that allows you to examine high volumes of data streaming from devices. Incoming data can be from devices, sensors, web sites, social media feeds, applications, and more. It also supports extracting information from data streams, identifying patterns, and relationships. You can then use these patterns to trigger other actions downstream, like alerts, feed information to a reporting tool, or store it for later use.
+Azure Stream Analytics is an event-processing engine that allows you to examine high volumes of data streaming from devices. Incoming data can be from devices, sensors, web sites, social media feeds, applications, and more. It also supports extracting information from data streams, identifying patterns, and relationships. You can then use these patterns to trigger other actions downstream, like 
+s, feed information to a reporting tool, or store it for later use.
 
 Following are some examples where Azure Stream Analytics can be used: 
 
@@ -29,13 +30,13 @@ Following are some examples where Azure Stream Analytics can be used:
 
 ## How does Stream Analytics work?
 
-Azure Stream Analytics starts with a source of streaming data that is ingested into Azure Event Hub, Azure IoT Hub or from a data store like Azure Blob Storage. To examine the streams, you create a Stream Analytics job that specifies the input source that streams data. The job also specifies a transformation query that defines how to look for data, patterns, or relationships. The transformation query uses a SQL query language that is used to filter, sort, aggregate, and join streaming data over a period of time. When executing the job, you can adjust the event ordering options, and duration of time windows when performing aggregation operations.
+Azure Stream Analytics starts with a source of streaming data that is ingested into Azure Event Hub, Azure IoT Hub or from a data store like Azure Blob Storage. To examine the streams, you create a Stream Analytics job that specifies the input source that streams data. The job also specifies a transformation query that defines how to look for data, patterns, or relationships. The transformation query uses SQL query language to easily filter, sort, aggregate, and join streaming data over a period of time. When executing the job, you can adjust the event ordering options, and duration of time windows when performing aggregation operations.
 
 After analyzing the incoming data, you specify an output for the transformed data, and you can control what to do in response to the information you've analyzed. For example, you can take actions like:
 
-* Send data to a monitored queue to trigger custom workflows downstream.
+* Send data to a monitored queue to trigger alerts or custom workflows downstream.
 * Send data to Power BI dashboard for real-time visualization.
-* Archive data to other Azure storage services.
+* Store data to other Azure storage services, so you can train a machine learning model based on historical data or perform batch analytics.
 
 The following image illustrates the Stream Analytics pipeline, Your Stream Analytics job can use all or a selected set of inputs and outputs. This image shows how data is sent to Stream Analytics, analyzed, and sent for other actions like storage, or presentation:
 
@@ -43,7 +44,7 @@ The following image illustrates the Stream Analytics pipeline, Your Stream Analy
 
 ## Key capabilities and benefits
 
-Azure Stream Analytics is designed to be easy to use, flexible, reliable, and scalable to any job size. It is available across multiple datacenters as well as sovereign clouds. Following image illustrates the key capabilities of Azure Stream Analytics:
+Azure Stream Analytics is designed to be easy to use, flexible, reliable, and scalable to any job size. It is available across multiple azure regions. Following image illustrates the key capabilities of Azure Stream Analytics:
 
 ![Stream Analytics key capabilities](./media/stream-analytics-introduction/stream-analytics-key-capabilities.png)
 
@@ -51,7 +52,7 @@ Azure Stream Analytics is designed to be easy to use, flexible, reliable, and sc
 
 Azure Stream Analytics is easy to get started. It only takes few clicks to connect to multiple sources, sinks and to create an end to end pipeline. Stream Analytics can connect to [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) for streaming data ingestion. It can also connect to [Azure Blob storage](https://docs.microsoft.com/azure/storage/storage-introduction) service to ingest historical data. It can combine data from event hubs with other data sources and processing engines. Job input can also include reference data that is static or slow-changing data and you can join streaming data to this reference data to perform lookup operations.
 
-Stream Analytics can route job output to many storage systems such as [Azure Blob](https://docs.microsoft.com/azure/storage/storage-introduction), [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/), [Azure Data Lake Stores](https://docs.microsoft.com/azure/data-lake-store/), or [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction). After storing, you can run batch analytics with Azure HDInsight or send the output to another service such as event hubs for consumption or to [Power BI](https://docs.microsoft.com/power-bi/) for real-time visualization by using Power Bi streaming API.
+Stream Analytics can route job output to many storage systems such as [Azure Blob](https://docs.microsoft.com/azure/storage/storage-introduction), [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/), [Azure Data Lake Stores](https://docs.microsoft.com/azure/data-lake-store/), or [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction). After storing, you can run batch analytics with Azure HDInsight or send the output to another service such as event hubs for consumption or to [Power BI](https://docs.microsoft.com/power-bi/) for real-time visualization by using Power BI streaming API.
 
 ## Programmer Productivity
 
@@ -67,7 +68,7 @@ Azure Stream Analytics is a fully managed serverless (PaaS) offering on Azure. W
 
 ## Run in the cloud on in the intelligent Edge
 
-Azure Stream Analytics can run in the cloud, for large scale analytics, or run on the intelligent Edge for ultra-low latency analytics.
+Azure Stream Analytics can run in the cloud, for large-scale analytics, or run on the intelligent Edge for ultra-low latency analytics.
 Azure Stream Analytics uses the same query language on both cloud and intelligent Edge, enabling developers to build truly hybrid architectures for stream processing.
 
 ## Low Total Cost of Ownership
@@ -76,13 +77,15 @@ As a cloud service, Stream Analytics is optimized for cost. There are no upfront
 
 ## Reliability 
 
-As a managed service, Stream Analytics guarantees event processing with a 99.9% availability, helps prevent data loss, and provides business continuity refer to the [Stream Analytics SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) page for more details. Stream Analytics can process millions of events every second and it can deliver results with low latency.
-Stream Analytics guarantees exactly once event processing and at least once delivery of events. It has built-in recovery capabilities in case the delivery of an event fails. Stream Analytics can internally maintain the state of your job, you can start a job from its last output time, provides repeatable results by providing same results all the time. This feature of Stream Analytics enables you to go back in time and investigate computations when doing root-cause analysis. 
+Stream Analytics guarantees exactly-once event processing and at-least-once delivery of events, so events are never lost. It has built-in recovery capabilities in case the delivery of an event fails. Also, Stream Analytics provides built-in checkpointing to maintain the state of your job and provides repeatable results.
+
+As a managed service, Stream Analytics guarantees event processing with a 99.9% availability. For more information, see  the [Stream Analytics SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) page for more details. 
 
 ## Performance
 
-Azure Stream Analytics is optimized for high performance and low latency, it can process streaming data and perform in memory computations. It allows you to scale-up and scale-out to handle large real-time and complex event processing applications. Stream Analytics supports performance by partitioning, allowing complex queries to  be parallelized and executed on multiple streaming nodes.
-Azure Stream Analytics is built on [Trill](https://github.com/Microsoft/Trill), a high-performance in-memory streaming analytics engine developped in collaboration with Microsoft Research. 
+Stream Analytics can process millions of events every second and it can deliver results with low latency.
+It allows you to scale-up and scale-out to handle large real-time and complex event processing applications. Stream Analytics supports performance by partitioning, allowing complex queries to  be parallelized and executed on multiple streaming nodes.
+Azure Stream Analytics is built on [Trill](https://github.com/Microsoft/Trill), a high-performance in-memory streaming analytics engine developed in collaboration with Microsoft Research. 
 
 ## Next steps
 
