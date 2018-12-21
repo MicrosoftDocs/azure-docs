@@ -33,7 +33,7 @@ This topic shows how to configure a filter for a Video on-Demand asset and use C
 
 ## Define a filter 
 
-The following example defines the track selection conditions that are added to the final manifest. This filter includes any audio tracks that are English with EC-3 and any video tracks that have bitrate in the 0-1000000 range.
+The following example defines the track selection conditions that are added to the final manifest. This filter includes any audio tracks that are EC-3 and any video tracks that have bitrate in the 0-1000000 range.
 
 Filters defined in REST, include the "Properties" wrapper JSON object.  
 
@@ -44,11 +44,6 @@ Filters defined in REST, include the "Properties" wrapper JSON object.
             {
                 "property": "Type",
                 "value": "Audio",
-                "operation": "Equal"
-            },
-            {
-                "property": "Language",
-                "value": "en",
                 "operation": "Equal"
             },
             {
@@ -79,8 +74,16 @@ Filters defined in REST, include the "Properties" wrapper JSON object.
 
 The following [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) command creates an account filter with filter track selections that were [defined earlier](#define-a-filter). 
 
+The following command allows an option `--tracks` that accepts a file. If you are using the Azure CLI locally, specify the whole file path:
+
 ```azurecli
-az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @C:\tracks.json
+az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @c:\tracks.json
+```
+
+If you are using the Azure Cloud Shell, upload your file to the Cloud Shell (find the upload/download files button at the top of the shell window). Then, you can reference the file like this:
+
+```azurecli
+az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
 
 Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create_an_account_filter).
@@ -89,8 +92,11 @@ Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/
 
 The following [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) command creates an asset filter with filter track selections that were [defined earlier](#define-a-filter). 
 
+> [!TIP]
+> See the information about specifying the location of the file name in the previous section.
+
 ```azurecli
-az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @C:\tracks.json
+az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
 ```
 
 Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter).

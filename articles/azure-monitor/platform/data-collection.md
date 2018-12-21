@@ -81,7 +81,7 @@ There are three fundamental sources of metrics collected by Azure Monitor. All o
 **Application metrics** are created by Application Insights for your monitored applications and help you detect performance issues and track trends in how your application is being used. This includes such values as _Server response time_ and _Browser exceptions_.
 
 **Custom metrics** are metrics that you define in addition to the standard metric that are automatically available. Custom metrics must be created against a single resource in the same region as that resource. You can create custom metrics using the following methods:
-    - [Define custom metrics in your application](../../application-insights/app-insights-api-custom-events-metrics.md) that's monitored by Application Insights. These are in addition to the standard set of application metrics.
+    - [Define custom metrics in your application](../../azure-monitor/app/api-custom-events-metrics.md) that's monitored by Application Insights. These are in addition to the standard set of application metrics.
     - Publish custom metrics from your Windows virtual machines using [Windows Diagnostic Extension (WAD)](../../azure-monitor/platform/diagnostics-extension-overview.md).
     - Publish custom metrics from your Linux virtual machines using [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/).
     - Write custom metrics from an Azure service using the custom metrics API.
@@ -95,8 +95,8 @@ Tasks that you can perform with metrics include the following:
 - Configure a [metric alert rule](alerts-metric.md) that sends a notification or takes [automated action](action-groups.md) when the metric crosses a threshold.
 - Use [Autoscale](../../azure-monitor/platform/autoscale-overview.md) to increase or decrease resources based on a metric crossing a threshold.
 - Route metrics to Log Analytics to analyze metric data together with log data and to store metric values for longer than 93 days. 
-- Stream metrics to an [Event Hub](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) to route them to [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) or to external systems.
-- [Archive](../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) the performance or health history of your resource for compliance, auditing, or offline reporting purposes.
+- Stream metrics to an [Event Hub](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md) to route them to [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) or to external systems.
+- [Archive](../../azure-monitor/learn/tutorial-archive-data.md) the performance or health history of your resource for compliance, auditing, or offline reporting purposes.
 - Access metric values from a command line or custom application using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) or [REST API](../../azure-monitor/platform/rest-api-walkthrough.md).
 
 
@@ -151,7 +151,7 @@ Tasks that you can perform with logs include the following:
 All log data in Azure Monitor is retrieved using a [log query](../log-query/log-query-overview.md)  written with the [Data Explorer query language](../log-query/get-started-queries.md), which allows you to quickly retrieve, consolidate, and analyze collected data. Use [Log Analytics](../log-query/portals.md) to write and test queries in the Azure portal. You can  work with results interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve logs by using the [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 > [!IMPORTANT]
-> Data from Application Insights is stored in a separate partition than other log data in Azure Monitor. This supports the same functionality as other log data, but you must use the [Application Insights console](/application-insights/app-insights-analytics.md) or the [Application Insights API](https://dev.applicationinsights.io/) to access this data. You can use a [cross-resource query](../log-query/cross-workspace-query.md) to analyze application data together with other log data.
+> Data from Application Insights is stored in a separate partition than other log data in Azure Monitor. This supports the same functionality as other log data, but you must use the [Application Insights console](/azure-monitor/app/analytics.md) or the [Application Insights API](https://dev.applicationinsights.io/) to access this data. You can use a [cross-resource query](../log-query/cross-workspace-query.md) to analyze application data together with other log data.
 
 ![Logs](media/data-collection/logs.png)
 
@@ -172,7 +172,7 @@ The explanation of this feature is available at [Create Metric Alerts for Logs i
 ## Stream data to external systems
 In addition to using the tools in Azure to analyze monitoring data, you may have a requirement to forward it to an external tool such as a security information and event management (SIEM) product. This forwarding is typically done directly from monitored resources through [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 
 
-You can get guidance for the different kinds of monitoring data at [Stream Azure monitoring data to an event hub for consumption by an external tool](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+You can get guidance for the different kinds of monitoring data at [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ## Next steps
 

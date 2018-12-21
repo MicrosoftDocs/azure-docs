@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 04/04/2018
 ---

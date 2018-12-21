@@ -26,7 +26,7 @@ When you set up Application Insights monitoring for your web app, you create an 
 You typically choose to use separate resources or a single shared resource in different scenarios:
 
 * Different, independent applications - Use a separate resource and ikey for each app.
-* Multiple components or roles of one business application - Use a [single shared resource](app-insights-app-map.md) for all the component apps. Telemetry can be filtered or segmented by the cloud_RoleName property.
+* Multiple components or roles of one business application - Use a [single shared resource](../azure-monitor/app/app-map.md) for all the component apps. Telemetry can be filtered or segmented by the cloud_RoleName property.
 * Development, Test, and Release - Use a separate resource and ikey for versions of the system in 'stamp' or stage of production.
 * A | B testing - Use a single resource. Create a TelemetryInitializer to add a property to the telemetry that identifies the variants.
 
@@ -101,7 +101,7 @@ There are several different methods of setting the Application Version property.
 * Set directly:
 
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* Wrap that line in a [telemetry initializer](app-insights-api-custom-events-metrics.md#defaults) to ensure that all TelemetryClient instances are set consistently.
+* Wrap that line in a [telemetry initializer](../azure-monitor/app/api-custom-events-metrics.md#defaults) to ensure that all TelemetryClient instances are set consistently.
 * [ASP.NET] Set the version in `BuildInfo.config`. The web module will pick up the version from the BuildLabel node. Include this file in your project and remember to set the Copy Always property in Solution Explorer.
 
     ```XML
@@ -147,10 +147,10 @@ When it has the build info, the Application Insights web module automatically ad
 However, notice that the build version number is generated only by the Microsoft Build Engine, not by the developer build in Visual Studio.
 
 ### Release annotations
-If you use Azure DevOps, you can [get an annotation marker](app-insights-annotations.md) added to your charts whenever you release a new version. The following image shows how this marker appears.
+If you use Azure DevOps, you can [get an annotation marker](../azure-monitor/app/annotations.md) added to your charts whenever you release a new version. The following image shows how this marker appears.
 
 ![Screenshot of sample release annotation on a chart](media/app-insights-separate-resources/release-annotation.png)
 ## Next steps
 
 * [Shared resources for multiple roles](app-insights-monitor-multi-role-apps.md)
-* [Create a Telemetry Initializer to distinguish A|B variants](app-insights-api-filtering-sampling.md#add-properties)
+* [Create a Telemetry Initializer to distinguish A|B variants](../azure-monitor/app/api-filtering-sampling.md#add-properties)

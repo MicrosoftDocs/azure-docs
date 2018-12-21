@@ -128,7 +128,7 @@ You're now ready to deploy your project. When you deploy an Azure Resource Group
     ![Edit Parameters button](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
 4. Provide values for the empty parameters and select the **Save** button. The empty parameters are **hostingPlanName**, **administratorLogin**, **administratorLoginPassword**, and **databaseName**.
    
-    **hostingPlanName** specifies a name for the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) to create. 
+    **hostingPlanName** specifies a name for the [App Service plan](../app-service/overview-hosting-plans.md) to create. 
    
     **administratorLogin** specifies the user name for the SQL Server administrator. Don't use common admin names like **sa** or **admin**. 
    
