@@ -297,7 +297,7 @@ The following are post-installation known issues for this build version.
    - If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 - A Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, please use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
-   
+
 ### Networking  
 
 <!-- 1766332 - IS ASDK --> 
