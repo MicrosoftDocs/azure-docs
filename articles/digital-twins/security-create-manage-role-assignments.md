@@ -20,10 +20,10 @@ Each role assignment conforms to the following definition:
 
 ```JSON
 {
-  "RoleId": "00e00ad7-00d4-4007-853b-b9968ad000d1",
+  "roleId": "00e00ad7-00d4-4007-853b-b9968ad000d1",
   "objectId": "be2c6daa-a3a0-0c0a-b0da-c000000fbc5f",
   "objectIdType": "ServicePrincipalId",
-  "Path": "/",
+  "path": "/",
   "tenantId": "00f000bf-86f1-00aa-91ab-2d7cd000db47"
 }
 ```
@@ -32,10 +32,10 @@ The table below describes each attribute:
 
 | Attribute | Name | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| RoleId | Role definition identifier | Yes | String | The unique ID of the desired role assignment. Find role definitions and their identifier by querying the System API or reviewing table below. |
+| roleId | Role definition identifier | Yes | String | The unique ID of the desired role assignment. Find role definitions and their identifier by querying the System API or reviewing table below. |
 | objectId | Object identifier | Yes | String | An Azure Active Directory ID, service principal object ID, or domain name. What or whom the role assignment is assigned to. The role assignment must be formatted according to its associated type. For the `DomainName` objectIdType, objectId must begin with the `“@”` character. |
 | objectIdType | Object identifier type | Yes | String | The kind of Object Identifier used. See **Supported ObjectIdTypes** below. |
-| Path | Space path | Yes | String | The full access path to the `Space` object. An example is `/{Guid}/{Guid}`. If an identifier needs the role assignment for the entire graph, specify `"/"`. This character designates the root, but its use is discouraged. Always follow the Principle of Least Privilege. |
+| path | Space path | Yes | String | The full access path to the `Space` object. An example is `/{Guid}/{Guid}`. If an identifier needs the role assignment for the entire graph, specify `"/"`. This character designates the root, but its use is discouraged. Always follow the Principle of Least Privilege. |
 | tenantId | Tenant identifier | Varies | String | In most cases, an Azure Active Directory tenant ID. Disallowed for `DeviceId` and `TenantId` ObjectIdTypes. Required for `UserId` and `ServicePrincipalId` ObjectIdTypes. Optional for the DomainName ObjectIdType. |
 
 ### Supported role definition identifiers
@@ -151,7 +151,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 ```
 
 | **Parameter value** | **Required** |	**Type** |	**Description** |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | YOUR_USER_ID |  True | String |	The objectId for the UserId objectIdType. |
 | YOUR_PATH | Path | String |	The chosen path to check access for. |
 | YOUR_ACCESS_TYPE |  True | String |	The access type to check for. |
@@ -197,7 +197,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 | --- | --- | --- | --- | --- |
 | YOUR_ROLE_ASSIGNMENT_ID | Path | True | String | The **id** of the role assignment to remove. |
 
-A successful DELETE request will return a 204 Status. Verify the removal of the role assignment by [checking](#check) whether the role assignment still holds.
+A successful DELETE request will return a 204 response status. Verify the removal of the role assignment by [checking](#check) whether the role assignment still holds.
 
 ### Create a role assignment
 
@@ -218,6 +218,8 @@ Verify that the JSON body conforms to the following schema:
   "tenantId": "YOUR_TENANT_ID"
 }
 ```
+
+A successful request will return a 201 response status.
 
 ## Configuration examples
 
