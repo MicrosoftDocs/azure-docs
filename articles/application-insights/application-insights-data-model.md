@@ -48,6 +48,6 @@ To report data model or schema problems and suggestions use GitHub [ApplicationI
 ## Next steps
 
 - [Write custom telemetry](../azure-monitor/app/api-custom-events-metrics.md)
-- Learn how to [extend and filter telemetry](app-insights-api-filtering-sampling.md).
+- Learn how to [extend and filter telemetry](../azure-monitor/app/api-filtering-sampling.md).
 - Use [sampling](app-insights-sampling.md) to minimize amount of telemetry based on data model.
 - Check out [platforms](app-insights-platforms.md) supported by Application Insights.

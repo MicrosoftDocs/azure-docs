@@ -42,7 +42,7 @@ Notice that it tells you:
 Ordinary [metric alerts](../azure-monitor/app/alerts.md) tell you there might be a problem. But Smart Detection starts the diagnostic work for you, performing a lot of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
 
 ## How it works
-Smart  Detection monitors the telemetry received from your app, and in particular the failure rates. This rule counts the number of requests for which the `Successful request` property is false, and the number of dependency calls for which the `Successful call` property is false. For requests, by default, `Successful request == (resultCode < 400)` (unless you have written custom code to [filter](app-insights-api-filtering-sampling.md#filtering) or generate your own [TrackRequest](../azure-monitor/app/api-custom-events-metrics.md#trackrequest) calls). 
+Smart  Detection monitors the telemetry received from your app, and in particular the failure rates. This rule counts the number of requests for which the `Successful request` property is false, and the number of dependency calls for which the `Successful call` property is false. For requests, by default, `Successful request == (resultCode < 400)` (unless you have written custom code to [filter](../azure-monitor/app/api-filtering-sampling.md#filtering) or generate your own [TrackRequest](../azure-monitor/app/api-custom-events-metrics.md#trackrequest) calls). 
 
 Your app's performance has a typical pattern of behavior. Some requests or dependency calls will be more prone to failure than others; and the overall failure rate may go up as load increases. Smart Detection uses machine learning to find these anomalies.
 

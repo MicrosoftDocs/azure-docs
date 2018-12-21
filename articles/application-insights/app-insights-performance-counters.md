@@ -36,7 +36,7 @@ The current default counters that are collected for .NET web applications are:
          - ASP.NET Applications\\Requests In Application Queue
          - Processor(_Total)\\% Processor Time
 
-To see all your most useful charts in one place, create a [dashboard](app-insights-dashboards.md) and pin them to it.
+To see all your most useful charts in one place, create a [dashboard](../azure-monitor/app/app-insights-dashboards.md) and pin them to it.
 
 ## Add counters
 

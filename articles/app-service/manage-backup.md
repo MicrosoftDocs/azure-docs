@@ -116,7 +116,7 @@ Once the storage account and container is configured, you can initiate a manual 
 ## Configure Partial Backups
 Sometimes you don't want to back up everything on your app. Here are a few examples:
 
-* You [set up weekly backups](web-sites-backup.md#configure-automated-backups) of your app that contains static content that never changes, such as old blog posts or images.
+* You [set up weekly backups](#configure-automated-backups) of your app that contains static content that never changes, such as old blog posts or images.
 * Your app has over 10 GB of content (that's the max amount you can back up at a time).
 * You don't want to back up the log files.
 
