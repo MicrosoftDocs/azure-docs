@@ -54,7 +54,7 @@ You can also open related items to help diagnose failed requests or exceptions.
 ![Under Request Details, scroll down to related items](./media/app-insights-visual-studio/41.png)
 
 ## View exceptions and failed requests
-Exception reports show in the Search window. (In some older types of ASP.NET application, you have to [set up exception monitoring](app-insights-asp-net-exceptions.md) to see exceptions that are handled by the framework.)
+Exception reports show in the Search window. (In some older types of ASP.NET application, you have to [set up exception monitoring](../azure-monitor/app/asp-net-exceptions.md) to see exceptions that are handled by the framework.)
 
 Click an exception to get a stack trace. If the code of the app is open in Visual Studio, you can click through from the stack trace to the relevant line of the code.
 
@@ -98,6 +98,6 @@ It's also useful if you have some [custom telemetry](../azure-monitor/app/api-cu
 ## Next steps
 |  |  |
 | --- | --- |
-| **[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |![Visual studio](./media/app-insights-visual-studio/64.png) |
+| **[Add more data](../azure-monitor/app/asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |![Visual studio](./media/app-insights-visual-studio/64.png) |
 | **[Working with the Application Insights portal](../azure-monitor/app/app-insights-dashboards.md)**<br/>View dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and exported telemetry data. |![Visual studio](./media/app-insights-visual-studio/62.png) |
 

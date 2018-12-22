@@ -213,6 +213,6 @@ Consult the table below and insure you have chosen the correct configuration to 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## Next steps
-* [Exceptions](../../application-insights/app-insights-asp-net-exceptions.md)
+* [Exceptions](../../azure-monitor/app/asp-net-exceptions.md)
 * [User & page data](../../application-insights/app-insights-javascript.md)
 * [Availability](../../application-insights/app-insights-monitor-web-app-availability.md)

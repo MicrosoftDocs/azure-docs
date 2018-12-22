@@ -87,7 +87,7 @@ Azure has a safety feature that prevents you from creating a policy like this be
 ![Policy configuration not supported](./media/block-legacy-authentication/04.png)
 
 
-The safety feature is necessary because *block all users and all cloud apps* has the potential to block your entire organization from signing on to your tenant. You must exclude at least one user to satisfy the minimal best practice requirement. You could also 
+The safety feature is necessary because *block all users and all cloud apps* has the potential to block your entire organization from signing on to your tenant. You must exclude at least one user to satisfy the minimal best practice requirement. You could also exclude a directory role.
 
 ![Policy configuration not supported](./media/block-legacy-authentication/05.png)
 
