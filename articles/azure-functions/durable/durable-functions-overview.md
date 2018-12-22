@@ -35,7 +35,7 @@ The primary use case for Durable Functions is simplifying complex, stateful coor
 * [Monitoring](durable-functions-concepts.md#monitoring)
 * [Human interaction](durable-functions-concepts.md#human)
 
-## Supported languages
+## <a name="language-support"></a>Supported languages
 
 Durable Functions currently supports C#, F#, and JavaScript (runtime version 2.x only), with a goal of supporting all Azure Functions languages. See the Azure Functions [GitHub repository issues list](https://github.com/Azure/azure-functions-durable-extension/issues) for the latest status of work to support additional languages.
 
