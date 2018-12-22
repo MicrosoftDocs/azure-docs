@@ -57,10 +57,10 @@ The main categories are:
 * [Web pages](app-insights-javascript.md) - Page, user and session counts. Page load times. Exceptions. Ajax calls.
 * Performance counters - Memory, CPU, IO, Network occupancy.
 * Client and server context - OS, locale, device type, browser, screen resolution.
-* [Exceptions](app-insights-asp-net-exceptions.md) and crashes - **stack dumps**, build id, CPU type. 
+* [Exceptions](../azure-monitor/app/asp-net-exceptions.md) and crashes - **stack dumps**, build id, CPU type. 
 * [Dependencies](../azure-monitor/app/asp-net-dependencies.md) - calls to external services such as REST, SQL, AJAX. URI or connection string, duration, success, command.
 * [Availability tests](app-insights-monitor-web-app-availability.md) - duration of test and steps, responses.
-* [Trace logs](app-insights-asp-net-trace-logs.md) and [custom telemetry](../azure-monitor/app/api-custom-events-metrics.md) - **anything you code into your logs or telemetry**.
+* [Trace logs](../azure-monitor/app/asp-net-trace-logs.md) and [custom telemetry](../azure-monitor/app/api-custom-events-metrics.md) - **anything you code into your logs or telemetry**.
 
 [More detail](#data-sent-by-application-insights).
 

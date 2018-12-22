@@ -31,11 +31,11 @@ Here's a summary of what you get by each route:
 |  | Build time | Run time |
 | --- | --- | --- |
 | Requests & exceptions |Yes |Yes |
-| [More detailed exceptions](app-insights-asp-net-exceptions.md) | |Yes |
+| [More detailed exceptions](../azure-monitor/app/asp-net-exceptions.md) | |Yes |
 | [Dependency diagnostics](../azure-monitor/app/asp-net-dependencies.md) |On .NET 4.6+, but less detail |Yes, full detail: result codes, SQL command text, HTTP verb|
 | [System performance counters](app-insights-performance-counters.md) |Yes |Yes |
 | [API for custom telemetry][api] |Yes |No |
-| [Trace log integration](app-insights-asp-net-trace-logs.md) |Yes |No |
+| [Trace log integration](../azure-monitor/app/asp-net-trace-logs.md) |Yes |No |
 | [Page view & user data](app-insights-javascript.md) |Yes |No |
 | Need to rebuild code |Yes | No |
 
