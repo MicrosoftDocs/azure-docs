@@ -44,11 +44,11 @@ In the case of bring-your-own-license, while Microsoft will bill infrastructure 
 > Managed apps must be deployable through the Marketplace. If customer communication is a concern, then you should reach out to interested customers after you have enabled lead sharing.  
 
 
-## Next Steps
+## Next steps
 If you haven't already done so, 
 
-- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace
+- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
 
 If you're registered and are creating a new offer or working on an existing one,
 
-- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer
+- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer.
