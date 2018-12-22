@@ -160,7 +160,7 @@ You can capture the performance of calls to worker roles by tracking them in the
 See the two sample worker roles instrumented to report requests: [WorkerRoleA](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA) and [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
 
 ## Exceptions
-See [Monitoring Exceptions in Application Insights](app-insights-asp-net-exceptions.md) for information on how you can collect unhandled exceptions from different web application types.
+See [Monitoring Exceptions in Application Insights](../azure-monitor/app/asp-net-exceptions.md) for information on how you can collect unhandled exceptions from different web application types.
 
 The sample web role has MVC5 and Web API 2 controllers. The unhandled exceptions from the two are captured with the following handlers:
 
@@ -237,7 +237,7 @@ Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Se
 [azure]: app-insights-overview.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[netlogs]: app-insights-asp-net-trace-logs.md
+[netlogs]: ../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
