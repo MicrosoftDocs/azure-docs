@@ -163,7 +163,7 @@ When you no longer need the resources that you created with the application gate
 
 To remove the resource group:
 1. On the left menu of the Azure portal, select **Resource groups**.
-2. On the **Resource groups** page, find or search for **myResourceGroupAG** in the list, then select it.
+2. On the **Resource groups** page, search for **myResourceGroupAG** in the list, then select it.
 3. On the **Resource group page**, select **Delete resource group**.
 4. Enter *myResourceGroupAG* for **TYPE THE RESOURCE GROUP NAME** and then select **Delete**
 
