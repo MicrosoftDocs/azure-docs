@@ -37,7 +37,7 @@ This article describes how to prepare for backing up an Azure VM using an [Azure
    **Linux OS** | You can back up 64-bit Linux distributions [supported by Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), with the exception of CoreOS Linux.<br/><br/> Review Linux operating systems that [support file restore](backup-azure-restore-files-from-vm.md#for-linux-os).<br/><br/> Other Linux distributions might work, as long as the VM agent is available on the VM, and support for Python exists. However, these distributions aren't supported.
    **Region** | You can back up Azure VMs in all [supported regions](https://azure.microsoft.com/regions/#services). If a region is unsupported, you won't be able to select it when you create the vault.<br/><br/> You can't back up and restore across Azure regions. Only within a single region.
    **Data disk limit** | You can't back up VMs with more than 16 data disks.
-   **Shared storage** | We don't recommend backing up VMs using CSV or or Scale-Out File Server. CSV writers are likely to fail.
+   **Shared storage** | We don't recommend backing up VMs using CSV or Scale-Out File Server. CSV writers are likely to fail.
    **Linux encryption** | Backing up Linux VMs encrypted with Linux Unified Key Setup (LUKS) isn't supported.
    **VM consistency** | Azure Backup doesn't support multi-VM consistency.
    **Networking** | Backed up data doesn't include network mounted drives attached to a VM.<br/><br/> 
