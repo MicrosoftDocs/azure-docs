@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 12/17/2018
+ms.date: 12/21/2018
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -32,7 +32,7 @@ For Azure to communicate between the resources that you create, it needs a virtu
 1. On the **Basics** page, enter these values for the following application gateway settings:
 
     - **Name**: Enter *myAppGateway* for the name of the application gateway.
-    - **Resource group**: Select *myResourceGroupAG* for the new resource group. If it doesn't exist, select **Create new** to create it.
+    - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
 
     ![Create new application gateway](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
 
@@ -64,13 +64,13 @@ For Azure to communicate between the resources that you create, it needs a virtu
 
 ### Summary page
 
-Review the settings on the **Summary** page, and then select **OK** to create the virtual network, the public IP address, and the application gateway. It may take several minutes for the application gateway to be created. Wait until the deployment finishes successfully before moving on to the next section.
+Review the settings on the **Summary** page, and then select **OK** to create the virtual network, the public IP address, and the application gateway. It may take several minutes for Azure to create the application gateway. Wait until the deployment finishes successfully before moving on to the next section.
 
 ## Add a subnet
 
 Add a subnet to the virtual network you created by following these steps:
 
-1. Select **All resources** on the left menu of the Azure portal and then enter *myVNet* in the search box.
+1. Select **All resources** on the left menu of the Azure portal, enter *myVNet* in the search box, and then select **myVNet** from the search results.
 
 2. Select **Subnets** from the left menu and then select **+ Subnet**. 
 
@@ -80,7 +80,7 @@ Add a subnet to the virtual network you created by following these steps:
 
 ## Create backend servers
 
-In this example, you create two virtual machines that Azure uses as backend servers for the application gateway. You also install IIS on the virtual machines to verify the application gateway was successfully created.
+In this example, you create two virtual machines that Azure uses as backend servers for the application gateway. You also install IIS on the virtual machines to verify Azure created the application gateway successfully.
 
 ### Create a virtual machine
 
@@ -90,10 +90,10 @@ In this example, you create two virtual machines that Azure uses as backend serv
 
 3. Enter these values in the **Basics** tab for the following virtual machine settings:
 
-    - **Resource group**: Select *myResourceGroupAG* for the resource group name.
+    - **Resource group**: Select **myResourceGroupAG** for the resource group name.
     - **Virtual machine name**: Enter *myVM* for the name of the virtual machine.
     - **Username**: Enter *azureuser* for the administrator user name.
-    - **Password**: Enter for *Azure123456!* for the administrator password.
+    - **Password**: Enter *Azure123456!* for the administrator password.
 
 4. Accept the other defaults and then select **Next: Disks**.  
 
@@ -139,7 +139,7 @@ In this example, you create two virtual machines that Azure uses as backend serv
 
 4. Under **Targets**, select **Virtual machine** from the drop-down list.
 
-5. Under **VIRTUAL MACHINE**, add the *myVM* and *myVM2* virtual machines and their associated network interfaces from the drop-down lists.
+5. Under **VIRTUAL MACHINE** and **NETWORK INTERFACES**, select the **myVM** and **myVM2** virtual machines and their associated network interfaces from the drop-down lists.
 
     ![Add backend servers](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
@@ -151,7 +151,7 @@ In this example, you create two virtual machines that Azure uses as backend serv
 
     ![Record application gateway public IP address](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)
 
-    Alternatively, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. The public IP address is displayed on the **Overview** page.
+    Alternatively, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
 
 2. Copy the public IP address, and then paste it into the address bar of your browser.
 
@@ -159,8 +159,13 @@ In this example, you create two virtual machines that Azure uses as backend serv
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the application gateway, remove the resource group. By removing the resource group, you also remove the application gateway and all its related resources.
-To remove the resource group, select it and then select **Delete**.
+When you no longer need the resources that you created with the application gateway, remove the resource group. By removing the resource group, you also remove the application gateway and all its related resources. 
+
+To remove the resource group:
+1. On the left menu of the Azure portal, select **Resource groups**.
+2. On the **Resource groups** page, find or search for **myResourceGroupAG** in the list, then select it.
+3. On the **Resource group page**, select **Delete resource group**.
+4. Enter *myResourceGroupAG* for **TYPE THE RESOURCE GROUP NAME** and then select **Delete**
 
 ## Next steps
 
