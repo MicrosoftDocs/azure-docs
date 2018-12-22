@@ -37,7 +37,13 @@ The primary use case for Durable Functions is simplifying complex, stateful coor
 
 ## <a name="language-support"></a>Supported languages
 
-Durable Functions currently supports C#, F#, and JavaScript (runtime version 2.x only), with a goal of supporting all Azure Functions languages. See the Azure Functions [GitHub repository issues list](https://github.com/Azure/azure-functions-durable-extension/issues) for the latest status of work to support additional languages.
+Durable Functions currently supports the following languages:
+
+* **C#**: both [precompiled class libraries](../functions-dotnet-class-library.md) and [C# script](../functions-reference-csharp.md).
+* **F#**: precompiled class libraries and F# script. F# script is only supported for version 1.x of the Azure Functions runtime.
+* **JavaScript**: supported only for version 2.x of the Azure Functions runtime. Requires version 1.7.0 of the Durable Functions extension, or a later version. 
+
+Durable Functions has a goal of supporting all [Azure Functions languages](../supported-languages.md). See the [Durable Functions issues list](https://github.com/Azure/azure-functions-durable-extension/issues) for the latest status of work to support additional languages.
 
 Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio 2017](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
