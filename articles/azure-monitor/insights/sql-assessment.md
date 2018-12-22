@@ -10,11 +10,9 @@ ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Optimize your SQL environment with the SQL Server Health Check solution in Log Analytics

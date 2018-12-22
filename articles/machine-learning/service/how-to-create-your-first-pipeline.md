@@ -1,5 +1,6 @@
 ---
-title: Create and run your first machine learning pipeline - Azure Machine Learning service
+title: Create, run, & track ML pipelines
+titleSuffix: Azure Machine Learning service
 description: Create and run a machine learning pipeline with the Azure Machine Learning SDK for Python.  Pipelines are used to create and manage the workflows that stitch together machine learning (ML) phases such as data preparation, model training, model deployment, and inferencing. 
 services: machine-learning
 ms.service: machine-learning
@@ -9,21 +10,23 @@ ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
 ms.date: 12/04/2018
+ms.custom: seodec18
+
 ---
 
 # Create and run a machine learning pipeline using Azure Machine Learning SDK
 
-In this article, you learn how to create, publish, run, and track a [machine learning pipeline](concept-ml-pipelines.md) using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  These pipelines help create and manage the workflows that stitch together various machine learning phases. 
+In this article, you learn how to create, publish, run, and track a [machine learning pipeline](concept-ml-pipelines.md) using the [Azure Machine Learning SDK](https://aka.ms/aml-sdk).  These pipelines help create and manage the workflows that stitch together various machine learning phases. 
 Each phase of a pipeline, such as data preparation and model training, can include one or more steps.
 
 The pipelines you create are visible to the members of your Azure Machine Learning service [workspace](how-to-manage-workspace.md). 
 
 Pipelines use remote compute targets for computation and the storage of the intermediate and final data associated with that pipeline.  Pipelines can read and write data to and from supported [Azure storage](https://docs.microsoft.com/azure/storage/) locations.
 
+>[!Note]
+>If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 ## Prerequisites
-
-* If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 * [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK.
 

@@ -10,11 +10,9 @@ ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-
 ---
 # Data collection details for management solutions in Azure
 This article includes a list of [management solutions](solutions.md) available from Microsoft with links to their detailed documentation.  It also provides information on their method and frequency of data collection into Log Analytics.  You can use the information in this article to identify the different solutions available and to understand the data flow and connection requirements for different management solutions. 

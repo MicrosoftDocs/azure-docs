@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights for ASP.NET Core | Microsoft Docs
-description: Monitor web applications for availability, performance, and usage.
+description: Monitor ASP.NET Core web applications for availability, performance, and usage.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -401,5 +401,5 @@ The issue with using either of these methods is that they don't disable only App
 ## Next steps
 * [Explore User Flows](app-insights-usage-flows.md) to understand how users navigate through your app.
 * [Configure snapshot collection](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications) to see the state of source code and variables at the moment an exception is thrown.
-* [Use the API](app-insights-api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
+* [Use the API](../azure-monitor/app/api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
 * Use [availability tests](app-insights-monitor-web-app-availability.md) to check your app constantly from around the world.

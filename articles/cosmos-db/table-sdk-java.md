@@ -25,7 +25,7 @@ ms.custom:
 |   |   |
 |---|---|
 |**SDK download**|[Download Options](https://github.com/azure/azure-storage-java#download)|
-|**API documentation**|[Java API reference documentation](http://azure.github.io/azure-storage-java/)|
+|**API documentation**|[Java API reference documentation](https://azure.github.io/azure-storage-java/)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
 
 > [!IMPORTANT]

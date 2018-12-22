@@ -114,6 +114,7 @@ If you want to re-publish without adding Application Insights to the code, be aw
   * In IIS Manager, select your application pool, open **Advanced Settings**, and under **Process Model** note the identity.
   * In Computer management control panel, add this identity to the Performance Monitor Users group.
 * If you have MMA/SCOM (Systems Center Operations Manager) installed on your server, some versions can conflict. Uninstall both SCOM and Status Monitor, and re-install the latest versions.
+* Status Monitor logs can be found at this location by default: "C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log"
 * See [Troubleshooting][qna].
 
 ## System Requirements
@@ -213,9 +214,12 @@ It doesn't collect telemetry by itself. It just configures the web apps and sets
 
 When you select a web app for Status Monitor to instrument:
 
-* Downloads and places the Application Insights assemblies and .config file in the web app's binaries folder.
-* Modifies `web.config` to add the Application Insights HTTP tracking module.
+* Downloads and places the Application Insights assemblies and ApplicationInsights.config file in the web app's binaries folder.
 * Enables CLR profiling to collect dependency calls.
+
+### What version of Application Insights SDK does Status Monitor install?
+
+As of now, Status Monitor can only install Application Insights SDK versions 2.3 or 2.4.
 
 ### Do I need to run Status Monitor whenever I update the app?
 
@@ -250,8 +254,8 @@ View your telemetry:
 
 * [Explore metrics](app-insights-metrics-explorer.md) to monitor performance and usage
 * [Search events and logs][diagnostic] to diagnose problems
-* [Analytics](app-insights-analytics.md) for more advanced queries
-* [Create dashboards](app-insights-dashboards.md)
+* [Analytics](../azure-monitor/app/analytics.md) for more advanced queries
+* [Create dashboards](../azure-monitor/app/app-insights-dashboards.md)
 
 Add more telemetry:
 
@@ -261,7 +265,7 @@ Add more telemetry:
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
+[api]: ../azure-monitor/app/api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md

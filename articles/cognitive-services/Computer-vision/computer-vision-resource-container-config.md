@@ -1,7 +1,7 @@
 ---
-title: Configure containers
-titlesuffix: Computer Vision - Cognitive Services - Azure
-description: Configuration settings for containers in Computer Vision.
+title: Configure containers - Computer Vision
+titlesuffix: Azure Cognitive Services
+description: Configure various settings for Recognize Text containers in Computer Vision.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,9 +10,10 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
+ms.custom: seodec18
 ---
 
-# Configure containers
+# Configure Recognize Text containers
 
 Computer Vision provides the Recognize Text container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 
@@ -35,7 +36,7 @@ Environment variable values override command-line argument values, which in turn
 
 ### Configuration settings as environment variables
 
-You can use the [ASP.NET Core environment variable syntax](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) to specify configuration settings.
+You can use the [ASP.NET Core environment variable syntax](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider) to specify configuration settings.
 
 The container reads user environment variables when the container is instantiated. If an environment variable exists, the value of the environment variable overrides the default value for the specified configuration setting. The benefit of using environment variables is that multiple configuration settings can be set before instantiating containers, and multiple containers can automatically use the same set of configuration settings.
 
@@ -93,7 +94,7 @@ The `Eula` configuration setting indicates that you've accepted the license for 
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-configuration-setting) configuration settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](computer-vision-how-to-install-containers.md#billing).
 
-Cognitive Services containers are licensed under your agreement governing your use of Azure. If you do not have an existing agreement governing your use of Azure, you agree that your agreement governing use of Azure is the Microsoft Online Subscription Agreement (which incorporates the Online Services Terms). For previews, you also agree to the Supplemental Terms of Use for Microsoft Azure Previews. By using the container you agree to these terms.
+Cognitive Services containers are licensed under [your agreement](https://go.microsoft.com/fwlink/?linkid=2018657) governing your use of Azure. If you do not have an existing agreement governing your use of Azure, you agree that your agreement governing use of Azure is the [Microsoft Online Subscription Agreement](https://go.microsoft.com/fwlink/?linkid=2018755), which incorporates the [Online Services Terms](https://go.microsoft.com/fwlink/?linkid=2018760). For previews, you also agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://go.microsoft.com/fwlink/?linkid=2018815). By using the container you agree to these terms.
 
 ## Fluentd configuration settings
 
@@ -127,7 +128,7 @@ The `Logging` configuration settings manage ASP.NET Core logging support for you
   | `Format` | String | The output format for log files.<br/> **Note:** This value must be set to `json` to enable the logging provider. If this value is specified without also specifying an output mount while instantiating a container, an error occurs. |
   | `MaxFileSize` | Integer | The maximum size, in megabytes (MB), of a log file. When the size of the current log file meets or exceeds this value, a new log file is started by the logging provider. If -1 is specified, the size of the log file is limited only by the maximum file size, if any, for the output mount. The default value is 1. |
 
-For more information about configuring ASP.NET Core logging support, see [Settings file configuration](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
+For more information about configuring ASP.NET Core logging support, see [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration).
 
 ## Mounts configuration settings
 

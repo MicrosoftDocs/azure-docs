@@ -25,7 +25,7 @@ ms.custom:
 |   |   |
 |---|---|
 |**SDK download**|[NPM](https://www.npmjs.com/package/azure-storage)|
-|**API documentation**|[Node.js API reference documentation](http://azure.github.io/azure-storage-node/)|
+|**API documentation**|[Node.js API reference documentation](https://azure.github.io/azure-storage-node/)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
 > [!IMPORTANT]

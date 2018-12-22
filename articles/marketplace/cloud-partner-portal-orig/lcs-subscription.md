@@ -17,8 +17,7 @@ ms.date: 09/13/2018
 ms.author: pbutlerm
 ---
 
-LCS Subscription
-================
+# LCS Subscription
 
 In this tutorial, you will learn how create a subscription. This subscription will give you a Microsoft Online test tenant and a Microsoft Dynamics Lifecycle Services project where you can deploy an
 environment. You will also set up additional users in your Microsoft Online tenant and gain experience with the following service administration capabilities. Here are the skills that you will learn:
@@ -29,8 +28,7 @@ environment. You will also set up additional users in your Microsoft Online tena
 - Adding additional users to Microsoft Azure Active Directory and the client.
 - Viewing resources in your subscription email.
 
-Key terms
-=========
+## Key terms
 
 **Microsoft Online Services tenant** - A tenant is the group of all subscriptions and users for your organization. The tenant is created at the same time as your first subscription in Microsoft Online Services.
 

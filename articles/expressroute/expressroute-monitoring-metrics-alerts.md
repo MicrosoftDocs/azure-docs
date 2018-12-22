@@ -1,5 +1,5 @@
 ---
-title: Azure ExpressRoute Monitoring, Metrics, and Alerts | Microsoft Docs
+title: Monitoring, Metrics, and Alerts - Azure ExpressRoute | Microsoft Docs
 description: This page provides information about ExpressRoute monitoring
 services: expressroute
 author: cherylmc
@@ -8,14 +8,15 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 # ExpressRoute monitoring, metrics, and alerts
 
-This article helps you understand ExpressRoute monitoring, metrics, and alerts. Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across all of Azure.
+This article helps you understand ExpressRoute monitoring, metrics, and alerts using Azure Monitor. Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across all of Azure.
  
 >[!NOTE]
->Using **Classic Metrics** is not recommended. 
+>Using **Classic Metrics** is not recommended.
 >
 
 ## Circuit metrics

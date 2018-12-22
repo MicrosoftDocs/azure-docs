@@ -33,7 +33,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
 In addition:
-* [PHP](http://php.net/) 5.6 or newer
+* [PHP](https://php.net/) 5.6 or newer
 * [Composer](https://getcomposer.org/download/)
 
 ## Create a database account
@@ -100,7 +100,7 @@ This step is optional. If you're interested in learning how the database resourc
 
 Now go back to the Azure portal to get your connection information and copy it into the app. These settings enable your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), click **Keys**. 
+1. In the [Azure portal](https://portal.azure.com/), click **Keys**. 
 
     Copy the first portion of the URI value.
 

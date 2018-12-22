@@ -2,9 +2,7 @@
 title: Upload image data in the cloud with Azure Storage | Microsoft Docs 
 description: Use Azure Blob storage with a web app to store app data
 services: storage
-documentationcenter: 
 author: tamram
-
 
 ms.service: storage
 ms.devlang: dotnet
@@ -97,7 +95,7 @@ Make a note of your Blob storage account name and key. The sample app uses these
 
 ## Create an App Service plan
 
-An [App Service plan](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) specifies the location, size, and features of the web server farm that hosts your app.
+An [App Service plan](../../app-service/overview-hosting-plans.md) specifies the location, size, and features of the web server farm that hosts your app.
 
 Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
 
@@ -109,7 +107,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## Create a web app
 
-The web app provides a hosting space for the sample app code that's deployed from the GitHub sample repository. Create a [web app](../../app-service/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
+The web app provides a hosting space for the sample app code that's deployed from the GitHub sample repository. Create a [web app](../../app-service/overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
 
 In the following command, replace `<web_app>` with a unique name. Valid characters are `a-z`, `0-9`, and `-`. If `<web_app>` is not unique, you get the error message: _Website with given name `<web_app>` already exists._ The default URL of the web app is `https://<web_app>.azurewebsites.net`.  
 

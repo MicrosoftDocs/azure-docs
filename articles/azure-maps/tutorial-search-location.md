@@ -3,7 +3,7 @@ title: Search with Azure Maps | Microsoft Docs
 description: Search nearby point of interest using Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/22/2018
+ms.date: 12/14/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -98,7 +98,7 @@ The Map Control API is a convenient client library that allows you to easily int
          margin: 0;
       }
 
-      #map {
+      #myMap {
          width: 100%;
          height: 100%;
       }

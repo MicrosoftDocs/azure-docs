@@ -10,11 +10,9 @@ ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Application Insights Connector management solution (Preview)
@@ -40,7 +38,7 @@ Unlike most other Log Analytics solutions, data isn't collected for the Applicat
 | Connected Source | Supported | Description |
 | --- | --- | --- |
 | [Windows agents](../../azure-monitor/platform/agent-windows.md) | No | The solution does not collect information from Windows agents. |
-| [Linux agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
+| [Linux agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
 | [SCOM management group](../../azure-monitor/platform/om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
 | [Azure storage account](collect-azure-metrics-logs.md) | No | The solution does not collection information from Azure storage. |
 
@@ -158,8 +156,8 @@ The solution receives the following telemetry types of data from your connected 
 - Availability
 - Exceptions
 - Requests
-- Page views – For your workspace to receive page views, you must configure your apps to collect that information. Fore more information, see [PageViews](../../application-insights/app-insights-api-custom-events-metrics.md#page-views).
-- Custom events – For your workspace to receive custom events, you must configure your apps to collect that information. Fore more information, see [TrackEvent](../../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
+- Page views – For your workspace to receive page views, you must configure your apps to collect that information. Fore more information, see [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
+- Custom events – For your workspace to receive custom events, you must configure your apps to collect that information. Fore more information, see [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 Data is received by Log Analytics from Application Insights as it becomes available.
 

@@ -1,5 +1,5 @@
 ---
-title: Run your first Resource Graph query using Azure CLI
+title: Run your first query using Azure CLI
 description: This article walks you through the steps to enable the Resource Graph extension for Azure CLI and run your first query.
 services: resource-graph
 author: DCtheGeek
@@ -7,8 +7,8 @@ ms.author: dacoulte
 ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
-ms.custom: mvc
 manager: carmonm
+ms.custom: seodec18
 ---
 # Run your first Resource Graph query using Azure CLI
 

@@ -1,24 +1,25 @@
 ---
 title: Understand job monitoring in Azure Stream Analytics
-description: This article describes how to monitor jobs in Azure Stream Analytics
+description: This article describes how to monitor Azure Stream Analytics jobs in the Azure portal.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 12/07/2018
+ms.custom: seodec18
 ---
 # Understand Stream Analytics job monitoring and how to monitor queries
 
 ## Introduction: The monitor page
 The Azure portal both surface key performance metrics that can be used to monitor and troubleshoot your query and job performance. To see these metrics, browse to the Stream Analytics job you are interested in seeing metrics for and view the **Monitoring** section on the Overview page.  
 
-![Monitoring link](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
+![Stream Analytics job monitoring link](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
 The window will appear as shown:
 
-![Monitoring job Dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
+![Stream Analytics job monitoring dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## Metrics available for Stream Analytics
 | Metric                 | Definition                               |
@@ -43,7 +44,7 @@ The window will appear as shown:
 ## Customizing Monitoring in the Azure portal
 You can adjust the type of chart, metrics shown, and time range in the Edit Chart settings. For details, see [How to Customize Monitoring](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
-  ![Query Monitor Time graph](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
+  ![Stream Analytics query monitor time graph](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 
 ## Latest output

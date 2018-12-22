@@ -90,7 +90,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     ![Azure local runtime](./media/durable-functions-create-first-csharp/functions-vs-debugging.png)
 
-3. Paste the URL for the HTTP request into your browser's address bar and execute the request. The following shows the response in the browser to the local GET request returned by the function: 
+3. Paste the URL for the HTTP request into your browser's address bar and execute the request. The following shows the response in the browser to the local GET request returned by the function:
 
     ![Function localhost response in the browser](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 

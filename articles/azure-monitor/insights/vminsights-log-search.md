@@ -1,15 +1,13 @@
 ---
 title: How to Query Logs from Azure Monitor for VMs (Preview) | Microsoft Docs
-description: Azure Monitor for VMs solution forwards metrics and log data to Log Analytics and this article describes the records and includes sample queries. 
+description: Azure Monitor for VMs solution forwards metrics and log data to Log Analytics and this article describes the records and includes sample queries.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

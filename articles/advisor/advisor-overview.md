@@ -60,7 +60,7 @@ You can access Advisor recommendations as *Owner*, *Contributor*, or *Reader* of
 
 ### What resources does Advisor provide recommendations for?
 
-Advisor provides recommendations for virtual machines, availability sets, application gateways, App Services, SQL servers, and Redis Cache.
+Advisor provides recommendations for virtual machines, availability sets, application gateways, App Services, SQL servers, and Azure Cache for Redis.
 
 ### Can I postpone or dismiss a recommendation?
 

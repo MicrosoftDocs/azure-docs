@@ -1,5 +1,5 @@
 ---
-title: Configure and manage Azure Notebook projects | Microsoft Docs 
+title: Configure and manage Azure Notebook projects
 description: How to manage project metadata, project files, the project's environment and setup steps through both the Azure Notebooks UI and direct terminal access.
 services: app-service
 documentationcenter: ''

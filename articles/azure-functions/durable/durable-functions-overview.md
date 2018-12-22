@@ -8,13 +8,12 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
-ms.date: 12/06/2018
+ms.date: 12/22/2018
 ms.author: azfuncdf, glenga
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
-
 ---
 
-# What is Durable Functions?
+# What is Durable Functions
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
