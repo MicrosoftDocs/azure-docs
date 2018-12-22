@@ -107,7 +107,7 @@ Specify the restore setting as follows:
 ## Create new-Restore disks 
 
 1. In **Restore configuration** > **Create new** > **Restore Type**, select **Restore disks**.
-2. In In **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name. 
+2. In **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name. 
 3. In **Storage account**, specify the account to which to copy the VHDs. Make sure the account is in the same region as the vault. 
 
     ![Recovery configuration completed](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
