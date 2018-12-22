@@ -18,7 +18,7 @@ ms.author: mbullwin
 ## Configuration problems
 *I'm having trouble setting up my:*
 
-* [.NET app](app-insights-asp-net-troubleshoot-no-data.md)
+* [.NET app](../azure-monitor/app/asp-net-troubleshoot-no-data.md)
 * [Monitoring an already-running app](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Azure diagnostics](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Java web app](app-insights-java-troubleshoot.md)
@@ -97,10 +97,10 @@ From server web apps:
 
 * HTTP requests
 * [Dependencies](../azure-monitor/app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue. 
-* [Exceptions](app-insights-asp-net-exceptions.md) and stack traces.
+* [Exceptions](../azure-monitor/app/asp-net-exceptions.md) and stack traces.
 * [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](app-insights-monitor-performance-live-website-now.md), [Azure monitoring](app-insights-azure-web-apps.md), or the [Application Insights collectd writer](app-insights-java-collectd.md).
 * [Custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md) that you code.
-* [Trace logs](app-insights-asp-net-trace-logs.md) if you configure the appropriate collector.
+* [Trace logs](../azure-monitor/app/asp-net-trace-logs.md) if you configure the appropriate collector.
 
 From [client web pages](app-insights-javascript.md):
 
@@ -187,8 +187,8 @@ Use a single resource for all the components or roles in a single business syste
 | Availability charts |[Web tests](app-insights-monitor-web-app-availability.md) |Know your web app is up |
 | Server app perf: response times, ... |[Add Application Insights to your project](../azure-monitor/app/asp-net.md) or [Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md) (or write your own code to [track dependencies](../azure-monitor/app/api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
 | Dependency telemetry |[Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md) |Diagnose issues with databases or other external components |
-| Get stack traces from exceptions |[Insert TrackException calls in your code](app-insights-asp-net-exceptions.md) (but some are reported automatically) |Detect and diagnose exceptions |
-| Search log traces |[Add a logging adapter](app-insights-asp-net-trace-logs.md) |Diagnose exceptions, perf issues |
+| Get stack traces from exceptions |[Insert TrackException calls in your code](../azure-monitor/app/asp-net-exceptions.md) (but some are reported automatically) |Detect and diagnose exceptions |
+| Search log traces |[Add a logging adapter](../azure-monitor/app/asp-net-trace-logs.md) |Diagnose exceptions, perf issues |
 | Client usage basics: page views, sessions, ... |[JavaScript initializer in web pages](app-insights-javascript.md) |Usage analytics |
 | Client custom metrics |[Tracking calls in web pages](../azure-monitor/app/api-custom-events-metrics.md) |Enhance user experience |
 | Server custom metrics |[Tracking calls in server](../azure-monitor/app/api-custom-events-metrics.md) |Business intelligence |
