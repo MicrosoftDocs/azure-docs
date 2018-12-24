@@ -1,6 +1,6 @@
 ---
 title: Query data from HDFS-compatible Azure storage - Azure HDInsight
-description: Learn how to query data from Azure storage and Azure Data Lake Store to store results of your analysis.
+description: Learn how to query data from Azure storage and Azure Data Lake Storage to store results of your analysis.
 services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
@@ -15,9 +15,9 @@ ms.date: 11/06/2018
 
 To analyze data in HDInsight cluster, you can store the data either in Azure Storage, [Azure Data Lake Storage Gen 1/ Azure Data Lake Storage Gen2] or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
-Apache Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.6, you can select either Azure Storage or Azure Data Lake Storage Gen 1/ Azure Data Lake Store Gen 2  as the default files system with a few exceptions. For the supportability of using Data Lake Storage Gen 1 as both the default and linked storage, see [Availability for HDInsight cluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
+Apache Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.6, you can select either Azure Storage or Azure Data Lake Storage Gen 1/ Azure Data Lake Storage Gen 2  as the default files system with a few exceptions. For the supportability of using Data Lake Storage Gen 1 as both the default and linked storage, see [Availability for HDInsight cluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
-In this article, you learn how Azure Storage works with HDInsight clusters. To learn how Data Lake Storage Gen 1 works with HDInsight clusters, see [Use Azure Data Lake Store with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-store.md). For more information about creating an HDInsight cluster, see [Create Apache Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+In this article, you learn how Azure Storage works with HDInsight clusters. To learn how Data Lake Storage Gen 1 works with HDInsight clusters, see [Use Azure Data Lake Storage with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-store.md). For more information about creating an HDInsight cluster, see [Create Apache Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 Azure storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs.
 
@@ -92,7 +92,7 @@ The default Blob container stores cluster-specific information such as job histo
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
 ### Use the Azure portal
-When creating an HDInsight cluster from the Portal, you have the options (as shown below) to provide the storage account details. You can also specify whether you want an additional storage account associated with the cluster, and if so, choose from Data Lake Store or another Azure Storage blob as the additional storage.
+When creating an HDInsight cluster from the Portal, you have the options (as shown below) to provide the storage account details. You can also specify whether you want an additional storage account associated with the cluster, and if so, choose from Data Lake Storage or another Azure Storage blob as the additional storage.
 
 ![HDInsight hadoop creation data source](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
@@ -325,7 +325,7 @@ In this article, you learned how to use HDFS-compatible Azure storage with HDIns
 For more information, see:
 
 * [Get started with Azure HDInsight][hdinsight-get-started]
-* [Get started with Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
+* [Get started with Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md)
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Use Apache Hive with HDInsight][hdinsight-use-hive]
 * [Use Apache Pig with HDInsight][hdinsight-use-pig]

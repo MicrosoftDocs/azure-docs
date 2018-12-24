@@ -337,7 +337,7 @@ You can set modules on a device through the IoT Hub, but you can also access you
 
 If the deployment is successful, a confirmation message is printed in the VS Code output. 
 
-Refresh the status of your device in the Azure IoT Hub Devices section of VS Code. The new modules are listed, and will start to report as running over the next few minutes as the containers are installed and started. You can also check to see that all the modules are up and running on your device. On your IoT Edge device, run the following command to see the status of the modules. 
+Refresh the status of your device in the Azure IoT Hub Devices section of VS Code. The new modules are listed and will start to report as running over the next few minutes as the containers are installed and started. You can also check to see that all the modules are up and running on your device. On your IoT Edge device, run the following command to see the status of the modules. 
 
    ```cmd/sh
    iotedge list
@@ -347,7 +347,7 @@ Refresh the status of your device in the Azure IoT Hub Devices section of VS Cod
 
 When you apply the deployment manifest to your device, you get three modules running. The tempSensor module generates simulated environment data. The sqlFunction module takes the data and formats it for a database. This section guides you through setting up the SQL database to store the temperature data. 
 
-Run the following commands on your IoT Edge device. These commands connect to the **sql** module running on your device and creates a database and table to hold the temperature data being sent to it. 
+Run the following commands on your IoT Edge device. These commands connect to the **sql** module running on your device and create a database and table to hold the temperature data being sent to it. 
 
 1. In a command-line tool on your IoT Edge device, connect to your database. 
    * Windows container:
