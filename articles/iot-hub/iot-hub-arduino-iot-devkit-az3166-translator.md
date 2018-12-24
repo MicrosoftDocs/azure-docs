@@ -55,7 +55,7 @@ To complete the steps in this tutorial, first do the following tasks:
   // Subscription Key of Speech Service
   const string speechSubscriptionKey = "";
 
-  // Region of the speech service, see https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions for more details.
+  // Region of the speech service, see https://docs.microsoft.com/azure/cognitive-services/speech-service/regions for more details.
   const string speechServiceRegion = "";
 
   // Device ID
@@ -135,7 +135,7 @@ If you encounter problems, refer to the [IoT DevKit FAQ](https://microsoft.githu
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## Next Steps
+## Next steps
 
 You have learned how to use the IoT DevKit as a translator by using Azure Functions and Cognitive Services. In this how-to, you learned how to:
 
