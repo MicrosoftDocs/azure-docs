@@ -44,15 +44,15 @@ Yes, you can exclude disks at the time of protection using power shell. Refer [p
 ###How often can I replicate to Azure?
 Replication is continuous when replicating Azure VMs to another Azure region. Check the [Azure to Azure](https://review.docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture?branch=pr-en-us-61681#replication-process) replication architecture to understand the details.
 
-### Can I replicate Virtual machines within a same region? I need this to migrate VMs ?
+### Can I replicate Virtual machines within a same region? I need this to migrate VMs?
 You can not use Azure to Azure DR solution to replicate VMs within a same region.
 
 ### Can I replicate VMs to any Azure region?
-With Site Recovery, you can replicate and recover VMs between any two regions within the same geographic cluster. Geographic clusters are defined keeping data latency and sovereignty in mind. Refer Site Recovery [region support matrix](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) for more details.
+With Site Recovery, you can replicate and recover VMs between any two regions within the same geographic cluster. Geographic clusters are defined keeping data latency and sovereignty in mind. For more information, see Site Recovery [region support matrix](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support).
 
-### Does Site Recovery require internet connectivity ?
+### Does Site Recovery require internet connectivity?
 
-No, Site recovery does not require internet connectivity but access to Site Recovery URLs and IP ranges as mentioned in this [article](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)
+No, Site Recovery does not require internet connectivity but access to Site Recovery URLs and IP ranges as mentioned in this [article](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)
 
 ## Replication Policy
 
@@ -60,19 +60,19 @@ No, Site recovery does not require internet connectivity but access to Site Reco
 It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery creates a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
 
 ### What is crash consistent recovery point?
-Crash consistent recovery points represents the on-disk data as if the VM crashed or the power cord was pulled from the server at the time snapshot was taken. It doesn’t include anything that was in memory when the snapshot was taken. Today, most applications can recover well from crash consistent snapshots. A crash-consistent recovery point is usually enough for no database operating systems and applications like file servers, DHCP servers, print servers, and so on.
+Crash consistent recovery point represents the on-disk data as if the VM crashed or the power cord was pulled from the server at the time snapshot was taken. It doesn’t include anything that was in memory when the snapshot was taken. Today, most applications can recover well from crash consistent snapshots. A crash-consistent recovery point is usually enough for no database operating systems and applications like file servers, DHCP servers, print servers, and so on.
 
 ### What is application consistent recovery point. 
 Application-consistent recovery points are created from app-consistent snapshots that capture the same data as crash-consistent snapshots, with the addition of all data in memory and all transactions in process. Because of their extra content, application-consistent snapshots are the most involved and take the longest to perform. Application-consistent recovery points are recommended for database operating systems and applications such as SQL.
 
 ### How are recovery points generated and saved?
-To understand how Site Recovery generates recovery points lets take an example of the Replication policy which has Recovery point retention window of 24 hours and App consistent frequency snapshot of 1 hour.
-Site recovery creates crash consistent point every 5 minutes and user doesn’t have any control to change this frequency. Therefore, for the last one-hour user will have 12 crash consistent points and 1 app consistent point to choose from. As the time progresses, Site Recovery prune all the recovery points beyond last 1 hour and only save one recovery point per hour.
-For illustration, in the screen shot below:
+To understand how Site Recovery generates recovery points lets take an example of the Replication policy, which has Recovery point retention window of 24 hours and App consistent frequency snapshot of 1 hour.
+Site Recovery creates crash consistent point every 5 minutes and user doesn’t have any control to change this frequency. Therefore, for the last one-hour user will have 12 crash consistent points and 1 app consistent point to choose from. As the time progresses, Site Recovery prunes all the recovery points beyond last 1 hour and only save one recovery point per hour.
+For illustration, in the screenshot below:
 
 
 1. For time less than last 1 hour, there are recovery points with the frequency of 5 minutes.
-2. For time beyond last 1 hour we can see that only one recovery point per hour is kept.
+2. For time beyond last 1 hour, we can see that only one recovery point per hour is kept.
 
   ![com-error](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
 
@@ -87,10 +87,10 @@ No, Site Recovery will keep your all previous recovery points in this case.
 Go to Site Recovery Vault > Site Recovery Infrastructure > Replication policies. Select policy that you want to edit and save the changes. Any change will apply to all the existing replications too. 
 
 ### Are all the recovery points complete copy of the VM or differential?
-In case of Initial replication the first recovery point which gets generated will have the complete copy and any successive recovery points will have delta changes.
+In case of Initial replication the first recovery point, which gets generated will have the complete copy and any successive recovery points will have delta changes.
 
 ### Does increasing recovery points retention windows increases the storage cost?
-Yes, If you increase the retention period from 24 hours to 72 hours then Site recovery will save the recovery points for addition 48 hours which will incurred you storage charges. For example if a single recovery point has delta changes of 10 GB and per GB cost is $0.16 per month, then it would be $1.6 * 48 additional charges per month.
+Yes, If you increase the retention period from 24 hours to 72 hours then Site Recovery will save the recovery points for addition 48 hours which will incurred you storage charges. For example if a single recovery point has delta changes of 10 GB and per GB cost is $0.16 per month, then it would be $1.6 * 48 additional charges per month.
 
 ## Failover
 
