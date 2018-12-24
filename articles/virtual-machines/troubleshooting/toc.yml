@@ -104,7 +104,9 @@
   href: unexpected-reboots-attached-vhds.md
 - name: Windows activation problems
   href: troubleshoot-activation-problems.md
-- name: Application access issues
+- name: Windows activation problems
+  href: custom-routes-enable-kms-activations.md
+- name: Activation problem with forced tunneling
   href: troubleshoot-app-connection.md
 - name: New VM deployments
   items:
