@@ -62,7 +62,7 @@ It defines the settings for recovery point retention history and app consistent 
 ### What is crash consistent recovery point?
 Crash consistent recovery point represents the on-disk data as if the VM crashed or the power cord was pulled from the server at the time snapshot was taken. It doesn’t include anything that was in memory when the snapshot was taken. Today, most applications can recover well from crash consistent snapshots. A crash-consistent recovery point is usually enough for no database operating systems and applications like file servers, DHCP servers, print servers, and so on.
 
-### What is application consistent recovery point. 
+### What is application consistent recovery point? 
 Application-consistent recovery points are created from app-consistent snapshots that capture the same data as crash-consistent snapshots, with the addition of all data in memory and all transactions in process. Because of their extra content, application-consistent snapshots are the most involved and take the longest to perform. Application-consistent recovery points are recommended for database operating systems and applications such as SQL.
 
 ### How are recovery points generated and saved?
@@ -74,7 +74,7 @@ For illustration, in the screenshot below:
 1. For time less than last 1 hour, there are recovery points with the frequency of 5 minutes.
 2. For time beyond last 1 hour, we can see that only one recovery point per hour is kept.
 
-  ![com-error](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+  ![recovery points-generation](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
 
 
 ### How far back can I recover?
@@ -118,6 +118,25 @@ Yes, as Site Recovery will process all the pending data before Failing over, thi
 
 ### What does Latest processed option in recovery points mean?
 This option fails over all VMs in the plan to the latest recovery point processed by Site Recovery. To see the latest recovery point for a specific VM, check Latest Recovery Points in the VM settings. This option provides a low RTO (Recovery Time Objective), because no time is spent processing unprocessed data.
+
+## Recovery Plan
+
+### What is a Recovery Plan ?
+Recovery plans in Site Recovery orchestrates failover recovery of VMs. It help make the recovery consistently accurate, repeatable, and automated. A recovery plan addresses the following needs for the user:
+
+- Defining a group of virtual machines that failover together.
+- Defining the dependencies between the virtual machines so that the application comes up accurately.
+- Automating the recovery along with custom manual actions so that tasks other than the failover of the virtual machines can also be achieved.
+
+### How does sequencing is achieved in a Recovery Plan ?
+
+In Recovery Plan, you can create multiple groups to achieve sequencing. Every group failover at a time, which means VMs that are part of same group will failover together followed by another group.
+
+### How can I find the RTO of a recovery plan?
+To check the RTO of a Recovery plan, test failover the Recovery plan and go to the site Recovery Jobs.
+For example as shown below, SAP Test Recovery Plan took 8 minutes 59 seconds to failover all the virtual machines and perform any actions specified.
+
+  ![com-error](./media/azure-to-azure-troubleshoot-errors/recoveryplanrto.PNG)
 
 ## Next steps
 * [Review](azure-to-azure-support-matrix.md) support requirements.
