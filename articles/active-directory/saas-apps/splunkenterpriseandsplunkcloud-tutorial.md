@@ -104,7 +104,7 @@ To configure Azure AD single sign-on with Splunk Enterprise and Splunk Cloud, pe
     `https://<splunkserverUrl>/en-US/app/launcher/home`
 
     b. In the **Identifier** box, type a URL using the following pattern:
-    `https://<splunkserverUrl>`
+    `<splunkserverUrl>`
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<splunkserver>/saml/acs`
