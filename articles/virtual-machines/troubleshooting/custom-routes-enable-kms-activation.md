@@ -66,6 +66,8 @@ To add the custom route, follow these steps:
 3. Go to the VM that has activation problem, use [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) to test if it can reach KMS server:
 
         psping kms.core.windows.net:1688
+4. Try to activate Windows and see if the problem is resolved.
+
 **For Classic VMs**
 
 1. Open Azure PowerShell, and then [sign in to your Azure subscription](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
@@ -89,3 +91,4 @@ To add the custom route, follow these steps:
 3. Go to the VM that has activation problem, use [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) to test if it can reach KMS server:
 
         psping kms.core.windows.net:1688
+4. Try to activate Windows and see if the problem is resolved.
