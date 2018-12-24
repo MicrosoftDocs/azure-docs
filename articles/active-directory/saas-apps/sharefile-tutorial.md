@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/20/2018
+ms.date: 12/24/2018
 ms.author: jeedes
 
 ---
@@ -188,8 +188,6 @@ The objective of this section is to create a test user in the Azure portal calle
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
-
-4. Click **Save** on the Citrix ShareFile management portal.
 
 ### Assign the Azure AD test user
 
