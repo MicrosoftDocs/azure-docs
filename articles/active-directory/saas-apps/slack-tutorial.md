@@ -105,7 +105,7 @@ To configure Azure AD single sign-on with Slack, perform the following steps:
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<companyname>.slack.com`.
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    b. In the **Identifier (Entity ID)** text box, update the value with the Sign On URL. This is your workspace domain. For example:
     `https://contoso.slack.com`.
 
 	> [!NOTE]
@@ -175,9 +175,9 @@ To configure Azure AD single sign-on with Slack, perform the following steps:
 
     ![Configure Single Sign-On On App Side](./media/slack-tutorial/tutorial_slack_003.png)
 
-    a.  In the **SAML 2.0 Endpoint (HTTP)** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
+    a.  In the **SAML 2.0 Endpoint (HTTP)** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
-    b.  In the **Identity Provider Issuer** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
+    b.  In the **Identity Provider Issuer** textbox, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
 
     c.  Open your downloaded certificate file in notepad, copy the content of it into your clipboard, and then paste it to the **Public Certificate** textbox.
 
