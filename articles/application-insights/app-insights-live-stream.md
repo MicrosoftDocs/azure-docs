@@ -33,7 +33,7 @@ With Live Metrics Stream, you can:
 
 ## Get started
 
-1. If you haven't yet [installed Application Insights](app-insights-asp-net.md) in your ASP.NET web app or [Windows server app](app-insights-windows-services.md), do that now. 
+1. If you haven't yet [installed Application Insights](../azure-monitor/app/asp-net.md) in your ASP.NET web app or [Windows server app](app-insights-windows-services.md), do that now. 
 2. **Update to the latest version** of the Application Insights package. In Visual Studio, right-click your project and choose **Manage Nuget packages**. Open the **Updates** tab, check **Include prerelease**, and select all the Microsoft.ApplicationInsights.* packages.
 
     Redeploy your app.
@@ -58,7 +58,7 @@ Check the [outgoing ports for Live Metrics Stream](app-insights-ip-addresses.md#
 |No retention|Data persists while it's on the chart, and is then discarded|[Data retained for 90 days](app-insights-data-retention-privacy.md#how-long-is-the-data-kept)|
 |On demand|Data is streamed while you open Live Metrics|Data is sent whenever the SDK is installed and enabled|
 |Free|There is no charge for Live Stream data|Subject to [pricing](app-insights-pricing.md)
-|Sampling|All selected metrics and counters are transmitted. Failures and stack traces are sampled. TelemetryProcessors are not applied.|Events may be [sampled](app-insights-api-filtering-sampling.md)|
+|Sampling|All selected metrics and counters are transmitted. Failures and stack traces are sampled. TelemetryProcessors are not applied.|Events may be [sampled](../azure-monitor/app/api-filtering-sampling.md)|
 |Control channel|Filter control signals are sent to the SDK. We recommend you [secure this channel](#secure-channel).|Communication is one-way, to the portal|
 
 
@@ -70,7 +70,7 @@ You can monitor custom KPI live by applying arbitrary filters on any Application
 
 ![Custom Request KPI](./media/app-insights-live-stream/live-stream-filteredMetric.png)
 
-You can monitor a value different from Count. The options depend on the type of stream, which could be any Application Insights telemetry: requests, dependencies, exceptions, traces, events, or metrics. It can be your own [custom measurement](app-insights-api-custom-events-metrics.md#properties):
+You can monitor a value different from Count. The options depend on the type of stream, which could be any Application Insights telemetry: requests, dependencies, exceptions, traces, events, or metrics. It can be your own [custom measurement](../azure-monitor/app/api-custom-events-metrics.md#properties):
 
 ![Value Options](./media/app-insights-live-stream/live-stream-valueoptions.png)
 

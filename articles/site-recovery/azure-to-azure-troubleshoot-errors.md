@@ -183,11 +183,12 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
    2.  If you prefer to set proxy only for ASR Mobility Service, then you can provide the proxy details in ProxyInfo.conf located at:</br>
        - ``/usr/local/InMage/config/`` on ***Linux***
        - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
-   3.	The ProxyInfo.conf should have the proxy settings in the following INI format. </br>
+   3.	The ProxyInfo.conf should have the proxy settings in the following INI format.</br>
                    *[proxy]*</br>
                    *Address=http://1.2.3.4*</br>
                    *Port=567*</br>
    4. ASR Mobility Service agent supports only ***un-authenticated proxies***.
+ 
 
 ### Fix the problem
 To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
@@ -273,5 +274,12 @@ To enable replication on the VM, the provisioning state should be **Succeeded**.
 You can open 'Services' console and ensure the 'COM+ System Application' and 'Volume Shadow Copy' are not set to 'Disabled' for 'Startup Type'.
   ![com-error](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
+## Unsupported Managed Disk Size (error code 150172)
+
+A new disk attached to the VM must be initialized.
+
+**Error code** | **Possible causes** | **Recommendations**
+--- | --- | ---
+150172<br></br>**Message**: Protection couldn't be enabled for the virtual machine as it has (DiskName) with size (DiskSize) that is lesser than the minimum supported size 10 GB. | - The disk is less than supported size of 10 GB| Ensure that the disk sizes are within the supported size range and retry the operation. 
 ## Next steps
 [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)

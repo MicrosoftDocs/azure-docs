@@ -54,7 +54,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
     | where url endswith "generateAnswer" and name startswith "POST"
     | parse name with *"/knowledgebases/"KbId"/generateAnswer" 
     | summarize ChatCount=count() by bin(timestamp, 1d), KbId
-``` 
+```
 
 ### Total question traffic in a given time period
 

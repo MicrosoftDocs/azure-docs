@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 11/2/2017
 ---
 
-# Troubleshoot Hive by using Azure HDInsight
+# Troubleshoot Apache Hive by using Azure HDInsight
 
 Learn about the top questions and their resolutions when working with Apache Hive payloads in Apache Ambari.
 
@@ -99,7 +99,7 @@ The code in the resolution steps assumes that data paths on the new cluster are 
 - [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>How do I analyze Tez DAG data on a cluster-critical path?
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>How do I analyze Apache Tez DAG data on a cluster-critical path?
 
 
 ### Resolution steps

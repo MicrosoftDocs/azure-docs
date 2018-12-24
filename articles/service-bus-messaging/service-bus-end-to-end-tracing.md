@@ -42,8 +42,8 @@ The instrumentation allows tracking all calls to the Service Bus messaging servi
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) provides rich performance monitoring capabilities including automagical request and dependency tracking.
 
 Depending on your project type, install Application Insights SDK:
-- [ASP.NET](../application-insights/app-insights-asp-net.md) - install version 2.5-beta2 or higher
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) - install version 2.2.0-beta2 or higher.
+- [ASP.NET](../azure-monitor/app/asp-net.md) - install version 2.5-beta2 or higher
+- [ASP.NET Core](../azure-monitor/app/asp-net-core.md) - install version 2.2.0-beta2 or higher.
 These links provide details on installing SDK, creating resources, and configuring SDK (if needed). For non-ASP.NET applications, refer to [Azure Application Insights for Console Applications](../application-insights/application-insights-console.md) article.
 
 If you use [message handler pattern](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) to process messages, you are done: all Service Bus calls done by your service are automatically tracked and correlated with other telemetry items. Otherwise refer to the following example for manual message processing tracking.
@@ -226,5 +226,5 @@ In presence of multiple `DiagnosticSource` listeners for the same source, it's e
 ## Next steps
 
 * [Application Insights Correlation](../application-insights/application-insights-correlation.md)
-* [Application Insights Monitor Dependencies](../application-insights/app-insights-asp-net-dependencies.md) to see if REST, SQL, or other external resources are slowing you down.
+* [Application Insights Monitor Dependencies](../azure-monitor/app/asp-net-dependencies.md) to see if REST, SQL, or other external resources are slowing you down.
 * [Track custom operations with Application Insights .NET SDK](../application-insights/application-insights-custom-operations-tracking.md)

@@ -13,7 +13,7 @@ ms.date: 12/04/2018
 ms.author: diberry
 ---
 
-# Install and run containers
+# Install and run LUIS docker containers
  
 The Language Understanding (LUIS) container loads your trained or published Language Understanding model, also know as a [LUIS app](https://www.luis.ai), into a docker container and provides access to the query predictions from the container's API endpoints. You can collect query logs from the container and upload these back to the Azure Language Understanding model to improve the app's prediction accuracy.
 
@@ -37,9 +37,9 @@ In order to run the LUIS container, you must have the following:
 
 The **host** is the computer that runs the docker container. It can be a computer on your premises or a docker hosting service in Azure including:
 
-* [Azure Kubernetes Service](/azure/aks/)
-* [Azure Container Instances](/azure/container-instances/)
-* [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure/azure-stack/). For more information, see [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+* [Azure Kubernetes Service](../../aks/index.yml)
+* [Azure Container Instances](../../container-instances/index.yml)
+* [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](../../azure-stack/index.yml). For more information, see [Deploy Kubernetes to Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 ### Container requirements and recommendations
 

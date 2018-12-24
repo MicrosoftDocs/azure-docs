@@ -25,7 +25,7 @@ The content that follows is split into two different sections meant to target di
 - [C# in Visual Studio with xUnit](#c-in-visual-studio)
 - [JavaScript in VS Code with Jest](#javascript-in-vs-code)
 
-The the sample repository is available on [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
+The sample repository is available on [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 
 ## C# in Visual Studio
 The following example describes how to create a C# Function app in Visual Studio and run and tests with [xUnit](https://xunit.github.io).
@@ -353,6 +353,6 @@ Next, set a breakpoint in your test and press **F5**.
 ## Next steps
 
 Now that you've learned how to write automated tests for your functions, continue with these resources:
-
+- [Manually run a non HTTP-triggered function](./functions-manually-run-non-http.md)
 - [Azure Functions error handling](./functions-bindings-error-pages.md)
 - [Azure Function Event Grid Trigger Local Debugging](./functions-debug-event-grid-trigger-local.md)

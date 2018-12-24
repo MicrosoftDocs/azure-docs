@@ -46,7 +46,7 @@ To enable the Map feature to display relevant alerts, create an alert rule that 
 - Include a clause to group by computer (for example, **by Computer interval 1 minute**).
 - Choose to alert based on metric measurement.
 
-For more information about Azure Alerts and creating alert rules, see [Unified Alerts in Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+For more information about Azure Alerts and creating alert rules, see [Unified Alerts in Azure Monitor](../../azure-monitor/platform/alerts-overview.md)
 
 The **Legend** option in the upper right-hand corner describes the symbols and roles on a map.  To zoom in for a closer look at your map and move the it around, the Zoom controls at the bottom right-hand side of the page sets the zoom level and fit the page to the size of the current page.  
 

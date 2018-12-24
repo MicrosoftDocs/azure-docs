@@ -113,7 +113,7 @@ On the **Health** tab, you are able to learn the following:
 * How many VMs are unhealthy because of an issue detected with a processor, disk, memory, or network adapter, categorized by health state?  
 * How many VMs are unhealthy because of an issue detected with a core operating system service, categorized by health state?
 
-Here you can quickly identify the top critical issues detected by the health criteria  proactively monitoring the VM, and review VM Health alert details and associated knowledge article intended to assist in the diagnosis and remediation of the issue.  Select any of the severities to open the [All Alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) page filtered by that severity.
+Here you can quickly identify the top critical issues detected by the health criteria  proactively monitoring the VM, and review VM Health alert details and associated knowledge article intended to assist in the diagnosis and remediation of the issue.  Select any of the severities to open the [All Alerts](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) page filtered by that severity.
 
 The **VM distribution by operating system** list shows VMs listed by Windows edition or Linux distribution, along with their version. In each operating system category, the VMs are broken down further based on the health of the VM. 
 
@@ -241,7 +241,7 @@ In the above example, when one selects **/mnt (Logical Disk)**, the Health Crite
 To see updated health state, you can refresh the Health diagnostics page by clicking the **Refresh** link.  If there is an update to the health criterion's health state based on the pre-defined polling interval, this task allows you to avoid waiting and reflects the latest health state.  The **Health Criteria State** is a filter allowing you to scope the results based on the selected health state - Healthy, Warning, Critical, Unknown, and all.  The **Last Updated** time in the top right corner represents the last time when the Health diagnostics page was refreshed.  
 
 ## Alerting and alert management 
-Azure Monitor for VMs Health feature integrates with [Azure Alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) and raises an alert when the predefined health criteria change from healthy to an unhealthy state when the condition is detected. Alerts are categorized by severity - Sev 0 through 4, with Sev 0 representing the highest severity level.  
+Azure Monitor for VMs Health feature integrates with [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) and raises an alert when the predefined health criteria change from healthy to an unhealthy state when the condition is detected. Alerts are categorized by severity - Sev 0 through 4, with Sev 0 representing the highest severity level.  
 
 Total number of VM Health alerts categorized by severity is available on the **Health** dashboard under the section **Alerts**. When you select either the total number of alerts or the number corresponding to a severity level, the **Alerts** page opens and lists all alerts matching your selection.  For example, if you selected the row corresponding to **Sev level 1**, then you see the following view:
 
@@ -249,7 +249,7 @@ Total number of VM Health alerts categorized by severity is available on the **H
 
 On the **Alerts** page, it is not only scoped to show alerts matching your selection, but are also filtered by **Resource type** to only show health alerts raised by the virtual machine resource.  This is reflected in the list of alerts, under the column **Target Resource**, where it shows the Azure VM the alert was raised for when the particular health criteria's unhealthy condition was met.  
 
-Alerts from other resource types or services are not intended to be included in this view, such as log alerts based on Log Analytics queries or metric alerts that you would normally view from the default Azure Monitor [All Alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) page. 
+Alerts from other resource types or services are not intended to be included in this view, such as log alerts based on Log Analytics queries or metric alerts that you would normally view from the default Azure Monitor [All Alerts](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) page. 
 
 You can filter this view by selecting values in the dropdown menus at the top of the page.
 

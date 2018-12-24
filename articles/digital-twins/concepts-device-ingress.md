@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 ms.author: alinast
 ---
 
@@ -76,4 +76,3 @@ Use the DeviceClient [SendEventAsync](https://docs.microsoft.com/dotnet/api/micr
 ## Next steps
 
 To learn about Azure Digital Twins data processing and user-defined functions capabilities, read [Azure Digital Twins data processing and user-defined functions](concepts-user-defined-functions.md).
-
