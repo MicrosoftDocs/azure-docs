@@ -13,7 +13,7 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 12/21/2018
 ms.author: anuragm
 ms.custom:
 
@@ -132,7 +132,7 @@ The tradeoffs between the options are manageability, granular control, and cost.
 
 ## Set permissions for non-Marketplace SQL VMs
 
-To back up a virtual machine, Azure Backup requires the **AzureBackupWindowsWorkload** extension to be installed. If you use Azure Marketplace virtual machines, continue to [Discover SQL Server databases](backup-azure-sql-database.md#discover-sql-server-databases). If the virtual machine that hosts your SQL databases isn't created from the Azure Marketplace, complete the following procedure to install the extension and set the appropriate permissions. In addition to the **AzureBackupWindowsWorkload** extension, Azure Backup requires SQL sysadmin privileges to protect SQL databases. TTo discover databases on the virtual machine, Azure Backup creates the account **NT Service\AzureWLBackupPluginSvc**. This account is used for backup and restore and needs to have SQL sysadmin permission. Moreover, Azure Backup will leverage **NT AUTHORITY\SYSTEM** account for DB discovery/Inquiry, so this account need to be a public login on SQL.
+To back up a virtual machine, Azure Backup requires the **AzureBackupWindowsWorkload** extension to be installed. If you use Azure Marketplace virtual machines, continue to [Discover SQL Server databases](backup-azure-sql-database.md#discover-sql-server-databases). If the virtual machine that hosts your SQL databases isn't created from the Azure Marketplace, complete the following procedure to install the extension and set the appropriate permissions. In addition to the **AzureBackupWindowsWorkload** extension, Azure Backup requires SQL sysadmin privileges to protect SQL databases. TTo discover databases on the virtual machine, Azure Backup creates the account **NT SERVICE\AzureWLBackupPluginSvc**. This account is used for backup and restore and needs to have SQL sysadmin permission. Moreover, Azure Backup will leverage **NT AUTHORITY\SYSTEM** account for DB discovery/Inquiry, so this account need to be a public login on SQL.
 
 To configure permissions:
 
@@ -178,7 +178,7 @@ During the installation process, if you receive the error `UserErrorSQLNoSysadmi
 
     ![In the Login - New dialog box, select Search](./media/backup-azure-sql-database/new-login-search.png)
 
-3. The Windows virtual service account **NT Service\AzureWLBackupPluginSvc** was created during the virtual machine registration and SQL discovery phase. Enter the account name as shown in the **Enter the object name to select** box. Select **Check Names** to resolve the name.
+3. The Windows virtual service account **NT SERVICE\AzureWLBackupPluginSvc** was created during the virtual machine registration and SQL discovery phase. Enter the account name as shown in the **Enter the object name to select** box. Select **Check Names** to resolve the name.
 
     ![Select Check Names to resolve the unknown service name](./media/backup-azure-sql-database/check-name.png)
 

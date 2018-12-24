@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ---
 
@@ -22,7 +22,7 @@ This quickstart requires an [Azure Cognitive Services account](https://docs.micr
 
 This quickstart requires:
 
-* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
 * An Azure subscription key for the Speech Service
 
