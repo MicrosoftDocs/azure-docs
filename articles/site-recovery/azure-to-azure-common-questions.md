@@ -44,6 +44,11 @@ Yes, you can exclude disks at the time of protection using power shell. Refer [p
 ###How often can I replicate to Azure?
 Replication is continuous when replicating Azure VMs to another Azure region.
 
+### Can I replicate Virtual machines within a same region? I need this to migrate VMs ?
+You can not use Azure to Azure DR solution to replicate VMs within a same region.
+
+### Can I replicate VMs to any Azure regions region?
+With Site Recovery, you can replicate and recover VMs between any two regions within the same geographic cluster. Geographic clusters are defined keeping data latency and sovereignty in mind. Refer Site Recovery [region support matrix](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support).
 
 ## Replication Policy
 
@@ -67,11 +72,18 @@ Failover isn't automatic. You initiate failovers with single click in the portal
 
 ### Can I retain Public IP address after failover?
 
-Public IP address cannot be retained.
+Public IP address of the production application **cannot be retained on failover**. Workloads brought up as part of failover process must be assigned an Azure Public IP resource available in the target region. This step can be done either manually or is automated with recovery plans. Refer [article](https://docs.microsoft.com/azure/site-recovery/concepts-public-ip-address-with-site-recovery#public-ip-address-assignment-using-recovery-plan) to assign Public IP address using Recovery Plan.  
 
 ### Can I retain private IP address during failover?
-Yes, you can retain private IP address. Refer [article](site-recovery-retain-ip-azure-vm-failover.md)to retain private IP address under different conditions.
- 
+Yes, you can retain private IP address. By default, when you enable disaster recovery for Azure VMs, Site Recovery creates target resources based on source resource settings. For Azure VMs configured with static IP addresses, Site Recovery tries to provision the same IP address for the target VM, if it's not in use. Refer [article](site-recovery-retain-ip-azure-vm-failover.md) to retain private IP address under different conditions.
+
+### After failover, the server does not have the same IP address as the source VM. Why is it assigned with a new IP address?
+
+Site Recovery try to provide the IP address on the best effort basis at the time of fail over. In case it is being taken by some other virtual machine, the next available IP address is set as the target. 
+For a full explanation of how Site Recovery handles addressing, [review this article.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms)
+
+### In Test failover, VMs are not getting the same IP address whereas in Failover they does.  
+
 ### What does Latest(lowest RPO) recovery points means?
 This option first processes all the data that has been sent to Site Recovery service, to create a recovery point for each VM before failing over to it. This option provides the lowest RPO (Recovery Point Objective), because the VM created after failover will have all the data replicated to Site Recovery when the failover was triggered.
 
