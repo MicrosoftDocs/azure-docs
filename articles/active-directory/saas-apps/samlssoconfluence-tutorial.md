@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 12/24/2018
 ms.author: jeedes
 
 ---
@@ -106,12 +106,12 @@ To configure Azure AD single sign-on with SAML SSO for Confluence by resolution 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<server-base-url>/plugins/servlet/samlsso`
 
-    c. If you wish to configure the application in **SP Initiated** mode then click **Set additional URLs**, and perform the following steps:
+    c. Click **Set additional URLs** and perform the following step if you wish to configure the application in SP initiated mode:
 
-    d. In the **Sign-on URL** text box, type a URL using the following pattern:
+	![SAML SSO for Confluence by resolution GmbH Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<server-base-url>/plugins/servlet/samlsso`
-
-    ![SAML SSO for Confluence by resolution GmbH Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [SAML SSO for Confluence by resolution GmbH Client support team](https://www.resolution.de/go/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
