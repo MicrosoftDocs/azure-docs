@@ -190,4 +190,4 @@ You can copy and edit the following JSON example to use as a test in your MS Flo
 
 ## Next steps
 
-If you haven't already done so, Configure customer [leads](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) in the Cloud Partner Portal.
+If you haven't already done so, configure customer [leads](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) in the Cloud Partner Portal.
