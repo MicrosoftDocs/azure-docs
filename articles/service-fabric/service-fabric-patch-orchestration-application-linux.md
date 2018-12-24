@@ -244,7 +244,7 @@ The REST endpoint for the Coordinator Service has a dynamic port. To check the e
 
 Patch orchestration app logs are collected as part of Service Fabric runtime logs.
 
-In case you want to capture logs via diagnostic tool/pipeline of your choice. Patch orchestration application uses following fixed provider IDs to log events via [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netstandard-2.0)
+In case you want to capture logs via diagnostic tool/pipeline of your choice. Patch orchestration application uses following fixed provider IDs to log events via [EventSource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
