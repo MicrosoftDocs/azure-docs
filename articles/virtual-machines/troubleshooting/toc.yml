@@ -105,7 +105,7 @@
 - name: Windows activation problems
   href: troubleshoot-activation-problems.md
 - name: Windows activation problems
-  href: custom-routes-enable-kms-activations.md
+  href: custom-routes-enable-kms-activation.md
 - name: Activation problem with forced tunneling
   href: troubleshoot-app-connection.md
 - name: New VM deployments
