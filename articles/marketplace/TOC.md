@@ -107,7 +107,7 @@
    Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  
 -->
 
-<!-- new for SaaS 12/05/2018 -->
+<!-- new for SaaS 12/24/2018 -->
 ## [SaaS application offer](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
 ### [Prerequisites](./cloud-partner-portal/saas-app/cpp-prerequisites.md)
 ### [Create SaaS application offer](./cloud-partner-portal/saas-app/cpp-create-offer.md)
@@ -121,6 +121,7 @@
 ### [Publish offer](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
 ### [Update existing offer](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
 ### [SaaS APIs](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+### [SaaS self-test client](./cloud-partner-portal/saas-app/cpp-selftest-client.md)
 
 <!-- Legacy SaaS Offer replaced
 ## [SaaS application offer](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
