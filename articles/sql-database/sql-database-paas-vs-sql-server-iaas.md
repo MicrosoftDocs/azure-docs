@@ -14,22 +14,23 @@ ms.reviewer:
 manager: craigg
 ms.date: 12/24/2018
 ---
-# Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)
+# Choose the right SQL Server option in Azure - PaaS or IaaS
 
 In Azure, you can have your SQL Server workloads running in a hosted infrastructure (IaaS) or running as a hosted service ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)):
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): A SQL database engine, based on the Enterprise Edition of SQL Server, that is optimized for modern application development. Azure SQL Database offers several deployment options:
-
   - You can deploy a single database to a [logical server](sql-database-logical-servers.md).
-  - You can deploy into an [elastic pool](sql-database-elastic-pool.md) on a [logical server](sql-database-logical-servers.md) to share resources and reduce costs.
   - You can deploy to a [Azure SQL Database Managed Instances](sql-database-managed-instance.md).
+
+  > [!NOTE]
+  > You can deploy single database into an [elastic pool](sql-database-elastic-pool.md) on a [logical server](sql-database-logical-servers.md) to share resources between databases and reduce costs.
 
    The following illustration shows these deployment options:
 
      ![deployment-options](./media/sql-database-technical-overview/deployment-options.png)
 
      > [!NOTE]
-     > With all three versions, Azure SQL Database adds additional features that are not available in SQL Server, such as built-in intelligence and management. A logical server containing single and pooled databases offers most of database-scoped features of SQL Server. With Azure SQL Database Managed Instance, Azure SQL Database offers shared resources for databases and additional instance-scoped features. Azure SQL Database Managed Instance supports database migration with minimal to no database change.
+     > All PaaS flavors add additional features that are not available in SQL Server, such as built-in intelligence and management. A logical server containing single and pooled databases offers most of database-scoped features of SQL Server. With Azure SQL Database Managed Instance, Azure SQL Database offers shared resources for databases and additional instance-scoped features. Azure SQL Database Managed Instance supports database migration with minimal to no database change.
 
 - [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server installed and hosted in the cloud on Windows Server or Linux virtual machines (VMs) running on Azure, also known as an infrastructure as a service (IaaS). SQL Server on Azure virtual machines is a good option for migrating on-premises SQL Server databases and applications without any database change. All recent versions and editions of SQL Server are available for installation in an IaaS virtual machine. The most significant difference from SQL Database is that SQL Server VMs allow full control over the database engine. You can choose when maintenance/patching will start, to change the recovery model to simple or bulk logged to enable faster load less log, to pause or start engine when needed, and you can fully customize the SQL Server database engine. With this additional control comes with added responsibility to manage the virtual machines.
 
@@ -37,8 +38,8 @@ The main differences between these options are listed in the following table:
 
 | SQL Server on VM | Azure SQL Database (Managed Instance) | Azure SQL Database (Logical server) |
 | --- | --- | --- |
-|Full control over the SQL Server engine.<br/>Full parity with the matching version of on-premises SQL Server.<br/>Fixed engine version.<br/>Easy migration from SQL Server.<br/>Private IP address within Azure VNet.| High compatibility with SQL Server on-premises.<br/>99.99% availability guaranteed.<br/>Built-in backups, patching, recovery.<br/>Latest stable Database Engine version.<br/>Easy migration from SQL Server.<br/>Private IP address within Azure VNet.<br/>Built-in advanced intelligence and security.<br/>Online change of resources (CPU/storage).|The most commonly used SQL Server features are available.<br/>99.99% availability guaranteed.<br/>Built-in backups, patching, recovery.<br/>Latest stable Database Engine version.<br/>Ability to assign necessary resources (CPU/storage) to individual databases.<br/>Built-in advanced intelligence and security.<br/>Online change of resources (CPU/storage).|
-|Manage your backups and patches.<br>Implement your own High-Availability solution.<br/>Downtime while changing the resources(CPU/storage)|There is still some minimal number of SQL Server features that are not available.<br/>Not guaranteed exact maintenance time (but nearly transparent).|Migration from SQL Server might be hard.<br/>Some SQL Server features are not available.<br/>Not guaranteed exact maintenance time (but nearly transparent).|
+|You have full control over the SQL Server engine.<br/>Full parity with the matching version of on-premises SQL Server.<br/>Fixed engine version.<br/>Easy migration from SQL Server on-premises.<br/>Private IP address within Azure VNet.<br/>You have ability to deploy application or services on the host where SQL Server is placed.| High compatibility with SQL Server on-premises.<br/>99.99% availability guaranteed.<br/>Built-in backups, patching, recovery.<br/>Latest stable Database Engine version.<br/>Easy migration from SQL Server.<br/>Private IP address within Azure VNet.<br/>Built-in advanced intelligence and security.<br/>Online change of resources (CPU/storage).|The most commonly used SQL Server features are available.<br/>99.99% availability guaranteed.<br/>Built-in backups, patching, recovery.<br/>Latest stable Database Engine version.<br/>Ability to assign necessary resources (CPU/storage) to individual databases.<br/>Built-in advanced intelligence and security.<br/>Online change of resources (CPU/storage).|
+|You need to manage your backups and patches.<br>You need to implement your own High-Availability solution.<br/>There is a downtime while changing the resources(CPU/storage)|There is still some minimal number of SQL Server features that are not available.<br/>No guaranteed exact maintenance time (but nearly transparent).<br/>Compatibility with the SQL Server version can be achieved only using database compatibility levels.|Migration from SQL Server might be hard.<br/>Some SQL Server features are not available.<br/>No guaranteed exact maintenance time (but nearly transparent).<br/>Compatibility with the SQL Server version can be achieved only using database compatibility levels.<br/>Private IP address cannot be assigned (you can limit the access using firewall rules).|
 
 Learn how each deployment option fits into the Microsoft data platform and get help matching the right option to your business requirements. Whether you prioritize cost savings or minimal administration ahead of everything else, this article can help you decide which approach delivers against the business requirements you care about most.
 
@@ -104,7 +105,12 @@ Whether you’re a startup that is strapped for cash, or a team in an establishe
 
 #### Billing and licensing basics
 
-Currently, **SQL Database** is sold as a service and is available in several service tiers with different prices for resources, all of which are billed hourly at a fixed rate based on the service tier and compute size you choose. With SQL Database Managed Instance, you can also bring your own license. For more information on bring-your-own licensing, see [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). In addition, you are billed for outgoing Internet traffic at regular [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/). You can dynamically adjust service tiers and compute sizes to match your application’s varied throughput needs. For the latest information on the current supported service tiers, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md). You can also create [elastic pools](sql-database-elastic-pool.md) to share resources among database instances to reduce costs and accommodate usage spikes.
+Currently, **SQL Database** is sold as a service and is available in several service tiers with different prices for resources, all of which are billed hourly at a fixed rate based on the service tier and compute size you choose.
+With SQL Single Database you can choose a service tier that fits your needs from a wide range of prices starting from 5$/month for Basic Tier.
+With SQL Database Managed Instance, you can also bring your own license. For more information on bring-your-own licensing, see [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/) or use [Azure Hybrid Benefit calculator](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/#sql-database) to see how to **save up to 40%**.
+In addition, you are billed for outgoing Internet traffic at regular [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/). You can dynamically adjust service tiers and compute sizes to match your application’s varied throughput needs. For the latest information on the current supported service tiers, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md). You can also create [elastic pools](sql-database-elastic-pool.md) to share resources among database instances to reduce costs and accommodate usage spikes.
+
+
 
 With **SQL Database**, the database software is automatically configured, patched, and upgraded by Microsoft, which reduces your administration costs. In addition, its [built-in backup](sql-database-automated-backups.md) capabilities help you achieve significant cost savings, especially when you have a large number of databases.
 
