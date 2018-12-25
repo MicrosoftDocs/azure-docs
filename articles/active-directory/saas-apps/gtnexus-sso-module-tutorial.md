@@ -113,9 +113,9 @@ To configure Azure AD single sign-on with GTNexus SSO Module, perform the follow
 	> [!Note]
 	> If the **Identifier** and **Reply URL** values are not getting auto polulated, then fill in the values manually according to your requirement.
 
-5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+	![The Certificate download link](common/metadataxml.png)
 
 ### Configure GTNexus SSO Module Single Sign-On
 
