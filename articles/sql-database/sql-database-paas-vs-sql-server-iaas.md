@@ -12,7 +12,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 11/26/2018
+ms.date: 12/24/2018
 ---
 # Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)
 
@@ -32,6 +32,13 @@ In Azure, you can have your SQL Server workloads running in a hosted infrastruct
      > With all three versions, Azure SQL Database adds additional features that are not available in SQL Server, such as built-in intelligence and management. A logical server containing single and pooled databases offers most of database-scoped features of SQL Server. With Azure SQL Database Managed Instance, Azure SQL Database offers shared resources for databases and additional instance-scoped features. Azure SQL Database Managed Instance supports database migration with minimal to no database change.
 
 - [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server installed and hosted in the cloud on Windows Server or Linux virtual machines (VMs) running on Azure, also known as an infrastructure as a service (IaaS). SQL Server on Azure virtual machines is a good option for migrating on-premises SQL Server databases and applications without any database change. All recent versions and editions of SQL Server are available for installation in an IaaS virtual machine. The most significant difference from SQL Database is that SQL Server VMs allow full control over the database engine. You can choose when maintenance/patching will start, to change the recovery model to simple or bulk logged to enable faster load less log, to pause or start engine when needed, and you can fully customize the SQL Server database engine. With this additional control comes with added responsibility to manage the virtual machines.
+
+The main differences between these options are listed in the following table:
+
+| SQL Server on VM | Azure SQL Database (Managed Instance) | Azure SQL Database (Logical server) |
+| --- | --- | --- |
+|Full control over the SQL Server engine.<br/>Full parity with the matching version of on-premises SQL Server.<br/>Fixed engine version.<br/>Easy migration from SQL Server.<br/>Private IP address within Azure VNet.| High compatibility with SQL Server on-premises.<br/>99.99% availability guaranteed.<br/>Built-in backups, patching, recovery.<br/>Latest stable Database Engine version.<br/>Easy migration from SQL Server.<br/>Private IP address within Azure VNet.<br/>Built-in advanced intelligence and security.<br/>Online change of resources (CPU/storage).|The most commonly used SQL Server features are available.<br/>99.99% availability guaranteed.<br/>Built-in backups, patching, recovery.<br/>Latest stable Database Engine version.<br/>Ability to assign necessary resources (CPU/storage) to individual databases.<br/>Built-in advanced intelligence and security.<br/>Online change of resources (CPU/storage).|
+|Manage your backups and patches.<br>Implement your own High-Availability solution.<br/>Downtime while changing the resources(CPU/storage)|There is still some minimal amount of SQL Server features that are not available.<br/>Not guaranteed exact maintenance time (but nearly transparent).|Migration from SQL Server might be hard.<br/>Some SQL Server features are not available.<br/>Not guaranteed exact maintenance time (but nearly transparent).|
 
 Learn how each deployment option fits into the Microsoft data platform and get help matching the right option to your business requirements. Whether you prioritize cost savings or minimal administration ahead of everything else, this article can help you decide which approach delivers against the business requirements you care about most.
 
