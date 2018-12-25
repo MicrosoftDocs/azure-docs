@@ -138,7 +138,7 @@ After you have completed a Hive job, you can [export the results to Azure SQL da
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into issues with creating HDInsight clusters, see [access control requirements](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Clean up resources
 After you complete the tutorial, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. 
