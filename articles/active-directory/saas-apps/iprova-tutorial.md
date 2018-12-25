@@ -84,10 +84,13 @@ To configure and test Azure AD single sign-on with iProva, you need to complete 
 In this section, you will retrieve some essential information from iProva.
 You need this information in order to configure Azure AD single sign-on
 
-1. Open a webbrowser and navigate to the **SAML2 info page** in iProva, using the following URL pattern:
+1. Open a web browser and navigate to the **SAML2 info page** in iProva, using the following URL pattern:
 
+	| | |
+	|-|-|
 	| `https://SUBDOMAIN.iprova.nl/saml2info`|
 	| `https://SUBDOMAIN.iprova.be/saml2info`|
+	| | |
 
 	 ![View the iProva SAML2 info page](media/iprova-tutorial/iprova-saml2-info.png)
 
@@ -156,7 +159,7 @@ To configure Azure AD single sign-on with iProva, perform the following steps:
 
 ### Configure iProva Single Sign-On
 
-1. Sign in to iProva using the `Administrator` account.
+1. Sign in to iProva using the **Administrator** account.
 
 2. Open the **Go to** menu.
 
@@ -170,7 +173,7 @@ To configure Azure AD single sign-on with iProva, perform the following steps:
 
 	![iProva access control settings](media/iprova-tutorial/iprova-accesscontrol.png)
 
-7. Find the setting **Users are automatically logged on with their network accounts**, and change it to `Yes, authentication via SAML`. Additional options will now appear.
+7. Find the setting **Users are automatically logged on with their network accounts**, and change it to **Yes, authentication via SAML**. Additional options will now appear.
 
 8. Click the **Setup** button.
 
@@ -184,13 +187,13 @@ To configure Azure AD single sign-on with iProva, perform the following steps:
 
 12. Click the arrow-shaped button to download the metadata from Azure AD.
 
-13. When the download is complete, the confirmation message `Valid Federation Data file downloaded` will appear.
+13. When the download is complete, the confirmation message **Valid Federation Data file downloaded** will appear.
 
 14. Click the **Next** button.
 
 15. Skip the **Test login** option for now, and click the **Next** button.
 
-16. In the dropdown named **Claim to use**, select `windowsaccountname`. 
+16. In the dropdown named **Claim to use**, select **windowsaccountname**.
 
 17. Click the **Finish** button.
 
@@ -212,9 +215,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** field enter name like **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **yourname@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -249,7 +252,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create iProva test user
 
-1. Sign in to iProva using the `Administrator` account.
+1. Sign in to iProva using the **Administrator** account.
 
 2. Open the **Go to** menu.
 
@@ -262,11 +265,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. In the **Username** field type **brittasimon@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
-7. In the **Full name** field enter **BrittaSimon**.
+7. In the **Full name** field enter full name like **BrittaSimon**.
 
-8. Select the `No password (use single sign-on)` option.
+8. Select the **No password (use single sign-on)** option.
 
-9. In the **E-mail address** field type **brittasimon@yourcompanydomain.extension** 
+9. In the **E-mail address** field type **yourname@yourcompanydomain.extension** 
    For example, BrittaSimon@contoso.com
 
 10. Scroll down to the end of the page and click the **Finish** button.
