@@ -119,7 +119,7 @@ To configure Azure AD single sign-on with GTNexus SSO Module, perform the follow
 
 ### Configure GTNexus SSO Module Single Sign-On
 
-To configure single sign-on on **GTNexus SSO Module** side, you need to send the **App Federation Metadata Url** to [GTNexus SSO Module support team](mailto:support@gtnexus.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **GTNexus SSO Module** side, you need to send the **Federation Metadata XML** to [GTNexus SSO Module support team](mailto:support@gtnexus.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
