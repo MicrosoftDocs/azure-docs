@@ -192,6 +192,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, a user called Britta Simon is created in Palo Alto Networks - Captive Portal. Palo Alto Networks - Captive Portal supports **just-in-time user provisioning**, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Palo Alto Networks - Captive Portal, a new one is created after authentication.
 
+> [!NOTE]
+> If you need to create a user manually, you need to contact the [Palo Alto Networks - Captive Portal Client support team](https://support.paloaltonetworks.com/support).
+
 ### Test single sign-on 
 
 Captive Portal is configured behind the firewall on Windows VM. To test single sign-on on Captive Portal, login on the Windows VM using RDP. From within the RDP session, open a browser to any web site, it should automatically open the SSO url and prompt for authentication. Once Authenticaiton is complete, you should be able to navgiate to web sites.
