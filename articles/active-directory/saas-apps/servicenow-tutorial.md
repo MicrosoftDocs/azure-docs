@@ -80,10 +80,10 @@ To configure and test Azure AD single sign-on with ServiceNow, you need to compl
 1. **[Configure Azure AD Single Sign-On for ServiceNow](#configure-azure-ad-single-sign-on-for-servicenow)** - to enable your users to use this feature.
 2. **[Configure Azure AD Single Sign-On for ServiceNow Express](#configure-azure-ad-single-sign-on-for-servicenow-express)** - to enable your users to use this feature.
 3. **[Configure ServiceNow Single Sign-On](#configure-servicenow-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create ServiceNow test user](#create-servicenow-test-user)** - to have a counterpart of Britta Simon in ServiceNow that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+4. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+5. **[Create ServiceNow test user](#create-servicenow-test-user)** - to have a counterpart of Britta Simon in ServiceNow that is linked to the Azure AD representation of user.
+6. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+7. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD Single Sign-On for ServiceNow
 
@@ -376,7 +376,7 @@ To configure Azure AD single sign-on with ServiceNow, perform the following step
 
 	c. In the **Identity Provider's AuthnRequest** field, paste the value of **Authentication Request URL**, which you have copied from Azure portal.
 
-	d. In the **Identity Provider's SingleLogoutRequest** field, paste the value of **Single Sign-Out Service URL**, which you have copied from Azure portal
+	d. In the **Identity Provider's SingleLogoutRequest** field, paste the value of **Logout URL**, which you have copied from Azure portal
 
 	e. As **Identity Provider Certificate**, select the certificate you have created in the previous step.
 
