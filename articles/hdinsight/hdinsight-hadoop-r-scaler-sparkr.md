@@ -36,7 +36,7 @@ Use the following code to set up the Spark environment:
 workDir        <- '~'  
 myNameNode     <- 'default' 
 myPort         <- 0
-inputDataDir   <- 'wasb://hdfs@myAzureAcccount.blob.core.windows.net'
+inputDataDir   <- 'wasb://hdfs@myAzureAccount.blob.core.windows.net'
 hdfsFS         <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
 # create a persistent Spark session to reduce startup times 

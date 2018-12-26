@@ -148,7 +148,7 @@ If you don't have a system account proxy, set one up as follows:
         - Add these lines to the **/etc/waagent.conf** file:
             - **HttpProxy.Host=proxy IP address**
             - **HttpProxy.Port=proxy port**
-    - On Windows machines, in the browser settings, specify that a proxy should be used. If you're currently using a proxy on a user account, you can use this script to apply the setting at the system acccount level. 
+    - On Windows machines, in the browser settings, specify that a proxy should be used. If you're currently using a proxy on a user account, you can use this script to apply the setting at the system account level. 
         ```
         $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
        Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
