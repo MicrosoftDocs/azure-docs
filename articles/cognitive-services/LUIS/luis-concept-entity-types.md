@@ -74,13 +74,17 @@ LUIS offers many types of entities.
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composite**](#composite-entity)|Grouping of entities, regardless of entity type.|
 |✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierarchical**](#hierarchical-entity)|Grouping of simple entities.|
-|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔]()|[**List**](#list-entity)|List of items and their synonyms extracted with exact text match.|
-|Partial||[✔]|[✔]()|[**Pattern.any**](#pattern-any-entity)|Entity where end of entity is difficult to determine.|
-|||[✔]|[✔]()|[**Prebuilt**](#prebuilt-entity)|Already trained to extract various kinds of data.|
-|||[✔]|[✔]()|[**Regular Expression**](#regular-expression-entity)|Uses regular expression to match text.|
-|✔|✔|[✔]|[✔]()|[**Simple**](#simple-entity)|Contains a single concept in word or phrase.|
+|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**List**](#list-entity)|List of items and their synonyms extracted with exact text match.|
+|Mixed||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#pattern-any-entity)|Entity where end of entity is difficult to determine.|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prebuilt**](#prebuilt-entity)|Already trained to extract various kinds of data.|
+|||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction#regular-expression-entity-data)|[**Regular Expression**](#regular-expression-entity)|Uses regular expression to match text.|
+|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Simple**](#simple-entity)|Contains a single concept in word or phrase.|
 
-Only Machine-learned entities need to be marked in the example utterances for every intent. Pattern.any entities need to be marked in the [Pattern](luis-how-to-model-intent-pattern.md) template examples, not the intent user examples. 
+Only Machine-learned entities need to be marked in the example utterances for every intent. Machine-learned entities work best when tested via [endpoint queries](luis-concept-test.md#endpoint-testing) and [reviewing endpoint utterances](luis-how-to-review-endoint-utt.md). 
+
+Pattern.any entities need to be marked in the [Pattern](luis-how-to-model-intent-pattern.md) template examples, not the intent user examples. 
+
+Mixed entities use a combination of entity detection methods.
 
 ### Composite entity
 
@@ -118,10 +122,14 @@ Do not use if:
 * You need and entity for a parent-child relationship with other entity types. Use the [Composite entity](#composite-entity).
 
 [Tutorial](luis-quickstart-intent-and-hier-entity.md)<br>
-[Example response for entity](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
+[Example JSON response for entity](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
 
 **Example**:<br>
 Given a hierarchical entity of `Location` with children `ToLocation` and `FromLocation`, each child can be determined based on the **context** within the utterance. In the utterance, `Book 2 tickets from Seattle to New York`, the `ToLocation` and `FromLocation` are contextually different based the words around them. 
+
+### Roles versus hierarchical entities
+
+[Roles](luis-concept-roles.md#roles-versus-hierarchical-entities) solve the same problem as hierarchical entities but apply to all entity types. Roles are currently only available in patterns. Roles are not available in intents' example utterances.  
 
 ## List entity
 
@@ -134,56 +142,64 @@ The entity is a good fit when the text data:
 * The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Stemming, plurals, and other variations are not resolved with an list entity. To manage variations, consider using a [pattern](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax.
 
 [Tutorial](luis-quickstart-intent-and-list-entity.md)<br>
-[Example response for entity](luis-concept-data-extraction.md#list-entity-data)| 
+[Example JSON response for entity](luis-concept-data-extraction.md#list-entity-data)
 
 ## Pattern.any entity
 
 Pattern.any is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.  
 
+The entity is a good fit when the text data:
+
+* When the ending of the entity can be confused with the remaining text of the utterance. 
+
 [Tutorial](luis-tutorial-pattern.md)<br>
-[Example response for entity](luis-concept-data-extraction.md#composite-entity-data)
+[Example JSON response for entity](luis-concept-data-extraction.md#patternany-entity-data)
 
 **Example**<br>
-Given an utterance search for books based on title, the pattern.any extracts the complete title. A template utterance using pattern.any is `Who wrote {BookTitle}[?]`.
+Given an utterance search for books based on title, the pattern.any extracts the complete title. A template utterance using pattern.any is `Was {BookTitle} written by an American this year[?]`. The following utterances, using the previous pattern, illustrate the problem. 
+
+|Utterance|
+|--|
+|Was **The Man Who Mistook His Wife for a Hat and Other Clinical Tales** written by an American this year?|
+|Was **Half Asleep in Frog Pajamas** written by an American this year?|
+|Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?|
+|Was **There's A Wocket In My Pocket!** written by an American this year?|
+
+The bold text is to highlight the exact book title. LUIS doesn't know which word is part of the title or where the title ends. 
+
 
 ## Prebuilt entity
 
-Built-in types that represent common concepts such as key phrase number, ordinal, temperature, dimension, money, age, percentage, email, URL, phone number, and key phrase. Prebuilt entity names are reserved. All prebuilt entities that are added to the application are returned in the [endpoint](luis-glossary.md#endpoint) query. For more information, see [Prebuilt entities](./luis-prebuilt-entities.md). 
+Built-in types that represent common concepts such as email, URL, and phone number. Prebuilt entity names are reserved. [All prebuilt entities](luis-prebuilt-entities.md) that are added to the application are returned in the endpoint prediction query. 
 
 [Tutorial](luis-tutorial-prebuilt-intents-entities.md)<br>
-[Example response for entity](luis-concept-data-extraction.md#prebuilt-entity-data)|
+[Example JSON response for entity](luis-concept-data-extraction.md#prebuilt-entity-data)
+
+Some of these prebuilt entities are defined in the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. There are many [examples](https://github.com/Microsoft/Recognizers-Text/tree/master/Specs) in the /Specs directory for the supported cultures. If your specific culture or entity isn't currently supported, contribute to the project. 
 
 ## Regular expression entity 
 
-Custom regular expression for formatted raw utterance text. It ignores case and ignores cultural variant.  <br><br>This entity is good for words or phrases that are consistently formatted with any variation that is also consistent.<br><br>Regular expression matching is applied after spell-check alterations at the character level, not the token level. Uses part but not all of the [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) library.<br><br>If the regular expression is too complex, such as using many brackets, you are not able to add the expression to the model. <br><br>**Example**<br>`kb[0-9]{6,}` matches kb123456.<br/><br/>[Quickstart](luis-quickstart-intents-regex-entity.md)<br>[Example response for entity](luis-concept-data-extraction.md)|
+Custom regular expression for formatted raw utterance text. It ignores case and ignores cultural variant.  Regular expression matching is applied after spell-check alterations at the character level, not the token level. If the regular expression is too complex, such as using many brackets, you are not able to add the expression to the model. Uses part but not all of the [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) library. 
+
+This entity is good for words or phrases that are consistently formatted with any variation that is also consistent.<br><br>
+
+[Tutorial](luis-quickstart-intents-regex-entity.md)<br>
+[Example JSON response for entity](luis-concept-data-extraction#regular-expression-entity-data)<br>
+
+**Example**<br>`kb[0-9]{6,}` matches kb123456.
 
 ## Simple entity 
 
-A simple entity is a generic entity that describes a single concept and is learned from machine-learned context. Context include word choice, word placement, and utterance length.<br/><br/>This is a good entity for words or phrases that are not consistently formatted but indicate the same thing. <br/><br/>[Quickstart](luis-quickstart-primary-and-secondary-data.md)<br/>[Example response for entity](luis-concept-data-extraction.md#simple-entity-data)|  
+A simple entity is a generic entity that describes a single concept and is learned from machine-learned context. Context include word choice, word placement, and utterance length.
 
+This is a good entity for words or phrases that are not consistently formatted but indicate the same thing. 
 
-
-<a name="prebuilt"></a>
-**Prebuilt** entities are custom entities provided by LUIS. Some of these entities are defined in the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. There are many [examples](https://github.com/Microsoft/Recognizers-Text/tree/master/Specs) in the /Specs directory for the supported cultures. If your specific culture or entity isn't currently supported, contribute to the project. 
-
-<a name="machine-learned"></a>
-**Machine-learned** entities work best when tested via [endpoint queries](luis-concept-test.md#endpoint-testing) and [reviewing endpoint utterances](luis-how-to-review-endoint-utt.md). 
-
-<a name="regex"></a>
-**Regular expression entities** are defined by a regular expression the user provides as part of the entity definition. 
-
-<a name="exact-match"></a>
-**Exact-match** entities use the text provided in the entity to make an exact text match.
-
-<a name="mixed"></a>
-**Mixed** entities use a combination of entity detection methods.
+[Tutorial](luis-quickstart-primary-and-secondary-data.md)<br/>
+[Example response for entity](luis-concept-data-extraction.md#simple-entity-data)<br/>
 
 ## Entity limits
+
 Review [limits](luis-boundaries.md#model-boundaries) to understand how many of each type of entity you can add to a model.
-
-## Roles versus hierarchical entities
-
-For more information, see [Roles versus hierarchical entities](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## Composite vs hierarchical entities
 Composite entities and hierarchical entities both have parent-child relationships and are machine learned. The machine-learning allows LUIS to understand the entities based on different contexts (arrangement of words). Composite entities are more flexible because they allow different entity types as children. A hierarchical entity's children are only simple entities. 
