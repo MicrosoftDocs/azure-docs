@@ -30346,7 +30346,7 @@
         {
             "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet.md",
             "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
