@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 12/26/2018
 ms.author: hrasheed
 
 ---
@@ -124,7 +124,7 @@ The cluster scaling feature allows you to change the number of worker nodes used
 
 From the [cluster home page](#homePage):
 
-1. Under **Settings**, select **Cluster size** .
+1. Under **Settings**, select **Cluster size**.
 2. Enter **Number of Worker nodes** in the numeric text box. The limit on the number of cluster nodes varies between Azure subscriptions. You can contact billing support to increase the limit.  The cost information reflects the changes you have made to the number of nodes.
 3. Select **Save**.
 
@@ -142,9 +142,9 @@ The impact of changing the number of data nodes varies for each type of cluster 
     You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging in to the headnode of cluster and running the following commands from a command prompt window:
 
     ```bash
-    >pushd %HBASE_HOME%\bin
-    >hbase shell
-    >balancer
+    pushd %HBASE_HOME%\bin
+    hbase shell
+    balancer
     ```
 
     For more information on using the HBase shell, see [Get started with an Apache HBase example in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
