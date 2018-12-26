@@ -1,6 +1,6 @@
 ---
-title: 'Understand how to use Azure Digital Twins Swagger | Microsoft Docs'
-description: Understanding how to use Azure Digital Twins Swagger reference documentation
+title: 'Understand how to use Azure Digital Twins reference Swagger | Microsoft Docs'
+description: Understanding how to use Azure Digital Twins Swagger reference documentation.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
@@ -11,7 +11,7 @@ ms.author: adgera
 ms.custom: seodec18
 ---
 
-# Use Azure Digital Twins Swagger
+# Azure Digital Twins Swagger reference documentation
 
 Each provisioned Azure Digital Twins instance includes its own automatically generated Swagger reference documentation.
 
