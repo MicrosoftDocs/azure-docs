@@ -181,6 +181,10 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
+### Create Proofpoint on Demand test user
+
+In this section, you create a user called Britta Simon in Proofpoint on Demand. Work with [Proofpoint on Demand Client support team](https://www.proofpoint.com/us/support-services) to add users in the Proofpoint on Demand platform.
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
