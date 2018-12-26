@@ -118,8 +118,8 @@ To configure Azure AD single sign-on with Pluralsight, perform the following ste
 
 6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
     
-	| Name | Namespace  |  Source Attribute|
-	| ---------------| --------------- | --------- |
+	| Name | Source Attribute|
+	| --------------- | --------- |
 	| First Name  | user.givenname  |
 	| Last Name  | user.surname  |
 	| Email  | user.mail  |
