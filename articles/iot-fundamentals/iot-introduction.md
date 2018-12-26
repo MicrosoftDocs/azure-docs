@@ -22,7 +22,7 @@ The main parts of an IoT solution are as follows: devices, back-end services, an
 
 ### IoT devices
 
-Devices are generally made up of a circuit board with censors attached that connect to the internet. Many devices communicate via a Wi-Fi chip. Here are some examples of IoT devices:
+Devices are generally made up of a circuit board with sensors attached that connect to the internet. Many devices communicate via a Wi-Fi chip. Here are some examples of IoT devices:
 
 * pressure sensors on a remote oil pump
 * temperature and humidity sensors in an air-conditioning unit
