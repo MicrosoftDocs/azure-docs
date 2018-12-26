@@ -112,7 +112,7 @@ supporting offline synchronization using a local SQLite database. Here is a brie
 
             // Uses the default conflict handler, which fails on conflict
             // To use a different conflict handler, pass a parameter to InitializeAsync.
-            // For more details, see http://go.microsoft.com/fwlink/?LinkId=521416.
+            // For more details, see https://go.microsoft.com/fwlink/?LinkId=521416.
             await client.SyncContext.InitializeAsync(store);
         }
 * The `toDoTable` member of `ToDoActivity` is of the `IMobileServiceSyncTable` type instead of `IMobileServiceTable`. The IMobileServiceSyncTable

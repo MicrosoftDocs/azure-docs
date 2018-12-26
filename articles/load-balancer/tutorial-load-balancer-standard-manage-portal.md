@@ -1,15 +1,11 @@
 ---
-title: Tutorial:Load balance internet traffic to VMs - Azure portal | Microsoft Docs
+title: 'Tutorial: Load balance internet traffic to VMs - Azure portal'
+titlesuffix: Azure Load Balancer
 description: This tutorial shows how to create and manage a Standard Load Balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
 author: KumudD 
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to create and Standard Load balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
-
-ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -17,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
-ms.custom: mvc
+ms.custom: seodec18
 ---
 
 # Tutorial: Load balance internet traffic to VMs using the Azure portal

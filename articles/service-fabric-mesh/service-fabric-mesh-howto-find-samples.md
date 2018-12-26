@@ -16,7 +16,7 @@ manager: jeconnoc
 
 This table outlines the available Service Fabric Mesh sample applications. The source code in these examples shows how to achieve a particular scenario using the Service Fabric Resource Model.
 
-For more information about deploying templates directly to Azure, see the [sample template Github page.](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/README.md)
+For more information about deploying templates directly to Azure, see the [sample template GitHub page.](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/README.md)
 
 
 |Sample Template|Scenario Description|Source Code|Developer Tools|

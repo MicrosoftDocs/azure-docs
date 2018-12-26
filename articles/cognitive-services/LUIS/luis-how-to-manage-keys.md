@@ -1,10 +1,11 @@
 ---
-title: Manage the authoring and endpoint keys in LUIS
-titleSuffix: Azure Cognitive Services
+title: Manage keys
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: After you create a LUIS endpoint key in the Azure portal, assign the key to the LUIS app and get the correct endpoint URL. Use this endpoint URL to get LUIS predictions.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article

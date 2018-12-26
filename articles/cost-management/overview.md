@@ -5,14 +5,14 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
-ms.custom:
+ms.custom: seodec18
 ---
 
-# What is Cloudyn?
+# What is the Cloudyn service?
 
 Cloudyn, a Microsoft subsidiary, allows you to track cloud usage and expenditures for your Azure resources and other cloud providers including AWS and Google. Easy-to-understand dashboard reports help with cost allocation and showbacks/chargebacks as well. Cloudyn helps optimize your cloud spending by identifying underutilized resources that you can then manage and adjust.
 

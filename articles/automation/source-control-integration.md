@@ -44,7 +44,7 @@ On the **Source Control Summary** page, fill out the information and click **Sav
 |Property  |Description  |
 |---------|---------|
 |Source control name     | A friendly name for the source control        |
-|Source control type     | The type of source control source. Available options are:</br> Github</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
+|Source control type     | The type of source control source. Available options are:</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |Repository     | The name of the repository or project. This value is pulled from the source control repository. Example: $/ContosoFinanceTFVCExample         |
 |Branch     | The branch to pull the source files from. Branch targeting is not available for the TFVC source control type.          |
 |Folder path     | The folder that contains the runbooks to sync. Example: /Runbooks         |
@@ -56,7 +56,7 @@ On the **Source Control Summary** page, fill out the information and click **Sav
 
 ## Syncing
 
-Configuring autosync when configuring source control integration, the initial sync starts automatically. If auto sync was not set, select the source from the table on the **Source control (Preview)** page. Click **Start Sync** to start the sync process.  
+Configuring autosync when configuring source control integration, the initial sync starts automatically. If auto sync was not set, select the source from the table on the **Source control (Preview)** page. Click **Start Sync** to start the sync process.
 
 You can view the status of the current sync job or previous ones by clicking the **Sync jobs** tab. On the **Source Control** drop-down, select a source control.
 

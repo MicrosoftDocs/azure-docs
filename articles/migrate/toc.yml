@@ -20,6 +20,14 @@
     href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
+  - name: Migration best practices
+    items:
+    - name: Best practices for security and management after migration
+      href: migrate-best-practices-security-management.md
+    - name: Best practices for networking after migration
+      href: migrate-best-practices-networking.md
+    - name: Best practices for costing and sizing after migration
+      href: migrate-best-practices-costs.md
   - name: Contoso migration series
     items:
     - name: 1. Contoso-Migration overview

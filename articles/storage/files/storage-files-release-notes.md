@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 12/4/2018
+ms.date: 12/10/2018
 ms.author: wgries
 ms.component: files
 ---
@@ -20,7 +20,8 @@ The following versions are supported for the Azure File Sync agent:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| December update rollup - [KB4459988](https://support.microsoft.com/help/4459988)| 4.1.0.0 | December 4, 2018 | Supported (recommended version) |
+| December update rollup - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | December 10, 2018 | Supported (recommended version) |
+| December update rollup | 4.1.0.0 | December 4, 2018 | Supported |
 | V4 Release | 4.0.1.0 | November 13, 2018 | Supported |
 | September update rollup | 3.3.0.0 | September 24, 2018 | Supported |
 | August update rollup | 3.2.0.0 | August 15, 2018 | Supported |
@@ -39,11 +40,17 @@ The following versions are supported for the Azure File Sync agent:
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## Agent version 4.2.0.0
+The following release notes are for version 4.2.0.0 of the Azure File Sync agent released December 10, 2018. These notes are in addition to the release notes listed for version 4.0.1.0.
+
+List of issues fixed in this release:  
+- A Stop error 0x3B or Stop error 0x1E may occur when a VSS snapshot is created.  
+- A memory leak may occur when cloud tiering is enabled  
+
 ## Agent version 4.1.0.0
 The following release notes are for version 4.1.0.0 of the Azure File Sync agent released December 4, 2018. These notes are in addition to the release notes listed for version 4.0.1.0.
 
 List of issues fixed in this release:  
-- A Stop error 0x3B or Stop error 0x1E may occur when a VSS snapshot is created.  
 - The server may become unresponsive because of a cloud-tiering memory leak.  
 - Agent installation fails with the following error: Error 1921. Service 'Storage Sync Agent' (FileSyncSvc) could not be stopped.  Verify that you have sufficient privileges to stop system services.  
 - The Storage Sync Agent (FileSyncSvc) service may crash when memory usage is high.  
@@ -53,7 +60,7 @@ List of issues fixed in this release:
 The following release notes are for version 4.0.1.0 of the Azure File Sync agent (released November 13, 2018).
 
 ### Evaluation Tool
-Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an AzureRM PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) section in the planning guide. 
+Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) section in the planning guide. 
 
 ### Agent installation and server configuration
 For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
@@ -128,7 +135,7 @@ This release includes the following fix:
 The following release notes are for version 3.1.0.0 of the Azure File Sync agent (released July 19, 2018).
 
 ### Evaluation Tool
-Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an AzureRM PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) section in the planning guide. 
+Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) section in the planning guide. 
 
 ### Agent installation and server configuration
 For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).

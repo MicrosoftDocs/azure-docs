@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/11/2018
 ms.author: alkohli
 ms.component: common
 ---
@@ -25,7 +25,7 @@ You must:
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). 
 - Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems). 
 - Enable BitLocker on the Windows system. See [How to enable BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-- [Download the WAImportExport version 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) on the Windows system. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
+- [Download the WAImportExport version 1](https://aka.ms/waiev1) on the Windows system. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
 - Have a FedEx/DHL account.  
     - The account must be valid, should have balance, and must have return shipping capabilities.
     - Generate a tracking number for the export job.

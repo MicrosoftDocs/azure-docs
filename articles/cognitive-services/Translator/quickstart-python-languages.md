@@ -211,7 +211,7 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## See also
 
-In addition to text transliteration, learn how to use the Translator Text API to:
+Learn how to use the Translator Text API to:
 
 * [Translate text](quickstart-python-translate.md)
 * [Transliterate text](quickstart-python-transliterate.md)

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
@@ -120,7 +120,12 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the Google BigQuery dataset.
 
-To copy data from Google BigQuery, set the type property of the dataset to **GoogleBigQueryObject**. There is no additional type-specific property in this type of dataset.
+To copy data from Google BigQuery, set the type property of the dataset to **GoogleBigQueryObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **GoogleBigQueryObject** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -132,7 +137,8 @@ To copy data from Google BigQuery, set the type property of the dataset to **Goo
         "linkedServiceName": {
             "referenceName": "<GoogleBigQuery linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -148,7 +154,7 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **GoogleBigQuerySource**. | Yes |
-| query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. | Yes |
+| query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 

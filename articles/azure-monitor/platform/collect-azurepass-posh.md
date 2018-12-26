@@ -10,11 +10,9 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Configure collection of Azure PaaS resource metrics with Log Analytics

@@ -34,16 +34,18 @@
   items:
   - name: Best practices
     href: best-practices.md
-  - name: Require MFA for access attempts from untrusted networks
-    href: untrusted-networks.md
-  - name: Require managed devices
-    href: require-managed-devices.md
-  - name: Require approved client apps
-    href: app-based-conditional-access.md
+  - name: Block legacy authentication
+    href: block-legacy-authentication.md
   - name: Control access to Exchange Online and SharePoint Online
     href: conditional-access-for-exo-and-spo.md
   - name: Migrate classic policies
     href: policy-migration.md
+  - name: Require approved client apps
+    href: app-based-conditional-access.md
+  - name: Require managed devices
+    href: require-managed-devices.md
+  - name: Require MFA for access attempts from untrusted networks
+    href: untrusted-networks.md
 - name: Reference
   items:
   - name: Technical reference

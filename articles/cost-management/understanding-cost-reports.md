@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom:
+ms.custom: seodec18
 ---
 
 # Understanding Cloudyn cost management reports
@@ -20,7 +20,7 @@ This article helps you understand Cloudyn cost management reports basic structur
 
 Here's a look at an example of the Cost Over Time report. Most Cloudyn reports have a similar layout.
 
-![sample report](./media/understanding-cost-reports/sample-report.png)
+![Example of the Cost Over Time report with numbered areas corresponding to descriptions](./media/understanding-cost-reports/sample-report.png)
 
 Each numbered area in the preceding image is described in detail in the following information:
 
@@ -42,11 +42,11 @@ Each numbered area in the preceding image is described in detail in the followin
 
     Use the Tags area to group by tag categories. Tags listed in the menu are Azure department or cost center tags or they are Cloudyn's cost entity and subscription tags. Select tags to filter results. You can also type a tag name (keyword) to filter results.
 
-    ![select options](./media/understanding-cost-reports/select-options.png)
+    ![Example of a list of tags to filter results by](./media/understanding-cost-reports/select-options.png)
 
     Click **Add** to add a new filter.
 
-    ![add filter](./media/understanding-cost-reports/add-filter.png)
+    ![Add filter box showing options and conditions to filter by](./media/understanding-cost-reports/add-filter.png)
 
     Tag grouping or filtering does not relate to Azure resources or resource group tags.
 
@@ -56,9 +56,9 @@ Each numbered area in the preceding image is described in detail in the followin
 
     Use groups in Cost Analysis reports to show standard, itemized categories from billing data in your report.  However, groups in Cost Allocation reports show view tag-based categories. Tag-based categories are defined in the cost allocation model and standard itemized categories from billing data.
 
-    ![groups tags](./media/understanding-cost-reports/groups-tags01.png)
+    ![First example list of tags that you can group by](./media/understanding-cost-reports/groups-tags01.png)
 
-    ![groups tags](./media/understanding-cost-reports/groups-tags02.png)
+    ![Second example list of tags that you can group by](./media/understanding-cost-reports/groups-tags02.png)
 
     In Cost Allocation Reports, groups in tag-based group categories might include:
       - Tags
@@ -161,7 +161,7 @@ Each numbered area in the preceding image is described in detail in the followin
 
     Use Display formats to select various graph or table views.
 
-    ![display formats](./media/understanding-cost-reports/display-formats.png)
+    ![Symbols of display formats that you can select](./media/understanding-cost-reports/display-formats.png)
 
 13. **Multi-color**
 

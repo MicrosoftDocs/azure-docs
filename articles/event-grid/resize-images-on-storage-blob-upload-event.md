@@ -14,7 +14,7 @@ ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
 ---
-# Automate resizing uploaded images using Event Grid
+# Tutorial: Automate resizing uploaded images using Event Grid
 
 [Azure Event Grid](overview.md) is an eventing service for the cloud. Event Grid enables you to create subscriptions to events raised by Azure services or third-party resources.  
 
@@ -105,7 +105,7 @@ You can now deploy a function code project to this function app.
 
 ## Deploy the function code 
 
-# [\.NET](#tab/net)
+# [\.NET](#tab/dotnet)
 
 The sample C# script (.csx) resize is available on [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) command. 
 

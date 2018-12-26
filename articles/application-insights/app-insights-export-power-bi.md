@@ -16,7 +16,7 @@ ms.author: mbullwin
 ---
 
 # Feed Power BI from Application Insights
-[Power BI](http://www.powerbi.com/) is a suite of business tools that helps you analyze data and share insights. Rich dashboards are available on every device. You can combine data from many sources, including Analytics queries from [Azure Application Insights](app-insights-overview.md).
+[Power BI](https://www.powerbi.com/) is a suite of business tools that helps you analyze data and share insights. Rich dashboards are available on every device. You can combine data from many sources, including Analytics queries from [Azure Application Insights](app-insights-overview.md).
 
 There are three methods of exporting Application Insights data to Power BI:
 
@@ -115,7 +115,7 @@ If reducing the dataset coming from the Analytics query doesn't meet your requir
  ```
 
 ## About sampling
-If your application sends a lot of data, you might want to use the adaptive sampling feature, which sends only a percentage of your telemetry. The same is true if you have manually set sampling either in the SDK or on ingestion. [Learn more about sampling](app-insights-sampling.md).
+Depending on the amount of data sent by your application, you might want to use the adaptive sampling feature, which sends only a percentage of your telemetry. The same is true if you have manually set sampling either in the SDK or on ingestion. [Learn more about sampling](app-insights-sampling.md).
 
 ## Power BI adapter (deprecated)
 This method creates a complete dashboard of telemetry for you. The initial dataset is predefined, but you can add more data to it.
@@ -148,6 +148,6 @@ You can edit the dashboard, combining the Application Insights charts with those
 After the initial import, the dashboard and the reports continue to update daily. You can control the refresh schedule on the dataset.
 
 ## Next steps
-* [Power BI - Learn](http://www.powerbi.com/learning/)
+* [Power BI - Learn](https://www.powerbi.com/learning/)
 * [Analytics tutorial](../azure-monitor/log-query/get-started-portal.md)
 

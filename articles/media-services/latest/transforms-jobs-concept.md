@@ -11,15 +11,15 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2018
 ms.author: juliako
 ---
 
 # Transforms and Jobs
  
-Azure Media Services v3 introduces a new templated workflow resource for a recipe that you want to use to encode and/or analyze your videos, called [Transforms](https://docs.microsoft.com/rest/api/media/transforms). **Transforms** can be used to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files. 
+Use [Transforms](https://docs.microsoft.com/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files. 
 
-A **Job** is the actual request to Azure Media Services to apply the **Transform** to a given input video or audio content. The **Job** specifies information such as the location of the input video, and the location for the output. You can specify the location of your input video using: HTTPs URLs, SAS URLs, or [Media Services Assets](https://docs.microsoft.com/rest/api/media/assets).  
+A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Azure Media Services to apply the **Transform** to a given input video or audio content. The **Job** specifies information such as the location of the input video, and the location for the output. You can specify the location of your input video using: HTTPS URLs, SAS URLs, or [Media Services Assets](https://docs.microsoft.com/rest/api/media/assets).  
 
 ## Typical workflow
 

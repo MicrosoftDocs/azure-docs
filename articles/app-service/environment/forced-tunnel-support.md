@@ -1,5 +1,5 @@
 ---
-title: Configure your Azure App Service Environment to be forced tunneled
+title: Configure App Service Environment to be forced tunneled - Azure
 description: Enable your App Service Environment to work when outbound traffic is forced tunneled
 services: app-service
 documentationcenter: na
@@ -15,6 +15,7 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
 # Configure your App Service Environment with forced tunneling

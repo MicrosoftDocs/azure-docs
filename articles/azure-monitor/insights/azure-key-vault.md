@@ -6,16 +6,13 @@ documentationcenter: ''
 author: richrundmsft
 manager: jochan
 editor: ''
-
 ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.component: 
 ---
 
 # Azure Key Vault Analytics solution in Log Analytics

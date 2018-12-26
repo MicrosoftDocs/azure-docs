@@ -1,5 +1,5 @@
 ---
-title: Deploy a Docker/Go app in Azure Web App for Containers
+title: Create Docker/Go app on Linux - Azure App Service
 description: How to deploy a Docker image running a Go application to Web App for Containers.
 keywords: azure app service, web app, go, docker, container
 services: app-service
@@ -13,6 +13,7 @@ ms.topic: quickstart
 ms.date: 01/17/2018
 ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
 # Deploy a Docker/Go web app in Web App for Containers
@@ -33,7 +34,7 @@ ms.custom: mvc
 
 ## Create a web app
 
-Create a [web app](../app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. Don't forget to replace `<app name>` with a globally unique app name.
+Create a [web app](../overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. Don't forget to replace `<app name>` with a globally unique app name.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name microsoft/azure-appservices-go-quickstart

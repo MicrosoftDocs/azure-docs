@@ -13,14 +13,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 10/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
 
 # Post ASDK installation configuration tasks
 
-After [installing the Azure Stack Development Kit (ASDK)](asdk-install.md), you will need to make a some recommended post-installation configuration changes.
+After [installing the Azure Stack Development Kit (ASDK)](asdk-install.md), you will need to make a some recommended post-installation configuration changes while logged in as AzureStack\AzureStackAdmin on the ASDK host computer. 
 
 ## Install Azure Stack PowerShell
 

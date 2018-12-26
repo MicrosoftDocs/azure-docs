@@ -1,23 +1,19 @@
 ---
 title: Azure Automation resources in management solutions | Microsoft Docs
 description: Management solutions will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  This article describes how to include runbooks and their related resources in a solution.
-services:  monitoring
+services: monitoring
 documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
-ms.service:  monitoring
-ms.devlang: na
+ms.service: monitoring
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
-
 ms.custom: H1Hack27Feb2017
-
 ---
 # Adding Azure Automation resources to a management solution (Preview)
 > [!NOTE]

@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - multiple name patterns
+title: Sample - multiple name patterns
 description: This sample policy requires that resource match one of the provided name patterns.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Allow multiple name patterns
 

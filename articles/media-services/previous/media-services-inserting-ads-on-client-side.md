@@ -90,7 +90,7 @@ A VAST file specifies what ad or ads to display. The following XML is an example
     </VAST>
 ```
 
-The linear ad is described by the <**Linear**> element. It specifies the duration of the ad, tracking events, click through, click tracking, and a number of **MediaFile** elements. Tracking events are specified within the <**TrackingEvents**> element and allow an ad server to track various events that occur while viewing the ad. In this case the start, midpoint, complete, and expand events are tracked. The start event occurs when the ad is displayed. The midpoint event occurs when at least 50% of the ad’s timeline has been viewed. The complete event occurs when the ad has run to the end. The Expand event occurs when the user expands the video player to full screen. Clickthroughs are specified with a <**ClickThrough**> element within a <**VideoClicks**> element and specifies a URI to a resource to display when the user clicks on the ad. ClickTracking is specified in a <**ClickTracking**> element, also within the <**VideoClicks**> element and specifies a tracking resource for the player to request when the user clicks on the ad. The <**MediaFile**> elements specify information about a specific encoding of an ad. When there is more than one <**MediaFile**> element, the video player can choose the best encoding for the platform. 
+The linear ad is described by the <**Linear**> element. It specifies the duration of the ad, tracking events, click through, click tracking, and a number of **MediaFile** elements. Tracking events are specified within the <**TrackingEvents**> element and allow an ad server to track various events that occur while viewing the ad. In this case the start, midpoint, complete, and expand events are tracked. The start event occurs when the ad is displayed. The midpoint event occurs when at least 50% of the ad’s timeline has been viewed. The complete event occurs when the ad has run to the end. The Expand event occurs when the user expands the video player to full screen. Clickthroughs are specified with a <**ClickThrough**> element within a <**VideoClicks**> element and specifies a URI to a resource to display when the user clicks on the ad. ClickTracking is specified in a <**ClickTracking**> element, also within the <**VideoClicks**> element and specifies a tracking resource for the player to request when the user clicks on the ad. The <**MediaFile**> elements specify information about a specific encoding of an ad. When there is more than one <**MediaFile**> element, the video player can choose the best encoding for the platform.
 
 Linear ads can be displayed in a specified order. To do this, add additional <Ad> elements to the VAST file and specify the order using the sequence attribute. The following example illustrates this:
 
@@ -321,16 +321,16 @@ A MAST file allows you to specify triggers that define when an ad is displayed. 
 ```
 
 
-A MAST file begins with a **MAST** element that contains one **triggers** element. The <triggers> element contains one or more **trigger** elements that define when an ad should be played. 
+A MAST file begins with a **MAST** element that contains one **triggers** element. The <triggers> element contains one or more **trigger** elements that define when an ad should be played.
 
-The **trigger** element contains a **startConditions** element that specify when an ad should begin to play. The **startConditions** element contains one or more <condition> elements. When each <condition> evaluates to true a trigger is initiated or revoked depending upon whether the <condition> is contained within a **startConditions** or **endConditions** element respectively. When multiple <condition> elements are present, they are treated as an implicit OR, any condition evaluating to true will cause the trigger to initiate. <condition> elements can be nested. When child <condition> elements are preset, they are treated as an implicit AND, all conditions must evaluate to true for the trigger to initiate. The <condition> element contains the following attributes that define the condition: 
+The **trigger** element contains a **startConditions** element that specify when an ad should begin to play. The **startConditions** element contains one or more <condition> elements. When each <condition> evaluates to true a trigger is initiated or revoked depending upon whether the <condition> is contained within a **startConditions** or **endConditions** element respectively. When multiple <condition> elements are present, they are treated as an implicit OR, any condition evaluating to true will cause the trigger to initiate. <condition> elements can be nested. When child <condition> elements are preset, they are treated as an implicit AND, all conditions must evaluate to true for the trigger to initiate. The <condition> element contains the following attributes that define the condition:
 
 1. **type** – specifies the type of condition, event, or property
 2. **name** – the name of the property or event to be used during evaluation
 3. **value** – the value that a property will be evaluated against
 4. **operator** – the operation to use during evaluation: EQ (equal), NEQ (not equal), GTR (greater), GEQ (greater or equal), LT (Less than), LEQ (less than or equal), MOD (modulo)
 
-**endConditions** also contain <condition> elements. When a condition evaluates to true the trigger is reset. The <trigger> element also contains a <sources> element that contains one or more <source> elements. The <source> elements define the URI to the ad response and the type of ad response. In this example, a URI is given to a VAST response. 
+**endConditions** also contain <condition> elements. When a condition evaluates to true the trigger is reset. The <trigger> element also contains a <sources> element that contains one or more <source> elements. The <source> elements define the URI to the ad response and the type of ad response. In this example, a URI is given to a VAST response.
 
 ```xml
     <trigger id="postroll" description="postroll"  >
@@ -348,7 +348,7 @@ The **trigger** element contains a **startConditions** element that specify when
 ### Using Video Player-Ad Interface Definition (VPAID)
 VPAID is an API for enabling executable ad units to communicate with a video player. This allows highly interactive ad experiences. The user can interact with the ad and the ad can respond to actions taken by the viewer. For example, an ad may display buttons that allow the user to view more information or a longer version of the ad. The video player must support the VPAID API and the executable ad must implement the API. When a player requests an ad from an ad server the server may respond with a VAST response that contains a VPAID ad.
 
-An executable ad is created in code that must be executed in a runtime environment such as Adobe Flash™ or JavaScript that can be executed in a web browser. When an ad server returns a VAST response containing a VPAID ad, the value of the apiFramework attribute in the <MediaFile> element must be “VPAID”. This attribute specifies that the contained ad is a VPAID executable ad. The type attribute must be set to the MIME type of the executable, such as “application/x-shockwave-flash” or “application/x-javascript”. The following XML snippet shows the <MediaFile> element from a VAST response containing a VPAID executable ad. 
+An executable ad is created in code that must be executed in a runtime environment such as Adobe Flash™ or JavaScript that can be executed in a web browser. When an ad server returns a VAST response containing a VPAID ad, the value of the apiFramework attribute in the <MediaFile> element must be “VPAID”. This attribute specifies that the contained ad is a VPAID executable ad. The type attribute must be set to the MIME type of the executable, such as “application/x-shockwave-flash” or “application/x-javascript”. The following XML snippet shows the <MediaFile> element from a VAST response containing a VPAID executable ad.
 
 ```xml
     <MediaFiles>
@@ -582,7 +582,7 @@ This sample uses the VmapSchedulerPlugin to schedule ads using a VMAP file. The 
 ```
 
 ## Implementing an iOS Video Player with Ad Support
-The Microsoft Media Platform: Player Framework for iOS contains a collection of sample applications that show you how to implement a video player application using the framework. You can download the Player Framework and the samples from [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework). The github page has a link to a Wiki that contains additional information on the player framework and an introduction to the player sample: [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+The Microsoft Media Platform: Player Framework for iOS contains a collection of sample applications that show you how to implement a video player application using the framework. You can download the Player Framework and the samples from [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework). The GitHub page has a link to a Wiki that contains additional information on the player framework and an introduction to the player sample: [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
 ### Scheduling Ads with VMAP
 The following example shows how to schedule ads using a VMAP file.
@@ -601,7 +601,7 @@ The following example shows how to schedule ads using a VMAP file.
                 if (![framework scheduleVMAPWithManifest:manifest])
                 {
                     [self logFrameworkError];
-                }          
+                }
             }
 ```
 

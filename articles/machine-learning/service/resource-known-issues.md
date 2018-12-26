@@ -1,6 +1,7 @@
 ---
-title: Known Issues and Troubleshooting for Azure Machine Learning service
-description: Get a list of the known issues, workarounds, and troubleshooting
+title: Known issues & troubleshooting
+titleSuffix: Azure Machine Learning service
+description: Get a list of the known issues, workarounds, and troubleshooting for Azure Machine Learning service.
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -9,6 +10,8 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 12/04/2018 
+ms.custom: seodec18
+
 ---
 # Known issues and troubleshooting Azure Machine Learning service
  
@@ -23,7 +26,7 @@ Azure Machine Learning SDK for Python: PyYAML is a distutils installed project. 
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
-## Azure Machine Learning Compute usage issue
+## Trouble creating Azure Machine Learning Compute
 There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create Azure Machine Learning Compute in that workspace. You can either raise a support request against the service or create a new workspace through the Portal or the SDK to unblock yourself immediately. 
 
 ## Image building failure

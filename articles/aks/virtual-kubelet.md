@@ -224,7 +224,7 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 For possible issues with the Virtual Kubelet, see the [Known quirks and workarounds][vk-troubleshooting]. To report problems with the Virtual Kubelet, [open a GitHub issue][vk-issues].
 
-Read more about Virtual Kubelet at the [Virtual Kubelet Github project][vk-github].
+Read more about Virtual Kubelet at the [Virtual Kubelet GitHub project][vk-github].
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md

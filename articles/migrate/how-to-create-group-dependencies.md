@@ -4,7 +4,7 @@ description: Describes how to refine an assessment using group dependency mappin
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ---
 
@@ -20,6 +20,9 @@ This article describes how to refine a group by visualizing dependencies of all 
 
 ## Prepare for dependency visualization
 Azure Migrate leverages Service Map solution in Log Analytics to enable dependency visualization of machines.
+
+> [!NOTE]
+> The dependency visualization functionality is not available in Azure Government.
 
 ### Associate a Log Analytics workspace
 To leverage dependency visualization, you need to associate a Log Analytics workspace, either new or existing, with an Azure Migrate project. You can only create or attach a workspace in the same subscription where the migration project is created.

@@ -31,7 +31,7 @@ capabilities for tracking messages:
 > [!NOTE]
 > This page previously described steps for how to perform these tasks 
 > with the Microsoft Operations Management Suite (OMS), which is 
-> [retiring in January 2019](../log-analytics/log-analytics-oms-portal-transition.md), 
+> [retiring in January 2019](../azure-monitor/platform/oms-portal-transition.md), 
 > replaces those steps with Azure Log Analytics instead. 
 
 ## Prerequisites

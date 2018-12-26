@@ -45,5 +45,5 @@ The following table shows the "read concerns" mapping between MongoDB 3.4 and th
 Read more about consistency levels and compatibility between Azure Cosmos DB APIs with the open-source APIs. See the following articles:
 
 * [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
-* [MongoDB features supported by the Azure Cosmos DB MongoDB API](mongodb-feature-support.md)
+* [MongoDB features supported by the Azure Cosmos DB for MongoDB API](mongodb-feature-support.md)
 * [Apache Cassandra features supported by the Azure Cosmos DB Cassandra API](cassandra-support.md)

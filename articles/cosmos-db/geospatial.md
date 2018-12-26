@@ -301,7 +301,7 @@ Similarly, here's a query for finding all the documents whose "location" is with
 Now that we've taken a look at how to query documents using LINQ and SQL, let's take a look at how to configure Azure Cosmos DB for spatial indexing.
 
 ## Indexing
-As we described in the [Schema Agnostic Indexing with Azure Cosmos DB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) paper, we designed Azure Cosmos DB’s database engine to be truly schema agnostic and provide first class support for JSON. The write optimized database engine of Azure Cosmos DB natively understands spatial data (points, Polygons, and lines) represented in the GeoJSON standard.
+As we described in the [Schema Agnostic Indexing with Azure Cosmos DB](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) paper, we designed Azure Cosmos DB’s database engine to be truly schema agnostic and provide first class support for JSON. The write optimized database engine of Azure Cosmos DB natively understands spatial data (points, Polygons, and lines) represented in the GeoJSON standard.
 
 In a nutshell, the geometry is projected from geodetic coordinates onto a 2D plane then divided progressively into cells using a **quadtree**. These cells are mapped to 1D based on the location of the cell within a **Hilbert space filling curve**, which preserves locality of points. Additionally when location data is indexed, it goes through a process known as **tessellation**, that is, all the cells that intersect a location are identified and stored as keys in the Azure Cosmos DB index. At query time, arguments like points and Polygons are also tessellated to extract the relevant cell ID ranges, then used to retrieve data from the index.
 
@@ -385,7 +385,7 @@ And here's how you can modify an existing collection to take advantage of spatia
 Now that you have learned how to get started with geospatial support in Azure Cosmos DB, next you can:
 
 * Start coding with the [Geospatial .NET code samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
-* Get hands on with geospatial querying at the [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
+* Get hands on with geospatial querying at the [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo#geospatial)
 * Learn more about [Azure Cosmos DB Query](how-to-sql-query.md)
 * Learn more about [Azure Cosmos DB Indexing Policies](index-policy.md)
 
