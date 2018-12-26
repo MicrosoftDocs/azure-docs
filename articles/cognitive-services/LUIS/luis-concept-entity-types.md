@@ -33,11 +33,11 @@ Entities are data you want to pull from the utterance. This can be a name, date,
 
 ## Entities are optional but highly recommended
 
-While intents are required, entities are optional. You do not need to create entities for every concept in your app, but only for those required for the app to take action. 
+While intents are required, entities are optional. You do not need to create entities for every concept in your app, but only for those required for the client application to take action. 
 
 If your utterances do not have details your bot needs to continue, you do not need to add them. As your app matures, you can add them later. 
 
-If you are not sure how you would use the information, add a few common prebuilt entities such as datetimeV2, ordinal, email, and phone number.
+If you are not sure how you would use the information, add a few common prebuilt entities such as [datetimeV2](luis-reference-prebuilt-datetimev2), [ordinal](luis-reference-prebuilt-ordinal.md), [email](luis-reference-prebuilt-email.md), and [phone number](luis-reference-prebuilt-phonenumber.md).
 
 ## Label for word meaning
 
@@ -56,19 +56,25 @@ If you wanted an event entity to find all event data, label the word `fair` in t
 
 Entities are shared among intents. They don't belong to any single intent. Intents and entities can be semantically associated but it is not an exclusive relationship.
 
-In the utterance "Book me a ticket to Paris", "Paris" is an entity of type location. By recognizing the entities that are mentioned in the user’s input, LUIS helps you choose the specific actions to take to fulfill an intent.
+In the utterance "Book me a ticket to Paris", "Paris" is an entity referring to location. By recognizing the entities that are mentioned in the user’s utterance, LUIS helps your client application choose the specific actions to take to fulfill the user's request.
 
-## Assign entities in None intent
+## Mark entities in None intent
 
-All intents, including the **None** intent, should have entities labeled. This helps LUIS learn more about where the entities are in the utterances and what words are around the entities. 
+All intents, including the **None** intent, should have marked entities, when possible. This helps LUIS learn more about where the entities are in the utterances and what words are around the entities. 
 
 ## Entity status for predictions
+
+The LUIS portal tells you when the entity in an example utterance is either different from the marked entity or is too close to another entity and therefore unclear. This is indicated by a red underline in the example utterance. 
 
 See [Entity Status predictions](luis-how-to-add-example-utterances.md#entity-status-predictions) for more information. 
 
 ## Types of entities
 
-LUIS offers many types of entities. 
+LUIS offers many types of entities. Choose the entity based on how the data should be extracted and how it should be represented after it is extracted.
+
+Entities can be extracted with machine-learning, which allows LUIS to continue learning about how the entity appears in the utterance. Entities can be extracted without machine-learning, matching either exact text or a regular expression. Entities in patterns can be extracted with a mixed implementation. 
+
+Once the entity is extracted, the entity data can be represented as a single unit of information or combined with other entities to form a unit of information the client-application can use.
 
 |Machine-learned|Can Mark|Tutorial|Example<br>Response|Entity type|Purpose|
 |--|--|--|--|--|--|
