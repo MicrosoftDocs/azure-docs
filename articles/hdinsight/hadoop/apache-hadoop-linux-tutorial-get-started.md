@@ -178,13 +178,13 @@ To create and run a Hive solution:
 
 [Apache Hive](hdinsight-use-hive.md) is the most popular component used in HDInsight. There are many ways to run Hive jobs in HDInsight. In this tutorial, you use the Ambari Hive view from the portal. For other methods for submitting Hive jobs, see [Use Apache Hive in HDInsight](hdinsight-use-hive.md).
 
-1. To open Ambari, from the previous screenshot, select **Cluster Dashboard**.  You can also browse to  **https://&lt;ClusterName>.azurehdinsight.net**, where &lt;ClusterName> is the cluster you created in the previous section.
+1. To open Ambari, from the **Cluster dashboards** tile, select **Ambari views**.  You can also browse to  **https://&lt;ClusterName>.azurehdinsight.net**, where &lt;ClusterName> is the cluster you created in the previous section.
 
     ![HDInsight Linux get started cluster dashboard](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-open-cluster-dashboard.png "HDInsight Linux get started cluster dashboard")
 
 2. Enter the Hadoop username and password that you specified while creating the cluster. The default username is **admin**.
 
-3. Open **Hive View** as shown in the following screenshot:
+3. Select **Hive View 2.0** as shown in the following screenshot:
    
     ![Selecting Ambari views](./media/apache-hadoop-linux-tutorial-get-started/selecthiveview.png "HDInsight Hive Viewer menu")
 
