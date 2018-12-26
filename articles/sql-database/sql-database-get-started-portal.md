@@ -40,7 +40,7 @@ An Azure SQL database has a defined set of [compute and storage resources](sql-d
    
    >[!IMPORTANT]
    >Make sure to select the **Sample (AdventureWorksLT)** data, so you can follow this and other Azure SQL Database quickstarts that use this data. 
-   >
+   
    ![Create Azure SQL database](./media/sql-database-get-started-portal/create-database-1.png)
    
 1. Select **Server**, and then select **Create a new server**. 
