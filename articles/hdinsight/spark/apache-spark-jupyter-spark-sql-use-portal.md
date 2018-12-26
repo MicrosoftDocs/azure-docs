@@ -25,7 +25,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Create an HDInsight Spark cluster
 
-1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **HDInsight**. 
+1. In the Azure portal, select **Create a resource** > **Analytics** > **HDInsight**. 
 
     ![HDInsight on Azure portal](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster.png "HDInsight on Azure portal")
 2. Under **Basics**, provide the following values:
