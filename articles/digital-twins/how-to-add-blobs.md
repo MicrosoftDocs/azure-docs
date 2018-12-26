@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/21/2018
 ms.author: adgera
 ---
 
@@ -16,10 +16,7 @@ Blobs are unstructured representations of common file types, like pictures and l
 
 Azure Digital Twins supports attaching blobs to devices, spaces, and users. Blobs can represent a profile picture for a user, a device photo, a video, a map, or a log.
 
-> [!NOTE]
-> This article assumes:
-> * That your instance is correctly configured to receive Management API requests.
-> * That you've correctly authenticated by using a REST client of your choice.
+[!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
 ## Uploading blobs: an overview
 
@@ -189,7 +186,7 @@ The returned JSON (**UserBlob** objects) conforms to the following JSON models:
 
 ## Common errors
 
-A common error is not including the correct header information:
+A common error is to not include the correct header information:
 
 ```JSON
 {
@@ -203,6 +200,8 @@ A common error is not including the correct header information:
 ## Next steps
 
 To learn more about Swagger reference documentation for Azure Digital Twins, read [Use Azure Digital Twins Swagger](how-to-use-swagger.md).
+
+To learn more about Types and Subtypes, read [How to work with Types and Subtypes](./how-to-work-with-types-and-subtypes.md).
 
 <!-- Images -->
 [1]: media/how-to-add-blobs/blob-models.PNG
