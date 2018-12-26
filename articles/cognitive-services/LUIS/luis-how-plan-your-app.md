@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 01/02/2019
 ms.author: diberry
 ---
 
@@ -42,51 +42,8 @@ In the example utterances, identify the entities you want extracted. To book a f
 
 When you determine which entities to use in your app, keep in mind that there are different types of entities for capturing relationships between types of objects. [Entities in LUIS](luis-concept-entity-types.md) provides more detail about the different types.
 
-### Simple entity
-
-A simple entity describes a single concept.
-
-![simple entity](./media/luis-plan-your-app/simple-entity.png)
-
-See [Data Extraction](luis-concept-data-extraction.md#simple-entity-data) to learn more about extracting the simple entity from the endpoint JSON query response. Try this [tutorial](luis-quickstart-primary-and-secondary-data.md) to learn more about how to use a simple entity. Learn more about the [concept](luis-concept-entity-types.md#simple-entity) of this entity.
-
-### Hierarchical entity
-A hierarchical entity is a special type of a **simple** entity; defining a category and its members in the form of parent-child relationship. The relationship is determined by context from within the utterance. Children of a hierarchical entity are also simple entities.
-
-![hierarchical entity](./media/luis-plan-your-app/hierarchical-entity.png)
-
-See [Data Extraction](luis-concept-data-extraction.md#hierarchical-entity-data) to learn more about extracting the hierarchical entity from the endpoint JSON query response. Try this [tutorial](luis-quickstart-intent-and-hier-entity.md) to learn more about how to use a hierarchical entity. Learn more about the [concept](luis-concept-entity-types.md#hierarchical-entity) of this entity.
-
-### Composite entity
-A composite entity is made up of other entities that form parts of a whole. A composite entity contains a variety of entity types.
-
-![composite entity](./media/luis-plan-your-app/composite-entity.png)
-
-See [Data Extraction](luis-concept-data-extraction.md#composite-entity-data) to learn more about extracting the composite entity from the endpoint JSON query response. Try this [tutorial](luis-tutorial-composite-entity.md) to learn more about how to use a composite entity. Learn more about the [concept](luis-concept-entity-types.md#composite-entity) of this entity.
-
-### Prebuilt entity
-LUIS provides [prebuilt entities](luis-prebuilt-entities.md) for common data types such as number, data, email address, and URL. You can use the number prebuilt entity for the number of tickets in a ticket order.
-
-![Number prebuilt entity](./media/luis-plan-your-app/number-entity.png)
-
-See [Data Extraction](luis-concept-data-extraction.md#prebuilt-entity-data) to learn more about extracting the Prebuilt entity from the endpoint JSON query response. Try this [tutorial](luis-tutorial-prebuilt-intents-entities.md) to learn more about how to use a composite entity. Learn more about the [concept](luis-concept-entity-types.md#prebuilt-entity) of this entity.
-
-### List entity 
-A list entity is an explicitly specified list of values. Each value consists of one or more synonyms. In a travel app, you might choose to create a list entity to represent airport names.
-
-![list entity](./media/luis-plan-your-app/list-entity.png)
-
-See [Data Extraction](luis-concept-data-extraction.md#list-entity-data) to learn more about extracting list entities from the endpoint JSON query response. Try this [tutorial](luis-quickstart-intent-and-list-entity.md) to learn more about how to use a list entity. Learn more about the [concept](luis-concept-entity-types.md#list-entity) of this entity.
-
-### Regular expression entity
-A regular expression entity allows LUIS to extract well-formatted data from an utterance based on a regular expression.
-
-![Regular expression entity](./media/luis-plan-your-app/regex-entity.png)
-
-See [Data Extraction](luis-concept-data-extraction.md#regular-expression-entity-data) to learn more about extracting regular expression entities from the endpoint JSON query response. Try the [tutorial](luis-quickstart-intents-regex-entity.md) to learn more about how to use a regular expression entity. Learn more about the [concept](luis-concept-entity-types.md#regular-expression-entity) of this entity.
-
-
 ## Next steps
+
 After your app is trained, published, and gets endpoint utterances, plan to implement prediction improvements with [active learning](luis-how-to-review-endoint-utt.md), [phrase lists](luis-concept-feature.md), and [patterns](luis-concept-patterns.md). 
 
 

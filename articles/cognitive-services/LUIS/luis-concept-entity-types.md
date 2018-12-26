@@ -92,7 +92,7 @@ Pattern.any entities need to be marked in the [Pattern](luis-how-to-model-intent
 
 Mixed entities use a combination of entity detection methods.
 
-### Composite entity
+## Composite entity
 
 A composite entity is made up of other entities, such as prebuilt entities, simple, regular expression, list, and hierarchical entities. The separate entities form a whole entity. 
 
@@ -104,6 +104,8 @@ This entity is a good fit when the data:
 * Need to be grouped and processed by the client application as a unit of information.
 * Have a variety of user utterances that require machine-learning.
 
+![composite entity](./media/luis-plan-your-app/composite-entity.png)
+
 [Tutorial](luis-tutorial-composite-entity.md)<br>
 [Example JSON response for entity](luis-concept-data-extraction.md#composite-entity-data)<br>
 
@@ -113,7 +115,7 @@ A composite entity named PlaneTicketOrder may have child entities prebuilt `numb
 `Book 2 tickets to Seattle`
 
 
-### Hierarchical entity
+## Hierarchical entity
 
 A hierarchical entity is a category of contextually learned simple entities called children.
 
@@ -129,6 +131,8 @@ Do not use if:
 
 * You need an entity that has exact text matches for children regardless of context. Use a [List entity](#list-entity) instead. 
 * You need an entity for a parent-child relationship with other entity types. Use the [Composite entity](#composite-entity).
+
+![hierarchical entity](./media/luis-plan-your-app/hierarchical-entity.png)
 
 [Tutorial](luis-quickstart-intent-and-hier-entity.md)<br>
 [Example JSON response for entity](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
@@ -149,6 +153,8 @@ The entity is a good fit when the text data:
 * Are a known set.
 * The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
 * The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Stemming, plurals, and other variations are not resolved with a list entity. To manage variations, consider using a [pattern](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax.
+
+![list entity](./media/luis-plan-your-app/list-entity.png)
 
 [Tutorial](luis-quickstart-intent-and-list-entity.md)<br>
 [Example JSON response for entity](luis-concept-data-extraction.md#list-entity-data)
@@ -180,6 +186,8 @@ In the following table, each row has two versions of the utterance. The top utte
 
 Prebuilt entities are built-in types that represent common concepts such as email, URL, and phone number. Prebuilt entity names are reserved. [All prebuilt entities](luis-prebuilt-entities.md) that are added to the application are returned in the endpoint prediction query if they are found in the utterance. 
 
+![Number prebuilt entity](./media/luis-plan-your-app/number-entity.png)
+
 [Tutorial](luis-tutorial-prebuilt-intents-entities.md)<br>
 [Example JSON response for entity](luis-concept-data-extraction.md#prebuilt-entity-data)
 
@@ -191,6 +199,8 @@ A regular expression is best for raw utterance text. It ignores case and ignores
 
 This entity is good for words or phrases that are consistently formatted with any variation that is also consistent.<br><br>
 
+![Regular expression entity](./media/luis-plan-your-app/regex-entity.png)
+
 [Tutorial](luis-quickstart-intents-regex-entity.md)<br>
 [Example JSON response for entity](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
 
@@ -199,6 +209,8 @@ This entity is good for words or phrases that are consistently formatted with an
 ## Simple entity 
 
 A simple entity is a generic entity that describes a single concept and is learned from the machine-learned context. Because simple entities are generally names such as company names, product names, or other categories of names, add a [phrase list](luis-concept-feature.md) when using a simple entity to boost the signal of the names used. 
+
+![simple entity](./media/luis-plan-your-app/simple-entity.png)
 
 This is a good entity for words or phrases that are not consistently formatted but indicate the same thing. 
 
