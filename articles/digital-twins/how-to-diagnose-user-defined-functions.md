@@ -1,13 +1,14 @@
 ---
-title: How to debug UDFs in Azure Digital Twins | Microsoft Docs
-description: Guideline about how to debug UDFs in Azure Digital Twins
+title: 'How to debug UDFs in Azure Digital Twins | Microsoft Docs'
+description: Guideline about how to debug UDFs in Azure Digital Twins.
 author: stefanmsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/26/2018
 ms.author: stefanmsft
+ms.custom: seodec18
 ---
 
 # How to debug issues with user-defined functions in Azure Digital Twins
@@ -25,7 +26,7 @@ Logs and metrics for your Azure Digital Twins instance are exposed through Azure
 > [!NOTE]
 > You may experience a 5 minute delay when sending events to **Log Analytics** for the first time.
 
-Read the article ["Collect and consume log data from your Azure resources"](../azure-monitor/platform/diagnostic-logs-overview.md) to enable diagnostic settings for your Azure Digital Twins instance through the Portal, Azure CLI, or PowerShell. Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
+Read the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md) to enable diagnostic settings for your Azure Digital Twins instance through the Portal, Azure CLI, or PowerShell. Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
 
 ### Trace sensor telemetry
 
@@ -51,7 +52,7 @@ AzureDiagnostics
 | where Category == 'UserDefinedFunction'
 ```
 
-For more information about powerful query operations, see [getting started with queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+For more information about powerful query operations, read [Getting started with queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
 
 ## Identify common issues
 
@@ -73,7 +74,7 @@ GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_U
 | --- | --- |
 | *YOUR_USER_DEFINED_FUNCTION_ID* | The ID of the user-defined function to retrieve role assignments for|
 
-If no role assignment is retrieved, follow this article on [How to create a role assignment for your user-defined function](./how-to-user-defined-functions.md).
+Learn [How to create a role assignment for your user-defined function](./how-to-user-defined-functions.md), if no role assignments exist.
 
 ### Check if the matcher will work for a sensor's telemetry
 
