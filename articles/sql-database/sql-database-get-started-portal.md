@@ -50,14 +50,15 @@ An Azure SQL database has a defined set of [compute and storage resources](sql-d
    **Password**: Type *Azure1234567*. 
    **Confirm Password**: Retype the password.
    **Location**: Drop down and select any valid location.  
-
+   
    >[!IMPORTANT]
-   >You need the server admin login and password to log in to the server and databases in this and other quickstarts. Remember or record this information. If you forget your server admin login or password, you can get the login name or reset the password on the **SQL server** page. After database creation, select the server name on the database **Overview** page to open the **SQL server** page. 
+   >You need the server admin login and password to log in to the server and databases in this and other quickstarts. Remember or record this information. If you forget your server admin login or password, you can get the login name or reset the password on the **SQL server** page. To open the **SQL server** page, select the server name on the database **Overview** page after database creation.
+   
+1. Select **Select**.
+   
    
    ![Create server](./media/sql-database-get-started-portal/create-database-server.png)
-
-1. Select **Select**.
-
+   
 1. On the **SQL Database** form, select **Pricing tier**. Explore the amount of DTUs and storage available for each service tier.
    
    >[!NOTE]
