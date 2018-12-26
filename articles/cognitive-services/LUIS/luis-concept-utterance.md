@@ -54,7 +54,7 @@ Take these example utterances:
 |I want to get a computer, how do I go about it?|
 |When can I have a computer?| 
 
-The core term here, "computer", is not varied. Use alternatives such as desktop computer, laptop, workstation, or even just machine. LUIS intelligently infers synonyms from context, but when you create utterances for training, it's still better to vary them.
+The core term here, "computer", isn't varied. Use alternatives such as desktop computer, laptop, workstation, or even just machine. LUIS intelligently infers synonyms from context, but when you create utterances for training, it's still better to vary them.
 
 ## Example utterances in each intent
 
@@ -64,7 +64,7 @@ Each intent needs to have example utterances, at least 15. If you have an intent
 
 In each iteration of the model, do not add a large quantity of utterances. Add utterances in quantities of 15. [Train](luis-how-to-train.md), [publish](luis-how-to-publish-app.md), and [test](luis-interactive-test.md) again.  
 
-LUIS builds effective models with utterances that are carefully selected by the LUIS model author. Adding too many utterances is not valuable because it introduces confusion.  
+LUIS builds effective models with utterances that are carefully selected by the LUIS model author. Adding too many utterances isn't valuable because it introduces confusion.  
 
 It is better to start with a few utterances, then [review endpoint utterances](luis-how-to-review-endoint-utt.md) for correct intent prediction and entity extraction.
 

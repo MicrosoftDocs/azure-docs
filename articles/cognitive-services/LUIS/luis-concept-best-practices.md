@@ -57,9 +57,9 @@ Consider the following example utterances:
 Use prediction data from LUIS to determine if your intents are overlapping. Overlapping intents confuse LUIS. The result is that the top scoring intent is too close to another intent. Because LUIS does not use the exact same path through the data for training each time, an overlapping intent has a chance of being first or second in training. You want the utterance's score for each intention to be farther apart so this doesn't happen. Good distinction for intents should result in the expected top intent every time. 
  
 ## Do build the app iteratively
-Keep a separate set of utterances that is not used as [example utterances](luis-concept-utterance.md) or endpoint utterances. Keep improving the app for your test set. Adapt the test set to reflect real user utterances. Use this test set to evaluate each iteration or version of the app. 
+Keep a separate set of utterances that isn't used as [example utterances](luis-concept-utterance.md) or endpoint utterances. Keep improving the app for your test set. Adapt the test set to reflect real user utterances. Use this test set to evaluate each iteration or version of the app. 
 
-Developers should have three sets of data. The first is the example utterances for building the model. The second is for testing the model at the endpoint. The third is the blind test data used in [batch testing](luis-how-to-batch-test.md). This last set is not used in training the application nor sent on the endpoint.  
+Developers should have three sets of data. The first is the example utterances for building the model. The second is for testing the model at the endpoint. The third is the blind test data used in [batch testing](luis-how-to-batch-test.md). This last set isn't used in training the application nor sent on the endpoint.  
 
 ## Do add phrase lists and patterns in later iterations
 [Phrase lists](luis-concept-feature.md) allow you to define dictionaries of words related to your app domain. Seed your phrase list with a few words then use the suggest feature so LUIS knows about more words in the vocabulary specific to your app. Don't add every word to the vocabulary since the phrase list isn't an exact match. 
@@ -94,7 +94,7 @@ After the app is published, only add utterances from active learning in the iter
 
 ## Don't use LUIS as a training platform
 
-LUIS is specific to a language model's domain. It is not meant to work as a general natural language training platform. 
+LUIS is specific to a language model's domain. It isn't meant to work as a general natural language training platform. 
 
 ## Don't add many example utterances of the same format, ignoring other formats
 
