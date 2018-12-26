@@ -60,7 +60,7 @@ AzureDiagnostics
 | where Category == 'UserDefinedFunction'
 ```
 
-For more information about powerful query operations, read [Getting started with queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+For more information about powerful query operations, read [Getting started with queries](../azure-monitor/log-query/get-started-queries.md).
 
 ## Identify common issues
 
