@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 12/26/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -17,7 +17,7 @@ ms.component: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-[Custom policies](active-directory-b2c-overview-custom.md) are configuration files that define the behavior of your Azure Active Directory (Azure AD) B2C tenant. In this article, you create a custom policy that supports local account sign-up or sign-in by using an email address and password. You also prepare your environment for adding identity providers, such as Facebook or Azure Active Directory.
+[Custom policies](active-directory-b2c-overview-custom.md) are configuration files that define the behavior of your Azure Active Directory (Azure AD) B2C tenant. In this article, you create a custom policy that supports local account sign-up or sign-in by using an email address and password. You also prepare your environment for adding identity providers, such as Facebook.
 
 ## Prerequisites
 
@@ -27,9 +27,6 @@ If you don't have one already, you need to [create an Azure AD B2C tenant](tutor
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant. 
-
-    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
-
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 4. On the Overview page, select **Identity Experience Framework - PREVIEW**.
 
@@ -62,32 +59,17 @@ If you already have a [Facebook application secret](active-directory-b2c-setup-f
 5. For **Key usage**, select **Signature**.
 6. Click **Create**.
 
-## Register applications
+## Register an application
 
-Azure AD B2C requires you to register two applications that are used to sign up and sign in users: IdentityExperienceFramework (a web app), and ProxyIdentityExperienceFramework (a native app) with delegated permission from the IdentityExperienceFramework app. Local accounts exist only in your tenant. Your users sign up with a unique email address/password combination to access your tenant-registered applications.
+An application is registered in Azure Active Directory (Azure AD) B2C to enable a user to sign up and sign in with a local account that exists in your tenant. Your users sign up with a unique email address and password to access the registered application.
 
-### Register the IdentityExperienceFramework application
-
-1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure Active Directory**, and then select **App registrations**.
+1. Choose **All services** in the top-left corner of the Azure portal, search for and select **App registrations**.
 2. Select **New application registration**.
-3. For **Name**, enter `IdentityExperienceFramework`.
-4. For **Application type**, choose **Web app/API**.
-5. For **Sign-on URL**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is your Azure AD B2C tenant domain name.
-6. Click **Create**. 
-7. After it's created, copy the application ID and save it to use later.
-
-### Register the ProxyIdentityExperienceFramework application
-
-1. Select **App registrations**, and then select **New application registration**.
-2. For **Name**, enter `ProxyIdentityExperienceFramework`.
-3. For **Application type**, choose **Native**.
-4. For **Redirect URI**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `yourtenant` is your Azure AD B2C tenant.
-5. Click **Create**. After it's created, copy the application ID and save it to use later.
-6. On the Settings page, select **Required permissions**, and then select **Add**.
-7. Select **Select an API**.
-8. Search for and select **IdentityExperienceFramework**, and then click **Select**.
-9. Select the check box next to **Access IdentityExperienceFramework**, click **Select**, and then click **Done**.
-10. Select **Grant Permissions**, and then confirm by selecting **Yes**.
+3. For **Name**, enter `ProxyIdentityExperienceFramework`.
+4. For **Application type**, choose **Native**.
+5. For **Redirect URI**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is the name of your Azure AD B2C tenant.
+6. Click **Create**. After it's created, copy the application ID and save it to use later.
+7. Select **Grant Permissions**, and then confirm by selecting **Yes**.
 
 ## Download starter pack and modify policies
 
@@ -113,17 +95,14 @@ Each starter pack contains:
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-2. In the SocialAndLocalAccounts folder, edit all of the files replacing `yourtenant.onmicrosoft.com` with the name for your tenant. For example, `contosoTenant.onmicrosoft.com`. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
+2. In the SocialAndLocalAccounts folder, edit all of the files replacing `yourtenant` with the name for your tenant. For example, `contosoTenant.onmicrosoft.com`. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
 
 ### Add application IDs to the custom policy
 
-Add the application IDs to the extensions file *TrustFrameworkExtensions.xml*.
+Add the application ID to the extensions file *TrustFrameworkExtensions.xml*.
 
 1. Open the *TrustFrameworkExtensions.xml* file and find the element `<TechnicalProfile Id="login-NonInteractive">`.
-2. Replace both instances of `IdentityExperienceFrameworkAppId` with the application ID of the Identity Experience Framework application that you created earlier. Replace both instances of `ProxyIdentityExperienceFrameworkAppId` with the application ID of the Proxy Identity Experience Framework application that you created earlier. The following example shows the **login-NonInteractive** technical profile after the changes:
-
-    ![Application Ids](./media/active-directory-b2c-get-started-custom/login-NonInteractive.png)
-
+2. Replace both instances of `ProxyIdentityExperienceFrameworkAppId` with the application ID of the ProxyIdentityExperienceFramework application that you created earlier.
 3. Save your extensions file.
 
 ## Upload the policies
