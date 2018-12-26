@@ -28,7 +28,7 @@ Review [Azure Site Recovery pricing](https://azure.microsoft.com/blog/know-exact
 ## Replication
 
 ### Can I replicate Azure disk encryption enabled VMs?
-Yes, you can replicate them. Refer [article](azure-to-azure-how-to-enable-replication-ade-vms.md) to enable replication of Azure disk encryption (ADE) enabled VMs.
+Yes, you can replicate them. Refer [article](azure-to-azure-how-to-enable-replication-ade-vms.md) to enable replication of Azure disk encryption (ADE) enabled VMs. Please note that only Azure VMs running Windows OS and enabled for encryption with Azure AD app are currently supported by Azure Site Recovery.
 
 ### Can I replicate VMs to another subscription?
 Yes, You can replicate Azure VMs to a different subscription with in the same Azure Active Directory tenant.
@@ -128,15 +128,30 @@ Recovery plans in Site Recovery orchestrates failover recovery of VMs. It help m
 - Defining the dependencies between the virtual machines so that the application comes up accurately.
 - Automating the recovery along with custom manual actions so that tasks other than the failover of the virtual machines can also be achieved.
 
+[Learn more](site-recovery-create-recovery-plans.md) about recovery plans.
+
 ### How does sequencing is achieved in a Recovery Plan ?
 
-In Recovery Plan, you can create multiple groups to achieve sequencing. Every group failover at a time, which means VMs that are part of same group will failover together followed by another group.
+In Recovery Plan, you can create multiple groups to achieve sequencing. Every group failover at a time, which means VMs that are part of same group will failover together followed by another group. Check how to [model application using the recovery plan.](https://review.docs.microsoft.com/azure/site-recovery/recovery-plan-overview?branch=pr-en-us-61681#model-apps) 
 
 ### How can I find the RTO of a recovery plan?
 To check the RTO of a Recovery plan, test failover the Recovery plan and go to the site Recovery Jobs.
 For example as shown below, SAP Test Recovery Plan took 8 minutes 59 seconds to failover all the virtual machines and perform any actions specified.
 
   ![com-error](./media/azure-to-azure-troubleshoot-errors/recoveryplanrto.PNG)
+
+### Can I add automation runbooks to the Recovery Plan?
+Yes, you can integrate Azure automation runbooks into your recovery plan. [Learn more](site-recovery-runbook-automation.md)
+
+## Reprotect and Failback 
+
+### After doing a failover from primary region to disaster recovery region does VMs in a DR regions gets protected automatically?
+No, when you [failover](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) Azure VMs from one region to another, the VMs boot up in the DR region in an unprotected state. To fail back the VMs to the primary region, you need to [reprotect](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) the VMs in the secondary region.
+
+### At the time of reprotection does ASR replicate complete data from secondary region to primary region?
+It depends on the situation, for example if the source region VM exist then only changes between the source disk and the target disk are synchronized. The differentials are computed by comparing both the disks and then transferred. This usually take a few hours to complete. Refer [article]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) to learn details about what happens during reprotection.
+
+### How much time does it take t 
 
 ## Next steps
 * [Review](azure-to-azure-support-matrix.md) support requirements.
