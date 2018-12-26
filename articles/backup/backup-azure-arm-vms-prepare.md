@@ -180,7 +180,7 @@ On the NSG **NSF-lockdown**, allow traffic from any port on 10.0.0.5 to any inte
     Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
     Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
     ```
-### Allow firewall acess with FQDN tag
+### Allow firewall access with FQDN tag
 
 You can set up the Azure Firewall to allow outbound access for network traffic to Azure Backup. 
 
