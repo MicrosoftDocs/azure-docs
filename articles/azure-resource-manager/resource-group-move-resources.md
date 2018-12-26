@@ -49,7 +49,6 @@ The following list provides a general summary of Azure services that can be move
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
 * App Service Certificates - see [App Service Certificate limitations](#app-service-certificate-limitations)
-* Application Insights
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
@@ -88,6 +87,7 @@ The following list provides a general summary of Azure services that can be move
 * Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)
 * Managed Identity - user-assigned
 * Media Services
+* Monitor - make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#monitor-limits)
 * Notification Hubs
 * Operational Insights
 * Operations Management
@@ -123,6 +123,7 @@ The following list provides a general summary of Azure services that can't be mo
 * Application Gateway
 * Azure Database Migration
 * Azure Databricks
+* Azure Firewall
 * Azure Migrate
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
 * Container Instances
