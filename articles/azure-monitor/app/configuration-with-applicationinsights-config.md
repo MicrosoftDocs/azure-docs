@@ -27,7 +27,7 @@ some of them.
 The configuration file is named `ApplicationInsights.config` or `ApplicationInsights.xml`, depending on the type of your
 application. It is automatically added to your project when you [install most versions of the SDK][start]. It is also added to a web app
 by [Status Monitor on an IIS server][redfield], or when you select the Application Insights
-[extension for an Azure website or VM](app-insights-azure-web-apps.md).
+[extension for an Azure website or VM](azure-web-apps.md).
 
 There isn't an equivalent file to control the [SDK in a web page][client].
 
@@ -42,15 +42,15 @@ Each telemetry module collects a specific type of data and uses the core API to 
 There's a node in the configuration file for each module. To disable a module, delete the node or comment it out.
 
 ### Dependency Tracking
-[Dependency tracking](../azure-monitor/app/asp-net-dependencies.md) collects telemetry about calls your app makes to databases and external services and databases. To allow this module to work in an IIS server, you need to [install Status Monitor][redfield]. To use it in Azure web apps or VMs, [select the Application Insights extension](app-insights-azure-web-apps.md).
+[Dependency tracking](../../azure-monitor/app/asp-net-dependencies.md) collects telemetry about calls your app makes to databases and external services and databases. To allow this module to work in an IIS server, you need to [install Status Monitor][redfield]. To use it in Azure web apps or VMs, [select the Application Insights extension](azure-web-apps.md).
 
-You can also write your own dependency tracking code using the [TrackDependency API](../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+You can also write your own dependency tracking code using the [TrackDependency API](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet package.
 
 ### Performance collector
-[Collects system performance counters](app-insights-performance-counters.md) such as CPU, memory, and network load from IIS installations. You can specify which counters to collect, including performance counters you have set up yourself.
+[Collects system performance counters](../../application-insights/app-insights-performance-counters.md) such as CPU, memory, and network load from IIS installations. You can specify which counters to collect, including performance counters you have set up yourself.
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
 * [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet package.
@@ -70,7 +70,7 @@ tracked by this module appears in the [Diagnostic Search][diagnostic]. Sends dia
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet package
 
 ### Web Request Tracking
-Reports the [response time and result code](../azure-monitor/app/asp-net.md) of HTTP requests.
+Reports the [response time and result code](../../azure-monitor/app/asp-net.md) of HTTP requests.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package
@@ -85,19 +85,19 @@ Reports the [response time and result code](../azure-monitor/app/asp-net.md) of 
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet package.
 
 ### EventSource Tracking
-`EventSourceTelemetryModule` allows you to configure EventSource events to be sent to Application Insights as traces. For information on tracking EventSource events, see [Using EventSource Events](../azure-monitor/app/asp-net-trace-logs.md#using-eventsource-events).
+`EventSourceTelemetryModule` allows you to configure EventSource events to be sent to Application Insights as traces. For information on tracking EventSource events, see [Using EventSource Events](../../azure-monitor/app/asp-net-trace-logs.md#using-eventsource-events).
 
 * `Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule`
 * [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
 
 ### ETW Event Tracking
-`EtwCollectorTelemetryModule` allows you to configure events from ETW providers to be sent to Application Insights as traces. For information on tracking ETW events, see [Using ETW Events](../azure-monitor/app/asp-net-trace-logs.md#using-etw-events).
+`EtwCollectorTelemetryModule` allows you to configure events from ETW providers to be sent to Application Insights as traces. For information on tracking ETW events, see [Using ETW Events](../../azure-monitor/app/asp-net-trace-logs.md#using-etw-events).
 
 * `Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule`
 * [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
 ### Microsoft.ApplicationInsights
-The Microsoft.ApplicationInsights package provides the [core API](https://msdn.microsoft.com/library/mt420197.aspx) of the SDK. The other telemetry modules use this, and you can also [use it to define your own telemetry](../azure-monitor/app/api-custom-events-metrics.md).
+The Microsoft.ApplicationInsights package provides the [core API](https://msdn.microsoft.com/library/mt420197.aspx) of the SDK. The other telemetry modules use this, and you can also [use it to define your own telemetry](../../azure-monitor/app/api-custom-events-metrics.md).
 
 * No entry in ApplicationInsights.config.
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you just install this NuGet, no .config file is generated.
@@ -111,7 +111,7 @@ The telemetry channel manages buffering and transmission of telemetry to the App
 ## Telemetry Initializers (ASP.NET)
 Telemetry initializers set context properties that are sent along with every item of telemetry.
 
-You can [write your own initializers](../azure-monitor/app/api-filtering-sampling.md#add-properties) to set context properties.
+You can [write your own initializers](../../azure-monitor/app/api-filtering-sampling.md#add-properties) to set context properties.
 
 The standard initializers are all set either by the Web or WindowsServer NuGet packages:
 
@@ -132,11 +132,11 @@ The standard initializers are all set either by the Web or WindowsServer NuGet p
 * `OperationNameTelemetryInitializer` updates the `Name` property of the `RequestTelemetry` and the `Name` property of the `Operation` context of all telemetry items based on the HTTP method, as well as names of ASP.NET MVC controller and action invoked to process the request.
 * `OperationIdTelemetryInitializer` or `OperationCorrelationTelemetryInitializer` updates the `Operation.Id` context property of all telemetry items tracked while handling a request with the automatically generated `RequestTelemetry.Id`.
 * `SessionTelemetryInitializer` updates the `Id` property of the `Session` context for all telemetry items with value extracted from the `ai_session` cookie generated by the ApplicationInsights JavaScript instrumentation code running in the user's browser.
-* `SyntheticTelemetryInitializer` or `SyntheticUserAgentTelemetryInitializer` updates the `User`, `Session`, and `Operation` contexts properties of all telemetry items tracked when handling a request from a synthetic source, such as an availability test or search engine bot. By default, [Metrics Explorer](app-insights-metrics-explorer.md) does not display synthetic telemetry.
+* `SyntheticTelemetryInitializer` or `SyntheticUserAgentTelemetryInitializer` updates the `User`, `Session`, and `Operation` contexts properties of all telemetry items tracked when handling a request from a synthetic source, such as an availability test or search engine bot. By default, [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md) does not display synthetic telemetry.
 
     The `<Filters>` set identifying properties of the requests.
 * `UserTelemetryInitializer` updates the `Id` and `AcquisitionDate` properties of `User` context for all telemetry items with values extracted from the `ai_user` cookie generated by the Application Insights JavaScript instrumentation code running in the user's browser.
-* `WebTestTelemetryInitializer` sets the user id, session id, and synthetic source properties for HTTP requests that come from [availability tests](app-insights-monitor-web-app-availability.md).
+* `WebTestTelemetryInitializer` sets the user id, session id, and synthetic source properties for HTTP requests that come from [availability tests](../../application-insights/app-insights-monitor-web-app-availability.md).
   The `<Filters>` set identifying properties of the requests.
 
 For .NET applications running in Service Fabric, you can include the `Microsoft.ApplicationInsights.ServiceFabric` NuGet package. This package includes a `FabricTelemetryInitializer`, which adds Service Fabric properties to telemetry items. For more information, see the [GitHub page](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) about the properties added by this NuGet package.
@@ -144,7 +144,7 @@ For .NET applications running in Service Fabric, you can include the `Microsoft.
 ## Telemetry Processors (ASP.NET)
 Telemetry processors can filter and modify each telemetry item just before it is sent from the SDK to the portal.
 
-You can [write your own telemetry processors](../azure-monitor/app/api-filtering-sampling.md#filtering).
+You can [write your own telemetry processors](../../azure-monitor/app/api-filtering-sampling.md#filtering).
 
 #### Adaptive sampling telemetry processor (from 2.0.0-beta3)
 This is enabled by default. If your app sends a lot of telemetry, this processor removes some of it.
@@ -161,10 +161,10 @@ This is enabled by default. If your app sends a lot of telemetry, this processor
 
 The parameter provides the target that the algorithm tries to achieve. Each instance of the SDK works independently, so if your server is a cluster of several machines, the actual volume of telemetry will be multiplied accordingly.
 
-[Learn more about sampling](app-insights-sampling.md).
+[Learn more about sampling](../../application-insights/app-insights-sampling.md).
 
 #### Fixed-rate sampling telemetry processor (from 2.0.0-beta1)
-There is also a standard [sampling telemetry processor](../azure-monitor/app/api-filtering-sampling.md) (from 2.0.1):
+There is also a standard [sampling telemetry processor](../../azure-monitor/app/api-filtering-sampling.md) (from 2.0.1):
 
 ```XML
 
@@ -240,7 +240,7 @@ Determines the maximum size in MB that is allotted to the persistent storage on 
 
 #### Local forwarder
 
-[Local forwarder](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and frameworks and routes it to Application Insights. It's capable of running under Windows and Linux. When coupled with the Application Insights Java SDK the local forwarder provides full support for [Live Metrics](app-insights-live-stream.md) and adaptive sampling.
+[Local forwarder](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and frameworks and routes it to Application Insights. It's capable of running under Windows and Linux. When coupled with the Application Insights Java SDK the local forwarder provides full support for [Live Metrics](../../application-insights/app-insights-live-stream.md) and adaptive sampling.
 
 ```xml
 <Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
@@ -384,11 +384,11 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationI
 
 <!--Link references-->
 
-[api]: ../azure-monitor/app/api-custom-events-metrics.md
-[client]: app-insights-javascript.md
-[diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: ../azure-monitor/app/asp-net-exceptions.md
-[netlogs]: ../azure-monitor/app/asp-net-trace-logs.md
-[new]: app-insights-create-new-resource.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-overview.md
+[api]: ../../azure-monitor/app/api-custom-events-metrics.md
+[client]: ../../application-insights/app-insights-javascript.md
+[diagnostic]: ../../application-insights/app-insights-diagnostic-search.md
+[exceptions]: ../../azure-monitor/app/asp-net-exceptions.md
+[netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
+[new]: ../../application-insights/app-insights-create-new-resource.md
+[redfield]: ../../application-insights/app-insights-monitor-performance-live-website-now.md
+[start]: ../../application-insights/app-insights-overview.md

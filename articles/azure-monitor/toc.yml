@@ -262,9 +262,9 @@
       - name: Azure apps
         items:
         - name: Azure web apps
-          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
+          href: app/azure-web-apps.md
         - name: Azure Cloud Services
-          href: ../application-insights/app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json
+          href: app/cloudservices.md
         - name: Add continuous monitoring
           href: ../application-insights/app-insights-vsts-continuous-monitoring.md?toc=/azure/azure-monitor/toc.json
         - name: Profiler
@@ -305,7 +305,7 @@
           - name: Profiler for Linux App services
             href: ../application-insights/app-insights-profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json
         - name: Console
-          href: ../application-insights/application-insights-console.md?toc=/azure/azure-monitor/toc.json
+          href: app/console.md
         - name: Application dashboard
           href: ../application-insights/app-insights-overview-dashboard.md?toc=/azure/azure-monitor/toc.json
         - name: Collect more telemetry
@@ -321,7 +321,7 @@
         - name: Release annotations
           href: app/annotations.md
         - name: ApplicationInsights.config
-          href: ../application-insights/app-insights-configuration-with-applicationinsights-config.md?toc=/azure/azure-monitor/toc.json
+          href: app/configuration-with-applicationinsights-config.md
         - name: Snapshot Debugger
           href: ../application-insights/app-insights-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
       - name: Java apps
@@ -416,7 +416,7 @@
       - name: Azure PaaS resources
         href: platform/collect-azurepass-posh.md
       - name: Correlate custom data sources
-        href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
+        href: app/custom-data-correlation.md
     - name: Collect custom data 
       items:
       - name: Log Analytics Data collector API 
@@ -457,7 +457,7 @@
           - name: Code samples
             items:
             - name: Export to SQL using Stream Analytics
-              href: ../application-insights/app-insights-code-sample-export-sql-stream-analytics.md?toc=/azure/azure-monitor/toc.json
+              href: app/code-sample-export-sql-stream-analytics.md
             - name: Export to Stream Analytics
               href: ../application-insights/app-insights-export-stream-analytics.md?toc=/azure/azure-monitor/toc.json
         - name: Export data model
@@ -875,7 +875,7 @@
       - name: API for custom events and metrics
         href: app/api-custom-events-metrics.md
       - name: Track custom operations in .NET SDK
-        href: ../application-insights/application-insights-custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json
+        href: app/custom-operations-tracking.md
       - name: Filtering and preprocessing telemetry
         href: app/api-filtering-sampling.md
       - name: Sampling
@@ -903,7 +903,7 @@
     - name: Dependency auto-collection
       href: app/auto-collect-dependencies.md
     - name: Telemetry correlation
-      href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
+      href: app/correlation.md
     - name: NuGet packages
       href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
     - name: Platform support
