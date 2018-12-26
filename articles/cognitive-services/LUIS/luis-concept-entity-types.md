@@ -77,7 +77,7 @@ LUIS offers many types of entities.
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**List**](#list-entity)|List of items and their synonyms extracted with exact text match.|
 |Mixed||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#pattern-any-entity)|Entity where end of entity is difficult to determine.|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prebuilt**](#prebuilt-entity)|Already trained to extract various kinds of data.|
-|||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction#regular-expression-entity-data)|[**Regular Expression**](#regular-expression-entity)|Uses regular expression to match text.|
+|||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Regular Expression**](#regular-expression-entity)|Uses regular expression to match text.|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Simple**](#simple-entity)|Contains a single concept in word or phrase.|
 
 Only Machine-learned entities need to be marked in the example utterances for every intent. Machine-learned entities work best when tested via [endpoint queries](luis-concept-test.md#endpoint-testing) and [reviewing endpoint utterances](luis-how-to-review-endoint-utt.md). 
@@ -184,7 +184,7 @@ Custom regular expression for formatted raw utterance text. It ignores case and 
 This entity is good for words or phrases that are consistently formatted with any variation that is also consistent.<br><br>
 
 [Tutorial](luis-quickstart-intents-regex-entity.md)<br>
-[Example JSON response for entity](luis-concept-data-extraction#regular-expression-entity-data)<br>
+[Example JSON response for entity](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
 
 **Example**<br>`kb[0-9]{6,}` matches kb123456.
 
