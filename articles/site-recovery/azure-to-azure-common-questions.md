@@ -45,7 +45,7 @@ Yes, you can exclude disks at the time of protection using power shell. Refer [p
 Replication is continuous when replicating Azure VMs to another Azure region. Check the [Azure to Azure](https://review.docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture?branch=pr-en-us-61681#replication-process) replication architecture to understand the details.
 
 ### Can I replicate Virtual machines within a same region? I need this to migrate VMs?
-You can not use Azure to Azure DR solution to replicate VMs within a same region.
+You cannot use Azure to Azure DR solution to replicate VMs within a same region.
 
 ### Can I replicate VMs to any Azure region?
 With Site Recovery, you can replicate and recover VMs between any two regions within the same geographic cluster. Geographic clusters are defined keeping data latency and sovereignty in mind. For more information, see Site Recovery [region support matrix](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support).
@@ -107,7 +107,7 @@ Yes, you can retain private IP address. By default, when you enable disaster rec
 
 ### After failover, the server does not have the same IP address as the source VM. Why is it assigned with a new IP address?
 
-Site Recovery try to provide the IP address on the best effort basis at the time of fail over. In case it is being taken by some other virtual machine, the next available IP address is set as the target. 
+Site Recovery tries to provide the IP address on the best effort basis at the time of failover. In case it is being taken by some other virtual machine, the next available IP address is set as the target. 
 For a full explanation of how Site Recovery handles addressing, [review this article.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms)
 
 ### What does Latest(lowest RPO) recovery points means?
@@ -122,7 +122,7 @@ This option fails over all VMs in the plan to the latest recovery point processe
 ## Recovery Plan
 
 ### What is a Recovery Plan ?
-Recovery plans in Site Recovery orchestrates failover recovery of VMs. It help make the recovery consistently accurate, repeatable, and automated. A recovery plan addresses the following needs for the user:
+Recovery plans in Site Recovery orchestrate failover recovery of VMs. It helps make the recovery consistently accurate, repeatable, and automated. A recovery plan addresses the following needs for the user:
 
 - Defining a group of virtual machines that failover together.
 - Defining the dependencies between the virtual machines so that the application comes up accurately.
@@ -130,12 +130,12 @@ Recovery plans in Site Recovery orchestrates failover recovery of VMs. It help m
 
 [Learn more](site-recovery-create-recovery-plans.md) about recovery plans.
 
-### How does sequencing is achieved in a Recovery Plan ?
+### How does sequencing is achieved in a Recovery Plan?
 
 In Recovery Plan, you can create multiple groups to achieve sequencing. Every group failover at a time, which means VMs that are part of same group will failover together followed by another group. Check how to [model application using the recovery plan.](https://review.docs.microsoft.com/azure/site-recovery/recovery-plan-overview?branch=pr-en-us-61681#model-apps) 
 
 ### How can I find the RTO of a recovery plan?
-To check the RTO of a Recovery plan, test failover the Recovery plan and go to the site Recovery Jobs.
+To check the RTO of a Recovery plan, test failover the Recovery plan and go to the Site Recovery Jobs.
 For example as shown below, SAP Test Recovery Plan took 8 minutes 59 seconds to failover all the virtual machines and perform any actions specified.
 
   ![com-error](./media/azure-to-azure-troubleshoot-errors/recoveryplanrto.PNG)
@@ -145,10 +145,10 @@ Yes, you can integrate Azure automation runbooks into your recovery plan. [Learn
 
 ## Reprotect and Failback 
 
-### After doing a failover from primary region to disaster recovery region does VMs in a DR regions gets protected automatically?
+### After doing a failover from primary region to disaster recovery region does VMs in a DR region gets protected automatically?
 No, when you [failover](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) Azure VMs from one region to another, the VMs boot up in the DR region in an unprotected state. To fail back the VMs to the primary region, you need to [reprotect](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) the VMs in the secondary region.
 
-### At the time of reprotection does ASR replicate complete data from secondary region to primary region?
+### At the time of reprotection does Site Recovery replicate complete data from secondary region to primary region?
 It depends on the situation, for example if the source region VM exist then only changes between the source disk and the target disk are synchronized. The differentials are computed by comparing both the disks and then transferred. This usually take a few hours to complete. Refer [article]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) to learn details about what happens during reprotection.
 
 ### How much time does it take t 
