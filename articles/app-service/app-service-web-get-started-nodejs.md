@@ -85,10 +85,11 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. 
 
 In the following example, replace `<app_name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
+Then, set the desired Node runtime (node|10.6). To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
 
 ```azurecli-interactive
 # Bash and Powershell
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name>
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "node|10.6"
 ```
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
@@ -105,15 +106,6 @@ When the web app has been created, the Azure CLI shows output similar to the fol
   "enabled": true,
   < JSON data removed for brevity. >
 }
-```
-
-### Set Node.js runtime
-
-Set the Node runtime to 8.11.1. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
-
-```azurecli-interactive
-# Bash and Powershell
-az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
 Browse to your newly created web app. Replace `<app_name>` with a unique app name.
