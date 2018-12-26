@@ -25,7 +25,7 @@ For all steps in this quickstart, sign in to the [Azure portal](https://portal.a
 
 An Azure SQL database has a defined set of [compute and storage resources](sql-database-service-tiers-dtu.md). You create the database in an [Azure SQL Database logical server](sql-database-features.md) within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
-**To create a SQL database containing the AdventureWorksLT sample data:**
+To create a SQL database containing the AdventureWorksLT sample data:
 
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
    
@@ -39,7 +39,7 @@ An Azure SQL database has a defined set of [compute and storage resources](sql-d
    - **Select source**: Drop down and select **Sample (AdventureWorksLT)**. 
    
    >[!IMPORTANT]
-   >Make sure to select the **Sample (AdventureWorksLT)** data, so you can follow this and other Azure SQL Database quickstarts that use this data. 
+   >Make sure to select the **Sample (AdventureWorksLT)** data so you can follow this and other Azure SQL Database quickstarts that use this data. 
    
    ![Create Azure SQL database](./media/sql-database-get-started-portal/create-database-1.png)
    
@@ -66,7 +66,7 @@ An Azure SQL database has a defined set of [compute and storage resources](sql-d
    >This quickstart uses the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), but the [vCore-based purchasing model](sql-database-service-tiers-vcore.md) is also available.
    
    >[!NOTE]
-   >More than 1 TB of storage in the Premium tier is currently available in all regions except: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast, China North, and US Gov East. In these regions, the storage max in the Premium tier is limited to 1 TB. For more information, see [P11-P15 Current Limitations]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >More than 1 TB of storage in the Premium tier is currently available in all regions except: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast, China North, and US Gov East. In these regions, the storage max in the Premium tier is limited to 1 TB. For more information, see [P11-P15 current limitations](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    
 1. For this quickstart, select the **Standard** service tier, and then use the slider to select **10 DTUs (S0)** and **1** GB of storage.
    
