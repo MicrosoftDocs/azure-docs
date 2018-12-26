@@ -11,7 +11,7 @@ ms.author: stefanmsft
 ms.custom: seodec18
 ---
 
-# How to debug issues with user-defined functions in Azure Digital Twins
+# How to debug user-defined functions in Azure Digital Twins
 
 This article summarizes how to diagnose user-defined functions. Then, it identifies some of the most common scenarios encountered when working with them.
 
