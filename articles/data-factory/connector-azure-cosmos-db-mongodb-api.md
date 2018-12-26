@@ -21,7 +21,7 @@ ms.author: jingwang
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Cosmos DB (MongoDB API). The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 >[!NOTE]
->This connector only support copy data to/from Cosmos DB MongoDB API. For SQL API, refer to [Cosmos DB SQL API connector](connector-azure-cosmos-db). Other API types are not supported now.
+>This connector only support copy data to/from Cosmos DB MongoDB API. For SQL API, refer to [Cosmos DB SQL API connector](connector-azure-cosmos-db.md). Other API types are not supported now.
 
 ## Supported capabilities
 
