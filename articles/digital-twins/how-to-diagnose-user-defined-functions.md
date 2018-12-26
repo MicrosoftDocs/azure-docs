@@ -15,6 +15,9 @@ ms.custom: seodec18
 
 This article summarizes how to diagnose user-defined functions. Then, it identifies some of the most common scenarios encountered when working with them.
 
+>[!TIP]
+> Read [How to configure monitoring and logging](./how-to-configure-monitoring.md) to learn more about setting up debugging tools in Azure Digital Twins using Activity Logs, Diagnostic Logs, and Azure Monitor.
+
 ## Debug issues
 
 Knowing how to diagnose any issues that arise within your Azure Digital Twins instance will aid you to effectively identify the issue, the cause of the problem, and a solution.
@@ -24,9 +27,14 @@ Knowing how to diagnose any issues that arise within your Azure Digital Twins in
 Logs and metrics for your Azure Digital Twins instance are exposed through Azure Monitor. The following documentation assumes you have created an [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) workspace through the [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), through [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), or through [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
-> You may experience a 5 minute delay when sending events to **Log Analytics** for the first time.
+> You may experience a 5 minute delay when sending events to Azure Log Analytic for the first time.
 
-Read the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md) to enable diagnostic settings for your Azure Digital Twins instance through the Portal, Azure CLI, or PowerShell. Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
+To configure monitoring and logging for Azure Digital Twins resources, read [How to configure monitoring and logging](./how-to-configure-monitoring.md).
+
+Read the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md) to a comprehensive overview of diagnostic log settings for your Azure Digital Twins instance through the Portal, Azure CLI, or PowerShell.
+
+>[!IMPORTANT]
+> Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
 
 ### Trace sensor telemetry
 
