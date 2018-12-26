@@ -114,13 +114,13 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
     ![Adobe Experience Manager Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
-    In the **Sign-on URL** text box,type your Adobe Experience Manager server URL.
+    In the **Sign-on URL** text box, type your Adobe Experience Manager server URL.
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-6. On the **Set up Adobe Experience Manager** section, copy the appropriate URL(s) as per your requirement.
+7. On the **Set up Adobe Experience Manager** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
