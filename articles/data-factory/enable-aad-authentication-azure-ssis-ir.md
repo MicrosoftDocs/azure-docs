@@ -23,7 +23,7 @@ For more info about the managed identity for your ADF, see [Azure Data Factory s
 > [!NOTE]
 > If you have already created an Azure-SSIS IR using SQL authentication, you can not reconfigure your IR to use Azure AD authentication with PowerShell at this time, but you can do so in Azure portal/ADF app. 
 
-## Enable Azure AD authentication to create SSISDB in Azure SQL Database server
+## Enable Azure AD on Azure SQL Database
 
 Azure SQL Database server supports creating a database with an Azure AD user. First, you need to create an Azure AD group with the managed identity for your ADF as a member. Next, you need to set an Azure AD user as the Active Directory admin for your Azure SQL Database server and then connect to it on SQL Server Management Studio (SSMS) using that user. Finally, you need to create a contained user representing the Azure AD group, so the managed identity for your ADF can be used by Azure-SSIS IR to create SSISDB on your behalf.
 
@@ -115,7 +115,7 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
 
     The command should complete successfully, granting the contained user the ability to create a database.
 
-## Enable Azure AD authentication to create SSISDB in Azure SQL Database Managed Instance
+## Enable Azure AD on Azure SQL Database Managed Instance
 
 Azure SQL Database Managed Instance supports creating a database with the managed identity for your ADF directly. You need not join the managed identity for your ADF to an Azure AD group nor create a contained user representing that group in your Managed Instance.
 
