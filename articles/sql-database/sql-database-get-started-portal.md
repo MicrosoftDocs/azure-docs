@@ -32,10 +32,11 @@ An Azure SQL database has a defined set of [compute and storage resources](sql-d
 1. Select **Databases**, and then select **SQL Database**.
    
 1. In the **SQL Database** form, type or select the following values: 
-   **Database name**: Type *mySampleDatabase*.
-   **Subscription**: Drop down and select the correct subscription, if it does not appear.  
-   **Resource group**: Select **Create new**, type *myResourceGroup*, and select **OK**. 
-   **Select source**: Drop down and select **Sample (AdventureWorksLT)**. 
+   
+   - **Database name**: Type *mySampleDatabase*.
+   - **Subscription**: Drop down and select the correct subscription, if it doesn't appear.  
+   - **Resource group**: Select **Create new**, type *myResourceGroup*, and select **OK**. 
+   - **Select source**: Drop down and select **Sample (AdventureWorksLT)**. 
    
    >[!IMPORTANT]
    >Make sure to select the **Sample (AdventureWorksLT)** data, so you can follow this and other Azure SQL Database quickstarts that use this data. 
@@ -45,17 +46,17 @@ An Azure SQL database has a defined set of [compute and storage resources](sql-d
 1. Select **Server**, and then select **Create a new server**. 
    
 1. In the **New server** form, type or select the following values: 
-   **Server name**: Type *mysqlserver*.
-   **Server admin login**: Type *azureuser*. 
-   **Password**: Type *Azure1234567*. 
-   **Confirm Password**: Retype the password.
-   **Location**: Drop down and select any valid location.  
+   
+   - **Server name**: Type *mysqlserver*.
+   - **Server admin login**: Type *azureuser*. 
+   - **Password**: Type *Azure1234567*. 
+   - **Confirm Password**: Retype the password.
+   - **Location**: Drop down and select any valid location.  
    
    >[!IMPORTANT]
-   >You need the server admin login and password to log in to the server and databases in this and other quickstarts. Remember or record this information. If you forget your server admin login or password, you can get the login name or reset the password on the **SQL server** page. To open the **SQL server** page, select the server name on the database **Overview** page after database creation.
+   >Remember or record the server admin login and password so you can log in to the server and databases for this and other quickstarts. If you forget your login or password, you can get the login name or reset the password on the **SQL server** page. To open the **SQL server** page, select the server name on the database **Overview** page after database creation.
    
 1. Select **Select**.
-   
    
    ![Create server](./media/sql-database-get-started-portal/create-database-server.png)
    
@@ -66,13 +67,13 @@ An Azure SQL database has a defined set of [compute and storage resources](sql-d
    
    >[!NOTE]
    >More than 1 TB of storage in the Premium tier is currently available in all regions except: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast, China North, and US Gov East. In these regions, the storage max in the Premium tier is limited to 1 TB. For more information, see [P11-P15 Current Limitations]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-
+   
 1. For this quickstart, select the **Standard** service tier, and then use the slider to select **10 DTUs (S0)** and **1** GB of storage.
-
-   ![Select pricing](./media/sql-database-get-started-portal/create-database-s1.png)
    
 1. Select **Apply**.  
-
+   
+   ![Select pricing](./media/sql-database-get-started-portal/create-database-s1.png)
+   
 1. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database. 
    
    Deployment takes a few minutes. You can select **Notifications** on the toolbar to monitor deployment progress.
@@ -81,7 +82,7 @@ An Azure SQL database has a defined set of [compute and storage resources](sql-d
 
 ## Query the SQL database
 
-Now that you have created an Azure SQL database, use the built-in query tool in the Azure portal to connect to the database and query the data.
+Now that you've created an Azure SQL database, use the built-in query tool in the Azure portal to connect to the database and query the data.
 
 1. On the **SQL Database** page for your database, select **Query editor (preview)** in the left menu. 
    
@@ -102,13 +103,13 @@ Now that you have created an Azure SQL database, use the built-in query tool in 
 
    ![Query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
    
-5. Close the **Query editor** page, click **OK** to discard your unsaved edits.
+1. Close the **Query editor** page, and select **OK** when prompted to discard your unsaved edits.
 
 ## Clean up resources
 
-Save these resources if you want to go to [Next steps](#next-steps) and learn how to connect and query your database using a number of different methods. 
+Keep this resource group, SQL server, and SQL database if you want to go to [Next steps](#next-steps) and learn how to connect and query your database using a number of different methods. 
 
-When you are finished using this resource group, SQL server, and SQL database, you can delete them as follows:
+When you're finished using these resources, you can delete them as follows:
 
 1. From the left menu in the Azure portal, select **Resource groups**, and then select **myResourceGroup**.
 1. On your resource group page, select **Delete resource group**. 
