@@ -22,7 +22,7 @@ ms.reviewer: sandeo
 ---
 # Tutorial: Configure hybrid Azure Active Directory joined devices manually 
 
-With device management in Azure Active Directory (Azure AD), you can ensure that users are accessing your resources from devices that meet your standards for security and compliance. For more details, see [Introduction to device management in Azure Active Directory](overview.md).
+With device management in Azure Active Directory (Azure AD), you can ensure that users are accessing your resources from devices that meet your standards for security and compliance. For more information, see [Introduction to device management in Azure Active Directory](overview.md).
 
 
 > [!TIP]
@@ -46,17 +46,14 @@ If you have an on-premises Active Directory environment and you want to join you
 
 This tutorial assumes that you're familiar with:
     
--  [Introduction to device management in Azure Active Directory](../device-management-introduction.md)
-    
+-  [Introduction to device management in Azure Active Directory](../device-management-introduction.md)    
 -  [Plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
-
 -  [Control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
 
 
 Before you start enabling hybrid Azure AD joined devices in your organization, make sure that:
 
 - You're running an up-to-date version of Azure AD Connect.
-
 - Azure AD Connect has synchronized the computer objects of the devices you want to be hybrid Azure AD joined to Azure AD. If the computer objects belong to specific organizational units (OUs), these OUs need to be configured for synchronization in Azure AD Connect as well.
 
   
@@ -69,11 +66,8 @@ Azure AD Connect:
 Make sure that the following URLs are accessible from computers inside your organization's network for registration of computers to Azure AD:
 
 - https://enterpriseregistration.windows.net
-
 - https://login.microsoftonline.com
-
 - https://device.login.microsoftonline.com
-
 - Your organization's STS (for federated domains), which should be included in the user's local intranet settings
 
 If your organization plans to use Seamless SSO, the following URL needs to be reachable from the computers inside your organization. It must also be added to the user's local intranet zone.
@@ -175,7 +169,7 @@ For domain controllers running Windows Server 2008 or earlier versions, use the 
 
 In the preceding script, `$verifiedDomain = "contoso.com"` is a placeholder. Replace it with one of your verified domain names in Azure AD. You have to own the domain before you can use it.
 
-For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md). 
+For more information about verified domain names, see [Add a custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md). 
 
 To get a list of your verified company domains, you can use the [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet. 
 
@@ -320,7 +314,7 @@ In the preceding claim, `<verified-domain-name>` is a placeholder. Replace it wi
 
 
 
-For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md).  
+For more information about verified domain names, see [Add a custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md).  
 
 To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet. 
 
@@ -477,9 +471,8 @@ The following script helps you with the creation of the issuance transform rules
 
 - If you have multiple verified domain names (as shown in the Azure AD portal or via the **Get-MsolDomain** cmdlet), set the value of **$multipleVerifiedDomainNames** in the script to **$true**. Also make sure that you remove any existing **issuerid** claim that might have been created by Azure AD Connect or via other means. Here's an example for this rule:
 
-
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
-        => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
+      c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
+      => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
 - If you have already issued an **ImmutableID** claim  for user accounts, set the value of **$immutableIDAlreadyIssuedforUsers** in the script to **$true**.
 
@@ -487,12 +480,9 @@ The following script helps you with the creation of the issuance transform rules
 
 If some of your domain-joined devices are Windows down-level devices, you need to:
 
-- Set a policy in Azure AD to enable users to register devices.
- 
-- Configure your on-premises federation service to issue claims to support Integrated Windows Authentication (IWA) for device registration.
- 
+- Set a policy in Azure AD to enable users to register devices. 
+- Configure your on-premises federation service to issue claims to support Integrated Windows Authentication (IWA) for device registration. 
 - Add the Azure AD device authentication endpoint to the local intranet zones to avoid certificate prompts when authenticating the device.
-
 - Control Windows down-level devices. 
 
 
