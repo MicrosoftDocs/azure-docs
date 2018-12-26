@@ -101,7 +101,7 @@ To configure Azure AD single sign-on with GoToMeeting, perform the following ste
     ![GoToMeeting Domain and URLs single sign-on information](common/both-allurls.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://authentication.logmeininc.com/saml/sp`.
+    `https://authentication.logmeininc.com/saml/sp`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://authentication.logmeininc.com/saml/acs`
@@ -139,7 +139,7 @@ To configure Azure AD single sign-on with GoToMeeting, perform the following ste
 
 ### Configure GoToMeeting Single Sign-On
 
-1. In a different browser window, log in to your [GoToMeeting Organization Center](https://organization.logmeininc.com/). You will be prompted to confirm that the IdP has been updated
+1. In a different browser window, log in to your [GoToMeeting Organization Center](https://organization.logmeininc.com/). You will be prompted to confirm that the IdP has been updated.
 
 2. Enable the "My Identity Provider has been updated with the new domain" checkbox. Click **Done** when finished.
 
