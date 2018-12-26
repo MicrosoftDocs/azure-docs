@@ -92,7 +92,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 ### Configure settings
 
-1. In the configuration server management wizard, select **Setup connectivity**, and then select the NIC that the process server uses to receive replication traffic from VMs. Then select **Save**. You can't change this setting after it is configured.
+1. In the configuration server management wizard, select **Setup connectivity**, and then select the NIC that the process server uses to receive replication traffic from VMs. Then select **Save**. You can't change this setting after it is configured. It is strongly advised to not change the IP address of a configuration server. Ensure IP assigned to the Configuration Server is STATIC IP and not DHCP IP.
 2. In **Select Recovery Services vault**, sign in to Microsoft Azure, select your Azure subscription and the relevant resource group and vault.
 
     > [!NOTE]
@@ -145,7 +145,11 @@ To avoid interruptions in ongoing replication, ensure that IP address of the con
     In the **Recovery Services Vault**, **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**. In Servers, select **Download registration key** to download the vault credentials file.
 8. Can I clone an existing Configuration Server and use it for replication orchestration?
 
-    **No**, use of a cloned Configuration Server component is not supported. 
+    **No**, use of a cloned Configuration Server component is not supported.
+
+9. Can I change the IP of configuration server?
+
+    **No**, it is strongly recommended to not change the IP address of a configuration server. Ensure all IPs assigned to the Configuration Server are STATIC IPs and not DHCP IPs.
 
 ## Troubleshoot deployment issues
 

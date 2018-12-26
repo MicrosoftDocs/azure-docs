@@ -56,3 +56,11 @@ sections:
     items:
     - title: REST v7 API
       html: <p><a href="https://aka.ms/bingvisualsearchreferencedoc">API Reference</a></p>
+    - title: SDKs
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet">.NET</a></p>
+            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable">Java</a></p>
+            <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python">Python</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>
