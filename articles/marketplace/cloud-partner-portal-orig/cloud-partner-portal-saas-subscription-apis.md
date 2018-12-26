@@ -652,32 +652,32 @@ The Get action on subscriptions endpoint allows a user to retrieve all subscript
 
 ### SaaS Webhook
 
-A SaaS webhook is used for notifying changes proactively to the SaaS service. The API is expected to be unauthenticated and will be called by the Microsoft  service. The SaaS service is expected to call the operations API to validate and authorize before taking action on the webhook notification. 
+A SaaS webhook is used for notifying changes proactively to the SaaS service. This POST API is expected to be unauthenticated and will be called by the Microsoft  service. The SaaS service is expected to call the operations API to validate and authorize before taking action on the webhook notification. 
 
 
 *Body*
 
 ``` json
   { 
-    "operationId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
     "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
     "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "sampleSaaSOffer", 
-    "publisherId": "contoso",
-    "planId": "silver",     
-    "action": "Activate", // Activate/Delete/Suspend/Reinstate/Change
+    "offerId": "sampleSaaSOffer", // Provided with "Update" action
+    "publisherId": "contoso", 
+    "planId": "silver",     // Provided with "Update" action
+    "action": "Activate", // Activate/Delete/Suspend/Reinstate/Update
     "timeStamp": "2018-12-01T00:00:00"
   }
 ```
 
 | **Parameter name**     | **Data type** | **Description**                               |
 |------------------------|---------------|-----------------------------------------------|
-| operationId  | String       | Unique ID for the operation triggered.                |
+| id  | String       | Unique ID for the operation triggered.                |
 | activityId   | String        | A unique string value for tracking the request from the service. This is used for any reconciliations.               |
 | subscriptionId                     | String        | ID of SaaS subscription resource in Azure.    |
-| offerId                | String        | Offer ID that the user subscribed to.         |
+| offerId                | String        | Offer ID that the user subscribed to. Provided only with the "Update" action.        |
 | publisherId                | String        | Publisher ID of the SaaS offer         |
-| planId                 | String        | Plan ID that the user subscribed to.          |
-| action                 | String        | The action that is triggering this notification. Possible values - Activate, Delete, Suspend, Reinstate, Change          |
+| planId                 | String        | Plan ID that the user subscribed to. Provided only with the "Update" action.          |
+| action                 | String        | The action that is triggering this notification. Possible values - Activate, Delete, Suspend, Reinstate, Update          |
 | timeStamp                 | String        | TImestamp value in UTC when this notification was triggered.          |
 |  |  |  |
