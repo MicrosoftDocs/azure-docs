@@ -260,7 +260,8 @@ The following example shows the schema of the **LiveEventConnectionRejected** ev
       "encoderPort": 52859,
       "resultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -397,7 +398,8 @@ The following example shows the schema of the **LiveEventIncomingDataChunkDroppe
       "timescale": 10000000,
       "resultCode": "FragmentDrop_OverlapTimestamp"
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -511,7 +513,8 @@ The following example shows the schema of the **LiveEventIncomingVideoStreamsOut
       "secondDuration": "2000",
       "timescale": "10000000"      
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
