@@ -1,6 +1,6 @@
 ---
-title: Working with date time values in Azure Log Analytics queries| Microsoft Docs
-description: Describes how to work with date and time data in Log Analytics queries.
+title: Working with date time values in Azure Monitor log queries| Microsoft Docs
+description: Describes how to work with date and time data in Azure Monitor log queries.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,18 +15,18 @@ ms.date: 08/16/2018
 ms.author: bwren
 ---
 
-# Working with date time values in Log Analytics queries
+# Working with date time values in Azure Monitor log queries
 
 > [!NOTE]
 > You should complete [Get started with the Analytics portal](get-started-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-This article describes how to work with date and time data in Log Analytics queries.
+This article describes how to work with date and time data in Azure Monitor log queries.
 
 
 ## Date time basics
-The Log Analytics query language has two main data types associated with dates and times: datetime and timespan. All dates are expressed in UTC. While multiple datetime formats are supported, the ISO8601 format is preferred. 
+The Data Explorer query language has two main data types associated with dates and times: datetime and timespan. All dates are expressed in UTC. While multiple datetime formats are supported, the ISO8601 format is preferred. 
 
 Timespans are expressed as a decimal followed by a time unit:
 
@@ -156,7 +156,7 @@ Event
 | Get a date relative to value  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## Next steps
-See other lessons for using the Log Analytics query language:
+See other lessons for using the [Data Explorer query language](/azure/kusto/query/) with Azure Monitor log data:
 
 - [String operations](string-operations.md)
 - [Aggregation functions](aggregations.md)

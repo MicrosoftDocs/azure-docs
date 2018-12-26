@@ -1,5 +1,5 @@
 ---
-title: Search across resources with Azure Log Analytics  | Microsoft Docs
+title: Query across resources with Azure Monitor  | Microsoft Docs
 description: This article describes how you can query against resources from multiple workspaces and App Insights app in your subscription.
 services: log-analytics
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.date: 11/15/2018
 ms.author: magoedte
 ---
 
-# Perform cross-resource log searches in Log Analytics  
+# Perform cross-resource log queries in Azure Monitor  
 
-Previously with Azure Log Analytics, you could only analyze data from within the current workspace, and it limited your ability to query across multiple workspaces defined in your subscription.  Additionally, you could only search telemetry items collected from your web-based application with Application Insights directly in Application Insights or from Visual Studio.  This also made it a challenge to natively analyze operational and application data together.   
+Previously with Azure Monitor, you could only analyze data from within the current workspace, and it limited your ability to query across multiple workspaces defined in your subscription.  Additionally, you could only search telemetry items collected from your web-based application with Application Insights directly in Application Insights or from Visual Studio.  This also made it a challenge to natively analyze operational and application data together.   
 
-Now you can query not only across multiple Log Analytics workspaces, but also data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data.  You can only perform these types of queries in [Log Analytics](portals.md#log-analytics-page). The number of resources (Log Analytics workspaces and Application Insights app) that you can include in a single query is limited to 100. 
+Now you can query not only across multiple Log Analytics workspaces, but also data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data.  You can only perform these types of queries in [Log Analytics](portals.md). The number of resources (Log Analytics workspaces and Application Insights app) that you can include in a single query is limited to 100. 
 
 ## Querying across Log Analytics workspaces and from Application Insights
 To reference another workspace in your query, use the [*workspace*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) identifier, and for an app from Application Insights, use the [*app*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression) identifier.  
