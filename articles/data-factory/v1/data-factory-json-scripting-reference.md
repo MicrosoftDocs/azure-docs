@@ -5281,7 +5281,7 @@ You can specify the following properties in a Hadoop Streaming Activity JSON def
 | --- | --- |
 | mapper | Name of the mapper executable. In the example, cat.exe is the mapper executable.|
 | reducer | Name of the reducer executable. In the example, wc.exe is the reducer executable. |
-| input | Input file (including location) for the mapper. In the example: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample is the blob container, example/data/Gutenberg is the folder, and davinci.txt is the blob. |
+| input | Input file (including location) for the mapper. In the example: `"wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"`: adfsample is the blob container, example/data/Gutenberg is the folder, and davinci.txt is the blob. |
 | output | Output file (including location) for the reducer. The output of the Hadoop Streaming job is written to the location specified for this property. |
 | filePaths | Paths for the mapper and reducer executables. In the example: "adfsample/example/apps/wc.exe", adfsample is the blob container, example/apps is the folder, and wc.exe is the executable. |
 | fileLinkedService | Azure Storage linked service that represents the Azure storage that contains the files specified in the filePaths section. |
