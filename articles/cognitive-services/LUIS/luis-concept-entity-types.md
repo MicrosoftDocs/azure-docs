@@ -190,7 +190,7 @@ This entity is good for words or phrases that are consistently formatted with an
 
 ## Simple entity 
 
-A simple entity is a generic entity that describes a single concept and is learned from machine-learned context. Context include word choice, word placement, and utterance length.
+A simple entity is a generic entity that describes a single concept and is learned from machine-learned context. Because simple entities are generally names such as company names, product names, or other categories of names, add a [phrase list](luis-concept-feature.md) when using a simple entity to boost the signal of the names used. 
 
 This is a good entity for words or phrases that are not consistently formatted but indicate the same thing. 
 
