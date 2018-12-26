@@ -40,7 +40,7 @@ The following list includes best practices for LUIS apps:
 |[Use versions for each app iteration](#do-use-versions-for-each-app-iteration)||
 
 ## Do define distinct intents
-Make sure the vocabulary for each intent is just for that intent and not overlapping with a different intent. For example, if you want to have an app that handles travel arrangements such as airline flights and hotels, you can choose to have these as separate intents or the same intent with entities for specific data inside the utterance.
+Make sure the vocabulary for each intent is just for that intent and not overlapping with a different intent. For example, if you want to have an app that handles travel arrangements such as airline flights and hotels, you can choose to have these subject areas as separate intents or the same intent with entities for specific data inside the utterance.
 
 If the vocabulary between two intents is the same, combine the intent, and use entities. 
 
@@ -51,10 +51,10 @@ Consider the following example utterances:
 |Book a flight|
 |Book a hotel|
 
-"Book a flight" and "Book a hotel" use the same vocabulary of "book a ". This is overlapping so it should be the same intent with the different words of flight and hotel as extracted entities. 
+"Book a flight" and "Book a hotel" use the same vocabulary of "book a ". This format is the same so it should be the same intent with the different words of flight and hotel as extracted entities. 
 
 ## Do find sweet spot for intents
-Use prediction data from LUIS to determine if your intents are overlapping. Overlapping intents confuse LUIS. The result is that the top scoring intent is too close to another intent. Because LUIS does not use the exact same path through the data for training each time, an overlapping intent has a chance of being first or second in training. You want the utterance's score for each intention to be farther apart so this doesn't happen. Good distinction for intents should result in the expected top intent every time. 
+Use prediction data from LUIS to determine if your intents are overlapping. Overlapping intents confuse LUIS. The result is that the top scoring intent is too close to another intent. Because LUIS does not use the exact same path through the data for training each time, an overlapping intent has a chance of being first or second in training. You want the utterance's score for each intention to be farther apart so this flip/flop doesn't happen. Good distinction for intents should result in the expected top intent every time. 
  
 ## Do build the app iteratively
 Keep a separate set of utterances that isn't used as [example utterances](luis-concept-utterance.md) or endpoint utterances. Keep improving the app for your test set. Adapt the test set to reflect real user utterances. Use this test set to evaluate each iteration or version of the app. 
@@ -78,7 +78,7 @@ If you have an intent with 100 example utterances and an intent with 20 example 
 
 ## Do add example utterances to None intent
 
-This is the fallback intent, indicated everything outside your application. Add one example utterance to the None intent for every 10 example utterances in the rest of your LUIS app.
+This intent is the fallback intent, indicated everything outside your application. Add one example utterance to the None intent for every 10 example utterances in the rest of your LUIS app.
 
 ## Do leverage the suggest feature for active learning
 
