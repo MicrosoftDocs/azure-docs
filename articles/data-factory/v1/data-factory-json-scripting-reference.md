@@ -71,7 +71,7 @@ The high-level structure for an activity within a pipeline definition (activitie
     },
     "policy":
     {
-    }
+    },
     "scheduler":
     {
     }
