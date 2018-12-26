@@ -105,7 +105,7 @@ You can now deploy a function code project to this function app.
 
 ## Deploy the function code 
 
-# [\.NET](#tab/net)
+# [\.NET](#tab/dotnet)
 
 The sample C# script (.csx) resize is available on [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) command. 
 

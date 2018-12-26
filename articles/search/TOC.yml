@@ -31,7 +31,7 @@
       href: search-fiddler.md
 - name: Tutorials
   items:
-  - name: Use built-in tools
+  - name: Use tools in Azure portal
     href: search-get-started-portal.md
   - name: Learn cognitive search APIs
     href: cognitive-search-tutorial-blob.md

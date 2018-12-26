@@ -63,7 +63,7 @@ The public preview provides a number of new features.
 - Dependency visualization during assessment isn't currently available.
 -  You can create an Azure Migrate project in the locations listed in the following table.
     - This doesn't restrict your ability to create assessments for other target Azure regions.
-    - - The project location is used to store the metadata discovered during the migration assessment.
+    - The project location is used to store the metadata discovered during the migration assessment.
     - Metadata is stored in one of the regions in the specified geography.
     
         **Geography** | **Storage location**
@@ -85,8 +85,6 @@ The public preview provides a number of new features.
     - RDM devices/passthrough disks can't be replicated.
     - NFS volumes on VMs can't be replicated.
     
-
-
 
 ### VMware architecture
 
@@ -164,7 +162,7 @@ The GA version of Azure Migrate provides the following:
 -  Only managed disks are supported.
 -  You can create an Azure Migrate project in the locations listed in the following table.
     - This doesn't restrict your ability to create assessments for other target Azure regions.
-    - - The project location is used to store the metadata discovered during the migration assessment.
+    - The project location is used to store the metadata discovered during the migration assessment.
     - Metadata is stored in one of the regions in the specified geography.
     
     **Geography** | **Storage location**
