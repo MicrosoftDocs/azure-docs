@@ -104,16 +104,10 @@ This entity is a good fit when the data:
 * Need to be grouped and processed by the client application as a unit of information.
 * Have a variety of user utterances that require machine-learning.
 
-![composite entity](./media/luis-plan-your-app/composite-entity.png)
+![composite entity](./media/luis-concept-entities/composite-entity.png)
 
 [Tutorial](luis-tutorial-composite-entity.md)<br>
 [Example JSON response for entity](luis-concept-data-extraction.md#composite-entity-data)<br>
-
-**Example**:<br>
-A composite entity named PlaneTicketOrder may have child entities prebuilt `number` and hierarchical entity `ToLocation`:
-
-`Book 2 tickets to Seattle`
-
 
 ## Hierarchical entity
 
@@ -132,13 +126,10 @@ Do not use if:
 * You need an entity that has exact text matches for children regardless of context. Use a [List entity](#list-entity) instead. 
 * You need an entity for a parent-child relationship with other entity types. Use the [Composite entity](#composite-entity).
 
-![hierarchical entity](./media/luis-plan-your-app/hierarchical-entity.png)
+![hierarchical entity](./media/luis-concept-entities/hierarchical-entity.png)
 
 [Tutorial](luis-quickstart-intent-and-hier-entity.md)<br>
 [Example JSON response for entity](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
-
-**Example**:<br>
-Given a hierarchical entity of `Location` with children `Destination` and `Origin`, each child can be determined based on the **context** within the utterance. In the utterance, `Book 2 tickets from Seattle to New York`, the `Origin` and `Destination` are contextually different based the words around them. 
 
 ### Roles versus hierarchical entities
 
@@ -154,7 +145,7 @@ The entity is a good fit when the text data:
 * The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
 * The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Stemming, plurals, and other variations are not resolved with a list entity. To manage variations, consider using a [pattern](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax.
 
-![list entity](./media/luis-plan-your-app/list-entity.png)
+![list entity](./media/luis-concept-entities/list-entity.png)
 
 [Tutorial](luis-quickstart-intent-and-list-entity.md)<br>
 [Example JSON response for entity](luis-concept-data-extraction.md#list-entity-data)
@@ -186,7 +177,7 @@ In the following table, each row has two versions of the utterance. The top utte
 
 Prebuilt entities are built-in types that represent common concepts such as email, URL, and phone number. Prebuilt entity names are reserved. [All prebuilt entities](luis-prebuilt-entities.md) that are added to the application are returned in the endpoint prediction query if they are found in the utterance. 
 
-![Number prebuilt entity](./media/luis-plan-your-app/number-entity.png)
+![Number prebuilt entity](./media/luis-concept-entities/number-entity.png)
 
 [Tutorial](luis-tutorial-prebuilt-intents-entities.md)<br>
 [Example JSON response for entity](luis-concept-data-extraction.md#prebuilt-entity-data)
@@ -199,20 +190,18 @@ A regular expression is best for raw utterance text. It ignores case and ignores
 
 This entity is good for words or phrases that are consistently formatted with any variation that is also consistent.<br><br>
 
-![Regular expression entity](./media/luis-plan-your-app/regex-entity.png)
+![Regular expression entity](./media/luis-concept-entities/regex-entity.png)
 
 [Tutorial](luis-quickstart-intents-regex-entity.md)<br>
 [Example JSON response for entity](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
-
-**Example**<br>`kb[0-9]{6,}` matches kb123456.
 
 ## Simple entity 
 
 A simple entity is a generic entity that describes a single concept and is learned from the machine-learned context. Because simple entities are generally names such as company names, product names, or other categories of names, add a [phrase list](luis-concept-feature.md) when using a simple entity to boost the signal of the names used. 
 
-![simple entity](./media/luis-plan-your-app/simple-entity.png)
-
 This is a good entity for words or phrases that are not consistently formatted but indicate the same thing. 
+
+![simple entity](./media/luis-concept-entities/simple-entity.png)
 
 [Tutorial](luis-quickstart-primary-and-secondary-data.md)<br/>
 [Example response for entity](luis-concept-data-extraction.md#simple-entity-data)<br/>
@@ -222,6 +211,7 @@ This is a good entity for words or phrases that are not consistently formatted b
 Review [limits](luis-boundaries.md#model-boundaries) to understand how many of each type of entity you can add to a model.
 
 ## Composite vs hierarchical entities
+
 Composite entities and hierarchical entities both have parent-child relationships and are machine learned. The machine-learning allows LUIS to understand the entities based on different contexts (arrangement of words). Composite entities are more flexible because they allow different entity types as children. A hierarchical entity's children are only simple entities. 
 
 |Type|Purpose|Example|
