@@ -17,7 +17,7 @@ ms.author: juliako
 This article shows how you can embed Video Indexer widgets into your applications. Video Indexer supports embedding two types of widgets into your application: **Cognitive Insights** and **Player**. 
 
 > [!NOTE]
-> Starting with Feb 1, 2018, the version 1 of the **Cognitive Insights** widget will be depricated. The embed URL version will default to `version=2`.
+> Starting with Feb 1, 2018, the version 1 of the **Cognitive Insights** widget will be deprecated. The embed URL version will default to `version=2`.
 
 ## Widget types
 
