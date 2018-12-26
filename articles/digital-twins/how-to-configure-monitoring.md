@@ -19,7 +19,7 @@ This article summarizes logging and monitoring options and how to combine them i
 
 ## Review activity logs
 
-Azure [activity logs](../azure-monitor/platform/activity-logs-overview) provide quick insights into subscription-level event and operation histories for each Azure service instance.
+Azure [activity logs](../azure-monitor/platform/activity-logs-overview.md) provide quick insights into subscription-level event and operation histories for each Azure service instance.
 
 Subscription-level events include:
 
@@ -50,7 +50,7 @@ For advanced activity logging:
 
 ## Enable customer diagnostic logs
 
-Azure [diagnostic settings](../azure-monitor/platform/diagnostic-logs-overview) can be set for each Azure instance to supplement activity logging. While activity logs pertain to subscription-level events, diagnostic logging provides insights into the operational history of the resources themselves.
+Azure [diagnostic settings](../azure-monitor/platform/diagnostic-logs-overview.md) can be set for each Azure instance to supplement activity logging. While activity logs pertain to subscription-level events, diagnostic logging provides insights into the operational history of the resources themselves.
 
 Examples of diagnostic logging include:
 
@@ -70,7 +70,7 @@ To enable diagnostic logs for an instance:
 
     ![Diagnostic settings two][5]
 
-    Diagnostic logs are often saved using [Azure File Storage](../storage/files/storage-files-deployment-guide) and shared with [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md). Both options can be selected.
+    Diagnostic logs are often saved using [Azure File Storage](../storage/files/storage-files-deployment-guide.md) and shared with [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md). Both options can be selected.
 
 >[!TIP]
 >Use **diagnostic logs** for insights into resource operations.
@@ -87,7 +87,7 @@ Examples of use include:
 * Seeing logs for several user-defined functions
 * Displaying logs for two or more services within a specific time-frame
 
-Full log querying is provided through [Azure Log Analytics](../azure-monitor/log-query/log-query-overview). To set up these powerful features:
+Full log querying is provided through [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md). To set up these powerful features:
 
 1. Search for **Log Analytics** in the Azure portal.
 1. You will see your available **Log Analytics** instances. Choose one and select **Logs** to query:
@@ -116,7 +116,7 @@ Azure Log Analytics also provides powerful error and alert notification services
 
 ## Other options
 
-Azure Digital Twins also supports application-specific logging and security auditing. For a thorough overview of all Azure logging options available to your Azure Digital Twins instance, see the [Azure log audit](../security/azure-log-audit) article.
+Azure Digital Twins also supports application-specific logging and security auditing. For a thorough overview of all Azure logging options available to your Azure Digital Twins instance, see the [Azure log audit](../security/azure-log-audit.md) article.
 
 ## Next steps
 
