@@ -106,7 +106,7 @@ Basic, Standard, and Premium plans are for production workloads and run on dedic
 This template deploys the following App Service features:
 
 - [Standard](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) App Service Plan Tier
-- Multiple App Service [deployment slots](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): Dev, Preview, QA, UAT and of course Production (default slot).
+- Multiple App Service [deployment slots](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): Dev, Preview, QA, UAT and of course Production (default slot).
 - [Managed identities for Azure resources](https://docs.microsoft.com/azure/app-service/overview-managed-identity) to connect to [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (this could also be used to provide access to [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - Integration with [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) to monitor performance
 - [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 

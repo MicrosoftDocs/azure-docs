@@ -475,7 +475,7 @@ You'll get charts of response times, plus email notifications if your site goes 
 * [Monitor Unix performance counters](app-insights-java-collectd.md)
 * Add [monitoring to your web pages](app-insights-javascript.md) to monitor page load times, AJAX calls, browser exceptions.
 * Write [custom telemetry](../azure-monitor/app/api-custom-events-metrics.md) to track usage in the browser or at the server.
-* Create [dashboards](app-insights-dashboards.md) to bring together the key charts for monitoring your system.
+* Create [dashboards](../azure-monitor/app/app-insights-dashboards.md) to bring together the key charts for monitoring your system.
 * Use  [Analytics](../azure-monitor/app/analytics.md) for powerful queries over telemetry from your app
 * For more information, visit [Azure for Java developers](/java/azure).
 

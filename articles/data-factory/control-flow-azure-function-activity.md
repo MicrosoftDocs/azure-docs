@@ -50,7 +50,7 @@ See the schema of the request payload in [Request payload schema](control-flow-
 
 The Azure Function Activity supports **routing**. For example, if your app uses the following routing - `https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>` - then the `functionName` is `functionName/{value}`, which you can parameterize to provide the desired `functionName` at runtime.
 
-The Azure Function Activity also supports S. A query has to be part of the `functionName` - for example, `HttpTriggerCSharp2?name=hello` - where the `function name` is `HttpTriggerCSharp2`.
+The Azure Function Activity also supports **queries**. A query has to be part of the `functionName` - for example, `HttpTriggerCSharp2?name=hello` - where the `function name` is `HttpTriggerCSharp2`.
 
 ## Next steps
 

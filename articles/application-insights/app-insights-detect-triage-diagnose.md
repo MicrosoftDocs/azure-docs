@@ -104,7 +104,7 @@ failed database call in the associated list of dependency calls.
 ![failed request](./media/app-insights-detect-triage-diagnose/23.png)
 
 ## Detect exceptions
-With a little bit of setup, [exceptions](app-insights-asp-net-exceptions.md) are reported to Application Insights automatically. They can also be captured explicitly by inserting calls to [TrackException()](../azure-monitor/app/api-custom-events-metrics.md#trackexception) into the code:  
+With a little bit of setup, [exceptions](../azure-monitor/app/asp-net-exceptions.md) are reported to Application Insights automatically. They can also be captured explicitly by inserting calls to [TrackException()](../azure-monitor/app/api-custom-events-metrics.md#trackexception) into the code:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -223,7 +223,7 @@ So that's how one team use Application Insights not just to fix individual issue
 ## Next steps
 You can get started in several ways, depending on the characteristics of your application. Pick what suits you best:
 
-* [ASP.NET web application](app-insights-asp-net.md)
+* [ASP.NET web application](../azure-monitor/app/asp-net.md)
 * [Java web application](app-insights-java-get-started.md)
 * [Node.js web application](app-insights-nodejs.md)
 * Already deployed apps, hosted on [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md), or [Azure](app-insights-overview.md).

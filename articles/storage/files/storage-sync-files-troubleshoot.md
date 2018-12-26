@@ -465,15 +465,23 @@ By setting this registry value, the Azure File Sync agent will accept any locall
 | **Error string** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Remediation required** | Yes |
 
-This error commonly occurs because the server time is incorrect or the certificate used for authentication is expired. If the server time is correct, perform the following steps to renew the expired certificate:
+This error can be caused by:
 
-1. Open the Certificates MMC snap-in, select Computer Account and navigate to Certificates (Local Computer)\Personal\Certificates.
-2. Check if the client authentication certificate is expired. If the certificate is expired, close the Certificates MMC snap-in and proceeed with the remaining steps. 
-3. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
-4. Run the following PowerShell commands on the server:
+- Server time is incorrect
+- Server endpoint deletion failed
+- Certificate used for authentication is expired. 
+	To check if the certificate is expired, perform the following steps:  
+	1. Open the Certificates MMC snap-in, select Computer Account and navigate to Certificates (Local Computer)\Personal\Certificates.
+	2. Check if the client authentication certificate is expired.
+
+If the server time is correct, perform the following steps to resolve the issue:
+
+1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
+2. Run the following PowerShell commands on the server:
 
     ```PowerShell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+    Login-AzureRmStorageSync -SubscriptionID <guid> -TenantID <guid>
     Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
 
@@ -559,14 +567,14 @@ This error occurs because of an internal problem with the sync database. This er
 
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 1. Navigate to the sync group within the Storage Sync Service.
 2. Select the cloud endpoint within the sync group.
 3. Note the Azure file share name in the opened pane.
 4. Select the linked storage account. If this link fails, the referenced storage account has been removed.
     ![A screenshot showing the cloud endpoint detail pane with a link to the storage account.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 ```PowerShell
 # Variables for you to populate based on your configuration
 $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
@@ -664,12 +672,12 @@ if ($storageAccount -eq $null) {
 ---
 
 <a id="troubleshoot-network-rules"></a>**Check to make sure the storage account does not contain any network rules.**  
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 1. Once in the storage account, select **Firewalls and virtual networks** on the left-hand side of the storage account.
 2. Inside the storage account, the **Allow access from all networks** radio button should be selected.
     ![A screenshot showing the storage account firewall and network rules disabled.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 ```PowerShell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
@@ -680,12 +688,12 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 ---
 
 <a id="troubleshoot-azure-file-share"></a>**Ensure the Azure file share exists.**  
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 1. Click **Overview** on the left-hand table of contents to return to the main storage account page.
 2. Select **Files** to view the list of file shares.
 3. Verify the file share referenced by the cloud endpoint appears in the list of file shares (you should have noted this in step 1 above).
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 ```PowerShell
 $fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
@@ -699,7 +707,7 @@ if ($fileShare -eq $null) {
 ---
 
 <a id="troubleshoot-rbac"></a>**Ensure Azure File Sync has access to the storage account.**  
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 1. Click **Access control (IAM)** on the left-hand table of contents.
 1. Click the **Role assignments** tab to the list the users and applications (*service principals*) that have access to your storage account.
 1. Verify **Hybrid File Sync Service** appears in the list with the **Reader and Data Access** role. 
@@ -712,7 +720,7 @@ if ($fileShare -eq $null) {
 	- In the **Role** field, select **Reader and Data Access**.
 	- In the **Select** field, type **Hybrid File Sync Service**, select the role and click **Save**.
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 ```PowerShell    
 $foundSyncPrincipal = $false
 Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 

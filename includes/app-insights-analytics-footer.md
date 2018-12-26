@@ -20,5 +20,5 @@ ms.author: mbullwin
   * Using Analytics.
 * [Language Reference](../articles/application-insights/app-insights-analytics-reference.md)
   * One-page reference.
-* [Troubleshooting](../articles/application-insights/app-insights-analytics-troubleshooting.md)
+* [Troubleshooting](../articles/azure-monitor/app/analytics-troubleshooting.md)
 

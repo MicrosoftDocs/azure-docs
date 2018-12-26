@@ -23,7 +23,7 @@ Name of the command initiated with this dependency call. Low cardinality value. 
 
 ## ID
 
-Identifier of a dependency call instance. Used for correlation with the request telemetry item corresponding to this dependency call. For more information, see [correlation](application-insights-correlation.md) page.
+Identifier of a dependency call instance. Used for correlation with the request telemetry item corresponding to this dependency call. For more information, see [correlation](../azure-monitor/app/correlation.md) page.
 
 ## Data
 
@@ -35,7 +35,7 @@ Dependency type name. Low cardinality value for logical grouping of dependencies
 
 ## Target
 
-Target site of a dependency call. Examples are server name, host address. For more information, see [correlation](application-insights-correlation.md) page.
+Target site of a dependency call. Examples are server name, host address. For more information, see [correlation](../azure-monitor/app/correlation.md) page.
 
 ## Duration
 
@@ -60,7 +60,7 @@ Indication of successful or unsuccessful call.
 
 ## Next steps
 
-- Set up dependency tracking for [.NET](app-insights-asp-net-dependencies.md).
+- Set up dependency tracking for [.NET](../azure-monitor/app/asp-net-dependencies.md).
 - Set up dependency tracking for [Java](app-insights-java-agent.md).
 - [Write custom dependency telemetry](../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
