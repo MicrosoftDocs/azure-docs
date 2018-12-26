@@ -19,6 +19,7 @@ ms.author: hascipio; v-divte
 ROBOTS: NOINDEX
 
 ---
+
 # Technical prerequisites for creating a virtual machine image for the Azure Marketplace
 Read the process thoroughly before beginning and understand where and why each step is performed. As much as possible, you should prepare your company information and other data, download necessary tools, and/or create technical components before beginning the offer creation process. These items should be clear from reviewing this article.  
 
@@ -48,6 +49,6 @@ You can develop Azure-based VMs on Windows or Linux. Some elements of the publis
 You can develop Azure VHDs in the cloud or on-premises:
 
 * Cloud-based development means all development steps are performed remotely on a VHD resident on Azure.
-* On-premises development requires downloading a VHD and developing it using on-premises infrastructure. Although this is possible, we do not recommend it. Note that developing for Windows or SQL on-premises requires you to have the relevant on-premises license keys. You cannot include or install SQL Server after creating a VM. You must also base your offer on an approved SQL image from the Azure portal. If you decide to develop on-premises, you must perform some steps differently than if you were developing in the cloud. You can find relevant information in [Create an on-premises VM image](marketplace-publishing-vm-image-creation-on-premise.md).
+* On-premises development requires downloading a VHD and developing it using on-premises infrastructure. Although this approach is possible, we do not recommend it. Developing for Windows or SQL on-premises requires you to have the relevant on-premises license keys. You cannot include or install SQL Server after creating a VM. You must also base your offer on an approved SQL image from the Azure portal. If you decide to develop on-premises, you must perform some steps differently than if you were developing in the cloud. You can find relevant information in [Create an on-premises VM image](marketplace-publishing-vm-image-creation-on-premise.md).
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md

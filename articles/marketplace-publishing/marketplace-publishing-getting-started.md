@@ -19,6 +19,7 @@ ms.author: hascipio
 ROBOTS: NOINDEX
 
 ---
+
 # Publish and manage an offer in the Azure Marketplace
 
 > [!NOTE]
