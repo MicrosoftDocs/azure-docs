@@ -16,7 +16,7 @@ ms.author: diberry
 
 **Utterances** are input from the user that your app needs to interpret. To train LUIS to extract intents and entities from them, it's important to capture a variety of different example utterances for each intent. Active learning, or the process of continuing to train on new utterances, is essential to machine-learned intelligence that LUIS provides.
 
-Collect utterances that you think users will enter. Include utterances which mean the same thing but are constructed in a variety of different ways:
+Collect utterances that you think users will enter. Include utterances, which mean the same thing but are constructed in a variety of different ways:
 
 * Utterance length - short, medium, and long for your client-application
 * Word and phrase length 
@@ -83,7 +83,7 @@ You can remove non-deterministic training by updating the [version settings](htt
 
 ## Testing utterances 
 
-Developers should start testing their LUIS application with real traffic by sending utterances to the [prediction endpoint](luis-how-to-manage-keys) URL. These utterances are used to improve the performance of the intents and entities with [Review utterances](luis-how-to-review-endoint-utt.md). Tests submitted with the LUIS website testing pane are not sent through the endpoint, and so do not contribute to active learning. 
+Developers should start testing their LUIS application with real traffic by sending utterances to the [prediction endpoint](luis-how-to-manage-keys.md) URL. These utterances are used to improve the performance of the intents and entities with [Review utterances](luis-how-to-review-endoint-utt.md). Tests submitted with the LUIS website testing pane are not sent through the endpoint, and so do not contribute to active learning. 
 
 ## Review utterances
 

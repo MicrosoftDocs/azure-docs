@@ -598,6 +598,7 @@ The key phrase extraction entity returns key phrases in the utterance, provided 
 ```
 
 ## Data matching multiple entities
+
 LUIS returns all entities discovered in the utterance. As a result, your chatbot may need to make decision based on the results. An utterance can have many entities in an utterance:
 
 `book me 2 adult business tickets to paris tomorrow on air france`
@@ -723,6 +724,46 @@ The LUIS endpoint can discover the same data in different entities:
           "value": "business"
         }
       ]
+    }
+  ]
+}
+```
+
+## Data matching multiple List entities
+
+If a word or phrase matches more than one list entity, the endpoint query returns each List entity.
+
+For the query `when is the best time to go to red rock?`, and the app has the word `red` in more than one list, LUIS recognizes all the entities and returns an array of entities as part of the JSON endpoint response: 
+
+```JSON
+{
+  "query": "when is the best time to go to red rock?",
+  "topScoringIntent": {
+    "intent": "Calendar.Find",
+    "score": 0.06701678
+  },
+  "entities": [
+    {
+      "entity": "red",
+      "type": "Colors",
+      "startIndex": 31,
+      "endIndex": 33,
+      "resolution": {
+        "values": [
+          "Red"
+        ]
+      }
+    },
+    {
+      "entity": "red rock",
+      "type": "Cities",
+      "startIndex": 31,
+      "endIndex": 38,
+      "resolution": {
+        "values": [
+          "Destinations"
+        ]
+      }
     }
   ]
 }
