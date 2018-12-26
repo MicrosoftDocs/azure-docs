@@ -4,7 +4,7 @@ description: Shows which Azure resource types support tags. Provides details for
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 11/20/2018
+ms.date: 12/21/2018
 ms.author: tomfitz
 ---
 
@@ -259,6 +259,7 @@ This article describes whether a resource type supports [tagging](resource-group
 ## Insights
 | Resource type | Supports tags |
 | ------------- | ----------- |
+| actionGroups | Yes |
 | components | Yes | 
 | components/query | No | 
 | components/metrics | No | 
