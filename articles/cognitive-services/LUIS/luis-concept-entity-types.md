@@ -136,14 +136,31 @@ The entity is a good fit when the text data:
 [Tutorial](luis-quickstart-intent-and-list-entity.md)<br>
 [Example response for entity](luis-concept-data-extraction.md#list-entity-data)| 
 
+## Pattern.any entity
 
-| Name | Can label | Description |
-| -- |--|--|
-| **Prebuilt** <br/>[Custom](#prebuilt)| |  **Definition**<br>Built-in types that represent common concepts. <br><br>**List**<br/>key phrase number, ordinal, temperature, dimension, money, age, percentage, email, URL, phone number, and key phrase. <br><br>Prebuilt entity names are reserved. <br><br>All prebuilt entities that are added to the application are returned in the [endpoint](luis-glossary.md#endpoint) query. For more information, see [Prebuilt entities](./luis-prebuilt-entities.md). <br/><br/>[Example response for entity](luis-concept-data-extraction.md#prebuilt-entity-data)|
-|<!-- added week of 3/21/08 --> **Regular Expression**<br/>[RegEx](#regex)||**Definition**<br>Custom regular expression for formatted raw utterance text. It ignores case and ignores cultural variant.  <br><br>This entity is good for words or phrases that are consistently formatted with any variation that is also consistent.<br><br>Regular expression matching is applied after spell-check alterations at the character level, not the token level. Uses part but not all of the [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) library.<br><br>If the regular expression is too complex, such as using many brackets, you are not able to add the expression to the model. <br><br>**Example**<br>`kb[0-9]{6,}` matches kb123456.<br/><br/>[Quickstart](luis-quickstart-intents-regex-entity.md)<br>[Example response for entity](luis-concept-data-extraction.md)|
-| **Simple** <br/>[Machine-learned](#machine-learned) | ✔ | **Definition**<br>A simple entity is a generic entity that describes a single concept and is learned from machine-learned context. Context include word choice, word placement, and utterance length.<br/><br/>This is a good entity for words or phrases that are not consistently formatted but indicate the same thing. <br/><br/>[Quickstart](luis-quickstart-primary-and-secondary-data.md)<br/>[Example response for entity](luis-concept-data-extraction.md#simple-entity-data)|  
+Pattern.any is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.  
 
-| **Pattern.any** <br/>[Mixed](#mixed) | ✔|**Definition**<br>Patterns.any is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.  <br><br>**Example**<br>Given an utterance search for books based on title, the pattern.any extracts the complete title. A template utterance using pattern.any is `Who wrote {BookTitle}[?]`.<br/><br/>[Tutorial](luis-tutorial-pattern.md)<br>[Example response for entity](luis-concept-data-extraction.md#composite-entity-data)|  
+[Tutorial](luis-tutorial-pattern.md)<br>
+[Example response for entity](luis-concept-data-extraction.md#composite-entity-data)
+
+**Example**<br>
+Given an utterance search for books based on title, the pattern.any extracts the complete title. A template utterance using pattern.any is `Who wrote {BookTitle}[?]`.
+
+## Prebuilt entity
+
+Built-in types that represent common concepts such as key phrase number, ordinal, temperature, dimension, money, age, percentage, email, URL, phone number, and key phrase. Prebuilt entity names are reserved. All prebuilt entities that are added to the application are returned in the [endpoint](luis-glossary.md#endpoint) query. For more information, see [Prebuilt entities](./luis-prebuilt-entities.md). 
+
+[Tutorial](luis-tutorial-prebuilt-intents-entities.md)<br>
+[Example response for entity](luis-concept-data-extraction.md#prebuilt-entity-data)|
+
+## Regular expression entity 
+
+Custom regular expression for formatted raw utterance text. It ignores case and ignores cultural variant.  <br><br>This entity is good for words or phrases that are consistently formatted with any variation that is also consistent.<br><br>Regular expression matching is applied after spell-check alterations at the character level, not the token level. Uses part but not all of the [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) library.<br><br>If the regular expression is too complex, such as using many brackets, you are not able to add the expression to the model. <br><br>**Example**<br>`kb[0-9]{6,}` matches kb123456.<br/><br/>[Quickstart](luis-quickstart-intents-regex-entity.md)<br>[Example response for entity](luis-concept-data-extraction.md)|
+
+## Simple entity 
+
+A simple entity is a generic entity that describes a single concept and is learned from machine-learned context. Context include word choice, word placement, and utterance length.<br/><br/>This is a good entity for words or phrases that are not consistently formatted but indicate the same thing. <br/><br/>[Quickstart](luis-quickstart-primary-and-secondary-data.md)<br/>[Example response for entity](luis-concept-data-extraction.md#simple-entity-data)|  
+
 
 
 <a name="prebuilt"></a>
