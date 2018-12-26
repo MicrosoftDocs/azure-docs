@@ -220,7 +220,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
-### Creating a Cisco Spark test user
+### Create Cisco Spark test user
 
 In this section, you create a user called Britta Simon in Cisco Spark. In this section, you create a user called Britta Simon in Cisco Spark.
 
@@ -240,7 +240,7 @@ In this section, you create a user called Britta Simon in Cisco Spark. In this s
 
 	b. In the **Last Name** textbox, type last name of user like **Simon**.
 
-	c. In the **Email address** textbox, type email address of user like**britta.simon@contoso.com**.
+	c. In the **Email address** textbox, type email address of user like **britta.simon@contoso.com**.
 
 5. Click the plus sign to add Britta Simon. Then, click **Next**.
 
