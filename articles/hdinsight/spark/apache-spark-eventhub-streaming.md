@@ -51,33 +51,38 @@ To receive a stream of tweets, you create an application in Twitter. Follow the 
     - **Access Token**
     - **Access Token Secret**	
 
-## Create an Azure Event Hub
+## Create an Azure Event Hubs Namespace
 
 You use this event hub to store tweets.
 
 1. Sign in to the [Azure Portal](https://ms.portal.azure.com).
-2. Select **Create a resource** at the top left of the screen.
-3. Select **Internet of Things**, then select **Event Hubs**.
+1. From the left menu, select **All services**.
+2. Under **INTERNET OF THINGS**, select **Event Hubs**.
 
     ![Create event hub for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Create event hub for Spark streaming example")
-4. Enter the following values for the new event hub namespace:
+
+4. Select **+ Add**.
+4. Enter the following values for the new Event Hubs Namespace:
 
     - **Name**: Enter a name for the event hub.  The value used for this tutorial is **myeventhubns20180403**.
-    - **Price tier**: Select **Standard**.
-    - **Resource group**: You have the option to create a new or select the resource group for the Spark cluster. 
+    - **Pricing tier**: Select **Standard**.
+    - **Subscription**: Select your appropriate subscription.
+    - **Resource group**: Select an existing resource group from the drop-down list or select **Create new** to create a new resource group.
     - **Location**: Select the same **Location** as your Apache Spark cluster in HDInsight to reduce latency and costs.
+    - **Enable Auto-Inflate**: (Optional)  Auto-inflate automatically scales the number of Throughput Units assigned to your Event Hubs Namespace when your traffic exceeds the capacity of the Throughput Units assigned to it.
+    - **Auto-Inflate Maximum Throughput Units**: (Optional)  This slider will only appear if you check **Enable Auto-Inflate**.
 
     ![Provide an event hub name for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Provide an event hub name for Spark streaming example")
-5. Select **Create** to create the namespace.
+5. Select **Create** to create the namespace.  The deployment will complete in a few minutes.
 
-7. Open the event hub namespace using the following instructions:
+## Create an Azure Event Hub
+Create an Event Hub once the Event Hubs Namespace has been deployed.  From the portal:
 
-    1. From the portal, select **All services**.
-    2. In the filter box, enter **event hubs**.
-    3. Select the newly created namespace.
-    4. Select **+ Event Hub**.
-
-8. Enter the following values:
+1. From the left menu, select **All services**.
+2. Under **INTERNET OF THINGS**, select **Event Hubs**.
+3. Select your Event Hubs Namespace from the list.
+4. From the Event Hubs Namespace page, select **+ Event Hub**.
+5. Enter the following values in the **Create Event Hub** page:
 
     - Name: Give a name for your Event Hub.
     - Partition count: 10.
@@ -85,8 +90,9 @@ You use this event hub to store tweets.
    
     ![Provide event hub details for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Provide event hub details for Spark streaming example")
 
-9. Select **Create**.
-10. Select **Shared access policies** for the namespace (Note it is not the event hub shared access policies), and then Select **RootManageSharedAccessKey**.
+9. Select **Create**.  The deployment should complete in a few seconds and you will be returned to the Event Hubs Namespace page.
+10. Under **Settings**, select **Shared access policies**.
+11. Select **RootManageSharedAccessKey**.
     
      ![Set Event Hub policies for the Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Set Event Hub policies for the Spark streaming example")
 
@@ -97,7 +103,7 @@ You use this event hub to store tweets.
 
 ## Send tweets to the event hub
 
-You need to create a Jupyter notebook, and name it **SendTweetsToEventHub**. 
+Create a Jupyter notebook, and name it **SendTweetsToEventHub**. 
 
 1. Run the following code to add the external Apache Maven libraries:
 
@@ -179,7 +185,7 @@ You need to create a Jupyter notebook, and name it **SendTweetsToEventHub**.
 
 ## Read tweets from the event hub
 
-You need to create another Jupyter notebook, and name it **ReadTweetsFromEventHub**. 
+Create another Jupyter notebook, and name it **ReadTweetsFromEventHub**. 
 
 1. Run the following code to add an external Apache Maven library:
 
@@ -215,7 +221,7 @@ You need to create another Jupyter notebook, and name it **ReadTweetsFromEventHu
 
 ## Clean up resources
 
-With HDInsight, your data is stored in Azure Storage or Azure Data Lake Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. If you plan to work on the next tutorial immediately, you might want to keep the cluster, otherwise go ahead and delete the cluster.
+With HDInsight, your data is stored in Azure Storage or Azure Data Lake Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. If you plan to work on the next tutorial immediately, you might want to keep the cluster, otherwise go ahead, and delete the cluster.
 
 Open the cluster in the Azure portal, and select **Delete**.
 
