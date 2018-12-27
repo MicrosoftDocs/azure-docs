@@ -63,18 +63,18 @@ The following reference documentation articles describe:
 
 - How to [Query or the object ID for a user](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
 - How to [Obtain the object ID for a service principal](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1).
-- How to [Retrieve the object ID for an Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+- How to [Retrieve the object ID for an Azure AD tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
 ## Role assignments
 
 An Azure Digital Twins role assignment associates an object, such as a user or an Azure AD tenant, with a role and a space. Permissions are granted to all objects that belong to that space. The space includes the entire spatial graph beneath it.
 
+For example, a user is given a role assignment with the role `DeviceInstaller` for the root node of a spatial graph, which represents a building. The user can then read and update devices for that node and all other child spaces in the building.
+
 To grant permissions to a recipient, create a role assignment. To revoke permissions, remove the role assignment.
 
 >[!IMPORTANT]
 > Learn more about role assignments by reading [Creating and managing role assignments](./security-create-manage-role-assignments.md).
-
-For example, a user is given a role assignment with the role `DeviceInstaller` for the root node of a spatial graph, which represents a building. The user can then read and update devices for that node and all other child spaces in the building.
 
 ## Next steps
 
