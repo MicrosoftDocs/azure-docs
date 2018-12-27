@@ -6,7 +6,7 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 12/27/2018
 ms.author: stefanmsft
 ms.custom: seodec18
 ---
@@ -31,7 +31,7 @@ Logs and metrics for your Azure Digital Twins instance are exposed through Azure
 
 To configure monitoring and logging for Azure Digital Twins resources, read [How to configure monitoring and logging](./how-to-configure-monitoring.md).
 
-Read the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md) to a comprehensive overview of diagnostic log settings for your Azure Digital Twins instance through the Portal, Azure CLI, or PowerShell.
+Read the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md) for a comprehensive overview of diagnostic log settings for your Azure Digital Twins instance through the Azure Portal, Azure CLI, or PowerShell.
 
 >[!IMPORTANT]
 > Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
@@ -163,7 +163,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Space", JSON.stringify(customNotification));
 ```
 
-This scenario arises because the used identifier refers to a sensor while the topology object type specified is 'Space'.
+This scenario arises because the used identifier refers to a sensor while the topology object type specified is `Space`.
 
 **Correct** Example:
 
