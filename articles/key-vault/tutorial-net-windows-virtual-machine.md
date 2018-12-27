@@ -208,7 +208,7 @@ Then change the class file to contain the below code. It's a 2 step process.
 ```
 
 
-The above code shows you how to do operations with Azure Key Vault in an Azure Linux Virtual Machine. 
+The above code shows you how to do operations with Azure Key Vault in an Azure Windows Virtual Machine. 
 
 
 
