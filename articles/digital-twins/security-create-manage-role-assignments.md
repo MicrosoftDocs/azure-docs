@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 Azure Digital Twins uses role-based access control ([RBAC](./security-role-based-access-control.md)) to manage access to resources.
 
-## Role assignments: an overview
+## Role assignments overview
 
 Each role assignment conforms to the following definition:
 
