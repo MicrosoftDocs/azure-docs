@@ -31,7 +31,7 @@ You must meet the following prerequisites before using Text Analytics containers
 |--|--|
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
-|Text Analytics resource |In order to use the container, you must have:<br><br>* A [_Text Analytics_ Azure resource](text-analytics-how-to-access-key.md), along with the associated endpoint key and endpoint URI (used as the billing endpoint).<br>**{ENDPOINT_KEY}**: This key is used to start the container. You can find the endpoint key.<br><br>**{BILLING_ENDPOINT}**: The billing endpoint value is available on the Azure portal's Text Analytics Overview page. An example is: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`.|
+|Text Analytics resource |In order to use the container, you must have:<br><br>A [_Text Analytics_](text-analytics-how-to-access-key.md) Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Text Analytics Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
 ### The host computer
 
@@ -64,14 +64,6 @@ Container images for Text Analytics are available from Microsoft Container Regis
 |Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Sentiment Analysis | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-> [!TIP]
-> You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->  ```
->
-
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry..
 
 For a full description of available tags for the Text Analytics containers, see the following containers on the Docker Hub:
@@ -99,11 +91,20 @@ docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ```
 
+### Listing the containers
+
+You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
+
+```Docker
+docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
+```
+
+
 ## How to use the container
 
 Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
-1. [Run the container](##run-the-container-with-docker-run), with the required billing settings. More [examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
+1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
 1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint). 
 
 ## Run the container with `docker run`
@@ -112,8 +113,8 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 | Placeholder | Value |
 |-------------|-------|
-|{ENDPOINT_KEY} | This key is used to start the container.  |
-|{BILLING_ENDPOINT} | The billing endpoint value is available on the Azure portal's Text Analytics Overview page.|
+|{BILLING_KEY} | This key is used to start the container, and is available on the Azure portal's Text Analytics Keys page.  |
+|{BILLING_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal's Text Analytics Overview page.|
 
 Replace these parameters with your own values in the following example `docker run` command.
 
@@ -121,8 +122,8 @@ Replace these parameters with your own values in the following example `docker r
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 mcr.microsoft.com/azure-cognitive-services/keyphrase \
 Eula=accept \
-Billing={BILLING_ENDPOINT} \
-ApiKey={ENDPOINT_KEY}
+Billing={BILLING_ENDPOINT_URI} \
+ApiKey={BILLING_KEY}
 ```
 
 This command:
@@ -145,7 +146,7 @@ Use the host, https://localhost:5000, for container APIs.
 
 ## Stop the container
 
-[!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
+[!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
 
 ## Troubleshooting
 
