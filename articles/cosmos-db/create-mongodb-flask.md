@@ -1,18 +1,19 @@
 ---
-title: 'Build a Flask web app with Python and the Azure Cosmos DB for MongoDB API'
-description: Presents a Python Flask code sample you can use to connect to and query data from Azure Cosmos DB for MongoDB API.
+title: 'Build a Flask web app using Azure Cosmos DB's API for MongoDB and Python SDK'
+description: Presents a Python Flask code sample you can use to connect to and query using Azure Cosmos DB's API for MongoDB.
 services: cosmos-db
-author: slyons
-ms.author: sclyon
+author: rimman
+
+ms.author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc, seodec18
+ms.custom: quickstart
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/02/2017
+ms.date: 12/26/2018
 
 ---
-# Build a Flask app with the Azure Cosmos DB for MongoDB API
+# Build a Flask app using the Azure Cosmos DB's API for MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -23,9 +24,9 @@ ms.date: 10/02/2017
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Cosmos DB.
 
-This quick start guide uses the following [Flask example](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) and demonstrates how to build a simple To-Do Flask app with the [Azure Cosmos DB Emulator](local-emulator.md) and the Azure Cosmos DB for MongoDB API.
+This quick start guide uses the following [Flask example](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) and demonstrates how to build a simple To-Do Flask app with the [Azure Cosmos DB Emulator](local-emulator.md) and the Azure Cosmos DB's API for MongoDB.
 
 ## Prerequisites
 
@@ -113,9 +114,9 @@ The following snippets are all taken from the app.py file and uses the connectio
 
 ## Update your connection string
 
-If you want to test the code against a live Azure Cosmos DB Account, go to the Azure portal to create an account and get your connection string information. Then copy it into the app.
+If you want to test the code against a live Cosmos Account, go to the Azure portal to create an account and get your connection string information. Then copy it into the app.
 
-1. In the [Azure portal](https://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the Username, Password, and Host into the Dal.cs file in the next step.
+1. In the [Azure portal](https://portal.azure.com/), in your Cosmos account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the Username, Password, and Host into the Dal.cs file in the next step.
 
 2. Open the **app.py** file in the root directory.
 
@@ -125,7 +126,7 @@ If you want to test the code against a live Azure Cosmos DB Account, go to the A
 
 5. Finally copy your **password** value from the portal and make it the value of the **password** in your **app.py** file.
 
-You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. You can run it the same way as before.
+You've now updated your app with all the info it needs to communicate with Cosmos DB. You can run it the same way as before.
 
 ## Deploy to Azure
 
@@ -160,7 +161,7 @@ If you don't want to create a fork of this repo, you can also click the deploy t
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account and run a Flask app using the client for MongoDB API. You can now import additional data to your Cosmos DB account.
+In this quickstart, you've learned how to create a Cosmos account and run a Flask app. You can now import additional data to your Cosmos database. 
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for MongoDB API database](mongodb-migrate.md)
+> [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)

@@ -1,28 +1,28 @@
 ---
-title: Use Robomongo for Azure Cosmos DB
-description: 'Learn how to use Robomongo with an Azure Cosmos DB for MongoDB API account'
+title: Use Robo 3T to connect to Azure Cosmos DB
+description: 'Learn how to connect to Cosmos DB using Robo 3T and Azure Cosmos DB's API for MongoDB'
 keywords: robomongo
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 05/23/2017
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 
 ---
-# Use Robomongo with an Azure Cosmos DB account configured for MongoDB API
+# Use Robo 3T with the Azure Cosmos DB's API for MongoDB
 
-To connect to an Azure Cosmos DB for MongoDB API account using Robomongo, you must:
+To connect to Cosmos account using Robo 3T, you must:
 
-* Download and install [Robomongo](https://robomongo.org/)
-* Have your Cosmos account configured for MongoDB API [connection string](connect-mongodb-account.md) information
+* Download and install [Robo 3T](https://robomongo.org/)
+* Have your Cosmos DB [connection string](connect-mongodb-account.md) information
 
-## Connect using Robomongo
-To add your Cosmos account configured for MongoDB API to the Robomongo MongoDB Connections, perform the following steps.
+## Connect using Robo 3T
+To add your Cosmos account to the Robo 3T connection manager, perform the following steps:
 
-1. Retrieve your Cosmos account for MongoDB API connection information using the instructions [here](connect-mongodb-account.md).
+1. Retrieve the connection information for your Cosmos account configured with Azure Cosmos DB's API MongoDB using the instructions [here](connect-mongodb-account.md).
 
     ![Screen shot of the connection string blade](./media/mongodb-robomongo/connectionstringblade.png)
 2. Run *Robomongo.exe*
@@ -42,4 +42,6 @@ Both **User Name** and **Password** can be found in your connection information 
 7. Finally, click **Test** to verify that you are able to connect, then **Save**.
 
 ## Next steps
-* Explore Azure Cosmos DB for MongoDB API [samples](mongodb-samples.md).
+
+- Learn how to [use Studio 3T](mongodb-mongochef.md) with Azure Cosmos DB's API for MongoDB.
+- Explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.
