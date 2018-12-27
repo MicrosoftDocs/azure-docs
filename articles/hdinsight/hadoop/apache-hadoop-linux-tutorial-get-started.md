@@ -17,7 +17,7 @@ ms.date: 12/27/2018
 
 In this article, you learn how to create [Apache Hadoop](https://hadoop.apache.org/) clusters in HDInsight using a Resource Manager template, and then run Hive jobs in HDInsight. Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this article, you perform all the three tasks.
 
-In this quickstart, you use a Resource Manager template to create an HDInsight Hadoop cluster. You can also create a cluster using the [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md).  Similar templates can be viewed at [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?term=hadoop).
+In this quickstart, you use a Resource Manager template to create an HDInsight Hadoop cluster. You can also create a cluster using the [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md).  Similar templates can be viewed at [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 
 Currently HDInsight comes with [seven different cluster types](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Each cluster type supports a different set of components. All cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](../hdinsight-component-versioning.md)  
 
@@ -55,7 +55,7 @@ In this section, you create a Hadoop cluster in HDInsight using an Azure Resourc
 
 3. Select **I agree to the terms and conditions stated above**, and then select **Purchase**. You will receive a notification that your deployment is in progress.  It takes about 20 minutes to create a cluster.
 
-Once the cluster is created, you will receive a **Deployment succeeded** notification with a **Go to resource group** link.  Your **Resource group** page will list your new HDInsight cluster and the default storage associated with the cluster. Each cluster has an [Azure Storage account](../hdinsight-hadoop-use-blob-storage.md) or an [Azure Data Lake Storage account](../hdinsight-hadoop-use-data-lake-store.md) dependency. It is referred as the default storage account. HDInsight cluster and its default storage account must be co-located in the same Azure region. Deleting clusters does not delete the storage account.
+Once the cluster is created, you will receive a **Deployment succeeded** notification with a **Go to resource group** link.  Your **Resource group** page will list your new HDInsight cluster and the default storage associated with the cluster. Each cluster has an [Azure Storage account](../hdinsight-hadoop-use-blob-storage.md) or an [Azure Data Lake Storage account](../hdinsight-hadoop-use-data-lake-store.md) dependency. It is referred as the default storage account. The HDInsight cluster and its default storage account must be co-located in the same Azure region. Deleting clusters does not delete the storage account.
     
 
 [!NOTE]  
