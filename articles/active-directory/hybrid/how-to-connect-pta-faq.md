@@ -78,7 +78,7 @@ Yes. If Web Proxy Auto-Discovery (WPAD) is enabled in your on-premises environme
 If you don't have WPAD in your environment, you can add proxy information (as shown below) to allow a Pass-through Authentication Agent to communicate with Azure AD:
 - Configure proxy information in Internet Explorer before you install the Pass-through Authentication Agent on the server. This will allow you to complete the installation of the Authentication Agent, but it will still show up as **Inactive** on the Admin portal.
 - On the server, navigate to "C:\Program Files\Microsoft Azure AD Connect Authentication Agent".
-- Edit the "AzureADConnectAuthenticationAgentService" configuration file and add the following lines (replace "http://contosoproxy.com:8080" with your actual proxy address):
+- Edit the "AzureADConnectAuthenticationAgentService" configuration file and add the following lines (replace "http\://contosoproxy.com:8080" with your actual proxy address):
 
 ```
    <system.net>
@@ -164,7 +164,7 @@ This is because the default behavior of tenants created prior to June 15th 2015 
 Tenants created after June 15th 2015 have the default behavior of synchronizing UPN changes.   
 
 
-
+ 
 ## Next steps
 - [Current limitations](how-to-connect-pta-current-limitations.md): Learn which scenarios are supported and which ones are not.
 - [Quick start](how-to-connect-pta-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
