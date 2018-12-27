@@ -25,7 +25,7 @@ Before you set up continuous export, there are some alternatives you might want 
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
 * You can also access setup [continuous export via Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
-After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](app-insights-data-retention-privacy.md).
+After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](../azure-monitor/app/data-retention-privacy.md).
 
 ## <a name="setup"></a> Create a Continuous Export
 1. In the Application Insights resource for your app, open Continuous Export and choose **Add**:

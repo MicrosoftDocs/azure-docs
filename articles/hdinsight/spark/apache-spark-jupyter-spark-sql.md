@@ -48,7 +48,7 @@ Create an HDInsight Spark cluster using an Azure Resource Manager template. The 
 
 3. Select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then select **Purchase**. You can see a new tile titled **Deploying Template deployment**. It takes about 20 minutes to create the cluster. The cluster must be created before you can proceed to the next session.
 
-If you run into an issue with creating HDInsight clusters, it could be that you do not have the right permissions to do so. For more information, see [Access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into an issue with creating HDInsight clusters, it could be that you do not have the right permissions to do so. For more information, see [Access control requirements](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Install IntelliJ/Eclipse for Spark application
 Use the Azure Toolkit for IntelliJ/Eclipse plug-in to develop Spark applications written in [Scala](https://www.scala-lang.org/), and then submit them to an Azure HDInsight Spark cluster directly from the IntelliJ/Eclipse integrated development environment (IDE). For more information, see [Use IntelliJ to author/submit Spark application](./apache-spark-intellij-tool-plugin.md) and [Use Eclipse to author/submit Spark application](./apache-spark-eclipse-tool-plugin.md).

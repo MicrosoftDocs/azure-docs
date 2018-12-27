@@ -70,7 +70,7 @@ For an introduction to using Visual Studio with resource groups, see [Creating a
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:

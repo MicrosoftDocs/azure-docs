@@ -311,7 +311,7 @@ The main advantages of sampling are:
 **Use fixed-rate sampling if:**
 
 * You're using the Application Insights SDK for ASP.NET web services version 2.0.0 or later or Java SDK v2.0.1 or later, and
-* You want synchronized sampling between client and server, so that, when you're investigating events in [Search](app-insights-diagnostic-search.md), you can navigate between related events on the client and server, such as page views and http requests.
+* You want synchronized sampling between client and server, so that, when you're investigating events in [Search](../azure-monitor/app/diagnostic-search.md), you can navigate between related events on the client and server, such as page views and http requests.
 * You are confident of the appropriate sampling percentage for your app. It should be high enough to get accurate metrics, but below the rate that exceeds your pricing quota and the throttling limits. 
 
 **Use adaptive sampling:**
