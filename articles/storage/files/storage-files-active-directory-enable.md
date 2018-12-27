@@ -152,15 +152,10 @@ The following custom role template provides share-level Change permissions, gran
   "IsCustom": true,
   "Description": "Allows for read, write and delete access to Azure File Share",
   "Actions": [
-	"*"
-  ],
-  "NotActions": [
-	  "Microsoft.Authorization/*/Delete",
-    "Microsoft.Authorization/*/Write",
-    "Microsoft.Authorization/elevateAccess/Action"
+   	"Microsoft.Storage/storageAccounts/fileServices/fileshare/*"
   ],
   "DataActions": [
-  	"*"
+   	"Microsoft.Storage/storageAccounts/fileServices/fileshares/files/*"
   ],
   "AssignableScopes": [
     	"/subscriptions/<Subscription-ID>"
@@ -178,10 +173,10 @@ The following custom role template provides share-level Read permissions, granti
   "IsCustom": true,
   "Description": "Allows for read access to Azure File Share",
   "Actions": [
-	"*/read"
+   	"Microsoft.Storage/storageAccounts/fileServices/fileshare/read"
   ],
   "DataActions": [
-  	"*/read"
+  	"Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read"
   ],
   "AssignableScopes": [
     	"/subscriptions/<Subscription-ID>"
