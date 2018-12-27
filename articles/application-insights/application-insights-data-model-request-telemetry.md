@@ -29,7 +29,7 @@ Max length: 1024 characters
 
 ## ID
 
-Identifier of a request call instance. Used for correlation between request and other telemetry items. ID should be globally unique. For more information, see [correlation](application-insights-correlation.md) page.
+Identifier of a request call instance. Used for correlation between request and other telemetry items. ID should be globally unique. For more information, see [correlation](../azure-monitor/app/correlation.md) page.
 
 Max length: 128 characters
 
@@ -41,7 +41,7 @@ Max length: 2048 characters
 
 ## Source
 
-Source of the request. Examples are the instrumentation key of the caller or the ip address of the caller. For more information, see [correlation](application-insights-correlation.md) page.
+Source of the request. Examples are the instrumentation key of the caller or the ip address of the caller. For more information, see [correlation](../azure-monitor/app/correlation.md) page.
 
 Max length: 1024 characters
 

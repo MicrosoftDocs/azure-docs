@@ -15,17 +15,17 @@ ms.author: lagayhar
 ---
 # Telemetry correlation in Application Insights
 
-In the world of micro services, every logical operation requires work done in various components of the service. Each of these components can be separately monitored by [Application Insights](app-insights-overview.md). The web app component communicates with authentication provider component to validate user credentials, and with the API component to get data for visualization. The API component in its turn can query data from other services and use cache-provider components and notify the billing component about this call. Application Insights supports distributed telemetry correlation. It allows you to detect which component is responsible for failures or performance degradation.
+In the world of micro services, every logical operation requires work done in various components of the service. Each of these components can be separately monitored by [Application Insights](../../application-insights/app-insights-overview.md). The web app component communicates with authentication provider component to validate user credentials, and with the API component to get data for visualization. The API component in its turn can query data from other services and use cache-provider components and notify the billing component about this call. Application Insights supports distributed telemetry correlation. It allows you to detect which component is responsible for failures or performance degradation.
 
 This article explains the data model used by Application Insights to correlate telemetry sent by multiple components. It covers the context propagation techniques and protocols. It also covers the implementation of the correlation concepts on different languages and platforms.
 
 ## Telemetry correlation data model
 
-Application Insights defines a [data model](application-insights-data-model.md) for distributed telemetry correlation. To associate telemetry with the logical operation, every telemetry item has a context field called `operation_Id`. This identifier is shared by every telemetry item in the distributed trace. So even with loss of telemetry from a single layer you still can associate telemetry reported by other components.
+Application Insights defines a [data model](../../application-insights/application-insights-data-model.md) for distributed telemetry correlation. To associate telemetry with the logical operation, every telemetry item has a context field called `operation_Id`. This identifier is shared by every telemetry item in the distributed trace. So even with loss of telemetry from a single layer you still can associate telemetry reported by other components.
 
-Distributed logical operation typically consists of a set of smaller operations - requests processed by one of the components. Those operations are defined by [request telemetry](application-insights-data-model-request-telemetry.md). Every request telemetry has its own `id` that uniquely globally identifies it. And all telemetry - traces, exceptions, etc. associated with this request should set the `operation_parentId` to the value of the request `id`.
+Distributed logical operation typically consists of a set of smaller operations - requests processed by one of the components. Those operations are defined by [request telemetry](../../application-insights/application-insights-data-model-request-telemetry.md). Every request telemetry has its own `id` that uniquely globally identifies it. And all telemetry - traces, exceptions, etc. associated with this request should set the `operation_parentId` to the value of the request `id`.
 
-Every outgoing operation (such as an http call to another component) is represented by [dependency telemetry](application-insights-data-model-dependency-telemetry.md). Dependency telemetry also defines its own `id` that is globally unique. Request telemetry, initiated by this dependency call, uses it as `operation_parentId`.
+Every outgoing operation (such as an http call to another component) is represented by [dependency telemetry](../../application-insights/application-insights-data-model-dependency-telemetry.md). Dependency telemetry also defines its own `id` that is globally unique. Request telemetry, initiated by this dependency call, uses it as `operation_parentId`.
 
 You can build the view of distributed logical operation using `operation_Id`, `operation_parentId`, and `request.id` with `dependency.id`. Those fields also define the causality order of telemetry calls.
 
@@ -108,7 +108,7 @@ The [Open Tracing data model specification](https://opentracing.io/) and Applica
 | `Operation_Id`                     	| `TraceId`                                       	|
 | `Operation_ParentId`               	| `Reference` of type `ChildOf` (the parent span) 	|
 
-For more information on the Application Insights data model, see [data model](application-insights-data-model.md). 
+For more information on the Application Insights data model, see [data model](../../application-insights/application-insights-data-model.md). 
 
 See the Open Tracing [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) for definitions of Open Tracing concepts.
 
@@ -130,14 +130,14 @@ Application Insights SDK starting version `2.4.0-beta1` uses DiagnosticsSource a
 
 <a name="java-correlation"></a>
 ## Telemetry correlation in the Java SDK
-The [Application Insights Java SDK](app-insights-java-get-started.md) supports automatic correlation of telemetry beginning with version `2.0.0`. It automatically populates `operation_id` for all telemetry (traces, exceptions, custom events, etc.) issued within the scope of a request. It also takes care of propagating the correlation headers (described above) for service to service calls via HTTP if the [Java SDK agent](app-insights-java-agent.md) is configured. Note: only calls made via Apache HTTP Client are supported for the correlation feature. If you're using Spring Rest Template or Feign, both can be used with Apache HTTP Client under the hood.
+The [Application Insights Java SDK](../../application-insights/app-insights-java-get-started.md) supports automatic correlation of telemetry beginning with version `2.0.0`. It automatically populates `operation_id` for all telemetry (traces, exceptions, custom events, etc.) issued within the scope of a request. It also takes care of propagating the correlation headers (described above) for service to service calls via HTTP if the [Java SDK agent](../../application-insights/app-insights-java-agent.md) is configured. Note: only calls made via Apache HTTP Client are supported for the correlation feature. If you're using Spring Rest Template or Feign, both can be used with Apache HTTP Client under the hood.
 
 Currently, automatic context propagation across messaging technologies (for example, Kafka, RabbitMQ, Azure Service Bus) isn't supported. It's possible, however to manually code such scenarios by using the `trackDependency` and `trackRequest` APIs, whereby a dependency telemetry represents a message being enqueued by a producer and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
 
 <a name="java-role-name"></a>
 ## Role Name
 
-At times, you might want to customize the way component names are displayed in the [Application Map](../azure-monitor/app/app-map.md). To do so, you can manually set the `cloud_RoleName` by doing one of the following:
+At times, you might want to customize the way component names are displayed in the [Application Map](../../azure-monitor/app/app-map.md). To do so, you can manually set the `cloud_RoleName` by doing one of the following:
 
 If you use Spring Boot with the Application Insights Spring Boot starter, the only required change is to set your custom name for the application in the application.properties file.
 
@@ -160,10 +160,10 @@ telemetryClient.getContext().getCloud().setRole("My Component Name");
 
 ## Next steps
 
-- [Write custom telemetry](../azure-monitor/app/api-custom-events-metrics.md)
-- [Learn more about](../azure-monitor/app/app-map.md#set-cloudrolename) setting cloud_RoleName for other SDKs.
-- Onboard all components of your micro service on Application Insights. Check out [supported platforms](app-insights-platforms.md).
-- See [data model](application-insights-data-model.md) for Application Insights types and data model.
-- Learn how to [extend and filter telemetry](../azure-monitor/app/api-filtering-sampling.md).
-- [Application Insights config reference](app-insights-configuration-with-applicationinsights-config.md)
+- [Write custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md)
+- [Learn more about](../../azure-monitor/app/app-map.md#set-cloudrolename) setting cloud_RoleName for other SDKs.
+- Onboard all components of your micro service on Application Insights. Check out [supported platforms](../../application-insights/app-insights-platforms.md).
+- See [data model](../../application-insights/application-insights-data-model.md) for Application Insights types and data model.
+- Learn how to [extend and filter telemetry](../../azure-monitor/app/api-filtering-sampling.md).
+- [Application Insights config reference](configuration-with-applicationinsights-config.md)
 
