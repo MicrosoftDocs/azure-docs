@@ -244,13 +244,13 @@ Did you build for .NET 4.6? .NET 4.6 is not automatically supported in Azure clo
 * [Automate Azure Diagnostics](app-insights-powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
-[api]: ../azure-monitor/app/api-custom-events-metrics.md
-[availability]: app-insights-monitor-web-app-availability.md
-[azure]: app-insights-overview.md
-[client]: app-insights-javascript.md
-[diagnostic]: app-insights-diagnostic-search.md
-[netlogs]: ../azure-monitor/app/asp-net-trace-logs.md
+[api]: ../../azure-monitor/app/api-custom-events-metrics.md
+[availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
+[azure]: ../../application-insights/app-insights-overview.md
+[client]: ../../application-insights/app-insights-javascript.md
+[diagnostic]: ../../application-insights/app-insights-diagnostic-search.md
+[netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-overview.md 
+[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
+[redfield]: ../../application-insights/app-insights-monitor-performance-live-website-now.md
+[start]: ../../application-insights/app-insights-overview.md 
