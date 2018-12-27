@@ -21,9 +21,9 @@ If you want to **copy files as-is** between file-based stores (binary copy), ski
 
 * [Text format](#text-format)
 * [JSON format](#json-format)
-* [Avro format](#avro-format)
-* [ORC format](#orc-format)
 * [Parquet format](#parquet-format)
+* [ORC format](#orc-format)
+* [Avro format](#avro-format)
 
 > [!TIP]
 > Learn how copy activity maps your source data to sink from [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md), including how the metadata is determined based on your file format settings and tips on when to specify the [dataset `structure`](concepts-datasets-linked-services.md#dataset-structure) section.
@@ -402,67 +402,6 @@ The output dataset with **JsonFormat** type is defined as follows: (partial defi
 }
 ```
 
-## AVRO format
-
-If you want to parse the Avro files or write the data in Avro format, set the `format` `type` property to **AvroFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
-
-```json
-"format":
-{
-    "type": "AvroFormat",
-}
-```
-
-To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
-
-Note the following points:
-
-* [Complex data types](http://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions, and fixed).
-
-## ORC format
-
-If you want to parse the ORC files or write the data in ORC format, set the `format` `type` property to **OrcFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
-
-```json
-"format":
-{
-    "type": "OrcFormat"
-}
-```
-
-> [!IMPORTANT]
-> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying ORC files **as-is**, you need to install the JRE 8 (Java Runtime Environment) on your IR machine. A 64-bit IR requires 64-bit JRE. You can find both versions from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
->
-
-Note the following points:
-
-* Complex data types are not supported (STRUCT, MAP, LIST, UNION)
-* ORC file has three [compression-related options](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB, which is the default for ORC. Currently, there is no option to override this behavior.
-
-### Data type mapping for ORC files
-
-| Data factory interim data type | ORC types |
-|:--- |:--- |
-| Boolean | Boolean |
-| SByte | Byte |
-| Byte | Short |
-| Int16 | Short |
-| UInt16 | Int |
-| Int32 | Int |
-| UInt32 | Long |
-| Int64 | Long |
-| UInt64 | String |
-| Single | Float |
-| Double | Double |
-| Decimal | Decimal |
-| String | String |
-| DateTime | Timestamp |
-| DateTimeOffset | Timestamp |
-| TimeSpan | Timestamp |
-| ByteArray | Binary |
-| Guid | String |
-| Char | Char(1) |
-
 ## Parquet format
 
 If you want to parse the Parquet files or write the data in Parquet format, set the `format` `type` property to **ParquetFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
@@ -480,7 +419,8 @@ If you want to parse the Parquet files or write the data in Parquet format, set 
 
 Note the following points:
 
-* Complex data types are not supported (MAP, LIST)
+* Complex data types are not supported (MAP, LIST).
+* White space in column name is not supported.
 * Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. Data Factory supports reading data from Parquet file in any of these compressed formats. It uses the compression codec in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior.
 
 ### Data type mapping for Parquet files
@@ -507,6 +447,68 @@ Note the following points:
 | Guid | Binary | Utf8 | Utf8 |
 | Char | Binary | Utf8 | Utf8 |
 | CharArray | Not supported | N/A | N/A |
+
+## ORC format
+
+If you want to parse the ORC files or write the data in ORC format, set the `format` `type` property to **OrcFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
+
+```json
+"format":
+{
+    "type": "OrcFormat"
+}
+```
+
+> [!IMPORTANT]
+> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying ORC files **as-is**, you need to install the JRE 8 (Java Runtime Environment) on your IR machine. A 64-bit IR requires 64-bit JRE. You can find both versions from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
+>
+
+Note the following points:
+
+* Complex data types are not supported (STRUCT, MAP, LIST, UNION).
+* White space in column name is not supported.
+* ORC file has three [compression-related options](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB, which is the default for ORC. Currently, there is no option to override this behavior.
+
+### Data type mapping for ORC files
+
+| Data factory interim data type | ORC types |
+|:--- |:--- |
+| Boolean | Boolean |
+| SByte | Byte |
+| Byte | Short |
+| Int16 | Short |
+| UInt16 | Int |
+| Int32 | Int |
+| UInt32 | Long |
+| Int64 | Long |
+| UInt64 | String |
+| Single | Float |
+| Double | Double |
+| Decimal | Decimal |
+| String | String |
+| DateTime | Timestamp |
+| DateTimeOffset | Timestamp |
+| TimeSpan | Timestamp |
+| ByteArray | Binary |
+| Guid | String |
+| Char | Char(1) |
+
+## AVRO format
+
+If you want to parse the Avro files or write the data in Avro format, set the `format` `type` property to **AvroFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
+
+```json
+"format":
+{
+    "type": "AvroFormat",
+}
+```
+
+To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+
+Note the following points:
+
+* [Complex data types](http://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions, and fixed).
 
 ## Compression support
 
