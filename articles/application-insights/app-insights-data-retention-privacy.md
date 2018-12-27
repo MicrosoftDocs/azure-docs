@@ -45,7 +45,7 @@ There are three sources of data:
 
 * The SDK, which you integrate with your app either [in development](../azure-monitor/app/asp-net.md) or [at run time](app-insights-monitor-performance-live-website-now.md). There are different SDKs for different application types. There's also an [SDK for web pages](app-insights-javascript.md), which loads into the end-user's browser along with the page.
   
-  * Each SDK has a number of [modules](app-insights-configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
+  * Each SDK has a number of [modules](../azure-monitor/app/configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
   * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
 * In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [J2EE servers](app-insights-java-agent.md) can have such agents.
 * [Availability tests](app-insights-monitor-web-app-availability.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to the Application Insights service.
@@ -288,7 +288,7 @@ This product includes GeoLite2 data created by MaxMind, available from [https://
 [api]: ../azure-monitor/app/api-custom-events-metrics.md
 [apiproperties]: ../azure-monitor/app/api-custom-events-metrics.md#properties
 [client]: app-insights-javascript.md
-[config]: app-insights-configuration-with-applicationinsights-config.md
+[config]: ../azure-monitor/app/configuration-with-applicationinsights-config.md
 [greenbrown]: ../azure-monitor/app/asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md

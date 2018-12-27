@@ -132,7 +132,7 @@ If you made any customizations to ApplicationInsights.config, save a copy of it 
 There are alternative topics to look at if you are interested in:
 
 * [Instrumenting a web app at runtime](../../application-insights/app-insights-monitor-performance-live-website-now.md)
-* [Azure Cloud Services](../../application-insights/app-insights-cloudservices.md)
+* [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
 
 ### More telemetry
 

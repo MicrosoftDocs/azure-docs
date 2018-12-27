@@ -128,7 +128,7 @@ To remove the diagnostics extension from each individual role:
 
 
 ## See also
-* [Monitor Azure Cloud Services apps with Application Insights](app-insights-cloudservices.md)
+* [Monitor Azure Cloud Services apps with Application Insights](../azure-monitor/app/cloudservices.md)
 * [Send Azure Diagnostics to Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Automate configuring alerts](app-insights-powershell-alerts.md)
 

@@ -399,7 +399,7 @@ However, the recommended way to send request telemetry is where the request acts
 
 You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](../../application-insights/app-insights-diagnostic-search.md) and [Analytics](analytics.md), you can easily find any events associated with the request using its operation Id.
 
-See [Telemetry correlation in Application Insights](../../application-insights/application-insights-correlation.md) for more details on correlation.
+See [Telemetry correlation in Application Insights](../../azure-monitor/app/correlation.md) for more details on correlation.
 
 When tracking telemetry manually, the easiest way to ensure telemetry correlation by using this pattern:
 
@@ -431,7 +431,7 @@ In Search, the operation context is used to create the **Related Items** list:
 
 ![Related items](./media/api-custom-events-metrics/21.png)
 
-See [Track custom operations with Application Insights .NET SDK](../../application-insights/application-insights-custom-operations-tracking.md) for more information on custom operations tracking.
+See [Track custom operations with Application Insights .NET SDK](../../azure-monitor/app/custom-operations-tracking.md) for more information on custom operations tracking.
 
 ### Requests in Analytics
 
@@ -669,7 +669,7 @@ In Java, certain dependency calls can be automatically tracked using [Java Agent
 
 You use this call if you want to track calls that the automated tracking doesn't catch, or if you don't want to install the agent.
 
-To turn off the standard dependency-tracking module in C#, edit [ApplicationInsights.config](../../application-insights/app-insights-configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`. In Java, please do not install java agent if you do not want to collect standard dependencies automatically.
+To turn off the standard dependency-tracking module in C#, edit [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`. In Java, please do not install java agent if you do not want to collect standard dependencies automatically.
 
 ### Dependencies in Analytics
 
@@ -1023,7 +1023,7 @@ TelemetryConfiguration.Active.DisableTelemetry = true;
 telemetry.getConfiguration().setTrackingDisabled(true);
 ```
 
-To *disable selected standard collectors*--for example, performance counters, HTTP requests, or dependencies--delete or comment out the relevant lines in [ApplicationInsights.config](../../application-insights/app-insights-configuration-with-applicationinsights-config.md). You can do this, for example, if you want to send your own TrackRequest data.
+To *disable selected standard collectors*--for example, performance counters, HTTP requests, or dependencies--delete or comment out the relevant lines in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). You can do this, for example, if you want to send your own TrackRequest data.
 
 *Node.js*
 
@@ -1120,7 +1120,7 @@ TelemetryClient has a Context property, which contains values that are sent alon
 telemetry.Context.Operation.Name = "MyOperationName";
 ```
 
-If you set any of these values yourself, consider removing the relevant line from [ApplicationInsights.config](../../application-insights/app-insights-configuration-with-applicationinsights-config.md), so that your values and the standard values don't get confused.
+If you set any of these values yourself, consider removing the relevant line from [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), so that your values and the standard values don't get confused.
 
 * **Component**: The app and its version.
 * **Device**: Data about the device where the app is running. (In web apps, this is the server or client device that the telemetry is sent from.)
