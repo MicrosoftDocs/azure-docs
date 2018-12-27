@@ -217,14 +217,18 @@ Verify that the JSON body conforms to the following schema:
 ```JSON
 {
   "roleId": "YOUR_ROLE_ID",
-  "objectId": "YOUR_SERVICE_PRINCIPLE_OBJECT_ID",
+  "objectId": "YOUR_OBJECT_ID",
   "objectIdType": "YOUR_OBJECT_ID_TYPE",
   "path": "YOUR_PATH",
   "tenantId": "YOUR_TENANT_ID"
 }
 ```
 
-A successful request will return a 201 response status.
+A successful request will return a 201 response status along with the **id** of the newly created role assignment:
+
+```JSON
+"d92c7823-6e65-41d4-aaaa-f5b32e3f01b9"
+```
 
 ## Configuration examples
 
