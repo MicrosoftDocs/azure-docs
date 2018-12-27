@@ -21,7 +21,7 @@ There are several advantages of creating and managing alerts in the Azure portal
 
 - Unlike in the Operations Management Suite portal, where only 250 alerts could be created and viewed, Azure Alerts has no such limitation.
 - From Azure Alerts, you can manage, enumerate, and view all your alert types. Previously, you could only do so for Log Analytics alerts.
-- You can limit access to users to only monitoring and alerting, by using the [Azure Monitor role](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+- You can limit access to users to only monitoring and alerting, by using the [Azure Monitor role](../../azure-monitor/platform/roles-permissions-security.md).
 - In Azure Alerts, you can use [action groups](../../azure-monitor/platform/action-groups.md). This allows you to have more than one action for each alert. You can SMS, send a voice call, invoke an Azure Automation runbook, invoke a webhook, and configure an IT Service Management (ITSM) Connector. 
 
 ## Process of extending your alerts
@@ -46,7 +46,7 @@ After your alerts are extended to Azure Alerts, they continue to be available in
 When you attempt to edit an existing alert or create a new alert in the Operations Management Suite portal, you are automatically redirected to Azure Alerts.  
 
 > [!NOTE]
-> Ensure that the permissions assigned to individuals who need to add or edit alerts are properly assigned in Azure. To understand what permissions you need to grant, see [permissions for using Azure Monitor and Alerts](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).  
+> Ensure that the permissions assigned to individuals who need to add or edit alerts are properly assigned in Azure. To understand what permissions you need to grant, see [permissions for using Azure Monitor and Alerts](../../azure-monitor/platform/roles-permissions-security.md).  
 > 
 
 You can continue to create alerts from the [Log Analytics API](../../azure-monitor/platform/api-alerts.md) and [Log Analytics Resource Template](../../azure-monitor/insights/solutions-resources-searches-alerts.md). You must include action groups when you do so.

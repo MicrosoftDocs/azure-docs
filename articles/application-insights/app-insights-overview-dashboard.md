@@ -60,4 +60,4 @@ To navigate back to the overview experience just select:
 - [Funnels](usage-funnels.md)
 - [Retention](app-insights-usage-retention.md)
 - [User Flows](app-insights-usage-flows.md)
-- [Dashboards](app-insights-dashboards.md)
+- [Dashboards](../azure-monitor/app/app-insights-dashboards.md)

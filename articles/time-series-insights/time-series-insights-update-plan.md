@@ -1,5 +1,5 @@
 ﻿---
-title: Azure Time Series Insights Preview planning - Plan your Azure Time Series Insights Preview environment | Microsoft Docs
+title: 'Plan your Azure Time Series Insights Preview environment | Microsoft Docs'
 description: Plan your Azure Time Series Insights Preview environment.
 author: ashannon7
 ms.author: anshan

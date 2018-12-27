@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -73,7 +73,7 @@ Select:
 
 - **All cloud apps** to baseline policies to apply to the entire organization. Use this selection for policies that require multifactor authentication when sign-in risk is detected for any cloud app. A policy applied to **All cloud apps** applies to access to all websites and services. This setting isn't limited to the cloud apps that appear on the **Select apps** list. 
 
-- Individual cloud apps to target specific services by policy. For example, you can require users to have a [compliant device](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) to access SharePoint Online. This policy is also applied to other services when they access SharePoint content. An example is Microsoft Teams. 
+- **Select spps** to target specific services by your policy. For example, you can require users to have a [compliant device](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) to access SharePoint Online. This policy is also applied to other services when they access SharePoint content. An example is Microsoft Teams. 
 
 You can exclude specific apps from a policy. However, these apps are still subject to the policies applied to the services they access. 
 
@@ -137,16 +137,16 @@ For more information, see [What is the location condition in Azure Active Direct
 
 By default, a conditional access policy applies to the following apps:
 
-- [Browser apps](technical-reference.md#supported-browsers) -  Browser apps include websites using the SAML, WS-Federation, or OpenID Connect web SSO protocols. This also applies to any website or web service that has been registered as an OAuth confidential client. For example, the Office 365 SharePoint website. 
+- **[Browser apps](technical-reference.md#supported-browsers)** -  Browser apps include websites using the SAML, WS-Federation, or OpenID Connect web SSO protocols. This also applies to any website or web service that has been registered as an OAuth confidential client. For example, the Office 365 SharePoint website. 
 
-- [Mobile and desktop apps using modern authentication](technical-reference.md#supported-mobile-applications-and-desktop-clients) - These apps include the Office desktop apps and phone apps. 
+- **[Mobile and desktop apps using modern authentication](technical-reference.md#supported-mobile-applications-and-desktop-clients)** - These apps include the Office desktop apps and phone apps. 
 
 
 Additionally, you can target a policy to specific client apps that are not using modern authentication, for example:
 
-- Client apps using the Microsoft Exchange ActiveSync protocol. When a policy blocks using Exchange ActiveSync, affected users get a single quarantine email with information on why they are blocked. If necessary, the email includes instructions for enrolling their device with Intune.
+- **[Exchange ActiveSync clients](conditions.md#exchange-activesync-clients)** - When a policy blocks using Exchange ActiveSync, affected users get a single quarantine email with information on why they are blocked. If necessary, the email includes instructions for enrolling their device with Intune.
 
-- Other clients. These apps include clients that use basic authentication with mail protocols like IMAP, MAPI, POP, SMTP, and older Office apps that don't use modern authentication. For more information, see [How modern authentication works for Office 2013 and Office 2016 client apps](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
+- **[Other clients](block-legacy-authentication.md)** - These apps include clients that use basic authentication with mail protocols like IMAP, MAPI, POP, SMTP, and older Office apps that don't use modern authentication. For more information, see [How modern authentication works for Office 2013 and Office 2016 client apps](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
 ![Client apps](./media/conditions/41.png)
 
@@ -154,7 +154,7 @@ Common use cases for this condition are policies with the following requirements
 
 - **[Require a managed device](require-managed-devices.md)** for mobile and desktop applications that download  data to a device. At the same time, allow browser access from any device. This scenario prevents saving and syncing documents to an unmanaged device. With this method, you can reduce the probability for data loss if the device is lost or stolen.
 
-- **[Require a managed device](require-managed-devices.md)** apps using ActiveSync to access Exchange Online.
+- **[Require a managed device](require-managed-devices.md)** for apps using ActiveSync to access Exchange Online.
 
 - **[Block legacy authentication](block-legacy-authentication.md)** to Azure AD (other clients)
 

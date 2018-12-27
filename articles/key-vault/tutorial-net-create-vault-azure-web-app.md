@@ -19,7 +19,7 @@ ms.custom: mvc
 
 Azure Key Vault helps you protect secrets such as API keys and database connection strings. It provides you with access to your applications, services, and IT resources.
 
-In this tutorial, you learn how to create an Azure web application that can read information from an Azure key vault. The process uses managed identities for Azure resources. For more information about Azure web applications, see [Azure Web Apps](../app-service/app-service-web-overview.md).
+In this tutorial, you learn how to create an Azure web application that can read information from an Azure key vault. The process uses managed identities for Azure resources. For more information about Azure web applications, see [Azure App Service](../app-service/overview.md).
 
 The article shows you how to:
 

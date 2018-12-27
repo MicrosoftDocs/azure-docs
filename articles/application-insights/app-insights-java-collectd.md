@@ -128,10 +128,10 @@ Workaround: Exclude data collected by the problem Write plugins.
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
+[api]: ../azure-monitor/app/api-custom-events-metrics.md
+[apiexceptions]: ../azure-monitor/app/api-custom-events-metrics.md#track-exception
 [availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: app-insights-diagnostic-search.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
