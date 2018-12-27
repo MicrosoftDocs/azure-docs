@@ -56,10 +56,9 @@ In this section, you create a Hadoop cluster in HDInsight using an Azure Resourc
 3. Select **I agree to the terms and conditions stated above**, and then select **Purchase**. You will receive a notification that your deployment is in progress.  It takes about 20 minutes to create a cluster.
 
 Once the cluster is created, you will receive a **Deployment succeeded** notification with a **Go to resource group** link.  Your **Resource group** page will list your new HDInsight cluster and the default storage associated with the cluster. Each cluster has an [Azure Storage account](../hdinsight-hadoop-use-blob-storage.md) or an [Azure Data Lake Storage account](../hdinsight-hadoop-use-data-lake-store.md) dependency. It is referred as the default storage account. The HDInsight cluster and its default storage account must be co-located in the same Azure region. Deleting clusters does not delete the storage account.
-    
 
-[!NOTE]  
-For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md).       
+> [!NOTE]  
+> For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md).       
 
 
 ## Use VSCode to run Hive queries
@@ -170,7 +169,7 @@ To create and run a Hive solution:
 
 [Apache Hive](hdinsight-use-hive.md) is the most popular component used in HDInsight. There are many ways to run Hive jobs in HDInsight. In this tutorial, you use the Ambari Hive view from the portal. For other methods for submitting Hive jobs, see [Use Apache Hive in HDInsight](hdinsight-use-hive.md).
 
-1. To open Ambari, from the **Cluster dashboards** tile, select **Ambari views**.  You can also browse to  **https://&lt;ClusterName>.azurehdinsight.net**, where &lt;ClusterName> is the cluster you created in the previous section.
+1. To open Ambari, from the **Cluster dashboards** tile, select **Ambari views**.  You can also browse to  **https://&lt;ClusterName&gt;.azurehdinsight.net**, where &lt;ClusterName&gt; is the cluster you created in the previous section.
 
     ![HDInsight Linux get started cluster dashboard](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-open-cluster-dashboard.png "HDInsight Linux get started cluster dashboard")
 
