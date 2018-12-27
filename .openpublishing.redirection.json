@@ -30334,6 +30334,21 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi.md",
+            "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-api-dotnet.md",
+            "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet.md",
+            "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
             "redirect_document_id": true
