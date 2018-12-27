@@ -154,7 +154,7 @@ You can find the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring
 
 To view performance counters and counts of events, open [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md) and add the following chart:
 
-![Azure Diagnostics data](./media/app-insights-cloudservices/23-wad.png)
+![Azure Diagnostics data](./media/cloudservices/23-wad.png)
 
 To search across the various trace logs that are sent by Azure Diagnostics, use [Search](../../azure-monitor/app/diagnostic-search.md) or an [Analytics query](../../azure-monitor/log-query/get-started-portal.md). For example, suppose you have an unhandled exception that has caused a role to crash and recycle. That information would show up in the Application channel of Windows Event Log. You can use Search to view the Windows Event Log error and get the full stack trace for the exception. Doing so helps you find the root cause of the issue.
 
