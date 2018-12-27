@@ -1,5 +1,5 @@
 ---
-title: 'Introduction to Azure Cosmos DB's API for MongoDB'
+title: "Introduction to the Azure Cosmos DB API for MongoDB"
 description: Learn how you can use Azure Cosmos DB to store and query massive amounts of data using Azure Cosmos DB's API for MongoDB.
 keywords: Azure Cosmos DB's API for MongoDB
 services: cosmos-db
@@ -13,7 +13,7 @@ ms.author: rimman
 experimental: true
 experiment_id: "662dc5fd-886f-4a"
 ---
-# Azure Cosmos DB's API for MongoDB
+# The Azure Cosmos DB API for MongoDB
 
 [Azure Cosmos DB](introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, and guaranteed high availability, all backed by [industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models. By default, you can interact with Cosmos DB using SQL API. Additionally, the Cosmos DB service implements wire protocols for common NoSQL APIs including Cassandra, MongoDB, Gremlin, and Azure Table Storage. This allows you to use your familiar NoSQL client drivers and tools to interact with your Cosmos database.
 
