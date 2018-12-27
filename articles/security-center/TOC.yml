@@ -29,10 +29,10 @@
     href: security-center-permissions.md
   - name: Data security
     href: security-center-data-security.md
-  - name: Incident response
-    href: security-center-incident-response.md
   - name: Use recommendations to enhance security
     href: security-center-using-recommendations.md
+  - name: Incident response
+    href: security-center-incident-response.md  
 - name: How-to guides
   items:
   - name: Improve your secure score
