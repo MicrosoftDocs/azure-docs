@@ -78,7 +78,7 @@ Update your project's NuGet packages to the latest *pre-release* version of Appl
 
 ### Configuring adaptive sampling ###
 
-In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), you can adjust several parameters in the `AdaptiveSamplingTelemetryProcessor` node. The figures shown are the default values:
+In [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md), you can adjust several parameters in the `AdaptiveSamplingTelemetryProcessor` node. The figures shown are the default values:
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
@@ -201,7 +201,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 ### Configuring fixed-rate sampling in ASP.NET ###
 
 1. **Update your project's NuGet packages** to the latest *pre-release* version of Application Insights. In Visual Studio, right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
-2. **Disable adaptive sampling**: In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), remove or comment out the `AdaptiveSamplingTelemetryProcessor` node.
+2. **Disable adaptive sampling**: In [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md), remove or comment out the `AdaptiveSamplingTelemetryProcessor` node.
    
     ```xml
    
@@ -215,7 +215,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
     ```
 
-3. **Enable the fixed-rate sampling module.** Add this snippet to [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+3. **Enable the fixed-rate sampling module.** Add this snippet to [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md):
    
     ```XML
    
@@ -311,7 +311,7 @@ The main advantages of sampling are:
 **Use fixed-rate sampling if:**
 
 * You're using the Application Insights SDK for ASP.NET web services version 2.0.0 or later or Java SDK v2.0.1 or later, and
-* You want synchronized sampling between client and server, so that, when you're investigating events in [Search](app-insights-diagnostic-search.md), you can navigate between related events on the client and server, such as page views and http requests.
+* You want synchronized sampling between client and server, so that, when you're investigating events in [Search](../azure-monitor/app/diagnostic-search.md), you can navigate between related events on the client and server, such as page views and http requests.
 * You are confident of the appropriate sampling percentage for your app. It should be high enough to get accurate metrics, but below the rate that exceeds your pricing quota and the throttling limits. 
 
 **Use adaptive sampling:**

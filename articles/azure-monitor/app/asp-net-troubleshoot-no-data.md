@@ -125,7 +125,7 @@ Fix:
 * Run your application in debug mode in Visual Studio (F5). Use the application so as to generate some telemetry. Check that you can see events logged in the Visual Studio output window. 
   
     ![](./media/asp-net-troubleshoot-no-data/output-window.png)
-* In the Application Insights portal, open [Diagnostic Search](../../application-insights/app-insights-diagnostic-search.md). Data usually appears here first.
+* In the Application Insights portal, open [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md). Data usually appears here first.
 * Click the Refresh button. The blade refreshes itself periodically, but you can also do it manually. The refresh interval is longer for larger time ranges.
 * Check the instrumentation keys match. On the main blade for your app in the Application Insights portal, in the **Essentials** drop-down, look at **Instrumentation key**. Then, in your project in Visual Studio, open ApplicationInsights.config and find the `<instrumentationkey>`. Check that the two keys are equal. If not:
   

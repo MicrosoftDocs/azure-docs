@@ -22,7 +22,7 @@ Exceptions in your live web app are reported by [Application Insights](../../app
 * To have exceptions reported from your server app:
   * Install [Application Insights SDK](../../azure-monitor/app/asp-net.md) in your app code, or
   * IIS web servers: Run [Application Insights Agent](../../application-insights/app-insights-monitor-performance-live-website-now.md); or
-  * Azure web apps: Add the [Application Insights Extension](../../application-insights/app-insights-azure-web-apps.md)
+  * Azure web apps: Add the [Application Insights Extension](../../azure-monitor/app/azure-web-apps.md)
   * Java web apps: Install the [Java agent](../../application-insights/app-insights-java-agent.md)
 * Install the [JavaScript snippet](../../application-insights/app-insights-javascript.md) in your web pages to catch browser exceptions.
 * In some application frameworks or with some settings, you need to take some extra steps to catch more exceptions:
@@ -77,12 +77,12 @@ To get diagnostic data specific to your app, you can insert code to send your ow
 
 You have several options:
 
-* [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) is typically used for monitoring usage patterns, but the data it sends also appears under Custom Events in diagnostic search. Events are named, and can carry string properties and numeric metrics on which you can [filter your diagnostic searches](../../application-insights/app-insights-diagnostic-search.md).
+* [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) is typically used for monitoring usage patterns, but the data it sends also appears under Custom Events in diagnostic search. Events are named, and can carry string properties and numeric metrics on which you can [filter your diagnostic searches](../../azure-monitor/app/diagnostic-search.md).
 * [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) lets you send longer data such as POST information.
 * [TrackException()](#exceptions) sends stack traces. [More about exceptions](#exceptions).
 * If you already use a logging framework like Log4Net or NLog, you can [capture those logs](asp-net-trace-logs.md) and see them in diagnostic search alongside request and exception data.
 
-To see these events, open [Search](../../application-insights/app-insights-diagnostic-search.md), open Filter, and then choose Custom Event, Trace, or Exception.
+To see these events, open [Search](../../azure-monitor/app/diagnostic-search.md), open Filter, and then choose Custom Event, Trace, or Exception.
 
 ![Drill through](./media/asp-net-exceptions/viewCustomEvents.png)
 
@@ -161,7 +161,7 @@ The simplest way is to insert a call to TrackException() in an exception handler
     End Try
 ```
 
-The properties and measurements parameters are optional, but are useful for [filtering and adding](../../application-insights/app-insights-diagnostic-search.md) extra information. For example, if you have an app that can run several games, you could find all the exception reports related to a particular game. You can add as many items as you like to each dictionary.
+The properties and measurements parameters are optional, but are useful for [filtering and adding](../../azure-monitor/app/diagnostic-search.md) extra information. For example, if you have an app that can run several games, you could find all the exception reports related to a particular game. You can add as many items as you like to each dictionary.
 
 ## Browser exceptions
 Most browser exceptions are reported.
