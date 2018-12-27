@@ -16,7 +16,7 @@ ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
 ---
- 
+
 # Azure Active Directory Pass-through Authentication: Frequently asked questions
 
 This article addresses frequently asked questions about Azure Active Directory (Azure AD) Pass-through Authentication. Keep checking back for updated content.
