@@ -7,7 +7,7 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 12/14/2018
+ms.date: 12/26/2018
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
 ms.service: media-services
@@ -62,6 +62,39 @@ Media Services recommends using one of the following live encoders that have mul
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
+
+## Recommended encoder settings
+
+### Ingest protocols
+
+- Single bitrate RTMP or RTMPS
+
+### Video format
+
+- Codec: H.264
+- Profile: High (Level 4.0)
+- Bitrate: Up to 5Mbps (5000 kbps)
+- Strict Constant Bitrate (CBR)
+- Keyframe/GOP: 2 seconds
+  - There must be an IDR frame at the beginning of each GOP
+  - Frame Rate: 29.97 or 30fps
+  - Resolution: 1280 x 720 (720P)
+  - Interlace Mode: Progressive
+- Pixel Aspect Ratio (PAR): Square
+
+### Audio format
+
+- Codec: AAC (LC)
+- Bitrate: 192 kbps
+- Sample Rate: 48 kHz or 44.1 kHz (recommend 48 kHz)
+
+### Configuration tips
+
+- Whenever possible, use a hardwired internet connection.
+- A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.
+- When using software based encoders, close out any unnecessary programs
+- Do not change your encoder configuration once it has started pushing. It has negative effects on the event and can cause the event to be unstable. 
+- Ensure to give yourself ample time to setup your event. For high scale events, its recommended to start the setup an hour before your event.
 
 ## How to become an on-premises encoder partner
 
