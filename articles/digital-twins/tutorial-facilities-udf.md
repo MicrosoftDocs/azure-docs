@@ -6,7 +6,7 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 10/26/2018
+ms.date: 12/27/2018
 ms.author: dkshir
 ---
 
