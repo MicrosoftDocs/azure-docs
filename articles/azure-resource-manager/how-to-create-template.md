@@ -19,19 +19,13 @@ This article describes the process and decisions you make when creating an Azure
 
 ## Select JSON editor
 
-The Resource Manager template is a JSON file. You need a good authoring tool to work on the JSON file. You have many options, but if you don't already have an editor that you prefer, install [VS Code](https://code.visualstudio.com/). 
+The Resource Manager template is a JSON file. You need a good authoring tool to work on the JSON file. You have many options, but if you don't already have an editor that you prefer, install [Visual Studio Code (VS Code)](https://code.visualstudio.com/). 
 
 After installing VS Code, add the [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). This extension adds many features that simplify template authoring.
 
-## Look for similar template
+For a tutorial of instaling the Resoruce Manager tools extension and how to use VS Code, see [Quickstart: Create Azure Resource Manager templates by using Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md).
 
-Often, you can find an existing template that deploys a solution that is similar to what you need. The [Azure Quickstart Templates GitHub repository](https://github.com/Azure/azure-quickstart-templates) has hundreds of templates from community contributors.
-
-![Template Quickstart repository](./media/how-to-create-template/template-quickstart-repo.png)
-
-Search through that repository for a template that is similar to what you need. It's okay if the template doesn't do exactly what you need, you can customize it.
-
-After finding a template, copy the **azuredeploy.json** file from the repository. In VS Code, create a new file named **azuredeploy.json** and add the contents of the template file you copied from the Quickstart repository.
+## Understand the template structure
 
 Let's review the parts of the template to understand how the template works. Your template may not have every section. The sections you want to focus on are:
 
@@ -44,6 +38,16 @@ Let's review the parts of the template to understand how the template works. You
 * The [resources](resource-manager-templates-resources.md) section, which shows the Azure resources that are deployed to your subscription.
 
 * The [outputs](resource-manager-templates-outputs.md) section, which shows the values that are returned after deployment has finished.
+
+## Look for similar templates
+
+Often, you can find an existing template that deploys a solution that is similar to what you need. The [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/) has hundreds of templates from community contributors.
+
+![Template Quickstart repository](./media/how-to-create-template/template-quickstart-repo.png)
+
+Search through that repository for a template that is similar to what you need. It's okay if the template doesn't do exactly what you need, you can customize it.
+
+After finding a template, select **Browse on Github**, and then copy the **azuredeploy.json** file from the repository. In VS Code, create a new file named **azuredeploy.json** and add the contents of the template file you copied from the Quickstart repository.
 
 ## Review template functions
 
