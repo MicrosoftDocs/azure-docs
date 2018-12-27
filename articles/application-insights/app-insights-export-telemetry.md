@@ -187,5 +187,5 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 
 <!--Link references-->
 
-[exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
+[exportasa]: ../azure-monitor/app/code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md

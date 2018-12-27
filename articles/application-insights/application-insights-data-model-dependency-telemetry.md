@@ -23,7 +23,7 @@ Name of the command initiated with this dependency call. Low cardinality value. 
 
 ## ID
 
-Identifier of a dependency call instance. Used for correlation with the request telemetry item corresponding to this dependency call. For more information, see [correlation](application-insights-correlation.md) page.
+Identifier of a dependency call instance. Used for correlation with the request telemetry item corresponding to this dependency call. For more information, see [correlation](../azure-monitor/app/correlation.md) page.
 
 ## Data
 
@@ -35,7 +35,7 @@ Dependency type name. Low cardinality value for logical grouping of dependencies
 
 ## Target
 
-Target site of a dependency call. Examples are server name, host address. For more information, see [correlation](application-insights-correlation.md) page.
+Target site of a dependency call. Examples are server name, host address. For more information, see [correlation](../azure-monitor/app/correlation.md) page.
 
 ## Duration
 
