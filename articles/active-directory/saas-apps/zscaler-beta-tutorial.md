@@ -183,7 +183,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	g. In the **Department Name Attribute** Enter **department** if you want to enable SAML auto-provisioning for department attributes.
 
-	i. Click **Save**.
+	h. Click **Save**.
 
 12. On the **Configure User Authentication** dialog page, perform the following steps:
 
