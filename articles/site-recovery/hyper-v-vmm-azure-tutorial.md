@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
----
 
 # Set up disaster recovery of on-premises Hyper-V VMs in VMM clouds to Azure
 
