@@ -25,7 +25,7 @@ ms.author: mbullwin
 
 *I get no data from my server*
 
-* [Set firewall exceptions](app-insights-ip-addresses.md)
+* [Set firewall exceptions](../azure-monitor/app/ip-addresses.md)
 * [Set up an ASP.NET server](app-insights-monitor-performance-live-website-now.md)
 * [Set up a Java server](app-insights-java-agent.md)
 
@@ -36,7 +36,7 @@ ms.author: mbullwin
 * [Node.js apps](app-insights-nodejs.md)
 * [Web apps on Azure](../azure-monitor/app/azure-web-apps.md)
 * [Cloud Services on Azure](../azure-monitor/app/cloudservices.md)
-* [App servers running in Docker](app-insights-docker.md)
+* [App servers running in Docker](../azure-monitor/app/docker.md)
 * [Single-page web apps](app-insights-javascript.md)
 * [Sharepoint](app-insights-sharepoint.md)
 * [Windows desktop app](app-insights-windows-desktop.md)
@@ -281,7 +281,7 @@ http://<your.gateway.endpoint>/api/profiles/{0}/apiId
 
 Our [web tests](app-insights-monitor-web-app-availability.md) run on points of presence that are distributed around the globe. There are two solutions:
 
-* Firewall door - Allow requests to your server from [the long and changeable list of web test agents](app-insights-ip-addresses.md).
+* Firewall door - Allow requests to your server from [the long and changeable list of web test agents](../azure-monitor/app/ip-addresses.md).
 * Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights using the TrackAvailability() API.
 
 ## How long does it take for telemetry to be collected?

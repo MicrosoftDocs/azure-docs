@@ -104,7 +104,7 @@ To get the most accurate results, the filter should be mapped before all other f
 ```
 
 ## 5. Check firewall exceptions
-You might need to [set exceptions to send outgoing data](app-insights-ip-addresses.md).
+You might need to [set exceptions to send outgoing data](../azure-monitor/app/ip-addresses.md).
 
 ## 6. Restart your web app
 ## 7. View your telemetry in Application Insights
