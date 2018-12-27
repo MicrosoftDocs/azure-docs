@@ -201,7 +201,7 @@ Use scripts like the following examples to monitor your pipelines and triggers.
 
 ## Create and schedule Azure Automation runbook that starts/stops Azure-SSIS IR
 
-In this section, you will learn to create Azure Automation runbooks that execute PowerShell scripts, starting/stopping your Azure-SSIS IR on a schedule.  This is useful when you want to execute additional scripts before/after starting/stopping your IR for pre/post-processing.
+In this section, you will learn to create Azure Automation runbook that executes PowerShell script, starting/stopping your Azure-SSIS IR on a schedule.  This is useful when you want to execute additional scripts before/after starting/stopping your IR for pre/post-processing.
 
 ### Create your Azure Automation account
 
@@ -338,9 +338,7 @@ The following section provides steps for creating a PowerShell runbook. The scri
 
    ![Azure SSIS IR - started](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
     
-7. Repeat the previous two steps using **STOP** as the value for **OPERATION**. Start your runbook again by selecting **Start** button on the toolbar. Enter your resource group, ADF, and Azure-SSIS IR names. For **OPERATION**, enter **STOP**. 
-
-In the output window, wait for the message **##### Completed #####** after you see **##### Stopping #####**. Stopping Azure-SSIS IR does not take as long as starting it. Close **Job** window and get back to **Runbook** window.
+7. Repeat the previous two steps using **STOP** as the value for **OPERATION**. Start your runbook again by selecting **Start** button on the toolbar. Enter your resource group, ADF, and Azure-SSIS IR names. For **OPERATION**, enter **STOP**. In the output window, wait for the message **##### Completed #####** after you see **##### Stopping #####**. Stopping Azure-SSIS IR does not take as long as starting it. Close **Job** window and get back to **Runbook** window.
 
 ## Create schedules for your runbook to start/stop Azure-SSIS IR
 
