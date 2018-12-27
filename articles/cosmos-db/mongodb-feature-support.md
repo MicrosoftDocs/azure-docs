@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB's API for MongoDB feature support'
-description: Learn about the feature support that Azure Cosmos DB's API for MongoDB provides for MongoDB 3.4.
+title: "Use the Azure Cosmos DB API for MongoDB feature support"
+description: Learn about the feature support that the Azure Cosmos DB API for MongoDB provides for MongoDB 3.4.
 services: cosmos-db
 author: rimman
 
@@ -12,7 +12,7 @@ ms.author: rimman
 experimental: true
 experiment_id: "662dc5fd-886f-4a"
 ---
-# Azure Cosmos DB's API for MongoDB support for MongoDB features and syntax
+# Use the Azure Cosmos DB API for MongoDB support for MongoDB features and syntax
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB's API for MongoDB using any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB's API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
