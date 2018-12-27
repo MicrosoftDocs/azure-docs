@@ -24,23 +24,23 @@ In this tutorial, you follow the steps to get an Azure web application to read i
 > [!div class="checklist"]
 > * Create a key vault.
 > * Store a secret in the key vault.
-> * Retrieve a secret from the key vault.
 > * Create an Azure virtual machine.
 > * Enable a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the virtual machine.
 > * Grant the required permissions for the console application to read data from the key vault.
-> * Retrieve secrets from the key vault
+> * Retrieve a secret from the key vault.
 
 Before we go any further, please read the [basic concepts about Key Vault](key-vault-whatis.md#basic-concepts).
 
 ## Prerequisites
-* All platforms:
-  * Git ([download](https://git-scm.com/downloads)).
-  * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later. It's available for Windows, Mac, and Linux.
+For all platforms, you need:
 
+* Git ([download](https://git-scm.com/downloads)).
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later. It's available for Windows, Mac, and Linux.
+
+### Managed Service Identity and how it works
 This tutorial makes use of Managed Service Identity (MSI).
 
-## What is Managed Service Identity and how does it work?
 Azure Key Vault can store credentials securely so they aren’t in your code. To retrieve them, you need to authenticate to Key Vault. To authenticate to Key Vault, you need a credential! That's a classic bootstrap problem. Through Azure and Azure Active Directory (Azure AD), MSI provides a “bootstrap identity” that makes it simpler to get things started.
 
 When you enable MSI for an Azure service such as Virtual Machines, App Service, or Functions, Azure creates a [service principal](key-vault-whatis.md#basic-concepts) for the instance of the service in Azure AD. Azure injects the credentials for the service principal into the instance of the service. 
