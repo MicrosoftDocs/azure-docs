@@ -42,5 +42,5 @@ Trace severity level. Value can be `Verbose`, `Information`, `Warning`, `Error`,
 ## Next steps
 
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
-- Learn how to [diagnose exceptions in your web apps with Application Insights](app-insights-asp-net-exceptions.md).
+- Learn how to [diagnose exceptions in your web apps with Application Insights](../azure-monitor/app/asp-net-exceptions.md).
 - Check out [platforms](app-insights-platforms.md) supported by Application Insights.

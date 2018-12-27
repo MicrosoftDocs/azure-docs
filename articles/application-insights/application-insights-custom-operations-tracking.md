@@ -203,7 +203,7 @@ public async Task Process(BrokeredMessage message)
 The following example shows how to track the [Azure Storage queue](../storage/queues/storage-dotnet-how-to-use-queues.md) operations and correlate telemetry between the producer, the consumer, and Azure Storage. 
 
 The Storage queue has an HTTP API. All calls to the queue are tracked by the Application Insights Dependency Collector for HTTP requests.
-Make sure you have `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` in `applicationInsights.config`. If you don't have it, add it programmatically as described in [Filtering and Preprocessing in the Azure Application Insights SDK](app-insights-api-filtering-sampling.md).
+Make sure you have `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` in `applicationInsights.config`. If you don't have it, add it programmatically as described in [Filtering and Preprocessing in the Azure Application Insights SDK](../azure-monitor/app/api-filtering-sampling.md).
 
 If you configure Application Insights manually, make sure you create and initialize `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` similarly to:
  
@@ -494,6 +494,6 @@ public async Task RunAllTasks()
 
 - Learn the basics of [telemetry correlation](application-insights-correlation.md) in Application Insights.
 - See the [data model](application-insights-data-model.md) for Application Insights types and data model.
-- Report custom [events and metrics](app-insights-api-custom-events-metrics.md) to Application Insights.
+- Report custom [events and metrics](../azure-monitor/app/api-custom-events-metrics.md) to Application Insights.
 - Check out standard [configuration](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) for context properties collection.
 - Check the [System.Diagnostics.Activity User Guide](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) to see how we correlate telemetry.

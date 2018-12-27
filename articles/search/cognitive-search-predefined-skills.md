@@ -1,6 +1,6 @@
 ---
-title: Predefined data extraction, natural language, image processing skills (Azure Search) | Microsoft Docs
-description: Data extraction, natural language, image processing cognitive skills add semantics and structure to raw content in an Azure Seach pipeline.
+title: Built-in data extraction, natural language, image processing - Azure Search
+description: Data extraction, natural language, image processing cognitive skills add semantics and structure to raw content in an Azure Search pipeline.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -9,6 +9,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 # Predefined skills for content enrichment (Azure Search)
 

@@ -19,7 +19,7 @@ ms.topic: reference
 ms.date: 11/16/2016
 ---
  
-# Machine Learning Studio REST API Error Codes
+# Azure Machine Learning Studio REST API Error Codes
  
 The following error codes could be returned by an operation on an Azure Machine Learning Studio web service.
  

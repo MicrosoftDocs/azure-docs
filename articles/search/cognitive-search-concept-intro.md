@@ -1,6 +1,6 @@
 ---
-title: Cognitive search for data extraction, natural language AI processing in Azure Search | Microsoft Docs
-description: Content extraction, natural language processing (NLP) and image processing to create searchable content in Azure Search indexing using cognitive skills and AI algorithms
+title: Cognitive search, data extraction, natural language AI process - Azure Search
+description: Content extraction, natural language processing (NLP) and image processing to create searchable content in Azure Search indexing using cognitive skills and AI algorithms.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -9,8 +9,9 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
+ms.custom: seodec2018
 ---
-# What is cognitive search?
+# What is "cognitive search" in Azure Search?
 
 Cognitive search creates searchable information out of non-searchable content by attaching AI algorithms to an indexing pipeline. AI integration is through *cognitive skills*, enriching source documents en route to a search index. 
 

@@ -157,7 +157,7 @@ Application Insights SDK looks for the key in this order:
 2. Environment variable: APPLICATION_INSIGHTS_IKEY
 3. Configuration file: ApplicationInsights.xml
 
-You can also [set it in code](app-insights-api-custom-events-metrics.md#ikey):
+You can also [set it in code](../azure-monitor/app/api-custom-events-metrics.md#ikey):
 
 ```Java
     TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
@@ -319,7 +319,7 @@ When viewing the properties of a request, you can see the telemetry events assoc
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 ### Analytics: Powerful query language
-As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](app-insights-analytics.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
+As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../azure-monitor/app/analytics.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
 ![Example of Analytics](./media/app-insights-java-get-started/025.png)
 
@@ -474,15 +474,15 @@ You'll get charts of response times, plus email notifications if your site goes 
 * [Monitor dependency calls](app-insights-java-agent.md)
 * [Monitor Unix performance counters](app-insights-java-collectd.md)
 * Add [monitoring to your web pages](app-insights-javascript.md) to monitor page load times, AJAX calls, browser exceptions.
-* Write [custom telemetry](app-insights-api-custom-events-metrics.md) to track usage in the browser or at the server.
-* Create [dashboards](app-insights-dashboards.md) to bring together the key charts for monitoring your system.
-* Use  [Analytics](app-insights-analytics.md) for powerful queries over telemetry from your app
+* Write [custom telemetry](../azure-monitor/app/api-custom-events-metrics.md) to track usage in the browser or at the server.
+* Create [dashboards](../azure-monitor/app/app-insights-dashboards.md) to bring together the key charts for monitoring your system.
+* Use  [Analytics](../azure-monitor/app/analytics.md) for powerful queries over telemetry from your app
 * For more information, visit [Azure for Java developers](/java/azure).
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#trackexception
+[api]: ../azure-monitor/app/api-custom-events-metrics.md
+[apiexceptions]: ../azure-monitor/app/api-custom-events-metrics.md#trackexception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-quick-start.md

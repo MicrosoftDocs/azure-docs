@@ -17,10 +17,10 @@ ROBOTS: NOINDEX
 
 This document provides a walkthrough for using the Apache Pig command to run Pig Latin statements from a Remote Desktop connection to a Windows-based HDInsight cluster. Pig Latin allows you to create MapReduce applications by describing data transformations, rather than map and reduce functions.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Remote Desktop is only available on HDInsight clusters that use Windows as the operating system. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
-> For HDInsight 3.4 or greater, see [Use Pig with HDInsight and SSH](apache-hadoop-use-pig-ssh.md) for information on interactively running Pig jobs directly on the cluster from a command-line.
+> For HDInsight 3.4 or greater, see [Use Apache Pig with HDInsight and SSH](apache-hadoop-use-pig-ssh.md) for information on interactively running Pig jobs directly on the cluster from a command-line.
 
 ## <a id="prereq"></a>Prerequisites
 To complete the steps in this article, you will need the following.
@@ -74,7 +74,7 @@ Enable Remote Desktop for the HDInsight cluster, then connect to it by following
 
         STORE RESULT into 'wasb:///example/data/pigout'
 
-   > [!NOTE]
+   > [!NOTE]  
    > The data is stored in the specified directory in files named **part-nnnnn**. If the directory already exists, you will receive an error message.
    >
    >
@@ -115,9 +115,9 @@ As you can see, the Pig command allows you to interactively run MapReduce operat
 ## <a id="nextsteps"></a>Next steps
 For general information about Pig in HDInsight:
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
-* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)

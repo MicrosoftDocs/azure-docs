@@ -2,7 +2,7 @@
     href: index.yml
   - name: Overview
     items:
-    - name: About Azure Cosmos DB
+    - name: Welcome to Azure Cosmos DB
       href: introduction.md
   - name: Quickstarts
     expanded: true
@@ -143,6 +143,12 @@
         href: unique-keys.md
       - name: Transactions and optimistic concurrency
         href: database-transactions-optimistic-concurrency.md
+    - name: Server-side programming
+      items:
+        - name: Stored procedures, triggers, & UDFs
+          href: stored-procedures-triggers-udfs.md
+        - name: JavaScript query API
+          href: javascript-query-api.md
     - name: Optimize your Azure Cosmos DB cost
       items:
         - name: Pricing model
@@ -163,7 +169,7 @@
           href: optimize-cost-regions.md          
         - name: Optimize your dev/test workloads 
           href: optimize-dev-test.md
-        - name: Prepay for reserved capacity
+        - name: Optimize with reserved capacity
           href: cosmos-db-reserved-capacity.md
     - name: Security
       items:
@@ -177,8 +183,6 @@
           href: firewall-support.md
         - name: Access from virtual networks
           href: vnet-service-endpoint.md
-        - name: Key vault support
-          href: access-secrets-from-keyvault.md
     - name: Enterprise readiness 
       items:
       - name: Online backup and restore
@@ -188,7 +192,7 @@
   - name: Multi-model APIs
     expanded: true
     items:
-    - name: SQL API Docs
+    - name: SQL API
       items:
       - name: Model document data
         href: modeling-data.md
@@ -250,8 +254,14 @@
         items:
         - name: Tune query performance
           href: sql-api-query-metrics.md
-        - name : Stored procedures, triggers, and UDFs
-          href: programming.md
+        - name : Server-side programming
+          items:
+          - name: Write stored procedures, triggers, & UDFs
+            href: how-to-write-stored-procedures-triggers-udfs.md
+          - name: Write stored procedures & triggers with JavaScript query API
+            href: how-to-write-javascript-query-api.md
+          - name: Use stored procedures, triggers, & UDFs
+            href: how-to-use-stored-procedures-triggers-udfs.md  
         - name: Data types
           items:
           - name: DateTime
@@ -286,11 +296,11 @@
           href: /rest/api/cosmos-db/
         - name: REST Resource Provider
           href: /rest/api/cosmos-db-resource-provider/
-    - name: MongoDB API Docs
+    - name: MongoDB API
       items: 
       - name: Introduction
         href: mongodb-introduction.md
-      - name: MongoDB support
+      - name: Wire protocol support
         href: mongodb-feature-support.md
       - name: Tutorials
         items:
@@ -336,11 +346,11 @@
           href: mongodb-time-to-live.md
         - name: Manage data indexing
           href: mongodb-indexing.md
-    - name: Gremlin API Docs
+    - name: Gremlin API
       items: 
       - name: Introduction
         href: graph-introduction.md
-      - name: Gremlin support
+      - name: Wire protocol support
         href: gremlin-support.md
       - name: Tutorials
         items:
@@ -352,11 +362,11 @@
           href: bulk-executor-graph-dotnet.md
         - name: Graph data partitioning
           href: graph-partitioning.md
-    - name: Cassandra API Docs
+    - name: Cassandra API
       items: 
       - name: Introduction
         href: cassandra-introduction.md
-      - name: Cassandra support
+      - name: Wire protocol support
         href: cassandra-support.md
       - name: Tutorials
         items:
@@ -390,7 +400,7 @@
           href: cassandra-spark-aggregation-ops.md
         - name: Copy table data
           href: cassandra-spark-table-copy-ops.md
-    - name: Table API Docs
+    - name: Table API
       items:
       - name: Introduction
         href: table-introduction.md
@@ -478,6 +488,8 @@
         href: how-to-configure-vnet-service-endpoint.md
       - name: Configure Cross Origin Resource Sharing(CORS)
         href: how-to-configure-cross-origin-resource-sharing.md
+      - name: Secure with Key Vault
+        href: access-secrets-from-keyvault.md
     - name: Enterprise readiness 
       items:
       - name: Restore data from a backup

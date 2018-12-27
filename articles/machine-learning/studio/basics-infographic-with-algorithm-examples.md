@@ -36,7 +36,7 @@ Download this easy-to-understand infographic overview of machine learning basics
 * To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](studio-overview-diagram.md).
 * For an overview of the Azure AI Gallery and the many community-generated resources available there, see [Share and discover resources in the Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <!-- Module References -->
 [a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx

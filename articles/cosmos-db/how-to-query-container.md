@@ -16,7 +16,7 @@ This article explains how to query a container (collection, graph, table) in Azu
 
 ## In-partition query
 
-When you query data from containers, Cosmos DB automatically routes the query to the partitions corresponding to the partition key values specified in the filter (if there are any). For example, this query is routed to just the partition containing the partition key "XMS-0001".
+When you query data from containers, if the query has a partition key filter specified, Azure Cosmos DB automatically routes the query to the partitions corresponding to the partition key values specified in the filter. For example, the following query is routed to the DeviceId partition which holds all the documents corresponding to partition key value "XMS-0001".
 
 ```csharp
 // Query using partition key into a class called, DeviceReading

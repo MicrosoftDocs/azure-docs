@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 12/20/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -16,25 +16,29 @@ Azure Migrate services discover, assess, and migrate on-premises machines and wo
 
 There are currently two versions of Azure Migrate available:
 
-- **Azure Migrate in public preview**:
-    - **Azure Migrate Server Assessment** discovers and assesses on-premises VMware VMs and Hyper-V - VMs to check whether they're suitable for migration to Azure.
-    - **Azure Migrate Server Migration** migrates on-premises VMware VMs to Azure.
-- **Azure Migrate in General Availability (GA)** discovers and assessment on-premises VMware VMs for migration to Azure.
+- **Updated Azure Migrate (in public preview)**:
+    - Use Azure Migrate Server Assessment to discover and assesses on-premises VMware VMs and Hyper-V VMs to check whether they're suitable for migration to Azure.
+    - Use Azure Migrate Server Migration to migrate on-premises VMware VMs to Azure.
+- **Classic version of Azure Migrate (in general availability (GA)** discovers and assessment on-premises VMware VMs for migration to Azure.
 
 
 ## Which version of the service should I use?
 
-- If you want to assess Hyper-V VMs this functionality is only available in the public preview.
-- If you're assessing VMware VMs, we recommend that you don't deploy the public preview in a production environment.
-- Review the features and limitations for each service version below.
+**Task** | **Recommendation**
+--- | ---
+Assess VMware VMs in a production environment | Use classic Azure Migrate.
+Assess VMware VMs as proof-of-concept (POC) | Try out the public preview of the updated version, or use classic Azure Migrate.
+Assess Hyper-V VMs | This functionality is only available in the public preview.
 
 
 
 ## Azure Migrate services public preview
 
+### New features
+
 The public preview provides a number of new features.
 
-### Assessment
+#### Assessment
 
 - **Hyper-V VM assessment**: Use Azure Migrate Server Assessment to discover and assess Hyper-V VMs.
 - **VMware VM assessment**: Get an enhanced experience for discovering and assessment VMware VMs, including:
@@ -42,7 +46,7 @@ The public preview provides a number of new features.
     - **Improved performance-based assessment**: You no longer need to modify the vCenter Server statistics level to run performance-based assessment. The Azure Migrate appliance now measures performance data of the VMs.
     - **Improved user experience**: The deployment flow in the Azure portal is improved and streamlined.
 
-### Migration
+#### Migration
 - **Migrate VMware VMs to Azure**: Use Azure Migrate Server Migration to migrate VMware VMs. With this new functionality, you can use Azure Migrate for the entire discovery, assessment, and migration process for VMware. Assessment information helps you to automatically configure compute and storage for migrated machines.
 - **Agentless migration**: You can migrate VMware VMs without installing anything on the VM.
 - **Unified Azure Migrate appliance**: A single appliance running on a VMware VM handles discovery, assessment, and migration. You don't need any additional Azure Migrate components.
@@ -50,13 +54,37 @@ The public preview provides a number of new features.
 
 ### Limitations
 
-- You can discover up to 1500 VMs using a single Azure Migrate appliance.
+
+- You can discover up to 1500 VMs using a single Azure Migrate appliance. If you want to discover a larger environment, you can split the discovery and create multiple projects. [Learn more](how-to-scale-assessment.md).
+- You can create up to 20 Azure Migrate projects in a subscription.
 - Dependency visualization during assessment isn't currently available.
-- A number of functionalities that are available in the earlier GA version of Azure Migrate aren't yet available in this public preview. For example, reserved instanced and VM-series filter.
+- A number of features that are available in the earlier GA version of Azure Migrate aren't yet available in this public preview. For example, reserved instanced and VM-series filter.
 - Only managed disks are supported.
-
-
-
+- Dependency visualization during assessment isn't currently available.
+-  You can create an Azure Migrate project in the locations listed in the following table.
+    - This doesn't restrict your ability to create assessments for other target Azure regions.
+    - The project location is used to store the metadata discovered during the migration assessment.
+    - Metadata is stored in one of the regions in the specified geography.
+    
+        **Geography** | **Storage location**
+        --- | ---
+        United States | West Central US or East US
+        Azure Government | US Gov Virginia
+- There are limited built-in monitoring and troubleshooting capabilities.
+- You can only migrate on-premises VMware VMs with Azure Migrate.
+- You can simultaneously migrate up to five VMs. Performance might be impacted over this limit.
+- A single VM that you migrate can have up to 16 disks.
+- The combined maximum of five VMs can have a a total of 20 or less disks. If you have more, migrate VMs in batches.
+- During migration, each VM disk can have an average data change rate (write bytes/sec) of up to 5 MBps. Higher rates are supported, but performance will vary depending on available upload throughput, overlapping writes etc.
+- VMs can only be migrated to managed disks (standard HHD, premium SSD) in Azure.
+- You can migrate VMware VMs with the following operating systems:
+    -  Windows: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008 (64-bit, 32-bit), Windows Server 2003 R2 (64-bit, 32-bit), Windows Server 2003
+    - Linux: Red Hat Enterprise Linux 7.0+/6.5+, CentOS 7.0+/6.5+, SUSE Linux Enterprise Server 12 SP1+, Ubuntu 14.04/16.04/18.04LTS, Debian 7/8
+    - VMs with UEFI boot can't be migrated.
+    - Encrypted disks and volumes (Bitlocker, cryptfs) can't be migrated.
+    - RDM devices/passthrough disks can't be replicated.
+    - NFS volumes on VMs can't be replicated.
+    
 
 ### VMware architecture
 
@@ -107,7 +135,7 @@ Azure Migrate appliance | Azure Migrate service | Target-TCP 443 | Send metadata
 Azure Migrate appliance | Hyper-V host/cluster | Target-Default WinRM ports-HTTP:5985; HTTPS:5986 | Connect to host for metadata and performance data. CIM session used for connection
 RDP client | Azure Migrate appliance | Target-TCP3389 | RDP connection to trigger discovery from the appliance.
 
-## Azure Migrate GA version
+## Azure Migrate classic version
 
 The GA version of Azure Migrate provides the following:
 
@@ -121,17 +149,35 @@ The GA version of Azure Migrate provides the following:
 [Learn more](https://azure.microsoft.com/pricing/details/azure-migrate/) about Azure Migrate pricing.
 
 
-## Limitations
-
-**Action** | **Details**
---- | --- 
-**Azure Migrate deployment** | Azure Migrate supports up to 20 projects per subscription.<br/><br/> You can only create an Azure Migrate project in the United States geography. Note that:<br/><br/> - You can plan a migration to any target Azure location.<br/><br/> - Only metadata discovered from the on-premises environment is stored in the migration project region.<br/><br/>  - Metadata is stored in one of the regions in the geography: West Central US/East US.<br/><br/> If you use dependency visualization with a Log Analytics workspace, it's created in the same region as the project.<br/><br/> There are limited built-in monitoring and troubleshooting capabilities.
-**Discovery and assessment** | You can assess on-premises Hyper-V VMs and VMware VMs.<br/><br/> You can discover up to 1500 VMs in a single discovery and up to 1500 VMs in a single project.<br/><br/> You can assess up to 1500 VMs in a single assessment. If you want to discover a larger environment, split the discovery and create multiple projects. [Learn more](how-to-scale-assessment.md).<br/><br/> Azure Migrate only supports managed disks for assessment.<br/><br/> The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, or 6.5).
-**Replication and migration** | You can only migrate on-premises VMware VMs with Azure Migrate.<br/><br/> You can simultaneously migrate up to five VMs. Performance might be impacted over this limit.<br/><br/> A single VM is limited to 16 disks.<br/><br/> The combined maximum of five VMs can have a a total of 20 or less disks. If you have more, migrate VMs in batches.<br/><br/> During migration, each VM disk can have an average data change rate (write bytes/sec) of up to 5 MBps. Higher rates are supported, but performance will vary depending on available upload throughput, overlapping writes etc.<br/><br/> VMs can only be migrated to managed disks (standard HHD, premium SSD) in Azure.<br/><br/>
-VM settings | Supported Windows operating systems for VMware VMs: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008 (64-bit, 32-bit), Windows Server 2003 R2 (64-bit, 32-bit), Windows Server 2003<br/><br/> Supported Linux operating systems for VMware VMs: Red Hat Enterprise Linux 7.0+/6.5+, CentOS 7.0+/6.5+, SUSE Linux Enterprise Server 12 SP1+, Ubuntu 14.04/16.04/18.04LTS, Debian 7/8 <br/><br/> VMs will UEFI boot can't be migrated.<br/><br/> Encrypted disks and volumes (Bitlocker, cryptfs) can't be migrated.<br/><br/> RDM devices/passthrough disks can't be replicated.<br/><br/> NFS volumes on VMs can't be replicated.
+### Limitations
 
 
-## How does it work?
+- You can discover up to 1500 VMs at once.
+- You can have up to 1500 VMs in a single project.
+- You can assess up to 1500 VMs in a single assessment.
+- If you want to discover a larger environment, split the discovery and create multiple projects. [Learn more](how-to-scale-assessment.md).
+- You can create up to 20 Azure Migrate projects in a subscription.
+- You can assess on-premises VMware VMs only. You can't migrate VMs using Azure Migrate classic version.
+- The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, or 6.5).
+-  Only managed disks are supported.
+-  You can create an Azure Migrate project in the locations listed in the following table.
+    - This doesn't restrict your ability to create assessments for other target Azure regions.
+    - The project location is used to store the metadata discovered during the migration assessment.
+    - Metadata is stored in one of the regions in the specified geography.
+    
+    **Geography** | **Storage location**
+    --- | ---
+    United States | West Central US or East US
+    Azure Government | US Gov Virginia
+
+- If you use dependency visualization during migration assessment, the Log Analytics workspace is created in the same region as the project. Dependency visualization isn't available in Azure Government. 
+  
+
+
+
+
+
+### How does it work?
 
 1. You create an Azure Migrate appliance running as a VMware VM. The appliance is created from an OVF template.
 2. You connect to this VM, and run the Collector app that's installed on it.

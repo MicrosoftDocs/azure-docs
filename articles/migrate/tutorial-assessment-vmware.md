@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 12/23/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -51,9 +51,18 @@ Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Azure Migrate**, and select the service **Azure Migrate** in the search results. Then click **Create**.
 3. Specify a project name, and the Azure subscription for the project.
 4. Create a new resource group.
-5. Specify the geography in which you want to create the project, then click **Create**. You can only create an Azure Migrate project in the United States geography. However, you can still plan your migration for any target Azure location. The geography specified for the project is only used to store the metadata gathered from on-premises VMs.
+5. Specify the geography in which you want to create the project, then click **Create**.
 
-    ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
+    - You can only create an Azure Migrate project in the geographies summarized in the table.
+    - You can assess any target Azure location.
+    - The project geography specified is only used to store metadata gathered from the on-premises VMs.
+
+    **Geography** | **Storage location**
+    --- | ---
+    Unites States | West Central US or East US
+    Azure Government | US Gov Virginia
+
+![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
 
 
 ## Download the collector appliance
@@ -82,6 +91,14 @@ Check that the .OVA file is secure, before you deploy it.
 3. The generated hash should match the settings in the tables below, in accordance with the OVA version.
 
 #### Continuous discovery
+
+  For OVA version 1.0.10.9
+
+  **Algorithm** | **Hash value**
+  --- | ---
+  MD5 | 169f6449cc1955f1514059a4c30d138b
+  SHA1 | f8d0a1d40c46bbbf78cd0caa594d979f1b587c8f
+  SHA256 | d68fe7d94be3127eb35dd80fc5ebc60434c8571dcd0e114b87587f24d6b4ee4d
 
   For OVA version 1.0.10.4
 
@@ -139,18 +156,25 @@ will be hosted.
 
 ## Discover VMs
 
+### Before you start
+
+Note the following before you start:
+- Only English (United States) is supported for the collector VM operating system and interface language.
+- If settings have been modified on a machine you want to access, perform discovery again before you run the assessment. To do this, in the collector, click **Start collection again**. In the portal, click **Recalculate** to get an updated assessment. 
+
+
 1. In the vSphere Client console, right-click the VM > **Open Console**.
 2. Provide the language, time zone, and password preferences for the appliance.
 3. On the desktop, click the **Run collector** shortcut.
 4. Click **Check for updates** in the top bar of the collector UI and verify that the collector is running on the latest version. If not, you can choose to download the latest upgrade package from the link and update the collector.
 5. In the Azure Migrate Collector, open **Set up prerequisites**.
-6. Accept the license terms, and read the third-party information.
-7. The collector checks that the VM has internet access.
-8. If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication.
-
+6. Select the Azure cloud to which you want to migrate (Azure Global or Azure Government).
+7. Accept the license terms, and read the third-party information. The collector checks that the VM has internet access.
+8. If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port.
     - Enter the proxy address in the format http://ProxyIPAddress or http://ProxyFQDN. Only HTTP proxy is supported.
-    - [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) about access requirements.
-    - If you have an intercepting proxy, you need to import the proxy certificate so that the internet connection works as expected. [Learn more]((https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy).
+    - Specify credentials if the proxy needs authentication.
+    - If you have an intercepting proxy, import the proxy certificate so that the connectivity works as expected. [Learn more]((concepts-collector.md#internet-connectivity-with-intercepting-proxy).
+    - [Verify](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) internet connectivity requirements and the [URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) that the collector accesses.
 
 9. The collector checks that the collector service is running. The service is installed by default on the collector VM.
 10. Download and install VMware PowerCLI.
@@ -160,8 +184,6 @@ will be hosted.
 14. In **Specify migration project**, specify the Azure Migrate project ID and key that you copied from the portal. If didn't copy them, open the Azure portal from the collector VM. In the project **Overview** page, click **Discover Machines**, and copy the values.  
 15. In **View collection progress**, monitor discovery status. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) about what data is collected by the Azure Migrate collector.
 
-> [!NOTE]
-> For the collector, only English (United States) is supported for the operating system and interface language.
 
 
 

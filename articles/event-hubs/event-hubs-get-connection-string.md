@@ -49,7 +49,7 @@ You can either add a new SAS policy and get the connection string or use the def
 ![Event Hubs get connection string](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## Getting the connection string with Azure PowerShell
-You can use the Get-AzureRmEventHubNamespaceKey to get the connection string for the specify policy/rule name as shown below:
+You can use the Get-AzureRmEventHubNamespaceKey to get the connection string for the specific policy/rule name as shown below:
 
 ```azurepowershell-interactive
 Get-AzureRmEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey

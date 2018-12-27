@@ -1,9 +1,10 @@
 ---
-title: "Quickstart: Use Azure Storage Explorer to create a blob in object storage"
-description: In this quickstart, you learn how to use Azure Storage Explorer to create a directory and a file. Next, you learn how to download the file to your local computer, and how to view all of the file in a directory. You also learn how to create a snapshot of a file, manage directory access policies, and create a shared access signature.
+title: "Quickstart: Use Azure Storage Explorer to create a blob in object storage with Azure Data Lake Storage Gen2 enabled"
+description: In this quickstart, you learn how to use Azure Storage Explorer to create a filesystem in an Azure Data Lake Storage Gen2 account, as well as a directory and a file. Next, you learn how to download the file to your local computer, and how to view all of the file in a directory.
 services: storage
 author: tamram
 
+ms.component: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart

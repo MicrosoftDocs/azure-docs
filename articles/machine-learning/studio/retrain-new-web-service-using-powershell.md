@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ---
-# Retrain a new Resource Manager-based web service using Powershell
+# Retrain a new Resource Manager-based Studio web service using Powershell
 When you retrain a New web service, you update the predictive web service definition to reference the new trained model.
 
 ## Prerequisites

@@ -138,7 +138,7 @@ Scout Update 6 is a cumulative update. It contains all fixes from Update 1 to Up
 > [!NOTE]
 > * Base Unified Agent(UA) installer for Windows has been refreshed to support Windows Server 2016. The new installer **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** is packaged with the base Scout GA package (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). The same installer will be used for all supported Windows version. 
 > * Base Windows vContinuum & Master Target installer has been refreshed to support Windows Server 2016. The new installer **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** is packaged with the base Scout GA package (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). The same installer will be used to deploy Windows 2016 Master Target and Windows 2012R2 Master Target.
-> * Download the GA package from the portal, as described in [create a vault](#create-a-vault).
+> * Windows server 2016 on physical server is not supported by ASR Scout. It supports only Windows Server 2016 VMware VM. 
 >
 
 #### Bug fixes and enhancements

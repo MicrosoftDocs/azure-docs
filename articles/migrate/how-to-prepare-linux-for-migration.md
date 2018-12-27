@@ -21,7 +21,7 @@ Prepare Linux machines as follows:
 
 1. Install Hyper-V Linux Integration Services. Newer versions of Linux distributions might have this installed by default).
 2. Rebuild the Linux init image so that it contains necessary Hyper-V drivers, and so that the VM will boot in Azure (required for some distributions).
-3. Enable serial console logging for troubleshooting. [Learn more]https://docs.microsoft.com/azure/virtual-machines/linux/serial-console)
+3. Enable serial console logging for troubleshooting. [Learn more](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console).
 4. Update the device map file with device name to volume associations, to use persistent device identifiers.
 5. Update fstab entries to use persistent volume identifiers.
 6. Remove any udev rules that reserve interface names based on MAC address etc.

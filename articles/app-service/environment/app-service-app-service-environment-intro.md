@@ -1,5 +1,5 @@
 ---
-title: Introduction to App Service Environment v1
+title: Introduction to App Service Environment v1 - Azure
 description: Learn about the App Service Environment v1 feature that provides secure, VNet-joined, dedicated scale units for running all of your apps.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 # Introduction to App Service Environment v1
@@ -24,7 +25,7 @@ ms.author: ccompy
 > 
 
 ## Overview
-An App Service Environment is a [Premium][PremiumTier] service plan option of [Azure App Service](../app-service-web-overview.md) that provides a fully isolated and dedicated environment for securely running Azure App Service apps at high scale, including Web Apps, Mobile Apps, and API Apps.  
+An App Service Environment is a [Premium][PremiumTier] service plan option of [Azure App Service](../overview.md) that provides a fully isolated and dedicated environment for securely running Azure App Service apps at high scale, including Web Apps, Mobile Apps, and API Apps.  
 
 App Service Environments are ideal for application workloads requiring:
 
@@ -83,7 +84,7 @@ For details on using an App Service Environment with ExpressRoute, see the follo
 <!-- LINKS -->
 [PremiumTier]: https://azure.microsoft.com/pricing/details/app-service/
 [MoreInfoOnVirtualNetworks]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
-[AppServicePlan]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
+[AppServicePlan]: ../overview-hosting-plans.md
 [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
 [LogicApps]: https://azure.microsoft.com/documentation/articles/app-service-logic-what-are-logic-apps/
 [AzureConDeepDive]:  https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
