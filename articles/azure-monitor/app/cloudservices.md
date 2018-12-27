@@ -124,7 +124,7 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
     (In the .config file, you'll see messages asking you to place the instrumentation key there. However, for cloud applications it's better to set it from the ``.cscfg file``. This ensures that the role is correctly identified in the portal.)
 
 #### Run and publish the app
-Run your app, and sign into Azure. Open the Application Insights resources you created, and you'll see individual data points appearing in [Search](../../application-insights/app-insights-diagnostic-search.md), and aggregated data in [Metric Explorer](../../application-insights/app-insights-metrics-explorer.md). 
+Run your app, and sign into Azure. Open the Application Insights resources you created, and you'll see individual data points appearing in [Search](../../azure-monitor/app/diagnostic-search.md), and aggregated data in [Metric Explorer](../../application-insights/app-insights-metrics-explorer.md). 
 
 Add more telemetry - see the sections below - and then publish your app to get live diagnostic and usage feedback. 
 
@@ -145,7 +145,7 @@ To see performance counters and counts of events, open [Metrics Explorer](../../
 
 ![Azure diagnostic data](./media/cloudservices/23-wad.png)
 
-Use [Search](../../application-insights/app-insights-diagnostic-search.md) or an [Analytics query](../../azure-monitor/log-query/get-started-portal.md) to search across the various trace logs sent by Azure Diagnostics. For example, suppose you have an unhandled exception which caused a Role to crash and recycle. That information would show up in the Application channel of Windows Event Log. You can use Search to look at the Windows Event Log error and get the full stack trace for the exception. This will help you find the root cause of the issue.
+Use [Search](../../azure-monitor/app/diagnostic-search.md) or an [Analytics query](../../azure-monitor/log-query/get-started-portal.md) to search across the various trace logs sent by Azure Diagnostics. For example, suppose you have an unhandled exception which caused a Role to crash and recycle. That information would show up in the Application channel of Windows Event Log. You can use Search to look at the Windows Event Log error and get the full stack trace for the exception. This will help you find the root cause of the issue.
 
 ![Azure diagnostics search](./media/cloudservices/25-wad.png)
 
@@ -236,7 +236,7 @@ Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Se
 [availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
 [azure]: ../../application-insights/app-insights-overview.md
 [client]: ../../application-insights/app-insights-javascript.md
-[diagnostic]: ../../application-insights/app-insights-diagnostic-search.md
+[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
 [qna]: ../../application-insights/app-insights-troubleshoot-faq.md

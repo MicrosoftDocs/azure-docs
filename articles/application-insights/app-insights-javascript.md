@@ -196,7 +196,7 @@ In the Diagnostic Search blade, set Filters to Page View.
 Select any event to see more detail. In the details page, click "..." to see even more detail.
 
 > [!NOTE]
-> If you use [Search](app-insights-diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About".
+> If you use [Search](../azure-monitor/app/diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About".
 > 
 > 
 

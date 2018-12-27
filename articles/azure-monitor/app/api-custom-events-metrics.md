@@ -108,7 +108,7 @@ In Node.js projects, you can use `new applicationInsights.TelemetryClient(instru
 
 ## TrackEvent
 
-In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md) as an aggregated count, and in [Diagnostic Search](../../application-insights/app-insights-diagnostic-search.md) as individual occurrences. (It isn't related to MVC or other framework "events.")
+In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md) as an aggregated count, and in [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md) as individual occurrences. (It isn't related to MVC or other framework "events.")
 
 Insert `TrackEvent` calls in your code to count various events. How often users choose a particular feature, how often they achieve particular goals, or maybe how often they make particular types of mistakes.
 
@@ -397,7 +397,7 @@ However, the recommended way to send request telemetry is where the request acts
 
 ## Operation context
 
-You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](../../application-insights/app-insights-diagnostic-search.md) and [Analytics](analytics.md), you can easily find any events associated with the request using its operation Id.
+You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](../../azure-monitor/app/diagnostic-search.md) and [Analytics](analytics.md), you can easily find any events associated with the request using its operation Id.
 
 See [Telemetry correlation in Application Insights](../../azure-monitor/app/correlation.md) for more details on correlation.
 
@@ -449,7 +449,7 @@ requests
 Send exceptions to Application Insights:
 
 * To [count them](../../application-insights/app-insights-metrics-explorer.md), as an indication of the frequency of a problem.
-* To [examine individual occurrences](../../application-insights/app-insights-diagnostic-search.md).
+* To [examine individual occurrences](../../azure-monitor/app/diagnostic-search.md).
 
 The reports include the stack traces.
 
@@ -542,7 +542,7 @@ exceptions
 
 ## TrackTrace
 
-Use TrackTrace to help diagnose problems by sending a "breadcrumb trail" to Application Insights. You can send chunks of diagnostic data and inspect them in [Diagnostic Search](../../application-insights/app-insights-diagnostic-search.md).
+Use TrackTrace to help diagnose problems by sending a "breadcrumb trail" to Application Insights. You can send chunks of diagnostic data and inspect them in [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md).
 
 In .NET [Log adapters](../../azure-monitor/app/asp-net-trace-logs.md) use this API to send third-party logs to the portal.
 
@@ -594,7 +594,7 @@ properties.put("Database", db.ID);
 telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties);
 ```
 
-In [Search](../../application-insights/app-insights-diagnostic-search.md), you can then easily filter out all the messages of a particular severity level that relate to a particular database.
+In [Search](../../azure-monitor/app/diagnostic-search.md), you can then easily filter out all the messages of a particular severity level that relate to a particular database.
 
 ### Traces in Analytics
 
@@ -763,7 +763,7 @@ appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
 In [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md), you can create a chart that counts **Users, Authenticated**, and **User accounts**.
 
-You can also [search](../../application-insights/app-insights-diagnostic-search.md) for client data points with specific user names and accounts.
+You can also [search](../../azure-monitor/app/diagnostic-search.md) for client data points with specific user names and accounts.
 
 ## <a name="properties"></a>Filtering, searching, and segmenting your data by using properties
 
@@ -1140,7 +1140,7 @@ If you set any of these values yourself, consider removing the relevant line fro
 
 To avoid hitting the data rate limit, use [sampling](../../application-insights/app-insights-sampling.md).
 
-To determine how long data is kept, see [Data retention and privacy](../../application-insights/app-insights-data-retention-privacy.md).
+To determine how long data is kept, see [Data retention and privacy](../../azure-monitor/app/data-retention-privacy.md).
 
 ## Reference docs
 
@@ -1171,5 +1171,5 @@ To determine how long data is kept, see [Data retention and privacy](../../appli
 
 ## <a name="next"></a>Next steps
 
-* [Search events and logs](../../application-insights/app-insights-diagnostic-search.md)
+* [Search events and logs](../../azure-monitor/app/diagnostic-search.md)
 * [Troubleshooting](../../application-insights/app-insights-troubleshoot-faq.md)
