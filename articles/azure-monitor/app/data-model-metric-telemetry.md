@@ -63,7 +63,7 @@ Standard deviation of the aggregated metric. Should not be set for a measurement
 
 Metric with the custom property `CustomPerfCounter` set to `true` indicate that the metric represents the windows performance counter. These metrics placed in performanceCounters table. Not in customMetrics. Also the name of this metric is parsed to extract category, counter, and instance names.
 
-[!INCLUDE [application-insights-data-model-properties](../../../../includes/application-insights-data-model-properties.md)]
+[!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 
 ## Next steps
 

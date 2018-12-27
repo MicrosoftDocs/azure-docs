@@ -27,11 +27,11 @@ Max length: 512 characters
 
 ## Custom properties
 
-[!INCLUDE [application-insights-data-model-properties](../../../../includes/application-insights-data-model-properties.md)]
+[!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 
 ## Custom measurements
 
-[!INCLUDE [application-insights-data-model-measurements](../../../../includes/application-insights-data-model-measurements.md)]
+[!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
 
 ## Next steps
 

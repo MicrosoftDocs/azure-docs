@@ -67,11 +67,11 @@ You can read more on request result code and status code in the [blog post](http
 
 ## Custom properties
 
-[!INCLUDE [application-insights-data-model-properties](../../../../includes/application-insights-data-model-properties.md)]
+[!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 
 ## Custom measurements
 
-[!INCLUDE [application-insights-data-model-measurements](../../../../includes/application-insights-data-model-measurements.md)]
+[!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
 
 ## Next steps
 
