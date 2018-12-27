@@ -44,14 +44,14 @@ These additional data points are worth considering:
 * What kind of enterprise do you have?
 * How critical is the application being built?
 
-See the **pricing tier targeted customers** table to get a better sense of the S0 and S1 pricing tiers. For more information on Azure Maps pricing, see [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps/). 
+See the **pricing tier targeted customers** table to get a better sense of the S0 and S1 pricing tiers. For more information, see [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps/). 
 
 ### Pricing tier targeted customers
 
 | Pricing tier  |        Targeted customers                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
 | S0            |    <p>The S0 pricing tier is for customers who are either small or medium-sized enterprises. It's the right pricing tier for you if you don't expect high volumes of concurrent users. It's also right if your service requirements are met by the core geospatial APIs as shown in the following table. This tier is generally available. It's applicable for applications in all stages of production from proof of concept development and early stage testing to application production and deployment.<p>|
-| S1            |    <p>The S1 pricing tier is for customers in need of support for large-scale enterprise, mission critical applications, or high volumes of concurrent users. It's also for those who require advanced geospatial services.</p>|
+| S1            |    <p>The S1 pricing tier is for customers in need of support for large-scale enterprise, mission-critical applications, or high volumes of concurrent users. It's also for those who require advanced geospatial services.</p>|
 
 
 ## Next steps
