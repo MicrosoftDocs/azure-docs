@@ -17,7 +17,7 @@ ms.author: mbullwin
 ---
 # Overview of Application Insights for DevOps
 
-With [Application Insights](app-insights-overview.md), you can quickly find out how your app is performing and being used when it's live. If there's a problem, it lets you know about it, helps you assess the impact, and helps you determine the cause.
+With [Application Insights](../../application-insights/app-insights-overview.md), you can quickly find out how your app is performing and being used when it's live. If there's a problem, it lets you know about it, helps you assess the impact, and helps you determine the cause.
 
 Here's an account from a team that develops web applications:
 
@@ -27,7 +27,7 @@ In this article we follow a team in Fabrikam Bank that develops the online banki
 
 The team works on a DevOps cycle depicted in the following illustration:
 
-![DevOps cycle](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
+![DevOps cycle](./media/detect-triage-diagnose/00-devcycle.png)
 
 Requirements feed into their development backlog (task list). They work in short sprints, which often deliver working software - usually in the form of improvements and extensions to the existing application. The live app is frequently updated with new features. While it's live, the team monitors it for performance and usage with the help of Application Insights. This APM data feeds back into their development backlog.
 
@@ -39,10 +39,10 @@ The team uses Application Insights to monitor the live web application closely f
 
 Let's focus on the feedback part of the cycle:
 
-![Detect-Triage-Diagnose](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
+![Detect-Triage-Diagnose](./media/detect-triage-diagnose/01-pipe1.png)
 
 ## Detect poor availability
-Marcela Markova is a senior developer on the OBS team, and takes the lead on monitoring online performance. She sets up several [availability tests](app-insights-monitor-web-app-availability.md):
+Marcela Markova is a senior developer on the OBS team, and takes the lead on monitoring online performance. She sets up several [availability tests](../../application-insights/app-insights-monitor-web-app-availability.md):
 
 * A single-URL test for the main landing page for the app, http://fabrikambank.com/onlinebanking/. She sets criteria of HTTP code 200 and text 'Welcome!'. If this test fails, there's something seriously wrong with the network or the servers, or maybe a deployment issue. (Or someone has changed the Welcome! message on the page without letting her know.)
 * A deeper multi-step test, which logs in and gets a current account listing, checking a few key details on each page. This test verifies that the link to the accounts database is working. She uses a fictitious customer id: a few of them are maintained for test purposes.
@@ -51,14 +51,14 @@ With these tests set up, Marcela is confident that the team will quickly know ab
 
 Failures show up as red dots on the web test chart:
 
-![Display of web tests that have run over the preceding period](./media/app-insights-detect-triage-diagnose/04-webtests.png)
+![Display of web tests that have run over the preceding period](./media/detect-triage-diagnose/04-webtests.png)
 
 But more importantly, an alert about any failure is emailed to the development team. In that way, they know about it before nearly all the customers.
 
 ## Monitor Performance
-On the overview page in Application Insights, there's a chart that shows a variety of [key metrics](app-insights-web-monitor-performance.md).
+On the overview page in Application Insights, there's a chart that shows a variety of [key metrics](../../application-insights/app-insights-web-monitor-performance.md).
 
-![Screenshot of overview performance KPI graphs](./media/app-insights-detect-triage-diagnose/overview-graphs.png)
+![Screenshot of overview performance KPI graphs](./media/detect-triage-diagnose/overview-graphs.png)
 
 Browser page load time is derived from telemetry sent directly from web pages. Server response time, server request count, and failed request count are all measured in the web server and sent to Application Insights from there.
 
@@ -66,16 +66,16 @@ Marcela is slightly concerned with the server response graph. This graph shows t
 
 She opens the Servers charts:
 
-![Various metrics](./media/app-insights-detect-triage-diagnose/002-servers.png)
+![Various metrics](./media/detect-triage-diagnose/002-servers.png)
 
 There seems to be no sign of resource limitation there, so maybe the bumps in the server response charts are just a coincidence.
 
 ## Set alerts to meet goals
 Nevertheless, she'd like to keep an eye on the response times. If they go too high, she wants to know about it immediately.
 
-So she sets an [alert](app-insights-metrics-explorer.md), for response times greater than a typical threshold. This gives her confidence that she'll know about it if response times are slow.
+So she sets an [alert](../../application-insights/app-insights-metrics-explorer.md), for response times greater than a typical threshold. This gives her confidence that she'll know about it if response times are slow.
 
-![Add alert blade](./media/app-insights-detect-triage-diagnose/07-alerts.png)
+![Add alert blade](./media/detect-triage-diagnose/07-alerts.png)
 
 Alerts can be set on a wide variety of other metrics. For example, you can receive emails if the exception count becomes high, or the available memory goes low, or if there is a peak in client requests.
 
@@ -88,7 +88,7 @@ This alert is a surprise, because the last time she looked at it, the failed req
 
 It was also a bit of a surprise for her because she didn't have to configure this alert. Application Insights include Smart Detection. It automatically adjusts to your app's usual failure pattern, and "gets used to" failures on a particular page, or under high load, or linked to other metrics. It raises the alarm only if there's a rise above what it comes to expect.
 
-![proactive diagnostics email](./media/app-insights-detect-triage-diagnose/21.png)
+![proactive diagnostics email](./media/detect-triage-diagnose/21.png)
 
 This is a very useful email. It doesn't just raise an alarm. It does a lot of the triage and diagnostic work, too.
 
@@ -101,10 +101,10 @@ Marcella pings the leader of the database team based on this email. She learns t
 So the problem is on the way to being fixed, even before investigating logs, and within 15 minutes of it arising. However, Marcela clicks the link to open Application Insights. It opens straight onto a failed request, and she can see the
 failed database call in the associated list of dependency calls.
 
-![failed request](./media/app-insights-detect-triage-diagnose/23.png)
+![failed request](./media/detect-triage-diagnose/23.png)
 
 ## Detect exceptions
-With a little bit of setup, [exceptions](../azure-monitor/app/asp-net-exceptions.md) are reported to Application Insights automatically. They can also be captured explicitly by inserting calls to [TrackException()](../azure-monitor/app/api-custom-events-metrics.md#trackexception) into the code:  
+With a little bit of setup, [exceptions](../../azure-monitor/app/asp-net-exceptions.md) are reported to Application Insights automatically. They can also be captured explicitly by inserting calls to [TrackException()](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) into the code:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -141,15 +141,15 @@ In fact, their strategy is even broader than that: They send telemetry in every 
 
 TrackException is used to report exceptions because it sends a copy of the stack. TrackEvent is used to report other events. You can attach any properties that might be useful in diagnosis.
 
-Exceptions and events show up in the [Diagnostic Search](app-insights-diagnostic-search.md) blade. You can drill into them to see the additional properties and stack trace.
+Exceptions and events show up in the [Diagnostic Search](diagnostic-search.md) blade. You can drill into them to see the additional properties and stack trace.
 
-![In Diagnostic Search, use filters to show particular types of data](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
+![In Diagnostic Search, use filters to show particular types of data](./media/detect-triage-diagnose/appinsights-333facets.png)
 
 
 ## Monitor proactively
-Marcela doesn't just sit around waiting for alerts. Soon after every redeployment, she takes a look at [response times](app-insights-web-monitor-performance.md) - both the overall figure and the table of slowest requests, as well as exception counts.  
+Marcela doesn't just sit around waiting for alerts. Soon after every redeployment, she takes a look at [response times](../../application-insights/app-insights-web-monitor-performance.md) - both the overall figure and the table of slowest requests, as well as exception counts.  
 
-![Response time graph and grid of server response times.](./media/app-insights-detect-triage-diagnose/response-time.png)
+![Response time graph and grid of server response times.](./media/detect-triage-diagnose/response-time.png)
 
 She can assess the performance effect of every deployment, typically comparing each week with the last. If there's a sudden worsening, she raises that with the relevant developers.
 
@@ -176,13 +176,13 @@ Diagnosis isn't quite the same as debugging. Before you start tracing through th
 **Is it us?**  If you have a sudden drop in performance of a particular type of request - for example when the customer wants an account statement - then there's a possibility it might be an external subsystem rather than your web application. In Metrics Explorer, select the Dependency Failure rate and Dependency Duration rates and compare their histories over the past few hours or days with the problem you detected. If there are correlating changes, then an external subsystem might be to blame.  
 
 
-![Charts of dependency failure and duration of calls to dependencies](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
+![Charts of dependency failure and duration of calls to dependencies](./media/detect-triage-diagnose/11-dependencies.png)
 
 Some slow dependency issues are geolocation problems. Fabrikam Bank uses Azure virtual machines, and discovered that they had inadvertently located their web server and account server in different countries. A dramatic improvement was brought about by migrating one of them.
 
-**What did we do?** If the issue doesn't appear to be in a dependency, and if it wasn't always there, it's probably caused by a recent change. The historical perspective provided by the metric and event charts makes it easy to correlate any sudden changes with deployments. That narrows down the search for the problem. To identify which lines in the application code slowed down the performance, enable Application Insights Profiler. Please refer to [Profiling live Azure web apps with Application Insights](./app-insights-profiler.md). After the Profiler is enabled, you will see a trace similar to the following. In this example, it's easily noticeable that the method *GetStorageTableData* caused the problem.  
+**What did we do?** If the issue doesn't appear to be in a dependency, and if it wasn't always there, it's probably caused by a recent change. The historical perspective provided by the metric and event charts makes it easy to correlate any sudden changes with deployments. That narrows down the search for the problem. To identify which lines in the application code slowed down the performance, enable Application Insights Profiler. Please refer to [Profiling live Azure web apps with Application Insights](./../../application-insights/app-insights-profiler.md). After the Profiler is enabled, you will see a trace similar to the following. In this example, it's easily noticeable that the method *GetStorageTableData* caused the problem.  
 
-![App Insights Profiler Trace](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
+![App Insights Profiler Trace](./media/detect-triage-diagnose/AppInsightsProfiler.png)
 
 **What's going on?** Some problems occur only rarely and can be difficult to track down by testing offline. All we can do is to try to capture the bug when it occurs live. You can inspect the stack dumps in exception reports. In addition, you can write tracing calls, either with your favorite logging framework or with TrackTrace() or TrackEvent().  
 
@@ -203,7 +203,7 @@ Application Insights can also be used to learn what users do with an app. Once i
 
 For example, a typical user journey through the web site has a clear "funnel." Many customers look at the rates of different types of loan. A smaller number go on to fill in the quotation form. Of those who get a quotation, a few go ahead and take out the loan.
 
-![Page view counts](./media/app-insights-detect-triage-diagnose/funnel.png)
+![Page view counts](./media/detect-triage-diagnose/funnel.png)
 
 By considering where the greatest numbers of customers drop out, the business can work out how to get more users through to the bottom of the funnel. In some cases, there might be a user experience (UX) failure - for example, the 'next' button is hard to find, or the instructions aren't obvious. More likely, there are more significant business reasons for drop-outs: maybe the loan rates are too high.
 
@@ -211,7 +211,7 @@ Whatever the reasons, the data helps the team work out what users are doing. Mor
 
 The team is getting used to having information about user activity. Nowadays, whenever they design a new feature, they work out how they will get feedback about its usage. They design tracking calls into the feature from the start. They use the feedback to improve the feature in each development cycle.
 
-[Read more about tracking usage](app-insights-usage-overview.md).
+[Read more about tracking usage](../../application-insights/app-insights-usage-overview.md).
 
 ## Apply the DevOps cycle
 So that's how one team use Application Insights not just to fix individual issues, but to improve their development lifecycle. I hope it has given you some ideas about how Application Insights can help you with application performance management in your own applications.
@@ -223,9 +223,9 @@ So that's how one team use Application Insights not just to fix individual issue
 ## Next steps
 You can get started in several ways, depending on the characteristics of your application. Pick what suits you best:
 
-* [ASP.NET web application](../azure-monitor/app/asp-net.md)
-* [Java web application](app-insights-java-get-started.md)
-* [Node.js web application](app-insights-nodejs.md)
-* Already deployed apps, hosted on [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md), or [Azure](app-insights-overview.md).
-* [Web pages](app-insights-javascript.md) - Single Page App or ordinary web page - use this on its own or in addition to any of the server options.
-* [Availability tests](app-insights-monitor-web-app-availability.md) to test your app from the public internet.
+* [ASP.NET web application](../../azure-monitor/app/asp-net.md)
+* [Java web application](../../application-insights/app-insights-java-get-started.md)
+* [Node.js web application](../../application-insights/app-insights-nodejs.md)
+* Already deployed apps, hosted on [IIS](../../application-insights/app-insights-monitor-web-app-availability.md), [J2EE](../../application-insights/app-insights-java-live.md), or [Azure](../../application-insights/app-insights-overview.md).
+* [Web pages](../../application-insights/app-insights-javascript.md) - Single Page App or ordinary web page - use this on its own or in addition to any of the server options.
+* [Availability tests](../../application-insights/app-insights-monitor-web-app-availability.md) to test your app from the public internet.
