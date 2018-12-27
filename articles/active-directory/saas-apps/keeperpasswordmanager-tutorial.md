@@ -42,6 +42,8 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * Keeper Password Manager & Digital Vault supports **SP** initiated SSO
 
+* Keeper Password Manager & Digital Vault supports **Just In Time** user provisioning
+
 ## Adding Keeper Password Manager & Digital Vault from the gallery
 
 To configure the integration of Keeper Password Manager & Digital Vault into Azure AD, you need to add Keeper Password Manager & Digital Vault from the gallery to your list of managed SaaS apps.
@@ -74,7 +76,7 @@ To configure and test Azure AD single sign-on with Keeper Password Manager & Dig
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure Keeper Password Manager & Digital Vault Single Sign-On](#configure-keeper-password-manager-&-digital-vault-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create Keeper Password Manager & Digital Vault test user](#create-keeper-password-manager-&-digital-vault-test-user)** - to have a counterpart of Britta Simon in Keeper Password Manager & Digital Vault that is linked to the Azure AD representation of user.
+4. **[Create Keeper Password Manager & Digital Vault test user](#create-keeper-password-manager--digital-vault-test-user)** - to have a counterpart of Britta Simon in Keeper Password Manager & Digital Vault that is linked to the Azure AD representation of user.
 5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
