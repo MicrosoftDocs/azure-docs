@@ -10,7 +10,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 11/22/2018
 ms.author: bwren
 ---
 
@@ -23,7 +23,11 @@ Log Analytics and Application Insights have been consolidated into Azure Monitor
 Documentation for each of these services has been consolidated into a single set of content for Azure Monitor. This will assist the reader in finding all of the content for a particular monitoring scenario in a single location as opposed to having to reference multiple sets of content. As the consolidated service evolves, the content will become more integrated.
 
 ## Log Analytics redefinition
-Log Analytics has played a central role in Azure management by collecting telemetry and other data from a variety of sources and providing a query language and analytics engine that gives you insights into the operation of your applications and resources. It will continue to fill this critical role as a feature of Azure Monitor. Other features that were considered part of Log Analytics such as agents and solutions will be repositioned as features of Azure Monitor. Their functionality hasn't changed other than potential improvements to their experience in the Azure portal.
+Log Analytics has played a central role in Azure management by collecting telemetry and other data from a variety of sources and providing a query language and analytics engine that gives you insights into the operation of your applications and resources. 
+
+This critical role hasn't changed, but is now considered the logs feature of Azure Monitor. Other features that were considered part of Log Analytics such as agents and views have also been repositioned as features of Azure Monitor. Their functionality hasn't changed other than potential improvements to their experience in the Azure portal.
+
+The term Log Analytics now applies to the page in the Azure portal used to write and run queries and analyze log data. It's the functional equivalent of Metrics Analytics which is the page in the Azure portal used to analyze metric data.
 
 ## Retirement of Operations Management Suite brand
 Operations Management Suite (OMS) was a bundling of the following Azure management services for licensing purposes:
@@ -37,8 +41,19 @@ Operations Management Suite (OMS) was a bundling of the following Azure manageme
 [New pricing has been introduced for these services](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), and the OMS bundling is no longer available for new customers. None of the services that were part of OMS have changed, except for the consolidation into Azure Monitor described above. 
 
 
+## Summary of changes
+The following table lists recent changes in terminology used for monitoring services in Azure.
+
+| Term | Previous definition | New definition | 
+|:---|:---|:---|
+| Operations Management Suite (OMS) | Bundling of Azure management services for licensing purposes. | No equivalent. The services that were bundled in the suite are still available with no changes but the suite pricing is no longer available to new customers. |
+| Log Analytics | Azure service that included agents to collect log data, query language to analyze data, and views to visualize data.  | Page in the Azure portal used to write and run queries and analyze log data in Azure Monitor. Other features are unchanged but are now considered part of Azure Monitor. |
+| Metrics Explorer | Page in the Azure portal for analyzing metric data in Azure Monitor. | This tool has been renamed to Metrics Analytics for consistency with Log Analytics. |
+| Log Analytics query language<br>Azure Monitor query language<br>Kusto | Query language to analyze log data in Log Analytics. | Now that Data Explorer is publicly available, this is known as Data Explorer query language. It's the same language as before and is a flavor of the language used by Data Explorer. Most of the documentation for the language is with Data Explorer with this section providing content on the differences. |
+
+
 
 ## Next steps
 
 - Read an [overview of Azure Monitor](overview.md) that describes its different components and features.
-- Learn about the [transition of the OMS portal](../azure-monitor/platform/oms-portal-transition.md).
+- Learn about the [transition of the OMS portal](../log-analytics/log-analytics-oms-portal-transition.md).
