@@ -102,17 +102,17 @@ With the following JSON body:
 
 <div id="all"></div>
 
-### Retrieve all role assignments
+### Retrieve all roles
 
 ![System roles][2]
 
-To list all available role assignments, make an authenticated HTTP GET request to:
+To list all available roles (role definitions), make an authenticated HTTP GET request to:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/system/roles
 ```
 
-A successful request will return a JSON array with entries for each role assignment:
+A successful request will return a JSON array with entries for each role that may be assigned:
 
 ```JSON
 [
