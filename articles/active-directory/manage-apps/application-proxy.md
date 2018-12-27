@@ -31,8 +31,6 @@ Azure AD Application Proxy is:
  
 - **Cost-effective**. On-premises solutions typically require you to set up and maintain demilitarized zones (DMVs), edge servers, or other complex infrastructures. Application Proxy runs in the cloud, so you don't need to change the network infrastructure or require a virtual private network (VPN) to provide this solution for your users.
 
-[!INCLUDE [identity](../../../includes/azure-ad-licenses.md)]
-
 ## When to use Application Proxy
 Use Application Proxy to access these different types of internal applications:
 
@@ -42,7 +40,7 @@ Use Application Proxy to access these different types of internal applications:
 * Applications hosted behind a [Remote Desktop Gateway](application-proxy-integrate-with-remote-desktop-services.md)  
 * Rich client apps that are integrated with the Active Directory Authentication Library (ADAL)
 
-## How does Application Proxy work?
+## Process for remote authentication
 The following diagram shows how users authenticate to on-premises applications by using Azure AD and its Application Proxy service. 
 
 ![AzureAD Application Proxy diagram](./media/application-proxy/azureappproxxy.png)
@@ -67,20 +65,6 @@ The following diagram shows how users authenticate to on-premises applications b
 ## Next steps
 To get started with Applicatio Proxy, see [Tutorial: Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application). 
 
-
-## What's next?
-Once you publish your first app, there's a lot more you can do with Application Proxy:
-
-* [Enable single-sign on](application-proxy-configure-single-sign-on-with-kcd.md)
-* [Publish applications using your own domain name](application-proxy-configure-custom-domain.md)
-* [Learn about Azure AD Application Proxy connectors](application-proxy-connectors.md)
-* [Working with existing on-premises Proxy servers](application-proxy-configure-connectors-with-proxy-servers.md) 
-* [Set a custom home page](application-proxy-configure-custom-home-page.md)
-
 For the latest news and updates, check out the [Application Proxy blog](https://blogs.technet.com/b/applicationproxyblog/)
 
-## Related articles
-
-- 
-- [Choose a single sign-on method for on-premises applications](what-is-single-sign-on.md#choosing-a-single-sign-on-method)
 
