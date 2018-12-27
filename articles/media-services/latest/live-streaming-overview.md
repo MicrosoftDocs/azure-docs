@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/26/2018
 ms.author: juliako
 
 ---
@@ -40,7 +40,7 @@ With Media Services you can take advantage of **Dynamic Packaging**, which allow
 
 Media Services enables you to deliver your content encrypted dynamically (**Dynamic Encryption**) with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM licenses to authorized clients. For more information on how to encrypt your content with Media Services, see [Protecting content overview](content-protection-overview.md)
 
-If desired, you can also apply Dynamic Filtering, which can be used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. 
+If desired, you can also apply Dynamic Filtering, which can be used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. For more information, see [Filters and dynamic manifests](filters-dynamic-manifest-overview.md)
 
 ### New capabilities for live streaming in v3
 
@@ -53,7 +53,7 @@ With the v3 APIs of Media Services, you benefit from the following new features:
 
 ## LiveEvent types
 
-A  [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: pass-through and live encoding. 
+A [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: pass-through and live encoding. 
 
 ### Pass-through
 
