@@ -159,7 +159,7 @@ Exceptions submited via loggers will be displayed on the portal as Exception Tel
 
 <!--Link references-->
 
-[diagnostic]: app-insights-diagnostic-search.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
 [java]: app-insights-java-get-started.md
 
 

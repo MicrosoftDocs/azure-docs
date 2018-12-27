@@ -366,6 +366,6 @@ What's the difference between telemetry processors and telemetry initializers?
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Next steps
-* [Search events and logs](../../application-insights/app-insights-diagnostic-search.md)
+* [Search events and logs](../../azure-monitor/app/diagnostic-search.md)
 * [Sampling](../../application-insights/app-insights-sampling.md)
 * [Troubleshooting](../../application-insights/app-insights-troubleshoot-faq.md)

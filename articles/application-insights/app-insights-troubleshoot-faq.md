@@ -143,7 +143,7 @@ Take a look at [Data Retention and Privacy][data].
 
 ## Could personal data be sent in the telemetry?
 
-This is possible if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](app-insights-data-retention-privacy.md).
+This is possible if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](../azure-monitor/app/data-retention-privacy.md).
 
 **All** octets of the client web address are always set to 0 after the geo location attributes are looked up.
 
@@ -293,7 +293,7 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 
 <!--Link references-->
 
-[data]: app-insights-data-retention-privacy.md
+[data]: ../azure-monitor/app/data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

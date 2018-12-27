@@ -66,14 +66,14 @@ You can write a [PowerShell script](app-insights-powershell.md) to create a reso
 
 ## Next steps
 * [Create a dashboard](../azure-monitor/app/app-insights-dashboards.md)
-* [Diagnostic Search](app-insights-diagnostic-search.md)
+* [Diagnostic Search](../azure-monitor/app/diagnostic-search.md)
 * [Explore metrics](app-insights-metrics-explorer.md)
 * [Write Analytics queries](../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
 [api]: ../azure-monitor/app/api-custom-events-metrics.md
-[diagnostic]: app-insights-diagnostic-search.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [start]: app-insights-overview.md
 
