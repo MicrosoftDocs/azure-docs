@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 12/27/2018
 ms.author: lyrana
 ---
 
@@ -23,7 +23,7 @@ Using RBAC, permission can be granted to:
 - All users who belong to a domain.
 - A tenant.
 
-The degree of access also can be fine-tuned.
+The degree of access can also be fine-tuned.
 
 RBAC is unique in that permissions are inherited down the spatial graph.
 
@@ -56,7 +56,7 @@ A role definition is a collection of permissions and is sometimes called a role.
 
 [!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
 
-> [!TIP]
+>[!TIP]
 > Learn how to grant permissions to your service principal by reading [Creating and managing role assignments](./security-create-manage-role-assignments.md#grant).
 
 The following reference documentation articles describe:
@@ -67,7 +67,12 @@ The following reference documentation articles describe:
 
 ## Role assignments
 
-To grant permissions to a recipient, create a role assignment. To revoke permissions, remove the role assignment. An Azure Digital Twins role assignment associates an object, such as a user or an Azure AD tenant, with a role and a space. Permissions are granted to all objects that belong to that space. The space includes the entire spatial graph beneath it.
+An Azure Digital Twins role assignment associates an object, such as a user or an Azure AD tenant, with a role and a space. Permissions are granted to all objects that belong to that space. The space includes the entire spatial graph beneath it.
+
+To grant permissions to a recipient, create a role assignment. To revoke permissions, remove the role assignment.
+
+>[!IMPORTANT]
+> Learn more about role assignments by reading [Creating and managing role assignments](./security-create-manage-role-assignments.md).
 
 For example, a user is given a role assignment with the role `DeviceInstaller` for the root node of a spatial graph, which represents a building. The user can then read and update devices for that node and all other child spaces in the building.
 
