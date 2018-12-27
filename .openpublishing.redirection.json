@@ -33132,56 +33132,6 @@
             "redirect_document_id":  true
         },
         {
-            "source_path":  "articles/application-insights/application-insights-data-model-context.md",
-            "redirect_url":  "/azure/azure-monitor/app/data-model-context",
-            "redirect_document_id":  true
-        },
-        {
-            "source_path":  "articles/application-insights/application-insights-data-model-dependency-telemetry.md",
-            "redirect_url":  "/azure/azure-monitor/app/data-model-dependency-telemetry",
-            "redirect_document_id":  true
-        },
-        {
-            "source_path":  "articles/application-insights/application-insights-data-model-event-telemetry.md",
-            "redirect_url":  "/azure/azure-monitor/app/data-model-event-telemetry",
-            "redirect_document_id":  true
-        },
-        {
-            "source_path":  "articles/application-insights/application-insights-data-model-exception-telemetry.md",
-            "redirect_url":  "/azure/azure-monitor/app/data-model-exception-telemetry",
-            "redirect_document_id":  true
-        },
-        {
-            "source_path":  "articles/application-insights/application-insights-data-model-metric-telemetry.md",
-            "redirect_url":  "/azure/azure-monitor/app/data-model-metric-telemetry",
-            "redirect_document_id":  true
-        },
-        {
-            "source_path":  "articles/application-insights/application-insights-data-model-request-telemetry.md",
-            "redirect_url":  "/azure/azure-monitor/app/data-model-request-telemetry",
-            "redirect_document_id":  true
-        },
-        {
-            "source_path":  "articles/application-insights/application-insights-data-model-trace-telemetry.md",
-            "redirect_url":  "/azure/azure-monitor/app/data-model-trace-telemetry",
-            "redirect_document_id":  true
-        },
-        {
-            "source_path":  "articles/application-insights/app-insights-data-retention-privacy.md",
-            "redirect_url":  "/azure/azure-monitor/app/data-retention-privacy",
-            "redirect_document_id":  true
-        },
-        {
-            "source_path":  "articles/application-insights/app-insights-detect-triage-diagnose.md",
-            "redirect_url":  "/azure/azure-monitor/app/detect-triage-diagnose",
-            "redirect_document_id":  true
-        },
-        {
-            "source_path":  "articles/application-insights/app-insights-diagnostic-search.md",
-            "redirect_url":  "/azure/azure-monitor/app/diagnostic-search",
-            "redirect_document_id":  true
-        },
-        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
