@@ -56,7 +56,13 @@ To copy data using data copy service, you need to create a job. Follow these ste
     |File optimization              |When enabled, the files are packed at the ingest. This speeds up the data copy for small files.        |
  
 4. Click **Configure and start**. The inputs are validated and if the validation succeeds, then a job is started. It takes a few minutes for the job to start.
-5. A job with the specified settings is created. You can pause and resume this job or cancel a job at any time. 
+5. A job with the specified settings is created. 
+    
+    - You can pause this job if it is impacting the NAS resources during the peak hours. The admin can resume the job later.  
+    
+    - You can also cancel a job at any time. A confirmation is required when you cancel a job.
+
+    - You can restart a job if it has stopped abruptly due to a transient error such as a network glitch. You can't restart a job if it has reached a terminal state such as completed successfully or completed with errors. The failures could be due to file naming or file size issues. These errors are logged but the job can't be restarted once it has completed.
     
     > [!IMPORTANT] 
     > - If you decide to cancel a job, the data that is already copied is not cleared. To wipe out any data that you have copied on your Data Box, reset the device.
