@@ -164,7 +164,7 @@ This is because the default behavior of tenants created prior to June 15th 2015 
 Tenants created after June 15th 2015 have the default behavior of synchronizing UPN changes.   
 
 
- 
+
 ## Next steps
 - [Current limitations](how-to-connect-pta-current-limitations.md): Learn which scenarios are supported and which ones are not.
 - [Quick start](how-to-connect-pta-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
