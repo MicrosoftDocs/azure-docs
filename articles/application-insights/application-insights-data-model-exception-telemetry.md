@@ -1,20 +1,17 @@
-﻿---
+---
 title: Azure Application Insights Telemetry Data Model - Exception Telemetry | Microsoft Docs
 description: Application Insights data model for exception telemetry
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-
 ---
 # Exception telemetry: Application Insights data model
 
@@ -45,5 +42,5 @@ Trace severity level. Value can be `Verbose`, `Information`, `Warning`, `Error`,
 ## Next steps
 
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
-- Learn how to [diagnose exceptions in your web apps with Application Insights](app-insights-asp-net-exceptions.md).
+- Learn how to [diagnose exceptions in your web apps with Application Insights](../azure-monitor/app/asp-net-exceptions.md).
 - Check out [platforms](app-insights-platforms.md) supported by Application Insights.

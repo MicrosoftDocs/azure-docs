@@ -26,7 +26,7 @@ This article also shows you how to better manage lab costs by setting spending t
 ## Viewing the Monthly Estimated Cost Trend chart
 To view the Monthly Estimated Cost Trend chart, follow these steps: 
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. If necessary, select **All Services**, and then select **DevTest Labs** from the list. (Your lab might already be shown on the Dashboard under **All Resources**).
 1. From the list of labs, select the desired lab.  
 1. On the lab's **Overview** area, select **Configuration and policies**.   

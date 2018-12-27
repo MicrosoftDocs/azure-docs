@@ -89,7 +89,7 @@ First you have to create an Application Insights resource which will generate an
         // you may not use this file except in compliance with the License.
         // You may obtain a copy of the License at
         //
-        //     http://www.apache.org/licenses/LICENSE-2.0
+        //     https://www.apache.org/licenses/LICENSE-2.0
         //
         // Unless required by applicable law or agreed to in writing, software
         // distributed under the License is distributed on an "AS IS" BASIS,
@@ -203,7 +203,7 @@ First you have to create an Application Insights resource which will generate an
 
     Since we were only tracing one method call, our application map isn't as interesting. But application map can scale to visualize far more distributed applications:
 
-   ![Application Map](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![Application Map](media/opencensus-go/application-map.png)
 
 4. Select **Investigate Performance** to perform detailed performance analysis and determine the root cause of slow performance.
 
@@ -219,5 +219,5 @@ We only covered the basics of integrating OpenCensus for Go with the local forwa
 
 ## Next steps
 
-* [Application map](./app-insights-app-map.md)
+* [Application map](./../azure-monitor/app/app-map.md)
 * [End-to-end performance monitoring](./app-insights-tutorial-performance.md)

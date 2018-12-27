@@ -28,6 +28,7 @@ The technical and marketing content requirements vary by storefront, offer type,
 
 ## Storefront Requirements: AppSource  
 The following table describes the prerequisite requirements for publishing on AppSource.  
+
 | Requirement | Details | Required or Recommended |  
 |:--- |:--- |:--- |  
 | ***Azure Active Directory (Azure AD)*** | Your app must allow Azure Active Directory federated single sign-on (Azure AD federated SSO) with consent enabled.<ul> <li>For more information about enabling Azure AD federated SSO, visit the Configuring single sign-on to applications that are not in the Azure Active Directory application gallery page located at [docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).</li> </ul> | Required |   
@@ -42,6 +43,7 @@ The following table describes the prerequisite requirements for publishing on Ap
 
 ## Storefront Requirements: Azure Marketplace  
 The following are prerequisite requirements for listing types in Azure Marketplace.  
+
 | Requirement | Details | Listing type |  
 |:--- |:--- |:--- |  
 | ***Participation policies*** | You app must follow the Azure Marketplace participation policies.<ul> <li>For more information about the participation policies, visit the Azure Marketplace Participation Policies page located at [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | list<br />transact<br />trial |  

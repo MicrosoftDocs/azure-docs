@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 11/6/2018
 ms.author: patricka
-
+ms.reviewer: bryanr
 ---
 
 # Multi-tenancy in Azure Stack
@@ -23,9 +23,9 @@ ms.author: patricka
 
 You can configure Azure Stack to support users from multiple Azure Active Directory (Azure AD) tenants to use services in Azure Stack. For example, consider the following scenario:
 
- - You are the Service Administrator of contoso.onmicrosoft.com, where Azure Stack is installed.
- - Mary is the Directory Administrator of fabrikam.onmicrosoft.com, where guest users are located. 
- - Mary's company receives IaaS and PaaS services from your company, and needs to allow users from the guest directory (fabrikam.onmicrosoft.com) to sign in and use Azure Stack resources in contoso.onmicrosoft.com.
+- You're the Service Administrator of contoso.onmicrosoft.com, where Azure Stack is installed.
+- Mary is the Directory Administrator of fabrikam.onmicrosoft.com, where guest users are located.
+- Mary's company receives IaaS and PaaS services from your company, and needs to allow users from the guest directory (fabrikam.onmicrosoft.com) to sign in and use Azure Stack resources in contoso.onmicrosoft.com.
 
 This guide provides the steps required, in the context of this scenario, to configure multi-tenancy in Azure Stack. In this scenario, you and Mary must complete steps to enable users from Fabrikam to sign in and consume services from the Azure Stack deployment in Contoso.  
 
@@ -47,6 +47,8 @@ There are a few pre-requisites to account for before you configure multi-tenancy
 In this section, you configure Azure Stack to allow sign-ins from Fabrikam Azure AD directory tenants.
 
 Onboard the Guest Directory Tenant (Fabrikam) to Azure Stack by configuring Azure Resource Manager to accept users and service principals from the guest directory tenant.
+
+The Service Administrator of contoso.onmicrosoft.com runs the following commands.
 
 ````PowerShell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -73,11 +75,11 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 ### Configure guest directory
 
-After you complete steps in the Azure Stack directory, Mary must provide consent to Azure Stack accessing the guest directory and register Azure Stack with the guest directory. 
+Once the Azure Stack Administrator / operator has enabled the Fabrikam directory to be used with Azure Stack, Mary must register Azure Stack with Fabrikam's directory tenant.
 
 #### Registering Azure Stack with the guest directory
 
-Once the guest directory administrator has provided consent for Azure Stack to access Fabrikam's directory, Mary must register Azure Stack with Fabrikam's directory tenant.
+Mary the Directory Administrator of Fabrikam runs the following commands in the guest directory fabrikam.onmicrosoft.com.
 
 ````PowerShell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -96,14 +98,14 @@ Register-AzSWithMyDirectoryTenant `
 > If your Azure Stack administrator installs new services or updates in the future, you may need to run this script again.
 >
 > Run this script again at any time to check the status of the Azure Stack applications in your directory.
-> 
+>
 > If you have noticed issues with creating VMs in Managed Disks (introduced in the 1808 update), a new **Disk Resource Provider** was added, requiring this script to be run again.
 
 ### Direct users to sign in
 
 Now that you and Mary have completed the steps to onboard Mary's directory, Mary can direct Fabrikam users to sign in.  Fabrikam users (that is, users with the fabrikam.onmicrosoft.com suffix) sign in by visiting https://portal.local.azurestack.external.  
 
-Mary will direct any [foreign principals](../role-based-access-control/rbac-and-directory-admin-roles.md) in the Fabrikam directory (that is, users in the Fabrikam directory without the suffix of fabrikam.onmicrosoft.com) to sign in using https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  If they do not use this URL, they are sent to their default directory (Fabrikam) and receive an error that says their admin has not consented.
+Mary will direct any [foreign principals](../role-based-access-control/rbac-and-directory-admin-roles.md) in the Fabrikam directory (that is, users in the Fabrikam directory without the suffix of fabrikam.onmicrosoft.com) to sign in using https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  If they don't use this URL, they're sent to their default directory (Fabrikam) and receive an error that says their admin hasn't consented.
 
 ## Disable multi-tenancy
 

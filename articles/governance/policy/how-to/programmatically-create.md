@@ -1,13 +1,14 @@
 ---
-title: Programmatically create policies and view compliance data with Azure Policy
+title: Programmatically create policies and view compliance data
 description: This article walks you through programmatically creating and managing policies for Azure Policy.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/29/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
+ms.custom: seodec18
 ---
 # Programmatically create policies and view compliance data
 
@@ -25,7 +26,7 @@ Before you begin, make sure that the following prerequisites are met:
 
 1. Update your AzureRM PowerShell module to the latest version. For more information about the latest version, see [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-1. Register the Policy Insights resource provider using Azure PowerShell to ensure that your subscription works with the resource provider. To register a resource provider, you must have permission to perform the register action operation for the resource provider. This operation is included in the Contributor and Owner roles. Run the following command to register the resource provider:
+1. Register the Policy Insights resource provider using Azure PowerShell to validate that your subscription works with the resource provider. To register a resource provider, you must have permission to run the register action operation for the resource provider. This operation is included in the Contributor and Owner roles. Run the following command to register the resource provider:
 
    ```azurepowershell-interactive
    Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
@@ -65,7 +66,8 @@ CLI, and HTTP requests.
    }
    ```
 
-   For more information about authoring a policy definition, see [Azure Policy Definition Structure](../concepts/definition-structure.md).
+   For more information about authoring a policy definition, see [Azure Policy Definition
+   Structure](../concepts/definition-structure.md).
 
 1. Run the following command to create a policy definition using the AuditStorageAccounts.json file.
 
@@ -73,7 +75,16 @@ CLI, and HTTP requests.
    New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
-   The command creates a policy definition named _Audit Storage Accounts Open to Public Networks_. For more information about other parameters that you can use, see [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+   The command creates a policy definition named _Audit Storage Accounts Open to Public Networks_.
+   For more information about other parameters that you can use, see
+   [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+
+   When called without location parameters, `New-AzureRmPolicyDefinition` defaults to saving the
+   policy definition in the selected subscription of the sessions context. To save the definition
+   to a different location, use the following parameters:
+
+   - **SubscriptionId** - Save to a different subscription. Requires a _GUID_ value.
+   - **ManagementGroupName** - Save to a management group. Requires a _string_ value.
 
 1. After you create your policy definition, you can create a policy assignment by running the following commands:
 
@@ -85,13 +96,18 @@ CLI, and HTTP requests.
 
    Replace _ContosoRG_ with the name of your intended resource group.
 
-   The **Scope** parameter on `New-AzureRmPolicyAssignment` also works with subscriptions and management groups. The parameter uses a full resource path, which the **ResourceId** property on `Get-AzureRmResourceGroup` returns. The pattern for **Scope** for each container is as follows.  Replace `{rgName}`, `{subId}`, and `{mgName}` with your resource group name, subscription ID, and management group name, respectively.
+   The **Scope** parameter on `New-AzureRmPolicyAssignment` also works with subscriptions and
+   management groups. The parameter uses a full resource path, which the **ResourceId** property on
+   `Get-AzureRmResourceGroup` returns. The pattern for **Scope** for each container is as follows.
+   Replace `{rgName}`, `{subId}`, and `{mgName}` with your resource group name, subscription ID,
+   and management group name, respectively.
 
    - Resource group - `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Subscription - `/subscriptions/{subId}/`
    - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-For more information about managing resource policies using the Azure Resource Manager PowerShell module, see [AzureRM.Resources](/powershell/module/azurerm.resources/#policies).
+For more information about managing resource policies using the Azure Resource Manager PowerShell
+module, see [AzureRM.Resources](/powershell/module/azurerm.resources/#policies).
 
 ### Create and assign a policy definition using ARMClient
 

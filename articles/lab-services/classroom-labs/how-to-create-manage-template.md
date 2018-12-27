@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/15/2018
 ms.author: spelluru
 
 ---
@@ -84,16 +84,14 @@ First, you can set up and publish a template while creating a classroom lab.
 ## Set up a template after creating a lab 
 You can also set up a template after you create the lab.   
 
-### Set template title and description
-1. In the **Template** section, select **Edit** (pencil icon) for the template. 
-2. In the **User view** window, Enter a **title** for the template.
-3. Enter **description** for the template.
-4. Select **Save**.
+## Set or update template title and description
+Use the following steps to set title and description for the first time, and update them later. 
 
-    ![Classroom lab description](../media/how-to-manage-classroom-labs/lab-description.png)
+1. In the **Template** section, move your mouse over **name** of the template or **description** of the template, and select it. 
+2. Enter the **new name** or **new description** for the template, and press **ENTER**.
 
-### Set up the template VM
- You connect to the template VM and install any required software on it before making it available to your students. 
+## Set up or update a template VM
+ You connect to the template VM and install any required software on it before making it available to your students. Use the following steps to set up a template VM for the first time or to update the VM. 
 
 1. Wait until the template virtual machine is ready. Once it is ready, the **Start** button should be enabled. To start the VM, select **Start**.
 
@@ -108,7 +106,7 @@ You can also set up a template after you create the lab.
     ![Stop the template VM](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
 
 
-## Publish the template 
+## Publish the template VM
 If you don't publish the template while creating the lab, you can publish it later. Before publishing, you may want to connect to the template VM, and update it with any software. When you publish a template, Azure Lab Services creates VMs in the lab by using the template. The number of VMs created in this process is same as the maximum number of users allowed into the lab, which you can set in the usage policy of the lab. All virtual machines have the same configuration as the template. 
 
 1. Select **Publish** in the **Template** section. 
@@ -121,7 +119,7 @@ If you don't publish the template while creating the lab, you can publish it lat
 4. Switch to the **Virtual machines** page, and confirm that you see virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. 
 
     ![Virtual machines](../media/tutorial-setup-classroom-lab/virtual-machines.png)
-5. Wait until the VMs are created. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 
+5. Wait until the VMs are created. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them on this page or let your students start the VMs. 
 
     ![Virtual machines in stopped state](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
@@ -143,7 +141,9 @@ After you publish a template, you can still connect to the template VM, update i
     ![Republish successful](../media/how-to-create-manage-template/republish-success.png)
 
 ## Next steps
-Get started with setting up a lab using Azure Lab Services:
+See the following articles:
 
-- [Set up a classroom lab](how-to-manage-classroom-labs.md)
-- [Set up a lab](../tutorial-create-custom-lab.md)
+- [As an admin, create and manage lab accounts](how-to-manage-lab-accounts.md)
+- [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
+- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
+- [As a lab user, access classroom labs](how-to-use-classroom-lab.md)

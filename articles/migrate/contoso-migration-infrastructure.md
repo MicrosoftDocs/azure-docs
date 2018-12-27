@@ -252,8 +252,8 @@ Azure [Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-b
 
 Contoso admins now assigns roles to the AD groups that they synchronized from on-premises.
 
-1. In the **ControlCobRG** resource group, they click **Access control (IAM)** > **Add**.
-2. In **Add Permissions** > **Role**, > **Contributor**, they select the **ContosoCobRG** AD group from the list. The group then appears in the **Selected members** list. 
+1. In the **ControlCobRG** resource group, they click **Access control (IAM)** > **Add role assignment**.
+2. In **Add role assignment** > **Role**, > **Contributor**, they select the **ContosoCobRG** AD group from the list. The group then appears in the **Selected members** list. 
 3. They repeat this with the same permissions for the other resource groups (except for **ContosoAzureAdmins**), by adding the Contributor permissions to the AD account that matches the resource group.
 4. For the **ContosoAzureAdmins** AD group, they assign the **Owner** role.
 

@@ -1,13 +1,14 @@
 ---
-title: Understand the deployment sequence in Azure Blueprints
+title: Understand the deployment sequence order
 description: Learn about the life-cycle that a blueprint goes through and details about each stage.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
+ms.custom: seodec18
 ---
 # Understand the deployment sequence in Azure Blueprints
 
@@ -49,6 +50,10 @@ defined.
 The ordering is accomplished by defining a `dependsOn` property in the JSON. Only the blueprint (for
 resource groups) and artifact objects support this property. `dependsOn` is a string array of
 artifact names that the particular artifact needs to be created before it's created.
+
+> [!NOTE]
+> **Resource group** artifacts support the `dependsOn` property, but can't be the target of a
+> `dependsOn` by any artifact type.
 
 ### Example - blueprint with ordered resource group
 

@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.author: estfan
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 11/16/2018
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -341,13 +341,16 @@ based on where your logic apps exist:
 | UK West | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | | |
 
-### Connectors
+### Managed connectors
 
-To support the calls that [connectors](../connectors/apis-list.md) make, 
-set up your firewall configurations so they include these outbound IP addresses, 
-based on the regions where your logic apps exist.
+To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, 
+set up your firewall configurations so they include all the outbound IP addresses specified 
+for the regions where your logic apps exist. For [Azure Government](/azure-government/documentation-government-welcome) 
+and [Azure China 21Vianet](/azure/china/china-welcome), reserved IP addresses for connectors 
+aren't currently available.
 
 > [!IMPORTANT]
+> 
 > If you have existing configurations, please update them 
 > **as soon as possible before September 1, 2018** so they 
 > include and match the IP addresses in this list for the 

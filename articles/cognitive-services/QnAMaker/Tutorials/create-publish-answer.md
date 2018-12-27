@@ -1,11 +1,11 @@
 ---
-title: "Tutorial: Create, publish, answer from knowledge base - REST, C# - QnA Maker"
-titleSuffix: Azure Cognitive Services 
+title: Create, publish, answer 
+titleSuffix: QnA Maker - Azure Cognitive Services 
 description: This REST-based tutorial walks you through programmatically creating and publishing a knowledge base, then answering a question from the knowledge base.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
@@ -40,7 +40,7 @@ This quickstart calls QnA Maker APIs:
 * You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
 
 > [!NOTE] 
-> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-csharp** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
+> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## Create a knowledge base project
 
@@ -72,7 +72,7 @@ After the constants, add the following KB model definition:
 ## Add supporting functions and structures
 Add the following code block inside the Program class:
 
-[!code-csharp[Add supporting functions and structures](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=99-123 "Add supporting functions and structures")]
+[!code-csharp[Add supporting functions and structures](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=87-123 "Add supporting functions and structures")]
 
 ## Add a POST request to create KB
 

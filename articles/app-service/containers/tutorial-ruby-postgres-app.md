@@ -1,5 +1,5 @@
 ---
-title: Build a Ruby and Postgres web app in Azure App Service on Linux | Microsoft Docs 
+title: Build a Ruby app with Postgres on Linux - Azure App Service | Microsoft Docs 
 description: Learn how to get a Ruby app working in Azure, with connection to a PostgreSQL database in Azure.
 services: app-service\web
 documentationcenter: ''
@@ -12,10 +12,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
 ---
-# Build a Ruby and Postgres web app in Azure App Service on Linux
+# Build a Ruby and Postgres app in Azure App Service on Linux
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Ruby web app and connect it to a PostgreSQL database. When you're finished, you'll have a [Ruby on Rails](http://rubyonrails.org/) app running on App Service on Linux.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Ruby app and connect it to a PostgreSQL database. When you're finished, you'll have a [Ruby on Rails](https://rubyonrails.org/) app running on App Service on Linux.
 
 ![Ruby on Rails app running in Azure App Service](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -37,7 +38,7 @@ To complete this tutorial:
 
 * [Install Git](https://git-scm.com/)
 * [Install Ruby 2.3](https://www.ruby-lang.org/en/documentation/installation/)
-* [Install Ruby on Rails 5.1](http://guides.rubyonrails.org/v5.1/getting_started.html)
+* [Install Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
 * [Install and run PostgreSQL](https://www.postgresql.org/download/)
 
 ## Prepare local Postgres
@@ -86,7 +87,7 @@ bundle install --path vendor/bundle
 
 ### Run the sample locally
 
-Run [the Rails migrations](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations) to create the tables the application needs. To see which tables are created in the migrations, look in the _db/migrate_ directory in the Git repository.
+Run [the Rails migrations](https://guides.rubyonrails.org/active_record_migrations.html#running-migrations) to create the tables the application needs. To see which tables are created in the migrations, look in the _db/migrate_ directory in the Git repository.
 
 ```bash
 rake db:create
@@ -156,7 +157,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 ```
 
 > [!TIP] 
-> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
 ### Connect to production Postgres server locally
@@ -351,7 +352,7 @@ remote: Running deployment command...
 < Output has been truncated for readability >
 ```
 
-### Browse to the Azure web app
+### Browse to the Azure app
 
 Browse to `http://<app_name>.azurewebsites.net` and add a few tasks to the list.
 
@@ -464,21 +465,21 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Once the `git push` is complete, navigate to the Azure web app and test the new functionality.
+Once the `git push` is complete, navigate to the Azure app and test the new functionality.
 
 ![Model and database changes published to Azure](media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
 If you added any tasks, they are retained in the database. Updates to the data schema leave existing data intact.
 
-## Manage the Azure web app
+## Manage the Azure app
 
-Go to the [Azure portal](https://portal.azure.com) to manage the web app you created.
+Go to the [Azure portal](https://portal.azure.com) to manage the app you created.
 
-From the left menu, click **App Services**, and then click the name of your Azure web app.
+From the left menu, click **App Services**, and then click the name of your Azure app.
 
-![Portal navigation to Azure web app](./media/tutorial-php-mysql-app/access-portal.png)
+![Portal navigation to Azure app](./media/tutorial-php-mysql-app/access-portal.png)
 
-You see your web app's Overview page. Here, you can perform basic management tasks like  stop, start, restart, browse, and delete.
+You see your app's Overview page. Here, you can perform basic management tasks like  stop, start, restart, browse, and delete.
 
 The left menu provides pages for configuring your app.
 
@@ -500,7 +501,7 @@ In this tutorial, you learned how to:
 > * Stream diagnostic logs from Azure
 > * Manage the app in the Azure portal
 
-Advance to the next tutorial to learn how to map a custom DNS name to a web app.
+Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md)

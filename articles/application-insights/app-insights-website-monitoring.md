@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/15/2018
+ms.date: 10/29/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
@@ -16,7 +16,7 @@ manager: carmonm
 
 With Azure Monitor Application Insights, you can easily monitor your website for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. Application Insights provides both server-side monitoring as well as client/browser-side monitoring capabilities.
 
-This quickstart guides you through adding the [open source Application Insight JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS) which allows you to understand the client/brower-side experience for visitors to your website.
+This quickstart guides you through adding the [open source Application Insights JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS) which allows you to understand the client/brower-side experience for visitors to your website.
 
 ## Prerequisites
 
@@ -69,7 +69,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. Select **Overview** > **Essentials** > Copy your application's **Instrumentation Key**.
 
-   ![New App Insights resource form](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
+   ![New App Insights resource form](media/app-insights-website-monitoring/instrumentation-key-001.png)
 
 2. Add the following script to your ``hello_world.html`` before the closing ``</head>`` tag:
 
@@ -93,7 +93,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. You can now reopen the Application Insights **Overview** page in the Azure portal, where you retrieved your instrumentation key, to view details about your currently running application. The four default charts on the overview page are scoped to server-side application data. Since we are instrumenting the client/browser-side interactions with the JavaScript SDK this particular view doesn't apply unless we also have a server-side SDK installed.
 
-2. Click on ![Application Map icon](./media/app-insights-nodejs-quick-start/006.png) **Analytics**.  This opens **Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. To view data related to the client-side browser requests run the  following query:
+2. Click on ![Application Map icon](media/app-insights-website-monitoring/006.png) **Analytics**.  This opens **Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. To view data related to the client-side browser requests run the  following query:
 
     ```kusto
     // average pageView duration by name

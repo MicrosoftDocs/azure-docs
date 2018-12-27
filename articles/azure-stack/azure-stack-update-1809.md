@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -36,7 +36,7 @@ The Azure Stack 1809 update build number is **1.1809.0.90**.
 
 This update includes the following improvements for Azure Stack:
 
-- With this release, Azure Stack integrated systems supports configurations of 4-16 nodes. You can use the [Azure Stack Capacity Planner](http://aka.ms/azstackcapacityplanner) to help in your planning for Azure Stack capacity and configuration.
+- With this release, Azure Stack integrated systems supports configurations of 4-16 nodes. You can use the [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) to help in your planning for Azure Stack capacity and configuration.
 
 - <!--  2712869   | IS  ASDK -->  **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
 
@@ -54,7 +54,7 @@ This update includes the following improvements for Azure Stack:
 <!-- TBD - IS ASDK --> 
 - Fixed an issue in which you created virtual machines on the Azure Stack user portal, and the portal displayed an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
 
-- The following managed disk issues are fixed in 1809, and are also fixed in the 1808 [Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/): 
+- The following managed disk issues are fixed in 1809, and are also fixed in the 1808 [Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
    - Fixed the issue in which attaching SSD data disks to premium size managed disk virtual machines  (DS, DSv2, Fs, Fs_V2) failed with an error:  *Failed to update disks for the virtual machine ‘vmname’ Error: Requested operation cannot be performed because storage account type ‘Premium_LRS’ is not supported for VM size ‘Standard_DS/Ds_V2/FS/Fs_v2)*. 
@@ -71,7 +71,13 @@ This update includes the following improvements for Azure Stack:
 
 ### Changes
 
-None.
+<!-- 2635202 - IS, ASDK -->
+- Infrastructure backup service moves from the [public infrastructure network](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) to the [public VIP network](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Customers will need to ensure the service has access the backup storage location from the public VIP network.  
+
+> [!IMPORTANT]  
+> If you have a firewall that does not allow connections from the public VIP network to the file server, this change will cause infrastructure backups to fail with "Error 53 The network path was not found." This is a breaking change that has no reasonable workaround. Based on customer feedback, Microsoft will revert this change in a hotfix. 
+Please review the [post update steps section](#post-update-steps) for more information on available hotfixes for 1809. Once the hotfix is available, make sure to apply it after updating to 1809 only if your network policies do not allow the public VIP network to access infrastructure resouces. 
+in 1811, this change will be applied to all systems. If you applied the hotfix in 1809, there is no further action required.  
 
 ### Common Vulnerabilities and Exposures
 
@@ -126,7 +132,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Prerequisites
 
-- Install the latest Azure Stack Hotfix for 1808 before applying 1809. For more information, see [KB 4468920 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/en-us/help/4468920).
+- Install the latest Azure Stack Hotfix for 1808 before applying 1809. For more information, see [KB 4481066 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/).
 
   > [!TIP]  
   > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:
@@ -152,11 +158,11 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Post-update steps
 
-*There are no post-update steps for update 1809.*
+> [!Important]  
+> Get your Azure Stack deployment ready for extension host which is enabled by the next update package. Prepare your system using the following guidance, [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [Link to KB]()  
- -->
+After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
+- [KB 4481548 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)  
 
 ## Known issues (post-installation)
 
@@ -208,6 +214,8 @@ The following are post-installation known issues for this build version.
    - *Scale unit node is offline*
    
   Run the [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet to verify the health of the infrastructure role instances and scale unit nodes. If no issues are detected by [Test-AzureStack](azure-stack-diagnostic-test.md), you can ignore these alerts. If an issue is detected, you can attempt to start the infrastructure role instance or node using the admin portal or PowerShell.
+
+  This issue is fixed in the latest [1809 hotfix release](https://support.microsoft.com/help/4481548/), so be sure to install this hotfix if you're experiencing the issue. 
 
 <!-- 1264761 - IS ASDK -->  
 - You might see alerts for the **Health controller** component that have the following details:  
@@ -273,7 +281,21 @@ The following are post-installation known issues for this build version.
 
    To find metrics data, such as the CPU Percentage chart for the VM, go to the Metrics window and show all the supported Windows VM guest metrics.
 
+<!-- 3507629 - IS, ASDK --> 
+- Managed Disks creates two new [compute quota types](azure-stack-quota-types.md#compute-quota-types) to limit the maximum capacity of managed disks that can be provisioned. By default, 2048 GiB is allocated for each managed disks quota type. However, you may encounter the following issues:
 
+   - For quotas created before the 1808 update, the Managed Disks quota will show 0 values in the Administrator portal, although 2048 GiB is allocated. You can increase or decrease the value based on your actual needs, and the newly set quota value overrides the 2048 GiB default.
+   - If you update the quota value to 0, it is equivalent to the default value of 2048 GiB. As a workaround, set the quota value to 1.
+
+<!-- TBD - IS ASDK --> 
+- After applying the 1809 update, you might encounter the following issues when deploying VMs with Managed Disks:
+
+   - If the subscription was created before the 1808 update, deploying a VM with Managed Disks might fail with an internal error message. To resolve the error, follow these steps for each subscription:
+      1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
+      2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
+   2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
+
+- A Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, please use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
 
 ### Networking  
 

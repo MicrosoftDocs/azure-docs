@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-
 ---
 # Profile production applications in Azure with Application Insights
 ## Enable Profiler for your application
@@ -34,7 +31,7 @@ Running Profiler on premises isn't officially supported, but we do have some [in
 
 ## View profiler data
 
-In order for the profiler to upload traces, your application actively handling requests. If you're doing an experiment, you can generate requests to your web app using [Application Insights Performance Testing](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). If you've newly enabled Profiler, you can run a short load test. While the load test is running, press the **Profile Now** button in the [**Profiler Settings page**](). Once profiler is running, it will profile randomly about once every hour and for a duration of two minutes. If your application is handling a steady stream of requests, Profiler will upload traces every hour.
+In order for the profiler to upload traces, your application actively handling requests. If you're doing an experiment, you can generate requests to your web app using [Application Insights Performance Testing](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). If you've newly enabled Profiler, you can run a short load test. While the load test is running, press the **Profile Now** button in the [**Profiler Settings page**](app-insights-profiler-settings.md#profiler-settings-page). Once profiler is running, it will profile randomly about once every hour and for a duration of two minutes. If your application is handling a steady stream of requests, Profiler will upload traces every hour.
 
 After your application receives some traffic and the profiler has had time to upload the trances, you should have traces to view. This process can take 5 to 10 minutes. To view traces, go to the **Performance** pane, select **Take Actions** to view profiler traces, and then select the **Profiler Traces** button.
 

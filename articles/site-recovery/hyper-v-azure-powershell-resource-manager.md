@@ -5,7 +5,7 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
 
 ---
@@ -19,7 +19,7 @@ This article describes how to use Windows PowerShell, together with Azure Resour
 
 Azure PowerShell provides cmdlets to manage Azure using Windows PowerShell. Site Recovery PowerShell cmdlets, available with Azure PowerShell for Azure Resource Manager, help you protect and recover your servers in Azure.
 
-You don't need to be a PowerShell expert to use this article, but you do need to understand basic concepts, such as modules, cmdlets, and sessions. Read [Getting started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx), and [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+You don't need to be a PowerShell expert to use this article, but you do need to understand basic concepts, such as modules, cmdlets, and sessions. Read [Getting started with Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx), and [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 > [!NOTE]
 > Microsoft partners in the Cloud Solution Provider (CSP) program can configure and manage protection of customer servers to their respective CSP subscriptions (tenant subscriptions).

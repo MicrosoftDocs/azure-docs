@@ -6,7 +6,7 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
 ---
 # Set up disaster recovery for Azure virtual machines using Azure PowerShell
@@ -58,7 +58,7 @@ In the example in this article, a virtual machine in the East US region will be 
 # Get details of the virtual machine
 $VM = Get-AzureRmVM -ResourceGroupName "A2AdemoRG" -Name "AzureDemoVM"
 
-Write-Output $VM
+Write-Output $VM     
 ```
 
 ```
@@ -142,7 +142,7 @@ Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path $Vaultsettingsfile.File
 
 ```
 ```
-ResourceName         ResourceGroupName ResourceNamespace          ResouceType
+ResourceName         ResourceGroupName ResourceNamespace          ResourceType
 ------------         ----------------- -----------------          -----------
 a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults     
 ```
@@ -338,7 +338,7 @@ A network mapping maps virtual networks in the primary region to virtual network
     #Extract resource name from the ResourceId of the nic
     $NICname = $SplitNicArmId[-1]
 
-    #Get network interface details using the extracted resource group name and resourec name
+    #Get network interface details using the extracted resource group name and resource name
     $NIC = Get-AzureRmNetworkInterface -ResourceGroupName $NICRG -Name $NICname
 
     #Get the subnet ID of the subnet that the nic is connected to

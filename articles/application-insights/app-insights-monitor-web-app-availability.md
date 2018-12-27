@@ -3,18 +3,16 @@ title: Monitor availability and responsiveness of any web site | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: lgayhardt
 manager: carmonm
-
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 12/05/2018
 ms.reviewer: sdash
-ms.author: mbullwin
+ms.author: lagayhar
 
 ---
 # Monitor availability and responsiveness of any web site
@@ -36,14 +34,14 @@ You can create up to 100 availability tests per application resource.
 
 **Or, if you want to see your reports in a new resource,** go to the [Azure portal](https://portal.azure.com), and create an Application Insights resource.
 
-![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
+![Create a resource > Developer Tools > Application Insights](./media/app-insights-monitor-web-app-availability/1create-resource-appinsights.png)
 
 Click **All resources** to open the Overview blade for the new resource.
 
 ## <a name="setup"></a>Create a URL ping test
 Open the Availability blade and add a test.
 
-![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
+![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/2addtest-url.png)
 
 * **The URL** can be any web page you want to test, but it must be visible from the public internet. The URL can include a query string. So, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects.
 * **Parse dependent requests**: If this option is checked, the test requests images, scripts, style files, and other files that are part of the web page under test. The recorded response time includes the time taken to get these files. The test fails if all these resources cannot be successfully downloaded within the timeout for the whole test. If the option is not checked, the test only requests the file at the URL you specified.
@@ -52,10 +50,10 @@ Open the Availability blade and add a test.
 
 * **Test frequency**: Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.
 
-* **Test locations** are the places from where our servers send web requests to your URL. Choose more than one so that you can distinguish problems in your website from network issues. You can select up to 16 locations.
+* **Test locations** are the places from where our servers send web requests to your URL. Our minimum number of recommended test locations is five in order to insure that you can distinguish problems in your website from network issues. You can select up to 16 locations.
 
-> [!NOTE] 
-> * We strongly recommend testing from multiple locations, to prevent false alarms resulting from transient issues with a specific location.
+> [!NOTE]
+> * We strongly recommend testing from multiple locations with a minimum of five locations. This is to prevent false alarms that may result from transient issues with a specific location. In addition we have found that the optimal configuration is to have the number of test locations be equal to the alert location threshold + 2. 
 > * Enabling the "Parse dependent requests" option results in a stricter check. The test could fail for cases which may not be noticeable when manually browsing the site.
 
 * **Success criteria**:
@@ -66,11 +64,13 @@ Open the Availability blade and add a test.
 
     **Content match**: a string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it.
 
+* **Alert location threshold**: We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations** - 2, with a minimum of five test locations.
+
 ## Multi-step web tests
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.
 
-> [!NOTE] 
-> There is a charge for multi-step web tests. [Pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
+> [!NOTE]
+> There is a charge for multi-step web tests. [Pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
 To create a multi-step test, you record the scenario by using Visual Studio Enterprise, and then upload the recording to Application Insights. Application Insights replays the scenario at intervals and verifies the responses.
@@ -110,12 +110,10 @@ Use Visual Studio Enterprise to record a web session.
     ![In Visual Studio, open the .webtest file and click Run.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 #### 2. Upload the web test to Application Insights
-1. In the Application Insights portal, create a web test.
+1. In the Application Insights portal on the Availability blade click add test.
 
-    ![On the web tests blade, choose Add.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
+    ![On the availability blade, choose Add test.](./media/app-insights-monitor-web-app-availability/3addtest-web.png)
 2. Select multi-step test, and upload the .webtest file.
-
-    ![Select multi-step webtest.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
     Set the test locations, frequency, and alert parameters in the same way as for ping tests.
 
@@ -145,9 +143,11 @@ Now, upload your test to the portal. It uses the dynamic values on every run of 
 
 ## <a name="monitor"></a>See your availability test results
 
-After a few minutes, click **Refresh** to see test results. 
+The overview tab shows the success rate of the tests while the details tab shows scatter plot and grid of specific details.
 
-![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
+After a few minutes, click **Refresh** to see test results.
+
+![Scatterplot on detail blade](./media/app-insights-monitor-web-app-availability/4refresh.png)
 
 The scatterplot shows samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. Hover over any of the green/red dots to see the test timestamp, test duration, location, and test name. Click through any dot in the scatter plot to see the details of the test result.  
 
@@ -162,11 +162,16 @@ You can apply filters on the test name, location to analyze trends of a particul
 
 ## <a name="edit"></a> Inspect and edit tests
 
-From the summary page, select a specific test. There, you can see its specific results, and edit or temporarily disable it.
+From the details tab, on a specific test select the ellipsis on the far right to edit, temporarily disable, delete or download web test.
 
-![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
+Select **View test details** from a specific test to see its scatter plot and specific test location details.
 
-You might want to disable availability tests or the alert rules associated with them while you are performing maintenance on your service. 
+![View test details,Edit and Disable a web test](./media/app-insights-monitor-web-app-availability/5viewdetails.png)
+
+You might want to disable availability tests or the alert rules associated with them while you are performing maintenance on your service.
+
+![Disable a web test](./media/app-insights-monitor-web-app-availability/6disable.png)
+![Edit test](./media/app-insights-monitor-web-app-availability/8edittest.png)
 
 ## <a name="failures"></a>If you see failures
 Click a red dot.
@@ -177,7 +182,7 @@ From an availability test result, you can see the transaction details across all
 
 * Inspect the response received from your server.
 * Diagnose failure with correlated server side telemetry collected while processing the failed availability test.
-* Log an issue or work item in Git or VSTS to track the problem. The bug will contain a link to this event.
+* Log an issue or work item in Git or Azure Boards to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
 Learn more about the end to end transaction diagnostics experience [here](app-insights-transaction-diagnostics.md).
@@ -197,18 +202,20 @@ The X out of Y locations alert rule is enabled by default in the [new unified al
 
 ![Create experience](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
-**Important**: With the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), the alert rule severity and notification preferences with [action groups](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **must be** configured in the alerts experience. Without the following steps, you will only receive in-portal notifications. 
+> [!NOTE]
+>  With the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), the alert rule severity and notification preferences with [action groups](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **must be** configured in the alerts experience. Without the following steps, you will only receive in-portal notifications.
 
-1. After saving the availability test, click on the new test name to go to its details. Click on "edit alert"
-![Edit after save](./media/app-insights-monitor-web-app-availability/editaftersave.png)
+1. After saving the availability test, on the details tab click on the ellipsis by the test you just made. Click on "edit alert".
+![Edit after save](./media/app-insights-monitor-web-app-availability/9editalert.png)
 
 2. Set the desired severity level, rule description and most importantly - the action group that has the notification preferences you would like to use for this alert rule.
-![Edit after save](./media/app-insights-monitor-web-app-availability/setactiongroup.png)
+![Edit after save](./media/app-insights-monitor-web-app-availability/10editalert.png)
 
 
 > [!NOTE]
 > * Configure the action groups to receive notifications when the alert triggers by following the steps above. Without this step, you will only receive in-portal notifications when the rule triggers.
 >
+
 ### Alert on availability metrics
 Using the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), you can alert on segmented aggregate availability and test duration metrics as well:
 
@@ -264,12 +271,13 @@ If your test must sign in using OAuth, the general approach is:
 ## Performance tests
 You can run a load test on your website. Like the availability test, you can send either simple requests or multi-step requests from our points around the world. Unlike an availability test, many requests are sent, simulating multiple simultaneous users.
 
-From the Overview blade, open **Settings**, **Performance Tests**. When you create a test, you are invited to connect to or create a Azure DevOps account.
+Under **Configure**, go to **Performance Testing** and click new to create a test.
+
+![Creating a new Performance test](./media/app-insights-monitor-web-app-availability/11new-performance-test.png)
 
 When the test is complete, you are shown response times and success rates.
 
-
-![Performance test](./media/app-insights-monitor-web-app-availability/perf-test.png)
+![Performance test results](./media/app-insights-monitor-web-app-availability/12performance-test.png)
 
 > [!TIP]
 > To observe the effects of a performance test, use [Live Stream](app-insights-live-stream.md) and [Profiler](app-insights-profiler.md).
@@ -277,7 +285,7 @@ When the test is complete, you are shown response times and success rates.
 
 ## Automation
 * [Use PowerShell scripts to set up an availability test](app-insights-powershell.md#add-an-availability-test) automatically.
-* Set up a [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) that is called when an alert is raised.
+* Set up a [webhook](../azure-monitor/platform/alerts-webhooks.md) that is called when an alert is raised.
 
 ## <a name="qna"></a> FAQ
 

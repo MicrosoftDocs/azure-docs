@@ -32,7 +32,7 @@ Here are the steps to create an instance of a Linux Terraform virtual machine:
 
 3. On the Terraform details tab on the lower right, select the **Create** button.
 
-    ![Create a Terraform virtual machine](media\terraformmsi.png)
+    ![Create a Terraform virtual machine](media/terraformmsi.png)
 
 4. The following sections provide inputs for each of the steps in the wizard to create the Terraform Linux virtual machine. The following section lists the inputs that are needed to configure each of these steps.
 
@@ -92,9 +92,9 @@ The previous script uses the [AZ CLI v 2.0 interactive log-in](https://docs.micr
 In this article, you learned how to set up a Terraform Linux virtual machine on Azure. Here are some additional resources to help you learn more about Terraform on Azure: 
 
  [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure provider documentation](http://aka.ms/terraform)  
- [Terraform Azure provider source](http://aka.ms/tfgit)  
- [Terraform Azure modules](http://aka.ms/tfmodules)
+ [Terraform Azure provider documentation](https://aka.ms/terraform)  
+ [Terraform Azure provider source](https://aka.ms/tfgit)  
+ [Terraform Azure modules](https://aka.ms/tfmodules)
  
 
 

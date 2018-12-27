@@ -1,9 +1,9 @@
 ---
-title: Service quotas and limits for Azure Batch | Microsoft Docs
+title: Service quotas and limits - Azure Batch | Microsoft Docs
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
+ms.date: 12/18/2018
+ms.author: lahugh
+ms.custom: seodec18
 
 ---
 # Batch service quotas and limits
@@ -41,19 +41,29 @@ If you plan to run production workloads in Batch, you may need to increase one o
 
 If you created a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quotas do not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
+## Pool size limits
+
+| **Resource** | **Maximum Limit** |
+| --- | --- |
+| **Compute nodes in [inter-node communication enabled pool](batch-mpi.md)**  ||
+| Batch service pool allocation mode | 100 |
+| Batch subscription pool allocation mode | 80 |
+| **Compute nodes in [pool created with custom VM image](batch-custom-images.md)**<sup>1</sup> ||
+| Dedicated nodes | 2000 |
+| Low-priority nodes | 1000 |
+
+<sup>1</sup> For pools that are not inter-node communication enabled.
+
 ## Other limits
 
 | **Resource** | **Maximum Limit** |
 | --- | --- |
-| [Concurrent tasks](batch-parallel-node-tasks.md) per compute node |4 x number of node cores |
-| [Applications](batch-application-packages.md) per Batch account |20 |
-| Application packages per application |40 |
-| Maximum task lifetime | 7 days<sup>1</sup> |
-| Compute nodes in [inter-node communication enabled pool](batch-mpi.md) | 100 |
-| Dedicated compute nodes in [pool created with custom VM image](batch-custom-images.md) | 2500 |
-| Low-priority compute nodes in [pool created with custom VM image](batch-custom-images.md) | 1000 |
+| [Concurrent tasks](batch-parallel-node-tasks.md) per compute node | 4 x number of node cores |
+| [Applications](batch-application-packages.md) per Batch account | 20 |
+| Application packages per application | 40 |
+| Maximum task lifetime | 180 days<sup>1</sup> |
 
-<sup>1</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 7 days. Completed tasks persist indefinitely; data for tasks not completed within the maximum lifetime is not accessible.
+<sup>1</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 180 days. Completed tasks persist for 7 days; data for tasks not completed within the maximum lifetime is not accessible.
 
 ## View Batch quotas
 

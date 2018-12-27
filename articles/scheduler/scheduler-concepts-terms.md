@@ -361,5 +361,5 @@ For example:
 * [Concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 * [Build complex schedules and advanced recurrence](scheduler-advanced-complexity.md)
 * [Limits, quotas, default values, and error codes](scheduler-limits-defaults-errors.md)
-* [Azure Scheduler REST API reference](https://docs.microsoft.com/rest/api/schedule)
+* [Azure Scheduler REST API reference](/rest/api/scheduler)
 * [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory app-based conditional access | Microsoft Docs
-description: Learn how Azure Active Directory app-based conditional access works.
+title: How to require approved client apps for cloud app access with conditional access in Azure Active Directory | Microsoft Docs
+description: Learn how to require approved client apps for cloud app access with conditional access in Azure Active Directory.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
@@ -18,13 +18,14 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
+#Customer intent: As a It admin, I wan to know how to require approved client apps for the access to certain resources to ensure that they are accessed only from devices that meet my standards for security and compliance
 
 ---
-# Azure Active Directory app-based conditional access  
+# How To: Require approved client apps for cloud app access with conditional access 
 
-Your employees use mobile devices for both personal and work tasks. While making sure your employees can be productive, you also want to prevent data loss. With Azure Active Directory (Azure AD) app-based conditional access, you can restrict access to your cloud apps to client apps that can protect your corporate data.  
+Your employees use mobile devices for both personal and work tasks. While making sure your employees can be productive, you also want to prevent data loss. With Azure Active Directory (Azure AD) conditional access, you can restrict access to your cloud apps to approved client apps that can protect your corporate data.  
 
-This topic explains how to configure Azure AD app-based conditional access.
+This topic explains how to configure condition access policies that require approved client apps.
 
 ## Overview
 
@@ -32,7 +33,7 @@ With [Azure AD conditional access](overview.md), you can fine-tune how authorize
 
 You can use [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy) to help protect your company’s data. Intune app protection policies don't require mobile-device management (MDM) solution, which enables you to protect your company’s data with or without enrolling devices in a device management solution.
 
-Azure Active Directory app-based conditional access enables you limit access to your cloud apps to client apps that support Intune app protection policies. For example, you can restrict access to Exchange Online to the Outlook app.
+Azure Active Directory conditional access enables you limit access to your cloud apps to client apps that support Intune app protection policies. For example, you can restrict access to Exchange Online to the Outlook app.
 
 In the conditional access terminology, these client apps are known as **approved client apps**.  
 
@@ -116,9 +117,9 @@ For the conditional access policy in this step, you need to configure the follow
 
     ![Conditional access](./media/app-based-conditional-access/03.png)
 
-    b. As **Client apps**, select **Mobile apps and desktop apps**.
+    b. As **Client apps (preview)**, select **Mobile apps and desktop apps** and **Modern authentication clients**.
 
-    ![Conditional access](./media/app-based-conditional-access/04.png)
+    ![Conditional access](./media/app-based-conditional-access/91.png)
 
 5. As **Access controls**, you need to have **Require approved client app (preview)** selected.
 
@@ -140,11 +141,11 @@ For the conditional access policy in this step, you need to configure the follow
 
     ![Conditional access](./media/app-based-conditional-access/07.png)
 
-4. **Conditions:** As **Conditions**, you need to configure **Client apps**. 
+4. **Conditions:** As **Conditions**, you need to configure **Client apps (preview)**. 
 
-    a. As **Client apps**, select **Exchange Active Sync**.
+    a. As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
 
-    ![Conditional access](./media/app-based-conditional-access/08.png)
+    ![Conditional access](./media/app-based-conditional-access/92.png)
 
     b. As **Access controls**, you need to have **Require approved client app (preview)** selected.
 
@@ -197,9 +198,9 @@ For the conditional access policy in this step, you need to configure the follow
 
     ![Conditional access](./media/app-based-conditional-access/03.png)
 
-    b. As **Client apps**, select **Mobile apps and desktop apps**.
+    b. As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Modern authentication clients**.
 
-    ![Conditional access](./media/app-based-conditional-access/04.png)
+    ![Conditional access](./media/app-based-conditional-access/91.png)
 
 5. As **Access controls**, you need to have **Require approved client app (preview)** selected.
 
@@ -224,9 +225,9 @@ For the conditional access policy in this step, you need to configure the follow
 
 4. **Conditions:** As **Conditions**, you need to configure **Client apps**:
 
-    a. As **Client apps**, select **Exchange Active Sync**.
+    a. As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
 
-    ![Conditional access](./media/app-based-conditional-access/08.png)
+    ![Conditional access](./media/app-based-conditional-access/92.png)
 
     b. As **Access controls**, you need to have **Require approved client app (preview)** selected.
 
@@ -281,9 +282,9 @@ For the conditional access policy in this step, you need to configure the follow
 
     ![Conditional access](./media/app-based-conditional-access/03.png)
 
-    b. As **Client apps**, select **Mobile apps and desktop apps**.
+    b. As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Modern authentication clients**.
 
-    ![Conditional access](./media/app-based-conditional-access/04.png)
+    ![Conditional access](./media/app-based-conditional-access/91.png)
 
 5. As **Access controls**, you need to have the following selected:
 
@@ -313,9 +314,9 @@ For the conditional access policy in this step, you need to configure the follow
 
 4. **Conditions:** As **Conditions**, you need to configure **Client apps**. 
 
-    As **Client apps*, select **Exchange Active Sync**.
+    As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
 
-    ![Conditional access](./media/app-based-conditional-access/08.png)
+    ![Conditional access](./media/app-based-conditional-access/91.png)
 
 5. As **Access controls**, you need to have **Require approved client app (preview)** selected.
  
@@ -377,9 +378,9 @@ For the conditional access policy in this step, you need to configure the follow
 
     ![Conditional access](./media/app-based-conditional-access/03.png)
 
-    b. As **Client apps**, select **Mobile apps and desktop apps**.
+    b. As **Client apps (preview)**, select **Mobile apps and desktop apps** and **Modern authentication clients**.
 
-    ![Conditional access](./media/app-based-conditional-access/04.png)
+    ![Conditional access](./media/app-based-conditional-access/91.png)
 
 5. As **Access controls**, you need to have the following selected:
 
@@ -407,11 +408,11 @@ For the conditional access policy in this step, you need to configure the follow
 
     ![Conditional access](./media/app-based-conditional-access/07.png)
 
-4. **Conditions:** As **Conditions**, you need to configure **Client apps**. 
+4. **Conditions:** As **Conditions**, you need to configure **Client apps (preview)**. 
 
-    As **Client apps**, select **Exchange Active Sync**.
+    As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
 
-    ![Conditional access](./media/app-based-conditional-access/08.png)
+    ![Conditional access](./media/app-based-conditional-access/92.png)
 
 5. As **Access controls**, you need to have the following selected:
 

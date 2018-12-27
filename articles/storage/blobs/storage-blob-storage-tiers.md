@@ -61,7 +61,7 @@ During preview, the Premium access tier:
 - Is only available in the following regions: US East 2, US Central, and US West
 - Does not support automatic tiering and data lifecycle management
 
-To learn how to register for the Premium access tier preview, see [Introducing Azure Premium Blob Storage](http://aka.ms/premiumblob).
+To learn how to register for the Premium access tier preview, see [Introducing Azure Premium Blob Storage](https://aka.ms/premiumblob).
 
 ## Hot access tier
 
@@ -109,7 +109,7 @@ Blobs in all three storage tiers can co-exist within the same account. Any blob 
 Data stored in the Premium access tier cannot be tiered to Hot, Cool or Archive using [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or using Azure Blob Storage lifecycle management. To move data, you must synchronously copy blobs from Premium access to Hot using the [Put Block From URL API](/rest/api/storageservices/put-block-from-url) or a version of AzCopy that supports this API. The *Put Block From URL* API synchronously copies data on the server, meaning the call completes only once all the data is moved from the original server location to the destination location.
 
 ### Blob lifecycle management
-Blob Storage lifecycle management (Preview) offers a rich, rule-based policy that you can use to transition your data to the best access tier and to expire data at the end of its lifecycle. See [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts) to learn more.  
+Blob Storage lifecycle management (Preview) offers a rich, rule-based policy that you can use to transition your data to the best access tier and to expire data at the end of its lifecycle. See [Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md) to learn more.  
 
 ### Blob-level tiering billing
 
@@ -241,7 +241,7 @@ Data storage along with other limits are set at the account level and not per st
 
 [Check availability of Hot, Cool, and Archive by region](https://azure.microsoft.com/regions/#services)
 
-[Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
+[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)
 
 [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](../common/storage-enable-and-view-metrics.md)
 

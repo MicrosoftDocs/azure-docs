@@ -1,13 +1,11 @@
 ---
-title: Power BI tutorial for Azure Cosmos DB connector | Microsoft Docs
+title: Power BI tutorial for Azure Cosmos DB connector
 description: Use this Power BI tutorial to import JSON, create insightful reports, and visualize data using the Azure Cosmos DB and Power BI connector.
 keywords: power bi tutorial, visualize data, power bi connector
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
@@ -32,7 +30,19 @@ Before following the instructions in this Power BI tutorial, ensure that you hav
 
 * Download the [sample volcano data](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) from GitHub.
 
-* [Create an Azure Cosmos DB database account](https://azure.microsoft.com/documentation/articles/create-account/) and import the volcano data by using the [Azure Cosmos DB data migration tool](import-data.md).
+* [Create an Azure Cosmos DB database account](https://azure.microsoft.com/documentation/articles/create-account/) and import the volcano data by using the [Azure Cosmos DB data migration tool](import-data.md). When importing data, consider the following settings for the source and destinations in the data migration tool:
+
+   * **Source parameters** 
+
+       * **Import from:** JSON file(s)
+
+   * **Target parameters** 
+
+      * **Connection string:** `AccountEndpoint=<Your_account_endpoint>;AccountKey=<Your_primary_or_secondary_key>;Database= <Your_database_name>` 
+
+      * **Partition key:** /Country 
+
+      * **Collection Throughput:** 1000 
 
 To share your reports in PowerBI.com, you must have an account in PowerBI.com.  To learn more about Power BI and Power BI Pro, see [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
@@ -72,11 +82,11 @@ You will retrieve the volcano data from the Azure Cosmos DB account and visualiz
 
 5. On the **Preview Connector** page, click **Continue**. The **Azure Cosmos DB** window appears.
 
-6. Specify the Azure Cosmos DB account endpoint URL you would like to retrieve the data from as shown below, and then click **OK**. To use your own account, you can retrieve the URL from the URI box in the **[Keys](manage-account.md#keys)** blade of the Azure portal. Optionally you can provide the database name, collection name or use the navigator to select the database and collection to identify where the data comes from.
+6. Specify the Azure Cosmos DB account endpoint URL you would like to retrieve the data from as shown below, and then click **OK**. To use your own account, you can retrieve the URL from the URI box in the **Keys** blade of the Azure portal. Optionally you can provide the database name, collection name or use the navigator to select the database and collection to identify where the data comes from.
    
-7. If you are connecting to this endpoint for the first time, you are prompted for the account key. For your own account, retrieve the key from the **Primary Key** box in the **[Read-only Keys](manage-account.md#keys)** blade of the Azure portal. Enter the appropriate key and then click **Connect**.
+7. If you are connecting to this endpoint for the first time, you are prompted for the account key. For your own account, retrieve the key from the **Primary Key** box in the **Read-only Keys** blade of the Azure portal. Enter the appropriate key and then click **Connect**.
    
-   We recommend that you use the read-only key when building reports. This prevents unnecessary exposure of the master key to potential security risks. The read-only key is available from the [Keys](manage-account.md#keys) blade of the Azure portal. 
+   We recommend that you use the read-only key when building reports. This prevents unnecessary exposure of the master key to potential security risks. The read-only key is available from the **Keys** blade of the Azure portal. 
     
 8. When the account is successfully connected, the **Navigator** pane appears. The **Navigator** shows a list of databases under the account.
 

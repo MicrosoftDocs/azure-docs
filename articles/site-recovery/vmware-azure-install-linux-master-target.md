@@ -4,7 +4,7 @@ description: Learn how to set up a Linux master target server for failback to an
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
 
 ---
@@ -15,6 +15,7 @@ If your protected virtual machine is a Windows virtual machine, then you need a 
 
 > [!IMPORTANT]
 > Starting with release of the 9.10.0 master target server, the latest master target server can be only installed on an Ubuntu 16.04 server. New installations aren't allowed on  CentOS6.6 servers. However, you can continue to upgrade your old master target servers by using the 9.10.0 version.
+> Master target server on LVM is not supported.
 
 ## Overview
 This article provides instructions for how to install a Linux master target.

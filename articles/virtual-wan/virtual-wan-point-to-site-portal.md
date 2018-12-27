@@ -74,7 +74,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="openvwan"></a>2. Create a virtual WAN
 
-From a browser, navigate to the [Azure portal (Preview)](http://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
+From a browser, navigate to the [Azure portal (Preview)](https://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 

@@ -182,7 +182,7 @@ There are three ways to add the Log Analytics agent to OpenShift.
 - Enable Log Analytics VM Extension on each OpenShift node
 - Install the Log Analytics agent as a OpenShift daemon-set
 
-The full instructions are located here: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.
+The full instructions are located here: https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.
 
 ## Configure metrics and logging
 

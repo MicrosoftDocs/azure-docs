@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-
 ---
 # Export telemetry from Application Insights
 Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
@@ -23,7 +20,7 @@ Before you set up continuous export, there are some alternatives you might want 
 
 * The Export button at the top of a metrics or search blade lets you transfer tables and charts to an Excel spreadsheet.
 
-* [Analytics](app-insights-analytics.md) provides a powerful query language for telemetry. It can also export results.
+* [Analytics](../azure-monitor/app/analytics.md) provides a powerful query language for telemetry. It can also export results.
 * If you're looking to [explore your data in Power BI](app-insights-export-power-bi.md), you can do that without using Continuous Export.
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
 * You can also access setup [continuous export via Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
@@ -190,5 +187,5 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 
 <!--Link references-->
 
-[exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
+[exportasa]: ../azure-monitor/app/code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md

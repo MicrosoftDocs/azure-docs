@@ -5,7 +5,7 @@ services: site-recovery
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
 ---
 
@@ -37,7 +37,7 @@ The table summarizes the prerequistes for deploying the on-premises configuratio
 
 ## Download the latest installation file
 
-The latest version of the configuration server installation file is available in the Site Recovery portal. Additionally, it can be downloaded directly from the [Microsoft Download Center](http://aka.ms/unifiedsetup).
+The latest version of the configuration server installation file is available in the Site Recovery portal. Additionally, it can be downloaded directly from the [Microsoft Download Center](https://aka.ms/unifiedsetup).
 
 1. Log on to the Azure portal and browse to your Recovery Services Vault.
 2. Browse to **Site Recovery Infrastructure** > **Configuration Servers** (under For VMware & Physical Machines).

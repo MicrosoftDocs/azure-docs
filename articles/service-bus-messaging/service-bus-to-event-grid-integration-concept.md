@@ -32,10 +32,7 @@ To enable the feature, you need the following items:
 ![19][]
 
 ### Verify that you have contributor access
-
-Go to your Service Bus namespace, and then select **Access control (IAM)**, as shown here:
-
-![1][]
+Go to your Service Bus namespace, and then select **Access control (IAM)**, and select **Role assignments** tab. Verify that you have the contributor access to the namespace. 
 
 ### Events and event schemas
 

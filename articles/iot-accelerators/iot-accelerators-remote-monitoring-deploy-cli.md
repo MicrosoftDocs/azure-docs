@@ -1,24 +1,24 @@
 ---
-title: Deploy the Java Remote Monitoring solution - Azure | Microsoft Docs 
-description: This tutorial shows you how to provision the Remote Monitoring solution accelerator using the CLI.
+title: Deploy the Remote Monitoring solution using CLI - Azure | Microsoft Docs 
+description: This how-to guide shows you how to provision the Remote Monitoring solution accelerator using the CLI.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/12/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ---
 
 # Deploy the Remote Monitoring solution accelerator using the CLI
 
-This tutorial shows you how to provision the Remote Monitoring solution accelerator. You deploy the solution using the CLI. You can also deploy the solution using the web-based UI at azureiotsuite.com, to learn about this option see [Deploy the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md).
+This how-to guide shows you how to deploy the Remote Monitoring solution accelerator. You deploy the solution using the CLI. You can also deploy the solution using the web-based UI at azureiotsuite.com, to learn about this option see the[Deploy the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md) quickstart.
 
 ## Prerequisites
 
 To deploy the Remote Monitoring solution accelerator, you need an active Azure subscription.
 
-If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 To run the CLI, you need [Node.js](https://nodejs.org/) installed on your local machine.
 
@@ -32,7 +32,7 @@ npm install iot-solutions -g
 
 ## Sign in to the CLI
 
-Before you can deploy the solution accelerator, you must sign in to your Azure subscription using the CLI as follows:
+Before you can deploy the solution accelerator, you must sign in to your Azure subscription using the CLI:
 
 ```cmd/sh
 pcs login
@@ -46,23 +46,20 @@ When you deploy the solution accelerator, there are several options that configu
 
 | Option | Values | Description |
 | ------ | ------ | ----------- |
-| SKU    | `basic`, `standard`, `local` | A _basic_ deployment is intended for test and demonstrations, it deploys all the microservices to a single virtual machine. A _standard_ deployment is intended for production, it deploys the microservices to multiple virtual machines. A _local_ deployment configures a Docker container to run the microservices on your local machine, and uses Azure services, such as storage and Cosmos DB, in the cloud. |
+| SKU    | `basic`, `standard`, `local` | A _basic_ deployment is intended for test and demonstrations, it deploys all the microservices to a single virtual machine. A _standard_ deployment is intended for production, it deploys the microservices to several virtual machines. A _local_ deployment configures a Docker container to run the microservices on your local machine, and uses Azure cloud services, such as storage and Cosmos DB. |
 | Runtime | `dotnet`, `java` | Selects the language implementation of the microservices. |
 
-To learn about how to use the local deployment, see [Running the Remote Monitoring solution locally](iot-accelerators-remote-monitoring-deploy-local.md).
+To learn how to use the local deployment option, see [Running the Remote Monitoring solution locally](iot-accelerators-remote-monitoring-deploy-local.md).
 
-## Basic vs. Standard Deployments
+## Basic and standard deployments
+
+This section summarizes the key differences between a basic and standard deployment.
 
 ### Basic
-Basic deployment is geared toward showcasing the solution. To reduce the cost
-of this demonstration, all the microservices are deployed in a single
-virtual machine; this is not considered a production-ready architecture.
 
-Our Standard deployment option should be used when you are ready to customize
-a production-ready architecture, built for scale and extensibility.
+Basic deployment is geared toward showcasing the solution. To reduce costs, all the microservices are deployed in a single virtual machine. This deployment doesn't use a production-ready architecture.
 
-Creating a Basic solution will result in the following Azure services being
-provisioned into your Azure subscription at cost: 
+A basic deployment creates the following services in your Azure subscription:
 
 | Count | Resource                       | Type         | Used For |
 |-------|--------------------------------|--------------|----------|
@@ -77,18 +74,11 @@ provisioned into your Azure subscription at cost:
 | 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Provisioning devices at scale |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 unit              | Storage for messages data and enables deep-dive telemetry analysis |
 
-
-
 ### Standard
-The standard deployment is a production-ready deployment a developer can
-customize and extend to meet their needs. The standard deployment option should be used when
-ready to customize a production-ready architecture, built for scale and
-extensibility. Application microservices are built as Docker containers and deployed using Azure Kubernetes Service (AKS). The orchestrator is
-responsible for deployment, scaling, and management of the application.
 
+A standard deployment is a production-ready deployment that a developer can customize and extend. Use the standard deployment option when you're ready to customize a production-ready architecture, built for scale and extensibility. Application microservices are built as Docker containers and deployed using the Azure Kubernetes Service. The Kubernetes orchestrator deploys, scales, and manages the microservices.
 
-Creating a Standard solution will result in the following Azure services being
-provisioned into your Azure subscription at cost:
+A standard deployment creates the following services in your Azure subscription:
 
 | Count | Resource                                     | SKU / Size      | Used For |
 |-------|----------------------------------------------|-----------------|----------|
@@ -103,12 +93,12 @@ provisioned into your Azure subscription at cost:
 | 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Provisioning devices at scale |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 unit              | Storage for messages data and enables deep-dive telemetry analysis |
 
-> Pricing information for these services can be found
-[here](https://azure.microsoft.com/pricing). Usage amounts and billing details
-for your subscription can be found in the
-[Azure Portal](https://portal.azure.com/).
+> [!NOTE]
+> You can find pricing information for these services at [https://azure.microsoft.com/pricing](https://azure.microsoft.com/pricing). You can find usage and billing details for your subscription in the [Azure Portal](https://portal.azure.com/).
 
 ## Deploy the solution accelerator
+
+Deployment examples:
 
 ### Example: deploy .NET version
 
@@ -128,14 +118,14 @@ pcs -t remotemonitoring -s standard -r java
 
 ### pcs command options
 
-When you run the `pcs` command to deploy a solution, you are asked for:
+When you run the `pcs` command to deploy a solution, you're asked for:
 
 - A name for your solution. This name must be unique.
 - The Azure subscription to use.
 - A location.
 - Credentials for the virtual machines that host the microservices. You can use these credentials to access the virtual machines for troubleshooting.
 
-When the `pcs` command finishes, it displays the URL of your new solution accelerator deployment. The `pcs` command also creates a file `{deployment-name}-output.json` with additional information such as the name of the IoT Hub that was provisioned for you.
+When the `pcs` command finishes, it displays the URL of your new solution accelerator. The `pcs` command also creates a file `{deployment-name}-output.json` that contains information such as the name of the IoT Hub that it created.
 
 For more information about the command-line parameters, run:
 
@@ -147,13 +137,13 @@ For more information about the CLI, see [How to use the CLI](https://github.com/
 
 ## Next steps
 
-In this tutorial, you learned how to:
+In this how-to guide, you learned how to:
 
 > [!div class="checklist"]
 > * Configure the solution accelerator
 > * Deploy the solution accelerator
 > * Sign in to the solution accelerator
 
-Now that you have deployed the Remote Monitoring solution, the next step is to [explore the capabilities of the solution dashboard](./quickstart-remote-monitoring-deploy.md).
+Now that you've deployed the Remote Monitoring solution, the next step is to [explore the capabilities of the solution dashboard](./quickstart-remote-monitoring-deploy.md).
 
-<!-- Next tutorials in the sequence -->
+<!-- Next how-to guides in the sequence -->

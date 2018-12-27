@@ -158,7 +158,7 @@ Contoso admins provision two Web apps (one in each region) using Azure App Servi
 
 **Need more help?**
 
-- Learn about [Azure App Service Web apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview).
+- Learn about [Azure App Service Web apps](https://docs.microsoft.com/azure/app-service/overview).
 - Learn about [Azure App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro).
 
 

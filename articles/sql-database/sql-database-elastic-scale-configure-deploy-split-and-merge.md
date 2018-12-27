@@ -3,7 +3,7 @@ title: Deploy a split-merge service | Microsoft Docs
 description: Use the split-merge too to move data between sharded databases.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 12/04/2018
 ---
 # Deploy a split-merge service to move data between sharded databases
 
@@ -57,13 +57,13 @@ For detailed instructions to configure the security of the service, refer to the
 For the purposes of a simple test deployment for this tutorial, a minimal set of configuration steps will be performed to get the service up and running. These steps enable only the one machine/account executing them to communicate with the service.
 
 ### Create a self-signed certificate
-Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx) window:
+Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) window:
 
    ```
     makecert ^
     -n "CN=*.cloudapp.net" ^
     -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1,1.3.6.1.5.5.7.3.2" ^
-    -a sha1 -len 2048 ^
+    -a sha256 -len 2048 ^
     -sr currentuser -ss root ^
     -sv MyCert.pvk MyCert.cer
    ```

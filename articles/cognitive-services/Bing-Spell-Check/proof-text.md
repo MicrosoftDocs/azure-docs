@@ -37,9 +37,12 @@ The default mode is `Proof`. The `Proof` spelling mode provides the most compreh
 <br /><br/>**NOTE:**   If the length of query text exceeds 4096, it will be truncated to 4096 characters, then get processed. 
 ### Spell -  for web searches/queries scenario
 `Spell` is more aggressive in order to return better search results. The `Spell` mode finds most spelling mistakes but doesn't find some of the grammar errors that `Proof` catches, for example, capitalization and repeated words.
-<br /></br>**NOTE:** The max query length supported is as below. If the query exceeds the max length, the query and its results are not altered.
-<ul><li>130 characters for language code of en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko. </li>
-<li>65 characters for others</li></ul>
+
+> [!NOTE]
+> * The maximum supported query length is below. If the query exceeds the max length, the query and its results will not be altered.
+>    * 130 characters for the following language codes: en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko. 
+>    * 65 characters for all others.
+> * The Spell mode does not support square bracket characters (`[` and `]`) in queries, and may cause inconsistent results. We recommend removing them from your queries when using the Spell mode.
 
 ## Market setting
 Market needs to be specified in the query parameter in request URL, otherwise speller will take the default market based on IP address.

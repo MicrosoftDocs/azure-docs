@@ -46,7 +46,7 @@ In this tutorial, you will build a sample environment to:
 -   Azure subscription. If needed, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before beginning.
 
 - An Azure Stack Integrated System or deployment of Azure Stack Development Kit.
-    - You find instructions for installing Azure Stack at [Install the Azure Stack Development Kit](/articles/azure-stack/asdk/asdk-install).
+    - You find instructions for installing Azure Stack at [Install the Azure Stack Development Kit](../asdk/asdk-install.md).
     - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) This installation may require a few hours to complete.
 
 -   Deploy [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS services to Azure Stack.
@@ -57,7 +57,7 @@ In this tutorial, you will build a sample environment to:
 
 -   Create a Web App within the tenant subscription. Make note of the new Web App URL for later use.
 
--   Deploy VSTS Virtual Machine within the tenant subscription.
+-   Deploy Azure Pipelines Virtual Machine within the tenant subscription.
 
 -   Windows Server 2016 VM with .NET 3.5 required. This VM will be built in the tenant subscription on Azure Stack as the private build agent.
 
@@ -94,142 +94,144 @@ Update the DNS zone file for the domain. Azure AD will verify ownership of the c
 Set up hybrid continuous integration and continuous deployment (CI/CD) to deploy Web App to Azure and Azure Stack, and auto push changes to both clouds.
 
 > [!Note]  
-> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" section for Azure Stack Operator.
+> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](../azure-stack-app-service-before-you-get-started.md)" section for Azure Stack Operator.
 
-### Add Code to Visual Studio Team Services Project
+### Add Code to Azure Repos
 
-1. Sign in to Visual Studio Team Services (VSTS) with an account that has project creation rights on VSTS.
+Azure Repos
+
+1. Sign in to Azure Repos with an account that has project creation rights on Azure Repos.
 
     Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/) for both private and hosted cloud development.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image1.JPG)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image1.JPG)
 
 2. **Clone the repository** by creating and opening the default web app.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image2.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image2.png)
 
 ### Create self-contained web app deployment for App Services in both clouds
 
 1.  Edit the **WebApplication.csproj** file. Select **Runtimeidentifier** and add **win10-x64**. (See [Self-contained Deployment](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentation.) 
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image3.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image3.png)
 
-2.  Check in the code to VSTS using Team Explorer.
+2.  Check in the code to Azure Repos using Team Explorer.
 
-3.  Confirm that the application code has been checked into Visual Studio Team Services.
+3.  Confirm that the application code has been checked into Azure Repos.
 
 ## Create the build definition
 
-1. Log into VSTS to confirm ability to create build definitions.
+1. Log into Azure Pipelines to confirm ability to create build definitions.
 
 2. Add **-r win10-x64** code. This is necessary to trigger a self-contained deployment with .Net Core.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image4.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image4.png)
 
 3. Run the build. The [self-contained deployment build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) process will publish artifacts that can run on Azure and Azure Stack.
 
 ## Use an Azure hosted agent
 
-Use a hosted agent in VSTS is a convenient option to build and deploy web apps. Maintenance and upgrades are automatically performed by Microsoft Azure, enabling continual, uninterrupted development, testing, and deployment.
+Use a hosted agent in Azure Pipelines is a convenient option to build and deploy web apps. Maintenance and upgrades are automatically performed by Microsoft Azure, enabling continual, uninterrupted development, testing, and deployment.
 
 ### Manage and configure the CD process
 
-Visual Studio Team Services and Team Foundation Server (TFS) provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, QA, and production environments; including requiring approvals at specific stages.
+Azure Pipelines and Azure DevOps Server provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, QA, and production environments; including requiring approvals at specific stages.
 
 ## Create release definition
 
-![Alt text](media\azure-stack-solution-cloud-burst\image5.png)
+![Alt text](media/azure-stack-solution-cloud-burst/image5.png)
 
 1.  Select the **plus** button to add a new Release under the **Releases tab** in the Build and Release page of VSO.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image6.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image6.png)
 
 2. Apply the Azure App Service Deployment template.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image7.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image7.png)
 
 3. Under Add artifact, add the artifact for the Azure Cloud build app.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image8.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image8.png)
 
 4. Under Pipeline tab, Select the **Phase, Task** link of the environment and set the Azure cloud environment values.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image9.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image9.png)
 
 5. Set the **environment name** and select Azure **Subscription** for the Azure Cloud endpoint.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image10.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image10.png)
 
 6. Under Environment name, set the required **Azure app service name**.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image11.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image11.png)
 
 7. Enter **Hosted VS2017** under Agent queue for Azure cloud hosted environment.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image12.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image12.png)
 
 8. In Deploy Azure App Service menu, select the valid **Package or Folder** for the environment. Select **OK** to **folder location**.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image13.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image13.png)
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image14.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image14.png)
 
 9. Save all changes and go back to **release pipeline**.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image15.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image15.png)
 
 10. Add a new artifact selecting the build for the Azure Stack app.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image16.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image16.png)
 
 11. Add one more environment applying the Azure App Service Deployment.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image17.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image17.png)
 
 12. Name the new environment Azure Stack.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image18.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image18.png)
 
 13. Find the Azure Stack environment under **Task** tab.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image19.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image19.png)
 
 14. Select the subscription for the Azure Stack endpoint.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image20.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image20.png)
 
 15. Set the Azure Stack web app name as the App service name.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image21.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image21.png)
 
 16. Select the Azure Stack agent.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image22.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image22.png)
 
 17. Under the Deploy Azure App Service section select the valid **Package or Folder** for the environment. Select **OK** to folder location.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image23.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image23.png)
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image24.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image24.png)
 
 18. Under Variable tab add a variable named `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, set its value as **true**, and scope to Azure Stack.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image25.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image25.png)
 
 19. Select the **Continuous** deployment trigger icon in both artifacts and enable the **Continues** deployment trigger.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image26.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image26.png)
 
 20. Select the **Pre-deployment** conditions icon in the Azure Stack environment and set the trigger to **After release.**
 
 21. Save all changes.
 
 > [!Note]  
-> Some settings for the tasks may have been automatically defined as [environment variables](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) when creating a release definition from a template. These settings cannot be modified in the task settings; instead, the parent environment item must be selected to edit these settings
+> Some settings for the tasks may have been automatically defined as [environment variables](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) when creating a release definition from a template. These settings cannot be modified in the task settings; instead, the parent environment item must be selected to edit these settings
 
 ## Publish to Azure Stack via Visual Studio
 
-By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Service apps to Azure Stack. VSTS connects to the build agent, which connects to Azure Stack.
+By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Service apps to Azure Stack. Azure Pipelines connects to the build agent, which connects to Azure Stack.
 
 1.  Sign in to VSTO and navigate to the app settings page.
 
@@ -251,18 +253,18 @@ By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Serv
 
 10. Select **Save changes**.
 
-Now that the endpoint information exists, the VSTS to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from VSTS, and then the agent conveys endpoint information for communication with Azure Stack.
+Now that the endpoint information exists, the Azure Pipelines to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from Azure Pipelines, and then the agent conveys endpoint information for communication with Azure Stack.
 
 ## Develop the application build
 
 > [!Note]  
-> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" section for Azure Stack Operator.
+> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](../azure-stack-app-service-before-you-get-started.md)" section for Azure Stack Operator.
 
-Use [Azure Resource Manager templates like web](https://azure.microsoft.com/resources/templates/) app code from VSTS to deploy to both clouds.
+Use [Azure Resource Manager templates like web](https://azure.microsoft.com/resources/templates/) app code from Azure Repos to deploy to both clouds.
 
-### Add code to a VSTS project
+### Add code to a Azure Repos project
 
-1.  Sign in to VSTS with an account that has project creation rights on Azure Stack. The next screen capture shows how to connect to the HybridCICD project.
+1.  Sign in to Azure Repos with an account that has project creation rights on Azure Stack. The next screen capture shows how to connect to the HybridCICD project.
 
 2.  **Clone the repository** by creating and opening the default web app.
 
@@ -270,13 +272,13 @@ Use [Azure Resource Manager templates like web](https://azure.microsoft.com/reso
 
 1.  Edit the **WebApplication.csproj** file: Select **Runtimeidentifier** and then add win10-x64. For more information, see [Self-contained deployment](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentation.
 
-2.  Use Team Explorer to check the code into VSTS.
+2.  Use Team Explorer to check the code into Azure Repos.
 
-3.  Confirm that the application code was checked into Visual Studio Team Services.
+3.  Confirm that the application code was checked into Azure Repos.
 
 ### Create the build definition
 
-1.  Sign in to VSTS with an account that can create a build definition.
+1.  Sign in to Azure Pipelines with an account that can create a build definition.
 
 2.  Navigate to the **Build Web Application** page for the project.
 
@@ -286,23 +288,23 @@ Use [Azure Resource Manager templates like web](https://azure.microsoft.com/reso
 
 #### Use an Azure hosted build agent
 
-Using a hosted build agent in VSTS is a convenient option for building and deploying web apps. Agent maintenance and upgrades are automatically performed by Microsoft Azure, which enables a continuous and uninterrupted development cycle.
+Using a hosted build agent in Azure Pipelines is a convenient option for building and deploying web apps. Agent maintenance and upgrades are automatically performed by Microsoft Azure, which enables a continuous and uninterrupted development cycle.
 
 ### Configure the continuous deployment (CD) process
 
-Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, quality assurance (QA), and production. This process can include requiring approvals at specific stages of the application life cycle.
+Azure Pipelines and Azure DevOps Server provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, quality assurance (QA), and production. This process can include requiring approvals at specific stages of the application life cycle.
 
 #### Create release definition
 
 Creating a release definition is the final step in the application build process. This release definition is used to create a release and deploy a build.
 
-1.  Sign in to VSTS and navigate to **Build and Release** for the project.
+1.  Sign in to Azure Pipelines and navigate to **Build and Release** for the project.
 
 2.  On the **Releases** tab, select **[ + ]** and then pick **Create release definition**.
 
 3.  On **Select a Template**, choose **Azure App Service Deployment**, and then select **Apply**.
 
-4.  On **Add artifact**, from the **Source (Build definition) select the Azure Cloud build app.
+4.  On **Add artifact**, from the **Source (Build definition)** select the Azure Cloud build app.
 
 5.  On the **Pipeline** tab, select the **1 Phase**, **1 Task** link to **View environment tasks**.
 
@@ -318,7 +320,7 @@ Creating a release definition is the final step in the application build process
 
 11. Save all changes and go back to **Pipeline**.
 
-12. On the **Pipeline** tab, select **Add artifact**, and choose the **NorthwindCloud Traders-Vessel** from the **Source (Build Definition) ** list.
+12. On the **Pipeline** tab, select **Add artifact**, and choose the **NorthwindCloud Traders-Vessel** from the **Source (Build Definition)** list.
 
 13. On **Select a Template**, add another environment. Pick **Azure App Service Deployment** and then select **Apply**.
 
@@ -343,7 +345,7 @@ Creating a release definition is the final step in the application build process
 23. Save all changes.
 
 > [!Note]  
-> Some settings for release tasks are automatically defined as [environment variables](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) when creating a release definition from a template. These settings can't be modified in the task settings, but can be modified in the parent environment items.
+> Some settings for release tasks are automatically defined as [environment variables](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) when creating a release definition from a template. These settings can't be modified in the task settings, but can be modified in the parent environment items.
 
 ## Create a release
 

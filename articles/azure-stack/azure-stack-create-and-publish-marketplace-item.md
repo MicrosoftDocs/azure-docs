@@ -22,7 +22,7 @@ ms.reviewer: avishwan
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 ## Create a Marketplace item
-1. [Download](http://www.aka.ms/azurestackmarketplaceitem) the Azure Gallery Packager tool and the sample Azure Stack Marketplace item.
+1. [Download](https://www.aka.ms/azurestackmarketplaceitem) the Azure Gallery Packager tool and the sample Azure Stack Marketplace item.
 2. Open the sample Marketplace item and rename the **SimpleVMTemplate** folder. (Use the same name as your Marketplace item--for example, **Contoso.TodoList**.) This folder contains:
    
    ```shell

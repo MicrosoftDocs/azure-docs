@@ -34,7 +34,7 @@ Use a managed identity in a running container to authenticate to any [service th
 
 ### Enable a managed identity
 
- In Azure Container Instances, managed identities for Azure resources are supported as of REST API version 2018-10-01 and corresponding SDKs and tools. When you create a container group, enable one or more managed identities by setting a [ContainerGroupIdentity](/rest/api/container-instances/containergroups/containergroups_createorupdate#containergroupidentity) property. You can also enable or update managed identities after a container group is running; either action causes the container group to restart. To set the identities on a new or existing container group, use the Azure CLI, a Resource Manager template, or a YAML file. 
+ In Azure Container Instances, managed identities for Azure resources are supported as of REST API version 2018-10-01 and corresponding SDKs and tools. When you create a container group, enable one or more managed identities by setting a [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity) property. You can also enable or update managed identities after a container group is running; either action causes the container group to restart. To set the identities on a new or existing container group, use the Azure CLI, a Resource Manager template, or a YAML file. 
 
 Azure Container Instances supports both types of managed Azure identities: user-assigned and system-assigned. On a container group, you can enable a system-assigned identity, one or more user-assigned identities, or both types of identities. 
 

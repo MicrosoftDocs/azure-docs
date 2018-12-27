@@ -10,7 +10,6 @@ ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
@@ -25,16 +24,14 @@ First, the short answer:
 * The standard telemetry modules that run "out of the box" are unlikely to send sensitive data to the service. The telemetry is concerned with load, performance and usage metrics, exception reports, and other diagnostic data. The main user data visible in the diagnostic reports are URLs; but your app shouldn't in any case put sensitive data in plain text in a URL.
 * You can write code that sends additional custom telemetry to help you with diagnostics and monitoring usage. (This extensibility is a great feature of Application Insights.) It would be possible, by mistake, to write this code so that it includes personal and other sensitive data. If your application works with such data, you should apply a thorough review processes to all the code you write.
 * While developing and testing your app, it's easy to inspect what's being sent by the SDK. The data appears in the debugging output windows of the IDE and browser. 
-* The data is held in [Microsoft Azure](http://azure.com) servers in the USA or Europe. (But your app can run anywhere.) Azure has [strong security processes and meets a broad range of compliance standards](https://azure.microsoft.com/support/trust-center/). Only you and your designated team have access to your data. Microsoft staff can have restricted access to it only under specific limited circumstances with your knowledge. It's encrypted in transit, though not in the servers.
+* The data is held in [Microsoft Azure](https://azure.com) servers in the USA or Europe. (But your app can run anywhere.) Azure has [strong security processes and meets a broad range of compliance standards](https://azure.microsoft.com/support/trust-center/). Only you and your designated team have access to your data. Microsoft staff can have restricted access to it only under specific limited circumstances with your knowledge. It's encrypted in transit, though not in the servers.
 
 The rest of this article elaborates more fully on these answers. It's designed to be self-contained, so that you can show it to colleagues who aren't part of your immediate team.
 
 ## What is Application Insights?
 [Azure Application Insights][start] is a service provided by Microsoft that helps you improve the performance and usability of your live application. It monitors your application all the time it's running, both during testing and after you've published or deployed it. Application Insights creates charts and tables that show you, for example, what times of day you get most users, how responsive the app is, and how well it is served by any external services that it depends on. If there are crashes, failures or performance issues, you can search through the telemetry data in detail to diagnose the cause. And the service will send you emails if there are any changes in the availability and performance of your app.
 
-In order to get this functionality, you install an Application Insights SDK in your application, which becomes part of its code. When your app is running, the SDK monitors its operation and sends telemetry to the Application Insights service. This is a cloud service hosted by [Microsoft Azure](http://azure.com). (But Application Insights works for any applications, not just those that are hosted in Azure.)
-
-![The SDK in your app sends telemetry to the Application Insights service.](./media/app-insights-data-retention-privacy/01-scheme.png)
+In order to get this functionality, you install an Application Insights SDK in your application, which becomes part of its code. When your app is running, the SDK monitors its operation and sends telemetry to the Application Insights service. This is a cloud service hosted by [Microsoft Azure](https://azure.com). (But Application Insights works for any applications, not just those that are hosted in Azure.)
 
 The Application Insights service stores and analyzes the telemetry. To see the analysis or search through the stored telemetry, you sign in to your Azure account and open the Application Insights resource for your application. You can also share access to the data with other members of your team, or with specified Azure subscribers.
 
@@ -46,9 +43,9 @@ Application Insights SDKs are available for a range of application types: web se
 ### How is the data is collected?
 There are three sources of data:
 
-* The SDK, which you integrate with your app either [in development](app-insights-asp-net.md) or [at run time](app-insights-monitor-performance-live-website-now.md). There are different SDKs for different application types. There's also an [SDK for web pages](app-insights-javascript.md), which loads into the end-user's browser along with the page.
+* The SDK, which you integrate with your app either [in development](../azure-monitor/app/asp-net.md) or [at run time](app-insights-monitor-performance-live-website-now.md). There are different SDKs for different application types. There's also an [SDK for web pages](app-insights-javascript.md), which loads into the end-user's browser along with the page.
   
-  * Each SDK has a number of [modules](app-insights-configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
+  * Each SDK has a number of [modules](../azure-monitor/app/configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
   * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
 * In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [J2EE servers](app-insights-java-agent.md) can have such agents.
 * [Availability tests](app-insights-monitor-web-app-availability.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to the Application Insights service.
@@ -56,14 +53,14 @@ There are three sources of data:
 ### What kinds of data are collected?
 The main categories are:
 
-* [Web server telemetry](app-insights-asp-net.md) - HTTP requests.  Uri, time taken to process the request, response code, client IP address. Session id.
+* [Web server telemetry](../azure-monitor/app/asp-net.md) - HTTP requests.  Uri, time taken to process the request, response code, client IP address. Session id.
 * [Web pages](app-insights-javascript.md) - Page, user and session counts. Page load times. Exceptions. Ajax calls.
 * Performance counters - Memory, CPU, IO, Network occupancy.
 * Client and server context - OS, locale, device type, browser, screen resolution.
-* [Exceptions](app-insights-asp-net-exceptions.md) and crashes - **stack dumps**, build id, CPU type. 
-* [Dependencies](app-insights-asp-net-dependencies.md) - calls to external services such as REST, SQL, AJAX. URI or connection string, duration, success, command.
+* [Exceptions](../azure-monitor/app/asp-net-exceptions.md) and crashes - **stack dumps**, build id, CPU type. 
+* [Dependencies](../azure-monitor/app/asp-net-dependencies.md) - calls to external services such as REST, SQL, AJAX. URI or connection string, duration, success, command.
 * [Availability tests](app-insights-monitor-web-app-availability.md) - duration of test and steps, responses.
-* [Trace logs](app-insights-asp-net-trace-logs.md) and [custom telemetry](app-insights-api-custom-events-metrics.md) - **anything you code into your logs or telemetry**.
+* [Trace logs](../azure-monitor/app/asp-net-trace-logs.md) and [custom telemetry](../azure-monitor/app/api-custom-events-metrics.md) - **anything you code into your logs or telemetry**.
 
 [More detail](#data-sent-by-application-insights).
 
@@ -79,7 +76,7 @@ For web pages, open your browser's debugging window.
 ![Press F12 and open the Network tab.](./media/app-insights-data-retention-privacy/08-browser.png)
 
 ### Can I write code to filter the telemetry before it is sent?
-This would be possible by writing a [telemetry processor plugin](app-insights-api-filtering-sampling.md).
+This would be possible by writing a [telemetry processor plugin](../azure-monitor/app/api-filtering-sampling.md).
 
 ## How long is the data kept?
 Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 90 days. If you need to keep data longer than that, you can use [continuous export](app-insights-export-telemetry.md) to copy it to a storage account.
@@ -99,14 +96,13 @@ Microsoft uses the data only in order to provide the service to you.
 ## Where is the data held?
 * In the USA, Europe or Southeast Asia. You can select the location when you create a new Application Insights resource. 
 
-
 #### Does that mean my app has to be hosted in the USA, Europe or Southeast Asia?
-* No. Your application can run anywhere, either in your own on-premises hosts or in the Cloud.
+* No. Your application can run anywhere, either in your own on-premises hosts or in the cloud.
 
 ## How secure is my data?
-Application Insights is an Azure Service. Security policies are described in the [Azure Security, Privacy, and Compliance white paper](http://go.microsoft.com/fwlink/?linkid=392408).
+Application Insights is an Azure Service. Security policies are described in the [Azure Security, Privacy, and Compliance white paper](https://go.microsoft.com/fwlink/?linkid=392408).
 
-The data is stored in Microsoft Azure servers. For accounts in the Azure Portal, account restrictions are described in the [Azure Security, Privacy, and Compliance document](http://go.microsoft.com/fwlink/?linkid=392408).
+The data is stored in Microsoft Azure servers. For accounts in the Azure Portal, account restrictions are described in the [Azure Security, Privacy, and Compliance document](https://go.microsoft.com/fwlink/?linkid=392408).
 
 Access to your data by Microsoft personnel is restricted. We access your data only with your permission and if it is necessary to support your use of Application Insights. 
 
@@ -203,7 +199,7 @@ We do not recommend explicitly setting your application to only use TLS 1.2 unle
 |.NET | Supported, configuration varies by version. | For detailed configuration info for .NET 4.7 and earlier versions refer to [these instructions](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
 |Status Monitor | Supported, configuration required | Status Monitor relies on [OS Configuration](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) to support TLS 1.2.
 |Node.js |  Supported, in v10.5.0, configuration may be required. | Use the [official Node.js TLS/SSL documentation](https://nodejs.org/api/tls.html) for any application specific configuration. |
-|Java | Supported, JDK support for TLS 1.2 was added in [JDK 6 update 121](http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) and [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 uses [TLS 1.2 by default](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
+|Java | Supported, JDK support for TLS 1.2 was added in [JDK 6 update 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) and [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 uses [TLS 1.2 by default](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Linux distributions tend to rely on [OpenSSL](https://www.openssl.org) for TLS 1.2 support.  | Check the [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) to confirm your version of OpenSSL is supported.|
 | Windows 8.0 - 10 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
 | Windows Server 2012 - 2016 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
@@ -229,7 +225,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## Personal data stored in Application Insights
 
-Our [Application Insights personal data article](app-insights-customer-data.md) discusses this issue in-depth.
+Our [Application Insights personal data article](../azure-monitor/platform/personal-data-mgmt.md) discusses this issue in-depth.
 
 #### Can my users turn off Application Insights?
 Not directly. We don't provide a switch that your users can operate to turn off Application Insights.
@@ -279,21 +275,24 @@ For [SDKs for other platforms][platforms], see their documents.
 
 You can [switch off some of the data by editing ApplicationInsights.config][config]
 
+> [!NOTE]
+> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../azure-monitor/platform/personal-data-mgmt.md#application-data). If you need to store IP address you can do so with a [telemetry initializer](./../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer).
+
 ## Credits
-This product includes GeoLite2 data created by MaxMind, available from [http://www.maxmind.com](http://www.maxmind.com).
+This product includes GeoLite2 data created by MaxMind, available from [https://www.maxmind.com](https://www.maxmind.com).
 
 
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
-[apiproperties]: app-insights-api-custom-events-metrics.md#properties
+[api]: ../azure-monitor/app/api-custom-events-metrics.md
+[apiproperties]: ../azure-monitor/app/api-custom-events-metrics.md#properties
 [client]: app-insights-javascript.md
-[config]: app-insights-configuration-with-applicationinsights-config.md
-[greenbrown]: app-insights-asp-net.md
+[config]: ../azure-monitor/app/configuration-with-applicationinsights-config.md
+[greenbrown]: ../azure-monitor/app/asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
-[pricing]: http://azure.microsoft.com/pricing/details/application-insights/
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 

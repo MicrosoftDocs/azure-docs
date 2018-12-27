@@ -181,14 +181,14 @@ Contoso admins set up the virtual network as follows:
     - **SQLMI-DS-EUS2** (10.235.0.0.25)
     - **SQLMI-SAW-EUS2** (10.235.0.128/29). This subnet is used to attach a directory to the Managed Instance.
 
-    ![Managed Instance - Create virtual network](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
+      ![Managed Instance - Create virtual network](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
 
 4. After the virtual network and subnets are deployed, they peer networks as follows:
 
     - Peers **VNET-SQLMI-EUS2** with **VNET-HUB-EUS2** (the hub virtual network for the East US 2).
     - Peers **VNET-SQLMI-EUS2** with **VNET-PROD-EUS2** (the production network).
 
-    ![Network peering](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
+      ![Network peering](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
 
 5. They set custom DNS settings. DNS points first to Contoso's Azure domain controllers. Azure DNS is secondary. The Contoso Azure domain controllers are located as follows:
 
@@ -197,7 +197,7 @@ Contoso admins set up the virtual network as follows:
     - **CONTOSODC4** address: 10.245.42.5
     - Azure DNS resolver: 168.63.129.16
 
-     ![Network DNS servers](media/contoso-migration-rehost-vm-sql-managed-instance/mi-dns.png)
+      ![Network DNS servers](media/contoso-migration-rehost-vm-sql-managed-instance/mi-dns.png)
 
 *Need more help?*
 
@@ -249,7 +249,7 @@ Now, Contoso admins can provision a SQL Database Managed Instance:
     - A virtual cluster in case Contoso has multiple Managed Instances.
     - The SQL Server Database Managed Instance. 
 
-    ![Managed Instance](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
+      ![Managed Instance](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
 
 *Need more help?*
 
@@ -361,7 +361,7 @@ After failover to Azure, Contoso wants to be able to connect to the replicated V
 Contoso admins also need to check these items when they run a failover:
 
 - There should be no Windows updates pending on the VM when a failover is triggered. If Windows updates are pending, users Contoso can't sign in to the virtual machine until the update is finished.
-- After failover, admins should check **Boot diagnostics** to view a screenshot of the VM. If they can't view the boot diagnostics, they should check that the VM is running, and then review [troubleshooting tips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- After failover, admins should check **Boot diagnostics** to view a screenshot of the VM. If they can't view the boot diagnostics, they should check that the VM is running, and then review [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 ## Step 5: Replicate the on-premises VMs to Azure
 
@@ -610,7 +610,7 @@ To learn more about security practices for VMs, see [Security best practices for
 
 For business continuity and disaster recovery (BCDR), Contoso takes the following actions:
 
-- Keep data safe: Contoso backs up the data on the VMs using the Azure Backup service. [Learn more]https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- Keep data safe: Contoso backs up the data on the VMs using the Azure Backup service. [Learn more](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - Keep apps up and running: Contoso replicates the app VMs in Azure to a secondary region using Site Recovery. [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
 - Contoso learns more about managing SQL Managed Instance, including [database backups](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
 

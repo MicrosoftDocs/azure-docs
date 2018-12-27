@@ -20,7 +20,7 @@ The following limits apply to Azure Site Recovery:
 
 | LIMIT IDENTIFIER | DEFAULT LIMIT |
 | --- | --- | --- | --- |
-| Number of vaults per subscription |25 |
+| Number of vaults per subscription |500 |     
 | Number of servers per Azure vault |250 |
 | Number of protection groups per Azure vault |No limit |
 | Number of recovery plans per Azure vault |No limit |

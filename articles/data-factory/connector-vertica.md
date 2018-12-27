@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
@@ -67,7 +67,12 @@ The following properties are supported for Vertica linked service:
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Vertica dataset.
 
-To copy data from Vertica, set the type property of the dataset to **VerticaTable**. There is no additional type-specific property in this type of dataset.
+To copy data from Vertica, set the type property of the dataset to **VerticaTable**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **VerticaTable** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -79,7 +84,8 @@ To copy data from Vertica, set the type property of the dataset to **VerticaTabl
         "linkedServiceName": {
             "referenceName": "<Vertica linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -95,7 +101,7 @@ To copy data from Vertica, set the source type in the copy activity to **Vertica
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **VerticaSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 

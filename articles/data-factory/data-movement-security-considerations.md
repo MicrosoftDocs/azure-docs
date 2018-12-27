@@ -164,7 +164,7 @@ The following table provides inbound port requirements for Windows Firewall:
 | ------------- | ---------------------------------------- |
 | 8050 (TCP)    | Required by the PowerShell encryption cmdlet as described in [Encrypt credentials for on-premises data stores in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), and by the credential manager application to securely set credentials for on-premises data stores on the self-hosted integration runtime. |
 
-![Gateway port requirements](media\data-movement-security-considerations/gateway-port-requirements.png) 
+![Gateway port requirements](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
 #### IP configurations and whitelisting in data stores
 Some data stores in the cloud also require that you whitelist the IP address of the machine accessing the store. Ensure that the IP address of the self-hosted integration runtime machine is whitelisted or configured in the firewall appropriately.

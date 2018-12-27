@@ -1,4 +1,4 @@
-﻿---
+---
 title: Application Insights telemetry in Visual Studio CodeLens | Microsoft Docs
 description: Quickly access your Application Insights request and exception telemetry with CodeLens in Visual Studio.
 services: application-insights
@@ -10,13 +10,11 @@ ms.service: application-insights
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-
 ---
 # Application Insights telemetry in Visual Studio CodeLens
 Methods in the code of your web app can be annotated with telemetry about run-time exceptions and request response times. If you install [Azure Application Insights](app-insights-overview.md) in your application, the telemetry appears in Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) - the notes at the top of each function where you're used to seeing useful information such as the number of places the function is referenced or the last person who edited it.
@@ -76,6 +74,6 @@ To see more details, click the requests CodeLens indicator:
 |  |  |
 | --- | --- |
 | **[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Search telemetry, see data in CodeLens, and configure Application Insights. All within Visual Studio. |![Right-click the project and choose Application Insights, Search](./media/app-insights-visual-studio-codelens/34.png) |
-| **[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |![Visual studio](./media/app-insights-visual-studio-codelens/64.png) |
-| **[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/app-insights-visual-studio-codelens/62.png) |
+| **[Add more data](../azure-monitor/app/asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |![Visual studio](./media/app-insights-visual-studio-codelens/64.png) |
+| **[Working with the Application Insights portal](../azure-monitor/app/app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/app-insights-visual-studio-codelens/62.png) |
 

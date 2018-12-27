@@ -53,7 +53,7 @@ This section provides a sample script to get you started. For detailed instructi
 ```powershell
 # Declare your variables
 
-$Sub1          = "Replace_With_Your_Subcription_Name"
+$Sub1          = "Replace_With_Your_Subscription_Name"
 $RG1           = "TestRG1"
 $Location1     = "East US 2"
 $VNetName1     = "TestVNet1"

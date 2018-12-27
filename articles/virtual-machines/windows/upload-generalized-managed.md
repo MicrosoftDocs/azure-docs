@@ -96,7 +96,7 @@ Depending on your network connection and the size of your VHD file, this command
  
 You can also upload a VHD to your storage account using one of the following:
 
-- [AzCopy](http://aka.ms/downloadazcopy)
+- [AzCopy](https://aka.ms/downloadazcopy)
 - [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
 - [Azure Storage Explorer Uploading Blobs](https://azurestorageexplorer.codeplex.com/)
 - [Storage Import/Export Service REST API Reference](https://msdn.microsoft.com/library/dn529096.aspx)

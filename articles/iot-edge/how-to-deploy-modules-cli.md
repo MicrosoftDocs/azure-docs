@@ -1,14 +1,15 @@
 ---
-title: Deploy Azure IoT Edge modules (CLI) | Microsoft Docs 
+title: Deploy modules from command line - Azure IoT Edge | Microsoft Docs 
 description: Use the IoT extension for Azure CLI to deploy modules to an IoT Edge device
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/27/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Deploy Azure IoT Edge modules with Azure CLI
@@ -107,12 +108,12 @@ Change directories into the folder where your deployment manifest is saved. If y
 Use the following command to apply the configuration to an IoT Edge device:
 
    ```cli
-   az iot hub apply-configuration --device-id [device id] --hub-name [hub name] --content [file path]
+   az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
 The device id parameter is case-sensitive. The content parameter points to the deployment manifest file that you saved. 
 
-   ![Set modules](./media/how-to-deploy-cli/set-modules.png)
+   ![az iot edge set-modules output](./media/how-to-deploy-cli/set-modules.png)
 
 ## View modules on your device
 
@@ -126,7 +127,7 @@ View the modules on your IoT Edge device:
 
 The device id parameter is case-sensitive.
 
-   ![List modules](./media/how-to-deploy-cli/list-modules.png)
+   ![az iot hub module-identity list output](./media/how-to-deploy-cli/list-modules.png)
 
 ## Next steps
 

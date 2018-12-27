@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -45,7 +45,7 @@ Ensure that the following prerequisites are in place:
     * You synchronize to Azure AD through Azure AD Connect.
     * Contains users you want to enable for Seamless SSO.
     
-* **Enable modern authentication**: You need to enable [modern authentication](https://aka.ms/modernauthga) on your tenant for this feature to work.
+* **Enable modern authentication**: You need to enable [modern authentication](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) on your tenant for this feature to work.
 
 * **Use the latest versions of Office 365 clients**: To get a silent sign-on experience with Office 365 clients (Outlook, Word, Excel, and others), your users need to use versions 16.0.8730.xxxx or above.
 
@@ -86,7 +86,7 @@ Follow these instructions to verify that you have enabled Seamless SSO correctly
 ![Azure portal: Azure AD Connect pane](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Seamless SSO creates a computer account named `AZUREADSSOACC` (which represents Azure AD) in your on-premises Active Directory (AD) in each AD forest. This computer account is needed for the feature to work. Move the `AZUREADSSOACC` computer account to an Organization Unit (OU) where other computer accounts are stored to ensure that it is managed in the same way and is not deleted.
+> Seamless SSO creates a computer account named `AZUREADSSOACC` (which represents Azure AD) in your on-premises Active Directory (AD) in each AD forest. This computer account is needed for the feature to work. If you are using Pass-the-Hash and Credential Theft Mitigation architectures in your on-premises environment, ensure that the `AZUREADSSOACC` computer account doesn't end up in the Quarantine container. Make the appropriate changes to create the computer account in the Computers container. After Seamless SSO is successfully enabled on the Azure AD Connect wizard, move the `AZUREADSSOACC` computer account to an Organization Unit (OU) where other computer accounts are managed to ensure that it is not deleted inadvertently.
 
 ## Step 3: Roll out the feature
 

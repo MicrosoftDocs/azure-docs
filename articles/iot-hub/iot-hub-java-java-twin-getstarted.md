@@ -24,15 +24,23 @@ In this tutorial, you create two Java console apps:
 
 To complete this tutorial, you need:
 
-* The latest [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* The latest [Java SE Development Kit 8](https://aka.ms/azure-jdks)
 
 * [Maven 3](https://maven.apache.org/install.html)
 
-* An active Azure account. (If you don't have an account, you can create a [free account](http://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## Create an IoT hub
 
-[!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### Retrieve connection string for IoT hub
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## Register a new device in the IoT hub
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## Create the service app
 
@@ -215,7 +223,7 @@ In this section, you create a Java console app that sets a reported property val
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.32</version>
+      <version>1.14.2</version>
     </dependency>
     ```
 
@@ -265,6 +273,17 @@ In this section, you create a Java console app that sets a reported property val
 
     This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. 
 
+1. Add the following method to the **App** class to print information about twin updates:
+
+    ```java
+    protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
+        @Override
+        public void execute(IotHubStatusCode status, Object context) {
+          System.out.println("IoT Hub responded to device twin operation with status " + status.name());
+        }
+      }
+    ```
+
 9. Add the following code to the **main** method to:
     * Create a device client to communicate with IoT Hub.
     * Create a **Device** object to store the device twin properties.
@@ -297,7 +316,7 @@ In this section, you create a Java console app that sets a reported property val
     catch (Exception e) {
       System.out.println("On exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
       dataCollector.clean();
-      client.close();
+      client.closeNow();
       System.out.println("Shutting down...");
     }
     ```
@@ -314,7 +333,13 @@ In this section, you create a Java console app that sets a reported property val
     client.close();
     ```
 
-12. Save and close the `simulated-device\src\main\java\com\mycompany\app\App.java` file.
+1. Modify the signature of the **main** method to include the exceptions as follows:
+
+    ```java
+    public static void main(String[] args) throws URISyntaxException, IOException
+    ```
+
+1. Save and close the `simulated-device\src\main\java\com\mycompany\app\App.java` file.
 
 13. Build the **simulated-device** app and correct any errors. At your command prompt, navigate to the `simulated-device` folder and run the following command:
 

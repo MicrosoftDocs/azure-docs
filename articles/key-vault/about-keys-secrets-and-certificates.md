@@ -101,7 +101,7 @@ Key Vault supports RSA keys of sizes 2048, 3072 and 4096. Key Vault supports Ell
 
 ### Cryptographic protection
 
-The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS (Federal Information Processing Standards) validated. You don’t need to do anything special to run in FIPS mode. Keys **created** or **imported** as HSM-protected are  processed inside an HSM, validated to FIPS 140-2 Level 2 or higher. Keys **created** or **imported** as software-protected, are processed inside cryptographic modules validated to FIPS 140-2 Level 1 or higher. For more information, see [Keys and key types](#keys-and-key-types).
+The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS (Federal Information Processing Standards) validated. You don’t need to do anything special to run in FIPS mode. Keys **created** or **imported** as HSM-protected are  processed inside an HSM, validated to FIPS 140-2 Level 2. Keys **created** or **imported** as software-protected, are processed inside cryptographic modules validated to FIPS 140-2 Level 1. For more information, see [Keys and key types](#keys-and-key-types).
 
 ###  EC algorithms
  The following algorithm identifiers are supported with EC and EC-HSM keys in Key Vault. 
@@ -395,7 +395,7 @@ Before a certificate issuer can be created in a Key Vault, following prerequisit
 
     -   Provides the configuration to be used to create an issuer object of the provider in the key vault  
 
-For more information on creating Issuer objects from the Certificates portal, see the [Key Vault Certificates blog](http://aka.ms/kvcertsblog)  
+For more information on creating Issuer objects from the Certificates portal, see the [Key Vault Certificates blog](https://aka.ms/kvcertsblog)  
 
 Key Vault allows for creation of multiple issuer objects with different issuer provider configuration. Once an issuer object is created, its name can be referenced in one or multiple certificate policies. Referencing the issuer object instructs Key Vault to use configuration as specified in the issuer object when requesting the x509 certificate from CA provider during the certificate creation and renewal.  
 

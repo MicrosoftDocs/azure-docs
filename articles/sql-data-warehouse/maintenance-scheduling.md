@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 09/20/2018
+ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ---
 
 # Use maintenance schedules to manage service updates and maintenance
 
-Azure SQL Data Warehouse maintenance scheduling is now in preview. This feature integrates the Service Health Planned Maintenance Notifications, Resource Health Check Monitor, and the Azure SQL Data Warehouse maintenance scheduling service.
+Maintenance schedules is now available in all Azure SQL Data Warehouse regions. This feature integrates the Service Health Planned Maintenance Notifications, Resource Health Check Monitor, and the Azure SQL Data Warehouse maintenance scheduling service.
 
 You use maintenance scheduling to choose a time window when it's convenient to receive new features, upgrades, and patches. You choose a primary and a secondary maintenance window within a seven-day period. An example is a primary window of Saturday 22:00 to Sunday 01:00 and a secondary window of Wednesday 19:00 to 22:00. If SQL Data Warehouse can't perform maintenance during your primary maintenance window, it will try the maintenance again during your secondary maintenance window.
 
@@ -22,7 +22,7 @@ All newly created Azure SQL Data Warehouse instances will have a system-defined 
 
 Each maintenance window can be three to eight hours. Maintenance can occur at any time within the window. You should expect a brief loss of connectivity as the service deploys new code to your data warehouse. 
 
-During the feature preview, you identify primary and secondary windows within separate day ranges. All maintenance operations should finish within the scheduled maintenance windows. No maintenance will take place outside the specified maintenance windows without prior notification. If your data warehouse is paused during a scheduled maintenance, it will be updated during the resume operation.  
+To use this feature you will need to identify a primary and secondary window within separate day ranges. All maintenance operations should finish within the scheduled maintenance windows. No maintenance will take place outside the specified maintenance windows without prior notification. If your data warehouse is paused during a scheduled maintenance, it will be updated during the resume operation.  
 
 
 ## Alerts and monitoring
@@ -46,6 +46,7 @@ Even if maintenance scheduling isn't available in your selected region, you can 
 - [Learn more](changing-maintenance-schedule.md) about changing a maintenance schedule.
 - [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) about creating, viewing, and managing alerts by using Azure Monitor.
 - [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) about webhook actions for log alert rules.
+- [Learn more](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) Creating and managing Action Groups.
 - [Learn more](https://docs.microsoft.com/azure/service-health/service-health-overview) about Azure Service Health.
 
 

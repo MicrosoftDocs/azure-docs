@@ -35,9 +35,11 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
++ Learn the [Azure API Management terminology](api-management-terminology.md).
++ Understand the [concept of policies in Azure API Management](api-management-howto-policies.md).
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
- 
+
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## Transform an API to strip response headers

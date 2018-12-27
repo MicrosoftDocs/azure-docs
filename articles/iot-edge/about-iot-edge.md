@@ -2,7 +2,7 @@
 title: What is Azure IoT Edge | Microsoft Docs
 description: Overview of the Azure IoT Edge service
 author: kgremban
-manager: timlt
+manager: philmea
 # this is the PM responsible
 ms.reviewer: chipalost
 ms.service: iot-edge
@@ -67,7 +67,7 @@ Azure IoT Edge integrates seamlessly with Azure IoT solution accelerators to pro
 * Send a workload to a set of devices.
 * Monitor workloads running on devices in the field.
 
-![Telemetry, insights, and actions of devices are coordinated with the cloud](./media/about-iot-edge/cloud-interface.png)
+![Device telemetry and actions are coordinated with the cloud](./media/about-iot-edge/cloud-interface.png)
 
 ## Next steps
 

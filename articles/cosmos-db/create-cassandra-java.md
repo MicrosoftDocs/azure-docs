@@ -31,10 +31,10 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 In addition, you need:
 
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
-* [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a [Maven](http://maven.apache.org/) binary archive
+* [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a [Maven](https://maven.apache.org/) binary archive
     * On Ubuntu, you can run `apt-get install maven` to install Maven.
 * [Git](https://www.git-scm.com/)
     * On Ubuntu, you can run `sudo apt-get install git` to install Git.
@@ -147,7 +147,7 @@ The following snippets are from the `src/main/java/com/azure/cosmosdb/cassandra/
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. The connection string details enable your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), select **Connection String**. 
+1. In the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
     ![View and copy a username from the Azure portal, Connection String page](./media/create-cassandra-java/keys.png)
 

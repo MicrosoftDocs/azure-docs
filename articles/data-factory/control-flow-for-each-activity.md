@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/26/2018
 ms.author: shlo
 
 ---
@@ -568,6 +568,17 @@ Expression for gathering the output of all the iterations of a ForEach is `@acti
 ]
 
 ```
+
+## Limitations and workarounds
+
+Here are some limitations of the ForEach activity and suggested workarounds.
+
+| Limitation | Workaround |
+|---|---|
+| You can't nest a ForEach loop inside another ForEach loop (or an Until loop). | Design a two-level pipeline where the outer pipeline with the outer ForEach loop iterates over an inner pipeline with the nested loop. |
+| The ForEach activity has a maximum `batchCount` of 50 for parallel processing, and a maximum of 100,000 items. | Design a two-level pipeline where the outer pipeline with the ForEach activity iterates over an inner pipeline. |
+| | |
+
 ## Next steps
 See other control flow activities supported by Data Factory: 
 

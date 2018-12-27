@@ -11,11 +11,11 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 12/03/2018
 ---
 # Use Azure Active Directory Authentication for authentication with SQL
 
-Azure Active Directory authentication is a mechanism of connecting to Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). 
+Azure Active Directory authentication is a mechanism of connecting to Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md), and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). 
 
 > [!NOTE]
 > This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
@@ -78,15 +78,7 @@ The following members of Azure AD can be provisioned in Azure SQL server or SQL 
 - Imported members from other Azure AD's who are native or federated domain members.
 - Active Directory groups created as security groups.
 
-Azure AD limitations related to Managed Instance:
-
-- Only Azure AD admin can create databases, Azure AD users are scoped to a single DB and do not have this permission
-- Database ownership:
-  - Azure AD principal cannot change ownership of the database (ALTER AUTHORIZATION ON DATABASE) and cannot be set as owner.
-  - For databases created by Azure AD admin no ownership is set (owner_sid field in sys.sysdatabases is 0x1).
-- SQL Agent cannot be managed when logged in using Azure AD principals.
-- Azure AD admin cannot be impersonated using EXECUTE AS
-- DAC connection is not supported with Azure AD principals.
+Azure AD logins and users are supported as a preview feature for [Managed Instances](sql-database-managed-instance.md)
 
 These system functions return NULL values when executed under Azure AD principals:
 
@@ -112,7 +104,7 @@ Azure Active Directory authentication supports the following methods of connecti
 - We recommend setting the connection timeout to 30 seconds.   
 - SQL Server 2016 Management Studio and SQL Server Data Tools for Visual Studio 2015 (version 14.0.60311.1April 2016 or later) support Azure Active Directory authentication. (Azure AD authentication is supported by the **.NET Framework Data Provider for SqlServer**; at least version .NET Framework 4.6). Therefore the newest versions of these tools and data-tier applications (DAC and .BACPAC) can use Azure AD authentication.   
 - [ODBC version 13.1](https://www.microsoft.com/download/details.aspx?id=53339) supports Azure Active Directory authentication however `bcp.exe` cannot connect using Azure Active Directory authentication because it uses an older ODBC provider.   
-- `sqlcmd` supports Azure Active Directory authentication beginning with version 13.1 available from the [Download Center](http://go.microsoft.com/fwlink/?LinkID=825643).
+- `sqlcmd` supports Azure Active Directory authentication beginning with version 13.1 available from the [Download Center](https://go.microsoft.com/fwlink/?LinkID=825643).
 - SQL Server Data Tools for Visual Studio 2015 requires at least the April 2016 version of the Data Tools (version 14.0.60311.1). Currently Azure AD users are not shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 - [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) supports Azure AD authentication. Also, see [Setting the Connection Properties](https://msdn.microsoft.com/library/ms378988.aspx).   
 - PolyBase cannot authenticate by using Azure AD authentication.   

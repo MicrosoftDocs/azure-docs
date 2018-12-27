@@ -16,7 +16,7 @@ This article shows steps to follow to configure reports for Azure Backup by usin
 > [!IMPORTANT]
 > From 1st November, 2018, some customers may see issues in loading the data in Azure Backup App in Power BI, saying “We found extra characters at the end of JSON input. The exception was raised by the IDataReader interface.”
 This is due to a change in the format in which data is loaded into the storage account.
-Please upgrade the App to the latest version to avoid this issue.
+Please download the latest App (version 1.8) to avoid this issue.
 >
 >
 
@@ -68,23 +68,24 @@ Follow these steps to configure the storage account for a Recovery Services vaul
       ![View diagnostic setting step 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> After you configure reports by saving the storage account, *wait for 24 hours* for the initial data push to finish. Import the Azure Backup content pack in Power BI only after that time. For more information, see the [FAQ section](#frequently-asked-questions). 
+> After you configure reports by saving the storage account, *wait for 24 hours* for the initial data push to finish. Import the Azure Backup App in Power BI only after that time. For more information, see the [FAQ section](#frequently-asked-questions). 
 >
 >
 
 ## View reports in Power BI 
 After you configure a storage account for reports by using a Recovery Services vault, it takes around 24 hours for reporting data to start flowing in. After 24 hours of setting up a storage account, follow these steps to view reports in Power BI.
-1. [Sign in](https://powerbi.microsoft.com/landing/signin/) to Power BI.
-2. Select **Get Data**. In the **Content Pack Library**, under **Services**, select **Get**. Follow the steps in the [Power BI documentation to access the content pack](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+If you wish to customize and share the report, create a workspace and do the following steps
 
-     ![Import content pack](./media/backup-azure-configure-reports/content-pack-import.png)
+1. [Sign in](https://powerbi.microsoft.com/landing/signin/) to Power BI.
+2. Select **Get Data**. In the **More ways to create your own content**, select **Service content packs**. Follow the steps in the [Power BI documentation to connect to a service](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+
 3. In the **Search** bar, enter **Azure Backup** and select **Get it now**.
 
       ![Get content pack](./media/backup-azure-configure-reports/content-pack-get.png)
 4. Enter the name of the storage account that was configured in the previous step 5, and select **Next**.
 
     ![Enter storage account name](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Enter the storage account key for this storage account. To [view and copy storage access keys](../storage/common/storage-account-manage.md#access-keys), go to your storage account in the Azure portal. 
+5. Using Authentication method "Key", enter the storage account key for this storage account. To [view and copy storage access keys](../storage/common/storage-account-manage.md#access-keys), go to your storage account in the Azure portal. 
 
      ![Enter storage account](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      
@@ -96,9 +97,7 @@ After you configure a storage account for reports by using a Recovery Services v
     
     ![Import success content pack](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
     
-7. After data imports successfully, the **Azure Backup** content pack is visible in **Apps** in the navigation pane. Under **Dashboards**, **Reports**, and **Datasets**, the list now shows Azure Backup with yellow stars that indicate newly imported reports.
-
-     ![Azure Backup content pack](./media/backup-azure-configure-reports/content-pack-azure-backup.png) <br/>
+7. After data imports successfully, the **Azure Backup** content pack is visible in **Apps** in the navigation pane. Under **Dashboards**, **Reports**, and **Datasets**, the list now shows Azure Backup.
      
 8. Under **Dashboards**, select **Azure Backup**, which shows a set of pinned key reports.
 

@@ -100,7 +100,7 @@ A [guest executable](service-fabric-guest-executables-introduction.md) is an exi
 ## Application lifecycle
 As with other platforms, an application on Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrade, maintenance, and removal. Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning. The service model enables several different roles to participate independently in the application lifecycle. [Service Fabric application lifecycle](service-fabric-application-lifecycle.md) provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle. 
 
-The entire app lifecycle can be managed using [PowerShell cmdlets](/powershell/module/ServiceFabric/), [CLI commands](service-fabric-sfctl.md), [C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java APIs](/java/api/system.fabric._application_management_client), and [REST APIs](/rest/api/servicefabric/). You can also set up continuous integration/continuous deployment pipelines using tools such as [Azure Pipelines](service-fabric-set-up-continuous-integration.md) or [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+The entire app lifecycle can be managed using [PowerShell cmdlets](/powershell/module/ServiceFabric/), [CLI commands](service-fabric-sfctl.md), [C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java APIs](/java/api/overview/azure/servicefabric), and [REST APIs](/rest/api/servicefabric/). You can also set up continuous integration/continuous deployment pipelines using tools such as [Azure Pipelines](service-fabric-set-up-continuous-integration.md) or [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 The following Microsoft Virtual Academy video describes how to manage your application lifecycle:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
@@ -217,7 +217,7 @@ Multiple products are available that cover these three areas, and you are free t
 * Learn to [monitor and diagnose services](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). 
 * Learn to [test your apps and services](service-fabric-testability-overview.md).
 * Learn to [manage and orchestrate cluster resources](service-fabric-cluster-resource-manager-introduction.md).
-* Look through the [Service Fabric samples](http://aka.ms/servicefabricsamples).
+* Look through the [Service Fabric samples](https://aka.ms/servicefabricsamples).
 * Learn about [Service Fabric support options](service-fabric-support.md).
 * Read the [team blog](https://blogs.msdn.microsoft.com/azureservicefabric/) for articles and announcements.
 

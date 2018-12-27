@@ -55,7 +55,7 @@ az servicebus queue create --resource-group myResourceGroup \
 # Get the connection string for the namespace
 connectionString=$(az servicebus namespace authorization-rule keys list \
    --resource-group myResourceGroup \
-   --namespace-name  $namespaceName \
+   --namespace-name $namespaceName \
    --name RootManageSharedAccessKey \
    --query primaryConnectionString --output tsv)
 ```

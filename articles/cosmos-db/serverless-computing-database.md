@@ -1,12 +1,10 @@
 ---
-title: Serverless database computing - Azure Functions and Azure Cosmos DB| Microsoft Docs
+title: Serverless database computing - Azure Functions and Azure Cosmos DB
 description: Learn how Azure Cosmos DB and Azure Functions can be used together to create event-driven serverless computing apps.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
@@ -27,7 +25,7 @@ Azure Cosmos DB and Azure Functions enable you to integrate your databases and s
 * Bind a function to an Azure Cosmos DB container using an **output binding**. Output bindings write data to a container when a function completes.
 
 > [!NOTE]
-> Currently, Azure Cosmos DB trigger, input bindings, and output bindings are supported for use with the SQL API only. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including MongoDB API, Cassandra API, Gremlin API, and Table API.
+> Currently, Azure Cosmos DB trigger, input bindings, and output bindings are supported for use with the SQL API only. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API.
 
 
 The following diagram illustrates each of these three integrations: 
@@ -94,7 +92,7 @@ In retail implementations, when a user adds an item to their basket you now have
 
 **Implementation:** Multiple Azure Cosmos DB triggers listening to one container
 
-1. You can create multiple Azure Functions by adding Azure Cosmos DB triggers to each - all of which listen to the same change feed of shopping cart data. Note that when multiple functions listen to the same change feed, a new lease collection is required for each function. For more information about lease collections, see [Understanding the Change Feed Processor library](change-feed.md#understand-cf).
+1. You can create multiple Azure Functions by adding Azure Cosmos DB triggers to each - all of which listen to the same change feed of shopping cart data. Note that when multiple functions listen to the same change feed, a new lease collection is required for each function. For more information about lease collections, see [Understanding the Change Feed Processor library](change-feed-processor.md).
 2. Whenever a new item is added to a users shopping cart, each function is independently invoked by the change feed from the shopping cart container.
     * One function may use the contents of the current basket to change the display of other items the user might be interested in.
     * Another function may update inventory totals.
@@ -120,7 +118,7 @@ Azure Functions provides the ability to create scalable units of work, or concis
 
 Azure Cosmos DB is the recommended database for your serverless computing architecture for the following reasons:
 
-* **Instant access to all your data**: You have granular access to every value stored because Azure Cosmos DB [automatically indexes](indexing-policies.md) all data by default, and makes those indexes immediately available. This means you are able to constantly query, update, and add new items to your database and have instant access via Azure Functions.
+* **Instant access to all your data**: You have granular access to every value stored because Azure Cosmos DB [automatically indexes](index-policy.md) all data by default, and makes those indexes immediately available. This means you are able to constantly query, update, and add new items to your database and have instant access via Azure Functions.
 
 * **Schemaless**. Azure Cosmos DB is schemaless - so it's uniquely able to handle any data output from an Azure Function. This "handle anything" approach makes it straightforward to create a variety of Functions that all output to Azure Cosmos DB.
 

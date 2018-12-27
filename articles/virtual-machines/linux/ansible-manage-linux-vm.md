@@ -22,7 +22,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 ## Use Ansible to deallocate (stop) an Azure virtual machine
 This section illustrates how to use Ansible to deallocate (stop) an Azure virtual machine
 
-1.  Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1.  Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1.  Open [Cloud Shell](/azure/cloud-shell/overview).
 
@@ -80,7 +80,7 @@ This section illustrates how to use Ansible to deallocate (stop) an Azure virtua
 ## Use Ansible to start a deallocated (stopped) Azure virtual machine
 This section illustrates how to use Ansible to start a deallocated (stopped) Azure virtual machine
 
-1.  Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1.  Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1.  Open [Cloud Shell](/azure/cloud-shell/overview).
 
@@ -136,4 +136,4 @@ This section illustrates how to use Ansible to start a deallocated (stopped) Azu
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Use Ansible to manage your Azure dynamic inventories](/articles/ansible/ansible-manage-azure-dynamic-inventories)
+> [Use Ansible to manage your Azure dynamic inventories](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)

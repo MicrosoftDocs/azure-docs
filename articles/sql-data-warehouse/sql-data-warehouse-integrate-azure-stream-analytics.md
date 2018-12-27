@@ -15,7 +15,7 @@ ms.reviewer: igorstan
 # Use Azure Stream Analytics with SQL Data Warehouse
 Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable complex event processing over streaming data in the cloud. You can learn the basics by reading [Introduction to Azure Stream Analytics][Introduction to Azure Stream Analytics]. You can then learn how to create an end-to-end solution with Stream Analytics by following the [Get started using Azure Stream Analytics][Get started using Azure Stream Analytics] tutorial.
 
-In this article, you will learn how to use your Azure SQL Data Warehouse database as an output sink for your Steam Analytics jobs.
+In this article, you will learn how to use your Azure SQL Data Warehouse database as an output sink for your Stream Analytics jobs.
 
 ## Prerequisites
 First, run through the following steps in the [Get started using Azure Stream Analytics][Get started using Azure Stream Analytics] tutorial.  

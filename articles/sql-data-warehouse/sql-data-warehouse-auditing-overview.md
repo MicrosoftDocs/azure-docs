@@ -146,7 +146,7 @@ There are several methods you can use to view blob auditing logs:
 ### Database-level policy audit logs
 Database-level audit logs are aggregated in a collection of Store Tables with a **SQLDBAuditLogs** prefix in the Azure storage account you chose during setup. You can view log files using a tool such as [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com).
 
-A preconfigured dashboard report template is available as a [downloadable Excel spreadsheet](http://go.microsoft.com/fwlink/?LinkId=403540) to help you quickly analyze log data. To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can [download here](http://www.microsoft.com/download/details.aspx?id=39379).
+A preconfigured dashboard report template is available as a [downloadable Excel spreadsheet](https://go.microsoft.com/fwlink/?LinkId=403540) to help you quickly analyze log data. To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can [download here](https://www.microsoft.com/download/details.aspx?id=39379).
 
 The template has fictional sample data in it, and you can set up Power Query to import your audit log directly from your Azure storage account.
 

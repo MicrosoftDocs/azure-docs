@@ -1,15 +1,15 @@
 ---
-title: VMware/physical server disaster recovery architecture in Azure Site Recovery | Microsoft Docs
-description: This article provides an overview of components and architecture used during disaster recovery of on-premises VMware VMs or physical Windows/Linux servers to a secondary VMware site with Azure Site Recovery
+title: Architecture for VMware/physical server disaster recovery to a secondary site with Azure Site Recovery | Microsoft Docs
+description: This article provides an overview of components and architecture used during disaster recovery of on-premises VMware VMs or physical Windows/Linux servers to a secondary VMware site with Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ---
 
-# VMware VM/Physical server to VMware disaster recovery architecture
+# Architecture for VMware/physical server replication to a secondary on-premises site
 
 This article describes the architecture and processes used when set up disaster recovery replication, failover, and recovery of on-premises VMware virtual machines (VMs) or physical Windows/Linux servers to a secondary VMware site using [Azure Site Recovery](site-recovery-overview.md).
 

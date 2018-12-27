@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
@@ -24,7 +24,10 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 You can copy data from Google BigQuery to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
- Data Factory provides a built-in driver to enable connectivity. Therefore, you don't need to manually install a driver to use this connector.
+Data Factory provides a built-in driver to enable connectivity. Therefore, you don't need to manually install a driver to use this connector.
+
+>[!NOTE]
+>This Google BigQuery connector is built on top of the BigQuery APIs. Be aware that BigQuery limits the maximum rate of incoming requests and enforces appropriate quotas on a per-project basis, refer to [Quotas & Limits - API requests](https://cloud.google.com/bigquery/quotas#api_requests). Make sure you do not trigger too many concurrent requests to the account.
 
 ## Get started
 
@@ -117,7 +120,12 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the Google BigQuery dataset.
 
-To copy data from Google BigQuery, set the type property of the dataset to **GoogleBigQueryObject**. There is no additional type-specific property in this type of dataset.
+To copy data from Google BigQuery, set the type property of the dataset to **GoogleBigQueryObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **GoogleBigQueryObject** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -129,7 +137,8 @@ To copy data from Google BigQuery, set the type property of the dataset to **Goo
         "linkedServiceName": {
             "referenceName": "<GoogleBigQuery linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -145,7 +154,7 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **GoogleBigQuerySource**. | Yes |
-| query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. | Yes |
+| query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
