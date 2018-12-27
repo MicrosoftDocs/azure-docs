@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 # How to debug user-defined functions in Azure Digital Twins
 
-This article summarizes how to diagnose user-defined functions. Then, it identifies some of the most common scenarios encountered when working with them.
+This article summarizes how to diagnose user-defined functions. Then, it identifies some of the most common scenarios likely to be encountered when working with them.
 
 >[!TIP]
 > Read [How to configure monitoring and logging](./how-to-configure-monitoring.md) to learn more about setting up debugging tools in Azure Digital Twins using Activity Logs, Diagnostic Logs, and Azure Monitor.
@@ -27,7 +27,7 @@ Knowing how to diagnose any issues that arise within your Azure Digital Twins in
 Logs and metrics for your Azure Digital Twins instance are exposed through Azure Monitor. The following documentation assumes you have created an [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) workspace through the [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), through [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), or through [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
-> You may experience a 5 minute delay when sending events to Azure Log Analytic for the first time.
+> You may experience a 5 minute delay when sending events to Azure Log Analytics for the first time.
 
 To configure monitoring and logging for Azure Digital Twins resources, read [How to configure monitoring and logging](./how-to-configure-monitoring.md).
 
@@ -64,7 +64,7 @@ For more information about powerful query operations, read [Getting started with
 
 ## Identify common issues
 
-Both diagnosing and identifying common issues are important when troubleshooting your solution. Several Common issues encountered when developing user-defined functions are summarized below.
+Both diagnosing and identifying common issues are important when troubleshooting your solution. Several issues that are commonly encountered when developing user-defined functions are summarized below.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
