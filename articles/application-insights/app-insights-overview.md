@@ -59,7 +59,7 @@ There are plenty of ways to explore your data. Check out these articles:
 | [**Application map**](../azure-monitor/app/app-map.md)<br/>The components of your app, with key metrics and alerts. |![Application map](./media/app-insights-overview/appmap-tn.png)  |
 | [**Profiler**](app-insights-profiler.md)<br/>Inspect the execution profiles of sampled requests. |![Profiler](./media/app-insights-overview/profiler.png) |
 | [**Usage analysis**](app-insights-usage-overview.md)<br/>Analyze user segmentation and retention.|![Retention tool](./media/app-insights-overview/retention.png) |
-| [**Diagnostic search for instance data**](app-insights-diagnostic-search.md)<br/>Search and filter events such as requests, exceptions, dependency calls, log traces, and page views.  |![Search telemetry](./media/app-insights-overview/search-tn.png) |
+| [**Diagnostic search for instance data**](../azure-monitor/app/diagnostic-search.md)<br/>Search and filter events such as requests, exceptions, dependency calls, log traces, and page views.  |![Search telemetry](./media/app-insights-overview/search-tn.png) |
 | [**Metrics Explorer for aggregated data**](app-insights-metrics-explorer.md)<br/>Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times. |![Metrics](./media/app-insights-overview/metrics-tn.png) |
 | [**Dashboards**](../azure-monitor/app/app-insights-dashboards.md#dashboards)<br/>Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room. |![Dashboards sample](./media/app-insights-overview/dashboard-tn.png) |
 | [**Live Metrics Stream**](app-insights-live-stream.md)<br/>When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected. |![Live metrics sample](./media/app-insights-overview/live-metrics-tn.png) |
@@ -146,7 +146,7 @@ Get started at development time with:
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
-[detect]: app-insights-detect-triage-diagnose.md
+[detect]: ../azure-monitor/app/detect-triage-diagnose.md
 [greenbrown]: ../azure-monitor/app/asp-net.md
 [ios]: app-insights-mobile-center-quickstart.md
 [java]: app-insights-java-get-started.md
