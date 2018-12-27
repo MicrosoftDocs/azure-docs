@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with GTNexus SSO Module | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and GTNexus SSO Module.
+title: 'Tutorial: Azure Active Directory integration with GT Nexus Test System | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and GT Nexus Test System.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,13 +17,13 @@ ms.date: 12/24/2018
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with GTNexus SSO Module
+# Tutorial: Azure Active Directory integration with GT Nexus Test System
 
-In this tutorial, you learn how to integrate GTNexus SSO Module with Azure Active Directory (Azure AD).
-Integrating GTNexus SSO Module with Azure AD provides you with the following benefits:
+In this tutorial, you learn how to integrate GT Nexus Test System with Azure Active Directory (Azure AD).
+Integrating GT Nexus Test System with Azure AD provides you with the following benefits:
 
-* You can control in Azure AD who has access to GTNexus SSO Module.
-* You can enable your users to be automatically signed-in to GTNexus SSO Module (Single Sign-On) with their Azure AD accounts.
+* You can control in Azure AD who has access to GT Nexus Test System.
+* You can enable your users to be automatically signed-in to GT Nexus Test System (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -31,22 +31,22 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To configure Azure AD integration with GTNexus SSO Module, you need the following items:
+To configure Azure AD integration with GT Nexus Test System, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* GTNexus SSO Module single sign-on enabled subscription
+* GT Nexus Test System single sign-on enabled subscription
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* GTNexus SSO Module supports **IDP** initiated SSO
+* GT Nexus Test System supports **IDP** initiated SSO
 
-## Adding GTNexus SSO Module from the gallery
+## Adding GT Nexus Test System from the gallery
 
-To configure the integration of GTNexus SSO Module into Azure AD, you need to add GTNexus SSO Module from the gallery to your list of managed SaaS apps.
+To configure the integration of GT Nexus Test System into Azure AD, you need to add GT Nexus Test System from the gallery to your list of managed SaaS apps.
 
-**To add GTNexus SSO Module from the gallery, perform the following steps:**
+**To add GT Nexus Test System from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
@@ -60,21 +60,21 @@ To configure the integration of GTNexus SSO Module into Azure AD, you need to ad
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **GTNexus SSO Module**, select **GTNexus SSO Module** from result panel then click **Add** button to add the application.
+4. In the search box, type **GT Nexus Test System**, select **GT Nexus Test System** from result panel then click **Add** button to add the application.
 
-	 ![GTNexus SSO Module in the results list](common/search-new-app.png)
+	 ![GT Nexus Test System in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with GTNexus SSO Module based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in GTNexus SSO Module needs to be established.
+In this section, you configure and test Azure AD single sign-on with GT Nexus Test System based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in GT Nexus Test System needs to be established.
 
-To configure and test Azure AD single sign-on with GTNexus SSO Module, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with GT Nexus Test System, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure GTNexus SSO Module Single Sign-On](#configure-gtnexus-sso-module-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure GT Nexus Test System Single Sign-On](#configure-gt-nexus-test-system-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create GTNexus SSO Module test user](#create-gtnexus-sso-module-test-user)** - to have a counterpart of Britta Simon in GTNexus SSO Module that is linked to the Azure AD representation of user.
+4. **[Create GT Nexus Test System test user](#create-gt-nexus-test-system-test-user)** - to have a counterpart of Britta Simon in GT Nexus Test System that is linked to the Azure AD representation of user.
 5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
@@ -82,9 +82,9 @@ To configure and test Azure AD single sign-on with GTNexus SSO Module, you need 
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
-To configure Azure AD single sign-on with GTNexus SSO Module, perform the following steps:
+To configure Azure AD single sign-on with GT Nexus Test System, perform the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **GTNexus SSO Module** application integration page, select **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **GT Nexus Test System** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on link](common/select-sso.png)
 
@@ -106,7 +106,7 @@ To configure Azure AD single sign-on with GTNexus SSO Module, perform the follow
 
 	![image](common/browse-upload-metadata.png)
 
-	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in GTNexus SSO Module section textbox:
+	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in GT Nexus Test System section textbox:
 
 	![image](common/idp-intiated.png)
 
@@ -117,9 +117,9 @@ To configure Azure AD single sign-on with GTNexus SSO Module, perform the follow
 
 	![The Certificate download link](common/metadataxml.png)
 
-### Configure GTNexus SSO Module Single Sign-On
+### Configure GT Nexus Test System Single Sign-On
 
-To configure single sign-on on **GTNexus SSO Module** side, you need to send the **Federation Metadata XML** to [GTNexus SSO Module support team](mailto:support@gtnexus.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **GT Nexus Test System** side, you need to send the **Federation Metadata XML** to [GT Nexus Test System support team](mailto:support@gtnexus.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -148,15 +148,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to GTNexus SSO Module.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to GT Nexus Test System.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **GTNexus SSO Module**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **GT Nexus Test System**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **GTNexus SSO Module**.
+2. In the applications list, select **GT Nexus Test System**.
 
-	![The GTNexus SSO Module link in the Applications list](common/all-applications.png)
+	![The GT Nexus Test System link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -172,15 +172,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
-### Create GTNexus SSO Module test user
+### Create GT Nexus Test System test user
 
-In this section, you create a user called Britta Simon in GTNexus SSO Module. Work with [GTNexus SSO Module support team](mailto:support@gtnexus.com) to add the users in the GTNexus SSO Module platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in GT Nexus Test System. Work with [GT Nexus Test System support team](mailto:support@gtnexus.com) to add the users in the GT Nexus Test System platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the GTNexus SSO Module tile in the Access Panel, you should be automatically signed in to the GTNexus SSO Module for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the GT Nexus Test System tile in the Access Panel, you should be automatically signed in to the GT Nexus Test System for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional Resources
 
