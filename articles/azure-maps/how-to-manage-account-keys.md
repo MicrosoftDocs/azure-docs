@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Manage keys on the account page
 
-After you create an account, you get two randomly generated keys. You use the keys to authenticate against the Azure Maps APIs when you want to retrieve map data or create a new JavaScript map instance.
+After you create an account, you get two randomly generated keys. To retrieve map data or create a new JavaScript map instance, use the keys to authenticate against the Azure Maps APIs.
 
 You can find your keys in the Azure portal. Navigate to your account. Then select **Keys** from the menu.
 

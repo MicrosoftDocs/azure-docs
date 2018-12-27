@@ -44,7 +44,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html).
 2. Save the contents of this file locally as **AzureMapDemo.html**. Open it in a text editor.
-3. Search for the string `<insert-key>`. Replace it with the **Primary Key** value obtained in the preceding section.
+3. Search for the string `<insert-key>`. Replace it with the **Primary Key** value from the preceding section.
 
 ## Open the application
 
@@ -58,7 +58,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Clean up resources
 
-The tutorials go into detail about how to use and configure Azure Maps with your account. If you plan to continue to the tutorials, don't clean up the resources created in this quickstart. If you don't plan to continue, use the following steps to delete all resources created by this quickstart:
+The tutorials detail how to use and configure Azure Maps with your account. If you plan to continue to the tutorials, don't clean up the resources created in this quickstart. Take these steps to clean up the resources if you don't plan to continue:
 
 1. Close the browser that runs the **AzureMapDemo.html** web application.
 2. From the left menu in the Azure portal, select **All resources**. Then select your Azure Maps account. At the top of the **All resources** blade, select **Delete**.
