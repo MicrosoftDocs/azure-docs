@@ -113,13 +113,13 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://trello.com/auth/saml/login/<enterprise>`.
-
     ![Trello Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
+	In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://trello.com/auth/saml/login/<enterprise>`
+
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Trello Client support team](https://trello.com/sso-configuration) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Trello Client support team](mailto:support@trello.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. Trello application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
@@ -167,7 +167,7 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 ### Configure Trello Single Sign-On
 
-To configure single sign-on on **Trello** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Trello support team](https://trello.com/sso-configuration). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Trello** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Trello support team](mailto:support@trello.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
