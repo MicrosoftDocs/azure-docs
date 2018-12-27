@@ -151,7 +151,8 @@ No, when you [failover](https://docs.microsoft.com/azure/site-recovery/azure-to-
 ### At the time of reprotection does Site Recovery replicate complete data from secondary region to primary region?
 It depends on the situation, for example if the source region VM exist then only changes between the source disk and the target disk are synchronized. The differentials are computed by comparing both the disks and then transferred. This usually take a few hours to complete. Refer [article]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) to learn details about what happens during reprotection.
 
-### How much time does it take t 
+### How much time does it take to failback?
+Once reprotection is done then usually its the amount of time similar to failover from primary region to secondary  region. 
 
 ## Next steps
 * [Review](azure-to-azure-support-matrix.md) support requirements.
