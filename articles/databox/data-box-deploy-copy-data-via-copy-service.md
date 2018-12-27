@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 12/28/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -46,13 +46,13 @@ To copy data using data copy service, you need to create a job. Follow these ste
     |Field                          |Value    |
     |-------------------------------|---------|
     |Job name                       |A unique name for the job.         |
-    |Source location                |Provide the SMB path to the data source in the format: `\\<DeviceIPAddress>\<DriveLetter>`.        |
+    |Source location                |Provide the SMB path to the data source in the format: `\\<DeviceIPAddress>\<ShareName>`.        |
     |Username                       |Username to access the data source. Source credentials are stored encrypted for the entire lifetime of the job.        |
     |Password                       |Password to access the data source. Source credentials are stored encrypted for the entire lifetime of the job.          |
     |Destination storage account    |Select the target storage account to upload data to from the dropdown list.         |
     |Destination storage type       |Select the target storage type from block blob, page blob, or Azure Files.        |
-    |Destination container/share    |Enter the name of the container to upload data in your destination storage account.        |
-    |Copy files matching pattern    |         |
+    |Destination container/share    |Enter the name of the container to upload data in your destination storage account. The name can be of form share name or container name. For example, `myshare` or `mycontainer`. You can also enter in the folrmat `sharename\virtual_directoryname` or `containername\virtual_dir_name` in cloud.        |
+    |Copy files matching pattern    | File name matching pattern can be provided in the following two ways.<br><li>**Using wildcard expressions** Only `“*”` and `“?”` are supported in wildcard expressions. For example, this expression ``“*.vhd”`` will match all the files that have .vhd extension. Similarly, `“*.dl?”` will match all the files whose extension is either `.dl` or `.dll`. Also, `“*foo”` will match all the files whose names end with `“foo”`.<br>You can directly enter wildcard expression enclosed within double quotes in the field. <br>By default, value entered in the field is treated as wildcard expression.</li><li>**Using regular expressions** - POSIX-based regular expressions are supported. For example, a regular expression `“.*\.vhd”` will match all the files that have `.vhd` extension.<br>Enter regular expression as `regex(<pattern>)` where `<pattern>` is a regular expression enclosed within double quotes. |
     |File optimization              |When enabled, the files are packed at the ingest. This speeds up the data copy for small files.        |
  
 4. Click **Configure and start**. The inputs are validated and if the validation succeeds, then a job is started. It takes a few minutes for the job to start.
@@ -60,13 +60,14 @@ To copy data using data copy service, you need to create a job. Follow these ste
     
     - You can pause this job if it is impacting the NAS resources during the peak hours. The admin can resume the job later.  
     
-    - You can also cancel a job at any time. A confirmation is required when you cancel a job.
+    - You can also cancel a job at any time. A confirmation is required when you cancel a job. If you decide to cancel a job, the data that is already copied is not cleared. To wipe out any data that you have copied on your Data Box, reset the device.
 
     - You can restart a job if it has stopped abruptly due to a transient error such as a network glitch. You can't restart a job if it has reached a terminal state such as completed successfully or completed with errors. The failures could be due to file naming or file size issues. These errors are logged but the job can't be restarted once it has completed.
     
-    > [!IMPORTANT] 
-    > - If you decide to cancel a job, the data that is already copied is not cleared. To wipe out any data that you have copied on your Data Box, reset the device.
-    > - In this release, you cannot delete a job.
+    - In this release, you cannot delete a job.
+    
+    - Unlimited jobs can be created but a maximum of 25 jobs can run simultaneously at any given time.  
+    
 6. Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the error files for troubleshooting.
 
 To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
