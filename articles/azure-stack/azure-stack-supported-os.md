@@ -73,5 +73,5 @@ For Red Hat Enterprise Linux support information, see [Red Hat and Azure Stack: 
 
 For more information about the Azure Stack Marketplace, see the following articles:
 
-[Download Marketplace items](azure-stack-download-azure-marketplace-item.md)  
-[Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
+- [Download Marketplace items](azure-stack-download-azure-marketplace-item.md)  
+- [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
