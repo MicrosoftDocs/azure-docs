@@ -72,11 +72,12 @@ If you chose to install RStudio Server Community Edition as part of your HDInsig
 
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
-* **Option 2** - Open the ML Services cluster in the Azure portal, under **Quick links** click **ML Services Dashboards**.
-
-     ![Set the storage account settings for HDInsight](./media/r-server-get-started/dashboard-quick-links.png)
-
-    From **Cluster Dashboards**, click **R Studio Server**.
+* **Option 2** - Use the Azure portal.
+From the portal:
+  1. Select **All services** from the left menu.
+  2. Under **ANALYTICS**, select **HDInsight clusters**.
+  3. Select your cluster name from the **HDInsight clusters** page.
+  4. From **ML Services dashboards**, select **R Studio server**. 
 
     ![Set the storage account settings for HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
 
@@ -219,7 +220,7 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 ## Next steps
 
-In this article you learned how to create a new ML Services cluster in Azure HDInsight and the basics of using the R console from an SSH session. The following articles explain other ways of managing and working with ML Services on HDInsight:
+In this article, you learned how to create a new ML Services cluster in Azure HDInsight and the basics of using the R console from an SSH session. The following articles explain other ways of managing and working with ML Services on HDInsight:
 
 * [Submit jobs from R Tools for Visual Studio](r-server-submit-jobs-r-tools-vs.md)
 * [Manage ML Services cluster on HDInsight](r-server-hdinsight-manage.md)
