@@ -1,6 +1,6 @@
 ---
-title: Checking for pool and node errors - Azure Batch
-description: Errors to check for and how to avoid when creating pools and nodes
+title: Check for pool and node errors - Azure Batch
+description: Errors to check for and how to avoid them when creating pools and nodes
 services: batch
 author: mscurrell
 ms.author: markscu
@@ -8,9 +8,9 @@ ms.date: 9/25/2018
 ms.topic: conceptual
 ---
 
-# Checking for pool and node errors
+# Check for pool and node errors
 
-When creating and managing Azure Batch pools, some operations happen immediately. However some operations are asynchronous and run in the background. They might take several minutes to complete.
+When you're creating and managing Azure Batch pools, some operations happen immediately. However, some operations are asynchronous and run in the background. They might take several minutes to complete.
 
 Detecting failures for operations that take place immediately is straightforward because any failures are returned immediately by the API, CLI, or UI.
 
@@ -28,9 +28,9 @@ Common causes for resize timeouts include:
 
 - Resize timeout is too short
   - Under most circumstances, the default timeout of 15 minutes is long enough for pool nodes to be allocated or removed.
-  - If you're allocating a large number of nodes, we recommend setting the resize timeout to 30 minutes. For example, when you're resizing to more than 1000 nodes from a Marketplace image, or to more than 300 nodes from a custom VM image.
+  - If you're allocating a large number of nodes, we recommend setting the resize timeout to 30 minutes. For example, when you're resizing to more than 1,000 nodes from an Azure Marketplace image, or to more than 300 nodes from a custom VM image.
 - Insufficient core quota
-  - A batch account is limited in the number of cores that it can allocate across all pools. Batch stops allocating nodes once that quota has been reached. You [can increase](https://docs.microsoft.com/azure/batch/batch-quota-limit) the core quota so that Batch can allocate more nodes.
+  - A Batch account is limited in the number of cores that it can allocate across all pools. Batch stops allocating nodes once that quota has been reached. You [can increase](https://docs.microsoft.com/azure/batch/batch-quota-limit) the core quota so that Batch can allocate more nodes.
 - Insufficient subnet IPs when a [pool is in a virtual network](https://docs.microsoft.com/azure/batch/batch-virtual-network)
   - A virtual network subnet must have enough unassigned IP addresses to allocate to every requested pool node. Otherwise, the nodes can't be created.
 - Insufficient resources when a [pool is in a virtual network](https://docs.microsoft.com/azure/batch/batch-virtual-network)
@@ -52,9 +52,9 @@ The [pool resize complete event](https://docs.microsoft.com/azure/batch/batch-po
 
 ### Delete
 
-When you delete a pool that contains nodes, first Batch deletes the nodes are and then it deletes the pool object itself. It can take a few minutes for the pool nodes to be deleted.
+When you delete a pool that contains nodes, first Batch deletes the nodes. Then it deletes the pool object itself. It can take a few minutes for the pool nodes to be deleted.
 
-Batch sets the [pool state](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) to 'deleting' during the delete process. The calling application can detect if the pool delete is taking too long by using the 'state' and 'stateTransitionTime' properties.
+Batch sets the [pool state](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) to **deleting** during the deletion process. The calling application can detect if the pool deletion is taking too long by using the **state** and **stateTransitionTime** properties.
 
 ## Pool compute node errors
 
@@ -62,13 +62,13 @@ Even when Batch successfully allocates nodes in a pool, various issues can cause
 
 ### Start task failure
 
-You might want to specify an optional [start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) for a pool. As with any task, you can use a command line and resource files to download from storage. The start task is run for each node after it's been started. The 'waitForSuccess' property specifies whether Batch waits until the start task completes successfully before it schedules any tasks to a node.
+You might want to specify an optional [start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) for a pool. As with any task, you can use a command line and resource files to download from storage. The start task is run for each node after it's been started. The **waitForSuccess** property specifies whether Batch waits until the start task completes successfully before it schedules any tasks to a node.
 
 What if you've configured the node to wait for successful start task completion, but the start task fails? In that case, the node is unusable but still incurs charges.
 
 You can detect start task failures by using the [result](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) and  [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) properties of the top-level [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) node property.
 
-A failed start task also causes Batch to set the node [state](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) to 'starttaskfailed' if you'd set 'waitForSuccess' to 'true'.
+A failed start task also causes Batch to set the node [state](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) to **starttaskfailed** if you'd set **waitForSuccess** to **true**.
 
 As with any task, there can be many causes for the start task failing.  To troubleshoot, check the stdout, stderr, and any further task-specific log files.
 
@@ -76,24 +76,24 @@ As with any task, there can be many causes for the start task failing.  To troub
 
 You can specify one or more application packages for a pool. Batch downloads the specified package files to each node and uncompresses the files after the node has started but before tasks are scheduled. It's common to use a start task command line in conjunction with application packages. For example, to copy files to a different location or to run setup.
 
- The node [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) property reports a failure to download and uncompress an application package. Batch sets the node state to 'unusable'.
+The node [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) property reports a failure to download and uncompress an application package. Batch sets the node state to **unusable**.
 
 ### Node in unusable state
 
-Azure Batch might set the [node state](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) to 'unusable' for many reasons. With the node state set to 'unusable', tasks can't be scheduled to the node, but it still incurs charges.
+Azure Batch might set the [node state](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) to **unusable** for many reasons. With the node state set to **unusable**, tasks can't be scheduled to the node, but it still incurs charges.
 
 Batch always tries to recover unusable nodes, but recovery may or may not be possible depending on the cause.
 
 If Batch can determine the cause, the node [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) property reports it.
 
-Additional examples of causes for 'unusable' nodes include:
+Additional examples of causes for **unusable** nodes include:
 
-- An invalid custom VM image. For example, an image that's not properly prepared.
+- A custom VM image is invalid. For example, an image that's not properly prepared.
 - A VM is moved because of an infrastructure failure or a low-level upgrade. Batch recovers the node.
 
 ### Node agent log files
 
-The Batch agent process that runs on each pool node can provide log files which might be helpful if you need to contact support about a pool node issue. Log files for a node can be uploaded via the Azure portal, Batch Explorer, or an [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs). It's useful to upload and save the log files. Afterwards, you can delete the node or pool to save the cost of the running nodes.
+The Batch agent process that runs on each pool node can provide log files which might be helpful if you need to contact support about a pool node issue. Log files for a node can be uploaded via the Azure portal, Batch Explorer, or an [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs). It's useful to upload and save the log files. Afterward, you can delete the node or pool to save the cost of the running nodes.
 
 ## Next steps
 
