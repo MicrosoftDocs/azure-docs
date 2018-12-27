@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 4. Enter the information for your new account.
 
-    ![Enter account information in the portal](./media/how-to-manage-account-keys/new-account-portal.png)
+![Enter account information in the portal](./media/how-to-manage-account-keys/new-account-portal.png)
 
 ## Manage keys on the account page
 
@@ -48,6 +48,10 @@ You then see a confirmation page. You can confirm the deletion of your account b
 
 ## Next steps
 
-* Learn how to [manage an Azure Maps account pricing tier](./how-to-manage-pricing-tier.md).
+* Learn how to manage an Azure Maps account pricing tier:
+    > [!div class="nextstepaction"]	
+    > [Manage a pricing tier](./how-to-manage-pricing-tier.md)
 
-* Learn how to [view the API usage metrics for your Azure Maps account](./how-to-view-api-usage.md).
+* Learn how to see the API usage metrics for your Azure Maps account:
+    > [!div class="nextstepaction"]	
+    > [View usage metrics](./how-to-view-api-usage.md)

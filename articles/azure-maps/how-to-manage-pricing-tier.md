@@ -14,7 +14,7 @@ manager: timlt
 
 You can manage the pricing tier of your Azure Maps account through the Azure portal. After you create an [account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), you can view or change your account's pricing tier.
 
-For more information about choosing the right pricing tier, see [Choose the right pricing tier in Azure Maps](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier).
+Get more information about [choosing the right pricing tier in Azure Maps](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier).
 
 ## View your pricing tier
 

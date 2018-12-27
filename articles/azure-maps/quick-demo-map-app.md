@@ -49,7 +49,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 ## Open the application
 
 1. Open the file **AzureMapDemo.html** in a browser of your choice.
-2. Observe the map shown of the city of Los Angeles. Zoom in and out to see how the map automatically renders with more or less information depending on the zoom level. 
+2. Observe the map shown of the City of Los Angeles. Zoom in and out to see how the map automatically renders with more or less information depending on the zoom level. 
 3. Change the default center of the map. In the **AzureMapDemo.html** file, search for the variable named **center**. Replace the longitude, latitude pair value for this variable with the new values **[-74.0060, 40.7128]**. Save the file and refresh your browser.
 4. Try out the interactive search experience. In the search box on the upper-left corner of the demo web application, search for **restaurants**.
 5. Move your mouse over the list of addresses and locations that appear below the search box. Notice how the corresponding pin on the map pops out information about that location. For privacy of private businesses, fictitious names and addresses are shown.
