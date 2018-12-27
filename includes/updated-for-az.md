@@ -12,7 +12,7 @@ ms.topic: include
 > PowerShell versions 5.x and 6. AzureRM will continue to get critical bugfix updates, but 
 > new features will be in the Az module only.
 >
-> * To learn more about the Az module and continued support for AzureRM module,
+> * To learn more about the Az module and continued support for the AzureRM module,
 >   see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 > * The Az module is already available on Cloud Shell, with AzureRM compatibility automatically enabled.
 >   For instructions on installing the Az module, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
