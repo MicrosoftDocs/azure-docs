@@ -13,7 +13,7 @@ ms.author: alkohli
 ---
 # Tutorial: Use Data copy service to copy data to Azure Data Box
 
-This tutorial describes how to ingest data using the data copy service without the need of an intermediate host (for data copy). The data copy service is useful in the network-attached storage (NAS) environments where the intermediate hosts may not be available. The data copy service runs locally on the Data Box, connects to your NAS device via SMB, and copies data to Data Box.
+This tutorial describes how to ingest data using the data copy service without the need of an intermediate host. The data copy service is useful in the network-attached storage (NAS) environments where the intermediate hosts may not be available. The data copy service runs locally on the Data Box, connects to your NAS device via SMB, and copies data to Data Box.
 
 In this tutorial, you learn how to:
 
@@ -27,7 +27,7 @@ Before you begin, make sure that:
 
 1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
 2. You've received your Data Box and the order status in the portal is **Delivered**.
-3. You have the credentails of the source NAS device that you connect to for data copy.
+3. You have the credentials of the source NAS device that you connect to for data copy.
 4. You are connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds will be impacted. 
 
 ## Copy data to Data Box
