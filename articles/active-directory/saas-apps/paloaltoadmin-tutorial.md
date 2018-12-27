@@ -42,7 +42,6 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * Palo Alto Networks - Admin UI supports **SP** initiated SSO
 * Palo Alto Networks - Admin UI supports **Just In Time** user provisioning
-* Palo Alto Networks - Admin UI supports [**Automated** user provisioning]()
 
 ## Adding Palo Alto Networks - Admin UI from the gallery
 
@@ -153,11 +152,11 @@ To configure Azure AD single sign-on with Palo Alto Networks - Admin UI, perform
     > * [Administrative role profile for Admin UI (adminrole)](https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile)
     > * [Device access domain for Admin UI (accessdomain)](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain)
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
-6. On the **Set up Palo Alto Networks - Admin UI** section, copy the appropriate URL(s) as per your requirement.
+8. On the **Set up Palo Alto Networks - Admin UI** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -207,7 +206,7 @@ To configure Azure AD single sign-on with Palo Alto Networks - Admin UI, perform
 
 7. On the Palo Alto Networks Firewall's Admin UI, select **Device**, and then select **Admin Roles**.
 
-8. Select the **Add** button. 
+8. Select the **Add** button.
 
 9. In the **Admin Role Profile** window, in the **Name** box, provide a name for the administrator role (for example, **fwadmin**). The administrator role name should match the SAML Admin Role attribute name that was sent by the Identity Provider. The administrator role name and value were created in **User Attributes** section in the Azure portal.
 
@@ -215,7 +214,7 @@ To configure Azure AD single sign-on with Palo Alto Networks - Admin UI, perform
   
 10. On the Firewall's Admin UI, select **Device**, and then select **Authentication Profile**.
 
-11. Select the **Add** button. 
+11. Select the **Add** button.
 
 12. In the **Authentication Profile** window, do the following: 
 
@@ -320,4 +319,3 @@ When you click the Palo Alto Networks - Admin UI tile in the Access Panel, you s
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
