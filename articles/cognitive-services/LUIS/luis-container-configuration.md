@@ -30,7 +30,7 @@ Container settings are [hierarchical](#hierarchical-settings) and can be set wit
 
 The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Language Understanding_ resource specified for the [`Billing`](#billing-setting) configuration setting.
 
-This setting can be found in two places:
+This setting can be found in the following places:
 
 * Azure portal: **Language Understanding's** Resource Management, under **Keys**
 * LUIS portal: **Keys and Endpoint settings** page. 
@@ -45,7 +45,7 @@ Do not use the starter key or the authoring key.
 
 The `Billing` setting specifies the endpoint URI of the _Language Understanding_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Language Understanding_ resource on Azure.
 
-This setting can be found in two places:
+This setting can be found in the following places:
 
 * Azure portal: **Language Understanding's** Overview, labeled `Endpoint`
 * LUIS portal: **Keys and Endpoint settings** page, as part of the endpoint URI.
@@ -62,8 +62,6 @@ This setting can be found in two places:
 
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
-
-
 
 ## Logging settings
  
