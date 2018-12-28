@@ -16,9 +16,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
+
+ROBOTS: NOINDEX
+
 ---
 
 # Migrate to the updated Batch AI API
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 In the Batch AI REST API version 2018-05-01 and related Batch AI SDKs and tools, significant changes and new features have been introduced.
 

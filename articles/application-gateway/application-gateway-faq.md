@@ -45,7 +45,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ### What resources are supported today as part of backend pool?
 
-Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure Web Apps. Application Gateway backend pool members are not tied to an availability set. Members of backend pools can be across clusters, data centers, or outside of Azure as long as they have IP connectivity.
+Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. Application Gateway backend pool members are not tied to an availability set. Members of backend pools can be across clusters, data centers, or outside of Azure as long as they have IP connectivity.
 
 ### What regions is the service available in?
 
@@ -99,6 +99,8 @@ Application Gateway also inserts X-Original-Host header that contains the origin
 New Application Gateway v1 SKU deployments can take up to 20 minutes to provision. Changes to instance size/count are not disruptive, and the gateway remains active during this time.
 
 V2 SKU deployments can take about five to six minutes to provision.
+
+Does Application Gateway support x-forwarded-for headers?
 
 ## Configuration
 

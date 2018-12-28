@@ -100,7 +100,11 @@
       - name: As a CSP create and manage an application
         href: howto-create-and-manage-applications-as-CSP.md
       - name: Configure homepage
-        href: howto-configure-homepage.md         
+        href: howto-configure-homepage.md     
+  - name : Personalization
+    items:
+      - name: Manage your preferences
+        href: howto-manage-preferences.md      
 - name: Related
   items:
   - name: Solutions

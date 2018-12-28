@@ -4,17 +4,17 @@ description: Learn about the status of the migration scenarios supported by the 
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: 
-ms.reviewer: 
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 12/19/2018
 ---
 
 # Status of migration scenarios supported by the Azure Database Migration Service
-The Azure Database Migration Service is designed to support a variety of migration scenarios (source/target pairs) for both offline (one-time) and online (continuous sync) migrations. The scenario coverage provided by the Azure Database Migration Service is being extended over time. New scenarios are being added on a regular basis. This article identifies the migration scenarios currently supported by the Azure Database Migration Service and the status (Private Preview, Public Preview, or Generally Available) or each scenario.
+The Azure Database Migration Service is designed to support a variety of migration scenarios (source/target pairs) for both offline (one-time) and online (continuous sync) migrations. The scenario coverage provided by the Azure Database Migration Service is being extended over time. New scenarios are being added on a regular basis. This article identifies the migration scenarios currently supported by the Azure Database Migration Service and the status (Private [or Limited] Preview, Public Preview, or Generally Available) or each scenario.
 
 ## Offline versus online migrations
 When you migrate databases to Azure by using the Azure Database Migration Service, you can perform an offline or an online migration. With *offline* migrations, application downtime begins at the same time that the migration starts. For *online* migrations, downtime is limited to the time required to cut over to the new environment when the migration completes. It's recommended to test an offline migration to determine whether the downtime is acceptable; if not, perform an online migration.

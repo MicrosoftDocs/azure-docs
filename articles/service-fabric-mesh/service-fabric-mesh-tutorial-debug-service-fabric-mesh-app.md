@@ -89,8 +89,8 @@ If you get build errors in **service.yaml**, make sure that spaces, not tabs, ar
 ### Debug in Visual Studio
 
 When you debug a Service Fabric Mesh application in Visual Studio, you're using a local Service Fabric development cluster. To see how to-do items are retrieved from the back-end service, debug into the OnGet() method.
-1. In the **WebFrontEnd** project, open **Pages** > **Index.cshtml** > **Index.cshtml.cs** and set a breakpoint in the **Get** method (line 17).
-2. In the **ToDoService** project, open **TodoController.cs** and set a breakpoint in the **OnGet** method (line 15).
+1. In the **WebFrontEnd** project, open **Pages** > **Index.cshtml** > **Index.cshtml.cs** and set a breakpoint in the **OnGet** method (line 17).
+2. In the **ToDoService** project, open **TodoController.cs** and set a breakpoint in the **Get** method (line 15).
 3. Go back to the browser and refresh the page. You hit the  breakpoint in the web front-end `OnGet()` method. You can inspect the `backendUrl` variable to see how the environment variables that you defined in the **service.yaml** file are combined into the URL used to contact the back-end service.
 4. Step over (F10) the `client.GetAsync(backendUrl).GetAwaiter().GetResult())` call and you'll hit the controller's `Get()` breakpoint. In this method, you can see how the list of to-do items is retrieved from the in-memory list.
 5. When you're done, stop debugging your project in Visual Studio by pressing **Shift+F5**.

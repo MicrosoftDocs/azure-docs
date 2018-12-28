@@ -11,9 +11,10 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
 
-# Detecting color schemes
+# Detect color schemes in images
 
 Computer Vision extracts colors from an image. The colors are then analyzed in three different contexts: the dominant foreground color, the dominant background color, and the dominant colors for the image as a whole. They are grouped into 12 dominant accent colors. Those accent colors are black, blue, brown, gray, green, orange, pink, purple, red, teal, white, and yellow. Computer Vision analyzes the colors extracted from an image to return an accent color that represents the most vibrant color for the image to viewers, through a combination of dominant colors and saturation. Depending on the colors in an image, simple black and white or accent colors may be returned in hexadecimal color codes. Computer Vision also returns a boolean value that indicates whether an image is black & white.
 
@@ -47,8 +48,8 @@ The following table describes the dominant foreground, background, and image col
 
 | Image | Dominant colors |
 |-------|-----------------|
-|![Vision Analyze Flower](./Images/flower.png)| Foreground: Black<br/>Background: White<br/>Colors: Black, White, Green|
-![Vision Analyze Train Station](./Images/train_station.png) | Foreground: Black<br/>Background: Black<br/>Colors: Black |
+|![A white flower with a green background](./Images/flower.png)| Foreground: Black<br/>Background: White<br/>Colors: Black, White, Green|
+![A train running through a station](./Images/train_station.png) | Foreground: Black<br/>Background: Black<br/>Colors: Black |
 
 ### Accent color examples
 
@@ -56,9 +57,9 @@ The following table describes the dominant foreground, background, and image col
 
 | Image | Accent color |
 |-------|--------------|
-|![Outdoor Mountain](./Images/mountain_vista.png) | #BB6D10 |
-|![Vision Analyze Flower](./Images/flower.png) | #C6A205 |
-|![Vision Analyze Train Station](./Images/train_station.png) | #474A84 |
+|![A person standing on a mountain rock at sunset](./Images/mountain_vista.png) | #BB6D10 |
+|![A white flower with a green background](./Images/flower.png) | #C6A205 |
+|![A train running through a station](./Images/train_station.png) | #474A84 |
 
 ### Black & white detection examples
 
@@ -66,8 +67,8 @@ The following table indicates whether each example image is black & white, as re
 
 | Image | Black & white? |
 |-------|----------------|
-|![Vision Analyze Building](./Images/bw_buildings.png) | true |
-|![Vision Analyze House Yard](./Images/house_yard.png) | false |
+|![A black and white picture of buildings in Manhattan](./Images/bw_buildings.png) | true |
+|![A blue house and the front yard](./Images/house_yard.png) | false |
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 12/04/2018
+ms.date: 12/12/2018
 ms.custom: seodec18
 
 ---
@@ -49,14 +49,22 @@ You can inspect the logged run information, which contains metrics gathered duri
 
 ## Model explainability
 
-A common pitfall of automated machine learning is an inability to see the end-to-end process. Azure Machine Learning allows you to view detailed information about the models to increase transparency into what's running on the back-end. Output shows overall feature importance in model tuning, ranking the results by the features that influenced your model the most. Additionally, for classification problems you can see the per-class feature importance and ranking.
+A common pitfall of automated machine learning is an inability to see the end-to-end process. Azure Machine Learning allows you to view detailed information about the models to increase transparency into what's running on the back-end. Some models, like linear regression, are considered to be fairly straightforward and therefore easy to understand. But as we add more features and use more complicated machine learning models, understanding them gets more and more difficult. There are two key aspects to transparency in machine learning:
+
+1. Awareness of the machine learning pipeline and all the steps involved including data preprocessing/featurization, and hyperparameter values.
+1. Understanding the relationship between input variables (also known as “features”) and model output.  Knowing both the magnitude and direction of the impact of each feature on the predicted value helps better understand and explain the model. This is known as feature importance.
+
+You can enable global feature importance on-demand post training for the pipeline of your choice, or enable it for all pipelines as part of automated ML training.  This is a preview feature and we will continue to invest in providing richer information to help you better understand your ML models.  
+
+Follow this [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) to experiment with model explanations in Azure Machine Learning.
 
 ## Next steps
 
 See examples and learn how to build models using Automated Machine Learning:
++ [Samples: Use Jupyter notebooks to explore Azure Machine Learning service](samples-notebooks.md#automated-ml-setup)
 
 + [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
 
-+ [Configure settings for automatic training](how-to-configure-auto-train.md)
++ [Use automatic training on a remote resource](how-to-auto-train-remote.md)
 
-+ [Use automatic training on a remote resource](how-to-auto-train-remote.md) 
++ [Configure settings for automatic training](how-to-configure-auto-train.md)

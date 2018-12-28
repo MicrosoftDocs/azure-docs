@@ -44,10 +44,8 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
 	* Click **Cluster type**, and then select the type of cluster (Hadoop, Spark, etc.) you want to create. For **Operating system**, click **Linux** and then select a version. Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
      
-    	> [!IMPORTANT]
-    	> HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. 
-    	> 
-    	> 
+    	> [!IMPORTANT]  
+    	> HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
 		
     * For **Cluster login username** and **Cluster login password**, provide the username and password for the admin user.
 
@@ -69,13 +67,13 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
 	 | Storage                                      | Description |
 	 |----------------------------------------------|-------------|
-	 | **Azure Storage Blobs as default storage**   | <ul><li>For **Primary Storage type**, select **Azure Storage**. After that, for **Selection method**, you can choose **My subscriptions** if you want to specify a storage account that is part of your Azure subscription and then select the storage account. Otherwise, click **Access key** and provide the information for the storage account that you want to choose from outside your Azure subscription.</li><li>For **Default container**, you can choose to go with the default container name suggested by the portal or specify your own.</li><li>If you are using WASB as default storage, you can (optionally) click **Additional Storage Accounts** to specify additional storage accounts to associate with the cluster. For **Azure Storage Keys**, click **Add a storage key**, and then you can provide a storage account from your Azure subscriptions or from other subscriptions (by providing the storage account access key).</li><li>If you are using WASB as default storage, you can (optionally) click **Data Lake Store access** to specify Azure Data Lake Storage as additional storage. For more information, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
+	 | **Azure Storage Blobs as default storage**   | <ul><li>For **Primary Storage type**, select **Azure Storage**. After that, for **Selection method**, you can choose **My subscriptions** if you want to specify a storage account that is part of your Azure subscription and then select the storage account. Otherwise, click **Access key** and provide the information for the storage account that you want to choose from outside your Azure subscription.</li><li>For **Default container**, you can choose to go with the default container name suggested by the portal or specify your own.</li><li>If you are using WASB as default storage, you can (optionally) click **Additional Storage Accounts** to specify additional storage accounts to associate with the cluster. For **Azure Storage Keys**, click **Add a storage key**, and then you can provide a storage account from your Azure subscriptions or from other subscriptions (by providing the storage account access key).</li><li>If you are using WASB as default storage, you can (optionally) click **Data Lake Storage access** to specify Azure Data Lake Storage as additional storage. For more information, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
 	 | **Azure Data Lake Storage as default storage** | For **Primary storage type**, select **Azure Data Lake Storage Gen1** or **Azure Data Lake Storage Gen2 (Preview)** and then refer to the article [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) for instructions. |
 	 | **External metastores**                      | Optionally, you can specify a SQL database to save Hive and Oozie metadata associated with the cluster. For **Select a SQL database for Hive** select a SQL database, and then provide the username/password for the database. Repeat these steps for Oozie metadata.<br><br>Some considerations while using Azure SQL database for metastores. <ul><li>The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.</li><li>When creating a metastore, do not use a database name that contains dashes or hyphens, as this can cause the cluster creation process to fail.</li></ul> |
 
 	 Click **Next**. 
 
-	 > [!WARNING]
+	 > [!WARNING]  
 	 > Using an additional storage account in a different location than the HDInsight cluster is not supported.
 
 6. Optionally, click **Applications** to install applications that work with HDInsight clusters. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install HDInsight applications](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
@@ -85,12 +83,10 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
    
     ![Node pricing tiers](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-nodes.png "Specify number of cluster nodes")
    
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14 GB RAM.
    > 
    > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
-   > 
-   > 
    
    Click **Next** to save the node pricing configuration.
 
@@ -101,10 +97,9 @@ Click **Next**.
 
 	 ![Node pricing tiers](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-summary.png "Specify number of cluster nodes")
     
-    > [!NOTE]
+    > [!NOTE]  
     > It takes some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the provisioning process.
-    > 
-    > 
+
 10. Once the creation process completes, click the tile for the cluster from the Startboard. The cluster window provides the following information.
     
     ![Cluster interface](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-completed.png "Cluster properties")
@@ -127,7 +122,7 @@ Click **Next**.
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Next steps
 Now that you have successfully created an HDInsight cluster, use the following to learn how to work with your cluster:
@@ -135,7 +130,7 @@ Now that you have successfully created an HDInsight cluster, use the following t
 ### Apache Hadoop clusters
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
 * [UseApache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
-* [Use Apache Hadoop MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### Apache HBase clusters
 * [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)

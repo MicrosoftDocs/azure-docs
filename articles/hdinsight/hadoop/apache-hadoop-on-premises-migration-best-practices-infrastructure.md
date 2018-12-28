@@ -33,7 +33,7 @@ See [Default node configuration and virtual machine sizes for clusters](../hdins
 
 Each HDInsight version is a cloud distribution of a version of Hortonworks Data Platform (HDP) and consists of a set of Hadoop eco-system components. See [HDInsight Component Versioning](../hdinsight-component-versioning.md) for details on all HDInsight components and their current versions.
 
-You can also use Ambari UI or Ambari REST API to check the Hadoop components and versions in HDInsight.
+You can also use Apache Ambari UI or Ambari REST API to check the Hadoop components and versions in HDInsight.
 
 Applications or components that were available in on-premises clusters but aren't part of the HDInsight clusters can be added on an Edge Node or on a VM in the same VNet as the HDInsight cluster. A third-party Hadoop application that isn't available on Azure HDInsight can be installed using the "Applications" option in HDInsight cluster. Custom Hadoop applications can be installed on HDInsight cluster using "script actions". The following table lists some of the common applications and their HDInsight integration options:
 
@@ -84,7 +84,7 @@ HDInsight provides pre-written scripts to install the following components on HD
 - Pre-load Hive libraries
 - Install or update Mono
 
-> [!Note]
+> [!Note]  
 > HDInsight does not provide direct support for custom hadoop components or components installed using script actions.
 
 Script actions can also be published to the Azure Marketplace as an HDInsight application.
@@ -134,7 +134,9 @@ An empty edge node is a Linux virtual machine with the same client tools install
 
 Edge nodes can be created and deleted through the Azure portal and may be used during or after cluster creation. After the edge node has been created, you can connect to the edge node using SSH, and run client tools to access the Hadoop cluster in HDInsight. The edge node ssh endpoint is `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`.
 
+
 For more information, see the article [Use empty edge nodes on Apache Hadoop clusters in HDInsight](../hdinsight-apps-use-edge-node.md).
+
 
 ## Use scale-up and scale-down feature of clusters
 
@@ -183,7 +185,7 @@ Using Azure Virtual Network with HDInsight enables the following scenarios:
 HDInsight can either be added to a new or existing Azure Virtual Network. If HDInsight is being added to an existing Virtual Network, the existing network security groups and user-defined routes need to be updated to allow unrestricted access to [several IP addresses](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)
 in the Azure data center. Also, make sure not to block traffic to the [ports](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports) which are being used by HDInsight services.
 
-> [!Note]
+> [!Note]  
 > HDInsight does not currently support forced tunneling. Forced tunneling is a subnet setting that forces outbound Internet traffic to a device for inspection and logging. Either remove forced tunneling before installing HDInsight into a subnet or create a new subnet for HDInsight. HDInsight also does not support restricting outbound network connectivity.
 
 For more information, see the following articles:

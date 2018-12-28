@@ -36,12 +36,12 @@ The Azure Diagnostics extension can collect the following types of data:
 ## Data storage
 The extension stores its data in an [Azure Storage account](diagnostics-extension-to-storage.md) that you specify.
 
-You can also send it to [Application Insights](../../application-insights/app-insights-cloudservices.md). Another option is to stream it to [Event Hub](../../event-hubs/event-hubs-about.md), which then allows you to send it to non-Azure montoring services.
+You can also send it to [Application Insights](../../azure-monitor/app/cloudservices.md). Another option is to stream it to [Event Hub](../../event-hubs/event-hubs-about.md), which then allows you to send it to non-Azure montoring services.
 
 ### Azure Monitor
 You also have the choice of sending your data to Azure Monitor. At this time, this sink is only applicable to Performance Counters. It enables you to send performance counters collected on your VM, VMSS, or cloud service to Azure Monitor as custom metrics. The Azure Monitor sink supports:
 * Retrieving all performance counters sent to Azure Monitor via the [Azure Monitor metrics APIs.](https://docs.microsoft.com/rest/api/monitor/)
-* Alerting on all performance counters sent to Azure Monitor via the new [unified alerts experience](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Azure Monitor
+* Alerting on all performance counters sent to Azure Monitor via the new [unified alerts experience](../../azure-monitor/platform/alerts-overview.md) in Azure Monitor
 * Treating wildcard operator in performance counters as the "Instance" dimension on your metric.  For example if you collected the "LogicalDisk(\*)/DiskWrites/sec" counter you would be able to filter and split on the "Instance" dimension to plot or alert on the Disk Writes/sec for each Logical Disk on the VM (C:, D:, etc.)
 
 To learn more on how to configure this sink, please refer to the [Azure diagnostics schema documentation.](diagnostics-extension-schema-1dot3.md)
@@ -60,7 +60,7 @@ Choose which service you are trying to collect diagnostics on and use the follow
 
 For more advanced topics, see
 
-* [Using Azure Diagnostics with Application Insights for Cloud Services](../../application-insights/app-insights-cloudservices.md)
+* [Using Azure Diagnostics with Application Insights for Cloud Services](../../azure-monitor/app/cloudservices.md)
 * [Trace the flow of a Cloud Services application with Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 * [Use PowerShell to set up diagnostics on Cloud Services](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

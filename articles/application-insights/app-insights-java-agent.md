@@ -89,18 +89,18 @@ In the Application Insights resource, aggregated remote dependency and method ex
 
 To search for individual instances of dependency, exception, and method reports, open [Search][diagnostic].
 
-[Diagnosing dependency issues - learn more](app-insights-asp-net-dependencies.md#diagnosis).
+[Diagnosing dependency issues - learn more](../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 
 ## Questions? Problems?
-* No data? [Set firewall exceptions](app-insights-ip-addresses.md)
+* No data? [Set firewall exceptions](../azure-monitor/app/ip-addresses.md)
 * [Troubleshooting Java](app-insights-java-troubleshoot.md)
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
+[api]: ../azure-monitor/app/api-custom-events-metrics.md
+[apiexceptions]: ../azure-monitor/app/api-custom-events-metrics.md#track-exception
 [availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: app-insights-diagnostic-search.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
