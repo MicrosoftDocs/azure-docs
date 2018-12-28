@@ -15,7 +15,7 @@ ms.author: mbullwin
 ---
 # Metric telemetry: Application Insights data model
 
-There are two types of metric telemetry supported by [Application Insights](app-insights-overview.md): single measurement and pre-aggregated metric. Single measurement is just a name and value. Pre-aggregated metric specifies minimum and maximum value of the metric in the aggregation interval and standard deviation of it.
+There are two types of metric telemetry supported by [Application Insights](../../application-insights/app-insights-overview.md): single measurement and pre-aggregated metric. Single measurement is just a name and value. Pre-aggregated metric specifies minimum and maximum value of the metric in the aggregation interval and standard deviation of it.
 
 Pre-aggregated metric telemetry assumes that aggregation period was one minute.
 
@@ -63,10 +63,10 @@ Standard deviation of the aggregated metric. Should not be set for a measurement
 
 Metric with the custom property `CustomPerfCounter` set to `true` indicate that the metric represents the windows performance counter. These metrics placed in performanceCounters table. Not in customMetrics. Also the name of this metric is parsed to extract category, counter, and instance names.
 
-[!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
+[!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 
 ## Next steps
 
-- Learn how to use [Application Insights API for custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
-- See [data model](application-insights-data-model.md) for Application Insights types and data model.
-- Check out [platforms](app-insights-platforms.md) supported by Application Insights.
+- Learn how to use [Application Insights API for custom events and metrics](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
+- See [data model](data-model.md) for Application Insights types and data model.
+- Check out [platforms](../../application-insights/app-insights-platforms.md) supported by Application Insights.

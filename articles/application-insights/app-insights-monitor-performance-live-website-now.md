@@ -268,7 +268,7 @@ Add more telemetry:
 [api]: ../azure-monitor/app/api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
 [client]: app-insights-javascript.md
-[diagnostic]: app-insights-diagnostic-search.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../azure-monitor/app/asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md

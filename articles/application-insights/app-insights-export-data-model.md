@@ -18,7 +18,7 @@ ms.author: mbullwin
 # Application Insights Export Data Model
 This table lists the properties of telemetry sent from the [Application Insights](app-insights-overview.md) SDKs to the portal.
 You'll see these properties in data output from [Continuous Export](app-insights-export-telemetry.md).
-They also appear in property filters in [Metric Explorer](app-insights-metrics-explorer.md) and [Diagnostic Search](app-insights-diagnostic-search.md).
+They also appear in property filters in [Metric Explorer](app-insights-metrics-explorer.md) and [Diagnostic Search](../azure-monitor/app/diagnostic-search.md).
 
 Points to note:
 
