@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Troubleshoot issues in Azure Data Box Disk
 
-This article applies to Microsoft Azure Data Box Disk and describes some of the workflows used to troubleshoot any issues you see when you deploy this solution. 
+This article applies to Microsoft Azure Data Box Disk and describes the workflows used to troubleshoot any issues you see when you deploy this solution. 
 
 This article includes the following sections:
 
