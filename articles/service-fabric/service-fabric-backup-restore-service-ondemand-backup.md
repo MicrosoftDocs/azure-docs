@@ -29,13 +29,13 @@ The on-demand backup features are helpful for capturing the state of the service
 
 On-demand backup requires storage details for uploading backup files. You specify the on-demand backup location, either in the periodic backup policy or in an on-demand backup request.
 
-### On-demand backup to storage specified by periodic backup policy
+### On-demand backup to storage specified by a periodic backup policy
 
 You can configure the periodic backup policy to use a partition of a Reliable Stateful service or Reliable Actor for extra on-demand backup to storage.
 
 The following case is the continuation of the scenario in [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). In this case, you enable a backup policy to use a partition and a backup occurs at a set frequency in Azure Storage.
 
-You set the on-demand backup for partition ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` to be triggered by [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API.
+Use the [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API to set up triggering for the on-demand backup for partition ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
 
 ```powershell
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/Backup?api-version=6.4"
@@ -43,13 +43,13 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-You set the [on-demand backup progress](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress) to be tracked by using the [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API.
+Use the [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API to enable tracking for the [on-demand backup progress](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
 ### On-demand backup to specified storage
 
-You can request on-demand backup for a partition of a Reliable Stateful service or Reliable Actor. You provide the storage information as a part of the on-demand backup request.
+You can request on-demand backup for a partition of a Reliable Stateful service or Reliable Actor. Provide the storage information as a part of the on-demand backup request.
 
-You set the on-demand backup for partition ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` to be triggered by using the [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API and including the following Azure Storage information:
+Use the [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API to set up triggering for the on-demand backup for partition ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`. Include the following Azure Storage information:
 
 ```powershell
 $StorageInfo = @{
@@ -68,7 +68,7 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-You can set the [on-demand backup progress](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress) to be tracked by using the [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API.
+You can use the [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API to set up tracking for the [on-demand backup progress](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
 ## Tracking on-demand backup progress
 
@@ -86,7 +86,7 @@ $backupResponse
 
 On-demand backup requests can be in the following states:
 
-- **Accepted** - The backup has been started on the partition and is in progress.
+- **Accepted** - The backup has started on the partition and is in progress.
   ```
   BackupState             : Accepted
   TimeStampUtc            : 0001-01-01T00:00:00Z
@@ -96,8 +96,8 @@ On-demand backup requests can be in the following states:
   LsnOfLastBackupRecord   : 0
   FailureError            :
   ```
-- **Success/ Failure/ Timeout** - A requested on-demand backup can be completed in any of the following states:
-  - **Success** - The backup state as _Success_ indicates that the partition state is backed up successfully. The response will provide _BackupEpoch_ and _BackupLSN_ for the partition along with the time in UTC.
+- **Success**, **Failure**, or **Timeout** - A requested on-demand backup can be completed in any of the following states:
+  - **Success** - A _Success_ backup state indicates that the partition state has  backed up successfully. The response provides _BackupEpoch_ and _BackupLSN_ for the partition along with the time in UTC.
     ```
     BackupState             : Success
     TimeStampUtc            : 2018-11-21T20:00:01Z
@@ -107,7 +107,7 @@ On-demand backup requests can be in the following states:
     LsnOfLastBackupRecord   : 36
     FailureError            :
     ```
-  - **Failure** - The backup state as _Failure_ indicates that a failure occurred during backup of the partition's state. The cause of the failure will be stated in response.
+  - **Failure** - A _Failure_ backup state indicates that a failure occurred during backup of the partition's state. The cause of the failure is stated in response.
     ```
     BackupState             : Failure
     TimeStampUtc            : 0001-01-01T00:00:00Z
@@ -117,7 +117,7 @@ On-demand backup requests can be in the following states:
     LsnOfLastBackupRecord   : 0
     FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
     ```
-  - **Timeout** - The backup state as _Timeout_ indicates that the partition state backup couldn't be created in a given time frame. The default timeout value is 10 minutes. Initiate a new on-demand backup request with greater [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) in this scenario.
+  - **Timeout** - A _Timeout_ backup state indicates that the partition state backup couldn't be created in a given amount of time. The default timeout value is 10 minutes. Initiate a new on-demand backup request with greater [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) in this scenario.
     ```
     BackupState             : Timeout
     TimeStampUtc            : 0001-01-01T00:00:00Z
