@@ -120,11 +120,11 @@ Azure Digital Twins also supports application-specific logging and security audi
 
 ## Next steps
 
-Learn more about Azure [activity logs](../azure-monitor/platform/activity-logs-overview.md).
+- Learn more about Azure [activity logs](../azure-monitor/platform/activity-logs-overview.md).
 
-Dive deeper into Azure diagnostic settings by reading an [overview of diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Dive deeper into Azure diagnostic settings by reading an [overview of diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Read more about [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).
+- Read more about [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).
 
 <!-- Images -->
 [1]: media/how-to-configure-monitoring/activity-log.png
