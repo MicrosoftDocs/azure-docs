@@ -47,7 +47,7 @@ With Live Metrics Stream, you can:
 
 ### No data? Check your server firewall
 
-Check the [outgoing ports for Live Metrics Stream](app-insights-ip-addresses.md#outgoing-ports) are open in the firewall of your servers. 
+Check the [outgoing ports for Live Metrics Stream](../azure-monitor/app/ip-addresses.md#outgoing-ports) are open in the firewall of your servers. 
 
 
 ## How does Live Metrics Stream differ from Metrics Explorer and Analytics?
@@ -192,7 +192,7 @@ If you want to watch the effect of a load increase, use the Performance Test bla
 
 ## Troubleshooting
 
-No data? If your application is in a protected network: Live Metrics Stream uses a different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](app-insights-ip-addresses.md) are open in your firewall.
+No data? If your application is in a protected network: Live Metrics Stream uses a different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](../azure-monitor/app/ip-addresses.md) are open in your firewall.
 
 
 

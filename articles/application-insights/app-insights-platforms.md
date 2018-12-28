@@ -40,7 +40,7 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [Azure App Service](../azure-monitor/app/azure-web-apps.md)
 * [Azure Cloud Services](../azure-monitor/app/cloudservices.md)&#151;including both web and worker roles
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
-* [Docker](app-insights-docker.md)
+* [Docker](../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](app-insights-mobile-center-quickstart.md) (App Center)
 * [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
