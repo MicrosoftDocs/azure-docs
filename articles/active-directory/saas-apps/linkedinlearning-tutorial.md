@@ -75,8 +75,8 @@ To configure and test Azure AD single sign-on with LinkedIn Learning, you need t
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure LinkedIn Learning Single Sign-On](#configure-linkedin-learning-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create LinkedIn Learning test user](#create-linkedin-learning-test-user)** - to have a counterpart of Britta Simon in LinkedIn Learning that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create LinkedIn Learning test user](#create-linkedin-learning-test-user)** - to have a counterpart of Britta Simon in LinkedIn Learning that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -122,17 +122,16 @@ To configure Azure AD single sign-on with LinkedIn Learning, perform the followi
     
 	| Name | Source Attribute |
 	| ---------------| --------------- |
-	| email  | user.mail  | N/A |
+	| email  | user.mail  |
 	| department  | user.department  |
 	| firstname  | user.givenname  |
 	| lastname  | user.surname  |
-	| Unique User Identifier | User.mail |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![image](common/new-save-attribute.png)
+	![image](./media/linkedinlearning-tutorial/tutorial_usermail.png)
 
-	![image](common/new-attribute-details.png)
+	![image](./media/linkedinlearning-tutorial/tutorial_usermailedit.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 

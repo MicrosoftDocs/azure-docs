@@ -112,7 +112,7 @@ Separate directives with a newline.
 *I don't see data in the portal*
 
 * Open [Search][diagnostic] to see if the raw events have arrived. Sometimes they take longer to appear in metrics explorer.
-* You might need to [set firewall exceptions for outgoing data](app-insights-ip-addresses.md)
+* You might need to [set firewall exceptions for outgoing data](../azure-monitor/app/ip-addresses.md)
 * Enable tracing in the Application Insights plugin. Add this line within `<Plugin ApplicationInsightsWriter>`:
   * `SDKLogger true`
 * Open a terminal and start collectd in verbose mode, to see any issues it is reporting:
@@ -131,7 +131,7 @@ Workaround: Exclude data collected by the problem Write plugins.
 [api]: ../azure-monitor/app/api-custom-events-metrics.md
 [apiexceptions]: ../azure-monitor/app/api-custom-events-metrics.md#track-exception
 [availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: app-insights-diagnostic-search.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md

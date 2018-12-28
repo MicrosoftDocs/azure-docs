@@ -91,7 +91,7 @@ In many cases, you will be able to diagnose the problem quickly from the request
 
 There are some other clues. For example, the dependency failure rate in this example is the same as the exception rate (89.3%). This suggests that the exception arises directly from the dependency failure - giving you a clear idea of where to start looking in your code.
 
-To investigate further, the links in each section will take you straight to a [search page](app-insights-diagnostic-search.md) filtered to the relevant requests, exception, dependency or traces. Or you can open the [Azure portal](https://portal.azure.com), navigate to the Application Insights resource for your app, and open the Failures blade.
+To investigate further, the links in each section will take you straight to a [search page](../azure-monitor/app/diagnostic-search.md) filtered to the relevant requests, exception, dependency or traces. Or you can open the [Azure portal](https://portal.azure.com), navigate to the Application Insights resource for your app, and open the Failures blade.
 
 In this example, clicking the 'View dependency failures details' link opens the Application Insights search blade. It shows the SQL statement that has an example of the root cause: NULLs were provided at mandatory fields and did not pass validation during the save operation.
 
@@ -125,7 +125,7 @@ Smart Detection of failure anomalies complements other similar but distinct feat
 
 *So, you guys look at my data?*
 
-* No. The service is entirely automatic. Only you get the notifications. Your data is [private](app-insights-data-retention-privacy.md).
+* No. The service is entirely automatic. Only you get the notifications. Your data is [private](../azure-monitor/app/data-retention-privacy.md).
 
 *Do I have to subscribe to this alert?*
 
@@ -147,7 +147,7 @@ Smart Detection of failure anomalies complements other similar but distinct feat
 These diagnostic tools help you inspect the telemetry from your app:
 
 * [Metric explorer](app-insights-metrics-explorer.md)
-* [Search explorer](app-insights-diagnostic-search.md)
+* [Search explorer](../azure-monitor/app/diagnostic-search.md)
 * [Analytics - powerful query language](../azure-monitor/log-query/get-started-portal.md)
 
 Smart detections are completely automatic. But maybe you'd like to set up some more alerts?

@@ -106,7 +106,7 @@ The overview blade is the gateway to more information about your app.
 ![Overview blade top navigation bar](./media/app-insights-dashboards/app-overview-top-nav.png)
 
 * [**Metrics Explorer**](../../application-insights/app-insights-metrics-explorer.md) - Create your own charts of performance and usage.
-* [**Search**](../../application-insights/app-insights-diagnostic-search.md) - Investigate specific instances of events such as requests, exceptions, or log traces.
+* [**Search**](../../azure-monitor/app/diagnostic-search.md) - Investigate specific instances of events such as requests, exceptions, or log traces.
 * [**Analytics**](../../azure-monitor/app/analytics.md) - Powerful queries over your telemetry.
 * **Time range** - Adjust the range displayed by all the charts on the blade.
 * **Delete** - Delete the Application Insights resource for this app. You should also either remove the Application Insights packages from your app code, or edit the [instrumentation key](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) in your app to direct telemetry to a different Application Insights resource.
@@ -139,11 +139,11 @@ CONFIGURE
 * **Getting started** - inline tutorial.
 * **Properties** - instrumentation key, subscription and resource id.
 * [Alerts](../../azure-monitor/app/alerts.md) - metric alert configuration.
-* [Continuous export](../../application-insights/app-insights-export-telemetry.md) - configure export of telemetry to Azure storage.
+* [Continuous export](../../azure-monitor/app/export-telemetry.md) - configure export of telemetry to Azure storage.
 * [Performance testing](../../application-insights/app-insights-monitor-web-app-availability.md#performance-tests) - set up a synthetic load on your website.
 * [Quota and pricing](../../application-insights/app-insights-pricing.md) and [ingestion sampling](../../application-insights/app-insights-sampling.md).
 * **API Access** - Create [release annotations](annotations.md) and for the Data Access API.
-* [**Work Items**](../../application-insights/app-insights-diagnostic-search.md#create-work-item) - Connect to a work tracking system so that you can create bugs while inspecting telemetry.
+* [**Work Items**](../../azure-monitor/app/diagnostic-search.md#create-work-item) - Connect to a work tracking system so that you can create bugs while inspecting telemetry.
 
 SETTINGS
 
@@ -160,5 +160,5 @@ SETTINGS
 |  |  |
 | --- | --- |
 | [Metrics explorer](../../application-insights/app-insights-metrics-explorer.md)<br/>Filter and segment metrics |![Search example](./media/app-insights-dashboards/64.png) |
-| [Diagnostic search](../../application-insights/app-insights-diagnostic-search.md)<br/>Find and inspect events, related events, and create bugs |![Search example](./media/app-insights-dashboards/61.png) |
+| [Diagnostic search](../../azure-monitor/app/diagnostic-search.md)<br/>Find and inspect events, related events, and create bugs |![Search example](./media/app-insights-dashboards/61.png) |
 | [Analytics](../../azure-monitor/app/analytics.md)<br/>Powerful query language |![Search example](./media/app-insights-dashboards/63.png) |

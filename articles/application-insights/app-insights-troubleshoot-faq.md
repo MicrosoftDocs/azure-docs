@@ -25,7 +25,7 @@ ms.author: mbullwin
 
 *I get no data from my server*
 
-* [Set firewall exceptions](app-insights-ip-addresses.md)
+* [Set firewall exceptions](../azure-monitor/app/ip-addresses.md)
 * [Set up an ASP.NET server](app-insights-monitor-performance-live-website-now.md)
 * [Set up a Java server](app-insights-java-agent.md)
 
@@ -36,7 +36,7 @@ ms.author: mbullwin
 * [Node.js apps](app-insights-nodejs.md)
 * [Web apps on Azure](../azure-monitor/app/azure-web-apps.md)
 * [Cloud Services on Azure](../azure-monitor/app/cloudservices.md)
-* [App servers running in Docker](app-insights-docker.md)
+* [App servers running in Docker](../azure-monitor/app/docker.md)
 * [Single-page web apps](app-insights-javascript.md)
 * [Sharepoint](app-insights-sharepoint.md)
 * [Windows desktop app](app-insights-windows-desktop.md)
@@ -143,7 +143,7 @@ Take a look at [Data Retention and Privacy][data].
 
 ## Could personal data be sent in the telemetry?
 
-This is possible if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](app-insights-data-retention-privacy.md).
+This is possible if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](../azure-monitor/app/data-retention-privacy.md).
 
 **All** octets of the client web address are always set to 0 after the geo location attributes are looked up.
 
@@ -281,7 +281,7 @@ http://<your.gateway.endpoint>/api/profiles/{0}/apiId
 
 Our [web tests](app-insights-monitor-web-app-availability.md) run on points of presence that are distributed around the globe. There are two solutions:
 
-* Firewall door - Allow requests to your server from [the long and changeable list of web test agents](app-insights-ip-addresses.md).
+* Firewall door - Allow requests to your server from [the long and changeable list of web test agents](../azure-monitor/app/ip-addresses.md).
 * Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights using the TrackAvailability() API.
 
 ## How long does it take for telemetry to be collected?
@@ -293,7 +293,7 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 
 <!--Link references-->
 
-[data]: app-insights-data-retention-privacy.md
+[data]: ../azure-monitor/app/data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

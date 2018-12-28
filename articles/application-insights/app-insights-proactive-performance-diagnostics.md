@@ -63,7 +63,7 @@ Emails about Smart Detections performance anomalies are limited to one email per
 ## FAQ
 
 * *So, Microsoft staff look at my data?*
-  * No. The service is entirely automatic. Only you get the notifications. Your data is [private](app-insights-data-retention-privacy.md).
+  * No. The service is entirely automatic. Only you get the notifications. Your data is [private](../azure-monitor/app/data-retention-privacy.md).
 * *Do you analyze all the data collected by Application Insights?*
   * Not at present. Currently, we analyze request response time, dependency response time and page load time. Analysis of additional metrics is on our backlog looking forward.
 
@@ -74,7 +74,7 @@ Emails about Smart Detections performance anomalies are limited to one email per
 
   * Not yet, but you can:
     * [Set up alerts](../azure-monitor/app/alerts.md) that tell you when a metric crosses a threshold.
-    * [Export telemetry](app-insights-export-telemetry.md) to a [database](../azure-monitor/app/code-sample-export-sql-stream-analytics.md) or [to PowerBI](app-insights-export-power-bi.md), where you can analyze it yourself.
+    * [Export telemetry](../azure-monitor/app/export-telemetry.md) to a [database](../azure-monitor/app/code-sample-export-sql-stream-analytics.md) or [to PowerBI](app-insights-export-power-bi.md), where you can analyze it yourself.
 * *How often is the analysis performed?*
 
   * We run the analysis daily on the telemetry from the previous day (full day in UTC timezone).

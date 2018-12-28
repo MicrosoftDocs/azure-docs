@@ -340,7 +340,7 @@ Insert a telemetry initializer immediately after the initialization code that yo
     </script>
 ```
 
-For a summary of the non-custom properties available on the telemetryItem, see [Application Insights Export Data Model](../../application-insights/app-insights-export-data-model.md).
+For a summary of the non-custom properties available on the telemetryItem, see [Application Insights Export Data Model](../../azure-monitor/app/export-data-model.md).
 
 You can add as many initializers as you like.
 
@@ -366,6 +366,6 @@ What's the difference between telemetry processors and telemetry initializers?
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Next steps
-* [Search events and logs](../../application-insights/app-insights-diagnostic-search.md)
+* [Search events and logs](../../azure-monitor/app/diagnostic-search.md)
 * [Sampling](../../application-insights/app-insights-sampling.md)
 * [Troubleshooting](../../application-insights/app-insights-troubleshoot-faq.md)
