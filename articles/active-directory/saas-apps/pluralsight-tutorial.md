@@ -116,6 +116,9 @@ To configure Azure AD single sign-on with Pluralsight, perform the following ste
 
 	![image](common/edit-attribute.png)
 
+	>[!NOTE]
+    >You can also add the **"Unique ID"** attribute with the appropriate value like EmployeeID or something else which suits for your organization. Also note that this is not the required attribute; however, you can add it to  identify the unique user.
+
 6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
     
 	| Name | Source Attribute|
