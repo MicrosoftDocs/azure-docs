@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 12/23/2018
 ms.author: zhshang
 ---
-# Frequently asked questions
+# Azure SignalR Service FAQ
 
 ## Is Azure SignalR Service ready for production use?
 
 Yes.
-The announcement of general availability can be found [here](https://azure.microsoft.com/en-us/blog/azure-signalr-service-now-generally-available/). 
+For our announcement of general availability, see [Azure SignalR Service now generally available](https://azure.microsoft.com/en-us/blog/azure-signalr-service-now-generally-available/). 
 
 [ASP.NET Core SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction) is fully supported.
 
-Support for ASP.NET SignalR is still in the *public preview*. You can find a code example [here](https://github.com/aspnet/AzureSignalR-samples/tree/master/aspnet-samples/ChatRoom).
+Support for ASP.NET SignalR is still in the *public preview*. Here is a [code example](https://github.com/aspnet/AzureSignalR-samples/tree/master/aspnet-samples/ChatRoom).
 
 ## The Client connection closes with the error message "No server available". What does it mean?
 
@@ -39,7 +39,7 @@ It is one-to-one mapping between client and application server. Messages from on
 
 The mapping between client and application server will be maintained until client or application server disconnects.
 
-## If one of my application servers is down, how to find it and get notified?
+## If one of my application servers is down, how can I find it and get notified?
 
 SignalR Service monitors heartbeats from application servers.
 If heartbeats are not received for a specified period of time, the application server is considered offline. All client connections mapped to this application server will be disconnected.
