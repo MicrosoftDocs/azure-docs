@@ -55,14 +55,14 @@ To receive a stream of tweets, you create an application in Twitter. Follow the 
 
 You use this event hub to store tweets.
 
-1. Sign in to the [Azure Portal](https://ms.portal.azure.com).
-1. From the left menu, select **All services**.
-2. Under **INTERNET OF THINGS**, select **Event Hubs**.
+1. Sign in to the [Azure portal](https://portal.azure.com).  
+2. From the left menu, select **All services**.  
+3. Under **INTERNET OF THINGS**, select **Event Hubs**.  
 
     ![Create event hub for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Create event hub for Spark streaming example")
 
 4. Select **+ Add**.
-4. Enter the following values for the new Event Hubs Namespace:
+5. Enter the following values for the new Event Hubs Namespace:
 
     - **Name**: Enter a name for the event hub.  The value used for this tutorial is **myeventhubns20180403**.
     - **Pricing tier**: Select **Standard**.
@@ -73,20 +73,20 @@ You use this event hub to store tweets.
     - **Auto-Inflate Maximum Throughput Units**: (Optional)  This slider will only appear if you check **Enable Auto-Inflate**.
 
     ![Provide an event hub name for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Provide an event hub name for Spark streaming example")
-5. Select **Create** to create the namespace.  The deployment will complete in a few minutes.
+6. Select **Create** to create the namespace.  The deployment will complete in a few minutes.
 
 ## Create an Azure Event Hub
 Create an Event Hub once the Event Hubs Namespace has been deployed.  From the portal:
 
-1. From the left menu, select **All services**.
-2. Under **INTERNET OF THINGS**, select **Event Hubs**.
-3. Select your Event Hubs Namespace from the list.
+1. From the left menu, select **All services**.  
+2. Under **INTERNET OF THINGS**, select **Event Hubs**.  
+3. Select your Event Hubs Namespace from the list.  
 4. From the Event Hubs Namespace page, select **+ Event Hub**.
 5. Enter the following values in the **Create Event Hub** page:
 
-    - Name: Give a name for your Event Hub.
-    - Partition count: 10.
-    - Message retention: 1. 
+    - Name: Give a name for your Event Hub.  
+    - Partition count: 10.  
+    - Message retention: 1.   
    
     ![Provide event hub details for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Provide event hub details for Spark streaming example")
 
