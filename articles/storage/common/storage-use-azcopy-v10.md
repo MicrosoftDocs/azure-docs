@@ -114,9 +114,6 @@ Use the copy command to transfer data from the source to the destination. The so
 - Azure File/Directory/File Share URI
 - Azure Data Lake Storage Gen2 Filesystem/Directory/File URI
 
-> [!NOTE]
-> At this time AzCopy v10 supports copying only block blobs between two storage accounts.
-
 ```azcopy
 .\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
 # Using alias instead
@@ -149,8 +146,6 @@ To copy the data between two storage accounts, use the following command:
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
-
-To work with blob storage accounts that have hierarchical namespaces enabled, replace the string ``blob.core.windows.net`` with ``dfs.core.windows.net`` in these examples.
 
 > [!NOTE]
 > The command will enumerate all blob containers and copy them to the destination account. At this time AzCopy v10 supports copying only block blobs between two storage accounts. All other storage account objects (append blobs, page blobs, files, tables and queues) will be skipped.
@@ -246,6 +241,10 @@ You can resume a failed/cancelled job using its identifier along with the SAS to
 ```azcopy
 .\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
 ```
+
+### Change the default log level
+
+By default AzCopy log level is set to INFO. If you would like to reduce the log verbosity to save disk space, overwrite the setting using ``--log-level`` option. Available log levels are: DEBUG, INFO, WARNING, ERROR, PANIC, and FATAL
 
 ## Next steps
 
