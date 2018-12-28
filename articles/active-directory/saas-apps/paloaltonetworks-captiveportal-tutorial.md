@@ -76,8 +76,8 @@ To configure and test Azure AD single sign-on with Palo Alto Networks - Captive 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure Palo Alto Networks - Captive Portal Single Sign-On](#configure-palo-alto-networks---captive-portal-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create Palo Alto Networks - Captive Portal test user](#create-palo-alto-networks---captive-portal-test-user)** - to have a counterpart of Britta Simon in Palo Alto Networks - Captive Portal that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Palo Alto Networks - Captive Portal test user](#create-palo-alto-networks---captive-portal-test-user)** - to have a counterpart of Britta Simon in Palo Alto Networks - Captive Portal that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
