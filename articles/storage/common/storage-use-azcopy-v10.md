@@ -174,7 +174,8 @@ In the same way you can sync a Blob container down to a local file system:
 
 The command allows you to incrementally sync the source to the destination based on last modified timestamps. If you add or delete a file in the source, AzCopy v10 will do the same in the destination. Before deletion, AzCopy will prompt to confirm the deletion of the files.
 
-[!NOTE] To work with blob storage accounts that have hierarchical namespaces enabled, replace the URL string ``blob.core.windows.net`` with ``dfs.core.windows.net`` in these examples.
+>[!NOTE] 
+> To work with blob storage accounts that have hierarchical namespaces enabled, replace the URL string ``blob.core.windows.net`` with ``dfs.core.windows.net`` in these examples.
 
 ## Advanced configuration
 
