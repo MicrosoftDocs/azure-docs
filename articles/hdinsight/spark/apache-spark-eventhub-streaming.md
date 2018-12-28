@@ -72,11 +72,17 @@ You use this event hub to store tweets.
 5. Enter the following values for the new Event Hubs Namespace:
 
     - **Name**: Enter a name for the event hub.  The value used for this tutorial is **myeventhubns20180403**.
+
     - **Pricing tier**: Select **Standard**.
+
     - **Subscription**: Select your appropriate subscription.
+
     - **Resource group**: Select an existing resource group from the drop-down list or select **Create new** to create a new resource group.
+
     - **Location**: Select the same **Location** as your Apache Spark cluster in HDInsight to reduce latency and costs.
+
     - **Enable Auto-Inflate**: (Optional)  Auto-inflate automatically scales the number of Throughput Units assigned to your Event Hubs Namespace when your traffic exceeds the capacity of the Throughput Units assigned to it.  
+
     - **Auto-Inflate Maximum Throughput Units**: (Optional)  This slider will only appear if you check **Enable Auto-Inflate**.  
 
       ![Provide an event hub name for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Provide an event hub name for Spark streaming example")
@@ -94,8 +100,10 @@ Create an Event Hub once the Event Hubs Namespace has been deployed.  From the p
 1. From the Event Hubs Namespace page, select **+ Event Hub**.  
 1. Enter the following values in the **Create Event Hub** page:
 
-    - Name: Give a name for your Event Hub.  
+    - Name: Give a name for your Event Hub. 
+ 
     - Partition count: 10.  
+
     - Message retention: 1.   
    
       ![Provide event hub details for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Provide event hub details for Spark streaming example")
