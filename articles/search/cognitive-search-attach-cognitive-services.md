@@ -25,17 +25,17 @@ The Cognitive Services resource that you select will power the built-in cognitiv
 > The execution of built-in skills is charged at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## Limits when no Cognitive Services resource is selected
-Starting Feb 1, 2019, if you don't associate a Cognitive Services subscription with your skillset, you will only be able to enrich a small number of documents for free (20 documents per day). 
+Starting February 1, 2019, if you don't associate a Cognitive Services subscription with your skillset, you will be able to enrich only a small number of documents for free (20 documents per day). 
 
 ## Associate a Cognitive Services resource with a new skillset
 
-1. As part of the **Import data** experience, after you have connected to your data source, go to the **Add cognitive search** optional step. 
+1. As part of the **Import data** experience, after you connect to your data source, go to the **Add cognitive search** optional step. 
 
 1. Expand the **Attach Cognitive Services** section. This step shows you any Cognitive Services resources you have in the same regions as the Azure Search service.
 
    ![Expanded Attach Cognitive Services section](./media/cognitive-search-attach-cognitive-services/attach1.png "Expanded Attach Cognitive Services")
 
-1. Select an existing Cognitive Services resource, or select **Create new Cognitive Services resource**. If you select **Free (Limited Enrichments)**, you will only be able to enrich a small number of documents for free (20 documents per day). If you select **Create new Cognitive Services resource**, a new tab will open where you can create the resource. 
+1. Select an existing Cognitive Services resource, or select **Create new Cognitive Services resource**. If you select **Free (Limited Enrichments)**, you will be able to enrich only a small number of documents for free (20 documents per day). If you select **Create new Cognitive Services resource**, a new tab will open where you can create the resource. 
 
 1. If you created a new resource, select **Refresh** to refresh the list of Cognitive Services resources, and then select the resource. 
 
@@ -51,7 +51,7 @@ Starting Feb 1, 2019, if you don't associate a Cognitive Services subscription w
 
 1. Select the skillset that you want to modify. This step opens a blade where you can edit a skillset.
 
-1. Select an existing Cognitive Services resource, or select **Create new Cognitive Services resource**. If you select **Free (Limited Enrichments)**, you will only be able to enrich a small number of documents for free (20 documents per day). If you select **Create new Cognitive Services resource**, a new tab will open where you can create the resource.
+1. Select an existing Cognitive Services resource, or select **Create new Cognitive Services resource**. If you select **Free (Limited Enrichments)**, you will be able to enrich only a small number of documents for free (20 documents per day). If you select **Create new Cognitive Services resource**, a new tab will open where you can create the resource.
 
    <n/> 
    <img src="./media/cognitive-search-attach-cognitive-services/attach-existing2.png" width="350">
