@@ -132,14 +132,14 @@ If you made any customizations to ApplicationInsights.config, save a copy of it 
 There are alternative topics to look at if you are interested in:
 
 * [Instrumenting a web app at runtime](../../application-insights/app-insights-monitor-performance-live-website-now.md)
-* [Azure Cloud Services](../../application-insights/app-insights-cloudservices.md)
+* [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
 
 ### More telemetry
 
 * **[Browser and page load data](../../application-insights/app-insights-javascript.md)** - Insert a code snippet in your web pages.
 * **[Get more detailed dependency and exception monitoring](../../application-insights/app-insights-monitor-performance-live-website-now.md)** - Install Status Monitor on your server.
 * **[Code custom events](../../azure-monitor/app/api-custom-events-metrics.md)** to count, time, or measure user actions.
-* **[Get log data](../../application-insights/app-insights-asp-net-trace-logs.md)** - Correlate log data with your telemetry.
+* **[Get log data](../../azure-monitor/app/asp-net-trace-logs.md)** - Correlate log data with your telemetry.
 
 ### Analysis
 

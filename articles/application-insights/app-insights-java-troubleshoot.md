@@ -156,7 +156,7 @@ Application Insights uses `org.apache.http`. This is relocated within Applicatio
 <!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
-[data]: app-insights-data-retention-privacy.md
+[data]: ../azure-monitor/app/data-retention-privacy.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [platforms]: app-insights-platforms.md
