@@ -767,7 +767,7 @@ See the language-specific example:
 
 * [C#](#output---c-example)
 * [C# script (.csx)](#output---c-script-example)
-* [Java](#output---java-example)
+* [Java](#output---java-examples)
 * [JavaScript](#output---javascript-example)
 * [Python](#output---python-example)
 
@@ -954,7 +954,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
     outputblob.set(inputblob)
 ```
 
-### Output - Java example
+### Output - Java examples
 
 This section contains the following examples:
 
