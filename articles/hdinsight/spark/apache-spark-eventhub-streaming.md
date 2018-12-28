@@ -33,18 +33,23 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To receive a stream of tweets, you create an application in Twitter. Follow the instructions create a Twitter application and write down the values that you need to complete this tutorial.
 
 1. Browse to [Twitter Application Management](https://apps.twitter.com/).
-2. Select **Create New App**.
-3. Provide the following values:
+
+1. Select **Create New App**.
+
+1. Provide the following values:
 
     - Name: provide the application name. The value used for this tutorial is **HDISparkStreamApp0423**. This name has to be a unique name.
     - Description: provide a short description of the application. The value used for this tutorial is **A simple HDInsight Spark streaming application**.
     - Website: provide the application's website. It doesn't have to be a valid website.  The value used for this tutorial is **http://www.contoso.com**.
     - Callback URL: you can leave it blank.
 
-4. Select **Yes, I have read and agree to the Twitter Developer Agreement**, and then Select **Create your Twitter application**.
-5. Select the **Keys and Access Tokens** tab.
-6. Select **Create my access token** at the end of the page.
-7. Write down the following values from the page.  You need these values later in the tutorial:
+1. Select **Yes, I have read and agree to the Twitter Developer Agreement**, and then Select **Create your Twitter application**.
+
+1. Select the **Keys and Access Tokens** tab.
+
+1. Select **Create my access token** at the end of the page.
+
+1. Write down the following values from the page.  You need these values later in the tutorial:
 
     - **Consumer Key (API Key)**	
     - **Consumer Secret (API Secret)**	
@@ -55,9 +60,11 @@ To receive a stream of tweets, you create an application in Twitter. Follow the 
 
 You use this event hub to store tweets.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).  
-2. From the left menu, select **All services**.  
-3. Under **INTERNET OF THINGS**, select **Event Hubs**.  <br />
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. From the left menu, select **All services**.  
+
+1. Under **INTERNET OF THINGS**, select **Event Hubs**. 
 
     ![Create event hub for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Create event hub for Spark streaming example")
 
@@ -69,30 +76,35 @@ You use this event hub to store tweets.
     - **Subscription**: Select your appropriate subscription.
     - **Resource group**: Select an existing resource group from the drop-down list or select **Create new** to create a new resource group.
     - **Location**: Select the same **Location** as your Apache Spark cluster in HDInsight to reduce latency and costs.
-    - **Enable Auto-Inflate**: (Optional)  Auto-inflate automatically scales the number of Throughput Units assigned to your Event Hubs Namespace when your traffic exceeds the capacity of the Throughput Units assigned to it.
-    - **Auto-Inflate Maximum Throughput Units**: (Optional)  This slider will only appear if you check **Enable Auto-Inflate**.
+    - **Enable Auto-Inflate**: (Optional)  Auto-inflate automatically scales the number of Throughput Units assigned to your Event Hubs Namespace when your traffic exceeds the capacity of the Throughput Units assigned to it.  
+    - **Auto-Inflate Maximum Throughput Units**: (Optional)  This slider will only appear if you check **Enable Auto-Inflate**.  
 
-    ![Provide an event hub name for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Provide an event hub name for Spark streaming example")
+      ![Provide an event hub name for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Provide an event hub name for Spark streaming example")
 6. Select **Create** to create the namespace.  The deployment will complete in a few minutes.
 
 ## Create an Azure Event Hub
 Create an Event Hub once the Event Hubs Namespace has been deployed.  From the portal:
 
 1. From the left menu, select **All services**.  
-2. Under **INTERNET OF THINGS**, select **Event Hubs**.  
-3. Select your Event Hubs Namespace from the list.  
-4. From the Event Hubs Namespace page, select **+ Event Hub**.  
-5. Enter the following values in the **Create Event Hub** page:<br />
+
+1. Under **INTERNET OF THINGS**, select **Event Hubs**.  
+
+1. Select your Event Hubs Namespace from the list.  
+
+1. From the Event Hubs Namespace page, select **+ Event Hub**.  
+1. Enter the following values in the **Create Event Hub** page:
 
     - Name: Give a name for your Event Hub.  
     - Partition count: 10.  
     - Message retention: 1.   
    
-    ![Provide event hub details for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Provide event hub details for Spark streaming example")
+      ![Provide event hub details for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Provide event hub details for Spark streaming example")
 
-9. Select **Create**.  The deployment should complete in a few seconds and you will be returned to the Event Hubs Namespace page.
-10. Under **Settings**, select **Shared access policies**.
-11. Select **RootManageSharedAccessKey**.
+1. Select **Create**.  The deployment should complete in a few seconds and you will be returned to the Event Hubs Namespace page.
+
+1. Under **Settings**, select **Shared access policies**.
+
+1. Select **RootManageSharedAccessKey**.
     
      ![Set Event Hub policies for the Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Set Event Hub policies for the Spark streaming example")
 
