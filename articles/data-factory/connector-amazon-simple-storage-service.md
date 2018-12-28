@@ -27,7 +27,7 @@ You can copy data Amazon S3 to any supported sink data store. For a list of data
 Specifically, this Amazon S3 connector supports copying files as-is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 >[!TIP]
->You can use this Amazon S3 connector to copy data from any S3-compatible storage providers - specify the corresponding service URL in the linked service configuration.
+>You can use this Amazon S3 connector to copy data from any S3-compatible storage providers. Specify the corresponding service URL in the linked service configuration.
 
 ## Required permissions
 
@@ -209,7 +209,7 @@ To copy data from Amazon S3, set the source type in the copy activity to **FileS
 
 ## Copy from Google Cloud Storage
 
-Google Cloud Storage provides S3-compatible interoperability, thus you can use Amazon S3 connector to copy data from Google Cloud Storage. You can find the specific Google Cloud Storage entry in ADF authoring UI connector gallery, which automatically fill in the service URL as `https://storage.googleapis.com`. To find the access key and secret, go to your Google Cloud Storage -> Settings -> Interoperability. Refer to this article from the beginning for a detailed overview of using Amazon S3 connector to copy data. 
+Because Google Cloud Storage provides S3-compatible interoperability, you can use Amazon S3 connector to copy data from Google Cloud Storage. You can find the specific Google Cloud Storage entry in the ADF authoring UI connector gallery, which automatically fills in the service URL as `https://storage.googleapis.com`. To find the access key and secret, go to **Google Cloud Storage** > **Settings** > **Interoperability**. Refer to this article from the beginning for a detailed overview of using Amazon S3 connector to copy data. 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores that are supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
