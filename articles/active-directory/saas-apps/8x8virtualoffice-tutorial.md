@@ -99,7 +99,7 @@ To configure Azure AD single sign-on with 8x8 Virtual Office, perform the follow
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **Basic SAML Configuration** dialog.
+4. On the **Basic SAML Configuration** dialog, perform the following steps:
 
     ![8x8 Virtual Office Domain and URLs single sign-on information](common/idp-intiated.png)
 
