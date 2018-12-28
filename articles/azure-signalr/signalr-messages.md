@@ -9,6 +9,8 @@ ms.author: zhshang
 ---
 # Message and connection in Azure SignalR Service
 
+Azure SignalR Service has billing model on the number of connections and number of messages. How the messages and connections are defined and counted for billing purpose is explained below.
+
 ## Message format supported
 
 Azure SignalR Service supports the same formats that the ASP.NET Core SignalR supports: JSON and [MessagePack](/aspnet/core/signalr/messagepackhubprotocol)
