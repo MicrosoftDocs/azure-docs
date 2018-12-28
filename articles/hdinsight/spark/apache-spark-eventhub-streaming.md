@@ -8,7 +8,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 12/28/2018
 
 #customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to use Apache Spark in Azure HDInsight to process streaming data from Azure Event Hubs.
 ---
