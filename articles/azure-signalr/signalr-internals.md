@@ -42,7 +42,7 @@ Once the application server is started,
 Messages to and from clients will be multiplexed into these connections.
 
 These connections will remain connected to the SignalR Service all the time. If a server connection is disconnected for network issue,
-- all clients that are served by this server connection disconnect (for more information about it, see [Data transmit between client and server](#Data-transmit-between-client-and-server));
+- all clients that are served by this server connection disconnect (for more information about it, see [Data transmit between client and server](#data-transmit-between-client-and-server));
 - the server connection starts reconnecting automatically.
 
 ## Client connections
@@ -53,14 +53,14 @@ There are two steps to establish persistent connections between the client and t
 1. Client sends a negotiate request to the application server. With Azure SignalR Service SDK, application server returns a redirect response with SignalR Service's URL and access token.
 
 - For ASP.NET Core SignalR, a typical redirect response looks like:
-    ```json
+    ```
     {
         "url":"https://test.service.signalr.net/client/?hub=chat&...",
         "accessToken":"<a typical JWT token>"
     }
     ```
 - For ASP.NET SignalR, a typical redirect response looks like:
-    ```json
+    ```
     {
         "ProtocolVersion":"2.0",
         "RedirectUrl":"https://test.service.signalr.net/aspnetclient",
