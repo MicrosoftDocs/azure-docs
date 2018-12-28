@@ -258,7 +258,7 @@ The objective of this section is to create a test user in the Azure portal calle
 To enable Azure AD users to log in to SuccessFactors, they must be provisioned into SuccessFactors.  
 In the case of SuccessFactors, provisioning is a manual task.
 
-To get users created in SuccessFactors, you need to contact the [SuccessFactors support team](https://www.successfactors.com/support.html).
+To get users created in SuccessFactors, you need to contact the [SuccessFactors support team](https://www.successfactors.com/content/ssf-site/en/support.html).
 
 ### Assigning the Azure AD test user
 
