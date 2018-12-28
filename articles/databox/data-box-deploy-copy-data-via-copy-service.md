@@ -40,9 +40,9 @@ Once you're connected to the NAS, the next step is to copy data. Before you begi
 To copy data using data copy service, you need to create a job. Follow these steps to create a job to copy data.
 
 1. In the local web UI of your Data Box, go to **Manage > Copy data**.
-2. In the Copy data page, click **Configure and start**.
+2. In the **Copy data** page, click **Configure and start**.
 
-    ![Click configure and start on copy data page](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
+    ![Click configure and start on copy data page](media/data-box-deploy-copy-data-via-copy-service/click-configure-and-start.png)
 
 3. In the **Configure and start** dialog box, provide the following inputs.
     
@@ -70,9 +70,8 @@ To copy data using data copy service, you need to create a job. Follow these ste
 
         ![Pause a job](media/data-box-deploy-copy-data-via-copy-service/pause-job.png)
 
-          
-    
     - You can cancel a job at any time. 
+
         ![Cancel a job](media/data-box-deploy-copy-data-via-copy-service/cancel-job.png)
         A confirmation is required when you cancel a job. 
 
