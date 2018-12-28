@@ -438,4 +438,4 @@ This function sends a notification with the specified payload.
 
 - Learn [How to create user-defined functions](./how-to-user-defined-functions.md).
 
-- - Learn [How to debug user-defined functions](./how-to-diagnose-user-defined-functions.md).
+- Learn [How to debug user-defined functions](./how-to-diagnose-user-defined-functions.md).
