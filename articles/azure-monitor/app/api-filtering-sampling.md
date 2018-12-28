@@ -340,7 +340,7 @@ Insert a telemetry initializer immediately after the initialization code that yo
     </script>
 ```
 
-For a summary of the non-custom properties available on the telemetryItem, see [Application Insights Export Data Model](../../application-insights/app-insights-export-data-model.md).
+For a summary of the non-custom properties available on the telemetryItem, see [Application Insights Export Data Model](../../azure-monitor/app/export-data-model.md).
 
 You can add as many initializers as you like.
 

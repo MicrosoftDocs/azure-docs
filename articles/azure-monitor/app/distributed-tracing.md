@@ -46,12 +46,12 @@ With the proper Application Insights SDK installed and configured, tracing infor
 
 In addition to the Application Insights SDKs, Application Insights also supports distributed tracing through [OpenCensus](https://opencensus.io/). OpenCensus is an open source, vendor-agnostic, single distribution of libraries to provide metrics collection and distributed tracing for services. It also enables the open source community to enable distributed tracing with popular technologies like Redis, Memcached, or MongoDB. [Microsoft collaborates on OpenCensus with several other monitoring and cloud partners](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
-To add distributed tracing capabilities to an application with OpenCensus, first [install and configure the Application Insights Local Forwarder](./opencensus-local-forwarder.md). From there, configure OpenCensus to route distributed trace data through the Local Forwarder. Both [Python](./opencensus-python.md) and [Go](./opencensus-go.md) are supported.
+To add distributed tracing capabilities to an application with OpenCensus, first [install and configure the Application Insights Local Forwarder](./../../application-insights/opencensus-local-forwarder.md). From there, configure OpenCensus to route distributed trace data through the Local Forwarder. Both [Python](./../../application-insights/opencensus-python.md) and [Go](./../../application-insights/opencensus-go.md) are supported.
 
 The OpenCensus website maintains API reference documentation for [Python](https://opencensus.io/api/python/trace/usage.html) and [Go](https://godoc.org/go.opencensus.io), as well as various different guides for using OpenCensus. 
 
 ## Next steps
 
 * [OpenCensus Python usage guide](https://opencensus.io/api/python/trace/usage.html)
-* [Application map](./../azure-monitor/app/app-map.md)
-* [End-to-end performance monitoring](./app-insights-tutorial-performance.md)
+* [Application map](./../../azure-monitor/app/app-map.md)
+* [End-to-end performance monitoring](./../../application-insights/app-insights-tutorial-performance.md)
