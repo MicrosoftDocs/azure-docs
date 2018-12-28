@@ -209,7 +209,7 @@ To copy data from Amazon S3, set the source type in the copy activity to **FileS
 
 ## Copy from Google Cloud Storage
 
-Google Cloud Storage provides S3-compatible interoperability, thus you can use Amazon S3 connector to copy data from Google Cloud Storage. You can find the specific Google Cloud Storage entry in ADF authoring UI connector gallery, which automatically fill in the service URL as `https://storage.googleapis.com`. To find the access key and secret, you can go to your Google Cloud Storage -> Settings -> Interoperability.
+Google Cloud Storage provides S3-compatible interoperability, thus you can use Amazon S3 connector to copy data from Google Cloud Storage. You can find the specific Google Cloud Storage entry in ADF authoring UI connector gallery, which automatically fill in the service URL as `https://storage.googleapis.com`. To find the access key and secret, go to your Google Cloud Storage -> Settings -> Interoperability. Refer to this article from the beginning for a detailed overview of using Amazon S3 connector to copy data. 
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

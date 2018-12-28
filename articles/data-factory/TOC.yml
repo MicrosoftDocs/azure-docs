@@ -224,6 +224,9 @@
       href: connector-odbc.md#microsoft-access-source
     - name: MongoDB
       href: connector-mongodb.md
+      items:
+      - name: MongoDB (legacy)
+        href: connector-mongodb-legacy.md
     - name: MySQL
       href: connector-mysql.md
     - name: Netezza
