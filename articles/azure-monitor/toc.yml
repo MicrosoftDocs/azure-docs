@@ -96,7 +96,7 @@
       - name: DevOps
         href: app/detect-triage-diagnose.md
       - name: Distributed tracing
-        href: ../application-insights/distributed-tracing.md?toc=/azure/azure-monitor/toc.json
+        href: app/distributed-tracing.md
       - name: Log-based & pre-aggregated metrics
         href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
     - name: Containers
@@ -156,7 +156,7 @@
       - name: Applications
         href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
       - name: IP addresses
-        href: ../application-insights/app-insights-ip-addresses.md?toc=/azure/azure-monitor/toc.json
+        href: app/ip-addresses.md
     - name: Monitor applications
       items:
       - name: Deep diagnostics for web apps and services
@@ -166,7 +166,7 @@
       - name: Separate development, test, and production
         href: ../application-insights/app-insights-separate-resources.md?toc=/azure/azure-monitor/toc.json
       - name: How do I ... in Application Insights?
-        href: ../application-insights/app-insights-how-do-i.md?toc=/azure/azure-monitor/toc.json
+        href: app/how-do-i.md
     - name: Manage workspaces
       items:
       - name: Create a workspace
@@ -331,7 +331,7 @@
         - name: Web apps - runtime
           href: ../application-insights/app-insights-java-live.md?toc=/azure/azure-monitor/toc.json
         - name: Docker apps
-          href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
+          href: app/docker.md
         - name: Log traces
           href: ../application-insights/app-insights-java-trace-logs.md?toc=/azure/azure-monitor/toc.json
         - name: Unix metrics
@@ -452,16 +452,16 @@
       - name: Export application data
         items:
         - name: Continuous export
-          href: ../application-insights/app-insights-export-telemetry.md?toc=/azure/azure-monitor/toc.json
+          href: app/export-telemetry.md
           items:
           - name: Code samples
             items:
             - name: Export to SQL using Stream Analytics
               href: app/code-sample-export-sql-stream-analytics.md
             - name: Export to Stream Analytics
-              href: ../application-insights/app-insights-export-stream-analytics.md?toc=/azure/azure-monitor/toc.json
+              href: app/export-stream-analytics.md
         - name: Export data model
-          href: ../application-insights/app-insights-export-data-model.md?toc=/azure/azure-monitor/toc.json
+          href: app/export-data-model.md
   - name: Gain insights
     items:
     - name: Monitor applications
@@ -479,7 +479,7 @@
         - name: Transaction diagnostics
           href: ../application-insights/app-insights-transaction-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: HockeyApp data
-          href: ../application-insights/app-insights-hockeyapp-bridge-app.md?toc=/azure/azure-monitor/toc.json
+          href: app/hockeyapp-bridge-app.md
       - name: Visual Studio
         items:
         - name: F5 insights
@@ -531,7 +531,7 @@
       - name: Docker and Windows Container monitoring
         href: insights/containers.md
       - name: Monitor Docker applications
-        href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
+        href: app/docker.md
     - name: Monitor resource groups
       href: insights/resource-group-insights.md
     - name: Monitor databases

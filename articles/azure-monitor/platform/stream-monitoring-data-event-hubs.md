@@ -94,7 +94,7 @@ The [Windows Azure Diagnostic agent](./../../azure-monitor/platform/diagnostics-
 
 Application monitoring data requires that your code is instrumented with an SDK, so there isn't a general-purpose solution to routing application monitoring data to an event hub in Azure. However, [Azure Application Insights](../../application-insights/app-insights-overview.md) is one service that can be used to collect Azure application-level data. If you are using Application Insights, you can stream monitoring data to an event hub by doing the following:
 
-1. [Set up continuous export](../../application-insights/app-insights-export-telemetry.md) of the Application Insights data to a storage account.
+1. [Set up continuous export](../../azure-monitor/app/export-telemetry.md) of the Application Insights data to a storage account.
 
 2. Set up a timer-triggered Logic App that [pulls data from blob storage](../../connectors/connectors-create-api-azureblobstorage.md#add-action) and [pushes it as a message to the event hub](../../connectors/connectors-create-api-azure-event-hubs.md#add-action).
 
