@@ -49,7 +49,7 @@ Azure Machine Learning service has varying support across different compute targ
 Your Python model training scripts are portable. You can initially train on your local computer, and later switch compute targets without having to rewrite the training script.  In order for Azure Machine Learning service to know how and where you want to run your training script, you create a [run configuration](concept-azure-machine-learning-architecture.md#run-configuration).
 
 
-You use a run configuration to identify the compute target and install the Python environment necessary to run your training script.  The environment can be either user-managed or system-managed.
+You use a run configuration to identify the compute target and install the Python environment necessary to run your training script.  The environment can be either system-managed or user-managed.
 
 * System-managed environment
 
@@ -303,26 +303,26 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
 1. **Attach**: To attach an HDInsight cluster as a compute target, you must provide the FQDN, user name, and password for the HDInsight cluster. The following example uses the SDK to attach a cluster to your workspace. In the example, replace \<fqdn> with the public FQDN of the cluster, or the public IP address. Replace \<username> and \<password> with the SSH user name and password for the cluster.
 
 
-    To find the FQDN for your cluster, go to the Azure portal and select your HDInsight cluster. Under __Overview__, you can see the FQDN in the __URL__ entry. To get the FQDN, remove the https:\// prefix from the beginning of the entry. 
+ To find the FQDN for your cluster, go to the Azure portal and select your HDInsight cluster. Under __Overview__, you can see the FQDN in the __URL__ entry. To get the FQDN, remove the https:\// prefix from the beginning of the entry. 
     
  ![Get the FQDN for an HDInsight cluster in the Azure portal](./media/how-to-set-up-training-targets/hdinsight-overview.png)
 
-    ```python
-    from azureml.core.compute import HDInsightCompute, ComputeTarget
-    
-    try:
-        # Attach an HDInsight cluster as a compute target
-        attach_config = HDInsightCompute.attach_configuration(address = "<fqdn-or-ipaddress>",
-                                                                ssh_port = 22,
-                                                                username = "<username>",
-                                                                password = None, #if using ssh key
-                                                                private_key_file = "<path-to-key-file>",
-                                                                private_key_phrase = "<key-phrase>")
-        compute = ComputeTarget.attach(ws, "myhdi", attach_config)
-    except UserErrorException as e:
-        print("Caught = {}".format(e.message))
-        print("Compute config already attached.")
-    ```
+ ```python
+from azureml.core.compute import HDInsightCompute, ComputeTarget
+
+try:
+    # Attach an HDInsight cluster as a compute target
+    attach_config = HDInsightCompute.attach_configuration(address = "<fqdn-or-ipaddress>",
+                                                            ssh_port = 22,
+                                                            username = "<username>",
+                                                            password = None, #if using ssh key
+                                                            private_key_file = "<path-to-key-file>",
+                                                            private_key_phrase = "<key-phrase>")
+    compute = ComputeTarget.attach(ws, "myhdi", attach_config)
+except UserErrorException as e:
+    print("Caught = {}".format(e.message))
+    print("Compute config already attached.")
+ ```
 
  Or you can attach the HDInsight cluster to your workspace [using the Azure portal](#portal-reuse).
 
