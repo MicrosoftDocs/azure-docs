@@ -74,8 +74,8 @@ To configure and test Azure AD single sign-on with Freshservice, you need to com
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure Freshservice Single Sign-On](#configure-freshservice-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create Freshservice test user](#create-freshservice-test-user)** - to have a counterpart of Britta Simon in Freshservice that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Freshservice test user](#create-freshservice-test-user)** - to have a counterpart of Britta Simon in Freshservice that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -234,14 +234,12 @@ To enable Azure AD users to log in to FreshService, they must be provisioned int
 
     b. Click **Save**.
 
-    >[!NOTE]
-    >The Azure Active Directory account holder gets an email including a link to confirm the account before it becomes active
+    > [!NOTE]
+    > The Azure Active Directory account holder gets an email including a link to confirm the account before it becomes active
     >  
 
->[!NOTE]
->You can use any other FreshService user account creation tools or APIs provided by FreshService to provision AAD user accounts.
-
-![Assign User][200]
+> [!NOTE]
+> You can use any other FreshService user account creation tools or APIs provided by FreshService to provision AAD user accounts.
 
 ### Test single sign-on
 
@@ -256,5 +254,3 @@ When you click the Freshservice tile in the Access Panel, you should be automati
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-[200]: ./media/freshservice-tutorial/tutorial_general_200.png
