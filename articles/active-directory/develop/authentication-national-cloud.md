@@ -29,7 +29,11 @@ Including global cloud​, Azure Active Directory is deployed in the followi
 - Azure Germany
 - Azure China 21Vianet
 
+National clouds are unique and different environment than Azure global. Therefore, it is important to be aware of some key differences while developing your application for these environments. Some of the key differences in application development are around application registration and acquiring token.
+
 ## App registration endpoints
+
+There are separate azure portals for all of the national clouds. Applications development for any of these clouds require your application to be registered separately in each of the environment.
 
 The following table lists the base URLs for the Azure Active Directory (Azure AD) endpoints used to register an application for each national cloud.
 
@@ -42,7 +46,9 @@ The following table lists the base URLs for the Azure Active Directory (Azure AD
 
 ## Azure AD authentication endpoints
 
-The following table lists the base URLs for the Azure Active Directory (Azure AD) endpoints used to acquire tokens to call Microsoft Graph for each national cloud.
+All of the national clouds authenticate users separately in each environment and have separate authentication endpoints.
+
+The following table lists the base URLs for the Azure Active Directory (Azure AD) endpoints used to acquire tokens for each national cloud.
 
 | National cloud | Azure AD auth endpoint
 | --- | --- |
@@ -54,12 +60,16 @@ The following table lists the base URLs for the Azure Active Directory (Azure AD
 Requests to the Azure AD authorization or token endpoints can be formed using the appropriate region-specific base URL. For example, in case of Germany:
 
 - Authorization common endpoint is `https://login.microsoftonline.de/common/oauth2/authorize`
-- Token common endpoint is `https://login.microsoftonline.de/common/oauth2/token` 
+- Token common endpoint is `https://login.microsoftonline.de/common/oauth2/token`
 
 For single-tenant applications, replace common in the above URLs with your tenant id or name, for example, `https://login.microsoftonline.de/contoso.com`
 
 >[!NOTE]
 > The [Azure AD v2.0 authorization]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) and token endpoints are only available for the global service. It is not yet supported for national cloud deployments.
+
+
+>[!IMPORTANT]
+Certain services and features that are in specific regions of the global service might not be available in all of the National clouds. To find out what services are available go to [products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast)
 
 ## Next steps
 
