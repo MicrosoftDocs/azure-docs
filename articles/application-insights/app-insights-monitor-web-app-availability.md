@@ -1,4 +1,4 @@
-Ôªø---
+---
 title: Monitor availability and responsiveness of any web site | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 services: application-insights
@@ -254,7 +254,7 @@ Here's a sample web test of an Azure web app using an app key:
 2. Extract bearer token from response.
 3. Call API using bearer token in the authorization header.
 
-Make sure that the web test is an actual client - that is, it has its own app in AAD - and use its clientId + appkey. Your service under test also has its own app in AAD: the appID URI of this app is reflected in the web test in the ‚Äúresource‚Äù field.
+Make sure that the web test is an actual client - that is, it has its own app in AAD - and use its clientId + appkey. Your service under test also has its own app in AAD: the appID URI of this app is reflected in the web test in the ìresourceî field.
 
 ### Open Authentication
 An example of open authentication is signing in with your Microsoft or Google account. Many apps that use OAuth provide the client secret alternative, so your first tactic should be to investigate that possibility.
@@ -365,6 +365,6 @@ When the test is complete, you are shown response times and success rates.
 <!--Link references-->
 
 [azure-availability]: ../insights-create-web-tests.md
-[diagnostic]: app-insights-diagnostic-search.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
