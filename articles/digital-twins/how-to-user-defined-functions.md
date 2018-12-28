@@ -196,7 +196,7 @@ We need to create a role assignment for the user-defined function to run under. 
     ```
    Keep the desired role ID. It will be passed as the JSON body attribute **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) below.
 
-1. **objectId**(`YOUR_USER_DEFINED_FUNCTION_ID` below) will be the UDF ID that was created earlier.
+1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID` below) will be the UDF ID that was created earlier.
 1. Find the value of **path** (`YOUR_ACCESS_CONTROL_PATH` below) by querying your spaces with `fullpath`.
 1. Copy the returned `spacePaths` value. You'll use that in the following code. Make an authenticated HTTP GET request to:
 
@@ -208,10 +208,14 @@ We need to create a role assignment for the user-defined function to run under. 
     | --- | --- |
     | *YOUR_SPACE_NAME* | The name of the space you wish to use |
 
-1. Paste the returned `spacePaths` value into **path** to create a UDF role assignment:
+1. Paste the returned `spacePaths` value into **path** to create a UDF role assignment by making an authenticated HTTP POST request to:
 
     ```plaintext
-    POST YOUR_MANAGEMENT_API_URL/roleassignments
+    YOUR_MANAGEMENT_API_URL/roleassignments
+    ```
+    With JSON body:
+
+    ```JSON
     {
       "roleId": "YOUR_DESIRED_ROLE_IDENTIFIER",
       "objectId": "YOUR_USER_DEFINED_FUNCTION_ID",
