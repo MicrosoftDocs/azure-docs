@@ -74,9 +74,7 @@ The following properties are supported for MongoDB linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by MongoDB dataset.
-
-To copy data from MongoDB, set the type property of the dataset to **MongoDbV2Collection**. The following properties are supported:
+For a full list of sections and properties that are available for defining datasets, see [Datasets and linked services](concepts-datasets-linked-services.md). The following properties are supported for MongoDB dataset:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -107,7 +105,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### MongoDB as source
 
-To copy data from MongoDB, set the source type in the copy activity to **MongoDbV2Source**. The following properties are supported in the copy activity **source** section:
+The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

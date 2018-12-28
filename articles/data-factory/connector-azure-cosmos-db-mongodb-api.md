@@ -74,11 +74,7 @@ The following properties are supported for the Azure Cosmos DB (MongoDB API) lin
 
 ## Dataset properties
 
-This section provides a list of properties that the Azure Cosmos DB (MongoDB API) dataset supports. 
-
-For a full list of sections and properties that are available for defining datasets, see [Datasets and linked services](concepts-datasets-linked-services.md). 
-
-To copy data from or to Azure Cosmos DB (MongoDB API), set the **type** property of the dataset to **CosmosDbMongoDbApiCollection**. The following properties are supported:
+For a full list of sections and properties that are available for defining datasets, see [Datasets and linked services](concepts-datasets-linked-services.md). The following properties are supported for Azure Cosmos DB (MongoDB API) dataset:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -110,8 +106,6 @@ This section provides a list of properties that the Azure Cosmos DB (MongoDB API
 For a full list of sections and properties that are available for defining activities, see [Pipelines](concepts-pipelines-activities.md).
 
 ### Azure Cosmos DB (MongoDB API) as source
-
-To copy data from Azure Cosmos DB (MongoDB API), set the **source** type in Copy Activity to **CosmosDbMongoDbApiSource**. 
 
 The following properties are supported in the Copy Activity **source** section:
 
@@ -168,9 +162,7 @@ The following properties are supported in the Copy Activity **source** section:
 
 ### Azure Cosmos DB (MongoDB API) as sink
 
-To copy data to Azure Cosmos DB (MongoDB API), set the **sink** type in Copy Activity to **CosmosDbMongoDbApiSink**. 
-
-The following properties are supported in the Copy Activity **source** section:
+The following properties are supported in the Copy Activity **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

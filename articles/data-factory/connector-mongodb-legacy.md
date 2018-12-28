@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 12/20/2018
 ms.author: jingwang
 
 ---
@@ -90,9 +90,7 @@ The following properties are supported for MongoDB linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by MongoDB dataset.
-
-To copy data from MongoDB, set the type property of the dataset to **MongoDbCollection**. The following properties are supported:
+For a full list of sections and properties that are available for defining datasets, see [Datasets and linked services](concepts-datasets-linked-services.md). The following properties are supported for MongoDB dataset:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -123,7 +121,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### MongoDB as source
 
-To copy data from MongoDB, set the source type in the copy activity to **MongoDbSource**. The following properties are supported in the copy activity **source** section:
+The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
