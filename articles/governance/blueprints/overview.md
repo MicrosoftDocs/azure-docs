@@ -16,7 +16,7 @@ Just as a blueprint allows an engineer or an architect to sketch a project's des
 Azure Blueprints enables cloud architects and central information technology groups to define a
 repeatable set of Azure resources that implements and adheres to an organization's standards,
 patterns, and requirements. Azure Blueprints makes it possible for development teams to rapidly
-build and stand up new environments with trust they're building within organizational compliance
+build and spin up new environments with trust they're building within organizational compliance
 with a set of built-in components -- such as networking -- to speed up development and delivery.
 
 Blueprints are a declarative way to orchestrate the deployment of various resource templates and
@@ -69,7 +69,7 @@ Including a policy in a blueprint enables the creation of the right pattern or d
 assignment of the blueprint. The policy inclusion makes sure that only approved or expected changes
 can be made to the environment to protect ongoing compliance to the intent of the blueprint.
 
-A policy can be included as one of many _artifacts_ in a blueprints definition. Blueprints also
+A policy can be included as one of many _artifacts_ in a blueprint definition. Blueprints also
 support using parameters with policies and initiatives.
 
 ## Blueprint definition
@@ -80,7 +80,7 @@ as artifacts:
 |Resource  | Hierarchy options| Description  |
 |---------|---------|---------|
 |Resource Groups     | Subscription | Create a new resource group for use by other artifacts within the blueprint.  These placeholder resource groups enable you to organize resources exactly the way you want them structured and provides a scope limiter for included policy and role assignment artifacts and Azure Resource Manager templates.         |
-|Azure Resource Manager template      | Subscription, Resource Group | Templates are used to compose complex environments. Example environments: a SharePoint farm, Azure Automation State Configuration, or a Log Analytics workspace. |
+|Azure Resource Manager template      | Subscription, Resource Group | Templates are used to compose complex environments. Example: a SharePoint farm, Azure Automation State Configuration, or a Log Analytics workspace. |
 |Policy Assignment     | Subscription, Resource Group | Allows assignment of a policy or initiative to the subscription the blueprint is assigned to. The policy or initiative must be within the scope of the blueprint (in the blueprint management group or below). If the policy or initiative has parameters, these parameters are assigned at creation of the blueprint or during blueprint assignment.       |
 |Role Assignment   | Subscription, Resource Group | Add an existing user or group to a built-in role to make sure the right people always have the right access to your resources. Role assignments can be defined for the entire subscription or nested to a specific resource group included in the blueprint. |
 
