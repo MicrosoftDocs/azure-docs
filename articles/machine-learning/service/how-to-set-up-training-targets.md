@@ -232,10 +232,8 @@ Use the Azure Data Science Virtual Machine (DSVM)  as the Azure VM of choice for
 
     > [!WARNING]
     > Azure Machine Learning only supports virtual machines that run Ubuntu. When you create a VM or choose an existing VM, you must select a VM that uses Ubuntu.
-    
 
 1. **Attach**: To attach an existing virtual machine as a compute target, you must provide the fully qualified domain name (FQDN), user name, and password for the virtual machine. In the example, replace \<fqdn> with the public FQDN of the VM, or the public IP address. Replace \<username> and \<password> with the SSH user name and password for the VM.
-
 
     ```python
     from azureml.core.compute import RemoteCompute, ComputeTarget
@@ -243,25 +241,24 @@ Use the Azure Data Science Virtual Machine (DSVM)  as the Azure VM of choice for
     # Create the compute config 
     compute_target_name = "attach-dsvm"
     attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
-                                                       ssh_port=22,
-                                                       username='<username>',
-                                                       password="<password>")
-
+                                                        ssh_port=22,
+                                                        username='<username>',
+                                                        password="<password>")
+    
     # If you use SSH instead of a password, use this code:
     #                                                  ssh_port=22,
     #                                                  username='<username>',
     #                                                  password=None,
     #                                                  private_key_file="path-to-file",
     #                                                  private_key_passphrase="passphrase")
-
+    
     # Attach the compute
     compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
-
+    
     compute.wait_for_completion(show_output=True)
     ```
-
+    
     Or you can attach the DSVM to your workspace [using the Azure portal](#portal-reuse).
-
 
 1. **Configure**: Create a run configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on the DSVM.
 
