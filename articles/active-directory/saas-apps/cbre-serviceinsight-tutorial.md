@@ -114,10 +114,6 @@ To configure Azure AD single sign-on with CBRE ServiceInsight, perform the follo
 
 	| Name |  Source Attribute|
 	| ------------ | --------- |
-	| givenname | user.givenname |
-	| surname | user.surname |
-	| emailaddress | user.mail |
-	| name | user.userprincipalname |
 	| SSOCallerPhone | user.telephonenumber |
 	| | |
 
