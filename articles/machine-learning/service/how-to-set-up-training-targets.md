@@ -6,7 +6,6 @@ services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
 ms.reviewer: sgilley
-manager: cgronlun
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
@@ -46,16 +45,18 @@ Azure Machine Learning service has varying support across different compute targ
 
 ## Run configurations
 
-Your Python model training scripts are portable. You can initially train on your local computer, and later switch compute targets without having to rewrite the training script.  In order for Azure Machine Learning service to know how and where you want to run your training script, you create a [run configuration](concept-azure-machine-learning-architecture.md#run-configuration).
+When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute target without having to change your script.  
 
+For the service to know how you want to run your script, you must create a **run configuration** in Python to specify
+which compute target to use and how you'd like the script dependencies to be managed in the Python environment on that target. Options include:
 
-You use a run configuration to identify the compute target and install the Python environment necessary to run your training script.  The environment can be either system-managed or user-managed.
++ In **system-managed environments**, [Conda](https://conda.io/docs/) manages the dependencies for you. 
 
-* System-managed environment
+  When you run the script on your compute target, Conda first creates a file named **conda_dependencies.yml** in the **aml_config** directory in your workspace to define the list of dependencies to install. The initial set up of a new environment can take several minutes depending on the size of the required dependencies. This system-managed environment can be reused as long as the file remains unchanged. 
+  
+  A system-managed environment is useful on most of your remote compute targets, especially when you cannot configure that target.  
 
-    System-managed environments use [conda](https://conda.io/docs/) to manage the dependencies. Conda creates a file named **conda_dependencies.yml** in the **aml_config** directory.  This **.yml** file contains a list of dependencies. This new conda environment installs on the compute target before your script is run. System-managed environments can be reused later, as long as the `conda_dependencies.yml` files remains unchanged.
-    
-    The initial setup up of a new environment can take several minutes to complete based on the size of the required dependencies. The following code snippet demonstrates how to create a system-managed environment that depends on scikit-learn:
+  The following code shows an example for a system-managed environment requiring scikit-learn:
     
     ```python
     from azureml.core.runconfig import RunConfiguration
@@ -66,12 +67,14 @@ You use a run configuration to identify the compute target and install the Pytho
     # Specify the conda dependencies with scikit-learn
     run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
     ```
-    
-    You will use system-managed environments in most of your remote compute targets, as you see in many of the examples in this article. 
 
-* <a href="#user-managed"></a>User-managed environment
+  <a href="#user-managed"></a>
 
-    In a user-managed environment, you ensure all the packages your training script needs are available in the Python environment where you run the script. The following code snippet is an example of how to configure training for a user-managed environment:
++ In **user-managed environments**, you're responsible for installing every package your training script needs into the Python environment on the compute target. 
+
+  This type of environment is useful when you've already installed the package dependencies on your compute target, such as your local machine. Or, when you're using a remote machine that you can configure, such as a Data Science Virtual Machine (DSVM). No new environment is created, which saves time when you initially set up the resource.
+
+  The following code shows an example of configuring training runs for a user-managed environment:
     
     ```python
     from azureml.core.runconfig import RunConfiguration
@@ -79,19 +82,19 @@ You use a run configuration to identify the compute target and install the Pytho
     run_config_user_managed = RunConfiguration()
     run_config_user_managed.environment.python.user_managed_dependencies = True
     
-    # Choose a specific Python environment by pointing to a Python path. For example: #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
+    # Point to a specific Python environment. For example: 
+    # run_config.environment.python.interpreter_path = '/home/smith/miniconda3/envs/sdk2/bin/python'
     ```
 
-    Use this configuration when you have already installed all packages necessary to run your training code on your compute target, such as your local machine. You might also use this configuration for a remote machine that you sign into and configure, such as a Data Science Virtual Machine (DSVM). No new environment will be created which can save time when setting up the resource.
+You can save the run configuration in a file in the same directory as your training script, or construct it as an in-memory object when you submit a run.    
   
 ## Set up compute with Python
-
 
 Use the sections below to configure these compute targets:
 
 * [Local computer](#local)
 * [Azure Machine Learning Compute](#amlcompute)
-* [Remote VM](#vm)
+* [Remote virtual machines](#vm)
 * [Azure HDInsight](#hdinsight)
 
 
@@ -216,7 +219,7 @@ A persistent Azure Machine Learning Compute can be reused across jobs. The compu
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
 
 
-### <a id="vm"></a>Remote VM
+### <a id="vm"></a>Remote virtual machines
 
 Azure Machine Learning also supports bringing your own compute resource and attaching it to your workspace. One such resource type is an arbitrary remote VM, as long as it's accessible from Azure Machine Learning service. The resource can be an Azure VM, a remote server in your organization, or on-premises. Specifically, given the IP address and credentials (user name and password, or SSH key), you can use any accessible VM for remote runs.
 
