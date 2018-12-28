@@ -65,12 +65,13 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
 > The following steps use the [Azure portal](https://portal.azure.com) to create an Azure Virtual Machine. For other ways to create a virtual machine, see the following documents:
 >
 > * [Create VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
-> * [Create VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
-
+> * [Create VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)  
+  
 From the [Azure portal](https://portal.azure.com):
-1. From the left menu, select **+ Create a resource**.  
-2. Select **Compute**.  
-3. Select **Ubuntu Server 18.04 LTS**.  
+  
+1. From the left menu, select **+ Create a resource**.
+2. Select **Compute**.
+3. Select **Ubuntu Server 18.04 LTS**.<br />  
 
     ![Create an Ubuntu virtual machine](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
@@ -111,10 +112,9 @@ From the [Azure portal](https://portal.azure.com):
 ### Review IP Addresses
 Once the virtual machine has been created, you will receive a **Deployment succeeded** notification with a **Go to resource** button.  Select **Go to resource** to go to your new virtual machine.  From the default view for your new virtual machine, follow these steps to identify the associated IP Addresses:
 
-1. From **Settings**, select **Properties**.
-2. Note the values for **PUBLIC IP ADDRESS/DNS NAME LABEL** and **PRIVATE IP ADDRESS** for later use.
-
-![Public and private IP addresses](./media/connect-on-premises-network/vm-ip-addresses.png)
+1. From **Settings**, select **Properties**.  
+2. Note the values for **PUBLIC IP ADDRESS/DNS NAME LABEL** and **PRIVATE IP ADDRESS** for later use.<br />  
+   ![Public and private IP addresses](./media/connect-on-premises-network/vm-ip-addresses.png)
 
 ### Install and configure Bind (DNS software)
 
@@ -247,7 +247,7 @@ To configure the virtual network to use the custom DNS server instead of the Azu
 3. Select your virtual network from the list, which will open the default view for your virtual network.  
 4. From the default view, under **Settings**, select **DNS servers**.  
 5. Select __Custom__, and enter the **PRIVATE IP ADDRESS** of the custom DNS server.   
-6. Select __Save__.  
+6. Select __Save__.  <br />  
 
     ![Set the custom DNS server for the network](./media/connect-on-premises-network/configure-custom-dns.png)
 
