@@ -317,17 +317,17 @@ This function sends a notification with the specified payload.
 
 ```JSON
 {
-  "Id": "00000000-0000-0000-0000-000000000002",
-  "Name": "Device",
-  "FriendlyName": "Temperature Sensing Device",
-  "Description": "This device contains a sensor that captures temperature readings.",
-  "Type": "None",
-  "Subtype": "None",
-  "TypeId": 0,
-  "SubtypeId": 0,
-  "HardwareId": "ABC123",
-  "GatewayId": "ABC",
-  "SpaceId": "00000000-0000-0000-0000-000000000000"
+  "id": "00000000-0000-0000-0000-000000000002",
+  "name": "Device",
+  "friendlyName": "Temperature Sensing Device",
+  "description": "This device contains a sensor that captures temperature readings.",
+  "type": "None",
+  "subtype": "None",
+  "typeId": 0,
+  "subtypeId": 0,
+  "hardwareId": "ABC123",
+  "gatewayId": "ABC",
+  "spaceId": "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -361,21 +361,21 @@ This function sends a notification with the specified payload.
 
 ```JSON
 {
-  "Id": "00000000-0000-0000-0000-000000000003",
-  "Port": "30",
-  "PollRate": 3600,
-  "DataType": "Temperature",
-  "DataSubtype": "None",
-  "Type": "Classic",
-  "PortType": "None",
-  "DataUnitType": "FahrenheitTemperature",
-  "SpaceId": "00000000-0000-0000-0000-000000000000",
-  "DeviceId": "00000000-0000-0000-0000-000000000001",
-  "PortTypeId": 0,
-  "DataUnitTypeId": 0,
-  "DataTypeId": 0,
-  "DataSubtypeId": 0,
-  "TypeId": 0  
+  "id": "00000000-0000-0000-0000-000000000003",
+  "port": "30",
+  "pollRate": 3600,
+  "dataType": "Temperature",
+  "dataSubtype": "None",
+  "type": "Classic",
+  "portType": "None",
+  "dataUnitType": "FahrenheitTemperature",
+  "spaceId": "00000000-0000-0000-0000-000000000000",
+  "deviceId": "00000000-0000-0000-0000-000000000001",
+  "portTypeId": 0,
+  "dataUnitTypeId": 0,
+  "dataTypeId": 0,
+  "dataSubtypeId": 0,
+  "typeId": 0  
 }
 ```
 
@@ -417,9 +417,9 @@ This function sends a notification with the specified payload.
 
 ```JSON
 {
-  "DataType": "Temperature",
-  "Value": "70",
-  "CreatedTime": ""
+  "dataType": "Temperature",
+  "value": "70",
+  "createdTime": ""
 }
 ```
 
@@ -427,8 +427,8 @@ This function sends a notification with the specified payload.
 
 ```JSON
 {
-  "Name": "OccupancyStatus",
-  "Value": "Occupied"
+  "name": "OccupancyStatus",
+  "value": "Occupied"
 }
 ```
 
