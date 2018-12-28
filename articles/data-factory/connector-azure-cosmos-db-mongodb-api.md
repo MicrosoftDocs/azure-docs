@@ -203,6 +203,9 @@ The following properties are supported in the Copy Activity **sink** section:
 ]
 ```
 
+>[!TIP]
+>To import JSON documents as-is, refer to [Import or export JSON documents](#import-or-export-json-documents) section; to copy from tabular-shaped data, refer to [Schema mapping](#schema-mapping).
+
 ## Import or export JSON documents
 
 You can use this Azure Cosmos DB connector to easily:
@@ -211,10 +214,23 @@ You can use this Azure Cosmos DB connector to easily:
 * Export JSON documents from an Azure Cosmos DB collection to various file-based stores.
 * Copy documents between two Azure Cosmos DB collections as-is.
 
-To achieve schema-agnostic copy:
+To achieve such schema-agnostic copy, skip the "structure" (also called *schema*) section in dataset and schema mapping in copy activity.
 
-* When you use the Copy Data tool, select the **Export as-is to JSON files or Cosmos DB collection** option.
-* When you use activity authoring, don't specify the **structure** (also called *schema*) section in the Azure Cosmos DB dataset. Also, don't specify the **nestingSeparator** property in the Azure Cosmos DB source or sink in Copy Activity. When you import from or export to JSON files, in the corresponding file store dataset, specify the **format** type as **JsonFormat** and configure the **filePattern** as described in the [JSON format](supported-file-formats-and-compression-codecs.md#json-format) section. Then, don't specify the **structure** section and skip the rest of the format settings.
+## Schema mapping
+
+To copy data from Cosmos DB MongoDB API to tabular sink or reversed, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
+
+Specifically for writing into Cosmos DB, to make sure you populate Cosmos DB with the right object ID from your source data, for example, you have an "id" column in SQL database table and want to use the value of that as the document ID in MongoDB for insert/upsert, you need to set the proper schema mapping according to MongoDB strict mode definition (`_id.$oid`) as the following:
+
+![Map ID in MongoDB sink](./media/connector-azure-cosmos-db-mongodb-api/map-id-in-mongodb-sink.png)
+
+After copy activity execution, below BSON ObjectId is generated in sink:
+
+```json
+{
+    "_id": ObjectId("592e07800000000000000000")
+}
+``` 
 
 ## Next steps
 

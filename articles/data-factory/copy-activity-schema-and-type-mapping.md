@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 12/20/2018
 ms.author: jingwang
 
 ---
@@ -21,7 +21,7 @@ This article describes how Azure Data Factory copy activity does schema mapping 
 
 ## Column mapping
 
-By default, copy activity **map source data to sink by column names**, unless [explicit column mapping](#explicit-column-mapping) is configured. More specifically, copy activity:
+Column mapping applies when copying data between tabular-shaped data. By default, copy activity **map source data to sink by column names**, unless [explicit column mapping](#explicit-column-mapping) is configured. More specifically, copy activity:
 
 1. Read the data from source and determine the source schema
 
@@ -136,6 +136,81 @@ If you were using the syntax of `"columnMappings": "UserId: MyUserId, Group: MyG
 **Column mapping flow:**
 
 ![Column mapping flow](./media/copy-activity-schema-and-type-mapping/column-mapping-sample.png)
+
+## Schema mapping
+
+Schema mapping applies when copying data between hierarchical-shaped data and tabular-shaped data, e.g. copy from MongoDB/REST to text file and copy from SQL to Azure Cosmos DB MongoDB API. The following properties are supported in copy activity `translator` section:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the copy activity translator must be set to: **TabularTranslator** | Yes |
+| schemaMapping | A collection of key-value pairs which represents the mapping relation from tabular side to hierarchical side.<br/>- **Key:** the column name of tabular data as defined in dataset structure.<br/>- **Value:** the JSON path expression for each field to extract and map. For fields under root object, start with root $; for fields inside the array chosen by `collectionReference` property, start from the array element.  | Yes |
+| collectionReference | If you want to iterate and extract data from the objects **inside an array field** with the same pattern and convert to per row per object, specify the JSON path of that array to do cross-apply. This property is supported only when hierarchical data is source. | No |
+
+**Example: copy from MongoDB to SQL:**
+
+For example, if you have MongoDB document with the following content: 
+
+```json
+{
+    "id": {
+        "$oid": "592e07800000000000000000"
+    },
+    "ordernumber": "01",
+    "orderdate": "20170122",
+    "orderlines": [
+        {
+            "prod": "p1",
+            "price": 23
+        },
+        {
+            "prod": "p2",
+            "price": 13
+        },
+        {
+            "prod": "p3",
+            "price": 231
+        }
+    ],
+    "city": [ { "name": "No 1" } ]
+}
+```
+
+and you want to copy it into an Azure SQL table in the following format, by flattening the data inside the array *(order_pd and order_price)* and cross join with the common root info *(ordernumber, orderdate and city)*:
+
+| ordernumber | orderdate | order_pd | order_price | city |
+| --- | --- | --- | --- | --- |
+| 01 | 20170122 | P1 | 23 | No 1 |
+| 01 | 20170122 | P2 | 13 | No 1 |
+| 01 | 20170122 | P3 | 231 | No 1 |
+
+Configure the schema mapping rule as the following:
+
+```json
+{
+    "name": "CopyFromMongoDBToSqlAzure",
+    "type": "Copy",
+    "typeProperties": {
+        "source": {
+            "type": "MongoDbV2Source"
+        },
+        "sink": {
+            "type": "SqlSink"
+        },
+        "translator": {
+            "type": "TabularTranslator",
+            "schemaMapping": {
+                "ordernumber": "$.ordernumber", 
+                "orderdate": "$.orderdate", 
+                "order_pd": "prod", 
+                "order_price": "price",
+                "city": " $.city[0].name"
+            },
+            "collectionReference":  "$.orderlines"
+        }
+    }
+}
+```
 
 ## Data type mapping
 

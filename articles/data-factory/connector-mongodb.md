@@ -158,5 +158,13 @@ The following properties are supported in the copy activity **source** section:
 ]
 ```
 
+## Export JSON documents as-is
+
+You can use this MongoDB connector to export JSON documents as-is from a MongoDB collection to various file-based stores or to Azure Cosmos DB. To achieve such schema-agnostic copy, skip the "structure" (also called *schema*) section in dataset and schema mapping in copy activity.
+
+## Schema mapping
+
+To copy data from MongoDB to tabular sink, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
+
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
