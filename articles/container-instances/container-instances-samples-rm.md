@@ -2,13 +2,12 @@
 title: Azure Resource Manager template samples - Azure Container Instances
 description: Azure Resource Manager template samples for Azure Container Instances
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-instances
 ms.topic: article
 ms.date: 05/17/2018
-ms.author: marsma
+ms.author: danlep
 ---
 
 # Azure Resource Manager templates for Azure Container Instances

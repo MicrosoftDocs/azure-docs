@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/28/2018
+ms.date: 10/16/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
@@ -34,38 +34,45 @@ This article explains self-service signup and how to support it in Azure Active 
 ## How do I control self-service settings?
 Admins have two self-service controls today. They can control whether:
 
-* Users can join the directory via email.
-* Users can license themselves for applications and services.
+* Users can join the directory via email
+* Users can license themselves for applications and services
 
 ### How can I control these capabilities?
 An admin can configure these capabilities using the following Azure AD cmdlet Set-MsolCompanySettings parameters:
 
-* **AllowEmailVerifiedUsers** controls whether a user can create or join an unmanaged directory. If you set that parameter to $false, no email-verified users can join the directory.
-* **AllowAdHocSubscriptions** controls the ability for users to perform self-service signup. If you set that parameter to $false, no users can perform self-service signup. 
+* **AllowEmailVerifiedUsers** controls whether a user can create or join a directory. If you set that parameter to $false, no email-verified user can join the directory.
+* **AllowAdHocSubscriptions** controls the ability for users to perform self-service signup. If you set that parameter to $false, no user can perform self-service signup.
   
-  > [!NOTE]
-  > Flow and PowerApps trial signups are not controlled by the **AllowAdHocSubscriptions** setting. For more information, see the following articles:
-  > * [How can I prevent my existing users from starting to use Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-  > * [Flow in your organization Q&A](https://docs.microsoft.com/flow/organization-q-and-a)
+AllowEmailVerifiedUsers and AllowAdHocSubscriptions are directory-wide settings that can be applied to an managed or an unmanaged directory. Here's an example where:
+
+* You administer a directory with a verified domain such as contoso.com
+* You use B2B collaboration from a different directory to invite a user that does not already exist (userdoesnotexist@contoso.com) in the home directory of constoso.com
+* The home directory has the AllowEmailVerifiedUsers turned on
+
+If the preceding conditions are true, then a member user is created in the home directory, and a B2B guest user is created in the inviting directory.
+
+Flow and PowerApps trial signups are not controlled by the **AllowAdHocSubscriptions** setting. For more information, see the following articles:
+
+* [How can I prevent my existing users from starting to use Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
+* [Flow in your organization Q&A](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### How do the controls work together?
 These two parameters can be used in conjunction to define more precise control over self-service signup. For example, the following command will allow users to perform self-service signup, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created first cannot perform self-service signup):
 
-````
+````powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
 ````
+
 The following flowchart explains the different combinations for these parameters and the resulting conditions for the directory and self-service signup.
 
-![][1]
+![self service sign-up controls](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 For more information and examples of how to use these parameters, see [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 ## Next steps
+
 * [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md)
 * [How to install and configure Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Azure Cmdlet Reference](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
-
-<!--Image references-->
-[1]: ./media/directory-self-service-signup/SelfServiceSignUpControls.png

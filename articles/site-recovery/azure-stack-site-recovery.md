@@ -6,12 +6,12 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 08/30/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ---
-# Replicate Azure Stack VMs to Azure (preview)
+# Replicate Azure Stack VMs to Azure
 
-This article shows you how to set up disaster recovery to Azure for Azure Stack VMs, using the [Azure Site Recovery service](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
+This article shows you how to set up disaster recovery Azure Stack VMs to Azure, using the [Azure Site Recovery service](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
 
 Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy. The service ensures that your VM workloads remain available when expected and unexpected outages occur.
 
@@ -19,10 +19,6 @@ Site Recovery contributes to your business continuity and disaster recovery (BCD
 - When an outage occurs in your primary site, you use Site Recovery to fail over to Azure.
 - On failover, Azure VMs are created from the stored VM data, and users can continue accessing workloads running on those Azure VMs.
 - When everything's up and running again, you can fail back Azure VMs to your primary site, and start replicating to Azure storage again.
-
-
-> [!NOTE]
-> Site Recovery for Azure Stack is currently in public preview.
 
 
 In this article, you learn how to:
@@ -187,7 +183,7 @@ Now install the configuration server:
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> The configuration server can also be installed from the command line. [Learn more](http://aka.ms/installconfigsrv).
+> The configuration server can also be installed from the command line. [Learn more](physical-manage-configuration-server.md#install-from-the-command-line).
 
 > It can take 15 minutes or more for the account name to appear in the portal. To update immediately, select **Configuration Servers** > ***server name*** > **Refresh Server**.
 
@@ -209,7 +205,7 @@ Select and verify target resources.
 3. In **RPO threshold**, specify the recovery point objective (RPO) limit.
     - Recovery points for replicated data are created in accordance with the time set.
     - This setting does not affect replication, which is continuous. It simply issues an alert if the threshold limit is reached without a recovery point being created.
-4. In **Recovery point retention**, Specify how long each recovery point is kept. Replicated VMs can be recovered to any point in the specified time window.
+4. In **Recovery point retention**, specify how long each recovery point is kept. Replicated VMs can be recovered to any point in the specified time window.
 5. In **App-consistent snapshot frequency**, specify how often application-consistent snapshots are created.
 
     - A app-consistent snapshot is a point-in-time snapshot of the app data inside the VM.
@@ -232,13 +228,13 @@ Make sure you've completed all the tasks in [Step 1: Prepare machine](#step-1-pr
 3. In **Machine type**, select **Physical machines**.
 4. Select the process server (configuration server). Then click **OK**.
 5. In **Target**, select the subscription and the resource group in which you want to create the VMs after failover. Choose the deployment model that you want to use for the failed-over VMs.
-6. Select the Azure storage account in which you want to stored replicated data.
+6. Select the Azure storage account in which you want to store the replicated data.
 7. Select the Azure network and subnet to which Azure VMs connect when they're created after failover.
 8. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** if you want to select the Azure network separately for each machine.
-9. In **Physical Machines**, click **+Physical machine**. Specify the name of IP address of each machine, and the operating system you want to replicate.
+9. In **Physical Machines**, click **+Physical machine**. Specify the name, IP address and OS type of each machine you want to replicate.
 
     - Use the internal IP address of the machine.
-    - If you specify the public IP address replication might not work as expected.
+    - If you specify the public IP address, replication may not work as expected.
 
 10. In **Properties** > **Configure properties**, select the account that the process server will use to automatically install Mobility Service on the machine.
 11. In **Replication settings** > **Configure replication settings**, check that the correct replication policy is selected.
@@ -278,8 +274,8 @@ When you run a test failover, the following happens:
    place.
 2. Failover processes the data using the specified recovery point:
     - **Latest processed**: The machine fails over to the latest recovery point processed by Site Recovery. The time stamp is shown. With this option, no time is spent processing data, so it provides a low RTO (recovery time objective).
-    - **Latest app-consistent**.The machine fails over to the latest app-consistent recovery point.
-    - **Custom**. Select the recovery point used for failover.
+    - **Latest app-consistent**: The machine fails over to the latest app-consistent recovery point.
+    - **Custom**: Select the recovery point used for failover.
 
 3. An Azure VM is created using the processed data.
 4. Test failover can automatically clean up Azure VMs created during the drill.
@@ -318,7 +314,7 @@ Then run a failover as follows:
 
 ### Fail back to Azure Stack
 
-When you primary site is up and running again, you can fail back from Azure to Azure Stack. To do this, you need to download the Azure VM VHD, and upload it to Azure Stack.
+When your primary site is up and running again, you can fail back from Azure to Azure Stack. To do this, you need to download the Azure VM VHD, and upload it to Azure Stack.
 
 1. Shut down the Azure VM, so that the VHD can be downloaded. 
 2. To start downloading the VHD, install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).

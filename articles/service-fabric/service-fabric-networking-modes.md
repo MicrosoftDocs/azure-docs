@@ -3,7 +3,7 @@ title: Configure networking modes for Azure Service Fabric container services | 
 description: Learn how to set up the different networking modes that are supported by Azure Service Fabric. 
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
+ms.author: twhitney, subramar
 
 ---
 # Service Fabric container networking modes
@@ -74,7 +74,7 @@ When a container service restarts or moves to another node in the cluster, the I
             ],
     ```
 
-2. Set up the network profile section to allow multiple IP addresses to be configured on each node of the cluster. The following example sets up five IP addresses per node for a Windows/Linux Service Fabric cluster. You can have five service instances listening on the port on each node.
+2. Set up the network profile section to allow multiple IP addresses to be configured on each node of the cluster. The following example sets up five IP addresses per node for a Windows/Linux Service Fabric cluster. You can have five service instances listening on the port on each node. To have the five IPs be accessible from the Azure Load Balancer, enroll the five IPs in the Azure Load Balancer Backend Address Pool as shown below.
 
     ```json
     "variables": {
@@ -122,6 +122,11 @@ When a container service restarts or moves to another node in the cluster, the I
                           "name": "[concat(parameters('nicName'),'-', 1)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -131,6 +136,11 @@ When a container service restarts or moves to another node in the cluster, the I
                           "name": "[concat(parameters('nicName'),'-', 2)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -140,6 +150,11 @@ When a container service restarts or moves to another node in the cluster, the I
                           "name": "[concat(parameters('nicName'),'-', 3)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -149,6 +164,11 @@ When a container service restarts or moves to another node in the cluster, the I
                           "name": "[concat(parameters('nicName'),'-', 4)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -158,6 +178,11 @@ When a container service restarts or moves to another node in the cluster, the I
                           "name": "[concat(parameters('nicName'),'-', 5)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }

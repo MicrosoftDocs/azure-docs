@@ -37,7 +37,7 @@ We recommend that you set up custom domains for your applications whenever possi
 Before you configure a custom domain, make sure that you have the following requirements prepared: 
 - A [verified domain added to Azure Active Directory](../fundamentals/add-custom-domain.md).
 - A custom certificate for the domain, in the form of a PFX file. 
-- An on-premises app [published through Application Proxy](application-proxy-publish-azure-portal.md).
+- An on-premises app [published through Application Proxy](application-proxy-add-on-premises-application.md).
 
 ### Configure your custom domain
 

@@ -2,12 +2,12 @@
 title: include file
 description: include file
 services: container-registry
-author: mmacy
+author: dlepow
 
 ms.service: container-registry
 ms.topic: include
 ms.date: 08/30/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: include file
 ---
 

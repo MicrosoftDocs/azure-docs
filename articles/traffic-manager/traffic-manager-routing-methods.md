@@ -4,8 +4,6 @@ description: This articles helps you understand the different traffic routing me
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jpconnock
-
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -19,7 +17,7 @@ ms.author: kumud
 
 Azure Traffic Manager supports six traffic-routing methods to determine how to route network traffic to the various service endpoints. For any profile, Traffic Manager applies the traffic-routing method associated to it to each DNS query it receives. The traffic-routing method determines which endpoint is returned in the DNS response.
 
-There are four traffic routing methods available in Traffic Manager:
+The following traffic routing methods are available in Traffic Manager:
 
 * **[Priority](#priority):** Select **Priority** when you want to use a primary service endpoint for all traffic, and provide backups in case the primary or the backup endpoints are unavailable.
 * **[Weighted](#weighted):** Select **Weighted** when you want to distribute traffic across a set of endpoints, either evenly or according to weights, which you define.
@@ -126,8 +124,10 @@ The **Multivalue** traffic-routing method allows you to get multiple healthy end
 
 ## <a name = "subnet"></a>Subnet traffic-routing method
 The **Subnet** traffic-routing method allows you to map a set of end user IP address ranges to specific endpoints in a profile. After that, if Traffic Manager receives a DNS query for that profile, it will inspect the source IP address of that request (in most cases this will be the outgoing IP address of the DNS resolver used by the caller), determine which endpoint it is mapped to and will return that endpoint in the query response. 
+
 The IP address to be mapped to an endpoint can be specified as CIDR ranges (e.g. 1.2.3.0/24) or as an address range (e.g. 1.2.3.4-5.6.7.8). The IP ranges associated with an endpoint need to be unique within that profile and cannot have an overlap with the IP address set of a different endpoint in the same profile.
-If there are no endpoints to which that IP address can be mapped, Traffic Manager will send a NODATA response. It is therefore highly recommended that you ensure all possible IP ranges are specified across your endpoints.
+If you define an endpoint with no address range, that functions as a fallback and take traffic from any remaining subnets. If no fallback endpoint is included, Traffic Manager sends a NODATA response for any undefined ranges. It is therefore highly recommended that you either define a fallback endpoint, or else ensure that all possible IP ranges are specified across your endpoints.
+
 Subnet routing can be used to deliver a different experience for users connecting from a specific IP space. For example, using subnet routing, a customer can make all requests from their corporate office be routed to a different endpoint where they might be testing an internal only version of their app. Another scenario is if you want to provide a different experience to users connecting from a specific ISP (For example, block users from a given ISP).
 
 ## Next steps

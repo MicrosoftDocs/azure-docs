@@ -3,7 +3,6 @@ title: Working with Azure Cosmos DB Cassandra API from Spark
 description: This article is the main page for Cosmos DB Cassandra API integration from Spark.
 services: cosmos-db
 author: anagha-microsoft
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
@@ -28,7 +27,7 @@ This article is one among a series of articles on Azure Cosmos DB Cassandra API 
   Spark connector is used to connect to Azure Cosmos DB Cassandra API.  Identify and use the version of the connector located in [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) that is compatible with the Spark and Scala versions of your Spark environment.
 
 * **Azure Cosmos DB helper library for Cassandra API:**
-  In addition to the Spark connector, you need another library called [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) from Azure Cosmos DB. This library contains a connection factory and a custom retry policy classes.
+  In addition to the Spark connector, you need another library called [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) from Azure Cosmos DB. This library contains custom connection factory and retry policy classes.
 
   The retry policy in Azure Cosmos DB is configured to handle HTTP status code 429("Request Rate Large") exceptions. The Azure Cosmos DB Cassandra API translates these exceptions into overloaded errors on the Cassandra native protocol, and you can retry with back-offs. Because Azure Cosmos DB uses provisioned throughput model, request rate limiting exceptions occur when the ingress/egress rates increase. The retry policy protects your spark jobs against data spikes that momentarily exceed the throughput allocated for your collection.
 
@@ -63,7 +62,7 @@ The following commands detail how to connect to Azure CosmosDB Cassandra API fro
 ```bash
 export SSL_VERSION=TLSv1_2
 export SSL_VALIDATE=false
-cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.windows-ppe.net 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl
+cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.azure.com 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl
 ```
 
 ### 1.  Azure Databricks

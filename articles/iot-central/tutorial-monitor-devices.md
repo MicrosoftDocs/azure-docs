@@ -3,7 +3,7 @@ title: Monitor your devices in Azure IoT Central | Microsoft Docs
 description: As an operator, use your Azure IoT Central application to monitor your devices.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 04/16/2018
+ms.date: 10/12/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -56,7 +56,7 @@ The chart on the dashboard shows a plot of the device temperature. You can also 
 
 To change the target temperature of the device, use the **Settings** page:
 
-1. Choose **Settings**. Change **Set Temperature** to 100. Choose **Update** to send the new target temperature to the device. When the device acknowledges the settings change, the status of the setting value changes to **synced**:
+1. Choose **Settings**. Change **Set Temperature** to 75. Choose **Update** to send the new target temperature to the device. When the device acknowledges the settings change, the status of the setting value changes to **synced**:
 
     ![Update settings](media/tutorial-monitor-devices/change_settings.png)
 

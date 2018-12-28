@@ -2,18 +2,12 @@
 title: Microsoft Azure Data Box Disk system requirements| Microsoft Docs
 description: Learn about the software and networking requirements for your Azure Data Box Disk
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/06/2018
+ms.date: 12/27/2018
 ms.author: alkohli
 ---
 # Azure Data Box Disk system requirements (Preview)
@@ -62,6 +56,9 @@ Here is a list of the supported storage types for the Data Box Disk.
 | --- | --- |
 | Classic | Standard |
 | General Purpose  |Standard; both V1 and V2 are supported. Both hot and cool tiers are supported. |
+
+>[!NOTE]
+> Azure Data Lake Storage Gen 2 accounts are not supported.
 
 
 ## Supported storage types

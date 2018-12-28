@@ -1,6 +1,6 @@
 ---
-title:  Azure Application Insights OpenCensus distributed tracing local forwarder  | Microsoft docs
-description: Forward OpenCensus distributed traces and spans from languages like Python and Go to Azure Application Insights 
+title: Azure Application Insights OpenCensus distributed tracing local forwarder  | Microsoft docs
+description: Forward OpenCensus distributed traces and spans from languages like Python and Go to Azure Application Insights
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -8,10 +8,9 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.reviewer: nimolnar 
+ms.reviewer: nimolnar
 ms.author: mbullwin
 ---
 
@@ -35,7 +34,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 1. Download the LF.WindowsServiceHost.zip file from the [local forwarder release page](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) on GitHub.
 
-    ![Screenshot of local forwarder release download page](.\media\opencensus-local-forwarder\001-local-forwarder-windows-service-host-zip.png)
+    ![Screenshot of local forwarder release download page](./media/opencensus-local-forwarder/001-local-forwarder-windows-service-host-zip.png)
 
 2. In this example for ease of demonstration, we will just extract the .zip file to the path `C:\LF-WindowsServiceHost`.
 
@@ -51,7 +50,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
     To examine your new service via the Services GUI type ``services.msc``
         
-     ![Screenshot of local forwarder service](.\media\opencensus-local-forwarder\002-services.png)
+     ![Screenshot of local forwarder service](./media/opencensus-local-forwarder/002-services.png)
 
 3. **Right-click** the new local forwarder and select **Start**. Your service will now enter a running state.
 
@@ -69,7 +68,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
 6. To confirm that your desired settings are in place and that the local forwarder is listening for trace data as expected check the ``LocalForwarder.log`` file. You should see results similar to the image below at the bottom of the file:
 
-    ![Screenshot of LocalForwarder.log file](.\media\opencensus-local-forwarder\003-log-file.png)
+    ![Screenshot of LocalForwarder.log file](./media/opencensus-local-forwarder/003-log-file.png)
 
 #### Console application
 

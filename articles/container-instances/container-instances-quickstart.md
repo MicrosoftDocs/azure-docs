@@ -1,19 +1,19 @@
 ---
-title: Quickstart - Run an application in Azure Container Instances
-description: In this quickstart, you use the Azure CLI to deploy an application running in a Docker container to Azure Container Instances
+title: Quickstart - Run an application in Azure Container Instances - CLI
+description: In this quickstart, you use the Azure CLI to deploy a Docker container application to run in an isolated container in Azure Container Instances
 services: container-instances
-author: mmacy
+author: dlepow
 
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
-ms.author: marsma
-ms.custom: mvc
+ms.author: danlep
+ms.custom: "seodec18, mvc"
 ---
 
-# Quickstart: Run an application in Azure Container Instances
+# Quickstart: Run a container application in Azure Container Instances with the Azure CLI
 
-Use Azure Container Instances to run Docker containers in Azure with simplicity and speed. You don't need to deploy virtual machines or use a full container orchestration platform like Kubernetes. In this quickstart, you use the Azure portal to create a container in Azure and make its application available with a fully qualified domain name (FQDN). A few seconds after you execute a single deployment command, you can browse to the running application:
+Use Azure Container Instances to run Docker containers in Azure with simplicity and speed. You don't need to deploy virtual machines or use a full container orchestration platform like Kubernetes. In this quickstart, you use the Azure CLI to create a container in Azure and make its application available with a fully qualified domain name (FQDN). A few seconds after you execute a single deployment command, you can browse to the running application:
 
 ![App deployed to Azure Container Instances viewed in browser][aci-app-browser]
 
@@ -81,7 +81,7 @@ $ az container logs --resource-group myResourceGroup --name mycontainer
 listening on port 80
 ::ffff:10.240.255.105 - - [01/Oct/2018:18:25:51 +0000] "GET / HTTP/1.0" 200 1663 "-" "-"
 ::ffff:10.240.255.106 - - [01/Oct/2018:18:31:04 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"
-::ffff:10.240.255.106 - - [01/Oct/2018:18:31:04 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo-marsma01.eastus.azurecontainer.io/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"
+::ffff:10.240.255.106 - - [01/Oct/2018:18:31:04 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"
 ```
 
 ## Attach output streams

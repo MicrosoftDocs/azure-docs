@@ -1,20 +1,20 @@
 ---
-title: Transcription guidelines - Custom Speech Service
-titlesuffix: Azure Cognitive Services
-description: Learn how to prepare your data for Custom Speech Service.
+title: Transcription guidelines in Custom Speech Service on Azure  | Microsoft Docs
+description: Learn how to prepare your data for Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
-
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
 ---
 
 # Transcription guidelines
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 To ensure the best use of your text data for acoustic and language model customization, the following transcription guidelines should be followed. These guidelines are language specific.
 
 ## Text normalization

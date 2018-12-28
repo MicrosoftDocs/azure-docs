@@ -4,17 +4,10 @@ description: Configure an Azure route-based VPN gateway to multiple policy-based
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 11/30/2018
 ms.author: yushwang
 
 ---
@@ -22,7 +15,7 @@ ms.author: yushwang
 
 This article helps you configure an Azure route-based VPN gateway to connect to multiple on-premises policy-based VPN devices leveraging custom IPsec/IKE policies on S2S VPN connections.
 
-## About policy-based and route-based VPN gateways
+## <a name="about"></a>About policy-based and route-based VPN gateways
 
 Policy- *vs.* route-based VPN devices differ in how the IPsec traffic selectors are set on a connection:
 
@@ -60,7 +53,7 @@ The following diagram shows why transit routing via Azure VPN gateway doesn't wo
 
 As shown in the diagram, the Azure VPN gateway has traffic selectors from the virtual network to each of the on-premises network prefixes, but not the cross-connection prefixes. For example, on-premises site 2, site 3, and site 4 can each communicate to VNet1 respectively, but cannot connect via the Azure VPN gateway to each other. The diagram shows the cross-connect traffic selectors that are not available in the Azure VPN gateway under this configuration.
 
-## Configure policy-based traffic selectors on a connection
+## <a name="configurepolicybased"></a>Configure policy-based traffic selectors on a connection
 
 The instructions in this article follow the same example as described in [Configure IPsec/IKE policy for S2S or VNet-to-VNet connections](vpn-gateway-ipsecikepolicy-rm-powershell.md) to establish a S2S VPN connection. This is shown in the following diagram:
 
@@ -72,16 +65,25 @@ The workflow to enable this connectivity:
 3. Apply the policy when you create a S2S or VNet-to-VNet connection, and **enable the policy-based traffic selectors** on the connection
 4. If the connection is already created, you can apply or update the policy to an existing connection
 
-## Enable policy-based traffic selectors on a connection
+## Before you begin
+
+Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
+
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+
+## <a name="enablepolicybased"></a>Enable policy-based traffic selectors on a connection
 
 Make sure you have completed [Part 3 of the Configure IPsec/IKE policy article](vpn-gateway-ipsecikepolicy-rm-powershell.md) for this section. The following example uses the same parameters and steps:
 
 ### Step 1 - Create the virtual network, VPN gateway, and local network gateway
 
-#### 1. Declare your variables & connect to your subscription
-For this exercise, we start by declaring our variables. Be sure to replace the values with your own when configuring for production.
+#### 1. Connect to your subscription and declare your variables
 
-```powershell
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+
+Declare your variables. For this exercise, we use the following variables:
+
+```azurepowershell-interactive
 $Sub1          = "<YourSubscriptionName>"
 $RG1           = "TestPolicyRG1"
 $Location1     = "East US 2"
@@ -105,20 +107,18 @@ $LNGPrefix61   = "10.61.0.0/16"
 $LNGPrefix62   = "10.62.0.0/16"
 $LNGIP6        = "131.107.72.22"
 ```
-To use the Resource Manager cmdlets, make sure you switch to PowerShell mode. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
-Open your PowerShell console and connect to your account. Use the following sample to help you connect:
+#### 2. Create the virtual network, VPN gateway, and local network gateway
 
-```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName $Sub1
+Create a resource group.
+
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### 2. Create the virtual network, VPN gateway, and local network gateway
-The following example creates the virtual network, TestVNet1 with three subnets, and the VPN gateway. When substituting values, it's important that you always name your gateway subnet specifically 'GatewaySubnet'. If you name it something else, your gateway creation fails.
+Use the following example to create the virtual network TestVNet1 with three subnets, and the VPN gateway. If you want to substitute values, it's important that you always name your gateway subnet specifically 'GatewaySubnet'. If you name it something else, your gateway creation fails.
 
-```powershell
+```azurepowershell-interactive
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
 $besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
 $gwsub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
@@ -147,14 +147,14 @@ The following example creates an IPsec/IKE policy with these algorithms and para
 * IKEv2: AES256, SHA384, DHGroup24
 * IPsec: AES256, SHA256, PFS24, SA Lifetime 3600 seconds & 2048KB
 
-```powershell
+```azurepowershell-interactive
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 3600 -SADataSizeKilobytes 2048
 ```
 
 #### 2. Create the S2S VPN connection with policy-based traffic selectors and IPsec/IKE policy
 Create an S2S VPN connection and apply the IPsec/IKE policy created in the previous step. Be aware of the additional parameter "-UsePolicyBasedTrafficSelectors $True"  which enables policy-based traffic selectors on the connection.
 
-```powershell
+```azurepowershell-interactive
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
 $lng6 = Get-AzureRmLocalNetworkGateway  -Name $LNGName6 -ResourceGroupName $RG1
 
@@ -169,7 +169,7 @@ The last section shows you how to update the policy-based traffic selectors opti
 ### 1. Get the connection
 Get the connection resource.
 
-```powershell
+```azurepowershell-interactive
 $RG1          = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
 $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
@@ -178,35 +178,35 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 ### 2. Check the policy-based traffic selectors option
 The following line shows whether the policy-based traffic selectors are used for the connection:
 
-```powershell
+```azurepowershell-interactive
 $connection6.UsePolicyBasedTrafficSelectors
 ```
 
 If the line returns "**True**", then policy-based traffic selectors are configured on the connection; otherwise it returns "**False**."
 
-### 3. Update the policy-based traffic selectors on a connection
+### 3. Enable/Disable the policy-based traffic selectors on a connection
 Once you obtain the connection resource, you can enable or disable the option.
 
-#### Disable UsePolicyBasedTrafficSelectors
-The following example disables the policy-based traffic selectors option, but leaves the IPsec/IKE policy unchanged:
-
-```powershell
-$RG1          = "TestPolicyRG1"
-$Connection16 = "VNet1toSite6"
-$connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
-
-Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $False
-```
-
-#### Enable UsePolicyBasedTrafficSelectors
+#### To Enable UsePolicyBasedTrafficSelectors
 The following example enables the policy-based traffic selectors option, but leaves the IPsec/IKE policy unchanged:
 
-```powershell
+```azurepowershell-interactive
 $RG1          = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
 $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $True
+```
+
+#### To Disable UsePolicyBasedTrafficSelectors
+The following example disables the policy-based traffic selectors option, but leaves the IPsec/IKE policy unchanged:
+
+```azurepowershell-interactive
+$RG1          = "TestPolicyRG1"
+$Connection16 = "VNet1toSite6"
+$connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+
+Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $False
 ```
 
 ## Next steps

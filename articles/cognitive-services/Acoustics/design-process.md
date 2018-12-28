@@ -1,12 +1,14 @@
 ---
-title: Design process overview for acoustics - Cognitive Services
+title: Design process overview for Project Acoustics
+titlesuffix: Azure Cognitive Services
 description: This document describes how to express your design intent in all three phases of the Project Acoustics workflow.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
 ---
@@ -32,6 +34,21 @@ Viewing voxels and probe points at runtime can help debug issues with sound sour
 
 The voxel display can help determine if visual components in the game have a transform applied to them. If so, apply the same transform to the GameObject hosting the **Acoustics Manager**.
 
+### Voxel size discrepancies
+You may notice that the size of the voxels used to illustrate which of the scene meshes participate in the acoustics bake is different in the design time and runtime views. This difference does not affect the quality/granularity of your selected simulation frequency but is rather a biproduct of the runtime use of the voxelized scene. At runtime the simulation voxels are “refined” to support the interpolation between source locations. This also enables design time positioning of sound sources closer to the scene meshes than the simulation voxel size allows – since sources inside a voxel that contain an acoustically treated mesh do not make any sound.
+
+Here are two images showing the difference between design (pre-bake) voxels and runtime (post-bake) voxels as visualized by the Unity plugin:
+
+Design time voxels:
+
+![VoxelsDesignTime](media/VoxelsDesignTime.png)
+
+Runtime voxels:
+
+![VoxelsRuntime](media/VoxelsRuntime.png)
+
+The decision on whether or not the voxel mesh accurately represents the architecture/structural scene meshes should be made using the design mode voxels, not the runtime visualization of the refined voxels.
+
 ## Post-bake design
 Bake results are stored in the ACE file as occlusion and reverberation parameters for all source-listener location pairs throughout the scene. This physically accurate result can be used for your project as-is, and is a great starting point for design. The post-bake design process specifies rules for transforming the bake result parameters at runtime.
 
@@ -48,22 +65,22 @@ To adjust parameters for all sources, click on the channel strip in Unity's **Au
 ![Mixer Customization](media/MixerParameters.png)
 
 ### Tuning source parameters
-Attaching the **AcousticsDesign** script to a source enables tuning parameters for that source. To attach the script, click **Add Component** on the bottom of the **Inspector** panel and navigate to **Scripts > Acoustics Design**. The script has six controls:
+Attaching the **AcousticsAdjust** script to a source enables tuning parameters for that source. To attach the script, click **Add Component** on the bottom of the **Inspector** panel and navigate to **Scripts > Acoustics Adjust**. The script has six controls:
 
-![AcousticsDesign](media/AcousticsDesign.png)
+![AcousticsAdjust](media/AcousticsAdjust.png)
 
-* **Occlusion Factor** - Apply a multiplier to the occlusion dB level computed by the acoustics system. If this multiplier is greater than 1, occlusion will be exaggerated, while values less than 1 make the occlusion effect more subtle, and a value of 0 disables occlusion.
-* **Transmission (dB)** - Set the attenuation (in dB) caused by transmission through geometry. Set this slider to its lowest level to disable transmission. Acoustics spatializes the initial dry audio as arriving around scene geometry (portaling). Transmission provides an additional dry arrival that is spatialized in the line-of-sight direction. Note that the distance attenuation curve for the source is also applied.
-* **Wetness Adjust (dB)** - Adjusts the reverb power, in dB, according to distance from source. Positive values make a sound more reverberant, while negative values make a sound more dry. Click on the curve control (green line) to bring up the curve editor. Modify the curve by left-clicking to add points and dragging those points to form the function you want. The x-axis is distance from source and the y-axis is reverb adjustment in dB. See this [Unity Manual](https://docs.unity3d.com/Manual/EditingCurves.html) for more details on editing curves. To reset the curve back to default, right click on **Wetness Adjust** and select **Reset**.
-* **Decay Time Scale** - Adjusts a multiplier for the decay time. For example, if the bake result specifies a decay time of 750 milliseconds, but this value is set to 1.5, the decay time applied to the source is 1,125 milliseconds.
 * **Enable Acoustics** - Controls whether acoustics is applied to this source. When unchecked, the source will be spatialized with HRTFs, but without acoustics, meaning without obstruction, occlusion, and dynamic reverberation parameters such as level and decay time. Reverberation is still applied with a fixed level and decay time.
-* **Outdoorness Adjustment** - An additive adjustment on the acoustics system’s estimate of how "outdoors" the reverberation on a source should sound. Setting this to 1 will make a source always sound completely outdoors, while setting it to -1 will make a source sound indoors.
+* **Occlusion** - Apply a multiplier to the occlusion dB level computed by the acoustics system. If this multiplier is greater than 1, occlusion will be exaggerated, while values less than 1 make the occlusion effect more subtle, and a value of 0 disables occlusion.
+* **Transmission (dB)** - Set the attenuation (in dB) caused by transmission through geometry. Set this slider to its lowest level to disable transmission. Acoustics spatializes the initial dry audio as arriving around scene geometry (portaling). Transmission provides an additional dry arrival that is spatialized in the line-of-sight direction. Note that the distance attenuation curve for the source is also applied.
+* **Wetness (dB)** - Adjusts the reverb power, in dB, according to distance from source. Positive values make a sound more reverberant, while negative values make a sound more dry. Click on the curve control (green line) to bring up the curve editor. Modify the curve by left-clicking to add points and dragging those points to form the function you want. The x-axis is distance from source and the y-axis is reverb adjustment in dB. See this [Unity Manual](https://docs.unity3d.com/Manual/EditingCurves.html) for more details on editing curves. To reset the curve back to default, right click on **Wetness** and select **Reset**.
+* **Decay Time Scale** - Adjusts a multiplier for the decay time. For example, if the bake result specifies a decay time of 750 milliseconds, but this value is set to 1.5, the decay time applied to the source is 1,125 milliseconds.
+* **Outdoorness** - An additive adjustment on the acoustics system’s estimate of how "outdoors" the reverberation on a source should sound. Setting this to 1 will make a source always sound completely outdoors, while setting it to -1 will make a source sound indoors.
 
-Different sources may require different settings to achieve certain aesthetic or gameplay effects. Dialog is one possible example. The human ear is more attuned to reverberation in speech, while dialog often needs to be intelligible for gameplay. You can account for this without making the dialog non-diegetic by moving the **Wetness Adjust** downwards, adjusting the **Perceptual Distance Warp** parameter described below, adding some **Transmission** for some dry audio boost propagating through walls, and/or reducing the **Occlusion Factor** from 1 to have more sound arrive through portals.
+Different sources may require different settings to achieve certain aesthetic or gameplay effects. Dialog is one possible example. The human ear is more attuned to reverberation in speech, while dialog often needs to be intelligible for gameplay. You can account for this without making the dialog non-diegetic by moving the **Wetness** downwards, adjusting the **Perceptual Distance Warp** parameter described below, adding some **Transmission** for some dry audio boost propagating through walls, and/or reducing the **Occlusion** from 1 to have more sound arrive through portals.
 
-Attaching the **AcousticsDesignExperimental** script to a source enables additional experimental tuning parameters for that source. To attach the script, click **Add Component** on the bottom of the **Inspector** panel and navigate to **Scripts > Acoustics Design Experimental**. There is currently one experimental control:
+Attaching the **AcousticsAdjustExperimental** script to a source enables additional experimental tuning parameters for that source. To attach the script, click **Add Component** on the bottom of the **Inspector** panel and navigate to **Scripts > Acoustics Adjust Experimental**. There is currently one experimental control:
 
-![AcousticsDesignExperimental](media/AcousticsDesignExperimental.png)
+![AcousticsAdjustExperimental](media/AcousticsAdjustExperimental.png)
 
 * **Perceptual Distance Warp** - Apply an exponential warping to the distance used to compute the dry-wet ratio. The acoustics system computes wet levels throughout the space, which vary smoothly with distance and provide perceptual distance cues. Warping values greater than 1 exaggerate this effect by increasing distance-related reverberation levels, making the sound "distant", while warping values less than 1 make the distance-based reverberation change more subtle, making the sound more "present".
 

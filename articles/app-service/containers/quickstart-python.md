@@ -1,5 +1,5 @@
 ---
-title: Create a Python web app in Azure App Service on Linux | Microsoft Docs
+title: Create Python app on Linux - Azure App Service | Microsoft Docs
 description: Deploy your first Python hello world app in Azure App Service on Linux in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -13,11 +13,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/13/2018
+ms.date: 10/09/2018
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
 ---
-# Create a Python web app in Azure App Service on Linux (Preview)
+# Create a Python app in Azure App Service on Linux (Preview)
 
 [App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Python app on top of the built-in Python image (Preview) in App Service on Linux using the [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -80,17 +81,17 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 ## Create a web app
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 
-Browse to the site to see your newly created web app with built-in image. Replace _&lt;app name>_ with your web app name.
+Browse to the site to see your newly created app with built-in image. Replace _&lt;app name>_ with your app name.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-Here is what your new web app should look like:
+Here is what your new app should look like:
 
-![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
+![Empty app page](media/quickstart-php/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -124,7 +125,7 @@ Browse to the deployed application using your web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-The Python sample code is running in a web app with built-in image.
+The Python sample code is running in App Service on Linux with a built-in image.
 
 ![Sample app running in Azure](media/quickstart-python/hello-world-in-browser.png)
 
@@ -149,15 +150,15 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ![Updated sample app running in Azure](media/quickstart-python/hello-azure-in-browser.png)
 
-## Manage your new Azure web app
+## Manage your new Azure app
 
-Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the app you created.
 
-From the left menu, click **App Services**, and then click the name of your Azure web app.
+From the left menu, click **App Services**, and then click the name of your Azure app.
 
-![Portal navigation to Azure web app](./media/quickstart-python/app-service-list.png)
+![Portal navigation to Azure app](./media/quickstart-python/app-service-list.png)
 
-You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
+You see your app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 
 ![App Service page in Azure portal](media/quickstart-python/app-service-detail.png)
 
@@ -167,13 +168,16 @@ The left menu provides different pages for configuring your app.
 
 ## Next steps
 
-The built-in Python image in App Service on Linux is currently in Preview. You can create production Python apps using a custom container instead.
+The built-in Python image in App Service on Linux is currently in Preview, and you can customize the command used to start your app . You can also create production Python apps using a custom container instead.
 
 > [!div class="nextstepaction"]
 > [Python with PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Configure built-in Python image](how-to-configure-python.md)
+> [Configure a custom startup command](how-to-configure-python.md#custom-startup-command)
+
+> [!div class="nextstepaction"]
+> [Troubleshooting](how-to-configure-python.md#troubleshooting)
 
 > [!div class="nextstepaction"]
 > [Use custom images](tutorial-custom-docker-image.md)

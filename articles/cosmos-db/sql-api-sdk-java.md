@@ -1,16 +1,14 @@
 ---
-title: 'Azure Cosmos DB: SQL Java API, SDK & resources | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL Java API, SDK & resources'
 description: Learn all about the SQL Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Java SDK.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 06/29/2018
+ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -26,7 +24,7 @@ ms.custom: H1Hack27Feb2017
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -34,7 +32,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 <table>
 
-<tr><td>**SDK Download**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
+<tr><td>**SDK Download**</td><td>[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 
 <tr><td>**API documentation**</td><td>[Java API reference documentation](/java/api/com.microsoft.azure.documentdb)</td></tr>
 
@@ -44,10 +42,27 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 <tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](sql-api-java-application.md)</td></tr>
 
-<tr><td>**Minimum supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**Minimum supported runtime**</td><td>[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
 
 ## Release notes
+
+### <a name="2.1.0"/>2.1.0
+* Multi-region write support added for direct mode.
+* Added support for handling IOExceptions thrown as ServiceUnavailable exceptions, from a proxy.
+* Fixed a bug in endpoint discovery retry policy.
+* Fixed a bug to ensure null pointer exceptions are not thrown in BaseDatabaseAccountConfigurationProvider.
+* Fixed a bug to ensure Query Iterator does not return nulls.
+* Fixed a bug to ensure large PartitionKey is allowed
+
+### <a name="2.0.0"/>2.0.0
+* Multi-region write support added for gateway mode.
+
+### <a name="1.16.4"/>1.16.4
+* Fixed a bug in Read partition Key ranges for a query.
+
+### <a name="1.16.3"/>1.16.3
+* Fixed a bug in setting continuation token header size in DirectHttps mode.
 
 ### <a name="1.16.2"/>1.16.2
 * Added streaming fail over support.
@@ -101,7 +116,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 * Fixed a few bugs in the session container that may cause an "Owner resource not found" exception for requests immediately after collection creation.
 
 ### <a name="1.9.5"/>1.9.5
-* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-api-sql-query.md#Aggregates).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](how-to-sql-query.md#Aggregates).
 * Added support for change feed.
 * Added support for collection quota information through RequestOptions.setPopulateQuotaInfo.
 * Added support for stored procedure script logging through RequestOptions.setScriptLoggingEnabled.
@@ -201,6 +216,10 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.1.1](#2.1.1) |Nov 21, 2018 |--- |
+| [2.0.0](#2.0.0) |Sept 21, 2018 |--- |
+| [1.16.4](#1.16.4) |Sept 10, 2018 |--- |
+| [1.16.3](#1.16.3) |Sept 09, 2018 |--- |
 | [1.16.2](#1.16.2) |June 29, 2018 |--- |
 | [1.16.1](#1.16.1) |May 16, 2018 |--- |
 | [1.16.0](#1.16.0) |March 15, 2018 |--- |

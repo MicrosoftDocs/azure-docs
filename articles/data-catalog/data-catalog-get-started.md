@@ -92,7 +92,7 @@ The Adventure Works database supports standard online transaction-processing sce
 To install the Adventure Works sample database:
 
 1. Download [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) on CodePlex.
-2. To restore the database on your machine, follow the instructions in [Restore a Database Backup by using SQL Server Management Studio](http://msdn.microsoft.com/library/ms177429.aspx), or by following these steps:
+2. To restore the database on your machine, follow the instructions in [Restore a Database Backup by using SQL Server Management Studio](https://msdn.microsoft.com/library/ms177429.aspx), or by following these steps:
    1. Open SQL Server Management Studio and connect to the SQL Server Database Engine.
    2. Right-click **Databases** and click **Restore Database**.
    3. Under **Restore Database**, click the **Device** option for **Source** and click **Browse**.

@@ -1,4 +1,3 @@
-
 ---
 title: Azure Data Factory - Customer case studies | Microsoft Docs
 description: Learn about how some of our customers have been using Azure Data Factory.

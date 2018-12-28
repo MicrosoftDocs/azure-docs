@@ -4,16 +4,13 @@ description: Azure CLI Samples
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: jeconnoc
-editor: tysonn
-tags:
 ms.assetid:
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 04/25/2018
+ms.date: 10/23/2018
 ms.author: kumud
 
 ---

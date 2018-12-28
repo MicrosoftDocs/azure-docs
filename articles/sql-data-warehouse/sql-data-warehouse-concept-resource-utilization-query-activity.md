@@ -3,11 +3,11 @@ title: Azure SQL Data Warehouse manageability and monitoring - query activity, r
 description: Learn what capabilities are available to manage and monitor Azure SQL Data Warehouse. Use the Azure portal and Dynamic Management Views (DMVs) to understand query activity and resource utilization of your data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/26/2018
+ms.date: 11/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -16,7 +16,10 @@ ms.reviewer: igorstan
 Azure SQL Data Warehouse provides a rich monitoring experience within the Azure portal to surface insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse as it provides configurable retentions periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs. The portal also enables you to integrate with other Azure monitoring services such as Operations Management Suite (OMS)/Log Analytics and Azure Monitor to provide a holistic monitoring experience for not only your data warehouse but also your entire Azure analytics platform for an integrated monitoring experience. This documentation describes what monitoring capabilities are available to optimize and manage your analytics platform with SQL Data Warehouse. 
 
 ## Resource Utilization 
-The following metrics are available in the Azure portal.
+The following metrics are available in the Azure portal for SQL Data Warehouse. These metrics are surfaced through [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
+
+> [!NOTE]
+> As of November 2018, the engineering team is addressing an issue causing CPU percentage and Data IO percentage to underreport. This causes DWU Used and percentage to underreport as well. 
 
 | Metric Name                           | Description     | Aggregation Type |
 | --------------------------------------- | ---------------- | --------------------------------------- |
@@ -30,6 +33,7 @@ The following metrics are available in the Azure portal.
 | DWU used                                | DWU limit * DWU percentage | Maximum   |
 | Cache hit percentage | (cache hits / cache miss) * 100  where cache hits is the sum of all columnstore segments hits in the local SSD cache and cache miss is the columnstore segments misses in the local SSD cache summed across all nodes | Maximum |
 | Cache used percentage | (cache used / cache capacity) * 100 where cache used is the sum of all bytes in the local SSD cache across all nodes and cache capacity is the sum of the storage capacity of the local SSD cache across all nodes | Maximum |
+| Local tempdb percentage | Local tempdb utilization across all compute nodes - values are emitted every five minutes | Maximum |
 
 ## Query Activity
 For a programmatic experience when monitoring SQL Data Warehouse via T-SQL, the service provides a set of Dynamic Management Views (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
@@ -37,11 +41,11 @@ For a programmatic experience when monitoring SQL Data Warehouse via T-SQL, the 
 To view the list of DMVs that SQL Data Warehouse provides, refer to this [documentation](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
 
 ## Metrics and diagnostics logging
-Both metrics and logs can be exported to [Operations Management Suite](https://azure.microsoft.com/resources/videos/operations-management-suite-oms-overview/) (OMS), specifically the [Log analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) component and can be programmatically accessed through [Log Search](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata).
+Both metrics and logs can be exported to Azure Monitor, specifically the [Log analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) component and can be programmatically accessed through [Log Search](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata).
 
 
 > [!NOTE]
-> As of August 2018, logs are currently being implemented for SQL Data Warehouse
+> As of November 2018, logs are currently being deployed for SQL Data Warehouse
 
 ## Next steps
 The following How-to guides describe common scenarios and use cases when monitoring and managing your data warehouse:

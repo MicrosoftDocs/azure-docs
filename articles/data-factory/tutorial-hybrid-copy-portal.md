@@ -108,7 +108,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
 1. In the list of containers, select **adftutorial**.
 
-    ![Container selection](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Container selection](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. Keep the **container** window for **adftutorial** open. You use it verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
 
@@ -194,7 +194,7 @@ The name of the data factory must be *globally unique*. If you see the following
 
 1. Under **Option 1: Express setup**, select **Click here to launch the express setup for this computer**. 
 
-    ![Express setup link](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+    ![Express setup link](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
 1. In the **Integration Runtime (Self-hosted) Express Setup** window, select **Close**. 
 
@@ -234,7 +234,7 @@ The name of the data factory must be *globally unique*. If you see the following
 
 1. Go to the tab with **SQLServerToBlobPipeline**, or select **SQLServerToBlobPipeline** in the tree view. 
 
-    ![Pipeline tab](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+    ![Pipeline tab](./media/tutorial-hybrid-copy-portal/pipeline-tab.png)
 
 1. Go to the **Sink** tab at the bottom of the **Properties** window, and select **+ New**. 
 

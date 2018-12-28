@@ -14,12 +14,6 @@ ms.date: 09/24/2018
 
 Azure Data Explorer supports several bulk delete approaches, which we cover in this article. It doesn't support per-record deletion in real time, because it's optimized for fast read access.
 
-* If the database is no longer needed, delete it using the drop database command.
-
-    ```Kusto
-    .drop database <DatabaseName>
-    ```
-
 * If one or more tables is no longer needed, delete them using the drop table or drop tables command.
 
     ```Kusto
@@ -40,11 +34,4 @@ Azure Data Explorer supports several bulk delete approaches, which we cover in t
 
     For more information, see [Retention policy](https://docs.microsoft.com/azure/kusto/concepts/retentionpolicy).
 
-* You can delete individual records using the *purge* operation, based on a predicate like `where CustomerName == 'contoso'`. That said, a purge is a bulk delete that isn't designed for real-time deletion. The following example shows a purge.
-
-    ```Kusto
-    .purge table Customer records
-    | where CustomerName =='contoso'
-    ```
-
-If you need assistance with data deletion issues, please open a support request in the [Azure portal](https://portal.azure.com).
+If you need assistance with data deletion issues, please open a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

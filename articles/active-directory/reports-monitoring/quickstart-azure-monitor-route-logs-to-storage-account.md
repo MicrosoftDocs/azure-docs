@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
@@ -66,13 +66,12 @@ To use this feature, you need:
 
     ![Diagnostics settings](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
-12. After about 15 minutes, verify that the logs are pushed to your storage account. Go to the [Azure portal](https://portal.azure.com), select **Storage accounts**, select the storage account that you used earlier, and then select **Blobs**. 
+12. After about 15 minutes, verify that the logs are pushed to your storage account. Go to the [Azure portal](https://portal.azure.com), select **Storage accounts**, select the storage account that you used earlier, and then select **Blobs**. For **Audit logs**, select **insights-log-audit**. For **Sign-in logs**, select **insights-logs-signin**.
 
-13. For **Audit logs**, select **insights-log-audit**. For **Sign-in logs**, select **insights-logs-signin**.
     ![Storage account](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
 
 ## Next steps
 
 * [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
-* [Frequently asked questions and known issues](concept-activity-logs-in-azure-monitor.md#frequently-asked-questions)
+* [Frequently asked questions and known issues](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

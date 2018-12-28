@@ -96,7 +96,7 @@ The following blog posts offer guidance and information about using the Azure De
 * [Deploy a new VM in an existing DevTest Labs lab from Azure DevOps Services](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
 * [Using Azure DevOps Services release management for continuous deployments to DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
-For other continuous integration (CI)/continuous delivery (CD) toolchains, you can achieve the same scenarios by deploying [Azure Resource Manager templates](https://aka.ms/dtlquickstarttemplate) by using [Azure PowerShell cmdlets](../azure-resource-manager/resource-group-template-deploy.md) and [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). You also can use [REST APIs for DevTest Labs](http://aka.ms/dtlrestapis) to integrate with your toolchain.  
+For other continuous integration (CI)/continuous delivery (CD) toolchains, you can achieve the same scenarios by deploying [Azure Resource Manager templates](https://aka.ms/dtlquickstarttemplate) by using [Azure PowerShell cmdlets](../azure-resource-manager/resource-group-template-deploy.md) and [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). You also can use [REST APIs for DevTest Labs](https://aka.ms/dtlrestapis) to integrate with your toolchain.  
 
 
 **Virtual machines**
@@ -137,7 +137,7 @@ To automate uploading VHD files to create custom images, you have two options:
 
 To find the destination storage account that's associated with your lab:
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. On the left menu, select **Resource Groups**.
 3. Find and select the resource group that's associated with your lab.
 4. Under **Overview**, select one of the storage accounts.

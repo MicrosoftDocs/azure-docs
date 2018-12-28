@@ -15,7 +15,7 @@ ms.author: sajagtap
 Your Content Moderator credentials are created in the following locations:
 
 - [The Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)
-- [The Content Moderator review tool](http://contentmoderator.cognitive.microsoft.com/)
+- [The Content Moderator review tool](https://contentmoderator.cognitive.microsoft.com/)
 
 This article explains where to find them and how they relate to each other.
 
@@ -63,11 +63,11 @@ Also note your region identifier for your API endpoint. For example, **westus** 
 
 ### Resource ID
 
-We covered this section in the [using your Azure account with the review tool and API](credentials.md#how-to-use-your-azure-account-with-the-review-tool) section. This field is usually blank unless you add your Azure Resource Id to this field as explained in the previous section.
+This set of fields is covered in the previous section, [Use the Azure account with the review tool and API](credentials.md#use-the-azure-account-with-the-review-tool-and-review-api). This field is usually blank unless you add your Azure Resource Id to this field as explained in the previous section.
 
 ### Workflows
 
-We covered this set of fields in the previous section on [using your Azure key to run the workflows](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). By default, the review tool uses its auto-generated trial key for running the workflows, and that's what shows up to begin with. The other two fields allow using term and image lists in the Screen Text and Evaluate Image operations respectively.
+This set of fields is covered in the previous section, [Use the Azure account with the workflows in the review tool](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). By default, the review tool uses its auto-generated trial key for running the workflows, and that's what shows up to begin with. The other two fields allow using term and image lists in the Screen Text and Evaluate Image operations respectively.
 
 ## Next steps
 

@@ -1,20 +1,17 @@
-﻿---
+---
 title: Release notes for Azure Application Insights | Microsoft Docs
 description: The latest updates for Application Insights SDKs.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 9cd2ecdb-c2b9-4e4a-b6aa-beb0c2ca4ffc
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2017
 ms.author: mbullwin
-
 ---
 # SDK Release Notes - Application Insights
 Here are detailed release notes and update instructions for our SDKs:

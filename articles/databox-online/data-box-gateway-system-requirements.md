@@ -1,19 +1,13 @@
 ---
 title: Microsoft Azure Data Box Gateway system requirements| Microsoft Docs
 description: Learn about the software and networking requirements for your Azure Data Box Gateway
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/17/2018
 ms.author: alkohli
 ---
 # Azure Data Box Gateway system requirements (Preview)
@@ -27,6 +21,19 @@ The system requirements for the Data Box Gateway virtual device include:
 
 > [!IMPORTANT]
 > Data Box Gateway is in Preview. Please review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution. 
+
+## Specifications for the virtual device
+
+The underlying host system for the Data Box Gateway is able to dedicate the following resources to provision your virtual device:
+
+| Specifications                                          | Description              |
+|---------------------------------------------------------|--------------------------|
+| Virtual processors (cores)   | Minimum 4 |            
+| Memory  | Minimum 8 GB|
+| Availability|Single node|
+| Disks| OS disk: 250 GB <br> Data disk: 2 TB minimum, thin provisioned, and must be backed by SSDs|
+| Network interfaces|1 or more virtual network interface|
+
 
 ## Supported OS for clients connected to device
 
@@ -57,7 +64,7 @@ Here is a list of the supported operating systems for clients or hosts connected
 
 ## Supported storage accounts
 
-Here is a list of the supported storage types for the Data Box Gateway.
+Here is a list of the supported storage accounts for the Data Box Gateway.
 
 | **Storage account** | **Notes** |
 | --- | --- |
@@ -113,7 +120,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 
 |     URL pattern                                                                                                                                                                                                                                                                                                                                                                                                                                       |     Component/Functionality                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://*.databoxedge.azure.com/*<br>https://*.accesscontrol.windows.net/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Azure Data Box Gateway service<br>Access Control Service<br>Azure Service Bus<br>Authentication Service    |
+|    https://*.databoxedge.azure.com/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Azure Data Box Gateway service<br>Azure Service Bus<br>Authentication Service    |
 |    http://*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    Device activation                                                                                    |
 |    http://crl.microsoft.com/pki/*   http://www.microsoft.com/pki/*                                                                                                                                                                                                                                                                                                                                                                                    |    Certificate revocation                                                                               |
 |    https://*.core.windows.net/*   https://*.data.microsoft.com   http://*.msftncsi.com                                                                                                                                                                                                                                                                                                                                                                |    Azure storage accounts and monitoring                                                                |

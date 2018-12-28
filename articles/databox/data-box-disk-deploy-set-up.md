@@ -2,18 +2,12 @@
 title: Set up Microsoft Azure Data Box Disk| Microsoft Docs
 description: Use this tutorial to learn how to set up your Azure Data Box Disk
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -71,12 +65,14 @@ Depending on whether you are connected to a Windows or Linux client, the steps t
 Perform the following steps to connect and unlock your disks.
      
 1. In the Azure portal, go to **General > Device details**. 
-2. Download the Data Box Disk toolset corresponding to the Windows client. 
+2. Download the Data Box Disk toolset corresponding to the Windows client. This toolset contains 3 tools: Data Box Disk Unlock tool, Data Box Disk Validation tool, and Data Box Disk Split Copy tool. 
+
+    In this procedure, you will use only the Data Box Disk Unlock tool. The other two tools will be used later.
 
     > [!div class="nextstepaction"]
-    > [Download Data Box Disk toolset for Windows](http://aka.ms/databoxdisktoolswin)         
+    > [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin)         
 
-3. Extract the tool on the same computer that you will use to copy the data.
+3. Extract the toolset on the same computer that you will use to copy the data. 
 4. Open a Command Prompt window or run Windows PowerShell as administrator on the same computer.
 5. (Optional) To verify the computer that you are using to unlock the disk meets the operating system requirements, run the system check command. A sample output is shown below. 
 
@@ -130,7 +126,7 @@ Perform the following steps to connect and unlock your disks.
 2. Download the Data Box Disk toolset corresponding to the Linux client.  
 
     > [!div class="nextstepaction"]
-    > [Download Data Box Disk toolset for Linux](http://aka.ms/databoxdisktoolslinux) 
+    > [Download Data Box Disk toolset for Linux](https://aka.ms/databoxdisktoolslinux) 
 
 3. On your Linux client, open a terminal. Navigate to the folder where you downloaded the software. Change the file permissions so that you can execute these files. Type the following command: 
 

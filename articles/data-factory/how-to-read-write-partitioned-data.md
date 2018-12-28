@@ -17,10 +17,12 @@ ms.author: shlo
 
 ---
 # How to read or write partitioned data in Azure Data Factory
-In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In the current version of Data Factory, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. 
+
+In Azure Data Factory version 1, you could read or write partitioned data by using the **SliceStart**, **SliceEnd**, **WindowStart**, and **WindowEnd** system variables. In the current version of Data Factory, you can achieve this behavior by using a pipeline parameter and a trigger's start time or scheduled time as a value of the parameter. 
 
 ## Use a pipeline parameter 
-In version 1, you could use the partitionedBy property and SliceStart system variable as shown in the following example: 
+
+In Data Factory version 1, you could use the **partitionedBy** property and **SliceStart** system variable as shown in the following example: 
 
 ```json
 "folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/{Year}/{Month}/{Day}/",
@@ -31,13 +33,13 @@ In version 1, you could use the partitionedBy property and SliceStart system var
 ],
 ```
 
-For more information about the partitonedBy property, see [version 1 Azure Blob connector](v1/data-factory-azure-blob-connector.md#dataset-properties) article. 
+For more information about the **partitonedBy** property, see [Copy data to or from Azure Blob storage by using Azure Data Factory](v1/data-factory-azure-blob-connector.md#dataset-properties). 
 
-In the current version of Data Factory, a way to achieve this behavior is to do the following actions: 
+To achieve this behavior in the current version of Data Factory: 
 
-1. Define a **pipeline parameter** of type string. In the following example, name of the pipeline parameter is **windowStartTime**. 
-2. Set **folderPath** in the dataset definition to reference the value of pipeline parameter. 
-3. Pass the actual value for the parameter when invoking the pipeline on-demand, or pass a trigger's start time/scheduled time dynamically at runtime. 
+1. Define a *pipeline parameter* of type **string**. In the following example, the name of the pipeline parameter is **windowStartTime**. 
+2. Set **folderPath** in the dataset definition to reference the value of the pipeline parameter. 
+3. Pass the actual value for the parameter when you invoke the pipeline on demand. You can also pass a trigger's start time or scheduled time dynamically at runtime. 
 
 ```json
 "folderPath": {
@@ -46,8 +48,9 @@ In the current version of Data Factory, a way to achieve this behavior is to do 
 },
 ```
 
-## Pass in value from a trigger
-In the following tumbling window trigger definition, window start time of the trigger is passed as a value for the pipeline parameter  **windowStartTime**: 
+## Pass in a value from a trigger
+
+In the following tumbling window trigger definition, the window start time of the trigger is passed as a value for the pipeline parameter **windowStartTime**: 
 
 ```json
 {
@@ -172,4 +175,6 @@ Pipeline definition:
 ```
 
 ## Next steps
-For a complete walkthrough of creating a data factory with a pipeline, see [Quickstart: create a data factory](quickstart-create-data-factory-powershell.md). 
+
+For a complete walkthrough of how to create a data factory that has a pipeline, see [Quickstart: Create a data factory](quickstart-create-data-factory-powershell.md). 
+

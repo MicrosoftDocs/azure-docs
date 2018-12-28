@@ -24,7 +24,7 @@ This doc is intended to troubleshoot the following error when displayed in the F
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
 ### Summary
-This issue occurs when the Azure unctions Runtime cannot start. The most common reason for this error to occur is the function app losing access to its storage account. [Read more about the storage account requirements here](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+This issue occurs when the Azure Functions Runtime cannot start. The most common reason for this error to occur is the function app losing access to its storage account. [Read more about the storage account requirements here](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
 ### Troubleshooting
 We'll walk through the four most common error cases, how to identify, and how to resolve each case.
@@ -88,5 +88,5 @@ Now that your Function App is back and operational take a look at our quickstart
   Describes various tools and techniques for testing your functions.
 * [How to scale Azure Functions](functions-scale.md)  
   Discusses service plans available with Azure Functions, including the Consumption hosting plan, and how to choose the right plan. 
-* [Learn more about Azure App Service](../app-service/app-service-web-overview.md)  
+* [Learn more about Azure App Service](../app-service/overview.md)  
   Azure Functions leverages Azure App Service for core functionality like deployments, environment variables, and diagnostics. 

@@ -2,14 +2,15 @@
 title: Troubleshoot HDFS in Azure HDinsight
 description: Get answers to common questions about working with HDFS and Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/2/2017
+ms.date: 12/06/2018
+ms.custom: seodec18
 ---
 
-# Troubleshoot HDFS by using Azure HDInsight
+# Troubleshoot Apache Hadoop HDFS by using Azure HDInsight
 
 Learn about the top issues and their resolutions when working with Hadoop Distributed File System (HDFS) payloads in Apache Ambari.
 

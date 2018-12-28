@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -37,7 +37,7 @@ The Azure Stack 1808 update build number is **1.1808.0.97**.
 This update includes the following improvements for Azure Stack.
 
 <!--  2682594   | IS  --> 
-- **All Azure Stack environments now use the Coordinated Universal Time (UTC) time zone format.**  All log data and related information now displays in UTC format. If you update from a previous version that was not installed using UTC, your environment is updated to use UTC. 
+- **All Azure Stack environments now use the Coordinated Universal Time (UTC) time zone format.**  All log data and related information now display in UTC format. If you update from a previous version that was not installed using UTC, your environment is updated to use UTC. 
 
 <!-- 2437250  | IS  ASDK --> 
 - **Managed Disks are supported.** You can now use Managed Disks in Azure Stack virtual machines and virtual machine scale sets. For more information, see [Azure Stack Managed Disks: Differences and considerations](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
@@ -49,7 +49,7 @@ This update includes the following improvements for Azure Stack.
 - **Prepare for the extension host**. You can use the extension host to help secure Azure Stack by reducing the number of required TCP/IP ports. With the 1808 update, you can prepare, get your Azure Stack ready for extension host. For more information, see [Prepare for extension host for Azure Stack](/azure/azure-stack/azure-stack-extension-host-prepare).
 
 <!-- IS --> 
-- **Gallery items for Virtual Machine Scale Sets are now built-in**. The Virtual Machine Scale Set gallery item is now made available in the user and administrator portals without having to download it.  If you upgrade to 1808 it is available upon completion of upgrade.  
+- **Gallery items for Virtual Machine Scale Sets are now built in**. The Virtual Machine Scale Set gallery item is now made available in the user and administrator portals without having to download it.  If you upgrade to 1808 it is available upon completion of upgrade.  
 
 <!-- IS, ASDK --> 
 - **Virtual Machine Scale Set scaling**. You can use the portal to [scale a Virtual Machine Scale Set](azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).    
@@ -58,15 +58,16 @@ This update includes the following improvements for Azure Stack.
 - **Support for custom IPSec/IKE policy configurations** for [VPN gateways in Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 
 <!-- | IS ASDK--> 
-- **Kubernetes marketplace item**. You can now deploy Kubernetes clusters using the [Kubernetes Marketplace item](azure-stack-solution-template-kubernetes-cluster-add.md). Users can select the Kubernetes item and fill out a few parameters to deploy a Kubernetes cluster to Azure Stack. The purpose of the templates is to make it simple to users to setup dev/test Kubernetes deployments in a few steps.
+- **Kubernetes marketplace item**. You can now deploy Kubernetes clusters using the [Kubernetes Marketplace item](azure-stack-solution-template-kubernetes-cluster-add.md). Users can select the Kubernetes item and fill out a few parameters to deploy a Kubernetes cluster to Azure Stack. The purpose of the templates is to make it simple to users to set up dev/test Kubernetes deployments in a few steps.
 
 <!-- | IS ASDK--> 
-- **Blockchain templates**. You can now execute [Ethereum consortium deployments](azure-stack-ethereum.md) on Azure Stack. You can find three new templates in the [Azure Stack Quick Start Templates](https://github.com/Azure/AzureStack-QuickStart-Templates). They allow the user to deploy and configure a multi-member consortium Ethereum network with minimal Azure and Ethereum knowledge. The purpose of the templates is to make it simple to users to setup dev/test Blockchain deployments in a few steps.
+- **Blockchain templates**. You can now execute [Ethereum consortium deployments](user/azure-stack-ethereum.md) on Azure Stack. You can find three new templates in the [Azure Stack quickstart templates](https://github.com/Azure/AzureStack-QuickStart-Templates). They allow the user to deploy and configure a multi-member consortium Ethereum network with minimal Azure and Ethereum knowledge. The purpose of the templates is to make it simple to users to set up dev/test Blockchain deployments in a few steps.
 
 <!-- | IS ASDK--> 
 - **The API version profile 2017-03-09-profile has been updated to 2018-03-01-hybrid**. API profiles specify the Azure resource provider and the API version for Azure REST endpoints. For more information about profiles, see [Manage API version profiles in Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
 
- ### Fixed issues
+### Fixed issues
+
 <!-- IS ASDK--> 
 - We fixed the issue for creating an availability set in the portal which resulted in the set having a fault domain and update domain of 1. 
 
@@ -154,8 +155,12 @@ This update also contains the mitigation for the speculative execution side chan
 - In certain circumstances when an update requires attention, the corresponding alert may not be generated. The accurate status will still be reflected in the portal and is not impacted.
 
 ### Post-update steps
+
+> [!Important]  
+> Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance, [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
+
 After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md). 
-- [KB 4465859 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.2.104](https://support.microsoft.com/help/4465859/)
+- [KB 4481066 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/)
 
 
 ## Known issues (post-installation)
@@ -164,10 +169,10 @@ The following are post-installation known issues for this build version.
 
 ### Portal
 
-- The Azure Stack technical documentation focuses on the latest release. Due to portal changes between releases, what you see when using the Azure Stack portals might vary from what you see in the documentation. 
+- The Azure Stack technical documentation focuses on the latest release of Azure Stack. Due to portal changes between releases, what you see when using the Azure Stack portals might vary from what you see in the documentation. 
 
 <!-- TBD - IS ASDK --> 
-- You might see a blank dashboard in the portal. To recover the dashboard, click **Edit Dashboard**, then right click and select **Reset to default state**.
+- You might see a blank dashboard in the portal. To recover the dashboard, click **Edit Dashboard**, then right-click and select **Reset to default state**.
 
 <!-- 2930718 - IS ASDK --> 
 - In the administrator portal, when accessing the details of any user subscription, after closing the blade and clicking on **Recent**, the user subscription name does not appear.
@@ -194,7 +199,7 @@ The following are post-installation known issues for this build version.
 - When you install a new Azure Stack environment that runs this version, the alert that indicates *Activation Required* might not display. [Activation](azure-stack-registration.md) is required before you can use marketplace syndication.  
 
 <!-- TBD - IS ASDK --> 
-- The two administrative subscription types that were [introduced with version 1804](azure-stack-update-1804.md#new-features) should not be used. The subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider** subscription type.
+- The two administrative subscription types that were introduced with version 1804 should not be used. The subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider** subscription type.
 
 <!-- TBD - IS ASDK --> 
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
@@ -204,6 +209,16 @@ The following are post-installation known issues for this build version.
 
 
 ### Health and monitoring
+
+<!-- TBD - IS -->
+- You might see the following alerts repeatedly appear and then disappear on your Azure Stack system:
+   - *Infrastructure role instance unavailable*
+   - *Scale unit node is offline*
+   
+  Please run the [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet to verify the health of the infrastructure role instances and scale unit nodes. If no issues are detected by [Test-AzureStack](azure-stack-diagnostic-test.md), you can ignore these alerts. If an issue is detected, you can attempt to start the infrastructure role instance or node using the admin portal or PowerShell.
+
+  This issue is fixed in the latest [1808 hotfix release](https://support.microsoft.com/help/4481066/), so be sure to install this hotfix if you're experiencing the issue.
+
 <!-- 1264761 - IS ASDK --> 
 - You might see alerts for the **Health controller** component that have the following details:  
 
@@ -223,7 +238,7 @@ The following are post-installation known issues for this build version.
 
 
 <!-- 2812138 | IS --> 
-- You might see an alert for **Storage** component that have the following details:
+- You might see an alert for **Storage** component that contains the following details:
 
    - NAME: Storage service internal communication error  
    - SEVERITY: Critical  
@@ -235,11 +250,13 @@ The following are post-installation known issues for this build version.
 <!-- 2368581 - IS. ASDK --> 
 - An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a **Fabric VM creation error**, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
 
-
 ### Compute
 
+<!-- 3164607 – IS, ASDK -->
+- Reattaching a detached disk to the same virtual machine (VM) with the same name and LUN fails with an error such as **Cannot attach data disk 'datadisk' to VM 'vm1'**. The error occurs because the disk is currently being detached or the last detach operation failed. Please wait until the disk is completely detached and then try again or delete/detach the disk explicitly again. The workaround is to reattach it with a different name, or on a different LUN. 
+
 <!-- 3099544 – IS, ASDK --> 
-- When you create a new virtual machine (VM) using the Azure Stack portal, and you select the VM size, the USD/Month column is displayed with an **Unavailable** message. This column should not appear; displaying the VM pricing column is not supported in Azure Stack.
+- When you create a new VM using the Azure Stack portal, and you select the VM size, the USD/Month column is displayed with an **Unavailable** message. This column should not appear; displaying the VM pricing column is not supported in Azure Stack.
 
 <!-- 3090289 – IS, ASDK --> 
 - After applying the 1808 update, you may encounter the following issues when deploying VMs with Managed Disks:
@@ -248,8 +265,18 @@ The following are post-installation known issues for this build version.
       1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
       2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
    2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory may fail with an internal error message. To resolve the error, follow these steps:
-      1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4465859).
+      1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4481066/).
       2. Follow the steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
+      
+<!-- 3179561 - IS --> 
+- Managed Disks usage is reported in hours as described in the [Azure Stack Usage FAQ](azure-stack-usage-related-faq.md#managed-disks). However, Azure Stack billing uses the monthly price instead so you may get incorrectly charged for Managed Disks usage on or before September 27th. We have temporarily suspended charges for Managed Disks after September 27th until the billing issue is addressed. If you have been charged incorrectly for Managed Disks usage, please contact Microsoft Billing Support.
+Usage reports produced from the Azure Stack usage APIs show correct quantities and can be used.
+
+<!-- 3507629 - IS, ASDK --> 
+- Managed Disks creates two new [compute quota types](azure-stack-quota-types.md#compute-quota-types) to limit the maximum capacity of managed disks that can be provisioned. By default, 2048 GiB is allocated for each managed disks quota type. However, you may encounter the following issues:
+
+   - For quotas created before the 1808 update, the Managed Disks quota will show 0 values in the Administrator portal, although 2048 GiB is allocated. You can increase or decrease the value based on your actual needs, and the newly set quota value overrides the 2048 GiB default.
+   - If you update the quota value to 0, it is equivalent to the default value of 2048 GiB. As a workaround, set the quota value to 1.
 
 <!-- 2869209 – IS, ASDK --> 
 - When using the [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), you must use the **-OsUri** parameter as the storage account URI where the disk is uploaded. If you use the local path of the disk, the cmdlet fails with the following error: *Long running operation failed with status ‘Failed’*. 
@@ -284,7 +311,7 @@ The following are post-installation known issues for this build version.
 
    To find the CPU Percentage chart for the VM, go to the **Metrics** blade and show all the supported Windows VM guest metrics.
 
-
+- A Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, please use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
 
 ### Networking  
 
@@ -330,8 +357,10 @@ The following are post-installation known issues for this build version.
 
 
 ## Download the update
-You can download the Azure Stack 1808 update package from [here](https://aka.ms/azurestackupdatedownload).
-  
+
+You can download the Azure Stack 1808 update package from [here](https://aka.ms/azurestackupdatedownload). 
+
+In connected scenarios only, Azure Stack deployments periodically check a secured endpoint and automatically notify you if an update is available for your cloud. For more information, see [managing updates for Azure Stack](azure-stack-updates.md).
 
 ## Next steps
 - To review the servicing policy for Azure Stack integrated systems, and what you must do to keep your system in a supported state, see [Azure Stack servicing policy](azure-stack-servicing-policy.md).  

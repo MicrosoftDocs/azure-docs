@@ -1,19 +1,19 @@
 ---
-title: Use the Azure Database Migration Service to perform an online migration of PostgreSQL to Azure Database for MySQL | Microsoft Docs
+title: "Tutorial: Use the Azure Database Migration Service to perform an online migration of PostgreSQL to Azure Database for MySQL | Microsoft Docs"
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using the Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: scphang
 manager: craigg
-ms.reviewer: 
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 12/19/2018
 ---
 
-# Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS
+# Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS
 You can use the Azure Database Migration Service to migrate the databases from an on-premises PostgreSQL instance to [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) with minimal downtime. In other words, migration can be achieved with minimum downtime to the application. In this tutorial, you migrate the **DVD Rental** sample database from an on-premises instance of PostgreSQL 9.6 to Azure Database for PostgreSQL by using an online migration activity in the Azure Database Migration Service.
 
 In this tutorial, you learn how to:
@@ -24,13 +24,16 @@ In this tutorial, you learn how to:
 > * Run the migration.
 > * Monitor the migration.
 
+> [!NOTE]
+> Using the Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier.
+
 > [!IMPORTANT]
 > For an optimal migration experience, Microsoft recommends creating an instance of the Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
 
 ## Prerequisites
 To complete this tutorial, you need to:
 
-- Download and install [PostgreSQL community edition](https://www.postgresql.org/download/) 9.5, 9.6, or 10.3. The source PostgreSQL Server version must be 9.5.11, 9.6.7, 10.3, or later. For more information, see the article [Supported PostgreSQL Databse Versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+- Download and install [PostgreSQL community edition](https://www.postgresql.org/download/) 9.5, 9.6, or 10. The source PostgreSQL Server version must be 9.5.11, 9.6.7, 10, or later. For more information, see the article [Supported PostgreSQL Databse Versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
 
     In addition, the on-premises PostgreSQL version must match the Azure Database for PostgreSQL version. For example, PostgreSQL 9.5.11.5 can only migrate to Azure Database for PostgreSQL 9.5.11 and not to version 9.6.7.
 
@@ -44,7 +47,7 @@ To complete this tutorial, you need to:
 - There are two methods for invoking the CLI:
     - In the upper-right corner of the Azure postal, select the Cloud Shell button:
  
-       ![Cloud Shell button in the Azure portal](media\tutorial-postgresql-to-azure-postgresql-online\cloud-shell-button.png)
+       ![Cloud Shell button in the Azure portal](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
  
     - Install and run the CLI locally. CLI 2.0 is the command-line tool for managing Azure resources.
      

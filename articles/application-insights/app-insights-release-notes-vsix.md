@@ -1,21 +1,18 @@
-﻿---
+---
 title: Release notes for Visual Studio Extension for Developer Analytics
 description: The latest updates for Visual Studio tools for Developer Analytics.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
-
 ---
 # Release Notes for Developer Analytics Tools
 
@@ -177,7 +174,7 @@ You can manage your application in numerous ways in the HockeyApp portal. This i
 
 ![HockeyApp portal](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
 
-See the [HockeyApp Knowledge Base](http://support.hockeyapp.net/kb/app-management-2) for more details about app management.
+See the [HockeyApp Knowledge Base](https://support.hockeyapp.net/kb/app-management-2) for more details about app management.
 
 ### Windows Forms apps
 The context menu for a Windows Form project node now includes an option to upload your build to HockeyApp.

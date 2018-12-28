@@ -10,7 +10,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2018
+ms.date: 10/05/2018
 ms.author: sharadag
 # As a website owner, I want to enable HTTPS on the custom domain in my Front Door so that my users can use my custom domain to access their content securely.
 
@@ -42,15 +42,14 @@ In this tutorial, you learn how to:
 
 Before you can complete the steps in this tutorial, you must first create a Front Door and with at least one custom domain onboarded. For more information, see [Tutorial: Add a custom domain to your Front Door](front-door-custom-domain.md).
 
----
-
 ## SSL certificates
+
 To enable the HTTPS protocol for securely delivering content on a Front Door custom domain, you must use an SSL certificate. You can choose to use a certificate that is managed by Azure Front Door Service or use your own certificate.
 
 
-# [Option 1 (default): Enable HTTPS with an AFD-managed certificate](#tab/option-1-default-enable-https-with-an-afd-managed-certificate)
+### Option 1 (default): Use a certificate managed by Front Door
 
-When you use an AFD-managed certificate, the HTTPS feature can be turned on with just a few clicks. Azure Front Door Service completely handles certificate management tasks such as procurement and renewal. After you enable the feature, the process starts immediately. If the custom domain is already mapped to the Front Door's default frontend host (`{hostname}.azurefd.net`), no further action is required. Front Door will process the steps and complete your request automatically. However, if your custom domain is mapped elsewhere, you must use email to validate your domain ownership.
+When you use a certificate managed by Azure Front Door Service, the HTTPS feature can be turned on with just a few clicks. Azure Front Door Service completely handles certificate management tasks such as procurement and renewal. After you enable the feature, the process starts immediately. If the custom domain is already mapped to the Front Door's default frontend host (`{hostname}.azurefd.net`), no further action is required. Front Door will process the steps and complete your request automatically. However, if your custom domain is mapped elsewhere, you must use email to validate your domain ownership.
 
 To enable HTTPS on a custom domain, follow these steps:
 
@@ -65,11 +64,11 @@ To enable HTTPS on a custom domain, follow these steps:
 5. Proceed to [Validate the domain](#validate-the-domain).
 
 
-# [Option 2: Enable HTTPS with your own certificate](#tab/option-2-enable-https-with-your-own-certificate)
+### Option 2: Use your own certificate
 
 You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure Front Door Service uses this secure mechanism to get your certificate and it requires a few additional steps. When you create your SSL certificate, you must create it with an allowed certificate authority (CA). Otherwise, if you use a non-allowed CA, your request will be rejected. For a list of allowed CAs, see [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door Service](front-door-troubleshoot-allowed-ca.md).
 
-### Prepare your Azure Key vault account and certificate
+#### Prepare your Azure Key vault account and certificate
  
 1. Azure Key Vault: You must have a running Azure Key Vault account under the same subscription as your Front Door that you want to enable custom HTTPS. Create an Azure Key Vault account if you don't have one.
  
@@ -80,7 +79,7 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 > </br> - Azure Front Door Service currently only supports Key Vault certificates stored under the Secrets section. Your certificate import will fail if you store it under Certificates section instead of Secrets section.
 > </br> - Azure Front Door Service currently only supports certificates uploaded with a PFX **without** a password.
 
-### Register Azure Front Door Service
+#### Register Azure Front Door Service
 
 Register the service principal for Azure Front Door Service as an app in your Azure Active Directory via PowerShell.
 
@@ -90,7 +89,7 @@ Register the service principal for Azure Front Door Service as an app in your Az
 
      `New-AzureRmADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
-### Grant Azure Front Door Service access to your key vault
+#### Grant Azure Front Door Service access to your key vault
  
 Grant Azure Front Door Service permission to access the  certificates under Secrets in your Azure Key Vault account.
 
@@ -105,7 +104,7 @@ Grant Azure Front Door Service permission to access the  certificates under Secr
 
     Azure Front Door Service can now access this key vault and the certificates (secrets) that are stored in this key vault.
  
-### Select the certificate for Azure Front Door Service to deploy
+#### Select the certificate for Azure Front Door Service to deploy
  
 1. Return to your Front Door in the portal. 
 
@@ -123,8 +122,6 @@ Grant Azure Front Door Service permission to access the  certificates under Secr
     - The available certificate versions. 
  
 5. When you use your own certificate, domain validation is not required. Proceed to [Wait for propagation](#wait-for-propagation).
-
----
 
 ## Validate the domain
 

@@ -3,7 +3,7 @@ title: Understand instance IDs for Azure VM scale set VMs | Microsoft Docs
 description: Understand instance IDs for Azure VM scale set VMs
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
-ms.author: negat
+ms.author: manayar
 
 ---
 # Understand instance IDs for Azure VM scale set VMs

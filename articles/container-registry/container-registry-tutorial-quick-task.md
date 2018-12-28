@@ -1,20 +1,20 @@
 ---
-title: Tutorial - Build container images in the cloud with Azure Container Registry Tasks
+title: Tutorial - Build container images in the cloud - Azure Container Registry Tasks
 description: In this tutorial, you learn how to build a Docker container image in Azure with Azure Container Registry Tasks (ACR Tasks), then deploy it to Azure Container Instances.
 services: container-registry
-author: mmacy
+author: dlepow
 
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.author: marsma
-ms.custom: mvc
+ms.author: danlep
+ms.custom: "seodec18, mvc"
 # Customer intent: As a developer or devops engineer, I want to quickly build
 # container images in Azure, without having to install dependencies like Docker
 # Engine, so that I can simplify my inner-loop development pipeline.
 ---
 
-# Tutorial: Build container images in the cloud with Azure Container Registry Tasks
+# Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks
 
 **ACR Tasks** is a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. In this article, you learn how to use the *quick task* feature of ACR Tasks.
 
@@ -200,12 +200,12 @@ az keyvault secret set \
   --value $(az ad sp create-for-rbac \
                 --name $ACR_NAME-pull \
                 --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-                --role reader \
+                --role acrpull \
                 --query password \
                 --output tsv)
 ```
 
-The `--role` argument in the preceding command configures the service principal with the *reader* role, which grants it pull-only access to the registry. To grant both push and pull access, change the `--role` argument to *contributor*.
+The `--role` argument in the preceding command configures the service principal with the *acrpull* role, which grants it pull-only access to the registry. To grant both push and pull access, change the `--role` argument to *acrpush*.
 
 Next, store the service principal's *appId* in the vault, which is the **username** you pass to Azure Container Registry for authentication:
 

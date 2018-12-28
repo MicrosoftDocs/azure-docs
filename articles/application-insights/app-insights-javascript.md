@@ -1,25 +1,22 @@
-﻿---
+---
 title: Azure Application Insights for JavaScript web apps | Microsoft Docs
 description: Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-
 ---
 # Application Insights for web pages
 Find out about the performance and usage of your web page or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. And by inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
 
-Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](app-insights-java-get-started.md) or [ASP.NET](app-insights-asp-net.md), you can integrate telemetry from your server and clients.
+Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](app-insights-java-get-started.md) or [ASP.NET](../azure-monitor/app/asp-net.md), you can integrate telemetry from your server and clients.
 
 ![In portal.azure.com, open your app's resource and click Browser](./media/app-insights-javascript/03.png)
 
@@ -44,12 +41,6 @@ If you don't have one, create it:
 *Questions already?* [More about creating a resource](app-insights-create-new-resource.md).
 
 ### Add the SDK script to your app or web pages
-In Quick Start, get the script for web pages:
-
-![On your app overview blade, choose Quick Start, Get code to monitor my web pages. Copy the script.](./media/app-insights-javascript/02-monitor-web-page.png)
-
-> [!NOTE]
-> The *Getting Started* experience varies depending on the application type you select when creating your Application Insights resource. If the script is not present for your app as seen in the preceding screenshot, just use the following script.
 
 ```HTML
 <!-- 
@@ -77,9 +68,7 @@ Insert the script just before the `</head>` tag of every page you want to track.
 
 The script contains the instrumentation key that directs the data to your Application Insights resource. 
 
-([Deeper explanation of the script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
-
-*(If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an AngularJS module](http://ngmodules.org/modules/angular-appinsights).)*
+([Deeper explanation of the script.](https://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
 
 ## Detailed configuration
 There are several [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) you can set, though in most cases, you shouldn't need to. For example, you can disable or limit the number of Ajax calls reported per page view (to reduce traffic). Or you can set debug mode to have telemetry move rapidly through the pipeline without being batched.
@@ -130,7 +119,7 @@ The Browser blade is a [Metrics Explorer blade](app-insights-metrics-explorer.md
 ## Page load performance
 At the top is a segmented chart of page load times. The total height of the chart represents the average time to load and display pages from your app in your users' browsers. The time is measured from when the browser sends the initial HTTP request until all synchronous load events have been processed, including layout and running scripts. It doesn't include asynchronous tasks such as loading web parts from AJAX calls.
 
-The chart segments the total page load time into the [standard timings defined by W3C](http://www.w3.org/TR/navigation-timing/#processing-model). 
+The chart segments the total page load time into the [standard timings defined by W3C](https://www.w3.org/TR/navigation-timing/#processing-model). 
 
 ![](./media/app-insights-javascript/08-client-split.png)
 
@@ -207,7 +196,7 @@ In the Diagnostic Search blade, set Filters to Page View.
 Select any event to see more detail. In the details page, click "..." to see even more detail.
 
 > [!NOTE]
-> If you use [Search](app-insights-diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About".
+> If you use [Search](../azure-monitor/app/diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About".
 > 
 > 
 
@@ -232,8 +221,8 @@ The page name can contain the same characters as a URL, but anything after "#" o
 ## Usage tracking
 Want to find out what your users do with your app?
 
-* [Learn about the user behavior analytics tools](app-insights-web-track-usage.md)
-* [Learn about custom events and metrics API](app-insights-api-custom-events-metrics.md).
+* [Learn about the user behavior analytics tools](app-insights-usage-overview.md)
+* [Learn about custom events and metrics API](../azure-monitor/app/api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
 
@@ -243,7 +232,7 @@ Want to find out what your users do with your app?
 
 
 ## <a name="next"></a> Next steps
-* [Track usage](app-insights-web-track-usage.md)
-* [Custom events and metrics](app-insights-api-custom-events-metrics.md)
-* [Build-measure-learn](app-insights-web-track-usage.md)
+* [Track usage](app-insights-usage-overview.md)
+* [Custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md)
+* [Build-measure-learn](app-insights-usage-overview.md)
 

@@ -51,6 +51,8 @@
         href: airwatch-tutorial.md
       - name: Alcumus Info Exchange
         href: alcumus-info-tutorial.md
+      - name: Allbound SSO
+        href: allbound-sso-tutorial.md  
       - name: Allocadia
         href: allocadia-tutorial.md
       - name: Amazon Web Services (AWS)
@@ -73,8 +75,12 @@
         href: appblade-tutorial.md
       - name: AppDynamics
         href: appdynamics-tutorial.md
+      - name: Appinux
+        href: appinux-tutorial.md
       - name: AppNeta Performance Monitor
         href: appneta-tutorial.md
+      - name: Appraisd
+        href: appraisd-tutorial.md
       - name: Apptio
         href: apptio-tutorial.md
       - name: Aravo
@@ -147,6 +153,8 @@
         href: bonus-tutorial.md
       - name: Boomi
         href: boomi-tutorial.md
+      - name: BorrowBox
+        href: borrowbox-tutorial.md
       - name: Box
         href: box-tutorial.md
       - name: Boxcryptor
@@ -197,6 +205,8 @@
         href: ciscocloudlock-tutorial.md
       - name: Cisco Spark
         href: cisco-spark-tutorial.md
+      - name: Cisco Umbrella
+        href: cisco-umbrella-tutorial.md    
       - name: Cisco Webex
         href: cisco-webex-tutorial.md
       - name: Citrix ShareFile
@@ -233,8 +243,12 @@
         href: condeco-tutorial.md
       - name: Confluence SAML SSO by Microsoft
         href: confluencemicrosoft-tutorial.md
+      - name: Consent2Go
+        href: consent2go-tutorial.md
       - name: ContractWorks
         href: contractworks-tutorial.md
+      - name: Convene
+        href: convene-tutorial.md
       - name: Convercent
         href: convercent-tutorial.md
       - name: Cornerstone OnDemand
@@ -263,6 +277,8 @@
         href: direct-tutorial.md
       - name: Directions on Microsoft
         href: directions-microsoft-tutorial.md
+      - name: dmarcian
+        href: dmarcian-tutorial.md
       - name: DocuSign
         href: docusign-tutorial.md
       - name: Dome9 Arc
@@ -275,6 +291,8 @@
         href: dovetale-tutorial.md
       - name: Dow Jones Factiva
         href: dowjones-factiva-tutorial.md
+      - name: Drift
+        href: drift-tutorial.md
       - name: Dropbox for Business
         href: dropboxforbusiness-tutorial.md
       - name: Druva
@@ -321,6 +339,8 @@
         href: evidence-tutorial.md
       - name: Expensify
         href: expensify-tutorial.md
+      - name: Expiration Reminder
+        href: expiration-reminder-tutorial.md
     - name: F - G
       items:
       - name: FactSet
@@ -337,6 +357,8 @@
         href: filesanywhere-tutorial.md
       - name: FirmPlay - Employee Advocacy for Recruiting
         href: firmplay-tutorial.md
+      - name: Firstbird
+        href: firstbird-tutorial.md
       - name: FiscalNote
         href: fiscalnote-tutorial.md
       - name: Five9 Plus Adapter (CTI, Contact Center Agents)
@@ -351,6 +373,8 @@
         href: fluxxlabs-tutorial.md
       - name: FM:Systems
         href: fm-systems-tutorial.md
+      - name: Folloze
+        href: folloze-tutorial.md
       - name: ForeSee CX Suite
         href: foreseecxsuite-tutorial.md
       - name: Form.com
@@ -373,12 +397,18 @@
         href: gaggleamp-tutorial.md
       - name: Getabstract
         href: getabstract-tutorial.md
+      - name: GetThere
+        href: getthere-tutorial.md
       - name: Gigya
         href: gigya-tutorial.md
       - name: GitHub
         href: github-tutorial.md
+      - name: GlassFrog
+        href: glassfrog-tutorial.md
       - name: GoToMeeting
         href: citrix-gotomeeting-tutorial.md
+      - name: Gra-Pe
+        href: grape-tutorial.md
       - name: Greenhouse
         href: greenhouse-tutorial.md
       - name: Grovo
@@ -397,6 +427,8 @@
         href: helpscout-tutorial.md
       - name: Heroku
         href: heroku-tutorial.md
+      - name: HeyBuddy
+        href: heybuddy-tutorial.md
       - name: Hightail
         href: hightail-tutorial.md
       - name: HireVue
@@ -409,6 +441,8 @@
         href: hpesaas-tutorial.md
       - name: HR2day by Merces
         href: hr2day-tutorial.md
+      - name: HubSpot SAML
+        href: hubspot-tutorial.md
       - name: Huddle
         href: huddle-tutorial.md
       - name: Humanity
@@ -435,8 +469,12 @@
         href: imagineerwebVision-tutorial.md
       - name: IMPAC Risk Manager
         href: impacriskmanager-tutorial.md
+      - name: Infinite Campus
+        href: infinitecampus-tutorial.md
       - name: Infogix Data3Sixty Govern
         href: infogix-tutorial.md
+      - name: Infor CloudSuite
+        href: infor-cloud-suite-tutorial.md
       - name: Infor Retail â Information Management
         href: inforretailinformationmanagement-tutorial.md
       - name: Inkling
@@ -455,6 +493,8 @@
         href: insigniasamlsso-tutorial.md
       - name: Insperity ExpensAble
         href: insperityexpensable-tutorial.md
+      - name: InstaVR Viewer
+        href: instavr-viewer-tutorial.md
       - name: Intacct
         href: intacct-tutorial.md
       - name: InTime
@@ -473,6 +513,8 @@
         href: itrp-tutorial.md
       - name: itslearning
         href: itslearning-tutorial.md
+      - name: Ivanti Service Manager (ISM)
+        href: ivanti-service-manager-tutorial.md
       - name: iWellnessNow
         href: iwellnessnow-tutorial.md
     - name: J - K
@@ -495,6 +537,8 @@
         href: jobscience-tutorial.md
       - name: JobScore
         href: jobscore-tutorial.md
+      - name: join.me
+        href: joinme-tutorial.md
       - name: Jostle
         href: jostle-tutorial.md
       - name: Kanbanize
@@ -623,8 +667,12 @@
         href: moxtra-tutorial.md
       - name: Mozy Enterprise
         href: mozy-enterprise-tutorial.md
+      - name: My Award Points Top Sub/Top Team
+        href: myawardpoints-tutorial.md
       - name: myPolicies
         href: mypolicies-tutorial.md
+      - name: MyWorkDrive
+        href: myworkdrive-tutorial.md
     - name: N - O
       items:
       - name: N2F - Expense reports
@@ -655,6 +703,8 @@
         href: oc-tanner-tutorial.md
       - name: OfficeSpace Software
         href: officespace-tutorial.md
+      - name: ON24 Virtual Environment SAML Connection
+        href: on24-tutorial.md
       - name: Oneteam
         href: oneteam-tutorial.md
       - name: OneTrust Privacy Management Software
@@ -697,6 +747,8 @@
         href: pantheon-tutorial.md
       - name: PatentSQUARE
         href: patentsquare-tutorial.md
+      - name: Peakon
+        href: peakon-tutorial.md
       - name: Pega Systems
         href: pegasystems-tutorial.md
       - name: People
@@ -707,6 +759,8 @@
         href: perceptionunitedstates-tutorial.md
       - name: PerformanceCentre
         href: performancecentre-tutorial.md
+      - name: Phraseanet
+        href: phraseanet-tutorial.md
       - name: Picturepark
         href: picturepark-tutorial.md
       - name: Pingboard
@@ -757,6 +811,8 @@
         href: quickhelp-tutorial.md
       - name: Qumu Cloud
         href: qumucloud-tutorial.md
+      - name: Rackspace SSO
+        href: rackspacesso-tutorial.md
       - name: Rally Software
         href: rally-software-tutorial.md
       - name: RealtimeBoard
@@ -781,6 +837,8 @@
         href: rightanswers-tutorial.md
       - name: Rightscale
         href: rightscale-tutorial.md
+      - name: RingCentral
+        href: ringcentral-tutorial.md
       - name: Riskware
         href: riskware-tutorial.md
       - name: RolePoint
@@ -869,6 +927,8 @@
         href: shmoopforschools-tutorial.md
       - name: Showpad
         href: showpad-tutorial.md
+      - name: Shuccho Navi
+        href: shucchonavi-tutorial.md
       - name: SignalFx
         href: signalfx-tutorial.md
       - name: SilkRoad Life Suite
@@ -949,6 +1009,8 @@
         href: tableauserver-tutorial.md
       - name: TalentLMS
         href: talentlms-tutorial.md
+      - name: Talent Palette
+        href: talent-palette-tutorial.md
       - name: Tango Analytics
         href: tangoanalytics-tutorial.md
       - name: Tangoe Command Premium Mobile
@@ -1009,6 +1071,8 @@
         href: ultipro-tutorial.md
       - name: UNIFI
         href: unifi-tutorial.md
+      - name: Useall
+        href: useall-tutorial.md
       - name: UserEcho
         href: userecho-tutorial.md
       - name: UserVoice
@@ -1021,6 +1085,8 @@
         href: veritas-tutorial.md
       - name: Versal
         href: versal-tutorial.md
+      - name: Vibe HCM
+        href: vibehcm-tutorial.md
       - name: Vidyard
         href: vidyard-tutorial.md
       - name: Vodeclic
@@ -1055,10 +1121,14 @@
         href: workplacebyfacebook-tutorial.md
       - name: Workrite
         href: workrite-tutorial.md
-      - name: Workteam
-        href: workteam-tutorial.md
+      - name: Workspot Control
+        href: workspotcontrol-tutorial.md
       - name: Workstars
         href: workstars-tutorial.md
+      - name: Workteam
+        href: workteam-tutorial.md
+      - name: Wrike
+        href: wrike-tutorial.md
       - name: XaitPorter
         href: xaitporter-tutorial.md
       - name: xMatters OnDemand
@@ -1093,12 +1163,16 @@
         href: zscaler-tutorial.md
       - name: Zscaler Beta
         href: zscaler-beta-tutorial.md
+      - name: Zscaler Internet Access Administrator
+        href: zscaler-internet-access-administrator-tutorial.md
       - name: Zscaler One
         href: zscaler-one-tutorial.md
       - name: Zscaler Private Access (ZPA)
         href: zscalerprivateaccess-tutorial.md
       - name: Zscaler Private Access Administrator
         href: zscalerprivateaccessadministrator-tutorial.md
+      - name: Zscaler Three
+        href: zscaler-three-tutorial.md
       - name: Zscaler Two
         href: zscaler-two-tutorial.md
       - name: Zscaler ZSCloud

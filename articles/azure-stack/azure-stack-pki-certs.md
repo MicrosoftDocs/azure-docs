@@ -13,10 +13,9 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-
 ---
 
 # Azure Stack public key infrastructure certificate requirements
@@ -37,8 +36,10 @@ The following list describes the certificate requirements that are needed to dep
 - When rotating certificates, certificates must be either issued from the same internal certificate authority used to sign certificates provided at deployment or any public certificate authority from above
 - The use of self-signed certificates are not supported
 - For deployment and rotation you can either use a single certificate covering all name spaces in the certificate's Subject Name and Subject Alternative Name (SAN) fields OR you can use individual certificates for each of the namespaces below that the Azure Stack services you plan to utilize require. Both approaches require using wild cards for endpoints where they are required, such as **KeyVault** and **KeyVaultInternal**. 
-- The certificate signature algorithm must be 3DES. The algorithm cannot be SHA1, as it must be stronger. 
-- The certificate format must be PFX, as both the public and private keys are required for Azure Stack installation. 
+- The certificate's PFX Encryption should be 3DES. 
+- The certificate signature algorithm should not be SHA1. 
+- The certificate format must be PFX, as both the public and private keys are required for Azure Stack installation. The private key must have the local machine key attribute set.
+- The PFX encryption must be 3DES (this is default when exporting from a Windows 10 client or Windows Server 2016 certificate store).
 - The certificate pfx files must have a value "Digital Signature" and "KeyEncipherment" in its “Key Usage" field.
 - The certificate pfx files must have the values “Server Authentication (1.3.6.1.5.5.7.3.1)” and “Client Authentication (1.3.6.1.5.5.7.3.2)” in the "Enhanced Key Usage" field.
 - The certificate's "Issued to:" field must not be the same as its "Issued by:" field.
@@ -60,7 +61,7 @@ Certificates with the appropriate DNS names for each Azure Stack public infrastr
 For your deployment, the [region] and [externalfqdn] values must match the region and external domain names that you chose for your Azure Stack system. As an example, if the region name was *Redmond* and the external domain name was *contoso.com*, the DNS names would have the format *&lt;prefix>.redmond.contoso.com*. The *&lt;prefix>* values are predesignated by Microsoft to describe the endpoint secured by the certificate. In addition, the *&lt;prefix>* values of the external infrastructure endpoints depend on the Azure Stack service that uses the specific endpoint. 
 
 > [!note]  
-> Certificates can be provided as a single wild card certificate covering all namespaces in the Subject and Subject Alternative Name (SAN) fields copied into all directories, or as individual certificates for each endpoint copied into the corresponding directory. Remember, both options require you to use wildcard certificates for endpoints such as **acs** and Key Vault where they are required. 
+> For the production environments, we recommend individual certificates are generated for each endpoint and copied into the corresponding directory. For development environments, certificates can be provided as a single wild card certificate covering all namespaces in the Subject and Subject Alternative Name (SAN) fields copied into all directories. A single certificate covering all endpoints and services is an insecure posture hence development-only. Remember, both options require you to use wildcard certificates for endpoints such as **acs** and Key Vault where they are required. 
 
 | Deployment folder | Required certificate subject and subject alternative names (SAN) | Scope (per region) | SubDomain namespace |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|

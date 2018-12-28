@@ -1,20 +1,14 @@
 ---
-title: 'Use Databricks CLI from Azure Cloud Shell | Microsoft Docs'
+title: 'Use Databricks CLI from Azure Cloud Shell '
 description: Learn how to use the Databricks CLI from Azure Cloud Shell.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-
+ms.author: mamccrea
 ---
 # Use Databricks CLI from Azure Cloud Shell
 

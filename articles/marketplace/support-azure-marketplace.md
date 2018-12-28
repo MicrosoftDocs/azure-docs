@@ -3,7 +3,7 @@ title: Support for Azure Marketplace and AppSource | Azure
 description: Support information and links for Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: ellacroi
+author: yijenj
 manager: nunoc
 editor:
 
@@ -13,23 +13,25 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 07/02/2018
-ms.author: ellacroi
+ms.date: 10/05/2018
+ms.author: yijenj
 
 ---  
 
 # Support for the Marketplace  
-The support options for the Marketplace.  
+Here is a list of support options for the Marketplace.  
+
+Additionally, you can get many of your questions answered in the [Marketplace channel of C+AI Community Forum](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
 
 ## Onboarding
 
-[Open a ticket](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) for "Marketplace Onboarding" with Microsoft support to solve all issues with getting started.
+Open a ticket for with Microsoft [marketplace publisher support](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) for all issues with onboarding and getting started.
 
 ## Cloud Partner Portal  
 
 | Support channel | Description | Availability |  
 |:--- |:--- |:--- |  
-| Support<ul> <li>For assistance, visit the Create an incident page located at [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Support for Cloud Partner Portal. | Support is provided at all times during the day and night. |  
+| For assistance, visit the Create an incident page located at [Marketplace Support](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Support for Cloud Partner Portal. | Support is provided between 6am - 6pm PST. |  
 
 ## Technical  
 

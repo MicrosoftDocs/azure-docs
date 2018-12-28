@@ -22,7 +22,7 @@ Azure Compute requests may be throttled at a subscription and on a per-region ba
 
 ## Throttling by Azure Resource Manager vs Resource Providers  
 
-As the front door to Azure, Azure Resource Manager does the authentication and first-order validation and throttling of all incoming API requests. Azure Resource Manager call rate limits and related diagnostic response HTTP headers are described [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-request-limits).
+As the front door to Azure, Azure Resource Manager does the authentication and first-order validation and throttling of all incoming API requests. Azure Resource Manager call rate limits and related diagnostic response HTTP headers are described [here](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-request-limits).
  
 When an Azure API client gets a throttling error, the HTTP status is 429 Too Many Requests. To understand if the request throttling is done by Azure Resource Manager or an underlying resource provider like CRP, inspect the `x-ms-ratelimit-remaining-subscription-reads` for GET requests and `x-ms-ratelimit-remaining-subscription-writes` response headers for non-GET requests. If the remaining call count is approaching 0, the subscription’s general call limit defined by Azure Resource Manager has been reached. Activities by all subscription clients are counted together. Otherwise, the throttling is coming from the target resource provider (the one addressed by the `/providers/<RP>` segment of the request URL). 
 
@@ -45,7 +45,7 @@ x-ms-ratelimit-remaining-resource: Microsoft.Compute/VMScaleSetBatchedVMRequests
 x-ms-ratelimit-remaining-resource: Microsoft.Compute/VmssQueuedVMOperations;4720 
 ```
 
-##Throttling error details
+## Throttling error details
 
 The 429 HTTP status is commonly used to reject a request because a call rate limit is reached. A typical throttling error response from Compute Resource Provider will look like the example below (only relevant headers are shown):
 
@@ -73,6 +73,18 @@ The policy with remaining call count of 0 is the one due to which the throttling
 
 As illustrated above, every throttling error includes the `Retry-After` header, which provides the minimum number of seconds the client should wait before retrying the request. 
 
+## API call rate and throttling error analyzer
+A preview version of a troubleshooting feature is available for the Compute resource provider’s API. These PowerShell cmdlets provide statistics about API request rate per time interval per operation and throttling violations per operation group (policy):
+-	[Export-AzureRmLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticrequestratebyinterval)
+-	[Export-AzureRmLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticthrottledrequests)
+
+The API call stats can provide great insight into the behavior of a subscription’s client(s) and enable easy identification of call patterns that cause throttling.
+
+A limitation of the analyzer for the time being is that it does not count requests for disk and snapshot resource types (in support of managed disks). Since it gathers data from CRP’s telemetry, it also cannot help in identifying throttling errors from ARM. But those can be identified easily based on the distinctive ARM response headers, as discussed earlier.
+
+The PowerShell cmdlets are using a REST service API, which can be easily called directly by clients (though with no formal support yet). To see the HTTP request format, run the cmdlets with -Debug switch or snoop on their execution with Fiddler.
+
+
 ## Best practices 
 
 - Do not retry Azure service API errors unconditionally and/or immediately. A common occurrence is for client code to get into a rapid retry loop when encountering an error that’s not retry-able. Retries will eventually exhaust the allowed call limit for the target operation’s group and impact other clients of the subscription. 
@@ -84,4 +96,4 @@ As illustrated above, every throttling error includes the `Retry-After` header, 
 
 ## Next steps
 
-For more information about retry guidance for other services in Azure, see [Retry guidance for specific services](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific)
+For more information about retry guidance for other services in Azure, see [Retry guidance for specific services](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)

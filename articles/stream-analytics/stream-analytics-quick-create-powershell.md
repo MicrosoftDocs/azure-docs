@@ -281,7 +281,9 @@ Remove-AzureRmResourceGroup `
 
 ## Next steps
 
-In this quickstart, you’ve deployed a simple Stream Analytics job. To learn about configuring other input sources and performing real-time detection, continue to the following article:
+In this quickstart, you deployed a simple Stream Analytics job using PowerShell. You can also deploy Stream Analytics jobs using the [Azure portal](stream-analytics-quick-create-portal.md) and [Visual Studio](stream-analytics-quick-create-vs.md).
+
+To learn about configuring other input sources and performing real-time detection, continue to the following article:
 
 > [!div class="nextstepaction"]
 > [Real-time fraud detection using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

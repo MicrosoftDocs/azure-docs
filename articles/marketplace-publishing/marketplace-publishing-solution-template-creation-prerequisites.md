@@ -25,7 +25,7 @@ You must decide on the building blocks of your solution before you proceed with 
 
 1. [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
 2. Azure Quickstart templates:
-   * [https://azure.microsoft.com/en-us/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
+   * [https://azure.microsoft.com/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
    * [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## Next steps

@@ -32,10 +32,7 @@ To enable the feature, you need the following items:
 ![19][]
 
 ### Verify that you have contributor access
-
-Go to your Service Bus namespace, and then select **Access control (IAM)**, as shown here:
-
-![1][]
+Go to your Service Bus namespace, and then select **Access control (IAM)**, and select **Role assignments** tab. Verify that you have the contributor access to the namespace. 
 
 ### Events and event schemas
 
@@ -175,7 +172,7 @@ From here, you can explore the other setup options or [test that events are flow
 * Learn more about [Event Grid](https://docs.microsoft.com/azure/event-grid/).
 * Learn more about [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
 * Learn more about [Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
-* Learn more about [Service Bus](https://docs.microsoft.com/azure/azure-functions/).
+* Learn more about [Service Bus](https://docs.microsoft.com/azure/service-bus/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

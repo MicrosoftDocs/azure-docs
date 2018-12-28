@@ -1,20 +1,17 @@
-﻿---
+---
 title: Application Insights for Java web apps that are already live
 description: Start monitoring a web application that is already running on your server
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 12f3dbb9-915f-4087-87c9-807286030b0b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/10/2016
 ms.author: mbullwin
-
 ---
 # Application Insights for Java web apps that are already live
 
@@ -85,7 +82,7 @@ Substitute the instrumentation key that you got from the Azure portal.
 
 * The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
 * The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
-* Events correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this identifier as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search](app-insights-diagnostic-search.md).
+* Events correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this identifier as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search](../azure-monitor/app/diagnostic-search.md).
 
 ## 4. Add an HTTP filter
 Locate and open the web.xml file in your project, and merge the following snippet of code under the web-app node, where your application filters are configured.
@@ -107,7 +104,7 @@ To get the most accurate results, the filter should be mapped before all other f
 ```
 
 ## 5. Check firewall exceptions
-You might need to [set exceptions to send outgoing data](app-insights-ip-addresses.md).
+You might need to [set exceptions to send outgoing data](../azure-monitor/app/ip-addresses.md).
 
 ## 6. Restart your web app
 ## 7. View your telemetry in Application Insights
@@ -131,5 +128,5 @@ And when viewing the properties of a request, you can see the telemetry events a
 * [Add telemetry to your web pages](app-insights-javascript.md) to monitor page views and user metrics.
 * [Set up web tests](app-insights-monitor-web-app-availability.md) to make sure your application stays live and responsive.
 * [Capture log traces](app-insights-java-trace-logs.md)
-* [Search events and logs](app-insights-diagnostic-search.md) to help diagnose problems.
+* [Search events and logs](../azure-monitor/app/diagnostic-search.md) to help diagnose problems.
 * [Configure a Spring Boot initializer app](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)

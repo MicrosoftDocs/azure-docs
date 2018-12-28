@@ -5,14 +5,14 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: "include"
-ms.date: 02/02/2018
+ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: "include file"
 ---
 
 ## Deploy ZIP file
 
-In the browser, navigate to `https://<app_name>.scm.azurewebsites.net/ZipDeploy`.
+In the browser, navigate to `https://<app_name>.scm.azurewebsites.net/ZipDeployUI`.
 
 Upload the ZIP file you created in [Create a project ZIP file](#create-a-project-zip-file) by dragging it to the file explorer area on the web page.
 

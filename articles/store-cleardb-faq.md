@@ -19,7 +19,7 @@ This FAQ answers common questions about using and purchasing ClearDB MySQL datab
 > [!IMPORTANT]
 > As of June 13, 2018, ClearDB transitioned Azure-based customers currently billed by Microsoft to a direct billing model with ClearDB. The information in this article is now out of date. You will no longer be able to create or upgrade a ClearDB database that was created in Azure.
 >
-> For more details and next steps, see [Changes to ClearDB service plans](http://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
+> For more details and next steps, see [Changes to ClearDB service plans](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
 
 
 ## What options do I have for MySQL on Azure?
@@ -100,7 +100,7 @@ Indirect EA customers can find their Azure Marketplace subscriptions on the **Ma
 Access to Azure Marketplace for third-party services can be managed by your EA Azure enrollment administrators. They can disable or re-enable access to 3rd party purchases from the Store in Manage Accounts and Subscriptions under the Accounts section in the Enterprise Portal.
 
 ## Who do I contact for questions about my bill for ClearDB services in my EA subscription?
-Contact [Enterprise Customer Support](http://aka.ms/AzureEntSupport) with regards to billing under their EA enrollment. The EA Portal Support Team will answer your question or help resolve your issue.
+Contact [Enterprise Customer Support](https://aka.ms/AzureEntSupport) with regards to billing under their EA enrollment. The EA Portal Support Team will answer your question or help resolve your issue.
 
 ## More information
 [Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/)

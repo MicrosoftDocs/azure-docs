@@ -58,7 +58,7 @@ The [ForEach activity](control-flow-for-each-activity.md) defines a repeating co
 The [Until](control-flow-until-activity.md) activity provides the same functionality that a do-until looping structure provides in programming languages. It runs a set of activities in a loop until the condition that's associated with the activity evaluates to `true`. You can specify a timeout value for the until activity in Data Factory.  
 
 ### Trigger-based flows
-Pipelines can be triggered by on-demand or wall-clock time. The [pipelines and triggers](concepts-pipeline-execution-triggers.md) article has detailed information about triggers. 
+Pipelines can be triggered by on-demand (event-based, i.e. blob post) or wall-clock time. The [pipelines and triggers](concepts-pipeline-execution-triggers.md) article has detailed information about triggers. 
 
 ### Invoking a pipeline from another pipeline
 The [Execute Pipeline activity](control-flow-execute-pipeline-activity.md) allows a Data Factory pipeline to invoke another pipeline.

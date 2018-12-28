@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 10/29/2018
 ms.author: terrylan
 
 ---
@@ -29,6 +29,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 * Use analytics to track the authentication method that someone is using when they access Storage.
 
 For a more detailed look at security in Azure Storage, see the [Azure Storage security guide](../storage/common/storage-security-guide.md). This guide provides a deep dive into the security features of Azure Storage. These features include storage account keys, data encryption in transit and at rest, and storage analytics.
+
 
 This article provides an overview of Azure security features that you can use with Azure Storage. Links to articles give details of each feature so you can learn more.
 
@@ -62,7 +63,7 @@ Encryption in transit is a mechanism of protecting data when it's transmitted ac
 Learn more about client-side encryption:
 
 * [Client-Side Encryption for Microsoft Azure Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
-* [Cloud security controls series: Encrypting Data in Transit](http://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
+* [Cloud security controls series: Encrypting Data in Transit](https://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
 ## Encryption at rest
 
@@ -87,13 +88,35 @@ Learn more
 
 * [Azure Disk Encryption for Windows and Linux IaaS Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
-## Azure Storage Firewalls and Virtual networks
+## Firewalls and Virtual networks
 
 Azure storage allows you to enable firewall rules for your storage accounts. Once enabled they will block incoming requests for data, including requests from other Azure services. You can configure exceptions to allow traffic. Firewall rules may be enabled on existing storage accounts or during creation time.
 
 You should use this functionality  to secure your storage accounts to a specific set of allowed networks.
 
 For more information on Azure storage firewalls and virtual networks review the article [Configure Azure Storage Firewalls and Virtual Networks](../storage/common/storage-network-security.md)
+
+## Azure Data Box
+
+Data Box, Data Box Disk, and Data Box Heavy devices help you transfer large amounts of data to Azure when the network isn’t an option. These offline data transfer devices are shipped between your organization and the Azure data center. They use AES encryption to help protect your data in transit, and they undergo a thorough post-upload sanitization process to delete your data from the device.
+
+Data Box Edge and Data Box Gateway are online data transfer products that act as network storage gateways to manage data between your site and Azure. Data Box Edge, an on-premises network device, transfers data to and from Azure and uses artificial intelligence (AI)-enabled edge compute to process data. Data Box Gateway is a virtual appliance with storage gateway capabilities.
+
+Learn more:
+
+* [Azure Data Box](https://azure.microsoft.com/services/storage/databox/)
+* [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
+* [Azure Data Box Gateway](..//databox-online/data-box-gateway-overview.md)
+
+## Advanced Threat Protection
+
+Azure Storage provides Advanced Threat Protection for an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage account. Advanced Threat Protection monitors Azure Storage diagnostic logs for suspicious read, write, or delete requests to Blob storage. 
+
+Advanced Threat Protection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/). Azure Security Center provides details on any suspicious activity detected and recommends actions to investigate and remediate the potential threat. 
+
+Learn more:
+
+* [Azure Storage Advanced Threat Protection Overview](../storage/common/storage-advanced-threat-protection.md)
 
 ## Azure Key Vault
 

@@ -4,16 +4,12 @@ description: Azure PowerShell samples for Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: jeconnoc
-editor: tysonn
-tags:
-ms.assetid:
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 04/26/2018
+ms.date: 10/23/2018
 ms.author: kumud
 
 ---

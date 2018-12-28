@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -34,7 +34,7 @@ Information in this article describes how you can create an Office Data Connecti
 **Sample connection file**
 ```
 <html xmlns:o="urn:schemas-microsoft-com:office:office"
-xmlns="http://www.w3.org/TR/REC-html40">
+xmlns="https://www.w3.org/TR/REC-html40">
 
 <head>
 <meta http-equiv=Content-Type content="text/x-ms-odc; charset=utf-8">
@@ -45,12 +45,12 @@ xmlns="http://www.w3.org/TR/REC-html40">
 <title>AzureAnalysisServicesConnection</title>
 <xml id=docprops><o:DocumentProperties
   xmlns:o="urn:schemas-microsoft-com:office:office"
-  xmlns="http://www.w3.org/TR/REC-html40">
+  xmlns="https://www.w3.org/TR/REC-html40">
   <o:Name>SampleAzureAnalysisServices</o:Name>
  </o:DocumentProperties>
 </xml><xml id=msodc><odc:OfficeDataConnection
   xmlns:odc="urn:schemas-microsoft-com:office:odc"
-  xmlns="http://www.w3.org/TR/REC-html40">
+  xmlns="https://www.w3.org/TR/REC-html40">
   <odc:Connection odc:Type="OLEDB">
    <odc:ConnectionString>Provider=MSOLAP.7;Data Source=asazure://<region>.asazure.windows.net/<servername>;Initial Catalog=<database>;</odc:ConnectionString>
    <odc:CommandType>Cube</odc:CommandType>

@@ -3,14 +3,14 @@ title: Page through available webpages - Bing Custom Search
 titlesuffix: Azure Cognitive Services
 description: Shows how to page through all of the webpages that Bing Custom Search can return.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
+ms.author: maheshb
 ---
 
 # Paging webpages 
@@ -53,4 +53,7 @@ GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+d
 Ocp-Apim-Subscription-Key: <subscription ID>  
 Host: api.cognitive.microsoft.com  
 ```  
+
+> [!NOTE]
+> The `TotalEstimatedAnswers` field is an estimate of the total number of search results you can retrieve for the current query.  When you set `count` and `offset` parameters, the `TotalEstimatedAnswers` number may change. 
 

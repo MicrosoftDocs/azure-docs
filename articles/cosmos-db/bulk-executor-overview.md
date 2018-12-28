@@ -1,15 +1,12 @@
 ---
-title: Azure Cosmos DB bulk executor library overview | Microsoft Docs
-description: Learn about Azure Cosmos DB bulk executor library, benifits of using the library, and its architecture.
-keywords: Java bulk executor
+title: Bulk import and update data in Azure Cosmos DB using the bulk executor library
+description: Perform bulk operations in Azure Cosmos DB through bulk import and bulk update APIs offered by the bulk executor library.
 services: cosmos-db
 author: tknandu
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
 
 ---
@@ -18,13 +15,13 @@ ms.author: ramkris
  
 Azure Cosmos DB is a fast, flexible, and globally distributed database service that is designed to elastically scale out to support: 
 
-* Large read and write throughputs (millions of operations per second).  
+* Large read and write throughput (millions of operations per second).  
 * Storing high volumes of (hundreds of terabytes, or even more) transactional and operational data with predictable millisecond latency.  
 
-The bulk executor library helps you leverage this massive throughput and storage, The bulk executor library allows you to perform bulk operations in Azure Cosmos DB through bulk import and bulk update APIs. You can read more about the features of bulk executor library in the following sections. 
+The bulk executor library helps you leverage this massive throughput and storage. The bulk executor library allows you to perform bulk operations in Azure Cosmos DB through bulk import and bulk update APIs. You can read more about the features of bulk executor library in the following sections. 
 
 > [!NOTE] 
-> Currently, bulk executor library supports import and update operations and this library is supported by Azure Cosmos DB SQL API accounts only. See [.NET](sql-api-sdk-bulk-executor-dot-net.md) and [Java](sql-api-sdk-bulk-executor-java.md) release notes for any updates to the library.
+> Currently, bulk executor library supports import and update operations and this library is supported by Azure Cosmos DB SQL API and Gremlin API accounts only.
  
 ## Key features of the bulk executor library  
  
@@ -32,7 +29,7 @@ The bulk executor library helps you leverage this massive throughput and storage
 
 * It abstracts away the tedious tasks of writing application logic to handle rate limiting of request, request timeouts, and other transient exceptions by efficiently handling them within the library.  
 
-* It provides a simplified mechanism for applications performing bulk operations to scale out. A single bulk executor instance running on an Azure VM can consume greater than 500 K RU/s and you can achieve a higher throughput rate by adding additional instances on individual client VMs.  
+* It provides a simplified mechanism for applications performing bulk operations to scale out. A single bulk executor instance running on an Azure VM can consume greater than 500K RU/s and you can achieve a higher throughput rate by adding additional instances on individual client VMs.  
  
 * It can bulk import more than a terabyte of data within an hour by using a scale-out architecture.  
 

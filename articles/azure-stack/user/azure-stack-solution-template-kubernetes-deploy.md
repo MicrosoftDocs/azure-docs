@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -36,6 +36,8 @@ You can use Kubernetes to:
 - Develop massively scalable, upgradable, applications that can be deployed in seconds. 
 - Simplify the design of your application and improve its reliability by different Helm applications. [Helm](https://github.com/kubernetes/helm) is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications.
 - Easily monitor and diagnose the health of your applications with scale and upgrade functionality.
+
+You will only be charged for the compute usage required by the nodes supporting your cluster. For more information, see [Usage and billing in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
 ## Prerequisites 
 
@@ -96,7 +98,7 @@ Give the service principal access to your subscription so that the principal can
 
 1. Select the subscription created by your operator for using the Kubernetes Cluster.
 
-1. Select **Access control (IAM)** > Select **+ Add**.
+1. Select **Access control (IAM)** > Select **Add role assignment**.
 
 1. Select the **Contributor** role.
 
@@ -163,6 +165,9 @@ Give the service principal access to your subscription so that the principal can
 
 3. Select **OK** to deploy your cluster.
 
+> [!TIP]  
+>  If you have questions about your deployment, you can post your question or see if someone has already answered the question in the [Azure Stack Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+
 ## Connect to your cluster
 
 You are now ready to connect to your cluster. The master can be found in your cluster resource group, and is named `k8s-master-<sequence-of-numbers>`. Use an SSH client to connect to the master. On the master, you can use **kubectl**, the Kubernetes command-line client to manage your cluster. For instructions, see [Kubernetes.io](https://kubernetes.io/docs/reference/kubectl/overview).
@@ -171,6 +176,6 @@ You may also find the **Helm** package manager useful for installing and deployi
 
 ## Next steps
 
-[Add a Kubernetes to the Marketplace (for the Azure Stack operator)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Add a Kubernetes to the Marketplace (for the Azure Stack operator)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes on Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
