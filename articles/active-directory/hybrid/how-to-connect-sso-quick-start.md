@@ -92,7 +92,7 @@ Follow these instructions to verify that you have enabled Seamless SSO correctly
 
 You can gradually roll out Seamless SSO to your users using the instructions provided below. You start by adding the following Azure AD URL to all or selected users' Intranet zone settings by using Group Policy in Active Directory:
 
-- https://autologon.microsoftazuread-sso.com
+- https\://autologon.microsoftazuread-sso.com
 
 In addition, you need to enable an Intranet zone policy setting called **Allow updates to status bar via script** through Group Policy. 
 
@@ -122,7 +122,7 @@ There are two ways to modify users' Intranet zone settings:
 
     The result looks like this:
 
-    Value name: https://autologon.microsoftazuread-sso.com
+    Value name: https\://autologon.microsoftazuread-sso.com
   
     Value (Data): 1
 
@@ -176,7 +176,7 @@ Mozilla Firefox doesn't automatically use Kerberos authentication. Each user mus
 1. Run Firefox and enter `about:config` in the address bar. Dismiss any notifications that you see.
 2. Search for the **network.negotiate-auth.trusted-uris** preference. This preference lists Firefox's trusted sites for Kerberos authentication.
 3. Right-click and select **Modify**.
-4. Enter https://autologon.microsoftazuread-sso.com in the field.
+4. Enter https\://autologon.microsoftazuread-sso.com in the field.
 5. Select **OK** and then reopen the browser.
 
 #### Safari (macOS)
@@ -185,7 +185,7 @@ Ensure that the machine running the macOS is joined to AD. Instructions for AD-j
 
 #### Google Chrome (all platforms)
 
-If you have overridden the [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) or the [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) policy settings in your environment, ensure that you add Azure AD's URL (https://autologon.microsoftazuread-sso.com) to them as well.
+If you have overridden the [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) or the [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) policy settings in your environment, ensure that you add Azure AD's URL (https\://autologon.microsoftazuread-sso.com) to them as well.
 
 #### Google Chrome (macOS only)
 
