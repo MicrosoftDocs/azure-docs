@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 10/28/2018
 ms.author: hrasheed
 
 ---
@@ -67,41 +67,54 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
 > * [Create VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 > * [Create VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
 
-1. From the [Azure portal](https://portal.azure.com), select __+__, __Compute__, and __Ubuntu Server 16.04 LTS__.
+From the [Azure portal](https://portal.azure.com):
+1. From the left menu, select **+ Create a resource**.
+2. Select **Compute**.
+3. Select **Ubuntu Server 18.04 LTS**.
 
     ![Create an Ubuntu virtual machine](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-2. From the __Basics__ section, enter the following information:
-
-    * __Name__: A friendly name that identifies this virtual machine. For example, __DNSProxy__.
-    * __User name__: The name of the SSH account.
-    * __SSH public key__ or __Password__: The authentication method for the SSH account. We recommend using public keys, as they are more secure. For more information, see the [Create and use SSH keys for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md) document.
-    * __Resource group__: Select __Use existing__, and then select the resource group that contains the virtual network created earlier.
-    * __Location__: Select the same location as the virtual network.
+4. From the __Basics__ tab, enter the following information:  
+  
+    | Field | Value |
+    | --- | --- |
+    |Subscription |Select your appropriate subscription.|
+    |Resource group |Select the resource group that contains the virtual network created earlier.|
+    |Virtual machine name | Enter a friendly name that identifies this virtual machine. This example uses **DNSProxy**.|
+    |Region | Select the same region as the virtual network created earlier.  Not all VM sizes are available in all regions.  |
+    |Availability options |  Select your desired level of availability.  Azure offers a range of options for managing availability and resiliency for your applications.  Architect your solution to use replicated VMs in Availability Zones or Availability Sets to protect your apps and data from datacenter outages and maintenance events. This example uses **No infrastructure redundancy required**. |
+    |Image | Select the base operating system or application for the VM.  For this example, select the smallest and lowest cost option. |
+    |Authentication type | __Password__ or __SSH public key__: The authentication method for the SSH account. We recommend using public keys, as they are more secure. This example uses a public key.  For more information, see the [Create and use SSH keys for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md) document.|
+    |User name |Enter the administrator username for the VM.  This example uses **sshuser**.|
+    |Password or SSH public key | The available field is determined by your choice for **Authentication type**.  Enter the appropriate value.|
+    |||
 
     ![Virtual machine basic configuration](./media/connect-on-premises-network/vm-basics.png)
 
-    Leave other entries at the default values and then select __OK__.
+    Leave other entries at the default values and then select the **Networking** tab.
 
-3. From the __Choose a size__ section, select the VM size. For this tutorial, select the smallest and lowest cost option. To continue, use the __Select__ button.
+5. From the **Networking** tab, enter the following information: 
 
-4. From the __Settings__ section, enter the following information:
-
-    * __Virtual network__: Select the virtual network that you created earlier.
-
-    * __Subnet__: Select the default subnet for the virtual network. Do __not__ select the subnet used by the VPN gateway.
-
-    * __Diagnostics storage account__: Either select an existing storage account or create a new one.
+    | Field | Value |
+    | --- | --- |
+    |Virtual network | Select the virtual network that you created earlier.|
+    |Subnet | Select the default subnet for the virtual network that you created earlier. Do __not__ select the subnet used by the VPN gateway.|
+    |Public IP | Use the auto-populated value.  |
 
     ![Virtual network settings](./media/connect-on-premises-network/virtual-network-settings.png)
 
-    Leave the other entries at the default value, then select __OK__ to continue.
+    Leave other entries at the default values and then select the **Review + create**.
 
-5. From the __Purchase__ section, select the __Purchase__ button to create the virtual machine.
+6. From the **Review + create** tab, select **Create** to create the virtual machine.
+ 
 
-6. Once the virtual machine has been created, its __Overview__ section is displayed. From the list on the left, select __Properties__. Save the __Public IP address__ and __Private IP address__ values. It will be used in the next section.
+### Review IP Addresses
+Once the virtual machine has been created, you will receive a **Deployment succeeded** notification with a **Go to resource** button.  Select **Go to resource** to go to your new virtual machine.  From the default view for your new virtual machine, follow these steps to identify the associated IP Addresses:
 
-    ![Public and private IP addresses](./media/connect-on-premises-network/vm-ip-addresses.png)
+1. From **Settings**, select **Properties**.
+2. Note the values for **PUBLIC IP ADDRESS/DNS NAME LABEL** and **PRIVATE IP ADDRESS** for later use.
+
+![Public and private IP addresses](./media/connect-on-premises-network/vm-ip-addresses.png)
 
 ### Install and configure Bind (DNS software)
 
@@ -227,11 +240,14 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
 
 ### Configure the virtual network to use the custom DNS server
 
-To configure the virtual network to use the custom DNS server instead of the Azure recursive resolver, use the following steps:
+To configure the virtual network to use the custom DNS server instead of the Azure recursive resolver, use the following steps from the [Azure portal](https://portal.azure.com):
 
-1. In the [Azure portal](https://portal.azure.com), select the virtual network, and then select __DNS Servers__.
-
-2. Select __Custom__, and enter the __internal IP address__ of the custom DNS server. Finally, select __Save__.
+1. From the left menu, select **All services**.
+2. Under **Networking**, select **Virtual networks**.
+3. Select your virtual network from the list, which will open the default view for your virtual network.
+4. From the default view, under **Settings**, select **DNS servers**.
+5. Select __Custom__, and enter the **PRIVATE IP ADDRESS** of the custom DNS server. 
+6. Select __Save__.
 
     ![Set the custom DNS server for the network](./media/connect-on-premises-network/configure-custom-dns.png)
 
