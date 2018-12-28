@@ -68,9 +68,9 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
 > * [Create VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
 
 From the [Azure portal](https://portal.azure.com):
-1. From the left menu, select **+ Create a resource**.
-2. Select **Compute**.
-3. Select **Ubuntu Server 18.04 LTS**.
+1. From the left menu, select **+ Create a resource**.  
+2. Select **Compute**.  
+3. Select **Ubuntu Server 18.04 LTS**.  
 
     ![Create an Ubuntu virtual machine](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
@@ -242,12 +242,12 @@ Once the virtual machine has been created, you will receive a **Deployment succe
 
 To configure the virtual network to use the custom DNS server instead of the Azure recursive resolver, use the following steps from the [Azure portal](https://portal.azure.com):
 
-1. From the left menu, select **All services**.
-2. Under **Networking**, select **Virtual networks**.
-3. Select your virtual network from the list, which will open the default view for your virtual network.
-4. From the default view, under **Settings**, select **DNS servers**.
-5. Select __Custom__, and enter the **PRIVATE IP ADDRESS** of the custom DNS server. 
-6. Select __Save__.
+1. From the left menu, select **All services**.  
+2. Under **Networking**, select **Virtual networks**.  
+3. Select your virtual network from the list, which will open the default view for your virtual network.  
+4. From the default view, under **Settings**, select **DNS servers**.  
+5. Select __Custom__, and enter the **PRIVATE IP ADDRESS** of the custom DNS server.   
+6. Select __Save__.  
 
     ![Set the custom DNS server for the network](./media/connect-on-premises-network/configure-custom-dns.png)
 
