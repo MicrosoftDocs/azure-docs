@@ -20,28 +20,28 @@ Before you set up continuous export, there are some alternatives you might want 
 
 * The Export button at the top of a metrics or search blade lets you transfer tables and charts to an Excel spreadsheet.
 
-* [Analytics](../azure-monitor/app/analytics.md) provides a powerful query language for telemetry. It can also export results.
-* If you're looking to [explore your data in Power BI](app-insights-export-power-bi.md), you can do that without using Continuous Export.
+* [Analytics](../../azure-monitor/app/analytics.md) provides a powerful query language for telemetry. It can also export results.
+* If you're looking to [explore your data in Power BI](../../application-insights/app-insights-export-power-bi.md), you can do that without using Continuous Export.
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
 * You can also access setup [continuous export via Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
-After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](../azure-monitor/app/data-retention-privacy.md).
+After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](../../azure-monitor/app/data-retention-privacy.md).
 
 ## <a name="setup"></a> Create a Continuous Export
 1. In the Application Insights resource for your app, open Continuous Export and choose **Add**:
 
 2. Choose the telemetry data types you want to export.
 
-3. Create or select an [Azure storage account](../storage/common/storage-introduction.md) where you want to store the data. For more information on storage pricing options visit the [official pricing page](https://azure.microsoft.com/pricing/details/storage/).
+3. Create or select an [Azure storage account](../../storage/common/storage-introduction.md) where you want to store the data. For more information on storage pricing options visit the [official pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
     > [!Warning]
     > By default, the storage location will be set to the same geographical region as your Application Insights resource. If you store in a different region, you may incur transfer charges.
 
-    ![Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store](./media/app-insights-export-telemetry/02-add.png)
+    ![Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store](./media/export-telemetry/02-add.png)
 
 4. Create or select a container in the storage:
 
-    ![Click Choose event types](./media/app-insights-export-telemetry/create-container.png)
+    ![Click Choose event types](./media/export-telemetry/create-container.png)
 
 Once you've created your export, it starts going. You only get data that arrives after you create the export.
 
@@ -51,7 +51,7 @@ There can be a delay of about an hour before data appears in the storage.
 
 If you want to change the event types later, just edit the export:
 
-![Click Choose event types](./media/app-insights-export-telemetry/05-edit.png)
+![Click Choose event types](./media/export-telemetry/05-edit.png)
 
 ### To stop continuous export
 
@@ -65,14 +65,14 @@ To stop the export permanently, delete it. Doing so doesn't delete your data fro
 ## <a name="analyze"></a> What events do you get?
 The exported data is the raw telemetry we receive from your application, except that we add location data which we calculate from the client IP address.
 
-Data that has been discarded by [sampling](app-insights-sampling.md) is not included in the exported data.
+Data that has been discarded by [sampling](../../application-insights/app-insights-sampling.md) is not included in the exported data.
 
 Other calculated metrics are not included. For example, we don't export average CPU utilization, but we do export the raw telemetry from which the average is computed.
 
-The data also includes the results of any [availability web tests](app-insights-monitor-web-app-availability.md) that you have set up.
+The data also includes the results of any [availability web tests](../../application-insights/app-insights-monitor-web-app-availability.md) that you have set up.
 
 > [!NOTE]
-> **Sampling.** If your application sends a lot of data, the sampling feature may operate and send only a fraction of the generated telemetry. [Learn more about sampling.](app-insights-sampling.md)
+> **Sampling.** If your application sends a lot of data, the sampling feature may operate and send only a fraction of the generated telemetry. [Learn more about sampling.](../../application-insights/app-insights-sampling.md)
 >
 >
 
@@ -83,7 +83,7 @@ To inspect Azure storage in Visual Studio, open **View**, **Cloud Explorer**. (I
 
 When you open your blob store, you'll see a container with a set of blob files. The URI of each file derived from your Application Insights resource name, its instrumentation key, telemetry-type/date/time. (The resource name is all lowercase, and the instrumentation key omits dashes.)
 
-![Inspect the blob store with a suitable tool](./media/app-insights-export-telemetry/04-data.png)
+![Inspect the blob store with a suitable tool](./media/export-telemetry/04-data.png)
 
 The date and time are UTC and are when the telemetry was deposited in the store - not the time it was generated. So if you write code to download the data, it can move linearly through the data.
 
@@ -101,7 +101,7 @@ Where
 * Each row represents a telemetry data point such as a request or page view.
 * Each row is an unformatted JSON document. If you want to sit and stare at it, open it in Visual Studio and choose Edit, Advanced, Format File:
 
-![View the telemetry with a suitable tool](./media/app-insights-export-telemetry/06-json.png)
+![View the telemetry with a suitable tool](./media/export-telemetry/06-json.png)
 
 Time durations are in ticks, where 10 000 ticks = 1 ms. For example, these values show a time of 1 ms to send a request from the browser, 3 ms to receive it, and 1.8 s to process the page in the browser:
 
@@ -109,7 +109,7 @@ Time durations are in ticks, where 10 000 ticks = 1 ms. For example, these value
     "receiveRequest": {"value": 30000.0},
     "clientProcess": {"value": 17970000.0}
 
-[Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
+[Detailed data model reference for the property types and values.](export-data-model.md)
 
 ## Processing the data
 On a small scale, you can write some code to pull apart your data, read it into a spreadsheet, and so on. For example:
@@ -141,14 +141,14 @@ If you change the key to your storage, continuous export will stop working. You'
 
 Open the Continuous Export blade and edit your export. Edit the Export Destination, but just leave the same storage selected. Click OK to confirm.
 
-![Edit the continuous export, open and close thee export destination.](./media/app-insights-export-telemetry/07-resetstore.png)
+![Edit the continuous export, open and close thee export destination.](./media/export-telemetry/07-resetstore.png)
 
 The continuous export will restart.
 
 ## Export samples
 
 * [Export to SQL using Stream Analytics][exportasa]
-* [Stream Analytics sample 2](app-insights-export-stream-analytics.md)
+* [Stream Analytics sample 2](export-stream-analytics.md)
 
 On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data, and you could use it to process data that has been exported from Application Insights.
 
@@ -181,11 +181,11 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 
 ## Code samples
 
-* [Stream Analytics sample](app-insights-export-stream-analytics.md)
+* [Stream Analytics sample](export-stream-analytics.md)
 * [Export to SQL using Stream Analytics][exportasa]
-* [Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
+* [Detailed data model reference for the property types and values.](export-data-model.md)
 
 <!--Link references-->
 
-[exportasa]: ../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: app-insights-resources-roles-access-control.md
+[exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
+[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
