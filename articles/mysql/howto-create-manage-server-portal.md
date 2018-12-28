@@ -103,6 +103,11 @@ Click on **Properties**, located under **Settings** to view detailed information
 
 ![properties](./media/howto-create-manage-server-portal/properties.png)
 
+## Change MySQL Server Parameters
+log_bin_trust_function_creators --> ON
+time_zone --> -7:00
+
+
 ## Next steps
 
 [Quickstart: Create Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
