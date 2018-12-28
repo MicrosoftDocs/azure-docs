@@ -74,19 +74,15 @@ After the matchers are created, upload the function snippet with the following a
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
-| Value | Replace with |
-| --- | --- |
-| USER_DEFINED_BOUNDARY | A multipart content boundary name |
-
 > [!IMPORTANT]
-> - Verify that headers include `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+> - Verify that the headers include: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
 > - The supplied body is multipart:
 >   - The first part contains the required UDF metadata.
 >   - The second part contains the JavaScript compute logic.
 > - In the **USER_DEFINED_BOUNDARY** section, replace the **spaceId** (`YOUR_SPACE_IDENTIFIER`) and **matchers**(`YOUR_MATCHER_IDENTIFIER`)  values.
 > - Note the JavaScript UDF supplied as `Content-Type: text/javascript`.
 
-With JSON body:
+Use the following JSON body:
 
 ```plaintext
 --USER_DEFINED_BOUNDARY
@@ -112,6 +108,7 @@ function process(telemetry, executionContext) {
 
 | Value | Replace with |
 | --- | --- |
+| USER_DEFINED_BOUNDARY | A multipart content boundary name |
 | YOUR_SPACE_IDENTIFIER | The space identifier  |
 | YOUR_MATCHER_IDENTIFIER | The ID of the matcher you want to use |
 
@@ -199,7 +196,7 @@ We need to create a role assignment for the user-defined function to run under. 
 
 1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) will be the UDF ID that was created earlier.
 1. Find the value of **path** (`YOUR_ACCESS_CONTROL_PATH`) by querying your spaces with `fullpath`.
-1. Copy the returned `spacePaths` value. You'll use that in the following code. Make an authenticated HTTP GET request to:
+1. Copy the returned `spacePaths` value. You'll use that below. Make an authenticated HTTP GET request to:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath

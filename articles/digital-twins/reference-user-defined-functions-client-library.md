@@ -17,6 +17,8 @@ This document provides reference information for the Azure Digital Twins user-de
 
 ## Helper methods
 
+The client library defines helper methods for commonly used operations.
+
 ### getSpaceMetadata(id) ⇒ `space`
 
 Given a space identifier, this function retrieves the space from the graph.
@@ -252,7 +254,7 @@ This function sends a custom notification out to be dispatched.
 
 ## Return types
 
-The following models describe the return objects from the preceding client reference.
+The response models returned from client reference helper methods are described below.
 
 ### Space
 
