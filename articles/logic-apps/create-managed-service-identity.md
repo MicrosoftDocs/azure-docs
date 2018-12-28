@@ -189,7 +189,11 @@ for the resource you want to call.
 
 1. In the HTTP action, choose **Show advanced options**. 
 
-1. From the **Authentication** list, select **Managed Service Identity**, 
+1. From the **Authentication** list, select **Managed Service Identity**, fill in **URL** by the following URL :
+```url
+https://management.azure.com/subscriptions/<Azure-Subscription-ID>?api-version=2016-06-01
+```
+
 which then shows the **Audience** property for you to set:
 
    ![Select "Managed Service Identity"](./media/create-managed-service-identity/select-managed-service-identity.png)
