@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 This document provides reference information for the Azure Digital Twins user-defined functions client library.
 
-## Client reference
+## Helper methods
 
 ### getSpaceMetadata(id) ⇒ `space`
 
@@ -431,3 +431,11 @@ This function sends a notification with the specified payload.
   "Value": "Occupied"
 }
 ```
+
+## Next steps
+
+- Learn about [Azure Digital Twins user-defined functions]().
+
+- 
+
+- 
