@@ -7,10 +7,10 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 12/11/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 ---
-# What is Azure Data Box Disk? (Preview)
+# What is Azure Data Box Disk?
 
 The Microsoft Azure Data Box Disk cloud solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way. This FAQ contains questions and answers that you may have when you use Data Box Disks in the Azure portal. 
 
@@ -22,8 +22,6 @@ Questions and answers are arranged in the following categories:
 - Migrate data 
 - Verify and upload data 
 
-> [!IMPORTANT]
-> Data Box Disk is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
 
 ## About the service
 
@@ -39,19 +37,19 @@ Disks are encrypted using Microsoft BitLocker drive encryption, and your encrypt
 A. If you have 40 TB of data (or less) that you want to transfer to Azure, you would benefit from using Data Box Disks.
 
 ### Q. What is the price of Data Box Disks?
-A. For information on the price of Data Box Disks, go to [Preview Pricing page](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
+A. For information on the price of Data Box Disks, go to [Pricing page](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ### Q. How do I get Data Box Disks? 
-A.  To get Azure Data Box Disks, first sign up for the [Data Box Disk preview](https://aka.ms/AzureDataBox). Next log into Azure portal and create a Data Box order for disks. Provide your contact information and notification details. Once you place an order, based on the availability, disks are shipped to you within 10 days.   
+A.  To get Azure Data Box Disks, log into Azure portal and create a Data Box order for disks. Provide your contact information and notification details. Once you place an order, based on the availability, disks are shipped to you within 10 days.
 
 ### Q. What is the maximum amount of data I can transfer with Data Box Disks in one instance?
-A. For 5 disks each of 8 TB (7 TB usable capacity), the maximum usable capacity is 35 TB. Hence, you can transfer 35 TB of data in one instance.  To transfer more data, you need to order more disks.
+A. For 5 disks each of 8 TB (7 TB usable capacity), the maximum usable capacity is 35 TB. Hence, you can transfer 35 TB of data in one instance. To transfer more data, you need to order more disks.
 
 ### Q. How can I check if Data Box Disks are available in my region? 
-A.  Data Box Disks are available in US, Canada, Australia, and all the countries in European Union during the preview phase.  
+A.  Data Box Disks are currently available in US, Canada, Australia, and all the countries in European Union.  
 
 ### Q. Which regions can I store data in with Data Box Disks?
-A. Data Box Disk is supported for all regions within US, Canada, Australia, and West Europe and North Europe for preview. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
+A. Data Box Disk is supported for all regions within US, Canada, Australia, and West Europe and North Europe. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
 
 ### Q. Whom should I contact if I encounter any issues  with Data Box Disks?
 A. If you encounter any issues with Data Box Disks, please [contact Microsoft Support](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -70,7 +68,7 @@ For step-by-step instructions, go to [Unlock disks on a Windows client](data-box
 A.  Yes. Both the Linux and Windows clients can be used to connect and copy data on to the Data Box Disks. For more information, go to the list of [Supported operating systems](data-box-disk-system-requirements.md) for your host computer.
 
 ### Q. My disks are dispatched but now I want to cancel this order. Why is the cancel button not available?
-A.  You can only cancel the order after the disks are ordered and before the shipment. Once the disks are dispatched, you can no longer cancel the order. In the preview timeframe, you can return your disks at no charge though this will likely change when the solution is generally available. 
+A.  You can only cancel the order after the disks are ordered and before the shipment. Once the disks are dispatched, you can no longer cancel the order. However, you can return your disks at a charge. 
 
 ### Q. Can I connect multiple Data Box Disks at the same to the host computer to transfer data?
 A. Yes. Multiple Data Box Disks can be connected to the same host computer to transfer data and multiple copy jobs can be run in parallel.
@@ -118,7 +116,7 @@ A.  To speed up the copy process:
 
 
 ### Q. Can I use multiple storage accounts with Data Box Disks?
-A.  No. Only one storage account, general or classic, is currently supported with Data Box Disks. Both hot and cool blob are supported. During the preview, only the storage accounts in US, West Europe, and North Europe in the Azure public cloud are supported.
+A.  No. Only one storage account, general or classic, is currently supported with Data Box Disks. Both hot and cool blob are supported. Currently, only the storage accounts in US, West Europe, and North Europe in the Azure public cloud are supported.
 
 ## Verify and upload
 

@@ -7,35 +7,24 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
-# Tutorial: Order an Azure Data Box Disk (Preview)
+# Tutorial: Order an Azure Data Box Disk
 
 Azure Data Box Disk is a hybrid cloud solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to solid-state disks (SSDs) supplied by Microsoft and ship the disks back. This data is then uploaded to Azure.
 
 This tutorial describes how you can order an Azure Data Box Disk. In this tutorial, you learn about:
 
 > [!div class="checklist"]
-> * Sign up for Data Box Disk
 > * Order a Data Box Disk
 > * Track the order
 > * Cancel the order
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-> [!IMPORTANT]
-> - Data Box Disk is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
-> - During preview, Data Box Disk can be shipped to customers in US, West and North Europe, Canada, and Australia. For more information, go to [Region availability](data-box-disk-overview.md#region-availability).
 
-## Sign up
-
-Data Box Disk is in preview and you need to sign up for the service. Perform the following steps to sign up for Data Box service:
-
-1. Sign into the Azure portal at: [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
-2. Pick the subscription that you want to enable for the preview. Answer the questions regarding data size, data residence country, time-frame, and data transfer frequency. Click **Sign me up!**.
-3. Once you are signed up and enabled for preview, you can order a Data Box Disk.
 
 ## Order Data Box Disk
 
@@ -92,7 +81,7 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfro
  
 ## Track the order
 
-After you have placed the order, you can track the status of the order from Azure preview portal. Go to your order and then go to **Overview** to view the status. The portal shows the job in **Ordered** state. 
+After you have placed the order, you can track the status of the order from Azure portal. Go to your order and then go to **Overview** to view the status. The portal shows the job in **Ordered** state. 
 
 ![Data Box Disk status ordered](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -110,7 +99,7 @@ Microsoft then prepares and dispatches your disks via a regional carrier. You re
 
 ## Cancel the order
 
-To cancel this order, in the Azure preview portal, go to **Overview** and click **Cancel** from the command bar. 
+To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar. 
 
 You can only cancel when the disks are ordered and the order is being processed for shipment. Once the order is processed, you can no longer cancel the order. 
 
@@ -124,7 +113,6 @@ To delete a canceled order, go to **Overview** and click **Delete** from the com
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
-> * Sign up for Data Box Disk
 > * Order Data Box Disk
 > * Track the order
 > * Cancel the order
