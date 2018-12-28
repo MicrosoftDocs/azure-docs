@@ -258,12 +258,12 @@ The following models describe the return objects from the preceding client refer
 
 ```JSON
 {
-  "Id": "00000000-0000-0000-0000-000000000000",
-  "Name": "Space",
-  "FriendlyName": "Conference Room",
-  "TypeId": 0,
-  "ParentSpaceId": "00000000-0000-0000-0000-000000000001",
-  "SubtypeId": 0
+  "id": "00000000-0000-0000-0000-000000000000",
+  "name": "Space",
+  "friendlyName": "Conference Room",
+  "typeId": 0,
+  "parentSpaceId": "00000000-0000-0000-0000-000000000001",
+  "subtypeId": 0
 }
 ```
 
