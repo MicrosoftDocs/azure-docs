@@ -12,7 +12,7 @@ ms.date: 11/20/2018
 ms.author: erhopf
 ---
 
-# Quickstart: Translate text with the Translator Text REST API (C#)
+# Quickstart: Use the Translator Text API to translate a string using C#
 
 In this quickstart, you'll learn how to translate a text string from English to Italian and German using .NET Core and the Translator Text REST API.
 

@@ -108,7 +108,6 @@ Azure Backup is a scalable solution that helps protect your application data wit
 Learn more:
 
 * [What is Azure Backup?](../backup/backup-introduction-to-azure-backup.md)
-* [Azure Backup Learning Path](https://azure.microsoft.com/documentation/learning-paths/backup/)
 * [Azure Backup service FAQ](../backup/backup-azure-backup-faq.md)
 
 ## Azure Site Recovery

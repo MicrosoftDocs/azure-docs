@@ -62,5 +62,5 @@ If audit logging is enabled, this product may generate security logs for your Do
 
 ## Next steps
 * [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
-- [**Troubleshoot**](tshoot-connect-sso.md) - Learn how to resolve common issues with the feature.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
+  - [**Troubleshoot**](tshoot-connect-sso.md) - Learn how to resolve common issues with the feature.
+  - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.

@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Perform an image search with C# - Bing Image Search API"
+title: "Quickstart: Search for images - Bing Image Search REST API and C#"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to make your first call to the Bing Image Search API and view a search result from the JSON response. This simple C# application sends an HTTP image search query to the API, and displays the URL of the first image returned.
+description: Use this quickstart to send image search requests to the Bing Image Search REST API using C#, and receive JSON responses.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
 ---
-# Quickstart: Send search queries using the Bing Image Search API and C#
+# Quickstart: Search for images using the Bing Image Search REST API and C#
 
 Use this quickstart to make your first call to the Bing Image Search API and view a search result from the JSON response. This simple C# application sends an HTTP image search query to the API, and displays the URL of the first image returned.
 

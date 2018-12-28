@@ -4,9 +4,9 @@ description: Learn how to programmatically retrain a model and update the web se
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
 ms.service: machine-learning
@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ---
-# Retrain a new Resource Manager-based web service using the Machine Learning Studio Management PowerShell cmdlets
+# Retrain a new Resource Manager-based Studio web service using Powershell
 When you retrain a New web service, you update the predictive web service definition to reference the new trained model.
 
 ## Prerequisites

@@ -30,15 +30,15 @@ For a user to access an application, they must first be assigned to it in some w
 
 2.  An administrator [assigns a group](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) that the user is a member of to the application, including:
 
-  * A group that was synchronized from on-premises
+    * A group that was synchronized from on-premises
 
-  * A static security group created in the cloud
+    * A static security group created in the cloud
 
-  * A [dynamic security group](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal) created in the cloud
+    * A [dynamic security group](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal) created in the cloud
 
-  * An Office 365 group created in the cloud
+    * An Office 365 group created in the cloud
 
-  * The [All Users](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups) group
+    * The [All Users](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups) group
 
 3.  An administrator enables [Self-service Application Access](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) to allow a user to add an application using the [Application Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Add App** feature **without business approval**
 

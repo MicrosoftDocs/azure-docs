@@ -5,6 +5,7 @@
   - name: About Key Vault
     href: key-vault-overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Set and retrieve a secret - CLI
     href: quick-create-cli.md
@@ -36,8 +37,10 @@
           href: tutorial-net-windows-virtual-machine.md
         - name: Python
           href: tutorial-python-windows-virtual-machine.md
-  - name: Read a secret from Key Vault
-    href: tutorial-web-application-keyvault.md
+  - name: Azure Containers
+    href: ../container-instances/container-instances-managed-identity.md
+  - name: Azure Resource Manager Template
+    href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
   - name: Set up key rotation and auditing
     href: key-vault-key-rotation-log-monitoring.md
 - name: Samples

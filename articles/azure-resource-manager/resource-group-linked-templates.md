@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
 ---
 # Using linked and nested templates when deploying Azure resources
@@ -89,7 +89,7 @@ The nested template requires the [same properties](resource-group-authoring-temp
 
 ### External template and external parameters
 
-To link to an external template and parameter file, use **templateLink** and **parametersLink**. When linking to a template, the Resource Manager service must be able to access it. You cannot specify a local file or a file that is only available on your local network. You can only provide a URI value that includes either **http** or **https**. One option is to place your linked template in a storage account, and use the URI for that item.
+To link to an external template and parameter file, use **templateLink** and **parametersLink**. When linking to a template, the Resource Manager service must be able to access it. You can't specify a local file or a file that is only available on your local network. You can only provide a URI value that includes either **http** or **https**. One option is to place your linked template in a storage account, and use the URI for that item.
 
 ```json
 "resources": [
@@ -164,7 +164,9 @@ You can also use [deployment()](resource-group-template-functions-deployment.md#
 
 ## Get values from linked template
 
-To get an output value from a linked template, retrieve the property value with syntax like: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
+To get an output value from a linked template, retrieve the property value with syntax like: `"[reference('deploymentName').outputs.propertyName.value]"`.
+
+When getting an output property from a linked template, the property name can't include a dash.
 
 The following examples demonstrate how to reference a linked template and retrieve an output value. The linked template returns a simple message.
 

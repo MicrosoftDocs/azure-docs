@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Audit transparent data encryption for SQL Database
+title: Sample - Audit transparent data encryption for SQL Database
 description: This sample policy audits if SQL database does not have transparent data encryption enabled.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 10/29/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Audit SQL database encryption
 

@@ -1,6 +1,6 @@
 ---
-title: Security in Azure IoT Edge | Microsoft Docs 
-description: Security, authentication, and authorization of IoT Edge devices
+title: Security framework - Azure IoT Edge | Microsoft Docs 
+description: Learn about the security, authentication, and authorization standards that were used to develop Azure IoT Edge and should be considered as you design your solution
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,9 +8,10 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
-# Securing Azure IoT Edge
+# Security standards for Azure IoT Edge
 
 Securing the intelligent edge is necessary to confer confidence in the operation of an end to end IoT solution. Azure IoT Edge is designed for security that is extensible to different risk profiles, deployment scenarios, and offers the same protection that you expect from all Azure services.
 

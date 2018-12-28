@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Log in to Azure
 
-Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
+Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 ## Create an application gateway
 

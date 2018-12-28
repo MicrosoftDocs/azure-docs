@@ -231,8 +231,8 @@ The following options are supported:
 
 ## Next steps
 
-- Learn more about [managed identities for Azure resources](/azure/app-service/app-service-managed-service-identity).
+- Learn more about [managed identities for Azure resources](/azure/app-service/overview-managed-identity).
 
-- Learn different ways to [authenticate and authorize apps](/azure/app-service/app-service-authentication-overview).
+- Learn different ways to [authenticate and authorize apps](/azure/app-service/overview-authentication-authorization).
 
 - Learn more about Azure AD [authentication scenarios](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application).

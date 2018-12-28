@@ -37,30 +37,30 @@ The preconfigured reports that come with the Azure Backup content pack are chang
 
 ### Summary
    
-![Summary](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Summary.png)
+![Summary](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Summary.png)
 
 ### Billing
 
-![Billing](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Billing.png)
+![Billing](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Billing.png)
 
 ### Compliance
 
-![Compliance](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Compliance.png)
+![Compliance](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Compliance.png)
 
 ### Storage
 
-![Storage](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Storage.png)
+![Storage](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
 
 ### Backup items
-![Backup items](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-BackupItem.png)
+![Backup items](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-BackupItem.png)
 
 ### Alerts
 
-![Alerts](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Alerts.png)
+![Alerts](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Alerts.png)
 
 ### Jobs
 
-![Jobs](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Jobs.png)
+![Jobs](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Jobs.png)
     
 
 ## Next steps

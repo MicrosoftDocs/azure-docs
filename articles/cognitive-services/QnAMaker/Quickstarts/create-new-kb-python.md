@@ -26,7 +26,7 @@ This quickstart calls QnA Maker APIs:
 * [Python 3.7](https://www.python.org/downloads/)
 * You must have a QnA Maker service. To retrieve your key, select Keys under Resource Management in your dashboard.
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 ## Create a knowledge base Python file
 

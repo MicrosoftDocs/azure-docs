@@ -1,5 +1,5 @@
 ---
-title: Azure App Service Environment management addresses
+title: App Service Environment management addresses - Azure
 description: Lists the management addresses used to command an App Service Environment 
 services: app-service
 documentationcenter: na
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: ccompy
+ms.custom: seodec18
 ---
 # App Service Environment management addresses
 
@@ -41,7 +42,7 @@ You can list the management addresses that match to your ASE with the following 
 
 The API returns a JSON document that includes all of the inbound addresses for your ASE. The list of addresses includes the management addresses, the VIP used by your ASE and the ASE subnet address range itself.  
 
-To call the API with the [armclient](http://github.com/projectkudu/ARMClient) use the following commands but substitute in your subscription ID, resource group and ASE name.  
+To call the API with the [armclient](https://github.com/projectkudu/ARMClient) use the following commands but substitute in your subscription ID, resource group and ASE name.  
 
     armclient login
     armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01

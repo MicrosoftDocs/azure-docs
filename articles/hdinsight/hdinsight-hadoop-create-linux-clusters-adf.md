@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 12/04/2018
 ms.author: hrasheed
 #Customer intent: As a data worker, I need to create a Hadoop cluster and run Hive jobs on demand
 
@@ -52,7 +52,7 @@ This section uses an Azure PowerShell script to create the storage account and c
 
 
 **To create a storage account and copy the files using Azure PowerShell:**
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Specify names for the Azure resource group and the Azure storage account that will be created by the script.
 > Write down **resource group name**, **storage account name**, and **storage account key** outputted by the script. You need them in the next section.
 

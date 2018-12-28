@@ -11,16 +11,18 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create function - portal
-    href: functions-create-first-azure-function.md
   - name: Create function - Visual Studio
     href: functions-create-your-first-function-visual-studio.md
   - name: Create function - Visual Studio Code
     href: functions-create-first-function-vs-code.md
   - name: Create function - Java/Maven
     href: functions-create-first-java-maven.md
+  - name: Create function - Python
+    href: functions-create-first-function-python.md
   - name: Create function - Azure CLI
     href: functions-create-first-azure-function-azure-cli.md
+  - name: Create function - portal
+    href: functions-create-first-azure-function.md
   - name: Create function - Linux
     href: functions-create-first-azure-function-azure-cli-linux.md
   - name: Triggers
@@ -86,8 +88,10 @@
       href: functions-reference-node.md   
     - name: Java
       href: functions-reference-java.md 
+    - name: Python
+      href: functions-reference-python.md
   - name: Diagnostics
-    href: ../app-service/app-service-diagnostics.md
+    href: ../app-service/overview-diagnostics.md
   - name: Performance considerations
     href: functions-best-practices.md 
   - name: Functions Proxies
@@ -114,10 +118,14 @@
        href: functions-create-maven-intellij.md
      - name: Eclipse development
        href: functions-create-maven-eclipse.md
+     - name: Create Linux function app  
+       href: create-function-app-linux-app-service-plan.md
      - name: Manage connections
        href: manage-connections.md
      - name: Error handling
        href: functions-bindings-error-pages.md
+       name: Manually run a non HTTP-triggered function
+       href: functions-manually-run-non-http.md
      - name: Debug Event Grid trigger locally
        href: functions-debug-event-grid-trigger-local.md
   - name: Deploy
@@ -151,27 +159,29 @@
     - name: Authenticate users
       items:
       - name: Authenticate with Azure AD
-        href: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        href: ../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fazure-functions%2ftoc.json
       - name: Authenticate with Facebook
-        href: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        href: ../app-service/configure-authentication-provider-facebook.md?toc=%2fazure%2fazure-functions%2ftoc.json
       - name: Authenticate with Google
-        href: ../app-service/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        href: ../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fazure-functions%2ftoc.json
       - name: Authenticate with Microsoft account
-        href: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        href: ../app-service/configure-authentication-provider-microsoft.md?toc=%2fazure%2fazure-functions%2ftoc.json
       - name: Authenticate with Twitter
-        href: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Advanced auth
       href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Restrict IPs
       href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Use a managed identity
-      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Reference secrets from Key Vault
       href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Integrate
     items:   
     - name: Connect to SQL Database
       href: functions-scenario-database-table-cleanup.md
+    - name: Connect to a Virtual Network
+      href: functions-create-vnet.md
     - name: Create an Open API 2.0 definition
       href: functions-api-definition-getting-started.md    
     - name: Export to PowerApps and Microsoft Flow
@@ -181,13 +191,21 @@
     - name: Call a function from Microsoft Flow 
       href: functions-flow-scenario.md
     - name: Use a managed identity
-      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json 
+      href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json 
   - name: Troubleshoot
     items:
     - name: Troubleshoot storage
       href: functions-recover-storage-account.md   
 - name: Reference
   items:
+  - name: API references
+    items:
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable
+    - name: Python
+      href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python 
+  - name: App settings reference
+    href: functions-app-settings.md
   - name: Bindings
     items:
     - name: Blob storage
@@ -229,15 +247,14 @@
     - name: Twilio
       href: functions-bindings-twilio.md    
   - name: host.json reference
+    href: functions-host-json.md      
     items:
     - name: Functions 2.x
       href: functions-host-json.md  
     - name: Functions 1.x
-      href: functions-host-json-v1.md  
-  - name: App settings reference
-    href: functions-app-settings.md     
+      href: functions-host-json-v1.md    
   - name: OpenAPI reference
-    href: functions-api-definition.md     
+    href: functions-api-definition.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
@@ -255,7 +272,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-functions
+    href: https://stackoverflow.com/questions/tagged/azure-functions
   - name: Twitter
     href: https://twitter.com/azurefunctions
   - name: Provide product feedback

@@ -1,10 +1,11 @@
 ---
 title: Configure containers
-titlesuffix: Text Analytics - Cognitive Services - Azure
-description: Configuration settings for Text Analytics containers.
+titlesuffix: Text Analytics - Azure Cognitive Services
+description: Text Analytics provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
@@ -86,7 +87,7 @@ The following table describes the configuration settings supported under the `Au
 
 ## Billing configuration setting
 
-The `Billing` configuration setting specifies the endpoint URI of the Text Analytics resource on Azure used to track billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a Text Analytics resource on Azure.
+The `Billing` configuration setting specifies the endpoint URI of the Text Analytics resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a Text Analytics resource on Azure.
 
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-configuration-setting) configuration settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](how-tos/text-analytics-how-to-install-containers.md#billing).
@@ -97,6 +98,8 @@ The `Eula` configuration setting indicates that you've accepted the license for 
 
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-configuration-setting) configuration settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](how-tos/text-analytics-how-to-install-containers.md#billing).
+
+Cognitive Services containers are licensed under [your agreement](https://go.microsoft.com/fwlink/?linkid=2018657) governing your use of Azure. If you do not have an existing agreement governing your use of Azure, you agree that your agreement governing use of Azure is the [Microsoft Online Subscription Agreement](https://go.microsoft.com/fwlink/?linkid=2018755) (which incorporates the [Online Services Terms](https://go.microsoft.com/fwlink/?linkid=2018760)). For previews, you also agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://go.microsoft.com/fwlink/?linkid=2018815). By using the container you agree to these terms.
 
 ## Fluentd configuration settings
 
