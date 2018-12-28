@@ -71,19 +71,20 @@ With JSON body:
 After the matchers are created, upload the function snippet with the following authenticated HTTP **POST** request:
 
 ```plaintext
-YOUR_MANAGEMENT_API_URL/userdefinedfunctions with Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
+YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
-| Parameter value | Replace with |
+| Value | Replace with |
 | --- | --- |
-| *USER_DEFINED_BOUNDARY* | A multipart content boundary name |
+| USER_DEFINED_BOUNDARY | A multipart content boundary name |
 
 > [!IMPORTANT]
-> - In the headers, set the following `Content-Type: multipart/form-data; boundary="userDefinedBoundary"`.
-> - The body is multipart:
->   - The first part is about metadata needed for the UDF.
->   - The second part is the JavaScript compute logic.
-> - In the **USER_DEFINED_BOUNDARY** section, replace the **SpaceId** and **Machers** values.
+> - Verify that headers include `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+> - The supplied body is multipart:
+>   - The first part contains the required UDF metadata.
+>   - The second part contains the JavaScript compute logic.
+> - In the **USER_DEFINED_BOUNDARY** section, replace the **spaceId** (`YOUR_SPACE_IDENTIFIER`) and **matchers**(`YOUR_MATCHER_IDENTIFIER`)  values.
+> - Note the JavaScript UDF supplied as `Content-Type: text/javascript`.
 
 With JSON body:
 
@@ -93,10 +94,10 @@ Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
 
 {
-  "SpaceId": "YOUR_SPACE_IDENTIFIER",
-  "Name": "User Defined Function",
-  "Description": "The contents of this udf will be executed when matched against incoming telemetry.",
-  "Matchers": ["YOUR_MATCHER_IDENTIFIER"]
+  "spaceId": "YOUR_SPACE_IDENTIFIER",
+  "name": "User Defined Function",
+  "description": "The contents of this udf will be executed when matched against incoming telemetry.",
+  "matchers": ["YOUR_MATCHER_IDENTIFIER"]
 }
 --USER_DEFINED_BOUNDARY
 Content-Disposition: form-data; name="contents"; filename="userDefinedFunction.js"
@@ -196,17 +197,17 @@ We need to create a role assignment for the user-defined function to run under. 
     ```
    Keep the desired role ID. It will be passed as the JSON body attribute **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) below.
 
-1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID` below) will be the UDF ID that was created earlier.
-1. Find the value of **path** (`YOUR_ACCESS_CONTROL_PATH` below) by querying your spaces with `fullpath`.
+1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) will be the UDF ID that was created earlier.
+1. Find the value of **path** (`YOUR_ACCESS_CONTROL_PATH`) by querying your spaces with `fullpath`.
 1. Copy the returned `spacePaths` value. You'll use that in the following code. Make an authenticated HTTP GET request to:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | Parameter value | Replace with |
+    | Value | Replace with |
     | --- | --- |
-    | *YOUR_SPACE_NAME* | The name of the space you wish to use |
+    | YOUR_SPACE_NAME | The name of the space you wish to use |
 
 1. Paste the returned `spacePaths` value into **path** to create a UDF role assignment by making an authenticated HTTP POST request to:
 
@@ -224,7 +225,7 @@ We need to create a role assignment for the user-defined function to run under. 
     }
     ```
 
-    | Your value | Replace with |
+    | Value | Replace with |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | The identifier for the desired role |
     | YOUR_USER_DEFINED_FUNCTION_ID | The ID for the UDF you want to use |
