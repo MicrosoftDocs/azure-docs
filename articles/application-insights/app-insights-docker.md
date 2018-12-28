@@ -78,7 +78,7 @@ You'll shortly see data arriving from the Docker app, especially if you have oth
 ### Docker container events
 ![example](./media/app-insights-docker/13.png)
 
-To investigate individual events, click [Search](app-insights-diagnostic-search.md). Search and filter 
+To investigate individual events, click [Search](../azure-monitor/app/diagnostic-search.md). Search and filter 
 to find the events you want. Click any event to get more detail.
 
 ### Exceptions by container name

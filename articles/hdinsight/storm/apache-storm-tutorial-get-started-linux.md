@@ -177,7 +177,7 @@ Return to the **Topology summary** page for the word-count topology, and then se
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-If you run into an issue with creating HDInsight cluster, see [access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into an issue with creating HDInsight cluster, see [access control requirements](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a id="next"></a>Next steps
 

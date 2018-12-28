@@ -34,8 +34,8 @@ ms.author: mbullwin
 * [Web apps on an IIS server - on-premises or in a VM](../azure-monitor/app/asp-net.md)
 * [Java web apps](app-insights-java-get-started.md)
 * [Node.js apps](app-insights-nodejs.md)
-* [Web apps on Azure](app-insights-azure-web-apps.md)
-* [Cloud Services on Azure](app-insights-cloudservices.md)
+* [Web apps on Azure](../azure-monitor/app/azure-web-apps.md)
+* [Cloud Services on Azure](../azure-monitor/app/cloudservices.md)
 * [App servers running in Docker](app-insights-docker.md)
 * [Single-page web apps](app-insights-javascript.md)
 * [Sharepoint](app-insights-sharepoint.md)
@@ -98,7 +98,7 @@ From server web apps:
 * HTTP requests
 * [Dependencies](../azure-monitor/app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue. 
 * [Exceptions](../azure-monitor/app/asp-net-exceptions.md) and stack traces.
-* [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](app-insights-monitor-performance-live-website-now.md), [Azure monitoring](app-insights-azure-web-apps.md), or the [Application Insights collectd writer](app-insights-java-collectd.md).
+* [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](app-insights-monitor-performance-live-website-now.md), [Azure monitoring](../azure-monitor/app/azure-web-apps.md), or the [Application Insights collectd writer](app-insights-java-collectd.md).
 * [Custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md) that you code.
 * [Trace logs](../azure-monitor/app/asp-net-trace-logs.md) if you configure the appropriate collector.
 
@@ -143,7 +143,7 @@ Take a look at [Data Retention and Privacy][data].
 
 ## Could personal data be sent in the telemetry?
 
-This is possible if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](app-insights-data-retention-privacy.md).
+This is possible if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](../azure-monitor/app/data-retention-privacy.md).
 
 **All** octets of the client web address are always set to 0 after the geo location attributes are looked up.
 
@@ -167,12 +167,12 @@ We don't log POST data automatically, but you can use a TrackTrace call: put the
 Use a single resource for all the components or roles in a single business system. Use separate resources for development, test, and release versions, and for independent applications.
 
 * [See the discussion here](app-insights-separate-resources.md)
-* [Example - cloud service with worker and web roles](app-insights-cloudservices.md)
+* [Example - cloud service with worker and web roles](../azure-monitor/app/cloudservices.md)
 
 ## How do I dynamically change the instrumentation key?
 
 * [Discussion here](app-insights-separate-resources.md)
-* [Example - cloud service with worker and web roles](app-insights-cloudservices.md)
+* [Example - cloud service with worker and web roles](../azure-monitor/app/cloudservices.md)
 
 ## What are the User and Session counts?
 
@@ -293,7 +293,7 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 
 <!--Link references-->
 
-[data]: app-insights-data-retention-privacy.md
+[data]: ../azure-monitor/app/data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
