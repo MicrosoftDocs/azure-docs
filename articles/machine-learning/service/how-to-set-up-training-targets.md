@@ -51,6 +51,24 @@ Your Python model training scripts are portable. You can initially train on your
 
 You use a run configuration to identify the compute target and install the Python environment necessary to run your training script.  The environment can be either user-managed or system-managed.
 
+* System-managed environment
+
+    System-managed environments use [conda](https://conda.io/docs/) to manage the dependencies. Conda creates a file named **conda_dependencies.yml** in the **aml_config** directory.  This **.yml** file contains a list of dependencies. This new conda environment installs on the compute target before your script is run. System-managed environments can be reused later, as long as the `conda_dependencies.yml` files remains unchanged.
+    
+    The initial setup up of a new environment can take several minutes to complete based on the size of the required dependencies. The following code snippet demonstrates how to create a system-managed environment that depends on scikit-learn:
+    
+    ```python
+    from azureml.core.runconfig import RunConfiguration
+    from azureml.core.conda_dependencies import CondaDependencies
+    
+    run_config_system_managed = RunConfiguration()
+
+    # Specify the conda dependencies with scikit-learn
+    run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
+    ```
+    
+    You will use system-managed environments in most of your remote compute targets, as you see in many of the examples in this article. 
+
 * <a href="#user-managed"></a>User-managed environment
 
     In a user-managed environment, you ensure all the packages your training script needs are available in the Python environment where you run the script. The following code snippet is an example of how to configure training for a user-managed environment:
@@ -66,28 +84,6 @@ You use a run configuration to identify the compute target and install the Pytho
 
     Use this configuration when you have already installed all packages necessary to run your training code on your compute target, such as your local machine. You might also use this configuration for a remote machine that you sign into and configure, such as a Data Science Virtual Machine (DSVM). No new environment will be created which can save time when setting up the resource.
   
-* System-managed environment
-
-    System-managed environments use [conda](https://conda.io/docs/) to manage the dependencies. Conda creates a file named **conda_dependencies.yml** in the **aml_config** directory.  This **.yml** file contains a list of dependencies. This new conda environment installs on the compute target before your script is run. System-managed environments can be reused later, as long as the `conda_dependencies.yml` files remains unchanged.
-    
-    The initial setup up of a new environment can take several minutes to complete based on the size of the required dependencies. The following code snippet demonstrates how to create a system-managed environment that depends on scikit-learn:
-    
-    ```python
-    from azureml.core.runconfig import RunConfiguration
-    from azureml.core.conda_dependencies import CondaDependencies
-    
-    run_config_system_managed = RunConfiguration()
-    
-    run_config_system_managed.environment.python.user_managed_dependencies = False
-    run_config_system_managed.auto_prepare_environment = True
-    
-    # Specify the conda dependencies with scikit-learn
-    
-    run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
-    ```
-    
-    You will use system-managed environments in most of your remote compute targets, as you see in many of the examples in this article.  
-
 ## Set up compute with Python
 
 
@@ -309,26 +305,26 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
 
     To find the FQDN for your cluster, go to the Azure portal and select your HDInsight cluster. Under __Overview__, you can see the FQDN in the __URL__ entry. To get the FQDN, remove the https:\// prefix from the beginning of the entry. 
     
-    ![Get the FQDN for an HDInsight cluster in the Azure portal](./media/how-to-set-up-training-targets/hdinsight-overview.png)
-    
+ ![Get the FQDN for an HDInsight cluster in the Azure portal](./media/how-to-set-up-training-targets/hdinsight-overview.png)
+
     ```python
     from azureml.core.compute import HDInsightCompute, ComputeTarget
     
     try:
         # Attach an HDInsight cluster as a compute target
         attach_config = HDInsightCompute.attach_configuration(address = "<fqdn-or-ipaddress>",
-                                                              ssh_port = 22,
-                                                              username = "<username>",
-                                                              password = None, #if using ssh key
-                                                              private_key_file = "<path-to-key-file>",
-                                                              private_key_phrase = "<key-phrase>")
+                                                                ssh_port = 22,
+                                                                username = "<username>",
+                                                                password = None, #if using ssh key
+                                                                private_key_file = "<path-to-key-file>",
+                                                                private_key_phrase = "<key-phrase>")
         compute = ComputeTarget.attach(ws, "myhdi", attach_config)
     except UserErrorException as e:
         print("Caught = {}".format(e.message))
         print("Compute config already attached.")
     ```
 
-    Or you can attach the HDInsight cluster to your workspace [using the Azure portal](#portal-reuse).
+ Or you can attach the HDInsight cluster to your workspace [using the Azure portal](#portal-reuse).
 
 1. **Configure**: Create a run configuration for the HDI compute target. 
 
