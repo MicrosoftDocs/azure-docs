@@ -47,15 +47,17 @@ Azure Machine Learning service has varying support across different compute targ
 
 When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute target without having to change your script.  
 
-For the service to know how you want to run your script, you must create a **run configuration** in Python to specify
-which compute target to use and how you'd like the script dependencies to be managed in the Python environment on that target. Options include:
+For the service to know how you want to run your script, you must define the **run configuration** in Python to specify
+which compute target to use and how you'd like the Python environment and script dependencies to be managed on that target. 
 
-+ In **system-managed environments**, [Conda](https://conda.io/docs/) manages the dependencies for you. 
++ For a **system-managed environment** where the Python environment and the script dependencies are programmatically managed for you by [Conda](https://conda.io/docs/), specify:
+  + `run_config_system_managed`
+  + the name of each package dependency
 
-  When you run the script on your compute target, Conda first creates a file named **conda_dependencies.yml** in the **aml_config** directory in your workspace to define the list of dependencies to install. The initial set up of a new environment can take several minutes depending on the size of the required dependencies. This system-managed environment can be reused as long as the file remains unchanged. 
+  A system-managed environment is the most common set up and is useful on remote compute targets, especially when you cannot configure that target.
   
-  A system-managed environment is useful on most of your remote compute targets, especially when you cannot configure that target.  
-
+  When you run a training script on your compute target, Conda first creates a file named **conda_dependencies.yml** in the **aml_config** directory in your workspace with your list of package dependencies and also sets up your Python environment. The initial set up of a new environment can take several minutes depending on the size of the required dependencies. As long as the list of packages remains unchanged, the set up time happens only once.
+  
   The following code shows an example for a system-managed environment requiring scikit-learn:
     
     ```python
@@ -64,15 +66,13 @@ which compute target to use and how you'd like the script dependencies to be man
     
     run_config_system_managed = RunConfiguration()
 
-    # Specify the conda dependencies with scikit-learn
+    # Specify scikit-learn as a package dependency
     run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
     ```
 
   <a href="#user-managed"></a>
 
-+ In **user-managed environments**, you're responsible for installing every package your training script needs into the Python environment on the compute target. 
-
-  This type of environment is useful when you've already installed the package dependencies on your compute target, such as your local machine. Or, when you're using a remote machine that you can configure, such as a Data Science Virtual Machine (DSVM). No new environment is created, which saves time when you initially set up the resource.
++ For a **user-managed environments**, you're responsible for setting up your environment and installing every package your training script on the compute target. If your training environment is already configured (such as on your local machine), you can skip the set up step using `run_config_user_managed`. Conda will not check your environment or install anything for you.
 
   The following code shows an example of configuring training runs for a user-managed environment:
     
@@ -85,8 +85,6 @@ which compute target to use and how you'd like the script dependencies to be man
     # Point to a specific Python environment. For example: 
     # run_config.environment.python.interpreter_path = '/home/smith/miniconda3/envs/sdk2/bin/python'
     ```
-
-You can save the run configuration in a file in the same directory as your training script, or construct it as an in-memory object when you submit a run.    
   
 ## Set up compute with Python
 
