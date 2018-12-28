@@ -57,7 +57,7 @@ You use this event hub to store tweets.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).  
 2. From the left menu, select **All services**.  
-3. Under **INTERNET OF THINGS**, select **Event Hubs**.  
+3. Under **INTERNET OF THINGS**, select **Event Hubs**.  <br />
 
     ![Create event hub for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Create event hub for Spark streaming example")
 
@@ -81,8 +81,8 @@ Create an Event Hub once the Event Hubs Namespace has been deployed.  From the p
 1. From the left menu, select **All services**.  
 2. Under **INTERNET OF THINGS**, select **Event Hubs**.  
 3. Select your Event Hubs Namespace from the list.  
-4. From the Event Hubs Namespace page, select **+ Event Hub**.
-5. Enter the following values in the **Create Event Hub** page:
+4. From the Event Hubs Namespace page, select **+ Event Hub**.  
+5. Enter the following values in the **Create Event Hub** page:<br />
 
     - Name: Give a name for your Event Hub.  
     - Partition count: 10.  
