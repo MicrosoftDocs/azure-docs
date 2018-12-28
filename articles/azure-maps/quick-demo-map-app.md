@@ -26,14 +26,14 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 ## Create an account and get your key
 
 1. In the upper-left corner of the [Azure portal](https://portal.azure.com), select **Create a resource**.
-2. In the *Search the Marketplace* box, enter **Maps**.
-3. From the *Results*, select **Maps**. Select the **Create** button that appears below the map.
-4. On the **Create Maps Account** page, enter the following values:
-    - The *Name* of your new account.
-    - The *Subscription* that you want to use for this account.
-    - The *Resource group* for this account. You might choose to *Create new* or *Use existing* resource group.
-    - Select the *Pricing Tier* of your choice.
-    - Read the *License* and *Privacy Statement*. Select the check box to accept the terms.
+2. In the **Search the Marketplace** box, enter **Maps**.
+3. From the **Results**, select **Maps**. Select the **Create** button that appears below the map.
+4. On the **Create Azure Maps Account** page, enter the following values:
+    - The **Name** of your new account.
+    - The **Subscription** that you want to use for this account.
+    - The **Resource group** for this account. You might choose to *Create new* or *Use existing* resource group.
+    - Select the **Pricing Tier** of your choice.
+    - Read the **License** and **Privacy Statement**. Select the check box to accept the terms.
     - Finally, select the **Create** button.
 
     ![Create an Azure Maps account in the portal](./media/quick-demo-map-app/create-account.png)
@@ -58,7 +58,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Clean up resources
 
-The tutorials detail how to use and configure Azure Maps with your account. If you plan to continue to the tutorials, don't clean up the resources created in this quickstart. Take these steps to clean up the resources if you don't plan to continue:
+The tutorials detail how to use and configure Azure Maps with your account. Don't clean up the resources created in this quickstart if you plan to continue to the tutorials. If you don't plan to continue, take these steps to clean up the resources:
 
 1. Close the browser that runs the **AzureMapDemo.html** web application.
 2. From the left menu in the Azure portal, select **All resources**. Then select your Azure Maps account. At the top of the **All resources** blade, select **Delete**.
