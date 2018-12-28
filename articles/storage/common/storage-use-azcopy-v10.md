@@ -86,19 +86,19 @@ To see the help page and examples for a specific command run the command below:
 
 ## Create a Blob container or File share 
 
-** Create a Blob container **
+**Create a Blob container**
 
 ```azcopy
 .\azcopy make "https://account.blob.core.windows.net/container-name"
 ```
 
-** Create a File share **
+**Create a File share**
 
 ```azcopy
 .\azcopy make "https://account.file.core.windows.net/share-name"
 ```
 
-** Create a Blob container using ADLS Gen2 **
+**Create a Blob container using ADLS Gen2**
 
 If you've enabled hierarchical namespaces on your blob storage account, you can use the following command to create a new file system (Blob container) so that you can upload files to it.
 
