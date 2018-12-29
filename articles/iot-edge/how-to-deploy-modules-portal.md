@@ -39,18 +39,28 @@ The Azure portal has a wizard that walks you through creating the deployment man
 ### Add modules
 
 1. In the **Registry settings** section of the page, provide the credentials to access any private container registries that contain your module images.
-2. In the **Deployment modules** section of the page, select **Add**.
-3. Look at the types of modules from the drop-down list:
+
+1. In the **Deployment modules** section of the page, select **Add**.
+
+1. Look at the types of modules from the drop-down list:
+
    * **IoT Edge Module** - the default option.
    * **Azure Stream Analytics Module** - only modules generated from an Azure Stream Analytics workload.
-4. Select the **IoT Edge Module**.
-5. Provide a name for the module, then specify the container image. For example:
+
+1. Select the **IoT Edge Module**.
+
+1. Provide a name for the module, then specify the container image. For example:
+
    * **Name** - tempSensor
    * **Image URI** - mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
-6. Fill out the optional fields if necessary. For more information about container create options, restart policy, and desired status see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties). For more information about the module twin see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
-7. Select **Save**.
-8. Repeat steps 2-6 to add additional modules to your deployment.
-9. Select **Next** to continue to the routes section.
+
+1. Fill out the optional fields if necessary. For more information about container create options, restart policy, and desired status see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties). For more information about the module twin see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
+
+1. Select **Save**.
+
+1. Repeat steps 2-6 to add additional modules to your deployment.
+
+1. Select **Next** to continue to the routes section.
 
 ### Specify routes
 

@@ -37,7 +37,9 @@ Use the following command to create a new device identity in your IoT hub:
 This command includes three parameters:
 
 * **device-id**: Provide a descriptive name that's unique to your IoT hub.
+
 * **hub-name**: Provide the name of your IoT hub.
+
 * **edge-enabled**: This parameter declares that the device is for use with IoT Edge.
 
    ![az iot hub device-identity create output](./media/how-to-register-device-cli/Create-edge-device.png)
