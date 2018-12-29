@@ -83,13 +83,18 @@ Next, set up and configure Postman to obtain an Azure AD token. Afterwards, make
   
 1. Scroll down, and select **Use Token**.
 
+<div id="multipart"></div>
+
 ## Multipart configuration
 
 [!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ### Configure the Postman client
 
+Configure your Postman client to obtain an Azure AD token by following the steps above.
 
+1. Acquire an OAuth 2.0 token.
+1. Select the desired Management API endpoint to submit a multipart HTTP POST request to.
 
 ## Next steps
 

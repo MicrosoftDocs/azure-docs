@@ -20,8 +20,10 @@
 >
 > The **Content-Type** and **Content-Disposition** information can vary depending on the use scenario.
 
->[IMPORTANT]
+
+> [IMPORTANT]
 > Multipart requests made to the Azure Digital Twins Management APIs have two parts:
 > * Blob metadata such as an associated MIME type, as shown in the **Content-Type** and **Content-Disposition** information
-> * Blob contents (the unstructured contents of the file)  
+> * Blob contents (the unstructured contents of the file)
+>
 > Neither of the two parts is required for **PATCH** requests. Both are required for **POST** or create operations.
