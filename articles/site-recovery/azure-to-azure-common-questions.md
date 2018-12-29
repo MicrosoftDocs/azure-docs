@@ -42,7 +42,7 @@ Yes, you can [replicate zone pinned VMs](https://azure.microsoft.com/blog/disast
 Yes, you can exclude disks at the time of protection using power shell. Refer [powershell guidance](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) to exclude disk
 
 ###How often can I replicate to Azure?
-Replication is continuous when replicating Azure VMs to another Azure region. Check the [Azure to Azure](https://review.docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture?branch=pr-en-us-61681#replication-process) replication architecture to understand the details.
+Replication is continuous when replicating Azure VMs to another Azure region. Check the [Azure to Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process) replication architecture to understand the details.
 
 ### Can I replicate Virtual machines within a same region? I need this to migrate VMs?
 You cannot use Azure to Azure DR solution to replicate VMs within a same region.
