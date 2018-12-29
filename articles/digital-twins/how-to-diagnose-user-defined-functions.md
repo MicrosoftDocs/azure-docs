@@ -78,9 +78,9 @@ Check if a role assignment exists for your user-defined function through your Ma
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Parameter | Replace with |
+| Parameter value | Replace with |
 | --- | --- |
-| *YOUR_USER_DEFINED_FUNCTION_ID* | The ID of the user-defined function to retrieve role assignments for|
+| YOUR_USER_DEFINED_FUNCTION_ID | The ID of the user-defined function to retrieve role assignments for|
 
 Learn [How to create a role assignment for your user-defined function](./how-to-user-defined-functions.md), if no role assignments exist.
 
