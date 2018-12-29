@@ -22,6 +22,8 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 You also need the Azure CLI version 2.0.46 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
+Currently only Basic IP SKU is supported. Work is in progress to support Standard IPs.
+
 ## Create a static IP address
 
 When you create a static public IP address for use with AKS, the IP address resource should be created in the **node** resource group. If you want to separate the resources, see [Use a static IP address outside of the node resource group](#use-a-static-ip-address-outside-of-the-node-resource-group).
@@ -40,8 +42,7 @@ Now create a static public IP address with the [az network public ip create][az-
 az network public-ip create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --name myAKSPublicIP \
-    --allocation-method static \
-    --sku Basic
+    --allocation-method static
 ```
 
 The IP address is shown, as shown in the following condensed example output:
@@ -149,15 +150,6 @@ Events:
   ----     ------                      ----              ----                -------
   Normal   CreatingLoadBalancer        7s (x2 over 22s)  service-controller  Creating load balancer
   Warning  CreatingLoadBalancerFailed  6s (x2 over 12s)  service-controller  Error creating load balancer (will retry): Failed to create load balancer for service default/azure-load-balancer: user supplied IP Address 40.121.183.52 was not found
-```
-
-Currently, only Basic IP addresses are supported. So make sure that the SKU is Basic not Standard. If you use a Standard IP address and do a kubectl describe of the service as described above you will get this error message.
-```
-Events:
-  Type     Reason                      Age              From                Message
-  ----     ------                      ----             ----                -------
-  Normal   EnsuringLoadBalancer        1m (x6 over 4m)  service-controller  Ensuring load balancer
-  Warning  CreatingLoadBalancerFailed  1m (x6 over 4m)  service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service default/azure-load-balancer: timed out waiting for the condition
 ```
 
 ## Next steps
