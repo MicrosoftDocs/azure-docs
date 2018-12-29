@@ -44,28 +44,13 @@ Azure Machine Learning service has varying support across different compute targ
 
 When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute targets without having to change your script. 
 
-All you need to do is define the environment for each compute target in a single **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify that part of the run configuration, such as: 
-
-```python
-from azureml.core import ScriptRunConfig
-
-script_folder= "./"
-
-# For a local run
-src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_local)
-
-# For a run on an Azure Machine Learning Compute
-# src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_amlcompute)
-
-run = exp.submit(src)
-run.wait_for_completion(show_output = True)
-```
+All you need to do is define the environment for each compute target with a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify that run configuration.
 
 Learn more about [submitting experiments](#submit) at the end of this article.
 
-## Manage environment and dependencies
+### Manage environment and dependencies
 
-When you are creating your run configuration, you need to decide how to manage the environment and dependencies on each compute target. 
+When you create a run configuration, you need to decide how to manage the environment and dependencies on the compute target. 
 
 #### System-managed environment
 
