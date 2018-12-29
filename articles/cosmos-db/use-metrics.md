@@ -33,7 +33,7 @@ An uneven throughput distribution may cause *hot* partitions, which can result i
 
 ## Determine the storage distribution across partitions
 
-Having a good cardinality of your partition is essential for any scalable application. To determine the throughput distribution of any partitioned container broken down by partitions, head to the Metrics blade in the [Azure portal](https://portal.azure.com). In the Throughput tab, the storage breakdown is shown in the Max consumed RU/second by each physical partition chart. The following graphic illustrates a poor distribution of data as shown by the skewed partition on the far left.
+Having a good cardinality of your partition is essential for any scalable application. To determine the throughput distribution of any partitioned container broken down by partitions, head to the Metrics blade in the [Azure portal](https://portal.azure.com). In the Storage tab, the storage breakdown is shown in the Max consumed RU/second by each physical partition chart. The following graphic illustrates a poor distribution of data as shown by the skewed partition on the far left.
 
 ![Example of poor data distribution](media/use-metrics/metrics-07.png)
 
