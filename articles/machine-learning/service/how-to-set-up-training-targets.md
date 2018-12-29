@@ -14,16 +14,15 @@ ms.custom: seodec18
 ---
 # Set up compute targets for model training
 
- With Azure Machine Learning service, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-target). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  
+With Azure Machine Learning service, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-target). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  
 
 You can create and manage a compute target using the Azure Machine Learning SDK, Azure portal, or Azure CLI. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
  
 In this article, you learn how to use various compute targets.  The steps for all compute targets follow the same workflow:
-
-
 1. __Create__ a compute target if you don’t already have one.
 2. __Attach__ the compute target to your workspace.
 3. __Configure__ the compute target so that it contains the Python environment and package dependencies needed by your script.
+
 
 ## Supported compute targets
 
@@ -41,52 +40,68 @@ Azure Machine Learning service has varying support across different compute targ
 
 <a id="pipeline-only"></a>__*__ Azure Databricks and Azure Data Lake Analytics can __only__ be used in a pipeline. The steps to use a compute target in a pipeline differ from what is shown below.  For more information about using compute targets in a pipeline see [Create and run a machine learning pipeline](how-to-create-your-first-pipeline.md).
 
+## What's a run configuration
 
+When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute targets without having to change your script. 
 
-## Run configurations
+All you need to do is define the environment for each compute target in a single **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify that part of the run configuration, such as: 
 
-When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute target without having to change your script.  
+```python
+from azureml.core import ScriptRunConfig
 
-For the service to know how you want to run your script, you must define the **run configuration** in Python to specify
-which compute target to use and how you'd like the Python environment and script dependencies to be managed on that target. 
+script_folder= "./"
 
-+ For a **system-managed environment** where the Python environment and the script dependencies are programmatically managed for you by [Conda](https://conda.io/docs/), specify:
-  + `run_config_system_managed`
-  + the name of each package dependency
+# For a local run
+src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_local)
 
-  A system-managed environment is the most common set up and is useful on remote compute targets, especially when you cannot configure that target.
+# For a run on an Azure Machine Learning Compute
+# src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_amlcompute)
+
+run = exp.submit(src)
+run.wait_for_completion(show_output = True)
+```
+
+## Manage environment and dependencies
+
+When you are creating your run configuration, you need to decide how to manage the environment and dependencies on each compute target. 
+
+#### System-managed environment
+
+Use a system-managed environment when you want [Conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. A system-managed environment is assumed by default and the most common choice. It is useful on remote compute targets, especially when you cannot configure that target. 
+
+All you need to do is specify each package dependency using the [CondaDependency class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) Then Conda creates a file named **conda_dependencies.yml** in the **aml_config** directory in your workspace with your list of package dependencies and sets up your Python environment when you submit your training experiment. 
+
+The initial set up of a new environment can take several minutes depending on the size of the required dependencies. As long as the list of packages remains unchanged, the set up time happens only once.
   
-  When you run a training script on your compute target, Conda first creates a file named **conda_dependencies.yml** in the **aml_config** directory in your workspace with your list of package dependencies and also sets up your Python environment. The initial set up of a new environment can take several minutes depending on the size of the required dependencies. As long as the list of packages remains unchanged, the set up time happens only once.
-  
-  The following code shows an example for a system-managed environment requiring scikit-learn:
+The following code shows an example for a system-managed environment requiring scikit-learn:
     
     ```python
     from azureml.core.runconfig import RunConfiguration
     from azureml.core.conda_dependencies import CondaDependencies
     
-    run_config_system_managed = RunConfiguration()
+    run_cfg_system = RunConfiguration()
 
     # Specify scikit-learn as a package dependency
-    run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
+    run_cfg_system.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
     ```
 
-  <a href="#user-managed"></a>
+#### User-managed environment
 
-+ For a **user-managed environments**, you're responsible for setting up your environment and installing every package your training script on the compute target. If your training environment is already configured (such as on your local machine), you can skip the set up step using `run_config_user_managed`. Conda will not check your environment or install anything for you.
+For a user-managed environments, you're responsible for setting up your environment and installing every package your training script on the compute target. If your training environment is already configured (such as on your local machine), you can skip the set up step by setting `user_managed_dependencies` to True. Conda will not check your environment or install anything for you.
 
-  The following code shows an example of configuring training runs for a user-managed environment:
+The following code shows an example of configuring training runs for a user-managed environment:
     
     ```python
     from azureml.core.runconfig import RunConfiguration
     
-    run_config_user_managed = RunConfiguration()
-    run_config_user_managed.environment.python.user_managed_dependencies = True
+    run_cfg_user = RunConfiguration()
+    run_cfg_user.environment.python.user_managed_dependencies = True
     
-    # Point to a specific Python environment. For example: 
-    # run_config.environment.python.interpreter_path = '/home/smith/miniconda3/envs/sdk2/bin/python'
+    # Point to another Python environment. For example: 
+    # run_config.environment.python.interpreter_path = '/home/me/miniconda3/envs/sdk2/bin/python'
     ```
   
-## Set up compute with Python
+## Set up compute targets with Python
 
 Use the sections below to configure these compute targets:
 
