@@ -339,14 +339,13 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [https:/
 
 ### Using the Azure portal
 
-1. From the [Azure portal](https://portal.azure.com), select your HDInsight cluster.
+1. From the left menu, select **All services**.
 
-2. From the HDInsight cluster overview, select the **Script Actions** tile.
+1. Under **ANALYTICS**, select **HDInsight clusters**.
 
-    ![Script actions tile](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
+1. Select your cluster from the list, which will open the default view.
 
-   > [!NOTE]
-   > You can also select **All settings** and then select **Script Actions** from the Settings section.
+1. From the default view, under **Settings**, select **Script actions**.
 
 4. A history of scripts for this cluster is displayed on the script actions section. This information includes a list of persisted scripts. In the screenshot below, you can see that the Solr script has been ran on this cluster. The screenshot does not show any persisted scripts.
 
