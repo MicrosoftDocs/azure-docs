@@ -92,7 +92,7 @@ To search for individual instances of dependency, exception, and method reports,
 [Diagnosing dependency issues - learn more](../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 
 ## Questions? Problems?
-* No data? [Set firewall exceptions](app-insights-ip-addresses.md)
+* No data? [Set firewall exceptions](../azure-monitor/app/ip-addresses.md)
 * [Troubleshooting Java](app-insights-java-troubleshoot.md)
 
 <!--Link references-->

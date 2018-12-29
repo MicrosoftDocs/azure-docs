@@ -335,7 +335,7 @@ When the test is complete, you are shown response times and success rates.
     There are two possible solutions:
     
     * Configure your firewall to permit incoming requests from the [IP addresses
-    of our web test agents](app-insights-ip-addresses.md).
+    of our web test agents](../azure-monitor/app/ip-addresses.md).
     * Write your own code to periodically test your internal server. Run the code as a background process on a test server behind your firewall. Your test process can send its results to Application Insights by using [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API in the core SDK package. This requires your test server to have outgoing access to the Application Insights ingestion endpoint, but that is a much smaller security risk than the alternative of permitting incoming requests. The results will not appear in the availability web tests blades, but appears as availability results in Analytics, Search, and Metric Explorer.
 
 * *Uploading a multi-step web test fails*
@@ -360,7 +360,7 @@ When the test is complete, you are shown response times and success rates.
 
 [Troubleshooting][qna]
 
-[IP addresses of web test agents](app-insights-ip-addresses.md)
+[IP addresses of web test agents](../azure-monitor/app/ip-addresses.md)
 
 <!--Link references-->
 

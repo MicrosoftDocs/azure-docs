@@ -68,7 +68,7 @@ There are plenty of ways to explore your data. Check out these articles:
 | [**Snapshot debugger**](app-insights-snapshot-debugger.md)<br/>Debug snapshots sampled from live operations, with parameter values.|![Visual studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](app-insights-export-power-bi.md)<br/>Integrate usage metrics with other business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST API**](https://dev.applicationinsights.io/)<br/>Write code to run queries over your metrics and raw data.| ![REST API](./media/app-insights-overview/rest-tn.png) |
-| [**Continuous export**](app-insights-export-telemetry.md)<br/>Bulk export of raw data to storage as soon as it arrives. |![Export](./media/app-insights-overview/export-tn.png) |
+| [**Continuous export**](../azure-monitor/app/export-telemetry.md)<br/>Bulk export of raw data to storage as soon as it arrives. |![Export](./media/app-insights-overview/export-tn.png) |
 
 ## How do I use Application Insights?
 

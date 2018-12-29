@@ -28,16 +28,22 @@
     href: signalr-cli-samples.md
 - name: Concepts
   items:
+  - name: Azure SignalR Service internals
+    href: signalr-internals.md
   - name: Scale ASP.NET Core SignalR
     href: signalr-overview-scale-aspnet-core.md
   - name: Build Real-time Apps with Azure Functions
     href: signalr-overview-azure-functions.md
   - name: Access key rotation
     href: signalr-key-rotation.md
+  - name: Messages and connections
+    href: signalr-messages.md
 - name: Resources
   items:
   - name: SignalR Roadmap
     href: https://github.com/aspnet/Home/wiki/Roadmap
+  - name: FAQs
+    href: signalr-faq.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/signalr-service/
   - name: Videos
