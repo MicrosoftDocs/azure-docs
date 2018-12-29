@@ -1,6 +1,6 @@
 ---
-title: 'Common questions - Azure to Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
-description: This article summarizes common questions when you set up disaster recovery of Azure VMs to aonther Azure region using Azure Site Recovery
+title: 'Common questions: Azure-to-Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
+description: This article summarizes common questions when you set up disaster recovery of Azure VMs to another Azure region by using Azure Site Recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
@@ -9,43 +9,43 @@ ms.topic: conceptual
 ms.author: asgang
 
 ---
-# Common questions - Azure to Azure replication
+# Common questions: Azure-to-Azure replication
 
-This article provides answers to common questions we see when deploying disaster recovery of Azure VMs to another Azure region. If you have questions after reading this article, post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+This article provides answers to common questions about deploying disaster recovery (DR) of Azure VMs to another Azure region. If you have questions after reading this article, post them on the [Azure Recovery Services forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
 ## General
 ### How is Site Recovery priced?
 Review [Azure Site Recovery pricing](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) details.
 
-### How to configure Site Recovery on Azure VMs. What are the best practices?
-1. [Understand Azure to Azure architecture](azure-to-azure-architecture.md)
+### What are the best practices for configuring Site Recovery on Azure VMs?
+1. [Understand Azure-to-Azure architecture](azure-to-azure-architecture.md)
 2. [Review the supported and not-supported configurations](azure-to-azure-support-matrix.md)
 3. [Set up disaster recovery for Azure VMs](azure-to-azure-how-to-enable-replication.md)
 4. [Run a test failover](azure-to-azure-tutorial-dr-drill.md)
-5. [Failover and failback to primary region](azure-to-azure-tutorial-failover-failback.md)
+5. [Fail over and fail back to the primary region](azure-to-azure-tutorial-failover-failback.md)
 
 ## Replication
 
-### Can I replicate Azure disk encryption enabled VMs?
-Yes, you can replicate them. Refer [article](azure-to-azure-how-to-enable-replication-ade-vms.md) to enable replication of Azure disk encryption (ADE) enabled VMs. Please note that only Azure VMs running Windows OS and enabled for encryption with Azure AD app are currently supported by Azure Site Recovery.
+### Can I replicate VMs enabled through Azure disk encryption?
+Yes, you can replicate them. See the article [Replicate Azure disk encryption enabled virtual machines to another Azure region](azure-to-azure-how-to-enable-replication-ade-vms.md). Currently, Azure Site Recovery supports only Azure VMs that are running Windows OS and enabled for encryption with Azure AD apps.
 
 ### Can I replicate VMs to another subscription?
-Yes, You can replicate Azure VMs to a different subscription with in the same Azure Active Directory tenant.
+Yes, you can replicate Azure VMs to a different subscription with in the same Azure Active Directory tenant.
 Configuring DR [across subscriptions](https://azure.microsoft.com/blog/cross-subscription-dr) is simple. You can select another subscription at the time of replication.
 
-### Can I replicate zone pinned Azure VMs to another region.
-Yes, you can [replicate zone pinned VMs](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region) to another region.
+### Can I replicate zone-pinned Azure VMs to another region?
+Yes, you can [replicate zone-pinned VMs](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region) to another region.
 
 ### Can I exclude disks?
 
-Yes, you can exclude disks at the time of protection using power shell. Refer [powershell guidance](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) to exclude disk
+Yes, you can exclude disks at the time of protection by using PowerShell. For more information, see the [PowerShell guidance](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine).
 
-###How often can I replicate to Azure?
-Replication is continuous when replicating Azure VMs to another Azure region. Check the [Azure to Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process) replication architecture to understand the details.
+### How often can I replicate to Azure?
+Replication is continuous when you're replicating Azure VMs to another Azure region. For more information, see the [Azure-to-Azure replication architecture](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process).
 
-### Can I replicate Virtual machines within a same region? I need this to migrate VMs?
-You cannot use Azure to Azure DR solution to replicate VMs within a same region.
+### Can I replicate virtual machines within a region? I need this to migrate VMs.
+You can't use an Azure-to-Azure DR solution to replicate VMs within a region.
 
 ### Can I replicate VMs to any Azure region?
 With Site Recovery, you can replicate and recover VMs between any two regions within the same geographic cluster. Geographic clusters are defined keeping data latency and sovereignty in mind. For more information, see Site Recovery [region support matrix](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support).
@@ -103,7 +103,7 @@ Failover isn't automatic. You initiate failovers with single click in the portal
 Public IP address of the production application **cannot be retained on failover**. Workloads brought up as part of failover process must be assigned an Azure Public IP resource available in the target region. This step can be done either manually or is automated with recovery plans. Refer [article](https://docs.microsoft.com/azure/site-recovery/concepts-public-ip-address-with-site-recovery#public-ip-address-assignment-using-recovery-plan) to assign Public IP address using Recovery Plan.  
 
 ### Can I retain private IP address during failover?
-Yes, you can retain private IP address. By default, when you enable disaster recovery for Azure VMs, Site Recovery creates target resources based on source resource settings. For Azure VMs configured with static IP addresses, Site Recovery tries to provision the same IP address for the target VM, if it's not in use. Refer [article](site-recovery-retain-ip-azure-vm-failover.md) to retain private IP address under different conditions.
+Yes, you can retain private IP address. By default, when you enable DR for Azure VMs, Site Recovery creates target resources based on source resource settings. For Azure VMs configured with static IP addresses, Site Recovery tries to provision the same IP address for the target VM, if it's not in use. Refer [article](site-recovery-retain-ip-azure-vm-failover.md) to retain private IP address under different conditions.
 
 ### After failover, the server does not have the same IP address as the source VM. Why is it assigned with a new IP address?
 
@@ -145,8 +145,8 @@ Yes, you can integrate Azure automation runbooks into your recovery plan. [Learn
 
 ## Reprotect and Failback 
 
-### After doing a failover from primary region to disaster recovery region does VMs in a DR region gets protected automatically?
-No, when you [failover](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) Azure VMs from one region to another, the VMs boot up in the DR region in an unprotected state. To fail back the VMs to the primary region, you need to [reprotect](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) the VMs in the secondary region.
+### After doing a failover from primary region to a disaster recovery region, are VMs in a DR region protected automatically?
+No, when you [fail over](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) Azure VMs from one region to another, the VMs boot up in the DR region in an unprotected state. To fail back the VMs to the primary region, you need to [reprotect](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) the VMs in the secondary region.
 
 ### At the time of reprotection does Site Recovery replicate complete data from secondary region to primary region?
 It depends on the situation, for example if the source region VM exist then only changes between the source disk and the target disk are synchronized. The differentials are computed by comparing both the disks and then transferred. This usually take a few hours to complete. Refer [article]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) to learn details about what happens during reprotection.
