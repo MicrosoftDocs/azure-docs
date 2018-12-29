@@ -14,7 +14,7 @@ ms.author: mbullwin
 ---
 # Filter telemetry in your Java web app
 
-Filters provide a way to select the telemetry that your [Java web app sends to Application Insights](app-insights-java-get-started.md). There are some out-of-the-box filters that you can use, and you can also write your own custom filters.
+Filters provide a way to select the telemetry that your [Java web app sends to Application Insights](java-get-started.md). There are some out-of-the-box filters that you can use, and you can also write your own custom filters.
 
 The out-of-the-box filters include:
 
@@ -25,7 +25,7 @@ The out-of-the-box filters include:
 
 > [!NOTE]
 > Filters skew the metrics of your app. For example, you might decide that, in order to diagnose slow responses, you will set a filter to discard fast response times. But you must be aware that the average response times reported by Application Insights will then be slower than the true speed, and the count of requests will be smaller than the real count.
-> If this is a concern, use [Sampling](app-insights-sampling.md) instead.
+> If this is a concern, use [Sampling](../../application-insights/app-insights-sampling.md) instead.
 
 ## Setting filters
 
@@ -154,7 +154,7 @@ Filter out telemetry for specific synthetic sources:
 
 ### Telemetry Event filter
 
-Filters custom events (logged using [TrackEvent()](../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
+Filters custom events (logged using [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -170,7 +170,7 @@ Filters custom events (logged using [TrackEvent()](../azure-monitor/app/api-cust
 
 ### Trace Telemetry filter
 
-Filters log traces (logged using [TrackTrace()](../azure-monitor/app/api-custom-events-metrics.md#tracktrace) or a [logging framework collector](app-insights-java-trace-logs.md)).
+Filters log traces (logged using [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) or a [logging framework collector](java-trace-logs.md)).
 
 ```XML
 
@@ -256,4 +256,4 @@ In ApplicationInsights.xml:
 
 ## Next steps
 
-* [Sampling](app-insights-sampling.md) - Consider sampling as an alternative that does not skew your metrics.
+* [Sampling](../../application-insights/app-insights-sampling.md) - Consider sampling as an alternative that does not skew your metrics.

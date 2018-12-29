@@ -23,8 +23,8 @@ Exceptions in your live web app are reported by [Application Insights](../../app
   * Install [Application Insights SDK](../../azure-monitor/app/asp-net.md) in your app code, or
   * IIS web servers: Run [Application Insights Agent](../../application-insights/app-insights-monitor-performance-live-website-now.md); or
   * Azure web apps: Add the [Application Insights Extension](../../azure-monitor/app/azure-web-apps.md)
-  * Java web apps: Install the [Java agent](../../application-insights/app-insights-java-agent.md)
-* Install the [JavaScript snippet](../../application-insights/app-insights-javascript.md) in your web pages to catch browser exceptions.
+  * Java web apps: Install the [Java agent](../../azure-monitor/app/java-agent.md)
+* Install the [JavaScript snippet](../../azure-monitor/app/javascript.md) in your web pages to catch browser exceptions.
 * In some application frameworks or with some settings, you need to take some extra steps to catch more exceptions:
   * [Web forms](#web-forms)
   * [MVC](#mvc)
@@ -101,7 +101,7 @@ Request details don't include the data sent to your app in a POST call. To have 
 ![Drill through](./media/asp-net-exceptions/060-req-related.png)
 
 ## <a name="exceptions"></a> Capturing exceptions and related diagnostic data
-At first, you won't see in the portal all the exceptions that cause failures in your app. You'll see any browser exceptions (if you're using the [JavaScript SDK](../../application-insights/app-insights-javascript.md) in your web pages). But most server exceptions are caught by IIS and you have to write a bit of code to see them.
+At first, you won't see in the portal all the exceptions that cause failures in your app. You'll see any browser exceptions (if you're using the [JavaScript SDK](../../azure-monitor/app/javascript.md) in your web pages). But most server exceptions are caught by IIS and you have to write a bit of code to see them.
 
 You can:
 
@@ -485,5 +485,5 @@ This is different from the 'Exceptions' count calculated by the Application Insi
 
 ## Next steps
 * [Monitor REST, SQL, and other calls to dependencies](../../azure-monitor/app/asp-net-dependencies.md)
-* [Monitor page load times, browser exceptions, and AJAX calls](../../application-insights/app-insights-javascript.md)
+* [Monitor page load times, browser exceptions, and AJAX calls](../../azure-monitor/app/javascript.md)
 * [Monitor performance counters](../../application-insights/app-insights-performance-counters.md)

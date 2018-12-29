@@ -89,19 +89,19 @@ In the Application Insights resource, aggregated remote dependency and method ex
 
 To search for individual instances of dependency, exception, and method reports, open [Search][diagnostic].
 
-[Diagnosing dependency issues - learn more](../azure-monitor/app/asp-net-dependencies.md#diagnosis).
+[Diagnosing dependency issues - learn more](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 
 ## Questions? Problems?
-* No data? [Set firewall exceptions](../azure-monitor/app/ip-addresses.md)
-* [Troubleshooting Java](app-insights-java-troubleshoot.md)
+* No data? [Set firewall exceptions](../../azure-monitor/app/ip-addresses.md)
+* [Troubleshooting Java](java-troubleshoot.md)
 
 <!--Link references-->
 
-[api]: ../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../azure-monitor/app/api-custom-events-metrics.md#track-exception
-[availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: ../azure-monitor/app/diagnostic-search.md
+[api]: ../../azure-monitor/app/api-custom-events-metrics.md
+[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#track-exception
+[availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
+[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
-[java]: app-insights-java-get-started.md
-[javalogs]: app-insights-java-trace-logs.md
-[metrics]: app-insights-metrics-explorer.md
+[java]: java-get-started.md
+[javalogs]: java-trace-logs.md
+[metrics]: ../../application-insights/app-insights-metrics-explorer.md
