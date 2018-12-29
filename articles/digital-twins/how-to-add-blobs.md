@@ -26,23 +26,7 @@ Azure Digital Twins supports attaching blobs to devices, spaces, and users. Blob
 
 You can use multipart requests to upload blobs to specific endpoints and their respective functionalities.
 
-> [!IMPORTANT]
-> Multipart requests require three pieces of information:
-> * A **Content-Type** header:
->   * `application/json; charset=utf-8`
->   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`
-> * A **Content-Disposition**: `form-data; name="metadata"`
-> * The file content to upload
->
-> The **Content-Type** and **Content-Disposition** information can vary depending on the use scenario.
-
-Multipart requests made to the Azure Digital Twins Management APIs have two parts:
-
-* Blob metadata such as an associated MIME type, as shown in the **Content-Type** and **Content-Disposition** information
-
-* Blob contents (the unstructured contents of the file)  
-
-Neither of the two parts is required for **PATCH** requests. Both are required for **POST** or create operations.
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ### Blob metadata
 

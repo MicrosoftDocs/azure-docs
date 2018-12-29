@@ -60,22 +60,7 @@ POST YOUR_MANAGEMENT_API_URL/matchers
 
 ## Create a user-defined function (UDF)
 
-After the matchers are created, upload the function snippet with the following **POST** call:
-
-> [!IMPORTANT]
-> - In the headers, set the following `Content-Type: multipart/form-data; boundary="userDefinedBoundary"`.
-> - The body is multipart:
->   - The first part is about metadata needed for the UDF.
->   - The second part is the JavaScript compute logic.
-> - In the **USER_DEFINED_BOUNDARY** section, replace the **SpaceId** and **Machers** values.
-
-```plaintext
-POST YOUR_MANAGEMENT_API_URL/userdefinedfunctions with Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
-```
-
-| Parameter value | Replace with |
-| --- | --- |
-| *USER_DEFINED_BOUNDARY* | A multipart content boundary name |
+After the matchers are created, prepare to make a multipart HTTP request.
 
 ### Body
 
@@ -105,6 +90,29 @@ function process(telemetry, executionContext) {
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | The space identifier  |
 | YOUR_MATCHER_IDENTIFIER | The ID of the matcher you want to use |
+
+1. Verify that the headers include: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Note that the body is multipart:
+
+   * The first part contains the required user-defined function metadata.
+   * The second part contains the JavaScript compute logic.
+
+1. In the **USER_DEFINED_BOUNDARY** section, replace the **spaceId** (`YOUR_SPACE_IDENTIFIER`) and **matchers**(`YOUR_MATCHER_IDENTIFIER`)  values.
+1. Note the JavaScript user-defined function supplied as `Content-Type: text/javascript`.
+
+### Multipart request
+
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
+
+Now, upload the function snippet with the following **POST** call
+
+```plaintext
+POST YOUR_MANAGEMENT_API_URL/userdefinedfunctions with Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
+```
+
+| Parameter value | Replace with |
+| --- | --- |
+| *USER_DEFINED_BOUNDARY* | A multipart content boundary name |
 
 ### Example functions
 
