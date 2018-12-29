@@ -2,6 +2,141 @@
     "redirections": [
 
         {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-user-guide.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-source-wizard.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/deploy-to-iot-edge-device.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/deployment-setup-configuration.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/experimentation-service-configuration-reference.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/experimentation-service-configuration.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/experimentation-service-template.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-derive-column-by-example.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-expand-json.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-getting-started.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-load-azure-cosmos-db.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-python-execution-api.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-python-extensibility-overview.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-split-column-by-example.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-supported-runtime-data-environments.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix5-supported-destinations.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix6-sample-filter-expressions-python.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix7-sample-transform-data-flow-python.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix8-sample-source-connections-python.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix9-sample-destination-connections-python.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix10-sample-custom-column-transforms-python.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-combine-columns-by-example.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/service/reference-fpga-package-overview.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/cli-for-azure-machine-learning.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix2-supported-data-sources.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix3-supported-transforms.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix4-supported-inspectors.md",
+            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/service/how-to-deploy-to-aci.md",
             "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
             "redirect_document_id": false
