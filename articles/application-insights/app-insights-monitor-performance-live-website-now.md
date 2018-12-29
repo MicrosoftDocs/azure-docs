@@ -105,7 +105,7 @@ If you want to re-publish without adding Application Insights to the code, be aw
 
 ### Can't connect? No telemetry?
 
-* Open [the necessary outgoing ports](app-insights-ip-addresses.md#outgoing-ports) in your server's firewall to allow Status Monitor to work.
+* Open [the necessary outgoing ports](../azure-monitor/app/ip-addresses.md#outgoing-ports) in your server's firewall to allow Status Monitor to work.
 
 * Open Status Monitor and select your application on left pane. Check if there are any diagnostics messages for this application in the "Configuration notifications" section:
 

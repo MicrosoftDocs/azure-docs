@@ -139,7 +139,7 @@ CONFIGURE
 * **Getting started** - inline tutorial.
 * **Properties** - instrumentation key, subscription and resource id.
 * [Alerts](../../azure-monitor/app/alerts.md) - metric alert configuration.
-* [Continuous export](../../application-insights/app-insights-export-telemetry.md) - configure export of telemetry to Azure storage.
+* [Continuous export](../../azure-monitor/app/export-telemetry.md) - configure export of telemetry to Azure storage.
 * [Performance testing](../../application-insights/app-insights-monitor-web-app-availability.md#performance-tests) - set up a synthetic load on your website.
 * [Quota and pricing](../../application-insights/app-insights-pricing.md) and [ingestion sampling](../../application-insights/app-insights-sampling.md).
 * **API Access** - Create [release annotations](annotations.md) and for the Data Access API.

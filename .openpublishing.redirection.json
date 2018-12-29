@@ -33142,6 +33142,46 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/application-insights/distributed-tracing.md",
+            "redirect_url":  "/azure/azure-monitor/app/distributed-tracing",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-docker.md",
+            "redirect_url":  "/azure/azure-monitor/app/docker",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-export-data-model.md",
+            "redirect_url":  "/azure/azure-monitor/app/export-data-model",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-export-stream-analytics.md",
+            "redirect_url":  "/azure/azure-monitor/app/export-stream-analytics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-export-telemetry.md",
+            "redirect_url":  "/azure/azure-monitor/app/export-telemetry",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-hockeyapp-bridge-app.md",
+            "redirect_url":  "/azure/azure-monitor/app/hockeyapp-bridge-app",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-how-do-i.md",
+            "redirect_url":  "/azure/azure-monitor/app/how-do-i",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-ip-addresses.md",
+            "redirect_url":  "/azure/azure-monitor/app/ip-addresses",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true

@@ -102,7 +102,7 @@ Because the SDK batches data for submission, there might be a delay before items
 
 * Continue to use the application. Take more actions to generate more telemetry.
 * Click **Refresh** in the portal resource view. Charts periodically refresh on their own, but manually refreshing forces them to refresh immediately.
-* Verify that [required outgoing ports](app-insights-ip-addresses.md) are open.
+* Verify that [required outgoing ports](../azure-monitor/app/ip-addresses.md) are open.
 * Use [Search](../azure-monitor/app/diagnostic-search.md) to look for specific events.
 * Check the [FAQ][FAQ].
 

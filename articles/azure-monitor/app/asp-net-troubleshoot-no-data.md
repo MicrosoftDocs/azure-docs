@@ -25,7 +25,7 @@ ms.author: mbullwin
 ## No data from my server
 *I installed my app on my web server, and now I don't see any telemetry from it. It worked OK on my dev machine.*
 
-* Probably a firewall issue. [Set firewall exceptions for Application Insights to send data](../../application-insights/app-insights-ip-addresses.md).
+* Probably a firewall issue. [Set firewall exceptions for Application Insights to send data](../../azure-monitor/app/ip-addresses.md).
 * IIS Server might be missing some prerequisites: .NET Extensibility 4.5, and ASP.NET 4.5.
 
 *I [installed Status Monitor](../../application-insights/app-insights-monitor-performance-live-website-now.md) on my web server to monitor existing apps. I don't see any results.*
@@ -155,7 +155,7 @@ Performance data (CPU, IO rate, and so on) is available for [Java web services](
 
 ## No (server) data since I published the app to my server
 * Check that you actually copied all the Microsoft. ApplicationInsights DLLs to the server, together with Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
-* In your firewall, you might have to [open some TCP ports](../../application-insights/app-insights-ip-addresses.md).
+* In your firewall, you might have to [open some TCP ports](../../azure-monitor/app/ip-addresses.md).
 * If you have to use a proxy to send out of your corporate network, set [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) in Web.config
 * Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 

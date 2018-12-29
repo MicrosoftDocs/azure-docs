@@ -46,6 +46,7 @@ When training, it is common to start on your local computer, and later run that 
 
 All you need to do is define the environment for each compute target with a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify that run configuration.
 
+
 Learn more about [submitting experiments](#submit) at the end of this article.
 
 ### Manage environment and dependencies
@@ -179,7 +180,6 @@ A persistent Azure Machine Learning Compute can be reused across jobs. The compu
         cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
     
     cpu_cluster.wait_for_completion(show_output=True)
-    
     ```
     
     You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
@@ -189,7 +189,7 @@ A persistent Azure Machine Learning Compute can be reused across jobs. The compu
 
 1. **Configure**: Create a run configuration for the persistent compute target.
 
-    ```
+    ```python
     from azureml.core.runconfig import RunConfiguration
     from azureml.core.conda_dependencies import CondaDependencies
     from azureml.core.runconfig import DEFAULT_CPU_IMAGE
@@ -248,8 +248,8 @@ Use the Azure Data Science Virtual Machine (DSVM)  as the Azure VM of choice for
  #                                                  ssh_port=22,
  #                                                  username='<username>',
  #                                                  password=None,
- #                                                  private_key_file="path-to-file",
- #                                                  private_key_passphrase="passphrase")
+ #                                                  private_key_file="<path-to-file>",
+ #                                                  private_key_passphrase="<passphrase>")
 
  # Attach the compute
  compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
@@ -294,26 +294,22 @@ Now that you’ve attached the compute and configured your run, the next step is
 
 Azure HDInsight is a popular platform for big-data analytics. The platform provides Apache Spark, which can be used to train your model.
 
-
 1. **Create**:  Create the HDInsight cluster before you use it to train your model. To create a Spark on HDInsight cluster, see [Create a Spark Cluster in HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
 
     When you create the cluster, you must specify an SSH user name and password. Take note of these values, as you need them to use HDInsight as a compute target.
     
     After the cluster is created, it has the FQDN \<clustername>.azurehdinsight.net, where \<clustername> is the name that you provided for the cluster. You need the FQDN address (or the public IP address of the cluster) to use the cluster as a compute target.
 
-
-
 1. **Attach**: To attach an HDInsight cluster as a compute target, you must provide the FQDN, user name, and password for the HDInsight cluster. The following example uses the SDK to attach a cluster to your workspace. In the example, replace \<fqdn> with the public FQDN of the cluster, or the public IP address. Replace \<username> and \<password> with the SSH user name and password for the cluster.
 
-
- To find the FQDN for your cluster, go to the Azure portal and select your HDInsight cluster. Under __Overview__, you can see the FQDN in the __URL__ entry. To get the FQDN, remove the https:\// prefix from the beginning of the entry. 
+  To find the FQDN for your cluster, go to the Azure portal and select your HDInsight cluster. Under __Overview__, you can see the FQDN in the __URL__ entry. To get the FQDN, remove the https:\// prefix from the beginning of the entry. 
     
- ![Get the FQDN for an HDInsight cluster in the Azure portal](./media/how-to-set-up-training-targets/hdinsight-overview.png)
+  ![Get the FQDN for an HDInsight cluster in the Azure portal](./media/how-to-set-up-training-targets/hdinsight-overview.png)
 
- ```python
-from azureml.core.compute import HDInsightCompute, ComputeTarget
+  ```python
+  from azureml.core.compute import HDInsightCompute, ComputeTarget
 
-try:
+  try:
     # Attach an HDInsight cluster as a compute target
     attach_config = HDInsightCompute.attach_configuration(address = "<fqdn-or-ipaddress>",
                                                             ssh_port = 22,
@@ -322,12 +318,12 @@ try:
                                                             private_key_file = "<path-to-key-file>",
                                                             private_key_phrase = "<key-phrase>")
     compute = ComputeTarget.attach(ws, "myhdi", attach_config)
-except UserErrorException as e:
+  except UserErrorException as e:
     print("Caught = {}".format(e.message))
     print("Compute config already attached.")
- ```
+  ```
 
- Or you can attach the HDInsight cluster to your workspace [using the Azure portal](#portal-reuse).
+  Or you can attach the HDInsight cluster to your workspace [using the Azure portal](#portal-reuse).
 
 1. **Configure**: Create a run configuration for the HDI compute target. 
 
@@ -462,12 +458,13 @@ Or you can submit the experiment with an `Estimator` object as shown in [Train M
 
 When you submit a training run, a snapshot of the directory that contains your training scripts is created and sent to the compute target. For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshot).
 
-For example, to use [the local target](#local) configuration: 
+For example, to use [the local target](#local) configuration:
 
 ```python
 from azureml.core import ScriptRunConfig
+import os 
 
-script_folder= "./"
+script_folder = os.getcwd()
 src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_local)
 run = exp.submit(src)
 run.wait_for_completion(show_output = True)
