@@ -100,7 +100,7 @@ function process(telemetry, executionContext) {
 1. In the **USER_DEFINED_BOUNDARY** section, replace the **spaceId** (`YOUR_SPACE_IDENTIFIER`) and **matchers**(`YOUR_MATCHER_IDENTIFIER`)  values.
 1. Note the JavaScript user-defined function supplied as `Content-Type: text/javascript`.
 
-### Multipart request
+### Make a multipart request
 
 [!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
