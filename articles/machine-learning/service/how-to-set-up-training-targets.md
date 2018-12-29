@@ -61,6 +61,8 @@ run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
+Learn more about [submitting experiments](#submit) at the end of this article.
+
 ## Manage environment and dependencies
 
 When you are creating your run configuration, you need to decide how to manage the environment and dependencies on each compute target. 
@@ -460,6 +462,7 @@ experiment_name = 'my experiment'
 
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
+<a name=submit></a>
 
 ### Submit the experiment
 
