@@ -40,7 +40,7 @@ The article also answers some common questions related to offline streaming of W
 Before implementing offline DRM for Widevine on Android devices, you should first:
 
 - Become familiar with the concepts introduced for online content protection using Widevine DRM. This is covered in detail in the following documents/samples:
-    - [Design of a multi-DRM content protection system with access control](mdesign-multi-drm-system-with-access-control.md)
+    - [Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
     - [Use DRM dynamic encryption and license delivery service](protect-with-drm.md)
     - [Use Azure Media Services to deliver PlayReady and/or Widevine licenses with .NET](https://azure.microsoft.com/resources/samples/media-services-dotnet-deliver-playready-widevine-licenses/)
 - Clone **https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git**. 
