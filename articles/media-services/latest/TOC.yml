@@ -118,6 +118,10 @@
       href: protect-with-aes128.md    
     - name: With DRM - .NET
       href: protect-with-drm.md
+    - name: Offline FairPlay for iOS (HLS)
+      href: offline-fairplay-for-ios.md
+    - name: Offline Widevine for Android
+      href: offline-widevine-for-android.md
   - name: Configure Postman
     href: media-rest-apis-with-postman.md
   - name: Scale Media Reserved Units - CLI
