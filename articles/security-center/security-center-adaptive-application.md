@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2018
+ms.date: 12/30/2018
 ms.author: rkarlin
 
 ---
@@ -118,7 +118,7 @@ After you select Create, Azure Security Center automatically creates the appropr
    > - As previously mentioned, by default a new application control policy is always configured in *Audit* mode. 
    >
 
-4. Under **Policy extension**, you can add any application path that you want to allow. After you add these paths, Security Center updates the application whielisting policy on the VMs within the selected group of VMS and creates the appropriate rules for these applications, in addition to the rules that are already in place.
+4. Under **Policy extension**, you can add any application path that you want to allow. After you add these paths, Security Center updates the application whitelisting policy on the VMs within the selected group of VMS and creates the appropriate rules for these applications, in addition to the rules that are already in place.
 
 5. Review the current violations listed in the **Recent alerts** section. Click on each line to be redirected to the **Alerts** page within Azure Security Center, and view all the alerts that were detected by Azure Security Center on the associated VMs.
   - **Alerts**: any violations that were logged.
