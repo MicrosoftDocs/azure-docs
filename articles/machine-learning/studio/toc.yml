@@ -54,7 +54,39 @@
       href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
   - name: R quick start
     href: r-quickstart.md
-- name: How To
+- name: Samples
+  items:
+  - name: Sample datasets
+    href: use-sample-datasets.md
+  - name: Customer churn example
+    href: azure-ml-customer-churn-scenario.md
+  - name: Azure AI Gallery
+    items:
+    - name: Overview
+      href: gallery-how-to-use-contribute-publish.md
+    - name: Sample experiments
+      href: sample-experiments.md
+    - name: Industries
+      href: gallery-industries.md
+    - name: Solutions
+      href: gallery-solutions.md
+    - name: Experiments
+      href: gallery-experiments.md
+    - name: Jupyter Notebooks
+      href: gallery-jupyter-notebooks.md
+    - name: Competitions
+      href: gallery-competitions.md
+    - name: Competitions FAQ
+      href: competition-faq.md
+    - name: Tutorials
+      href: gallery-tutorials.md
+    - name: Collections
+      href: gallery-collections.md
+    - name: Custom Modules
+      href: gallery-custom-modules.md
+    - name: View and delete account data
+      href: ai-gallery-control-personal-data-dsr.md 
+- name: How-to guides
   items:
   - name: Set up tools and utilities
     items:
@@ -188,14 +220,6 @@
         href: consume-web-service-with-web-app-template.md
       - name: Use Batch Pool
         href: dedicated-capacity-for-bes-jobs.md
-  - name: Examples
-    items:
-    - name: Sample experiments
-      href: sample-experiments.md
-    - name: Sample datasets
-      href: use-sample-datasets.md
-    - name: Customer churn example
-      href: azure-ml-customer-churn-scenario.md
 - name: Reference
   items:
   - name: Azure PowerShell module (New)
@@ -208,32 +232,6 @@
     href: /rest/api/machinelearning
   - name: Web service error codes
     href: web-service-error-codes.md
-- name: Related
-  items:
-  - name: Azure AI Gallery
-    items:
-    - name: Overview
-      href: gallery-how-to-use-contribute-publish.md
-    - name: Industries
-      href: gallery-industries.md
-    - name: Solutions
-      href: gallery-solutions.md
-    - name: Experiments
-      href: gallery-experiments.md
-    - name: Jupyter Notebooks
-      href: gallery-jupyter-notebooks.md
-    - name: Competitions
-      href: gallery-competitions.md
-    - name: Competitions FAQ
-      href: competition-faq.md
-    - name: Tutorials
-      href: gallery-tutorials.md
-    - name: Collections
-      href: gallery-collections.md
-    - name: Custom Modules
-      href: gallery-custom-modules.md
-    - name: View and delete account data
-      href: ai-gallery-control-personal-data-dsr.md
 - name: Resources
   items:
   - name: Pricing
