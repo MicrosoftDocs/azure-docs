@@ -1,6 +1,5 @@
 {
     "redirections": [
-
         {
             "source_path": "articles/machine-learning/service/how-to-migrate.md",
             "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
