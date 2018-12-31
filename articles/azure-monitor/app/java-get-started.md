@@ -16,9 +16,9 @@ ms.author: lagayhar
 # Get started with Application Insights in a Java web project
 
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [detect and diagnose performance issues and exceptions](../azure-monitor/app/detect-triage-diagnose.md), and [write code][api] to track what users do with your app.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [detect and diagnose performance issues and exceptions](../../azure-monitor/app/detect-triage-diagnose.md), and [write code][api] to track what users do with your app.
 
-![Screenshot of overview sample data](./media/app-insights-java-get-started/overview-graphs.png)
+![Screenshot of overview sample data](./media/java-get-started/overview-graphs.png)
 
 Application Insights supports Java apps running on Linux, Unix, or Windows.
 
@@ -27,7 +27,7 @@ You need:
 * JRE version 1.7 or 1.8
 * A subscription to [Microsoft Azure](https://azure.microsoft.com/).
 
-*If you have a web app that's already live, you could follow the alternative procedure to [add the SDK at runtime in the web server](app-insights-java-live.md). That alternative avoids rebuilding the code, but you don't get the option to write code to track user activity.*
+*If you have a web app that's already live, you could follow the alternative procedure to [add the SDK at runtime in the web server](java-live.md). That alternative avoids rebuilding the code, but you don't get the option to write code to track user activity.*
 
 If you prefer the Spring framework try the [configure a Spring Boot initializer app to use Application Insights guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
@@ -35,10 +35,10 @@ If you prefer the Spring framework try the [configure a Spring Boot initializer 
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 2. Create an Application Insights resource. Set the application type to Java web application.
 
-    ![Fill a name, choose Java web app, and click Create](./media/app-insights-java-get-started/02-create.png)
+    ![Fill a name, choose Java web app, and click Create](./media/java-get-started/02-create.png)
 3. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
 
-    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-get-started/03-key.png)
+    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/java-get-started/03-key.png)
 
 ## 2. Add the Application Insights SDK for Java to your project
 *Choose the appropriate way for your project.*
@@ -157,7 +157,7 @@ Application Insights SDK looks for the key in this order:
 2. Environment variable: APPLICATION_INSIGHTS_IKEY
 3. Configuration file: ApplicationInsights.xml
 
-You can also [set it in code](../azure-monitor/app/api-custom-events-metrics.md#ikey):
+You can also [set it in code](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
 
 ```Java
     TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
@@ -297,13 +297,13 @@ Return to your Application Insights resource in [Microsoft Azure portal](https:/
 
 HTTP requests data appears on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
 
-![sample data](./media/app-insights-java-get-started/5-results.png)
+![sample data](./media/java-get-started/5-results.png)
 
 [Learn more about metrics.][metrics]
 
 Click through any chart to see more detailed aggregated metrics.
 
-![](./media/app-insights-java-get-started/6-barchart.png)
+![](./media/java-get-started/6-barchart.png)
 
 > Application Insights assumes the format of HTTP requests for MVC applications is: `VERB controller/action`. For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET Home/Product/sdf96vws` are grouped into `GET Home/Product`. This grouping enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
 >
@@ -316,12 +316,12 @@ Two kinds of data are displayed in Application Insights: aggregated data, stored
 
 When viewing the properties of a request, you can see the telemetry events associated with it such as requests and exceptions.
 
-![](./media/app-insights-java-get-started/7-instance.png)
+![](./media/java-get-started/7-instance.png)
 
 ### Analytics: Powerful query language
-As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../azure-monitor/app/analytics.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
+As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../../azure-monitor/app/analytics.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
-![Example of Analytics](./media/app-insights-java-get-started/025.png)
+![Example of Analytics](./media/java-get-started/025.png)
 
 ## 7. Install your app on the server
 Now publish your app to the server, let people use it, and watch the telemetry show up on the portal.
@@ -343,20 +343,20 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 ## Exceptions and request failures
 Unhandled exceptions are automatically collected:
 
-![Open Settings, Failures](./media/app-insights-java-get-started/21-exceptions.png)
+![Open Settings, Failures](./media/java-get-started/21-exceptions.png)
 
 To collect data on other exceptions, you have two options:
 
 * [Insert calls to trackException() in your code][apiexceptions].
-* [Install the Java Agent on your server](app-insights-java-agent.md). You specify the methods you want to watch.
+* [Install the Java Agent on your server](java-agent.md). You specify the methods you want to watch.
 
 ## Monitor method calls and external dependencies
-[Install the Java Agent](app-insights-java-agent.md) to log specified internal methods and calls made through JDBC, with timing data.
+[Install the Java Agent](java-agent.md) to log specified internal methods and calls made through JDBC, with timing data.
 
 ## Performance counters
 Open **Settings**, **Servers**, to see a range of performance counters.
 
-![](./media/app-insights-java-get-started/11-perf-counters.png)
+![](./media/java-get-started/11-perf-counters.png)
 
 ### Customize performance counter collection
 To disable collection of the standard set of performance counters, add the following code under the root node of the ApplicationInsights.xml file:
@@ -408,10 +408,10 @@ Each [Windows performance counter](https://msdn.microsoft.com/library/windows/de
 
 Your performance counters are visible as custom metrics in [Metrics Explorer][metrics].
 
-![](./media/app-insights-java-get-started/12-custom-perfs.png)
+![](./media/java-get-started/12-custom-perfs.png)
 
 ### Unix performance counters
-* [Install collectd with the Application Insights plugin](app-insights-java-collectd.md) to get a wide variety of system and network data.
+* [Install collectd with the Application Insights plugin](java-collectd.md) to get a wide variety of system and network data.
 
 ## Local forwarder
 
@@ -455,37 +455,37 @@ Now that you've installed the SDK, you can use the API to send your own telemetr
 ## Availability web tests
 Application Insights can test your website at regular intervals to check that it's up and responding well. [To set up][availability], click Web tests.
 
-![Click Web tests, then Add Web test](./media/app-insights-java-get-started/31-config-web-test.png)
+![Click Web tests, then Add Web test](./media/java-get-started/31-config-web-test.png)
 
 You'll get charts of response times, plus email notifications if your site goes down.
 
-![Web test example](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
+![Web test example](./media/java-get-started/appinsights-10webtestresult.png)
 
 [Learn more about availability web tests.][availability]
 
 ## Questions? Problems?
-[Troubleshooting Java](app-insights-java-troubleshoot.md)
+[Troubleshooting Java](java-troubleshoot.md)
 
 ## Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## Next steps
-* [Monitor dependency calls](app-insights-java-agent.md)
-* [Monitor Unix performance counters](app-insights-java-collectd.md)
-* Add [monitoring to your web pages](app-insights-javascript.md) to monitor page load times, AJAX calls, browser exceptions.
-* Write [custom telemetry](../azure-monitor/app/api-custom-events-metrics.md) to track usage in the browser or at the server.
-* Create [dashboards](../azure-monitor/app/app-insights-dashboards.md) to bring together the key charts for monitoring your system.
-* Use  [Analytics](../azure-monitor/app/analytics.md) for powerful queries over telemetry from your app
+* [Monitor dependency calls](java-agent.md)
+* [Monitor Unix performance counters](java-collectd.md)
+* Add [monitoring to your web pages](javascript.md) to monitor page load times, AJAX calls, browser exceptions.
+* Write [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md) to track usage in the browser or at the server.
+* Create [dashboards](../../azure-monitor/app/app-insights-dashboards.md) to bring together the key charts for monitoring your system.
+* Use  [Analytics](../../azure-monitor/app/analytics.md) for powerful queries over telemetry from your app
 * For more information, visit [Azure for Java developers](/java/azure).
 
 <!--Link references-->
 
-[api]: ../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../azure-monitor/app/api-custom-events-metrics.md#trackexception
-[availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: ../azure-monitor/app/diagnostic-search.md
-[eclipse]: app-insights-java-quick-start.md
-[javalogs]: app-insights-java-trace-logs.md
-[metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-javascript.md
+[api]: ../../azure-monitor/app/api-custom-events-metrics.md
+[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
+[availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
+[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[eclipse]: ../../application-insights/app-insights-java-quick-start.md
+[javalogs]: java-trace-logs.md
+[metrics]: ../../application-insights/app-insights-metrics-explorer.md
+[usage]: javascript.md

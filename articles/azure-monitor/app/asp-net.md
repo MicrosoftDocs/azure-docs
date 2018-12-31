@@ -136,7 +136,7 @@ There are alternative topics to look at if you are interested in:
 
 ### More telemetry
 
-* **[Browser and page load data](../../application-insights/app-insights-javascript.md)** - Insert a code snippet in your web pages.
+* **[Browser and page load data](../../azure-monitor/app/javascript.md)** - Insert a code snippet in your web pages.
 * **[Get more detailed dependency and exception monitoring](../../application-insights/app-insights-monitor-performance-live-website-now.md)** - Install Status Monitor on your server.
 * **[Code custom events](../../azure-monitor/app/api-custom-events-metrics.md)** to count, time, or measure user actions.
 * **[Get log data](../../azure-monitor/app/asp-net-trace-logs.md)** - Correlate log data with your telemetry.

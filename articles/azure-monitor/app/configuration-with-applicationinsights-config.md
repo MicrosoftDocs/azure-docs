@@ -385,7 +385,7 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationI
 <!--Link references-->
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[client]: ../../application-insights/app-insights-javascript.md
+[client]: ../../azure-monitor/app/javascript.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: ../../azure-monitor/app/asp-net-exceptions.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md

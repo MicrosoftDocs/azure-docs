@@ -327,19 +327,19 @@
       - name: Java apps
         items:
         - name: Web apps
-          href: ../application-insights/app-insights-java-get-started.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-get-started.md
         - name: Web apps - runtime
-          href: ../application-insights/app-insights-java-live.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-live.md
         - name: Docker apps
           href: app/docker.md
         - name: Log traces
-          href: ../application-insights/app-insights-java-trace-logs.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-trace-logs.md
         - name: Unix metrics
-          href: ../application-insights/app-insights-java-collectd.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-collectd.md
         - name: Dependencies
-          href: ../application-insights/app-insights-java-agent.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-agent.md
         - name: Filter telemetry
-          href: ../application-insights/app-insights-java-filter-telemetry.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-filter-telemetry.md
         - name: Micrometer Metrics
           href: ../application-insights/micrometer-java.md?toc=/azure/azure-monitor/toc.json  
       - name: Node.js apps
@@ -349,7 +349,7 @@
       - name: Web pages
         items:
         - name: JavaScript
-          href: ../application-insights/app-insights-javascript.md?toc=/azure/azure-monitor/toc.json
+          href: app/javascript.md
       - name: Monitor Azure Functions
         href: ../azure-functions/functions-monitoring.md?toc=/azure/application-insights/toc.json 
       - name: Distributed tracing
@@ -398,7 +398,7 @@
         - name: Analytics
           href: app/analytics-troubleshooting.md
         - name: Java
-          href: ../application-insights/app-insights-java-troubleshoot.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-troubleshoot.md
         - name: Usage analytics
           href: ../application-insights/app-insights-usage-troubleshoot.md?toc=/azure/azure-monitor/toc.json
     - name: Azure resources

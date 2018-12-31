@@ -102,7 +102,7 @@ Don't forget that [proactive failure rate diagnostics](../../application-insight
 <!--Link references-->
 
 [availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
-[client]: ../../application-insights/app-insights-javascript.md
+[client]: ../../azure-monitor/app/javascript.md
 [platforms]: ../../application-insights/app-insights-platforms.md
 [roles]: ../../application-insights/app-insights-resources-roles-access-control.md
 [start]: ../../application-insights/app-insights-overview.md

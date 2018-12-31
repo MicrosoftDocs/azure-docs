@@ -167,7 +167,7 @@ You can, for example:
 
 ## Troubleshooting
 ### How do I do this for Java?
-Use the [Java log adapters](../../application-insights/app-insights-java-trace-logs.md).
+Use the [Java log adapters](../../azure-monitor/app/java-trace-logs.md).
 
 ### There's no Application Insights option on the project context menu
 * Check that Application Insights tools are installed on this development machine. In Visual Studio menu Tools, Extensions and Updates, look for Application Insights Tools. If it isn't in the Installed tab, open the Online tab and install it.
