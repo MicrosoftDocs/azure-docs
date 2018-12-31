@@ -21,23 +21,23 @@ ms.author: mbullwin
 * [.NET app](../azure-monitor/app/asp-net-troubleshoot-no-data.md)
 * [Monitoring an already-running app](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Azure diagnostics](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Java web app](app-insights-java-troubleshoot.md)
+* [Java web app](../azure-monitor/app/java-troubleshoot.md)
 
 *I get no data from my server*
 
 * [Set firewall exceptions](../azure-monitor/app/ip-addresses.md)
 * [Set up an ASP.NET server](app-insights-monitor-performance-live-website-now.md)
-* [Set up a Java server](app-insights-java-agent.md)
+* [Set up a Java server](../azure-monitor/app/java-agent.md)
 
 ## Can I use Application Insights with ...?
 
 * [Web apps on an IIS server - on-premises or in a VM](../azure-monitor/app/asp-net.md)
-* [Java web apps](app-insights-java-get-started.md)
+* [Java web apps](../azure-monitor/app/java-get-started.md)
 * [Node.js apps](app-insights-nodejs.md)
 * [Web apps on Azure](../azure-monitor/app/azure-web-apps.md)
 * [Cloud Services on Azure](../azure-monitor/app/cloudservices.md)
 * [App servers running in Docker](../azure-monitor/app/docker.md)
-* [Single-page web apps](app-insights-javascript.md)
+* [Single-page web apps](../azure-monitor/app/javascript.md)
 * [Sharepoint](app-insights-sharepoint.md)
 * [Windows desktop app](app-insights-windows-desktop.md)
 * [Other platforms](app-insights-platforms.md)
@@ -98,11 +98,11 @@ From server web apps:
 * HTTP requests
 * [Dependencies](../azure-monitor/app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue. 
 * [Exceptions](../azure-monitor/app/asp-net-exceptions.md) and stack traces.
-* [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](app-insights-monitor-performance-live-website-now.md), [Azure monitoring](../azure-monitor/app/azure-web-apps.md), or the [Application Insights collectd writer](app-insights-java-collectd.md).
+* [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](app-insights-monitor-performance-live-website-now.md), [Azure monitoring](../azure-monitor/app/azure-web-apps.md), or the [Application Insights collectd writer](../azure-monitor/app/java-collectd.md).
 * [Custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md) that you code.
 * [Trace logs](../azure-monitor/app/asp-net-trace-logs.md) if you configure the appropriate collector.
 
-From [client web pages](app-insights-javascript.md):
+From [client web pages](../azure-monitor/app/javascript.md):
 
 * [Page view counts](app-insights-usage-overview.md)
 * [AJAX calls](../azure-monitor/app/asp-net-dependencies.md) Requests made from a running script.
@@ -124,7 +124,7 @@ Yes, in the server you can write:
 * Telemetry Processor to filter or add properties to selected telemetry items before they are sent from your app.
 * Telemetry Initializer to add properties to all items of telemetry.
 
-Learn more for [ASP.NET](../azure-monitor/app/api-filtering-sampling.md) or [Java](app-insights-java-filter-telemetry.md).
+Learn more for [ASP.NET](../azure-monitor/app/api-filtering-sampling.md) or [Java](../azure-monitor/app/java-filter-telemetry.md).
 
 ## How are City, Country and other geo location data calculated?
 
@@ -189,7 +189,7 @@ Use a single resource for all the components or roles in a single business syste
 | Dependency telemetry |[Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md) |Diagnose issues with databases or other external components |
 | Get stack traces from exceptions |[Insert TrackException calls in your code](../azure-monitor/app/asp-net-exceptions.md) (but some are reported automatically) |Detect and diagnose exceptions |
 | Search log traces |[Add a logging adapter](../azure-monitor/app/asp-net-trace-logs.md) |Diagnose exceptions, perf issues |
-| Client usage basics: page views, sessions, ... |[JavaScript initializer in web pages](app-insights-javascript.md) |Usage analytics |
+| Client usage basics: page views, sessions, ... |[JavaScript initializer in web pages](../azure-monitor/app/javascript.md) |Usage analytics |
 | Client custom metrics |[Tracking calls in web pages](../azure-monitor/app/api-custom-events-metrics.md) |Enhance user experience |
 | Server custom metrics |[Tracking calls in server](../azure-monitor/app/api-custom-events-metrics.md) |Business intelligence |
 

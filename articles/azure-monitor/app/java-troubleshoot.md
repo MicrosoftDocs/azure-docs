@@ -27,7 +27,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Wait a minute and click Refresh. The charts refresh themselves periodically, but you can also refresh manually. The refresh interval depends on the time range of the chart.
 * Check that you have an instrumentation key defined in the ApplicationInsights.xml file (in the resources folder in your project) or configured as Environment variable.
 * Verify that there is no `<DisableTelemetry>true</DisableTelemetry>` node in the xml file.
-* In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com. See the [full list of firewall exceptions](../azure-monitor/app/ip-addresses.md)
+* In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com. See the [full list of firewall exceptions](../../azure-monitor/app/ip-addresses.md)
 * In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
 * Turn on logging to the IDE console window, by adding an `<SDKLogger />` element under the root node in the ApplicationInsights.xml file (in the resources folder in your project), and check for entries prefaced with AI: INFO/WARN/ERROR for any suspicious logs.
 * Make sure that the correct ApplicationInsights.xml file has been successfully loaded by the Java SDK, by looking at the console's output messages for a "Configuration file has been successfully found" statement.
@@ -42,13 +42,13 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Are you looking at the correct AI resource? Please match the iKey of your application to the resource where you are expecting telemetry. They should be the same.
 
 #### I don't see all the data I'm expecting
-* Open the Usage and estimated cost page and check whether [sampling](app-insights-sampling.md) is in operation. (100% transmission means that sampling isn't in operation.) The Application Insights service can be set to accept only a fraction of the telemetry that arrives from your app. This helps you keep within your monthly quota of telemetry.
+* Open the Usage and estimated cost page and check whether [sampling](../../application-insights/app-insights-sampling.md) is in operation. (100% transmission means that sampling isn't in operation.) The Application Insights service can be set to accept only a fraction of the telemetry that arrives from your app. This helps you keep within your monthly quota of telemetry.
 * Do you have SDK Sampling turned on? If yes, data would be sampled at the rate specified for all the applicable types.
 * Are you running an older version of Java SDK? Starting with version 2.0.1, we have introduced fault tolerance mechanism to handle intermittent network and backend failures as well as data persistence on local drives.
 * Are you getting throttled due to excessive telemetry? If you turn on INFO logging, you will see a log message "App is throttled". Our current limit is 32k telemetry items/second.
 
 ### Java Agent cannot capture dependency data
-* Have you configured Java agent by following [Configure Java Agent](app-insights-java-agent.md) ?
+* Have you configured Java agent by following [Configure Java Agent](java-agent.md) ?
 * Make sure both the java agent jar and the AI-Agent.xml file are placed in the same folder.
 * Make sure that the dependency you are trying to auto-collect is supported for auto collection. Currently we only support MySQL, MsSQL, Oracle DB and Azure Cache for Redis dependency collection.
 * Are you using JDK 1.7 or 1.8? Currently we do not support dependency collection in JDK 9.
@@ -155,11 +155,11 @@ Application Insights uses `org.apache.http`. This is relocated within Applicatio
 
 <!--Link references-->
 
-[availability]: app-insights-monitor-web-app-availability.md
-[data]: ../azure-monitor/app/data-retention-privacy.md
-[java]: app-insights-java-get-started.md
-[javalogs]: app-insights-java-trace-logs.md
-[platforms]: app-insights-platforms.md
-[track]: ../azure-monitor/app/api-custom-events-metrics.md
-[usage]: app-insights-javascript.md
+[availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
+[data]: ../../azure-monitor/app/data-retention-privacy.md
+[java]: java-get-started.md
+[javalogs]: java-trace-logs.md
+[platforms]: ../../application-insights/app-insights-platforms.md
+[track]: ../../azure-monitor/app/api-custom-events-metrics.md
+[usage]: javascript.md
 

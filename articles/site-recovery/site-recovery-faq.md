@@ -7,7 +7,7 @@ manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
-ms.author: mayg
+ms.author: raynew
 
 ---
 # Azure Site Recovery: frequently asked questions (FAQ)

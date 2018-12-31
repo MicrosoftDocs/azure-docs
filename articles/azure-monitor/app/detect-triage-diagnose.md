@@ -224,8 +224,8 @@ So that's how one team use Application Insights not just to fix individual issue
 You can get started in several ways, depending on the characteristics of your application. Pick what suits you best:
 
 * [ASP.NET web application](../../azure-monitor/app/asp-net.md)
-* [Java web application](../../application-insights/app-insights-java-get-started.md)
+* [Java web application](../../azure-monitor/app/java-get-started.md)
 * [Node.js web application](../../application-insights/app-insights-nodejs.md)
-* Already deployed apps, hosted on [IIS](../../application-insights/app-insights-monitor-web-app-availability.md), [J2EE](../../application-insights/app-insights-java-live.md), or [Azure](../../application-insights/app-insights-overview.md).
-* [Web pages](../../application-insights/app-insights-javascript.md) - Single Page App or ordinary web page - use this on its own or in addition to any of the server options.
+* Already deployed apps, hosted on [IIS](../../application-insights/app-insights-monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md), or [Azure](../../application-insights/app-insights-overview.md).
+* [Web pages](../../azure-monitor/app/javascript.md) - Single Page App or ordinary web page - use this on its own or in addition to any of the server options.
 * [Availability tests](../../application-insights/app-insights-monitor-web-app-availability.md) to test your app from the public internet.

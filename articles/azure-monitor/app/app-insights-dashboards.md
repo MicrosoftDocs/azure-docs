@@ -131,8 +131,8 @@ INVESTIGATE
 * [**Failures, Performance**](../../application-insights/app-insights-web-monitor-performance.md) - Exceptions, failure rates and response times for requests to your app and for requests from your app to [dependencies](../../azure-monitor/app/asp-net-dependencies.md).
 * [**Performance**](../../application-insights/app-insights-web-monitor-performance.md) - Response time, dependency response times.
 * [Servers](../../application-insights/app-insights-web-monitor-performance.md) - Performance counters. Available if you [install Status Monitor](../../application-insights/app-insights-monitor-performance-live-website-now.md).
-* **Browser** - Page view and AJAX performance. Available if you [instrument your web pages](../../application-insights/app-insights-javascript.md).
-* **Usage** - Page view, user, and session counts. Available if you [instrument your web pages](../../application-insights/app-insights-javascript.md).
+* **Browser** - Page view and AJAX performance. Available if you [instrument your web pages](../../azure-monitor/app/javascript.md).
+* **Usage** - Page view, user, and session counts. Available if you [instrument your web pages](../../azure-monitor/app/javascript.md).
 
 CONFIGURE
 

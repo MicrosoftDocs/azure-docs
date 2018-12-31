@@ -78,7 +78,7 @@ Click through the summary charts or the table items to search raw occurrences of
 >
 
 ## AJAX Calls
-The Browsers blade shows the duration and failure rate of AJAX calls from [JavaScript in your web pages](../../application-insights/app-insights-javascript.md). They are shown as Dependencies.
+The Browsers blade shows the duration and failure rate of AJAX calls from [JavaScript in your web pages](../../azure-monitor/app/javascript.md). They are shown as Dependencies.
 
 ## <a name="diagnosis"></a> Diagnose slow requests
 Each request event is associated with the dependency calls, exceptions and other events that are tracked while your app is processing the request. So if some requests are performing badly, you can find out whether it's due to slow responses from a dependency.
@@ -214,5 +214,5 @@ Consult the table below and insure you have chosen the correct configuration to 
 
 ## Next steps
 * [Exceptions](../../azure-monitor/app/asp-net-exceptions.md)
-* [User & page data](../../application-insights/app-insights-javascript.md)
+* [User & page data](../../azure-monitor/app/javascript.md)
 * [Availability](../../application-insights/app-insights-monitor-web-app-availability.md)

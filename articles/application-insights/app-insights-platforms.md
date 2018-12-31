@@ -19,8 +19,8 @@ These items are implementations of [Application Insights](app-insights-overview.
 
 ## Languages - officially supported by Application Insights team
 * [C#|VB (.NET)](../azure-monitor/app/asp-net.md)
-* [Java](app-insights-java-get-started.md)
-* [JavaScript web pages](app-insights-javascript.md)
+* [Java](../azure-monitor/app/java-get-started.md)
+* [JavaScript web pages](../azure-monitor/app/javascript.md)
 * [Node.JS](app-insights-nodejs.md)
 
 ## Languages - community-supported
@@ -45,8 +45,8 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [iOS](app-insights-mobile-center-quickstart.md) (App Center)
 * [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center)
-* [J2EE](app-insights-java-get-started.md)
-* [J2EE - for apps that are already live](app-insights-java-live.md)
+* [J2EE](../azure-monitor/app/java-get-started.md)
+* [J2EE - for apps that are already live](../azure-monitor/app/java-live.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [SAFE Stack](https://safe-stack.github.io/docs/template-azure-ai/)
@@ -58,7 +58,7 @@ These items are implementations of [Application Insights](app-insights-overview.
 
 ## Logging frameworks
 * [Log4Net, NLog, or System.Diagnostics.Trace](../azure-monitor/app/asp-net-trace-logs.md)
-* [Java, Log4J, or Logback](app-insights-java-trace-logs.md)
+* [Java, Log4J, or Logback](../azure-monitor/app/java-trace-logs.md)
 * [Semantic Logging (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 * [Cloud-based load testing](https://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
