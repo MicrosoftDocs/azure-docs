@@ -1,8 +1,8 @@
 ---
-title: Attach Cognitive Services to your skillset - Azure Search
-description: Instructions for attaching a Cognitive Services All-in-One subscription to a cognitive skillset
+title: Attach a Cognitive Services resource with a skillset in Azure Search
+description: Instructions for attaching a Cognitive Services All-in-One subscription to a cognitive skillset in Azure Search
 manager: cgronlun
-author: HeidiSteen
+author: LuisCabrer
 services: search
 ms.service: search
 ms.devlang: NA
@@ -11,9 +11,9 @@ ms.date: 12/05/2018
 ms.author: luisca
 ms.custom: seodec2018
 ---
-# Associate a Cognitive Services resource with a skillset 
+# Attach a Cognitive Services resource with a skillset in Azure Search 
 
-A cognitive search extracts and enriches data to make it searchable in Azure Search. We call extraction and enrichment steps *cognitive skills*. The set of skills called during indexing of content are defined in a *skillset*. A skillset can use [predefined skills](cognitive-search-predefined-skills.md) or custom skills. For more information, see [Example: create a custom skill](cognitive-search-create-custom-skill-example.md).
+Cognitive search extracts and enriches data to make it searchable in Azure Search. We call extraction and enrichment steps *cognitive skills*. The set of skills called during indexing of content are defined in a *skillset*. A skillset can use [predefined skills](cognitive-search-predefined-skills.md) or custom skills. For more information, see [Example: create a custom skill](cognitive-search-create-custom-skill-example.md).
 
 In this article, you learn how to associate an [Azure Cognitive Services ](https://azure.microsoft.com/services/cognitive-services/) resource with your cognitive skillset.
 
@@ -29,7 +29,7 @@ Starting February 1, 2019, if you don't associate a Cognitive Services subscript
 
 ## Associate a Cognitive Services resource with a new skillset
 
-1. As part of the **Import data** experience, after you connect to your data source, go to the **Add cognitive search** optional step. 
+1. As part of the [Import data](search-import-data-portal.md) wizard, after you connect to your data source, go to the **Add cognitive search** optional step. This is the second step in the wizard.
 
 1. Expand the **Attach Cognitive Services** section. This step shows you any Cognitive Services resources you have in the same regions as the Azure Search service.
 
