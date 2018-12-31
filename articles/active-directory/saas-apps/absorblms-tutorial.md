@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/12/2018
+ms.date: 12/31/2018
 ms.author: jeedes
 
 ---
@@ -74,8 +74,8 @@ To configure and test Azure AD single sign-on with Absorb LMS, you need to compl
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure Absorb LMS Single Sign-On](#configure-absorb-lms-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create Absorb LMS test user](#create-absorb-lms-test-user)** - to have a counterpart of Britta Simon in Absorb LMS that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Absorb LMS test user](#create-absorb-lms-test-user)** - to have a counterpart of Britta Simon in Absorb LMS that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -137,7 +137,7 @@ To configure Azure AD single sign-on with Absorb LMS, perform the following step
 
 1. In a new web browser window, sign in to your Absorb LMS company site as an administrator.
 
-2. Select the **Account** button at the top right. 
+2. Select the **Account** button at the top right.
 
 	![The Account button](./media/absorblms-tutorial/1.png)
 
