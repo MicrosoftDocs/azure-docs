@@ -1,12 +1,12 @@
 ---
-title: Egress and endpoints in Azure Digital Twins | Microsoft Docs
-description: Guidelines on how to create endpoints with Azure Digital Twins
+title: 'Egress and endpoints in Azure Digital Twins | Microsoft Docs'
+description: Guidelines on how to create endpoints with Azure Digital Twins.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 12/31/2018
 ms.author: alinast
 ---
 
@@ -14,7 +14,7 @@ ms.author: alinast
 
 Azure Digital Twins supports the concept of **endpoints**. Each endpoint represents a message or event broker in the user's Azure subscription. Events and messages can be sent to Azure Event Hubs, Azure Event Grid, and Azure Service Bus topics.
 
-Events are sent to endpoints according to predefined routing preferences. The user can specify which endpoint should receive any of the following events: 
+Events are sent to endpoints according to predefined routing preferences. The user can specify which endpoint should receive any of the following events:
 
 - TopologyOperation
 - UdfCustom
@@ -26,11 +26,11 @@ For a basic understanding of events routing and event types, refer to [Routing e
 
 ## Event types description
 
-The event formats for each of the event types are described in the following sections.
+The event formats for each event type are described in the following subsections.
 
 ### TopologyOperation
 
-**TopologyOperation** applies to graph changes. The **subject** property specifies the type of object affected. The following types of objects might trigger this event: 
+**TopologyOperation** applies to graph changes. The **subject** property specifies the type of object affected. The following types of objects might trigger this event:
 
 - Device
 - DeviceBlobMetadata
@@ -81,7 +81,7 @@ The event formats for each of the event types are described in the following sec
 
 ### UdfCustom
 
-**UdfCustom** is an event sent by a user-defined function (UDF). 
+**UdfCustom** is an event sent by a user-defined function (UDF).
   
 > [!IMPORTANT]  
 > This event must be explicitly sent from the UDF itself.
