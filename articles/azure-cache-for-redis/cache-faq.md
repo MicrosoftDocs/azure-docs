@@ -79,7 +79,7 @@ The FAQs in this section cover common monitoring and troubleshooting questions. 
 * [Which Azure Cache offering is right for me?](#which-azure-cache-offering-is-right-for-me)
 
 ### What is Azure Cache for Redis?
-Azure Cache for Redis is based on the popular open-source [Azure Cache for Redis](http://redis.io). It gives you access to a secure, dedicated Azure Cache for Redis, managed by Microsoft, and accessible from any application within Azure. For a more detailed overview, see the [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) product page on Azure.com.
+Azure Cache for Redis is based on the popular open-source software [Redis](https://redis.io/). It gives you access to a secure, dedicated Azure Cache for Redis, managed by Microsoft, and accessible from any application within Azure. For a more detailed overview, see the [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) product page on Azure.com.
 
 ### How can I get started with Azure Cache for Redis?
 There are several ways you can get started with Azure Cache for Redis.
