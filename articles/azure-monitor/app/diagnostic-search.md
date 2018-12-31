@@ -71,7 +71,7 @@ The event types are:
 * **Custom Event** - If you inserted calls to TrackEvent() in order to [monitor usage](../../azure-monitor/app/api-custom-events-metrics.md), you can search them here.
 * **Exception** - Uncaught [exceptions in the server](../../azure-monitor/app/asp-net-exceptions.md), and those that you log by using TrackException().
 * **Dependency** - [Calls from your server application](../../azure-monitor/app/asp-net-dependencies.md) to other services such as REST APIs or databases, and AJAX calls from your [client code](../../azure-monitor/app/javascript.md).
-* **Availability** - Results of [availability tests](../../application-insights/app-insights-monitor-web-app-availability.md).
+* **Availability** - Results of [availability tests](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ## Filter on property values
 You can filter events on the values of their properties. The available properties depend on the event types you selected. 
@@ -161,5 +161,5 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 ## <a name="add"></a>Next steps
 * [Write complex queries in Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Send logs and custom telemetry to Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
-* [Set up availability and responsiveness tests](../../application-insights/app-insights-monitor-web-app-availability.md)
+* [Set up availability and responsiveness tests](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Troubleshooting](../../application-insights/app-insights-troubleshoot-faq.md)

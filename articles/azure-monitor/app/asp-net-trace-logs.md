@@ -198,7 +198,7 @@ If your application sends a lot of data and you are using the Application Insigh
 
 <!--Link references-->
 
-[availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
+[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/

@@ -126,7 +126,7 @@ And when viewing the properties of a request, you can see the telemetry events a
 
 ## Next steps
 * [Add telemetry to your web pages](javascript.md) to monitor page views and user metrics.
-* [Set up web tests](../../application-insights/app-insights-monitor-web-app-availability.md) to make sure your application stays live and responsive.
+* [Set up web tests](../../azure-monitor/app/monitor-web-app-availability.md) to make sure your application stays live and responsive.
 * [Capture log traces](java-trace-logs.md)
 * [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to help diagnose problems.
 * [Configure a Spring Boot initializer app](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
