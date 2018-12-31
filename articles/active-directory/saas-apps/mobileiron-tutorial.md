@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 12/31/2018
 ms.author: jeedes
 
 ---
@@ -114,7 +114,7 @@ To configure Azure AD single sign-on with MobileIron, perform the following step
     `https://<host>.mobileiron.com/user/login.html`
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [MobileIron Client support team]() to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. You will get the values of key and host from the ​administrative​ ​portal of MobileIron which is explained later in the tutorial.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -128,7 +128,7 @@ To configure Azure AD single sign-on with MobileIron, perform the following step
 
     ![Configure Single Sign-On Admin button](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
-3. Copy the values of **Key** and **Host** and paste them to complete the URLs in the **MobileIron Domain and URLs** section in Azure portal.
+3. Copy the values of **Key** and **Host** and paste them to complete the URLs in the **Basic SAML Configuration** section in Azure portal.
 
     ![Configure Single Sign-On Admin button](./media/mobileiron-tutorial/key.png)
 
