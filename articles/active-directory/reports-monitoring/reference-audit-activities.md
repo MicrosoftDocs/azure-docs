@@ -163,7 +163,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Authorization|Get V1 applications|
 |Authorization|Get V2 application|
 |Authorization|Get V2 applications|
-|Authorization|Get a B2C drectory resource|
+|Authorization|Get a B2C directory resource|
 |Authorization|Get a list of custom domains in the tenant|
 |Authorization|Get a user journey|
 |Authorization|Get allowed application claims for user journey|
@@ -392,7 +392,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Directory Management|Get B2C directory resources in a subscription|
 |Directory Management|Get Custom IDP|
 |Directory Management|Get IDP|
-|Directory Management|Get a B2C drectory resource|
+|Directory Management|Get a B2C directory resource|
 |Directory Management|Get a user journey|
 |Directory Management|Get allowed application claims for user journey|
 |Directory Management|Get allowed self-asserted claims for user journey|
