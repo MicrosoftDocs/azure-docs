@@ -32,7 +32,7 @@ The steps to lock down egress from your ASE with Azure Firewall are:
 
 1. Enable service endpoints to SQL, Storage and Event Hub on your ASE subnet. To do this go into the networking portal > subnets and select Microsoft.EventHub, Microsoft.SQL and Microsoft.Storage from the Service endpoints dropdown.
 
-  ![select service endpoints][2]
+   ![select service endpoints][2]
   
 1. Create an Azure Firewall in the VNet where your ASE is, or will be. [Azure Firewall documenation](https://docs.microsoft.com/azure/firewall/)
 1. From Azure Firewall UI > Rules > Application rule collection, select Add application rule collection. Provide a name, priority, and set Allow. In the FQDN tags section, provide a name, set the source addresses to * and select the App Service Environment FQDN Tag and the Windows. 
