@@ -15,9 +15,10 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/23/2018
+ms.date: 01/04/2019
 ms.author: dimazaid
 ---
+
 # Tutorial: Push notifications to Xamarin.iOS apps using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -39,11 +40,11 @@ In this tutorial, you create/update code to do the following tasks:
 
 ## Prerequisites
 
-- **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Latest version of [Xcode][Install Xcode]
-- An iOS 10 (or later version) compatible device
-- [Apple Developer Program](https://developer.apple.com/programs/) membership.
-- [Visual Studio for Mac]
+* **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* Latest version of [Xcode][Install Xcode]
+* An iOS 10 (or later version) compatible device
+* [Apple Developer Program](https://developer.apple.com/programs/) membership.
+* [Visual Studio for Mac]
   
   > [!NOTE]
   > Because of configuration requirements for iOS push notifications, you must deploy and test the sample application on a physical iOS device (iPhone or iPad) instead of in the simulator.
@@ -242,7 +243,6 @@ In this tutorial, you sent broadcast notifications to all your iOS devices regis
 [31]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-ios-app.png
 [32]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-app-settings.png
 [33]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-entitlements-settings.png
-
 
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532

@@ -13,9 +13,10 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 01/04/2019
 ms.author: dimazaid
 ---
+
 # Tutorial: Push notifications to specific users using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -493,7 +494,6 @@ In this tutorial, you learned how to push notifications to specific users that h
 
 > [!div class="nextstepaction"]
 >[Push location-based notifications](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
-
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png
 [2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png
