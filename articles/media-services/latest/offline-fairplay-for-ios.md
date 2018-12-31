@@ -88,13 +88,13 @@ CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()
         FairPlay = new StreamingPolicyFairPlayConfiguration()
         {
             AllowPersistentLicense = true,  //this enables offline mode
-            CustomLicenseAcquisitionUrlTemplate = "CustomLicenseAcquisitionUrlTemplate.FairPlay",
+            CustomLicenseAcquisitionUrlTemplate = null
         }
     },
     EnabledProtocols = new EnabledProtocols()
     {
         Hls = true,
-        Dash = true, //Even though DASH under CBCS is not supported for either CSF or CMAF, HLS-CMAF-CBCS uses DASH-CBCS fragments in its HLS playlist
+        Dash = true //Even though DASH under CBCS is not supported for either CSF or CMAF, HLS-CMAF-CBCS uses DASH-CBCS fragments in its HLS playlist
     },
 
     ContentKeys = new StreamingPolicyContentKeys()
@@ -102,7 +102,7 @@ CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()
         //Default key must be specified if keyToTrackMappings is present
         DefaultKey = new DefaultKey()
         {
-            Label = "EnabledEncryptionProtocols.CBCS.DefaultKeyLabel"
+            Label = "CBCS_DefaultKeyLabel"
         }
     }
 
