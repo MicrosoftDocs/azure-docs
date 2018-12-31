@@ -152,5 +152,5 @@ If you use Azure DevOps, you can [get an annotation marker](../azure-monitor/app
 ![Screenshot of sample release annotation on a chart](media/app-insights-separate-resources/release-annotation.png)
 ## Next steps
 
-* [Shared resources for multiple roles](../azure-monitor/app/monitor-multi-role-apps.md)
+* [Shared resources for multiple roles](../azure-monitor/app/app-map.md)
 * [Create a Telemetry Initializer to distinguish A|B variants](../azure-monitor/app/api-filtering-sampling.md#add-properties)
