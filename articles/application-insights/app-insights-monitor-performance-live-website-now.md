@@ -15,7 +15,7 @@ ms.author: mbullwin
 ---
 # Instrument web apps at runtime with Application Insights
 
-You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. If your apps are hosted by an on-premises IIS server, install Status Monitor. If they're Azure web apps or run in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](../azure-monitor/app/cloudservices.md).)
+You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. If your apps are hosted by an on-premises IIS server, install Status Monitor. If they're Azure web apps or run in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel. (There are also separate articles about instrumenting [live J2EE web apps](../azure-monitor/app/java-live.md) and [Azure Cloud Services](../azure-monitor/app/cloudservices.md).)
 You need a [Microsoft Azure](https://azure.com) subscription.
 
 ![Screenshot of App Insights overview graphs containing information on failed requests, server response time, and server requests](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
@@ -36,7 +36,7 @@ Here's a summary of what you get by each route:
 | [System performance counters](app-insights-performance-counters.md) |Yes |Yes |
 | [API for custom telemetry][api] |Yes |No |
 | [Trace log integration](../azure-monitor/app/asp-net-trace-logs.md) |Yes |No |
-| [Page view & user data](app-insights-javascript.md) |Yes |No |
+| [Page view & user data](../azure-monitor/app/javascript.md) |Yes |No |
 | Need to rebuild code |Yes | No |
 
 
@@ -267,9 +267,9 @@ Add more telemetry:
 
 [api]: ../azure-monitor/app/api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
-[client]: app-insights-javascript.md
+[client]: ../azure-monitor/app/javascript.md
 [diagnostic]: ../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../azure-monitor/app/asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[usage]: app-insights-javascript.md
+[usage]: ../azure-monitor/app/javascript.md

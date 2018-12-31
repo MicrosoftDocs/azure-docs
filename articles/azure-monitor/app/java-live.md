@@ -15,12 +15,12 @@ ms.author: mbullwin
 ---
 # Application Insights for Java web apps that are already live
 
-If you have a web application that is already running on your J2EE server, you can start monitoring it with [Application Insights](app-insights-overview.md) without the need to make code changes or recompile your project. With this option, you get information about HTTP requests sent to your server, unhandled exceptions, and performance counters.
+If you have a web application that is already running on your J2EE server, you can start monitoring it with [Application Insights](../../application-insights/app-insights-overview.md) without the need to make code changes or recompile your project. With this option, you get information about HTTP requests sent to your server, unhandled exceptions, and performance counters.
 
 You'll need a subscription to [Microsoft Azure](https://azure.com).
 
 > [!NOTE]
-> The procedure on this page adds the SDK to your web app at runtime. This runtime instrumentation is useful if you don't want to update or rebuild your source code. But if you can, we recommend you [add the SDK to the source code](app-insights-java-get-started.md) instead. That gives you more options such as writing code to track user activity.
+> The procedure on this page adds the SDK to your web app at runtime. This runtime instrumentation is useful if you don't want to update or rebuild your source code. But if you can, we recommend you [add the SDK to the source code](java-get-started.md) instead. That gives you more options such as writing code to track user activity.
 > 
 > 
 
@@ -28,13 +28,13 @@ You'll need a subscription to [Microsoft Azure](https://azure.com).
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com)
 2. Create a new Application Insights resource and set the application type to Java web application.
    
-    ![Fill a name, choose Java web app, and click Create](./media/app-insights-java-live/02-create.png)
+    ![Fill a name, choose Java web app, and click Create](./media/java-live/02-create.png)
 
     The resource is created in a few seconds.
 
 4. Open the new resource and get its instrumentation key. You'll need to paste this key into your code project shortly.
    
-    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-live/03-key.png)
+    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/java-live/03-key.png)
 
 ## 2. Download the SDK
 1. Download the [Application Insights SDK for Java](https://aka.ms/aijavasdk). 
@@ -82,7 +82,7 @@ Substitute the instrumentation key that you got from the Azure portal.
 
 * The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
 * The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
-* Events correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this identifier as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search](../azure-monitor/app/diagnostic-search.md).
+* Events correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this identifier as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search](../../azure-monitor/app/diagnostic-search.md).
 
 ## 4. Add an HTTP filter
 Locate and open the web.xml file in your project, and merge the following snippet of code under the web-app node, where your application filters are configured.
@@ -104,7 +104,7 @@ To get the most accurate results, the filter should be mapped before all other f
 ```
 
 ## 5. Check firewall exceptions
-You might need to [set exceptions to send outgoing data](../azure-monitor/app/ip-addresses.md).
+You might need to [set exceptions to send outgoing data](../../azure-monitor/app/ip-addresses.md).
 
 ## 6. Restart your web app
 ## 7. View your telemetry in Application Insights
@@ -112,21 +112,21 @@ Return to your Application Insights resource in [Microsoft Azure portal](https:/
 
 Telemetry about HTTP requests appears on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
 
-![sample data](./media/app-insights-java-live/5-results.png)
+![sample data](./media/java-live/5-results.png)
 
 Click through any chart to see more detailed metrics. 
 
-![](./media/app-insights-java-live/6-barchart.png)
+![](./media/java-live/6-barchart.png)
 
 And when viewing the properties of a request, you can see the telemetry events associated with it such as requests and exceptions.
 
-![](./media/app-insights-java-live/7-instance.png)
+![](./media/java-live/7-instance.png)
 
-[Learn more about metrics.](app-insights-metrics-explorer.md)
+[Learn more about metrics.](../../application-insights/app-insights-metrics-explorer.md)
 
 ## Next steps
-* [Add telemetry to your web pages](app-insights-javascript.md) to monitor page views and user metrics.
-* [Set up web tests](app-insights-monitor-web-app-availability.md) to make sure your application stays live and responsive.
-* [Capture log traces](app-insights-java-trace-logs.md)
-* [Search events and logs](../azure-monitor/app/diagnostic-search.md) to help diagnose problems.
+* [Add telemetry to your web pages](javascript.md) to monitor page views and user metrics.
+* [Set up web tests](../../application-insights/app-insights-monitor-web-app-availability.md) to make sure your application stays live and responsive.
+* [Capture log traces](java-trace-logs.md)
+* [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to help diagnose problems.
 * [Configure a Spring Boot initializer app](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)

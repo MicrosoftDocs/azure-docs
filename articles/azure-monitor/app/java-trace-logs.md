@@ -152,14 +152,14 @@ Now that you've configured your project to send traces to Application Insights, 
 
 Exceptions submited via loggers will be displayed on the portal as Exception Telemetry.
 
-![In the Application Insights portal, open Search](./media/app-insights-java-trace-logs/10-diagnostics.png)
+![In the Application Insights portal, open Search](./media/java-trace-logs/10-diagnostics.png)
 
 ## Next steps
 [Diagnostic search][diagnostic]
 
 <!--Link references-->
 
-[diagnostic]: ../azure-monitor/app/diagnostic-search.md
-[java]: app-insights-java-get-started.md
+[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[java]: java-get-started.md
 
 
