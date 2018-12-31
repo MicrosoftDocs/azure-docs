@@ -56,7 +56,7 @@ To receive a stream of tweets, you create an application in Twitter. Follow the 
     - **Access Token**
     - **Access Token Secret**	
 
-## Create an Azure Event Hubs Namespace
+## Create an Azure Event Hubs namespace
 
 You use this event hub to store tweets.
 
@@ -69,7 +69,7 @@ You use this event hub to store tweets.
     ![Create event hub for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Create event hub for Spark streaming example")
 
 4. Select **+ Add**.
-5. Enter the following values for the new Event Hubs Namespace:
+5. Enter the following values for the new Event Hubs namespace:
 
     - **Name**: Enter a name for the event hub.  The value used for this tutorial is **myeventhubns20180403**.
 
@@ -88,23 +88,23 @@ You use this event hub to store tweets.
       ![Provide an event hub name for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Provide an event hub name for Spark streaming example")
 6. Select **Create** to create the namespace.  The deployment will complete in a few minutes.
 
-## Create an Azure Event Hub
-Create an Event Hub once the Event Hubs Namespace has been deployed.  From the portal:
+## Create an Azure event hub
+Create an event hub after the Event Hubs namespace has been deployed.  From the portal:
 
 1. From the left menu, select **All services**.  
 
 1. Under **INTERNET OF THINGS**, select **Event Hubs**.  
 
-1. Select your Event Hubs Namespace from the list.  
+1. Select your Event Hubs namespace from the list.  
 
-1. From the Event Hubs Namespace page, select **+ Event Hub**.  
+1. From the **Event Hubs Namespace** page, select **+ Event Hub**.  
 1. Enter the following values in the **Create Event Hub** page:
 
-    - Name: Give a name for your Event Hub. 
+    - **Name**: Give a name for your Event Hub. 
  
-    - Partition count: 10.  
+    - **Partition count**: 10.  
 
-    - Message retention: 1.   
+    - **Message retention**: 1.   
    
       ![Provide event hub details for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Provide event hub details for Spark streaming example")
 
@@ -116,7 +116,7 @@ Create an Event Hub once the Event Hubs Namespace has been deployed.  From the p
     
      ![Set Event Hub policies for the Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Set Event Hub policies for the Spark streaming example")
 
-11. Save the values of **Primary key** and **Connection string-primary key** to use later in the tutorial.
+1. Save the values of **Primary key** and **Connection string-primary key** to use later in the tutorial.
 
      ![View Event Hub policy keys for the Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "View Event Hub policy keys for the Spark streaming example")
 
