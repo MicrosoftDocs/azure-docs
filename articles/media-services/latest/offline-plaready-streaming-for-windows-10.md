@@ -105,8 +105,6 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
 }
 ```
 
- ![Offline mode playback of PlayReady protected fMP4](./media/offline-playready/offline-playready1.jpg)
-
 Since the video is under PlayReady protection, the screenshot will not be able to include the video.
 
 In summary, we have achieved offline mode on Azure Media Services:
