@@ -50,7 +50,7 @@ Before you implement offline DRM for FairPlay on an iOS 10+ device:
 
     - The FPS Server SDK, which contains the Key Security Module (KSM), client samples, a specification, and a set of test vectors.
     - The FPS Deployment Pack, which contains the D function specification, along with instructions about how to generate the FPS Certificate, customer-specific private key, and Application Secret Key. Apple issues the FPS Deployment Pack only to licensed content providers.
-* Clone **https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git**. 
+* Clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git. 
 
     You will need to modify the code in [Encrypt with DRM using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) to add FairPlay configurations.  
 
