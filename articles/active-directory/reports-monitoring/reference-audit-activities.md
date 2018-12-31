@@ -512,10 +512,10 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Group Management|Review request approval request|
 |Group Management|Update Access Review|
 |Group Management|Update access review mail notification settings|
-|Group Management|Update access review reccurrence count setting|
-|Group Management|Update access review reccurrence duration in days setting|
-|User Management|Update access review reccurrence end type setting|
-|User Management|Update access review reccurrence type setting|
+|Group Management|Update access review recurrence count setting|
+|Group Management|Update access review recurrence duration in days setting|
+|User Management|Update access review recurrence end type setting|
+|User Management|Update access review recurrence type setting|
 
 
 
