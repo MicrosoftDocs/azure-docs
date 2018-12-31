@@ -38,7 +38,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Access reviews
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Directory Management|Add administrative unit|
 |Directory Management|Add member to administrative unit|
@@ -71,7 +71,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Account provisioning
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Application Management|Retrieve V2 application permissions grants|
 |Application Management|Retrieve V2 application service principals in the current tenant|
@@ -83,7 +83,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Application proxy
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Application Management|Add application|
 |Application Management|Add owner to application|
@@ -104,14 +104,14 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Automated password rollover
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Application Management|Remove service principal credentials|
 
 
 ## B2C
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Application Management|Restore application|
 |Application Management|Revoke consent|
@@ -340,7 +340,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Core directory
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Administrative Unit Management|Download a single risk event type|
 |Administrative Unit Management|Download admins and status of weekly digest opt-in|
@@ -474,7 +474,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Identity protection
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Directory Management|Elevate|
 |Directory Management|Removed|
@@ -493,7 +493,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Invited users
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Other|Create request approval|
 |Other|Delete access review|
@@ -507,7 +507,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Microsoft Identity Manager (MIM)
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Group Management|Review request approval request|
 |Group Management|Update Access Review|
@@ -521,7 +521,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Privileged Identity Management
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Role Management|Update access review reminder settings|
 |Role Management|Update request approval|
@@ -544,7 +544,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Self-service group management
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Group Management|Reset user password|
 |Group Management|Restore user|
@@ -559,7 +559,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Self-service password management
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Directory Management|Admins requires the user to reset their password|
 |Directory Management|Assign external user to application|
@@ -575,7 +575,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Terms of use
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Policy Management|Change password (self-service)|
 |Policy Management|Reset password (by admin)|
