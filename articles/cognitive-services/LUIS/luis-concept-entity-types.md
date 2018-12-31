@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/02/2019
 ms.author: diberry
 ---
 # Entity types and their purposes in LUIS
@@ -20,6 +20,10 @@ Entities are words or phrases in utterances that are key data in your applicatio
 The entity represents a word or phrase inside the utterance that you want extracted. An utterance can include many entities or none at all. An entity represents a class including a collection of similar objects (places, things, people, events or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. For example, a News Search app may include entities such as “topic”, “source”, “keyword” and “publishing date”, which are key data to search for news. In a travel booking app, the “location”, “date”, "airline", "travel class" and "tickets" are key information for flight booking (relevant to the "Bookflight" intent).
 
 By comparison, the intent represents the prediction of the entire utterance. 
+
+## Entities help with data extraction only
+
+You label or mark entities for the purpose of entity extraction only, it does not help with intent prediction.
 
 ## Entities represent data
 Entities are data you want to pull from the utterance. This can be a name, date, product name, or any group of words. 
