@@ -104,7 +104,7 @@
     - name: Deploy using ARM
       href: deploy-with-resource-manager-template.md
     - name: View and delete Studio account data
-        displayName: export
+      displayName: export
       href: export-delete-personal-data-dsr.md
   - name: Import training data
     items:
@@ -117,7 +117,7 @@
     - name: From an experiment
       href: import-data-from-an-experiment.md
     - name: Use on-prem SQL
-        displayName: on-premises
+      displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
   - name: Create and train models
     items:
@@ -126,7 +126,7 @@
     - name: Manage experiment iterations
       href: manage-experiment-iterations.md
     - name: Use PowerShell to create models
-        displayName: endpoint, endpoints
+      displayName: endpoint, endpoints
       href: create-models-and-endpoints-with-powershell.md
     - name: Select algorithms
       items:
@@ -143,7 +143,7 @@
       - name: Evaluate performance
         href: evaluate-model-performance.md
       - name: Optimize parameters
-          displayName: optimization
+        displayName: optimization
         href: algorithm-parameters-optimize.md
       - name: Interpret results
         href: interpret-model-results.md
@@ -160,17 +160,17 @@
   - name: Deploy models
     items:
     - name: Deploy a web service
-        displayName: publish
+      displayName: publish
       href: publish-a-machine-learning-web-service.md
     - name: How it works
       href: model-progression-experiment-to-web-service.md
     - name: Prepare for deployment
       href: convert-training-experiment-to-scoring-experiment.md
     - name: Use external data
-        displayName: import, export
+      displayName: import, export
       href: web-services-that-use-import-export-modules.md
     - name: Deploy in multi-regions
-        displayName: multiple regions
+      displayName: multiple regions
       href: how-to-deploy-to-multiple-regions.md
     - name: Use web service parameters
       href: web-service-parameters.md
@@ -181,7 +181,7 @@
     - name: Use Web Services portal
       href: manage-new-webservice.md
     - name: Manage with APIs
-        displayName: endpoint, endpoints
+      displayName: endpoint, endpoints
       href: manage-web-service-endpoints-using-api-management.md
     - name: Create endpoints
       href: create-endpoint.md
