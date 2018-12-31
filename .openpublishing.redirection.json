@@ -33082,11 +33082,6 @@
             "redirect_document_id":  true
         },
         {
-            "source_path":  "articles/application-insights/app-insights-monitor-multi-role-apps.md",
-            "redirect_url":  "/azure/azure-monitor/app/monitor-multi-role-apps",
-            "redirect_document_id":  true
-        },
-        {
             "source_path":  "articles/application-insights/app-insights-monitor-performance-live-website-now.md",
             "redirect_url":  "/azure/azure-monitor/app/monitor-performance-live-website-now",
             "redirect_document_id":  true
