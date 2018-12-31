@@ -110,7 +110,7 @@ The server variables mentioned above are the variables that provide information 
 
 - Once you apply a header rewrite on your Application Gateway, you should not use the portal for making any subsequent changes to that Application Gateway until the capability is supported on portal. If you use the portal to make changes to the Application Gateway after applying a rewrite rule, the header rewrite rule. You can continue to make changes using Azure PowerShell, Azure APIs or Azure SDK.
 
-- The HTTP header rewrite support is only supported on the new SKU [Standard_V2]. The capability will not be supported on the old SKU.
+- The HTTP header rewrite support is only supported on the new SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). The capability will not be supported on the old SKU.
 
 - Rewriting the Connect, Upgrade and Host headers is not supported yet.
 
@@ -119,6 +119,8 @@ The server variables mentioned above are the variables that provide information 
   Both these server variables will soon be supported.
 
 - The capability to conditionally rewrite the http headers will be available soon.
+
+- Header names can contain any alphanumeric character and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-26). However, we currently don't support the "_" special character in the Header name. 
 
 ## Need help?
 
