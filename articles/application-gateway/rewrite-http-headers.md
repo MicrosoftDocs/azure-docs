@@ -120,7 +120,7 @@ The server variables mentioned above are the variables that provide information 
 
 - The capability to conditionally rewrite the http headers will be available soon.
 
-- Header names can contain any alphanumeric character and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-26). However, we currently don't support the "underscore"(\_) special character in the Header name. 
+- Header names can contain any alphanumeric character and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). However, we currently don't support the "underscore"(\_) special character in the Header name. 
 
 ## Need help?
 
