@@ -104,7 +104,7 @@ Yes. If you increase the retention period from 24 hours to 72 hours, Site Recove
 
 ### Is failover automatic?
 
-Failover isn't automatic. You initiate failovers with a single click in the portal, or you can use [PowerShell](azure-to-azure-powershell.md) to trigger a failover. 
+Failover isn't automatic. You start failovers with a single click in the portal, or you can use [PowerShell](azure-to-azure-powershell.md) to trigger a failover. 
 
 ### Can I retain a public IP address after failover?
 
@@ -119,13 +119,13 @@ Site Recovery tries to provide the IP address at the time of failover. If anothe
 For a full explanation of how Site Recovery handles addressing, see [Set up network mapping and IP addressing for virtual networks](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms).
 
 ### What are **Latest (lowest RPO)** recovery points?
-This option first processes all the data that has been sent to the Site Recovery service, to create a recovery point for each VM before failing over to it. This option provides the lowest recovery point objective (RPO), because the VM created after failover has all the data replicated to Site Recovery when the failover was triggered.
+The **Latest (lowest RPO)** option first processes all the data that has been sent to the Site Recovery service, to create a recovery point for each VM before failing over to it. This option provides the lowest recovery point objective (RPO), because the VM created after failover has all the data replicated to Site Recovery when the failover was triggered.
 
 ### Do **Latest (lowest RPO)** recovery points have an impact on failover RTO?
 Yes. Site Recovery processes all pending data before failing over, so this option has a higher recovery time objective (RTO) as compared to other options.
 
 ### What does the **Latest processed** option in recovery points mean?
-This option fails over all VMs in the plan to the latest recovery point that Site Recovery processed. To see the latest recovery point for a specific VM, check **Latest Recovery Points** in the VM settings. This option provides a low RTO, because no time is spent processing unprocessed data.
+The **Last processed** option fails over all VMs in the plan to the latest recovery point that Site Recovery processed. To see the latest recovery point for a specific VM, check **Latest Recovery Points** in the VM settings. This option provides a low RTO, because no time is spent processing unprocessed data.
 
 ## Recovery plan
 
@@ -158,10 +158,10 @@ Yes, you can integrate Azure Automation runbooks into your recovery plan. [Learn
 No. When you [fail over](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) Azure VMs from one region to another, the VMs start up in the DR region in an unprotected state. To fail back the VMs to the primary region, you need to [reprotect](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) the VMs in the secondary region.
 
 ### At the time of reprotection, does Site Recovery replicate complete data from the secondary region to the primary region?
-It depends on the situation. For example, if the source region VM exists, then only changes between the source disk and the target disk are synchronized. Site Recovery computes the differentials by comparing the disks, and then it transfers the data. This process usually take a few hours. For more information about what happens during reprotection, see [Reprotect failed over Azure VMs to the primary region]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
+It depends on the situation. For example, if the source region VM exists, then only changes between the source disk and the target disk are synchronized. Site Recovery computes the differentials by comparing the disks, and then it transfers the data. This process usually takes a few hours. For more information about what happens during reprotection, see [Reprotect failed over Azure VMs to the primary region]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
 
 ### How much time does it take to fail back?
-After reprotection is done, the amount of time for failback is usually similar to the time for failover from the primary region to a secondary region. 
+After reprotection, the amount of time for failback is usually similar to the time for failover from the primary region to a secondary region. 
 
 ## Next steps
 * [Review](azure-to-azure-support-matrix.md) support requirements.
