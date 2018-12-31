@@ -228,7 +228,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Authorization|User Authorization: User granted access as 'Tenant Admin'|
 |Authorization|User Authorization: User was granted 'Authenticated Users' access rights|
 |Authorization|Verify if B2C feature is enabled|
-|Authorization|Verify if feature is enalbed|
+|Authorization|Verify if feature is enabled|
 |Authorization|Create program|
 |Authorization|Delete program|
 |Authorization|Link program control|
@@ -252,7 +252,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Directory Management|Get tenantDomains|
 |Key|Gets the type of tenant|
 |Key|Verify if B2C feature is enabled|
-|Key|Verify if feature is enalbed|
+|Key|Verify if feature is enabled|
 |Key|Add partner to company|
 |Key|Add unverified domain|
 |Key|Add verified domain|
