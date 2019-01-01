@@ -339,6 +339,8 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [https:/
 
 ### Using the Azure portal
 
+1. Log in to  the [Azure portal](https://portal.azure.com).
+
 1. From the left menu, select **All services**.
 
 1. Under **ANALYTICS**, select **HDInsight clusters**.

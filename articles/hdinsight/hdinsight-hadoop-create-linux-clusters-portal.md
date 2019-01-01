@@ -49,7 +49,7 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
 	* From the **Subscription** drop-down, select the Azure subscription that is used for the cluster.
 
-	* Select **Cluster type**, and then select the type of cluster (Hadoop, Spark, etc.) you want to create. For **Operating system**, click **Linux** and then select a version. Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
+	* Select **Cluster type**, and then select the type of cluster (Hadoop, Spark, etc.) you want to create. The **Operating system** will be **Linux**. Then select a cluster type version. Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
      
     	> [!IMPORTANT]  
     	> HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
@@ -64,11 +64,11 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
     * Specify a data center **location** where the cluster is created.
 
-    * Select **Next** to open **2 Security + networking**.
+    * Select **Next** to move to the next page.
 
 4. From **2 Security + networking**, you can connect your cluster to a virtual network using the provided dropdown. Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network. For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md). If you want to use the **Enterprise Security Package**, you can also follow instructions here: [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
 
-    Select **Next** to open **3 Storage**.
+    Select **Next** to move to the next page.
 
 
 5. From **3 Storage**, specify whether you want Azure Storage (WASB) or Data Lake Storage as your default storage. Look at the table below for more information.
@@ -84,12 +84,12 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 	 > [!WARNING]  
 	 > Using an additional storage account in a different location than the HDInsight cluster is not supported.
 
-	 Select **Next** to open **4 Applications (optional)**.
+	 Select **Next** to move to the next page.
 
 
 6. From **4 Applications (optional)**, select any desired applications.  These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install HDInsight applications](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
-    Select **Next** to open **5 Cluster size**.
+    Select **Next** to move to the next page.
 
 
 6. **5 Cluster size** displays information about the nodes that are used for this cluster. Set the number of worker nodes that you need for the cluster. The estimated cost of running the cluster is also shown.
@@ -101,11 +101,11 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
    > 
    > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
    
-    Select **Next** to open **6 Script actions**.
+    Select **Next** to move to the next page.
 
 8. From **6 Script actions**, you can customize a cluster to install custom components.  Use this option if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
-   Select **Next** to open **7 Summary**.
+   Select **Next** to move to the next page.
 
 9. From **7 Summary**, verify the information you entered earlier and then select **Create**.
 

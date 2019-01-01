@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 01/01/2019
 ms.author: hrasheed
 
 ---
@@ -129,7 +129,7 @@ Use the following steps to install Airpal on the edge node:
 
 	    ![HDInsight launch Airpal on Presto cluster](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
 
-	1. From the **Installed Apps** area, click **Portal** against airpal.
+	1. From the **Installed Apps** page, local the table entry for **airpal**, and select **Portal**.
 
 	    ![HDInsight launch Airpal on Presto cluster](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
 
