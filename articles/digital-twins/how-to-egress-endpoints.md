@@ -42,16 +42,16 @@ Events are sent by IoT objects (such as devices and sensors) for processing by A
 }
 ```
 
-| Attribute | Description |
-| --- | --- |
-| id | The name of your customized topic |
-| subject | The name of your customized topic |
-| data | The name of your customized topic |
-| eventType | The name of your customized topic |
-| eventTime | The name of your customized topic |
-| dataVersion | The name of your customized topic |
-| metadataVersion | The name of your customized topic |
-| topic | The name of your customized topic |
+| Attribute | Type | Description |
+| --- | --- | --- |
+| id | string | Unique identifier for the event. |
+| subject | string | Publisher-defined path to the event subject. |
+| data | object | Event data specific to the resource provider. |
+| eventType | string | One of the registered event types for this event source. |
+| eventTime | string | The time the event is generated based on the provider's UTC time. |
+| dataVersion | string | The schema version of the data object. The publisher defines the schema version. |
+| metadataVersion | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
+| topic | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
 
 For more information about the Event Grid event schema:
 
