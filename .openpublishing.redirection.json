@@ -9912,12 +9912,22 @@
         },
         {
             "source_path": "articles/hdinsight/hdinsight-hbase-geo-replication.md",
-            "redirect_url": "/azure/hdinsight/hdinsight-hbase-replication",
+            "redirect_url": "/azure/hdinsight/hbase/apache-hbase-replication",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/hdinsight/hdinsight-hbase-tutorial-get-started.md",
             "redirect_url": "/azure/hdinsight/hdinsight-hbase-tutorial-get-started-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hdinsight-hbase-geo-replication-configure-dns.md",
+            "redirect_url": "azure/hdinsight/hbase/apache-hbase-replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hdinsight-hbase-geo-replication-configure-vnets.md",
+            "redirect_url": "azure/hdinsight/hbase/apache-hbase-replication",
             "redirect_document_id": false
         },
         {
