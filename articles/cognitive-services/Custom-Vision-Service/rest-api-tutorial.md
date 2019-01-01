@@ -183,7 +183,7 @@ The response to the request is similar to the JSON document:
 
 Save the `id` value, as it is used when tagging images.
 
-For more information on this request, see [CreateTag](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829d).
+For more information on this request, see [CreateTag](https://docs.microsoft.com/rest/api/cognitiveservices/customvisiontraining/createtag).
 
 ## Add images
 
