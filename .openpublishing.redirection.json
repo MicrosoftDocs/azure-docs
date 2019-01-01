@@ -9931,6 +9931,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/hdinsight/hdinsight-learn-hadoop-use-sample-gallery.md",
+            "redirect_url": "https://azure.microsoft.com/resources/samples/?service=hdinsight&sort=0",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/hdinsight/hdinsight-high-availability.md",
             "redirect_url": "/azure/hdinsight/hdinsight-high-availability-linux",
             "redirect_document_id": false
