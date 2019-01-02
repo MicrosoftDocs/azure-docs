@@ -159,7 +159,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
 Then change the class file to contain the below code. It's a 2 step process. 
-1. Fetch a token from the local MSI endpoint on the VM which inturn fetches a token from Azure Active Directory
+1. Fetch a token from the local MSI endpoint on the VM which in turn fetches a token from Azure Active Directory
 2. Pass the token to Key Vault and fetch your secret 
 
 ```
@@ -208,7 +208,7 @@ Then change the class file to contain the below code. It's a 2 step process.
 ```
 
 
-The above code shows you how to do operations with Azure Key Vault in an Azure Linux Virtual Machine. 
+The above code shows you how to do operations with Azure Key Vault in an Azure Windows Virtual Machine. 
 
 
 

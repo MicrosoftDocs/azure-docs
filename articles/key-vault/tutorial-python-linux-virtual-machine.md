@@ -158,7 +158,7 @@ You can follow this [tutorial](https://docs.microsoft.com/azure/virtual-machines
 ## Create and run Sample Python App
 
 The below is just an example file named "Sample.py". 
-It uses [requests](http://docs.python-requests.org/master/) library to make HTTP GET calls.
+It uses [requests](https://pypi.org/project/requests/2.7.0/) library to make HTTP GET calls.
 
 ## Edit Sample.py
 After creating Sample.py open the file and copy the below code

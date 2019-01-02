@@ -15,7 +15,7 @@ ms.author: mbullwin
 ---
 # Manually configure Application Insights for .NET applications
 
-You can configure [Application Insights](app-insights-overview.md) to monitor a wide variety of applications or application roles, components, or microservices. For web apps and services, Visual Studio offers [one-step configuration](app-insights-asp-net.md). For other types of .NET application, such as backend server roles or desktop applications, you can configure Application Insights manually.
+You can configure [Application Insights](app-insights-overview.md) to monitor a wide variety of applications or application roles, components, or microservices. For web apps and services, Visual Studio offers [one-step configuration](../azure-monitor/app/asp-net.md). For other types of .NET application, such as backend server roles or desktop applications, you can configure Application Insights manually.
 
 ![Example performance monitoring charts](./media/app-insights-windows-services/10-perf.png)
 
@@ -84,7 +84,7 @@ If you made any customizations to ApplicationInsights.config, save a copy of it 
 * Set the instrumentation key in code, for example in `main()`: 
   
     `TelemetryConfiguration.Active.InstrumentationKey = "` *your key* `";` 
-* [Write your own telemetry using the API](app-insights-api-custom-events-metrics.md#ikey).
+* [Write your own telemetry using the API](../azure-monitor/app/api-custom-events-metrics.md#ikey).
 
 **If you installed other Application Insights packages,** you can, if you prefer, use the .config file to set the instrumentation key:
 
@@ -113,7 +113,7 @@ Click through any chart to see more detailed metrics. [Learn more about metrics.
 
 ### No data?
 * Use the application, opening different pages so that it generates some telemetry.
-* Open the [Search](app-insights-diagnostic-search.md) tile, to see individual events. Sometimes it takes events a little while longer to get through the metrics pipeline.
+* Open the [Search](../azure-monitor/app/diagnostic-search.md) tile, to see individual events. Sometimes it takes events a little while longer to get through the metrics pipeline.
 * Wait a few seconds and click **Refresh**. Charts refresh themselves periodically, but you can refresh manually if you're waiting for some data to show up.
 * See [Troubleshooting](app-insights-troubleshoot-faq.md).
 
@@ -128,7 +128,7 @@ When you run in debug mode, telemetry is expedited through the pipeline, so that
 Open ports for outgoing traffic in your server's firewall. See [this page](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) for the list of required addresses 
 
 ### Trouble on your build server?
-Please see [this Troubleshooting item](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
+Please see [this Troubleshooting item](../azure-monitor/app/asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [!NOTE]
 > If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request will be selected or deselected as a group, so that you can navigate between related events. 
@@ -141,5 +141,5 @@ Please see [this Troubleshooting item](app-insights-asp-net-troubleshoot-no-data
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## Next steps
-* [Add more telemetry](app-insights-asp-net-more.md) to get the full 360-degree view of your application.
+* [Add more telemetry](../azure-monitor/app/asp-net-more.md) to get the full 360-degree view of your application.
 
