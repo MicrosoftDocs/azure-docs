@@ -1,30 +1,30 @@
 ---
-title: MongoDB connection string for an Azure Cosmos DB account
-description: Learn how to connect your MongoDB app to an Azure Cosmos DB account by using a MongoDB connection string.
+title: Connect a MongoDB application to Azure Cosmos DB
+description: Learn how to connect your MongoDB app to Azure Cosmos DB.
 keywords: mongodb connection string
 services: cosmos-db
-author: slyons
+author: rimman
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 12/19/2017
-ms.author: sclyon
+ms.date: 12/26/2018
+ms.author: rimman
 
 ---
 
 # Connect a MongoDB application to Azure Cosmos DB
-Learn how to connect your MongoDB app to an Azure Cosmos DB account by using a MongoDB connection string. You can then use an Azure Cosmos DB database as the data store for your MongoDB app. 
+Learn how to connect your MongoDB app to an Azure Cosmos DB by using a MongoDB connection string. You can then use an Azure Cosmos DB database as the data store for your MongoDB app. 
 
 This tutorial provides two ways to retrieve connection string information:
 
-- [The quick start method](#QuickstartConnection), for use with .NET, Node.js, MongoDB Shell, Java, and Python drivers
+- [The quickstart method](#QuickstartConnection), for use with .NET, Node.js, MongoDB Shell, Java, and Python drivers
 - [The custom connection string method](#GetCustomConnection), for use with other drivers
 
 ## Prerequisites
 
 - An Azure account. If you don't have an Azure account, create a [free Azure account](https://azure.microsoft.com/free/) now. 
-- An Azure Cosmos DB account. For instructions, see [Build an Azure Cosmos DB for MongoDB API web app with .NET and the Azure portal](create-mongodb-dotnet.md).
+- A Cosmos account. For instructions, see [Build a web app using Azure Cosmos DB's API for MongoDB and .NET SDK](create-mongodb-dotnet.md).
 
 ## <a id="QuickstartConnection"></a>Get the MongoDB connection string by using the quick start
 1. In an Internet browser, sign in to the [Azure portal](https://portal.azure.com).
@@ -55,9 +55,9 @@ Azure Cosmos DB supports the standard MongoDB connection string URI format, with
 
 The values of this string are available in the **Connection String** blade shown earlier:
 
-* Username (required): Azure Cosmos DB account name.
-* Password (required): Azure Cosmos DB account password.
-* Host (required): FQDN of the Azure Cosmos DB account.
+* Username (required): Cosmos account name.
+* Password (required): Cosmos account password.
+* Host (required): FQDN of the Cosmos account.
 * Port (required): 10255.
 * Database (optional): The database that the connection uses. If no database is provided, the default database is "test."
 * ssl=true (required)
@@ -67,5 +67,7 @@ For example, consider the account shown in the **Connection String** blade. A va
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 
 ## Next steps
-* Learn how to [use Studio 3T (MongoChef)](mongodb-mongochef.md) with a Cosmos account configured for MongoDB API.
-* Explore the Azure Cosmos DB for MongoDB API by viewing [samples](mongodb-samples.md).
+
+- Learn how to [use Studio 3T](mongodb-mongochef.md) with Azure Cosmos DB's API for MongoDB.
+- Learn how to [use Robo 3T](mongodb-robomongo.md) with Azure Cosmos DB's API for MongoDB.
+- Explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.

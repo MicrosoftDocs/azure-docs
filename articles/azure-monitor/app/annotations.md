@@ -102,5 +102,5 @@ It's easy to modify the script, for example to create annotations for the past.
 
 ## Next steps
 
-* [Create work items](../../application-insights/app-insights-diagnostic-search.md#create-work-item)
+* [Create work items](../../azure-monitor/app/diagnostic-search.md#create-work-item)
 * [Automation with PowerShell](../../application-insights/app-insights-powershell.md)
