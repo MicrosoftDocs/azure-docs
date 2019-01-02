@@ -27,9 +27,9 @@ vCore model also allows you to use [Azure Hybrid Benefit for SQL Server](https:/
 
 ## Service tier characteristics
 
-The vCore model provides two service tiers General Purpose and Business Critical. Service tiers are differentiated by a range of compute sizes, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups. You must separately configure the required storage and retention period for backups. In the Azure portal, go to Server (not the database) > Managed Backups > Configure Policy > Point In Time Restore Configuration > 7 - 35 days.
+The vCore model provides three service tiers General Purpose, Hyperscale and Business Critical. Service tiers are differentiated by a range of compute sizes, high availability design, fault isolation, types and size of storage and IO range. You must separately configure the required storage and retention period for backups. In the Azure portal, go to Server (not the database) > Managed Backups > Configure Policy > Point In Time Restore Configuration > 7 - 35 days.
 
-The following table helps you understand the differences between these two tiers:
+The following table helps you understand the differences between the three tiers:
 
 ||**General Purpose**|**Business Critical**|**Hyperscale (preview)**|
 |---|---|---|---|
