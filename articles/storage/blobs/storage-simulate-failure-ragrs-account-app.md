@@ -1,5 +1,5 @@
 ---
-title: Simulate a failure in accessing read access redundant storage in Azure | Microsoft Docs 
+title: 'Tutorial: Simulate a failure in accessing read access redundant storage in Azure | Microsoft Docs'
 description: Simulate an error in accessing read access geo-redundant storage
 services: storage 
 author: tamram
@@ -15,7 +15,7 @@ ms.author: tamram
 
 This tutorial is part two of a series. In it, you learn about the benefits of a [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) by simulating a failure.
 
-In order to simulate a failure, you can use either [Fiddler](#simulate-a-failure-with-fiddler) or [Static Routing](#simulate-a-failure-with-an-invalid-static-route). Either method will allow you to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account, causing the application read from the secondary endpoint instead.
+In order to simulate a failure, you can use either [Fiddler](#simulate-a-failure-with-fiddler) or [Static Routing](#simulate-a-failure-with-an-invalid-static-route). Either method will allow you to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account, causing the application to read from the secondary endpoint instead.
 
 ![Scenario app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
