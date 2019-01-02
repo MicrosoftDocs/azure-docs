@@ -212,7 +212,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
     ![Pipeline tab](./media/tutorial-copy-data-portal/pipeline-tab-2.png)        
 
-### Confugure mapping
+### Configure mapping
 
 Go to the **Mapping** tab at the bottom of the **Properties** window, and select **Import Schemas**. Notice that the first and second columns in the source file are mapped to **FirstName** and **LastName** in the SQL database.
 

@@ -113,7 +113,7 @@ Click through any chart to see more detailed metrics. [Learn more about metrics.
 
 ### No data?
 * Use the application, opening different pages so that it generates some telemetry.
-* Open the [Search](app-insights-diagnostic-search.md) tile, to see individual events. Sometimes it takes events a little while longer to get through the metrics pipeline.
+* Open the [Search](../azure-monitor/app/diagnostic-search.md) tile, to see individual events. Sometimes it takes events a little while longer to get through the metrics pipeline.
 * Wait a few seconds and click **Refresh**. Charts refresh themselves periodically, but you can refresh manually if you're waiting for some data to show up.
 * See [Troubleshooting](app-insights-troubleshoot-faq.md).
 
