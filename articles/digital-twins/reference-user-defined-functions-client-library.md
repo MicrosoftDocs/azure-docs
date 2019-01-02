@@ -438,6 +438,6 @@ This function sends a notification with the specified payload.
 
 - Learn about [Azure Digital Twins user-defined functions](./concepts-user-defined-functions.md).
 
-- Learn [How to create user-defined functions](./how-to-user-defined-functions.md).
+- Learn [how to create user-defined functions](./how-to-user-defined-functions.md).
 
-- Learn [How to debug user-defined functions](./how-to-diagnose-user-defined-functions.md).
+- Learn [how to debug user-defined functions](./how-to-diagnose-user-defined-functions.md).
