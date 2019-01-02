@@ -120,6 +120,156 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / 6381 - 6383              | Inbound & Outbound | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Access Azure Cache for Redis Instances between RoleInstances          | External & Internal  |
 | * / *                        | Inbound            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer                          | External & Internal  |
 
+**Creating the Network Security Group Rules with the Azure CLI**: If you wish to use the Azure CLI to automate the creation of the Network Security Group Rules for internal or external virtual networks, here is an example.
+
+```bash
+export APIM_RESOURCE_GROUP="MyResourceGroup"
+export APIM_NETWORK_SECURITY_GROUP="MyNetworkSecurityGroup"
+
+# Client communication to API Management
+az network nsg rule create -g  "${APIM_RESOURCE_GROUP}" --nsg-name  "${APIM_NETWORK_SECURITY_GROUP}" \
+    --priority 100 \
+    --source-address-prefixes Internet \
+    --destination-address-prefixes VirtualNetwork \
+    --destination-port-ranges 80 443 \
+    --access Allow \
+    --protocol Tcp \
+    --description "Client communication to API Management" \
+    --name "AllowHttp"
+
+# Management endpoint for Azure portal and Powershell
+az network nsg rule create -g  "${APIM_RESOURCE_GROUP}" --nsg-name  "${APIM_NETWORK_SECURITY_GROUP}" \
+    --priority 110 \
+    --direction Inbound \
+    --source-address-prefixes ApiManagement \
+    --destination-address-prefixes VirtualNetwork \
+    --destination-port-ranges 3443 \
+    --access Allow \
+    --protocol Tcp \
+    --description "Management endpoint for Azure portal and Powershell" \
+    --name "AllowApiManagementMgmtEndpoint"
+
+# Dependency on Azure Storage
+az network nsg rule create -g  "${APIM_RESOURCE_GROUP}" --nsg-name  "${APIM_NETWORK_SECURITY_GROUP}" \
+    --priority 100 \
+    --direction Outbound \
+    --source-address-prefixes VirtualNetwork \
+    --destination-address-prefixes Storage \
+    --destination-port-ranges 80 443 \
+    --access Allow \
+    --protocol Tcp \
+    --description "Dependency on Azure Storage" \
+    --name "AllowApiManagementStorageDependency"
+
+# Azure Active Directory (where applicable)
+az network nsg rule create -g  "${APIM_RESOURCE_GROUP}" --nsg-name  "${APIM_NETWORK_SECURITY_GROUP}" \
+    --priority 110 \
+    --direction Outbound \
+    --source-address-prefixes VirtualNetwork \
+    --destination-address-prefixes AzureActiveDirectory \
+    --destination-port-ranges 80 443 \
+    --access Allow \
+    --protocol Tcp \
+    --description "Azure Active Directory" \
+    --name "AllowApiManagementAzureADDependency"
+
+# Access to Azure SQL endpoints
+az network nsg rule create -g  "${APIM_RESOURCE_GROUP}" --nsg-name  "${APIM_NETWORK_SECURITY_GROUP}" \
+    --priority 120 \
+    --direction Outbound \
+    --source-address-prefixes VirtualNetwork \
+    --destination-address-prefixes SQL \
+    --destination-port-ranges 1433 \
+    --access Allow \
+    --protocol Tcp \
+    --description "Access to Azure SQL endpoints" \
+    --name "AllowApiManagementAzureSQLDependency"
+
+# Dependency for Log to Event Hub policy and monitoring agent
+az network nsg rule create -g  "${APIM_RESOURCE_GROUP}" --nsg-name  "${APIM_NETWORK_SECURITY_GROUP}" \
+    --priority 130 \
+    --direction Outbound \
+    --source-address-prefixes VirtualNetwork \
+    --destination-address-prefixes EventHub \
+    --destination-port-ranges 5672 \
+    --access Allow \
+    --protocol Tcp \
+    --description "Dependency for Log to Event Hub policy and monitoring agent" \
+    --name "AllowApiManagementAzureEventHubDependency"
+
+# Publish Diagnostics Logs and Metrics
+az network nsg rule create -g  "${APIM_RESOURCE_GROUP}" --nsg-name  "${APIM_NETWORK_SECURITY_GROUP}" \
+    --priority 140 \
+    --direction Outbound \
+    --source-address-prefixes VirtualNetwork \
+    --destination-address-prefixes AzureMonitor \
+    --destination-port-ranges 443 \
+    --access Allow \
+    --protocol Tcp \
+    --description "Publish Diagnostics Logs and Metrics" \
+    --name "AllowApiManagementHealthMonitorDependency"
+
+# Dependency on Azure File Share for Git
+az network nsg rule create -g  "${APIM_RESOURCE_GROUP}" --nsg-name  "${APIM_NETWORK_SECURITY_GROUP}" \
+    --priority 150 \
+    --direction Outbound \
+    --source-address-prefixes VirtualNetwork \
+    --destination-address-prefixes Storage \
+    --destination-port-ranges 445 \
+    --access Allow \
+    --protocol Tcp \
+    --description "Dependency on Azure File Share for Git" \
+    --name "AllowApiManagementAzureFileShareDependency"
+
+# Needed to publish Health status to Resource Health
+az network nsg rule create -g  "${APIM_RESOURCE_GROUP}" --nsg-name  "${APIM_NETWORK_SECURITY_GROUP}" \
+    --priority 160 \
+    --direction Outbound \
+    --source-address-prefixes VirtualNetwork \
+    --destination-address-prefixes Internet \
+    --destination-port-ranges 1886 \
+    --access Allow \
+    --protocol Tcp \
+    --description "Needed to publish Health status to Resource Health" \
+    --name "AllowApiManagementHealthPublisherDependency"
+
+# Publish Diagnostics Logs and Metrics
+az network nsg rule create -g  "${APIM_RESOURCE_GROUP}" --nsg-name  "${APIM_NETWORK_SECURITY_GROUP}" \
+    --priority 170 \
+    --direction Outbound \
+    --source-address-prefixes VirtualNetwork \
+    --destination-address-prefixes AzureMonitor \
+    --destination-port-ranges 443 \
+    --access Allow \
+    --protocol Tcp \
+    --description "Publish Diagnostics Logs and Metrics" \
+    --name "AllowApiManagementHealthMonitorDependency"
+
+# Connect to SMTP Relay for sending e-mails
+az network nsg rule create -g  "${APIM_RESOURCE_GROUP}" --nsg-name  "${APIM_NETWORK_SECURITY_GROUP}" \
+    --priority 180 \
+    --direction Outbound \
+    --source-address-prefixes VirtualNetwork \
+    --destination-address-prefixes Internet \
+    --destination-port-ranges 25 587 25028 \
+    --access Allow \
+    --protocol Tcp \
+    --description "Connect to SMTP Relay for sending e-mails" \
+    --name "AllowOutboundApiManagementSMTPDependency"
+
+# Access Azure Cache for Redis Instances between RoleInstances
+az network nsg rule create -g  "${APIM_RESOURCE_GROUP}" --nsg-name  "${APIM_NETWORK_SECURITY_GROUP}" \
+    --priority 190 \
+    --direction Outbound \
+    --source-address-prefixes VirtualNetwork \
+    --destination-address-prefixes Internet \
+    --destination-port-ranges 6381-6383 \
+    --access Allow \
+    --protocol Tcp \
+    --description "Access Azure Cache for Redis Instances between RoleInstances" \
+    --name "AllowOutboundApiManagementRedisDependency"
+```
+
 >[!IMPORTANT]
 > The Ports for which the *Purpose* is **bold** are required for API Management service to be deployed successfully. Blocking the other ports however will cause degradation in the ability to use and monitor the running service.
 
