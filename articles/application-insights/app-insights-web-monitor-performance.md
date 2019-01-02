@@ -28,7 +28,7 @@ If you haven't yet added Application Insights to your project (that is, if it do
 
 * [ASP.NET web apps](../azure-monitor/app/asp-net.md)
   * [Add exception monitoring](../azure-monitor/app/asp-net-exceptions.md)
-  * [Add dependency monitoring](app-insights-monitor-performance-live-website-now.md)
+  * [Add dependency monitoring](../azure-monitor/app/monitor-performance-live-website-now.md)
 * [J2EE web apps](../azure-monitor/app/java-get-started.md)
   * [Add dependency monitoring](../azure-monitor/app/java-agent.md)
 
@@ -146,11 +146,11 @@ The performance investigation experience shows relevant insights along side the 
 
 <!--Link references-->
 
-[availability]: app-insights-monitor-web-app-availability.md
+[availability]: ../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../azure-monitor/app/asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
+[redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 [livestream]: app-insights-live-stream.md
