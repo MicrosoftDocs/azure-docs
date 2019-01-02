@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/30/2018
+ms.date: 01/01/2018
 ms.author: willzhan
 
 ---
@@ -104,6 +104,9 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
     DescriptionText.Visibility = (ActualHeight < 500) ? Visibility.Collapsed : Visibility.Visible;
 }
 ```
+
+![Offline mode playback of PlayReady protected fMP4](./media/offline-playready-for-windows/offline-playready1.jpg)
+
 
 Since the video is under PlayReady protection, the screenshot will not be able to include the video.
 
