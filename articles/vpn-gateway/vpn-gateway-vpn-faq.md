@@ -25,7 +25,7 @@ Yes.
 
 You can connect to multiple sites by using Windows PowerShell and the Azure REST APIs. See the [Multi-Site and VNet-to-VNet Connectivity](#V2VMulti) FAQ section.
 
-### Is there an additional cost for setting up the VPN gateways as active-active?
+### Is there an additional cost for setting up a VPN gateway as active-active?
 
 No. 
 
