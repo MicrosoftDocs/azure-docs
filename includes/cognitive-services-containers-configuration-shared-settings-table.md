@@ -16,4 +16,4 @@ This container has the following configuration settings:
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
 |No|[Fluentd](#fluentd-settings)|Write log and, optionally, metric data to a Fluentd server.|
 |No|[Logging](#logging-settings)|Provides ASP.NET Core logging support for your container. |
-|Yes|[Mounts](#mount-settings)|Read and write data from host computer to container and from container back to host computer.|
+|No|[Mounts](#mount-settings)|Read and write data from host computer to container and from container back to host computer.|
