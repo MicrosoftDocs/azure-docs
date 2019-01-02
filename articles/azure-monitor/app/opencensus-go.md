@@ -219,5 +219,5 @@ We only covered the basics of integrating OpenCensus for Go with the local forwa
 
 ## Next steps
 
-* [Application map](./../azure-monitor/app/app-map.md)
-* [End-to-end performance monitoring](./app-insights-tutorial-performance.md)
+* [Application map](./../../azure-monitor/app/app-map.md)
+* [End-to-end performance monitoring](./../../application-insights/app-insights-tutorial-performance.md)

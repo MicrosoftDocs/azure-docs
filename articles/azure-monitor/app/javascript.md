@@ -114,7 +114,7 @@ Open the Browser blade to show aggregated performance data from your users' brow
 
 No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](../../application-insights/app-insights-troubleshoot-faq.md).
 
-The Browser blade is a [Metrics Explorer blade](../../application-insights/app-insights-metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters, and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
+The Browser blade is a [Metrics Explorer blade](../../azure-monitor/app/metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters, and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
 
 ## Page load performance
 At the top is a segmented chart of page load times. The total height of the chart represents the average time to load and display pages from your app in your users' browsers. The time is measured from when the browser sends the initial HTTP request until all synchronous load events have been processed, including layout and running scripts. It doesn't include asynchronous tasks such as loading web parts from AJAX calls.

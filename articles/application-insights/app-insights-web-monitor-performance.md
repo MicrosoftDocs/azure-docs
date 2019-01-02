@@ -153,7 +153,7 @@ The performance investigation experience shows relevant insights along side the 
 [redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
-[livestream]: app-insights-live-stream.md
+[livestream]: ../azure-monitor/app/live-stream.md
 [snapshot]: app-insights-snapshot-debugger.md
 
 
