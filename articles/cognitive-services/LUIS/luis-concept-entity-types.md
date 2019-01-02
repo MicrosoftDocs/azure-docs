@@ -177,6 +177,12 @@ In the following table, each row has two versions of the utterance. The top utte
 
 Prebuilt entities are built-in types that represent common concepts such as email, URL, and phone number. Prebuilt entity names are reserved. [All prebuilt entities](luis-prebuilt-entities.md) that are added to the application are returned in the endpoint prediction query if they are found in the utterance. 
 
+The entity is a good fit when:
+
+* The data matches a common use case supported by prebuilt entities for your language culture. 
+
+Prebuilt entities can be added and removed at any time. If you find a prebuilt entity is detected in an example utterance, making the marking of your custom entity impossible, remove the prebuilt entity from the app, mark your entity, then add the prebuilt entity back. 
+
 ![Number prebuilt entity](./media/luis-concept-entities/number-entity.png)
 
 [Tutorial](luis-tutorial-prebuilt-intents-entities.md)<br>
@@ -188,7 +194,10 @@ Some of these prebuilt entities are defined in the open-source [Recognizers-Text
 
 A regular expression is best for raw utterance text. It ignores case and ignores cultural variant.  Regular expression matching is applied after spell-check alterations at the character level, not the token level. If the regular expression is too complex, such as using many brackets, you're not able to add the expression to the model. Uses part but not all of the [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) library. 
 
-This entity is good for words or phrases that are consistently formatted with any variation that is also consistent.<br><br>
+The entity is a good fit when:
+
+* The data are consistently formatted with any variation that is also consistent.
+* The regular expression does not need more than 2 levels of nesting. 
 
 ![Regular expression entity](./media/luis-concept-entities/regex-entity.png)
 
@@ -199,7 +208,9 @@ This entity is good for words or phrases that are consistently formatted with an
 
 A simple entity is a generic entity that describes a single concept and is learned from the machine-learned context. Because simple entities are generally names such as company names, product names, or other categories of names, add a [phrase list](luis-concept-feature.md) when using a simple entity to boost the signal of the names used. 
 
-This is a good entity for words or phrases that are not consistently formatted but indicate the same thing. 
+The entity is a good fit when:
+
+* The data aren't consistently formatted but indicate the same thing. 
 
 ![simple entity](./media/luis-concept-entities/simple-entity.png)
 

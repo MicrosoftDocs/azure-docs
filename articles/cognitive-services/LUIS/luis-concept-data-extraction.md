@@ -422,6 +422,10 @@ Another example utterance, using a synonym for Paris:
 ## Extracting names
 Getting names from an utterance is difficult because a name can be almost any combination of letters and words. Depending on what type of name you're extracting, you have several options. The following suggestions are not rules but more guidelines.
 
+### Add prebuilt PersonName and GeographyV2 entities
+
+[PersonName](luis-reference-prebuilt-person.md) and [GeographyV2](luis-reference-prebuilt-geographyV2.md) entities are available in some [language cultures](luis-reference-prebuilt-entities.md). 
+
 ### Names of people
 People's name can have some slight format depending on language and culture. Use either a hierarchical entity with first and last names as children or use a simple entity with roles of first and last name. Make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
