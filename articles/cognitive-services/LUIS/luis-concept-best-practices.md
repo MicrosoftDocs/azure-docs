@@ -34,7 +34,7 @@ The following list includes best practices for LUIS apps:
 |[Find a sweet spot between too generic and too specific for each intent](#do-find-sweet-spot-for-intents)|[Use LUIS as a training platform](#dont-use-luis-as-a-training-platform)|
 |[Build your app iteratively](#do-build-the-app-iteratively)|[Add many example utterances of the same format, ignoring other formats](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Add phrase lists and patterns in later iterations](#do-add-phrase-lists-and-patterns-in-later-iterations)|[Mix the definition of intents and entities](#dont-mix-the-definition-of-intents-and-entities)|
-|[Balance your utterances across all intents]() except the None intent.<br>[Add example utterances to None intent](#do-add-example-utterances-to-none-intent)|[Create phrase lists with all possible values](#dont-create-phrase-lists-with-all-the-possible-values)|
+|[Balance your utterances across all intents](#balance-your-utterances-across-all-intents) except the None intent.<br>[Add example utterances to None intent](#do-add-example-utterances-to-none-intent)|[Create phrase lists with all possible values](#dont-create-phrase-lists-with-all-the-possible-values)|
 |[Leverage the suggest feature for active learning](#do-leverage-the-suggest-feature-for-active-learning)|[Add too many patterns](#dont-add-many-patterns)|
 |[Monitor the performance of your app](#do-monitor-the-performance-of-your-app)|[Train and publish with every single example utterance added](#dont-train-and-publish-with-every-single-example-utterance)|
 |[Use versions for each app iteration](#do-use-versions-for-each-app-iteration)||
