@@ -15,8 +15,6 @@ Search for "Spatial Anchors" in the search bar.
 
 Select **Spatial Anchors (preview)** to open a dialog and select **Create**.
 
-![](./media/spatial-anchors-get-started-create-resource/create-resource-dialog.png)
-
 In the **Spatial Anchors Account** form:
 
 1. Specify a unique resource name.
@@ -32,3 +30,5 @@ After the resource creation has completed successfully, the resource properties 
 resource's **Endpoint** value as it will be required later.
 
 ![](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+
+Under **Settings**, select **Key** and make a note of the **Key** value. This value is the `Account Key` and will be used later.

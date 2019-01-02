@@ -27,15 +27,11 @@ Before you get started, here's a list of prerequisites:
 - A Windows machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.2+</a> and <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> installed with the **Universal Windows Platform development** workload.
 - A HoloLens device.
 
-[!INCLUDE [Clean-up section](../../../includes/spatial-anchors-get-started-create-resource.md)]
+[!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Open the sample project in Unity
 
-Clone the [samples repository](https://mixedrealitycloud.visualstudio.com/_git/Mixed%20Reality%20Cloud%20Preview) by running the following command:
-
-```console
-git clone https://mixedrealitycloud.visualstudio.com/Mixed%20Reality%20Cloud%20Preview/_git/Mixed%20Reality%20Cloud%20Preview mixedreality.spatialanchors.samples
-```
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 Open Unity and open the project at the `unity\samples` folder.
 
@@ -49,19 +45,17 @@ Select **Switch Platform** to change the platform to **Universal Windows Platfor
 
 Close the **Build Settings** window.
 
-## Configure the token endpoint
+## Configure the Unity scene
 
-In the **Project** pane, navigate to `Assets/MRCloudPlugin/Examples` and open the `AndroidMRCloudDemo.unity` scene file.
+In the **Project** pane, navigate to `Assets/MRCloudPlugin/Examples` and open the `HoloLensMRCloudDemo.unity` scene file.
 
-In the **Hierarchy** pane, select the **MixedRealityCloud** game object. Then, in the **Inspector** pane, enter the `Account Key` (from the Azure Active Directory App created earlier) as the value for `MR Cloud Account Key` and the `Endpoint` url (from the Spatial Anchors service created earlier) as the value for `MR Cloud Service Url`.
-
-Save the scene either by pressing **Ctrl + S** or selecting **File** -> **Save Scene**.
+[!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
 ## Export the HoloLens project
 
 Open **Build Settings** by selecting **File** -> **Build Settings**.
 
-Under **Scenes In Build**, place a check mark next to the `MRCLoudPlugin/Examples/HoloLensMRCloudDemo` scene and clear check marks from all other scenes.
+Under **Scenes In Build**, place a check mark next to the `MRCloudPlugin/Examples/HoloLensMRCloudDemo` scene and clear check marks from all other scenes.
 
 Select **Build** to open a dialog. Then, select a folder to export the HoloLens Visual Studio project.
 

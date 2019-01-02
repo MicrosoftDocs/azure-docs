@@ -27,15 +27,11 @@ Before you get started, here's a list of prerequisites:
 - A developer enabled macOS machine with <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 9.4+</a> and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
 - A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
 
-[!INCLUDE [Clean-up section](../../../includes/spatial-anchors-get-started-create-resource.md)]
+[!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Open the sample project
 
-Clone the [samples repository](https://mixedrealitycloud.visualstudio.com/_git/Mixed%20Reality%20Cloud%20Preview) by running the following command:
-
-```bash
-git clone https://mixedrealitycloud.visualstudio.com/Mixed%20Reality%20Cloud%20Preview/_git/Mixed%20Reality%20Cloud%20Preview mixedreality.spatialanchors.samples
-```
+[!INCLUDE [Clone Sample Repository](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 Install the necessary pods using CocoaPods:
 
@@ -79,15 +75,17 @@ open ./SampleObjC.xcworkspace
 
 Connect the iOS device to the Mac and set the **active scheme** to your iOS device.
 
-![Select Your Device](./media/get-started-ios/select-device.png)
+![Select the device](./media/get-started-ios/select-device.png)
 
 Select **Build and then run the current scheme**.
 
-![Select Your Device](./media/get-started-ios/deploy-run.png)
+![Deploy and run](./media/get-started-ios/deploy-run.png)
 
 > [!NOTE]
 > If you see a `library not found for -lPods-SampleObjC` error, you likely opened the `.xcodeproj` file instead of the
 > `.xcworkspace`. Open the `.xcworkspace` and try again.
+
+In Xcode, stop the app by pressing **Stop**.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
