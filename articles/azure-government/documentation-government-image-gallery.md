@@ -1,11 +1,11 @@
 ---
-title: Azure Government Image Gallery | Microsoft Docs
-description: This article provides an overview of the Azure Government Image Gallery and the images included
+title: Azure Government image gallery | Microsoft Docs
+description: This article provides an overview of the Azure Government image gallery and the images included
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: brendalee
-manager: zakramer
+author: gsacavdm
+manager: pathuff
 
 ms.assetid: f6dd4386-7b79-448a-8ae3-409258cc257b
 ms.service: azure-government
@@ -13,241 +13,870 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/20/2016
-ms.author: brendal
+ms.date: 12/11/2018
+ms.author: gsacavdm
 
 ---
-# Azure Government Marketplace Images
-## Overview
-The Microsoft Azure Government Marketplace is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.
+# Azure Government Marketplace images
+The Azure Government Marketplace provides a similar experience as the public Azure portal. You can choose to deploy prebuilt images from Microsoft and our partners, or upload your own VHDs. This gives you the flexibility to deploy your own standardized images if needed.
 
-## Variations
-* Marketplace images are not currently supported in DoD
+The following table shows a list of available images within the Azure Government Marketplace. If you'd like to see other images in Azure Government, please request them via the [Azure Government Feedback Forum](https://feedback.azure.com/forums/558487-azure-government).
 
-The below provides a list of available images within the Azure Government Marketplace.  Some of the prebuilt images do include pay as you go licensing for specific software.  Please review <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual Machine Pricing</a> page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.
+Some of the prebuilt images include pay-as-you-go licensing for specific software. Work with your Microsoft account team or reseller for Azure Government-specific pricing. For more information, see [Virtual machine pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-## Images - Azure Resource Manager
-| Publisher | Image Name |
-| --- | --- |
-| Esri |ArcGIS 10.4.1 for Server |
-| Barracuda Networks, Inc. |Barracuda NextGen Control Center (BYOL) |
-| Barracuda Networks, Inc. |Barracuda NextGen Firewall F-Series (BYOL) |
-| Microsoft |BizTalk Server 2016 Community Technology Preview 2 |
-| Microsoft |{BYOL} SQL Server 2012 SP3 Enterprise on Windows Server 2012 R2 |
-| Microsoft |{BYOL} SQL Server 2012 SP3 Standard on Windows Server 2012 R2 |
-| Microsoft |{BYOL} SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2 |
-| Microsoft |{BYOL} SQL Server 2014 SP1 Standard on Windows Server 2012 R2 |
-| Microsoft |{BYOL} SQL Server 2016 RTM Enterprise on Windows Server 2012 R2 |
-| Microsoft |{BYOL} SQL Server 2016 RTM Standard on Windows Server 2012 R2 |
-| OpenLogic |CentOS-based 6.7 |
-| OpenLogic |CentOS-based 6.8 |
-| OpenLogic |CentOS-based 7.2 |
-| CoreOS |CoreOS Linux (Stable) |
-| F5 Networks |F5 BIG-IP ADC+SEC BEST – BYOL |
-| F5 Networks |F5 BIG-IP ADC BETTER – BYOL |
-| F5 Networks |F5 BIG-IP ADC GOOD (LTM) - BYOL |
-| Bitnami |Moodle |
-| Citrix |NetScaler VPX Bring Your Own License |
-| SUSE |openSUSE Leap 42.1 |
-| Red Hat |Red Hat Enterprise Linux 6.8 |
-| Red Hat |Red Hat Enterprise Linux 7.2 |
-| Microsoft |SQL Server 2012 SP3 Enterprise on Windows Server 2012 R2 |
-| Microsoft |SQL Server 2012 SP3 Standard on Windows Server 2012 R2 |
-| Microsoft |SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2 |
-| Microsoft |SQL Server 2014 SP1 Standard on Windows Server 2012 R2 |
-| Microsoft |SQL Server 2016 RTM Enterprise on Windows Server 2012 R2 |
-| Microsoft |SQL Server 2016 RTM Standard on Windows Server 2012 R2 |
-| SUSE |SLES 11 SP4 |
-| SUSE |SLES 12 SP1 |
-| Microsoft |Windows Server 2012 R2 Datacenter |
-| Barracuda Networks, Inc. |Barracuda Web Application Firewall (WAF) - BYOL |
-| Microsoft |Windows Server 2008 R2 SP1 |
-| Microsoft |Windows Server 2012 Datacenter |
-| Microsoft |Windows Server 2012 R2 Datacenter |
+## Images
+The list of virtual machine images available in Azure Government can be obtained by [connecting to Azure Government via PowerShell](documentation-government-get-started-connect-with-ps.md) and running the following commands:
 
-## Images - Classic Resource Provider.
-| Publisher | Image Name | Description | OS | Disk Size |
-| --- | --- | --- | --- | --- |
-| ASR-Prod-GalleryImages |Microsoft Azure Site Recovery Process Server |The Microsoft Azure Site Recovery Process Server is used for caching, compression, and encryption of replication traffic in the Microsoft Azure Site Recovery scenario of setting up failback of virtual... |Windows |GB |
-| ASR-Prod-GalleryImages |Microsoft Azure Site Recovery Master Target Server |The Microsoft Azure Site Recovery Master Target Server is used as a repository and for retention of replication traffic from Windows source virtual or physical servers in the Azure Site Recovery scena... |Windows |GB |
-| ASR-Prod-GalleryImages |Microsoft Azure Site Recovery Configuration Server VPN |The Microsoft Azure Site Recovery Configuration Server acts as the centralized management server for disaster recovery management operations in the Microsoft Azure Site Recovery scenario of setting up... |Windows |GB |
-| ASR-Prod-GalleryImages |Microsoft Azure Site Recovery Configuration Server Non-VPN |The Microsoft Azure Site Recovery Configuration Server acts as the centralized management server for disaster recovery management operations in the Microsoft Azure Site Recovery scenario of setting up... |Windows |GB |
-| ASR-Prod-GalleryImages |Microsoft Azure Site Recovery Process Server V2 |The Microsoft Azure Site Recovery Process Server is used for caching, compression, and encryption of replication traffic in the Microsoft Azure Site Recovery scenario of setting up failback of virtual... |Windows |GB |
-| Barracuda Networks, Inc. |Barracuda NextGen Firewall F-Series 7.0.0-672 |The Barracuda’s NextGen Firewall F-Series https://www.barracuda.com/products/nextgenfirewall-f is a powerful, user-friendly appliance to protect and manage your network. As a Linux-based secu... |Linux |80 GB |
-| Barracuda Networks, Inc. |Barracuda Web Application Firewall 8.0.101101 |The Barracuda’s Web Application Firewall https://www.barracuda.com/products/webapplicationfirewall is a powerful, user-friendly appliance to protect your website from attack, protect your dat... |Linux |50 GB |
-| Bitnami |Ruby Stack 2.1 |Bitnami RubyStack greatly simplifies the development and deployment of Ruby on Rails applications. Ruby on Rails is a full-stack MVC framework for database-backed web applications that is optimized fo... |Linux |30 GB |
-| Bitnami |Ruby Stack 2.0 |Bitnami RubyStack greatly simplifies the development and deployment of Ruby on Rails applications. Ruby on Rails is a full-stack MVC framework for database-backed web applications that is optimized fo... |Linux |30 GB |
-| Bitnami |Nginx Stack 1.6 |Bitnami Nginx Stack provides a complete, fully-integrated and ready to run PHP, MySQL and Nginx development environment. In addition, it bundles phpMyAdmin, SQLite, ImageMagick, FastCGI, Memcache, GD,... |Linux |30 GB |
-| Bitnami |LAMP Stack 5.6 |Bitnami LAMPStack greatly simplifies the development and deployment of PHP applications. It includes ready-to-run versions of Apache, MySQL, PHP and phpMyAdmin and all of the other software required t... |Linux |30 GB |
-| Bitnami |LAMP Stack 5.4 |Bitnami LAMPStack greatly simplifies the development and deployment of PHP applications. It includes ready-to-run versions of Apache, MySQL, PHP and phpMyAdmin and all of the other software required t... |Linux |30 GB |
-| Bitnami |Drupal 8 |Drupal powered by Bitnami is a pre-configured, ready to run image for running Drupal on Microsoft Azure. Drupal is one of the most versatile open source content management systems on the market. Over ... |Linux |30 GB |
-| Bitnami |Drupal 7 |Drupal powered by Bitnami is a pre-configured, ready to run image for running Drupal on Microsoft Azure. Drupal is one of the most versatile open source content management systems on the market. Over ... |Linux |30 GB |
-| Bitnami |Drupal 6 |Drupal powered by Bitnami is a pre-configured, ready to run image for running Drupal on Microsoft Azure. Drupal is one of the most versatile open source content management systems on the market. Over ... |Linux |30 GB |
-| BizTalk |BizTalk Server 2016 Community Technology Preview 2 |Microsoft BizTalk Server 2016 Community Technology Preview 2 on Windows Server 2016 Technical Preview 4. This release focuses on a number of important improvements. Support for SQL Server 2016 AlwaysO... |Windows |128 GB |
-| Canonical |Ubuntu Server 12.04.5-LTS |Ubuntu Server 12.04.5-LTS (amd64 20160315) for Microsoft Azure. Ubuntu Server is the world's most popular Linux for cloud environments. Updates and patches for Ubuntu 12.04.5-LTS will be available unt... |Linux |30 GB |
-| Canonical |Ubuntu Server 14.04.4-LTS |Ubuntu Server 14.04.4-LTS (amd64 20160314) for Microsoft Azure. Ubuntu Server is the world's most popular Linux for cloud environments. Updates and patches for Ubuntu 14.04.4-LTS will be available unt... |Linux |30 GB |
-| Canonical |Ubuntu Server 16.04 LTS |Ubuntu Server 16.04 LTS (amd64 20160420.3) for Microsoft Azure. Ubuntu Server is the world's most popular Linux for cloud environments. Updates and patches for Ubuntu 16.04 LTS will be available until... |Linux |30 GB |
-| Check Point |Check Point vSec, R77.30-015052 |Check Point vSEC for Azure delivers a next generation firewall and security gateway. |Linux |50 GB |
-| Check Point |Check Point vSec, R77.30.022.105 |Check Point vSEC for Azure delivers a next generation firewall and security gateway. |Linux |50 GB |
-| CloudLink |CloudLink SecureVM 5.0 BYOL |Control, monitor and encrypt VMs with ease and confidence. CloudLink SecureVM by EMC unlocks native Windows BitLocker and Linux OS encryption features by providing policy-based key management and orche... |Linux |30 GB |
-| CloudLink |CloudLink SecureVM |CloudLink® SecureVM provides VM volume encryption and pre-boot authorization with VM image integrity validation, allowing you to control when and where your VMs boot. SecureVM unlocks native Windows B... |Linux |30 GB |
-| coreos |CoreOS Stable |The Stable channel should be used by production clusters. Versions of CoreOS are battle-tested within the Beta and Alpha channels before being promoted. |Linux |31 GB |
-| coreos |CoreOS Stable |The Stable channel should be used by production clusters. Versions of CoreOS are battle-tested within the Beta and Alpha channels before being promoted. |Linux |31 GB |
-| credativ |Debian 7 "Wheezy" |Debian 7 "Wheezy" (20160628.0) for Microsoft Azure. Debian GNU/Linux is one of the most popular Linux distributions. |Linux |30 GB |
-| credativ |Debian 8 "Jessie" |Debian 8 "Jessie" (20160628.0) for Microsoft Azure. Debian GNU/Linux is one of the most popular Linux distributions. |Linux |30 GB |
-| credativ |Debian 9 "Stretch" DAILY |Debian 9 "Stretch" (daily build 20160816.0) for Microsoft Azure. Debian GNU/Linux is one of the most popular Linux distributions. |Linux |30 GB |
-| Dynamics NAV |Microsoft Dynamics NAV 2016 on Windows Server 2012 R2 |Microsoft Dynamics NAV is a business solution from Microsoft that is quick to implement, easy to use, and that has the power to support your ambitions for your business. This image contains a pre-conf... |Windows |128 GB |
-| Esri |ArcGIS 10.3.1 for Server (Windows) |ArcGIS for Server, the world’s most versatile GIS server, puts you in complete control of your organization’s critical geospatial assets and data. |Windows |128 GB |
-| Microsoft Hybrid Cloud Storage Group |StorSimple Virtual Appliance 1100, May 2015 |Microsoft StorSimple Virtual Appliance 1100 |Windows |32 GB |
-| Microsoft Hybrid Cloud Storage Group |StorSimple Virtual Appliance 1100, July 2015 |Microsoft StorSimple Virtual Appliance 1100 |Windows |32 GB |
-| Microsoft Hybrid Cloud Storage Group |StorSimple Virtual Appliance 1100, October 2015 |Microsoft StorSimple Virtual Appliance 1100 |Windows |32 GB |
-| Microsoft Hybrid Cloud Storage Group |StorSimple Virtual Appliance GU2, Feb 2016 |Microsoft StorSimple Virtual Appliance GU2 |Windows |32 GB |
-| Microsoft Open Technologies, Inc. |Oracle WebLogic Server 11g Standard Edition on Windows Server 2008 R2 |Oracle WebLogic Server http://www.oracle.com/weblogicserver 11g Standard Edition (10.3.6) is a leading Java application server for enterprises of all sizes, providing developers with the tool... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2 |Oracle WebLogic Server http://www.oracle.com/weblogicserver 11g Enterprise Edition (10.3.6) is a leading Java application server for modern data centers. It takes full advantage of the latest... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle Database 12c Standard Edition on Windows Server 2012 |Oracle Database http://www.oracle.com/database 12c Standard Edition (12.1.0.1.0) is an affordable, full-featured data management solution that is ideal for midsize companies.  Minimum recomme... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle Database 12c and WebLogic Server 12c Standard Edition on Windows Server 2012 |Oracle Database http://www.oracle.com/database 12c Standard Edition (12.1.0.1.0) is an affordable, full-featured data management solution that is ideal for midsize companies. Oracle WebLogic... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle Database 12c and WebLogic Server 12c Enterprise Edition on Windows Server 2012 |Oracle Database http://www.oracle.com/database 12c Enterprise Edition (12.1.0.1.0) is a next-generation database designed for the cloud, providing a new multitenant architecture on top of a f... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle Database 12c Enterprise Edition on Windows Server 2012 |Oracle Database http://www.oracle.com/database 12c Enterprise Edition (12.1.0.1.0) is a next-generation database designed for the cloud, providing a new multitenant architecture on top of a f... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle WebLogic Server 12c Standard Edition on Windows Server 2012 |Oracle WebLogic Server http://www.oracle.com/weblogicserver 12c Standard Edition (12.1.2.0) is a leading Java EE application server, delivering next-generation applications on a mission-criti... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle Database 11g R2 Standard Edition on Windows Server 2008 R2 |Oracle Database http://www.oracle.com/database 11g R2 Standard Edition (11.2.0.4.0) is an affordable, full-featured data management solution that is ideal for midsize companies. Minimum recom... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle Database 11g R2 and WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2 |Oracle Database http://www.oracle.com/database 11g R2 Enterprise Edition (11.2.0.4.0) provides comprehensive features to easily manage the most demanding transaction processing, business inte... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle Database 11g R2 Enterprise Edition on Windows Server 2008 R2 |Oracle Database http://www.oracle.com/database 11g R2 Enterprise Edition (11.2.0.4.0) provides comprehensive features to easily manage the most demanding transaction processing, business inte... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |JDK 8 on Windows Server 2012 R2 |Java Platform http://www.oracle.com/java, Standard Edition 8 (update 25) enables development of secure, portable, high-performance applications and includes a Java Development Kit (JDK), Java... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |JDK 7 on Windows Server 2012 |Java Platform http://www.oracle.com/java, Standard Edition 7 (update 71) enables development of secure, portable, high-performance applications and includes a Java Development Kit (JDK), Java... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |JDK 6 on Windows Server 2012 |Java Platform http://www.oracle.com/java, Standard Edition 6 (update 85) enables development of secure, portable, high-performance applications and includes a Java Development Kit (JDK), Java... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle Database 11g R2 and WebLogic Server 11g Standard Edition on Windows Server 2008 R2 |Oracle Database http://www.oracle.com/database 11g R2 Standard Edition (11.2.0.4.0) is an affordable, full-featured data management solution that is ideal for midsize companies. Oracle WebLo... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle WebLogic Server 12c Enterprise Edition on Windows Server 2012 |Oracle WebLogic Server http://www.oracle.com/weblogicserver 12c Enterprise Edition (12.1.2.0) is a leading Java EE application server, delivering next-generation applications on a mission-cri... |Windows |128 GB |
-| Microsoft SQL Server Group |SQL Server 2012 SP2 Standard on Windows Server 2012 |Some SQL Server components require additional setup and configuration before use. We recommend that you use a virtual machine size of A2 or higher. This image has been pre-configured for Microsoft Azure... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2014 RTM Enterprise on Windows Server 2012 R2 |This image contains the full version of SQL Server. We recommend that you use a virtual machine size of A3 or higher. This image has been pre-configured for Microsoft Azure, including enabling CEIP whic... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2014 RTM Enterprise on Windows Server 2012 R2 |This image contains the full version of SQL Server. We recommend that you use a virtual machine size of A3 or higher. This image has been pre-configured for Microsoft Azure, including enabling CEIP whic... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2014 RTM Standard on Windows Server 2012 R2 |This image contains the full version of SQL Server. We recommend that you use a virtual machine size of A2 or higher. This image has been pre-configured for Microsoft Azure, including enabling CEIP whic... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2012 SP3 Standard on Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2012 SP3 Enterprise on Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2012 SP3 Express on Windows Server 2012 R2 |This image contains the Express with Tools version of SQL Server. This image does not charge for a SQL license and it is tailored for dev/test and micro workloads. This image has been pre-configured f... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2014 SP1 Web on Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2014 SP1 Express on Windows Server 2012 R2 |This image contains the Express with Tools version of SQL Server. This image does not charge for a SQL license and it is tailored for dev/test and micro workloads. This image has been pre-configured f... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2014 SP1 Standard on Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2014 RTM Standard on Windows Server 2012 R2 |This image contains the full version of SQL Server. We recommend that you use a virtual machine size of A2 or higher. This image has been pre-configured for Microsoft Azure, including enabling CEIP whic... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2016 RTM Developer Windows Server 2012 R2 |This image contains the Developer version of SQL Server 2016. This includes all the functionality of Enterprise edition, but it is licensed for development and testing only, not production. It include... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2016 RTM Express Windows Server 2012 R2 |This image contains the Express with Tools version of SQL Server. This image does not charge for a SQL license and it is tailored for dev/test and micro workloads. This image has been pre-configured f... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2016 RTM Standard on Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2016 RTM Web Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2012 SP2 Enterprise on Windows Server 2012 |This image contains the full version of SQL Server. Some SQL Server components require additional setup and configuration before use. We recommend that you use a virtual machine size of A3 or higher. ... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2012 SP3 Web on Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2016 RTM Enterprise on Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft Windows Server Group |Windows Server 2012 R2 Datacenter, June 2016 |At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 R2 Datacenter, April 2016 |At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 R2 Datacenter, February 2016 |At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 R2 Datacenter, January 2016 |At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2016 Technical Preview 5 - Nano Server |Nano Server is a new headless deployment option for Windows Server, running at a fraction of the size of the full operating system. This Technical Preview allows you to try Nano Server and find out ho... |Windows |8 GB |
-| Microsoft Windows Server Group |Windows Server 2012 R2 Datacenter, July 2016 |At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 R2 Datacenter, December 2015 |At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2008 R2 SP1, August 2016 |Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 Datacenter, July 2016 |Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 Datacenter, August 2016 |Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2016 with Containers Tech Preview 5 |Windows Server brings the breadth and depth of Microsoft's experience delivering global-scale cloud services to your datacenter infrastructure. Windows Server 2016 with Containers Technical Preview 5 ... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 R2 Datacenter, November 2015 |At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2008 R2 SP1, November 2015 |Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 Datacenter, April 2016 |Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 Datacenter, June 2016 |Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2016 Technical Preview 5 |Windows Server 2016 Technical Preview is an opportunity to experience the cloud-ready operating system that delivers new layers of security and Azure-inspired innovation for the applications and infra... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 R2 Datacenter, August 2016 |At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2008 R2 SP1, December 2015 |Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2008 R2 SP1, January 2016 |Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2008 R2 SP1, February 2016 |Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2008 R2 SP1, July 2016 |Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2008 R2 SP1, June 2016 |Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 Datacenter, November 2015 |Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 Datacenter, December 2015 |Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 Datacenter, January 2016 |Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2008 R2 SP1, April 2016 |Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 Datacenter, February 2016 |Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a... |Windows |128 GB |
-| OpenLogic |OpenLogic 6.7 |This distribution of Linux is based on CentOS version 6.7 and is provided by OpenLogic. It contains an installation of the Basic Server packages. |Linux |30 GB |
-| OpenLogic |OpenLogic 6.8 |This distribution of Linux is based on CentOS version 7.2 and is provided by OpenLogic. It contains an installation of the Basic Server packages. |Linux |30 GB |
-| OpenLogic |OpenLogic 7.2 |This distribution of Linux is based on CentOS version 7.2 and is provided by OpenLogic. It contains an installation of the Basic Server packages. |Linux |30 GB |
-| OpenLogic |OpenLogic 7.2 |This distribution of Linux is based on CentOS version 7.2 and is provided by OpenLogic. It contains an installation of the Basic Server packages. |Linux |30 GB |
-| OpenLogic |OpenLogic 7.2n |This distribution of Linux is based on CentOS version 7.2 and is provided by OpenLogic. It contains an installation of the Basic Server packages. This image is identical to the standard CentOS 7.2 ima... |Linux |30 GB |
-| Oracle |Oracle WebLogic Server 12.1.2 on Oracle Linux 6.4.0.0.0 |Oracle WebLogic Server 12c Enterprise Edition is a leading Java EE application server, delivering next-generation applications on a mission-critical cloud platform, with native cloud management, and i... |Linux |30 GB |
-| Oracle |Oracle Database 12.1.0.1 Standard Edition on Oracle Linux 6.4.0.0.0 |Oracle Database 12c Standard Edition is an affordable, full-featured data management solution that is ideal for midsize companies. More information can be found at http://www.oracle.com/database. |Linux |40 GB |
-| Oracle |Oracle Linux 7.0.0.0.0 |Oracle Linux 7.0.0.0 delivers extreme performance, advanced scalability, and reliability for enterprise applications and systems. Optimized for enterprise workloads, Oracle Linux is the only operating... |Linux |30 GB |
-| Oracle |Oracle Database 12.1.0.1 Enterprise Edition on Oracle Linux 6.4.0.0.0 |Oracle Database 12c Enterprise Edition is a next-generation database designed for the cloud, providing a new multitenant architecture on top of a fast, scalable, reliable, and secure database platform... |Linux |40 GB |
-| Remote Desktop Host |Windows Server Remote Desktop Session Host with Microsoft Office 365 ProPlus |This image contains the Windows Server 2012 R2 operating system with the Remote Desktop Session Host (RD Session Host) role installed along with Microsoft Office 365 ProPlus which has Shared Computer ... |Windows |127 GB |
-| Remote Desktop Host |Windows Server Remote Desktop Session Host on Windows Server 2012 R2 |This image contains the Windows Server 2012 R2 operating system with the Remote Desktop Session Host (RD Session Host) role installed. This image has been pre-configured for Microsoft Azure. RD Session ... |Windows |127 GB |
-| SharePoint |SharePoint Server 2016 Trial |Microsoft SharePoint Server 2016 Trial on Windows Server 2012 R2 Datacenter. Virtual Machines created with this trial image will expire on September 19, 2016. This image includes a complete installati... |Windows |128 GB |
-| SharePoint |SharePoint Server 2013 Trial |Microsoft SharePoint Server 2013 Trial on Windows Server 2012 Datacenter. Virtual Machines created with this trial image will expire on September 19, 2016. This image includes a complete installation ... |Windows |128 GB |
-| SUSE |SUSE Linux Enterprise Server 12 SP1 |Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n... |Linux |30 GB |
-| SUSE |SUSE Linux Enterprise Server 12 SP1 |Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n... |Linux |30 GB |
-| SUSE |SUSE Linux Enterprise Server 11 SP4 |Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n... |Linux |30 GB |
-| SUSE |openSUSE Leap 42.1 |Stable, innovative, and fun! A year's worth of continuous improvement in tools and procedures, and countless hours developing, packaging, and testing have produced a stable release providing the best ... |Linux |30 GB |
-| SUSE |SUSE Linux Enterprise Server 11 SP4 for SAP Cloud Appliance Library |The SUSE Linux Enterprise Server 11 SP4 for SAP Cloud Appliance Library image is the base image for SAP's Cloud Appliance library. It will be used automatically when deploying an SAP Cloud Appliance L... |Linux |30 GB |
-| SUSE |SUSE Linux Enterprise Server 12 SP1 |Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n... |Linux |30 GB |
-| SUSE |SUSE Linux Enterprise Server 11 SP4 |Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n... |Linux |30 GB |
-| SUSE |SUSE Linux Enterprise Server 11 SP4 |Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n... |Linux |30 GB |
-| Visual Studio |Team Foundation Server 2013 Update 4 on Windows Server 2012 R2 |Microsoft Team Foundation Server 2013 Trial on Windows Server 2012 R2 Update. Virtual Machines created with this trial image will require a product key for Team Foundation Server (such as from an MSDN... |Windows |128 GB |
-| Visual Studio |Visual Studio Community 2013 Update 5 with Tools for Apache Cordova CTP 3.2 on Windows Server 2012 R2 |This image provides Visual Studio Community 2013 Update 5, Azure Tools 2.8, and CTP 3.2 of the Tools for Apache Cordova running on Windows Server 2012 R2.  It allows you to easily and quickly set up a... |Windows |128 GBVisual Studio |
-| Visual Studio |Visual Studio Community 2015 with Azure SDK 2.9 on Windows Server 2012 R2 |Visual Studio Community 2015 is our free, full featured and extensible IDE for non-enterprise application development.  This image contains Windows Server 2012 R2 with Visual Studio Community 2015.  I... |Windows |128 GB |
-| Visual Studio |Visual Studio Community 2015 Update 2 with Azure SDK 2.9 on Windows Server 2012 R2 |Visual Studio Community 2015 Update 2 is our free, full featured and extensible IDE for non-enterprise application development. This image contains Windows Server 2012 R2 with Visual Studio Community... |Windows |128 GB |
-| Visual Studio |Visual Studio Enterprise 2015 with Azure SDK 2.9 on Windows Server 2012 R2 |With Visual Studio Enterprise you can create applications across devices and services, using a single solution with a consistent development experience.  You get the tools, you need to deliver desktop... |Windows |128 GB |
-| Visual Studio |Visual Studio Enterprise 2015 Update?3 with Azure SDK 2.9.1 on Windows Server 2012 R2 |With Visual Studio Enterprise 2015 Update 3 you can create applications across devices and services, using a single solution with a consistent development experience. ?You get the tools, you need to d... |Windows |128 GB |
-| Visual Studio |Visual Studio Community 2013 Update 5 with Azure 2.9 on Windows Server 2012 R2 |This image of Visual Studio Community 2013 Update 5 with Azure Tools 2.9 enables you to unleash the full power of Visual Studio to develop cross-platform solutions.  Create apps in one unified IDE, an... |Windows |128 GB |
-| Visual Studio |Visual Studio Enterprise 2015 Update 2 with Azure SDK 2.9 on Windows Server 2012 R2 |With Visual Studio Enterprise 2015 Update 2 you can create applications across devices and services, using a single solution with a consistent development experience.  You get the tools, you need to d... |Windows |128 GB |
+```powershell
+Connect-AzureRmAccount -Environment AzureUSGovernment
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged -->
+Get-AzureRmVMImagePublisher -Location USGovVirginia | `
+Get-AzureRmVMImageOffer | `
+Get-AzureRmVMImageSku
+```
+<!-- 
+Get-AzureRmVMImagePublisher -Location USGovVirginia | `
+Get-AzureRmVMImageOffer | `
+Get-AzureRmVMImageSku | `
+Select-Object @{Name="Entry";Expression={"| " + $_.PublisherName + " | " + $_.Offer +  " | " + $_.Skus + " |" }} | `
+Select-Object -ExpandProperty Entry | `
+Out-File vm-images.md
+-->
 
-## Quick Start Templates
-### Step 1
-Go to Azure Quickstart Templates GitHub Repository and select from the list of Solution Templates below:
+The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of December 11, 2018.
 
-| Quick Start Template |
-| --- |
-| <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/ethereum-consortium-blockchain-network"> Ethereum Consortium Blockchain Network </a> |
-| <a href="https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/splunk-on-ubuntu"> Splunk on Ubuntu </a> |
-| <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v"> Cisco CSR1000v (2 NIC) </a> |
-| <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-4-nic"> Cisco CSR1000v (4 NIC) </a> |
-| <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-existing-vnet-4-nic"> Cisco CSR1000v (4 NIC existing Vnet) </a> |
-
-### Step 2
-In the Readme file, launch the template by clicking on "Deploy to Azure Government" button/link at the top of the page.
-
-### Step 3
-A browser page will open the template deployment blade in the Azure Government portal. In the parameters blade, complete the required fields, and click "Okay."
-
-### Step 4
-Accept legal terms and conditions, and checkmark the “Pin to dashboard” box, then click create.
-
-> [!NOTE]
-> You will need a valid Azure Government Account in order to continue. To experience the power of Azure Government for your organization, sign up for an [Azure Government Trial](https://azuregov.microsoft.com/trial/azuregovtrial).
-> 
-> 
-
-### Step 5
-The blades will close and it will go back to your portal dashboard view showing the image deployment. This will take several minutes. Once the VM solution is running, it will show up in your dashboard. If you did not select the “Pin to dashboard” option in step 4, you will need to search for the VM in your Resources.
-
-> [!NOTE]
-> Solution templates are provided from Microsoft and third-party providers as a starting point only. You are solely responsible for developing, implementing, and managing your applications and/or subscriptions running on Microsoft Azure and Azure Government in compliance with applicable laws, regulations, and contractual obligations.  These templates are provided "AS-IS" and without any warranty of any kind, whether in express, implied or statutory, and Microsoft expressly disclaims all warranties of merchantability, fitness for a particular purpose, or non-infringement.
-> 
-> 
+|Publisher|Offer|SKU|
+| --- | --- | --- |
+| 128technology | 128t_networking_platform | 128t_networking_platform |
+| a10networks | a10-vthunder-adc | vthunder_410_byol |
+| a10networks | a10-vthunder-adc | vthunder_byol |
+| accessdata-group | adlab64-sw-cloud | 22000111 |
+| accessdata-group | adlab64-sw-cloud | 22000112 |
+| ACEPublishing | f5-big-ip | f5-bigip-virtual-edition-best-byol |
+| actifio | actifio-sky | actifio-global-manager |
+| actifio | actifio-sky | actifio-sky |
+| akumina | akumina-interchange | akam101 |
+| alertlogic | alert-logic-tm | 20215000100-tmpbyol |
+| alertlogic | alert-logic-wsm | 20216000100-wsmpbyl |
+| altamira-corporation | lumify | lumify |
+| arista-networks | veos-router | eos-4_21_0f |
+| asigra | asigra-on-azure | asigra-evaluation-vm |
+| aviatrix-systems | aviatrix-cloud-services | av-csg-byol |
+| aviatrix-systems | aviatrix-companion-gateway-v2 | aviatrix-companion-gateway-v2 |
+| barracudanetworks | barracuda-app-sec-control-center | byol |
+| barracudanetworks | barracuda-email-security-gateway | byol |
+| barracudanetworks | barracuda-email-security-gateway | hourly |
+| barracudanetworks | barracuda-message-archiver | byol |
+| barracudanetworks | barracuda-ng-cc | byol |
+| barracudanetworks | barracuda-ng-firewall | byol |
+| barracudanetworks | barracuda-ng-firewall | hourly |
+| barracudanetworks | barracuda-ng-firewall | private-barracuda-ng-firewall-hourly-teletracking1 |
+| barracudanetworks | barracuda-spam-firewall | byol |
+| barracudanetworks | waf | byol |
+| barracudanetworks | waf | hourly |
+| barracudanetworks | waf | private-waf-hourly-teletracking1 |
+| batch | rendering-centos73 | rendering |
+| batch | rendering-windows2016 | rendering |
+| beyondtrust | beyondinsight | uvm-azm |
+| bitnami | abantecart | 1-2 |
+| bitnami | activemq | 5-13 |
+| bitnami | activemq | default |
+| bitnami | akeneo | 1-4 |
+| bitnami | alfrescocommunity | 201602 |
+| bitnami | apachesolr | 5-5 |
+| bitnami | artifactory | 4-5 |
+| bitnami | canvaslms | 2016-02 |
+| bitnami | cassandra | 3-7 |
+| bitnami | cassandra | cassandra |
+| bitnami | cassandra | default |
+| bitnami | chyrp | 2-5 |
+| bitnami | civicrm | 4-7 |
+| bitnami | cmsmadesimple | 2-1 |
+| bitnami | codiad | 2-7 |
+| bitnami | concrete5 | 5-7 |
+| bitnami | consul | default |
+| bitnami | coppermine | 1-5 |
+| bitnami | couchdb | 1-6 |
+| bitnami | couchdb | couchdb |
+| bitnami | diaspora | 0-5 |
+| bitnami | discourse | 1-4 |
+| bitnami | djangostack | 1-8 |
+| bitnami | dokuwiki | 20150810a |
+| bitnami | dolibarr | 3-8 |
+| bitnami | dreamfactory | 2-1 |
+| bitnami | drupal | 8-0 |
+| bitnami | eclipseche | 4-4 |
+| bitnami | elastic-search | 2-2 |
+| bitnami | elk | 4-6 |
+| bitnami | erpnext | 6-21 |
+| bitnami | espocrm | 3-9 |
+| bitnami | etcd | default |
+| bitnami | exoplatform | 4 |
+| bitnami | exoplatformenterprise | 4-2 |
+| bitnami | ezpublish | 2014-11 |
+| bitnami | fatfreecrm | 0-13 |
+| bitnami | ghost | 0-7 |
+| bitnami | ghost | default |
+| bitnami | gitlab | 8-5 |
+| bitnami | grafana | default |
+| bitnami | hadoop | 2-7 |
+| bitnami | hadoop | default |
+| bitnami | hhvmstack | 3-9 |
+| bitnami | hordegroupwarewebmail | 5-2 |
+| bitnami | jasperreports | 6-2 |
+| bitnami | jbossas | 7-2 |
+| bitnami | jenkins | 1-650 |
+| bitnami | joomla | 3-5 |
+| bitnami | jrubystack | 9-0 |
+| bitnami | kafka | 0-1 |
+| bitnami | kafka | default |
+| bitnami | kafka | kafka |
+| bitnami | kong | default |
+| bitnami | kubernetessandbox | default |
+| bitnami | lampstack | 5-6 |
+| bitnami | lappstack | 5-6 |
+| bitnami | letschat | 0-4 |
+| bitnami | liferay | 6-2 |
+| bitnami | limesurvey | 20160228 |
+| bitnami | livehelperchat | 2-44v |
+| bitnami | magento | 2-0 |
+| bitnami | mahara | 15-10 |
+| bitnami | mantis | 1-2 |
+| bitnami | mariadb | default |
+| bitnami | mariadb | mariadb |
+| bitnami | mattermost | 3-6 |
+| bitnami | mautic | 1-2 |
+| bitnami | mean | 3-2 |
+| bitnami | mediawiki | 1-26 |
+| bitnami | memcached | 1-4 |
+| bitnami | memcached | default |
+| bitnami | memcached | memcached |
+| bitnami | modx | 2-4 |
+| bitnami | mongodb | 3-2 |
+| bitnami | mongodb | default |
+| bitnami | moodle | 3-0 |
+| bitnami | moodle | moodle-free-byol |
+| bitnami | multicraft | public |
+| bitnami | mybb | 1-8 |
+| bitnami | mysql | 5-6 |
+| bitnami | mysql | default |
+| bitnami | nats | default |
+| bitnami | neo4j | default |
+| bitnami | neos | 2-0 |
+| bitnami | nginxstack | 1-9 |
+| bitnami | noalyss | 6-9 |
+| bitnami | nodejs | 4-3 |
+| bitnami | ocportal | 9 |
+| bitnami | odoo | 9-0 |
+| bitnami | openatrium | 2-54 |
+| bitnami | opencart | 2-1 |
+| bitnami | openedx | cypress |
+| bitnami | openfire | 4 |
+| bitnami | openproject | 5-0 |
+| bitnami | orangehrm | 3-3 |
+| bitnami | orocrm | 1 |
+| bitnami | osclass | 3-6 |
+| bitnami | osqa | 1-0rc |
+| bitnami | owncloud | 8-2 |
+| bitnami | oxid-eshop | 4-9 |
+| bitnami | parseserver | 2-1 |
+| bitnami | parseserver | default |
+| bitnami | phabricator | 20160208 |
+| bitnami | phpbb | 3-1 |
+| bitnami | phplist | 3-2 |
+| bitnami | pimcore | 3-1 |
+| bitnami | piwik | 2-16 |
+| bitnami | plone | 5-0 |
+| bitnami | pootle | 2-7 |
+| bitnami | postgresql | 9-5 |
+| bitnami | postgresql | default |
+| bitnami | postgresql | postgresql |
+| bitnami | prestashop | 1-6-1 |
+| bitnami | processmakerenterprise | 3-1 |
+| bitnami | processmakeropensourceedition | 3-0 |
+| bitnami | processwire | 2-7 |
+| bitnami | publify | 8-2 |
+| bitnami | rabbitmq | 3-6 |
+| bitnami | rabbitmq | default |
+| bitnami | rabbitmq | rabbitmq |
+| bitnami | railo | 4-2 |
+| bitnami | redash | 0-10 |
+| bitnami | redis | 3-2 |
+| bitnami | redis | default |
+| bitnami | redis | redis |
+| bitnami | redmine | 3 |
+| bitnami | redmineplusagile | public |
+| bitnami | refinerycms | 2-1 |
+| bitnami | reportserver | 2-2 |
+| bitnami | reportserverenterprise | 3-0 |
+| bitnami | resourcespace | 7-5 |
+| bitnami | reviewboard | 2-5 |
+| bitnami | reviewboardpowerpack | public |
+| bitnami | roundcube | 1-1 |
+| bitnami | rubystack | 2-0 |
+| bitnami | seopanel | 3-8 |
+| bitnami | shopware | default |
+| bitnami | silverstripe | 3-2 |
+| bitnami | simpleinvoices | 2013-1 |
+| bitnami | simplemachinesforum | 2-0 |
+| bitnami | sonarqube | 6-4 |
+| bitnami | spree | 3-0 |
+| bitnami | squash | 20151209 |
+| bitnami | subversion | 1-8 |
+| bitnami | suitecrm | 7-4 |
+| bitnami | tensorflowserving | default |
+| bitnami | testlink | 1-9 |
+| bitnami | tikiwikicmsgroupware | 14-2 |
+| bitnami | tinytinyrss | 20160220 |
+| bitnami | tom-cat | 7-0 |
+| bitnami | trac | 1-0 |
+| bitnami | typo3 | 7-6 |
+| bitnami | weblate | 2-4 |
+| bitnami | webmailpro | public |
+| bitnami | wildfly | 10-0 |
+| bitnami | wordpress | 4-4 |
+| bitnami | wordpress-multisite | 4 |
+| bitnami | wordpresspro | default |
+| bitnami | x2enginesalescrm | 5-5 |
+| bitnami | xoops | 2-5 |
+| bitnami | youtrack | 7-0 |
+| bitnami | zookeeper | default |
+| bitnami | zurmo | 3-1 |
+| bocada | bocada106 | bocada110 |
+| Canonical | UbuntuServer | 12.04.5-LTS |
+| Canonical | UbuntuServer | 14.04.4-LTS |
+| Canonical | UbuntuServer | 14.04.5-LTS |
+| Canonical | UbuntuServer | 16.04-LTS |
+| Canonical | UbuntuServer | 16.04.0-LTS |
+| Canonical | UbuntuServer | 16.10 |
+| Canonical | UbuntuServer | 17.10 |
+| Canonical | UbuntuServer | 18.04-LTS |
+| center-for-internet-security-inc | cis-centos-6-v2-0-2-l1 | cis-centos-6-l1 |
+| center-for-internet-security-inc | cis-centos-7-v2-1-1-l1 | cis-centos7-l1 |
+| center-for-internet-security-inc | cis-oracle-linux-6-v1-0-0-l1 | cis-oralce-6-l1 |
+| center-for-internet-security-inc | cis-oracle-linux-7-v2-0-0-l1 | cis-oracle7-l1 |
+| center-for-internet-security-inc | cis-rhel-6-v2-0-2-l1 | cis-rhel6-l1 |
+| center-for-internet-security-inc | cis-rhel-7-v2-2-0-l1 | cis-rhel7-l1 |
+| center-for-internet-security-inc | cis-suse-linux-11-v2-0-0-l1 | cis-suse11-l1 |
+| center-for-internet-security-inc | cis-suse-linux-12-v2-0-0-l1 | cis-suse12-l1 |
+| center-for-internet-security-inc | cis-ubuntu-linux-1404-v2-0-0-l1 | cis-ubuntu1404-l1 |
+| center-for-internet-security-inc | cis-ubuntu-linux-1604-v1-0-0-l1 | cis-ubuntu1604-l1 |
+| center-for-internet-security-inc | cis-ubuntu-linux-1804-l1 | cis-ubuntu1804-l1 |
+| center-for-internet-security-inc | cis-windows-server-2008-r2-v3-0-1-l1 | cis-ws2008-r2-l1 |
+| center-for-internet-security-inc | cis-windows-server-2008-r2-v3-0-1-l2- | cis-ws2008-r2-l2 |
+| center-for-internet-security-inc | cis-windows-server-2012-r2-v2-2-1-l1 | cis-ws2012-r2-l1 |
+| center-for-internet-security-inc | cis-windows-server-2012-r2-v2-2-1-l2 | cis-ws2012-r2-l2 |
+| center-for-internet-security-inc | cis-windows-server-2012-v2-0-1-l1 | cis-ws2012-l1 |
+| center-for-internet-security-inc | cis-windows-server-2012-v2-0-1-l2 | cis-ws2012-l2 |
+| center-for-internet-security-inc | cis-windows-server-2016-v1-0-0-l1 | cis-ws2016-l1 |
+| center-for-internet-security-inc | cis-windows-server-2016-v1-0-0-l2 | cis-ws2016-l2 |
+| checkpoint | check-point-cg-r8020-blink | mgmt-byol |
+| checkpoint | check-point-r77-10 | SG-BYOL |
+| checkpoint | check-point-vsec-r80 | sg-byol |
+| checkpoint | check-point-vsec-r80-blink | sg-byol |
+| checkpoint | sg2 | sg-byol2 |
+| chef-software | chef-automate-vm-image | byol |
+| cisco | cisco-asav | asav-azure-byol |
+| cisco | cisco-csr-1000v | 16_4 |
+| cisco | cisco-csr-1000v | 16_5 |
+| cisco | cisco-csr-1000v | 16_6 |
+| cisco | cisco-csr-1000v | 16_7 |
+| cisco | cisco-csr-1000v | 16_9-byol |
+| cisco | cisco-csr-1000v | 3_16 |
+| cisco | cisco-csr-1000v | csr-azure-byol |
+| cisco | cisco-ftdv | ftdv-azure-byol |
+| cisco | cisco-meraki-vmx100 | vmx100 |
+| cisco | cisco_cloud_vedge_17_2_4 | cisco_vedge_azurecloud_18_2_0 |
+| cisco | cisco_cloud_vedge_17_2_4 | cisco_vedge_azurecloud_18_3_0 |
+| citrix | netscaler-sd-wan | netscalersd-wanstandardedition |
+| citrix | netscalervpx-120 | netscalerbyol |
+| citrix | netscalervpx-121 | netscalerbyol |
+| citrix | netscalervpx110-6531 | netscalerbyol |
+| citrix | netscalervpx111 | netscalerbyol |
+| citrix | xenapp-server | coldfireserver |
+| citrix | xenapp-vda-rdsh | coldfirerdsh |
+| citrix | xenapp-vda-rdsh | server2016rdsh |
+| citrix | xenapp-vda-vdi | coldfirevdi |
+| citrix | xenapp-vda-vdi | server2016vdi |
+| clouber | cws | cuber |
+| cloud-checkr | cloudcheckr-gov | cloudcheckr-gov |
+| cloudera | cloudera-centos-6 | cloudera-centos-6 |
+| cloudera | cloudera-centos-os | 6_7 |
+| cloudera | cloudera-centos-os | 6_8 |
+| cloudera | cloudera-centos-os | 7_2 |
+| cloudera | cloudera-centos-os | 7_4 |
+| cloudera | cloudera-centos-os | 7_5 |
+| cloudlink | cloudlink-securevm | cloudlink-securevm-67-byol |
+| codelathe | codelathe-filecloud-ubuntu | filecloud_ubuntu_byol |
+| codelathe | codelathe-filecloud-win2012r2 | filecloud_byol |
+| codelathe | filecloud-efss-windows2016 | filecloud_windows2016 |
+| cognosys | 1-click-secured-joomla-on-ubuntu-1604-lts | 1-click-secured-joomla-on-ubuntu-1604-lts |
+| cognosys | 1-click-secured-joomla-on-ubuntu-1804-lts | 1-click-secured-joomla-on-ubuntu-18-04-lts |
+| cognosys | centos-7-4 | hardened-centos-7-4 |
+| cognosys | centos-7-5 | hardened-centos-7-5 |
+| cognosys | sql-server-2007-web-win2016-debug-utilities | sql-server-2017-web-win2016-debug-utilities |
+| cognosys | sql-server-2016-sp1-ent-win2016-debug-utilities | sql-server-2016-sp1-ent-win2016-debug-utilities |
+| cognosys | sql-server-2016-sp1-std-win2016-debug-utilities | sql-server-2016-sp1-std-win2016-debug-utilities |
+| cognosys | sql-server-2016-sp1-web-win2016-debug-utilities | sql-server-2016-sp1-web-win2016-debug-utilities |
+| cognosys | sql-server-2016-sp2-ent-win2016-debug-utilities | sql-server-2016-sp2-ent-win2016-debug-utilities |
+| cognosys | sql-server-2016-sp2-std-win2016-debug-utilities | sql-server-2016-sp2-std-win2016-debug-utilities |
+| cognosys | sql-server-2016-sp2-web-winser2016-debug-utilities | sql-server-2016-sp2-web-win2016-debug-utilities |
+| cognosys | sql-server-2017-std-win2016-utils | sql-server-2017-std-win2016-utils |
+| cognosys | sql-server-2017-win2016-debug-utilities | sql-server-2017-ent-win2016-debug-utilities |
+| cognosys | suse15 | suse-15-hardened |
+| cognosys | ubuntu-18-04 | ubuntu-18-04-hardened |
+| cognosys | ubuntu-18-04-lts | hardened-ubuntu-18-04-lts |
+| cohesive | vns3_4x_network_security | cohesive-vns3-4x-byol |
+| commvault | commvault | commvaulttrial |
+| commvault | commvault | vspallinone |
+| composable | composable | composable-govt |
+| connecting-software | cb-replicator-byol | cbrep-gov-byol |
+| CoreOS | CoreOS | Stable |
+| couchbase | couchbase-server-enterprise | byol |
+| couchbase | couchbase-sync-gateway-enterprise | byol |
+| credativ | Debian | 7 |
+| credativ | Debian | 8 |
+| credativ | Debian | 8-backports |
+| credativ | Debian | 9 |
+| credativ | Debian | 9-beta |
+| credativ | debian-test | sid |
+| datastax | datastax-enterprise | datastaxenterprise |
+| dellemc | dell-emc-avamar-virtual-edition | avamar-virtual-edition-1810 |
+| dellemc | dell-emc-avamar-virtual-edition | avamar-virtual-edition-751 |
+| dellemc | dell-emc-datadomain-virtual-edition | ddve-31-ver-060100 |
+| dellemc | dell-emc-datadomain-virtual-edition | ddve-31-ver-060101 |
+| dellemc | dell-emc-networker-virtual-edition | networker-virtual-edition-181 |
+| dell_software | uccs | uccs |
+| delphix | delphix_dynamic_data_platform | dynamic_data_platform_for_azure_5-1-8-0 |
+| derdack | enterprisealert | enterprisealert-2017-datacenter-10cal |
+| derdack | enterprisealert | enterprisealert-2017-datacenter-15cal |
+| derdack | enterprisealert | enterprisealert-2017-datacenter-20cal |
+| derdack | enterprisealert | enterprisealert-2017-datacenter-25cal |
+| derdack | enterprisealert | enterprisealert-2017-datacenter-50cal |
+| derdack | enterprisealert | enterprisealert-2017-datacenter-byol |
+| docker | docker-ee | docker-ee |
+| docker | docker4azure-cs | docker4azure-cs-1_12 |
+| docker | docker4azure-cs | docker4azure-cs-1_1x |
+| dynatrace | ruxit-managed-vm | byol-managed |
+| enterprise-ethereum-alliance | quorum-demo | quorum-demo |
+| esri | arcgis-10-4-for-server | cloud |
+| esri | arcgis-desktop | desktop-byol-106 |
+| esri | arcgis-desktop | desktop-byol-1061 |
+| esri | arcgis-enterprise | byol |
+| esri | arcgis-enterprise | byol-1051 |
+| esri | arcgis-enterprise-106 | byol-106 |
+| esri | arcgis-enterprise-106 | byol-1061 |
+| esri | arcgis-for-server | cloud |
+| eventtracker | eventtracker-siem | etlm |
+| eventtracker | eventtracker-siem | etsc |
+| f5-networks | f5-big-ip-adc | f5-bigip-virtual-edition-better-byol |
+| f5-networks | f5-big-ip-adc | f5-bigip-virtual-edition-good-byol |
+| f5-networks | f5-big-ip-advanced-waf | f5-bigip-virtual-edition-1g-waf-hourly |
+| f5-networks | f5-big-ip-advanced-waf | f5-bigip-virtual-edition-200m-waf-hourly |
+| f5-networks | f5-big-ip-advanced-waf | f5-bigip-virtual-edition-25m-waf-hourly |
+| f5-networks | f5-big-ip-best | f5-bigip-virtual-edition-1g-best-hourly |
+| f5-networks | f5-big-ip-best | f5-bigip-virtual-edition-200m-best-hourly |
+| f5-networks | f5-big-ip-best | f5-bigip-virtual-edition-25m-best-hourly |
+| f5-networks | f5-big-ip-better | f5-bigip-virtual-edition-1g-better-hourly |
+| f5-networks | f5-big-ip-better | f5-bigip-virtual-edition-200m-better-hourly |
+| f5-networks | f5-big-ip-better | f5-bigip-virtual-edition-25m-better-hourly |
+| f5-networks | f5-big-ip-byol | f5-big-all-1slot-byol |
+| f5-networks | f5-big-ip-byol | f5-big-all-2slot-byol |
+| f5-networks | f5-big-ip-byol | f5-big-ltm-1slot-byol |
+| f5-networks | f5-big-ip-byol | f5-big-ltm-2slot-byol |
+| f5-networks | f5-big-ip-good | f5-bigip-virtual-edition-1g-good-hourly |
+| f5-networks | f5-big-ip-good | f5-bigip-virtual-edition-200m-good-hourly |
+| f5-networks | f5-big-ip-good | f5-bigip-virtual-edition-25m-good-hourly |
+| f5-networks | f5-big-ip-per-app-ve | f5-big-ip-per-app-ve-awf-200m-hourly |
+| f5-networks | f5-big-ip-per-app-ve | f5-big-ip-per-app-ve-awf-25m-hourly |
+| f5-networks | f5-big-ip-per-app-ve | f5-big-ip-per-app-ve-ltm-200m-hourly |
+| f5-networks | f5-big-ip-per-app-ve | f5-big-ip-per-app-ve-ltm-25m-hourly |
+| f5-networks | f5-big-iq | f5-bigiq-virtual-edition-byol |
+| flashgrid-inc | flashgrid-racnode | fg-1709-ol |
+| flashgrid-inc | flashgrid-racnode | fg-1709-ol-mc |
+| flashgrid-inc | flashgrid-racnode | fg-1709-rh |
+| flashgrid-inc | flashgrid-racnode | fg-1709-rh-mc |
+| flashgrid-inc | flashgrid-racnode | fg-ol7-priv-byol |
+| flashgrid-inc | flashgrid-racnode | fg-rh7-priv-byol |
+| flashgrid-inc | flashgrid-skycluster | skycluster-ol |
+| flashgrid-inc | flashgrid-skycluster | skycluster-ol-priv-byol |
+| flashgrid-inc | flashgrid-skycluster | skycluster-rh |
+| flashgrid-inc | flashgrid-skycluster | skycluster-rh-priv-byol |
+| fortinet | fortinet-fortianalyzer | fortinet-fortianalyzer |
+| fortinet | fortinet-fortimanager | fortinet-fortimanager |
+| fortinet | fortinet_fortigate-vm_v5 | fortinet_fg-vm |
+| fortinet | fortinet_fortimail | fortinet_fortimail |
+| fortinet | fortinet_fortiweb-vm_v5 | fortinet_fw-vm |
+| gigamon-inc | gigamon-fm-5_3_01 | gfm-azure |
+| gigamon-inc | gigamon-fm-5_4_00 | gfm-azure |
+| gigamon-inc | gigamon-fm-5_4_00 | gvtap-cntlr |
+| gigamon-inc | gigamon-fm-5_4_00 | vseries-cntlr |
+| gigamon-inc | gigamon-fm-5_4_00 | vseries-node |
+| gigamon-inc | gigamon-fm-5_4_00_hourly | gfm-azure-hourly |
+| gigamon-inc | gigamon-fm-5_5_00 | gfm-azure |
+| gigamon-inc | gigamon-fm-5_5_00 | gvtap-cntlr |
+| gigamon-inc | gigamon-fm-5_5_00 | vseries-cntlr |
+| gigamon-inc | gigamon-fm-5_5_00 | vseries-node |
+| gigamon-inc | gigamon-fm-5_5_00_hourly | gfm-azure-hourly |
+| GitHub | GitHub-Enterprise | GitHub-Enterprise |
+| hanu | hanu-insightv2 | hanu-insight-v2-enterprise-byol |
+| hanu | hanu-insightv2 | hanu-insight-v2-standard-byol |
+| ibm | ibm-security-guardium-multi-cloud | ibm-security-guardium-aggregator |
+| ibm | ibm-security-guardium-multi-cloud | ibm-security-guardium-collector |
+| infoblox | infoblox-vnios-te-v1420 | vnios-cp-v1400 |
+| infoblox | infoblox-vnios-te-v1420 | vnios-cp-v2200 |
+| infoblox | infoblox-vnios-te-v1420 | vnios-cp-v800 |
+| infoblox | infoblox-vnios-te-v1420 | vnios-te-v1420 |
+| infoblox | infoblox-vnios-te-v1420 | vnios-te-v2220 |
+| infoblox | infoblox-vnios-te-v1420 | vnios-te-v820 |
+| infoblox | infoblox-vnios-te-v1420 | vsot |
+| informatica | big-data-management-10-2-1 | informatica-big-data-management-v-10-2-1 |
+| informatica | platform_10_2_hf1_domain_rhel-7-3_byol | byol_rhel_platform_10_2_hf1 |
+| informatica | platform_10_2_hf1_domain_windows_byol | byol_win_platform_10_2_hf1 |
+| isvtestuklegacy | test_test_111920181025-003 | isvtestuklegacyvm003 |
+| isvtestuklegacy | test_test_111920181130-004 | isvtestuklegacyvm004 |
+| isvtestuklegacy | test_test_111920181210-005 | isvtestuklegacyvm005 |
+| jamcracker | 4632d5b4-feb0-4332-8452-f2e66133672f | jamcracker_cloud_control_appliance_version5 |
+| jamcracker | jamcracker-cloudanalytics | jamcracker-cloudanalytics-version6_1 |
+| jamcracker | jamcracker-cloudanalytics-version4 | jamcracker-cloud-analytics-version4 |
+| jamcracker | jamcracker-cloudanalytics-version5 | jamcracker-cloudanalytics-version5 |
+| jamcracker | jamcracker-csb-service-provider | jc-csbsp-version5 |
+| jamcracker | jamcracker-csb-serviceprovider | jc-csbsp-version5 |
+| jamcracker | jamcracker-csb-serviceprovider | jc-csbsp-version6-1 |
+| jamcracker | jamcracker-csb-standard | jamcracker-csb-standard-version-6-1 |
+| jamcracker | jamcracker-csb-standard | jamcracker-csb-standard-version5 |
+| jamcracker | jamcracker-csb-standard-v3 | jamcracker-csb-standard-v3 |
+| jamcracker | jamcracker-csb-standard-version4 | jamcracker-csb-standard-version4 |
+| jamcracker | jamcracker-hybrid-cloud-management-version4 | jamcracker-hybrid-cloud-management-version4 |
+| jamcracker | jamcracker_cloud_control_appliance_version4 | jamcracker-cloud-control-appliance-version4 |
+| jamcracker | jsdnapp_csb_serviceprovider-version4 | jc-csbsp-version4 |
+| jamcracker | jsdnapp_hybrid | jamcracker-hybrid-cloud-management-version6-1 |
+| jamcracker | jsdnapp_hybrid_v3 | jamcracker-hybrid-cloud-management-version5 |
+| juniper-networks | vmx-services-gateway-byol | vmx-services-gateway-byol |
+| juniper-networks | vsrx-next-generation-firewall | vsrx-byol-azure-image |
+| juniper-networks | vsrx-next-generation-firewall-solution-template | vsrx-byol-azure-image-solution-template |
+| kali-linux | kali-linux | kali |
+| kemptech | kemp360central-byol | kemp360central-byol |
+| kemptech | kemp360central-byol | kemp360central-spla |
+| kemptech | vlm-azure | basic-byol |
+| kemptech | vlm-azure | freeloadmaster |
+| kemptech | vlm-azure | vlm-byol-lts |
+| kemptech | vlm-azure | vlm-spla |
+| kemptech | vlm-azure | vlm-spla-lts |
+| liebsoft | enterprise_random_password_manager | redim5521 |
+| mapr-technologies | mapr52-base-dev | 5202 |
+| marklogic | marklogic-9-byol | ml9031_centos_byol |
+| marklogic | marklogic-developer-9 | ml9031_centos |
+| mico | mobile-impact-platform | mipvm |
+| microsoft-ads | linux-data-science-vm-ubuntu | linuxdsvmubuntubyol |
+| microsoft-ads | windows-data-science-vm | windows2016byol |
+| microsoft-avere | vfxt | avere-vfxt-controller |
+| microsoft-avere | vfxt | avere-vfxt-node |
+| microsoft-azure-batch | centos-container | 7-5 |
+| microsoft-azure-batch | centos-container-rdma | 7-4 |
+| microsoft-azure-batch | ubuntu-server-container | 16-04-lts |
+| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts |
+| microsoft-dsvm | azureml | runtime |
+| microsoft-dsvm | dsvm-windows | server-2016 |
+| microsoft-dsvm | linux-data-science-vm-ubuntu | linuxdsvmubuntu |
+| microsoft-hyperv | rs5_preview | 2019-datacenter |
+| MicrosoftAzureSiteRecovery | Process-Server | Windows-2012-R2-Datacenter |
+| MicrosoftHybridCloudStorage | StorSimple | StorSimple-Garda-8000-Series |
+| MicrosoftHybridCloudStorage | StorSimple | StorSimple-Garda-8000-Series-BBUpdate |
+| MicrosoftHybridCloudStorage | StorSimpleVA | StorSimpleUpdate3RC |
+| MicrosoftOSTC | FreeBSD | 10.3 |
+| MicrosoftOSTC | FreeBSD | 11 |
+| MicrosoftOSTC | FreeBSD | 11.0 |
+| MicrosoftRServer | MLServer-CentOS | Enterprise |
+| MicrosoftRServer | MLServer-RedHat | Enterprise |
+| MicrosoftRServer | MLServer-Ubuntu | Enterprise |
+| MicrosoftRServer | MLServer-WS2016 | Enterprise |
+| MicrosoftRServer | RServer-CentOS | Enterprise |
+| MicrosoftRServer | RServer-RedHat | Enterprise |
+| MicrosoftRServer | RServer-Ubuntu | Enterprise |
+| MicrosoftRServer | RServer-WS2016 | Enterprise |
+| MicrosoftSharePoint | MicrosoftSharePointServer | 2016 |
+| MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Enterprise |
+| MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Express |
+| MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Standard |
+| MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Web |
+| MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Enterprise |
+| MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Express |
+| MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Standard |
+| MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Web |
+| MicrosoftSQLServer | SQL2012SP3-WS2012R2-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2012SP3-WS2012R2-BYOL | Standard |
+| MicrosoftSQLServer | SQL2012SP4-WS2012R2 | Enterprise |
+| MicrosoftSQLServer | SQL2012SP4-WS2012R2 | Express |
+| MicrosoftSQLServer | SQL2012SP4-WS2012R2 | Standard |
+| MicrosoftSQLServer | SQL2012SP4-WS2012R2 | Web |
+| MicrosoftSQLServer | SQL2012SP4-WS2012R2-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2012SP4-WS2012R2-BYOL | Standard |
+| MicrosoftSQLServer | SQL2014SP1-WS2012R2 | Enterprise |
+| MicrosoftSQLServer | SQL2014SP1-WS2012R2 | Express |
+| MicrosoftSQLServer | SQL2014SP1-WS2012R2 | Standard |
+| MicrosoftSQLServer | SQL2014SP1-WS2012R2 | Web |
+| MicrosoftSQLServer | SQL2014SP1-WS2012R2-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2014SP1-WS2012R2-BYOL | Standard |
+| MicrosoftSQLServer | SQL2014SP2-WS2012R2 | Enterprise |
+| MicrosoftSQLServer | SQL2014SP2-WS2012R2 | Express |
+| MicrosoftSQLServer | SQL2014SP2-WS2012R2 | Standard |
+| MicrosoftSQLServer | SQL2014SP2-WS2012R2 | Web |
+| MicrosoftSQLServer | SQL2014SP2-WS2012R2-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2014SP2-WS2012R2-BYOL | Standard |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2 | enterprise |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2 | enterprise-byol |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2 | express |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2 | sqldev |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2 | standard |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2 | standard-byol |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2 | web |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2-byol | enterprise |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2-byol | standard |
+| MicrosoftSQLServer | SQL2016-WS2012R2 | Enterprise |
+| MicrosoftSQLServer | SQL2016-WS2012R2 | Express |
+| MicrosoftSQLServer | SQL2016-WS2012R2 | SQLDEV |
+| MicrosoftSQLServer | SQL2016-WS2012R2 | Standard |
+| MicrosoftSQLServer | SQL2016-WS2012R2 | Web |
+| MicrosoftSQLServer | SQL2016-WS2012R2-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2016-WS2012R2-BYOL | Standard |
+| MicrosoftSQLServer | SQL2016-WS2016 | Enterprise |
+| MicrosoftSQLServer | SQL2016-WS2016 | SQLDEV |
+| MicrosoftSQLServer | SQL2016-WS2016 | Standard |
+| MicrosoftSQLServer | SQL2016-WS2016 | Web |
+| MicrosoftSQLServer | SQL2016-WS2016-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2016-WS2016-BYOL | Standard |
+| MicrosoftSQLServer | SQL2016SP1-WS2016 | Enterprise |
+| MicrosoftSQLServer | SQL2016SP1-WS2016 | Express |
+| MicrosoftSQLServer | SQL2016SP1-WS2016 | SQLDEV |
+| MicrosoftSQLServer | SQL2016SP1-WS2016 | Standard |
+| MicrosoftSQLServer | SQL2016SP1-WS2016 | Web |
+| MicrosoftSQLServer | SQL2016SP1-WS2016-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2016SP1-WS2016-BYOL | Standard |
+| MicrosoftSQLServer | SQL2016SP2-WS2016 | Enterprise |
+| MicrosoftSQLServer | SQL2016SP2-WS2016 | Express |
+| MicrosoftSQLServer | SQL2016SP2-WS2016 | SQLDEV |
+| MicrosoftSQLServer | SQL2016SP2-WS2016 | Standard |
+| MicrosoftSQLServer | SQL2016SP2-WS2016 | Web |
+| MicrosoftSQLServer | SQL2016SP2-WS2016-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2016SP2-WS2016-BYOL | Standard |
+| MicrosoftSQLServer | SQL2017-RHEL73 | Evaluation |
+| MicrosoftSQLServer | sql2017-ubuntu1604 | SQLDEV |
+| MicrosoftSQLServer | SQL2017-WS2016 | Enterprise |
+| MicrosoftSQLServer | SQL2017-WS2016 | Express |
+| MicrosoftSQLServer | SQL2017-WS2016 | SQLDEV |
+| MicrosoftSQLServer | SQL2017-WS2016 | Standard |
+| MicrosoftSQLServer | SQL2017-WS2016 | Web |
+| MicrosoftSQLServer | SQL2017-WS2016-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2017-WS2016-BYOL | Standard |
+| MicrosoftSQLServer | sql2019-rhel7 | SQLDEV |
+| MicrosoftSQLServer | SQL2019-WS2016 | SQLDEV |
+| MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-VSU3-AzureSDK-29-WS2012R2 |
+| MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-VSU3-AzureSDK-291-WS2012R2 |
+| MicrosoftVisualStudio | VisualStudio | VS-2015-Ent-VSU3-AzureSDK-29-WS2012R2 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-Latest-Preview-WS2016 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-Latest-WS2016 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-WS2016 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-Latest-Preview-WS2016 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-Latest-WS2016 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-WS2016 |
+| MicrosoftVisualStudio | VisualStudio | vs-2019-preview-ws2016 |
+| MicrosoftWindowsDesktop | Test-offer-legacy-id | RS3-Pro |
+| MicrosoftWindowsDesktop | Windows-10 | RS2-Pro |
+| MicrosoftWindowsDesktop | Windows-10 | RS2-ProN |
+| MicrosoftWindowsDesktop | Windows-10 | RS3-Pro |
+| MicrosoftWindowsDesktop | Windows-10 | rs3-pro-test |
+| MicrosoftWindowsDesktop | Windows-10 | RS3-ProN |
+| MicrosoftWindowsDesktop | Windows-10 | rs4-pro |
+| MicrosoftWindowsDesktop | Windows-10 | rs4-pron |
+| MicrosoftWindowsDesktop | Windows-10 | rs5-pro |
+| MicrosoftWindowsDesktop | Windows-10 | rs5-pron |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-zhcn |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-zhcn |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-zhcn |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-Server-Core |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-Server-Core-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-RDSH |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-zhcn |
+| MicrosoftWindowsServer | WindowsServer | 2016-Nano-Server |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-Core |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-Core-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-Core-with-Containers |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-Core-with-Containers-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-with-Containers |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-with-Containers-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-zhcn |
+| MicrosoftWindowsServer | WindowsServer-HUB | 2008-R2-SP1-HUB |
+| MicrosoftWindowsServer | WindowsServer-HUB | 2012-Datacenter-HUB |
+| MicrosoftWindowsServer | WindowsServer-HUB | 2012-R2-Datacenter-HUB |
+| MicrosoftWindowsServer | WindowsServer-HUB | 2016-Datacenter-HUB |
+| MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1709-smalldisk |
+| MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1709-with-Containers-smalldisk |
+| MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1803-with-Containers-smalldisk |
+| MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1809-with-Containers-smalldisk |
+| MicrosoftWindowsServerRemoteDesktop | WindowsServer | RDSH-Office365P |
+| MicrosoftWindowsServerRemoteDesktop | WindowsServer | Remote-Desktop-Session-Host |
+| modern-systems | modpaas | ms_modpaas_01 |
+| nasuni | nasuni-nmc | nasuni_nmc_7_10_6_prod |
+| nasuni | nasuni_edge_appliance | nasuni_edge_appliance_7_10_6_prod |
+| netapp | netapp-oncommand-cloud-manager | occm-byol |
+| netapp | netapp-ontap-cloud | ontap_cloud_byol |
+| netapp | netapp-ontap-cloud | ontap_cloud_byol_ha |
+| netapp | netapp-ontap-cloud | private_40_standard_premium |
+| noobaa | noobaa-hybrid-s3-archive-05 | pay-per-usage |
+| nubeva-inc | controller | byol |
+| nuxeo | nuxeo-6-lts | nuxeo-6-lts |
+| onyx-point-inc | op-bnf-v1 | bnfcv1 |
+| onyx-point-inc | op-bnf1_6-v1 | bnf1_6cv1 |
+| onyx-point-inc | op-dfi-v1 | dfiv1 |
+| onyx-point-inc | op-scc-v1 | op-scc-v1 |
+| onyx-point-inc | op_simp_6_1 | op_simp_6_1 |
+| OpenLogic | CentOS | 6.10 |
+| OpenLogic | CentOS | 6.7 |
+| OpenLogic | CentOS | 6.8 |
+| OpenLogic | CentOS | 6.9 |
+| OpenLogic | CentOS | 7.2 |
+| OpenLogic | CentOS | 7.2n |
+| OpenLogic | CentOS | 7.3 |
+| OpenLogic | CentOS | 7.4 |
+| OpenLogic | CentOS | 7.5 |
+| OpenLogic | CentOS-CI | 7-CI |
+| OpenLogic | CentOS-HPC | 6.8 |
+| OpenLogic | CentOS-HPC | 7.1 |
+| OpenLogic | CentOS-HPC | 7.4 |
+| OpenLogic | CentOS-LVM | 7-LVM |
+| opentext | opentext-content-server-16 | ot-cs16 |
+| openvpn | openvpnas | access_server_byol |
+| Oracle | Oracle-Database-Ee | 12.1.0.2 |
+| Oracle | Oracle-Database-Se | 12.1.0.2 |
+| Oracle | Oracle-Linux | 6.7 |
+| Oracle | Oracle-Linux | 6.8 |
+| Oracle | Oracle-Linux | 7.2 |
+| orfast-technologies | orfast-mam-1 | orasft_mam_01 |
+| outsystems | os11-vm-baseimage | os11-ws2016 |
+| paloaltonetworks | panorama | byol |
+| paloaltonetworks | vmseries1 | bundle1 |
+| paloaltonetworks | vmseries1 | bundle2 |
+| paloaltonetworks | vmseries1 | byol |
+| panzura-file-system | azura-freedom-filer-v7110 | fd-vm-azure-byol |
+| panzura-file-system | panzura-cloud-filer | fd-vm-azure-byol |
+| panzura-file-system | panzura-freedom-filer-7140-13222 | fd-vm-azure-byol |
+| panzura-file-system | panzura-freedom-filer-716-13549 | fd-vm-azure-byol |
+| panzura-file-system | panzura-freedom-filer-7220 | fd-vm-azure-byol |
+| panzura-file-system | panzura-freedom-filer-v7020 | fd-vm-azure-byol |
+| pivotal | bosh-windows-server | 2012r2gov |
+| pivotal | pivotal-ops-manager | pivotal-ops-manager |
+| pulse-secure | pulse-connect-secure-vm | pcs-byol |
+| qlik | qlik-sense | qliksense |
+| qualysguard | qualys-virtual-firewall-appliance | qwaf |
+| qualysguard | qualys-virtual-scanner-v24 | qvsa-24 |
+| quest | qorestor_5_0_1 | tier_1 |
+| quest | qorestor_5_0_1 | tier_2 |
+| quest | qorestor_5_0_1 | tier_3 |
+| quest | rapid-recovery-core-vm | quest_rapid_recovery_core_vm |
+| radiant-logic | radiantone-vms | node-centos-7-5 |
+| radiant-logic | radiantone-vms | node-redhat-7-5 |
+| radiant-logic | radiantone-vms | node-ubuntu-18-04-lts |
+| radiant-logic | radiantone-vms | node-ws-2016 |
+| radware | radware-alteon-va | radware-alteon-ng-va-adc |
+| rapid7 | nexpose-scan-engine | nexpose-scan-engine |
+| rapid7 | rapid7-vm-console | rapid7-vm-console |
+| RedHat | RHEL | 6.10 |
+| RedHat | RHEL | 6.8 |
+| RedHat | RHEL | 6.9 |
+| RedHat | RHEL | 6.9-LVM |
+| RedHat | RHEL | 7-LVM |
+| RedHat | RHEL | 7-RAW |
+| RedHat | RHEL | 7-RAW-CI |
+| RedHat | RHEL | 7.2 |
+| RedHat | RHEL | 7.3 |
+| RedHat | RHEL | 7.3-LVM |
+| RedHat | RHEL | 7.4 |
+| RedHat | RHEL | 7.4-LVM |
+| RedHat | RHEL | 7.4-RAW |
+| RedHat | RHEL | 7.4.Beta |
+| RedHat | RHEL | 7.4.Beta-LVM |
+| RedHat | RHEL | 7.5 |
+| RedHat | rhel-byos | rhel-lvm74 |
+| RedHat | rhel-byos | rhel-lvm75 |
+| RedHat | rhel-byos | rhel-raw69 |
+| RedHat | rhel-byos | rhel-raw75 |
+| RedHat | rhel-ocp-marketplace | rhel74 |
+| RedHat | rhel-ocp-marketplace | rhel75 |
+| RedHat | RHEL-SAP-APPS | 6.8 |
+| RedHat | RHEL-SAP-APPS | 7.3 |
+| RedHat | RHEL-SAP-HANA | 6.7 |
+| RedHat | RHEL-SAP-HANA | 7.2 |
+| riverbed | riverbed-sccm-5-5-1 | riverbed-sccm-5-5-1 |
+| riverbed | riverbed-steelhead-9-1-3 | steelhead-9-1-3 |
+| riverbed | riverbed-steelhead-9-2 | riverbed-steelhead-9-2 |
+| riverbed | riverbed-steelhead-9-5-0 | riverbed-steelhead-9-5-0 |
+| riverbed | riverbed-steelhead-9-6-0 | riverbed-steelhead-9-6-0 |
+| riverbed | riverbed_steelconnect_gw | riverbed-steelconnect-gw |
+| riverbed | riverbed_steelconnect_sh | riverbed-steelconnect-sh |
+| rsa-security-llc | securid8_4 | rsa-sid-azure-84 |
+| scalegrid | centos | free |
+| scality | scalityconnecthourly | connecthourly1 |
+| sentryone | sentryoneeval | sentryoneeval |
+| silver-peak-systems | silver_peak_edgeconnect | silver_peak_edgeconnect_8_1 |
+| silver-peak-systems | silver_peak_vx | silver-peak-vx-8-1 |
+| simpligov | simpligov_002 | simpligov-vm |
+| snapt-adc | snaptadc | snaptadc |
+| softnas | mp_nas_byol | mp_enterprise_byol |
+| sophos | sophos-xg | byol |
+| splunk | splunk-enterprise-base-image | splunk-on-ubuntu-14-04-lts |
+| starwind | starwindvirtualsan | starwindbyol |
+| starwind | starwindvtl | starwindvtl |
+| stonefly | stonefly-cloud-drive | byol_stonefly |
+| SUSE | openSUSE-Leap | 15-0 |
+| SUSE | openSUSE-Leap | 42.3 |
+| SUSE | SLES | 11-SP4 |
+| SUSE | SLES | 12-SP3 |
+| SUSE | SLES | 15 |
+| SUSE | SLES-BYOS | 11-SP4 |
+| SUSE | SLES-BYOS | 12-SP3 |
+| SUSE | SLES-BYOS | 15 |
+| SUSE | SLES-HPC | 12-SP3 |
+| SUSE | SLES-SAP-BYOS | 12-SP1 |
+| SUSE | SLES-SAP-BYOS | 12-SP2 |
+| SUSE | SLES-SAP-BYOS | 12-SP3 |
+| SUSE | SLES-SAP-BYOS | 15 |
+| SUSE | SLES-SAPCAL | 11-SP4 |
+| SUSE | SUSE-CaaSP-Admin-BYOS | 2.1 |
+| SUSE | SUSE-CaaSP-Cluster-BYOS | 2.1 |
+| SUSE | SUSE-Manager-Proxy-BYOS | 3-2 |
+| SUSE | SUSE-Manager-Proxy-BYOS | 3.0 |
+| SUSE | SUSE-Manager-Proxy-BYOS | 3.1 |
+| SUSE | SUSE-Manager-Server-BYOS | 3-2 |
+| SUSE | SUSE-Manager-Server-BYOS | 3.0 |
+| SUSE | SUSE-Manager-Server-BYOS | 3.1 |
+| suse-byos | sles-byos | 12-sp1 |
+| tableau | tableau-server | bring-your-own-license |
+| talon | talon-fast | talon-azure-byol |
+| tenable | tenable-nessus-6-byol | tenable-nessus-byol |
+| tenable | tenablecorenessus | tenablecorenessusbyol |
+| teradata | teradata-data-mover | teradata-data-mover-agent-byol |
+| teradata | teradata-data-mover | teradata-data-mover-agent-hourly |
+| teradata | teradata-data-mover | teradata-data-mover-byol |
+| teradata | teradata-data-mover | teradata-data-mover-hourly |
+| teradata | teradata-data-mover-intellisphere | teradata-data-mover-agent-intellisphere |
+| teradata | teradata-data-mover-intellisphere | teradata-data-mover-intellisphere |
+| teradata | teradata-data-stream-controller | teradata-data-stream-controller-byol |
+| teradata | teradata-database-1510-byol | teradata-database-advanced-1510-byol |
+| teradata | teradata-database-1510-byol | teradata-database-base-1510-byol |
+| teradata | teradata-database-1510-byol | teradata-database-enterprise-1510-byol |
+| teradata | teradata-database-1510-intellisphere | teradata-database-advanced-1510 |
+| teradata | teradata-database-1510-intellisphere | teradata-database-base-1510 |
+| teradata | teradata-database-1510-intellisphere | teradata-database-enterprise-1510 |
+| teradata | teradata-database-1510-v2 | teradata-database-advanced-1510 |
+| teradata | teradata-database-1510-v2 | teradata-database-base-1510 |
+| teradata | teradata-database-1510-v2 | teradata-database-developer-1510 |
+| teradata | teradata-database-1510-v2 | teradata-database-enterprise-1510 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620-248 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620-256 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620-336 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620-434 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620-496 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620-594 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620-914 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620-ls |
+| teradata | teradata-database-1620 | teradata-database-base-1620 |
+| teradata | teradata-database-1620 | teradata-database-base-1620-248 |
+| teradata | teradata-database-1620 | teradata-database-base-1620-256 |
+| teradata | teradata-database-1620 | teradata-database-base-1620-336 |
+| teradata | teradata-database-1620 | teradata-database-base-1620-434 |
+| teradata | teradata-database-1620 | teradata-database-base-1620-496 |
+| teradata | teradata-database-1620 | teradata-database-base-1620-594 |
+| teradata | teradata-database-1620 | teradata-database-base-1620-914 |
+| teradata | teradata-database-1620 | teradata-database-base-1620-ls |
+| teradata | teradata-database-1620 | teradata-database-developer-1620 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620-248 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620-256 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620-336 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620-434 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620-496 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620-594 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620-914 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620-ls |
+| teradata | teradata-database-1620-byol | teradata-database-advanced-1620-byol |
+| teradata | teradata-database-1620-byol | teradata-database-base-1620-byol |
+| teradata | teradata-database-1620-byol | teradata-database-enterprise-1620-byol |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620-248 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620-256 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620-336 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620-434 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620-496 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620-594 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620-914 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620-ls |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620-248 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620-256 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620-336 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620-434 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620-496 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620-594 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620-914 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620-ls |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620-248 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620-256 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620-336 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620-434 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620-496 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620-594 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620-914 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620-ls |
+| teradata | teradata-ecosystem-manager | teradata-ecosystem-manager-byol |
+| teradata | teradata-querygrid-manager | teradata-querygrid-manager |
+| teradata | teradata-querygrid-manager-intellisphere | teradata-querygrid-manager-intellisphere |
+| teradata | teradata-rest-services | teradata-rest-services-byol |
+| teradata | teradata-server-management | teradata-server-management-byol |
+| teradata | teradata-viewpoint | teradata-viewpoint-multiple-systems-byol |
+| teradata | teradata-viewpoint | teradata-viewpoint-single-system-byol |
+| teradata | teradata-viewpoint | teradata-viewpoint-single-system-data-lab-byol |
+| teradata | teradata-viewpoint-intellisphere | teradata-viewpoint-intellisphere |
+| thales-vormetric | ciphertrust-ckm | ciphertrust-ckm |
+| thales-vormetric | vormetric-dsm | dsm-6-0-2-5162 |
+| thales-vormetric | vormetric-dsm-6-1-0 | dsm-6-1-0-9118 |
+| thales-vormetric | vts-2_2_0_2604 | vts-2_2_0_2604 |
+| uniprint-net | uniprint-infinity | up_demo01 |
+| veeam | veeam-backup-replication | veeam-backup-replication-95 |
+| veeam | veeam-cloud-connect-enterprise | veeamcloudcconnectenterprise |
+| veeam | veeamcloudconnect | veeambackup |
+| velocitydb-inc | velocitydb | velocitydb |
+| velocloud | velocloud-virtual-edge-3x | velocloud-virtual-edge-3x |
+| veritas | netbackup-8-0 | netbackup_8-standard |
+| veritas | netbackup-8-0 | netbackup_8_1-standard |
+| vidizmo | c962d038-826e-4c7f-90d9-a2d7ebb50d0c | vidizmo-appdb-single |
+| vidizmo | vidizmo-highavailability-servers | vidizmo-application |
+| vidizmo | vidizmo-separate-servers | vidizmo-application |
+| vidizmo | vidizmo-separate-servers | vidizmo-database |
+| websense-apmailpe | forcepoint-email-security-85beta | forcepoint_email_security_v85_beta |
+| winmagic_securedoc_cloudvm | seccuredoc_cloudvm_5 | winmagic_securedoc_cloudvm_byol |
+| wowza | wowzastreamingengine | linux-byol |
+| wowza | wowzastreamingengine | windows-byol |
+| zerto | zerto-cloud-appliance-50 | zerto60ga |
+| zerto | zerto-cloud-appliance-50 | zerto60u1ga |
+| zerto | zerto-cloud-appliance-50 | zerto60u3p1 |
+| zerto | zerto-cloud-appliance-50 | zerto65ga |
 
 ## Next steps
-The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the [Azure Government Developer Guide](documentation-government-developer-guide.md) to uncover an programmatic differences with endpoints when working with Azure Government.
-
-### Other Resources:
-* [Deploying a Windows Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Virtual Machine FAQ](../virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Capture Linux VM Image](../virtual-machines/virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-
-<!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
-
-
-
-
-<!-- Images. -->
-
-[1]: ./media/azure-government-developer-guide/publisherguide.png
-[2]: ./media/azure-government-overview/azure-gov-overview.jpg
-
-<!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
-[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
+* [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)
+* [Create a Windows virtual machine with PowerShell](../virtual-machines/windows/quick-create-powershell.md)
+* [Create a Windows virtual machine with the Azure CLI](../virtual-machines/windows/quick-create-cli.md)
+* [Create a Linux virtual machine with the Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json)

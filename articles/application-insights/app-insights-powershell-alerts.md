@@ -3,23 +3,20 @@ title: Use Powershell to set alerts in Application Insights | Microsoft Docs
 description: Automate configuration of Application Insights to get emails about metric changes.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
-
+author: mrbullwinkle
+manager: carmonm
 ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/31/2016
-ms.author: awills
-
+ms.author: mbullwin
 ---
 # Use PowerShell to set alerts in Application Insights
-You can automate the configuration of [alerts](app-insights-alerts.md) in [Application Insights](app-insights-overview.md).
+You can automate the configuration of [alerts](../azure-monitor/app/alerts.md) in [Application Insights](app-insights-overview.md).
 
-In addition, you can [set webhooks to automate your response to an alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+In addition, you can [set webhooks to automate your response to an alert](../azure-monitor/platform/alerts-webhooks.md).
 
 > [!NOTE]
 > If you want to create resources and alerts at the same time, consider [using an Azure Resource Manager template](app-insights-powershell.md).
@@ -31,23 +28,23 @@ If you haven't used PowerShell with your Azure subscription before:
 
 Install the Azure Powershell module on the machine where you want to run the scripts.
 
-* Install [Microsoft Web Platform Installer (v5 or higher)](http://www.microsoft.com/web/downloads/platform.aspx).
+* Install [Microsoft Web Platform Installer (v5 or higher)](https://www.microsoft.com/web/downloads/platform.aspx).
 * Use it to install Microsoft Azure Powershell
 
 ## Connect to Azure
-Start Azure PowerShell and [connect to your subscription](/powershell/azureps-cmdlets-docs):
+Start Azure PowerShell and [connect to your subscription](/powershell/azure/overview):
 
 ```PowerShell
 
-    Add-AzureAccount
+    Add-AzureRmAccount
 ```
 
 
 ## Get alerts
-    Get-AzureAlertRmRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+    Get-AzureRmAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
 ## Add alert
-    Add-AlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
+    Add-AzureRmMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
      -MetricName "{METRIC NAME}" `
@@ -66,7 +63,7 @@ Email me if the server's response to HTTP requests, averaged over 5 minutes, is 
 
 The GUID is the subscription ID (not the instrumentation key of the application).
 
-    Add-AlertRule -Name "slow responses" `
+    Add-AzureRmMetricAlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
@@ -78,9 +75,9 @@ The GUID is the subscription ID (not the instrumentation key of the application)
      -Location "East US" -RuleType Metric
 
 ## Example 2
-I have an application in which I use [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) to report a metric named "salesPerHour." Send an email to my colleagues if "salesPerHour" drops below 100, averaged over 24 hours.
+I have an application in which I use [TrackMetric()](../azure-monitor/app/api-custom-events-metrics.md#trackmetric) to report a metric named "salesPerHour." Send an email to my colleagues if "salesPerHour" drops below 100, averaged over 24 hours.
 
-    Add-AlertRule -Name "poor sales" `
+    Add-AzureRmMetricAlertRule -Name "poor sales" `
      -Description "slow sales alert" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
@@ -91,7 +88,7 @@ I have an application in which I use [TrackMetric()](app-insights-api-custom-eve
      -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
      -Location "East US" -RuleType Metric
 
-The same rule can be used for the metric reported by using the [measurement parameter](app-insights-api-custom-events-metrics.md#properties) of another tracking call such as TrackEvent or trackPageView.
+The same rule can be used for the metric reported by using the [measurement parameter](../azure-monitor/app/api-custom-events-metrics.md#properties) of another tracking call such as TrackEvent or trackPageView.
 
 ## Metric names
 | Metric name | Screen name | Description |
@@ -117,22 +114,22 @@ The same rule can be used for the metric reported by using the [measurement para
 | `request.rate` |Request rate |Rate of all requests to the application per second. |
 | `requestFailed.count` |Failed requests |Count of HTTP requests that resulted in a response code >= 400 |
 | `view.count` |Page views |Count of client user requests for a web page. Synthetic traffic is filtered out. |
-| {your custom metric name} |{Your metric name} |Your metric value reported by [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric) or in the [measurements parameter of a tracking call](app-insights-api-custom-events-metrics.md#properties). |
+| {your custom metric name} |{Your metric name} |Your metric value reported by [TrackMetric](../azure-monitor/app/api-custom-events-metrics.md#trackmetric) or in the [measurements parameter of a tracking call](../azure-monitor/app/api-custom-events-metrics.md#properties). |
 
 The metrics are sent by different telemetry modules:
 
 | Metric group | Collector module |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[Browser JavaScript](app-insights-javascript.md) |
-| performanceCounter |[Performance](app-insights-configuration-with-applicationinsights-config.md) |
-| remoteDependencyFailed |[Dependency](app-insights-configuration-with-applicationinsights-config.md) |
-| request,<br/>requestFailed |[Server request](app-insights-configuration-with-applicationinsights-config.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[Browser JavaScript](../azure-monitor/app/javascript.md) |
+| performanceCounter |[Performance](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| remoteDependencyFailed |[Dependency](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| request,<br/>requestFailed |[Server request](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 
 ## Webhooks
-You can [automate your response to an alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure will call a web address of your choice when an alert is raised.
+You can [automate your response to an alert](../azure-monitor/platform/alerts-webhooks.md). Azure will call a web address of your choice when an alert is raised.
 
 ## See also
 * [Script to configure Application Insights](app-insights-powershell-script-create-resource.md)
 * [Create Application Insights and web test resources from templates](app-insights-powershell.md)
 * [Automate coupling Microsoft Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [Automate your response to an alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Automate your response to an alert](../azure-monitor/platform/alerts-webhooks.md)

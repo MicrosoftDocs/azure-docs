@@ -1,11 +1,12 @@
 ---
-title: Migrate an Azure virtual network from an affinity group to a region | Classic | Microsoft Docs
-description: Learn how to migrate a virtual network from an affinity group to a region.
+title: Migrate an Azure virtual network (classic) from an affinity group to a region | Microsoft Docs
+description: Learn how to migrate a virtual network (classic) from an affinity group to a region.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
-editor: tysonn
+author: genlin
+manager: cshepard
+editor: ''
+tags: azure-service-management
 
 ms.assetid: 84febcb9-bb8b-4e79-ab91-865ad9de41cb
 ms.service: virtual-network
@@ -14,32 +15,32 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
+ms.author: genli
 
 ---
-# How to migrate a virtual network from an affinity group to a region
-You can use an affinity group to ensure that resources created within the same affinity group are physically hosted by servers that are close together, enabling these resources to communicate quicker. In the past, affinity groups were a requirement for creating virtual networks (VNets). At that time, the network manager service that managed VNets could only work within a set of physical servers or scale unit. Architectural improvements have increased the scope of network management to a region.
-
-As a result of these architectural improvements, affinity groups are no longer recommended, or required for virtual networks. The use of affinity groups for VNets is being replaced by regions. VNets that are associated with regions are called regional VNets.
-
-Additionally, we recommend that you don't use affinity groups in general. Aside from the VNet requirement, affinity groups were also important to use to ensure resources, such as compute and storage, were placed near each other. However, with the current Azure network architecture, these placement requirements are no longer necessary. See [Affinity groups and VMs](#Affinity-groups-and-VMs) for the few remaining specific cases where you may want to use an affinity group.
-
-## Creating and migrating to regional VNets
-Going forward, when creating new VNets, use *Region*. You'll see this as an option in the Management Portal. Note that in the network configuration file, this shows as *Location*.
+# Migrate a virtual network (classic) from an affinity group to a region
 
 > [!IMPORTANT]
-> Although it is still technically possible to create a virtual network that is associated with an affinity group, there is no compelling reason to do so. Many new features, such as Network Security Groups, are only available when using a regional VNet and are not available for virtual networks that are associated with affinity groups.
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager deployment model.
+
+Affinity groups ensure that resources created within the same affinity group are physically hosted by servers that are close together, enabling these resources to communicate quicker. In the past, affinity groups were a requirement for creating virtual networks (classic). At that time, the network manager service that managed virtual networks (classic) could only work within a set of physical servers or scale unit. Architectural improvements have increased the scope of network management to a region.
+
+As a result of these architectural improvements, affinity groups are no longer recommended, or required for virtual networks (classic). The use of affinity groups for virtual networks (classic) is replaced by regions. Virtual networks (classic) that are associated with regions are called regional virtual networks.
+
+We recommend that you don't use affinity groups in general. Aside from the virtual network requirement, affinity groups were also important to use to ensure resources, such as compute (classic) and storage (classic), were placed near each other. However, with the current Azure network architecture, these placement requirements are no longer necessary.
+
+> [!IMPORTANT]
+> Although it is still technically possible to create a virtual network that is associated with an affinity group, there is no compelling reason to do so. Many virtual network features, such as network security groups, are only available when using a regional virtual network, and are not available for virtual networks that are associated with affinity groups.
 > 
 > 
 
-### About VNets currently associated with affinity groups
-VNets that are currently associated with affinity groups are enabled for migration to regional VNets. To migrate to a regional VNet, follow these steps:
+## Edit the network configuration file
 
-1. Export the network configuration file. You can use PowerShell or the Management Portal. For instructions using the Management Portal, see [Configure your VNet using a Network Configuration File](virtual-networks-using-network-configuration-file.md).
-2. Edit your network configuration file, replacing the old values with the new values. 
+1. Export the network configuration file. To learn how to export a network configuration file using PowerShell or the Azure command-line interface (CLI) 1.0, see [Configure a virtual network using a network configuration file](virtual-networks-using-network-configuration-file.md#export).
+2. Edit the network configuration file, replacing **AffinityGroup** with **Location**. You specify an Azure [region](https://azure.microsoft.com/regions) for **Location**.
    
    > [!NOTE]
-   > The **Location** is the region that you specified for the affinity group that is associated with your VNet. For example, if your VNet is associated with an affinity group that is located in West US, when you migrate, your Location must point to West US. 
+   > The **Location** is the region that you specified for the affinity group that is associated with your virtual network (classic). For example, if your virtual network (classic) is associated with an affinity group that is located in West US, when you migrate, your **Location** must point to West US. 
    > 
    > 
    
@@ -48,23 +49,12 @@ VNets that are currently associated with affinity groups are enabled for migrati
     **Old value:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
    
     **New value:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
-3. Save your changes and [import](virtual-networks-using-network-configuration-file.md) the network configuration to Azure.
+3. Save your changes and [import](virtual-networks-using-network-configuration-file.md#import) the network configuration to Azure.
 
 > [!NOTE]
 > This migration does NOT cause any downtime to your services.
 > 
 > 
 
-## Affinity groups and VMs
-As mentioned previously, affinity groups are no longer generally recommended for VMs. You should use an affinity group only when a set of VMs must have the absolute lowest network latency between the VMs. By placing VMs in an affinity group, the VMs will all be placed in the same compute cluster or scale unit.
-
-It's important to note that using an affinity group can have two, possibly negative, consequences:
-
-* The set of VM sizes will be limited to the set of VM sizes offered by the compute scale unit.
-* There is a higher probability of not being able to allocate a new VM. This happens when the specific scale unit for the affinity group is out of capacity.
-
-### What to do if you have a VM in an affinity group
-VMs that are currently in an affinity group do not need to be removed from the affinity group.
-
-Once a VM is deployed, it is deployed to a single scale unit. Affinity groups can restrict the set of available VM sizes for a new VM deployment, but any existing VM that is deployed is already restricted to the set of VM sizes available in the scale unit in which the VM is deployed. Because of this, removing a VM from the affinity group will have no effect.
-
+## What to do if you have a VM (classic) in an affinity group
+VMs (classic) that are currently in an affinity group do not need to be removed from the affinity group. Once a VM is deployed, it is deployed to a single scale unit. Affinity groups can restrict the set of available VM sizes for a new VM deployment, but any existing VM that is deployed is already restricted to the set of VM sizes available in the scale unit in which the VM is deployed. Because the VM is already deployed to a scale unit, removing a VM from an affinity group has no effect on the VM.

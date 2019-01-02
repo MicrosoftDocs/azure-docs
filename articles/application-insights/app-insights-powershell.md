@@ -3,21 +3,18 @@ title: Automate Azure Application Insights with PowerShell | Microsoft Docs
 description: Automate creating resource, alert, and availability tests in PowerShell using an Azure Resource Manager template.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: article
-ms.date: 03/17/2017
-ms.author: awills
-
+ms.topic: conceptual
+ms.date: 04/02/2017
+ms.author: mbullwin
 ---
 #  Create Application Insights resources using PowerShell
-This article shows you how to automate the creation and update of [Application Insights](app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](app-insights-monitor-web-app-availability.md), set up [alerts](app-insights-alerts.md), set the [pricing scheme](app-insights-pricing.md), and create other Azure resources.
+This article shows you how to automate the creation and update of [Application Insights](app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](../azure-monitor/app/monitor-web-app-availability.md), set up [alerts](../azure-monitor/app/alerts.md), set the [pricing scheme](app-insights-pricing.md), and create other Azure resources.
 
 The key to creating these resources is JSON templates for [Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md). In a nutshell, the procedure is: download the JSON definitions of existing resources; parameterize certain values such as names; and then run the template whenever you want to create a new resource. You can package several resources together, to create them all in one go - for example, an app monitor with availability tests, alerts, and storage for continuous export. There are some subtleties to some of the parameterizations, which we'll explain here.
 
@@ -26,7 +23,7 @@ If you haven't used PowerShell with your Azure subscription before:
 
 Install the Azure Powershell module on the machine where you want to run the scripts:
 
-1. Install [Microsoft Web Platform Installer (v5 or higher)](http://www.microsoft.com/web/downloads/platform.aspx).
+1. Install [Microsoft Web Platform Installer (v5 or higher)](https://www.microsoft.com/web/downloads/platform.aspx).
 2. Use it to install Microsoft Azure Powershell.
 
 ## Create an Azure Resource Manager template
@@ -34,7 +31,7 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
 
 ```JSON
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "appName": {
@@ -49,7 +46,6 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                 "allowedValues": [
                     "web",
                     "java",
-                    "HockeyAppBridge",
                     "other"
                 ],
                 "metadata": {
@@ -152,7 +148,7 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
 ## Create Application Insights resources
 1. In PowerShell, sign in to Azure:
    
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 2. Run a command like this:
    
     ```PS
@@ -168,6 +164,16 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
    * `-appName` The name of the resource to create.
 
 You can add other parameters - you'll find their descriptions in the parameters section of the template.
+
+## To get the instrumentation key
+After creating an application resource, you'll want the instrumentation key: 
+
+```PS
+    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
+    $details = Get-AzureRmResource -ResourceId $resource.ResourceId
+    $ikey = $details.Properties.InstrumentationKey
+```
+
 
 <a id="price"></a>
 ## Set the price plan
@@ -189,17 +195,11 @@ To create an app resource with the Enterprise price plan, using the template abo
 |2|Enterprise|
 
 * If you only want to use the default Basic price plan, you can omit the CurrentBillingFeatures resource from the template.
+* If you want to change the price plan after the component resource has been created, you can use a template that omits the "microsoft.insights/components" resource. Also, omit the `dependsOn` node from the billing resource. 
+
+To verify the updated price plan, look at the **Usage and estimated costs page** blade in the browser. **Refresh the browser view** to make sure you see the latest state.
 
 
-## To get the instrumentation key
-After creating an application resource, you'll want the iKey: 
-
-```PS
-
-    $resource = Get-AzureRmResource -ResourceId "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<YOUR RESOURCE GROUP>/providers/Microsoft.Insights/components/<YOUR APP NAME>"
-
-    $resource.Properties.InstrumentationKey
-```
 
 ## Add a metric alert
 
@@ -441,6 +441,6 @@ Other automation articles:
 * [Set up Alerts](app-insights-powershell-alerts.md)
 * [Create web tests](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Send Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [Deploy to Azure from Github](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
+* [Deploy to Azure from GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Create release annotations](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

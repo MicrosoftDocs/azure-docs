@@ -1,302 +1,178 @@
 ---
-title: Add the Azure blob storage Connector in your Logic Apps | Microsoft Docs
-description: Overview of Azure blob storage Connector with REST API parameters
-services: ''
-documentationcenter: ''
-author: MandiOhlinger
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: b5dc3f75-6bea-420b-b250-183668d2848d
+title: Connect to Azure blob storage - Azure Logic Apps | Microsoft Docs
+description: Create and manage blobs in Azure storage with Azure Logic Apps
+services: logic-apps
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 10/18/2016
-ms.author: mandia
-
+ms.date: 05/21/2018
+tags: connectors
 ---
-# Get started with the Azure blob storage connector
-Azure Blob storage is a service for storing large amounts of unstructured data. Perform various actions such as upload, update, get, and delete blobs in Azure blob storage. 
 
-With Azure blob storage, you:
+# Create and manage blobs in Azure blob storage with Azure Logic Apps
 
-* Build your workflow by uploading new projects, or getting files that have been  recently updated.
-* Use actions to get file metadata, delete a file, copy files, and more. For example,  when a tool is updated in an Azure web site (a trigger), then update a file in blob storage (an action). 
+This article shows how you can access and manage files stored as blobs in your 
+Azure storage account from inside a logic app with the Azure Blob Storage connector. 
+That way, you can create logic apps that automate tasks and workflows 
+for managing your files. For example, you can build logic apps that create, 
+get, update, and delete files in your storage account.
 
-This topic shows you how to use the blob storage connector in a logic app, and also lists the actions.
+Suppose that you have a tool that gets updated on an Azure website. 
+which acts as the trigger for your logic app. When this event happens, 
+you can have your logic app update some file in your blob storage container, 
+which is an action in your logic app. 
 
 > [!NOTE]
-> This version of the article applies to Logic Apps general availability (GA). 
+> Logic Apps doesn't support directly connecting to Azure storage 
+> accounts through firewalls. To access these storage accounts, 
+> use either option here: 
+>
+> * Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> which can connect to resources in an Azure virtual network. 
 > 
-> 
+> * If you already use API Management, you can use 
+> this service for this scenario. For more info, see 
+> [Simple enterprise integration architecture](https://aka.ms/aisarch).
 
-To learn more about Logic Apps, see [What are logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+If you're new to logic apps, review 
+[What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+For connector-specific technical information, see the 
+<a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">Azure Blob Storage connector reference</a>.
 
-## Connect to Azure blob storage
-Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to a storage account, you first create a blob storage *connection*. To create a connection, enter the credentials you normally use to access the service you are connecting to. So with Azure storage, enter the credentials to your storage account to create the connection. 
+## Prerequisites
 
-#### Create the connection
-> [!INCLUDE [Create a connection to Azure blob storage](../../includes/connectors-create-api-azureblobstorage.md)]
-> 
-> 
+* If you don't have an Azure subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
-## Use a trigger
-This connector does not have any triggers. Use other triggers to start the logic app, such as a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) provides an example.
+* An [Azure storage account and storage container](../storage/blobs/storage-quickstart-blobs-portal.md)
 
-## Use an action
-An action is an operation carried out by the workflow defined in a logic app.
+* The logic app where you need access to your Azure blob storage account. 
+To start your logic app with an Azure Blob Storage trigger, you need a 
+[blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
-   
-    ![](./media/connectors-create-api-azureblobstorage/add-action.png)
-2. Choose **Add an action**.
-3. In the text box, type “blob” to get a list of all the available actions.
-   
-    ![](./media/connectors-create-api-azureblobstorage/actions.png) 
-4. In our example, choose **AzureBlob - Get file metadata using path**. If a connection already exists, then select the **...** (Show Picker) button to select a file.
-   
-    ![](./media/connectors-create-api-azureblobstorage/sample-file.png)
-   
-    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-azureblobstorage.md#create-the-connection) in this topic describes these properties. 
-   
-   > [!NOTE]
-   > In this example, we get the metadata of a file. To see the metadata, add another action that creates a new file using another connector. For example, add a OneDrive action that creates a new "test" file based on the metadata. 
-   > 
-   > 
-5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+<a name="add-trigger"></a>
 
-> [!TIP]
-> [Storage Explorer](http://storageexplorer.com/) is a great tool to  manage multiple storage accounts.
-> 
-> 
+## Add blob storage trigger
 
-## Technical Details
-## Storage Blob actions
-| Action | Description |
-| --- | --- |
-| [Get file metadata](connectors-create-api-azureblobstorage.md#get-file-metadata) |This operation gets file metadata using file id. |
-| [Update file](connectors-create-api-azureblobstorage.md#update-file) |This operation updates a file. |
-| [Delete file](connectors-create-api-azureblobstorage.md#delete-file) |This operation deletes a file. |
-| [Get file metadata using path](connectors-create-api-azureblobstorage.md#get-file-metadata-using-path) |This operation gets file metadata using the path. |
-| [Get file content using path](connectors-create-api-azureblobstorage.md#get-file-content-using-path) |This operation gets file contents using the path. |
-| [Get file content](connectors-create-api-azureblobstorage.md#get-file-content) |This operation gets file contents using id. |
-| [Create file](connectors-create-api-azureblobstorage.md#create-file) |This operation uploads a file. |
-| [Copy file](connectors-create-api-azureblobstorage.md#copy-file) |This operation copies a file to Azure Blob Storage. |
-| [Extract archive to folder](connectors-create-api-azureblobstorage.md#extract-archive-to-folder) |This operation extracts an archive file into a folder (example: .zip). |
+In Azure Logic Apps, every logic app must start with a 
+[trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), 
+which fires when a specific event happens or when a 
+specific condition is met. Each time the trigger fires, 
+the Logic Apps engine creates a logic app instance 
+and starts running your app's workflow.
 
-### Action details
-In this section, see the specific details about each action, including any required or optional input properties, and any corresponding output associated with the connector.
+This example shows how you can start a logic app workflow with the 
+**Azure Blob Storage - When a blob is added or modified (properties only)** trigger 
+when a blob's properties gets added or updated in your storage container. 
 
-#### Get file metadata
-This operation gets file metadata using file id.  
+1. In the Azure portal or Visual Studio, 
+create a blank logic app, which opens Logic App Designer. 
+This example uses the Azure portal.
 
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| id* |File |Select a file |
+2. In the search box, enter "azure blob" as your filter. 
+From the triggers list, select the trigger you want.
 
-An asterisk (*) means the property is required.
+   This example uses this trigger: 
+   **Azure Blob Storage - When a blob is added or modified (properties only)**
 
-##### Output Details
-BlobMetadata
+   ![Select trigger](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
-| Property Name | Data Type |
-| --- | --- |
-| Id |string |
-| Name |string |
-| DisplayName |string |
-| Path |string |
-| LastModified |string |
-| Size |integer |
-| MediaType |string |
-| IsFolder |boolean |
-| ETag |string |
-| FileLocator |string |
+3. If you're prompted for connection details, 
+[create your blob storage connection now](#create-connection). 
+Or, if your connection already exists, 
+provide the necessary information for the trigger.
 
-#### Update file
-This operation updates a file.  
+   For this example, select the container and folder you want to monitor.
 
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| id* |File |Select a file |
-| body* |File content |Content of the file to update |
+   1. In the **Container** box, select the folder icon.
 
-An asterisk (*) means the property is required.
+   2. In the folder list, choose the right-angle bracket ( **>** ), 
+   and then browse until you find and select the folder you want. 
 
-##### Output Details
-BlobMetadata
+      ![Select folder](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
-| Property Name | Data Type |
-| --- | --- |
-| Id |string |
-| Name |string |
-| DisplayName |string |
-| Path |string |
-| LastModified |string |
-| Size |integer |
-| MediaType |string |
-| IsFolder |boolean |
-| ETag |string |
-| FileLocator |string |
+   3. Select the interval and frequency for how often 
+   you want the trigger to check the folder for changes.
 
-#### Delete file
-This operation deletes a file.  
+4. When you're done, on the designer toolbar, choose **Save**.
 
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| id* |File |Select a file |
+5. Now continue adding one or more actions to your logic app 
+for the tasks you want to perform with the trigger results.
 
-An asterisk (*) means the property is required.
+<a name="add-action"></a>
 
-##### Output Details
-None.
+## Add blob storage action
 
-#### Get file metadata using path
-This operation gets file metadata using the path.  
+In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
+is a step in your workflow that follows a trigger or another action. 
+For this example, the logic app starts with the 
+[Recurrence trigger](../connectors/connectors-native-recurrence.md).
 
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| path* |File path |Select a file |
+1. In the Azure portal or Visual Studio, 
+open your logic app in Logic App Designer. 
+This example uses the Azure portal.
 
-An asterisk (*) means the property is required.
+2. In the Logic App Designer, under the trigger or action, 
+choose **New step** > **Add an action**.
 
-##### Output Details
-BlobMetadata
+   ![Add an action](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
-| Property Name | Data Type |
-| --- | --- |
-| Id |string |
-| Name |string |
-| DisplayName |string |
-| Path |string |
-| LastModified |string |
-| Size |integer |
-| MediaType |string |
-| IsFolder |boolean |
-| ETag |string |
-| FileLocator |string |
+   To add an action between existing steps, 
+   move your mouse over the connecting arrow. 
+   Choose the plus sign (**+**) that appears, 
+   and then choose **Add an action**.
 
-#### Get file content using path
-This operation gets file contents using the path.  
+3. In the search box, enter "azure blob" as your filter. 
+From the actions list, select the action you want.
 
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| path* |File path |Select a file |
+   This example uses this action: 
+   **Azure Blob Storage - Get blob content**
 
-An asterisk (*) means the property is required.
+   ![Select action](./media/connectors-create-api-azureblobstorage/azure-blob-action.png) 
 
-##### Output Details
-None.
+4. If you're prompted for connection details, 
+[create your Azure Blob Storage connection now](#create-connection). 
+Or, if your connection already exists, 
+provide the necessary information for the action. 
 
-#### Get file content
-This operation gets file contents using id.  
+   For this example, select the file you want.
 
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| id* |string |Select a file |
+   1. From the **Blob** box, select the folder icon.
+  
+      ![Select folder](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
-An asterisk (*) means the property is required.
+   2. Find and select the file you want based on the blob's **Id** number. You can find this **Id** number in the blob's metadata that is returned by the previously described blob storage trigger.
 
-##### Output Details
-None.
+5. When you're done, on the designer toolbar, choose **Save**.
+To test your logic app, make sure that the selected folder contains a blob.
 
-#### Create file
-This operation uploads a file.  
+This example only gets the contents for a blob. To view the contents, 
+add another action that creates a file with the blob by using another connector. 
+For example, add a OneDrive action that creates a file based on the blob contents.
 
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| folderPath* |Folder path |Select a folder |
-| name* |File name |Name of file to upload |
-| body* |File content |Content of the file to upload |
+<a name="create-connection"></a>
 
-An asterisk (*) means the property is required.
+## Connect to storage account
 
-##### Output Details
-BlobMetadata
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-| Property Name | Data Type |
-| --- | --- |
-| Id |string |
-| Name |string |
-| DisplayName |string |
-| Path |string |
-| LastModified |string |
-| Size |integer |
-| MediaType |string |
-| IsFolder |boolean |
-| ETag |string |
-| FileLocator |string |
+[!INCLUDE [Create a connection to Azure blob storage](../../includes/connectors-create-api-azureblobstorage.md)]
 
-#### Copy file
-This operation copies a file to Azure Blob Storage.  
+## Connector reference
 
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| source* |Source url |Specify Url to source file |
-| destination* |Destination file path |Specify the destination file path, including target filename |
-| overwrite |Overwrite? |Should an existing destination file be overwritten (true/false)? |
+For technical details, such as triggers, actions, and limits, 
+as described by the connector's Swagger file, 
+see the [connector's reference page](/connectors/azureblobconnector/). 
 
-An asterisk (*) means the property is required.
+## Get support
 
-##### Output Details
-BlobMetadata
-
-| Property Name | Data Type |
-| --- | --- |
-| Id |string |
-| Name |string |
-| DisplayName |string |
-| Path |string |
-| LastModified |string |
-| Size |integer |
-| MediaType |string |
-| IsFolder |boolean |
-| ETag |string |
-| FileLocator |string |
-
-#### Extract archive to folder
-This operation extracts an archive file into a folder (example: .zip).  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| source* |Source archive file path |Select an archive file |
-| destination* |Destination folder path |Select the contents to extract |
-| overwrite |Overwrite? |Should an existing destination file be overwritten (true/false)? |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-BlobMetadata
-
-| Property Name | Data Type |
-| --- | --- |
-| Id |string |
-| Name |string |
-| DisplayName |string |
-| Path |string |
-| LastModified |string |
-| Size |integer |
-| MediaType |string |
-| IsFolder |boolean |
-| ETag |string |
-| FileLocator |string |
-
-## HTTP responses
-When making calls to the different actions, you may get certain responses. The following table outlines the responses and their descriptions:  
-
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |Unauthorized |
-| 403 |Forbidden |
-| 404 |Not Found |
-| 500 |Internal Server Error. Unknown error occurred |
-| default |Operation Failed. |
+* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
 
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

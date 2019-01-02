@@ -1,6 +1,6 @@
 ---
 title: Dashboard, Monitor, Scale, Configure, and Hybrid Connections in BizTalk Services | Microsoft Docs
-description: 'Learn about the controls and monitor performance on the classic portal tabs for BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connections. MABS, WABS'
+description: Learn about the controls and monitor performance for BizTalk Services
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
@@ -18,9 +18,12 @@ ms.author: mandia
 
 ---
 # Review the Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 After you create your BizTalk Service and deploy your application, you can change some of the BizTalk Service settings and monitor the application performance. 
 
-When you open the Azure classic portal, you are automatically placed at the **ALL ITEMS** tab. To view your BizTalk Service, select your BizTalk Service in the **ALL ITEMS** tab or select the **BIZTALK SERVICES** tab; and then select your BizTalk Service name.
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 This opens a new window with the following tabs. This topic describes these tabs.
 
@@ -32,20 +35,20 @@ Depending on the BizTalk Services Edition, all options listed may not be availab
         <td><strong>Get the tools</strong></td>
         <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
+        <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
         </td>
     </tr>
     <tr>
         <td><strong>Create partner agreements</strong></td>
         <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
+        <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
         </td>
     </tr>
 
 <tr>
         <td><strong>Learn more about BizTalk Services</strong></td>
-        <td>Go to the <a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">learning center</a> to learn more about Azure BizTalk Services.</td>
+        <td>Go to the <a HREF="https://azure.microsoft.com/documentation/services/biztalk-services/">learning center</a> to learn more about Azure BizTalk Services.</td>
 </tr>
 </table>
 
@@ -60,14 +63,14 @@ In the task bar at the bottom, you can:
 <br/><br/>
 This is the same as <strong>Create partner agreements</strong> on the <strong>Quick Start</strong> tab.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> provides more information on the BizTalk Services Portal.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> provides more information on the BizTalk Services Portal.</td>
 </tr>
 
 <tr>
 <td><strong>Connection Information</strong> of the Access Control Namespace</td>
 <td>When you select Connection Information, then the Access Control Namespace, Default Issuer, and Default Key are displayed. You can copy these values.
 <br/><br/>
-You can also open the Access Control Portal. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Create an Access control Namespace</a> provides more information on the Access Control Portal.</td>
+You can also open the Access Control Portal. <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285670">Create an Access control Namespace</a> provides more information on the Access Control Portal.</td>
 </tr>
 
 <tr>
@@ -78,9 +81,9 @@ For example, you want the BizTalk Service to use a new Primary Key for the Stora
 <br/><br/>
 <ol>
 <li>Select your BizTalk Service and select <strong>Sync Keys</strong>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</li>
-<li>In the Azure classic portal, select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
+<li>Select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
 <li>Select your BizTalk Service and select <strong>Sync Keys</strong>. Now, select the Primary Key. This is the new Primary Key you regenerated.</li>
-<li>In the Azure classic portal, select your Storage account and Regenerate the Secondary Key.</li>
+<li>Select your Storage account and Regenerate the Secondary Key.</li>
 </ol>
 <br/>
 This process is called "rollover keys". The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</td>
@@ -115,7 +118,7 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 </tr>
 <tr>
 <td><strong>Update SSL Certificate</strong></td>
-<td>Can update the BizTalk Service to use a different SSL certificate. A self-signed SSL certificate is automatically created when you <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">create the BizTalk Service</a>.</td>
+<td>Can update the BizTalk Service to use a different SSL certificate. A self-signed SSL certificate is automatically created when you <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302280">create the BizTalk Service</a>.</td>
 </tr>
 <tr>
 <td><strong>Download Certificate</strong></td>
@@ -123,7 +126,7 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 </tr>
 <tr>
 <td><strong>Status</strong></td>
-<td>Displays the current status of your BizTalk Service. See <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=329870">BizTalk Services: Service state chart</a>. </td>
+<td>Displays the current status of your BizTalk Service. See <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=329870">BizTalk Services: Service state chart</a>. </td>
 </tr>
 <tr>
 <td><strong>Service URL</strong></td>
@@ -153,17 +156,17 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 <td><strong>Tracking Database</strong></td>
 <td>The Azure SQL Database name that stores the tracking tables used by your BizTalk Service. 
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Requirements Explained</a>  provides details on the Tracking Database.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302280">Requirements Explained</a>  provides details on the Tracking Database.</td>
 </tr>
 <tr>
 <td><strong>Monitoring/Archiving Storage</strong></td>
 <td>The Azure Storage account name that stores the monitoring output of your BizTalk Service.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Requirements Explained</a>  provides details on the Storage account.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302280">Requirements Explained</a>  provides details on the Storage account.</td>
 </tr>
 <tr>
 <td><strong>Subscription Name</strong></td>
-<td>Lists the subscription that hosts your BizTalk Service. The subscription governs access to the Azure classic portal.</td>
+<td>Lists the subscription that hosts your BizTalk Service. The subscription governs access.</td>
 </tr>
 <tr>
 <td><strong>Subscription ID</strong></td>
@@ -171,7 +174,7 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 </tr>
 </table>
 
-[BizTalk Services: Provisioning Using Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=302280) lists the steps to create a BizTalk Service.
+[BizTalk Services: Provisioning](https://go.microsoft.com/fwlink/p/?LinkID=302280) lists the steps to create a BizTalk Service.
 
 ##### Manage, Connection Information, Sync Keys, and Delete in the task bar:
 <table border="1">
@@ -182,7 +185,7 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 <br/><br/>
 This is the same as <strong>Create partner agreements</strong> on the <strong>Quick Start</strong> tab.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> provides more information on the BizTalk Services Portal.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> provides more information on the BizTalk Services Portal.</td>
 </tr>
 <tr>
 <td><strong>Connection Information</strong> of the Access Control Namespace</td>
@@ -190,7 +193,7 @@ This is the same as <strong>Create partner agreements</strong> on the <strong>Qu
 <br/><br/>
 You can also open the Access Control Portal. This Access Control Portal is the same as using the Active Directory option in the left navigation pane.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the Access Control Portal.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the Access Control Portal.</td>
 </tr>
 <tr>
 <td><strong>Sync Keys</strong> in the Storage Account</td>
@@ -200,9 +203,9 @@ For example, you want the BizTalk Service to use a new Primary Key for the Stora
 <br/><br/>
 <ol>
 <li>Select your BizTalk Service and select <strong>Sync Keys</strong>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</li>
-<li>In the Azure classic portal, select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
+<li>Select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
 <li>Select your BizTalk Service and select <strong>Sync Keys</strong>. Now, select the Primary Key. This is the new Primary Key you regenerated.</li>
-<li>In the Azure classic portal, select your Storage account and Regenerate the Secondary Key.</li>
+<li>Select your Storage account and Regenerate the Secondary Key.</li>
 </ol>
 <br/>
 This process is called "rollover keys". The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</td>
@@ -323,9 +326,7 @@ Sets the Backup Status to None or Automatic. When set to None, no backups are au
 [BizTalk Services: Backup and Restore](biztalk-backup-restore.md) provides the details. 
 
 ## <a name="HybridConnections"></a>Hybrid Connections
-Hybrid Connections connect an Azure application, like Web Apps or Mobile Apps in Azure App Service, to an on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services. Hybrid Connections are managed in  BizTalk Services in the Azure classic portal.
-
-To create Hybrid Connections in Azure App Service, see [Access on-premises resources using hybrid connections in Azure App Service](../app-service-web/web-sites-hybrid-connection-get-started.md).
+Hybrid Connections connect an Azure application, like Web Apps or Mobile Apps in Azure App Service, to an on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services. Hybrid Connections are managed in BizTalk Services.
 
 To create or manage Hybrid Connections in Azure BizTalk Services, see [Hybrid Connections](integration-hybrid-connection-overview.md).
 
@@ -339,9 +340,9 @@ Now that you're familiar with the different tabs, you can learn more about the A
 ## See Also
 * [Hybrid Connections](integration-hybrid-connection-overview.md)  
 * [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](biztalk-editions-feature-chart.md)  
-* [BizTalk Services: Provisioning Using Azure classic portal](biztalk-provision-services.md)  
+* [BizTalk Services: Provisioning](biztalk-provision-services.md)  
 * [BizTalk Services: BizTalk Service State Chart](biztalk-service-state-chart.md)  
-* [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [How do I Start Using the Azure BizTalk Services SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [Quickstart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png

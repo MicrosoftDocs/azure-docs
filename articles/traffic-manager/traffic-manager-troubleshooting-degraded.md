@@ -3,28 +3,25 @@ title: Troubleshooting degraded status on Azure Traffic Manager
 description: How to troubleshoot Traffic Manager profiles when it shows as degraded status.
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
-
-ms.assetid: 8af0433d-e61b-4761-adcc-7bc9b8142fc6
+author: chadmath
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
-ms.author: kumud
+ms.date: 05/03/2017
+ms.author: genli
 ---
 
 # Troubleshooting degraded state on Azure Traffic Manager
 
-This article describes how to troubleshoot an Azure Traffic Manager profile that is showing a degraded status. For this scenario, consider that you have configured a Traffic Manager profile pointing to some of your cloudapp.net hosted services. When you check the health of your traffic manager, you see that the Status is Degraded.
+This article describes how to troubleshoot an Azure Traffic Manager profile that is showing a degraded status. For this scenario, consider that you have configured a Traffic Manager profile pointing to some of your cloudapp.net hosted services. If the health of your Traffic Manager displays a **Degraded** status, then the status of one or more endpoints may be **Degraded**:
 
-![degraded state](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degraded.png)
+![degraded endpoint status](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
-If you go into the Endpoints tab of that profile, you see one or more of the endpoints with an Offline status:
+If the health of your Traffic Manager displays an **Inactive** status, then both end points may be **Disabled**:
 
-![offline](./media/traffic-manager-troubleshooting-degraded/traffic-manager-offline.png)
+![Inactive Traffic Manager status](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 
 ## Understanding Traffic Manager probes
 
@@ -82,12 +79,12 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [What is Traffic Manager](traffic-manager-overview.md)
 
-[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
+[Cloud Services](https://go.microsoft.com/fwlink/?LinkId=314074)
 
-[Azure Web Apps](https://azure.microsoft.com/documentation/services/app-service/web/)
+[Azure App Service](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/?LinkId=313584)
+[Operations on Traffic Manager (REST API Reference)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Azure Traffic Manager Cmdlets][1]
 
-[1]: https://msdn.microsoft.com/library/mt125941(v=azure.200).aspx
+[1]: https://docs.microsoft.com/powershell/module/azurerm.trafficmanager

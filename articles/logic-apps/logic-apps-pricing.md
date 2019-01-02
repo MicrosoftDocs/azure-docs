@@ -1,62 +1,135 @@
 ---
 title: Pricing & billing - Azure Logic Apps | Microsoft Docs
-description: Learn how pricing and billing works for Azure Logic Apps.
-author: kevinlam1
-manager: anneta
-editor: ''
+description: Learn how pricing and billing works for Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2017
+ms.suite: logic-apps
+author: kevinlam1
 ms.author: klam
+ms.reviewer: estfan, LADocs
+manager: carmonm
+ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
+ms.topic: article
+ms.date: 10/16/2018
 ---
-# Logic Apps pricing model
-Azure Logic Apps allows you to scale and execute integration workflows in the cloud.  Following are details on the billing and pricing plans for Logic Apps.
-## Consumption pricing
-Newly created Logic Apps use a consumption plan. With the Logic Apps consumption pricing model, you only pay for what you use.  Logic Apps are not throttled when using a consumption plan.
-All actions executed in a run of a logic app instance are metered.
-### What are action executions?
-Every step in a logic app definition is an action, which includes triggers, control flow steps like conditions, scopes, for each loops, do until loops, calls to connectors and calls to native actions.
-Triggers are special actions that are designed to instantiate a new instance of a logic app when a particular event occurs.  There are several different behaviors for triggers, which could affect how the logic app is metered.
-* **Polling trigger** – this trigger continually polls an endpoint until it receives a message that satisfies the criteria for creating an instance of a logic app.  The polling interval can be configured in the trigger in the Logic App Designer.  Each polling request, even if it doesn’t create an instance of a logic app, counts as an action execution.
-* **Webhook trigger** – this trigger waits for a client to send it a request on a particular endpoint.  Each request sent to the webhook endpoint counts as an action execution. The Request and the HTTP Webhook trigger are both webhook triggers.
-* **Recurrence trigger** – this trigger creates an instance of the logic app based on the recurrence interval configured in the trigger.  For example, a recurrence trigger can be configured to run every three days or even every minute.
 
-Trigger executions can be seen in the Logic Apps resource blade in the Trigger History part.
+# Pricing model for Azure Logic Apps
 
-All actions that were executed, whether they were successful or failed are metered as an action execution.  Actions that were skipped due to a condition not being met or actions that didn’t execute because the logic app terminated before completion are not counted as action executions.
+You can create and run automated integration workflows that 
+can scale in the cloud when you use Azure Logic Apps. 
+Here are the details about how billing and pricing work for Logic Apps. 
 
-Actions executed within loops are counted per iteration of the loop.  For example, a single action in a for each loop iterating through a list of 10 items are counted as the number of items in the list (10) multiplied by the number of actions in the loop (1) plus one for the initiation of the loop, which, in this example, would be (10 * 1) + 1 = 11 action executions.
-Disabled Logic Apps cannot have new instances instantiated and therefore, while disabled, are not charged.  Be mindful that after disabling a logic app it may take a little time for the instances to quiesce before being completely disabled.
-### Integration Account Usage
-Included in consumption-based usage is an [integration account](logic-apps-enterprise-integration-create-integration-account.md) for exploration, development, and testing purposes allowing you to use the [B2B/EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) features of Logic Apps at no additional cost. You are able to create a maximum of one account per region and store up to 10 Agreements and 25 maps. Schemas, certificates, and partners have no limits and you can upload as many as you need.
+<a name="consumption-pricing"></a>
 
-In addition to the inclusion of integration accounts with consumption, you can also create standard integration accounts without these limits and with our standard Logic Apps SLA. For more information, see [Azure pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+## Consumption pricing model
 
-## App Service plans
-Logic apps previously created referencing an App Service Plan continues to behave as before. Depending on the plan chosen, are throttled after the prescribed daily executions are exceeded but are billed using the action execution meter.
-EA customers that have an App Service Plan in their subscription, which does not have to be explicitly associated with the Logic App, get the included quantities benefit.  For example, if you have a Standard App Service Plan in your EA subscription and a Logic App in the same subscription then you aren't charged for 10,000 action executions per day (see following table). 
+For new logic apps that run in the public or "global" Logic 
+Apps service, you pay only for what you use. These logic apps 
+use a consumption-based plan and pricing model. In your logic app 
+definition, each step is an action. Actions include the trigger, 
+any control flow steps, built-in actions, and connector calls. 
+Logic Apps meters all actions that run in your logic app.  
+For more information, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
-App Service Plans and their daily allowed action executions:
-|  | Free/Shared/Basic | Standard | Premium |
-| --- | --- | --- | --- |
-| Action executions per day |200 |10,000 |50,000 |
-### Convert from App Service Plan pricing to Consumption
-To change a Logic App that has an App Service Plan associated with it to a consumption model, remove the reference to the App Service Plan in the Logic App definition.  This change can be done with a call to a PowerShell cmdlet:
-`Set-AzureRmLogicApp -ResourceGroupName ‘rgname’ -Name ‘wfname’ –UseConsumptionModel -Force`
-## Pricing
-For pricing details, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+<a name="fixed-pricing"></a>
+
+## Fixed pricing model
+
+For new logic apps that run inside an 
+[*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+you pay a fixed monthly price for built-in actions and 
+standard ISE-labeled connectors. An ISE provides a way 
+for you to create and run isolated logic apps that can 
+access resources in an Azure virtual network.  
+
+Your ISE includes one free Enterprise connector, which includes 
+as many connections as you want. Usage for additional Enterprise 
+connectors are charged based on the Enterprise consumption price. 
+
+> [!NOTE]
+> The integration service environment is in *private preview*. 
+> To request access, [create your request to join here](https://aka.ms/iseprivatepreview). 
+> For more information, see 
+> [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+
+<a name="triggers"></a>
+
+## Triggers
+
+Triggers are special actions that create a logic app instance when a specific event happens. 
+Triggers act in different ways, which affect how the logic app is metered.
+
+* **Polling trigger** – This trigger continually checks an endpoint for messages 
+that satisfy the criteria for creating a logic app instance and starting the workflow. 
+Even when no logic app instance gets created, Logic Apps meters each polling request as an execution. 
+To specify the polling interval, set up the trigger through the Logic App Designer.
+
+  [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
+
+* **Webhook trigger** – This trigger waits for a client to send a request to a specific endpoint. 
+Each request sent to the webhook endpoint counts as an action execution. 
+For example, the Request and HTTP Webhook trigger are both webhook triggers.
+
+* **Recurrence trigger** – This trigger creates a logic app instance based 
+on the recurrence interval that you set up in the trigger. 
+For example, you can set up a recurrence trigger that runs every three days or on a more complex schedule.
+
+## Actions
+
+Logic Apps meters built-in actions as native actions. For example, 
+built-in actions include calls over HTTP, calls from Azure Functions 
+or API Management, and control flow steps such as loops and conditions 
+- each with their own action type. Actions that call 
+[connectors](https://docs.microsoft.com/connectors) have the "ApiConnection" type. 
+These connectors are classified as standard or enterprise connectors, 
+which are metered based on their respective [pricing][pricing]. 
+Enterprise connectors in *Preview* are charged as standard connectors.
+
+Logic Apps meters all successfully and unsuccessfully run actions as action executions. 
+Logic Apps doesn't meter these actions: 
+
+* Actions that get skipped due to unmet conditions
+* Actions that don't run because the logic app stopped before finishing
+
+Disabled logic apps aren't charged while disabled 
+because they can't create new instances.
+
+> [!NOTE]
+> After you disable a logic app, any currently running instances 
+> might take some time before they completely stop.
+
+For actions that run inside loops, Logic Apps counts each action per cycle in the loop. 
+For example, suppose you have a "for each" loop that processes a list. 
+Logic Apps meters an action in that loop by multiplying the number of list items 
+with the number of actions in the loop, and adds the action that starts the loop. 
+The calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions.
+
+## Integration Account usage
+
+Consumption-based usage applies to 
+[integration accounts](logic-apps-enterprise-integration-create-integration-account.md) 
+where you can explore, develop, and test the 
+[B2B/EDI](logic-apps-enterprise-integration-b2b.md) and 
+[XML processing](logic-apps-enterprise-integration-xml.md) 
+features in Logic Apps at no additional cost. You can have 
+one integration account per region. Each integration account 
+can store up to specific [numbers of artifacts](../logic-apps/logic-apps-limits-and-config.md), 
+which include trading partners, agreements, maps, schemas, 
+assemblies, certificates, batch configurations, and so on.
+
+Logic Apps also offers basic and standard integration accounts with supported Logic Apps SLA. 
+You can use basic integration accounts when you just want message handling or act as a small 
+business partner that has a trading partner relationship with a larger business entity. 
+Standard integration accounts support more complex B2B relationships and increase the 
+number of entities you can manage. For more information, see 
+[Azure pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 ## Next steps
-* [An overview of Logic Apps][whatis]
+
+* [Learn more about Logic Apps][whatis]
 * [Create your first logic app][create]
 
 [pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
-[whatis]: logic-apps-what-are-logic-apps.md
-[create]: logic-apps-create-a-logic-app.md
+[whatis]: logic-apps-overview.md
+[create]: quickstart-create-first-logic-app-workflow.md
 

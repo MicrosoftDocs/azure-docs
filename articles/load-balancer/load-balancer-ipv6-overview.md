@@ -1,24 +1,26 @@
 ---
-title: Overview of IPv6 for Azure Load Balancer | Microsoft Docs
+title: Overview of IPv6 for Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Understanding IPv6 support for Azure Load Balancer and load-balanced VMs.
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
-editor: ''
+author: KumudD
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
-
-ms.assetid: 6a1d583f-a305-40fd-a94b-fa42e1943bbb
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 08/24/2018
 ms.author: kumud
 ---
 
 # Overview of IPv6 for Azure Load Balancer
+
+
+>[!NOTE] 
+>Azure Load Balancer supports two different types: Basic and Standard. This article discusses Basic Load Balancer. For more information about Standard Load Balancer, see [Standard Load Balancer overview](load-balancer-standard-overview.md).
 
 Internet-facing load balancers can be deployed with an IPv6 address. In addition to IPv4 connectivity, this enables the following capabilities:
 
@@ -68,7 +70,10 @@ Limitations
 * Azure VMs cannot connect over IPv6 to other VMs, other Azure services, or on-premises devices. They can only communicate with the Azure load balancer over IPv6. However, they can communicate with these other resources using IPv4.
 * Network Security Group (NSG) protection for IPv4 is supported in dual-stack (IPv4+IPv6) deployments. NSGs do not apply to the IPv6 endpoints.
 * The IPv6 endpoint on the VM is not exposed directly to the internet. It is behind a load balancer. Only the ports specified in the load balancer rules are accessible over IPv6.
-* Changing the IdleTimeout parameter for IPv6 is **not currently supported**. The default is four minutes.
+* Changing the IdleTimeout parameter for IPv6 is **currently not supported**. The default is four minutes.
+* Changing the loadDistributionMethod parameter for IPv6 is **currently not supported**.
+* Reserved IPv6 IPs (where IPAllocationMethod = static) are **currently not supported**.
+* NAT64 (translation of IPv6 to IPv4) is not supported.
 
 ## Next steps
 

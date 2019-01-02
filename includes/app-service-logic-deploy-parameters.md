@@ -1,14 +1,23 @@
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all of the parameter values.
-You should define a parameter for those values that will vary based on the project you are deploying or based on the 
-environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deploy. 
+---
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
+---
+With Azure Resource Manager, you can define parameters for the values to use when deploying the template. 
+The template includes a `parameters` section that contains all the parameter values. 
+Each parameter value is used by the template to define the resources that you want to deploy.
 
-When defining parameters, use the **allowedValues** field to specify which values a user can provide during deployment. Use the **defaultValue** field to assign a value to the parameter, if no value is provided during deployment.
+> [!NOTE]
+> Do not define parameters for values that always stay the same. 
+> Define parameters only for values that vary, based on the project 
+> that you are deploying or based on the environment where you are deploying.
 
-We will describe each parameter in the template.
+When you define parameters:
 
-### logicAppName
-The name of the logic app to create.
+* To specify the permitted values that a user can provide during deployment, 
+use the **allowedValues** field.
 
-    "logicAppName": {
-        "type": "string"
-    }
+* To assign default values to parameter when no values are provided during deployment, 
+use the **defaultValue** field. 

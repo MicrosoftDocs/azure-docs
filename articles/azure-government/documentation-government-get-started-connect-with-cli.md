@@ -1,54 +1,83 @@
 ---
 title: Connect to Azure Government with Azure CLI | Microsoft Docs
-description: Information on managing your subscription in Azure Government by connecting with the Azure CLI
+description: This quickstart shows you how to connect to Azure Government and reate a web app in Azure Government with Azure CLI
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: zakramer
-manager: liki
+author: Juliako
+manager: femila
 
-ms.assetid: c7cbe993-375e-4aed-9aa5-2f4b2111f71c
 ms.service: azure-government
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 02/13/2017
-ms.author: zakramer
+ms.date: 08/09/2018 
+ms.author: juliako
 
+#Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government using CLI so I can start developing against Azure Government's secure isolated datacenters.
 ---
 
+# Quickstart: Connect to Azure Government with Azure CLI
 
-# Connect to Azure Government with Azure CLI
+Microsoft Azure Government delivers a dedicated cloud with world-class security and compliance, enabling US government agencies and their partners to transform their workloads to the cloud. To manage your Azure Government cloud workloads and applications you can connect to the Azure Government using different tools, as described in the following video.  
 
-To use Azure CLI, you need to connect to Azure Government instead of Azure public. The Azure CLI can be used to manage a large subscription through script or to access features that are not currently available in the Azure portal. If you have used Azure CLI in Azure Public, it is mostly the same.  The differences in Azure Government are:
+This quickstart shows how to use the Azure CLI to access and start managing resources in Azure Government.  
 
-There are multiple ways to [install the Azure CLI](https://docs.microsoft.com/en-us/azure/xplat-cli-install). If you already have Node installed, the easiest way is to install the npm package:
+> [!VIDEO https://www.youtube.com/embed/Q3kx4cmRkCA]
 
-To install the CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install** to install the azure-cli package:
+If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 
-```bash
-npm install -g azure-cli
+## Prerequisites
+
+* Review [Guidance for developers](documentation-government-developer-guide.md).<br/> This article discusses Azure Government's unique URLs and endpoints for managing your environment. You must know about these endpoints in order to connect to Azure Government. 
+* Review [Compare Azure Government and global Azure](compare-azure-government-global-azure.md) and click on a service of interest to see variations between Azure Government and global Azure.
+
+## Install Azure CLI 
+
+Install the Azure CLI locally by following the instructions in [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2). 
+
+In Azure Government, there is no equivalent to **Azure Cloud Shell** that you can find in the Azure portal. 
+
+## Connect with Azure CLI
+
+Connect to Azure Government by setting the cloud with the name `AzureUSGovernment`.
+
+```azurecli
+az cloud set --name AzureUSGovernment
 ```
 
-On Linux distributions, you might need to use **sudo** to successfully run the **npm** command, as follows:
+Once the cloud has been set, you can continue logging in:
 
-```bash
-sudo npm install -g azure-cli
+```azurecli
+az login
 ```
 
-> [!NOTE]
-> If you need to install or update Node.js and npm on your Linux distribution or OS, we recommend that you install the most recent Node.js LTS version (4.x). If you use an older version, you might get installation errors.
+When you type `login`, a browser is launched for you to log in. Choose your Azure Government account and log in with appropriate credentials.
 
+## Confirm 
 
-Once you have the Azure CLI installed, you need to log in to Azure Government:
+To confirm the cloud has correctly been set to `AzureUSGovernment`, run:
 
+```azurecli
+az cloud list --output table
 ```
-azure login --username your-user-name@your-gov-tenant.onmicrosoft.com  --environment AzureUSGovernment
+
+The `isActive` flag for the `AzureUSGovernment` item should be set to `true`.
+
+![Azure Government CLI](./media/connect-with-cli/confirm.png)
+
+## List US Government regions
+
+You use the same command as for global Azure.
+
+```azurecli
+az account list-locations
 ```
 
-Once you are logged in, you can run Azure CLI commands as you normally would:
+## Next steps
 
-```
-azure webapp list my-resource-group
-```
+This quickstart showed you how to use CLI to connect to Azure Government. Once you are connected to Azure Government, you may want to explore Azure services. Make sure you check out the variations, described in [Compare Azure Government and global Azure](compare-azure-government-global-azure.md). To learn more about Azure services continue to the Azure documentation.
+
+> [!div class="nextstepaction"]
+> [Azure documentation](https://docs.microsoft.com/azure/).

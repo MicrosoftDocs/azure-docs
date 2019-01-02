@@ -3,7 +3,7 @@ title: Packet inspection with Azure Network Watcher | Microsoft Docs
 description: This article describes how to use Network Watcher to perform deep packet inspection collected from a VM
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Packet inspection with Azure Network Watcher
@@ -26,8 +26,6 @@ Using the packet capture feature of Network Watcher, you can initiate and manage
 This article goes through some pre-configured scenarios on a packet capture that was run previously. These scenarios illustrate capabilities that can be accessed by reviewing a packet capture. This scenario uses [WireShark](https://www.wireshark.org/) to inspect the packet capture.
 
 This scenario assumes you already ran a packet capture on a virtual machine. To learn how to create a packet capture visit [Manage packet captures with the portal](network-watcher-packet-capture-manage-portal.md) or with REST by visiting [Managing Packet Captures with REST API](network-watcher-packet-capture-manage-rest.md).
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## Scenario
 
@@ -51,7 +49,7 @@ Load the **.cap** file from your packet capture. This file can be found in the b
 
 ### Step 3
 
-To view the initial Round Trip Time (RTT) in TCP conversations, we will only be looking at the first two packets involved in the TCP handshake. We will be using the first two packets in the three-way handshake, which are the [SYN], [SYN, ACK] packets. They are named for flags set in the TCP header. The last packet in the handshake, the [ACK] packet, will not be used in this scenario. The [SYN] packet is sent by the client. Once it is received the server sends the [ACK] packet as an acknowledgement of receiving the SYN from the client. Leveraging the fact that the server’s response requires very little overhead, we calculate the RTT by adding the subtracting the time the [SYN, ACK] packet was received by the client by the time [SYN] packet was sent by the client.
+To view the initial Round Trip Time (RTT) in TCP conversations, we will only be looking at the first two packets involved in the TCP handshake. We will be using the first two packets in the three-way handshake, which are the [SYN], [SYN, ACK] packets. They are named for flags set in the TCP header. The last packet in the handshake, the [ACK] packet, will not be used in this scenario. The [SYN] packet is sent by the client. Once it is received the server sends the [ACK] packet as an acknowledgement of receiving the SYN from the client. Leveraging the fact that the server’s response requires very little overhead, we calculate the RTT by subtracting the time the [SYN, ACK] packet was received by the client by the time [SYN] packet was sent by the client.
 
 Using WireShark this value is calculated for us.
 
@@ -83,7 +81,7 @@ Using the same capture in the previous scenario click **Statistics** > **Protoco
 
 The protocol hierarchy window appears. This view provides a list of all the protocols that were in use during the capture session and the number of packets transmitted and received using the protocols. This view can be useful for finding unwanted network traffic on your virtual machines or network.
 
-![protocol hierachy opened][3]
+![protocol hierarchy opened][3]
 
 As you can see in the following screen capture, there was traffic using the BitTorrent protocol, which is used for peer to peer file sharing. As an administrator you do not expect to see BitTorrent traffic on this particular virtual machines. Now you aware of this traffic, you can remove the peer to peer software that installed on this virtual machine, or block the traffic using Network Security Groups or a Firewall. Additionally, you may elect to run packet captures on a schedule, so you can review the protocol use on your virtual machines regularly. For an example on how to automate network tasks in azure visit [Monitor network resources with azure automation](network-watcher-monitor-with-azure-automation.md)
 

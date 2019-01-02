@@ -3,19 +3,19 @@ title: Create tasks to prepare jobs and complete jobs on compute nodes - Azure B
 description: Use job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
+author: laurenhughes
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
-ms.custom: H1Hack27Feb2017
+ms.author: lahugh
+ms.custom: seodec18
 
 ---
 # Run job preparation and job release tasks on Batch compute nodes
@@ -96,7 +96,7 @@ myJob.JobPreparationTask =
 
 // Assign the job release task to the job
 myJob.JobReleaseTask =
-    new JobPreparationTask { CommandLine = jobReleaseCmdLine };
+    new JobReleaseTask { CommandLine = jobReleaseCmdLine };
 
 await myJob.CommitAsync();
 ```
@@ -108,13 +108,13 @@ As mentioned earlier, the release task is executed when a job is terminated or d
 // Job Release Task on any node that executed job tasks. Note that the
 // Job Release Task is also executed when a job is deleted, thus you
 // need not call Terminate if you typically delete jobs after task completion.
-await myBatchClient.JobOperations.TerminateJobAsy("JobPrepReleaseSampleJob");
+await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ```
 
 ## Code sample on GitHub
 To see job preparation and release tasks in action, check out the [JobPrepRelease][job_prep_release_sample] sample project on GitHub. This console application does the following:
 
-1. Creates a pool with two "small" nodes.
+1. Creates a pool with two nodes.
 2. Creates a job with job preparation, release, and standard tasks.
 3. Runs the job preparation task, which first writes the node ID to a text file in a node's "shared" directory.
 4. Runs a task on each node that writes its task ID to the same text file.
@@ -127,7 +127,7 @@ Output from the sample application is similar to the following:
 
 ```
 Attempting to create pool: JobPrepReleaseSamplePool
-Created pool JobPrepReleaseSamplePool with 2 small nodes
+Created pool JobPrepReleaseSamplePool with 2 nodes
 Checking for existing job JobPrepReleaseSampleJob...
 Job JobPrepReleaseSampleJob not found, creating...
 Submitting tasks and awaiting completion...
@@ -191,9 +191,9 @@ This MSDN forum post provides an overview of several methods of preparing your n
 
 Written by one of the Azure Batch team members, it discusses several techniques that you can use to deploy applications and data to compute nodes.
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[api_rest]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [portal]: https://portal.azure.com
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease

@@ -3,28 +3,29 @@ title: Analyzing Trends in Visual Studio | Microsoft Docs
 description: Analyze, visualize, and explore trends in your Application Insights telemetry in Visual Studio.
 services: application-insights
 documentationcenter: .net
-author: numberbycolors
-manager: douge
-
+author: NumberByColors
+manager: carmonm
 ms.assetid: 3150c6fc-2691-44f6-a290-fc5cd68e692a
 ms.service: application-insights
-ms.workload: tbd
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.topic: conceptual
+ms.date: 03/17/2017
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-
 ---
 # Analyzing Trends in Visual Studio
-The Application Insights Trends tool visualizes how your application's important telemetry events change over time, helping you quickly identify problems and anomalies. By linking you to more detailed diagnostic information, Trends can help you improve your app's performance, track down the causes of exceptions, and uncover insights from your custom events.
+The Application Insights Trends tool visualizes how your web application's important telemetry events change over time, helping you quickly identify problems and anomalies. By linking you to more detailed diagnostic information, Trends can help you improve your app's performance, track down the causes of exceptions, and uncover insights from your custom events.
 
 ![Example Trends window](./media/app-insights-visual-studio-trends/app-insights-trends-hero-750.png)
 
-> [!NOTE]
-> Application Insights Trends is available in Visual Studio 2015 Update 3 and later, or with the [Developer Analytics Tools extension](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) version 5.209 and later.
-> 
-> 
+## Configure your web app for Application Insights
+
+If you haven't done this already, [configure your web app for Application Insights](app-insights-overview.md). This allows it to send telemetry to the Application Insights portal. The Trends tool reads the telemetry from there.
+
+Application Insights Trends is available in Visual Studio 2015 Update 3 and later.
 
 ## Open Application Insights Trends
 To open the Application Insights Trends window:
@@ -53,7 +54,7 @@ Application Insights Trends creates a time series visualization from your app's 
 
 Use the controls at the top of the window to adjust what types of telemetry you view. First, choose the telemetry types in which you're interested:
 
-* **Telemetry Type** - Server requests, exceptions, depdendencies, or custom events
+* **Telemetry Type** - Server requests, exceptions, dependencies, or custom events
 * **Time Range** - Anywhere from the last 30 minutes to the last 3 days
 * **Group By** - Exception type, problem ID, country/region, and more.
 
@@ -100,6 +101,6 @@ The Trends tool can highlight bubbles of events that are anomalous compared to o
 |  |  |
 | --- | --- |
 | **[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Search telemetry, see data in CodeLens, and configure Application Insights. All within Visual Studio. |![Right-click the project and choose Application Insights, Search](./media/app-insights-visual-studio-trends/34.png) |
-| **[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |![Visual studio](./media/app-insights-visual-studio-trends/64.png) |
-| **[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/app-insights-visual-studio-trends/62.png) |
+| **[Add more data](../azure-monitor/app/asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |![Visual studio](./media/app-insights-visual-studio-trends/64.png) |
+| **[Working with the Application Insights portal](../azure-monitor/app/app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/app-insights-visual-studio-trends/62.png) |
 

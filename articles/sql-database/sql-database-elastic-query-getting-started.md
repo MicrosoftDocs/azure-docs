@@ -1,20 +1,17 @@
 ---
 title: Report across scaled-out cloud databases (horizontal partitioning) | Microsoft Docs
-description: how to use cross database database queries
+description: Use cross database database queries to report across multiple databases.
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: ddove
-
-ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
-ms.custom: multiple databases
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/23/2016
-ms.author: ddove
+ms.subservice: scale-out
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: MladjoA
+ms.author: mlandzic
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/01/2018
 
 ---
 # Report across scaled-out cloud databases (preview)
@@ -34,7 +31,7 @@ Here you will create a shard map manager along with several shards, followed by 
 
     ![command prompt][1]
 2. In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat the action four times. This inserts sample data rows in your shards.
-3. The [Azure portal](https://portal.azure.com) should show three new databases in your v12 server:
+3. The [Azure portal](https://portal.azure.com) should show three new databases in your server:
 
    ![Visual Studio confirmation][2]
 
@@ -118,15 +115,12 @@ You will notice that the query aggregates results from all the shards and gives 
 
 All the rows from **Customers** table, stored in different shards populate the Excel sheet.
 
-## Next steps
 You can now use Excel’s powerful data visualization functions. You can use the connection string with your server name, database name and credentials to connect your BI and data integration tools to the elastic query database. Make sure that SQL Server is supported as a data source for your tool. You can refer to the elastic query database and external tables just like any other SQL Server database and SQL Server tables that you would connect to with your tool.
 
 ### Cost
 There is no additional charge for using the Elastic Database Query feature.
 
 For pricing information see [SQL Database Pricing Details](https://azure.microsoft.com/pricing/details/sql-database/).
-
-## Next steps
 
 ## Next steps
 

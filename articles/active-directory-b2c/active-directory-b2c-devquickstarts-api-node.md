@@ -1,22 +1,18 @@
----
-title: 'Azure AD B2C: Secure a web API by using Node.js | Microsoft Docs'
-description: How to build a Node.js web API that accepts tokens from a B2C tenant
+﻿---
+title: Secure a web API by using Node.js in Azure Active Directory B2C | Microsoft Docs
+description: How to build a Node.js web API that accepts tokens from a B2C tenant.
 services: active-directory-b2c
-documentationcenter: ''
-author: xerners
-manager: mbaldwin
-editor: ''
+author: davidmu1
+manager: mtillman
 
-ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: javascript
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 01/07/2017
-ms.author: brandwe
-
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure AD B2C: Secure a web API by using Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
@@ -32,7 +28,7 @@ With Azure Active Directory (Azure AD) B2C, you can secure a web API by using OA
 To do this sample, you need to:
 
 1. Register an application with Azure AD.
-2. Set up your application to use Passport's `azure-ad-passport` plug-in.
+2. Set up your application to use Passport's `passport-azure-ad` plug-in.
 3. Configure a client application to call the "to-do list" web API.
 
 ## Get an Azure AD B2C directory
@@ -46,11 +42,9 @@ Next, you need to create an app in your B2C directory that gives Azure AD some i
 * Create an **Application secret** for your application and copy it. You need this data later. Note that this value needs to be [XML escaped](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) before you use it.
 * Copy the **Application ID** that is assigned to your app. You need this data later.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
-
 ## Create your policies
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains two identity experiences: sign up and sign in. You need to create one policy of each type, as described in the
-[policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  When you create your three policies, be sure to:
+[policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow).  When you create your three policies, be sure to:
 
 * Choose the **Display name** and other sign-up attributes in your sign-up policy.
 * Choose the **Display name** and **Object ID** application claims in every policy.  You can choose other claims as well.
@@ -74,12 +68,12 @@ The completed app is also [available as a .zip file](https://github.com/AzureADQ
 ## Download Node.js for your platform
 To successfully use this sample, you need a working installation of Node.js.
 
-Install Node.js from [nodejs.org](http://nodejs.org).
+Install Node.js from [nodejs.org](https://nodejs.org).
 
 ## Install MongoDB for your platform
 To successfully use this sample, you need a working installation of MongoDB. We use MongoDB to make your REST API persistent across server instances.
 
-Install MongoDB from [mongodb.org](http://www.mongodb.org).
+Install MongoDB from [mongodb.org](https://www.mongodb.org).
 
 > [!NOTE]
 > This walk-through assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is `mongodb://localhost`.
@@ -546,7 +540,7 @@ Restify and Express provide deep customization for a REST API server, but we use
 
 ```Javascript
 
-**
+/**
  * Our Server
  */
 

@@ -1,74 +1,79 @@
 ---
 title: 'SSMS: Connect and query data in Azure SQL Database | Microsoft Docs'
-description: Learn how to connect to SQL Database on Azure by using SQL Server Management Studio (SSMS). Then, run Transact-SQL (T-SQL) statements to query and edit data.
-metacanonical: ''
+description: Learn how to connect to SQL Database on Azure by using SQL Server Management Studio (SSMS). Then run Transact-SQL (T-SQL) statements to query and edit data.
 keywords: connect to sql database,sql server management studio
 services: sql-database
-documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
-ms.custom: development
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/15/2017
+ms.subservice: 
+ms.custom: 
+ms.devlang: 
+ms.topic: quickstart
+author: CarlRabeler
 ms.author: carlrab
-
+ms.reviewer:
+manager: craigg
+ms.date: 12/04/2018
 ---
-# Azure SQL Database: Use SQL Server Management Studio to connect and query data
+# Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database
 
-Use [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to create and manage SQL Server resources from the user interface or in scripts. This guide details using SSMS to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
+In this quickstart, you'll use [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) to connect to an Azure SQL database. You'll then run Transact-SQL statements to query, insert, update, and delete data. You can use SSMS to manage any SQL infrastructure, from SQL Server to SQL Database for Microsoft Windows.  
 
-This quick start uses as its starting point the resources created in one of these quick starts:
+## Prerequisites
 
-- [Create DB - Portal](sql-database-get-started-portal.md)
-- [Create DB - CLI](sql-database-get-started-cli.md)
-- [Create DB - PowerShell](sql-database-get-started-powershell.md) 
+To complete this tutorial, you need:
 
-Before you start, make sure you have installed the newest version of [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-## Get connection information
+* A configured server-level firewall rule. For more information, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
 
-Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
+#### Install the latest SSMS
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
+Before you start, make sure you've installed the latest [SSMS][ssms-install-latest-84g]. 
 
-    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
+## SQL server connection information
 
-## Connect to the server
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-Use SQL Server Management Studio to establish a connection to your Azure SQL Database server.
+## Connect to your database
 
-1. Type **SSMS** in the Windows search box and then click **Enter** to open SSMS.
+In SMSS, connect to your Azure SQL Database server. 
 
-2. In the **Connect to Server** dialog box, enter the following information:
-   - **Server type**: Specify Database engine
-   - **Server name**: Enter your fully qualified server name, such as **mynewserver20170313.database.windows.net**
-   - **Authentication**: Specify SQL Server Authentication
-   - **Login**: Enter your server admin account
-   - **Password**: Enter the password for your server admin account
- 
-    <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
+> [!IMPORTANT]
+> An Azure SQL Database logical server listens on port 1433. To connect to a logical server from behind a corporate firewall, the firewall must have this port open.
+>
 
-3. Click **Connect**. The Object Explorer window opens in SSMS. 
+1. Open SSMS. The **Connect to Server** dialog box appears.
 
-    <img src="./media/sql-database-connect-query-ssms/connected.png" alt="connected to server" style="width: 780px;" />
+2. Enter the following information:
 
-4. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
+   | Setting      | Suggested value    | Description | 
+   | ------------ | ------------------ | ----------- | 
+   | **Server type** | Database engine | Required value. |
+   | **Server name** | The fully qualified server name | Something like: **mynewserver20170313.database.windows.net**. |
+   | **Authentication** | SQL Server Authentication | This tutorial uses SQL Authentication. |
+   | **Login** | Server admin account user ID | The user ID from the server admin account used to create the server. |
+   | **Password** | Server admin account password | The password from the server admin account used to create the server. |
+   ||||
+
+   ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
+
+3. Select **Options** in the **Connect to Server** dialog box. In the **Connect to database** drop-down menu, select **mySampleDatabase**.
+
+   ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
+
+4. Select **Connect**. The Object Explorer window opens. 
+
+5. To view the database's objects, expand **Databases** and then expand **mySampleDatabase**.
+
+   ![view database objects](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## Query data
 
-Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement to query data in your Azure SQL database.
+Run this [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL code to query for the top 20 products by category.
 
-1. In Object Explorer, right-click **mySampleDatabase** and click **New Query**. A blank query window opens that is connected to your database.
-2. In the query window, enter the following query in the query window:
+1. In Object Explorer, right-click **mySampleDatabase** and select **New Query**. A new query window connected to your database opens.
+
+2. In the query window, paste this SQL query.
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -77,16 +82,15 @@ Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-3. On the toolbar, click **Execute** to retrieve data from the Product and ProductCategory tables.
+3. On the toolbar, select **Execute** to retrieve data from the `Product` and `ProductCategory` tables.
 
-    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
+    ![query to retrieve data from two tables](./media/sql-database-connect-query-ssms/query2.png)
 
 ## Insert data
 
-Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to insert data into your Azure SQL database.
+Run this [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL code to create a new product in the `SalesLT.Product` table.
 
-1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
-2. In the query window, enter the following query in the query window:
+1. Replace the previous query with this one.
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -94,30 +98,39 @@ Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 
            , [ProductNumber]
            , [Color]
            , [ProductCategoryID]
-		   , [StandardCost]
-		   , [ListPrice]
-		   , [SellStartDate]
-		   )
+           , [StandardCost]
+           , [ListPrice]
+           , [SellStartDate] )
      VALUES
            ('myNewProduct'
            ,123456789
            ,'NewColor'
            ,1
-		   ,100
-		   ,100
-		   ,GETDATE() );
+           ,100
+           ,100
+           ,GETDATE() );
    ```
 
-3. On the toolbar, click **Execute**  to insert a new row in the Product table.
+2. Select **Execute**  to insert a new row in the `Product` table. The **Messages** pane displays **(1 row affected)**.
 
-    <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
+## View the result
 
+1. Replace the previous query with this one.
+
+   ```sql
+   SELECT * FROM [SalesLT].[Product] 
+   WHERE Name='myNewProduct' 
+
+2. Select **Execute**. The following result appears. 
+
+   ![result](./media/sql-database-connect-query-ssms/result.png)
+
+ 
 ## Update data
 
-Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
+Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
 
-1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
-2. In the query window, enter the following query in the query window:
+1. Replace the previous query with this one.
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -125,27 +138,35 @@ Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 
    WHERE Name = 'myNewProduct';
    ```
 
-3. On the toolbar, click **Execute** to update the specified row in the Product table.
-
-    <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
+2. Select **Execute** to update the specified row in the `Product` table. The **Messages** pane displays **(1 row affected)**.
 
 ## Delete data
 
-Use the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
+Run this [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL code to remove your new product.
 
-1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
-2. In the query window, enter the following query in the query window:
+1. Replace the previous query with this one.
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-3. On the toolbar, click **Execute** to delete the specified row in the Product table.
-
-    <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
+2. Select **Execute** to delete the specified row in the `Product` table. The **Messages** pane displays **(1 row affected)**.
 
 ## Next steps
 
-- For information about SSMS, see [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
-- For information about querying and editing data using Visual Studio Code, see [Visual Studio Code](https://code.visualstudio.com/docs)
+- For information about SSMS, see [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+- To connect and query using the Azure portal, see [Connect and query with the Azure portal SQL Query editor](sql-database-connect-query-portal.md).
+- To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
+- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
+- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
+- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
+- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
+- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
+- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
+
+
+<!-- Article link references. -->
+
+[ssms-install-latest-84g]: https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms
+

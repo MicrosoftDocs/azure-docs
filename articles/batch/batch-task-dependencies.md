@@ -3,18 +3,18 @@ title: Use task dependencies to run tasks based on the completion of other tasks
 description: Create tasks that depend on the completion of other tasks for processing MapReduce style and similar big data workloads in Azure Batch.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
-ms.date: 03/02/2017
-ms.author: tamram
+ms.date: 05/22/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -64,7 +64,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 This code snippet creates a dependent task with task ID "Flowers". The "Flowers" task depends on tasks "Rain" and "Sun". Task "Flowers" will be scheduled to run on a compute node only after tasks "Rain" and "Sun" have completed successfully.
 
 > [!NOTE]
-> A task is considered to be completed successfully when it is in the **completed** state and its **exit code** is `0`. In Batch .NET, this means a [CloudTask][net_cloudtask].[State][net_taskstate] property value of `Completed` and the CloudTask's [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] property value is `0`.
+> By default, a task is considered to be completed successfully when it is in the **completed** state and its **exit code** is `0`. In Batch .NET, this means a [CloudTask][net_cloudtask].[State][net_taskstate] property value of `Completed` and the CloudTask's [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] property value is `0`. For how to change this, see the [Dependency actions](#dependency-actions) section.
 > 
 > 
 
@@ -113,11 +113,13 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ``` 
 
 ### Task ID range
-In a dependency on a range of parent tasks, a task depends on the the completion of tasks whose IDs lie within a range.
+In a dependency on a range of parent tasks, a task depends on the completion of tasks whose IDs lie within a range.
 To create the dependency, provide the first and last task IDs in the range to the [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
-> When you use task ID ranges for your dependencies, the task IDs in the range *must* be string representations of integer values.
+> When you use task ID ranges for your dependencies, only tasks with IDs representing integer values will be selected by the range. So the range `1..10` will select tasks `3` and `7`, but not `5flamingoes`. 
+> 
+> Leading zeroes are not signficant when evaluating range dependencies, so tasks with string identifiers `4`, `04` and `004` will all be *within* the range and they will all be treated as task `4`, so the first one to complete will satisfy the dependency.
 > 
 > Every task in the range must satisfy the dependency, either by completing successfully or by completing with a failure that’s mapped to a dependency action set to **Satisfy**. See the [Dependency actions](#dependency-actions) section for details.
 >
@@ -149,10 +151,11 @@ For example, suppose that a dependent task is awaiting data from the completion 
 
 A dependency action is based on an exit condition for the parent task. You can specify a dependency action for any of the following exit conditions; for .NET, see the [ExitConditions][net_exitconditions] class for details:
 
-- When a scheduling error occurs
-- When the task exits with an exit code defined by the **ExitCodes** property
-- When the task exits with an exit code that falls within a range specified by the **ExitCodeRanges** property
-- The default case, if the task exits with an exit code not defined by **ExitCodes** or **ExitCodeRanges**, or if the task exits with a scheduling error and the **SchedulingError** property is not set 
+- When a pre-processing error occurs.
+- When a file upload error occurs. If the task exits with an exit code that was specified via **exitCodes** or **exitCodeRanges**, and then encounters a file upload error, the action specified by the exit code takes precedence.
+- When the task exits with an exit code defined by the **ExitCodes** property.
+- When the task exits with an exit code that falls within a range specified by the **ExitCodeRanges** property.
+- The default case, if the task exits with an exit code not defined by **ExitCodes** or **ExitCodeRanges**, or if the task exits with a pre-processing error and the **PreProcessingError** property is not set, or if the task fails with a file upload error and the **FileUploadError** property is not set. 
 
 To specify a dependency action in .NET, set the [ExitOptions][net_exitoptions].[DependencyAction][net_dependencyaction] property for the exit condition. The **DependencyAction** property takes one of two values:
 
@@ -161,29 +164,29 @@ To specify a dependency action in .NET, set the [ExitOptions][net_exitoptions].[
 
 The default setting for the **DependencyAction** property is **Satisfy** for exit code 0, and **Block** for all other exit conditions.
 
-The following code snippet sets the **DependencyAction** property for a parent task. If the parent task exits with a scheduling error, or with the specified error codes, the dependent task is blocked. If the parent task exits with any other non-zero error, the dependent task is eligible to run.
+The following code snippet sets the **DependencyAction** property for a parent task. If the parent task exits with a pre-processing error, or with the specified error codes, the dependent task is blocked. If the parent task exits with any other non-zero error, the dependent task is eligible to run.
 
 ```csharp
 // Task A is the parent task.
 new CloudTask("A", "cmd.exe /c echo A")
 {
     // Specify exit conditions for task A and their dependency actions.
-    ExitConditions = new ExitConditions()
+    ExitConditions = new ExitConditions
     {
-        // If task A exits with a scheduling error, block any downstream tasks (in this example, task B).
-        SchedulingError = new ExitOptions()
+        // If task A exits with a pre-processing error, block any downstream tasks (in this example, task B).
+        PreProcessingError = new ExitOptions
         {
             DependencyAction = DependencyAction.Block
         },
         // If task A exits with the specified error codes, block any downstream tasks (in this example, task B).
-        ExitCodes = new List<ExitCodeMapping>()
+        ExitCodes = new List<ExitCodeMapping>
         {
             new ExitCodeMapping(10, new ExitOptions() { DependencyAction = DependencyAction.Block }),
             new ExitCodeMapping(20, new ExitOptions() { DependencyAction = DependencyAction.Block })
         },
         // If task A succeeds or fails with any other error, any downstream tasks become eligible to run 
         // (in this example, task B).
-        Default = new ExitOptions()
+        Default = new ExitOptions
         {
             DependencyAction = DependencyAction.Satisfy
         }

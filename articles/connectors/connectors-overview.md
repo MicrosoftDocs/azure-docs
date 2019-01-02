@@ -53,7 +53,7 @@ Most connectors require you to configure a *connection* before you can use the c
 Connections can be viewed and managed in Azure by clicking **Browse** and selecting **API Connections**.  From the API Connections resource you can view, edit, update, or re-authorize any connections you have created.
 
 ## Next Steps
-* [Create your first logic app](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Learn common uses and examples of logic apps](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Get started with enterprise integration triggers and actions](../logic-apps/logic-apps-enterprise-integration-overview.md)
 

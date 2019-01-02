@@ -1,5 +1,12 @@
+---
+author: jpconnock
+ms.service: cloud-services
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: jeconnoc
+---
 > [!WARNING]
-> When you enable diagnostics on an existing role, any extensions you have enabled will be disabled when the package is deployed. These include:
+> When you enable diagnostics for an existing role, any extensions that you have already set are disabled when the package is deployed. These include:
 >
 > * Microsoft Monitoring Agent Diagnostics
 > * Microsoft Azure Security Monitoring
@@ -11,5 +18,5 @@
 > * Windows Azure Remote Desktop Extension
 > * Windows Azure Log Collector
 >
-> You may re-enable your extensions via the Azure Portal or PowerShell after you have deployed the updated role.
+> You can reset your extensions via the Azure portal or PowerShell after you deploy the updated role.
 >

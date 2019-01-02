@@ -3,7 +3,7 @@ title: Manage Network Security Group flow logs with Azure Network Watcher - REST
 description: This page explains how to manage Network Security Group flow logs in Azure Network Watcher with REST API
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 
 ---
 
@@ -24,12 +24,13 @@ ms.author: gwallace
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI](network-watcher-nsg-flow-logging-cli.md)
+> - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 Network Security Group flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group. These flow logs are written in json format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+> [!NOTE] 
+> Flow Logs Version 2 are only available in the West Central US Region. Configuration is available through the Azure Portal and REST API. Enabling Version 2 logs in an unsupported region will result in Version 1 logs outputted to your storage account.
 
 ## Before you begin
 
@@ -46,7 +47,7 @@ The scenario covered in this article shows you how to enable, disable, and query
 
 In this scenario, you will:
 
-* Enable flow logs
+* Enable flow logs (Version 2)
 * Disable flow logs
 * Query flow logs status
 
@@ -58,9 +59,18 @@ Log in to armclient with your Azure credentials.
 armclient login
 ```
 
+## Register Insights provider
+
+In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. If you are not sure if the **Microsoft.Insights** provider is registered, run the following script.
+
+```powershell
+$subscriptionId = "00000000-0000-0000-0000-000000000000"
+armclient post "https://management.azure.com//subscriptions/${subscriptionId}/providers/Microsoft.Insights/register?api-version=2016-09-01"
+```
+
 ## Enable Network Security Group flow logs
 
-The command to enable flow logs is shown in the following example:
+The command to enable flow logs version 2 is shown in the following example. For version 1 replace the 'version' field with '1':
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -77,7 +87,11 @@ $requestBody = @"
     'retentionPolicy' : {
 			days: 5,
 			enabled: true
-		}
+		},
+    'format': {
+        'type': 'JSON',
+        'version': 2
+    }
 	}
 }
 "@
@@ -96,6 +110,10 @@ The response returned from the preceding example is as follows:
     "retentionPolicy": {
       "days": 5,
       "enabled": true
+    },
+    "format": {
+    "type": "JSON",
+    "version": 2
     }
   }
 }
@@ -120,7 +138,11 @@ $requestBody = @"
     'retentionPolicy' : {
 			days: 5,
 			enabled: true
-		}
+		},
+    'format': {
+        'type': 'JSON',
+        'version': 2
+    }
 	}
 }
 "@
@@ -139,6 +161,10 @@ The response returned from the preceding example is as follows:
     "retentionPolicy": {
       "days": 5,
       "enabled": true
+    },
+    "format": {
+    "type": "JSON",
+    "version": 2
     }
   }
 }
@@ -173,6 +199,10 @@ The following is an example of the response returned:
    "retentionPolicy": {
       "days": 5,
       "enabled": true
+    },
+    "format": {
+    "type": "JSON",
+    "version": 2
     }
   }
 }
@@ -185,7 +215,7 @@ The storage location of a flow log is defined at creation. A convenient tool to 
 If a storage account is specified, packet capture files are saved to a storage account at the following location:
 
 ```
-https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json
+https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
 ## Next steps

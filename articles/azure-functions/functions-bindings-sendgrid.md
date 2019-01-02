@@ -1,45 +1,137 @@
 ---
-title: Azure Functions SendGrid bindings | Microsoft Docs
-description: Azure Functions SendGrid bindings reference
+title: Azure Functions SendGrid bindings
+description: Azure Functions SendGrid bindings reference.
 services: functions
 documentationcenter: na
-author: rachelappel
-manager: erikre
+author: craigshoemaker
+manager: jeconnoc
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 03/16/2017
-ms.author: rachelap
+ms.topic: conceptual
+ms.date: 11/29/2017
+ms.author: cshoe
 
 ---
+
 # Azure Functions SendGrid bindings
 
-This article explains how to configure and work with SendGrid bindings in Azure Functions. With SendGrid, you can use Azure Functions to send customized email programmatically.
+This article explains how to send email by using [SendGrid](https://sendgrid.com/docs/User_Guide/index.html) bindings in Azure Functions. Azure Functions supports an output binding for SendGrid.
 
-This article is reference information for Azure Functions developers. If you're new to Azure Functions, start with the following resources:
+[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-[Create your first Azure Function](functions-create-first-azure-function.md). 
-[C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md), or [Node](functions-reference-node.md) developer references.
+## Packages - Functions 1.x
 
-## function.json for SendGrid bindings
+The SendGrid bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.SendGrid/) GitHub repository.
 
-Azure Functions provides an output binding for SendGrid. The SendGrid output binding enables you to create and send email programmatically. 
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-The SendGrid binding supports the following properties:
+## Packages - Functions 2.x
 
-- `name` : Required - the variable name used in function code for the request or request body. This value is ```$return``` when there is only one return value. 
-- `type` : Required - must be set to "sendGrid."
-- `direction` : Required - must be set to "out."
-- `apiKey` : Required - must be set to the name of your API key stored in the Function App's app settings.
-- `to` : the recipient's email address.
-- `from` : the sender's email address.
-- `subject` : the subject of the email.
-- `text` : the email content.
+The SendGrid bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub repository.
 
-Example of **function.json**:
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## Example
+
+See the language-specific example:
+
+* [C#](#c-example)
+* [C# script (.csx)](#c-script-example)
+* [JavaScript](#javascript-example)
+
+### C# example
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that uses a Service Bus queue trigger and a SendGrid output binding.
+
+```cs
+[FunctionName("SendEmail")]
+public static void Run(
+    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
+{
+    message = new SendGridMessage();
+    message.AddTo(email.To);
+    message.AddContent("text/html", email.Body);
+    message.SetFrom(new EmailAddress(email.From));
+    message.SetSubject(email.Subject);
+}
+
+public class OutgoingEmail
+{
+    public string To { get; set; }
+    public string From { get; set; }
+    public string Subject { get; set; }
+    public string Body { get; set; }
+}
+```
+
+You can omit setting the attribute's `ApiKey` property if you have your API key in an app setting named "AzureWebJobsSendGridApiKey".
+
+### C# script example
+
+The following example shows a SendGrid output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding.
+
+Here's the binding data in the *function.json* file:
+
+```json 
+{
+    "bindings": [
+        {
+          "type": "queueTrigger",
+          "name": "mymsg",
+          "queueName": "myqueue",
+          "connection": "AzureWebJobsStorage",
+          "direction": "in"
+        },
+        {
+          "type": "sendGrid",
+          "name": "$return",
+          "direction": "out",
+          "apiKey": "SendGridAPIKeyAsAppSetting",
+          "from": "{FromEmail}",
+          "to": "{ToEmail}"
+        }
+    ]
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the C# script code:
+
+```csharp
+#r "SendGrid"
+
+using System;
+using SendGrid.Helpers.Mail;
+using Microsoft.Azure.WebJobs.Host;
+
+public static SendGridMessage Run(Message mymsg, ILogger log)
+{
+    SendGridMessage message = new SendGridMessage()
+    {
+        Subject = $"{mymsg.Subject}"
+    };
+    
+    message.AddContent("text/plain", $"{mymsg.Content}");
+
+    return message;
+}
+public class Message
+{
+    public string ToEmail { get; set; }
+    public string FromEmail { get; set; }
+    public string Subject { get; set; }
+    public string Content { get; set; }
+}
+```
+
+### JavaScript example
+
+The following example shows a SendGrid output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
+
+Here's the binding data in the *function.json* file:
 
 ```json 
 {
@@ -57,45 +149,15 @@ Example of **function.json**:
 }
 ```
 
-> [!NOTE]
-> Azure Functions stores your connection information and API keys as app settings so that they are not checked into your source control repository. This action safeguards your sensitive information.
->
->
+The [configuration](#configuration) section explains these properties.
 
-## C# example of the SendGrid output binding
-
-```csharp
-#r "SendGrid"
-using System;
-using SendGrid.Helpers.Mail;
-
-public static Mail Run(TraceWriter log, string input, out Mail message)
-{
-     message = new Mail
-    {        
-        Subject = "Azure news"          
-    };
-
-    var personalization = new Personalization();
-    personalization.AddTo(new Email("recipient@contoso.com"));   
-
-    Content content = new Content
-    {
-        Type = "text/plain",
-        Value = input
-    };
-    message.AddContent(content);
-    message.AddPersonalization(personalization);
-}
-```
-
-## Node example of the SendGrid output binding
+Here's the JavaScript code:
 
 ```javascript
 module.exports = function (context, input) {    
     var message = {
-        to: "recipient@contoso.com",
-        from: "sender@contoso.com",        
+         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
+        from: { email: "sender@contoso.com" },        
         subject: "Azure news",
         content: [{
             type: 'text/plain',
@@ -105,15 +167,69 @@ module.exports = function (context, input) {
 
     context.done(null, message);
 };
-
 ```
 
+## Attributes
+
+In [C# class libraries](functions-dotnet-class-library.md), use the [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) attribute.
+
+For information about attribute properties that you can configure, see [Configuration](#configuration). Here's a `SendGrid` attribute example in a method signature:
+
+```csharp
+[FunctionName("SendEmail")]
+public static void Run(
+    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
+{
+    ...
+}
+```
+
+For a complete example, see [C# example](#c-example).
+
+## Configuration
+
+The following table explains the binding configuration properties that you set in the *function.json* file and the `SendGrid` attribute.
+
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type**|| Required - must be set to `sendGrid`.|
+|**direction**|| Required - must be set to `out`.|
+|**name**|| Required - the variable name used in function code for the request or request body. This value is ```$return``` when there is only one return value. |
+|**apiKey**|**ApiKey**| The name of an app setting that contains your API key. If not set, the default app setting name is "AzureWebJobsSendGridApiKey".|
+|**to**|**To**| the recipient's email address. |
+|**from**|**From**| the sender's email address. |
+|**subject**|**Subject**| the subject of the email. |
+|**text**|**Text**| the email content. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+<a name="host-json"></a>  
+
+## host.json settings
+
+This section describes the global configuration settings available for this binding in version 2.x. The example host.json file below contains only the version 2.x settings for this binding. For more information about global configuration settings in version 2.x, see [host.json reference for Azure Functions version 2.x](functions-host-json.md).
+
+> [!NOTE]
+> For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "sendGrid": {
+            "from": "Azure Functions <samples@functions.com>"
+        }
+    }
+}
+```  
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|from|n/a|The sender's email address across all functions.| 
+
+
 ## Next steps
-For information about other bindings and triggers for Azure Functions, see 
-- [Azure Functions triggers and bindings developer reference](functions-triggers-bindings.md)
 
-- [Best practices for Azure Functions](functions-best-practices.md)
-Lists some best practices to use when creating Azure Functions.
-
-- [Azure Functions developer reference](functions-reference.md)
-Programmer reference for coding functions and defining triggers and bindings.
+> [!div class="nextstepaction"]
+> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)

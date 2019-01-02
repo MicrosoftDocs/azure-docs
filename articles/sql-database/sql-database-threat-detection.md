@@ -1,34 +1,45 @@
 ---
 title: Threat Detection - Azure SQL Database | Microsoft Docs
-description: Threat Detection detects anomalous database activities indicating potential security threats to the database. 
+description: Threat Detection detects anomalous database activities indicating potential security threats to the database in a single database or elastic pool. 
 services: sql-database
-documentationcenter: ''
-author: ronitr
-manager: jhubbard
-editor: v-romcal
-
-ms.assetid: b50d232a-4225-46ed-91e7-75288f55ee84
 ms.service: sql-database
-ms.custom: secure and protect
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.date: 07/10/2016
-ms.author: ronmat; ronitr
-
+ms.subservice: security
+ms.custom:
+ms.devlang: 
+ms.topic: conceptual
+author: rmatchoro
+ms.author: ronmat
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 10/25/2018
 ---
-# SQL Database Threat Detection
+# Azure SQL Database Threat Detection for Single Database
 
-Threat Detection detects anomalous database activities indicating potential security threats to the database.  Threat Detection is currently in preview.
+Azure SQL [Threat Detection](sql-database-threat-detection-overview.md) for [SQL Database](sql-database-technical-overview.md) Single databases detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Threat Detection can identify **Potential SQL injection**, **Access from unusual location or data center**, **Access from unfamiliar principal or potentially harmful application**, and **Brute force SQL credentials** - see more details in [Threat Detection alerts](sql-database-threat-detection.md#azure-sql-database-threat-detection-alerts).
 
-## Overview
+You can receive notifications about the detected threats via [email notifications](sql-database-threat-detection.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) or [Azure portal](sql-database-threat-detection.md#explore-threat-detection-alerts-for-your-database-in-the-Azure-portal)
 
-Threat Detection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities.  Users can explore the suspicious events using [SQL Database Auditing](sql-database-auditing.md) to determine if they result from an attempt to access, breach or exploit data in the database.
-Threat Detection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.
+[Threat Detection](sql-database-threat-detection-overview.md) is part of the [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP) offering, which is a unified package for advanced SQL security capabilities. Threat Detection can be accessed and managed via the central SQL ATP portal. Threat detection service is charged 15$/month per Logical Server, with first 30 days free of charge.
 
-For example, Threat Detection detects certain anomalous database activities indicating potential SQL injection attempts. SQL injection is one of the common Web application security issues on the Internet, used to attack data-driven applications. Attackers take advantage of application vulnerabilities to inject malicious SQL statements into application entry fields, for breaching or modifying data in the database.
+## Set up threat detection for your database in the Azure portal
+1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+2. Navigate to the configuration page of the Azure SQL Database server you want to protect. In the security settings, select **Advanced Threat Protection**.
+3. On the **Advanced Threat Protection** configuration page:
+
+   - Enable Advanced Threat Protection on the server.
+   - In **Threat Detection Settings**, in the **Send alerts to** text box, provide the list of emails to receive security alerts upon detection of anomalous database activities.
+  
+   ![Set up threat detection](./media/sql-database-threat-detection/set_up_threat_detection.png)
+
+## Set up threat detection using PowerShell
+
+For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 ## Next steps
 
-* To configure and manage threat detection, see [Configure and manage threat detection in the Azure portal](sql-database-threat-detection-portal.md).
+* Learn more about [Threat Detection](sql-database-threat-detection-overview.md).
+* Learn more about [Threat Detection in Managed Instance](sql-database-managed-instance-threat-detection.md).  
+* Learn more about [SQL Advanced Threat Protection](sql-advanced-threat-protection.md). 
+* Learn more about [Azure SQL Database Auditing](sql-database-auditing.md)
+* Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* For more information on pricing, see the [SQL Database Pricing page](https://azure.microsoft.com/pricing/details/sql-database/)  

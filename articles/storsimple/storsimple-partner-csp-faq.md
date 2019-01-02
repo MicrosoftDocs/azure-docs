@@ -68,7 +68,7 @@ For information on incentives, go to [CSP program incentives ](https://partner.m
 You can add StorSimple Virtual Array subscriptions to your customers’ account through the Partner Center. Additionally, you can use the Azure portal to add users to the subscriptions.
 
 ### Is the Azure portal approach the same as other services for CSP? 
-Yes. With StorSimple Virtual Array for CSP, the best way for partners to access the Azure portal should be via the [Partner Center](http://partnercenter.microsoft.com/) where they can manage customers and subscriptions. To manage StorSimple subscriptions, the partner or customer (depending on permissions granted) should log in to the Azure portal. 
+Yes. With StorSimple Virtual Array for CSP, the best way for partners to access the Azure portal should be via the [Partner Center](https://partnercenter.microsoft.com/) where they can manage customers and subscriptions. To manage StorSimple subscriptions, the partner or customer (depending on permissions granted) should log in to the Azure portal. 
 
 ### Is Microsoft shipping a new portal for StorSimple for CSP? 
 No. You will be able to administer StorSimple Virtual Array in CSP through the Azure portal.
@@ -76,7 +76,7 @@ No. You will be able to administer StorSimple Virtual Array in CSP through the A
 ### I have provisioned a standalone StorSimple subscription for my customer. Do I have to use the Azure portal to administer my device? 
 Yes. 
 
-### Is the Microsoft field compensated as a result of sales of StorSimple through CSP?
+### Is the Microsoft Account team compensated as a result of sales of StorSimple through CSP?
 Yes. The partner sales executive and the customer account team for the end customer will be compensated for CSP sales. The partners are expected to take the lead in selling their differentiated value and offerings.
 
 ## Support for StorSimple and CSP
@@ -90,7 +90,7 @@ The support model for StorSimple in CSP is the same as that of other Azure servi
 For more information about StorSimple for CSP, go to:
 
 - [Microsoft Cloud Solution Provider Program](https://partner.microsoft.com/Membership)
-- [Partner Center](http://partnercenter.microsoft.com/) 
+- [Partner Center](https://partnercenter.microsoft.com/) 
 
 
 ## Next steps

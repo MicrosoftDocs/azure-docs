@@ -1,6 +1,12 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+---
 > [!div class="op_single_selector"]
-> * [Azure portal](../articles/storage/storage-enable-and-view-metrics.md)
-> * [Azure classic portal](../articles/storage/storage-enable-and-view-metrics-classic-portal.md)
+> * [Azure portal](../articles/storage/common/storage-enable-and-view-metrics.md)
 > 
 > 
 

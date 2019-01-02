@@ -1,111 +1,125 @@
 ---
-title: 'Azure portal: Create a SQL database | Microsoft Docs'
-description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure portal. You also learn to query an Azure SQL database using the Azure portal.
-keywords: sql database tutorial, create a sql database
+title: Create an Azure SQL database using the portal | Microsoft Docs
+description: Create an Azure SQL Database logical server and database in the Azure portal, and query it.
 services: sql-database
-documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start
-ms.workload: data-management
-ms.tgt_pltfrm: portal
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 03/13/2017
-ms.author: carlrab
-
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
+ms.topic: quickstart
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 12/21/2018
 ---
-# Create and query a single Azure SQL database in the Azure portal
+# Quickstart: Create an Azure SQL database in the Azure portal
 
-Azure SQL databases can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring Azure SQL databases and all related Azure resources.
+Azure SQL Database is a *Database-as-a-Service* that lets you run and scale highly available SQL Server databases in the cloud. This quickstart shows you how to get started by creating and then querying an Azure SQL database using the Azure portal. 
 
-## Log in to the Azure portal
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-Log in to the [Azure portal](https://portal.azure.com/).
+For all steps in this quickstart, sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a SQL database
 
-An Azure SQL database is created with a defined set of [compute and storage resources](sql-database-service-tiers.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](sql-database-features.md). 
+An Azure SQL database has a defined set of [compute and storage resources](sql-database-service-tiers-dtu.md). You create the database in an [Azure SQL Database logical server](sql-database-features.md) within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
-Follow these steps to create a SQL database containing the Adventure Works LT sample data. 
+To create a SQL database containing the AdventureWorksLT sample data:
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
+   
+1. Select **Databases**, and then select **SQL Database**.
+   
+1. In the **SQL Database** form, type or select the following values: 
+   
+   - **Database name**: Type *mySampleDatabase*.
+   - **Subscription**: Drop down and select the correct subscription, if it doesn't appear.  
+   - **Resource group**: Select **Create new**, type *myResourceGroup*, and select **OK**. 
+   - **Select source**: Drop down and select **Sample (AdventureWorksLT)**. 
+   
+   >[!IMPORTANT]
+   >Make sure to select the **Sample (AdventureWorksLT)** data so you can follow this and other Azure SQL Database quickstarts that use this data. 
+   
+   ![Create Azure SQL database](./media/sql-database-get-started-portal/create-database-1.png)
+   
+1. Select **Server**, and then select **Create a new server**. 
+   
+1. In the **New server** form, type or select the following values: 
+   
+   - **Server name**: Type *mysqlserver*.
+   - **Server admin login**: Type *azureuser*. 
+   - **Password**: Type *Azure1234567*. 
+   - **Confirm Password**: Retype the password.
+   - **Location**: Drop down and select any valid location.  
+   
+   >[!IMPORTANT]
+   >Remember or record the server admin login and password so you can log in to the server and databases for this and other quickstarts. If you forget your login or password, you can get the login name or reset the password on the **SQL server** page. To open the **SQL server** page, select the server name on the database **Overview** page after database creation.
+   
+1. Select **Select**.
+   
+   ![Create server](./media/sql-database-get-started-portal/create-database-server.png)
+   
+1. On the **SQL Database** form, select **Pricing tier**. Explore the amount of DTUs and storage available for each service tier.
+   
+   >[!NOTE]
+   >This quickstart uses the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), but the [vCore-based purchasing model](sql-database-service-tiers-vcore.md) is also available.
+   
+   >[!NOTE]
+   >More than 1 TB of storage in the Premium tier is currently available in all regions except: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast, China North, and US Gov East. In these regions, the storage max in the Premium tier is limited to 1 TB. For more information, see [P11-P15 current limitations](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   
+1. For this quickstart, select the **Standard** service tier, and then use the slider to select **10 DTUs (S0)** and **1** GB of storage.
+   
+1. Select **Apply**.  
+   
+   ![Select pricing](./media/sql-database-get-started-portal/create-database-s1.png)
+   
+1. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database. 
+   
+   Deployment takes a few minutes. You can select **Notifications** on the toolbar to monitor deployment progress.
 
-2. Select **Databases** from the **New** page, and select **SQL Database** from the **Databases** page.
-
-3. Fill out the SQL Database form with the required information: 
-   - Database name: Provide a database name
-   - Subscription: Select your subscription
-   - Resource group: Select new or existing
-   - Source: Select **Sample (AdventureWorksLT)**
-   - Server: Create a new server (the **Server** name must be globally unique)
-   - Elastic pool: Select **Not now** for this quick start
-   - Pricing tier: Select **20 DTUs** and **250** GB of storage
-   - Collation: You cannot change this value when importing the sample database 
-   - Pin to dashboard: Select this checkbox
-
-      ![create database](./media/sql-database-get-started/create-database-s1.png)
-
-4. Click **Create** when complete. Provisioning takes a few minutes.
-5. Once the SQL database deployment has finished, select the **SQL databases** on the dashboard or by selecting **SQL Databases** from the left-hand menu, and click your new database on the **SQL databases** page. An overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170313.database.windows.net**) and provides options for further configuration.
-
-      ![new-sql database](./media/sql-database-get-started/new-database-s1-overview.png) 
-
-## Create a server-level firewall rule
-
-The SQL Database service creates a firewall preventing external applications and tools from connecting to your server and database. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your IP address to enable external connectivity through the SQL Database firewall. 
-
-1. Click **Set server firewall** on the toolbar for your database. The **Firewall settings** page for the SQL Database server opens. 
-
-      ![server firewall rule](./media/sql-database-get-started/server-firewall-rule.png) 
-
-2. Click **Add client IP** on the toolbar and then click **Save**. A server-level firewall rule is created for your current IP address.
-
-3. Click **OK** and then click the **X** to close the Firewall settings page.
-
-You can now connect to the database and its server using SQL Server Management Studio or another tool of your choice.
+   ![Notification](./media/sql-database-get-started-portal/notification.png)
 
 ## Query the SQL database
 
-Follow these steps to query the database using the query editor in the Azure portal. 
+Now that you've created an Azure SQL database, use the built-in query tool in the Azure portal to connect to the database and query the data.
 
-1. On the SQL Database page for your database, click **Tools** on the toolbar. The **Query editor** preview page opens.
-
-     ![tools menu](./media/sql-database-get-started/tools-menu.png) 
-
-2. Click **Query editor (preview)**, click the **Preview terms** checkbox, and then click **OK**. The query editor opens.
-
-3. Click **Login** and then, when prompted, select **SQL server authentication** and then provide the server admin login and password.
-4. Click **OK** to log in.
-
-5. After you are authenticated, type a query of your choice in the query window, such as the following query:
-
-   ```
-   SELECT pc.Name as CategoryName, p.name as ProductName
+1. On the **SQL Database** page for your database, select **Query editor (preview)** in the left menu. 
+   
+   ![Log in to Query editor](./media/sql-database-get-started-portal/query-editor-login.png)
+   
+1. Type your login information, and select **OK**.
+   
+1. Enter the following query in the **Query editor** pane.
+   
+   ```sql
+   SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;
    ```
+   
+1. Select **Run**, and then review the query results in the **Results** pane.
 
-6. Click **Run** and then review the query results in the **Results** pane.
-
-    ![query editor results](./media/sql-database-get-started/query-editor-results.png)
-
-7. Click the **X** to close the Query editor page.
+   ![Query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
+   
+1. Close the **Query editor** page, and select **OK** when prompted to discard your unsaved edits.
 
 ## Clean up resources
 
-The **Connect with** quick starts in this collection and the tutorials in the tutorial collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
+Keep this resource group, SQL server, and SQL database if you want to go to [Next steps](#next-steps) and learn how to connect and query your database using a number of different methods. 
 
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**. 
-2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
+When you're finished using these resources, you can delete them as follows:
+
+1. From the left menu in the Azure portal, select **Resource groups**, and then select **myResourceGroup**.
+1. On your resource group page, select **Delete resource group**. 
+1. Type *myResourceGroup* in the field, and then select **Delete**.
 
 ## Next steps
 
-- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- To connect using Visual Studio, see [Connect and query with Visual Studio](sql-database-connect-query.md).
-- For a technical overview of SQL Database, see [About the SQL Database service](sql-database-technical-overview.md).
+- You must create a server-level firewall rule to connect to your Azure SQL database from on-premises or remote tools. For more information, see [Create a server-level firewall rule](sql-database-get-started-portal-firewall.md).
+- After you create a server-level firewall rule, you can [connect and query](sql-database-connect-query.md) your database using several different tools and languages. 
+  - [Connect and query using SQL Server Management Studio](sql-database-connect-query-ssms.md)
+  - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+- To create Azure SQL databases using Azure CLI, see [Azure CLI samples](sql-database-cli-samples.md).
+- To create Azure SQL databases using Azure PowerShell, see [Azure PowerShell samples](sql-database-powershell-samples.md).

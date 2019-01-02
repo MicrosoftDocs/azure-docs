@@ -1,31 +1,34 @@
 ---
-title: Extend U-SQL scripts with Python in Azure Data Lake Analytics | Microsoft Docs
-description: 'Learn how to run Python code in U-SQL Scripts'
+title: Extend U-SQL scripts with Python in Azure Data Lake Analytics
+description: Learn how to run Python code in U-SQL scripts using Azure Data Lake Analytics
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: sukvg
-editor: cgronlun
-
-ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
 
+ms.reviewer: jasonwhowell
+ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
+ms.topic: conceptual
+ms.date: 06/20/2017
 ---
+# Extend U-SQL scripts with Python code in Azure Data Lake Analytics
 
-# Tutorial: Get started with extending U-SQL with Python
+## Prerequisites
+
+Before you begin, ensure the Python extensions are installed in your Azure Data Lake Analytics account.
+
+* Navigate to you Data Lake Analytics Account in the Azure portal
+* In the left menu, under **GETTING STARTED** click on **Sample Scripts**
+* Click **Install U-SQL Extensions** then **OK**
+
+## Overview 
 
 Python Extensions for U-SQL enable developers to perform massively parallel execution of Python code. The following example illustrates the basic steps:
 
-* Use the REFERENCE ASSEMBLY statement to enable Python extensions for the U-SQL Script
-* Using the REDUCE operation to partition the input data on a key
-* The Python extensions for U-SQL include a built-in reducer (Extension.Python.Reducer) that runs Python code on each vertex assigned to the reducer
-* The U-SQL script contains the embedded Python code that has a function called usqlml_main that accepts a pandas DataFrame as input and returns a pandas DataFrame as output.
+* Use the `REFERENCE ASSEMBLY` statement to enable Python extensions for the U-SQL Script
+* Using the `REDUCE` operation to partition the input data on a key
+* The Python extensions for U-SQL include a built-in reducer (`Extension.Python.Reducer`) that runs Python code on each vertex assigned to the reducer
+* The U-SQL script contains the embedded Python code that has a function called `usqlml_main` that accepts a pandas DataFrame as input and returns a pandas DataFrame as output.
 
 --
 
@@ -65,7 +68,7 @@ Python Extensions for U-SQL enable developers to perform massively parallel exec
 ### Datatypes
 
 * String and numeric columns from U-SQL are converted as-is between Pandas and U-SQL
-* U-SQL Nulls are converted to and from Pandas "NA" values
+* U-SQL Nulls are converted to and from Pandas `NA` values
 
 ### Schemas
 
@@ -96,4 +99,4 @@ Every vertex has a limited amount of memory assigned to it. Currently, that limi
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Using U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
-
+* [Use Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
