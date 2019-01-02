@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/26/2018
+ms.date: 01/02/2019
 ms.author: jeedes
 
 ---
@@ -238,7 +238,27 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Litmos test user
 
-In this section, a user called Britta Simon is created in Litmos. Litmos supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Litmos, a new one is created after authentication.
+The objective of this section is to create a user called Britta Simon in Litmos. The Litmos application supports Just-in-Time provisioning. This means, a user account is automatically created if necessary during an attempt to access the application using the Access Panel.
+
+**To create a user called Britta Simon in Litmos, perform the following steps:**
+
+1. In a different browser window, sign-on to your Litmos company site as administrator.
+
+2. In the navigation bar on the left side, click **Accounts**.
+
+    ![Accounts Section On App Side][22]
+
+3. Click the **Integrations** tab.
+
+    ![Integrations Tab][23]
+
+4. On the **Integrations** tab, scroll down to **3rd Party Integrations**, and then click **SAML 2.0** tab.
+
+    ![SAML 2.0][24]
+
+5. Select **Autogenerate Users**
+  
+    ![Autogenerate Users][27]
 
 ### Test single sign-on
 
