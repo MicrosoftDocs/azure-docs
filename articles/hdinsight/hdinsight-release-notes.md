@@ -1305,7 +1305,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 
 ## Known issues
 
--   **HDInsight Integration with ADLS Gen 2** 
+-   **HDInsight integration with ADLS Gen 2** 
    There are two issues on HDInsight ESP clusters using Azure Data Lake Storage Gen 2 with user directories and permissions:
    
    1. Home directories for users are not getting created on Head Node 1. As a workaround, create the directories manually and change ownership to the respective user’s UPN.
