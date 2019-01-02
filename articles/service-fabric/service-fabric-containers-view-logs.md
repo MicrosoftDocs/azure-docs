@@ -60,10 +60,10 @@ GET http://localhost:19080/Nodes/_Node_0/$/GetApplications/SimpleHttpServerApp/$
 ```
 
 ### Service Fabric (SFCTL)
-Use the [sfctl service get-container-logs](service-fabric-sfctl-service.md) command to fetch the logs for a crashed container.  Specify the name of the node that the container was running on, application name, service manifest name, and the code package name. Specify the `-previous` flag.  The response will contain the container logs for the dead container of the code package instance.
+Use the [sfctl service get-container-logs](service-fabric-sfctl-service.md) command to fetch the logs for a crashed container.  Specify the name of the node that the container was running on, application name, service manifest name, and the code package name. Specify the `--previous` flag.  The response will contain the container logs for the dead container of the code package instance.
 
 ```
-sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –previous
+sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –-previous
 ```
 Response:
 ```json
