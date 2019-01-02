@@ -229,7 +229,7 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
   | Head: default VM size |D12 v2 |D12 v2 | D13 v2 |A3 |D12 v2 |D12 v2 |
   | Head: recommended VM sizes |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2,<br />E v3 series   | D13,<br/> D14 |A4 v2,<br/> A8 v2,<br/> A2m v2,<br />E v3 series  |D12 v2,<br/> D13 v2,<br/> D14 v2,<br />E v3 series  |D12 v2,<br/> D13 v2,<br/> D14 v2,<br />E v3 series  |
   | Worker: default VM size |D4 v2 |D4 v2| D14 v2|D3 v2 |D13 v2 | D4 v2 |
-  | Worker: recommended VM sizes |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2,<br />All VMs in EV3   | D13,<br/> D14 |D3 v2,<br/> D4 v2,<br/> D12 v2,<br />All VMs in EV3  |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2,<br />All VMs in EV3  |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2,<br />All VMs in EV3  |
+  | Worker: recommended VM sizes |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2,<br />E v3 series   | D13,<br/> D14 |D3 v2,<br/> D4 v2,<br/> D12 v2,<br />E v3 series  |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2,<br />E v3 series  |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2,<br />E v3 series  |
   | ZooKeeper: default VM size | |A4 v2 |A4 v2 |A4 v2 | | A2 v2|
   | ZooKeeper: recommended VM sizes | |A4 v2,<br/> A8 v2,<br/> A2m v2,<br />E v3 series  | | A2 v2,<br/> A4 v2,<br/> A8 v2,<br />E v3 series  |E v3 series  |E v3 series  |
   | Edge: default VM size | | | | | |D4 v2 |
