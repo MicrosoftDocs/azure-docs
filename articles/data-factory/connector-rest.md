@@ -34,8 +34,8 @@ Specifically, this generic REST connector supports:
 
 - Retrieving data from a REST endpoint by using the **GET** or **POST** methods.
 - Retrieving data by using one of the following authentications: **Anonymous**, **Basic**, **AAD service principal**, and **managed identities for Azure resources**.
-- Pagination in the REST APIs.
-- Copying the REST response as-is or parse it by using [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+- **[Pagination](#pagination-support)** in the REST APIs.
+- Copying the REST JSON response [as-is](#export-json-response-as-is) or parse it by using [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping). Only response payload in **JSON** is supported.
 
 > [!TIP]
 > To test a request for data retrieval before you configure the REST connector in Data Factory, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
@@ -100,7 +100,7 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 | servicePrincipalId | Specify the Azure Active Directory application's client ID. | Yes |
 | servicePrincipalKey | Specify the Azure Active Directory application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
-| aadResourceId | Specify the AAD resource you are requesting for authorization.| Yes |
+| aadResourceId | Specify the AAD resource you are requesting for authorization, e.g. `https://management.core.windows.net`.| Yes |
 
 **Example**
 
@@ -118,7 +118,7 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
                 "type": "SecureString"
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
-            "aadResourceId": "<AAD resource URL>"
+            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -134,7 +134,7 @@ Set the **authenticationType** property to **ManagedServiceIdentity**. In additi
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| aadResourceId | Specify the AAD resource you are requesting for authorization.| Yes |
+| aadResourceId | Specify the AAD resource you are requesting for authorization, e.g. `https://management.core.windows.net`.| Yes |
 
 **Example**
 
@@ -146,7 +146,7 @@ Set the **authenticationType** property to **ManagedServiceIdentity**. In additi
         "typeProperties": {
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "ManagedServiceIdentity",
-            "aadResourceId": "<AAD resource URL>"
+            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -267,6 +267,8 @@ The following properties are supported in the copy activity **source** section:
 
 ## Pagination support
 
+Normally, REST API limit its response payload size of a single request under a reasonable number; while to return large amount of data, it splits the result into multiple pages and requires callers to send consecutive requests to get next page of the result. Usually, the request for one page is dynamic and composed by the information returned from the response of previous page.
+
 This generic REST connector supports the following pagination patterns: 
 
 * Next request’s absolute URL = property value in current response body
@@ -295,7 +297,7 @@ This generic REST connector supports the following pagination patterns:
 
 **Example:**
 
-Facebook Graph API returns response in the following structure, in which case next page's URL is represented in paging.next:
+Facebook Graph API returns response in the following structure, in which case next page's URL is represented in ***paging.next***:
 
 ```json
 {
@@ -327,7 +329,7 @@ Facebook Graph API returns response in the following structure, in which case ne
 }
 ```
 
-Corresponding REST dataset configuration:
+The corresponding REST dataset configuration especially the `paginationRules` is as follows:
 
 ```json
 {
@@ -348,7 +350,7 @@ Corresponding REST dataset configuration:
 }
 ```
 
-## Export JSON documents as-is
+## Export JSON response as-is
 
 You can use this REST connector to export REST API JSON response as-is to various file-based stores. To achieve such schema-agnostic copy, skip the "structure" (also called *schema*) section in dataset and schema mapping in copy activity.
 

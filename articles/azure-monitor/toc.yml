@@ -294,7 +294,7 @@
         - name: Web apps
           href: app/asp-net.md
         - name: Status Monitor
-          href: ../application-insights/app-insights-monitor-performance-live-website-now.md?toc=/azure/azure-monitor/toc.json
+          href: app/monitor-performance-live-website-now.md
         - name: Windows services
           href: ../application-insights/app-insights-windows-services.md?toc=/azure/azure-monitor/toc.json
         - name: Windows desktop
@@ -761,7 +761,7 @@
       - name: Use application alerts
         items:
         - name: Availability
-          href: ../application-insights/app-insights-monitor-web-app-availability.md?toc=/azure/azure-monitor/toc.json
+          href: app/monitor-web-app-availability.md
         - name: Metric alerts
           href: app/alerts.md
       - name: Use action groups with alerts

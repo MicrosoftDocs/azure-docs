@@ -19,14 +19,14 @@ ms.author: mbullwin
 *I'm having trouble setting up my:*
 
 * [.NET app](../azure-monitor/app/asp-net-troubleshoot-no-data.md)
-* [Monitoring an already-running app](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
+* [Monitoring an already-running app](../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Azure diagnostics](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Java web app](../azure-monitor/app/java-troubleshoot.md)
 
 *I get no data from my server*
 
 * [Set firewall exceptions](../azure-monitor/app/ip-addresses.md)
-* [Set up an ASP.NET server](app-insights-monitor-performance-live-website-now.md)
+* [Set up an ASP.NET server](../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Set up a Java server](../azure-monitor/app/java-agent.md)
 
 ## Can I use Application Insights with ...?
@@ -89,7 +89,7 @@ In Solution Explorer, right-click `ApplicationInsights.config` and choose **Upda
 
 A desktop app that you can use in your IIS web server to help configure Application Insights in web apps. It doesn't collect telemetry: you can stop it when you are not configuring an app. 
 
-[Learn more](app-insights-monitor-performance-live-website-now.md#questions).
+[Learn more](../azure-monitor/app/monitor-performance-live-website-now.md#questions).
 
 ## What telemetry is collected by Application Insights?
 
@@ -98,7 +98,7 @@ From server web apps:
 * HTTP requests
 * [Dependencies](../azure-monitor/app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue. 
 * [Exceptions](../azure-monitor/app/asp-net-exceptions.md) and stack traces.
-* [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](app-insights-monitor-performance-live-website-now.md), [Azure monitoring](../azure-monitor/app/azure-web-apps.md), or the [Application Insights collectd writer](../azure-monitor/app/java-collectd.md).
+* [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md), [Azure monitoring](../azure-monitor/app/azure-web-apps.md), or the [Application Insights collectd writer](../azure-monitor/app/java-collectd.md).
 * [Custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md) that you code.
 * [Trace logs](../azure-monitor/app/asp-net-trace-logs.md) if you configure the appropriate collector.
 
@@ -184,9 +184,9 @@ Use a single resource for all the components or roles in a single business syste
 ## <a name="q17"></a> Have I enabled everything in Application Insights?
 | What you should see | How to get it | Why you want it |
 | --- | --- | --- |
-| Availability charts |[Web tests](app-insights-monitor-web-app-availability.md) |Know your web app is up |
-| Server app perf: response times, ... |[Add Application Insights to your project](../azure-monitor/app/asp-net.md) or [Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md) (or write your own code to [track dependencies](../azure-monitor/app/api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
-| Dependency telemetry |[Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md) |Diagnose issues with databases or other external components |
+| Availability charts |[Web tests](../azure-monitor/app/monitor-web-app-availability.md) |Know your web app is up |
+| Server app perf: response times, ... |[Add Application Insights to your project](../azure-monitor/app/asp-net.md) or [Install AI Status Monitor on server](../azure-monitor/app/monitor-performance-live-website-now.md) (or write your own code to [track dependencies](../azure-monitor/app/api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
+| Dependency telemetry |[Install AI Status Monitor on server](../azure-monitor/app/monitor-performance-live-website-now.md) |Diagnose issues with databases or other external components |
 | Get stack traces from exceptions |[Insert TrackException calls in your code](../azure-monitor/app/asp-net-exceptions.md) (but some are reported automatically) |Detect and diagnose exceptions |
 | Search log traces |[Add a logging adapter](../azure-monitor/app/asp-net-trace-logs.md) |Diagnose exceptions, perf issues |
 | Client usage basics: page views, sessions, ... |[JavaScript initializer in web pages](../azure-monitor/app/javascript.md) |Usage analytics |
@@ -279,7 +279,7 @@ http://<your.gateway.endpoint>/api/profiles/{0}/apiId
 
 ## Can I run Availability web tests on an intranet server?
 
-Our [web tests](app-insights-monitor-web-app-availability.md) run on points of presence that are distributed around the globe. There are two solutions:
+Our [web tests](../azure-monitor/app/monitor-web-app-availability.md) run on points of presence that are distributed around the globe. There are two solutions:
 
 * Firewall door - Allow requests to your server from [the long and changeable list of web test agents](../azure-monitor/app/ip-addresses.md).
 * Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights using the TrackAvailability() API.
