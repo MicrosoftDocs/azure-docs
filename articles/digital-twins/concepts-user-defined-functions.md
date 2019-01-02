@@ -27,9 +27,11 @@ After devices send telemetry data to Azure Digital Twins, developers can process
 
 ## Data processing objects
 
-Data processing in Azure Digital Twins consists of defining three objects: matchers, user-defined functions, and role assignments.
+Data processing in Azure Digital Twins consists of defining three objects: *matchers*, *user-defined functions*, and *role assignments*.
 
 ![Azure Digital Twins data processing objects][2]
+
+<div id="matcher"></div>
 
 ### Matchers
 
@@ -85,9 +87,9 @@ Matchers define a set of conditions that evaluate what actions take place based 
 
 ### User-defined functions
 
-A user-defined function is a custom function that runs within an isolated environment in Azure Digital Twins. User-defined functions have access to the raw sensor telemetry message as it was received. User-defined functions also have access to the spatial graph and dispatcher service. After the user-defined function is registered within the graph, a matcher (detailed above) must be created to specify when to execute the function. When Azure Digital Twins receives new telemetry from a given sensor, the matched user-defined function can calculate a moving average of the last few sensor readings, for example.
+A user-defined function is a custom function executed within an isolated Azure Digital Twins environment. User-defined functions have access to raw sensor telemetry message as it gets received. User-defined functions also have access to the spatial graph and dispatcher service. After the user-defined function is registered within a graph, a matcher (detailed [above](#matcher)) must be created to specify when the function is executed. For example, when Azure Digital Twins receives new telemetry from a given sensor, the matched user-defined function can calculate a moving average of the last few sensor readings.
 
-User-defined functions can be written in JavaScript. Developers can execute custom snippets of code against sensor telemetry messages. Helper methods interact with the graph in the user-defined execution environment. With a user-defined function, developers can:
+User-defined functions can be written in JavaScript. Helper methods interact with the graph in the user-defined execution environment. Developers can execute custom snippets of code against sensor telemetry messages. Examples include:
 
 - Set the sensor reading directly onto the sensor object within the graph.
 - Perform an action based on different sensor readings within a space in the graph.
@@ -98,7 +100,7 @@ For more information, see [How to use user-defined functions](how-to-user-define
 
 ### Role assignment
 
-A user-defined function's actions are subject to the Azure Digital Twins role-based access control to secure data within the service. Role assignments make sure that a given UDF has the proper permissions to interact with the spatial graph. For example, a UDF might attempt to create, read, update, or delete graph data under a given space. A user-defined function's level of access is checked when the UDF asks the graph for data or attempts an action. For more information, see [Role-based access control](security-create-manage-role-assignments.md).
+A user-defined function's actions are subject to Azure Digital Twins [role-based access control](./security-role-based-access-control.md) to secure data within the service. Role assignments define that user-defined functions have the proper permissions to interact with the spatial graph and its entities. For example, a user-defined function have the ability and permission to *CREATE*, *READ*, *UPDATE*, or *DELETE* graph data under a given space. A user-defined function's level of access is checked when the user-defined function asks the graph for data or attempts an action. For more information, see [Role-based access control](security-create-manage-role-assignments.md).
 
 It's possible for a matcher to trigger an user-defined function that has no role assignments. In this case, the user-defined function fails to read any data from the graph.
 
@@ -106,7 +108,7 @@ It's possible for a matcher to trigger an user-defined function that has no role
 
 - To learn more about how to route events and telemetry messages to other Azure services, read [Route events and messages](concepts-events-routing.md).
 
-- To learn more about how to create matchers, user-defined functions, and role assignments, read [Guide for using user-defined functions](how-to-user-defined-functions.md).
+- To learn more about how to create matchers, user-defined functions, and role assignments, read [Guide for using user-defined functions](How-to-user-defined-functions.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-data-processing-flow.png
