@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/26/2018
+ms.date: 12/28/2018
 ms.author: jeedes
 
 ---
@@ -78,8 +78,8 @@ To configure and test Azure AD single sign-on with [Application name], you need 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure ArcGIS Enterprise Single Sign-On](#configure-arcgis-enterprise-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create ArcGIS Enterprise test user](#create-arcgis-enterprise-test-user)** - to have a counterpart of Britta Simon in ArcGIS Enterprise that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create ArcGIS Enterprise test user](#create-arcgis-enterprise-test-user)** - to have a counterpart of Britta Simon in ArcGIS Enterprise that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
