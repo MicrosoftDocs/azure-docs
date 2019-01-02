@@ -59,7 +59,7 @@
     href: https://support.microsoft.com/help/3213321
   - name: Troubleshoot kernel-related boot problems
     href: https://support.microsoft.com/help/4091524
- -  name: Troubleshoot fstab errors
+  - name: Troubleshoot fstab errors
     href: https://support.microsoft.com/help/3206699
   - name: Detailed SSH troubleshooting
     href: detailed-troubleshoot-ssh-connection.md
