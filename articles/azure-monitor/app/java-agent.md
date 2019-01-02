@@ -99,7 +99,7 @@ To search for individual instances of dependency, exception, and method reports,
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#track-exception
-[availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
+[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md

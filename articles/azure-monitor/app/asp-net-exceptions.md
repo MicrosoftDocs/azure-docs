@@ -21,7 +21,7 @@ Exceptions in your live web app are reported by [Application Insights](../../app
 ## Set up exception reporting
 * To have exceptions reported from your server app:
   * Install [Application Insights SDK](../../azure-monitor/app/asp-net.md) in your app code, or
-  * IIS web servers: Run [Application Insights Agent](../../application-insights/app-insights-monitor-performance-live-website-now.md); or
+  * IIS web servers: Run [Application Insights Agent](../../azure-monitor/app/monitor-performance-live-website-now.md); or
   * Azure web apps: Add the [Application Insights Extension](../../azure-monitor/app/azure-web-apps.md)
   * Java web apps: Install the [Java agent](../../azure-monitor/app/java-agent.md)
 * Install the [JavaScript snippet](../../azure-monitor/app/javascript.md) in your web pages to catch browser exceptions.
@@ -471,7 +471,7 @@ Add the attribute to the service implementations:
 [Sample](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## Exception performance counters
-If you have [installed the Application Insights Agent](../../application-insights/app-insights-monitor-performance-live-website-now.md) on your server, you can get a chart of the exceptions rate, measured by .NET. This includes both handled and unhandled .NET exceptions.
+If you have [installed the Application Insights Agent](../../azure-monitor/app/monitor-performance-live-website-now.md) on your server, you can get a chart of the exceptions rate, measured by .NET. This includes both handled and unhandled .NET exceptions.
 
 Open a Metric Explorer blade, add a new chart, and select **Exception rate**, listed under Performance Counters.
 
