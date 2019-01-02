@@ -77,8 +77,10 @@
       items:
         - name: 1 - Make your application highly available
           href: storage-create-geo-redundant-storage.md
-        - name: 2 - Simulate a failure with RA-GRS storage
+        - name: 2 - Simulate a failure with RA-GRS storage (.Net, Python, V7 Java)
           href: storage-simulate-failure-ragrs-account-app.md
+        - name: 2 - Simulate a failure with RA-GRS storage (V10 java)
+          href: storage-simulate-failure-ragrs-java-v10.md
     - name: Search unstructured data in cloud storage
       href: storage-unstructured-search.md
   - name: Samples

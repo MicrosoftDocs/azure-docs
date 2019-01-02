@@ -321,6 +321,15 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
+## Next steps
+
+In part one of the series, you learned about making an application highly available with RA-GRS storage accounts.
+
+Advance to part two of the series to learn how to simulate a failure and force your application to use the secondary RA-GRS endpoint.
+
+> [!div class="nextstepaction"]
+> [Simulate a failure in connection to your primary storage endpoint](storage-simulate-failure-ragrs-account-app.md)
+
 # [Python] (#tab/python) 
 
 ### Retry event handler
@@ -363,6 +372,15 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
+## Next steps
+
+In part one of the series, you learned about making an application highly available with RA-GRS storage accounts.
+
+Advance to part two of the series to learn how to simulate a failure and force your application to use the secondary RA-GRS endpoint.
+
+> [!div class="nextstepaction"]
+> [Simulate a failure in connection to your primary storage endpoint](storage-simulate-failure-ragrs-account-app.md)
+
 # [Java V7 SDK ] (#tab/java-v7)
 
 With Java, defining callback handlers is unnecessary if the **LocationMode** property of your **BlobRequestOptions** is set to **PRIMARY\_THEN\_SECONDARY**. This allows the application to automatically switch to the secondary location if it fails to reach the primary location when attempting to download **HelloWorld.png**.
@@ -376,6 +394,15 @@ With Java, defining callback handlers is unnecessary if the **LocationMode** pro
     blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
 ```
 
+## Next steps
+
+In part one of the series, you learned about making an application highly available with RA-GRS storage accounts.
+
+Advance to part two of the series to learn how to simulate a failure and force your application to use the secondary RA-GRS endpoint.
+
+> [!div class="nextstepaction"]
+> [Simulate a failure in connection to your primary storage endpoint](storage-simulate-failure-ragrs-account-app.md)
+
 # [Java V10 SDK] (#tab/java-v10)
 
 With the Java V10 SDK, defining callback handlers is still unnecessary and the SDK now has some fundamental differences from the V7 SDK. Instead of LocationMode, we have a secondary **Pipeline**. You may define a secondary pipeline through the **RequestRetryOptions** and, if defined, will allow the application to automatically switch to the secondary pipeline if it fails to reach your data through the primary pipeline.
@@ -387,7 +414,6 @@ myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONE
 // We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
 final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
 ```
----
 
 ## Next steps
 
@@ -396,4 +422,5 @@ In part one of the series, you learned about making an application highly availa
 Advance to part two of the series to learn how to simulate a failure and force your application to use the secondary RA-GRS endpoint.
 
 > [!div class="nextstepaction"]
-> [Simulate a failure in connection to your primary storage endpoint](storage-simulate-failure-ragrs-account-app.md)
+> [Simulate a failure in connection to your primary storage endpoint](storage-simulate-failure-ragrs-java-v10.md)
+---

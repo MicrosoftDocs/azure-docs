@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Simulate a failure in accessing read access redundant storage in Azure | Microsoft Docs'
-description: Simulate an error in accessing read access geo-redundant storage
+title: 'Tutorial: Access read-access redundant storage in Azure - Java V10 | Microsoft Docs'
+description: Simulate an failure in accessing read access geo-redundant storage using Java V10.
 services: storage 
 author: tamram
 
 
 ms.service: storage 
 ms.topic: tutorial
-ms.date: 12/15/2018
+ms.date: 01/03/2019
 ms.author: tamram 
 ---  
 
-# Tutorial: Simulate a failure in accessing read-access redundant storage
+# Tutorial: Accessing read-access redundant storage with the Java V10 SDK
 
 This tutorial is part two of a series. In it, you learn about the benefits of a [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) by simulating a failure.
 
 In order to simulate a failure, you can use either [Fiddler](#simulate-a-failure-with-fiddler) or [Static Routing](#simulate-a-failure-with-an-invalid-static-route). Either method will allow you to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account, causing the application to read from the secondary endpoint instead.
 
-![Scenario app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
+![Scenario app](media/storage-simulate-failure-ragrs-account-app/Java-put-list-output.png)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -72,11 +72,11 @@ Once complete, select **File** and **Save** to save your changes.
 
 ![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure2.png)
 
-### Interrupting the application
+### Running the application
 
 Run the application in your IDE or shell.
 
-Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application.
+Since you control the sample, you do not need to interrupt it in order to simulate a failure. Just make sure that the file has been uploaded to your storage account by running the sample and entering **P**.
 
 ### Simulate failure
 
@@ -98,33 +98,22 @@ Uncomment the following lines, replace `STORAGEACCOUNTNAME` with the name of you
          }
 ```
 
-To resume the application, press **any key**.
+Now that you've introduced the failure, enter **G** to test the failure.
 
-Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint 5 times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. When the application successfully retrieves the image 20 times from the secondary endpoint it will attempt to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint.
-
-This pattern is the [Circuit Breaker](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) pattern described in the previous tutorial.
-
-![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure3.png)
+It will inform you that it is using the secondary pipeline as opposed to the primary pipeline.
 
 ### Simulate primary endpoint restoration
+
 
 With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail.
 
 In order to simulate the primary endpoint functioning again, you remove the logic to inject the `503` error.
 
-To pause the application, press **any key**.
-
-Navigate to Fiddler and select **Rules** and **Customize Rules...**. 
-
-Comment or remove the custom logic in the `OnBeforeResponse` function, leaving the default function.
+Navigate to Fiddler and select **Rules** and **Customize Rules...**.  Comment or remove the custom logic in the `OnBeforeResponse` function, leaving the default function.
 
 Select **File** and **Save** to save the changes.
 
-![Remove customized rule](media/storage-simulate-failure-ragrs-account-app/figure5.png)
-
-When complete, press **any key** to resume the application. The application continues reading from the primary endpoint until it hits 999 reads.
-
-![Resume application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+When complete, enter **G** to test the download. The application will report that it is now using the primary pipeline again.
 
 ## Simulate a failure with an invalid static route
 
@@ -132,7 +121,9 @@ You can create an invalid static route for all requests to the primary endpoint 
 
 ### Start and pause the application
 
-Run the application in your IDE or shell. Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application. 
+Since you control the sample, you do not need to interrupt it in order to test failure.
+
+Make sure that the file has been uploaded to your storage account by running the sample and entering **P**.
 
 ### Simulate failure
 
@@ -162,9 +153,7 @@ To add a static route for a destination host, type the following command on a Wi
 
 Replace  `<destination_ip>` with your storage account IP address, and `<gateway_ip>` with your local host IP address.
 
-To resume the application, press **any key**.
-
-Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint five times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint. This pattern is the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern described in the previous tutorial.
+Now that you've introduced the failure, enter **G** to test the failure. It will inform you that it is using the secondary pipeline as opposed to the primary pipeline.
 
 ### Simulate primary endpoint restoration
 
@@ -182,9 +171,9 @@ route delete <destination_ip>
 
 ---
 
-Press **any key** to resume the application. The application continues reading from the primary endpoint until it hits 999 reads.
+Enter **G** to test the download. The application will report that it is now using the primary pipeline again.
 
-![Resume application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+![Switching pipelines](media/storage-simulate-failure-ragrs-account-app/java-get-pipeline-example-v10.png)
 
 ## Next steps
 
