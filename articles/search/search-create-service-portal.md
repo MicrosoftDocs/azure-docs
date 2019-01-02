@@ -12,7 +12,7 @@ ms.custom: seodec2018
 ---
 # Create an Azure Search service in the portal
 
-Azure Search is a standalone resource used for adding a search experience to custom apps. Azure Search is easily integrated with other Azure services, but you can also use it by itself as a standalone resource, with apps hosted on network servers or on other cloud platforms. 
+Azure Search is a standalone resource used for adding a search experience to custom apps. Although Azure Search is easily integrated with many other Azure services, you can also use it by itself, with apps hosted on network servers, or with software running on other cloud platforms. 
 
 In this article, learn how to create an Azure Search resource in the [Azure portal](https://portal.azure.com/). 
 
@@ -20,20 +20,20 @@ In this article, learn how to create an Azure Search resource in the [Azure port
 
 Prefer PowerShell? Use the Azure Resource Manager [service template](https://azure.microsoft.com/resources/templates/101-azure-search-create/). For help getting started, see [Manage Azure Search with PowerShell](search-manage-powershell.md) for background.
 
-## 1 - Subscribe (free or paid)
+## Subscribe (free or paid)
 
 [Open a free Azure account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and use free credits to try out paid Azure services. After credits are used up, keep the account and continue to use free Azure services, such as Websites. Your credit card is never charged unless you explicitly change your settings and ask to be charged.
 
 Alternatively, [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). An MSDN subscription gives you credits every month you can use for paid Azure services. 
 
-## 2 - Find Azure Search
+## Find Azure Search
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click the plus sign ("+ Create Resource") in the top left corner.
 3. Use the search bar to find "Azure Search" or navigate to the resource through **Web** > **Azure Search**.
 
 ![](./media/search-create-service-portal/find-search3.png)
 
-## 3 - Name the service and URL endpoint
+## Name the service and URL endpoint
 
 A service name is part of the URL endpoint against which API calls are issued: `https://your-service-name.search.windows.net`. Enter your service name in the **URL** field.
 
@@ -111,7 +111,7 @@ Although most customers use just one service, service redundancy might be necess
 A second service is not required for high availability. High availability for queries is achieved when you use 2 or more replicas in the same service. Replica updates are sequential, which means at least one is operational when a service update is rolled out. For more information about uptime, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## Next steps
-After provisioning an Azure Search service, you are ready to [define an index](search-what-is-an-index.md) so you can upload and search your data. 
+After provisioning an Azure Search service, you can continue in the portal to create your first index.
 
 > [!div class="nextstepaction"]
-> [How to use Azure Search in .NET](search-howto-dotnet-sdk.md)
+> [Tutorial: Import data, index, and run queries in the portal](search-get-started-portal.md)

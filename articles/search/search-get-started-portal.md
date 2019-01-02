@@ -58,7 +58,7 @@ For this tutorial, we use a built-in sample dataset that can be crawled using an
 
     ![Import data command](media/search-get-started-portal/import-data-cmd2.png)
 
-2. In the wizard, click **Connect to your data** > **Samples** > **realestate-us-sample**. This data source is preconfigured with a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
+2. In the wizard, click **Connect to your data** > **Samples** > **realestate-us-sample**. This data source is built-in. If you were creating your own data source, you would need to specify a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
 
     ![Select sample dataset](media/search-get-started-portal/import-datasource-sample2.png)
 
@@ -68,7 +68,7 @@ For this tutorial, we use a built-in sample dataset that can be crawled using an
 
 ### Step 2 - Skip Cognitive skills
 
-The wizard supports the creation of a [cognitive skills pipeline](cognitive-search-concepts-intro.md) for incorporating the Cognitive Services AI algorithms into indexing. 
+The wizard supports the creation of a [cognitive skills pipeline](cognitive-search-concept-intro.md) for incorporating the Cognitive Services AI algorithms into indexing. 
 
 We'll skip this step for now, and move directly on to **Customize target index**.
 
@@ -79,7 +79,7 @@ We'll skip this step for now, and move directly on to **Customize target index**
 
 ### Step 3 - Configure index
 
-Typically, index creation is a code-based exercise, completed prior to loading data. However, as this tutorial indicates, the wizard can generate an index for any data source it can crawl. Minimally, an index requires a name and a fields collection; one of the fields should be marked as the document key to uniquely identify each document.
+Typically, index creation is a code-based exercise, completed prior to loading data. However, as this tutorial indicates, the wizard can generate a basic index for any data source it can crawl. Minimally, an index requires a name and a fields collection; one of the fields should be marked as the document key to uniquely identify each document. Additionally, you can specify language analyzers or suggesters if you want auto-complete or suggested queries.
 
 Fields have data types and attributes. The check boxes across the top are *index attributes* controlling how the field is used.
 
@@ -88,9 +88,11 @@ Fields have data types and attributes. The check boxes across the top are *index
 * **Filterable**, **Sortable**, and **Facetable** determine whether fields are used in a filter, sort, or faceted navigation structure.
 * **Searchable** means that a field is included in full text search. Strings are searchable. Numeric fields and Boolean fields are often marked as not searchable.
 
-There are no storage implications for choosing options. Storage requirements do not increase or decrease as a result of your selection.
+Storage requirements do not vary as a result of your selection. For example, if you set the **Retrievable** attribute on multiple fields, storage requirements do not go up.
 
 By default, the wizard scans the data source for unique identifiers as the basis for the key field. Strings are attributed as retrievable and searchable. Integers are attributed as retrievable, filterable, sortable, and facetable.
+
+Accept all of the defaults.
 
   ![Generated realestate index](media/search-get-started-portal/realestateindex2.png)
 
@@ -103,15 +105,15 @@ Continue to the next page.
 
 Still in the **Import data** wizard, click **Indexer** > **Name**, and type a name for the indexer.
 
-This object defines an executable process. You could put it on recurring schedule, but for now use the default option to run the indexer once, immediately, when you click **OK**.  
+This object defines an executable process. You could put it on recurring schedule, but for now use the default option to run the indexer once, immediately, when you click **Submit**.  
 
-  ![realestate indexer][media/search-get-started-portal/realestate-indexer2.png]
+  ![realestate indexer](media/search-get-started-portal/realestate-indexer2.png)
 
 ### Step 5 - Check progress
 
 To monitor data import, go back to the service dashboard, scroll down, and double-click the **Indexers** tile to open the indexers list. You should see the newly created indexer in the list, with status indicating "in progress" or success, along with the number of documents indexed.
 
-   ![Indexer progress message][media/search-get-started-portal/indexers-inprogress2.png]
+   ![Indexer progress message](media/search-get-started-portal/indexers-inprogress2.png)
 
 ### Step 6 - View the index
 
@@ -119,7 +121,7 @@ Tiles in the service dashboard provide both summary information of the various o
 
 Click the *realestate-us-sample* index now to view the portal options for its definition. An **Add/Edit Fields** option allows you to create and fully attribute new fields. Existing fields have a physical representation in Azure Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new one and the drop the original.
 
-   ![sample index definition][media/search-get-started-portal/sample-index-def.png]
+   ![sample index definition](media/search-get-started-portal/sample-index-def.png)
 
 Other constructs, such as scoring profiles and CORS options, can be added at any time.
 
@@ -139,7 +141,7 @@ Moving forward, you should now have a search index that's ready to query using t
 
 2. Click **Change index** on the command bar to switch to *realestate-us-sample*. Click **Set API version** on the command bar to see which REST APIs are available. For the queries below, use the generally available version (2017-11-11).
 
-   ![Index and API commands][media/search-get-started-portal/search-explorer-changeindex-se2.png]
+   ![Index and API commands](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
 3. In the search bar, enter the query strings below and click **Search**.
 
@@ -149,19 +151,19 @@ Moving forward, you should now have a search index that's ready to query using t
 
 ## Example queries
 
-You can enter terms and phrases, similar to what you might do in a Bing or Google search, or fully-specified query expressions. Results are returned as JSON documents.
+You can enter terms and phrases, similar to what you might do in a Bing or Google search, or fully-specified query expressions. Results are returned as verbose JSON documents.
 
 ### Simple query with top N results
 
-#### Example (string): `search=seattle`
+#### Example (string query): `search=seattle`
 
 * The **search** parameter is used to input a keyword search for full text search, in this case, returning listings in King County, Washington state, containing *Seattle* in any searchable field in the document.
 
-* **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. This is intentional; visibility of the entire document is important for development purposes, especially during testing. For a better user experience, you will need to write code that [handles search results](search-pagination-page-layout.md) to bring out important elements.
+* **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. This is intentional; visibility into the entire document is important for development purposes, especially during testing. For a better user experience, you will need to write code that [handles search results](search-pagination-page-layout.md) to bring out important elements.
 
 * Documents are composed of all fields marked as "retrievable" in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** tile.
 
-#### Example (parameterized): `search=seattle&$count=true&$top=100`
+#### Example (parameterized query): `search=seattle&$count=true&$top=100`
 
 * The **&** symbol is used to append search parameters, which can be specified in any order.
 
