@@ -18,7 +18,7 @@ ms.custom: mvc
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure PowerShell
 
-This quickstart shows you how to use the Azure portal to quickly create the application gateway with two virtual machines in its backend pool. You then test it to make sure it's working correctly. With Azure Application Gateway, you direct your application web traffic to specific resources by: assigning listeners to ports, creating rules, and adding resources to a backend pool.
+This quickstart shows you how to use the Azure portal to quickly create an application gateway with two virtual machines in its backend pool. You then test it to make sure it's working correctly. With Azure Application Gateway, you direct your application web traffic to specific resources by: assigning listeners to ports, creating rules, and adding resources to a backend pool.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -72,12 +72,12 @@ In this example, you create two virtual machines for Azure to use as backend ser
 
 ### Create two virtual machines
 
-When you run the following cmdlets to create the virtual machines, you're prompted for credentials. Enter *azureuser* for the user name and *Azure123456!* for the password: 
-
 1. Create a network interface with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). 
 2. Create a virtual machine configuration with [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig).
 3. Create the virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
+When you run the following code sample to create the virtual machines, Azure prompts you for credentials. Enter *azureuser* for the user name and *Azure123456!* for the password:
+    
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
 $cred = Get-Credential
@@ -147,7 +147,7 @@ $frontendport = New-AzureRmApplicationGatewayFrontendPort `
 ### Create the backend pool
 
 1. Use [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool) to create the backend pool for the application gateway. 
-2. To configure the settings for the backend pool, use [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
+2. Configure the settings for the backend pool with [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
 
 ```azurepowershell-interactive
 $address1 = Get-AzureRmNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
@@ -167,7 +167,7 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 Azure requires a listener to enable the application gateway for routing traffic appropriately to the backend pool. Azure also requires a rule for the listener to know which backend pool to use for incoming traffic. 
 
-1. To create a listener, use [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. 
+1. Create a listener by using [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. 
 2. Use [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) to create a rule named *rule1*. 
 
 ```azurepowershell-interactive
@@ -212,7 +212,7 @@ New-AzureRmApplicationGateway `
 
 ## Test the application gateway
 
-Although IIS isn't required to create the application gateway, you installed it in this quickstart to verify whether the application gateway was successfully created. Use IIS to test the application gateway:
+Although IIS isn't required to create the application gateway, you installed it in this quickstart to verify whether Azure successfully created the application gateway. Use IIS to test the application gateway:
 
 1. Run [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) to get the public IP address of the application gateway. 
 2. Copy and paste the public IP address into the address bar of your browser. When you refresh the browser, you'll see the name of the other VM.
