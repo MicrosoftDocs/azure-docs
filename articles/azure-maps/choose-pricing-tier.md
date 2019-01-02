@@ -48,9 +48,8 @@ See the table with **Pricing tier targeted customers** to get a better sense of 
 
 | Pricing tier  |        Targeted customers                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>The S0 pricing tier is for customers who are either small or medium-sized enterprises. It is a right pricing tier for you if you do not expect high volumes of concurrent users and your service requirements are met by the core geospatial APIs as indicated by the table below. This tier is generally available and is applicable for applications in all stages of production from proof of concept development and early stage testing to application production and deployment.<p>|
+| S0            |    <p>The S0 pricing tier is for customers who are either small or medium-sized enterprises. It is a right pricing tier for you if you do not expect high volumes of concurrent users and your service requirements are met by the core geospatial APIs as indicated by the table above. This tier is generally available and is applicable for applications in all stages of production from proof of concept development and early stage testing to application production and deployment.<p>|
 | S1            |    <p>The S1 pricing tier is for customers in need of support for large-scale enterprise, mission critical applications, high volumes of concurrent users, or requires advanced geospatial services.</p>|
-
 
 ## Next steps
 
