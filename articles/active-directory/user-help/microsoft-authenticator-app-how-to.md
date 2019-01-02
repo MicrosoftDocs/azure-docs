@@ -29,6 +29,9 @@ Install the latest version of the Microsoft Authenticator app, based on your ope
 
 - **Windows Phone.** On your Windows Phone, go to the [Microsoft Store to download and install the Microsoft Authenticator app](https://www.microsoft.com/en-us/p/microsoft-authenticator/9nblgggzmcj6).
 
+    >[!Note]
+    >You can't use the phone sign-in process on Windows phones. You must use the standard verification process, as described in the [Set up two-step verification](multi-factor-authentication-end-user-first-time.md) article.
+
 ## Next steps
 
 - After you download and install the app, you must add your various accounts. For more information, see [Add your accounts](microsoft-authenticator-app-add-accounts-overview.md)
