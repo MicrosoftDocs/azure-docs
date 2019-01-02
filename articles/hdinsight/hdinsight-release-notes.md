@@ -31,7 +31,7 @@ The new updates and capabilities fall in to the following categories:
 
     a.  [**New features in Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
-    b.  [**New features in Apache Kafka 1.0**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
+    b.  [**New features in Apache Kafka 1.0**](https://kafka.apache.org/downloads#1.0.0)
 
 2.  ***Update R Server 9.1 to Machine Learning Services 9.3*** – With this release, we are providing data scientists and engineers with the best of open source enhanced with algorithmic innovations and ease of operationalization, all available in their preferred language with the speed of Apache Spark. This release expands upon the capabilities offered in R Server with added support for Python, leading to the cluster name change from R Server to ML Services. 
 
