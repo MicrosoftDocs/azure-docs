@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 01/02/2019
 ms.author: alinast
 ms.custom: seodec18
 ---
@@ -68,19 +68,13 @@ With JSON body:
 
 ## Create a user-defined function
 
-After the matchers are created, upload the function snippet with the following authenticated HTTP **POST** request:
+After the matchers are created, upload the function snippet with the following authenticated multipart HTTP POST request:
+
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
-
-> [!IMPORTANT]
-> - Verify that the headers include: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
-> - The supplied body is multipart:
->   - The first part contains the required UDF metadata.
->   - The second part contains the JavaScript compute logic.
-> - In the **USER_DEFINED_BOUNDARY** section, replace the **spaceId** (`YOUR_SPACE_IDENTIFIER`) and **matchers**(`YOUR_MATCHER_IDENTIFIER`)  values.
-> - Note the JavaScript UDF supplied as `Content-Type: text/javascript`.
 
 Use the following JSON body:
 
@@ -120,20 +114,6 @@ function process(telemetry, executionContext) {
 
 1. In the **USER_DEFINED_BOUNDARY** section, replace the **spaceId** (`YOUR_SPACE_IDENTIFIER`) and **matchers**(`YOUR_MATCHER_IDENTIFIER`)  values.
 1. Note the JavaScript user-defined function supplied as `Content-Type: text/javascript`.
-
-### Make a multipart request
-
-[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
-
-Now, upload the function snippet with the following **POST** call
-
-```plaintext
-POST YOUR_MANAGEMENT_API_URL/userdefinedfunctions with Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
-```
-
-| Parameter value | Replace with |
-| --- | --- |
-| *USER_DEFINED_BOUNDARY* | A multipart content boundary name |
 
 ### Example functions
 
