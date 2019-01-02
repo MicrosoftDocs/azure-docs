@@ -195,14 +195,14 @@ Remove-AzResourceGroup -Name $resourceGroup
 To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group#az_group_delete) command.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name storage-quickstart-resource-group
 ```
 
 ---
 
 ## Next steps
 
-In this quick start, you've created a general-purpose standard storage account. To learn how to upload and download blobs to and from your storage account, continue to the Blob storage quickstart.
+In this quick start, you've created a general-purpose v2 standard storage account. To learn how to upload and download blobs to and from your storage account, continue to the Blob storage quickstart.
 
 # [Portal](#tab/portal)
 
@@ -217,6 +217,6 @@ In this quick start, you've created a general-purpose standard storage account. 
 # [Azure CLI](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
-> [Work with blobs storage using the Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
+> [Work with blobs using the Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 
 ---
