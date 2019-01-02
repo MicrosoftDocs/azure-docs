@@ -7,8 +7,9 @@ author: tamram
 
 ms.service: storage 
 ms.topic: tutorial
-ms.date: 12/15/2018
-ms.author: tamram 
+ms.date: 01/03/2019
+ms.author: tamram
+#Customer intent: As a developer, I want to see for myself how high availability works in Azure, so that I have confidence in the redundancy of my data in the event of a disaster.
 ---  
 
 # Tutorial: Simulate a failure in accessing read-access redundant storage

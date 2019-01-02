@@ -6,10 +6,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/26/2018
+ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.component: blobs
+#Customer intent: As a developer, I want to have my data be highly available, so that in the event of a disaster I may retrieve it.
 ---
 
 # Tutorial: Make your application data highly available with Azure storage
