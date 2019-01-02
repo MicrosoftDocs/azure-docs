@@ -225,7 +225,7 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
 * All supported regions except Brazil South and Japan West:
 
 <html><body><table width="100%">
-<tr align="left"><th>Cluster type</th><th>Hadoop</th><th>HBase&nbsp;&nbsp;</th><th>Interactive Query</th><th>Storm&nbsp;&nbsp;</th><th>Spark&nbsp;&nbsp;</th><th>ML Server</th></tr>
+<tr align="left"><th>Cluster type</th><th>Hadoop</th><th>HBase&nbsp;&nbsp;</th><th>Interactive Query</th><th>Storm&nbsp;&nbsp;</th><th>Spark&nbsp;&nbsp;</th><th>ML Server&nbsp;</th></tr>
 
 <tr><td>Head: default VM size</td><td>D12 v2</td><td>D12 v2</td><td>D13 v2</td><td>A3</td><td>D12 v2</td><td>D12 v2</td></tr>
 
@@ -240,8 +240,8 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
 <tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>D4 v2</td><td>D12 v2</td><td>D12 v2</td></tr>
 <tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>D12 v2</td><td>D13 v2</td><td>D13 v2</td></tr>
 <tr><td>E4 v3</td><td>E4 v3</td><td>E20 v3</td><td>E4 v3</td><td>D14 v2</td><td>D14 v2</td></tr>
-<tr><td></td><td></td><td>E32 V3</td><td></td><td>E16 v3</td><td>E16 v3</td></tr>
-<tr><td></td><td></td><td>E64 V3</td><td></td><td>E20 v3</td><td>E20 v3</td></tr>
+<tr><td></td><td></td><td>E32 v3</td><td></td><td>E16 v3</td><td>E16 v3</td></tr>
+<tr><td></td><td></td><td>E64 v3</td><td></td><td>E20 v3</td><td>E20 v3</td></tr>
 <tr><td></td><td></td><td></td><td></td><td>E32 v3</td><td>E32 v3</td></tr>
 <tr><td></td><td></td><td></td><td></td><td>E64 v3</td><td>E64 v3</td></tr>
 
