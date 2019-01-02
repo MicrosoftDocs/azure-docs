@@ -44,7 +44,7 @@ We recommend the following checklist of requirements on which to compare databas
 - Physical protection of servers in protected data centers
 - Certifications
 
-And although it may seem obvious, recent [large-scale database breaches](http://thehackernews.com/2017/01/mongodb-database-security.html) remind us of the simple but critical importance of the following requirements:
+And although it may seem obvious, recent [large-scale database breaches](https://thehackernews.com/2017/01/mongodb-database-security.html) remind us of the simple but critical importance of the following requirements:
 - Patched servers that are kept up to date
 - HTTPS by default/SSL encryption
 - Administrative accounts with strong passwords

@@ -31,7 +31,7 @@ For more information, see [this](https://azure.microsoft.com/blog/redaction-prev
 
 ## Azure Media Services Explorer workflow
 
-The easiest way to get started with Redactor is to use the open source AMSE tool on github. You can run a simplified workflow via **combined** mode if you don’t need access to the annotation json or the face jpg images.
+The easiest way to get started with Redactor is to use the open source AMSE tool on GitHub. You can run a simplified workflow via **combined** mode if you don’t need access to the annotation json or the face jpg images.
 
 ### Download and setup
 

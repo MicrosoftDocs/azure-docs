@@ -1,7 +1,7 @@
 ---
 title: Detecting faces - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to detecting faces using the Computer Vision API.
+description: Concepts related to the face detection feature of the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -11,9 +11,10 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
 
-# Detecting faces
+# Face detection with Computer Vision
 
 Computer Vision detects human faces within a picture and generates the age, gender, and rectangle for each detected face. Computer Vision provides a subset of the functionality that can be found in [Face](/azure/cognitive-services/face/), and you can use the Face service for more detailed analysis, such as facial identification and pose detection.  
 

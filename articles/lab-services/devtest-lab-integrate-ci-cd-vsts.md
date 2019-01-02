@@ -134,7 +134,7 @@ The next stage of the deployment is to create the VM to use as the "golden image
 1. In the release pipeline, select **Add tasks** and then, on the **Deploy** tab, add an *Azure PowerShell* task. Configure the task as follows:
 
    > [!NOTE]
-   > To collect the details of the DevTest Labs VM, see [Deploy: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) and execute the script.
+   > To collect the details of the DevTest Labs VM, see [Deploy: Azure PowerShell](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV3) and execute the script.
 
    a. For **Azure Connection Type**, select **Azure Resource Manager**.
 

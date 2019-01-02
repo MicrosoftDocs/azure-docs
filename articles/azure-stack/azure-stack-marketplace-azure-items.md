@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: ''
 
@@ -84,7 +84,6 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![Container Linux by CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Container Linux by CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Container Linux is a modern and minimal Linux distribution, providing an easy way to run containers, manage clusters and seamlessly update your servers - all components that enable warehouse-scale compute. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server is the world's most popular Linux for cloud environments. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux is one of the most popular Linux distributions. | credativ |
-| ![Debian 9 "Stretch"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 "Stretch"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian9) | Debian GNU/Linux is one of the most popular Linux distributions. | credativ |
 | ![CentOS-based 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic)  |
 | ![CentOS-based 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic)  |
 | ![CentOS-based 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic) |
@@ -231,6 +230,7 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [Commvault](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault) | A comprehensive solution for backup and recovery, application and VM migration to Azure Stack, and disaster recovery for Azure Stack environments in a single solution. | Commvault |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Control, monitor, and encrypt VMs with ease and confidence. **Download all CloudLink SecureVM items.** | Dell EMC |
 | ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM is a comprehensive security platform that delivers advanced security tools with audit-ready compliance capabilities. | EventTracker |
+| ![Exivity - Hybrid Cloud Billing Solution](media/azure-stack-marketplace-azure-items/exivity.png) | [Exivity - Hybrid Cloud Billing Solution](https://azuremarketplace.microsoft.com/marketplace/apps/exivity.exivity-vm)  | A billing tool capable of satisfying the requirements of virtually any IT service delivery model, whether deployed within on-premises, public cloud, or hybrid environments. | Exivity |
 | ![f5](media/azure-stack-marketplace-azure-items/f5.png) | [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Advanced Load Balancing, GSLB, Network Firewall, DNS, WAF, and App Access. | F5 Networks |
 | ![Hortonworks Data Platform (HDP) Sandbox](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Powered by HDP 2.5 100% open-source platform for Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | The Kaspersky Hybrid Cloud Security enables a seamlessly orchestrated and adaptive cybersecurity ecosystem. | Kaspersky Lab |

@@ -90,11 +90,10 @@ mvn azure-sfmesh:init -DapplicationName=helloworldserver
 Run the command below to create a network resource yaml. 
 
 ```cmd
-mvn azure-sfmesh:addnetwork -DapplicationName=helloworldserver -DserviceName=helloworldservice -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.4/22
+mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.4/22
 ```
 
 - Creates a network YAML in folder `servicefabric->appresources` named `network_helloworldservicenetwork`
-- Specifies which service will be a part of this network: `helloworldservice`
 
 #### Add a new service to your application
 Run the command below to create a service yaml. 

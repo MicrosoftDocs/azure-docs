@@ -11,7 +11,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.component: 
 ---
 
 # Automate Log Analytics processes with the connector for Microsoft Flow

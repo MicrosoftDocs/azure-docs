@@ -73,7 +73,7 @@ When running Java applications or MongoDB applications that use the Java client 
 
 Follow the instructions in the [Adding a Certificate to the Java CA Certificates Store](https://docs.microsoft.com/azure/java-add-certificate-ca-store) to import the X.509 certificate into the default Java certificate store. Keep in mind you will be working in the %JAVA_HOME% directory when running keytool.
 
-Once the "CosmosDBEmulatorCertificate" SSL certificate is installed your application should be able to connect and use the local Azure Cosmos DB Emulator. If you continue to have trouble you may want to follow the [Debugging SSL/TLS Connections](http://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) article. It is very likely the certificate is not installed into the %JAVA_HOME%/jre/lib/security/cacerts store. For example if you have multiple installed versions of Java your application may be using a different cacerts store than the one you updated.
+Once the "CosmosDBEmulatorCertificate" SSL certificate is installed your application should be able to connect and use the local Azure Cosmos DB Emulator. If you continue to have trouble you may want to follow the [Debugging SSL/TLS Connections](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) article. It is very likely the certificate is not installed into the %JAVA_HOME%/jre/lib/security/cacerts store. For example if you have multiple installed versions of Java your application may be using a different cacerts store than the one you updated.
 
 ## How to use the certificate in Python
 

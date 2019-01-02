@@ -2,16 +2,14 @@
 title: Azure Cosmos DB bindings for Functions 1.x
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 services: functions
-documentationcenter: na
 author: craigshoemaker
+ms.author: cshoe
 manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
-
 ms.service: azure-functions; cosmos-db
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: cshoe
+ms.custom: seodec18
 ---
 
 # Azure Cosmos DB bindings for Azure Functions 1.x
@@ -30,11 +28,11 @@ This article explains how to work with [Azure Cosmos DB](../cosmos-db/serverless
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [MongoDB API](../cosmos-db/mongodb-introduction.md)](../cosmos-db/mongodb-introduction.md), [Cassandra API](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md), and [Table API](../cosmos-db/table-introduction.md).
+> Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [Azure Cosmos DB for MongoDB API](../cosmos-db/mongodb-introduction.md)](../cosmos-db/mongodb-introduction.md), [Cassandra API](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md), and [Table API](../cosmos-db/table-introduction.md).
 
 ## Packages - Functions 1.x
 
-The Azure Cosmos DB bindings for Functions version 1.x are provided in the [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet package, version 1.x. Source code for the bindings is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) GitHub repository.
+The Azure Cosmos DB bindings for Functions version 1.x are provided in the [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet package, version 1.x. Source code for the bindings is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) GitHub repository.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -195,8 +193,9 @@ The following table explains the binding configuration properties that you set i
 |**leaseAcquireInterval**| **LeaseAcquireInterval**| (Optional) When set, it defines, in milliseconds, the interval to kick off a task to compute if partitions are distributed evenly among known host instances. Default is 13000 (13 seconds).
 |**leaseExpirationInterval**| **LeaseExpirationInterval**| (Optional) When set, it defines, in milliseconds, the interval for which the lease is taken on a lease representing a partition. If the lease is not renewed within this interval, it will cause it to expire and ownership of the partition will move to another instance. Default is 60000 (60 seconds).
 |**leaseRenewInterval**| **LeaseRenewInterval**| (Optional) When set, it defines, in milliseconds, the renew interval for all leases for partitions currently held by an instance. Default is 17000 (17 seconds).
-|**checkpointFrequency**| **CheckpointFrequency**| (Optional) When set, it defines, in milliseconds, the interval between lease checkpoints. Default is always after a successful Function call.
+|**checkpointFrequency**| **CheckpointFrequency**| (Optional) When set, it defines, in milliseconds, the interval between lease checkpoints. Default is always after each Function call.
 |**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Optional) When set, it customizes the maximum amount of items received per Function call.
+|**startFromBeginning**| **StartFromBeginning**| (Optional) When set, it tells the Trigger to start reading changes from the beginning of the history of the collection instead of the current time. This only works the first time the Trigger starts, as in subsequent runs, the checkpoints are already stored. Setting this to `true` when there are leases already created has no effect.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -891,7 +890,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 This section contains the following examples:
 
-* [Queue trigger, look up ID from JSON](#queue-trigger-look-up-id-from-string-javascript)
+* [Queue trigger, look up ID from JSON](#queue-trigger-look-up-id-from-json-javascript)
 * [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-javascript)
 * [HTTP trigger, look up ID from route data](#http-trigger-look-up-id-from-route-data-javascript)
 * [Queue trigger, get multiple docs, using SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1174,7 +1173,7 @@ The following table explains the binding configuration properties that you set i
 
 In C# and F# functions, when the function exits successfully, any changes made to the input document via named input parameters are automatically persisted. 
 
-In JavaScript functions, updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the [JavaScript example](#input---javascript-example).
+In JavaScript functions, updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the [JavaScript example](#input---javascript-examples).
 
 ## Output
 
@@ -1569,7 +1568,7 @@ The attribute's constructor takes the database name and collection name. For inf
     }
 ```
 
-For a complete example, see [Output - C# example](#output---c-example).
+For a complete example, see [Output - C# example](#output---c-examples).
 
 ## Output - configuration
 

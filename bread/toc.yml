@@ -227,7 +227,7 @@
       topicHref: /azure/cognitive-services/computer-vision/
     - name: Content Moderator
       tocHref: /azure/cognitive-services/content-moderator/
-      topicHref: /azure/cognitive-services/content-moderator/overview
+      topicHref: /azure/cognitive-services/content-moderator/
     - name: Custom Decision Service
       tocHref: /azure/cognitive-services/custom-decision-service/
       topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview
@@ -530,9 +530,9 @@
   - name: Power BI Workspace Collections
     tocHref: /azure/power-bi-workspace-collections/
     topicHref: /azure/power-bi-workspace-collections/
-  - name: Redis Cache
-    tocHref: /azure/redis-cache/
-    topicHref: /azure/redis-cache/
+  - name: Azure Cache for Redis
+    tocHref: /azure/azure-cache-for-redis/
+    topicHref: /azure/azure-cache-for-redis/
   - name: Remoteapp
     tocHref: /azure/remoteapp/
     topicHref: /azure/remoteapp/

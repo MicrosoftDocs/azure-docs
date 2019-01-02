@@ -13,6 +13,7 @@ ms.reviewer: vanto
 manager: jhubbard
 ms.date: 08/07/2017
 --- 
+
 # Rotate the Transparent Data Encryption (TDE) protector using PowerShell 
 
 This article describes key rotation for an Azure SQL server using a TDE protector from Azure Key Vault. Rotating an Azure SQL server’s TDE protector means switching to a new asymmetric key that protects the databases on the server. Key rotation is an online operation and should only take a few seconds to complete, because this only decrypts and re-encrypts the database’s data encryption key, not the entire database.

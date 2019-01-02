@@ -1,5 +1,5 @@
 ---
-title: Migrate a local Jupyter notebook to Azure Notebooks | Microsoft Docs 
+title: Migrate a local Jupyter notebook to Azure Notebooks
 description: Quickly transfer a Jupyter notebook to Azure Notebooks from your local computer or a web URL, then share it for collaboration.
 services: app-service
 documentationcenter: ''

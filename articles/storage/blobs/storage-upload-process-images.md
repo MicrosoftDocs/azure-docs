@@ -2,9 +2,7 @@
 title: Upload image data in the cloud with Azure Storage | Microsoft Docs 
 description: Use Azure Blob storage with a web app to store app data
 services: storage
-documentationcenter: 
 author: tamram
-
 
 ms.service: storage
 ms.devlang: dotnet
@@ -18,7 +16,7 @@ ms.custom: mvc
 
 This tutorial is part one of a series. In this tutorial, you will learn how to deploy a web app that uses the Azure Storage Client Library to upload images to a storage account. When you're finished, you'll have a web app that stores and displays images from Azure storage.
 
-# [\.NET](#tab/net)
+# [\.NET](#tab/dotnet)
 ![Images container view](media/storage-upload-process-images/figure2.png)
 
 # [Node.js](#tab/nodejs)
@@ -97,7 +95,7 @@ Make a note of your Blob storage account name and key. The sample app uses these
 
 ## Create an App Service plan
 
-An [App Service plan](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) specifies the location, size, and features of the web server farm that hosts your app.
+An [App Service plan](../../app-service/overview-hosting-plans.md) specifies the location, size, and features of the web server farm that hosts your app.
 
 Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
 
@@ -109,7 +107,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## Create a web app
 
-The web app provides a hosting space for the sample app code that's deployed from the GitHub sample repository. Create a [web app](../../app-service/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
+The web app provides a hosting space for the sample app code that's deployed from the GitHub sample repository. Create a [web app](../../app-service/overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
 
 In the following command, replace `<web_app>` with a unique name. Valid characters are `a-z`, `0-9`, and `-`. If `<web_app>` is not unique, you get the error message: _Website with given name `<web_app>` already exists._ The default URL of the web app is `https://<web_app>.azurewebsites.net`.  
 
@@ -119,7 +117,7 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 ## Deploy the sample app from the GitHub repository
 
-# [\.NET](#tab/net)
+# [\.NET](#tab/dotnet)
 
 App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) command. Replace `<web_app>` with the name of the web app you created in the preceding step.
 
@@ -157,7 +155,7 @@ After you deploy and configure the web app, you can test the image upload functi
 To test the web app, browse to the URL of your published app. The default URL of the web app is `https://<web_app>.azurewebsites.net`.
 Select the **Upload photos** region to select and upload a file, or drag a file onto the region. The image disappears if successfully uploaded.
 
-# [\.NET](#tab/net)
+# [\.NET](#tab/dotnet)
 
 ![ImageResizer app](media/storage-upload-process-images/figure1.png)
 
@@ -279,7 +277,7 @@ Choose a file with the file picker and select **Upload**.
 
 Navigate back to your app to verify that the image uploaded to the **thumbnails** container is visible.
 
-# [\.NET](#tab/net)
+# [\.NET](#tab/dotnet)
 ![Images container view](media/storage-upload-process-images/figure2.png)
 
 # [Node.js](#tab/nodejs)

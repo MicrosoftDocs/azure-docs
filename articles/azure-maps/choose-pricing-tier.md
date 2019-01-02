@@ -3,7 +3,7 @@ title: Choose the right pricing tier for Azure Maps | Microsoft Docs
 description: Learn about pricing tiers offered by Azure Maps 
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/03/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -29,14 +29,16 @@ S0 and S1 pricing tiers can handle different amounts of data throughput. Before 
 | Render                                  |        ✓           |     ✓    |
 | Traffic                                 |        ✓           |     ✓    |
 | Time Zones                              |        ✓           |     ✓    |
-| Imagery + Hybrid Imagery (preview)      |                    |     ✓    |
-| Route Range (Preview)                   |                    |     ✓    |
-| IP 2 Location (preview)                 |                    |     ✓    |
-| Polygons from search (Preview)          |                    |     ✓    |
-| Batch Geocoding (preview)               |                    |     ✓    |
-| Batch Routing (preview)                 |                    |     ✓    |
-| Matrix Routing (preview)                |                    |     ✓    |
+| *Imagery + Hybrid Imagery (preview)     |        ✓           |     ✓    |
+| *Route Range (Preview)                  |        ✓           |     ✓    |
+| *IP 2 Location (preview)                |        ✓           |     ✓    |
+| *Polygons from search (Preview)         |        ✓           |     ✓    |
+| *Batch Geocoding (preview)              |        ✓           |     ✓    |
+| *Batch Routing (preview)                |        ✓           |     ✓    |
+| *Matrix Routing (preview)               |        ✓           |     ✓    |
 
+> [!Note]
+> Access to these capabilities from S0 pricing tier will be deprecated after February 4th, 2019.
 
 Some additional data points worth considering are, what kind of enterprise do you have or how critical is the application being built?
 
