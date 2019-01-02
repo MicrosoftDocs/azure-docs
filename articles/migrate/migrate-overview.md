@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -33,8 +33,9 @@ Azure Migrate helps you to:
 -  You can only create an Azure Migrate project in the following geographies. However, this does not restrict your ability to create assessments for other target Azure locations.
     **Geography** | **Storage location**
     --- | ---
-    Unites States | West Central US or East US
     Azure Government | US Gov Virginia
+    Europe | North Europe or West Europe
+    Unites States | East US or West Central US
 
     The geography associated with the migration project is used to store the metadata discovered from the on-premises environment. Metadata is stored in one of the regions based on the geography specified for the migration project. If you use dependency visualization by creating a new Log Analytics workspace, the workspace is created in the same region as the project.
 - The dependency visualization functionality is not available in Azure Government.
