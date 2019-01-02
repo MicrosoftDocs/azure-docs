@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 # Monitor your Node.js services and apps with Application Insights
 
-[Azure Application Insights](app-insights-overview.md) monitors your backend services and components after deployment, to help you [discover and rapidly diagnose performance and other issues](app-insights-detect-triage-diagnose.md). You can use Application Insights for Node.js services that are hosted in your datacenter, in Azure VMs and web apps, and even in other public clouds.
+[Azure Application Insights](app-insights-overview.md) monitors your backend services and components after deployment, to help you [discover and rapidly diagnose performance and other issues](../azure-monitor/app/detect-triage-diagnose.md). You can use Application Insights for Node.js services that are hosted in your datacenter, in Azure VMs and web apps, and even in other public clouds.
 
 To receive, store, and explore your monitoring data, include the SDK in your code, and then set up a corresponding Application Insights resource in Azure. The SDK sends data to that resource for further analysis and exploration.
 
@@ -102,8 +102,8 @@ Because the SDK batches data for submission, there might be a delay before items
 
 * Continue to use the application. Take more actions to generate more telemetry.
 * Click **Refresh** in the portal resource view. Charts periodically refresh on their own, but manually refreshing forces them to refresh immediately.
-* Verify that [required outgoing ports](app-insights-ip-addresses.md) are open.
-* Use [Search](app-insights-diagnostic-search.md) to look for specific events.
+* Verify that [required outgoing ports](../azure-monitor/app/ip-addresses.md) are open.
+* Use [Search](../azure-monitor/app/diagnostic-search.md) to look for specific events.
 * Check the [FAQ][FAQ].
 
 
@@ -128,7 +128,7 @@ appInsights.setup("<instrumentation_key>")
 
 ## TelemetryClient API
 
-For a full description of the TelemetryClient API, see [Application Insights API for custom events and metrics](app-insights-api-custom-events-metrics.md).
+For a full description of the TelemetryClient API, see [Application Insights API for custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md).
 
 You can track any request, event, metric, or exception by using the Application Insights Node.js SDK. The following code example demonstrates some of the APIs that you can use:
 
@@ -205,7 +205,7 @@ server.on("listening", () => {
 
 ## Next steps
 
-* [Monitor your telemetry in the portal](app-insights-dashboards.md)
+* [Monitor your telemetry in the portal](../azure-monitor/app/app-insights-dashboards.md)
 * [Write Analytics queries over your telemetry](../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->

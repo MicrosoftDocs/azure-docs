@@ -21,7 +21,7 @@ This article compares the following Microsoft cloud services:
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
-* [Azure App Service WebJobs](../app-service/web-sites-create-web-jobs.md)
+* [Azure App Service WebJobs](../app-service/webjobs-create.md)
 
 All of these services can solve integration problems and automate business processes. They can all define input, actions, conditions, and output. You can run each of them on a schedule or trigger. But each service has unique advantages, and this article explains the differences.
 
@@ -65,7 +65,7 @@ You can mix and match services when you build an orchestration, calling function
 
 ## Compare Functions and WebJobs
 
-Like Azure Functions, Azure App Service WebJobs with the WebJobs SDK is a *code-first* integration service that is designed for developers. Both are built on [Azure App Service](../app-service/overview.md) and support features such as [source control integration](../app-service/deploy-continuous-deployment.md), [authentication](../app-service/app-service-authentication-overview.md), and [monitoring with Application Insights integration](functions-monitoring.md).
+Like Azure Functions, Azure App Service WebJobs with the WebJobs SDK is a *code-first* integration service that is designed for developers. Both are built on [Azure App Service](../app-service/overview.md) and support features such as [source control integration](../app-service/deploy-continuous-deployment.md), [authentication](../app-service/overview-authentication-authorization.md), and [monitoring with Application Insights integration](functions-monitoring.md).
 
 ### WebJobs and the WebJobs SDK
 

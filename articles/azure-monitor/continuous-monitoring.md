@@ -28,7 +28,7 @@ In order to gain observability across your entire environment, you need to enabl
 
 - [Azure DevOps Projects](../devops-project/overview.md) give you a simplified experience with your existing code and Git repository, or choose from one of the sample applications to create a Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.
 - [Continuous monitoring in your DevOps release pipeline](../application-insights/app-insights-vsts-continuous-monitoring.md) allows you to gate or rollback your deployment based on monitoring data.
-- [Status Monitor](../application-insights/app-insights-monitor-performance-live-website-now.md)  allows you to instrument a live .NET app on Windows with Azure Application Insights, without having to modify or redeploy your code.
+- [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md)  allows you to instrument a live .NET app on Windows with Azure Application Insights, without having to modify or redeploy your code.
 - If you have access to the code for your application, then enable full monitoring with [Application Insights](../application-insights/app-insights-overview.md) by installing the Azure Monitor Application Insights SDK for [.NET](../application-insights/quick-monitor-portal.md), [Java](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), or [any other programming languages](../application-insights/app-insights-platforms.md). This allows you to specify custom events, metrics, or page views that are relevant to your application and your business.
 
 
