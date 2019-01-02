@@ -31,7 +31,7 @@ Before you get started, here's a list of prerequisites:
 
 ## Open the sample project
 
-[!INCLUDE [Clone Sample Repository](../../../includes/spatial-anchors-clone-sample-repository.md)]
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 Install the necessary pods using CocoaPods:
 
