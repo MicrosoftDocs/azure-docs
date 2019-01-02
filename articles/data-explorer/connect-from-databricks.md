@@ -14,7 +14,7 @@ ms.date: 11/27/2018
 
 # Connect to Azure Data Explorer from Azure Databricks by using Python
 
-[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform that's optimized for the Microsoft Azure cloud services platform. This article shows you how to use a Python library in Azure Databricks to access data from Azure Data Explorer. There are several ways to authenticate with Data Explorer, including a device login and an Azure Active Directory (Azure AD) app.
+[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform that's optimized for the Microsoft Azure platform. This article shows you how to use a Python library in Azure Databricks to access data from Azure Data Explorer. There are several ways to authenticate with Data Explorer, including a device login and an Azure Active Directory (Azure AD) app.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ To find your tenant ID, use the following URL. Substitute your domain for *YourD
 https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
 ```
 
-For example, if your domain is *contoso.com*, the URL is: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/). Select this URL to see the results. The first line is as follows. 
+For example, if your domain is *contoso.com*, the URL is: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/). Select this URL to see the results. The first line is as follows: 
 
 ```
 "authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"
