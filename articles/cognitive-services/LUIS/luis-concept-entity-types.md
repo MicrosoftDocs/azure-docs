@@ -161,7 +161,7 @@ The entity is a good fit when:
 [Tutorial](luis-tutorial-pattern.md)<br>
 [Example JSON response for entity](luis-concept-data-extraction.md#patternany-entity-data)
 
-**Example**<br>
+**Example**  
 Given a client application that searches for books based on title, the pattern.any extracts the complete title. A template utterance using pattern.any for this book search is `Was {BookTitle} written by an American this year[?]`. 
 
 In the following table, each row has two versions of the utterance. The top utterance is how LUIS will initially see the utterance, where it is unclear with the book title begins and ends. The bottom utterance is how LUIS will know the book title when a pattern is in place for extraction. 
