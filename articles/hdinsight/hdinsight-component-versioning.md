@@ -225,7 +225,7 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
 * All supported regions except Brazil South and Japan West:
 
 <html><body><table width="100%">
-<tr align="left"><th>Cluster type</th><th>Hadoop</th><th>HBase</th><th>Interactive Query</th><th>Storm</th><th>Spark</th><th>ML Server</th></tr>
+<tr align="left"><th>Cluster type</th><th>Hadoop</th><th>HBase&nbsp;&nbsp;</th><th>Interactive Query</th><th>Storm&nbsp;&nbsp;</th><th>Spark&nbsp;&nbsp;</th><th>ML Server</th></tr>
 
 <tr><td>Head: default VM size</td><td>D12 v2</td><td>D12 v2</td><td>D13 v2</td><td>A3</td><td>D12 v2</td><td>D12 v2</td></tr>
 
