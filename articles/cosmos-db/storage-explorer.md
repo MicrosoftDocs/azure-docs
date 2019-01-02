@@ -17,7 +17,7 @@ Using Azure Cosmos DB in Azure Storage Explorer enables users to manage Azure Co
 
 ## Prerequisites
 
-A SQL API account or an Azure Cosmos DB for MongoDB API account. If you don't have an account, you can create one in the Azure portal, as described in [Azure Cosmos DB: Build a SQL API web app with .NET and the Azure portal](create-sql-api-dotnet.md).
+A Cosmos account with SQL API or Azure Cosmos DB's API for MongoDB. If you don't have an account, you can create one in the Azure portal, as described in [Azure Cosmos DB: Build a SQL API web app with .NET and the Azure portal](create-sql-api-dotnet.md).
 
 ## Installation
 

@@ -30,7 +30,7 @@ But analyzing performance is just a subset of Impact's capabilities. Since Impac
 ![Screenshot conversion by browsers](./media/app-insights-usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> Your Application Insights resource must contain page views or custom events to use the Impact tool. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](app-insights-javascript.md). Also keep in mind that since you are analyzing correlation, sample size matters.
+> Your Application Insights resource must contain page views or custom events to use the Impact tool. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](../azure-monitor/app/javascript.md). Also keep in mind that since you are analyzing correlation, sample size matters.
 >
 >
 
