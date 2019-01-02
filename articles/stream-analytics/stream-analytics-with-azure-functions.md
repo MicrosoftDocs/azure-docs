@@ -158,7 +158,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
    |Import option| You can use the function from the current subscription, or provide the settings manually if the function is located in another subscription. |
    |Function App| Name of your Functions app. |
    |Function| Name of the function in your Functions app (name of your run.csx function).|
-   |Max Batch Size|Sets the maximum size for each output batch, which is sent to your function. By default, this value is set to 256 KB.|
+   |Max Batch Size|Sets the maximum size for each output batch which is sent to your function in bytes. By default, this value is set to 262,144 bytes (256 KB).|
    |Max Batch Count|Specifies the maximum number of events in each batch that is sent to the function. The default value is 100. This property is optional.|
    |Key|Allows you to use a function from another subscription. Provide the key value to access your function. This property is optional.|
 

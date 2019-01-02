@@ -3,8 +3,9 @@ title: What workloads can you protect with Azure Site Recovery? | Microsoft Docs
 description: Describes the workloads that can be protected using disaster recovery with the Azure Site Recovery service. 
 author: rayne-wiselman
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 
 ---

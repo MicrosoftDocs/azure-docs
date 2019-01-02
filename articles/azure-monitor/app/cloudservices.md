@@ -38,7 +38,7 @@ If this option is all you need, you're done.
 
 Your next steps are [viewing metrics from your app](../../application-insights/app-insights-metrics-explorer.md), [querying your data with Analytics](../../azure-monitor/app/analytics.md), and maybe setting up a [dashboard](../../azure-monitor/app/app-insights-dashboards.md). 
 
-You might also want to set up [availability tests](../../application-insights/app-insights-monitor-web-app-availability.md) and [add code to your webpages](../../application-insights/app-insights-javascript.md) to monitor performance in the browser.
+To monitor performance in the browser, you might also want to set up [availability tests](../../application-insights/app-insights-monitor-web-app-availability.md) and [add code to your webpages](../../application-insights/app-insights-javascript.md).
 
 The next sections discuss the following additional options:
 
@@ -246,12 +246,12 @@ Did you build for .NET 4.6? .NET 4.6 is not automatically supported in Azure clo
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
+[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [azure]: ../../application-insights/app-insights-overview.md
-[client]: ../../application-insights/app-insights-javascript.md
+[client]: ../../azure-monitor/app/javascript.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
 [qna]: ../../application-insights/app-insights-troubleshoot-faq.md
-[redfield]: ../../application-insights/app-insights-monitor-performance-live-website-now.md
+[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../application-insights/app-insights-overview.md 

@@ -95,14 +95,14 @@ Don't forget that [proactive failure rate diagnostics](../../application-insight
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## See also
-* [Availability web tests](../../application-insights/app-insights-monitor-web-app-availability.md)
+* [Availability web tests](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Automate setting up alerts](../../application-insights/app-insights-powershell-alerts.md)
 * [Proactive diagnostics](../../application-insights/app-insights-proactive-diagnostics.md) 
 
 <!--Link references-->
 
-[availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
-[client]: ../../application-insights/app-insights-javascript.md
+[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
+[client]: ../../azure-monitor/app/javascript.md
 [platforms]: ../../application-insights/app-insights-platforms.md
 [roles]: ../../application-insights/app-insights-resources-roles-access-control.md
 [start]: ../../application-insights/app-insights-overview.md
