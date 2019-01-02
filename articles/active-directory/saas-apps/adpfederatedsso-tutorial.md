@@ -40,7 +40,7 @@ To configure Azure AD integration with ADP, you need the following items:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* ADP supports **SP** initiated SSO
+* ADP supports **IDP** initiated SSO
 
 ## Adding ADP from the gallery
 
@@ -145,7 +145,6 @@ To configure Azure AD single sign-on with ADP, perform the following steps:
 
 	g. Click **Save**.
 
-	
 	> [!NOTE] 
 	> Before you can configure the SAML assertion, you need to contact your [ADP  support team](https://www.adp.com/contact-us/overview.aspx) and request the value of the unique user identifier attribute for your tenant. You need this value to configure the custom claim for your application. 
 
