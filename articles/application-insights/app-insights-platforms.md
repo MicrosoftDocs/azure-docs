@@ -32,7 +32,7 @@ These items are implementations of [Application Insights](app-insights-overview.
 
 ## Platforms and frameworks
 * [ASP.NET](../azure-monitor/app/asp-net.md)
-* [ASP.NET - for apps that are already live](app-insights-monitor-performance-live-website-now.md)
+* [ASP.NET - for apps that are already live](../azure-monitor/app/monitor-performance-live-website-now.md)
 * [ASP.NET Core](../azure-monitor/app/asp-net-core.md)
 * [Android](app-insights-mobile-center-quickstart.md) (App Center)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
