@@ -170,7 +170,7 @@ To be notified by email of unusual values of any metric, add an alert. You can c
 
 
 ## Continuous Export
-If you want data continuously exported so that you can process it externally, consider using [Continuous export](app-insights-export-telemetry.md).
+If you want data continuously exported so that you can process it externally, consider using [Continuous export](../azure-monitor/app/export-telemetry.md).
 
 ### Power BI
 If you want even richer views of your data, you can [export to Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
@@ -187,7 +187,7 @@ From a metric chart, you can click the Analytics icon to get directly to the equ
 
     If you want to set different filters on different charts, create them in different blades, save them as separate favorites. If you want, you can pin them to the dashboard so that you can see them alongside each other.
 * If you group a chart by a property that is not defined on the metric, then there will be nothing on the chart. Try clearing 'group by', or choose a different grouping property.
-* Performance data (CPU, IO rate, and so on) is available for Java web services, Windows desktop apps, [IIS web apps and services if you install status monitor](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-overview.md). It isn't available for Azure websites.
+* Performance data (CPU, IO rate, and so on) is available for Java web services, Windows desktop apps, [IIS web apps and services if you install status monitor](../azure-monitor/app/monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-overview.md). It isn't available for Azure websites.
 
 ## Video
 
@@ -195,7 +195,7 @@ From a metric chart, you can click the Analytics icon to get directly to the equ
 
 ## Next steps
 * [Monitoring usage with Application Insights](app-insights-usage-overview.md)
-* [Using Diagnostic Search](app-insights-diagnostic-search.md)
+* [Using Diagnostic Search](../azure-monitor/app/diagnostic-search.md)
 
 <!--Link references-->
 

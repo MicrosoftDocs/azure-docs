@@ -4,7 +4,7 @@ description: In this quickstart, learn how to create an IoT Edge device and then
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 12/31/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -188,13 +188,16 @@ iotedge list
 
    ![View three modules on your device](./media/quickstart/iotedge-list-2.png)
 
-View the messages being sent from the tempSensor module to the cloud.
+View the messages being sent from the temperature sensor module to the cloud.
 
 ```powershell
-iotedge logs tempSensor -f
+iotedge logs SimulatedTemperatureSensor -f
 ```
 
-  ![View the data from your module](./media/quickstart/iotedge-logs.png)
+   >[!TIP]
+   >IoT Edge commands are case-sensitive when referring to module names.
+
+   ![View the data from your module](./media/quickstart/iotedge-logs.png)
 
 You can also watch the messages arrive at your IoT hub by using the [Azure IoT Hub Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (formerly Azure IoT Toolkit extension). 
 
@@ -226,15 +229,18 @@ Remove the IoT Edge runtime. If you plan on reinstalling IoT Edge, leave out the
 When the IoT Edge runtime is removed, the containers that it created are stopped, but still exist on your device. View all containers.
 
    ```powershell
-   docker ps -a
+   docker -H npipe:////./pipe/iotedge_moby_engine ps -a
    ```
 
-Delete the containers that were created on your device by the IoT Edge runtime. Change the name of the tempSensor container if you called it something different.
+   >[!TIP]
+   >The **-H** (host) flag in the docker commands point to the moby engine that was installed along with the IoT Edge runtime. If you use both docker and moby on the same machine, the host flag allows you to specify which engine you're using for a given command. If you only want to use moby, you can set the **DOCKER_HOST** environment variable to point to npipe:////./pipe/iotedge_moby_engine.
+
+Delete the containers that were created on your device by the IoT Edge runtime. 
 
    ```powershell
-   docker rm -f tempSensor
-   docker rm -f edgeHub
-   docker rm -f edgeAgent
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f SimulatedTemperatureSensor
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeHub
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeAgent
    ```
    
 ## Next steps
