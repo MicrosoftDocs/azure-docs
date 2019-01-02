@@ -6,32 +6,38 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 07/09/2018
+ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
 # Create an Azure Search service in the portal
 
-Learn how to create or provision an Azure Search service in the portal. 
+Azure Search is a standalone resource used for adding a search experience to custom apps. Azure Search is easily integrated with other Azure services, but you can also use it by itself as a standalone resource, with apps hosted on network servers or on other cloud platforms. 
+
+In this article, learn how to create an Azure Search resource in the [Azure portal](https://portal.azure.com/). 
+
+![Azure Search resource in the portal](media/search-create-service-portal/azure-search-resource-label.png)
 
 Prefer PowerShell? Use the Azure Resource Manager [service template](https://azure.microsoft.com/resources/templates/101-azure-search-create/). For help getting started, see [Manage Azure Search with PowerShell](search-manage-powershell.md) for background.
 
-## Subscribe (free or paid)
+## 1 - Subscribe (free or paid)
 
 [Open a free Azure account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and use free credits to try out paid Azure services. After credits are used up, keep the account and continue to use free Azure services, such as Websites. Your credit card is never charged unless you explicitly change your settings and ask to be charged.
 
 Alternatively, [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). An MSDN subscription gives you credits every month you can use for paid Azure services. 
 
-## Find Azure Search
+## 2 - Find Azure Search
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click the plus sign ("+ Create Resource") in the top left corner.
-3. Select **Web** > **Azure Search**.
+3. Use the search bar to find "Azure Search" or navigate to the resource through **Web** > **Azure Search**.
 
 ![](./media/search-create-service-portal/find-search3.png)
 
-## Name the service and URL endpoint
+## 3 - Name the service and URL endpoint
 
-A service name is part of the URL endpoint against which API calls are issued: `https://your-service-name.search.windows.net`. Enter your service name in the **URL** field. 
+A service name is part of the URL endpoint against which API calls are issued: `https://your-service-name.search.windows.net`. Enter your service name in the **URL** field.
+
+For example, if you want the endpoint to be `https://my-app-name-01.search.windows.net`, you would enter `my-app-name-01`.
 
 Service name requirements:
    * It must be unique within the search.windows.net namespace
@@ -45,6 +51,8 @@ If you have more than one subscription, choose one that also has data or file st
 
 ## Select a resource group
 A resource group is a collection of Azure services and resources used together. For example, if you are using Azure Search to index a SQL database, then both services should be part of the same resource group.
+
+If you aren't combining resources into a single group, or if existing resource groups are filled with resources used in unrelated solutions, create a new resource group just for your Azure Search resource.
 
 > [!TIP]
 > Deleting a resource group also deletes the services within it. For prototype projects utilizing multiple services, putting all of them in the same resource group makes cleanup easier after the project is over. 
