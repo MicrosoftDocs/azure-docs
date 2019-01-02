@@ -32,7 +32,7 @@ For more general information about Key Vault, see [What is Azure Key Vault?](/az
 
 The following sections offer general information applicable across the implementation of the Key Vault service.
 
-###  Supporting standards
+### Supporting standards
 
 The JavaScript Object Notation (JSON) and JavaScript Object Signing and Encryption (JOSE) specifications are important background information.  
 
@@ -56,7 +56,7 @@ Refer to the JOSE specifications for relevant data types for keys, encryption, a
 -   **Identity** - an identity from Azure Active Directory (AAD).  
 -   **IntDate** - a JSON decimal value representing the number of seconds from 1970-01-01T0:0:0Z UTC until the specified UTC date/time. See RFC3339 for details regarding date/times, in general and UTC in particular.  
 
-###  Objects, identifiers, and versioning
+### Objects, identifiers, and versioning
 
 Objects stored in Key Vault are versioned whenever a new instance of an object is created. Each version is assigned a unique identifier and URL. When an object is first created, it's given a unique version identifier and marked as the current version of the object. Creation of a new instance with the same object name gives the new object a unique version identifier, causing it to become the current version.  
 
@@ -81,7 +81,7 @@ Where:
 
 ## Key Vault keys
 
-###  Keys and key types
+### Keys and key types
 
 Cryptographic keys in Key Vault are represented as JSON Web Key [JWK] objects. The base JWK/JWA specifications are also extended to enable key types unique to the Key Vault implementation. For example, importing keys using  HSM vendor-specific packaging, enables secure transportation of keys that may only be used in Key Vault HSMs.  
 
