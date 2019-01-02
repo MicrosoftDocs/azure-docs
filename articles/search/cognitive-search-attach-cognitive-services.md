@@ -1,5 +1,5 @@
 ---
-title: Attach a Cognitive Services resource with a skillset in Azure Search
+title: Associate a Cognitive Services resource with a skillset in Azure Search
 description: Instructions for attaching a Cognitive Services All-in-One subscription to a cognitive skillset in Azure Search
 manager: cgronlun
 author: LuisCabrer
@@ -11,7 +11,7 @@ ms.date: 12/05/2018
 ms.author: luisca
 ms.custom: seodec2018
 ---
-# Attach a Cognitive Services resource with a skillset in Azure Search 
+# Associate a Cognitive Services resource with a skillset in Azure Search 
 
 Cognitive search extracts and enriches data to make it searchable in Azure Search. We call extraction and enrichment steps *cognitive skills*. The set of skills called during indexing of content are defined in a *skillset*. A skillset can use [predefined skills](cognitive-search-predefined-skills.md) or custom skills. For more information, see [Example: create a custom skill](cognitive-search-create-custom-skill-example.md).
 
