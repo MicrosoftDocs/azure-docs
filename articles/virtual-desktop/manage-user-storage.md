@@ -33,7 +33,7 @@ To create a new VM that will act as a file share:
 1. Create a new security group in Active Directory. Keep in mind that Azure Active Directory doesn’t support groups for VMs.  
 2. Create a new resource group that will host the VM.
 3. Select **Virtual Machines** in the left navigation pane.  
-4. On the Virtual machine blade, select +Add. Choose any “Windows Server” VM, then select Create.
+4. On the **Virtual machine** blade, select **+Add**. Choose any “Windows Server” VM, then select **Create**.
 5. On the Create virtual machine flow under the Basic blade, enter the required information.
     1. **Name**: the VM name.
     2. **Admin username**: choose an admin name you'll remember.
