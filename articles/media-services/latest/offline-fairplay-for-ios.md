@@ -14,7 +14,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/29/2018
+ms.date: 01/02/2018
 ms.author: willzhan
 
 ---
@@ -87,8 +87,7 @@ CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()
     {
         FairPlay = new StreamingPolicyFairPlayConfiguration()
         {
-            AllowPersistentLicense = true,  //this enables offline mode
-            CustomLicenseAcquisitionUrlTemplate = null
+            AllowPersistentLicense = true  //this enables offline mode
         }
     },
     EnabledProtocols = new EnabledProtocols()
