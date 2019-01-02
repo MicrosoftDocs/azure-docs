@@ -9922,12 +9922,12 @@
         },
         {
             "source_path": "articles/hdinsight/hdinsight-hbase-geo-replication-configure-dns.md",
-            "redirect_url": "azure/hdinsight/hbase/apache-hbase-replication",
+            "redirect_url": "/azure/hdinsight/hbase/apache-hbase-replication",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/hdinsight/hdinsight-hbase-geo-replication-configure-vnets.md",
-            "redirect_url": "azure/hdinsight/hbase/apache-hbase-replication",
+            "redirect_url": "/azure/hdinsight/hbase/apache-hbase-replication",
             "redirect_document_id": false
         },
         {
