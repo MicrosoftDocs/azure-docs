@@ -1,10 +1,110 @@
 {
     "redirections": [
-
+        
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/demo-vr-app-launcher.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/overview",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/1-hello-world.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/01-hello-world",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/2-wait-vs-nonwait-actions.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/03-wait-vs-nonwait-actions",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/3-introduction-to-entities.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/04-introduction-to-entities",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/4-expected-entity.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/05-expected-entity",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/5-negatable-entities.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/06-negatable-entities",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/6-multi-value-entities.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/07-multi-value-entities",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/7-built-in-entities.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/08-pre-trained-entities",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/8-alternative-inputs.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/10-alternative-inputs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/9-log-dialogs.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/11-log-dialogs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/10-entity-detection-callback.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/12-entity-detection-callback",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/11-session-callbacks.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/13-session-callbacks",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/12-api-calls.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/14-api-calls",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/13-cards-1.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/15-cards",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/14-cards-2.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/15-cards",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/15-branching-and-undo.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/17-branch-undo",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/16-versioning-and-tagging.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/18-version-tag",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/17-hybrid-bots.md",
+            "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/16-hybrid-bots",
+            "redirect_document_id":  true
+        },
         {
             "source_path": "articles/machine-learning/service/how-to-deploy-to-aci.md",
             "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/bing-visual-search/tutorial-bing-visual-search-single-page-app-source.md",
+            "redirect_url": "/azure/cognitive-services/bing-visual-search/tutorial-bing-visual-search-single-page-app",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/bing-visual-search/sdk.md",
+            "redirect_url": "/azure/cognitive-services/bing-visual-search/visual-search-sdk-c-sharp",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/machine-learning/service/how-to-deploy-to-aks.md",
@@ -1765,6 +1865,11 @@
         {
             "source_path": "articles/sql-database/sql-database-customer-implementations.md",
             "redirect_url": "http://customers.microsoft.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-migrate-your-sql-server-database.md",
+            "redirect_url": "/azure/dms/tutorial-sql-server-to-azure-sql",
             "redirect_document_id": false
         },
         {
@@ -4047,7 +4152,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-test-in-production-get-start.md",
-            "redirect_url": "/azure/app-service/web-sites-staged-publishing",
+            "redirect_url": "/azure/app-service/deploy-staging-slots",
             "redirect_document_id": false
         },
         {
@@ -4072,7 +4177,7 @@
         },
         {
             "source_path": "articles/app-service-web/websites-csm-backup.md",
-            "redirect_url": "/azure/app-service/web-sites-backup",
+            "redirect_url": "/azure/app-service/manage-backup",
             "redirect_document_id": false
         },
         {
@@ -4172,7 +4277,7 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-security.md",
-            "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/overview-security",
             "redirect_document_id": false
         },
         {
@@ -4307,7 +4412,12 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-custom-domain-name-migrate.md",
-            "redirect_url": "/azure/app-service/app-service-custom-domain-name-migrate",
+            "redirect_url": "/azure/app-service/manage-custom-dns-migrate-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-custom-domain-name-migrate.md",
+            "redirect_url": "/azure/app-service/manage-custom-dns-migrate-domain",
             "redirect_document_id": false
         },
         {
@@ -4632,12 +4742,22 @@
         },
         {
             "source_path": "articles/app-service-web/choose-web-site-cloud-service-vm.md",
-            "redirect_url": "/azure/app-service/choose-web-site-cloud-service-vm",
+            "redirect_url": "/azure/app-service/overview-compare",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/choose-web-site-cloud-service-vm.md",
+            "redirect_url": "/azure/app-service/overview-compare",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/custom-dns-web-site-buydomains-web-app.md",
-            "redirect_url": "/azure/app-service/custom-dns-web-site-buydomains-web-app",
+            "redirect_url": "/azure/app-service/manage-custom-dns-buy-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/custom-dns-web-site-buydomains-web-app.md",
+            "redirect_url": "/azure/app-service/manage-custom-dns-buy-domain",
             "redirect_document_id": false
         },
         {
@@ -4652,7 +4772,12 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-backup.md",
-            "redirect_url": "/azure/app-service/web-sites-backup",
+            "redirect_url": "/azure/app-service/manage-backup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/web-sites-backup.md",
+            "redirect_url": "/azure/app-service/manage-backup",
             "redirect_document_id": false
         },
         {
@@ -4662,12 +4787,22 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md",
-            "redirect_url": "/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio",
+            "redirect_url": "/azure/app-service/troubleshoot-dotnet-visual-studio",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md",
+            "redirect_url": "/azure/app-service/troubleshoot-dotnet-visual-studio",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-enable-diagnostic-log.md",
-            "redirect_url": "/azure/app-service/web-sites-enable-diagnostic-log",
+            "redirect_url": "/azure/app-service/troubleshoot-diagnostic-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/web-sites-enable-diagnostic-log.md",
+            "redirect_url": "/azure/app-service/troubleshoot-diagnostic-logs",
             "redirect_document_id": false
         },
         {
@@ -4697,7 +4832,12 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-staged-publishing.md",
-            "redirect_url": "/azure/app-service/web-sites-staged-publishing",
+            "redirect_url": "/azure/app-service/deploy-staging-slots",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/web-sites-staged-publishing.md",
+            "redirect_url": "/azure/app-service/deploy-staging-slots",
             "redirect_document_id": false
         },
         {
@@ -5107,7 +5247,7 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-streaming-logs-and-console.md",
-            "redirect_url": "/azure/app-service/web-sites-enable-diagnostic-log",
+            "redirect_url": "/azure/app-service/troubleshoot-diagnostic-logs",
             "redirect_document_id": false
         },
         {
@@ -5172,7 +5312,17 @@
         },
         {
             "source_path": "articles/app-service/app-service-security-readme.md",
-            "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/overview-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-security.md",
+            "redirect_url": "/azure/app-service/overview-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md",
+            "redirect_url": "/azure/app-service/overview-hosting-plans",
             "redirect_document_id": false
         },
         {
@@ -5182,7 +5332,12 @@
         },
         {
             "source_path": "articles/app-service/app-service-local-cache.md",
-            "redirect_url": "/azure/app-service/app-service-local-cache-overview",
+            "redirect_url": "/azure/app-service/overview-local-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-local-cache-overview.md",
+            "redirect_url": "/azure/app-service/overview-local-cache",
             "redirect_document_id": false
         },
         {
@@ -5207,7 +5362,7 @@
         },
         {
             "source_path": "articles/app-service-api/app-service-api-authentication.md",
-            "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/overview-authentication-authorization",
             "redirect_document_id": false
         },
         {
@@ -5222,7 +5377,7 @@
         },
         {
             "source_path": "articles/app-service-api/app-service-api-dotnet-service-principal-auth.md",
-            "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/overview-authentication-authorization",
             "redirect_document_id": false
         },
         {
@@ -5237,7 +5392,7 @@
         },
         {
             "source_path": "articles/app-service-api/app-service-api-dotnet-user-principal-auth.md",
-            "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/overview-authentication-authorization",
             "redirect_document_id": false
         },
         {
@@ -5307,7 +5462,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-staged-publishing-realworld-scenarios.md",
-            "redirect_url": "/azure/app-service/web-sites-staged-publishing",
+            "redirect_url": "/azure/app-service/deploy-staging-slots",
             "redirect_document_id": false
         },
         {
@@ -5337,7 +5492,17 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-authentication-authorization.md",
-            "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/overview-authentication-authorization",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-managed-service-identity.md",
+            "redirect_url": "/azure/app-service/overview-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-diagnostics.md",
+            "redirect_url": "/azure/app-service/overview-diagnostics",
             "redirect_document_id": false
         },
         {
@@ -5367,17 +5532,32 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-dotnet-lob-application-adfs.md",
-            "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/overview-authentication-authorization",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-dotnet-lob-application-azure-ad.md",
-            "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/overview-authentication-authorization",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-authentication-overview.md",
+            "redirect_url": "/azure/app-service/overview-authentication-authorization",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service/app-service-web-troubleshoot-domain-ssl-certificates.md",
             "redirect_url": "/azure/app-service/troubleshoot-domain-ssl-certificates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-patch-os-runtime.md",
+            "redirect_url": "/azure/app-service/overview-patch-os-runtime",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-ip-addresses.md",
+            "redirect_url": "/azure/app-service/overview-inbound-outbound-ips",
             "redirect_document_id": false
         },
         {
@@ -8077,42 +8257,62 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-create-web-jobs.md",
-            "redirect_url": "/azure/app-service/web-sites-create-web-jobs",
+            "redirect_url": "/azure/app-service/webjobs-create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/web-sites-create-web-jobs.md",
+            "redirect_url": "/azure/app-service/webjobs-create",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/websites-dotnet-deploy-webjobs.md",
-            "redirect_url": "/azure/app-service/websites-dotnet-deploy-webjobs",
+            "redirect_url": "/azure/app-service/webjobs-dotnet-deploy-vs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/websites-dotnet-deploy-webjobs.md",
+            "redirect_url": "/azure/app-service/webjobs-dotnet-deploy-vs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/web-sites-rm-template-guidance.md",
+            "redirect_url": "/azure/app-service/deploy-resource-manager-template",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1802.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1803.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1804.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/azure-stack-update-1805.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/azure-stack/azure-stack-update-1710.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1711.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1712.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
             "redirect_document_id": false
         },
         {
@@ -9712,12 +9912,27 @@
         },
         {
             "source_path": "articles/hdinsight/hdinsight-hbase-geo-replication.md",
-            "redirect_url": "/azure/hdinsight/hdinsight-hbase-replication",
+            "redirect_url": "/azure/hdinsight/hbase/apache-hbase-replication",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/hdinsight/hdinsight-hbase-tutorial-get-started.md",
             "redirect_url": "/azure/hdinsight/hdinsight-hbase-tutorial-get-started-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hdinsight-hbase-geo-replication-configure-dns.md",
+            "redirect_url": "/azure/hdinsight/hbase/apache-hbase-replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hdinsight-hbase-geo-replication-configure-vnets.md",
+            "redirect_url": "/azure/hdinsight/hbase/apache-hbase-replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hdinsight-learn-hadoop-use-sample-gallery.md",
+            "redirect_url": "https://azure.microsoft.com/resources/samples/?service=hdinsight&sort=0",
             "redirect_document_id": false
         },
         {
@@ -13692,11 +13907,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Content-Moderator/index.md",
-            "redirect_url": "/azure/cognitive-services/content-moderator/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cognitive-services/Content-Moderator/review-api-authentication.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/review-api",
             "redirect_document_id": false
@@ -13705,11 +13915,6 @@
             "source_path": "articles/cognitive-services/Content-Moderator/text-moderation-api-languages.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/language-support",
             "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/cognitive-services/Custom-Vision-Service/index.md",
-            "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
-            "redirect_document_id": false
         },
         {
             "source_path": "articles/cognitive-services/Emotion/index.md",
@@ -30144,6 +30349,21 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi.md",
+            "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-api-dotnet.md",
+            "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet.md",
+            "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
             "redirect_document_id": true
@@ -32288,8 +32508,13 @@
         },
         {
             "source_path":  "articles/log-analytics/log-analytics-usage.md",
-            "redirect_url":  "/azure/azure-monitor/platform/data-usage",
-            "redirect_document_id":  true
+            "redirect_url":  "/azure/azure-monitor/platform/manage-cost-storage",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/azure-monitor/platform/data-usage.md",
+            "redirect_url":  "/azure/azure-monitor/platform/manage-cost-storage",
+            "redirect_document_id":  false
         },
         {
             "source_path":  "articles/monitoring-and-diagnostics/alert-activity-log.md",
@@ -32742,6 +32967,286 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/application-insights/app-insights-alerts.md",
+            "redirect_url":  "/azure/azure-monitor/app/alerts",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-analytics.md",
+            "redirect_url":  "/azure/azure-monitor/app/analytics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-api-custom-events-metrics.md",
+            "redirect_url":  "/azure/azure-monitor/app/api-custom-events-metrics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-analytics-troubleshooting.md",
+            "redirect_url":  "/azure/azure-monitor/app/analytics-troubleshooting",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-annotations.md",
+            "redirect_url":  "/azure/azure-monitor/app/annotations",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-api-filtering-sampling.md",
+            "redirect_url":  "/azure/azure-monitor/app/api-filtering-sampling",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-dashboards.md",
+            "redirect_url":  "/azure/azure-monitor/app/app-insights-dashboards",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-app-map.md",
+            "redirect_url":  "/azure/azure-monitor/app/app-map",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-asp-net.md",
+            "redirect_url":  "/azure/azure-monitor/app/asp-net",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-asp-net-core.md",
+            "redirect_url":  "/azure/azure-monitor/app/asp-net-core",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-asp-net-dependencies.md",
+            "redirect_url":  "/azure/azure-monitor/app/asp-net-dependencies",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-asp-net-exceptions.md",
+            "redirect_url":  "/azure/azure-monitor/app/asp-net-exceptions",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-asp-net-more.md",
+            "redirect_url":  "/azure/azure-monitor/app/asp-net-more",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-asp-net-trace-logs.md",
+            "redirect_url":  "/azure/azure-monitor/app/asp-net-trace-logs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-asp-net-troubleshoot-no-data.md",
+            "redirect_url":  "/azure/azure-monitor/app/asp-net-troubleshoot-no-data",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/application-insights-data-model.md",
+            "redirect_url":  "/azure/azure-monitor/app/data-model",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/application-insights-data-model-context.md",
+            "redirect_url":  "/azure/azure-monitor/app/data-model-context",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/application-insights-data-model-dependency-telemetry.md",
+            "redirect_url":  "/azure/azure-monitor/app/data-model-dependency-telemetry",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/application-insights-data-model-event-telemetry.md",
+            "redirect_url":  "/azure/azure-monitor/app/data-model-event-telemetry",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/application-insights-data-model-exception-telemetry.md",
+            "redirect_url":  "/azure/azure-monitor/app/data-model-exception-telemetry",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/application-insights-data-model-metric-telemetry.md",
+            "redirect_url":  "/azure/azure-monitor/app/data-model-metric-telemetry",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/application-insights-data-model-request-telemetry.md",
+            "redirect_url":  "/azure/azure-monitor/app/data-model-request-telemetry",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/application-insights-data-model-trace-telemetry.md",
+            "redirect_url":  "/azure/azure-monitor/app/data-model-trace-telemetry",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-data-retention-privacy.md",
+            "redirect_url":  "/azure/azure-monitor/app/data-retention-privacy",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-detect-triage-diagnose.md",
+            "redirect_url":  "/azure/azure-monitor/app/detect-triage-diagnose",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-diagnostic-search.md",
+            "redirect_url":  "/azure/azure-monitor/app/diagnostic-search",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-monitor-performance-live-website-now.md",
+            "redirect_url":  "/azure/azure-monitor/app/monitor-performance-live-website-now",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-monitor-web-app-availability.md",
+            "redirect_url":  "/azure/azure-monitor/app/monitor-web-app-availability",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/auto-collect-dependencies.md",
+            "redirect_url":  "/azure/azure-monitor/app/auto-collect-dependencies",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/automate-custom-reports.md",
+            "redirect_url":  "/azure/azure-monitor/app/automate-custom-reports",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-automate-with-flow.md",
+            "redirect_url":  "/azure/azure-monitor/app/automate-with-flow",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/automate-with-logic-apps.md",
+            "redirect_url":  "/azure/azure-monitor/app/automate-with-logic-apps",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-azure-web-apps.md",
+            "redirect_url":  "/azure/azure-monitor/app/azure-web-apps",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-cloudservices.md",
+            "redirect_url":  "/azure/azure-monitor/app/cloudservices",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-code-sample-export-sql-stream-analytics.md",
+            "redirect_url":  "/azure/azure-monitor/app/code-sample-export-sql-stream-analytics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-configuration-with-applicationinsights-config.md",
+            "redirect_url":  "/azure/azure-monitor/app/configuration-with-applicationinsights-config",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/application-insights-console.md",
+            "redirect_url":  "/azure/azure-monitor/app/console",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/application-insights-correlation.md",
+            "redirect_url":  "/azure/azure-monitor/app/correlation",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-custom-data-correlation.md",
+            "redirect_url":  "/azure/azure-monitor/app/custom-data-correlation",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/application-insights-custom-operations-tracking.md",
+            "redirect_url":  "/azure/azure-monitor/app/custom-operations-tracking",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/distributed-tracing.md",
+            "redirect_url":  "/azure/azure-monitor/app/distributed-tracing",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-docker.md",
+            "redirect_url":  "/azure/azure-monitor/app/docker",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-export-data-model.md",
+            "redirect_url":  "/azure/azure-monitor/app/export-data-model",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-export-stream-analytics.md",
+            "redirect_url":  "/azure/azure-monitor/app/export-stream-analytics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-export-telemetry.md",
+            "redirect_url":  "/azure/azure-monitor/app/export-telemetry",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-hockeyapp-bridge-app.md",
+            "redirect_url":  "/azure/azure-monitor/app/hockeyapp-bridge-app",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-how-do-i.md",
+            "redirect_url":  "/azure/azure-monitor/app/how-do-i",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-ip-addresses.md",
+            "redirect_url":  "/azure/azure-monitor/app/ip-addresses",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-java-agent.md",
+            "redirect_url":  "/azure/azure-monitor/app/java-agent",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-java-collectd.md",
+            "redirect_url":  "/azure/azure-monitor/app/java-collectd",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-java-filter-telemetry.md",
+            "redirect_url":  "/azure/azure-monitor/app/java-filter-telemetry",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-java-get-started.md",
+            "redirect_url":  "/azure/azure-monitor/app/java-get-started",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-java-live.md",
+            "redirect_url":  "/azure/azure-monitor/app/java-live",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-javascript.md",
+            "redirect_url":  "/azure/azure-monitor/app/javascript",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-java-trace-logs.md",
+            "redirect_url":  "/azure/azure-monitor/app/java-trace-logs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-java-troubleshoot.md",
+            "redirect_url":  "/azure/azure-monitor/app/java-troubleshoot",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
@@ -32763,8 +33268,8 @@
         },
 		{
 			"source_path": "articles/application-insights/app-insights-monitor-multi-role-apps.md",
-			"redirect_url": "/azure/application-insights/app-insights-app-map",
-			"redirect_document_id": true
+			"redirect_url": "/azure/azure-monitor/app/app-map",
+			"redirect_document_id": false
         },
         {
 			"source_path": "articles/machine-learning/service/how-to-automated-ml.md",
@@ -33155,6 +33660,16 @@
 			{
 			"source_path": "articles/application-insights/app-insights-analytics-import.md",
 			"redirect_url": "/azure/azure-monitor/platform/data-collector-api",
+			"redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-key-phrase.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-reference-prebuilt-keyphrase",
+            "redirect_document_id": true
+        },
+		{
+			"source_path": "articles/application-insights/app-insights-pricing-enterprise-details.md",
+			"redirect_url": "/azure/application-insights/app-insights-pricing",
 			"redirect_document_id": false
         }
     ]

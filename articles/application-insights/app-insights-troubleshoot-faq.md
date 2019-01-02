@@ -18,26 +18,26 @@ ms.author: mbullwin
 ## Configuration problems
 *I'm having trouble setting up my:*
 
-* [.NET app](app-insights-asp-net-troubleshoot-no-data.md)
-* [Monitoring an already-running app](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
+* [.NET app](../azure-monitor/app/asp-net-troubleshoot-no-data.md)
+* [Monitoring an already-running app](../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Azure diagnostics](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Java web app](app-insights-java-troubleshoot.md)
+* [Java web app](../azure-monitor/app/java-troubleshoot.md)
 
 *I get no data from my server*
 
-* [Set firewall exceptions](app-insights-ip-addresses.md)
-* [Set up an ASP.NET server](app-insights-monitor-performance-live-website-now.md)
-* [Set up a Java server](app-insights-java-agent.md)
+* [Set firewall exceptions](../azure-monitor/app/ip-addresses.md)
+* [Set up an ASP.NET server](../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Set up a Java server](../azure-monitor/app/java-agent.md)
 
 ## Can I use Application Insights with ...?
 
-* [Web apps on an IIS server - on-premises or in a VM](app-insights-asp-net.md)
-* [Java web apps](app-insights-java-get-started.md)
+* [Web apps on an IIS server - on-premises or in a VM](../azure-monitor/app/asp-net.md)
+* [Java web apps](../azure-monitor/app/java-get-started.md)
 * [Node.js apps](app-insights-nodejs.md)
-* [Web apps on Azure](app-insights-azure-web-apps.md)
-* [Cloud Services on Azure](app-insights-cloudservices.md)
-* [App servers running in Docker](app-insights-docker.md)
-* [Single-page web apps](app-insights-javascript.md)
+* [Web apps on Azure](../azure-monitor/app/azure-web-apps.md)
+* [Cloud Services on Azure](../azure-monitor/app/cloudservices.md)
+* [App servers running in Docker](../azure-monitor/app/docker.md)
+* [Single-page web apps](../azure-monitor/app/javascript.md)
 * [Sharepoint](app-insights-sharepoint.md)
 * [Windows desktop app](app-insights-windows-desktop.md)
 * [Other platforms](app-insights-platforms.md)
@@ -89,26 +89,26 @@ In Solution Explorer, right-click `ApplicationInsights.config` and choose **Upda
 
 A desktop app that you can use in your IIS web server to help configure Application Insights in web apps. It doesn't collect telemetry: you can stop it when you are not configuring an app. 
 
-[Learn more](app-insights-monitor-performance-live-website-now.md#questions).
+[Learn more](../azure-monitor/app/monitor-performance-live-website-now.md#questions).
 
 ## What telemetry is collected by Application Insights?
 
 From server web apps:
 
 * HTTP requests
-* [Dependencies](app-insights-asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue. 
-* [Exceptions](app-insights-asp-net-exceptions.md) and stack traces.
-* [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](app-insights-monitor-performance-live-website-now.md), [Azure monitoring](app-insights-azure-web-apps.md), or the [Application Insights collectd writer](app-insights-java-collectd.md).
-* [Custom events and metrics](app-insights-api-custom-events-metrics.md) that you code.
-* [Trace logs](app-insights-asp-net-trace-logs.md) if you configure the appropriate collector.
+* [Dependencies](../azure-monitor/app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue. 
+* [Exceptions](../azure-monitor/app/asp-net-exceptions.md) and stack traces.
+* [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md), [Azure monitoring](../azure-monitor/app/azure-web-apps.md), or the [Application Insights collectd writer](../azure-monitor/app/java-collectd.md).
+* [Custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md) that you code.
+* [Trace logs](../azure-monitor/app/asp-net-trace-logs.md) if you configure the appropriate collector.
 
-From [client web pages](app-insights-javascript.md):
+From [client web pages](../azure-monitor/app/javascript.md):
 
 * [Page view counts](app-insights-usage-overview.md)
-* [AJAX calls](app-insights-asp-net-dependencies.md) Requests made from a running script.
+* [AJAX calls](../azure-monitor/app/asp-net-dependencies.md) Requests made from a running script.
 * Page view load data
 * User and session counts
-* [Authenticated user IDs](app-insights-api-custom-events-metrics.md#authenticated-users)
+* [Authenticated user IDs](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)
 
 From other sources, if you configure them:
 
@@ -124,7 +124,7 @@ Yes, in the server you can write:
 * Telemetry Processor to filter or add properties to selected telemetry items before they are sent from your app.
 * Telemetry Initializer to add properties to all items of telemetry.
 
-Learn more for [ASP.NET](app-insights-api-filtering-sampling.md) or [Java](app-insights-java-filter-telemetry.md).
+Learn more for [ASP.NET](../azure-monitor/app/api-filtering-sampling.md) or [Java](../azure-monitor/app/java-filter-telemetry.md).
 
 ## How are City, Country and other geo location data calculated?
 
@@ -143,7 +143,7 @@ Take a look at [Data Retention and Privacy][data].
 
 ## Could personal data be sent in the telemetry?
 
-This is possible if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](app-insights-data-retention-privacy.md).
+This is possible if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](../azure-monitor/app/data-retention-privacy.md).
 
 **All** octets of the client web address are always set to 0 after the geo location attributes are looked up.
 
@@ -167,31 +167,31 @@ We don't log POST data automatically, but you can use a TrackTrace call: put the
 Use a single resource for all the components or roles in a single business system. Use separate resources for development, test, and release versions, and for independent applications.
 
 * [See the discussion here](app-insights-separate-resources.md)
-* [Example - cloud service with worker and web roles](app-insights-cloudservices.md)
+* [Example - cloud service with worker and web roles](../azure-monitor/app/cloudservices.md)
 
 ## How do I dynamically change the instrumentation key?
 
 * [Discussion here](app-insights-separate-resources.md)
-* [Example - cloud service with worker and web roles](app-insights-cloudservices.md)
+* [Example - cloud service with worker and web roles](../azure-monitor/app/cloudservices.md)
 
 ## What are the User and Session counts?
 
 * The JavaScript SDK sets a user cookie on the web client, to identify returning users, and a session cookie to group activities.
 * If there is no client-side script, you can [set cookies at the server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * If one real user uses your site in different browsers, or using in-private/incognito browsing, or different machines, then they will be counted more than once.
-* To identify a logged-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
+* To identify a logged-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
 
 ## <a name="q17"></a> Have I enabled everything in Application Insights?
 | What you should see | How to get it | Why you want it |
 | --- | --- | --- |
-| Availability charts |[Web tests](app-insights-monitor-web-app-availability.md) |Know your web app is up |
-| Server app perf: response times, ... |[Add Application Insights to your project](app-insights-asp-net.md) or [Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md) (or write your own code to [track dependencies](app-insights-api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
-| Dependency telemetry |[Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md) |Diagnose issues with databases or other external components |
-| Get stack traces from exceptions |[Insert TrackException calls in your code](app-insights-asp-net-exceptions.md) (but some are reported automatically) |Detect and diagnose exceptions |
-| Search log traces |[Add a logging adapter](app-insights-asp-net-trace-logs.md) |Diagnose exceptions, perf issues |
-| Client usage basics: page views, sessions, ... |[JavaScript initializer in web pages](app-insights-javascript.md) |Usage analytics |
-| Client custom metrics |[Tracking calls in web pages](app-insights-api-custom-events-metrics.md) |Enhance user experience |
-| Server custom metrics |[Tracking calls in server](app-insights-api-custom-events-metrics.md) |Business intelligence |
+| Availability charts |[Web tests](../azure-monitor/app/monitor-web-app-availability.md) |Know your web app is up |
+| Server app perf: response times, ... |[Add Application Insights to your project](../azure-monitor/app/asp-net.md) or [Install AI Status Monitor on server](../azure-monitor/app/monitor-performance-live-website-now.md) (or write your own code to [track dependencies](../azure-monitor/app/api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
+| Dependency telemetry |[Install AI Status Monitor on server](../azure-monitor/app/monitor-performance-live-website-now.md) |Diagnose issues with databases or other external components |
+| Get stack traces from exceptions |[Insert TrackException calls in your code](../azure-monitor/app/asp-net-exceptions.md) (but some are reported automatically) |Detect and diagnose exceptions |
+| Search log traces |[Add a logging adapter](../azure-monitor/app/asp-net-trace-logs.md) |Diagnose exceptions, perf issues |
+| Client usage basics: page views, sessions, ... |[JavaScript initializer in web pages](../azure-monitor/app/javascript.md) |Usage analytics |
+| Client custom metrics |[Tracking calls in web pages](../azure-monitor/app/api-custom-events-metrics.md) |Enhance user experience |
+| Server custom metrics |[Tracking calls in server](../azure-monitor/app/api-custom-events-metrics.md) |Business intelligence |
 
 ## Why are the counts in Search and Metrics charts unequal?
 
@@ -220,7 +220,7 @@ You can't set up a Metric Explorer report or set up continuous export.
 
 ### Querying the telemetry
 
-Use the [REST API](https://dev.applicationinsights.io/) to run [Analytics](app-insights-analytics.md) queries.
+Use the [REST API](https://dev.applicationinsights.io/) to run [Analytics](../azure-monitor/app/analytics.md) queries.
 
 ## How can I set an alert on an event?
 
@@ -235,7 +235,7 @@ This doesn't depend on where your Application Insights resource is hosted. It ju
 
 ## Can I send telemetry to the Application Insights portal?
 
-We recommend you use our SDKs and use the [SDK API](app-insights-api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app-insights-platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
+We recommend you use our SDKs and use the [SDK API](../azure-monitor/app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app-insights-platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
 
 ## Can I monitor an intranet web server?
 
@@ -279,9 +279,9 @@ http://<your.gateway.endpoint>/api/profiles/{0}/apiId
 
 ## Can I run Availability web tests on an intranet server?
 
-Our [web tests](app-insights-monitor-web-app-availability.md) run on points of presence that are distributed around the globe. There are two solutions:
+Our [web tests](../azure-monitor/app/monitor-web-app-availability.md) run on points of presence that are distributed around the globe. There are two solutions:
 
-* Firewall door - Allow requests to your server from [the long and changeable list of web test agents](app-insights-ip-addresses.md).
+* Firewall door - Allow requests to your server from [the long and changeable list of web test agents](../azure-monitor/app/ip-addresses.md).
 * Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights using the TrackAvailability() API.
 
 ## How long does it take for telemetry to be collected?
@@ -293,7 +293,7 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 
 <!--Link references-->
 
-[data]: app-insights-data-retention-privacy.md
+[data]: ../azure-monitor/app/data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

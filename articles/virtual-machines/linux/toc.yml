@@ -67,32 +67,32 @@
     href: sizes.md
     items:
     - name: General purpose
-      href: sizes-general.md  
+      href: sizes-general.md
       items:
       - name: B-series burstable
         href: b-series-burstable.md
     - name: Compute optimized
-      href: sizes-compute.md    
+      href: sizes-compute.md
     - name: Memory optimized
-      href: sizes-memory.md    
+      href: sizes-memory.md
       items:
       - name: Constrained vCPUs
         href: constrained-vcpu.md
     - name: Storage optimized
-      href: sizes-storage.md    
+      href: sizes-storage.md
     - name: GPU optimized
-      href: sizes-gpu.md   
+      href: sizes-gpu.md
       items:
       - name: Setup GPU drivers
-        href: n-series-driver-setup.md      
+        href: n-series-driver-setup.md
     - name: High performance compute
-      href: sizes-hpc.md   
+      href: sizes-hpc.md
     - name: Previous generations
-      href: sizes-previous-gen.md       
+      href: sizes-previous-gen.md
     - name: Azure compute units (ACU)
-      href: acu.md 
+      href: acu.md
     - name: Benchmark scores
-      href: compute-benchmark-scores.md             
+      href: compute-benchmark-scores.md
   - name: Endorsed distros
     href: endorsed-distros.md
   - name: Maintenance and updates
@@ -115,7 +115,7 @@
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md 
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -238,9 +238,9 @@
   - name: Manage costs
     items:
     - name: Prepay for VMs - Azure reservations
-      href: prepay-reserved-vm-instances.md       
-    - name: Prepay for SUSE software  
-      href: prepay-suse-software-charges.md 
+      href: prepay-reserved-vm-instances.md
+    - name: Prepay for SUSE software
+      href: prepay-suse-software-charges.md
     - name: What are Azure reservations?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: VM instance size flexibility
@@ -248,7 +248,7 @@
   - name: Use Images
     items:
     - name: Shared image galleries (preview)
-      items: 
+      items:
       - name: Overview
         href: shared-image-galleries.md
       - name: Create shared images using CLI
@@ -281,6 +281,8 @@
       href: capture-image.md
     - name: Build image with Packer
       href: build-image-with-packer.md
+    - name: RHEL images in Azure
+      href: rhel-images.md
     - name: Download existing disk
       href: download-vhd.md
   - name: Availability and scale
@@ -292,7 +294,7 @@
     - name: Vertically scale
       href: vertical-scaling-automation.md
     - name: Create VM in availability zone
-      href: create-cli-availability-zone.md  
+      href: create-cli-availability-zone.md
   - name: Use automation tools
     items:
     - name: Ansible
@@ -324,7 +326,7 @@
       - name: Run existing bash script
         href: cloudinit-bash-script.md
       - name: Prepare existing VM for cloud-init
-        href: cloudinit-prepare-custom-image.md  
+        href: cloudinit-prepare-custom-image.md
     - name: Jenkins
       href: ../../jenkins/overview.md
       items:
@@ -381,7 +383,7 @@
       - name: MySQL
         href: mysql-install.md
       - name: MySQL on SUSE
-        href: mysql-on-opensuse.md   
+        href: mysql-on-opensuse.md
       - name: MongoDB
         href: install-mongodb.md
       - name: PostgreSQL
@@ -420,8 +422,8 @@
     - name: Back up unmanaged disks
       href: incremental-snapshots.md
     - name: Convert to Managed Disks
-      href: convert-unmanaged-to-managed-disks.md     
-    - name: Convert disk between Standard and Premium 
+      href: convert-unmanaged-to-managed-disks.md
+    - name: Convert disk between Standard and Premium
       href: convert-disk-storage.md
     - name: Copy files to a VM
       href: copy-files-to-linux-vm-using-scp.md

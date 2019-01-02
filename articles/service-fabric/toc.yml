@@ -524,6 +524,8 @@
       items:
       - name: Deploy applications on a local cluster
         href: service-fabric-get-started-with-a-local-cluster.md
+      - name: Remove a node type
+        href: service-fabric-how-to-remove-node-type.md 
       - name: Azure Resource Manager
         href: service-fabric-application-arm-resource.md
       - name: Azure PowerShell
@@ -800,8 +802,6 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Common questions
     href: service-fabric-common-questions.md
-  - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/service-fabric/
   - name: MSDN Forum
     href: https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric
   - name: Pricing

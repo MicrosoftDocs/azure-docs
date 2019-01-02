@@ -64,9 +64,9 @@ The portal's workspace dashboard is supported on Microsoft Edge, Chrome, and Fir
 
 Your pre-existing data preparation files aren't portable to the latest release because we don't have Machine Learning Workbench anymore. However, you can still prepare your data for modeling.  
 
-With smaller datasets, you can use the <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning data prep SDK</a> to quickly prepare your data before modeling. 
+With data sets of any size, you can use the [Azure Machine Learning Data Prep SDK](http://aka.ms/data-prep-sdk) to quickly prepare your data prior to modeling by writing Python code. 
 
-You can use this same <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> for larger datasets. Or use Azure Databricks to prepare large datasets. 
+You can follow [this tutorial](tutorial-data-prep.md) to learn more about how to use Azure Machine Learning Data Prep SDK.
 
 ## Will projects persist?
 
@@ -74,7 +74,7 @@ You won't lose any code or work. In the older version, projects are cloud entiti
 
 Much of the project content was already on your local machine. So you just need to create a config file in that directory and reference it in your code to connect to your workspace. Learn how to [migrate your existing projects](how-to-migrate.md#projects).
 
-Learn how to [get started in Python with the main SDK](quickstart-get-started.md).
+Learn how to get started in [Python with the main SDK](quickstart-create-workspace-with-python.md) or using [Azure portal](quickstart-get-started.md).
 
 ## What about my registered models and images?
  

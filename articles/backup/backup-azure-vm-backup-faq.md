@@ -11,7 +11,7 @@ ms.author: trinadhk
 ---
 # Frequently asked questions-Azure Backup
 
-This article answers common questions about the [Azure Backup](backup-introduction-to-azure-backup.md) service. 
+This article answers common questions about the [Azure Backup](backup-introduction-to-azure-backup.md) service.
 
 ## General questions
 
@@ -24,11 +24,9 @@ This article answers common questions about the [Azure Backup](backup-introducti
 ## Backup
 
 ### Does an on-demand backup job use the same retention schedule as scheduled backups?
-
 No. You should specify the retention range for an on-demand backup job. By default, it's retained for 30 days when triggered from the portal.
 
 ### I recently enabled Azure Disk Encryption on some VMs. Will my backups continue to work?
-
 You need to provide permissions for Azure Backup to access Key Vault. Specify the permissions in PowerShell as described in the **Enable backup** section in the [Azure Backup PowerShell](backup-azure-vms-automation.md) documentation.
 
 ### I migrated VM disks to managed disks. Will my backups continue to work?
@@ -39,7 +37,7 @@ The wizard only lists VMs in the same region as the vault, and that aren't alrea
 
 
 ### My VM is shut down. Will an on-demand or a scheduled backup work?
-Yes. Backups run when a machine is shut down. The recovery point is marked as crash consistent. 
+Yes. Backups run when a machine is shut down. The recovery point is marked as crash consistent.
 
 ### Can I cancel an in-progress backup job?
 Yes. You can cancel backup job in a **Taking snapshot** state. You can't cancel a job if data transfer from the snapshot is in progress.
@@ -53,32 +51,28 @@ If you lock the resource group, Azure Backup service can't delete the older rest
 No. The date and time on your local computer is local with current daylight savings applied. The time set for scheduled backups might differ from the local time due to DST.
 
 ### How many data disks can I attach to a VM backed up by Azure Backup?
-Azure Backup can back up VMs with up to 16 disks. Support for 16 disks is provided in the [latest version](backup-upgrade-to-vm-backup-stack-v2.md) of the Azure Backup stack.
+Azure Backup can back up VMs with up to 16 disks. Support for 16 disks is provided in the [latest version](backup-upgrade-to-vm-backup-stack-v2.md) of the Azure VM Backup stack V2.
 
 ### Does Azure backup support standard SSD managed disk?
-Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD managed disks provide a new type of durable storage for Azure VMs. Support for SSD managed disks is provided in the [latest version](backup-upgrade-to-vm-backup-stack-v2.md) of the Azure Backup stack.
+Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD managed disks provide a new type of durable storage for Azure VMs. Support for SSD managed disks is provided in the [latest version](backup-upgrade-to-vm-backup-stack-v2.md) of the Azure VM Backup stack V2.
 
 ### Can we back up a VM with a Write Accelerator (WA)-enabled disk?
-Snapshots can't be taken on the  WA-enabled disky. However, the Azure Backup service can exclude the WA-enabled disk from backup. Support for excluding the disk is as follows:
-- In the [latest version](backup-upgrade-to-vm-backup-stack-v2.md) of the Azure Backup stack.
-- In the Japan East, South East Asia, West Central US and North Europe regions.
+Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup service can exclude the WA-enabled disk from backup. Disk exclusion for VMs with WA-enabled disks is supported only for subscriptions upgraded to Azure VM Backup stack V2. To upgrade to the Azure VM Backup stack V2, see this [article](backup-upgrade-to-vm-backup-stack-v2.md). This feature is currently available in Japan East, North Europe, South East Asia, East US, West US2, West Europe, and East US2.
 
 
-### I have a VM with Write Accelerator (WA) disks and SAP HANA installed. How do I back up? 
-
+### I have a VM with Write Accelerator (WA) disks and SAP HANA installed. How do I back up?
 Azure Backup can't back up the WA-enabled disk but can exclude it from backup. However, the backup won't provide database consistency because information on the WA-enabled disk isn't backed up. You can back up disks with this configuration if you want operating system disk backup, and backup of disks that aren't WA-enabled.
 
-We do have a private preview for a SAP HANA backup with an RPO of 15 minutes. It's built in a similar way to SQL DB backup, and uses the backInt interface for third-party solutions certified by SAP HANA. If you're interested in the private preview, email us at ` AskAzureBackupTeam@microsoft.com ` with the subject **Sign up for private preview for backup of SAP HANA in Azure VMs**.
+We do have a private preview for an SAP HANA backup with an RPO of 15 minutes. It's built in a similar way to SQL DB backup, and uses the backInt interface for third-party solutions certified by SAP HANA. If you're interested in the private preview, email us at ` AskAzureBackupTeam@microsoft.com ` with the subject **Sign up for private preview for backup of SAP HANA in Azure VMs**.
 
 
 ## Restore
 
-### How do I decide whether to restore disks only or a full VM? 
-
-Think of a VM restore as a quick create option for an Azure VM. This option changes disk names, containers used by the disks, public IP addresses and network interface names. The change maintain unique resources when a VM is created. The VM isn't added to an availability set.
+### How do I decide whether to restore disks only or a full VM?
+Think of a VM restore as a quick create option for an Azure VM. This option changes disk names, containers used by the disks, public IP addresses and network interface names. The change maintains unique resources when a VM is created. The VM isn't added to an availability set.
 
 The restore disk option if you want to:
-  * Customize the VM that gets created. For example change the size. 
+  * Customize the VM that gets created. For example change the size.
   * Add configuration settings which weren't there at the time of backup
   * Control the naming convention for resources that are created.
   * Add the VM to an availability set.
@@ -89,7 +83,7 @@ Yes, you can use backups taken before disks were migrated from unmanaged to mana
 - By default, a restore VM job creates an unmanaged VM.
 - However, you can restore disks and use them to create a managed VM.
 
-### How do I restore a VM to a restore point before the VM was migrated to managed disks? 
+### How do I restore a VM to a restore point before the VM was migrated to managed disks?
 By default, a restore VM job creates a VM with unmanaged disks. To create a VM with managed disks:
 1. [Restore to unmanaged disks](tutorial-restore-disk.md#restore-a-vm-disk).
 2. [Convert the restored disks to managed disks](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).
@@ -98,13 +92,17 @@ By default, a restore VM job creates a VM with unmanaged disks. To create a VM w
 [Learn more](backup-azure-vms-automation.md#restore-an-azure-vm) about doing this in PowerShell.
 
 ### Can I restore the VM that's been deleted?
-
 Yes. Even if you delete the VM, you can go to corresponding backup item in the vault and restore from a recovery point.
+
+### How to restore a VM to the same availability sets?
+For Managed Disk Azure VM, restoring to the availability sets is enabled by providing an option in template while restoring as managed Disks. This template has the input parameter called **Availability sets**.
+
+### How do we get faster restore performances?
+For faster restore performance, we recommend you to move to VM backup stack V2 and use [Instant RP feature](backup-upgrade-to-vm-backup-stack-v2.md).
 
 ## Manage VM backups
 
 ### What happens if I modify a backup policy?
-
 The VM is backed up using the schedule and retention settings in the modified or new policy.
 
 - If retention is extended, existing recovery points are marked and kept in accordance with the new policy.

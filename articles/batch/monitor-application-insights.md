@@ -62,14 +62,14 @@ Reference Application Insights from your .NET application by using the **Microso
 
 ## Instrument your code
 
-To instrument your code, your solution needs to create an Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). In the example, the TelemetryClient loads its configuration from the [ApplicationInsights.config](../application-insights/app-insights-configuration-with-applicationinsights-config.md) file. Be sure to update ApplicationInsights.config in the following projects with your Application Insights instrumentation key: Microsoft.Azure.Batch.Samples.TelemetryStartTask and TopNWordsSample.
+To instrument your code, your solution needs to create an Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). In the example, the TelemetryClient loads its configuration from the [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md) file. Be sure to update ApplicationInsights.config in the following projects with your Application Insights instrumentation key: Microsoft.Azure.Batch.Samples.TelemetryStartTask and TopNWordsSample.
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
 Also add the instrumentation key in the file TopNWords.cs.
 
-The example in TopNWords.cs uses the following [instrumentation calls](../application-insights/app-insights-api-custom-events-metrics.md) from the Application Insights API:
+The example in TopNWords.cs uses the following [instrumentation calls](../azure-monitor/app/api-custom-events-metrics.md) from the Application Insights API:
 * `TrackMetric()` - Tracks how long, on average, a compute node takes to download the required text file.
 * `TrackTrace()` - Adds debugging calls to your code.
 * `TrackEvent()` - Tracks interesting events to capture.
@@ -136,7 +136,7 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 ### Azure Batch telemetry initializer helper
 When reporting telemetry for a given server and instance, Application Insights 
 uses the Azure VM Role and VM name for the default values. In the context of Azure Batch, the example shows how to use the pool name and compute 
-node name instead. Use a [telemetry initializer](../application-insights/app-insights-api-filtering-sampling.md#add-properties) to override the default 
+node name instead. Use a [telemetry initializer](../azure-monitor/app/api-filtering-sampling.md#add-properties) to override the default 
 values. 
 
 ```csharp

@@ -30,7 +30,7 @@ ms.author: danoble
 
 The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos DB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
 
-At this time the Data Explorer in the emulator only fully supports SQL API collections and MongoDB collections. Table, Graph, and Cassandra containers are not fully supported.
+At this time the Data Explorer in the emulator only fully supports clients for SQL API and Azure Cosmos DB's API for MongoDB. Clients for Table, Graph, and Cassandra APIs are not fully supported.
 
 This article covers the following tasks:
 
@@ -53,7 +53,7 @@ While emulation of the Azure Cosmos DB service is faithful, the emulator's imple
 ## Differences between the emulator and the service
 Because the Azure Cosmos DB Emulator provides an emulated environment running on a local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos DB account in the cloud:
 
-* Currently Data Explorer in the emulator supports SQL API collections and MongoDB collections only. Table, Graph, and Cassandra APIs are not yet supported.
+* Currently Data Explorer in the emulator supports clients for SQL API and Azure Cosmos DB's API for MongoDB. Clients for Table, Graph, and Cassandra APIs are not yet supported.
 * The Azure Cosmos DB Emulator supports only a single fixed account and a well-known master key. Key regeneration is not possible in the Azure Cosmos DB Emulator.
 * The Azure Cosmos DB Emulator is not a scalable service and will not support a large number of collections.
 * The Azure Cosmos DB Emulator does not simulate different [Azure Cosmos DB consistency levels](consistency-levels.md).
@@ -121,14 +121,14 @@ You can run the emulator on a local network. To enable network access, specify t
 To enable network access for the first time the user should shut down the emulator and delete the emulator’s data directory (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
 ## Developing with the emulator
-Once you have the Azure Cosmos DB Emulator running on your desktop, you can use any supported [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) or the [Azure Cosmos DB REST API](/rest/api/cosmos-db/) to interact with the emulator. The Azure Cosmos DB Emulator also includes a built-in Data Explorer that lets you create collections for the Azure Cosmos DB API for SQL and MongoDB, and view and edit documents without writing any code.
+Once you have the Azure Cosmos DB Emulator running on your desktop, you can use any supported [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) or the [Azure Cosmos DB REST API](/rest/api/cosmos-db/) to interact with the emulator. The Azure Cosmos DB Emulator also includes a built-in Data Explorer that lets you create collections for SQL API or Cosmos DB for Mongo DB API, and view and edit documents without writing any code.
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
         new Uri("https://localhost:8081"),
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
-If you're using [Azure Cosmos DB protocol support for MongoDB](mongodb-introduction.md), use the following connection string:
+If you're using [Azure Cosmos DB wire protocol support for MongoDB](mongodb-introduction.md), use the following connection string:
 
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
 
@@ -147,7 +147,7 @@ In order to obtain a certificate to use with languages and runtimes that do not 
 
 ![Azure Cosmos DB local emulator SSL certificate](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
-The X.509 certificate can be imported into the Java certificate store by following the instructions in [Adding a Certificate to the Java CA Certificates Store](https://docs.microsoft.com/azure/java-add-certificate-ca-store). Once the certificate is imported into the certificate store, Java and MongoDB applications will be able to connect to the Azure Cosmos DB Emulator.
+The X.509 certificate can be imported into the Java certificate store by following the instructions in [Adding a Certificate to the Java CA Certificates Store](https://docs.microsoft.com/azure/java-add-certificate-ca-store). Once the certificate is imported into the certificate store, clients for SQL and Azure Cosmos DB's API for MongoDB will be able to connect to the Azure Cosmos DB Emulator.
 
 When connecting to the emulator from Python and Node.js SDKs, SSL verification is disabled.
 
