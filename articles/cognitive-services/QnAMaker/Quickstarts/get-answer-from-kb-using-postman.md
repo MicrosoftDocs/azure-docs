@@ -31,25 +31,34 @@ When you are ready to generate an answer to a question from your knowledge base,
 
 When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The default view shows the settings required to generate an answer from [Postman](https://www.getpostman.com).
 
+The yellow numbers in the following image indicate which name/value pairs to use in the following steps.
+
 [![Publish results](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png)](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png#lightbox)
 
 To generate an answer with Postman, complete the following steps:
 
 1. Open Postman. 
-1. Select the building block to create a basic request.
-1. Set the **Request name** as `Generate QnA Maker answer`and the **collection** as `Generate QnA Maker answers`.
-1. In the workspace, select the HTTP method of **POST**.
-1. For the URL, concatenate the HOST value and the Post value to create the complete URL. 
+1. Select the building block to create a **Basic Request**.
+1. Set the **Request name** as `Generate QnA Maker answer`and the **collection** as `Generate QnA Maker answers`. If you don't want to save to a collection, select the **Cancel** button.
+1. In the resulting workspace, select the HTTP method of **POST**.
 
-    [![In Postman, set the method to Post and the complete URL](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
+    [![In Postman, set POST Method](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png)](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png#lightbox)
+
+1. For the URL, concatenate the HOST value (#2 from image) and the Post value (#1 from image) to create the complete URL. A complete example URL looks like: 
+
+    `https://qnamaker-f0.azurewebsites.net/qnamaker/knowledgebases/e1115f8c-d01b-4698-a2ed-85b0dbf3348c/generateAnswer`
+
+    [![In Postman, set the complete URL](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
 
 1. Select the **Headers** tab under the URL, then select **Bulk Edit**. 
-1. Copy the headers into the text area.
+1. Copy the headers (#3 and #4 from image) into the text area.
 
     [![In Postman, set the headers](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png#lightbox)
 
 1. Select the **Body** tab.
-1. Select the **raw** format and enter the JSON that represents the question.
+1. Select the **raw** format and enter the JSON (#5 from image) that represents the question.
+
+    `{"question":"How do I programmatically update my Knowledge Base?"}`
 
     [![In Postman, set the body JSON value](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png#lightbox)
 
