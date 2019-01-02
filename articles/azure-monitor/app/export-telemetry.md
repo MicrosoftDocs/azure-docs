@@ -69,7 +69,7 @@ Data that has been discarded by [sampling](../../application-insights/app-insigh
 
 Other calculated metrics are not included. For example, we don't export average CPU utilization, but we do export the raw telemetry from which the average is computed.
 
-The data also includes the results of any [availability web tests](../../application-insights/app-insights-monitor-web-app-availability.md) that you have set up.
+The data also includes the results of any [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md) that you have set up.
 
 > [!NOTE]
 > **Sampling.** If your application sends a lot of data, the sampling feature may operate and send only a fraction of the generated telemetry. [Learn more about sampling.](../../application-insights/app-insights-sampling.md)

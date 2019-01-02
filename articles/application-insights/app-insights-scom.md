@@ -94,5 +94,5 @@ In the [Azure portal](https://portal.azure.com), browse to the resource for your
 * [Set up alerts](../azure-monitor/app/alerts.md)
 * [Diagnosing performance issues](../azure-monitor/app/detect-triage-diagnose.md)
 * [Powerful Analytics queries](../azure-monitor/app/analytics.md)
-* [Availability web tests](app-insights-monitor-web-app-availability.md)
+* [Availability web tests](../azure-monitor/app/monitor-web-app-availability.md)
 
