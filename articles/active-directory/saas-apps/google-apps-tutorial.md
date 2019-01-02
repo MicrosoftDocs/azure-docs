@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/02/2019
 ms.author: jeedes
 
 ---
@@ -82,7 +82,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * G Suite supports **SP** initiated SSO
-* G Suite supports **[automatic user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)**
+* G Suite supports **[automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)**
 
 ## Adding G Suite from the gallery
 
@@ -302,7 +302,7 @@ When you click the G Suite tile in the Access Panel, you should be automatically
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-- [Configure User Provisioning](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
+- [Configure User Provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
 
 <!--Image references-->
 
