@@ -1305,6 +1305,17 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 
 ## Known issues
 
+-   **HDInsight Integration with ADLS Gen 2** 
+   There are two issues on HDInsight ESP clusters using Azure Data Lake Storage Gen 2 with user directories and permissions:
+   
+   1. Home directories for users are not getting created on Head Node 1. As a workaround, create the directories manually and change ownership to the respective user’s UPN.
+   
+   2. Permissions on /hdp directory is currently not set to 751. This needs to be set to 
+      ```bash
+      chmod 751 /hdp 
+      chmod –R 755 /hdp/apps
+      ```
+
 -   **Spark 2.3**
 
     -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] Incorrect result caused by the rule OptimizeMetadataOnlyQuery
@@ -1405,12 +1416,6 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
             val = \_.escape(val);//Line No:460
             
             After removing the above line, the Ranger UI will allow you to create policies with policy condition that can contain special characters and policy evaluation will be successful for the same policy.
-
-**HDInsight Integration with ADLS Gen 2: User directories and permissions issue with ESP clusters**
-    1.	Home directories for users are not getting created on Head Node 1. Workaround is to create these manually and change ownership  to the respective user’s UPN.
-    2.	Permissions on /hdp is currently not set to 751. This needs to be set to 
-    a.	chmod 751 /hdp 
-    b.	chmod –R 755 /hdp/apps
 
 ## Deprecation
 
