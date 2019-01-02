@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 01/02/2018
 ms.author: jeedes
 
 ---
@@ -74,8 +74,8 @@ To configure and test Azure AD single sign-on with Canvas, you need to complete 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure Canvas Single Sign-On](#configure-canvas-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create Canvas test user](#create-canvas-test-user)** - to have a counterpart of Britta Simon in Canvas that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Canvas test user](#create-canvas-test-user)** - to have a counterpart of Britta Simon in Canvas that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -107,7 +107,7 @@ To configure Azure AD single sign-on with Canvas, perform the following steps:
     `https://<tenant-name>.instructure.com/saml2`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Canvas Client support team](https://community.canvaslms.com/welcome) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Canvas Client support team](https://community.canvaslms.com/community/help) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
@@ -247,7 +247,7 @@ To enable Azure AD users to log in to Canvas, they must be provisioned into Canv
 > [!NOTE]
 > You can use any other Canvas user account creation tools or APIs provided by Canvas to provision AAD user accounts.
 
-### Test single sign-on 
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
