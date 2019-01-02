@@ -143,7 +143,7 @@ The response to the request is similar to the following JSON document:
 ]
 ```
 
-For more information on this request, see [GetDomains](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a827d).
+For more information on this request, see [GetDomains](https://docs.microsoft.com/rest/api/cognitiveservices/customvisiontraining/getdomains/getdomains).
 
 The following example demonstrates creating a new project that uses the __Landmarks__ domain:
 
@@ -183,7 +183,7 @@ The response to the request is similar to the JSON document:
 
 Save the `id` value, as it is used when tagging images.
 
-For more information on this request, see [CreateTag](https://docs.microsoft.com/rest/api/cognitiveservices/customvisiontraining/createtag).
+For more information on this request, see [CreateTag](https://docs.microsoft.com/rest/api/cognitiveservices/customvisiontraining/deleteimageregions).
 
 ## Add images
 
@@ -243,7 +243,7 @@ The response to the request is similar to the following JSON document:
 }
 ```
 
-For more information on this request, see [CreateImagesFromUrls](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8287).
+For more information on this request, see [CreateImagesFromUrls](https://docs.microsoft.com/rest/api/cognitiveservices/customvisiontraining/createimagesfromurls/createimagesfromurls).
 
 ## Train the model
 
@@ -279,7 +279,7 @@ The response to the request is similar to the following JSON document:
 
 Save the `id` value, as it is used to test and export the model.
 
-For more information, see [TrainProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8294).
+For more information, see [TrainProject](https://docs.microsoft.com/rest/api/cognitiveservices/customvisiontraining/trainproject/trainproject).
 
 ## Test the model
 
@@ -316,7 +316,7 @@ The response to the request is similar to the following JSON document:
 }
 ```
 
-For more information, see [QuickTestImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a828d).
+For more information, see [QuickTestImageUrl](https://docs.microsoft.com/rest/api/cognitiveservices/customvisiontraining/quicktestimageurl/quicktestimageurl).
 
 ## Export the model
 
@@ -349,7 +349,7 @@ The response to the request is similar to the following JSON document:
 }
 ```
 
-For more information, see [ExportIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829b).
+For more information, see [ExportIteration](https://docs.microsoft.com/rest/api/cognitiveservices/customvisiontraining/exportiteration/exportiteration).
 
 ### Download the exported model
 
@@ -380,4 +380,4 @@ The response to the request is similar to the following JSON document:
 ]
 ```
 
-For more information, see [GetExports](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829a).
+For more information, see [GetExports](https://docs.microsoft.com/rest/api/cognitiveservices/customvisiontraining/getexports/getexports).
