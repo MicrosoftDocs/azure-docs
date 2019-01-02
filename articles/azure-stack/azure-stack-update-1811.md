@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -49,12 +49,10 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 ## Prerequisites
 
 > [!IMPORTANT]
-> During installation of the 1811 update, please ensure that all instances of the administrator portal are closed. The user portal can remain open, but the admin portal must be closed.
+> During installation of the 1811 update, you must ensure that all instances of the administrator portal are closed. The user portal can remain open, but the admin portal must be closed.
 
 - Get your Azure Stack deployment ready for the Azure Stack extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md). 
  
-- Retrieve the data at rest encryption keys and securely store them outside of your Azure Stack deployment. Follow the [instructions on how to retrieve the keys](azure-stack-security-bitlocker.md).
-
 - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1809 before updating to 1811.
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.  
@@ -71,7 +69,7 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
     link to prepare for Extension Host:
     https://docs.microsoft.com/azure/azure-stack/azure-stack-extension-host-prepare`
 
-- The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. To proceed with installation of the 1811 update, you must import the SSL certificates required for the extension host. To prepare for the extension host, see [this article](azure-stack-extension-host-prepare.md).
+- The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. To proceed with installation of the 1811 update, you must import the SSL certificates required for the extension host. To import the certificates, see [this section](azure-stack-extension-host-prepare.md#import-extension-host-certificates).
 
     If you ignore every warning and still choose to install the 1811 update, the update will fail in approximately 1 hour with the following message:   
  
@@ -99,7 +97,7 @@ This update includes the following new features and improvements for Azure Stack
 
 - Added new privileged endpoint commands to update and remove service principles for ADFS. For more information, see [Create service principal for AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
-- Added new Scale Unit Node operations that allow an Azure Stack operator to start, stop and shut down a scale unit node. For more information, see [Scale unit node actions in Azure Stack](azure-stack-node-actions.md).
+- Added new Scale Unit Node operations that allow an Azure Stack operator to start, stop, and shut down a scale unit node. For more information, see [Scale unit node actions in Azure Stack](azure-stack-node-actions.md).
 
 - Added a new region properties blade that displays registration details of the environment. You can view this information by clicking the **Region Management** tile on the default dashboard in the administrator portal, and then selecting **Properties**.
 
@@ -113,9 +111,9 @@ This update includes the following new features and improvements for Azure Stack
 
 - [Azure Stack PowerShell](azure-stack-powershell-install.md) has been updated to version 1.6.0. The update includes support for the new storage-related features in Azure Stack. For more information, see the release notes for the [Azure Stack Administration Module 1.6.0 in the PowerShell Gallery](https://www.powershellgallery.com/packages/AzureStack/1.6.0) For information about updating or installing Azure Stack PowerShell, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
-- Managed Disks is now enabled by default when creating virtual machines using the Azure Stack portal. Please see the [known issues](#known-issues-post-installation) section for the additional steps required for Managed Disks to avoid VM creation failures.
+- Managed Disks is now enabled by default when creating virtual machines using the Azure Stack portal. See the [known issues](#known-issues-post-installation) section for the additional steps required for Managed Disks to avoid VM creation failures.
 
-- This release introduces alert **Repair** actions for the Azure Stack operator. Some alerts in 1811 provide a **Repair** button in the alert which you can select to resolve the issue. For more information, see [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md).
+- This release introduces alert **Repair** actions for the Azure Stack operator. Some alerts in 1811 provide a **Repair** button in the alert that you can select to resolve the issue. For more information, see [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md).
 
 ## Fixed issues
 
@@ -159,6 +157,8 @@ This update includes the following new features and improvements for Azure Stack
 <!-- 3083238 IS -->
 - Security enhancements in this update result in an increase in the backup size of the directory service role. For updated sizing guidance for the external storage location, see the [infrastructure backup documentation](azure-stack-backup-reference.md#storage-location-sizing). This change results in a longer time to complete the backup due to the larger size data transfer. This change impacts integrated systems. 
 
+- The existing PEP cmdlet to retrieve the BitLocker recovery keys is renamed in 1811, from Get-AzsCsvsRecoveryKeys to Get-AzsRecoveryKeys. For more information on how to retrieve the BitLocker recovery keys, see [instructions on how to retrieve the keys](azure-stack-security-bitlocker.md).
+
 ## Common Vulnerabilities and Exposures
 
 This update installs the following security updates:  
@@ -188,7 +188,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ## Known issues with the update process
 
-- During installation of the 1811 update, please ensure that all instances of the administrator portal are closed during this time. The user portal can remain open, but the admin portal must be closed.
+- During installation of the 1811 update, ensure that all instances of the administrator portal are closed during this time. The user portal can remain open, but the admin portal must be closed.
 
 - When running [Test-AzureStack](azure-stack-diagnostic-test.md), if either the **AzsInfraRoleSummary** or the **AzsPortalApiSummary** test fails, you are prompted to run **Test-AzureStack** with the `-Repair` flag.  If you run this command, it fails with the following error message:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  This issue will be fixed in a future release.
 
@@ -204,7 +204,9 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ## Post-update steps
 
-After the installation of this update, install any applicable hotfixes. For more information, see [Hotfixes](#hotfixes), as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
+- After the installation of this update, install any applicable hotfixes. For more information, see [Hotfixes](#hotfixes), as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
+
+- Retrieve the data at rest encryption keys and securely store them outside of your Azure Stack deployment. Follow the [instructions on how to retrieve the keys](azure-stack-security-bitlocker.md).
 
 ## Known issues (post-installation)
 
@@ -251,12 +253,12 @@ The following are post-installation known issues for this build version.
 - When creating a new Windows Virtual Machine (VM), the **Settings** blade requires that you select a public inbound port in order to proceed. In 1811, this setting is required, but has no effect. This is because the feature depends on Azure Firewall, which is not implemented in Azure Stack. You can select **No Public Inbound Ports**, or any of the other options to proceed with VM creation. The setting will have no effect.
 
 <!-- 3235634 – IS, ASDK -->
-- To deploy VMs with sizes containing a **v2** suffix; for example, **Standard_A2_v2**, please specify the suffix as **Standard_A2_v2** (lowercase v). Do not use **Standard_A2_V2** (uppercase V). This works in global Azure and is an inconsistency on Azure Stack.
+- To deploy VMs with sizes containing a **v2** suffix; for example, **Standard_A2_v2**, specify the suffix as **Standard_A2_v2** (lowercase v). Do not use **Standard_A2_V2** (uppercase V). This works in global Azure and is an inconsistency on Azure Stack.
 
 <!-- 2869209 – IS, ASDK --> 
 - When using the [**Add-AzsPlatformImage** cmdlet](/powershell/module/azs.compute.admin/add-azsplatformimage), you must use the **-OsUri** parameter as the storage account URI where the disk is uploaded. If you use the local path of the disk, the cmdlet fails with the following error: 
 
-    `Long running operation failed with status 'Failed'`. 
+    `Long running operation failed with status 'Failed'`
 
 <!--  2795678 – IS, ASDK --> 
 - When you use the portal to create virtual machines (VMs) in a premium VM size (DS,Ds_v2,FS,FSv2), the VM is created in a standard storage account. Creation in a standard storage account does not affect functionally, IOPs, or billing. You can safely ignore the warning that says: 
@@ -293,7 +295,9 @@ The following are post-installation known issues for this build version.
       1. In the Tenant portal, go to **Subscriptions** and find the subscription. Select **Resource Providers**, then select **Microsoft.Compute**, and then click **Re-register**.
       2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
    - If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
-   
+
+- An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
+
 ### Networking  
 
 <!-- 1766332 - IS ASDK --> 
@@ -328,6 +332,15 @@ The following are post-installation known issues for this build version.
     The other options are not supported as source tags in Azure Stack. Similarly, if you add an outbound security rule and select **Service Tag** as the destination, the same list of options for **Source Tag** is displayed. The only valid options are the same as for **Source Tag**, as described in the previous list.
 
 - The **New-AzureRmIpSecPolicy** PowerShell cmdlet does not support setting **DHGroup24** for the `DHGroup` parameter.
+
+### Infrastructure Backup
+
+<!--scheduler config lost, bug 3615401, new issue in 1811,  hectorl-->
+<!-- TSG: https://www.csssupportwiki.com/index.php/Azure_Stack/KI/Backup_scheduler_configuration_lost --> 
+- After enabling automatic backups, the scheduler service goes into disabled state unexpectedly. The backup controller service will detect that automatic backups are disabled and raise a warning in the administrator portal. This warning is expected when automatic backups are disabled. 
+    - Cause: This issue is due to a bug in the service that results in loss of scheduler configuration. This bug does not change the storage location, user name, password, or encryption key.   
+    - Remediation: To mitigate this issue, open the backup controller settings blade in the Infrastructure Backup resource provider and select **Enable Automatic Backups**. Make sure to set the desired frequency and retention period.
+    - Occurrence: Low 
 
 <!-- ### SQL and MySQL-->
 

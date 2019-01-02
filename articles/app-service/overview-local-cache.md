@@ -46,7 +46,7 @@ The Azure App Service Local Cache feature provides a web role view of your conte
 * The local cache contains a one-time copy of the _/site_ and _/siteextensions_ folders of the shared content store, at _D:\home\site_ and _D:\home\siteextensions_, respectively. The files are copied to the local cache when the app starts up. The size of the two folders for each app is limited to 300 MB by default, but you can increase it up to 2 GB.
 * The local cache is read-write. However, any modification is discarded when the app moves virtual machines or gets restarted. Do not use the local cache for apps that store mission-critical data in the content store.
 * _D:\home\LogFiles_ and _D:\home\Data_ contain log files and app data. The two subfolders are stored locally on the VM instance, and are copied to the shared content store periodically. Apps can persist log files and data by writing them to these folders. However, the copy to the shared content store is best-effort, so it is possible for log files and data to be lost due to a sudden crash of a VM instance.
-* [Log streaming](web-sites-enable-diagnostic-log.md#streamlogs) is affected by the best-effort copy. You could observe up to a one-minute delay in the streamed logs.
+* [Log streaming](troubleshoot-diagnostic-logs.md#streamlogs) is affected by the best-effort copy. You could observe up to a one-minute delay in the streamed logs.
 * In the shared content store, there is a change in the folder structure of the _LogFiles_ and _Data_ folders for apps that use the local cache. There are now subfolders in them that follow the naming pattern of "unique identifier" + time stamp. Each of the subfolders corresponds to a VM instance where the app is running or has run.
 * Other folders in _D:\home_ remain in the local cache and are not copied to the shared content store.
 * App deployment through any supported method publishes directly to the durable shared content store. To refresh the _D:\home\site_ and _D:\home\siteextensions_ folders in the local cache, the app needs to be restarted. To make the lifecycle seamless, see the information later in this article.
@@ -94,12 +94,12 @@ You enable Local Cache on a per-web-app basis by using this app setting:
 By default, the local cache size is **300 MB**. This includes the /site and /siteextensions folders that are copied from the content store, as well as any locally created logs and data folders. To increase this limit, use the app setting `WEBSITE_LOCAL_CACHE_SIZEINMB`. You can increase the size up to **2 GB** (2000 MB) per app.
 
 ## Best practices for using App Service Local Cache
-We recommend that you use Local Cache in conjunction with the [Staging Environments](../app-service/web-sites-staged-publishing.md) feature.
+We recommend that you use Local Cache in conjunction with the [Staging Environments](../app-service/deploy-staging-slots.md) feature.
 
 * Add the *sticky* app setting `WEBSITE_LOCAL_CACHE_OPTION` with the value `Always` to your **Production** slot. If you're using `WEBSITE_LOCAL_CACHE_SIZEINMB`, also add it as a sticky setting to your Production slot.
 * Create a **Staging** slot and publish to your Staging slot. You typically don't set the staging slot to use Local Cache to enable a seamless build-deploy-test lifecycle for staging if you get the benefits of Local Cache for the production slot.
 * Test your site against your Staging slot.  
-* When you are ready, issue a [swap operation](../app-service/web-sites-staged-publishing.md#Swap) between your Staging and Production slots.  
+* When you are ready, issue a [swap operation](../app-service/deploy-staging-slots.md#Swap) between your Staging and Production slots.  
 * Sticky settings include name and sticky to a slot. So when the Staging slot gets swapped into Production, it inherits the Local Cache app settings. The newly swapped Production slot will run against the local cache after a few minutes and will be warmed up as part of slot warmup after swap. So when the slot swap is complete, your Production slot is running against the local cache.
 
 ## Frequently asked questions (FAQ)

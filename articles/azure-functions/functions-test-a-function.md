@@ -39,8 +39,9 @@ To set up your environment, create a Function and test app. The following steps 
 1. [Create a new Functions app](./functions-create-first-azure-function.md) and name it *Functions*
 2. [Create an HTTP function from the template](./functions-create-first-azure-function.md) and name it *HttpTrigger*.
 3. [Create a timer function from the template](./functions-create-scheduled-function.md) and name it *TimerTrigger*.
-4. [Create an xUnit Test app](https://xunit.github.io/docs/getting-started-dotnet-core) and name it *Functions.Test*.
-5. [Reference the *Functions* app](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) from *Functions.Test* app.
+4. [Create an xUnit Test app](https://xunit.github.io/docs/getting-started-dotnet-core) in Visual Studio by clicking **File > New > Project > Visual C# > .NET Core > xUnit Test Project** and  name it *Functions.Test*. 
+5. Use Nuget to add a references from the test app to [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/) and  [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+6. [Reference the *Functions* app](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) from *Functions.Test* app.
 
 ### Create test classes
 
@@ -199,7 +200,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string()
         {
             var request = TestFactory.CreateHttpRequest("name", "Bill");
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal("Hello, Bill", response.Value);
         }
 
@@ -208,7 +209,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
         {
             var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal($"Hello, {queryStringValue}", response.Value);
         }
 
@@ -216,7 +217,7 @@ namespace Functions.Tests
         public void Timer_should_log_message()
         {
             var logger = (ListLogger)TestFactory.CreateLogger(LoggerTypes.List);
-            TimerFunction.Run(null, logger);
+            TimerTrigger.Run(null, logger);
             var msg = logger.Logs[0];
             Assert.Contains("C# Timer trigger function executed at", msg);
         }

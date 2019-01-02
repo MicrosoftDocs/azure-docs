@@ -23,7 +23,7 @@ Which features of your web or mobile app are most popular? Do your users achieve
 
 The best experience is obtained by installing Application Insights both in your app server code, and in your web pages. The client and server components of your app send telemetry back to the Azure portal for analysis.
 
-1. **Server code:** Install the appropriate module for your [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-overview.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), or [other](app-insights-platforms.md) app.
+1. **Server code:** Install the appropriate module for your [ASP.NET](../azure-monitor/app/asp-net.md), [Azure](app-insights-overview.md), [Java](../azure-monitor/app/java-get-started.md), [Node.js](app-insights-nodejs.md), or [other](app-insights-platforms.md) app.
 
     * *Don't want to install server code? Just [create an Azure Application Insights resource](app-insights-create-new-resource.md).*
 
@@ -127,7 +127,7 @@ For this technique, you attach distinct property values to all the telemetry tha
 
 In the Application Insights portal, filter and split your data on the property values, so as to compare the different versions.
 
-To do this, [set up a telemetry initializer](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer):
+To do this, [set up a telemetry initializer](../azure-monitor/app/api-filtering-sampling.md##add-properties-itelemetryinitializer):
 
 ```csharp
 

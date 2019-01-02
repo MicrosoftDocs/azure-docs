@@ -278,7 +278,7 @@ Azure Stream Analytics invokes Azure Functions via HTTP triggers. The new Azure 
 | Function app |Name of your Azure Functions App |
 | Function |Name of the function in your Azure Functions App |
 | Key |If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function |
-| Max batch size |This property can be used to set the maximum size for each output batch that is sent to your Azure Function. By default, this value is 256 KB |
+| Max batch size |This property can be used to set the maximum size for each output batch that is sent to your Azure Function. The input unit is in bytes. By default, this value is 262,144 bytes (256 KB) |
 | Max batch count  |As the name indicates, this property lets you specify the maximum number of events in each batch that gets sent to Azure Functions. The default max batch count value is 100 |
 
 When Azure Stream Analytics receives 413 (http Request Entity Too Large) exception from Azure function, it reduces the size of the batches it sends to Azure Functions. In your Azure function code, use this exception to make sure that Azure Stream Analytics doesn’t send oversized batches. Also, make sure that the max batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
@@ -320,7 +320,7 @@ The following table explains some of the considerations to output batching:
 | Azure Service Bus queue	| 256 KB per message<br /> See also [Service Bus limits](../service-bus-messaging/service-bus-quotas.md) | Single event per message |
 | Azure Service Bus topic | 256 KB per message<br /> See also [Service Bus limits](../service-bus-messaging/service-bus-quotas.md) | Single event per message |
 | Azure Cosmos DB	| See [Azure Cosmos DB limits](../azure-subscription-service-limits.md#azure-cosmos-db-limits) | Batch size and Write frequency is adjusted dynamically based CosmosDB responses. <br /> No predetermined limitations from Stream Analytics. |
-| Azure Functions	| | Default batch size is 256 KB. <br /> Default event count per batch is 100. <br /> The batch size is configurable and can be increased or decreased in the Stream Analytics [output options](#azure-functions).
+| Azure Functions	| | Default batch size is 262,144 bytes (256 KB). <br /> Default event count per batch is 100. <br /> The batch size is configurable and can be increased or decreased in the Stream Analytics [output options](#azure-functions).
 
 ## Next steps
 > [!div class="nextstepaction"]

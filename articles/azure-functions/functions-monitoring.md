@@ -114,7 +114,7 @@ In [Metrics Explorer](../application-insights/app-insights-metrics-explorer.md),
 
 ![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-On the [Failures](../application-insights/app-insights-asp-net-exceptions.md) tab, you can create charts and alerts based on function failures and server exceptions. The **Operation Name** is the function name. Failures in dependencies are not shown unless you implement [custom telemetry](#custom-telemetry-in-c-functions) for dependencies.
+On the [Failures](../azure-monitor/app/asp-net-exceptions.md) tab, you can create charts and alerts based on function failures and server exceptions. The **Operation Name** is the function name. Failures in dependencies are not shown unless you implement [custom telemetry](#custom-telemetry-in-c-functions) for dependencies.
 
 ![Failures](media/functions-monitoring/failures.png)
 
@@ -666,7 +666,7 @@ PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-A
 PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-For more information, see [How to stream logs](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
+For more information, see [How to stream logs](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
 
 ### Viewing log files locally
 

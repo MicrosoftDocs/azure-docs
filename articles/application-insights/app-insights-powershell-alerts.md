@@ -120,10 +120,10 @@ The metrics are sent by different telemetry modules:
 
 | Metric group | Collector module |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[Browser JavaScript](app-insights-javascript.md) |
-| performanceCounter |[Performance](app-insights-configuration-with-applicationinsights-config.md) |
-| remoteDependencyFailed |[Dependency](app-insights-configuration-with-applicationinsights-config.md) |
-| request,<br/>requestFailed |[Server request](app-insights-configuration-with-applicationinsights-config.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[Browser JavaScript](../azure-monitor/app/javascript.md) |
+| performanceCounter |[Performance](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| remoteDependencyFailed |[Dependency](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| request,<br/>requestFailed |[Server request](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 
 ## Webhooks
 You can [automate your response to an alert](../azure-monitor/platform/alerts-webhooks.md). Azure will call a web address of your choice when an alert is raised.

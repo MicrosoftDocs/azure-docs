@@ -15,7 +15,7 @@ ms.author: mbullwin
 ---
 # Monitoring usage and performance in Classic Windows Desktop apps
 
-Applications hosted on premises, in Azure, and in other clouds can all take advantage of Application Insights. The only limitation is the need to [allow communication](app-insights-ip-addresses.md) to the Application Insights service. For monitoring Universal Windows Platform (UWP) applications, we recommend [Visual Studio App Center](app-insights-mobile-center-quickstart.md).
+Applications hosted on premises, in Azure, and in other clouds can all take advantage of Application Insights. The only limitation is the need to [allow communication](../azure-monitor/app/ip-addresses.md) to the Application Insights service. For monitoring Universal Windows Platform (UWP) applications, we recommend [Visual Studio App Center](app-insights-mobile-center-quickstart.md).
 
 ## To send telemetry to Application Insights from a Classic Windows application
 1. In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](app-insights-create-new-resource.md). For application type, choose ASP.NET app.
@@ -71,8 +71,8 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
 ```
 
 ## Next steps
-* [Create a dashboard](app-insights-dashboards.md)
-* [Diagnostic Search](app-insights-diagnostic-search.md)
+* [Create a dashboard](../azure-monitor/app/app-insights-dashboards.md)
+* [Diagnostic Search](../azure-monitor/app/diagnostic-search.md)
 * [Explore metrics](app-insights-metrics-explorer.md)
 * [Write Analytics queries](../azure-monitor/app/analytics.md)
 
