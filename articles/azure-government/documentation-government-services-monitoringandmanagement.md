@@ -174,9 +174,9 @@ The URLs for Log Analytics are different in Azure Government:
 | \*.ods.opinsights.azure.com |\*.ods.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.oms.opinsights.azure.com |\*.oms.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.blob.core.windows.net |\*.blob.core.usgovcloudapi.net |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
-| portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md#log-analytics-page) |
-| api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md#log-analytics-page) |
-| docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md#log-analytics-page) |
+| portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
+| api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
+| docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
 | \*.azure-automation.net |\*.azure-automation.us |Azure Automation - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) |
 | N/A | *.usgovtrafficmanager.net | Azure Traffic Manager - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) |
 
