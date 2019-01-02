@@ -39,7 +39,7 @@ LUIS understands utterances in the following languages:
 | Portuguese (Brazil) |`pt-BR` |-| ✔ |✔ |not all sub-cultures|
 | Spanish (Spain) |`es-ES` |-| ✔ |✔|✔|
 | Spanish (Mexico)|`es-MX` |-|  -   |✔|✔|
-| Turkish | `tr-TR` |-|-|-|-|
+| Turkish | `tr-TR` |-|-|-|Sentiment only|
 
 
 Language support varies for [prebuilt entities](luis-reference-prebuilt-entities.md) and [prebuilt domains](luis-reference-prebuilt-domains.md).
