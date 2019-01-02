@@ -14,9 +14,7 @@ ms.author: adgera
 
 This article describes how to configure the Postman REST client to interact with and test the Azure Digital Twins Management APIs.
 
-The article shows how to configure an Azure Active Directory (Azure AD) application to use the OAuth 2.0 implicit grant flow. Then, it discusses how to configure the Postman REST client to make token-bearing HTTP requests to your Management APIs.
-
-It also demonstrates how to configure the Postman REST client to make multipart HTTP POST requests to your Management APIs.
+The article shows how to configure an Azure Active Directory application to use the OAuth 2.0 implicit grant flow. Then, it discusses how to configure the Postman REST client to make token-bearing HTTP requests to your Management APIs.
 
 ## Postman summary
 
@@ -26,27 +24,27 @@ Get started on Azure Digital Twins by using a REST client tool such as [Postman]
 
 ## Configure Azure Active Directory to use the OAuth 2.0 implicit grant flow
 
-Configure your Azure AD app to use the OAuth 2.0 implicit grant flow.
+Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant flow.
 
 1. Follow the steps in [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) to create an Azure AD application of type Native. Or you can reuse an existing Native app registration.
 
 1. Under **Required permissions**, select **Add** and enter **Azure Digital Twins** under **Add API access**. If your search doesn't locate the API, search for **Azure Smart Spaces** instead. Then, select **Grant Permissions > Delegated Permissions** and **Done**.
 
-    ![Azure AD app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
+    ![Azure Active Directory app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
 1. Click **Manifest** to open the application manifest for your app. Set *oauth2AllowImplicitFlow* to `true`.
 
-      ![Azure AD implicit flow][1]
+      ![Azure Active Directory implicit flow][1]
 
-1. Configure a **Reply URL** to [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback).
+1. Configure a **Reply URL** to `https://www.getpostman.com/oauth2/callback`.
 
-      ![Azure AD Reply URL][2]
+      ![Azure Active Directory Reply URL][2]
 
-1. Copy and keep the **Application ID** of your Azure AD app. It is used below.
+1. Copy and keep the **Application ID** of your Azure Active Directory app. It is used below.
 
 ### Configure the Postman client
 
-Next, set up and configure Postman to obtain an Azure AD token. Afterwards, make an authenticated HTTP request to Azure Digital Twins using the acquired token:
+Next, set up and configure Postman to obtain an Azure Active Directory token. Afterwards, make an authenticated HTTP request to Azure Digital Twins using the acquired token:
 
 1. Go to [www.getpostman.com]([https://www.getpostman.com/) to download the app.
 1. Ensure that your **Authorization URL** is correct. It should take the format:
@@ -66,7 +64,7 @@ Next, set up and configure Postman to obtain an Azure AD token. Afterwards, make
     | Grant Type | `Implicit` |
     | Callback URL | `https://www.getpostman.com/oauth2/callback` |
     | Auth URL | Use the **Authorization URL** from step 2 above |
-    | Client ID | Use the **Application ID** for the Azure AD app that was created or repurposed from the previous section |
+    | Client ID | Use the **Application ID** for the Azure Active Directory app that was created or repurposed from the previous section |
     | Scope | Leave blank |
     | State | Leave blank |
     | Client Authentication | `Send as Basic Auth header` |
@@ -82,19 +80,6 @@ Next, set up and configure Postman to obtain an Azure AD token. Afterwards, make
     > * Close Postman, and reopen it and try again.
   
 1. Scroll down, and select **Use Token**.
-
-<div id="multipart"></div>
-
-## Multipart configuration
-
-[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
-
-### Configure the Postman client
-
-Configure your Postman client to obtain an Azure AD token by following the steps above.
-
-1. Acquire an OAuth 2.0 token.
-1. Select the desired Management API endpoint to submit a multipart HTTP POST request to.
 
 ## Next steps
 
