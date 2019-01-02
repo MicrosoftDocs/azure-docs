@@ -7,7 +7,6 @@ ms.date: 01/02/2019
 --- 
 
 The `Eula` setting indicates that you've accepted the license for the container. You must specify a value for this configuration setting, and the value must be set to `accept`.
-The `Eula` setting indicates that you've accepted the license for the container. You must specify a value for this configuration setting, and the value must be set to `accept`.
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
