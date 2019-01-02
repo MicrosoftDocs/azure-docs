@@ -79,7 +79,8 @@ By default, Query Performance Insight shows the top five CPU-consuming queries w
    > 1. In the Azure portal, select **Azure SQL Database** > **Monitoring**. 
    > 2. Select **Metrics**.
    > 3. Select **+Add chart**.
-   > 4. Select the DTU percentage on the chart. In addition, select **Last 24 hours** on the upper-left menu and change it to one minute. 
+   > 4. Select the DTU percentage on the chart.
+   > 5. In addition, select **Last 24 hours** on the upper-left menu and change it to one minute. 
    > 
    > Use the custom DTU chart with a finer level of details to compare with the query execution chart.
    >
@@ -170,7 +171,10 @@ To identify long-running queries:
    > 1. Select **Azure SQL Database** > **Monitoring**.
    > 2. Select **Metrics**. 
    > 3. Select **+Add chart**.
-   > 4. Select the DTU percentage on the chart. In addition, select **Last 24 hours** on the upper-left menu and change it to one minute. We recommend that you use the custom DTU chart to compare with the query performance chart.
+   > 4. Select the DTU percentage on the chart.
+   > 5. In addition, select **Last 24 hours** on the upper-left menu and change it to one minute. 
+   >
+   > We recommend that you use the custom DTU chart to compare with the query performance chart.
    >
 
 ## Review top queries per execution count

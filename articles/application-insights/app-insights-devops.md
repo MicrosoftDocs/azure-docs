@@ -150,7 +150,7 @@ During debugging, you have the option to keep the telemetry in your development 
 When an alert is raised, Application Insights can automatically create a work item in your work tracking system.
 
 ## But what about...?
-* [Privacy and storage](app-insights-data-retention-privacy.md) - Your telemetry is kept on Azure secure servers.
+* [Privacy and storage](../azure-monitor/app/data-retention-privacy.md) - Your telemetry is kept on Azure secure servers.
 * Performance - the impact is very low. Telemetry is batched.
 * [Pricing](app-insights-pricing.md) - You can get started for free, and that continues while you're in low volume.
 
@@ -162,7 +162,7 @@ When an alert is raised, Application Insights can automatically create a work it
 ## Next steps
 Getting started with Application Insights is easy. The main options are:
 
-* Instrument an already-running web app. This gives you all the built-in performance telemetry. It's available for [Java](app-insights-java-live.md) and [IIS servers](app-insights-monitor-performance-live-website-now.md), and also for [Azure App Service](app-insights-overview.md).
-* Instrument your project during development. You can do this for [ASP.NET](../azure-monitor/app/asp-net.md) or [Java](app-insights-java-get-started.md) apps, as well as [Node.js](app-insights-nodejs.md) and a host of [other types](app-insights-platforms.md). 
-* Instrument [any web page](app-insights-javascript.md) by adding a short code snippet.
+* Instrument an already-running web app. This gives you all the built-in performance telemetry. It's available for [Java](../azure-monitor/app/java-live.md) and [IIS servers](../azure-monitor/app/monitor-performance-live-website-now.md), and also for [Azure App Service](app-insights-overview.md).
+* Instrument your project during development. You can do this for [ASP.NET](../azure-monitor/app/asp-net.md) or [Java](../azure-monitor/app/java-get-started.md) apps, as well as [Node.js](app-insights-nodejs.md) and a host of [other types](app-insights-platforms.md). 
+* Instrument [any web page](../azure-monitor/app/javascript.md) by adding a short code snippet.
 

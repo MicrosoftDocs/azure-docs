@@ -215,7 +215,7 @@ This cmdlet will set the following permissions:
 |-----|-----|-----|-----| 
 |Allow |AD DS Connector Account |Generic Read/Write |Descendant Group objects| 
 |Allow |AD DS Connector Account |Create/Delete child object |This object and all descendent objects| 
-|Allow |AD DS Connector Account |Delete/Delete an object and all of it's children |This object and all descendent objects|
+|Allow |AD DS Connector Account |Create/Delete an object and all of it's children |This object and all descendent objects|
 
 ### Permissions for Exchange Hybrid Deployment 
 To set permissions for the AD DS Connector account when using Exchange Hybrid deployment, run: 

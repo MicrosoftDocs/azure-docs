@@ -142,12 +142,16 @@
       href: connector-amazon-simple-storage-service.md
     - name: Azure Blob Storage
       href: connector-azure-blob-storage.md
-    - name: Azure Cosmos DB
+    - name: Azure Cosmos DB SQL API
       href: connector-azure-cosmos-db.md
+    - name: Azure Cosmos DB MongDB API
+      href: connector-azure-cosmos-db-mongodb-api.md
     - name: Azure Data Lake Storage Gen1
       href: connector-azure-data-lake-store.md
     - name: Azure Data Lake Storage Gen2
       href: connector-azure-data-lake-storage.md
+    - name: Azure Database for MariaDB
+      href: connector-azure-database-for-mariadb.md
     - name: Azure Database for MySQL
       href: connector-azure-database-for-mysql.md
     - name: Azure Database for PostgreSQL
@@ -190,6 +194,8 @@
       href: connector-google-adwords.md
     - name: Google BigQuery
       href: connector-google-bigquery.md
+    - name: Google Cloud Storage
+      href: connector-amazon-simple-storage-service.md#copy-from-google-cloud-storage
     - name: Greenplum
       href: connector-greenplum.md
     - name: HBase
@@ -218,6 +224,9 @@
       href: connector-odbc.md#microsoft-access-source
     - name: MongoDB
       href: connector-mongodb.md
+      items:
+      - name: MongoDB (legacy)
+        href: connector-mongodb-legacy.md
     - name: MySQL
       href: connector-mysql.md
     - name: Netezza
@@ -246,6 +255,8 @@
       href: connector-presto.md
     - name: QuickBooks Online
       href: connector-quickbooks.md
+    - name: REST
+      href: connector-rest.md
     - name: Salesforce
       href: connector-salesforce.md
     - name: Salesforce Service Cloud
