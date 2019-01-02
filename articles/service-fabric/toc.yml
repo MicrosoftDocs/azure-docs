@@ -524,6 +524,8 @@
       items:
       - name: Deploy applications on a local cluster
         href: service-fabric-get-started-with-a-local-cluster.md
+      - name: Remove a node type
+        href: service-fabric-how-to-remove-node-type.md 
       - name: Azure Resource Manager
         href: service-fabric-application-arm-resource.md
       - name: Azure PowerShell

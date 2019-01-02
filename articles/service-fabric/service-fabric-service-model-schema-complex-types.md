@@ -1311,7 +1311,7 @@ Section Name of the ConfigPackage Settings.xml.
 |minOccurs|0|
 |maxOccurs|unbounded|
 ## ConfigPackageType complexType
-Declares a folder, named by the Name attribute, und PackageRoot that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.
+Declares a folder, named by the Name attribute, under PackageRoot that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.
 
 |Attribute|Value|
 |---|---|
