@@ -1,6 +1,6 @@
 ---
 title: Create an Azure SQL database using the portal | Microsoft Docs
-description: Create a Azure SQL Database logical server and database in the Azure portal, and query it.
+description: Create an Azure SQL Database logical server and database in the Azure portal, and query it.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
