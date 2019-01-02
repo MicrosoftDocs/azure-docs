@@ -73,7 +73,7 @@ There are plenty of ways to explore your data. Check out these articles:
 ## How do I use Application Insights?
 
 ### Monitor
-Install Application Insights in your app, set up [availability web tests](app-insights-monitor-web-app-availability.md), and:
+Install Application Insights in your app, set up [availability web tests](../azure-monitor/app/monitor-web-app-availability.md), and:
 
 * Set up a [dashboard](../azure-monitor/app/app-insights-dashboards.md) for your team room to keep an eye on load, responsiveness, and the performance of your dependencies, page loads, and AJAX calls.
 * Discover which are the slowest and most failing requests.
@@ -99,29 +99,29 @@ Application Insights is one of the many services hosted within Microsoft Azure, 
 There are several ways to get started. Begin with whichever works best for you. You can add the others later.
 
 * **At run time: instrument your web app on the server.** Avoids any update to the code. You need admin access to your server.
-  * [**IIS on-premises or on a VM**](app-insights-monitor-performance-live-website-now.md)
-  * [**Azure web app or VM**](app-insights-monitor-performance-live-website-now.md)
-  * [**J2EE**](app-insights-java-live.md)
+  * [**IIS on-premises or on a VM**](../azure-monitor/app/monitor-performance-live-website-now.md)
+  * [**Azure web app or VM**](../azure-monitor/app/monitor-performance-live-website-now.md)
+  * [**J2EE**](../azure-monitor/app/java-live.md)
 * **At development time: add Application Insights to your code.** Allows you to write custom telemetry and to instrument back-end and desktop apps.
   * [Visual Studio](../azure-monitor/app/asp-net.md) 2013 update 2 or later.
-  * [Java](app-insights-java-get-started.md)
+  * [Java](../azure-monitor/app/java-get-started.md)
   * [Node.js](app-insights-nodejs.md)
   * [Other platforms](app-insights-platforms.md)
-* **[Instrument your web pages](app-insights-javascript.md)** for page view, AJAX and other client-side telemetry.
+* **[Instrument your web pages](../azure-monitor/app/javascript.md)** for page view, AJAX and other client-side telemetry.
 * **[Analyze mobile app usage](app-insights-mobile-center-quickstart.md)** by integrating with Visual Studio App Center.
-* **[Availability tests](app-insights-monitor-web-app-availability.md)** - ping your website regularly from our servers.
+* **[Availability tests](../azure-monitor/app/monitor-web-app-availability.md)** - ping your website regularly from our servers.
 
 
 ## Next steps
 Get started at runtime with:
 
-* [IIS server](app-insights-monitor-performance-live-website-now.md)
-* [J2EE server](app-insights-java-live.md)
+* [IIS server](../azure-monitor/app/monitor-performance-live-website-now.md)
+* [J2EE server](../azure-monitor/app/java-live.md)
 
 Get started at development time with:
 
 * [ASP.NET](../azure-monitor/app/asp-net.md)
-* [Java](app-insights-java-get-started.md)
+* [Java](../azure-monitor/app/java-get-started.md)
 * [Node.js](app-insights-nodejs.md)
 
 ## Support and feedback
@@ -144,14 +144,14 @@ Get started at development time with:
 
 [android]: app-insights-mobile-center-quickstart.md
 [azure]: ../insights-perf-analytics.md
-[client]: app-insights-javascript.md
+[client]: ../azure-monitor/app/javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: ../azure-monitor/app/detect-triage-diagnose.md
 [greenbrown]: ../azure-monitor/app/asp-net.md
 [ios]: app-insights-mobile-center-quickstart.md
-[java]: app-insights-java-get-started.md
+[java]: ../azure-monitor/app/java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: app-insights-platforms.md
 [portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
+[redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md

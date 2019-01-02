@@ -25,7 +25,7 @@ When you run the [Application Insights image](https://hub.docker.com/r/microsoft
 
 * Lifecycle telemetry about all the containers running on the host - start, stop, and so on.
 * Performance counters for all the containers. CPU, memory, network usage, and more.
-* If you [installed Application Insights SDK for Java](../../application-insights/app-insights-java-live.md) in the apps running in the containers, all the telemetry of those apps will have additional properties identifying the container and host machine. So for example, if you have instances of an app running in more than one host, you can easily filter your app telemetry by host.
+* If you [installed Application Insights SDK for Java](../../azure-monitor/app/java-live.md) in the apps running in the containers, all the telemetry of those apps will have additional properties identifying the container and host machine. So for example, if you have instances of an app running in more than one host, you can easily filter your app telemetry by host.
 
 > [!NOTE]
 > This solution has been deprecated. To learn more about our current investments in container monitoring we recommend checking out [Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
@@ -36,7 +36,7 @@ When you run the [Application Insights image](https://hub.docker.com/r/microsoft
    
     *Which resource should I use?* If the apps that you are running on your host were developed by someone else, then you need to [create a new Application Insights resource](../../application-insights/app-insights-create-new-resource.md). This is where you view and analyze the telemetry. (Select 'General' for the app type.)
    
-    But if you're the developer of the apps, then we hope you [added Application Insights SDK](../../application-insights/app-insights-java-live.md) to each of them. If they're all really components of a single business application, then you might configure all of them to send telemetry to one resource, and you'll use that same resource to display the Docker lifecycle and performance data. 
+    But if you're the developer of the apps, then we hope you [added Application Insights SDK](../../azure-monitor/app/java-live.md) to each of them. If they're all really components of a single business application, then you might configure all of them to send telemetry to one resource, and you'll use that same resource to display the Docker lifecycle and performance data. 
    
     A third scenario is that you developed most of the apps, but you are using separate resources to display their telemetry. In that case, you probably also want to create a separate resource for the Docker data.
 
@@ -59,7 +59,7 @@ Now that you've got somewhere to display the telemetry, you can set up the conta
 Only one Application Insights image is required per Docker host. If your application is deployed on multiple Docker hosts, then repeat the command on every host.
 
 ## Update your app
-If your application is instrumented with the [Application Insights SDK for Java](../../application-insights/app-insights-java-get-started.md), add the following line into the ApplicationInsights.xml file in your project, under the `<TelemetryInitializers>` element:
+If your application is instrumented with the [Application Insights SDK for Java](../../azure-monitor/app/java-get-started.md), add the following line into the ApplicationInsights.xml file in your project, under the `<TelemetryInitializers>` element:
 
 ```xml
 
@@ -97,7 +97,7 @@ Request telemetry sent from the application instrumented with AI SDK, is enriche
 *How do I get telemetry from the app itself?*
 
 * Install the Application Insights SDK in the app. 
-Learn how for: [Java web apps](../../application-insights/app-insights-java-get-started.md), [Windows web apps](../../azure-monitor/app/asp-net.md).
+Learn how for: [Java web apps](../../azure-monitor/app/java-get-started.md), [Windows web apps](../../azure-monitor/app/asp-net.md).
 
 ## Video
 
@@ -105,6 +105,6 @@ Learn how for: [Java web apps](../../application-insights/app-insights-java-get-
 
 ## Next steps
 
-* [Application Insights for Java](../../application-insights/app-insights-java-get-started.md)
+* [Application Insights for Java](../../azure-monitor/app/java-get-started.md)
 * [Application Insights for Node.js](../../application-insights/app-insights-nodejs.md)
 * [Application Insights for ASP.NET](../../azure-monitor/app/asp-net.md)

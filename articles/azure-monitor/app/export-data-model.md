@@ -269,7 +269,7 @@ Sent by trackPageView() or [stopTrackPage](../../azure-monitor/app/api-custom-ev
 | view [0] urlData.host |string | |
 
 ## Availability
-Reports [availability web tests](../../application-insights/app-insights-monitor-web-app-availability.md).
+Reports [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md).
 
 | Path | Type | Notes |
 | --- | --- | --- |

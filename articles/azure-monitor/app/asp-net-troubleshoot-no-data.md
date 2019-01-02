@@ -28,9 +28,9 @@ ms.author: mbullwin
 * Probably a firewall issue. [Set firewall exceptions for Application Insights to send data](../../azure-monitor/app/ip-addresses.md).
 * IIS Server might be missing some prerequisites: .NET Extensibility 4.5, and ASP.NET 4.5.
 
-*I [installed Status Monitor](../../application-insights/app-insights-monitor-performance-live-website-now.md) on my web server to monitor existing apps. I don't see any results.*
+*I [installed Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md) on my web server to monitor existing apps. I don't see any results.*
 
-* See [Troubleshooting Status Monitor](../../application-insights/app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights). 
+* See [Troubleshooting Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights). 
 
 ## <a name="q01"></a>No 'Add Application Insights' option in Visual Studio
 *When I right-click an existing project in Solution Explorer, I don't see any Application Insights options.*
@@ -143,7 +143,7 @@ Fix:
 
 The data comes from scripts in the web pages. 
 
-* If you added Application Insights to an existing web project, [you have to add the scripts by hand](../../application-insights/app-insights-javascript.md).
+* If you added Application Insights to an existing web project, [you have to add the scripts by hand](../../azure-monitor/app/javascript.md).
 * Make sure Internet Explorer isn't displaying your site in Compatibility mode.
 * Use the browser's debug feature (F12 on some browsers, then choose Network) to verify that data is being sent to `dc.services.visualstudio.com`.
 
@@ -151,7 +151,7 @@ The data comes from scripts in the web pages.
 See [dependency telemetry](../../azure-monitor/app/asp-net-dependencies.md) and [exception telemetry](asp-net-exceptions.md).
 
 ## No performance data
-Performance data (CPU, IO rate, and so on) is available for [Java web services](../../application-insights/app-insights-java-collectd.md), [Windows desktop apps](../../application-insights/app-insights-windows-desktop.md), [IIS web apps and services if you install status monitor](../../application-insights/app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](../../application-insights/app-insights-overview.md). you'll find it under Settings, Servers.
+Performance data (CPU, IO rate, and so on) is available for [Java web services](../../azure-monitor/app/java-collectd.md), [Windows desktop apps](../../application-insights/app-insights-windows-desktop.md), [IIS web apps and services if you install status monitor](../../azure-monitor/app/monitor-performance-live-website-now.md), and [Azure Cloud Services](../../application-insights/app-insights-overview.md). you'll find it under Settings, Servers.
 
 ## No (server) data since I published the app to my server
 * Check that you actually copied all the Microsoft. ApplicationInsights DLLs to the server, together with Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll

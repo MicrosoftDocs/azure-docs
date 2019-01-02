@@ -43,23 +43,23 @@ Application Insights SDKs are available for a range of application types: web se
 ### How is the data is collected?
 There are three sources of data:
 
-* The SDK, which you integrate with your app either [in development](../../azure-monitor/app/asp-net.md) or [at run time](../../application-insights/app-insights-monitor-performance-live-website-now.md). There are different SDKs for different application types. There's also an [SDK for web pages](../../application-insights/app-insights-javascript.md), which loads into the end-user's browser along with the page.
+* The SDK, which you integrate with your app either [in development](../../azure-monitor/app/asp-net.md) or [at run time](../../azure-monitor/app/monitor-performance-live-website-now.md). There are different SDKs for different application types. There's also an [SDK for web pages](../../azure-monitor/app/javascript.md), which loads into the end-user's browser along with the page.
   
   * Each SDK has a number of [modules](../../azure-monitor/app/configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
   * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
-* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [J2EE servers](../../application-insights/app-insights-java-agent.md) can have such agents.
-* [Availability tests](../../application-insights/app-insights-monitor-web-app-availability.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to the Application Insights service.
+* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [J2EE servers](../../azure-monitor/app/java-agent.md) can have such agents.
+* [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to the Application Insights service.
 
 ### What kinds of data are collected?
 The main categories are:
 
 * [Web server telemetry](../../azure-monitor/app/asp-net.md) - HTTP requests.  Uri, time taken to process the request, response code, client IP address. Session id.
-* [Web pages](../../application-insights/app-insights-javascript.md) - Page, user and session counts. Page load times. Exceptions. Ajax calls.
+* [Web pages](../../azure-monitor/app/javascript.md) - Page, user and session counts. Page load times. Exceptions. Ajax calls.
 * Performance counters - Memory, CPU, IO, Network occupancy.
 * Client and server context - OS, locale, device type, browser, screen resolution.
 * [Exceptions](../../azure-monitor/app/asp-net-exceptions.md) and crashes - **stack dumps**, build id, CPU type. 
 * [Dependencies](../../azure-monitor/app/asp-net-dependencies.md) - calls to external services such as REST, SQL, AJAX. URI or connection string, duration, success, command.
-* [Availability tests](../../application-insights/app-insights-monitor-web-app-availability.md) - duration of test and steps, responses.
+* [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md) - duration of test and steps, responses.
 * [Trace logs](../../azure-monitor/app/asp-net-trace-logs.md) and [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md) - **anything you code into your logs or telemetry**.
 
 [More detail](#data-sent-by-application-insights).
@@ -287,12 +287,12 @@ This product includes GeoLite2 data created by MaxMind, available from [https://
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [apiproperties]: ../../azure-monitor/app/api-custom-events-metrics.md#properties
-[client]: ../../application-insights/app-insights-javascript.md
+[client]: ../../azure-monitor/app/javascript.md
 [config]: ../../azure-monitor/app/configuration-with-applicationinsights-config.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
-[java]: ../../application-insights/app-insights-java-get-started.md
+[java]: ../../azure-monitor/app/java-get-started.md
 [platforms]: ../../application-insights/app-insights-platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-[redfield]: ../../application-insights/app-insights-monitor-performance-live-website-now.md
+[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../application-insights/app-insights-overview.md
 
