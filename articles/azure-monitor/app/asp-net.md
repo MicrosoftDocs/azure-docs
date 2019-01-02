@@ -57,7 +57,7 @@ If you want to set the resource group or the location where your data is stored,
 
  Telemetry will be sent to the [Azure portal](https://portal.azure.com), both during debugging and after you have published your app.
 > [!NOTE]
-> If you don't want to send telemetry to the portal while you're debugging, just add the Application Insights SDK to your app but don't configure a resource in the portal. You are able to see telemetry in Visual Studio while you are debugging. Later, you can return to this configuration page, or you could wait until after you have deployed your app and [switch on telemetry at run time](../../application-insights/app-insights-monitor-performance-live-website-now.md).
+> If you don't want to send telemetry to the portal while you're debugging, just add the Application Insights SDK to your app but don't configure a resource in the portal. You are able to see telemetry in Visual Studio while you are debugging. Later, you can return to this configuration page, or you could wait until after you have deployed your app and [switch on telemetry at run time](../../azure-monitor/app/monitor-performance-live-website-now.md).
 
 ## <a name="run"></a> Step 2: Run your app
 Run your app with F5. Open different pages to generate some telemetry.
@@ -131,13 +131,13 @@ If you made any customizations to ApplicationInsights.config, save a copy of it 
 
 There are alternative topics to look at if you are interested in:
 
-* [Instrumenting a web app at runtime](../../application-insights/app-insights-monitor-performance-live-website-now.md)
+* [Instrumenting a web app at runtime](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
 
 ### More telemetry
 
-* **[Browser and page load data](../../application-insights/app-insights-javascript.md)** - Insert a code snippet in your web pages.
-* **[Get more detailed dependency and exception monitoring](../../application-insights/app-insights-monitor-performance-live-website-now.md)** - Install Status Monitor on your server.
+* **[Browser and page load data](../../azure-monitor/app/javascript.md)** - Insert a code snippet in your web pages.
+* **[Get more detailed dependency and exception monitoring](../../azure-monitor/app/monitor-performance-live-website-now.md)** - Install Status Monitor on your server.
 * **[Code custom events](../../azure-monitor/app/api-custom-events-metrics.md)** to count, time, or measure user actions.
 * **[Get log data](../../azure-monitor/app/asp-net-trace-logs.md)** - Correlate log data with your telemetry.
 
@@ -149,7 +149,7 @@ There are alternative topics to look at if you are interested in:
 
 ### Alerts
 
-* [Availability tests](../../application-insights/app-insights-monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
+* [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
 * [Smart diagnostics](../../application-insights/app-insights-proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
 * [Metric alerts](../../azure-monitor/app/alerts.md): Set these to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
 

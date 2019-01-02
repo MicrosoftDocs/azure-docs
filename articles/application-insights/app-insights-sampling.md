@@ -52,7 +52,7 @@ Set the sampling rate in the Usage and estimated costs page:
 
 Like other types of sampling, the algorithm retains related telemetry items. For example, when you're inspecting the telemetry in Search, you'll be able to find the request related to a particular exception. Metric counts such as request rate and exception rate are correctly retained.
 
-Data points that are discarded by sampling are not available in any Application Insights feature such as [Continuous Export](app-insights-export-telemetry.md).
+Data points that are discarded by sampling are not available in any Application Insights feature such as [Continuous Export](../azure-monitor/app/export-telemetry.md).
 
 Ingestion sampling doesn't operate while SDK-based adaptive or fixed-rate sampling is in operation. Note that adaptive sampling is enabled by default when ASP.NET SDK is enabled in Visual Studio or by using Status Monitor, and ingestion sampling is disabled. If the sampling rate at the SDK is less than 100%, then the ingestion sampling rate that you set is ignored.
 
@@ -169,7 +169,7 @@ Remove the `AdaptiveSamplingTelemetryProcessor` node from the .config file.
 ## Sampling for web pages with JavaScript
 You can configure web pages for fixed-rate sampling from any server. 
 
-When you [configure the web pages for Application Insights](app-insights-javascript.md), modify the JavaScript snippet that you get from the Application Insights portal. (In ASP.NET apps, the snippet typically goes in _Layout.cshtml.)  Insert a line like `samplingPercentage: 10,` before the instrumentation key:
+When you [configure the web pages for Application Insights](../azure-monitor/app/javascript.md), modify the JavaScript snippet that you get from the Application Insights portal. (In ASP.NET apps, the snippet typically goes in _Layout.cshtml.)  Insert a line like `samplingPercentage: 10,` before the instrumentation key:
 
     <script>
     var appInsights= ... 
@@ -232,7 +232,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
 ### Configuring fixed-rate sampling in JAVA ###
 
-1. Download and configure your web application with latest [application insights java SDK](app-insights-java-get-started.md)
+1. Download and configure your web application with latest [application insights java SDK](../azure-monitor/app/java-get-started.md)
 
 2. **Enable the fixed-rate sampling module** by adding the following snippet to ApplicationInsights.xml file.
 

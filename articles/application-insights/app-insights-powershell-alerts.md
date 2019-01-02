@@ -120,7 +120,7 @@ The metrics are sent by different telemetry modules:
 
 | Metric group | Collector module |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[Browser JavaScript](app-insights-javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[Browser JavaScript](../azure-monitor/app/javascript.md) |
 | performanceCounter |[Performance](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Dependency](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[Server request](../azure-monitor/app/configuration-with-applicationinsights-config.md) |

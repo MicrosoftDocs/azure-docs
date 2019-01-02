@@ -102,7 +102,7 @@ sections:
           - href:
           - href:
           - href: /azure/cosmos-db/create-sql-api-xamarin-dotnet
-        - title: Azure Cosmos DB for MongoDB API
+        - title: Azure Cosmos DB's API for MongoDB
           values:
             - href: /azure/cosmos-db/create-mongodb-java
             - href: /azure/cosmos-db/create-mongodb-dotnet
@@ -185,7 +185,7 @@ sections:
       items:
       - title: SQL API
         html: <p><a href="/rest/api/cosmos-db/">REST</a></p><p><a href="https://aka.ms/acdbnetref">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">.NET Change feed</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET Core</a></p><p><a href="https://aka.ms/acdbnoderef">Node.js</a></p><p><a href="https://aka.ms/acdbjavaref">Java</a></p><p><a href="https://aka.ms/acdbpythonref">Python</a></p><p><a href="/rest/api/cosmos-db-resource-provider/">REST Resource Provider</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
-      - title: Azure Cosmos DB for MongoDB API
+      - title: Azure Cosmos DB's API for MongoDB
         html: <p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Wire Protocol</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
       - title: Table API
         html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p><p><a href="/azure/cosmos-db/table-sdk-nodejs">Node.js</a></p><p><a href="/azure/cosmos-db/table-sdk-java">Java</a></p><p><a href="/azure/cosmos-db/table-sdk-python">Python</a></p>
