@@ -29,7 +29,7 @@ You can create multiple dashboards in the Azure portal that each include tiles v
 
 To complete this tutorial:
 
-- Deploy a .NET application to Azure and [enable the Application Insights SDK](app-insights-asp-net.md). 
+- Deploy a .NET application to Azure and [enable the Application Insights SDK](../azure-monitor/app/asp-net.md). 
 
 ## Log in to Azure
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).

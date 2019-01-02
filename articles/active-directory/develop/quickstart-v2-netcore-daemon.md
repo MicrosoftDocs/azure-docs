@@ -35,19 +35,19 @@ This quickstart requires [.NET Core 2.1](https://www.microsoft.com/net/download/
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
 
-> [!div renderon="portal" class="sxs-lookup"]
+> [!div renderon="docs" class="sxs-lookup"]
+>
 > You have two options to start your quickstart application:
 > * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
 > * [Manual] [Option 2: Register and manually configure your application and code sample](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the [Azure portal - Application Registration (Preview)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+> 1. Go to the [Azure portal - Application Registration (Preview)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application with just one click.
 >
 > ### Option 2: Register and manually configure your application and code sample
->
 
 > [!div renderon="docs"]
 > #### Step 1: Register your application
@@ -64,6 +64,8 @@ This quickstart requires [.NET Core 2.1](https://www.microsoft.com/net/download/
 > 1. Under **User** node, select **User.Read.All**, then select **Add permissions**
 
 > [!div class="sxs-lookup" renderon="portal"]
+> ### Download and configure your quickstart app
+> 
 > #### Step 1: Configure your application in Azure portal
 > For the code sample for this quickstart to work, you need to create a client secret, and add Graph API's **User.Read.All** application permission.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -96,6 +98,7 @@ This quickstart requires [.NET Core 2.1](https://www.microsoft.com/net/download/
     >> * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
     >> * `Enter_the_Client_Secret_Here` - replace this value with the client secret created on step 1.
 
+    > [!div renderon="docs"]
     > > [!TIP]
     > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal. To generate a new key, go to **Certificates & secrets** page.
     

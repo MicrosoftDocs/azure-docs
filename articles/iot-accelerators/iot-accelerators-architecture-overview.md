@@ -1,5 +1,5 @@
 ---
-title: Azure IoT solution accelerators reference architecture | Microsoft Docs
+title: IoT solution accelerators reference architecture - Azure | Microsoft Docs
 description: Learn about the Azure IoT solution accelerators reference architecure. The existing solution accelerators leverage this reference architecture. You can also use the reference architecture when you build your own custom IoT solutions.
 author: dominicbetts
 ms.author: dobett

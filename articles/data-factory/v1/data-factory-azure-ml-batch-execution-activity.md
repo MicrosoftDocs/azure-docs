@@ -602,7 +602,7 @@ If you want to continue using the AzureMLBatchScoring activity, continue reading
 ```
 
 ### Web Service Parameters
-To specify values for Web service parameters, add a **typeProperties** section to the **AzureMLBatchScoringActivty** section in the pipeline JSON as shown in the following example:
+To specify values for Web service parameters, add a **typeProperties** section to the **AzureMLBatchScoringActivity** section in the pipeline JSON as shown in the following example:
 
 ```JSON
 "typeProperties": {

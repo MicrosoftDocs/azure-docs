@@ -55,6 +55,12 @@
   items:
   - name: SSH troubleshooting
     href: troubleshoot-ssh-connection.md
+  - name: Troubleshoot file system errors
+    href: https://support.microsoft.com/help/3213321
+  - name: Troubleshoot kernel-related boot problems
+    href: https://support.microsoft.com/help/4091524
+  - name: Troubleshoot fstab errors
+    href: https://support.microsoft.com/help/3206699
   - name: Detailed SSH troubleshooting
     href: detailed-troubleshoot-ssh-connection.md
 - name: Common error messages
@@ -104,6 +110,8 @@
   href: unexpected-reboots-attached-vhds.md
 - name: Windows activation problems
   href: troubleshoot-activation-problems.md
+- name: Activation problem with forced tunneling
+  href: custom-routes-enable-kms-activation.md
 - name: Application access issues
   href: troubleshoot-app-connection.md
 - name: New VM deployments

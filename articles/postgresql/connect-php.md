@@ -19,7 +19,7 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create DB - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 ## Install PHP
-Install PHP on your own server, or create an Azure [web app](../app-service/app-service-web-overview.md) that includes PHP.
+Install PHP on your own server, or create an Azure [web app](../app-service/overview.md) that includes PHP.
 
 ### Windows
 - Download [PHP 7.1.4 non-thread safe (x64) version](https://windows.php.net/download#php-7.1)

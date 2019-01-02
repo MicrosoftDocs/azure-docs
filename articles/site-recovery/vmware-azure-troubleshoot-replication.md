@@ -5,7 +5,7 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/17/2018
 ms.author: ramamill
 
 ---
@@ -13,7 +13,8 @@ ms.author: ramamill
 
 You may receive a specific error message when protecting your VMware virtual machines or physical servers using Azure Site Recovery. This article describes some common issues you might encounter when replicating on-premises VMware VMs and physical servers to Azure using [Azure Site Recovery](site-recovery-overview.md).
 
-## Initial replication issues.
+
+## Initial replication issues
 
 In many cases, initial replication failures that we encounter at support are due to connectivity issues between source server-to-process server or process server-to-Azure. For most cases, you can troubleshoot these issues by following the steps listed below.
 
@@ -28,7 +29,7 @@ If unable to connect, allow inbound port 9443 on the Process Server and check if
 
 * Check the status of service `InMage Scout VX Agent – Sentinel/OutpostStart` if it is not running and check if the problem still exists.   
 
-## Verify the process server
+### Verify the process server
 
 * **Check if process server is actively pushing data to Azure**
 
@@ -82,6 +83,19 @@ Open it and click on Action > Change Properties. Under Proxy Configuration tab, 
 
 
 * **Check if Throttle bandwidth is not constrained on Process server**:  Increase the bandwidth  and check if the problem still exists.
+
+## Source machine to be protected through Site Recovery is not listed on Azure portal
+
+When trying to choose the source machine to enable replication through Azure Site Recovery, the machine might not available for you to continue because of the following reasons
+
+* If there are two virtual machines under the vCenter with same instance UUID, then the first virtual machine discovered by configuration server are shown on the portal. To resolve, ensure that no two virtual machines have same instance UUID.
+* Ensure that you have added the correct vCenter credentials during the set up of configuration through OVF template or unified set up. To verify the credentials added, refer to the guidelines shared [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
+* If the permissions provided to access vCenter do not have sufficient privileges, it might lead to failure in discovering virtual machines. Ensure the permissions provided [here](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) are added to the vCenter user account.
+* If the virtual machine is already protected through Site Recovery, then it will not be available for protection. Ensure that the virtual machine you are looking for on the portal is not already protected by any other user or under other subscriptions.
+
+## Protected virtual machines are greyed out in the portal
+
+Virtual machines that are replicated under Site Recovery are greyed out if there duplicate entries in the system. Refer to the guidelines given [here](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) to delete the stale entries and resolve the issue.
 
 ## Next steps
 If you need more help, then post your query to [Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). We have an active community and one of our engineers will be able to assist you.

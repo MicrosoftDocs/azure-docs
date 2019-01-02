@@ -20,7 +20,7 @@ ms.custom: seodec18
 
 # Deploy your app to Azure App Service with a ZIP or WAR file
 
-This article shows you how to use a ZIP file or WAR file to deploy your web app to [Azure App Service](app-service-web-overview.md). 
+This article shows you how to use a ZIP file or WAR file to deploy your web app to [Azure App Service](overview.md). 
 
 This ZIP file deployment uses the same Kudu service that powers continuous integration-based deployments. Kudu supports the following functionality for ZIP file deployment: 
 

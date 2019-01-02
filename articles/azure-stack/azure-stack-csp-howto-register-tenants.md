@@ -50,7 +50,7 @@ If the end customer will manage their own account, create a guest user in their 
  
 ## Update the registration with the end customer subscription
 
-Update your registration with the new customer’s subscription. Azure reports the customer's usage using the customer identity from Partner Central. This step ensures that each customer’s usage is reported under that customer’s individual CSP subscription. This makes tracking user usage and billing much easier.
+Update your registration with the new customer’s subscription. Azure reports the customer's usage using the customer identity from Partner Center. This step ensures that each customer’s usage is reported under that customer’s individual CSP subscription. This makes tracking user usage and billing much easier.
 
 > [!Note]  
 > To carry out this step, you must have [registered Azure Stack](azure-stack-register.md).

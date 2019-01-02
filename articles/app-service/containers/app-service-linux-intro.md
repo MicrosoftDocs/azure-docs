@@ -22,7 +22,7 @@ ms.custom: seodec18
 ---
 # Introduction to Azure App Service on Linux
 
-[Web App](../app-service-web-overview.md) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use App Service on Linux to host web apps natively on Linux for supported application stacks. The following sections lists the application stacks that are currently supported.
+[Web App](../overview.md) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use App Service on Linux to host web apps natively on Linux for supported application stacks. The following sections lists the application stacks that are currently supported.
 
 ## Languages
 
@@ -60,7 +60,7 @@ See [Create a Java web app in App Service on Linux](https://docs.microsoft.com/a
 
 ## Scaling
 
-* Customers can scale web apps up and down by changing the tier of their [App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview?toc=%2fazure%2fapp-service-web%2ftoc.json)
+* Customers can scale web apps up and down by changing the tier of their [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
 ## Locations
 
@@ -102,7 +102,7 @@ Also see the following articles for more details on App Service on Linux:
 
 * [App Service for Linux FAQ](app-service-linux-faq.md)
 * [SSH support for App Service on Linux](app-service-linux-ssh-support.md)
-* [Set up staging environments in App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Set up staging environments in App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Docker Hub continuous deployment](app-service-linux-ci-cd.md)
 
 You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).

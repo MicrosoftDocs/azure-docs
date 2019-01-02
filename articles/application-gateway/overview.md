@@ -105,6 +105,14 @@ Application Gateway provides native support for the WebSocket and HTTP/2 protoco
 
 The WebSocket and HTTP/2 protocols enable full duplex communication between a server and a client over a long running TCP connection. This allows for a more interactive communication between the web server and the client, which can be bidirectional without the need for polling as required in HTTP-based implementations. These protocols have low overhead, unlike HTTP, and can reuse the same TCP connection for multiple request/responses resulting in a more efficient utilization of resources. These protocols are designed to work over traditional HTTP ports of 80 and 443.
 
+## Rewrite HTTP headers (public preview)
+
+HTTP headers allow the client and the server to pass additional information with the request or the response. Rewriting these HTTP headers helps you accomplish several important scenarios such as adding Security-related header fields like HSTS/ X-XSS-Protection or removing response header fields which may reveal sensitive information like backend server name. 
+
+Application Gateway now supports the ability to rewrite headers of the incoming HTTP requests as well as the outgoing HTTP responses. You will be able to add, remove or update HTTP request and response headers while the request/response packets move between the client and backend pools. You can rewrite both standard (defined in [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) as well as non-standard header fields.  
+
+For more information about this public preview feature, see [Rewrite HTTP headers](rewrite-http-headers.md).
+
 ## Next steps
 
 Depending on your requirements and environment, you can create a test Application Gateway using either the Azure portal, Azure PowerShell, or Azure CLI:
