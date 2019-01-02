@@ -14,11 +14,11 @@ ms.date: 03/14/2017
 ms.author: mbullwin
 ---
 # Application Insights for web pages
-Find out about the performance and usage of your web page or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. And by inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
+Find out about the performance and usage of your web page or app. If you add [Application Insights](../../application-insights/app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. And by inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
 
-Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](app-insights-java-get-started.md) or [ASP.NET](../azure-monitor/app/asp-net.md), you can integrate telemetry from your server and clients.
+Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](java-get-started.md) or [ASP.NET](../../azure-monitor/app/asp-net.md), you can integrate telemetry from your server and clients.
 
-![In portal.azure.com, open your app's resource and click Browser](./media/app-insights-javascript/03.png)
+![In portal.azure.com, open your app's resource and click Browser](./media/javascript/03.png)
 
 You need a subscription to [Microsoft Azure](https://azure.com). If your team has an organizational subscription, ask the owner to add your Microsoft Account to it.
 
@@ -32,13 +32,13 @@ Sign into [Azure portal](https://portal.azure.com).
 
 If you already set up monitoring for the server side of your app, you already have a resource:
 
-![Choose Browse, Developer Services, Application Insights.](./media/app-insights-javascript/01-find.png)
+![Choose Browse, Developer Services, Application Insights.](./media/javascript/01-find.png)
 
 If you don't have one, create it:
 
-![Choose New, Developer Services, Application Insights.](./media/app-insights-javascript/01-create.png)
+![Choose New, Developer Services, Application Insights.](./media/javascript/01-create.png)
 
-*Questions already?* [More about creating a resource](app-insights-create-new-resource.md).
+*Questions already?* [More about creating a resource](../../application-insights/app-insights-create-new-resource.md).
 
 ### Add the SDK script to your app or web pages
 
@@ -64,7 +64,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 Insert the script just before the `</head>` tag of every page you want to track. If your website has a master page, you can put the script there. For example:
 
 * In an ASP.NET MVC project, you'd put it in `View\Shared\_Layout.cshtml`
-* In a SharePoint site, on the control panel, open [Site Settings / Master Page](app-insights-sharepoint.md).
+* In a SharePoint site, on the control panel, open [Site Settings / Master Page](../../application-insights/app-insights-sharepoint.md).
 
 The script contains the instrumentation key that directs the data to your Application Insights resource. 
 
@@ -110,18 +110,18 @@ If you want to check the telemetry that a web app is sending to Application Insi
 ## Explore your browser performance data
 Open the Browser blade to show aggregated performance data from your users' browsers.
 
-![In portal.azure.com, open your app's resource and click Settings, Browser](./media/app-insights-javascript/03.png)
+![In portal.azure.com, open your app's resource and click Settings, Browser](./media/javascript/03.png)
 
-No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](app-insights-troubleshoot-faq.md).
+No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](../../application-insights/app-insights-troubleshoot-faq.md).
 
-The Browser blade is a [Metrics Explorer blade](app-insights-metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters, and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
+The Browser blade is a [Metrics Explorer blade](../../application-insights/app-insights-metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters, and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
 
 ## Page load performance
 At the top is a segmented chart of page load times. The total height of the chart represents the average time to load and display pages from your app in your users' browsers. The time is measured from when the browser sends the initial HTTP request until all synchronous load events have been processed, including layout and running scripts. It doesn't include asynchronous tasks such as loading web parts from AJAX calls.
 
 The chart segments the total page load time into the [standard timings defined by W3C](https://www.w3.org/TR/navigation-timing/#processing-model). 
 
-![](./media/app-insights-javascript/08-client-split.png)
+![](./media/javascript/08-client-split.png)
 
 Note that the *network connect* time is often lower than you might expect, because it's an average over all requests from the browser to the server. Many individual requests have a connect time of 0 because there is already an active connection to the server.
 
@@ -130,23 +130,23 @@ Slow page loads are a major source of dissatisfaction for your users. If the cha
 
 The chart shows the average of all page loads in your app. To see if the problem is confined to particular pages, look further down the blade, where there's a grid segmented by page URL:
 
-![](./media/app-insights-javascript/09-page-perf.png)
+![](./media/javascript/09-page-perf.png)
 
 Notice the page view count and standard deviation. If the page count is very low, then the issue isn't affecting users much. A high standard deviation (comparable to the average itself) indicates a lot of variation between individual measurements.
 
 **Zoom in on one URL and one page view.** Click any page name to see a blade of browser charts filtered just to that URL; and then on an instance of a page view.
 
-![](./media/app-insights-javascript/35.png)
+![](./media/javascript/35.png)
 
 Click `...` for a full list of properties for that event, or inspect the Ajax calls and related events. Slow Ajax calls affect the overall page load time if they are synchronous. Related events include server requests for the same URL (if you've set up Application Insights on your web server).
 
 **Page performance over time.** Back at the Browsers blade, change the Page View Load Time grid into a line chart to see if there were peaks at particular times:
 
-![Click the head of the grid and select a new chart type](./media/app-insights-javascript/10-page-perf-area.png)
+![Click the head of the grid and select a new chart type](./media/javascript/10-page-perf-area.png)
 
 **Segment by other dimensions.** Maybe your pages are slower to load on a particular browser, client OS, or user locality? Add a new chart and experiment with the **Group-by** dimension.
 
-![](./media/app-insights-javascript/21.png)
+![](./media/javascript/21.png)
 
 ## AJAX Performance
 Make sure any AJAX calls in your web pages are performing well. They are often used to fill parts of your page asynchronously. Although the overall page might load promptly, your users could be frustrated by staring at blank web parts, waiting for data to appear in them.
@@ -155,11 +155,11 @@ AJAX calls made from your web page are shown on the Browsers blade as dependenci
 
 There are summary charts in the upper part of the blade:
 
-![](./media/app-insights-javascript/31.png)
+![](./media/javascript/31.png)
 
 and detailed grids lower down:
 
-![](./media/app-insights-javascript/33.png)
+![](./media/javascript/33.png)
 
 Click any row for specific details.
 
@@ -170,7 +170,7 @@ Click any row for specific details.
 
 **To drill into failed Ajax calls** scroll down to the Dependency failures grid, and then click a row to see specific instances.
 
-![](./media/app-insights-javascript/37.png)
+![](./media/javascript/37.png)
 
 
 Click `...` for the full telemetry for an Ajax call.
@@ -181,7 +181,7 @@ Ajax calls include any HTTP/HTTPS  calls made from the script of your web page. 
 ## Browser exceptions
 On the Browsers blade, there's an exceptions summary chart, and a grid of exception types further down the blade.
 
-![](./media/app-insights-javascript/39.png)
+![](./media/javascript/39.png)
 
 If you don't see browser exceptions reported, check that the code snippet doesn't set the `disableExceptionTracking` [parameter](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
@@ -191,12 +191,12 @@ Usually page view telemetry is analyzed by Application Insights and you see only
 
 In the Diagnostic Search blade, set Filters to Page View.
 
-![](./media/app-insights-javascript/12-search-pages.png)
+![](./media/javascript/12-search-pages.png)
 
 Select any event to see more detail. In the details page, click "..." to see even more detail.
 
 > [!NOTE]
-> If you use [Search](../azure-monitor/app/diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About".
+> If you use [Search](../../azure-monitor/app/diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About".
 > 
 > 
 
@@ -221,8 +221,8 @@ The page name can contain the same characters as a URL, but anything after "#" o
 ## Usage tracking
 Want to find out what your users do with your app?
 
-* [Learn about the user behavior analytics tools](app-insights-usage-overview.md)
-* [Learn about custom events and metrics API](../azure-monitor/app/api-custom-events-metrics.md).
+* [Learn about the user behavior analytics tools](../../application-insights/app-insights-usage-overview.md)
+* [Learn about custom events and metrics API](../../azure-monitor/app/api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
 
@@ -232,7 +232,7 @@ Want to find out what your users do with your app?
 
 
 ## <a name="next"></a> Next steps
-* [Track usage](app-insights-usage-overview.md)
-* [Custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md)
-* [Build-measure-learn](app-insights-usage-overview.md)
+* [Track usage](../../application-insights/app-insights-usage-overview.md)
+* [Custom events and metrics](../../azure-monitor/app/api-custom-events-metrics.md)
+* [Build-measure-learn](../../application-insights/app-insights-usage-overview.md)
 

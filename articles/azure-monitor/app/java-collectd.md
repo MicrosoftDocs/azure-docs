@@ -16,18 +16,18 @@ ms.author: mbullwin
 # collectd: Linux performance metrics in Application Insights
 
 
-To explore Linux system performance metrics in [Application Insights](app-insights-overview.md), install [collectd](https://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
+To explore Linux system performance metrics in [Application Insights](../../application-insights/app-insights-overview.md), install [collectd](https://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
 
 Typically you'll use collectd if you have already [instrumented your Java web service with Application Insights][java]. It gives you more data to help you to enhance your app's performance or diagnose problems. 
 
-![Sample charts](./media/app-insights-java-collectd/sample.png)
+![Sample charts](./media/java-collectd/sample.png)
 
 ## Get your instrumentation key
-In the [Microsoft Azure portal](https://portal.azure.com), open the [Application Insights](app-insights-overview.md) resource where you want the data to appear. (Or [create a new resource](app-insights-create-new-resource.md).)
+In the [Microsoft Azure portal](https://portal.azure.com), open the [Application Insights](../../application-insights/app-insights-overview.md) resource where you want the data to appear. (Or [create a new resource](../../application-insights/app-insights-create-new-resource.md).)
 
 Take a copy of the instrumentation key, which identifies the resource.
 
-![Browse all, open your resource, and then in the Essentials drop-down, select, and copy the Instrumentation Key](./media/app-insights-java-collectd/02-props.png)
+![Browse all, open your resource, and then in the Essentials drop-down, select, and copy the Instrumentation Key](./media/java-collectd/02-props.png)
 
 ## Install collectd and the plug-in
 On your Linux server machines:
@@ -89,7 +89,7 @@ Restart collectd according to its [manual](https://collectd.org/wiki/index.php/F
 ## View the data in Application Insights
 In your Application Insights resource, open [Metrics Explorer and add charts][metrics], selecting the metrics you want to see from the Custom category.
 
-![](./media/app-insights-java-collectd/result.png)
+![](./media/java-collectd/result.png)
 
 By default, the metrics are aggregated across all host machines from which the metrics were collected. To view the metrics per host, in the Chart details blade, turn on Grouping and then choose to group by CollectD-Host.
 
@@ -112,7 +112,7 @@ Separate directives with a newline.
 *I don't see data in the portal*
 
 * Open [Search][diagnostic] to see if the raw events have arrived. Sometimes they take longer to appear in metrics explorer.
-* You might need to [set firewall exceptions for outgoing data](../azure-monitor/app/ip-addresses.md)
+* You might need to [set firewall exceptions for outgoing data](../../azure-monitor/app/ip-addresses.md)
 * Enable tracing in the Application Insights plugin. Add this line within `<Plugin ApplicationInsightsWriter>`:
   * `SDKLogger true`
 * Open a terminal and start collectd in verbose mode, to see any issues it is reporting:
@@ -128,13 +128,13 @@ Workaround: Exclude data collected by the problem Write plugins.
 
 <!--Link references-->
 
-[api]: ../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../azure-monitor/app/api-custom-events-metrics.md#track-exception
-[availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: ../azure-monitor/app/diagnostic-search.md
+[api]: ../../azure-monitor/app/api-custom-events-metrics.md
+[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#track-exception
+[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
+[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
-[java]: app-insights-java-get-started.md
-[javalogs]: app-insights-java-trace-logs.md
-[metrics]: app-insights-metrics-explorer.md
+[java]: java-get-started.md
+[javalogs]: java-trace-logs.md
+[metrics]: ../../application-insights/app-insights-metrics-explorer.md
 
 

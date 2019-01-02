@@ -15,10 +15,10 @@ ms.author: mbullwin
 ---
 # Instrument web apps at runtime with Application Insights
 
-You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. If your apps are hosted by an on-premises IIS server, install Status Monitor. If they're Azure web apps or run in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](../azure-monitor/app/cloudservices.md).)
+You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. If your apps are hosted by an on-premises IIS server, install Status Monitor. If they're Azure web apps or run in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel. (There are also separate articles about instrumenting [live J2EE web apps](../../azure-monitor/app/java-live.md) and [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
 You need a [Microsoft Azure](https://azure.com) subscription.
 
-![Screenshot of App Insights overview graphs containing information on failed requests, server response time, and server requests](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
+![Screenshot of App Insights overview graphs containing information on failed requests, server response time, and server requests](./media/monitor-performance-live-website-now/overview-graphs.png)
 
 You have a choice of three routes to apply Application Insights to your .NET web applications:
 
@@ -31,12 +31,12 @@ Here's a summary of what you get by each route:
 |  | Build time | Run time |
 | --- | --- | --- |
 | Requests & exceptions |Yes |Yes |
-| [More detailed exceptions](../azure-monitor/app/asp-net-exceptions.md) | |Yes |
-| [Dependency diagnostics](../azure-monitor/app/asp-net-dependencies.md) |On .NET 4.6+, but less detail |Yes, full detail: result codes, SQL command text, HTTP verb|
-| [System performance counters](app-insights-performance-counters.md) |Yes |Yes |
+| [More detailed exceptions](../../azure-monitor/app/asp-net-exceptions.md) | |Yes |
+| [Dependency diagnostics](../../azure-monitor/app/asp-net-dependencies.md) |On .NET 4.6+, but less detail |Yes, full detail: result codes, SQL command text, HTTP verb|
+| [System performance counters](../../application-insights/app-insights-performance-counters.md) |Yes |Yes |
 | [API for custom telemetry][api] |Yes |No |
-| [Trace log integration](../azure-monitor/app/asp-net-trace-logs.md) |Yes |No |
-| [Page view & user data](app-insights-javascript.md) |Yes |No |
+| [Trace log integration](../../azure-monitor/app/asp-net-trace-logs.md) |Yes |No |
+| [Page view & user data](../../azure-monitor/app/javascript.md) |Yes |No |
 | Need to rebuild code |Yes | No |
 
 
@@ -46,12 +46,12 @@ If your application is running as an Azure web service, here's how to switch on 
 
 * Select Application Insights on the app's control panel in Azure.
 
-    ![Set up Application Insights for an Azure web app](./media/app-insights-monitor-performance-live-website-now/azure-web-setup.png)
+    ![Set up Application Insights for an Azure web app](./media/monitor-performance-live-website-now/azure-web-setup.png)
 * When the Application Insights summary page opens, click the link at the bottom to open the full Application Insights resource.
 
-    ![Click through to Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
+    ![Click through to Application Insights](./media/monitor-performance-live-website-now/azure-web-view-more.png)
 
-[Monitoring Cloud and VM apps](app-insights-overview.md).
+[Monitoring Cloud and VM apps](../../application-insights/app-insights-overview.md).
 
 ### Enable client-side monitoring in Azure
 
@@ -77,17 +77,17 @@ If your app is hosted on an IIS server, enable Application Insights by using Sta
 
     Configure the resource where you want to see the results in the Application Insights portal. (Normally, it's best to create a new resource. Select an existing resource if you already have [web tests][availability] or [client monitoring][client] for this app.) 
 
-    ![Choose an app and a resource.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
+    ![Choose an app and a resource.](./media/monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
 4. Restart IIS.
 
-    ![Choose Restart at the top of the dialog.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
+    ![Choose Restart at the top of the dialog.](./media/monitor-performance-live-website-now/appinsights-036-restart.png)
 
     Your web service is interrupted for a short while.
 
 ## Customize monitoring options
 
-Enabling Application Insights adds DLLs and ApplicationInsights.config to your web app. You can [edit the .config file](../azure-monitor/app/configuration-with-applicationinsights-config.md) to change some of the options.
+Enabling Application Insights adds DLLs and ApplicationInsights.config to your web app. You can [edit the .config file](../../azure-monitor/app/configuration-with-applicationinsights-config.md) to change some of the options.
 
 ## When you re-publish your app, re-enable Application Insights
 
@@ -105,11 +105,11 @@ If you want to re-publish without adding Application Insights to the code, be aw
 
 ### Can't connect? No telemetry?
 
-* Open [the necessary outgoing ports](../azure-monitor/app/ip-addresses.md#outgoing-ports) in your server's firewall to allow Status Monitor to work.
+* Open [the necessary outgoing ports](../../azure-monitor/app/ip-addresses.md#outgoing-ports) in your server's firewall to allow Status Monitor to work.
 
 * Open Status Monitor and select your application on left pane. Check if there are any diagnostics messages for this application in the "Configuration notifications" section:
 
-  ![Open the Performance blade to see request, response time, dependency and other data](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
+  ![Open the Performance blade to see request, response time, dependency and other data](./media/monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 * On the server, if you see a message about "insufficient permissions", try the following:
   * In IIS Manager, select your application pool, open **Advanced Settings**, and under **Process Model** note the identity.
   * In Computer management control panel, add this identity to the Performance Monitor Users group.
@@ -202,7 +202,7 @@ A desktop application that you install in your IIS web server. It helps you inst
 ### When do I use Status Monitor?
 
 * To instrument any web app that is running on your IIS server - even if it is already running.
-* To enable additional telemetry for web apps that have been [built with the Application Insights SDK](../azure-monitor/app/asp-net.md) at compile time. 
+* To enable additional telemetry for web apps that have been [built with the Application Insights SDK](../../azure-monitor/app/asp-net.md) at compile time. 
 
 ### Can I close it after it runs?
 
@@ -252,10 +252,10 @@ For applications already instrumented at compile time:
 
 View your telemetry:
 
-* [Explore metrics](app-insights-metrics-explorer.md) to monitor performance and usage
+* [Explore metrics](../../application-insights/app-insights-metrics-explorer.md) to monitor performance and usage
 * [Search events and logs][diagnostic] to diagnose problems
-* [Analytics](../azure-monitor/app/analytics.md) for more advanced queries
-* [Create dashboards](../azure-monitor/app/app-insights-dashboards.md)
+* [Analytics](../../azure-monitor/app/analytics.md) for more advanced queries
+* [Create dashboards](../../azure-monitor/app/app-insights-dashboards.md)
 
 Add more telemetry:
 
@@ -265,11 +265,11 @@ Add more telemetry:
 
 <!--Link references-->
 
-[api]: ../azure-monitor/app/api-custom-events-metrics.md
-[availability]: app-insights-monitor-web-app-availability.md
-[client]: app-insights-javascript.md
-[diagnostic]: ../azure-monitor/app/diagnostic-search.md
-[greenbrown]: ../azure-monitor/app/asp-net.md
-[qna]: app-insights-troubleshoot-faq.md
-[roles]: app-insights-resources-roles-access-control.md
-[usage]: app-insights-javascript.md
+[api]: ../../azure-monitor/app/api-custom-events-metrics.md
+[availability]: monitor-web-app-availability.md
+[client]: ../../azure-monitor/app/javascript.md
+[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[greenbrown]: ../../azure-monitor/app/asp-net.md
+[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
+[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[usage]: ../../azure-monitor/app/javascript.md

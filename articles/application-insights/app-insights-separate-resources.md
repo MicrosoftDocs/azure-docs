@@ -50,7 +50,7 @@ Set the key in an initialization method, such as global.aspx.cs in an ASP.NET se
 In this example, the ikeys for the different resources are placed in different versions of the web configuration file. Swapping the web configuration file - which you can do as part of the release script - will swap the target resource.
 
 ### Web pages
-The iKey is also used in your app's web pages, in the [script that you got from the quick start blade](app-insights-javascript.md). Instead of coding it literally into the script, generate it from the server state. For example, in an ASP.NET app:
+The iKey is also used in your app's web pages, in the [script that you got from the quick start blade](../azure-monitor/app/javascript.md). Instead of coding it literally into the script, generate it from the server state. For example, in an ASP.NET app:
 
 *JavaScript in Razor*
 
@@ -152,5 +152,5 @@ If you use Azure DevOps, you can [get an annotation marker](../azure-monitor/app
 ![Screenshot of sample release annotation on a chart](media/app-insights-separate-resources/release-annotation.png)
 ## Next steps
 
-* [Shared resources for multiple roles](app-insights-monitor-multi-role-apps.md)
+* [Shared resources for multiple roles](../azure-monitor/app/app-map.md)
 * [Create a Telemetry Initializer to distinguish A|B variants](../azure-monitor/app/api-filtering-sampling.md#add-properties)

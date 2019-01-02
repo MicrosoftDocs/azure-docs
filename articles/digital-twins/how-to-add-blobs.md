@@ -17,10 +17,7 @@ Blobs are unstructured representations of common file types, like pictures and l
 
 Azure Digital Twins supports attaching blobs to devices, spaces, and users. Blobs can represent a profile picture for a user, a device photo, a video, a map, or a log.
 
-> [!NOTE]
-> This article assumes:
-> * That your instance is correctly configured to receive Management API requests.
-> * That you've correctly authenticated by using a REST client of your choice.
+[!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
 ## Uploading blobs: an overview
 
