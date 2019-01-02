@@ -100,9 +100,9 @@ For more information, see [How to use user-defined functions](how-to-user-define
 
 ### Role assignment
 
-A user-defined function's actions are subject to Azure Digital Twins [role-based access control](./security-role-based-access-control.md) to secure data within the service. Role assignments define that user-defined functions have the proper permissions to interact with the spatial graph and its entities. For example, a user-defined function have the ability and permission to *CREATE*, *READ*, *UPDATE*, or *DELETE* graph data under a given space. A user-defined function's level of access is checked when the user-defined function asks the graph for data or attempts an action. For more information, see [Role-based access control](security-create-manage-role-assignments.md).
+A user-defined function's actions are subject to Azure Digital Twins [role-based access control](./security-role-based-access-control.md) to secure data within the service. Role assignments define which user-defined functions have the proper permissions to interact with the spatial graph and its entities. For example, a user-defined function might have the ability and permission to *CREATE*, *READ*, *UPDATE*, or *DELETE* graph data under a given space. A user-defined function's level of access is checked when the user-defined function asks the graph for data or attempts an action. For more information, see [Role-based access control](security-create-manage-role-assignments.md).
 
-It's possible for a matcher to trigger an user-defined function that has no role assignments. In this case, the user-defined function fails to read any data from the graph.
+It's possible for a matcher to trigger a user-defined function that has no role assignments. In this case, the user-defined function fails to read any data from the graph.
 
 ## Next steps
 
