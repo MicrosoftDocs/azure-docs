@@ -23,7 +23,7 @@ Code samples demonstrating use of the API to get available languages are availab
 
 ## Implementation notes
 
-GET /languages 
+### GET /languages 
 
 A wide set of languages is available to transcribe speech, to translate the transcribed text, and to produce synthesized speech of the translation.
 

@@ -1,13 +1,10 @@
 ---
 title: Pricing tiers for Azure Database for PostgreSQL
 description: This article describes the pricing tiers for Azure Database for PostgreSQL.
-services: postgresql
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/10/2018
 ---
 
@@ -38,6 +35,9 @@ After you create a server, the number of vCores, hardware generation, and pricin
 ## Compute generations and vCores
 
 Compute resources are provided as vCores, which represent the logical CPU of the underlying hardware. Currently, you can choose from two compute generations, Gen 4 and Gen 5. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors. Gen 4 and Gen 5 are available in the following regions ("X" denotes available). 
+
+> [!IMPORTANT]
+> Beginning December 12, 2018, new customers will not be able to provision compute generation 4 servers in Brazil South, Canada Central, Canada East, East Asia, East US 2, Central India, West India, Japan West, North Central US, West US. Previously created compute generation 4 servers will be migrated to compute generation 5 starting February 1, 2019 in these regions.
 
 | **Azure region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|

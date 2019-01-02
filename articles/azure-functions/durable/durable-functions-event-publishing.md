@@ -8,17 +8,17 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 12/07/2018
 ms.author: glenga
 ---
 
 # Durable Functions publishing to Azure Event Grid (preview)
 
-This article shows how to set up Azure Durable Functions to publish orchestration lifecycle events (such as created, completed, and failed) to a custom [Azure Event Grid Topic](https://docs.microsoft.com/azure/event-grid/overview). 
+This article shows how to set up Durable Functions to publish orchestration lifecycle events (such as created, completed, and failed) to a custom [Azure Event Grid Topic](https://docs.microsoft.com/azure/event-grid/overview).
 
 Following are some scenarios where this feature is useful:
 
-* **DevOps scenarios like blue/green deployments**: You might want to know if any tasks are running before implementing the  [side-by-side deployment strategy](https://docs.microsoft.com/azure/azure-functions/durable-functions-versioning#side-by-side-deployments).
+* **DevOps scenarios like blue/green deployments**: You might want to know if any tasks are running before implementing the [side-by-side deployment strategy](durable-functions-versioning.md#side-by-side-deployments).
 
 * **Advanced monitoring and diagnostics support**: You can keep track of orchestration status information in an external store optimized for queries, such as SQL database or CosmosDB.
 
@@ -39,7 +39,7 @@ Create an Event Grid topic for sending events from Durable Functions. The follow
 
 ### Create a resource group
 
-Create a resource group with the `az group create` command. Currently, Event Grid doesn't support all regions. For information about which regions are supported, see the [Event Grid overview](https://docs.microsoft.com/azure/event-grid/overview). 
+Create a resource group with the `az group create` command. Currently, Event Grid doesn't support all regions. For information about which regions are supported, see the [Event Grid overview](https://docs.microsoft.com/azure/event-grid/overview).
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -50,7 +50,7 @@ az group create --name eventResourceGroup --location westus2
 An Event Grid topic provides a user-defined endpoint that you post your event to. Replace `<topic_name>` with a unique name for your topic. The topic name must be unique because it becomes a DNS entry.
 
 ```bash
-az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup 
+az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
 ```
 
 ## Get the endpoint and key
@@ -114,7 +114,7 @@ Create a Function App. It's best to locate it in the same region as the Event Gr
 
 ### Create an Event Grid trigger function
 
-Create a function to receive the lifecycle events. Select **Custom Function**. 
+Create a function to receive the lifecycle events. Select **Custom Function**.
 
 ![Select a Create a custom function.](./media/durable-functions-event-publishing/functions-portal.png)
 
@@ -126,7 +126,7 @@ Enter the name of the function, and then select `Create`.
 
 ![Create the Event Grid Trigger.](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
 
-A function with the following code is created: 
+A function with the following code is created:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -148,11 +148,11 @@ Select `Event Grid Topics` for **Topic Type**. Select the resource group that yo
 
 ![Create an Event Grid subscription.](./media/durable-functions-event-publishing/eventsubscription.png)
 
-Now you're ready to receive lifecycle events. 
+Now you're ready to receive lifecycle events.
 
-## Create Durable Functions to send the events.
+## Create Durable Functions to send the events
 
-In your Durable Functions project, start debugging on your local machine.  The following code is the same as the template code for the Durable Functions. You already configured `host.json` and `local.settings.json` on your local machine. 
+In your Durable Functions project, start debugging on your local machine.  The following code is the same as the template code for the Durable Functions. You already configured `host.json` and `local.settings.json` on your local machine.
 
 ```csharp
 using System.Collections.Generic;
@@ -212,7 +212,7 @@ See the logs from the function that you created in the Azure portal.
 ```
 2018-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)
 2018-04-20T09:28:21.104 [Info] {
-    "id": "054fe385-c017-4ce3-b38a-052ac970c39d",    
+    "id": "054fe385-c017-4ce3-b38a-052ac970c39d",
     "subject": "durable/orchestrator/Running",
     "data": {
         "hubName": "DurableFunctionsHub",
@@ -256,11 +256,11 @@ The following list explains the lifecycle events schema:
 * **id**: Unique identifier for the Event Grid event.
 * **subject**: Path to the event subject. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` will be `Running`, `Completed`, `Failed`, and `Terminated`.  
 * **data**: Durable Functions Specific Parameters.
-    * **hubName**: [TaskHub](https://docs.microsoft.com/azure/azure-functions/durable-functions-task-hubs) name.
-    * **functionName**: Orchestrator function name.
-    * **instanceId**: Durable Functions instanceId.
-    * **reason**: Additional data associated with the tracking event. For more information, see [Diagnostics in Durable Functions (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-diagnostics)
-    * **runtimeStatus**: Orchestration Runtime Status. Running, Completed, Failed, Canceled. 
+  * **hubName**: [TaskHub](durable-functions-task-hubs.md) name.
+  * **functionName**: Orchestrator function name.
+  * **instanceId**: Durable Functions instanceId.
+  * **reason**: Additional data associated with the tracking event. For more information, see [Diagnostics in Durable Functions (Azure Functions)](durable-functions-diagnostics.md)
+  * **runtimeStatus**: Orchestration Runtime Status. Running, Completed, Failed, Canceled.
 * **eventType**: "orchestratorEvent"
 * **eventTime**: Event time (UTC).
 * **dataVersion**: Version of the lifecycle event schema.

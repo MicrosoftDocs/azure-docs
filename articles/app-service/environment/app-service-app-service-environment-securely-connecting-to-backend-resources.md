@@ -1,5 +1,5 @@
 ---
-title: Securely Connecting to BackEnd Resources from an App Service Environment - Azure
+title: Connect securely to back end resources from App Service environment - Azure
 description: Learn about how to securely connect to backend resources from an App Service Environment.
 services: app-service
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: stefsch
 ms.custom: seodec18
 
 ---
-# Securely Connecting to Backend Resources from an App Service Environment
+# Connect securely to back end resources from an App Service environment
 ## Overview
 Since an App Service Environment is always created in **either** an Azure Resource Manager virtual network, **or** a classic deployment model [virtual network][virtualnetwork], outbound connections from an App Service Environment to other backend resources can flow exclusively over the virtual network.  With a recent change made in June 2016, ASEs can also be deployed into virtual networks that use either public address ranges, or RFC1918 address spaces (i.e. private addresses).  
 

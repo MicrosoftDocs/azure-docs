@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/07/2018
+ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -427,7 +427,9 @@ In accordance to SAP installation manuals, Oracle-related files should not be in
 
 ### Storage configuration
 
-The filesystems of ext4, or xfs or Oracle ASMOnly are supported for Oracle database files on Azure. All database files must be stored on these file systems based on VHDs or Managed Disks. These disks are mounted to the Azure VM and are based on Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or [Azure managed disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+The filesystems of ext4, or xfs or Oracle ASM are supported for Oracle database files on Azure. All database files must be stored on these file systems based on VHDs or Managed Disks. These disks are mounted to the Azure VM and are based on Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or [Azure managed disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+
+For Oracle Linux UEK kernels, the minimum of UEK version 4 is required to support [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#premium-storage-for-linux-vms).
 
 It is highly recommended to use [Azure managed disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). It also is highly recommended using [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) for your Oracle Database deployments.
 
@@ -493,7 +495,7 @@ Oracle Data Guard is supported for high availability and disaster recovery purpo
 Disaster Recovery aspects for Oracle databases in Azure are presented in the article [Disaster recovery for an Oracle Database 12c database in an Azure environment](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
 ### Accelerated Networking
-Support for Azure Accelerated Networking in Oracle Linux is provided with Oracle Linux 7 Update 5 (Oracle Linux 7.5). If you can't upgrade to the latest Oracle Linux 7.5 release, there might be a workaround by using the RedHat Compatible Kernel (RHCK) instead of the Oracle UEK kernel. Using the RHEL kernel within Oracle Linux is supported according to SAP Note [#1565179](https://launchpad.support.sap.com/#/notes/1565179). For Azure Accelerated Networking the minimum RHCKL kernel release needs to be 3.10.0-862.13.1.el7.
+Support for Azure Accelerated Networking in Oracle Linux is provided with Oracle Linux 7 Update 5 (Oracle Linux 7.5). If you can't upgrade to the latest Oracle Linux 7.5 release, there might be a workaround by using the RedHat Compatible Kernel (RHCK) instead of the Oracle UEK kernel. Using the RHEL kernel within Oracle Linux is supported according to SAP Note [#1565179](https://launchpad.support.sap.com/#/notes/1565179). For Azure Accelerated Networking the minimum RHCKL kernel release needs to be 3.10.0-862.13.1.el7. For using the UEK kernel in Oracle Linux in conjunction with [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/), you need to use Oracle UEK kernel version 5.
 
 If you are not deploying VMs from image that is not based on Azure Marketplace, then you need additional configuration files to be copied to VM by executing: 
 <pre><code># Copy settings from github to correct place in VM

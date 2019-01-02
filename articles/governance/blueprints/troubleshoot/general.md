@@ -1,20 +1,21 @@
 ---
-title: Troubleshoot errors using Azure Blueprints
+title: Troubleshoot common errors
 description: Learn how to troubleshoot issues creating and assigning blueprints
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
+ms.custom: seodec18
 ---
 # Troubleshoot errors using Azure Blueprints
 
 You may run into errors when creating or assigning blueprints. This article describes various
 errors that may occur and how to resolve them.
 
-## Finding Error Details
+## Finding error details
 
 Many errors will be the result of assigning a blueprint to a scope. When an assignment fails, the
 blueprint provides details about the failed deployment. This information indicates the issue so
@@ -32,7 +33,7 @@ It's common for the error to be caused by an artifact and not the blueprint as a
 artifact creates a Key Vault and Azure Policy prevents Key Vault creation, the entire assignment
 will fail.
 
-## General Errors
+## General errors
 
 ### <a name="policy-violation"></a>Scenario: Policy Violation
 

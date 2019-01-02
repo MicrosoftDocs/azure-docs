@@ -48,5 +48,5 @@ These resources include experiments, custom modules, APIs, collections, and any 
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

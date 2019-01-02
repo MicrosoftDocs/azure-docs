@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a cognitive search pipeline in Azure Search using the portal | Microsoft Docs'
+title: 'Quickstart:Cognitive search pipeline in Azure portal - Azure Search'
 description: Data extraction, natural language and image processing skills example in Azure portal using sample data. 
 manager: cgronlun
 author: HeidiSteen
@@ -8,6 +8,7 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
+ms.custom: seodec2018
 ---
 # Quickstart: Create a cognitive search pipeline using skills and sample data
 
@@ -85,7 +86,7 @@ First, sign up for the Azure Search service.
 
 ### Set up Azure Blob service and load sample data
 
-The enrichment pipeline pulls from Azure data sources supported by [Azure Search indexers](search-indexer-overview.md). For this exercise, we use blob storage to showcase multiple content types.
+The enrichment pipeline pulls from Azure data sources supported by [Azure Search indexers](search-indexer-overview.md). Please note that Azure Table Storage is not supported for cognitive search. For this exercise, we use blob storage to showcase multiple content types.
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consisting of a small file set of different types. 
 
