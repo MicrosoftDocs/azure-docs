@@ -40,11 +40,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Many customers start with the free service. This version is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This tutorial creates one of each object.
 
-> [!TIP]
-> Tiles on the service dashboard show how many indexes, indexers, and data sources you already have. The Indexer tile shows success and failure indicators. Click the tile to view the indexer count.
->
-> ![Tiles for indexers and datasources][media/search-get-started-portal/tiles-indexers-datasources2.png]
->
+Sections on the service dashboard show how many indexes, indexers, and data sources you already have. 
+
+![Lists of indexes, indexers, and datasources][media/search-get-started-portal/tiles-indexers-datasources2.png]
 
 ## <a name="create-index"></a> Create an index and load data
 
@@ -56,11 +54,11 @@ For this tutorial, we use a built-in sample dataset that can be crawled using an
 
 1. On the Azure Search service dashboard, click **Import data** on the command bar to create and populate a search index.
 
-    ![Import data command](media/search-get-started-portal/import-data-cmd2.png)
+   ![Import data command](media/search-get-started-portal/import-data-cmd2.png)
 
 2. In the wizard, click **Connect to your data** > **Samples** > **realestate-us-sample**. This data source is built-in. If you were creating your own data source, you would need to specify a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
 
-    ![Select sample dataset](media/search-get-started-portal/import-datasource-sample2.png)
+   ![Select sample dataset](media/search-get-started-portal/import-datasource-sample2.png)
 
 3. Continue to the next page.
 
@@ -92,40 +90,44 @@ Storage requirements do not vary as a result of your selection. For example, if 
 
 By default, the wizard scans the data source for unique identifiers as the basis for the key field. Strings are attributed as retrievable and searchable. Integers are attributed as retrievable, filterable, sortable, and facetable.
 
-Accept all of the defaults.
+1. Accept all of the defaults.
 
   ![Generated realestate index](media/search-get-started-portal/realestateindex2.png)
 
-Continue to the next page.
+2. Continue to the next page.
 
-![Next page create indexer](media/search-get-started-portal/next-button-create-indexer.png)
-
+  ![Next page create indexer](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### Step 4 - Configure indexer
 
 Still in the **Import data** wizard, click **Indexer** > **Name**, and type a name for the indexer.
 
-This object defines an executable process. You could put it on recurring schedule, but for now use the default option to run the indexer once, immediately, when you click **Submit**.  
+This object defines an executable process. You could put it on recurring schedule, but for now use the default option to run the indexer once, immediately.
+
+Click **Submit** to create and simultaneously run the indexer.
 
   ![realestate indexer](media/search-get-started-portal/realestate-indexer2.png)
 
-### Step 5 - Check progress
+## Monitor progress
 
-To monitor data import, go back to the service dashboard, scroll down, and double-click the **Indexers** tile to open the indexers list. You should see the newly created indexer in the list, with status indicating "in progress" or success, along with the number of documents indexed.
+The wizard should take you to the Indexers list where you can monitor progress. For self-navigation, go to the Overview page and click 
+**Indexers** tile to open the indexers list. You should see the newly created indexer in the list, with status indicating "in progress" or success, along with the number of documents indexed.
+
+It can take a few minutes for the portal to update the page.
 
    ![Indexer progress message](media/search-get-started-portal/indexers-inprogress2.png)
 
-### Step 6 - View the index
+## View the index
 
-Tiles in the service dashboard provide both summary information of the various objects in a resources, as well as access to detailed information. The **Indexes** tile lists the existing indexes, including the *realestate-us-sample* index that you just created in the previous step.
+The **Indexes** list shows existing indexes, including the *realestate-us-sample* index that you just created in the wizard.
 
-Click the *realestate-us-sample* index now to view the portal options for its definition. An **Add/Edit Fields** option allows you to create and fully attribute new fields. Existing fields have a physical representation in Azure Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new one and the drop the original.
+From this list, you can view the index schema and optionally add new fields, but you cannot change existing fields. Existing fields have a physical representation in Azure Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new one and the drop the original.
 
    ![sample index definition](media/search-get-started-portal/sample-index-def.png)
 
 Other constructs, such as scoring profiles and CORS options, can be added at any time.
 
-To clearly understand what you can and cannot edit during index design, take a minute to view index definition options. Grayed-out options are an indicator that a value cannot be modified or deleted. Similarly, skip the Analyzer and Suggester check boxes for now.
+To clearly understand what you can and cannot edit during index design, take a minute to view index definition options. Grayed-out options are an indicator that a value cannot be modified or deleted. 
 
 ## <a name="query-index"></a> Start Search explorer
 
