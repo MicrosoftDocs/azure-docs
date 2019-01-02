@@ -1406,6 +1406,12 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
             
             After removing the above line, the Ranger UI will allow you to create policies with policy condition that can contain special characters and policy evaluation will be successful for the same policy.
 
+**HDInsight Integration with ADLS Gen 2: User directories and permissions issue with ESP clusters**
+    1.	Home directories for users are not getting created on Head Node 1. Workaround is to create these manually and change ownership  to the respective user’s UPN.
+    2.	Permissions on /hdp is currently not set to 751. This needs to be set to 
+    a.	chmod 751 /hdp 
+    b.	chmod –R 755 /hdp/apps
+
 ## Deprecation
 
 -   **OMS Portal:** We have removed the link from HDInsight resource page that was pointing to OMS portal. Log Analytics initially used its own portal called the OMS portal to manage its configuration and analyze collected data. All functionality from this portal has been moved to the Azure portal where it will continue to be developed. HDInsight has deprecated the support for OMS portal. Customers will use HDInsight Log Analytics integration in Azure portal.
