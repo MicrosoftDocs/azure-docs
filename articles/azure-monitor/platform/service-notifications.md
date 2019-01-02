@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/12/2017
 ms.author: dukek
-ms.component: activitylog
+ms.component: logs
 ---
 # View service health notifications by using the Azure portal
 

@@ -84,9 +84,11 @@ Only one public IP address is supported on an application gateway.
 Application Gateway consumes one private IP address per instance, plus another private IP address if a private frontend IP configuration is configured. Also, Azure reserves the first four and last IP address in each subnet for internal usage.
 For example, if an application gateway is set to three instances and no private frontend IP, then a /29 subnet size or greater is needed. In this case, the application gateway uses three IP addresses. If you have three instances and an IP address for the private frontend IP configuration, then a /28 subnet size or greater is needed as four IP addresses are required.
 
-### Q. Can I deploy more than one Application Gateway resource to a single subnet?**
+### Q. Can I deploy more than one Application Gateway resource to a single subnet?
 
 Yes, in addition to having multiple instances of a given Application Gateway deployment, you can provision another unique Application Gateway resource to an existing subnet that contains a different Application Gateway resource.
+
+Mixing Standard_v2 and Standard Application Gateway on the same subnet is not supported. Additionally, if autoscaling is enabled, a subnet can have only one application gateway.
 
 ### Does Application Gateway support x-forwarded-for headers?
 
@@ -99,6 +101,8 @@ Application Gateway also inserts X-Original-Host header that contains the origin
 New Application Gateway v1 SKU deployments can take up to 20 minutes to provision. Changes to instance size/count are not disruptive, and the gateway remains active during this time.
 
 V2 SKU deployments can take about five to six minutes to provision.
+
+Does Application Gateway support x-forwarded-for headers?
 
 ## Configuration
 
@@ -312,9 +316,9 @@ WAF is monitored through diagnostic logging, more information on diagnostic logg
 
 No, detection mode only logs traffic, which triggered a WAF rule.
 
-### How do I customize WAF rules?
+### Can I customize WAF rules?
 
-Yes, WAF rules are customizable, for more information on how to customize them see [Customize WAF rule groups and rules](application-gateway-customize-waf-rules-portal.md)
+Yes, WAF rules are customizable. For more information, see [Customize WAF rule groups and rules](application-gateway-customize-waf-rules-portal.md)
 
 ### What rules are currently available
 

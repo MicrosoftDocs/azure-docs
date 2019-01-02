@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 12/21/2018
 ms.author: mbullwin
 
 ---
@@ -36,7 +36,7 @@ Things are so very different now. Your app has a plethora of different devices t
 
 In these conditions, the only way to keep a firm control on the bug count is automated unit testing. It would be impossible to manually re-test everything on every delivery. Unit test is now a commonplace part of the build process. Tools such as the Xamarin Test Cloud help by providing automated UI testing on multiple browser versions. These testing regimes allow us to hope that the rate of bugs found inside an app can be kept to a minimum.
 
-Typical web applications have many live components. In addition to the client (in a browser or device app) and the web server, there's likely to be substantial backend processing. Perhaps the backend is a pipeline of components, or a looser collection of collaborating pieces. And many of them won't be in your control - they're external services on which you depend.
+Typical web applications have many live components. In addition to the client (in a browser or device app) and the web server, there's likely to be substantial backend processing. Perhaps the backend is a pipeline of components, or a looser collection of collaborating pieces. And many of them won't be in your control - they are external services on which you depend.
 
 In configurations like these, it can be difficult and uneconomical to test for, or foresee, every possible failure mode, other than in the live system itself. 
 
@@ -75,7 +75,7 @@ The main categories of data are:
 * Log traces used for debugging.
 
 ## Case Study: Real Madrid F.C.
-The web service of [Real Madrid Football Club](https://www.realmadrid.com/) serves about 450 million fans around the world. Fans access it both through web browsers and the Club's mobile apps. Fans can not only book tickets, but also access information and video clips on results, players and upcoming games. They can search with filters such as numbers of goals scored. There are also links to social media. The user experience is highly personalized, and is designed as a two-way communication to engage fans.
+The web service of [Real Madrid Football Club](https://www.realmadrid.com/) serves about 450 million fans around the world. Fans access it both through web browsers and the Club's mobile apps. Fans cannot only book tickets, but also access information and video clips on results, players and upcoming games. They can search with filters such as numbers of goals scored. There are also links to social media. The user experience is highly personalized, and is designed as a two-way communication to engage fans.
 
 The solution [is a system of services and applications on Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). Scalability is a key requirement: traffic is variable and can reach very high volumes during and around matches.
 
@@ -103,23 +103,23 @@ Customer Samtec said: "During a recent feature cutover, we found an under-scaled
 ## Live Metrics Stream
 Deploying the latest build can be an anxious experience. If there are any problems, you want to know about them right away, so that you can back out if necessary. Live Metrics Stream gives you key metrics with a latency of about one second.
 
-![Live metrics](./media/app-insights-devops/040.png)
+![Live metrics](./media/app-insights-devops/0040.png)
 
 And lets you immediately inspect a sample of any failures or exceptions.
 
-![Live failure events](./media/app-insights-devops/live-stream-failures.png)
+![Live failure events](./media/app-insights-devops/002-live-stream-failures.png)
 
 ## Application Map
 Application Map automatically discovers your application topology, laying the performance information on top of it, to let you easily identify performance bottlenecks and problematic flows across your distributed environment. It allows you to discover application dependencies on Azure Services. You can triage the problem by understanding if it is code-related or dependency related and from a single place drill into related diagnostics experience. For example, your application may be failing due to performance degradation in SQL tier. With application map, you can see it immediately and drill into the SQL Index Advisor or Query Insights experience.
 
-![Application Map](./media/app-insights-devops/050.png)
+![Application Map](./media/app-insights-devops/0050.png)
 
 ## Application Insights Analytics
-With [Analytics](app-insights-analytics.md), you can write arbitrary queries in a powerful SQL-like language.  Diagnosing across the entire app stack becomes easy as various perspectives get connected and you can ask the right questions to correlate Service Performance with Business Metrics and Customer Experience. 
+With [Analytics](../azure-monitor/app/analytics.md), you can write arbitrary queries in a powerful SQL-like language.  Diagnosing across the entire app stack becomes easy as various perspectives get connected and you can ask the right questions to correlate Service Performance with Business Metrics and Customer Experience. 
 
 You can query all your telemetry instance and metric raw data stored in the portal. The language includes filter, join, aggregation, and other operations. You can calculate fields and perform statistical analysis. There are both tabular and graphical visualizations.
 
-![Analytics query and results chart](./media/app-insights-devops/025.png)
+![Analytics query and results chart](./media/app-insights-devops/0025.png)
 
 For example, it's easy to:
 
@@ -146,16 +146,11 @@ And when Application Insights logs an exception, you can view the data point in 
 
 During debugging, you have the option to keep the telemetry in your development machine, viewing it in Visual Studio but without sending it to the portal. This local option avoids mixing debugging with production telemetry.
 
-### Build annotations
-If you use Azure DevOps to build and deploy your app, deployment annotations show up on charts in the portal. If your latest release had any effect on the metrics, it becomes obvious.
-
-![Build annotations](./media/app-insights-devops/070.png)
-
 ### Work items
 When an alert is raised, Application Insights can automatically create a work item in your work tracking system.
 
 ## But what about...?
-* [Privacy and storage](app-insights-data-retention-privacy.md) - Your telemetry is kept on Azure secure servers.
+* [Privacy and storage](../azure-monitor/app/data-retention-privacy.md) - Your telemetry is kept on Azure secure servers.
 * Performance - the impact is very low. Telemetry is batched.
 * [Pricing](app-insights-pricing.md) - You can get started for free, and that continues while you're in low volume.
 
@@ -167,7 +162,7 @@ When an alert is raised, Application Insights can automatically create a work it
 ## Next steps
 Getting started with Application Insights is easy. The main options are:
 
-* Instrument an already-running web app. This gives you all the built-in performance telemetry. It's available for [Java](app-insights-java-live.md) and [IIS servers](app-insights-monitor-performance-live-website-now.md), and also for [Azure App Service](app-insights-overview.md).
-* Instrument your project during development. You can do this for [ASP.NET](app-insights-asp-net.md) or [Java](app-insights-java-get-started.md) apps, as well as [Node.js](app-insights-nodejs.md) and a host of [other types](app-insights-platforms.md). 
-* Instrument [any web page](app-insights-javascript.md) by adding a short code snippet.
+* Instrument an already-running web app. This gives you all the built-in performance telemetry. It's available for [Java](../azure-monitor/app/java-live.md) and [IIS servers](../azure-monitor/app/monitor-performance-live-website-now.md), and also for [Azure App Service](app-insights-overview.md).
+* Instrument your project during development. You can do this for [ASP.NET](../azure-monitor/app/asp-net.md) or [Java](../azure-monitor/app/java-get-started.md) apps, as well as [Node.js](app-insights-nodejs.md) and a host of [other types](app-insights-platforms.md). 
+* Instrument [any web page](../azure-monitor/app/javascript.md) by adding a short code snippet.
 

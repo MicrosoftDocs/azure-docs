@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 12/31/2018
 ms.author: tamram
 ms.custom: seodec18
 ---

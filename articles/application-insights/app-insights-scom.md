@@ -14,7 +14,7 @@ ms.date: 08/20/2018
 ms.author: mbullwin
 ---
 # Application Performance Monitoring using Application Insights for SCOM
-If you use System Center Operations Manager (SCOM) to manage your servers, you can monitor performance and diagnose performance issues with the help of [Azure Application Insights](app-insights-asp-net.md). Application Insights monitors your web application's incoming requests, outgoing REST and SQL calls, exceptions, and log traces. It provides dashboards with metric charts and smart alerts, as well as powerful diagnostic search and analytical queries over this telemetry. 
+If you use System Center Operations Manager (SCOM) to manage your servers, you can monitor performance and diagnose performance issues with the help of [Azure Application Insights](../azure-monitor/app/asp-net.md). Application Insights monitors your web application's incoming requests, outgoing REST and SQL calls, exceptions, and log traces. It provides dashboards with metric charts and smart alerts, as well as powerful diagnostic search and analytical queries over this telemetry. 
 
 You can switch on Application Insights monitoring by using an SCOM management pack.
 
@@ -29,7 +29,7 @@ We assume:
 * App framework version is .NET 4.5 or later.
 * You have access to a subscription in [Microsoft Azure](https://azure.com) and can sign in to the [Azure portal](https://portal.azure.com). Your organization may have a subscription, and can add your Microsoft account to it.
 
-(The development team might build the [Application Insights SDK](app-insights-asp-net.md) into the web app. This build-time instrumentation gives them greater flexibility in writing custom telemetry. However, it doesn't matter: you can follow the steps described here either with or without the SDK built in.)
+(The development team might build the [Application Insights SDK](../azure-monitor/app/asp-net.md) into the web app. This build-time instrumentation gives them greater flexibility in writing custom telemetry. However, it doesn't matter: you can follow the steps described here either with or without the SDK built in.)
 
 ## (One time) Install Application Insights management pack
 On the machine where you run Operations Manager:
@@ -86,13 +86,13 @@ You can verify which instances of the app it has found:
 ![In Monitoring, open Application Insights](./media/app-insights-scom/100.png)
 
 ## View telemetry in Application Insights
-In the [Azure portal](https://portal.azure.com), browse to the resource for your app. You [see charts showing telemetry](app-insights-dashboards.md) from your app. (If it hasn't shown up on the main page yet, click Live Metrics Stream.)
+In the [Azure portal](https://portal.azure.com), browse to the resource for your app. You [see charts showing telemetry](../azure-monitor/app/app-insights-dashboards.md) from your app. (If it hasn't shown up on the main page yet, click Live Metrics Stream.)
 
 ## Next steps
-* [Set up a dashboard](app-insights-dashboards.md) to bring together the most important charts monitoring this and other apps.
+* [Set up a dashboard](../azure-monitor/app/app-insights-dashboards.md) to bring together the most important charts monitoring this and other apps.
 * [Learn about metrics](app-insights-metrics-explorer.md)
-* [Set up alerts](app-insights-alerts.md)
-* [Diagnosing performance issues](app-insights-detect-triage-diagnose.md)
-* [Powerful Analytics queries](app-insights-analytics.md)
-* [Availability web tests](app-insights-monitor-web-app-availability.md)
+* [Set up alerts](../azure-monitor/app/alerts.md)
+* [Diagnosing performance issues](../azure-monitor/app/detect-triage-diagnose.md)
+* [Powerful Analytics queries](../azure-monitor/app/analytics.md)
+* [Availability web tests](../azure-monitor/app/monitor-web-app-availability.md)
 

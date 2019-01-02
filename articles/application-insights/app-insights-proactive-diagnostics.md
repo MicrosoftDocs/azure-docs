@@ -49,11 +49,11 @@ There are three kinds of detection:
 These diagnostic tools help you inspect the telemetry from your app:
 
 * [Metric explorer](app-insights-metrics-explorer.md)
-* [Search explorer](app-insights-diagnostic-search.md)
+* [Search explorer](../azure-monitor/app/diagnostic-search.md)
 * [Analytics - powerful query language](../azure-monitor/log-query/get-started-portal.md)
 
 Smart Detection is completely automatic. But maybe you'd like to set up some more alerts?
 
-* [Manually configured metric alerts](app-insights-alerts.md)
-* [Availability web tests](app-insights-monitor-web-app-availability.md) 
+* [Manually configured metric alerts](../azure-monitor/app/alerts.md)
+* [Availability web tests](../azure-monitor/app/monitor-web-app-availability.md) 
 

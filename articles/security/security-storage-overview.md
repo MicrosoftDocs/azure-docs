@@ -63,11 +63,11 @@ Encryption in transit is a mechanism of protecting data when it's transmitted ac
 Learn more about client-side encryption:
 
 * [Client-Side Encryption for Microsoft Azure Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
-* [Cloud security controls series: Encrypting Data in Transit](https://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
+* [Cloud security controls series: Encrypting Data in Transit](https://cloudblogs.microsoft.com/microsoftsecure/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
 ## Encryption at rest
 
-For many organizations, [data encryption at rest](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step toward data privacy, compliance, and data sovereignty. Three Azure features provide encryption of data that's at rest:
+For many organizations, [data encryption at rest](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step toward data privacy, compliance, and data sovereignty. Three Azure features provide encryption of data that's at rest:
 
 * [Storage Service Encryption](../storage/common/storage-security-guide.md#encryption-at-rest) enables you to request that the storage service automatically encrypt data when writing it to Azure Storage.
 * [Client-side encryption](../storage/common/storage-security-guide.md#client-side-encryption) also provides the feature of encryption at rest.
