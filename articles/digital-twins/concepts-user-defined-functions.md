@@ -100,15 +100,17 @@ For more information, see [How to use user-defined functions](how-to-user-define
 
 ### Role assignment
 
-A user-defined function's actions are subject to Azure Digital Twins [role-based access control](./security-role-based-access-control.md) to secure data within the service. Role assignments define which user-defined functions have the proper permissions to interact with the spatial graph and its entities. For example, a user-defined function might have the ability and permission to *CREATE*, *READ*, *UPDATE*, or *DELETE* graph data under a given space. A user-defined function's level of access is checked when the user-defined function asks the graph for data or attempts an action. For more information, see [Role-based access control](security-create-manage-role-assignments.md).
+A user-defined function's actions are subject to Azure Digital Twins [role-based access control](./security-role-based-access-control.md) to secure data within the service. Role assignments define which user-defined functions have the proper permissions to interact with the spatial graph and its entities. For example, a user-defined function might have the ability and permission to *CREATE*, *READ*, *UPDATE*, or *DELETE* graph data under a given space. A user-defined function's level of access is checked when the user-defined function asks the graph for data or attempts an action. For more information, see [Role-based access control](./security-create-manage-role-assignments.md).
 
 It's possible for a matcher to trigger a user-defined function that has no role assignments. In this case, the user-defined function fails to read any data from the graph.
 
 ## Next steps
 
-- To learn more about how to route events and telemetry messages to other Azure services, read [Route events and messages](concepts-events-routing.md).
+- To learn more about how to route events and telemetry messages to other Azure services, read [Route events and messages](./concepts-events-routing.md).
 
-- To learn more about how to create matchers, user-defined functions, and role assignments, read [Guide for using user-defined functions](How-to-user-defined-functions.md).
+- To learn more about how to create matchers, user-defined functions, and role assignments, read [Guide for using user-defined functions](./how-to-user-defined-functions.md).
+
+- Review the [user-defined function client library reference documentation](./reference-user-defined-functions-client-library.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-data-processing-flow.png
