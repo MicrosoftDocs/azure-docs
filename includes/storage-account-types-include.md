@@ -10,8 +10,6 @@ ms.author: tamram
 ms.custom: "include file"
 ---
 
-## Types of storage accounts
-
 Azure Storage offers three types of storage accounts. Each type supports different features and has its own pricing model. Consider these differences before you create a storage account to determine the type of account that is best for your applications. The three types of storage accounts are:
 
 * **[General-purpose v2 accounts](#general-purpose-v2-accounts)**: Basic storage account type for blobs, files, queues, and tables. Recommended for most scenarios using Azure Storage.
