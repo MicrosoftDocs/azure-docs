@@ -169,7 +169,7 @@ The Text Analytics containers send billing information to Azure, using a _Text A
 
 Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft. 
 
-The `docker run` uses the following arguments for billing purposes:
+The `docker run` command uses the following arguments for billing purposes:
 
 | Option | Description |
 |--------|-------------|
