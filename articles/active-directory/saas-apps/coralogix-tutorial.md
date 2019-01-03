@@ -101,7 +101,7 @@ To configure Azure AD single sign-on with Coralogix, perform the following steps
     ![Coralogix Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.coralogix.com`.
+    `https://<SUBDOMAIN>.coralogix.com`
 
     b. In the **Identifier (Entity ID)** text box, type a URL:
 	| |
