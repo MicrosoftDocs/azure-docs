@@ -33,7 +33,7 @@ This error occurs if the credential asset name isn't valid or if the username an
 To determine what's wrong, take the following steps:  
 
 1. Make sure that you don’t have any special characters, including the **@** character in the Automation credential asset name that you're using to connect to Azure.  
-2. Check that you can use the username and password that are stored in the Azure Automation credential in your local PowerShell ISE editor. You can do check the username and password are correct by running the following cmdlets in the PowerShell ISE:  
+2. Check that you can use the username and password that stored in the Azure Automation credential in your local PowerShell ISE editor. You can do check the username and password are correct by running the following cmdlets in the PowerShell ISE:  
 
    ```powershell
    $Cred = Get-Credential  
@@ -151,11 +151,11 @@ When executing child runbooks with `Start-AzureRmRunbook`, the child runbook fai
 
 #### Cause
 
-The child runbook is not using the correct context when running.
+The child runbook isn't using the correct context when running.
 
 #### Resolution
 
-When working with multiple subscriptions the subscription context might be lost when invoking child runbooks. To ensure that the subscription context is passed to the child runbooks, add the `AzureRmContext` parameter to the cmdlet and pass the context to it.
+When working with multiple subscriptions, the subscription context might be lost when invoking child runbooks. To ensure that the subscription context is passed to the child runbooks, add the `AzureRmContext` parameter to the cmdlet and pass the context to it.
 
 ```azurepowershell-interactive
 # Connect to Azure with RunAs account
@@ -218,11 +218,11 @@ The job was tried three times but it failed
 
 This error can be caused by the following reasons:
 
-1. Memory Limit. There are documented limits on how much memory is allocated to a Sandbox  [Automation service limits](../../azure-subscription-service-limits.md#automation-limits) so a job may fail it if it's using more than 400 MB of memory.
+1. Memory Limit. The documented limits on how much memory is allocated to a Sandbox is found at [Automation service limits](../../azure-subscription-service-limits.md#automation-limits). A job may fail it if it's using more than 400 MB of memory.
 
-1. Network Sockets. Azure sandboxes are limited to 1000 concurrent network sockets as described at [Automation service limits](../../azure-subscription-service-limits.md#automation-limits).
+2. Network Sockets. Azure sandboxes are limited to 1000 concurrent network sockets as described at [Automation service limits](../../azure-subscription-service-limits.md#automation-limits).
 
-1. Module Incompatible. This error can occur if module dependencies aren't correct and if they aren't, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
+3. Module Incompatible. This error can occur if module dependencies aren't correct and if they aren't, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
 
 #### Resolution
 
@@ -324,9 +324,9 @@ The runbook ran over the 3 hour limit allowed by fair share in an Azure Sandbox.
 
 One recommended solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
-Hybrid Workers aren't limited by the [fair share](../automation-runbook-execution.md#fair-share) 3 hour runbook limit that Azure sandboxes are. While Hybrid Runbook Workers aren't limited by the 3 hour fair share limit, runbooks ran on Hybrid Runbook Workers should still be developed to support restart behaviors in case of unexpected local infrastructure issues.
+Hybrid Workers aren't limited by the [fair share](../automation-runbook-execution.md#fair-share) 3 hour runbook limit that Azure sandboxes are. While Hybrid Runbook Workers aren't limited by the 3 hour fair share limit, runbooks ran on Hybrid Runbook Workers should still be developed to support restart behaviors if there are unexpected local infrastructure issues.
 
-Another option is to optimize the runbook by creating [child runbooks](../automation-child-runbooks.md). If your runbook loops through the same function on a number of resources, such as a database operation on several databases, you can move that function to a child runbook. Each of these child runbooks executes in parallel in separate processes decreasing the total amount of time for the parent runbook to complete.
+Another option is to optimize the runbook by creating [child runbooks](../automation-child-runbooks.md). If your runbook loops through the same function on a number of resources, such as a database operation on several databases, you can move that function to a child runbook. Each of these child runbooks executes in parallel in separate processes. This behavior decreases the total amount of time for the parent runbook to complete.
 
 The PowerShell cmdlets that enable the child runbook scenario are:
 
@@ -338,7 +338,7 @@ The PowerShell cmdlets that enable the child runbook scenario are:
 
 #### Issue
 
-When you try invoke a webhook for a Azure Automation runbook you receive the following error.
+When you try invoke a webhook for an Azure Automation runbook, you receive the following error.
 
 ```error
 400 Bad Request : This webhook has expired or is disabled
@@ -350,13 +350,13 @@ The webhook that you are trying to invoke is either disabled or is expired.
 
 #### Resolution
 
-If the webhook is disabled, you can re-enable the webhook through the Azure portal. If the webhook is expired, the webhook needs to be deleted and recreated. You can only [renew a webhook](../automation-webhooks.md#renew-webhook) if it has not already expired.
+If the webhook is disabled, you can re-enable the webhook through the Azure portal. when a webhook is expired, the webhook needs to be deleted and recreated. You can only [renew a webhook](../automation-webhooks.md#renew-webhook) if it has not already expired.
 
 ### <a name="429"></a>Scenario: 429: The request rate is currently too large. Please try again
 
 #### Issue
 
-Your receive the following error message when running the `Get-AzureRmAutomationJobOutput` cmdlet:
+You receive the following error message when running the `Get-AzureRmAutomationJobOutput` cmdlet:
 
 ```
 429: The request rate is currently too large. Please try again
@@ -371,7 +371,7 @@ This error may occur when retrieving job output from a runbook that has many [ve
 There are two ways to resolve this error:
 
 * Edit the runbook, and reduce the number of job streams that it emits​.
-* Reduce the number of streams to be retrieved when running the cmdlet. To do this you can specify the `-Stream Output` parameter to the `Get-AzureRmAutomationJobOutput` cmdlet to retrieve only output streams. ​
+* Reduce the number of streams to be retrieved when running the cmdlet. To follow this behavior, you can specify the `-Stream Output` parameter to the `Get-AzureRmAutomationJobOutput` cmdlet to retrieve only output streams. ​
 
 ## Common errors when importing modules
 
