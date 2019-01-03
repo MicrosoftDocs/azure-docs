@@ -148,7 +148,7 @@ For this quickstart, the wizard does a good job setting reasonable defaults:
 + Default key is *metadata_storage_path* (this field contains unique values).
 + Default data types and attributes are valid for full text search scenarios.
 
-Consider clearing Retrievable from the `content` field. In blobs, this field can run into thousands of lines, difficult to read in a tool like **Search explorer** where documents are rendered in full JSON. You can imagine how difficult it would be to view an entire Word doc in JSON in a search results list. 
+Consider clearing **Retrievable** from the `content` field. In blobs, this field can run into thousands of lines. You can imagine how difficult it would be to view content-heavy files such as Word documents or PowerPoint decks as JSON in a search results list. 
 
 Because you defined a skillset, the wizard assumes that you want the original source data field, plus the output fields created by the cognitive pipeline. For this reason, the portal adds index fields for `content`, `people`, `organizations`, and `locations`. Notice that the wizard automatically enables **Retrievable** and **Searchable** for these fields. **Searchable** indicates a field can be searched. **Retrievable** means it can be returned in results. 
 
@@ -156,7 +156,7 @@ Because you defined a skillset, the wizard assumes that you want the original so
   
 Continue to the next page.
 
-  ![Next page create indexer](media/cognitive-search-quickstart-blob/next-button-create-indexer.png))
+  ![Next page create indexer](media/cognitive-search-quickstart-blob/next-button-create-indexer.png)
 
 ### Step 4: Configure the indexer
 
