@@ -19,10 +19,10 @@ ms.author: lizross
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
 
-The Microsoft Authenticator app helps you prove your identity without needing to remember a password. Instead of a password, your sign-in using your username and your mobile device with your fingerprint, face, or PIN to confirm that you are in fact, you. Two-factor verification is considered more secure than just a password, especially while viewing sensitive info.
+The Microsoft Authenticator app helps you prove your identity without needing to remember a password. Instead of a password, you sign-in using your username and your mobile device with your fingerprint, face, or PIN to confirm that you are in fact, you. Two-factor verification is considered more secure than just a password, especially while viewing sensitive info.
 
 ## What account types can I add
-You can turn two-factor verification on for many accounts that you use every day. This includes:
+You can turn on two-factor verification for many accounts that you use every day, including:
 
 |Account type|Description|
 |------------|-----------|
