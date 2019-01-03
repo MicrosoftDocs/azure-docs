@@ -11,7 +11,7 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/18/2018
 ---
-# Tutorial: Secure a single database in Azure SQL database
+# Tutorial: Secure a single database
 
 Azure SQL database secures data in a single SQL database by allowing you to:
 
