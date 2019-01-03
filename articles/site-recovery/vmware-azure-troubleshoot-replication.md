@@ -26,7 +26,7 @@ Initial replication failures often are caused by connectivity issues between the
    > [!NOTE]
    > Use Telnet to test connectivity. Don’t use `ping`. If Telnet isn't installed, complete the steps listed in [Install Telnet Client](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).
 
-   If you can't connect to the process server, allow inbound port 9443 on the process server. For example, you might need to do this if your network has a perimeter network or screened subnet. Then, check to see whether the problem still occurs.
+   If you can't connect to the process server, allow inbound port 9443 on the process server. For example, you might need to allow inbound port 9443 on the process server if your network has a perimeter network or screened subnet. Then, check to see whether the problem still occurs.
 
 2. Check the status of the **InMage Scout VX Agent – Sentinel/OutpostStart** service. If the service isn't running, check to see whether the problem still occurs.   
 
@@ -58,13 +58,13 @@ Initial replication failures often are caused by connectivity issues between the
       
    Start or restart any service that isn't running. Check to see whether the problem still occurs.
 
-3.  **Check whether the process server can connect to the Azure Public IP address by using port 443**.
+3.  **Check whether the process server can connect to the Azure public IP address by using port 443**.
 
-   In %programfiles%\Microsoft Azure Recovery Services Agent\Temp, open the latest CBEngineCurr.errlog file. In the file, search for **443** or the string **connection attempt failed**.
+   In %programfiles%\Microsoft Azure Recovery Services Agent\Temp, open the latest CBEngineCurr.errlog file. In the file, search for **443** or for the string **connection attempt failed**.
 
    ![Enable replication](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
 
-   If issues are shown, at the command line in the process server, use Telnet to ping your Azure Public IP address (which is masked in the preceding image). You can find your Azure Public IP address in the CBEngineCurr.currLog file by using port 443:
+   If issues are shown, at the command line in the process server, use Telnet to ping your Azure public IP address (the IP address is masked in the preceding image). You can find your Azure public IP address in the CBEngineCurr.currLog file by using port 443:
 
    `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
 
@@ -78,7 +78,7 @@ Initial replication failures often are caused by connectivity issues between the
 
     If you use a URL-based firewall rule on the server, add the following URLs to the firewall configuration:
 
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
 6. **Check whether proxy settings on the process server block access**.
 
