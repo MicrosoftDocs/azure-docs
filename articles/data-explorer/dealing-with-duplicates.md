@@ -72,7 +72,7 @@ Another solution is to filter duplicates during the ingestion process. The syste
 
 The following example depicts this method:
 
-1. Create another table with same schema
+1. Create another table with the same schema:
 
     ```kusto
     .create table DeviceEventsUnique (EventDateTime: datetime, DeviceId: int, EventId: int, StationId: int)
