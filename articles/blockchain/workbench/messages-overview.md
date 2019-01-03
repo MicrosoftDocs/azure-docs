@@ -823,17 +823,23 @@ Example of an *EventMessage ContractFunctionInvocation* from Blockchain Workbenc
 
 #### Contract code information
 
+| Name | Description |
+|------|-------------|
 | id | Unique identifier for the contract code file inside Azure Blockchain Workbench |
 | ledgerId | Unique identifier for the ledger inside Azure Blockchain Workbench |
 | location | URL where the contract code file is located |
 
 #### Application role information
 
+| Name | Description |
+|------|-------------|
 | id | Unique identifier for the application role inside Azure Blockchain Workbench |
 | name | Name of the application role |
 
 #### Application workflow information
 
+| Name | Description |
+|------|-------------|
 | id | Unique identifier for the application workflow inside Azure Blockchain Workbench |
 | name | Application workflow name |
 | displayName | Application workflow display name |
@@ -843,18 +849,24 @@ Example of an *EventMessage ContractFunctionInvocation* from Blockchain Workbenc
 
 ##### Workflow function information
 
+| Name | Description |
+|------|-------------|
 | id | Unique identifier for the application workflow function inside Azure Blockchain Workbench |
 | name | Function name |
 | parameters | Parameters for the function |
 
 ##### Workflow state information
 
+| Name | Description |
+|------|-------------|
 | name | State name |
 | displayName | State display name |
 | style | State style (success or failure) |
 
 ##### Workflow property information
 
+| Name | Description |
+|------|-------------|
 | id | Unique identifier for the application workflow property inside Azure Blockchain Workbench |
 | name | Property name |
 | type | Property type |
@@ -1002,20 +1014,26 @@ Example of an *EventMessage ApplicationIngestion* from Blockchain Workbench:
 
 #### RoleAssignment application role
 
+| Name | Description |
+|------|-------------|
 | id | Unique identifier for the application role inside Azure Blockchain Workbench |
 | name | Name of the application role |
 
 #### RoleAssignment assigner
 
-| id                     | Unique identifier of the user inside Azure Blockchain Workbench |
-| type                   | Type of the assigner |
-| chainIdentifier        | Unique identifier of the user on the ledger |
+| Name | Description |
+|------|-------------|
+| id | Unique identifier of the user inside Azure Blockchain Workbench |
+| type | Type of the assigner |
+| chainIdentifier | Unique identifier of the user on the ledger |
 
 #### RoleAssignment assignee
 
-| id                     | Unique identifier of the user inside Azure Blockchain Workbench |
-| type                   | Type of the assignee |
-| chainIdentifier        | Unique identifier of the user on the ledger |
+| Name | Description |
+|------|-------------|
+| id | Unique identifier of the user inside Azure Blockchain Workbench |
+| type | Type of the assignee |
+| chainIdentifier | Unique identifier of the user on the ledger |
 
 Example of an *EventMessage RoleAssignment* from Blockchain Workbench:
 
@@ -1108,5 +1126,4 @@ public class ContractProperty
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Smart contract integration patterns](integration-patterns.md)
+- [Smart contract integration patterns](integration-patterns.md)
