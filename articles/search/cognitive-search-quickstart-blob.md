@@ -113,7 +113,7 @@ In **Connect to your data**, choose **Azure Blob storage**, select the account a
 
 Continue to the next page.
 
-  ![Next page button for cognitive search](media/search-get-started-portal/next-button-add-cog-search.png)
+  ![Next page button for cognitive search](media/cognitive-search-quickstart-blob/next-button-add-cog-search.png)
 
 ### Step 2: Add cognitive skills
 
@@ -121,11 +121,11 @@ Next, add enrichment steps to the indexing pipeline. If you do not have a Cognit
 
 1. Expand **Attach Cognitive Services** to view options for resourcing the Cognitive Services APIs. For the purposes of this tutorial, you can use the **Free** resource.
 
-  ![Attach Cognitive Services](media/search-get-started-portal/cog-search-attach.png)
+  ![Attach Cognitive Services](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
 2. Expand **Add Enrichments** and select skills that perform natural language processing. For this quickstart, choose entity recognition for people, organizations, and locations.
 
-  ![Attach Cognitive Services](media/search-get-started-portal/skillset.png)
+  ![Attach Cognitive Services](media/cognitive-search-quickstart-blob/skillset.png)
 
 The portal offers built-in skills for OCR processing and text analysis. In the portal, a skillset operates over a single source field. That might seem like a small target, but for Azure blobs the `content` field contains most of the blob document (for example, a Word doc or PowerPoint deck). As such, this field is an ideal input because all of a blob's content is there.
 
@@ -133,7 +133,7 @@ For OCR, select the **Enable OCR and merge all text into merged_content field** 
 
 3. Continue to the next page.
 
-  ![Next page customize index](media/search-get-started-portal/next-button-customize-index.png)
+  ![Next page customize index](media/cognitive-search-quickstart-blob/next-button-customize-index.png)
 
 > [!NOTE]
 > Natural language processing skills operate over text content in the sample data set. Since we didn't select the OCR option, the JPEG files found in the sample data set won't be processed in this quickstart. 
@@ -156,7 +156,7 @@ Because you defined a skillset, the wizard assumes that you want the original so
   
 Continue to the next page.
 
-  ![Next page create indexer](media/search-get-started-portal/next-button-create-indexer.png))
+  ![Next page create indexer](media/cognitive-search-quickstart-blob/next-button-create-indexer.png))
 
 ### Step 4: Configure the indexer
 
