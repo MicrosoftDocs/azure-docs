@@ -47,12 +47,12 @@ You can add your personal Microsoft and non-Microsoft accounts, such as for Outl
 
     Your personal account is added to the Microsoft Authenticator app.
 
-### Add your personal Google account
+## Add your personal Google account
 You can add your personal Google account to the Microsoft Authenticator app.
 
 1. On your PC, go to https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome, select **Get Started**, and then verify your identity.
 
-2. Follow the on-screen steps to turn two-step verification on for your personal Google account. For more information about turning on two-factor verification and your Google account, see [Turn on 2-Step Verification](https://support.google.com/accounts/answer/185839).
+2. Follow the on-screen steps to turn two-step verification on for your personal Google account.
 
 3. In the **Set up alternative second step** section, choose **Set up** from the **Authenticator app** section.
 
@@ -73,13 +73,16 @@ You can add your personal Google account to the Microsoft Authenticator app.
 
 9. Your account is verified and you can select **Done** to close the **Set up Authenticator** screen.
 
-### Add your personal Facebook account
+>[!NOTE]
+>For more information about two-factor verification and your Google account, see [Turn on 2-Step Verification](https://support.google.com/accounts/answer/185839) and [Learn more about 2-Step Verification](https://www.google.com/landing/2step/help.html).
+
+## Add your personal Facebook account
 You can add your personal Facebook account to the Microsoft Authenticator app.
 
 
 For more information about two-factor verification and your Facebook account, see [What is two-factor authentication and how does it work?](https://www.facebook.com/help/148233965247823).
 
-### Add your personal Apple account
+## Add your personal Apple account
 Add steps about how to add your apple account.
 
 ## Add other non-Microsoft personal accounts
