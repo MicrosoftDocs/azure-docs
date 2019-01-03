@@ -130,7 +130,7 @@ pip install azureml-sdk[databricks]
 
    When you execute the code, you might be prompted to sign into your Azure account. After you sign in, the authentication token is cached locally.
 
-1. To viewe the workspace details, such as associated storage, container registry, and key vault, enter the following code:
+1. To view the workspace details, such as associated storage, container registry, and key vault, enter the following code:
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=getDetails)]
 
