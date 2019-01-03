@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Provision an Azure Database for MySQL server using ARM Templates'
-description: This tutorial explains how to provision and automate Azure Database for MySQL server deployments using ARM Templates.
+title: 'Tutorial: Provision an Azure Database for MySQL server using Azure Resource Manager templates'
+description: This tutorial explains how to provision and automate Azure Database for MySQL server deployments using Azure Resource Manager templates.
 author: savjani
 ms.author: pariks
 ms.service: mysql
@@ -10,24 +10,24 @@ ms.date: 12/21/2018
 ms.custom: mvc
 ---
 
-# Tutorial: Provision an Azure Database for MySQL server using ARM Templates
+# Tutorial: Provision an Azure Database for MySQL server using Azure Resource Manager templates
 
 The [Azure Database for MySQL REST API](https://docs.microsoft.com/en-us/rest/api/mysql/) enables DevOps engineers to automate and integrate provisioning, configuration, and operations of managed MySQL servers and databases in Azure.  The API allows the creation, enumeration, management, and deletion of MySQL servers and databases on the Azure Database for MySQL service.
 
-Azure Resource Manager (ARM) Templates leverage the underlying REST API to declare and program the Azure resources required for deployments at scale, aligning with infrastructure as a code concept. The template parameterizes the Azure resource name, SKU, network, firewall configuration, and settings, allowing it to be created one time and used multiple times.  ARM templates can be easily created using [Azure portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) or [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). They enable application packaging, standardization, and deployment automation, which can be integrated in the DevOps CI/CD pipeline.  For instance, if you are looking to quickly deploy a Web App with Azure Database for MySQL backend, you can perform the end-to-end deployment using this [QuickStart template](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) from the GitHub gallery.
+Azure Resource Manager (ARM) templates leverage the underlying REST API to declare and program the Azure resources required for deployments at scale, aligning with infrastructure as a code concept. The template parameterizes the Azure resource name, SKU, network, firewall configuration, and settings, allowing it to be created one time and used multiple times.  Azure Resource Manager templates can be easily created using [Azure portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) or [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). They enable application packaging, standardization, and deployment automation, which can be integrated in the DevOps CI/CD pipeline.  For instance, if you are looking to quickly deploy a Web App with Azure Database for MySQL backend, you can perform the end-to-end deployment using this [QuickStart template](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) from the GitHub gallery.
 
-In this tutorial, you use Azure ARM Templates and other utilities to learn how to:
+In this tutorial, you use Azure Azure Resource Manager templates and other utilities to learn how to:
 
 > [!div class="checklist"]
-> * Create an Azure Database for MySQL server with VNet Service Endpoint using ARM Template
+> * Create an Azure Database for MySQL server with VNet Service Endpoint using Azure Resource Manager Template
 > * Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
 > * Load sample data
 > * Query data
 > * Update data
 
-## Create an Azure Database for MySQL server with VNet Service Endpoint using ARM Template
+## Create an Azure Database for MySQL server with VNet Service Endpoint using Azure Resource Manager template
 
-The JSON template reference for an Azure Database for MySQL server can be found [here](https://docs.microsoft.com/en-us/azure/templates/microsoft.dbformysql/servers). Below is the sample JSON template that can be used to create a new server running Azure Database for MySQL with VNet Service Endpoint.
+To get the JSON template reference for an Azure Database for MySQL server, go to Microsoft.DBforMySQL servers template reference(https://docs.microsoft.com/en-us/azure/templates/microsoft.dbformysql/servers). Below is the sample JSON template that can be used to create a new server running Azure Database for MySQL with VNet Service Endpoint.
 ```json
 {
   "apiVersion": "2017-12-01",
@@ -85,10 +85,10 @@ In this request, the values that need to be customized are:
 +	`resources/properties/virtualNetworkSubnetId` - Specify the Azure identifier of the subnet in VNet where Azure MySQL server should be placed. 
 +	`tags(optional)` - Specify optional tags are key value pairs that you would use to categorize the resources for billing etc.
 
-If you are looking to build an ARM Template to automate Azure Database for MySQL deployments for your organization, the recommendation would be to start from the sample [ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) in Azure Quickstart GitHub Gallery first and build on top of it. 
+If you are looking to build an Azure Resource Manager template to automate Azure Database for MySQL deployments for your organization, the recommendation would be to start from the sample [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) in Azure Quickstart GitHub Gallery first and build on top of it. 
 
-If you are new to ARM Templates and would like to try it, you can start by following these steps:
-+	Clone or download the Sample [ARM Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) from Azure Quickstart gallery.  
+If you are new to Azure Resource Manager templates and would like to try it, you can start by following these steps:
++	Clone or download the Sample [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) from Azure Quickstart gallery.  
 +	Modify the azuredeploy.parameters.json to update the parameter values based on your preference and save the file. 
 +	Use Azure CLI to create the Azure MySQL server using the following commands
 
@@ -195,7 +195,7 @@ SELECT * FROM inventory;
 ## Next steps
 In this tutorial you learned to:
 > [!div class="checklist"]
-> * Create an Azure Database for MySQL server with VNet Service Endpoint using ARM Template
+> * Create an Azure Database for MySQL server with VNet Service Endpoint using Azure Resource Manager template
 > * Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
 > * Load sample data
 > * Query data
