@@ -47,7 +47,7 @@ The following table shows the enforced throttles. Values refer to an individual 
 | Maximum device stream data transfer<sup>4</sup> (aggregate volume per billing cycle) | 10 GB | 10 GB | 10 GB |
 
 
-<sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 8 KB. <br/><sup>3</sup>You can only have one active device import/export job at a time. <br/><sup>4</sup>IoT Hub device streams are only available for S1, S2, S3 SKU's.
+<sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 8 KB. <br/><sup>3</sup>You can only have one active device import/export job at a time. <br/><sup>4</sup>IoT Hub device streams are only available for S1, S2, S3, and F1 SKU's.
 
 The *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle does not govern the maximum number of simultaneously connected devices. The *device connections* rate throttle depends on the number of units that are provisioned for the IoT hub.
 
