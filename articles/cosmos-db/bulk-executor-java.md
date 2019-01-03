@@ -1,9 +1,8 @@
 ---
-title: Using bulk executor Java library to perform bulk import and update operations in Azure Cosmos DB | Microsoft Docs
+title: Using bulk executor Java library to perform bulk import and update operations in Azure Cosmos DB
 description: Bulk import and update Azure Cosmos DB documents using bulk executor Java library.
 services: cosmos-db
 author: tknandu
-manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: java
@@ -30,7 +29,7 @@ Currently, bulk executor library is supported by Azure Cosmos DB SQL API and Gre
 
   - Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
 
-* [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a [Maven](http://maven.apache.org/) binary archive  
+* [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a [Maven](https://maven.apache.org/) binary archive  
   
   - On Ubuntu, you can run `apt-get install maven` to install Maven.
 

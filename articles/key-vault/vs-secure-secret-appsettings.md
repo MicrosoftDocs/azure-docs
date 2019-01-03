@@ -23,7 +23,7 @@ ms.author: cawa
 ## Overview
 This article describes how to securely save secret application configuration settings for Azure applications.
 
-Traditionally all web application configuration settings are saved in configuration files such as Web.config. This practice leads to checking in secret settings such as Cloud credentials to public source control systems like Github. Meanwhile, it could be hard to follow security best practice because of the overhead required to change source code and reconfigure development settings.
+Traditionally all web application configuration settings are saved in configuration files such as Web.config. This practice leads to checking in secret settings such as Cloud credentials to public source control systems like GitHub. Meanwhile, it could be hard to follow security best practice because of the overhead required to change source code and reconfigure development settings.
 
 To make sure development process is secure, tooling and framework libraries are created to save application secret settings securely with minimal or no source code change.
 

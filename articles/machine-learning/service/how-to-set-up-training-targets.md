@@ -1,6 +1,7 @@
 ---
-title: Set up compute targets for model training with Azure Machine Learning service | Microsoft Docs
-description: Learn how to select and configure the training environments (compute targets) used to train your machine learning models. The Azure Machine Learning service lets you easily switch training environments. Start training locally, and if you need to scale out, switch to a cloud-based compute target.
+title: Compute targets for model training
+titleSuffix: Azure Machine Learning service
+description: Configure the training environments (compute targets) for machine learning model training. You can easily switch training environments. Start training locally, and if you need to scale out, switch to a cloud-based compute target. Databricks
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -10,8 +11,9 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
-# Select and use a compute target to train your model
+# Set up compute targets for model training
 
 With the Azure Machine Learning service, you can train your model on different compute resources. These compute resources, called __compute targets__, can be local or in the cloud. In this document, you will learn about the supported compute targets and how to use them.
 
@@ -25,8 +27,6 @@ There are three broad categories of compute targets that Azure Machine Learning 
 
 * __Attached Compute__: You can also bring your own Azure cloud compute and attach it to Azure Machine Learning. Read more below on supported compute types and how to use them.
 
->[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 0.168 
 
 ## Supported compute targets
 
@@ -37,7 +37,7 @@ Azure Machine Learning service has varying support across the various compute ta
 |[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning Compute](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[Remote VM](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | ✓ | ✓[*](#pipeline-only) |
 |[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
@@ -48,6 +48,13 @@ Azure Machine Learning service has varying support across the various compute ta
 > Azure Machine Learning Compute must be created from within a workspace. You cannot attach existing instances to a workspace.
 >
 > Other compute targets must be created outside Azure Machine Learning and then attached to your workspace.
+
+> [!NOTE]
+> Some compute targets rely on Docker container images when training a model. The GPU base image must be used on Microsoft Azure Services only. For model training, these services are:
+>
+> * Azure Machine Learning Compute
+> * Azure Kubernetes Service
+> * The Data Science Virtual Machine.
 
 ## Workflow
 
@@ -62,6 +69,9 @@ The workflow for developing and deploying a model with Azure Machine Learning fo
 
 > [!IMPORTANT]
 > Your training script isn't tied to a specific compute target. You can train initially on your local computer, then switch compute targets without having to rewrite the training script.
+
+> [!TIP]
+> Whenever you associate a compute target with your workspace, either by creating managed compute or attaching existing compute, you need to provide a name to your compute. This should be between 2 and 16 characters in length.
 
 Switching from one compute target to another involves creating a [run configuration](concept-azure-machine-learning-architecture.md#run-configuration). The run configuration defines how to run the script on the compute target.
 
@@ -89,7 +99,6 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
 ```
 
-For a Jupyter Notebook that demonstrates training in a user-managed environment, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
   
 ### System-managed environment
 
@@ -111,8 +120,6 @@ run_config_system_managed.auto_prepare_environment = True
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
 
-For a Jupyter Notebook that demonstrates training in a system-managed environment, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
-
 ## <a id="amlcompute"></a>Azure Machine Learning Compute
 
 Azure Machine Learning Compute is a managed compute infrastructure that allows the user to easily create single- to multi-node compute. It is created __within your workspace region__ and is a resource that can be shared with other users in your workspace. It scales up automatically when a job is submitted, and can be put in an Azure Virtual Network. It executes in a __containerized environment__, packaging your model's dependencies in a Docker container.
@@ -122,11 +129,14 @@ You can use Azure Machine Learning Compute to distribute the training process ac
 > [!NOTE]
 > Azure Machine Learning Compute has default limits on things like the number of cores that can be allocated. For more information, see the [Manage and request quotas for Azure resources](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas) document.
 
-You can create Azure Machine Learning Compute on-demand when you schedule a run, or as a dedicated resource.
+You can create Azure Machine Learning Compute on-demand when you schedule a run, or as a persistent resource.
 
 ### Run-based creation
 
 You can create Azure Machine Learning Compute as a compute target at run-time. In this case, the compute is automatically created for your run, scales up to max_nodes that you specify in your run config, and is then __deleted automatically__ after the run completes.
+
+> [!IMPORTANT]
+> Run-based creation of Azure Machine Learning compute is currently in Preview state. Do not use run-based creation if you are using Hyperparameter Tuning or Automated Machine Learning. If you need to use Hyperparameter Tuning or Automated Machine Learning, create the Azure Machine Learning compute before submitting a run.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -147,11 +157,11 @@ run_config.amlcompute.vm_size = 'STANDARD_D2_V2'
 
 ```
 
-### Dedicated compute (Basic)
+### Persistent compute (Basic)
 
-A dedicated Azure Machine Learning Compute can be reused across multiple jobs. It can be shared with other users in the workspace, and is kept between jobs.
+A persistent Azure Machine Learning Compute can be reused across multiple jobs. It can be shared with other users in the workspace, and is kept between jobs.
 
-To create a dedicated Azure Machine Learning Compute resource, you specify the `vm_size` and `max_nodes` parameters. Azure Machine Learning then uses smart defaults for the rest of the parameters.  For example, the compute is set to autoscale down to zero nodes when not used and to create dedicated VMs to run your jobs as needed. 
+To create a persistent Azure Machine Learning Compute resource, you specify the `vm_size` and `max_nodes` parameters. Azure Machine Learning then uses smart defaults for the rest of the parameters.  For example, the compute is set to autoscale down to zero nodes when not used and to create dedicated VMs to run your jobs as needed. 
 
 * **vm_size**: VM family of the nodes created by Azure Machine Learning Compute.
 * **max_nodes**: Maximum nodes to autoscale to while running a job on Azure Machine Learning Compute.
@@ -176,9 +186,9 @@ cpu_cluster.wait_for_completion(show_output=True)
 
 ```
 
-### Dedicated compute (Advanced)
+### Persistent compute (Advanced)
 
-You can also configure several advanced properties when creating Azure Machine Learning Compute.  These properties allow you to create a dedicated cluster of fixed size, or within an existing Azure Virtual Network in your subscription.
+You can also configure several advanced properties when creating Azure Machine Learning Compute.  These properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.
 
 In addition to `vm_size` and `max_nodes`, you can use the following properties:
 
@@ -190,7 +200,7 @@ In addition to `vm_size` and `max_nodes`, you can use the following properties:
 * **subnet_name**: Name of subnet within the virtual network. Azure Machine Learning Compute resources will be assigned IP addresses from this subnet range.
 
 > [!TIP]
-> When you create a dedicated Azure Machine Learning Compute resource you also have the ability to update its properties such as the min_nodes or the max_nodes. Simply call the `update()` function for it.
+> When you create a persistent Azure Machine Learning Compute resource you also have the ability to update its properties such as the min_nodes or the max_nodes. Simply call the `update()` function for it.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -218,11 +228,11 @@ cpu_cluster.wait_for_completion(show_output=True)
 
 ```
 
-For a Jupyter Notebook that demonstrates training on Azure Machine Learning Compute, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/getting-started/train-on-amlcompute/train-on-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/getting-started/train-on-amlcompute/train-on-amlcompute.ipynb).
 
 ## <a id="vm"></a>Remote VM
 
-Azure Machine Learning also supports bringing your own compute resource and attaching it to your workspace. One such resource type is an arbitrary remote VM as long as it is accessible from Azure Machine Learning service. Specifically, given the IP address and credentials (username/password or SSH key), you can use any accessible VM for remote runs. You can use a system-built conda environment, an already existing Python environment, or a Docker container. Execution using Docker container requires that you have Docker Engine running on the VM. This functionality is especially useful when you want a more flexible, cloud-based dev/experimentation environment than your local machine.
+Azure Machine Learning also supports bringing your own compute resource and attaching it to your workspace. One such resource type is an arbitrary remote VM as long as it is accessible from Azure Machine Learning service. It could be either an Azure VM or a remote server in your organization or on-premises. Specifically, given the IP address and credentials (username/password or SSH key), you can use any accessible VM for remote runs.
+You can use a system-built conda environment, an already existing Python environment, or a Docker container. Execution using Docker container requires that you have Docker Engine running on the VM. This functionality is especially useful when you want a more flexible, cloud-based dev/experimentation environment than your local machine.
 
 > [!TIP]
 > We recommended using the Data Science Virtual Machine as the Azure VM of choice for this scenario. It is a pre-configured data science and AI development environment in Azure with a curated choice of tools and frameworks for full lifecycle of ML development. For more information on using the Data Science Virtual Machine with Azure Machine Learning, see the [Configure a development environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm) document.
@@ -235,16 +245,25 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
 1. To attach an existing virtual machine as a compute target, you must provide the fully qualified domain name, login name, and password for the virtual machine.  In the example, replace ```<fqdn>``` with public fully qualified domain name of the VM, or the public IP address. Replace ```<username>``` and ```<password>``` with the SSH user and password for the VM:
 
     ```python
-    from azureml.core.compute import RemoteCompute
+    from azureml.core.compute import RemoteCompute, ComputeTarget
+    
+    # Create compute config.
+    attach_config = RemoteCompute.attach_configuration(address = "ipaddress",
+                                                       ssh_port=22,
+                                                       username='<username>',
+                                                       password="<password>")
+    # If using SSH instead of a password, use this:
+    #                                                  ssh_port=22,
+    #                                                   username='<username>',
+    #                                                   password=None,
+    #                                                   private_key_file="path-to-file",
+    #                                                   private_key_passphrase="passphrase")
 
-    dsvm_compute = RemoteCompute.attach(ws,
-                                    name="attach-dsvm",
-                                    username='<username>',
-                                    address="<fqdn>",
-                                    ssh_port=22,
-                                    password="<password>")
+    # Attach the compute
+    compute = ComputeTarget.attach(ws, "attach-dsvm", attach_config)
 
-    dsvm_compute.wait_for_completion(show_output=True)
+    compute.wait_for_completion(show_output=True)
+    ```
 
 1. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on DSVM:
 
@@ -277,8 +296,6 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
 
     ```
 
-For a Jupyter Notebook that demonstrates training on a Remote VM, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
-
 ## <a id="databricks"></a>Azure Databricks
 
 Azure Databricks is an Apache Spark-based environment in the Azure cloud. It can be used as a compute target when training models with an Azure Machine Learning pipeline.
@@ -291,25 +308,15 @@ Azure Databricks is an Apache Spark-based environment in the Azure cloud. It can
 To attach Azure Databricks as a compute target, you must use the Azure Machine Learning SDK and provide the following information:
 
 * __Compute name__: The name you want to assign to this compute resource.
-* __Resource ID__: The resource ID of the Azure Databricks workspace. The following text is an example of the format for this value:
-
-    ```text
-    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>
-    ```
-
-    > [!TIP]
-    > To get the resource ID, use the following Azure CLI command. Replace `<databricks-ws>` with the name of your Databricks workspace:
-    > ```azurecli-interactive
-    > az resource list --name <databricks-ws> --query [].id
-    > ```
-
+* __Databricks workspace name__: The name of the Azure Databricks workspace.
 * __Access token__: The access token used to authenticate to Azure Databricks. To generate an access token, see the [Authentication](https://docs.azuredatabricks.net/api/latest/authentication.html) document.
 
 The following code demonstrates how to attach Azure Databricks as a compute target:
 
 ```python
 databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
-databricks_resource_id = os.environ.get("AML_DATABRICKS_RESOURCE_ID", "<databricks_resource_id>")
+databricks_workspace_name = os.environ.get("AML_DATABRICKS_WORKSPACE", "<databricks_workspace_name>")
+databricks_resource_group = os.environ.get("AML_DATABRICKS_RESOURCE_GROUP", "<databricks_resource_group>")
 databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
 
 try:
@@ -318,13 +325,17 @@ try:
 except ComputeTargetException:
     print('compute not found')
     print('databricks_compute_name {}'.format(databricks_compute_name))
-    print('databricks_resource_id {}'.format(databricks_resource_id))
+    print('databricks_workspace_name {}'.format(databricks_workspace_name))
     print('databricks_access_token {}'.format(databricks_access_token))
-    databricks_compute = DatabricksCompute.attach(
-             workspace=ws,
-             name=databricks_compute_name,
-             resource_id=databricks_resource_id,
-             access_token=databricks_access_token
+
+    # Create attach config
+    attach_config = DatabricksCompute.attach_configuration(resource_group = databricks_resource_group,
+                                                           workspace_name = databricks_workspace_name,
+                                                           access_token = databricks_access_token)
+    databricks_compute = ComputeTarget.attach(
+             ws,
+             databricks_compute_name,
+             attach_config
          )
     
     databricks_compute.wait_for_completion(True)
@@ -342,23 +353,15 @@ Azure Data Lake Analytics is a big data analytics platform in the Azure cloud. I
 To attach Data Lake Analytics as a compute target, you must use the Azure Machine Learning SDK and provide the following information:
 
 * __Compute name__: The name you want to assign to this compute resource.
-* __Resource ID__: The resource ID of the Data Lake Analytics account. The following text is an example of the format for this value:
-
-    ```text
-    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>
-    ```
-
-    > [!TIP]
-    > To get the resource ID, use the following Azure CLI command. Replace `<datalakeanalytics>` with the name of your Data Lake Analytics account name:
-    > ```azurecli-interactive
-    > az resource list --name <datalakeanalytics> --query [].id
-    > ```
+* __Resource Group__: The resource group that contains the Data Lake Analytics account.
+* __Account name__: The Data Lake Analytics account name.
 
 The following code demonstrates how to attach Data Lake Analytics as a compute target:
 
 ```python
 adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
-adla_resource_id = os.environ.get("AML_ADLA_RESOURCE_ID", "<adla_resource_id>")
+adla_resource_group = os.environ.get("AML_ADLA_RESOURCE_GROUP", "<adla_resource_group>")
+adla_account_name = os.environ.get("AML_ADLA_ACCOUNT_NAME", "<adla_account_name>")
 
 try:
     adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
@@ -366,11 +369,16 @@ try:
 except ComputeTargetException:
     print('compute not found')
     print('adla_compute_name {}'.format(adla_compute_name))
-    print('adla_resource_id {}'.format(adla_resource_id))
-    adla_compute = AdlaCompute.attach(
-             workspace=ws,
-             name=adla_compute_name,
-             resource_id=adla_resource_id
+    print('adla_resource_id {}'.format(adla_resource_group))
+    print('adla_account_name {}'.format(adla_account_name))
+    # create attach config
+    attach_config = AdlaCompute.attach_configuration(resource_group = adla_resource_group,
+                                                     account_name = adla_account_name)
+    # Attach ADLA
+    adla_compute = ComputeTarget.attach(
+             ws,
+             adla_compute_name,
+             attach_config
          )
     
     adla_compute.wait_for_completion(True)
@@ -379,7 +387,7 @@ except ComputeTargetException:
 > [!TIP]
 > Azure Machine Learning pipelines can only work with data stored in the default data store of the Data Lake Analytics account. If the data you need to work with is in a non-default store, you can use a [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) to copy the data before training.
 
-## <a id="hdinsight"></a>Attach an HDInsight cluster 
+## <a id="hdinsight"></a>Azure HDInsight 
 
 HDInsight is a popular platform for big-data analytics. It provides Apache Spark, which can be used to train your model.
 
@@ -398,14 +406,17 @@ To configure HDInsight as a compute target, you must provide the fully qualified
 > ![Screenshot of the HDInsight cluster overview with the URL entry highlighted](./media/how-to-set-up-training-targets/hdinsight-overview.png)
 
 ```python
-from azureml.core.compute import HDInsightCompute
+from azureml.core.compute import HDInsightCompute, ComputeTarget
 
 try:
     # Attaches a HDInsight cluster as a compute target.
-    HDInsightCompute.attach(ws,name = "myhdi",
-                            address = "<fqdn>",
-                            username = "<username>",
-                            password = "<password>")
+    attach_config = HDInsightCompute.attach_configuration(address = "fqdn-or-ipaddress",
+                                                          ssh_port = 22,
+                                                          username = "username",
+                                                          password = None, #if using ssh key
+                                                          private_key_file = "path-to-key-file",
+                                                          private_key_phrase = "key-phrase")
+    compute = ComputeTarget.attach(ws, "myhdi", attach_config)
 except UserErrorException as e:
     print("Caught = {}".format(e.message))
     print("Compute config already attached.")
@@ -445,7 +456,6 @@ run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
-For a Jupyter Notebook that demonstrates training with Spark on HDInsight, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
 
 ### Submit using a pipeline
 
@@ -546,14 +556,11 @@ Follow the above steps to view the list of compute targets, then use the followi
 1. Now you can submit a run against these targets as detailed above
 
 ## Examples
-The following notebooks demonstrate concepts in this article:
-* [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
-* [getting-started/train-on-amlcompute/train-on-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/getting-started/train-on-amlcompute)
-* [01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm)
-* [01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark)
-* [tutorials/01.train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
+Refer to notebooks in the following locations:
+* [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
 
-Get these notebooks:
+* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps

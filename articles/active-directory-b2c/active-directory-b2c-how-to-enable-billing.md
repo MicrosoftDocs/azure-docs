@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -21,7 +21,7 @@ ms.component: B2C
 Usage charges for Azure AD B2C are billed to an Azure subscription. When an Azure AD B2C tenant is created, the tenant administrator needs to explicitly link the Azure AD B2C tenant to an Azure subscription. This article shows you how.
 
 > [!NOTE]
-> A subscription linked to an Azure AD B2C tenant can only be used for the billing of Azure AD B2C usage. The subscription cannot be used to add other Azure services or Office 365 licenses *within the Azure AD B2C tenant*.
+> A subscription linked to an Azure AD B2C tenant can be used for the billing of Azure AD B2C usage or other Azure resources including additional Azure AD B2C resources.  It cannot be used to add other Azure license-based services or Office 365 licenses within the Azure AD B2C tenant.
 
  The subscription link is achieved by creating an Azure AD B2C "resource" within the target Azure subscription. Many Azure AD B2C "resources" can be created within a single Azure subscription, along with other Azure resources (for example, VMs, Data storage, LogicApps). You can see all of the resources within the subscription by going to the Azure AD tenant that the subscription is associated to.
 

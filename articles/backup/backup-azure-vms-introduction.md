@@ -2,17 +2,17 @@
 title: Planning your VM backup infrastructure in Azure
 description: Important considerations when planning to back up virtual machines in Azure
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: backup vms, backup virtual machines
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/29/2018
-ms.author: markgal
+ms.author: raynew
 ---
 
 # Plan your VM backup infrastructure in Azure
-This article provides performance and resource suggestions to help you plan your VM backup infrastructure. It also defines key aspects of the Backup service; these aspects can be critical in determining your architecture, capacity planning, and scheduling. If you've [prepared your environment](backup-azure-arm-vms-prepare.md), planning is the next step before you begin [to back up VMs](backup-azure-arm-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/). 
+This article provides performance and resource suggestions to help you plan your VM backup infrastructure. It also defines key aspects of the Backup service; these aspects can be critical in determining your architecture, capacity planning, and scheduling. If you've [prepared your environment](backup-azure-arm-vms-prepare.md), planning is the next step before you begin [to back up VMs](backup-azure-arm-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 > [!NOTE]
 > This article is for use with managed and unmanaged disks. If you use unmanaged disks, there are storage account recommendations. If you use [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md), you don't have to worry about performance or resource utilization issues. Azure optimizes storage utilization for you.
@@ -92,7 +92,19 @@ Total backup time of less than 24 hours is valid for incremental backups, but ma
 
 ### Why are backup times longer than 12 hours?
 
-Backup consists of two phases: taking snapshots and transferring the snapshots to the vault. The Backup service optimizes for storage. When transferring the snapshot data to a vault, the service only transfers incremental changes from the previous snapshot.  To determine the incremental changes, the service computes the checksum of the blocks. If a block is changed, the block is identified as a block to be sent to the vault. Then the service drills further into each of the identified blocks, looking for opportunities to minimize the data to transfer. After evaluating all changed blocks, the service coalesces the changes and sends them to the vault. In some legacy applications, small, fragmented writes are not optimal for storage. If the snapshot contains many small, fragmented writes, the service spends additional time processing the data written by the applications. For applications running inside the VM, the recommended application-writes block minimum is 8 KB. If your application uses a block of less than 8 KB, backup performance is effected. For help with tuning your application to improve backup performance, see [Tuning applications for optimal performance with Azure storage](../virtual-machines/windows/premium-storage-performance.md). Though the article on backup performance uses Premium storage examples, the guidance is applicable for Standard storage disks.
+Backup consists of two phases: taking snapshots and transferring the snapshots to the vault. The Backup service optimizes for storage. When transferring the snapshot data to a vault, the service only transfers incremental changes from the previous snapshot.  To determine the incremental changes, the service computes the checksum of the blocks. If a block is changed, the block is identified as a block to be sent to the vault. Then the service drills further into each of the identified blocks, looking for opportunities to minimize the data to transfer. After evaluating all changed blocks, the service coalesces the changes and sends them to the vault. In some legacy applications, small, fragmented writes are not optimal for storage. If the snapshot contains many small, fragmented writes, the service spends additional time processing the data written by the applications. For applications running inside the VM, the recommended application-writes block minimum is 8 KB. If your application uses a block of less than 8 KB, backup performance is effected. For help with tuning your application to improve backup performance, see [Tuning applications for optimal performance with Azure storage](../virtual-machines/windows/premium-storage-performance.md). Though the article on backup performance uses Premium storage examples, the guidance is applicable for Standard storage disks.<br>
+There can be several reasons for the long backup time:
+  1. **First backup for a newly added disk to an already protected VM** <br>
+    If a VM has completed initial backup and is performing incremental backup. Adding a new disk(s) might miss 1 day SLA depending on the size of the new disk.
+  2. **Fragmentation** <br>
+    If workload (application) running on the VM performs small fragmented writes then it can adversely impact backup performance. <br>
+  3. **Storage account overloaded** <br>
+      a. If the backup is scheduled during peek application usage.  
+      b. If more than 5 to 10 disks are hosted from the same storage account.<br>
+  4. **Consistency Check(CC) mode** <br>
+      For > 1TB disks, if the backup happens in the CC mode due to the reasons mentioned below:<br>
+        a. The managed disk moves as part of VM reboot.<br>
+        b. Promote snapshot to base blob.<br>
 
 ## Total restore time
 

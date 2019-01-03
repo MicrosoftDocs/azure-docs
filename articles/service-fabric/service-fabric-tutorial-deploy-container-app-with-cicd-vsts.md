@@ -61,7 +61,7 @@ Verify your email and select your organization in the **Account** drop-down. You
 
 Publishing the repository creates a new team project in your account with the same name as the local repo. To create the repository in an existing team project, click **Advanced** next to **Repository** name and select a team project. You can view your code on the web by selecting **See it on the web**.
 
-## Configure Continuous Delivery with VSTS
+## Configure Continuous Delivery with Azure Pipelines
 
 An Azure DevOps build definition describes a workflow that is composed of a set of build steps that are executed sequentially. Create a build definition that produces a Service Fabric application package, and other artifacts, to deploy to a Service Fabric cluster. Learn more about Azure DevOps [build definitions](https://www.visualstudio.com/docs/build/define/create). 
 

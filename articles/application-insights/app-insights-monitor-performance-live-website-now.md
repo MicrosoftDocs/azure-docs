@@ -5,21 +5,18 @@ services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-
 ---
 # Instrument web apps at runtime with Application Insights
 
 You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. If your apps are hosted by an on-premises IIS server, install Status Monitor. If they're Azure web apps or run in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).)
-You need a [Microsoft Azure](http://azure.com) subscription.
+You need a [Microsoft Azure](https://azure.com) subscription.
 
 ![Screenshot of App Insights overview graphs containing information on failed requests, server response time, and server requests](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
@@ -117,6 +114,7 @@ If you want to re-publish without adding Application Insights to the code, be aw
   * In IIS Manager, select your application pool, open **Advanced Settings**, and under **Process Model** note the identity.
   * In Computer management control panel, add this identity to the Performance Monitor Users group.
 * If you have MMA/SCOM (Systems Center Operations Manager) installed on your server, some versions can conflict. Uninstall both SCOM and Status Monitor, and re-install the latest versions.
+* Status Monitor logs can be found at this location by default: "C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log"
 * See [Troubleshooting][qna].
 
 ## System Requirements
@@ -216,9 +214,12 @@ It doesn't collect telemetry by itself. It just configures the web apps and sets
 
 When you select a web app for Status Monitor to instrument:
 
-* Downloads and places the Application Insights assemblies and .config file in the web app's binaries folder.
-* Modifies `web.config` to add the Application Insights HTTP tracking module.
+* Downloads and places the Application Insights assemblies and ApplicationInsights.config file in the web app's binaries folder.
 * Enables CLR profiling to collect dependency calls.
+
+### What version of Application Insights SDK does Status Monitor install?
+
+As of now, Status Monitor can only install Application Insights SDK versions 2.3 or 2.4.
 
 ### Do I need to run Status Monitor whenever I update the app?
 
@@ -241,7 +242,7 @@ For applications already instrumented at compile time:
  * Dependency calls (.NET 4.5); return values in dependency calls (.NET 4.6).
  * Exception stack trace values.
 
-[Learn more](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Learn more](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## Video
 

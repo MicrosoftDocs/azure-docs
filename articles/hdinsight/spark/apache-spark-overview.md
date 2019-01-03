@@ -1,5 +1,5 @@
 ---
-title: What is Apache Spark in Azure HDInsight 
+title: What is Apache Spark - Azure HDInsight
 description: This article provides an introduction to Spark in HDInsight and the different scenarios in which you can use Spark cluster in HDInsight.
 services: hdinsight
 author: hrasheed-msft
@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: overview
-ms.date: 05/07/2018
+ms.date: 12/07/2018
 ms.author: hrasheed
 
 #customer intent: As a developer new to Apache Spark and Apache Spark in Azure HDInsight, I want to have a basic understanding of Microsoft's implementation of Apache Spark in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
@@ -16,10 +16,9 @@ ms.author: hrasheed
 ---
 # What is Apache Spark in Azure HDInsight
 
-*Apache Spark* parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure HDInsight is the Microsoft implementation of Apache Spark in the cloud. HDInsight makes it easier to create and configure a Spark cluster in Azure. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Store. So you can use HDInsight Spark clusters to process your data stored in Azure. For the components and the versioning information, see [Apache Hadoop components and versions in Azure HDInsight](../hdinsight-component-versioning.md).
+*Apache Spark* is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure HDInsight is the Microsoft implementation of Apache Spark in the cloud. HDInsight makes it easier to create and configure a Spark cluster in Azure. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Store. So you can use HDInsight Spark clusters to process your data stored in Azure. For the components and the versioning information, see [Apache Hadoop components and versions in Azure HDInsight](../hdinsight-component-versioning.md).
 
 ![Spark: a unified framework](./media/apache-spark-overview/hdinsight-spark-overview.png)
-
 
 ## What is Spark?
 
@@ -87,7 +86,7 @@ Spark clusters in HDInsight enable the following key scenarios:
 - Spark streaming and real-time data analysis
 
     Spark clusters in HDInsight offer a rich support for building real-time analytics solutions. While Spark already has connectors to ingest data from many sources like Kafka, Flume, Twitter, ZeroMQ, or TCP sockets, Spark in HDInsight adds first-class support for ingesting data from Azure Event Hubs. Event Hubs is the most widely used queuing service on Azure. Having an out-of-the-box support for Event Hubs makes Spark clusters in HDInsight an ideal platform for building real-time analytics pipeline.
-    
+
 ## Where do I start?
 
 You can use the following articles to learn more about Apache Spark in HDInsight:
@@ -103,4 +102,3 @@ You can use the following articles to learn more about Apache Spark in HDInsight
 In this overview, you get some basic understanding of Apache Spark in Azure HDInsight. Advance to the next article to learn how to create an HDInsight Spark cluster and run some Spark SQL queries:
 
 - [Create an Apache Spark cluster in HDInsight](./apache-spark-jupyter-spark-sql.md)
-

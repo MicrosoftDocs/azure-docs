@@ -8,13 +8,13 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/04/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
 ---
 
 # Overview of function types and features for Durable Functions (Azure Functions)
 
-Azure Durable Functions provides stateful orchestration of function execution. A durable function is a solution made up of different Azure Functions. Each of these functions can play different roles as part of an orchestration. The following document provides an overview of the types of functions involved in a durable function orchestration. It also includes some common patterns in connecting functions together.  To get started right now, Create your first durable function in [C#](durable-functions-create-first-csharp.md) or [JavaScript](quickstart-js-vscode.md).
+Durable Functions provides stateful orchestration of function execution. A durable function is a solution made up of different Azure Functions. Each of these functions can play different roles as part of an orchestration. The following document provides an overview of the types of functions involved in a durable function orchestration. It also includes some common patterns in connecting functions together.  To get started right now, create your first durable function in [C#](durable-functions-create-first-csharp.md) or [JavaScript](quickstart-js-vscode.md).
 
 ![Types of durable functions][1]  
 
@@ -22,15 +22,17 @@ Azure Durable Functions provides stateful orchestration of function execution. A
 
 ### Activity functions
 
-Activity functions are the basic unit of work in a durable orchestration.  Activity functions are the functions and tasks being orchestrated in the process.  For example, you may create a durable function to process an order - check the inventory, charge the customer, and create a shipment.  Each one of those tasks would be an activity function.  Activity functions don't have any restrictions in the type of work you can do in them.  They can be written in any language supported by Azure Functions.  The durable task framework guarantees that each called activity function will be executed at least once during an orchestration.
+Activity functions are the basic unit of work in a durable orchestration.  Activity functions are the functions and tasks being orchestrated in the process.  For example, you may create a durable function to process an order - check the inventory, charge the customer, and create a shipment.  Each one of those tasks would be an activity function.  Activity functions don't have any restrictions in the type of work you can do in them.  They can be written in any [language supported by Durable Functions](durable-functions-overview.md#language-support). The Durable Task Framework guarantees that each called activity function will be executed at least once during an orchestration.
 
-An activity function must be triggered by an [activity trigger](durable-functions-bindings.md#activity-triggers).  This function will receive a [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) as a parameter. You can also bind the trigger to any other object to pass in inputs to the function.  Your activity function can also return values back to the orchestrator.  If sending or returning many values from an activity function, you can [leverage tuples or arrays](durable-functions-bindings.md#passing-multiple-parameters).  Activity functions can only be triggered from an orchestration instance.  While some code may be shared between an activity function and another function (like an HTTP triggered function), each function can only have one trigger.
+An activity function must be triggered by an [activity trigger](durable-functions-bindings.md#activity-triggers).  .NET functions will receive a [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) as a parameter. You can also bind the trigger to any other object to pass in inputs to the function. In JavaScript, input can be accessed via the `<activity trigger binding name>` property on the [`context.bindings` object](../functions-reference-node.md#bindings).
+
+Your activity function can also return values back to the orchestrator.  If sending or returning many values from an activity function, you can [leverage tuples or arrays](durable-functions-bindings.md#passing-multiple-parameters).  Activity functions can only be triggered from an orchestration instance.  While some code may be shared between an activity function and another function (like an HTTP triggered function), each function can only have one trigger.
 
 More information and examples can be found in the [Durable Functions binding article](durable-functions-bindings.md#activity-triggers).
 
 ### Orchestrator functions
 
-Orchestrator functions are the heart of a durable function.  Orchestrator functions describe the way and order actions are executed.  Orchestrator functions describe the orchestration in code (C# or JavaScript) as shown in the [durable functions overview](durable-functions-overview.md).  An orchestration can have many different types of actions, like [activity Functions](#activity-functions), [sub-orchestrations](#sub-orchestrations), [waiting for external events](#external-events), and [timers](#durable-timers).  
+Orchestrator functions are the heart of a durable function.  Orchestrator functions describe the way and order actions are executed.  Orchestrator functions describe the orchestration in code (C# or JavaScript) as shown in the [durable functions overview](durable-functions-overview.md).  An orchestration can have many different types of actions, like [activity functions](#activity-functions), [sub-orchestrations](#sub-orchestrations), [waiting for external events](#external-events), and [timers](#durable-timers).  
 
 An orchestrator function must be triggered by an [orchestration trigger](durable-functions-bindings.md#orchestration-triggers).
 
@@ -74,7 +76,9 @@ More information and examples can be found in the [error handling article](durab
 
 While a durable orchestration generally lives within a context of a single function app, there are patterns to enable you to coordinate orchestrations across many function apps.  Even though cross-app communication may be happening over HTTP, using the durable framework for each activity means you can still maintain a durable process across two apps.
 
-An example of a cross-function app orchestration in C# is provided below.  One activity will start the external orchestration. Another activity will then retrieve and return the status.  The orchestrator will wait for the status to be complete before continuing.
+Examples of a cross-function app orchestration in C# and JavaScript are provided below.  One activity will start the external orchestration. Another activity will then retrieve and return the status.  The orchestrator will wait for the status to be complete before continuing.
+
+#### C#
 
 ```csharp
 [FunctionName("OrchestratorA")]
@@ -123,6 +127,64 @@ public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUr
         return response.StatusCode == HttpStatusCode.OK;
     }
 }
+```
+
+#### JavaScript (Functions 2.x only)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    // Do some work...
+
+    // Call a remote orchestration
+    const statusUrl = yield context.df.callActivity("StartRemoteOrchestration", "OrchestratorB");
+
+    // Wait for the remote orchestration to complete
+    while (true) {
+        const isComplete = yield context.df.callActivity("CheckIsComplete", statusUrl);
+        if (isComplete) {
+            break;
+        }
+
+        const waitTime = moment(context.df.currentUtcDateTime).add(1, "m").toDate();
+        yield context.df.createTimer(waitTime);
+    }
+
+    // B is done. Now go do more work...
+});
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, orchestratorName) {
+    const options = {
+        method: "POST",
+        uri: `https://appB.azurewebsites.net/orchestrations/${orchestratorName}`,
+        body: ""
+    };
+
+    const statusUrl = await request(options);
+    return statusUrl;
+};
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, statusUrl) {
+    const options = {
+        method: "GET",
+        uri: statusUrl,
+        resolveWithFullResponse: true,
+    };
+
+    const response = await request(options);
+    // 200 = Complete, 202 = Running
+    return response.statusCode === 200;
+};
 ```
 
 ## Next steps

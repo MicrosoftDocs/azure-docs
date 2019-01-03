@@ -10,7 +10,6 @@ ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
@@ -76,7 +75,7 @@ The main categories of data are:
 * Log traces used for debugging.
 
 ## Case Study: Real Madrid F.C.
-The web service of [Real Madrid Football Club](http://www.realmadrid.com/) serves about 450 million fans around the world. Fans access it both through web browsers and the Club's mobile apps. Fans can not only book tickets, but also access information and video clips on results, players and upcoming games. They can search with filters such as numbers of goals scored. There are also links to social media. The user experience is highly personalized, and is designed as a two-way communication to engage fans.
+The web service of [Real Madrid Football Club](https://www.realmadrid.com/) serves about 450 million fans around the world. Fans access it both through web browsers and the Club's mobile apps. Fans can not only book tickets, but also access information and video clips on results, players and upcoming games. They can search with filters such as numbers of goals scored. There are also links to social media. The user experience is highly personalized, and is designed as a two-way communication to engage fans.
 
 The solution [is a system of services and applications on Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). Scalability is a key requirement: traffic is variable and can reach very high volumes during and around matches.
 
@@ -168,7 +167,7 @@ When an alert is raised, Application Insights can automatically create a work it
 ## Next steps
 Getting started with Application Insights is easy. The main options are:
 
-* Instrument an already-running web app. This gives you all the built-in performance telemetry. It's available for [Java](app-insights-java-live.md) and [IIS servers](app-insights-monitor-performance-live-website-now.md), and also for [Azure web apps](app-insights-overview.md).
+* Instrument an already-running web app. This gives you all the built-in performance telemetry. It's available for [Java](app-insights-java-live.md) and [IIS servers](app-insights-monitor-performance-live-website-now.md), and also for [Azure App Service](app-insights-overview.md).
 * Instrument your project during development. You can do this for [ASP.NET](app-insights-asp-net.md) or [Java](app-insights-java-get-started.md) apps, as well as [Node.js](app-insights-nodejs.md) and a host of [other types](app-insights-platforms.md). 
 * Instrument [any web page](app-insights-javascript.md) by adding a short code snippet.
 

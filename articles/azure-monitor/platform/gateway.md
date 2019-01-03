@@ -10,11 +10,9 @@ ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Connect computers without Internet access using the Log Analytics gateway
@@ -77,7 +75,7 @@ The Log Analytics gateway is available in the following languages:
 - Spanish (International)
 
 ### Supported encryption protocols
-The Log Analytics gateway only supports Transport Layer Security (TLS) 1.0, 1.1 and 1.2.  It does not support Secure Sockets Layer (SSL).  To insure the security of data in transit to Log Analytics, we strongly encourage you to configure the gateway to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](../../log-analytics/log-analytics-data-security.md#sending-data-securely-using-tls-12). 
+The Log Analytics gateway only supports Transport Layer Security (TLS) 1.0, 1.1 and 1.2.  It does not support Secure Sockets Layer (SSL).  To insure the security of data in transit to Log Analytics, we strongly encourage you to configure the gateway to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ### Supported number of agent connections
 The following table highlights the supported number of agents communicating with a gateway server.  This support is based on agents uploading ~200KB of data every 6 seconds. The data volume per agent tested is about 2.7GB per day.
@@ -137,7 +135,7 @@ To learn how to design and deploy a Windows Server 2016 network load balancing c
 The following section includes steps on how to configure directly connected Log Analytics agents, an Operations Manager management group, or Azure Automation Hybrid Runbook Workers with the Log Analytics gateway to communicate with Azure Automation or Log Analytics.  
 
 ### Configure standalone Log Analytics agent
-To understand requirements and steps on how to install the Log Analytics agent on Windows computers directly connecting to Log Analytics, see [Connect Windows computers to Log Analytics](agent-windows.md) or for Linux computers see [Connect Linux computers to Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md). In the place of specifying a proxy server while configuring the agent, you replace that value with the IP address of the Log Analytics gateway server and its port number.  If you have deployed multiple gateway servers behind a network load balancer, the Log Analytics agent proxy configuration is the virtual IP address of the NLB.  
+To understand requirements and steps on how to install the Log Analytics agent on Windows computers directly connecting to Log Analytics, see [Connect Windows computers to Log Analytics](agent-windows.md) or for Linux computers see [Connect Linux computers to Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md). In the place of specifying a proxy server while configuring the agent, you replace that value with the IP address of the Log Analytics gateway server and its port number.  If you have deployed multiple gateway servers behind a network load balancer, the Log Analytics agent proxy configuration is the virtual IP address of the NLB.  
 
 For information related to the Automation Hybrid Runbook Worker, see [Deploy Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
 

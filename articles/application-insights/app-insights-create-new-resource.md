@@ -10,7 +10,6 @@ ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
@@ -22,11 +21,11 @@ Azure Application Insights displays data about your application in a Microsoft A
 After you have created the resource, you get its instrumentation key and use that to configure the SDK in the application. The resource key links the telemetry to the resource.
 
 ## Sign up to Microsoft Azure
-If you haven't got a [Microsoft account, get one now](http://live.com). (If you use services like Outlook.com, OneDrive, Windows Phone, or XBox Live, you already have a Microsoft account.)
+If you haven't got a [Microsoft account, get one now](https://live.com). (If you use services like Outlook.com, OneDrive, Windows Phone, or XBox Live, you already have a Microsoft account.)
 
-You also need a subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your Windows Live ID. You're only charged for what you use. The default basic plan allows for a certain amount of experimental use free of charge.
+You also need a subscription to [Microsoft Azure](https://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your Windows Live ID. You're only charged for what you use. The default basic plan allows for a certain amount of experimental use free of charge.
 
-When you've got access to a subscription, log in to Application Insights at [http://portal.azure.com](https://portal.azure.com), and use your Live ID to login.
+When you've got access to a subscription, log in to Application Insights at [https://portal.azure.com](https://portal.azure.com), and use your Live ID to login.
 
 ## Create an Application Insights resource
 In the [portal.azure.com](https://portal.azure.com), add an Application Insights resource:

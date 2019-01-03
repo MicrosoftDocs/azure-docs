@@ -92,7 +92,7 @@ Open a command prompt and create a folder named *sqltest*. Navigate to the folde
         console.log('Reading rows from the Table...');
 
         // Read all rows from table
-        request = new Request(
+        var request = new Request(
             "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc "
                 + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid",
             function(err, rowCount, rows)

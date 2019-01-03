@@ -1,10 +1,11 @@
 ---
-title: "Tutorial 2: Batch test with set of 1000 utterances "
+title: Batch test
 titleSuffix: Azure Cognitive Services
 description: This tutorial demonstrates how to use batch testing to find utterance prediction issues in your app and fix them.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article

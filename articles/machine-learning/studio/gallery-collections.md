@@ -4,9 +4,9 @@ description: You can use a collection in Azure AI Gallery to group experiments, 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: c834a0dc-492f-4fa4-8a48-c86bba7b2b97
 ms.service: machine-learning
@@ -93,4 +93,4 @@ To remove an item from your collection, select **Remove**.
 
 **[Go to the Gallery](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+

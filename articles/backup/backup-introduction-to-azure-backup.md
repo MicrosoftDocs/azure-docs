@@ -2,13 +2,13 @@
 title: What is Azure Backup?
 description: Use Azure Backup to back up and restore data and workloads from Windows Servers, Windows workstations, System Center DPM servers, and Azure virtual machines.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: backup and restore; recovery services; backup solutions
 ms.service: backup
 ms.topic: overview
 ms.date: 8/2/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
 ---
 # Overview of the features in Azure Backup

@@ -1,5 +1,5 @@
 ---
-title: CI/CD with Azure Container Service Engine and Swarm Mode
+title: (DEPRECATED) CI/CD with Azure Container Service Engine and Swarm Mode
 description: Use Azure Container Service Engine with Docker Swarm Mode, an Azure Container Registry, and Azure DevOps to deliver continuously a multi-container .NET Core application
 services: container-service
 author: diegomrtnzg
@@ -12,7 +12,9 @@ ms.author: diegomrtnzg
 ms.custom: mvc
 ---
 
-# Full CI/CD pipeline to deploy a multi-container application on Azure Container Service with ACS Engine and Docker Swarm Mode using Azure DevOps
+# (DEPRECATED) Full CI/CD pipeline to deploy a multi-container application on Azure Container Service with ACS Engine and Docker Swarm Mode using Azure DevOps
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 *This article is based on 
 [Full CI/CD pipeline to deploy a multi-container application on Azure Container Service with Docker Swarm using Azure DevOps](container-service-docker-swarm-setup-ci-cd.md) documentation*

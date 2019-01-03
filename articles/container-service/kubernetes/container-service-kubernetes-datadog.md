@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Kubernetes cluster with Datadog
+title: (DEPRECATED) Monitor Azure Kubernetes cluster with Datadog
 description: Monitoring Kubernetes cluster in Azure Container Service using Datadog
 services: container-service
 author: bburns
@@ -12,9 +12,9 @@ ms.author: bburns
 ms.custom: mvc
 ---
 
-# Monitor an Azure Container Service cluster with DataDog
+# (DEPRECATED) Monitor an Azure Container Service cluster with DataDog
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## Prerequisites
 This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).

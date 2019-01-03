@@ -39,13 +39,13 @@ If your organization has turned on this new experience, you’ll be able to turn
 
     After typing your username, you'll see a page with a two-digit number, asking you to approve the sign-in through the Microsoft Authenticator app. If you don’t want to use this sign in method, you can select **Use your password instead**, and sign in using your password.
 
-    ![Approve sign-in box](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
+    ![Approve sign-in box](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
 
 2. In the Microsoft Authentication app, you'll get a notification asking you to **Approve sign-in**. Choose **Approve** if you recognize the sign-in attempt. Otherwise, choose **Deny**. 
 
 3. Tap the same number you see on the **Approve sign-in** screen. Use your phone’s PIN or your biometric key to complete the authentication.
 
-    ![Approve sign-in box with number to select](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
+    ![Approve sign-in box with number to select](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
 
 ## Turn on phone sign-in for your personal account 
 You can turn on phone sign-in for your personal Microsoft account, such as the account you use to sign in to Outlook.com, Xbox, or Skype.

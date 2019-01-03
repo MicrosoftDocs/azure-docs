@@ -230,14 +230,14 @@
       - name: MSDN forum
         href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt
       - name: Stack Overflow
-        href: http://stackoverflow.com/questions/tagged/azure-api-management
+        href: https://stackoverflow.com/questions/tagged/azure-api-management
       - name: Videos
         href: https://azure.microsoft.com/documentation/videos/index/?services=api-management
       - name: Roadmap
-        href: http://aka.ms/apimroadmap
+        href: https://aka.ms/apimroadmap
       - name: Power BI solution template for API Management
-        href: http://aka.ms/apimpbi
+        href: https://aka.ms/apimpbi
       - name: Blog
-        href: http://aka.ms/apimblog
+        href: https://aka.ms/apimblog
       - name: Feature requests
-        href: http://aka.ms/apimwish
+        href: https://aka.ms/apimwish

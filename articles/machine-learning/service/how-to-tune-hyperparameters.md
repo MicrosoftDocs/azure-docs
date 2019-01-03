@@ -1,5 +1,6 @@
 ---
-title: Tune hyperparameters for your model using Azure Machine Learning 
+title: Tune hyperparameters for your model
+titleSuffix: Azure Machine Learning service
 description: Efficiently tune hyperparameters for your deep learning / machine learning model using Azure Machine Learning service. You will learn how to define the parameter search space, specify a primary metric to optimize and early terminate poorly performing runs. 
 ms.author: swatig
 author: swatig007
@@ -9,9 +10,11 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
+ms.custom: seodec18
+
 ---
 
-# Tune hyperparameters for your model
+# Tune hyperparameters for your model with Azure Machine Learning service
 
 Efficiently tune hyperparameters for your model using Azure Machine Learning service.  Hyperparameter tuning includes the following steps:
 
@@ -31,8 +34,6 @@ In deep learning / machine learning scenarios, model performance depends heavily
 
 Azure Machine Learning allows you to automate hyperparameter exploration in an efficient manner, saving you significant time and resources. You specify the range of hyperparameter values and a maximum number of training runs. The system then automatically launches multiple simultaneous runs with different parameter configurations and finds the configuration that results in the best performance, measured by the metric you choose. Poorly performing training runs are automatically early terminated, reducing wastage of compute resources. These resources are instead used to explore other hyperparameter configurations.
 
->[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 0.1.80
 
 ## Define search space
 
@@ -343,8 +344,9 @@ print('\n batch size:',parameter_values[7])
 ```
 
 ## Sample notebook
-Refer to 
-* [training/03.train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow) for a tutorial on tuning hyperparameters for a Tensorflow model. 
+Refer to these notebooks:
+* [how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch) 
+* [how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

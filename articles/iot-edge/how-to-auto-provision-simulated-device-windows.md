@@ -1,5 +1,5 @@
 ---
-title: Auto-provision Azure IoT Edge device with DPS - Windows | Microsoft Docs 
+title: Auto-provision Windows devices with DPS - Azure IoT Edge | Microsoft Docs 
 description: Use a simulated device on your Windows machine to test automatic device provisioning for Azure IoT Edge with Device Provisioning Service
 author: kgremban
 manager: philmea
@@ -8,6 +8,7 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Create and provision a simulated TPM Edge device on Windows
@@ -55,14 +56,13 @@ After creating the individual enrollment, save the value of the **Registration I
 
 After completing the previous section, you should see your new device listed as an IoT Edge device in your IoT Hub. Now, you need to install the IoT Edge runtime on your device. 
 
-The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge. On devices running Windows, you can choose to either use Windows containers or Linux containers. Choose the type of containers that you want to use, and follow the steps. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning. 
+The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge.  
 
-Follow the instructions to install the IoT Edge runtime on the device that is running the simulated TPM from the previous section. 
+Follow the instructions to install the IoT Edge runtime on the device that is running the simulated TPM from the previous section. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning.
 
-Know your DPS **ID Scope** and device **Registration ID** before beginning these articles. 
+Know your DPS **ID Scope** and device **Registration ID** before installing IoT Edge on your device. 
 
-* [Windows containers](how-to-install-iot-edge-windows-with-windows.md)
-* [Linux containers](how-to-install-iot-edge-windows-with-linux.md)
+[Install and automatically provision IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## Verify successful installation
 

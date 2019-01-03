@@ -1,5 +1,6 @@
 ---
-title: Train TensorFlow models with Azure Machine Learning
+title: Train models with TensorFlow
+titleSuffix: Azure Machine Learning service
 description: Learn how to run single-node and distributed training of TensorFlow models with the TensorFlow estimator
 services: machine-learning
 ms.service: machine-learning
@@ -8,10 +9,11 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 12/04/2018
+ms.custom: seodec18
 ---
 
-# How to train TensorFlow models
+# Train TensorFlow models with Azure Machine Learning service
 
 For deep neural network (DNN) training using TensorFlow, Azure Machine Learning provides a custom `TensorFlow` class of the `Estimator`. The Azure SDK's `TensorFlow` estimator (not to be conflated with the [`tf.estimator.Estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) class) enables you to easily submit TensorFlow training jobs for both single-node and distributed runs on Azure compute.
 
@@ -165,14 +167,9 @@ run = exp.submit(tf_est)
 ```
 
 ## Examples
-For a tutorial on single-node TensorFlow training, see:
-* [training/03.train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb)
 
-For a tutorial on distributed TensorFlow with Horovod, see:
-* [training/04.distributed-tensorflow-with-horovod](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/04.distributed-tensorflow-with-horovod)
-
-For a tutorial on native distributed TensorFlow, see:
-* [training/05.distributed-tensorflow-with-parameter-server](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/05.distributed-tensorflow-with-parameter-server)
+For notebooks on distributed deep learning, see:
+* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

@@ -17,11 +17,11 @@ ms.workload: identity
 ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
-ms.custom: aaddev 
+ms.custom: aaddev
 ---
 
 
-# Support and help options for developers 
+# Support and help options for developers
 
 Regardless if you are just starting to integrate with Azure Active Directory, Microsoft identities or Microsoft Graph API, or when you are implementing a new feature to your application, there are times that you need to obtain help from the community or understand the support options that you have as a developer. This article helps you to understand these options, below a summary:
 
@@ -35,7 +35,7 @@ Regardless if you are just starting to integrate with Azure Active Directory, Mi
 
 ## Search
 
-If you have a development-related question, you may be able to find the answer you need on our documentation, our [github samples](https://github.com/azure-samples), or answers to [Stack Overflow](https://www.stackoverflow.com) questions.
+If you have a development-related question, you may be able to find the answer you need on our documentation, our [GitHub samples](https://github.com/azure-samples), or answers to [Stack Overflow](https://www.stackoverflow.com) questions.
 
 ### Scoped Search
 For faster results, scope your search to Stack Overflow, our documentation, and our code samples by using the following on your [favorite search engine](https://bing.com):
@@ -73,7 +73,7 @@ If you cannot find an answer to your problem via search, submit a new question t
 |Any other area related to authentication or authorization topics |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
-> The following posts from Stack Overflow contain tips on how to make questions, and tips on adding source code - following these guidelines may help increase the chances for community members to assess and respond to your question quickly:  
+> The following posts from Stack Overflow contain tips on how to make questions, and tips on adding source code - following these guidelines may help increase the chances for community members to assess and respond to your question quickly:
 > - [How do I ask a good question](https://stackoverflow.com/help/how-to-ask)
 > - [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
 
@@ -103,4 +103,4 @@ You can also try [our virtual agent](https://support.microsoft.com/contactus/?ws
 
 You can also use our chat support - which is free for Microsoft Partners for a limited time. If your company is not a Microsoft Partner, you can enroll it for free and obtain other benefits by going [here](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx).
 
-After enrolling  your company, you can start the chat request [here](https://aka.ms/devchat).
+After enrolling your company, you can start the chat request [here](https://aka.ms/devchat).

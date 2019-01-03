@@ -1,6 +1,6 @@
 ---
-title: Analyze and process JSON documents with Apache Hive in Azure HDInsight 
-description: Learn how to use JSON documents and analyze them by using apache Hive in Azure HDInsight
+title: Analyze and process JSON documents with Apache Hive - Azure HDInsight
+description: Learn how to use JSON documents and analyze them by using Apache Hive in Azure HDInsight
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 12/06/2018
 ms.author: hrasheed
 
 ---

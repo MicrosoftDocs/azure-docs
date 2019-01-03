@@ -271,7 +271,7 @@ The following JSON definition shows you how to create a schedule trigger with sc
           "weekDays": : [<<Monday-Sunday>>],
           "minutes": [<<0-59>>],
           "monthDays": [<<1-31>>],
-          "monthlyOccurences": [
+          "monthlyOccurrences": [
                {
                     "day": <<Monday-Sunday>>,
                     "occurrence": <<1-5>>
@@ -358,7 +358,7 @@ The following table describes the **schedule** elements in detail:
 | **minutes** | Minutes of the hour at which the trigger runs. | <ul><li>Integer</li><li>Array of integers</li></ul>
 | **hours** | Hours of the day at which the trigger runs. | <ul><li>Integer</li><li>Array of integers</li></ul> |
 | **weekDays** | Days of the week on which the trigger runs. The value can be specified with a weekly frequency only. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</li><li>Array of day values (maximum array size is 7)</li><li>Day values are not case-sensitive</li></ul> |
-| **monthlyOccurrences** | Days of the month on which the trigger runs. The value can be specified with a monthly frequency only. | <ul><li>Array of **monthlyOccurence** objects: `{ "day": day,  "occurrence": occurence }`.</li><li>The **day** attribute is the day of the week on which the trigger runs. For example, a **monthlyOccurrences** property with a **day** value of `{Sunday}` means every Sunday of the month. The **day** attribute is required.</li><li>The **occurrence** attribute is the occurrence of the specified **day** during the month. For example, a **monthlyOccurrences** property with **day** and **occurrence** values of `{Sunday, -1}` means the last Sunday of the month. The **occurrence** attribute is optional.</li></ul> |
+| **monthlyOccurrences** | Days of the month on which the trigger runs. The value can be specified with a monthly frequency only. | <ul><li>Array of **monthlyOccurrence** objects: `{ "day": day,  "occurrence": occurrence }`.</li><li>The **day** attribute is the day of the week on which the trigger runs. For example, a **monthlyOccurrences** property with a **day** value of `{Sunday}` means every Sunday of the month. The **day** attribute is required.</li><li>The **occurrence** attribute is the occurrence of the specified **day** during the month. For example, a **monthlyOccurrences** property with **day** and **occurrence** values of `{Sunday, -1}` means the last Sunday of the month. The **occurrence** attribute is optional.</li></ul> |
 | **monthDays** | Day of the month on which the trigger runs. The value can be specified with a monthly frequency only. | <ul><li>Any value <= -1 and >= -31</li><li>Any value >= 1 and <= 31</li><li>Array of values</li></ul> |
 
 

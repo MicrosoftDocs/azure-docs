@@ -54,7 +54,7 @@ You can select compute and storage resources at deployment time and then change 
 To learn how to create the VNet infrastructure and a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
-> It is important to keep your destination VNet and subnet always in accordance with [Managed Instance VNet requirements](sql-database-managed-instance-vnet-configuration.md#requirements). Any incompatibility can prevent you from creating new instances or using those that you already created.
+> It is important to keep your destination VNet and subnet always in accordance with [Managed Instance VNet requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Any incompatibility can prevent you from creating new instances or using those that you already created. Learn more about [creating new](sql-database-managed-instance-create-vnet-subnet.md) and [configuring existing](sql-database-managed-instance-configure-vnet-subnet.md) networks.
 
 ## Select migration method and migrate
 
@@ -111,8 +111,7 @@ Track application behavior and performance after migration. In Managed Instance,
 
 To reduce migration risks, change the database compatibility level only after performance monitoring. Use Query Store as optimal tool for getting information about workload performance before and after database compatibility level change, as explained in [Keep performance stability during the upgrade to newer SQL Server version](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 
-Once you are on a fully managed platform, take advantages that are provided automatically as part of the SQL Database service. For instance, you don’t have to create backups on Managed Instance -  the service performs backups for you automatically. You no longer must worry about scheduling, taking, and managing backups. Managed Instance provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). During public preview, the retention period is fixed to seven days.
-Additionally, you do not need to worry about setting up high availability as [high availability](sql-database-high-availability.md) is built in.
+Once you are on a fully managed platform, take advantages that are provided automatically as part of the SQL Database service. For instance, you don’t have to create backups on Managed Instance -  the service performs backups for you automatically. You no longer must worry about scheduling, taking, and managing backups. Managed Instance provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). Additionally, you do not need to worry about setting up high availability as [high availability](sql-database-high-availability.md) is built in.
 
 To strengthen security, consider using some of the features that are available:
 

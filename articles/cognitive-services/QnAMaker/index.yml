@@ -3,7 +3,7 @@ documentType: LandingData
 title: QnA Maker Documentation 
 metadata:
   title: QnA Maker Documentation - Microsoft Cognitive Services | Microsoft Docs
-  description: Learn about QnA Maker and how it works.
+  description: Learn about the QnA Maker service and how this service's knowledge bases work with your questions and answers.
   services: cognitive-services
   author: tulasim88
   manager: cgronlun

@@ -1,5 +1,6 @@
 ---
-title: Train machine learning models using an Estimator class with Azure Machine Learning
+title: Train ML models with estimators
+titleSuffix: Azure Machine Learning service
 description: Learn how to perform single-node and distributed training of traditional machine learning and deep learning models using Azure Machine Learning services Estimator class
 ms.author: minxia
 author: mx-iao
@@ -8,14 +9,16 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 12/04/2018
+ms.custom: seodec18
+
 ---
 
-# How to train models with Azure Machine Learning
+# Train models with Azure Machine Learning
 
 Training machine learning models, particularly deep neural networks, is often a time- and compute-intensive task. Once you've finished writing your training script and running on a small subset of data on your local machine, you will likely want to scale up your workload.
 
-To facilitate training, the Azure Machine Learning Python SDK provides a high-level abstraction, the estimator class, which allows users to easily train their models in the Azure ecosystem. You can create and use an `Estimator` object to submit any training code you want to run on remote compute, whether it's a single-node run or distributed training across a GPU cluster. For PyTorch and TensorFlow jobs, Azure Machine Learning also provides respective custom `PyTorch` and `TensorFlow` estimators to simplify using these frameworks.
+To facilitate training, the Azure Machine Learning Python SDK provides a high-level abstraction, the estimator class, which allows users to easily train their models in the Azure ecosystem. You can create and use an [`Estimator` object](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit any training code you want to run on remote compute, whether it's a single-node run or distributed training across a GPU cluster. For PyTorch and TensorFlow jobs, Azure Machine Learning also provides respective custom `PyTorch` and `TensorFlow` estimators to simplify using these frameworks.
 
 ## Train with an estimator
 
@@ -114,11 +117,11 @@ run = experiment.submit(cntk_est)
 ```
 
 ## Examples
-For a tutorial on training a sklearn model, see:
-* [tutorials/01.train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
+For a notebook that trains an sklearn model, see:
+* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-For a tutorial on distributed CNTK using custom docker, see:
-* [training/06.distributed-cntk-with-custom-docker](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/06.distributed-cntk-with-custom-docker)
+For notebooks on distributed deep learning, see:
+* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
