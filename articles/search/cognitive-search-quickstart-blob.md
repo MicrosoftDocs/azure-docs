@@ -127,16 +127,14 @@ Next, add enrichment steps to the indexing pipeline. If you do not have a Cognit
 
   ![Attach Cognitive Services](media/cognitive-search-quickstart-blob/skillset.png)
 
-The portal offers built-in skills for OCR processing and text analysis. In the portal, a skillset operates over a single source field. That might seem like a small target, but for Azure blobs the `content` field contains most of the blob document (for example, a Word doc or PowerPoint deck). As such, this field is an ideal input because all of a blob's content is there.
-
-For OCR, select the **Enable OCR and merge all text into merged_content field** option. This will automatically create a `merged_content` field that contains both the text extracted from the document as well as the textual representation of images embedded in the document. When you select this option the `Source data field` will be set to `merged_content`.
+  The portal offers built-in skills for OCR processing and text analysis. In the portal, a skillset operates over a single source field. That might seem like a small target, but for Azure blobs the `content` field contains most of the blob document (for example, a Word doc or PowerPoint deck). As such, this field is an ideal input because all of a blob's content is there.
 
 3. Continue to the next page.
 
   ![Next page customize index](media/cognitive-search-quickstart-blob/next-button-customize-index.png)
 
 > [!NOTE]
-> Natural language processing skills operate over text content in the sample data set. Since we didn't select the OCR option, the JPEG files found in the sample data set won't be processed in this quickstart. 
+> Natural language processing skills operate over text content in the sample data set. Since we didn't select the OCR option, the JPEG and PNG files found in the sample data set won't be processed in this quickstart. 
 
 ### Step 3: Configure the index
 
@@ -152,7 +150,7 @@ Consider clearing **Retrievable** from the `content` field. In blobs, this field
 
 Because you defined a skillset, the wizard assumes that you want the original source data field, plus the output fields created by the cognitive pipeline. For this reason, the portal adds index fields for `content`, `people`, `organizations`, and `locations`. Notice that the wizard automatically enables **Retrievable** and **Searchable** for these fields. **Searchable** indicates a field can be searched. **Retrievable** means it can be returned in results. 
 
-  ![Index fields](./media/cognitive-search-quickstart-blob/index-fields.png
+  ![Index fields](media/cognitive-search-quickstart-blob/index-fields.png)
   
 Continue to the next page.
 
@@ -164,7 +162,7 @@ The indexer is a high-level resource that drives the indexing process. It specif
 
 In the **Indexer** page, you can accept the default name and use the **Run once** schedule option to run it immediately. 
 
-  ![Indexer definition](./media/cognitive-search-quickstart-blob/indexer-def.png)
+  ![Indexer definition](media/cognitive-search-quickstart-blob/indexer-def.png)
 
 Click **Submit** to create and simultaneously run the indexer.
 
@@ -188,9 +186,7 @@ After an index is created, you can submit queries to return documents from the i
 
 1. Enter a search string to query the index, such as `search=Microsoft&searchFields=organizations`.
 
-Results are returned in JSON, which can be verbose and hard to read, especially in large documents originating from Azure blobs. 
-
-If you can't scan results easily, use CTRL-F to search within documents. For this query, you could search within the JSON for specific terms. 
+Results are returned in JSON, which can be verbose and hard to read, especially in large documents originating from Azure blobs. If you can't scan results easily, use CTRL-F to search within documents. For this query, you could search within the JSON for specific terms. 
 
 CTRL-F can also help you determine how many documents are in a given result set. For Azure blobs, the portal chooses "metadata_storage_path" as the key because each value is unique to the document. Using CTRL-F, search for "metadata_storage_path" to get a count of documents. 
 
