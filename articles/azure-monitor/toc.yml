@@ -345,7 +345,7 @@
       - name: Node.js apps
         items:
         - name: Node.js
-          href: ../application-insights/app-insights-nodejs.md?toc=/azure/azure-monitor/toc.json
+          href: app/nodejs.md
       - name: Web pages
         items:
         - name: JavaScript
@@ -355,11 +355,11 @@
       - name: Distributed tracing
         items:
         - name: Local forwarder
-          href: ../application-insights/opencensus-local-forwarder.md?toc=/azure/azure-monitor/toc.json
+          href: app/opencensus-local-forwarder.md
         - name: Python
           href: ../application-insights/opencensus-python.md?toc=/azure/azure-monitor/toc.json
         - name: Go
-          href: ../application-insights/opencensus-go.md?toc=/azure/azure-monitor/toc.json
+          href: app/opencensus-go.md
       - name: Other platforms
         items:
         - name: SharePoint sites
@@ -471,9 +471,9 @@
         - name: Search
           href: app/diagnostic-search.md
         - name: Metrics
-          href: ../application-insights/app-insights-metrics-explorer.md?toc=/azure/azure-monitor/toc.json
+          href: app/metrics-explorer.md
         - name: Live stream
-          href: ../application-insights/app-insights-live-stream.md?toc=/azure/azure-monitor/toc.json
+          href: app/live-stream.md
         - name: Application Map
           href: app/app-map.md
         - name: Transaction diagnostics

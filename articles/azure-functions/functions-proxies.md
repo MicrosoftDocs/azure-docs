@@ -172,12 +172,13 @@ The proxy behavior can be controlled by several app settings. They are all outli
 
 ### <a name="reservedChars"></a> Reserved Characters (string formatting)
 
-Proxies read all strings without interpretation, with the exception of curly braces and slashes
+Proxies read all strings in C# string notation C# string notation, using \\\\\\ as an escape symbol. Proxies also interprets curley braces. See a full set of examples below.
 
 |Character|Escaped Character|Example|
 |-|-|-|
 |{ or }|{{ or }}|`{{ example }}` --> `{ example }`
-|/|///| `example.com///text.html` --> `example.com/text.html`
+| \ | \\\\\\\\ | `example.com\\\text.html` --> `example.com\text.html`
+|"|\\\\\\"| `\\\"example\\\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>Define a requestOverrides object
 

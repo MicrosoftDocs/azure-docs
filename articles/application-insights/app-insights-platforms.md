@@ -21,7 +21,7 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [C#|VB (.NET)](../azure-monitor/app/asp-net.md)
 * [Java](../azure-monitor/app/java-get-started.md)
 * [JavaScript web pages](../azure-monitor/app/javascript.md)
-* [Node.JS](app-insights-nodejs.md)
+* [Node.JS](../azure-monitor/app/nodejs.md)
 
 ## Languages - community-supported
 * [F#](https://safe-stack.github.io/docs/template-azure-ai/)
