@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 
 # Quickstart: Ingest data from Event Hub into Azure Data Explorer
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. Event Hubs can process millions of events per second in near real-time. In this quickstart, you create an event hub, connect to it from Azure Data Explorer and see data flow through the system.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. [Event Hubs](/azure/event-hubs/event-hubs-about) can process millions of events per second in near real-time. In this quickstart, you create an event hub, connect to it from Azure Data Explorer and see data flow through the system.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 * [A test cluster and database](create-cluster-database-portal.md)
 
-* [A sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data and sends it to an event hub
+* [A sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data and sends it to an event hub. Download the sample app to your system.
 
 * [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/) to run the sample app
 
@@ -34,7 +34,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 In this quickstart, you generate sample data and send it to an event hub. The first step is to create an event hub. You do this by using an Azure Resource Manager template in the Azure portal.
 
-1. Use the following button to start the deployment. We recommend opening the link in another tab or window, so you can follow the rest of the steps in this article.
+1. To create an event hub, use the following button to start the deployment. Right-click and select **Open in new window** link in another tab or window, so you can follow the rest of the steps in this article.
 
     [![Deploy to Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
@@ -109,13 +109,21 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
 
     ![Event hub connection](media/ingest-data-event-hub/event-hub-connection.png)
 
+    Data Source:
     **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Data connection name | *test-hub-connection* | The name of the connection you want to create in Azure Data Explorer.|
     | Event hub namespace | A unique namespace name | The name you chose earlier that identifies your namespace. |
     | Event hub | *test-hub* | The event hub you created. |
     | Consumer group | *test-group* | The consumer group defined in the event hub you created. |
-    | Target table | Leave **My data includes routing info** unselected. | There are two options for routing: *static* and *dynamic*. For this quickstart, you use static routing (the default), where you specify the table name, file format, and mapping. You can also use dynamic routing, where your data includes the necessary routing information. |
+
+
+    Target table:
+    There are two options for routing: *static* and *dynamic*. For this quickstart, you use static routing (the default), where you specify the table name, file format, and mapping. Therefore, leave **My data includes routing info** unselected. 
+    You can also use dynamic routing, where your data includes the necessary routing information. 
+
+     **Setting** | **Suggested value** | **Field description**
+    |---|---|---|
     | Table | *TestTable* | The table you created in **TestDatabase**. |
     | Data format | *JSON* | JSON and CSV formats are supported. |
     | Column mapping | *TestMapping* | The mapping you created in **TestDatabase**, which maps incoming JSON data to the column names and data types of **TestTable**.|
@@ -177,6 +185,9 @@ With the app generating data, you can now see the flow of that data from the eve
     The result set should look like the following.
 
     ![Message result set](media/ingest-data-event-hub/message-result-set.png)
+
+    > [!NOTE]
+    > ADX has an aggregation (batching) policy for data ingestion, designed to optimize the ingestion process. The policy is configured to 5 minutes so you may experience a latency.
 
 ## Clean up resources
 
