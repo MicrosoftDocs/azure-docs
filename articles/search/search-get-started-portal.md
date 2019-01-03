@@ -122,7 +122,7 @@ It can take a few minutes for the portal to update the page, but you should see 
 
 The **Indexes** list shows existing indexes, including the *realestate-us-sample* index that you just created in the wizard.
 
-From this list, you can view the index schema and optionally add new fields, but you cannot change existing fields. Existing fields have a physical representation in Azure Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new one and the drop the original.
+From this list, you can view the index schema and optionally add new fields, but you cannot change existing fields. Existing fields have a physical representation in Azure Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
 
    ![sample index definition](media/search-get-started-portal/sample-index-def.png)
 
