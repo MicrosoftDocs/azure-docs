@@ -199,13 +199,19 @@ Each template includes sample code, which takes simulated sensor data from the *
     self.client.set_module_twin_callback(module_twin_callback, self)
     ```
 
-7. Save this file.
+7. Save the main.py file.
 
-8. In the VS Code explorer, open the **deployment.template.json** file. 
+8. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the IoT Edge agent which modules to deploy, in this case **tempSensor** and **PythonModule**, and tells the IoT Edge hub how to route messages between them. The Visual Studio Code extension automatically populates most of the information that you need in the deployment template, but verify that everything is accurate for your solution: 
 
-   This file tells the **$edgeAgent** to deploy two modules: **tempSensor**, which simulates device data, and **PythonModule**. The default platform of your IoT Edge is set to **amd64** in your VS Code status bar, which means your **PythonModule** is set to Linux amd64 version of the image. Change the default platform in status bar from **amd64** to **arm32v7** or **windows-amd64** if that is your IoT Edge device's architecture. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
+   1. The default platform of your IoT Edge is set to **amd64** in your VS Code status bar, which means your **PythonModule** is set to Linux amd64 version of the image. Change the default platform in status bar from **amd64** to **arm32v7** or **windows-amd64** if that is your IoT Edge device's architecture. 
 
-   This file also contains your registry credentials. In the template file, your user name and password are filled in with placeholders. When you generate the deployment manifest, the fields are updated with the values that you added to the .env file. 
+      ![Update module image platform](./media/tutorial-python-module/image-platform.png)
+
+   2. Verify that the template has the correct module name, not the default **SampleModule** name that you changed when you created the IoT Edge solution.
+
+   3. The **registryCredentials** section stores your Docker registry credentials, so that the IoT Edge agent can pull your module image. The actual username and password pairs are stored in the .env file, which is ignored by git. Add your credentials to the .env file if you haven't already.  
+
+   4. If you want to learn more about deployment manifests, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
 
 9. Add the **PythonModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin: 
 
@@ -219,7 +225,7 @@ Each template includes sample code, which takes simulated sensor data from the *
 
    ![Add module twin to deployment template](./media/tutorial-python-module/module-twin.png)
 
-10. Save this file.
+10. Save the deployment.template.json file.
 
 ## Build and push your solution
 
