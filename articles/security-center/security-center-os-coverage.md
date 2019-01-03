@@ -108,7 +108,7 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 
 ## Supported endpoint protection solutions
 
-Security Center identifies whether the solution is deployed, and if it is, will not recommend installing an antimalware solution.
+The following table provides a matrix of whether you can use Azure Security Center to install each solution for you. Security center identifies whether an antimalware solution is deployed, and will not recommend installing an Antimalware solution if one is already installed.
 
 | Endpoint Protection| Platforms | Security Center Installation | Security Center Discovery |
 |------|------|-----|-----|
