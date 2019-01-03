@@ -10,7 +10,7 @@ editor:
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl

@@ -1,14 +1,10 @@
 ---
-title: Virtual network for Azure services | Microsoft Docs
+title: Virtual network for Azure services
+titlesuffix: Azure Virtual Network
 description: Learn about the benefits of deploying resources into a virtual network. Resources in virtual networks can communicate with each other, and on-premises resources, without traffic traversing the Internet.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
