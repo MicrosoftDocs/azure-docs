@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/25/2018
+ms.date: 01/03/2019
 ms.author: jeedes
 
 ---
@@ -101,7 +101,7 @@ To configure Azure AD single sign-on with Cisco Spark, perform the following ste
     ![Cisco Spark Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL as:
-    `ttps://web.ciscospark.com/#/signin`
+    `https://web.ciscospark.com/#/signin`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://idbroker.webex.com/<companyname>`
