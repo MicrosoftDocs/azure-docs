@@ -31,7 +31,7 @@ To complete this tutorial:
 	- ASP.NET and web development
 	- Azure development
 - Deploy a .NET application to Azure and [enable the Application Insights SDK](../azure-monitor/app/asp-net.md).
-- [Enable the Application Insights profiler](app-insights-profiler.md#installation) for your application.
+- [Enable the Application Insights profiler](../azure-monitor/app/profiler.md#installation) for your application.
 
 ## Log in to Azure
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).

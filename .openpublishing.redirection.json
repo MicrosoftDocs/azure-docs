@@ -4332,7 +4332,7 @@
         },
         {
             "source_path": "articles/app-service/environment/app-service-high-density-hosting.md",
-            "redirect_url": "/azure/app-service/app-service-high-density-hosting",
+            "redirect_url": "/azure/app-service/manage-scale-per-app",
             "redirect_document_id": false
         },
         {
@@ -9912,12 +9912,27 @@
         },
         {
             "source_path": "articles/hdinsight/hdinsight-hbase-geo-replication.md",
-            "redirect_url": "/azure/hdinsight/hdinsight-hbase-replication",
+            "redirect_url": "/azure/hdinsight/hbase/apache-hbase-replication",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/hdinsight/hdinsight-hbase-tutorial-get-started.md",
             "redirect_url": "/azure/hdinsight/hdinsight-hbase-tutorial-get-started-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hdinsight-hbase-geo-replication-configure-dns.md",
+            "redirect_url": "/azure/hdinsight/hbase/apache-hbase-replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hdinsight-hbase-geo-replication-configure-vnets.md",
+            "redirect_url": "/azure/hdinsight/hbase/apache-hbase-replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hdinsight-learn-hadoop-use-sample-gallery.md",
+            "redirect_url": "https://azure.microsoft.com/resources/samples/?service=hdinsight&sort=0",
             "redirect_document_id": false
         },
         {
@@ -33082,6 +33097,16 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/application-insights/app-insights-monitor-performance-live-website-now.md",
+            "redirect_url":  "/azure/azure-monitor/app/monitor-performance-live-website-now",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-monitor-web-app-availability.md",
+            "redirect_url":  "/azure/azure-monitor/app/monitor-web-app-availability",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/application-insights/auto-collect-dependencies.md",
             "redirect_url":  "/azure/azure-monitor/app/auto-collect-dependencies",
             "redirect_document_id":  true
@@ -33222,6 +33247,126 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/application-insights/opencensus-python.md",
+            "redirect_url":  "/azure/azure-monitor/app/opencensus-python",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-overview-dashboard.md",
+            "redirect_url":  "/azure/azure-monitor/app/overview-dashboard",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-performance-counters.md",
+            "redirect_url":  "/azure/azure-monitor/app/performance-counters",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-platforms.md",
+            "redirect_url":  "/azure/azure-monitor/app/platforms",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-powershell.md",
+            "redirect_url":  "/azure/azure-monitor/app/powershell",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-powershell-alerts.md",
+            "redirect_url":  "/azure/azure-monitor/app/powershell-alerts",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-powershell-azure-diagnostics.md",
+            "redirect_url":  "/azure/azure-monitor/app/powershell-azure-diagnostics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-powershell-script-create-resource.md",
+            "redirect_url":  "/azure/azure-monitor/app/powershell-script-create-resource",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/pre-aggregated-metrics-log-metrics.md",
+            "redirect_url":  "/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-previews.md",
+            "redirect_url":  "/azure/azure-monitor/app/previews",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-pricing.md",
+            "redirect_url":  "/azure/azure-monitor/app/pricing",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-proactive-application-security-detection-pack.md",
+            "redirect_url":  "/azure/azure-monitor/app/proactive-application-security-detection-pack",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-proactive-arm-config.md",
+            "redirect_url":  "/azure/azure-monitor/app/proactive-arm-config",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-proactive-cloud-services.md",
+            "redirect_url":  "/azure/azure-monitor/app/proactive-cloud-services",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-proactive-exception-volume.md",
+            "redirect_url":  "/azure/azure-monitor/app/proactive-exception-volume",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-proactive-failure-diagnostics.md",
+            "redirect_url":  "/azure/azure-monitor/app/proactive-failure-diagnostics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-proactive-low-utilization-cloud-resources.md",
+            "redirect_url":  "/azure/azure-monitor/app/proactive-low-utilization-cloud-resources",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-proactive-performance-diagnostics.md",
+            "redirect_url":  "/azure/azure-monitor/app/proactive-performance-diagnostics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-proactive-potential-memory-leak.md",
+            "redirect_url":  "/azure/azure-monitor/app/proactive-potential-memory-leak",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-proactive-trace-severity.md",
+            "redirect_url":  "/azure/azure-monitor/app/proactive-trace-severity",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-profiler.md",
+            "redirect_url":  "/azure/azure-monitor/app/profiler",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-profiler-aspnetcore-linux.md",
+            "redirect_url":  "/azure/azure-monitor/app/profiler-aspnetcore-linux",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-release-notes.md",
+            "redirect_url":  "/azure/azure-monitor/app/release-notes",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-release-notes-vsix.md",
+            "redirect_url":  "/azure/azure-monitor/app/release-notes-vsix",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
@@ -33243,8 +33388,8 @@
         },
 		{
 			"source_path": "articles/application-insights/app-insights-monitor-multi-role-apps.md",
-			"redirect_url": "/azure/application-insights/app-insights-app-map",
-			"redirect_document_id": true
+			"redirect_url": "/azure/azure-monitor/app/app-map",
+			"redirect_document_id": false
         },
         {
 			"source_path": "articles/machine-learning/service/how-to-automated-ml.md",

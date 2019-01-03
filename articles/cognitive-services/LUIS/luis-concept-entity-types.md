@@ -22,6 +22,10 @@ The entity represents a word or phrase inside the utterance that you want extrac
 
 By comparison, the intent represents the prediction of the entire utterance. 
 
+## Entities help with data extraction only
+
+You label or mark entities for the purpose of entity extraction only, it does not help with intent prediction.
+
 ## Entities represent data
 
 Entities are data you want to pull from the utterance. This can be a name, date, product name, or any group of words. 
@@ -157,11 +161,10 @@ Pattern.any is a variable-length placeholder used only in a pattern's template u
 The entity is a good fit when:
 
 * The ending of the entity can be confused with the remaining text of the utterance. 
-
 [Tutorial](luis-tutorial-pattern.md)<br>
 [Example JSON response for entity](luis-concept-data-extraction.md#patternany-entity-data)
 
-**Example**<br>
+**Example**  
 Given a client application that searches for books based on title, the pattern.any extracts the complete title. A template utterance using pattern.any for this book search is `Was {BookTitle} written by an American this year[?]`. 
 
 In the following table, each row has two versions of the utterance. The top utterance is how LUIS will initially see the utterance, where it is unclear with the book title begins and ends. The bottom utterance is how LUIS will know the book title when a pattern is in place for extraction. 

@@ -18,7 +18,7 @@ ms.author: mbullwin
 # Application Insights Export Data Model
 This table lists the properties of telemetry sent from the [Application Insights](../../application-insights/app-insights-overview.md) SDKs to the portal.
 You'll see these properties in data output from [Continuous Export](export-telemetry.md).
-They also appear in property filters in [Metric Explorer](../../application-insights/app-insights-metrics-explorer.md) and [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md).
+They also appear in property filters in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md) and [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md).
 
 Points to note:
 
@@ -269,7 +269,7 @@ Sent by trackPageView() or [stopTrackPage](../../azure-monitor/app/api-custom-ev
 | view [0] urlData.host |string | |
 
 ## Availability
-Reports [availability web tests](../../application-insights/app-insights-monitor-web-app-availability.md).
+Reports [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md).
 
 | Path | Type | Notes |
 | --- | --- | --- |

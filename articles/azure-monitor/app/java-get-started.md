@@ -483,9 +483,9 @@ You'll get charts of response times, plus email notifications if your site goes 
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
-[availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
+[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [eclipse]: ../../application-insights/app-insights-java-quick-start.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../application-insights/app-insights-metrics-explorer.md
+[metrics]: ../../azure-monitor/app/metrics-explorer.md
 [usage]: javascript.md

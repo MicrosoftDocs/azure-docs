@@ -28,7 +28,7 @@ If you haven't yet added Application Insights to your project (that is, if it do
 
 * [ASP.NET web apps](../azure-monitor/app/asp-net.md)
   * [Add exception monitoring](../azure-monitor/app/asp-net-exceptions.md)
-  * [Add dependency monitoring](app-insights-monitor-performance-live-website-now.md)
+  * [Add dependency monitoring](../azure-monitor/app/monitor-performance-live-website-now.md)
 * [J2EE web apps](../azure-monitor/app/java-get-started.md)
   * [Add dependency monitoring](../azure-monitor/app/java-agent.md)
 
@@ -110,7 +110,7 @@ Here are a few tips for finding and diagnosing performance issues:
 
 ## Find and fix performance bottlenecks with performance investigation experience
 
-You can use the performance investigation experience to review slow performing operations in your Web app. You can quickly select a specific slow operation and use [Profiler](app-insights-profiler.md) to root cause the slow operations down to code. Using the new duration distribution shown for the selected operation you can quickly at a glance assess just how bad the experience is for your customers. You can see how many of your user interactions were impacted for each slow operation. In the following example, we've decided to take a closer look at the experience for GET Customers/Details operation. In the duration distribution, we can see that there are three spikes. Leftmost spike is around 400 ms and represents great responsive experience. Middle spike is around 1.2 s and represents a mediocre experience. Finally at the 3.6 s we have another small spike that represents the 99th percentile experience, which is likely to cause our customers to leave dissatisfied. That experience is ten times slower than the great experience for the same operation. 
+You can use the performance investigation experience to review slow performing operations in your Web app. You can quickly select a specific slow operation and use [Profiler](../azure-monitor/app/profiler.md) to root cause the slow operations down to code. Using the new duration distribution shown for the selected operation you can quickly at a glance assess just how bad the experience is for your customers. You can see how many of your user interactions were impacted for each slow operation. In the following example, we've decided to take a closer look at the experience for GET Customers/Details operation. In the duration distribution, we can see that there are three spikes. Leftmost spike is around 400 ms and represents great responsive experience. Middle spike is around 1.2 s and represents a mediocre experience. Finally at the 3.6 s we have another small spike that represents the 99th percentile experience, which is likely to cause our customers to leave dissatisfied. That experience is ten times slower than the great experience for the same operation. 
 
 ![GET Customers/Details three duration spikes](./media/app-insights-web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
@@ -146,14 +146,14 @@ The performance investigation experience shows relevant insights along side the 
 
 <!--Link references-->
 
-[availability]: app-insights-monitor-web-app-availability.md
+[availability]: ../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../azure-monitor/app/asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
+[redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
-[livestream]: app-insights-live-stream.md
+[livestream]: ../azure-monitor/app/live-stream.md
 [snapshot]: app-insights-snapshot-debugger.md
 
 

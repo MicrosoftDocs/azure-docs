@@ -733,7 +733,7 @@ The LUIS endpoint can discover the same data in different entities:
 }
 ```
 
-## Data matching multiple List entities
+## Data matching multiple list entities
 
 If a word or phrase matches more than one list entity, the endpoint query returns each List entity.
 

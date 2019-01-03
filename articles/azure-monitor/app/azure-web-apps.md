@@ -93,11 +93,11 @@ Application Insights can provide more detailed telemetry by installing an SDK in
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## Next steps
-* [Run the profiler on your live app](../../application-insights/app-insights-profiler.md).
+* [Run the profiler on your live app](../../azure-monitor/app/profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitor Azure Functions with Application Insights
 * [Enable Azure diagnostics](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md) to be sent to Application Insights.
 * [Monitor service health metrics](../../azure-monitor/platform/data-collection.md) to make sure your service is available and responsive.
 * [Receive alert notifications](../../azure-monitor/platform/alerts-overview.md) whenever operational events happen or metrics cross a threshold.
 * Use [Application Insights for JavaScript apps and web pages](../../azure-monitor/app/javascript.md) to get client telemetry from the browsers that visit a web page.
-* [Set up Availability web tests](../../application-insights/app-insights-monitor-web-app-availability.md) to be alerted if your site is down.
+* [Set up Availability web tests](../../azure-monitor/app/monitor-web-app-availability.md) to be alerted if your site is down.
 
