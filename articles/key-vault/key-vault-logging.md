@@ -193,19 +193,21 @@ To selectively download blobs, use wildcards. For example:
 
 * If you have multiple key vaults and want to download logs for just one key vault, named CONTOSOKEYVAULT3:
 
-        ```PowerShell 
-           Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
-        ```
+```PowerShell
+Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+```
+
 * If you have multiple resource groups and want to download logs for just one resource group, use `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
-        ```PowerShell
-           Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
-        ```
+```PowerShell
+Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+```
+
 * If you want to download all the logs for the month of January 2016, use `-Blob '*/year=2016/m=01/*'`:
 
-        ```PowerShell
-           Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
-         ```
+```PowerShell
+Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+```
 
 You're now ready to start looking at what's in the logs. But before moving onto that, two more parameters for Get-AzureRmDiagnosticSetting that you might need to know:
 
