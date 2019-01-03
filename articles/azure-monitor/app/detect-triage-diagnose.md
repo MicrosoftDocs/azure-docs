@@ -73,7 +73,7 @@ There seems to be no sign of resource limitation there, so maybe the bumps in th
 ## Set alerts to meet goals
 Nevertheless, she'd like to keep an eye on the response times. If they go too high, she wants to know about it immediately.
 
-So she sets an [alert](../../application-insights/app-insights-metrics-explorer.md), for response times greater than a typical threshold. This gives her confidence that she'll know about it if response times are slow.
+So she sets an [alert](../../azure-monitor/app/metrics-explorer.md), for response times greater than a typical threshold. This gives her confidence that she'll know about it if response times are slow.
 
 ![Add alert blade](./media/detect-triage-diagnose/07-alerts.png)
 
@@ -225,7 +225,7 @@ You can get started in several ways, depending on the characteristics of your ap
 
 * [ASP.NET web application](../../azure-monitor/app/asp-net.md)
 * [Java web application](../../azure-monitor/app/java-get-started.md)
-* [Node.js web application](../../application-insights/app-insights-nodejs.md)
+* [Node.js web application](../../azure-monitor/app/nodejs.md)
 * Already deployed apps, hosted on [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md), or [Azure](../../application-insights/app-insights-overview.md).
 * [Web pages](../../azure-monitor/app/javascript.md) - Single Page App or ordinary web page - use this on its own or in addition to any of the server options.
 * [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md) to test your app from the public internet.
