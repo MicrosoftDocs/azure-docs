@@ -171,7 +171,7 @@ There are a various ways to access data from outside the HDInsight cluster. The 
 If using __Azure Storage__, see the following links for ways that you can access your data:
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Command-Line interface commands for working with Azure. After installing, use the `az storage` command for help on using storage, or `az storage blob` for blob-specific commands.
-* [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): A python script for working with blobs in Azure Storage.
+* [blobxfer.py](https://github.com/Azure/blobxfer): A python script for working with blobs in Azure Storage.
 * Various SDKs:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)

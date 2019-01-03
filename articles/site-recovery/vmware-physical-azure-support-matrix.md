@@ -108,7 +108,6 @@ Volume manager | Before [9.20 version](https://support.microsoft.com/en-in/help/
 Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported.
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
-
 Device/Mount point naming convention | Device name or mount point name should be unique. Ensure that no two devices/mount points have case sensitive names. </br> Example: Naming two devices of same virtual machine as *device1* and *Device1* is not allowed.
 Directories | Before [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. The following directories (if set up as separate partitions/file-systems) all must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br>2. /boot should be on a disk partition and not be an LVM volume.<br/><br/> From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) onwards, above restrictions are not applicable.
 

@@ -33,7 +33,7 @@ ms.author: mbullwin
 
 * [Web apps on an IIS server - on-premises or in a VM](../azure-monitor/app/asp-net.md)
 * [Java web apps](../azure-monitor/app/java-get-started.md)
-* [Node.js apps](app-insights-nodejs.md)
+* [Node.js apps](../azure-monitor/app/nodejs.md)
 * [Web apps on Azure](../azure-monitor/app/azure-web-apps.md)
 * [Cloud Services on Azure](../azure-monitor/app/cloudservices.md)
 * [App servers running in Docker](../azure-monitor/app/docker.md)
