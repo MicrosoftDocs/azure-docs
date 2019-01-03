@@ -1,6 +1,6 @@
 ---
-title: Implement a geo-distributed Azure SQL Database solution| Microsoft Docs
-description: Learn to configure your Azure SQL Database and application for failover to a replicated database, and test failover.
+title: Implement a geo-distributed Azure SQL database solution| Microsoft Docs
+description: Learn to configure your Azure SQL database and application for failover to a replicated database, and test failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,48 +11,48 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 11/01/2018
+ms.date: 01/03/2018
 ---
 # Tutorial: Implement a geo-distributed database
 
-In this tutorial, you configure an Azure SQL database and application for failover to a remote region, and then test your failover plan. You learn how to:
+Configure an Azure SQL database application for failover to a remote region and test a failover plan. You learn how to:
 
 > [!div class="checklist"]
-> - Create database users and grant them permissions
+> - Create database users and grant permissions
 > - Set up a database-level firewall rule
 > - Create a [failover group](sql-database-auto-failover-group.md)
-> - Create and compile a Java application to query an Azure SQL database
+> - Run a Java application to query an Azure SQL database
 > - Perform a disaster recovery drill
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-To complete this tutorial, make sure the following prerequisites are completed:
+To complete this tutorial, make sure the following prerequisites are installed:
 
-- Installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
-- Installed an Azure SQL database. This tutorial uses the AdventureWorksLT sample database with a name of **mySampleDatabase** from one of these quick starts:
+- [Azure PowerShell](/powershell/azureps-cmdlets-docs).
+- An Azure SQL database. The tutorial uses the *AdventureWorksLT* sample database with a name of **mySampleDatabase** from one of these quick starts:
 
-  - [Create DB - Portal](sql-database-get-started-portal.md)
-  - [Create DB - CLI](sql-database-cli-samples.md)
-  - [Create DB - PowerShell](sql-database-powershell-samples.md)
+  - [Portal](sql-database-get-started-portal.md)
+  - [CLI](sql-database-cli-samples.md)
+  - [PowerShell](sql-database-powershell-samples.md)
 
-- Have identified a method to execute SQL scripts against your database, you can use one of the following query tools:
-  - The query editor in the [Azure portal](https://portal.azure.com). For more information on using the query editor in the Azure portal, see [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database).
-  - The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), which is an integrated environment for managing any SQL infrastructure, from SQL Server to SQL Database for Microsoft Windows.
-  - The newest version of [Visual Studio Code](https://code.visualstudio.com/docs), which is a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. For more information on using this tool with Azure SQL Database, see [Connect and query with VS Code](sql-database-connect-query-vscode.md).
+- A method to execute SQL scripts against the database. You can use any of the following query tools:
+  - The query editor in the [Azure portal](https://portal.azure.com). To use the query editor in the Azure portal, see [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database).
+  - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms), which is an integrated environment for managing any SQL infrastructure, from SQL Server to SQL Database for Microsoft Windows.
+  - [Visual Studio Code](https://code.visualstudio.com/docs), a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL database and data Warehouse. For more information on using this tool with Azure SQL database, see [Connect and query with VS Code](sql-database-connect-query-vscode.md).
 
 ## Create database users and grant permissions
 
 Connect to your database and create user accounts using one of the following query tools:
 
-- The Query editor in the Azure portal
-- SQL Server Management Studio
-- Visual Studio Code
+- Query editor in the Azure portal
+- SQL Server Management Studio (SSMS)
+- Visual Studio Code (VS Code)
 
-These user accounts replicate automatically to your secondary server (and be kept in sync). To use SQL Server Management Studio or Visual Studio Code, you may need to configure a firewall rule if you are connecting from a client at an IP address for which you have not yet configured a firewall. For detailed steps, see [Create a server-level firewall rule](sql-database-get-started-portal-firewall.md).
+User accounts replicate automatically to the secondary server (to be kept in sync). To use SSMS or VS Code, you may need to configure a firewall rule if you're connecting from a client at an IP address for which you have not yet configured a firewall. For detailed steps, see [Create a server-level firewall rule](sql-database-get-started-portal-firewall.md).
 
-- In a query window, execute the following query to create two user accounts in your database. This script grants **db_owner** permissions to the **app_admin** account and grants **SELECT** and **UPDATE** permissions to the **app_user** account.
+In a query window, execute the following script to create user accounts in the database:
 
    ```sql
    CREATE USER app_admin WITH PASSWORD = 'ChangeYourPassword1';
@@ -64,26 +64,29 @@ These user accounts replicate automatically to your secondary server (and be kep
    GRANT SELECT, INSERT, DELETE, UPDATE ON SalesLT.Product TO app_user;
    ```
 
-## Create database-level firewall
+This grants *db_owner* permissions to the *app_admin* account and `SELECT`, `UPDATE` permissions to the *app_user* account.
 
-Create a [database-level firewall rule](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) for your SQL database. This database-level firewall rule replicates automatically to the secondary server that you create in this tutorial. For simplicity (in this tutorial), use the public IP address of the computer on which you are performing the steps in this tutorial. To determine the IP address used for the server-level firewall rule for your current computer, see [Create a server-level firewall](sql-database-get-started-portal-firewall.md).  
+## Create a database-level firewall
 
-- In your open query window, replace the previous query with the following query, replacing the IP addresses with the appropriate IP addresses for your environment.  
+Create a [database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) for your SQL database. 
+
+In the query window, run the following script after replacing the IP addresses with the IP addresses for your environment: 
 
    ```sql
    -- Create database-level firewall setting for your public IP address
    EXECUTE sp_set_database_firewall_rule @name = N'myGeoReplicationFirewallRule',@start_ip_address = '0.0.0.0', @end_ip_address = '0.0.0.0';
    ```
 
+Database-level firewall rules replicate automatically to the secondary server created later in this tutorial. For the tutorial, use the public IP address of the computer on which you're performing the steps in this tutorial. To determine the IP address used for the server-level firewall rule for your current computer, see [Create a server-level firewall](sql-database-get-started-portal-firewall.md).  
+
 ## Create a failover group
 
 Using Azure PowerShell, create an [failover groups](sql-database-auto-failover-group.md) between your existing Azure SQL server and the new empty Azure SQL server in an Azure region, and then add your sample database to the failover group.
 
 > [!IMPORTANT]
-> These cmdlets require Azure PowerShell 4.0. [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
->
+> The cmdlets used require Azure PowerShell 4.0. [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 
-1. Populate variables for your PowerShell scripts using the values for your existing server and sample database, and provide a globally unique value for failover group name.
+1. Set variables for your server and database, and provide a globally unique value for failover group name:
 
    ```powershell
    $adminlogin = "ServerAdmin"
@@ -97,7 +100,7 @@ Using Azure PowerShell, create an [failover groups](sql-database-auto-failover-g
    $myfailovergroupname = "<your unique failover group name>"
    ```
 
-2. Create an empty backup server in your failover region.
+1. Create a backup server in the failover region:
 
    ```powershell
    $mydrserver = New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
@@ -107,7 +110,7 @@ Using Azure PowerShell, create an [failover groups](sql-database-auto-failover-g
    $mydrserver
    ```
 
-3. Create a failover group between the two servers.
+1. Create a failover group between the two servers:
 
    ```powershell
    $myfailovergroup = New-AzureRMSqlDatabaseFailoverGroup `
@@ -120,7 +123,7 @@ Using Azure PowerShell, create an [failover groups](sql-database-auto-failover-g
    $myfailovergroup
    ```
 
-4. Add your database to the failover group.
+1. Add the database to the failover group:
 
    ```powershell
    $myfailovergroup = Get-AzureRmSqlDatabase `
@@ -136,7 +139,7 @@ Using Azure PowerShell, create an [failover groups](sql-database-auto-failover-g
 
 ## Install Java software
 
-The steps in this section assume that you are familiar with developing using Java and are new to working with Azure SQL Database.
+The steps in this section assume that you are familiar with developing using Java and are new to working with Azure SQL database.
 
 ### Mac OS
 
@@ -148,17 +151,17 @@ brew update
 brew install maven
 ```
 
-For detailed guidance on installing and configuring Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), select **Java**, select **MacOS**, and then follow the detailed instructions for configuring Java and Maven in step 1.2 and 1.3.
+For guidance on installing the Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), select **Java**, select **MacOS**, and then follow the detailed instructions for configuring Java and Maven in step 1.2 and 1.3.
 
 ### Linux (Ubuntu)
 
-Open your terminal and navigate to a directory where you plan on creating your Java project. Install **Maven** by entering the following commands:
+Open the terminal and navigate to a directory where you plan on creating your Java project. Install **Maven** by entering the following commands:
 
 ```bash
 sudo apt-get install maven
 ```
 
-For detailed guidance on installing and configuring Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), select **Java**, select **Ubuntu**, and then follow the detailed instructions for configuring Java and Maven in step 1.2, 1.3, and 1.4.
+To install the Java and Maven environment, see [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), select **Java**, select **Ubuntu**, and then follow the detailed instructions for configuring Java and Maven in step 1.2, 1.3, and 1.4.
 
 ### Windows
 
@@ -166,22 +169,23 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 
 ## Create SqlDbSample project
 
-1. In the command console (such as Bash), create a Maven project.
+1. In the console, create a Maven project with the following command:
 
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-2. Type **Y** and click **Enter**.
-3. Change directories into your newly created project.
+1. Type **Y** and click **Enter**.
+
+1. Change directories into your newly created project.
 
    ```bash
    cd SqlDbSamples
    ```
 
-4. Using your favorite editor, open the pom.xml file in your project folder.
+1. Using your favorite editor, open the pom.xml file in your project folder.
 
-5. Add the Microsoft JDBC Driver for SQL Server dependency to your Maven project by opening your favorite text editor and copying and pasting the following lines into your pom.xml file. Do not overwrite the existing values prepopulated in the file. The JDBC dependency must be pasted within the larger “dependencies” section ( ).
+1. Add the Microsoft JDBC Driver for SQL Server dependency to your Maven project by opening your favorite text editor and copying and pasting the following lines into your pom.xml file. Do not overwrite the existing values prepopulated in the file. The JDBC dependency must be pasted within the larger “dependencies” section ( ).
 
    ```xml
    <dependency>
@@ -191,7 +195,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    </dependency>
    ```
 
-6. Specify the version of Java to compile the project against by adding the following “properties” section into the pom.xml file after the "dependencies" section.
+1. Specify the version of Java to compile the project against by adding the following “properties” section into the pom.xml file after the "dependencies" section.
 
    ```xml
    <properties>
@@ -200,7 +204,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    </properties>
    ```
 
-7. Add the following "build" section into the pom.xml file after the "properties" section to support manifest files in jars.
+1. Add the following "build" section into the pom.xml file after the "properties" section to support manifest files in jars.
 
    ```xml
    <build>
@@ -221,8 +225,9 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    </build>
    ```
 
-8. Save and close the pom.xml file.
-9. Open the App.java file (C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java) and replace the contents with the following contents. Replace the failover group name with the name for your failover group. If you have changed the values for the database name, user, or password, change those values as well.
+1. Save and close the pom.xml file.
+
+1. Open the *App.java* file (C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java) and replace the contents with the following contents. Replace the failover group name with the name for your failover group. If you've changed the values for the database name, user, or password, change those values as well.
 
    ```java
    package com.sqldbsamples;
@@ -319,9 +324,9 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    }
    ```
 
-10. Save and close the App.java file.
+1. Save and close the App.java file.
 
-## Compile and run the SqlDbSample project
+## Run the SqlDbSample project
 
 1. In the command console, execute to following command.
 
@@ -329,7 +334,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    mvn package
    ```
 
-2. When finished, execute the following command to run the application (it runs for about 1 hour unless you stop it manually):
+1. When finished, execute the following command to run the application (it runs for about 1 hour unless you stop it manually):
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
@@ -354,15 +359,15 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    -FailoverGroupName $myfailovergroupname
    ```
 
-2. Observe the application results during failover. Some inserts fail while the DNS cache refreshes.
+1. Observe the application results during failover. Some inserts fail while the DNS cache refreshes.
 
-3. Find out which role your disaster recovery server is performing.
+1. Find out which role your disaster recovery server is performing.
 
    ```powershell
    $mydrserver.ReplicationRole
    ```
 
-4. Failback.
+1. Failback.
 
    ```powershell
    Switch-AzureRMSqlDatabaseFailoverGroup `
@@ -371,9 +376,9 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    -FailoverGroupName $myfailovergroupname
    ```
 
-5. Observe the application results during failback. Some inserts fail while the DNS cache refreshes.
+1. Observe the application results during failback. Some inserts fail while the DNS cache refreshes.
 
-6. Find out which role your disaster recovery server is performing.
+1. Find out which role your disaster recovery server is performing.
 
    ```powershell
    $fileovergroup = Get-AzureRMSqlDatabaseFailoverGroup `
@@ -385,16 +390,16 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 
 ## Next steps
 
-In this tutorial, you learned to configure an Azure SQL database and application for failover to a remote region, and then test your failover plan.  You learned how to:
+In this tutorial, you configured an Azure SQL database and application for failover to a remote region and tested your failover plan. You learned how to:
 
 > [!div class="checklist"]
-> - Create database users and grant them permissions
+> - Create database users and grant permissions
 > - Set up a database-level firewall rule
 > - Create a geo-replication failover group
 > - Create and compile a Java application to query an Azure SQL database
 > - Perform a disaster recovery drill
 
-Advance to the next tutorial to migrate SQL Server to Azure SQL Database Managed Instance using DMS.
+Advance to the next tutorial on how to migrate SQL Server to Azure SQL database managed instance using DMS.
 
 > [!div class="nextstepaction"]
->[Migrate SQL Server to Azure SQL Database Managed Instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md)
+> [Migrate SQL Server to Azure SQL database managed instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md)
