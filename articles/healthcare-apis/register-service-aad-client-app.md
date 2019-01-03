@@ -31,7 +31,7 @@ The service client needs a display name and you can also provide a reply URL but
 
 ## API Permissions
 
-You will need to grant the service client application roles. First you should open the API permissions and select your [FHIR API Resource Application Registration](documentation-aad-resource-application-registration.md):
+You will need to grant the service client application roles. First you should open the API permissions and select your [FHIR API Resource Application Registration](register-resource-aad-client-app.md):
 
 ![Azure portal. Service Client API Permissions](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-API-PERMISSIONS.png)
 

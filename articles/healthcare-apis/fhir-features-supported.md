@@ -11,7 +11,7 @@ ms.author: mihansen
 
 # Features
 
-Microsoft Healthcare APIs provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document lists the main features of the FHIR Server. For a list of features that are planned or in development, see the [feature roadmap](documentation-fhir-roadmap-features.md).
+Microsoft Healthcare APIs provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document lists the main features of the FHIR Server. For a list of features that are planned or in development, see the [feature roadmap](fhir-features-roadmap.md).
 
 ## FHIR Version
 
@@ -107,4 +107,4 @@ Cosmos DB is a globally distributed multi-model (SQL API, MongoDB API, etc.) dat
 
 The FHIR Server uses [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) for access control. Specifically, Role Based Access Control (RBAC) is enforced, if the `FhirServer:Security:Enabled` configuration parameter is set to `true`, and all requests (except `/metadata`) to the FHIR Server must have `Authorization` request header set to `Bearer <TOKEN>`. The token must contain one or more roles as defined in the `roles` claim. A request will be allowed if the token contains a role that allows the specified action on the specified resource.
 
-Currently, the allowed actions for a given role are applied *globally* on the API. [Future work](documentation-fhir-roadmap-features.md) is aimed at allowing more granular access based on a set of policies and filters.  
+Currently, the allowed actions for a given role are applied *globally* on the API. [Future work](fhir-features-roadmap.md) is aimed at allowing more granular access based on a set of policies and filters.  

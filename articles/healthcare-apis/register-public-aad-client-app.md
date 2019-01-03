@@ -11,7 +11,7 @@ ms.author: mihansen
 
 # How-to Guide: Register a public client application in Azure Active Directory
 
-In this How-to guide, you'll learn how to register a public application in Azure Active Directory. Client application registrations are Azure Active Directory representations of applications that can authenticate and ask for API permissions on behalf of a user. Public clients are applications such as mobile applications and single page javascript applications that cannot keep secrets confidential. The procedure is similar to [registering a confidential client](documentation-aad-confidential-client-application-registration.md), but since public clients cannot be trusted to hold an application secret, there is no need to add one.
+In this How-to guide, you'll learn how to register a public application in Azure Active Directory. Client application registrations are Azure Active Directory representations of applications that can authenticate and ask for API permissions on behalf of a user. Public clients are applications such as mobile applications and single page javascript applications that cannot keep secrets confidential. The procedure is similar to [registering a confidential client](register-confidential-aad-client-app.md), but since public clients cannot be trusted to hold an application secret, there is no need to add one.
 
 ## Open the Azure portal's Active Directory section
 
@@ -31,6 +31,6 @@ The Reply URL is where authentication codes will be returned to the client appli
 
 ## API Permissions
 
-Similarly to the [confidential client application](documentation-aad-confidential-client-application-registration.md), you will need to select which API permissions this application should be able to request on behalf of users:
+Similarly to the [confidential client application](register-confidential-aad-client-app.md), you will need to select which API permissions this application should be able to request on behalf of users:
 
 ![Azure portal. New public API Permissions.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-API-PERMISSIONS.png)

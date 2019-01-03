@@ -18,4 +18,4 @@ ms.date: 02/11/2019
 Now that you have configured an identity provider for the FHIR service, you can try accessing it using Postman.
 
 >[!div class="nextstepaction"]
->[Access using Postman](documentation-fhir-tutorial-postman.md)
+>[Access using Postman](access-fhir-postman-tutorial.md)

@@ -24,15 +24,15 @@ sections:
     - image:
         src: media/index/portal.svg
       text: Portal
-      href: documentation-fhir-quickstart-paas-portal.md
+      href: fhir-paas-portal-quickstart.md
     - image:
         src: media/index/powershell.svg
       text: PowerShell
-      href: documentation-fhir-quickstart-paas-powershell.md
+      href: fhir-paas-powershell-quickstart.md
     - image:
         src: media/index/cli.svg
       text: CLI
-      href: documentation-fhir-quickstart-paas-cli.md
+      href: fhir-paas-cli-quickstart.md
   - type: paragraph
     text: 'Learn how to deploy an Open Source FHIR Server in Azure:'
   - type: list
@@ -41,12 +41,12 @@ sections:
     - image:
         src: media/index/portal.svg
       text: Portal
-      href: documentation-fhir-quickstart-oss-portal.md
+      href: fhir-oss-portal-quickstart.md
     - image:
         src: media/index/powershell.svg
       text: PowerShell
-      href: documentation-fhir-quickstart-oss-powershell.md
+      href: fhir-oss-powershell-quickstart.md
     - image:
         src: media/index/cli.svg
       text: CLI
-      href: documentation-fhir-quickstart-oss-cli.md
+      href: fhir-oss-cli-quickstart.md

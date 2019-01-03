@@ -3,49 +3,49 @@
 - name: Overview
   items:
   - name: What is Microsoft Healthcare APIs?
-    href: documentation-overview-what-is-microsoft-healthcare-apis.md
+    href: overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Deploy PaaS FHIR Service
     items:
     - name: Azure Portal
-      href: documentation-fhir-quickstart-paas-portal.md
+      href: fhir-paas-portal-quickstart.md
     - name: PowerShell
-      href: documentation-fhir-quickstart-paas-powershell.md
+      href: fhir-paas-powershell-quickstart.md
     - name: CLI
-      href: documentation-fhir-quickstart-paas-cli.md
+      href: fhir-paas-cli-quickstart.md
   - name: Deploy Open Source FHIR Server
     items:
     - name: Azure Portal
-      href: documentation-fhir-quickstart-oss-portal.md
+      href: fhir-oss-portal-quickstart.md
     - name: PowerShell
-      href: documentation-fhir-quickstart-oss-powershell.md
+      href: fhir-oss-powershell-quickstart.md
     - name: CLI
-      href: documentation-fhir-quickstart-oss-cli.md
+      href: fhir-oss-cli-quickstart.md
 - name: Tutorials
   expanded: false
   items:
   - name: Configuring identity
-    href: documentation-fhir-tutorial-configure-identity.md
+    href: configure-fhir-identity-tutorial.md
   - name: Using Postman
-    href: documentation-fhir-tutorial-postman.md
+    href: access-fhir-postman-tutorial.md
 - name: How-to guides
   expanded: false
   items:
   - name: Azure AD Resource Application
-    href: documentation-aad-resource-application-registration.md
+    href: register-resource-aad-client-app.md
   - name: Azure AD Confidential Client Application
-    href: documentation-aad-confidential-client-application-registration.md
+    href: register-confidential-aad-client-app.md
   - name: Azure AD Public Client Application
-    href: documentation-aad-public-client-application-registration.md
+    href: register-public-aad-client-app.md
   - name: Azure AD Service Client Application
-    href: documentation-aad-service-client-application-registration.md
+    href: register-service-aad-client-app.md
 - name: Resources
   items:
   - name: Common questions
-    href: documentation-fhir-faq.md
+    href: fhir-faq.md
   - name: Supported Features
-    href: documentation-fhir-supported-features.md    
+    href: fhir-features-supported.md    
   - name: Features Roadmap
-    href: documentation-fhir-roadmap-features.md
+    href: fhir-features-roadmap.md

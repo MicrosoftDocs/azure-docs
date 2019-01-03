@@ -16,8 +16,8 @@ A client application would access a FHIR server through a [REST API](https://www
 
 ## Prerequisites
 
-- A FHIR endpoint in Azure. You can set that up using the Microsoft Healthcare APIs for FHIR. There are quickstarts available for [Azure portal](documentation-fhir-quickstart-paas-portal.md), [PowerShell](documentation-fhir-quickstart-paas-powershell.md), or [Azure CLI](documentation-fhir-quickstart-paas-cli.md).
-- [Azure Active Directory authentication](documentation-fhir-tutorial-configure-identity.md) configured for the FHIR endpoint.
+- A FHIR endpoint in Azure. You can set that up using the Microsoft Healthcare APIs for FHIR. There are quickstarts available for [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
+- [Azure Active Directory authentication](configure-fhir-identity-tutorial.md) configured for the FHIR endpoint.
 - Postman installed. You can get it from [https://www.getpostman.com](https://www.getpostman.com)
 
 ## Collect FHIR Server and Authentication details
@@ -26,8 +26,8 @@ In order to use Postman, you will need to know the following details:
 
 - Your FHIR server URL, for example, `https://MYFHIRSERVICE.azurewebsites.net` or `https://MYACCOUNT.microsofthealthcare-apis.com/fhir`
 - The identity provider `Authority` for your FHIR server, for example, `https://login.microsoftonline.com/{TENANT-ID}`
-- The configured `Audience`, which would be set in the [Azure AD resource application registration](documentation-aad-resource-application-registration.md).
-- The `client_id` (or application ID) of the [client application](documentation-aad-confidential-client-application-registration.md) you will be using to access the FHIR service.
+- The configured `Audience`, which would be set in the [Azure AD resource application registration](register-resource-aad-client-app.md).
+- The `client_id` (or application ID) of the [client application](register-confidential-aad-client-app.md) you will be using to access the FHIR service.
 - The `client_secret` (or application secret) of the client application.
 
 Finally, you should check that `https://www.getpostman.com/oauth2/callback` is a registered reply URL for your client application.

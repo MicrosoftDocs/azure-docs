@@ -60,4 +60,4 @@ az group delete --name $servicename
 In this tutorial, you've deployed the Microsoft Open Source FHIR Server for Azure into your subscription. To learn how to configure an identity provider for the FHIR server, proceed to the identity provider tutorial.
  
 >[!div class="nextstepaction"]
->[Configure FHIR Identity Provider](documentation-fhir-tutorial-configure-identity.md)
+>[Configure FHIR Identity Provider](configure-fhir-identity-tutorial.md)

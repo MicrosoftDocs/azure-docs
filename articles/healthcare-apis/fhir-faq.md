@@ -13,4 +13,4 @@ ms.author: mihansen
 
 ## What parts of the FHIR Specification are supported
 
-See [Supported Features](documentation-fhir-supported-features.md) for details and check the [Roadmap](documentation-fhir-roadmap-features.md) for any missing features.
+See [Supported Features](fhir-features-supported.md) for details and check the [Roadmap](fhir-features-roadmap.md) for any missing features.

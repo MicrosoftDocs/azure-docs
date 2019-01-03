@@ -30,7 +30,7 @@ Use the OSS FHIR Server if you want to make changes to the code. The PaaS FHIR s
 
 To start working with the FHIR Service, follow the 5-minute quickstarts:
 
-* Deploy Open Source FHIR Server using [PowerShell](documentation-fhir-quickstart-oss-powershell.md)
+* Deploy Open Source FHIR Server using [PowerShell](fhir-oss-powershell-quickstart.md)
 
 ## Next steps
 

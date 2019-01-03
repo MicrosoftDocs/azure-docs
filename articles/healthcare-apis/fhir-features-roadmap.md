@@ -15,7 +15,7 @@ This document contains a list of Microsoft FHIR Server for Azure features that a
 
 ## Role Based Access Control (RBAC)
 
-As outlined in the [features list](documentation-fhir-supported-features.md#role-based-access-control), the current implementation of the RBAC system only allows *global* assignment of allowed actions to specific roles (as indicated by the `roles` token claim). Future work is aimed at enabling more granular (Resource specific) specification of allowed actions. The RBAC system will use a set of policies, which *may* look something like this:
+As outlined in the [features list](fhir-features-supported.md#role-based-access-control), the current implementation of the RBAC system only allows *global* assignment of allowed actions to specific roles (as indicated by the `roles` token claim). Future work is aimed at enabling more granular (Resource specific) specification of allowed actions. The RBAC system will use a set of policies, which *may* look something like this:
 
 ```json
 {
@@ -57,7 +57,7 @@ In this example, a request with a token including the `roles` claim `patient` wi
 
 ## Azure Active Directory B2C
 
-The project plans to support [Azure AD B2C](https://azure.microsoft.com/en-us/services/active-directory-b2c/) (and possibly other identity providers). As indicated above and in the [list of features](documentation-fhir-supported-features.md#role-based-access-control), the RBAC system is based on application roles in the presented access token. This concept is not directly supported in Azure AD B2C and may also not be present in other providers. Consequently, the plan is to support the mapping of other token claims to serve as role indicator. Please see issue [#175](https://github.com/Microsoft/fhir-server/issues/175) for details.
+The project plans to support [Azure AD B2C](https://azure.microsoft.com/en-us/services/active-directory-b2c/) (and possibly other identity providers). As indicated above and in the [list of features](fhir-features-supported.md#role-based-access-control), the RBAC system is based on application roles in the presented access token. This concept is not directly supported in Azure AD B2C and may also not be present in other providers. Consequently, the plan is to support the mapping of other token claims to serve as role indicator. Please see issue [#175](https://github.com/Microsoft/fhir-server/issues/175) for details.
 
 ## Azure Active Directory Proxy
 
@@ -65,7 +65,7 @@ The Microsoft FHIR Server uses Azure AD for identity. This presents a few challe
 
 ## Search
 
-For a list of the search capabilities see [Features](documentation-fhir-supported-features.md). The project aims to have a full implementation of the search specification including chained search parameters.
+For a list of the search capabilities see [Features](fhir-features-supported.md). The project aims to have a full implementation of the search specification including chained search parameters.
 
 ## Extensions
 
