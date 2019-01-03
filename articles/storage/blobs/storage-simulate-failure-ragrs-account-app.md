@@ -72,7 +72,7 @@ Once complete, select **File** and **Save** to save your changes.
 
 ### Interrupting the application
 
-# [.Net, Python, and Java v7] (#tab/.Net, Python, and Java v7)
+# [.Net, Python, and Java v7] (#tab/dotnet, Python, and Java v7)
 
 Run the application in your IDE or shell.
 
@@ -108,7 +108,7 @@ Uncomment the following lines, replace `STORAGEACCOUNTNAME` with the name of you
          }
 ```
 
-# [.Net, Python, and Java v7] (#tab/.Net, Python, and Java v7)
+# [.Net, Python, and Java v7] (#tab/dotnet, Python, and Java v7)
 
 To resume the application, press **any key**.
 
@@ -126,7 +126,7 @@ It will inform you that it is using the secondary pipeline as opposed to the pri
 
 ### Simulate primary endpoint restoration
 
-# [.Net, Python, and Java v7] (#tab/.Net, Python, and Java v7)
+# [.Net, Python, and Java v7] (#tab/dotnet, Python, and Java v7)
 
 With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail.
 
@@ -164,7 +164,7 @@ You can create an invalid static route for all requests to the primary endpoint 
 
 ### Start and pause the application
 
-# [.Net, Python, and Java v7] (#tab/.Net, Python, and Java v7)
+# [.Net, Python, and Java v7] (#tab/dotnet, Python, and Java v7)
 
 Run the application in your IDE or shell. Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application. 
 
@@ -202,7 +202,7 @@ To add a static route for a destination host, type the following command on a Wi
 
 Replace  `<destination_ip>` with your storage account IP address, and `<gateway_ip>` with your local host IP address.
 
-# [.Net, Python, and Java v7] (#tab/.Net, Python, and Java v7)
+# [.Net, Python, and Java v7] (#tab/dotnet, Python, and Java v7)
 
 To resume the application, press **any key**.
 
@@ -228,7 +228,7 @@ route delete <destination_ip>
 
 ---
 
-# [.Net, Python, and Java v7] (#tab/.Net, Python, and Java v7)
+# [.Net, Python, and Java v7] (#tab/dotnet, Python, and Java v7)
 
 Press **any key** to resume the application. The application continues reading from the primary endpoint until it hits 999 reads.
 
