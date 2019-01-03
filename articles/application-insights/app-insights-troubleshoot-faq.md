@@ -195,7 +195,7 @@ Use a single resource for all the components or roles in a single business syste
 
 ## Why are the counts in Search and Metrics charts unequal?
 
-[Sampling](app-insights-sampling.md) reduces the number of telemetry items (requests, custom events, and so on) that are actually sent from your app to the portal. In Search, you see the number of items actually received. In metric charts that display a count of events, you see the number of original events that occurred. 
+[Sampling](../azure-monitor/app/sampling.md) reduces the number of telemetry items (requests, custom events, and so on) that are actually sent from your app to the portal. In Search, you see the number of items actually received. In metric charts that display a count of events, you see the number of original events that occurred. 
 
 Each item that is transmitted carries an `itemCount` property that shows how many original events that item represents. To observe sampling in operation, you can run this query in Analytics:
 

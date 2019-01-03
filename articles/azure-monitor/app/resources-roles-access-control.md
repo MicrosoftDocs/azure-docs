@@ -15,7 +15,7 @@ ms.author: mbullwin
 ---
 # Resources, roles, and access control in Application Insights
 
-You can control who has read and update access to your data in Azure [Application Insights][start], by using [Role-based access control in Microsoft Azure](../role-based-access-control/role-assignments-portal.md).
+You can control who has read and update access to your data in Azure [Application Insights][start], by using [Role-based access control in Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Assign access to users in the **resource group or subscription** to which your application resource belongs - not in the resource itself. Assign the **Application Insights component contributor** role. This ensures uniform control of access to web tests and alerts along with your application resource. [Learn more](#access).
@@ -28,7 +28,7 @@ First, some definitions:
   
     To see your resources, open the [Azure portal][portal], sign in, and click All Resources. To find a resource, type part of its name in the filter field.
   
-    ![List of Azure resources](./media/app-insights-resources-roles-access-control/10-browse.png)
+    ![List of Azure resources](./media/resources-roles-access-control/10-browse.png)
 
 <a name="resource-group"></a>
 
@@ -50,23 +50,23 @@ To control access to these resources it's therefore recommended to:
 
 You must have Owner rights to the subscription or the resource group.
 
-The user must have a [Microsoft Account][account], or access to their [organizational Microsoft Account](../active-directory/fundamentals/sign-up-organization.md). You can provide access to individuals, and also to user groups defined in Azure Active Directory.
+The user must have a [Microsoft Account][account], or access to their [organizational Microsoft Account](../../active-directory/fundamentals/sign-up-organization.md). You can provide access to individuals, and also to user groups defined in Azure Active Directory.
 
 #### Navigate to resource group or directly to the resource itself
 
 Choose **Access control (IAM)** from the left-hand menu.
 
-![Screenshot of Access control button in Azure portal](./media/app-insights-resources-roles-access-control/0001-access-control.png)
+![Screenshot of Access control button in Azure portal](./media/resources-roles-access-control/0001-access-control.png)
 
 Select **Add role assignment**
 
-![Screenshot of Access control menu with add button highlighted in red](./media/app-insights-resources-roles-access-control/0002-add.png)
+![Screenshot of Access control menu with add button highlighted in red](./media/resources-roles-access-control/0002-add.png)
 
 The **Add permissions** view below is primarily specific to Application Insights resources, if you were viewing the access control permissions from a higher level like resource groups, you would see additional non-Application Insights-centric roles.
 
 To view information on all Azure role-based access control built-in roles use the [official reference content](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
-![Screenshot of Access control user role list](./media/app-insights-resources-roles-access-control/0003-user-roles.png)
+![Screenshot of Access control user role list](./media/resources-roles-access-control/0003-user-roles.png)
 
 #### Select a role
 
@@ -106,11 +106,11 @@ If the user you want isn't in the directory, you can invite anyone with a Micros
 
 ## Related content
 
-* [Role based access control in Azure](../role-based-access-control/role-assignments-portal.md)
+* [Role based access control in Azure](../../role-based-access-control/role-assignments-portal.md)
 
 <!--Link references-->
 
 [account]: https://account.microsoft.com
-[group]: ../azure-resource-manager/resource-group-overview.md
+[group]: ../../azure-resource-manager/resource-group-overview.md
 [portal]: https://portal.azure.com/
-[start]: app-insights-overview.md
+[start]: ../../application-insights/app-insights-overview.md
