@@ -60,9 +60,9 @@ There are plenty of ways to explore your data. Check out these articles:
 | [**Profiler**](app-insights-profiler.md)<br/>Inspect the execution profiles of sampled requests. |![Profiler](./media/app-insights-overview/profiler.png) |
 | [**Usage analysis**](app-insights-usage-overview.md)<br/>Analyze user segmentation and retention.|![Retention tool](./media/app-insights-overview/retention.png) |
 | [**Diagnostic search for instance data**](../azure-monitor/app/diagnostic-search.md)<br/>Search and filter events such as requests, exceptions, dependency calls, log traces, and page views.  |![Search telemetry](./media/app-insights-overview/search-tn.png) |
-| [**Metrics Explorer for aggregated data**](app-insights-metrics-explorer.md)<br/>Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times. |![Metrics](./media/app-insights-overview/metrics-tn.png) |
+| [**Metrics Explorer for aggregated data**](../azure-monitor/app/metrics-explorer.md)<br/>Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times. |![Metrics](./media/app-insights-overview/metrics-tn.png) |
 | [**Dashboards**](../azure-monitor/app/app-insights-dashboards.md#dashboards)<br/>Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room. |![Dashboards sample](./media/app-insights-overview/dashboard-tn.png) |
-| [**Live Metrics Stream**](app-insights-live-stream.md)<br/>When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected. |![Live metrics sample](./media/app-insights-overview/live-metrics-tn.png) |
+| [**Live Metrics Stream**](../azure-monitor/app/live-stream.md)<br/>When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected. |![Live metrics sample](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Analytics**](../azure-monitor/app/analytics.md)<br/>Answer tough questions about your app's performance and usage by using this powerful query language. |![Analytics sample](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](app-insights-visual-studio.md)<br/>See performance data in the code. Go to code from stack traces.|![Visual studio](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Snapshot debugger**](app-insights-snapshot-debugger.md)<br/>Debug snapshots sampled from live operations, with parameter values.|![Visual studio](./media/app-insights-overview/snapshot.png) |
@@ -77,7 +77,7 @@ Install Application Insights in your app, set up [availability web tests](../azu
 
 * Set up a [dashboard](../azure-monitor/app/app-insights-dashboards.md) for your team room to keep an eye on load, responsiveness, and the performance of your dependencies, page loads, and AJAX calls.
 * Discover which are the slowest and most failing requests.
-* Watch [Live Stream](app-insights-live-stream.md) when you deploy a new release, to know immediately about any degradation.
+* Watch [Live Stream](../azure-monitor/app/live-stream.md) when you deploy a new release, to know immediately about any degradation.
 
 ### Detect, Diagnose
 When you receive an alert or discover a problem:
@@ -105,8 +105,8 @@ There are several ways to get started. Begin with whichever works best for you. 
 * **At development time: add Application Insights to your code.** Allows you to write custom telemetry and to instrument back-end and desktop apps.
   * [Visual Studio](../azure-monitor/app/asp-net.md) 2013 update 2 or later.
   * [Java](../azure-monitor/app/java-get-started.md)
-  * [Node.js](app-insights-nodejs.md)
-  * [Other platforms](app-insights-platforms.md)
+  * [Node.js](../azure-monitor/app/nodejs.md)
+  * [Other platforms](../azure-monitor/app/platforms.md)
 * **[Instrument your web pages](../azure-monitor/app/javascript.md)** for page view, AJAX and other client-side telemetry.
 * **[Analyze mobile app usage](app-insights-mobile-center-quickstart.md)** by integrating with Visual Studio App Center.
 * **[Availability tests](../azure-monitor/app/monitor-web-app-availability.md)** - ping your website regularly from our servers.
@@ -122,7 +122,7 @@ Get started at development time with:
 
 * [ASP.NET](../azure-monitor/app/asp-net.md)
 * [Java](../azure-monitor/app/java-get-started.md)
-* [Node.js](app-insights-nodejs.md)
+* [Node.js](../azure-monitor/app/nodejs.md)
 
 ## Support and feedback
 * Questions and Issues:
@@ -151,7 +151,7 @@ Get started at development time with:
 [ios]: app-insights-mobile-center-quickstart.md
 [java]: ../azure-monitor/app/java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
-[platforms]: app-insights-platforms.md
+[platforms]: ../azure-monitor/app/platforms.md
 [portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md

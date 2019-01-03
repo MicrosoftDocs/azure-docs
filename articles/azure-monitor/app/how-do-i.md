@@ -48,7 +48,7 @@ Because alerts have two states, you have to send a low value when you consider t
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Create a chart in [metric explorer](../../application-insights/app-insights-metrics-explorer.md) to see your alarm:
+Create a chart in [metric explorer](../../azure-monitor/app/metrics-explorer.md) to see your alarm:
 
 ![](./media/how-do-i/010-alarm.png)
 
@@ -71,7 +71,7 @@ Some points to consider:
 [Use PowerShell to create new alerts](../../azure-monitor/app/alerts.md#automation)
 
 ## Use PowerShell to Manage Application Insights
-* [Create new resources](../../application-insights/app-insights-powershell-script-create-resource.md)
+* [Create new resources](../../azure-monitor/app/powershell-script-create-resource.md)
 * [Create new alerts](../../azure-monitor/app/alerts.md#automation)
 
 ## Separate telemetry from different versions
@@ -85,7 +85,7 @@ Some points to consider:
 
 ## Visualize data
 #### Dashboard with metrics from multiple apps
-* In [Metric Explorer](../../application-insights/app-insights-metrics-explorer.md), customize your chart and save it as a favorite. Pin it to the Azure dashboard.
+* In [Metric Explorer](../../azure-monitor/app/metrics-explorer.md), customize your chart and save it as a favorite. Pin it to the Azure dashboard.
 
 #### Dashboard with data from other sources and Application Insights
 * [Export telemetry to Power BI](../../application-insights/app-insights-export-power-bi.md).
@@ -126,7 +126,7 @@ If you want a list of users with data such as what pages they look at or how oft
 * In your web pages, Limit the number of Ajax calls reported for every page view. In the script snippet after `instrumentationKey:...` , insert: `,maxAjaxCallsPerView:3` (or a suitable number).
 * If you're using [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), compute the aggregate of batches of metric values before sending the result. There's an overload of TrackMetric() that provides for that.
 
-Learn more about [pricing and quotas](../../application-insights/app-insights-pricing.md).
+Learn more about [pricing and quotas](../../azure-monitor/app/pricing.md).
 
 ## Disable telemetry
 To **dynamically stop and start** the collection and transmission of telemetry from the server:
@@ -153,5 +153,5 @@ Among the metrics you can show in metrics explorer are a set of system performan
 * **Unix server** - [Install collectd](../../azure-monitor/app/java-collectd.md)
 
 ### To display more performance counters
-* First, [add a new chart](../../application-insights/app-insights-metrics-explorer.md) and see if the counter is in the basic set that we offer.
-* If not, [add the counter to the set collected by the performance counter module](../../application-insights/app-insights-performance-counters.md).
+* First, [add a new chart](../../azure-monitor/app/metrics-explorer.md) and see if the counter is in the basic set that we offer.
+* If not, [add the counter to the set collected by the performance counter module](../../azure-monitor/app/performance-counters.md).

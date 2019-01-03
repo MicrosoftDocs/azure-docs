@@ -14,9 +14,9 @@ ms.date: 04/02/2017
 ms.author: mbullwin
 ---
 #  Create Application Insights resources using PowerShell
-This article shows you how to automate the creation and update of [Application Insights](app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](../azure-monitor/app/monitor-web-app-availability.md), set up [alerts](../azure-monitor/app/alerts.md), set the [pricing scheme](app-insights-pricing.md), and create other Azure resources.
+This article shows you how to automate the creation and update of [Application Insights](../../application-insights/app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md), set up [alerts](../../azure-monitor/app/alerts.md), set the [pricing scheme](pricing.md), and create other Azure resources.
 
-The key to creating these resources is JSON templates for [Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md). In a nutshell, the procedure is: download the JSON definitions of existing resources; parameterize certain values such as names; and then run the template whenever you want to create a new resource. You can package several resources together, to create them all in one go - for example, an app monitor with availability tests, alerts, and storage for continuous export. There are some subtleties to some of the parameterizations, which we'll explain here.
+The key to creating these resources is JSON templates for [Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md). In a nutshell, the procedure is: download the JSON definitions of existing resources; parameterize certain values such as names; and then run the template whenever you want to create a new resource. You can package several resources together, to create them all in one go - for example, an app monitor with availability tests, alerts, and storage for continuous export. There are some subtleties to some of the parameterizations, which we'll explain here.
 
 ## One-time setup
 If you haven't used PowerShell with your Azure subscription before:
@@ -178,7 +178,7 @@ After creating an application resource, you'll want the instrumentation key:
 <a id="price"></a>
 ## Set the price plan
 
-You can set the [price plan](app-insights-pricing.md).
+You can set the [price plan](pricing.md).
 
 To create an app resource with the Enterprise price plan, using the template above:
 
@@ -385,7 +385,7 @@ To automate the creation of any other resource of any kind, create an example ma
 
 1. Open [Azure Resource Manager](https://resources.azure.com/). Navigate down through `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components`, to your application resource. 
    
-    ![Navigation in Azure Resource Explorer](./media/app-insights-powershell/01.png)
+    ![Navigation in Azure Resource Explorer](./media/powershell/01.png)
    
     *Components* are the basic Application Insights resources for displaying applications. There are separate resources for the associated alert rules and availability web tests.
 2. Copy the JSON of the component into the appropriate place in `template1.json`.
@@ -399,13 +399,13 @@ To automate the creation of any other resource of any kind, create an example ma
    
     Each web test has an associated alert rule, so you have to copy both of them.
    
-    You can also include alerts on metrics. [Metric names](app-insights-powershell-alerts.md#metric-names).
+    You can also include alerts on metrics. [Metric names](powershell-alerts.md#metric-names).
 5. Insert this line in each resource:
    
     `"apiVersion": "2015-05-01",`
 
 ### Parameterize the template
-Now you have to replace the specific names with parameters. To [parameterize a template](../azure-resource-manager/resource-group-authoring-templates.md), you write expressions using a [set of helper functions](../azure-resource-manager/resource-group-template-functions.md). 
+Now you have to replace the specific names with parameters. To [parameterize a template](../../azure-resource-manager/resource-group-authoring-templates.md), you write expressions using a [set of helper functions](../../azure-resource-manager/resource-group-template-functions.md). 
 
 You can't parameterize just part of a string, so use `concat()` to build strings.
 
@@ -413,9 +413,9 @@ Here are examples of the substitutions you'll want to make. There are several oc
 
 | find | replace with |
 | --- | --- |
-| `"hidden-link:/subscriptions/.../components/MyAppName"` |`"[concat('hidden-link:',`<br/>` resourceId('microsoft.insights/components',` <br/> ` parameters('appName')))]"` |
-| `"/subscriptions/.../alertrules/myAlertName-myAppName-subsId",` |`"[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",` |
-| `"/subscriptions/.../webtests/myTestName-myAppName",` |`"[resourceId('Microsoft.Insights/webtests', parameters('webTestName'))]",` |
+| `"hidden-link:/subscriptions/.../../components/MyAppName"` |`"[concat('hidden-link:',`<br/>` resourceId('microsoft.insights/components',` <br/> ` parameters('appName')))]"` |
+| `"/subscriptions/.../../alertrules/myAlertName-myAppName-subsId",` |`"[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",` |
+| `"/subscriptions/.../../webtests/myTestName-myAppName",` |`"[resourceId('Microsoft.Insights/webtests', parameters('webTestName'))]",` |
 | `"myWebTest-myAppName"` |`"[variables(testName)]"'` |
 | `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
 | `"myAppName"` |`"[parameters('appName')]"` |
@@ -437,10 +437,10 @@ Azure should set up the resources in strict order. To make sure one setup comple
 ## Next steps
 Other automation articles:
 
-* [Create an Application Insights resource](app-insights-powershell-script-create-resource.md) - quick method without using a template.
-* [Set up Alerts](app-insights-powershell-alerts.md)
+* [Create an Application Insights resource](powershell-script-create-resource.md) - quick method without using a template.
+* [Set up Alerts](powershell-alerts.md)
 * [Create web tests](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
-* [Send Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Send Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)
 * [Deploy to Azure from GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Create release annotations](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

@@ -149,7 +149,7 @@ In addition to the out-of-the-box telemetry sent by Application Insights SDK, yo
 ## <a name="questions"></a>Q & A
 ### <a name="limits"></a>How much data is retained?
 
-See the [Limits summary](../../application-insights/app-insights-pricing.md#limits-summary).
+See the [Limits summary](../../azure-monitor/app/pricing.md#limits-summary).
 
 ### How can I see POST data in my server requests?
 We don't log the POST data automatically, but you can use [TrackTrace or log calls](../../azure-monitor/app/asp-net-trace-logs.md). Put the POST data in the message parameter. You can't filter on the message in the same way you can filter on properties, but the size limit is longer.

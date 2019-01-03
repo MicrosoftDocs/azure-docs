@@ -4332,7 +4332,7 @@
         },
         {
             "source_path": "articles/app-service/environment/app-service-high-density-hosting.md",
-            "redirect_url": "/azure/app-service/app-service-high-density-hosting",
+            "redirect_url": "/azure/app-service/manage-scale-per-app",
             "redirect_document_id": false
         },
         {
@@ -33244,6 +33244,76 @@
         {
             "source_path":  "articles/application-insights/app-insights-java-troubleshoot.md",
             "redirect_url":  "/azure/azure-monitor/app/java-troubleshoot",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/opencensus-python.md",
+            "redirect_url":  "/azure/azure-monitor/app/opencensus-python",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-overview-dashboard.md",
+            "redirect_url":  "/azure/azure-monitor/app/overview-dashboard",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-performance-counters.md",
+            "redirect_url":  "/azure/azure-monitor/app/performance-counters",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-platforms.md",
+            "redirect_url":  "/azure/azure-monitor/app/platforms",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-powershell.md",
+            "redirect_url":  "/azure/azure-monitor/app/powershell",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-powershell-alerts.md",
+            "redirect_url":  "/azure/azure-monitor/app/powershell-alerts",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-powershell-azure-diagnostics.md",
+            "redirect_url":  "/azure/azure-monitor/app/powershell-azure-diagnostics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-powershell-script-create-resource.md",
+            "redirect_url":  "/azure/azure-monitor/app/powershell-script-create-resource",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/pre-aggregated-metrics-log-metrics.md",
+            "redirect_url":  "/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-previews.md",
+            "redirect_url":  "/azure/azure-monitor/app/previews",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-pricing.md",
+            "redirect_url":  "/azure/azure-monitor/app/pricing",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-proactive-application-security-detection-pack.md",
+            "redirect_url":  "/azure/azure-monitor/app/proactive-application-security-detection-pack",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-proactive-arm-config.md",
+            "redirect_url":  "/azure/azure-monitor/app/proactive-arm-config",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-proactive-cloud-services.md",
+            "redirect_url":  "/azure/azure-monitor/app/proactive-cloud-services",
             "redirect_document_id":  true
         },
         {
