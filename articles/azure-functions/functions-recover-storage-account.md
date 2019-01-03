@@ -78,7 +78,7 @@ Your Function App must be able to access the storage account. Common issues that
 
 ## Daily Execution Quota Full
 
-If you have a Daily Execution Quota configured your Function App will be temoporarily disabled and many of the portal controlls will become unavailable. 
+If you have a Daily Execution Quota configured, your Function App will be temporarily disabled and many of the portal controls will become unavailable. 
 
 * To verify, check open Platform Features > Function App Settings in the portal. You will see the following message if you are over quota
     * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
