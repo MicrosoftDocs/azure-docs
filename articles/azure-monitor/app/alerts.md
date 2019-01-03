@@ -36,7 +36,7 @@ Open the Alert rules blade, and then use the add button.
 * Set the resource before the other properties. **Choose the "(components)" resource** if you want to set alerts on performance or usage metrics.
 * The name that you give to the alert must be unique within the resource group (not just your application).
 * Be careful to note the units in which you're asked to enter the threshold value.
-* If you check the box "Email owners...", alerts are sent by email to everyone who has access to this resource group. To expand this set of people, add them to the [resource group or subscription](../../application-insights/app-insights-resources-roles-access-control.md) (not the resource).
+* If you check the box "Email owners...", alerts are sent by email to everyone who has access to this resource group. To expand this set of people, add them to the [resource group or subscription](../../azure-monitor/app/resources-roles-access-control.md) (not the resource).
 * If you specify "Additional emails", alerts are sent to those individuals or groups (whether or not you checked the "email owners..." box). 
 * Set a [webhook address](../../azure-monitor/platform/alerts-webhooks.md) if you have set up a web app that responds to alerts. It is called both when the alert is Activated and when it is Resolved. (But note that at present, query parameters are not passed through as webhook properties.)
 * You can Disable or Enable the alert: see the buttons at the top of the blade.
@@ -104,6 +104,6 @@ Don't forget that [proactive failure rate diagnostics](../../azure-monitor/app/p
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [client]: ../../azure-monitor/app/javascript.md
 [platforms]: ../../azure-monitor/app/platforms.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [start]: ../../application-insights/app-insights-overview.md
 

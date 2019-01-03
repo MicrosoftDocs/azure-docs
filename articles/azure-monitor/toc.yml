@@ -154,7 +154,7 @@
       - name: Workspaces
         href: platform/manage-access.md
       - name: Applications
-        href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
+        href: app/resources-roles-access-control.md
       - name: IP addresses
         href: app/ip-addresses.md
     - name: Monitor applications
@@ -323,7 +323,7 @@
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
         - name: Snapshot Debugger
-          href: ../application-insights/app-insights-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
+          href: app/snapshot-debugger.md
       - name: Java apps
         items:
         - name: Web apps
@@ -365,7 +365,7 @@
         - name: SharePoint sites
           href: ../application-insights/app-insights-sharepoint.md?toc=/azure/azure-monitor/toc.json
         - name: Dynamics CRM
-          href: ../application-insights/app-insights-sample-mscrm.md?toc=/azure/azure-monitor/toc.json
+          href: app/sample-mscrm.md
       - name: Smart Detection
         href: ../application-insights/app-insights-proactive-diagnostics.md?toc=/azure/azure-monitor/toc.json
         items:
@@ -432,7 +432,7 @@
       - name: Configuration Manager
         href: platform/collect-sccm.md
       - name: Application Performance Monitoring using SCOM
-        href: ../application-insights/app-insights-scom.md?toc=/azure/azure-monitor/toc.json
+        href: app/scom.md
     - name: Route data
       items:
       - name: Archive activity log
@@ -477,7 +477,7 @@
         - name: Application Map
           href: app/app-map.md
         - name: Transaction diagnostics
-          href: ../application-insights/app-insights-transaction-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/transaction-diagnostics.md
         - name: HockeyApp data
           href: app/hockeyapp-bridge-app.md
       - name: Visual Studio
@@ -879,7 +879,7 @@
       - name: Filtering and preprocessing telemetry
         href: app/api-filtering-sampling.md
       - name: Sampling
-        href: ../application-insights/app-insights-sampling.md?toc=/azure/azure-monitor/toc.json
+        href: app/sampling.md
     - name: Monitoring solutions
       items:
       - name: Design and build
