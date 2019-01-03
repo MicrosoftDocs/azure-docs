@@ -14,7 +14,7 @@ ms.date: 11/27/2018
 
 # Connect to Azure Data Explorer from Azure Databricks by using Python
 
-[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform that's optimized for the Microsoft Azure platform. This article shows you how to use a Python library in Azure Databricks to access data from Azure Data Explorer. There are several ways to authenticate with Data Explorer, including a device login and an Azure Active Directory (Azure AD) app.
+[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform that's optimized for the Microsoft Azure platform. This article shows you how to use a Python library in Azure Databricks to access data from Azure Data Explorer. There are several ways to authenticate with Azure Data Explorer, including a device login and an Azure Active Directory (Azure AD) app.
 
 ## Prerequisites
 
@@ -34,9 +34,9 @@ To install the [Python library](/azure/kusto/api/python/kusto-python-client-libr
    - Upload, install, and attach the library to your Databricks cluster.
    - Enter the PyPi name: **azure-kusto-data**.
 
-## Connect to Data Explorer by using a device login
+## Connect to Azure Data Explorer by using a device login
 
-[Import a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) by using the [Query-ADX-device-login](https://github.com/Azure/azure-kusto-docs-samples/blob/master/Databricks_notebooks/Query-ADX-device-login.ipynb) notebook. You can then connect to Data Explorer by using your credentials.
+[Import a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) by using the [Query-ADX-device-login](https://github.com/Azure/azure-kusto-docs-samples/blob/master/Databricks_notebooks/Query-ADX-device-login.ipynb) notebook. You can then connect to Azure Data Explorer by using your credentials.
 
 ## Connect to ADX by using an Azure AD app
 
@@ -48,9 +48,9 @@ To install the [Python library](/azure/kusto/api/python/kusto-python-client-libr
     ```
     |   |   |
     | - | - |
-    | ```DB Name``` | Your database name |
-    | ```AAD App ID``` | Your Azure AD app ID |
-    | ```AAD Tenant ID``` | Your Azure AD tenant ID |
+    | ```DB Name``` | your database name |
+    | ```AAD App ID``` | your Azure AD app ID |
+    | ```AAD Tenant ID``` | your Azure AD tenant ID |
 
 ### Find your Azure AD tenant ID
 
@@ -86,4 +86,4 @@ Store and secure your Azure AD app ID and key by using Azure Databricks [secrets
     ```databricks secrets list --scope adx```
 
 ### Import a notebook
-[Import a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) by using the [Query-ADX-AAD-App](https://github.com/Azure/azure-kusto-docs-samples/blob/master/Databricks_notebooks/Query-ADX-AAD-App.ipynb) notebook to connect to Data Explorer. Update the placeholder values with your cluster name, database name, and Azure AD tenant ID.
+[Import a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) by using the [Query-ADX-AAD-App](https://github.com/Azure/azure-kusto-docs-samples/blob/master/Databricks_notebooks/Query-ADX-AAD-App.ipynb) notebook to connect to Azure Data Explorer. Update the placeholder values with your cluster name, database name, and Azure AD tenant ID.
