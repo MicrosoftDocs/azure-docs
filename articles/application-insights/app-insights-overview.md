@@ -106,7 +106,7 @@ There are several ways to get started. Begin with whichever works best for you. 
   * [Visual Studio](../azure-monitor/app/asp-net.md) 2013 update 2 or later.
   * [Java](../azure-monitor/app/java-get-started.md)
   * [Node.js](../azure-monitor/app/nodejs.md)
-  * [Other platforms](app-insights-platforms.md)
+  * [Other platforms](../azure-monitor/app/platforms.md)
 * **[Instrument your web pages](../azure-monitor/app/javascript.md)** for page view, AJAX and other client-side telemetry.
 * **[Analyze mobile app usage](app-insights-mobile-center-quickstart.md)** by integrating with Visual Studio App Center.
 * **[Availability tests](../azure-monitor/app/monitor-web-app-availability.md)** - ping your website regularly from our servers.
@@ -151,7 +151,7 @@ Get started at development time with:
 [ios]: app-insights-mobile-center-quickstart.md
 [java]: ../azure-monitor/app/java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
-[platforms]: app-insights-platforms.md
+[platforms]: ../azure-monitor/app/platforms.md
 [portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md

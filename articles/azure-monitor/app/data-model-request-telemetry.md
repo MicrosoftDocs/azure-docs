@@ -78,4 +78,4 @@ You can read more on request result code and status code in the [blog post](http
 - [Write custom request telemetry](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
 - See [data model](data-model.md) for Application Insights types and data model.
 - Learn how to [configure ASP.NET Core](../../azure-monitor/app/asp-net.md) application with Application Insights.
-- Check out [platforms](../../application-insights/app-insights-platforms.md) supported by Application Insights.
+- Check out [platforms](../../azure-monitor/app/platforms.md) supported by Application Insights.

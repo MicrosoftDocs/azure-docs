@@ -105,7 +105,7 @@ Your telemetry builds up in the Application Insights portal, where you can monit
 You can also continue to analyze your telemetry in [Visual Studio](../../application-insights/app-insights-visual-studio.md), with tools such as diagnostic search and [trends](../../application-insights/app-insights-visual-studio-trends.md).
 
 > [!NOTE]
-> If your app sends enough telemetry to approach the [throttling limits](../../application-insights/app-insights-pricing.md#limits-summary), automatic [sampling](../../application-insights/app-insights-sampling.md) switches on. Sampling reduces the quantity of telemetry sent from your app, while preserving correlated data for diagnostic purposes.
+> If your app sends enough telemetry to approach the [throttling limits](../../azure-monitor/app/pricing.md#limits-summary), automatic [sampling](../../application-insights/app-insights-sampling.md) switches on. Sampling reduces the quantity of telemetry sent from your app, while preserving correlated data for diagnostic purposes.
 >
 >
 
@@ -155,4 +155,4 @@ There are alternative topics to look at if you are interested in:
 
 ### Automation
 
-* [Automate creating an Application Insights resource](../../application-insights/app-insights-powershell.md)
+* [Automate creating an Application Insights resource](../../azure-monitor/app/powershell.md)

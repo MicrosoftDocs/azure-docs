@@ -17,7 +17,7 @@ ms.author: harelbr
 
 # Manage Application Insights smart detection rules using Azure Resource Manager templates
 
-Smart detection rules in Application Insights can be managed and configured using [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
+Smart detection rules in Application Insights can be managed and configured using [Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md).
 This method can be used when deploying new Application Insights resources with Azure Resource Manager automation, or for modifying the settings of existing resources.
 
 ## Smart detection rule configuration
@@ -154,6 +154,6 @@ Below is a table of smart detection rule names as they appear in the portal, alo
 
 Learn more about automatically detecting:
 
-- [Failure anomalies](app-insights-proactive-failure-diagnostics.md)
-- [Memory Leaks](app-insights-proactive-potential-memory-leak.md)
-- [Performance anomalies](app-insights-proactive-performance-diagnostics.md)
+- [Failure anomalies](../../application-insights/app-insights-proactive-failure-diagnostics.md)
+- [Memory Leaks](../../application-insights/app-insights-proactive-potential-memory-leak.md)
+- [Performance anomalies](../../application-insights/app-insights-proactive-performance-diagnostics.md)

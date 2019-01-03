@@ -70,7 +70,7 @@ To avoid this situation, create separate resources for each build configuration 
 To send the telemetry to the appropriate resources, you can set up the Application Insights SDK so that it picks up a different instrumentation key depending on the build configuration. 
 
 ## Create an Application Insights resource for each role
-If you've decided to create a separate resource for each role - and perhaps a separate set for each build configuration - then it's easiest to create them all in the Application Insights portal. (If you create resources a lot, you can [automate the process](../../application-insights/app-insights-powershell.md).
+If you've decided to create a separate resource for each role - and perhaps a separate set for each build configuration - then it's easiest to create them all in the Application Insights portal. (If you create resources a lot, you can [automate the process](../../azure-monitor/app/powershell.md).
 
 1. In the [Azure portal][portal], create a new Application Insights resource. For application type, choose ASP.NET app. 
 
@@ -228,8 +228,8 @@ Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Se
 
 ## Next steps
 * [Configure sending Azure Diagnostics to Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Automate creation of Application Insights resources](../../application-insights/app-insights-powershell.md)
-* [Automate Azure diagnostics](../../application-insights/app-insights-powershell-azure-diagnostics.md)
+* [Automate creation of Application Insights resources](../../azure-monitor/app/powershell.md)
+* [Automate Azure diagnostics](../../azure-monitor/app/powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md

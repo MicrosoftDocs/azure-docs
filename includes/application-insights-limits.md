@@ -26,4 +26,4 @@ There are some limits on the number of metrics and events per application (that 
 | [Profiler](../articles/application-insights/app-insights-profiler.md) data retention | 5 days |
 | [Profiler](../articles/application-insights/app-insights-profiler.md) data sent per day | 10 GB |
 
-For more information, see [About pricing and quotas in Application Insights](../articles/application-insights/app-insights-pricing.md).
+For more information, see [About pricing and quotas in Application Insights](../articles/azure-monitor/app/pricing.md).

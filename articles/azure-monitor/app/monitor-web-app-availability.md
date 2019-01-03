@@ -284,7 +284,7 @@ When the test is complete, you are shown response times and success rates.
 >
 
 ## Automation
-* [Use PowerShell scripts to set up an availability test](../../application-insights/app-insights-powershell.md#add-an-availability-test) automatically.
+* [Use PowerShell scripts to set up an availability test](../../azure-monitor/app/powershell.md#add-an-availability-test) automatically.
 * Set up a [webhook](../../azure-monitor/platform/alerts-webhooks.md) that is called when an alert is raised.
 
 ## <a name="qna"></a> FAQ
