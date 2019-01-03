@@ -439,8 +439,6 @@ experiment_name = 'my experiment'
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-<a name=submit></a>
-
 ### Submit the experiment
 
 Submit the experiment with a `ScriptRunConfig` object.  This object includes the:
