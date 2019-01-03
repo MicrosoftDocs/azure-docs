@@ -28,8 +28,8 @@ In order to gain observability across your entire environment, you need to enabl
 
 - [Azure DevOps Projects](../devops-project/overview.md) give you a simplified experience with your existing code and Git repository, or choose from one of the sample applications to create a Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.
 - [Continuous monitoring in your DevOps release pipeline](../application-insights/app-insights-vsts-continuous-monitoring.md) allows you to gate or rollback your deployment based on monitoring data.
-- [Status Monitor](../application-insights/app-insights-monitor-performance-live-website-now.md)  allows you to instrument a live .NET app on Windows with Azure Application Insights, without having to modify or redeploy your code.
-- If you have access to the code for your application, then enable full monitoring with [Application Insights](../application-insights/app-insights-overview.md) by installing the Azure Monitor Application Insights SDK for [.NET](../application-insights/quick-monitor-portal.md), [Java](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), or [any other programming languages](../application-insights/app-insights-platforms.md). This allows you to specify custom events, metrics, or page views that are relevant to your application and your business.
+- [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md)  allows you to instrument a live .NET app on Windows with Azure Application Insights, without having to modify or redeploy your code.
+- If you have access to the code for your application, then enable full monitoring with [Application Insights](../application-insights/app-insights-overview.md) by installing the Azure Monitor Application Insights SDK for [.NET](../application-insights/quick-monitor-portal.md), [Java](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), or [any other programming languages](../azure-monitor/app/platforms.md). This allows you to specify custom events, metrics, or page views that are relevant to your application and your business.
 
 
 
@@ -51,7 +51,7 @@ Applications are only as reliable as their underlying infrastructure. Having mon
 ##	Combine resources in Azure Resource Groups
 A typical application on Azure today includes multiple resources such as VMs and App Services or microservices hosted on Cloud Services, AKS clusters, or Service Fabric. These applications frequently utilize dependencies like Event Hubs, Storage, SQL, and Service Bus.
 
-- Combine resources inAzure Resource Groups to get full visibility across all your resources that make up your different applications. [Azure Monitor for Resource Groups](../monitoring-and-diagnostics/resource-group-insights.md) provides a simple way to keep track of the health and performance of your entire full-stack application and enables drilling down into respective components for any investigations or debugging.
+- Combine resources inAzure Resource Groups to get full visibility across all your resources that make up your different applications. [Azure Monitor for Resource Groups](../azure-monitor/insights/resource-group-insights.md) provides a simple way to keep track of the health and performance of your entire full-stack application and enables drilling down into respective components for any investigations or debugging.
 
 ## Ensure quality through Continuous Deployment
 Continuous Integration / Continuous Deployment allows you to automatically integrate and deploy code changes to your application based on the results of automated testing. It streamlines the deployment process and ensures the quality of any changes before they move into production.
@@ -69,7 +69,7 @@ A critical aspect of monitoring is proactively notifying administrators of any c
 - Define actions for alerts to use the most effective means of notifying your administrators. Available [actions for notification](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) are SMS, e-mails, push notifications, or voice calls.
 - Use more advanced actions to [connect to your ITSM tool](platform/itsmc-overview.md) or other alert management systems through [webhooks](platform/activity-log-alerts-webhook.md).
 - Remediate situations identified in alerts as well with [Azure Automation runbooks](../automation/automation-webhooks.md) or [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) that can be launched from an alert using webhooks. 
-- Use [autoscaling](../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md) to dynamically increase and decrease your compute resources based on collected metrics.
+- Use [autoscaling](../azure-monitor/learn/tutorial-autoscale-performance-schedule.md) to dynamically increase and decrease your compute resources based on collected metrics.
 
 ## Prepare dashboards and workbooks
 Ensuring that your development and operations have access to the same telemetry and tools allows them to view patterns across your entire environment and minimize your Mean Time To Detect (MTTD) and Mean Time To Restore (MTTR).

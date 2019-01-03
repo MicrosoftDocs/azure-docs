@@ -100,6 +100,8 @@
       href: sql-database-service-tiers-dtu.md
     - name: Prepay for reserved capacity
       href: sql-database-reserved-capacity.md
+    - name: Migrate from Premium RS service tier
+      href: sql-database-service-tiers-prs.md
   - name: Compute & storage
     items:
     - name: Overview
@@ -196,7 +198,7 @@
     items:
     - name: Security overview
       href: sql-database-security-index.yml
-    - name: Security overview
+    - name: Security capabilities
       href: sql-database-security-overview.md
     - name: Advanced Threat Protection
       items:
@@ -308,16 +310,20 @@
     items:
     - name: Databases features
       href: sql-database-develop-overview.md
-    - name: JSON data
-      href: sql-database-json-features.md
+    - name: Multi-model capabilities
+      href: sql-database-multi-model-features.md
     - name: In-memory
       href: sql-database-in-memory.md
     - name: Temporal tables 
       href: sql-database-temporal-tables.md
 - name: How-to guides
   items:
+  - name: Overview
+    href: sql-database-howto.md
   - name: Single database 
     items: 
+    - name: Overview
+      href: sql-database-howto-single-database.md
     - name: Migrate to SQL Database
       href: sql-database-cloud-migrate.md
     - name: Manage SQL database after migration
@@ -333,7 +339,9 @@
     - name: Configure geo-replication - Portal
       href: sql-database-geo-replication-portal.md
     - name: Configure security for geo-replicas
-      href: sql-database-geo-replication-security-config.md  
+      href: sql-database-geo-replication-security-config.md
+    - name: Try in-memory features
+      href: sql-database-in-memory-sample.md  
     - name: Enable automatic tuning
       href: sql-database-automatic-tuning-enable.md
     - name: Enable e-mail notifications for automatic tuning
@@ -394,6 +402,8 @@
         href: elastic-jobs-migrate.md
   - name: Managed instance
     items:
+    - name: Overview
+      href: sql-database-howto-managed-instance.md
     - name: Migrate to Managed instance
       href: sql-database-managed-instance-migrate.md
     - name: Migrate TDE cert to Managed instance
@@ -492,6 +502,8 @@
     items:
     - name: Connectivity
       href: sql-database-libraries.md
+    - name: Working with JSON data
+      href: sql-database-json-features.md
     - name: Use Spark Connector
       href: sql-database-spark-connector.md
     - name: Authenticate app 

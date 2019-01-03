@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/14/2018
 ms.author: pbutlerm
 ---
 
 # Create an Azure application offer
 
-This article describes how to create and publish an Azure application offer entry for the Azure Marketplace. Every offer appears as its own entity in Azure Marketplace and is associated with one or more SKUs. An offer is composed of the following groupings of assets and supporting services:
+This article describes how to create and publish an Azure application offer entry for the Azure Marketplace. Every offer appears as its own entity in Azure Marketplace and is composed of the following groupings of assets and supporting services: offer details, SKUs, marketing artifacts, and support information.
 
 ## New Offer form
 
@@ -29,7 +29,7 @@ Sign in to the [Cloud Partner Portal](http://cloudpartner.azure.com/), and then 
 
 ## Next steps
 
-The New Offer page for the Azure application offer type provides a set of tabs and form fields that you'll use to create a new offer. Each of the following articles explains how to use the tab to define the asset groups and supporting services for your new offer.
+The New Offer page provides a set of tabs and form fields that you'll use to create a new offer. The following articles explain how to define the asset groups and supporting services for your new offer.
 
 * [Offer Settings tab](./cpp-offer-settings-tab.md)
 * [SKUs tab](./cpp-skus-tab.md)
