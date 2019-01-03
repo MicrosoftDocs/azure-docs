@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 01/03/2018
 ms.author: jeedes
 
 ---
@@ -40,7 +40,7 @@ To configure Azure AD integration with SAML SSO for Jira by resolution GmbH, you
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* SAML SSO for Jira by resolution GmbH supports **SP** and **IDP** initiated SSO
+* SAML SSO for Jira by resolution GmbH supports **SP** and **IDP**initiated SSO
 
 ## Adding SAML SSO for Jira by resolution GmbH from the gallery
 
