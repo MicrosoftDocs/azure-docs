@@ -4332,7 +4332,7 @@
         },
         {
             "source_path": "articles/app-service/environment/app-service-high-density-hosting.md",
-            "redirect_url": "/azure/app-service/app-service-high-density-hosting",
+            "redirect_url": "/azure/app-service/manage-scale-per-app",
             "redirect_document_id": false
         },
         {
