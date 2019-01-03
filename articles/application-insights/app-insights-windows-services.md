@@ -113,7 +113,7 @@ Click through any chart to see more detailed metrics. [Learn more about metrics.
 
 ### No data?
 * Use the application, opening different pages so that it generates some telemetry.
-* Open the [Search](app-insights-diagnostic-search.md) tile, to see individual events. Sometimes it takes events a little while longer to get through the metrics pipeline.
+* Open the [Search](../azure-monitor/app/diagnostic-search.md) tile, to see individual events. Sometimes it takes events a little while longer to get through the metrics pipeline.
 * Wait a few seconds and click **Refresh**. Charts refresh themselves periodically, but you can refresh manually if you're waiting for some data to show up.
 * See [Troubleshooting](app-insights-troubleshoot-faq.md).
 
@@ -132,7 +132,7 @@ Please see [this Troubleshooting item](../azure-monitor/app/asp-net-troubleshoot
 
 > [!NOTE]
 > If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request will be selected or deselected as a group, so that you can navigate between related events. 
-> [Learn about sampling](app-insights-sampling.md).
+> [Learn about sampling](../azure-monitor/app/sampling.md).
 > 
 > 
 

@@ -112,7 +112,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ![Analytics graph of user requests over a period of time](./media/app-insights-website-monitoring/analytics-query.png)
 
-3. Go back to the **Overview** page. Click on **Browser** from under the **Investigate** header, then select **Performance**  Here you find metrics related to the performance of your website. There is also a corresponding view for analyzing failures and exceptions in your website. You can click **Samples** to drill into individual transaction details. From here, you can access the [end-to-end transaction details](app-insights-transaction-diagnostics.md) experience.
+3. Go back to the **Overview** page. Click on **Browser** from under the **Investigate** header, then select **Performance**  Here you find metrics related to the performance of your website. There is also a corresponding view for analyzing failures and exceptions in your website. You can click **Samples** to drill into individual transaction details. From here, you can access the [end-to-end transaction details](../azure-monitor/app/transaction-diagnostics.md) experience.
 
    ![Server metrics graph](./media/app-insights-website-monitoring/browser-performance.png)
 

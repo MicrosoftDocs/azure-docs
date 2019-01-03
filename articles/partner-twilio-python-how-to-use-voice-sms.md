@@ -74,7 +74,7 @@ When you are ready to get a Twilio account, sign up at [Try Twilio][try_twilio].
 When you sign up for a Twilio account, you receive an account SID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account SID and authentication token are viewable in the [Twilio Console][twilio_console], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
 
 ## <a id="create_app"></a>Create a Python Application
-A Python application that uses the Twilio service and is running in Azure is no different than any other Python application that uses the Twilio service. While Twilio services are REST-based and can be called from Python in several ways, this article will focus on how to use Twilio services with [Twilio library for Python from GitHub][twilio_python]. For more information about using the Twilio library for Python, see [https://readthedocs.org/docs/twilio-python/en/latest/index.html][twilio_lib_docs].
+A Python application that uses the Twilio service and is running in Azure is no different than any other Python application that uses the Twilio service. While Twilio services are REST-based and can be called from Python in several ways, this article will focus on how to use Twilio services with [Twilio library for Python from GitHub][twilio_python]. For more information about using the Twilio library for Python, see [https://www.twilio.com/docs/libraries/python][twilio_lib_docs].
 
 First, [set-up a new Azure Linux VM][azure_vm_setup] to act as a host for your new Python web application. Once the Virtual Machine is running, you will need to expose your application on a public port as described below.
 
@@ -109,7 +109,7 @@ Once you have installed the Twilio library for Python, you can then `import` it 
 
         import twilio
 
-For more information, see [https://github.com/twilio/twilio-python/blob/master/README.md][twilio_github_readme].
+For more information, see [twilio_github_readme](https://github.com/twilio/twilio-python/blob/master/README.rst).
 
 ## <a id="howto_make_call"></a>How to: Make an outgoing call
 The following shows how to make an outgoing call. This code also uses a Twilio-provided site to return the Twilio Markup Language (TwiML) response. Substitute your values for the **from_number** and **to_number** phone numbers, and ensure that you've verified the **from_number** phone number for your Twilio account before running the code.
@@ -234,7 +234,7 @@ Now that you have learned the basics of the Twilio service, follow these links t
 
 [special_offer]: https://ahoy.twilio.com/azure
 [twilio_python]: https://github.com/twilio/twilio-python
-[twilio_lib_docs]: https://readthedocs.org/docs/twilio-python/en/latest/index.html
+[twilio_lib_docs]: https://www.twilio.com/docs/libraries/python
 [twilio_github_readme]: https://github.com/twilio/twilio-python/blob/master/README.md
 
 [twimlet_message_url]: https://twimlets.com/message
