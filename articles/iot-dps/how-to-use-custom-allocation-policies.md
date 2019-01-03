@@ -445,20 +445,24 @@ This sample code simulates a device boot sequence that sends the provisioning re
 
 6. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. 
 
+
 #### Simulate the Contoso toaster device
 
-1. In Visual Studio's *Solution Explorer* window, navigate to the **hsm\_security\_client** project and expand it. Expand **Source Files**, and open **hsm\_client\_key.c**. 
-
-    Find the declaration of the `REGISTRATION_NAME` and `SYMMETRIC_KEY_VALUE` constants. Make the following changes to the file and save the file.
-
-    Update the value of the `REGISTRATION_NAME` constant with the registration ID for the toaster device **breakroom499-contoso-tstrsd-007**.
-    
-    Update the value of the `SYMMETRIC_KEY_VALUE` constant with the device key you generated for the toaster device. The value **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** is only given as an example.
+1. To simulate the toaster device, find the call to `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** which is commented out.
 
     ```c
-    static const char* const REGISTRATION_NAME = "breakroom499-contoso-tstrsd-007";
-    static const char* const SYMMETRIC_KEY_VALUE = "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
+
+    Uncomment the function call, and replace the placeholder values (including the angle brackets) with the toaster registration ID and derived device key you generated earlier. The key value **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** shown below is only given as an example.
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("breakroom499-contoso-tstrsd-007", "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=");
+    ```
+   
+    Save the file.
 
 2. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, click **Yes**, to rebuild the project before running.
 
@@ -481,20 +485,16 @@ This sample code simulates a device boot sequence that sends the provisioning re
 
 #### Simulate the Contoso heat pump device
 
-1. Back in Visual Studio's *Solution Explorer* window, navigate to the **hsm\_security\_client** project and expand it. Expand **Source Files**, and open **hsm\_client\_key.c**. 
-
-    Find the declaration of the `REGISTRATION_NAME` and `SYMMETRIC_KEY_VALUE` constants. Make the following changes to the file and save the file.
-
-    Update the value of the `REGISTRATION_NAME` constant with the registration ID for the heat pump device **mainbuilding167-contoso-hpsd-088**.
-    
-    Update the value of the `SYMMETRIC_KEY_VALUE` constant with the device key you generated for the toaster device. The value **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** is only given as an example.
+1. To simulate the heat pump device, update the call to `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** again with the heat pump registration ID and derived device key you generated earlier. The key value **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** shown below is also only given as an example.
 
     ```c
-    static const char* const REGISTRATION_NAME = "mainbuilding167-contoso-hpsd-088";
-    static const char* const SYMMETRIC_KEY_VALUE = "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("mainbuilding167-contoso-hpsd-088", "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=");
     ```
+   
+    Save the file.
 
-7. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, click **Yes**, to rebuild the project before running.
+2. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, click **Yes**, to rebuild the project before running.
 
     The following output is an example of the simulated heat pump device successfully booting up, and connecting to the provisioning Service instance to be assigned to the Contoso heat pumps IoT hub by the custom allocation policy:
 
@@ -511,8 +511,6 @@ This sample code simulates a device boot sequence that sends the provisioning re
 
     Press enter key to exit:
     ```
-
-
 
 
 ## Troubleshooting custom allocation policies

@@ -52,7 +52,7 @@ As shown in the following table, depending on the choice of API, you can provisi
 |API|For **shared** throughput, configure |For **dedicated** throughput, configure |
 |----|----|----|
 |SQL API|Database|Container|
-|MongoDB API|Database|Collection|
+|Azure Cosmos DB's API for MongoDB|Database|Collection|
 |Cassandra API|Keyspace|Table|
 |Gremlin API|Database account|Graph|
 |Table API|Database account|Table|

@@ -1,5 +1,5 @@
 ﻿---
-title: Azure Time Series Insights Preview use cases | Microsoft Docs
+title: 'Azure Time Series Insights Preview use cases | Microsoft Docs'
 description: Understand Azure Time Series Insights Preview use cases.
 author: ashannon7
 ms.author: anshan

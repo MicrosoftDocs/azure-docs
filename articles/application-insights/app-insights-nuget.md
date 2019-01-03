@@ -65,7 +65,7 @@ Below is the current list of stable release NuGet Packages for Application Insig
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Enables runtime data collection for x64 applications | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Enables runtime data collection for x86 applications. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-These packages make up part of the core functionality of the runtime monitoring in [Status Monitor](app-insights-monitor-performance-live-website-now.md). You don't need to download these packages directly, just use the Status Monitor installer. If you want to understand more about how these packages work under the hood this [blog post](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) from one of our developers is a good start.
+These packages make up part of the core functionality of the runtime monitoring in [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md). You don't need to download these packages directly, just use the Status Monitor installer. If you want to understand more about how these packages work under the hood this [blog post](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) from one of our developers is a good start.
 
 ## Additional packages
 
@@ -76,6 +76,6 @@ These packages make up part of the core functionality of the runtime monitoring 
 
 ## Next steps
 
-- Monitor [ASP.NET Core](app-insights-asp-net-core.md).
+- Monitor [ASP.NET Core](../azure-monitor/app/asp-net-core.md).
 - Profile ASP.NET Core [Azure Linux web apps](app-insights-profiler-aspnetcore-linux.md).
 - Debug ASP.NET [snapshots](app-insights-snapshot-debugger.md).

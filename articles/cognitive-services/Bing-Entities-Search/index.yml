@@ -54,6 +54,14 @@ sections:
     text: 'Learn how to develop applications by using the Bing Entity Search API:'
   - type: paragraph
     text: <a href="tutorial-bing-entities-search-single-page-app">Single-page web app</a> &#124; <a href="tutorial-bing-entities-search-single-page-app-source">Source code</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: 'Find samples for Bing Entity Search API:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="sdk.md">Code Samples</a>
 - title: Reference
   items:
   - type: list
@@ -63,4 +71,12 @@ sections:
     - title: APIs
       html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference">Bing Entity Search API v7</a></p>
     - title: SDKs
-      html: <p><a href="sdk.md">Bing Search SDK</a></p>
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-dotnet">.NET</a></p>
+            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/entitysearch?view=azure-java-stable">Java</a></p>
+            <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/entitysearch?view=azure-python">Python</a></p>
+            <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/entitysearch?view=azure-node-latest">Node.js</a></p>
+            <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch">Go</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>

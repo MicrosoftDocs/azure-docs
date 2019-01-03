@@ -24,9 +24,9 @@ Setting provisioned throughput on a container is the widely used option. While y
 
 It is recommended that you configure throughput at the container granularity when you want guaranteed performance for the container.
 
-Throughput provisioned on a Azure Cosmos container is uniformly distributed across all the logical partitions of the container. Since one or more logical partitions of a container are hosted by a resource partition, the physical partitions belong exclusively to the container and support the throughput provisioned on the container. The following image shows how a resource partition hosts one or more logical partitions of a container:
+Throughput provisioned on a Azure Cosmos container is uniformly distributed across all the logical partitions of the container. Since one or more logical partitions of a container are hosted by a physical partition, the physical partitions belong exclusively to the container and support the throughput provisioned on the container. The following image shows how a physical partition hosts one or more logical partitions of a container:
 
-![Resource partition](./media/set-throughput/resource-partition.png)
+![Physical partition](./media/set-throughput/resource-partition.png)
 
 ## Setting throughput on a database
 
@@ -44,11 +44,11 @@ It is recommended that you configure throughput on a database when you want to s
 
 * Sharing a database’s provisioned throughput across a set of containers is useful when you are migrating a NoSQL database (such as MongoDB, Cassandra) hosted from a cluster of VMs or from on-premises physical servers to Azure Cosmos DB. You can think of the provisioned throughput configured on your Azure Cosmos database as a logical equivalent (but more cost-effective and elastic) to that of the compute capacity of your MongoDB or Cassandra cluster.  
 
-At any given point of time, the throughput allocated to a container within a database is distributed across all the logical partitions of that container. When you have containers sharing provisioned throughput on a database, you can't selectively apply the throughput to a specific container or a logical partition. If the workload on a logical partition consumes more than the throughput that is allocated to a specific logical partition, your operations will be rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire container or retry the operation. For more information on partitioning, see [Logical partitions](partition-data.md).
+All containers created inside a database with provisioned throughput must be created with a partition key. At any given point of time, the throughput allocated to a container within a database is distributed across all the logical partitions of that container. When you have containers sharing provisioned throughput on a database, you can't selectively apply the throughput to a specific container or a logical partition. If the workload on a logical partition consumes more than the throughput that is allocated to a specific logical partition, your operations will be rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire container or retry the operation. For more information on partitioning, see [Logical partitions](partition-data.md).
 
-Multiple logical partitions sharing the throughput provisioned to a database can be hosted on a single resource partition. While a single logical partition of a container is always scoped within a resource partition, 'L' logical partitions across 'C' containers sharing the provisioned throughput of a database can be mapped and hosted on 'R' physical partitions. The following image shows how a resource partition can host one or more logical partitions that belong to different containers within a database:
+Multiple logical partitions sharing the throughput provisioned to a database can be hosted on a single physical partition. While a single logical partition of a container is always scoped within a physical partition, 'L' logical partitions across 'C' containers sharing the provisioned throughput of a database can be mapped and hosted on 'R' physical partitions. The following image shows how a physical partition can host one or more logical partitions that belong to different containers within a database:
 
-![Resource partition](./media/set-throughput/resource-partition2.png)
+![Physical partition](./media/set-throughput/resource-partition2.png)
 
 ## Setting throughput on a database and a container
 

@@ -11,23 +11,23 @@
 ---
 # Azure Managed Disks Overview
 
-An Azure Managed Disk is just a VHD (virtual hard disk). You can think of it like a physical disk you might put into an on-premises server but, virtualized.
+An Azure Managed Disk is a VHD (virtual hard disk). You can think of it like a physical disk like disks in an on-premises server but, virtualized.
 
-Azure Managed Disks allow you to select the type and size of the disk that you require. Azure then creates and manages the disk for you. The types available are [Ultra SSD (Preview)](disk-types.md#UltraSSD) , [Premium SSD](disk-types.md#Premium-SSD), [Standard SSD](disk-types.md#standard-ssd), and [Standard HDD](disk-types.md#standard-hdd).
+You can select the type and size of the managed disks that you require, Azure then creates and manages the disk for you. The available types are [Ultra SSD (Preview)](disk-types.md#UltraSSD) , [Premium SSD](disk-types.md#Premium-SSD), [Standard SSD](disk-types.md#standard-ssd), and [Standard HDD](disk-types.md#standard-hdd).
 
 ## Benefits of managed disks
 
-Let's take a look at some of the benefits you gain by using managed disks, starting with this Channel 9 video, [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
+Let's take a look at some of the benefits you gain by using managed disks. The following Channel 9 video is a good introduction: [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 <br/>
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency/player]
 
 ### Highly durable and available
 
-Azure Disks are designed for 99.999% availability. Rest easier knowing that you have three replicas of your data that enables high durability. If one or even two replicas experience issues, the remaining replicas help ensure persistence of your data and high tolerance against failures. This architecture has helped Azure consistently deliver enterprise-grade durability for IaaS disks, with an industry-leading ZERO% Annualized Failure Rate.
+Azure Disks are designed for 99.999% availability. It provides you with three replicas of your data, allowing for high durability. If one or even two replicas experience issues, the remaining replicas help ensure persistence of your data and high tolerance against failures. This architecture has helped Azure consistently deliver enterprise-grade durability for IaaS disks, with an industry-leading ZERO% Annualized Failure Rate.
 
 ### Simple and scalable VM deployment
 
-Managed Disks will allow you to create up to 50,000 VM **disks** of a type in a subscription per region, allowing you to create thousands of **VMs** in a single subscription. This feature also further increases the scalability of [Virtual Machine Scale Sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) by allowing you to create up to a thousand VMs in a virtual machine scale set using a Marketplace image.
+Managed Disks allow you to create up to 50,000 VM **disks** of a type in a subscription per region, allowing you to create thousands of **VMs** in a single subscription. This feature also further increases the scalability of [Virtual Machine Scale Sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) by allowing you to create up to a thousand VMs in a virtual machine scale set using a Marketplace image.
 
 ### Integration with Availability Sets
 

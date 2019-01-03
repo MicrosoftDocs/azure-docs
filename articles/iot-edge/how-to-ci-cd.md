@@ -4,7 +4,7 @@ description: Set up continuous integration and continuous deployment - Azure IoT
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 11/29/2018
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,21 +13,19 @@ ms.custom: seodec18
 
 # Continuous integration and continuous deployment to Azure IoT Edge
 
-You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines or [Azure IoT Edge plugin for Jenkins](https://plugins.jenkins.io/azure-iot-edge) on your Jenkins server. This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines and Azure DevOps Server to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
+You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines or [Azure IoT Edge plugin for Jenkins](https://plugins.jenkins.io/azure-iot-edge) on your Jenkins server. This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
 
 In this article, you will learn how to:
 * Create and check in a sample IoT Edge solution.
 * Configure continuous integration (CI) to build the solution.
 * Configure continuous deployment (CD) to deploy the solution and view responses.
 
-It will take 20 minutes to complete the steps in this article.
-
 ![Diagram - CI and CD branches for development and production](./media/how-to-ci-cd/cd.png)
 
 
 ## Create a sample Azure IoT Edge solution using Visual Studio Code
 
-In this section, you will create a sample IoT Edge solution containing unit tests that you can execute as part of the build process. Before following the guidance in this section, complete the steps in [Develop an IoT Edge solution with multiple modules in Visual Studio Code](tutorial-multiple-modules-in-vscode.md).
+In this section, you will create a sample IoT Edge solution containing unit tests that you can execute as part of the build process. Before following the guidance in this section, complete the steps in [Develop an IoT Edge solution with multiple modules in Visual Studio Code](how-to-develop-multiple-modules-vscode.md).
 
 1. In VS Code command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**), and create a C# Module (**FilterModule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (`localhost:5000/filtermodule`). Change it to Azure Container Registry(`<your container registry address>/filtermodule`) or Docker Hub for further continuous integration.
 
@@ -37,7 +35,7 @@ In this section, you will create a sample IoT Edge solution containing unit test
 
 3. Now your sample IoT Edge solution is ready. The default C# module acts as a pipe message module. In the `deployment.template.json`, you will see this solution contains two modules. The message will be generated from the `tempSensor` module, and will be directly piped via `FilterModule`, then sent to your IoT hub.
 
-4. Save these projects, then check it into your Azure Repos or Azure DevOps Server repository.
+4. Save these projects, then commit into your Azure Repos repository.
     
 > [!NOTE]
 > For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
@@ -54,7 +52,7 @@ In this section, you will create a build pipeline that is configured to run auto
 
     ![Create a new build pipeline](./media/how-to-ci-cd/add-new-build.png)
 
-1. If prompted, select **Azure DevOps Git** the source type. Then select the project, repository, and branch where your code is located. Choose **Continue**.
+1. If prompted, select Azure Repos for your source. Then select the project, repository, and branch where your code is located. Choose **Continue**.
 
     ![Select Azure Repos Git](./media/how-to-ci-cd/select-vsts-git.png)
 
@@ -66,11 +64,11 @@ In this section, you will create a build pipeline that is configured to run auto
     
     * If you would like to build your modules in platform amd64 for Linux containers, choose **Hosted Ubuntu 1604**
     * If you would like to build your modules in platform amd64 for Windows containers, choose **Hosted VS2017** 
-    * If you would like to build your modules in platform arm32v7 for Linux containers, you need to Set up your own build agent by clicking the **Manage** button.
+    * If you would like to build your modules in platform arm32v7 for Linux containers, you need to Set up your own build agent by visiting the **Manage** button.
     
     ![Configure build agent pool](./media/how-to-ci-cd/configure-env.png)
 
-1. In Agent job, click "+" to add three tasks in the build pipeline. The first two are from **Azure IoT Edge**. And the third one is from **Publish Build Artifacts**
+1. In Agent job, open "+" to add three tasks in the build pipeline. The first two are from **Azure IoT Edge**. And the third one is from **Publish Build Artifacts**
     
     ![Add tasks to the build pipeline](./media/how-to-ci-cd/add-tasks.png)
 
@@ -86,17 +84,17 @@ In this section, you will create a build pipeline that is configured to run auto
 
     ![Configure publish artifact task](./media/how-to-ci-cd/publish-build-artifacts.png)
 
-1. Open the **Triggers** tab and turn on the **Continuous integration** trigger. Make sure the branch containing your code is included.
+1. Open the **Triggers** tab and turn on the **continuous integration** trigger. Make sure the branch containing your code is included.
 
     ![Turn on continuous integration trigger](./media/how-to-ci-cd/configure-trigger.png)
 
-    Save the new build pipeline. Click the **Save** button.
+    Save the new build pipeline with **Save** button.
 
 
 ## Configure Azure Pipelines for continuous deployment
 In this section, you will create a release pipeline that is configured to run automatically when your build pipeline drops artifacts, and it will show deployment logs in Azure Pipelines.
 
-1. In the **Releases** tab, choose **+ New pipeline**. Or, if you already have release pipelines, choose the **+ New** button.  
+1. In the **Releases** tab, choose **+ New pipeline**. Or, if you already have release pipelines, choose the **+ New** button and select **+ New release pipeline**.  
 
     ![Add release pipeline](./media/how-to-ci-cd/add-release-pipeline.png)
 
@@ -112,7 +110,7 @@ In this section, you will create a release pipeline that is configured to run au
 
     ![Add artifacts](./media/how-to-ci-cd/add-artifacts.png)  
     
-    In **Add an artifact page**, choose Source type **Build**. Then select the project and the build pipeline you created. Then Click **Add**.
+    In **Add an artifact page**, choose Source type **Build**. Then select the project and the build pipeline you created. Then select **Add**.
 
     ![Add a build artifact](./media/how-to-ci-cd/add-an-artifact.png)
 
@@ -124,7 +122,7 @@ In this section, you will create a release pipeline that is configured to run au
 
     ![Configure QA tasks](./media/how-to-ci-cd/view-stage-tasks.png)
 
-   Deployment task is platform insensitive, which means you can choose either **Hosted VS2017** or **Hosted Ubuntu 1604** in the **Agent pool** (or any other agent managed by yourself). Click "+" and add one task.
+   Deployment task is platform insensitive, which means you can choose either **Hosted VS2017** or **Hosted Ubuntu 1604** in the **Agent pool** (or any other agent managed by yourself). Select "+" and add one task.
 
     ![Add tasks for QA](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -132,13 +130,13 @@ In this section, you will create a release pipeline that is configured to run au
 
     ![Deploy to QA](./media/how-to-ci-cd/deploy-to-qa.png)
 
-    Save the new release pipeline. Click the **Save** button. And then click **Pipeline** to go back to the pipeline.
+    Save the new release pipeline with the **Save** button. And then select **Pipeline** to go back to the pipeline.
 
 6. The second stage is for your production environment. To add a new stage "PROD", you can clone the Stage "QA" and rename cloned stage to **PROD**,
 
     ![Clone stage](./media/how-to-ci-cd/clone-stage.png)
 
-7. Configure the tasks for your production environment. Assume you have several IoT Edge devices have been tagged as 'prod', in the task configurations, update the Target Condition to "prod", and set the deployment ID as "deploy-prod" in advanced settings. Click the **Save** button. And then click **Pipeline** to go back to the pipeline.
+7. Configure the tasks for your production environment. Assume you have several IoT Edge devices have been tagged as 'prod', in the task configurations, update the Target Condition to "prod", and set the deployment ID as "deploy-prod" in advanced settings. Save it with the **Save** button. And then select **Pipeline** to go back to the pipeline.
     
     ![Deploy to production](./media/how-to-ci-cd/deploy-to-prod.png)
 
@@ -148,7 +146,7 @@ In this section, you will create a release pipeline that is configured to run au
 
         ![Open pre-deployment conditions](./media/how-to-ci-cd/pre-deploy-conditions.png)    
 
-    2. Set **Enabled** in **Pre-deployment approvals**. And fill in the **Approvers** input. Then click **Save**.
+    2. Set **Enabled** in **Pre-deployment approvals**. And fill in the **Approvers** input. Then save it with **Save** button.
     
         ![Set conditions](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
 
@@ -162,7 +160,7 @@ In this section, you will create a release pipeline that is configured to run au
 
 In this section, you will trigger a build to make the CI/CD pipeline work. Then verify the deployment succeeds.
 
-1. To trigger a build job, you can either push a commit to source code repository or manually trigger it. You can trigger a build job in your build pipeline by clicking the **Queue** button as in following screenshot.
+1. To trigger a build job, you can either push a commit to source code repository or manually trigger it. You can trigger a build job in your build pipeline by selecting the **Queue** button as in following screenshot.
 
     ![Manual trigger](./media/how-to-ci-cd/manual-trigger.png)
 
