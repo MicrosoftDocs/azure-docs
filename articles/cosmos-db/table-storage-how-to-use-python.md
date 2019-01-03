@@ -8,7 +8,7 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-
+ms.reviewer: sngun
 ---
 # Get started with Azure Table storage and the Azure Cosmos DB Table API using Python
 

@@ -10,6 +10,7 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
+ms.reviewer: sngun
 ---
 
 # Develop with Azure Cosmos DB's Table API using .NET SDK

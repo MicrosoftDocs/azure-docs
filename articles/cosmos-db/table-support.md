@@ -7,7 +7,7 @@ ms.topic: overview
 ms.date: 11/15/2017
 author: wmengmsft
 ms.author: wmeng
-
+ms.reviewer: sngun
 ---
 
 # Developing with Azure Cosmos DB Table API and Azure Table storage

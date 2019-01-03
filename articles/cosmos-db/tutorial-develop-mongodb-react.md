@@ -8,7 +8,7 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
-
+ms.reviewer: sngun
 
 ---
 # Create a MongoDB app with React and Azure Cosmos DB  

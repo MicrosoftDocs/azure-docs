@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: rimman
-
+ms.reviewer: sngun
 
 ---
 # Set up global distributed database using Azure Cosmos DB's API for MongoDB

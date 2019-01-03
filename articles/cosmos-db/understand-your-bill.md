@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
+ms.reviewer: sngun
 ---
 
 # Understanding your Azure Cosmos DB bill

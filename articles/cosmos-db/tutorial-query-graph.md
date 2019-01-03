@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
 ms.date: 01/02/2018
+ms.reviewer: sngun
 ---
 
 # Tutorial: Query Azure Cosmos DB Gremlin API by using Gremlin

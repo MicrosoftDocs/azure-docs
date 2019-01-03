@@ -6,6 +6,7 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 10/22/2018
+ms.reviewer: sngun
 ---
 
 # Connect Qlik Sense to Azure Cosmos DB and visualize your data

@@ -8,6 +8,7 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
+ms.reviewer: sngun
 ---
 # How to use Azure Table Storage and the Azure Cosmos DB Table API with Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]

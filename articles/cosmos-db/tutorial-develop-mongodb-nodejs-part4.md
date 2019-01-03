@@ -10,6 +10,7 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
+ms.reviewer: sngun
 
 ---
 # Create an Angular app with Azure Cosmos DB's API for MongoDB - Create a Cosmos account

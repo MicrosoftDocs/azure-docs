@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rimman
-
+ms.reviewer: sngun
 
 ---
 # Set up Azure Cosmos DB global distribution using the SQL API

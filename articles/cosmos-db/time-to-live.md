@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
+ms.reviewer: sngun
 
 ---
 # Time to Live for Azure Cosmos DB data

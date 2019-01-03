@@ -8,6 +8,7 @@ ms.topic: overview
 ms.date: 11/03/2017
 author: wmengmsft
 ms.author: wmeng
+ms.reviewer: sngun
 
 ---
 # Azure Table storage overview

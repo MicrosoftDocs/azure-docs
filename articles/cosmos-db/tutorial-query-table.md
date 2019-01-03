@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 11/15/2017
+ms.reviewer: sngun
 ---
 
 # Tutorial: Query Azure Cosmos DB by using the Table API
