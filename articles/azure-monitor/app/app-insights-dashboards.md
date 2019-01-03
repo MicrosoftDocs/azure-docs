@@ -141,14 +141,14 @@ CONFIGURE
 * [Alerts](../../azure-monitor/app/alerts.md) - metric alert configuration.
 * [Continuous export](../../azure-monitor/app/export-telemetry.md) - configure export of telemetry to Azure storage.
 * [Performance testing](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests) - set up a synthetic load on your website.
-* [Quota and pricing](../../application-insights/app-insights-pricing.md) and [ingestion sampling](../../application-insights/app-insights-sampling.md).
+* [Quota and pricing](../../azure-monitor/app/pricing.md) and [ingestion sampling](../../application-insights/app-insights-sampling.md).
 * **API Access** - Create [release annotations](annotations.md) and for the Data Access API.
 * [**Work Items**](../../azure-monitor/app/diagnostic-search.md#create-work-item) - Connect to a work tracking system so that you can create bugs while inspecting telemetry.
 
 SETTINGS
 
 * [**Locks**](../../azure-resource-manager/resource-group-lock-resources.md) - lock Azure resources
-* [**Automation script**](../../application-insights/app-insights-powershell.md) - export a definition of the Azure resource so that you can use it as a template to create new resources.
+* [**Automation script**](../../azure-monitor/app/powershell.md) - export a definition of the Azure resource so that you can use it as a template to create new resources.
 
 
 ## Video

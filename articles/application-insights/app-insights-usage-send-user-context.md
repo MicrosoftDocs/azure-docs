@@ -10,7 +10,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 08/02/2017
+ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
@@ -36,7 +36,8 @@ custom event or page view.
 - Users, Funnels, Retention, and Cohorts: Include user ID.
 - Sessions: Include session ID.
 
-If your app is integrated with the [JavaScript SDK](https://docs.microsoft.com/azure/application-insights/app-insights-javascript#set-up-application-insights-for-your-web-page), user ID is tracked automatically.
+> [!NOTE]
+> This is an advanced article outlining the manual steps for tracking user activity with Application Insights. With many web applications **these steps may not be required**, as the default server-side SDKs in conjunction with the [Client/Browser-side JavaScript SDK](app-insights-website-monitoring.md), are often sufficient to automatically track user activity. If you havn't configured [client-side monitoring](app-insights-website-monitoring.md) in addition to the server-side SDK, do that first and test to see if the user behavior analytics tools are performing as expected.
 
 ## Choosing user IDs
 

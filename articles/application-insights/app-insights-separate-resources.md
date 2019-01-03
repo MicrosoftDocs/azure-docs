@@ -80,7 +80,7 @@ In the [portal.azure.com](https://portal.azure.com), add an Application Insights
 
 Creating the resource takes a few seconds. You'll see an alert when it's done.
 
-(You can write a [PowerShell script](app-insights-powershell-script-create-resource.md) to create a resource automatically.)
+(You can write a [PowerShell script](../azure-monitor/app/powershell-script-create-resource.md) to create a resource automatically.)
 
 ### Getting the instrumentation key
 The instrumentation key identifies the resource that you created. 
