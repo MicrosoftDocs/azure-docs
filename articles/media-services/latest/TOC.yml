@@ -84,6 +84,8 @@
       href: live-event-states-billing.md
     - name: Latency
       href: live-event-latency.md
+  - name: Azure Media Player
+    href: use-azure-media-player.md
 - name: How-to guides
   items:
   - name: Get started
