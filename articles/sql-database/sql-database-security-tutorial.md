@@ -21,7 +21,7 @@ Azure SQL database secures data in a single SQL database by allowing you to:
 - Enable security features
 
 > [!NOTE]
-> An Azure SQL database on a managed instance is secured using network security rules and private endpoints as described in the [Azure SQL database managed instance](sql-database-managed-instance-index.yml) and [connectivity architecture](sql-database-managed-instance-connectivity-architecture.md).
+> An Azure SQL database on a managed instance is secured using network security rules and private endpoints as described in [Azure SQL database managed instance](sql-database-managed-instance-index.yml) and [connectivity architecture](sql-database-managed-instance-connectivity-architecture.md).
 
 You can improve your database security with just a few simple steps. In this tutorial you learn how to:
 
@@ -29,22 +29,23 @@ You can improve your database security with just a few simple steps. In this tut
 > - Create server-level and database-level firewall rules
 > - Configure an Azure Active Directory (AD) administrator
 > - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
-> - Enable **Security** features, such as threat protection, auditing, data masking, and encryption
+> - Enable security features, such as threat protection, auditing, data masking, and encryption
 
 To learn more, see the [Azure SQL database security overview](/azure/sql-database/sql-database-security-index) and [capabilities](sql-database-security-overview.md) articles.
 
 ## Prerequisites
 
-To complete this tutorial, make sure you have the following prerequisites:
+To complete the tutorial, make sure you have the following prerequisites:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
-- An Azure SQL server and database, or create one with [Azure portal](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md), or [PowerShell](sql-database-powershell-samples.md)
+- An Azure SQL server and database
+    - Create them with [Azure portal](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md), or [PowerShell](sql-database-powershell-samples.md)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com/)
+For all steps in the tutorial, sign in to [Azure portal](https://portal.azure.com/)
 
 ## Create firewall rules
 
@@ -55,11 +56,11 @@ Set **Allow access to Azure services** to **OFF** for the most secure configurat
 > [!NOTE]
 > SQL database communicates over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you can't connect to the Azure SQL database server unless your administrator opens port 1433.
 
-### Setup server-level firewall rules
+### Set up server-level firewall rules
 
 Server-level firewall rules apply to all databases within the same logical server.
 
-To setup a server-level firewall rule:
+To set up a server-level firewall rule:
 
 1. In Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
@@ -100,7 +101,7 @@ To setup a database-level firewall rule:
 1. On the toolbar, select **Execute** to create the firewall rule.
 
 > [!NOTE]
-> You can also create a server-level firewall rule in SSMS by using the [sp-set-firewall-rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current) command, though you must be connected to the *master* database.
+> You can also create a server-level firewall rule in SSMS by using the [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current) command, though you must be connected to the *master* database.
 
 ## Create an Azure AD admin
 
@@ -117,7 +118,7 @@ To set the Azure AD administrator:
     > [!IMPORTANT]
     > You need to be either a "Company Administrator" or "Global Administrator" to perform this task.
 
-1. On the **Add admin** page, search and select the AD user or group and choose **Select**. All members and groups of your Active Directory are listed and entries grayed out are not supported as Azure AD administrators. See the **Azure AD features and limitations** section of [Use Azure AD authentication with SQL database or SQL data warehouse](sql-database-aad-authentication.md).
+1. On the **Add admin** page, search and select the AD user or group and choose **Select**. All members and groups of your Active Directory are listed, and entries grayed out are not supported as Azure AD administrators. See [Azure AD features and limitations](sql-database-aad-authentication.md#azure-ad-features-and-limitations).
 
     ![select admin](./media/sql-database-security-tutorial/admin-select.png)
 
@@ -129,7 +130,7 @@ To set the Azure AD administrator:
     The process of changing an administrator may take several minutes. The new administrator will appear in the **Active Directory admin** box.
 
 > [!NOTE]
-> When setting an Azure AD admin, the new admin name (user or group) cannot be present as a SQL Server authentication user in the *master* database. If present, the setup will fail and rollback changes, indicating that such an admin name already exists. Since the SQL Server authentication user is not part of Azure AD, any effort to connect the user using Azure AD authentication fails.
+> When setting an Azure AD admin, the new admin name (user or group) cannot exist as a SQL Server authentication user in the *master* database. If present, the setup will fail and roll back changes, indicating that such an admin name already exists. Since the SQL Server authentication user is not part of Azure AD, any effort to connect the user using Azure AD authentication fails.
 
 For information about configuring Azure AD, see:
 
@@ -149,6 +150,8 @@ To add users, choose the database authentication type:
 - **SQL authentication**, use a username and password for logins and are only valid in the context of a specific database within the server
 
 - **Azure AD authentication**, use identities managed by Azure AD
+
+### SQL authentication
 
 To add a user with SQL authentication:
 
@@ -179,11 +182,11 @@ To add a user with SQL authentication:
 Azure Active Directory authentication requires that database users are created as contained. A contained database user maps to an identity in the Azure AD directory associated with the database and has no login in the *master* database. The Azure AD identity can either be for an individual user or a group. For more information, see [Contained database users, make your database portable](https://msdn.microsoft.com/library/ff929188.aspx) and review the [Azure AD tutorial](./sql-database-aad-authentication-configure.md) on how to authenticate using Azure AD.
 
 > [!NOTE]
-> Database users (excluding administrators) cannot be created using the Azure portal. Azure RBAC roles do not propagate to SQL server, database, or data warehouse. They are only used to manage Azure resources and do not apply to database permissions.
+> Database users (excluding administrators) cannot be created using the Azure portal. Azure RBAC roles do not propagate to SQL servers, databases, or data warehouses. They are only used to manage Azure resources and do not apply to database permissions.
 >
 > For example, the *SQL Server Contributor* role does not grant access to connect to a database or data warehouse. This permission must be granted within the database using T-SQL statements.
 
-> [!WARNING]
+> [!IMPORTANT]
 > Special characters like  colon `:` or ampersand `&` are not supported in user names in the T-SQL `CREATE LOGIN` and `CREATE USER` statements.
 
 To add a user with Azure AD authentication:
@@ -224,9 +227,9 @@ To copy a secure connection string:
 
 Azure SQL database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Advanced threat detection](sql-advanced-threat-protection.md), [Auditing](sql-database-auditing.md), [Dynamic data masking](sql-database-dynamic-data-masking-get-started.md), and [Transparent data encryption](transparent-data-encryption-azure-sql.md).
 
-### Advanced Threat Protection
+### Advanced threat protection
 
-The Advanced Threat Detection feature detects potential threats as they occur and provides security alerts on anomalous activities. Users can explore these suspicious events using the Auditing feature, and determine if the event was to access, breach, or exploit data in the database. Users are also provided a security overview that includes a vulnerability assessment and the data discovery and classification tool.
+The advanced threat protection feature detects potential threats as they occur and provides security alerts on anomalous activities. Users can explore these suspicious events using the Auditing feature, and determine if the event was to access, breach, or exploit data in the database. Users are also provided a security overview that includes a vulnerability assessment and the data discovery and classification tool.
 
 > [!NOTE]
 > An example threat is SQL injection, a process where attackers inject malicious SQL into application inputs. An application can then unknowingly execute the malicious SQL and allow attackers access to breach or modify data in the database.
@@ -274,25 +277,25 @@ To enable auditing:
            > [!TIP]
            > Use the same storage account for all audited databases to get the most from auditing report templates.
 
-        - **Log Analytics**, automatically stores events for query or further analysis
+        - **Log Analytics**, which automatically stores events for query or further analysis
 
             > [!NOTE]
             > A **Log analytics workspace** is required to support advanced features such as analytics, custom alert rules, and Excel or Power BI exports. Without a workspace, only the query editor is available.
 
-        - **Event Hub**, allows events to be routed for use in other applications
+        - **Event Hub**, which allows events to be routed for use in other applications
 
     1. Select **Save**.
 
     ![Audit settings](./media/sql-database-security-tutorial/audit-settings.png)
 
-1. Now you can select **View audit logs** to the database events data.
+1. Now you can select **View audit logs** to view database events data.
 
     ![Audit records](./media/sql-database-security-tutorial/audit-records.png)
 
 > [!IMPORTANT]
 > See [SQL database auditing](sql-database-auditing.md) on how to further customize audit events using PowerShell or REST API.
 
-### Dynamic Data Masking
+### Dynamic data masking
 
 The data masking feature will automatically hide sensitive data in your database.
 
@@ -310,7 +313,7 @@ To enable data masking:
 
     ![Mask example](./media/sql-database-security-tutorial/mask-query.png)
 
-### Transparent Data Encryption
+### Transparent data encryption
 
 The encryption feature automatically encrypts your data at rest, and requires no changes to applications accessing the encrypted database. For new databases, encryption is on by default. You can also encrypt data using SSMS and the [Always encrypted](sql-database-always-encrypted.md) feature.
 
@@ -335,7 +338,7 @@ In this tutorial, you've learned to improve the security of your database with j
 > - Create server-level and database-level firewall rules
 > - Configure an Azure Active Directory (AD) administrator
 > - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
-> - Enable **Security** features, such as threat protection, auditing, data masking, and encryption
+> - Enable security features, such as threat protection, auditing, data masking, and encryption
 
 Advance to the next tutorial to learn how to implement geo-distribution.
 
