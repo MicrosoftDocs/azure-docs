@@ -20,7 +20,7 @@ The following procedure demonstrates how to deploy the language detection contai
 This procedure requires several tools that must be installed locally. 
 
 1. Install [Git](https://git-scm.com/downloads) for your operating system so you can clone the sample used in this procedure. 
-1. Install [Azure cli](../../azure/install-azure-cli?view=azure-cli-latest.md). 
+1. Install [Azure cli](../../../azure/install-azure-cli?view=azure-cli-latest.md). 
 1. Install [Docker engine](https://www.docker.com/products/docker-engine) and validate that the docker cli works in a terminal.
 1. Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/). 
 1. Have a valid Azure subscription. The trial and pay-as-you-go subscriptions will both work. 
@@ -88,8 +88,6 @@ git clone https://github.com/Azure-Samples/cognitive-services-containers-samples
 ```
 
 ## Move local Image to Azure Container Registry
-
-
 
 1. Create images on local machine. For
 
