@@ -1,6 +1,6 @@
 ---
-title: Tutorial on indexing, query, and filtering in Azure portal - Azure Search
-description: In this tutorial, use the Azure portal and predefined sample data to generate an index in Azure Search. Explore full text search, filters, facets, fuzzy search, geosearch, and more.
+title: Indexing and query quickstart tutorial using Azure portal - Azure Search
+description: In this quickstart tutorial, use the Azure portal and built-in sample data to generate an index in Azure Search. Explore full text search, filters, facets, fuzzy search, geosearch, and more.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -12,15 +12,16 @@ ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want a low-impact introduction to index design.
 ---
-# Tutorial: Use built-in portal tools for Azure Search indexing and queries
+# Quickstart: Use built-in portal tools for Azure Search import, indexing, and queries
 
 For a fast ramp up on Azure Search concepts, try the built-in tools in the Azure portal. Wizards and editors do not offer full parity with the .NET and REST APIs, but you can get started quickly with a code-free introduction, writing interesting queries against a sample data within minutes.
 
 > [!div class="checklist"]
-> * Start with a free public sample data set hosted on Azure.
-> * Run the **Import data** wizard in Azure Search to load data and generate an index.
-> * Monitor indexing progress in the portal.
-> * Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**.  
+> * Start with a free public sample data set hosted on Azure
+> * Run the **Import data** wizard in Azure Search to load data and generate an index
+> * Monitor indexing progress in the portal
+> * View an existing index and options for modifying it
+> * Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**
 
 If the tools are too limiting, you can consider a [code-based introduction to programming Azure Search in .NET](search-howto-dotnet-sdk.md) or use [Postman or Fiddler for making REST API calls](search-fiddler.md).
 
@@ -129,7 +130,7 @@ Other constructs, such as scoring profiles and CORS options, can be added at any
 
 To clearly understand what you can and cannot edit during index design, take a minute to view index definition options. Grayed-out options are an indicator that a value cannot be modified or deleted. 
 
-## <a name="query-index"></a> Start Search explorer
+## <a name="query-index"></a> Query using Search explorer
 
 Moving forward, you should now have a search index that's ready to query using the built-in [**Search explorer**](search-explorer.md) query page. It provides a search box so that you can test arbitrary query strings.
 

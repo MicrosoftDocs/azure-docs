@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Cognitive search pipeline in Azure portal - Azure Search'
+title: Build a cognitive search pipeline for AI-powered indexing in Azure portal - Azure Search
 description: Data extraction, natural language and image processing skills example in Azure portal using sample data. 
 manager: cgronlun
 author: HeidiSteen
@@ -12,13 +12,15 @@ ms.custom: seodec2018
 ---
 # Quickstart: Create a cognitive search pipeline using skills and sample data
 
-Cognitive search (preview) adds data extraction, natural language processing (NLP), and image processing skills to an Azure Search indexing pipeline, making unsearchable or unstructured content more searchable. Information created by a skill, such as entity recognition or image analysis, gets added to an index in Azure Search.
+Cognitive search (preview) adds data extraction, natural language processing (NLP), and image processing skills to an Azure Search indexing pipeline, making unsearchable or unstructured content more searchable. 
 
-In this quickstart, try the enrichment pipeline in the [Azure portal](https://portal.azure.com) before writing a single line of code:
+A cognitive search pipeline integrates [Cognitive Services resources](https://azure.microsoft.com/services/cognitive-services/) - such as [OCR](cognitive-search-skill-ocr.md), [language detection](cognitive-search-skill-language-detection.md), [entity recognitition](cognitive-search-skill-entity-recognition.md) - into an indexing process. The AI algorithms of Cognitive Services are used to find patterns, features, and characteristics in source data, returning structures and textual content that can be used in full-text search solutions based on Azure Search.
+
+In this quickstart, create your first enrichment pipeline in the [Azure portal](https://portal.azure.com) before writing a single line of code:
 
 > [!div class="checklist"]
 > * Begin with sample data in Azure Blob storage
-> * Configure the [Import data wizard](search-import-data-portal.md) for indexing and enrichment 
+> * Configure the [Import data wizard](search-import-data-portal.md) for cognitive indexing and enrichment 
 > * Run the wizard (an entity skill detects people, location, and organizations)
 > * Use [Search explorer](search-explorer.md) to query the enriched data
 
@@ -54,8 +56,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Azure services are used exclusively in this scenario. Creating the services you need is part of the preparation.
 
-+ Azure Blob storage provides the source data.
-+ Azure Search handles data ingestion and indexing, cognitive search enrichment, and full text search queries.
++ [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) provides the source data
++ [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) provides the AI (you can create these resources in-line, when specifying the pipeline)
++ [Azure Search](https://azure.microsoft.com/services/search/) provides the enriched indexing pipeline and a rich free form text search experience for use in custom apps
 
 ### Set up Azure Search
 
@@ -69,7 +72,7 @@ First, sign up for the Azure Search service.
 
 1. For Resource group, create a new resource group to contain all the resources you create in this quickstart. This makes it easier to clean up the resources after you have finished the quickstart.
 
-1. For Location, choose one of the [supported regions](#supported-regions) for Cognitive Search.
+1. For Location, choose one of the [supported regions](#supported-regions) for cognitive search.
 
 1. For Pricing tier, you can create a **Free** service to complete tutorials and quickstarts. For deeper investigation using your own data, create a [paid service](https://azure.microsoft.com/pricing/details/search/) such as **Basic** or **Standard**. 
 
@@ -90,15 +93,17 @@ The enrichment pipeline pulls from Azure data sources supported by [Azure Search
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consisting of a small file set of different types. 
 
-1. Sign up for Azure Blob storage, create a storage account, sign in to Storage Explorer, and create a container. See [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) for instructions on all the steps.
+1. Sign up for Azure Blob storage, create a storage account, sign in to Storage Explorer, and create a container. Set the public access level to **Container**. For more information, see ["Create a container" section](../storage/blobs/storage-unstructured-search.md#create-a-container) in the Search unstructured data tutorial.
 
-1. Using the Azure Storage Explorer, in the container you created, click **Upload** to upload the sample files.
+1. In the container you created, click **Upload** to upload the sample files.
 
   ![Source files in Azure blob storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 ## Create the enrichment pipeline
 
-Go back to the Azure Search service dashboard page and click **Import data** on the command bar to set up enrichment in four steps.
+Go back to the Azure Search service dashboard page and click **Import data** on the command bar to set up cognitive enrichment in four steps.
+
+  ![Import data command](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
 ### Step 1: Create a data source
 
@@ -112,7 +117,13 @@ Continue to the next page.
 
 ### Step 2: Add cognitive skills
 
-Next, add enrichment steps to the indexing pipeline. The portal gives you predefined cognitive skills for image analysis and text analysis. In the portal, a skillset operates over a single source field. That might seem like a small target, but for Azure blobs the `content` field contains most of the blob document (for example, a Word doc or PowerPoint deck). As such, this field is an ideal input because all of a blob's content is there.
+Next, add enrichment steps to the indexing pipeline. If you do not have a Cognitive Services resource, you can sign up for a free version that gives you 20 transactions daily. The sample data consists of 14 files, so your daily allocation will be mostly used up once you run this wizard.
+
+
+
+
+
+The portal gives you predefined cognitive skills for image analysis and text analysis. In the portal, a skillset operates over a single source field. That might seem like a small target, but for Azure blobs the `content` field contains most of the blob document (for example, a Word doc or PowerPoint deck). As such, this field is an ideal input because all of a blob's content is there.
 
 Sometimes you would like to extract the textual representation from files that are composed of mostly scanned images, like a PDF that gets generated by a scanner. Azure Search can automatically extract content from embedded images in the document. To do that, select the **Enable OCR and merge all text into merged_content field** option. This will automatically create a `merged_content` field that contains both the text extracted from the document as well as the textual representation of images embedded in the document. When you select this option the `Source data field` will be set to `merged_content`.
 
