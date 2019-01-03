@@ -42,7 +42,7 @@ Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/prici
 1. For this example, create the sample Liquid template described in this step.
 If you want to use any filters in your Liquid template, make sure those filters start with uppercase. 
 Learn more about [Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters), 
-which use [DotLiquid](http://dotliquidmarkup.org/) and C# naming conventions.
+which use [DotLiquid](https://dotliquidmarkup.org/) and C# naming conventions.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
