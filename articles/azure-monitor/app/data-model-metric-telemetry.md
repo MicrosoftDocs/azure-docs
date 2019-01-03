@@ -69,4 +69,4 @@ Metric with the custom property `CustomPerfCounter` set to `true` indicate that 
 
 - Learn how to use [Application Insights API for custom events and metrics](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
 - See [data model](data-model.md) for Application Insights types and data model.
-- Check out [platforms](../../application-insights/app-insights-platforms.md) supported by Application Insights.
+- Check out [platforms](../../azure-monitor/app/platforms.md) supported by Application Insights.

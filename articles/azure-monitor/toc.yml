@@ -98,7 +98,7 @@
       - name: Distributed tracing
         href: app/distributed-tracing.md
       - name: Log-based & pre-aggregated metrics
-        href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
+        href: app/pre-aggregated-metrics-log-metrics.md
     - name: Containers
       href: insights/container-insights-overview.md
     - name: Virtual Machines
@@ -272,7 +272,7 @@
           - name: Overview
             href: ../application-insights/app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json
           - name: Enable Profiler for an App Service
-            href: ../application-insights/app-insights-profiler.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler.md
           - name: Enable the Profiler for a Cloud Service
             href: ../application-insights/app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json
           - name: Enable Profiler for a Service Fabric Application
@@ -288,7 +288,7 @@
         - name: Diagnostics
           href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: Previews
-          href: ../application-insights/app-insights-previews.md?toc=/azure/azure-monitor/toc.json
+          href: app/previews.md
       - name: ASP.NET apps
         items:
         - name: Web apps
@@ -303,11 +303,11 @@
           href: app/asp-net-core.md
           items:
           - name: Profiler for Linux App services
-            href: ../application-insights/app-insights-profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-aspnetcore-linux.md
         - name: Console
           href: app/console.md
         - name: Application dashboard
-          href: ../application-insights/app-insights-overview-dashboard.md?toc=/azure/azure-monitor/toc.json
+          href: app/overview-dashboard.md
         - name: Collect more telemetry
           href: app/asp-net-more.md
         - name: Exceptions
@@ -315,7 +315,7 @@
         - name: Log traces
           href: app/asp-net-trace-logs.md
         - name: Performance counters
-          href: ../application-insights/app-insights-performance-counters.md?toc=/azure/azure-monitor/toc.json
+          href: app/performance-counters.md
         - name: Dependencies
           href: app/asp-net-dependencies.md
         - name: Release annotations
@@ -345,7 +345,7 @@
       - name: Node.js apps
         items:
         - name: Node.js
-          href: ../application-insights/app-insights-nodejs.md?toc=/azure/azure-monitor/toc.json
+          href: app/nodejs.md
       - name: Web pages
         items:
         - name: JavaScript
@@ -355,11 +355,11 @@
       - name: Distributed tracing
         items:
         - name: Local forwarder
-          href: ../application-insights/opencensus-local-forwarder.md?toc=/azure/azure-monitor/toc.json
+          href: app/opencensus-local-forwarder.md
         - name: Python
-          href: ../application-insights/opencensus-python.md?toc=/azure/azure-monitor/toc.json
+          href: app/opencensus-python.md
         - name: Go
-          href: ../application-insights/opencensus-go.md?toc=/azure/azure-monitor/toc.json
+          href: app/opencensus-go.md
       - name: Other platforms
         items:
         - name: SharePoint sites
@@ -370,23 +370,23 @@
         href: ../application-insights/app-insights-proactive-diagnostics.md?toc=/azure/azure-monitor/toc.json
         items:
         - name: Failure anomalies
-          href: ../application-insights/app-insights-proactive-failure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-failure-diagnostics.md
         - name: Performance anomalies
-          href: ../application-insights/app-insights-proactive-performance-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-performance-diagnostics.md
         - name: Trace degradation
-          href: ../application-insights/app-insights-proactive-trace-severity.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-trace-severity.md
         - name: Exception volume
-          href: ../application-insights/app-insights-proactive-exception-volume.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-exception-volume.md
         - name: Memory leak
-          href: ../application-insights/app-insights-proactive-potential-memory-leak.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-potential-memory-leak.md
         - name: Resource utilization
-          href: ../application-insights/app-insights-proactive-low-utilization-cloud-resources.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-low-utilization-cloud-resources.md
         - name: Security detection
-          href: ../application-insights/app-insights-proactive-application-security-detection-pack.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-application-security-detection-pack.md
         - name: Azure Cloud Services
-          href: ../application-insights/app-insights-proactive-cloud-services.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-cloud-services.md
         - name: Manage smart detection rules
-          href: ../application-insights/app-insights-proactive-arm-config.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-arm-config.md
       - name: Create a resource
         href: ../application-insights/app-insights-create-new-resource.md?toc=/azure/azure-monitor/toc.json
       - name: Troubleshoot
@@ -471,9 +471,9 @@
         - name: Search
           href: app/diagnostic-search.md
         - name: Metrics
-          href: ../application-insights/app-insights-metrics-explorer.md?toc=/azure/azure-monitor/toc.json
+          href: app/metrics-explorer.md
         - name: Live stream
-          href: ../application-insights/app-insights-live-stream.md?toc=/azure/azure-monitor/toc.json
+          href: app/live-stream.md
         - name: Application Map
           href: app/app-map.md
         - name: Transaction diagnostics
@@ -829,7 +829,7 @@
     - name: Usage and estimated costs
       href: platform/usage-estimated-costs.md
     - name: Application usage and costs
-      href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
+      href: app/pricing.md
     - name: Log data usage and costs
       href: platform/manage-cost-storage.md
   - name: Automate 
@@ -843,13 +843,13 @@
       - name: Applications
         items:
         - name: Create Application Insights resources 
-          href: ../application-insights/app-insights-powershell.md?toc=/azure/azure-monitor/toc.json
+          href: app/powershell.md
         - name: Create resources
-          href: ../application-insights/app-insights-powershell-script-create-resource.md?toc=/azure/azure-monitor/toc.json
+          href: app/powershell-script-create-resource.md
         - name: Set alerts
-          href: ../application-insights/app-insights-powershell-alerts.md?toc=/azure/azure-monitor/toc.json
+          href: app/powershell-alerts.md
         - name: Get Azure diagnostics
-          href: ../application-insights/app-insights-powershell-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/powershell-azure-diagnostics.md
     - name: Azure CLI samples
       href: platform/cli-samples.md
     - name: Resource Manager templates
@@ -907,7 +907,7 @@
     - name: NuGet packages
       href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
     - name: Platform support
-      href: ../application-insights/app-insights-platforms.md?toc=/azure/azure-monitor/toc.json
+      href: app/platforms.md
   - name: Application Insights data model
     items:
     - name: Overview
@@ -988,9 +988,9 @@
     - name: Log Analytics service updates
       href: https://azure.microsoft.com/updates/?product=log-analytics
     - name: SDK release notes
-      href: ../application-insights/app-insights-release-notes.md
+      href: app/release-notes.md
     - name: Release notes for Developer Analytics Tools
-      href: ../application-insights/app-insights-release-notes-vsix.md
+      href: app/release-notes-vsix.md
   - name: Windows Analytics
     href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
   - name: Regional availability
