@@ -252,4 +252,4 @@ Now, you've now successfully created a web app in .NET that stores and fetches i
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Azure Key Vault Developer's Guide](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-developers-guide)
+>[Azure Key Vault Developer's Guide](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)
