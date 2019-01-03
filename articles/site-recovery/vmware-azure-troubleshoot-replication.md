@@ -19,7 +19,9 @@ Initial replication failures often are caused by connectivity issues between the
 
 ### Check the source machine
 
-1. At the command line on the source server, use Telnet to ping the process server via the HTTPS port (the default HTTPS port is 9443) by running the following command. The command checks for network connectivity issues and for issues that block the firewall port.
+To check the source machine:
+
+* At the command line on the source server, use Telnet to ping the process server via the HTTPS port (the default HTTPS port is 9443) by running the following command. The command checks for network connectivity issues and for issues that block the firewall port.
 
    `telnet <process server IP address> <port>`
 
@@ -28,11 +30,13 @@ Initial replication failures often are caused by connectivity issues between the
 
    If you can't connect to the process server, allow inbound port 9443 on the process server. For example, you might need to allow inbound port 9443 on the process server if your network has a perimeter network or screened subnet. Then, check to see whether the problem still occurs.
 
-2. Check the status of the **InMage Scout VX Agent – Sentinel/OutpostStart** service. If the service isn't running, check to see whether the problem still occurs.   
+* Check the status of the **InMage Scout VX Agent – Sentinel/OutpostStart** service. If the service isn't running, check to see whether the problem still occurs.   
 
 ### Check the process server
 
-1. **Check whether the process server is actively pushing data to Azure**.
+To check the process server:
+
+* **Check whether the process server is actively pushing data to Azure**.
 
    1. On the process server, open Task Manager (press Ctrl+Shift+Esc).
    2. Select the **Performance** tab, and then select the **Open Resource Monitor** link. 
@@ -42,7 +46,7 @@ Initial replication failures often are caused by connectivity issues between the
 
       If cbengine.exe isn't sending a large volume of data, complete the steps in the following sections.
 
-2.  **Check whether the process server can connect to Azure Blob storage**.
+* **Check whether the process server can connect to Azure Blob storage**.
 
    Select **cbengine.exe**. Under **TCP Connections**, check to see whether there is connectivity from the process server to the Azure Blog storage URL.
 
@@ -58,7 +62,7 @@ Initial replication failures often are caused by connectivity issues between the
       
    Start or restart any service that isn't running. Check to see whether the problem still occurs.
 
-3.  **Check whether the process server can connect to the Azure public IP address by using port 443**.
+* **Check whether the process server can connect to the Azure public IP address by using port 443**.
 
    In %programfiles%\Microsoft Azure Recovery Services Agent\Temp, open the latest CBEngineCurr.errlog file. In the file, search for **443** or for the string **connection attempt failed**.
 
@@ -70,17 +74,17 @@ Initial replication failures often are caused by connectivity issues between the
 
    If you can't connect, check whether the access issue is due to firewall or proxy settings as described in the next step.
 
-4.  **Check whether the IP address-based firewall on the process server blocks access**.
+* **Check whether the IP address-based firewall on the process server blocks access**.
 
     If you use IP address-based firewall rules on the server, download the complete list of [Microsoft Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). Add the IP address ranges to your firewall configuration to ensure that the firewall allows communication to Azure (and to the default HTTPS port, 443). Allow IP address ranges for the Azure region of your subscription and for the Azure West US region (used for access control and identity management).
 
-5. **Check whether a URL-based firewall on the process server blocks access**.
+* **Check whether a URL-based firewall on the process server blocks access**.
 
     If you use a URL-based firewall rule on the server, add the following URLs to the firewall configuration:
 
-[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
+   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
-6. **Check whether proxy settings on the process server block access**.
+* **Check whether proxy settings on the process server block access**.
 
    If you use a proxy server, ensure that the proxy server name is resolved by the DNS server. To check the value that you provided when you set up the configuration server, go to the registry key **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings**.
 
@@ -90,7 +94,7 @@ Initial replication failures often are caused by connectivity issues between the
    2. Open **Microsoft Azure Backup**, and then select **Action** > **Change Properties**. 
    3. On the **Proxy Configuration** tab, you should see the proxy address. The proxy address should be same as the proxy address that's shown in the registry settings. If not, change it to the same address.
 
-6. **Check whether the throttle bandwidth is constrained on the process server**.
+* **Check whether the throttle bandwidth is constrained on the process server**.
 
    Increase the bandwidth, and then check whether the problem still occurs.
 
