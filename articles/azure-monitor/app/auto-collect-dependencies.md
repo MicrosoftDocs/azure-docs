@@ -93,4 +93,4 @@ Below is the currently supported list of dependency calls that are automatically
 - Set up custom dependency tracking for [Java](../../azure-monitor/app/java-agent.md).
 - [Write custom dependency telemetry](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
 - See [data model](../../azure-monitor/app/data-model.md) for Application Insights types and data model.
-- Check out [platforms](../../application-insights/app-insights-platforms.md) supported by Application Insights.
+- Check out [platforms](../../azure-monitor/app/platforms.md) supported by Application Insights.

@@ -73,7 +73,7 @@ There seems to be no sign of resource limitation there, so maybe the bumps in th
 ## Set alerts to meet goals
 Nevertheless, she'd like to keep an eye on the response times. If they go too high, she wants to know about it immediately.
 
-So she sets an [alert](../../application-insights/app-insights-metrics-explorer.md), for response times greater than a typical threshold. This gives her confidence that she'll know about it if response times are slow.
+So she sets an [alert](../../azure-monitor/app/metrics-explorer.md), for response times greater than a typical threshold. This gives her confidence that she'll know about it if response times are slow.
 
 ![Add alert blade](./media/detect-triage-diagnose/07-alerts.png)
 
@@ -180,7 +180,7 @@ Diagnosis isn't quite the same as debugging. Before you start tracing through th
 
 Some slow dependency issues are geolocation problems. Fabrikam Bank uses Azure virtual machines, and discovered that they had inadvertently located their web server and account server in different countries. A dramatic improvement was brought about by migrating one of them.
 
-**What did we do?** If the issue doesn't appear to be in a dependency, and if it wasn't always there, it's probably caused by a recent change. The historical perspective provided by the metric and event charts makes it easy to correlate any sudden changes with deployments. That narrows down the search for the problem. To identify which lines in the application code slowed down the performance, enable Application Insights Profiler. Please refer to [Profiling live Azure web apps with Application Insights](./../../application-insights/app-insights-profiler.md). After the Profiler is enabled, you will see a trace similar to the following. In this example, it's easily noticeable that the method *GetStorageTableData* caused the problem.  
+**What did we do?** If the issue doesn't appear to be in a dependency, and if it wasn't always there, it's probably caused by a recent change. The historical perspective provided by the metric and event charts makes it easy to correlate any sudden changes with deployments. That narrows down the search for the problem. To identify which lines in the application code slowed down the performance, enable Application Insights Profiler. Please refer to [Profiling live Azure web apps with Application Insights](./../../azure-monitor/app/profiler.md). After the Profiler is enabled, you will see a trace similar to the following. In this example, it's easily noticeable that the method *GetStorageTableData* caused the problem.  
 
 ![App Insights Profiler Trace](./media/detect-triage-diagnose/AppInsightsProfiler.png)
 
@@ -225,7 +225,7 @@ You can get started in several ways, depending on the characteristics of your ap
 
 * [ASP.NET web application](../../azure-monitor/app/asp-net.md)
 * [Java web application](../../azure-monitor/app/java-get-started.md)
-* [Node.js web application](../../application-insights/app-insights-nodejs.md)
+* [Node.js web application](../../azure-monitor/app/nodejs.md)
 * Already deployed apps, hosted on [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md), or [Azure](../../application-insights/app-insights-overview.md).
 * [Web pages](../../azure-monitor/app/javascript.md) - Single Page App or ordinary web page - use this on its own or in addition to any of the server options.
 * [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md) to test your app from the public internet.

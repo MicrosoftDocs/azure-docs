@@ -62,18 +62,18 @@ Click the Search tile to see [Diagnostic Search][diagnostic], where the first ev
 If you're expecting more data, click **Refresh** after a few seconds  .
 
 ## Creating a resource automatically
-You can write a [PowerShell script](app-insights-powershell.md) to create a resource automatically.
+You can write a [PowerShell script](../azure-monitor/app/powershell.md) to create a resource automatically.
 
 ## Next steps
 * [Create a dashboard](../azure-monitor/app/app-insights-dashboards.md)
 * [Diagnostic Search](../azure-monitor/app/diagnostic-search.md)
-* [Explore metrics](app-insights-metrics-explorer.md)
+* [Explore metrics](../azure-monitor/app/metrics-explorer.md)
 * [Write Analytics queries](../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
 [api]: ../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../azure-monitor/app/diagnostic-search.md
-[metrics]: app-insights-metrics-explorer.md
+[metrics]: ../azure-monitor/app/metrics-explorer.md
 [start]: app-insights-overview.md
 

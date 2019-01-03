@@ -119,7 +119,7 @@
       href: how-to-customize-language-model.md
     - name: Customize pronunciation
       href: how-to-customize-pronunciation.md
-    - name: Create custom Speech Recognition endpoint
+    - name: Create custom Speech-To-Text endpoint
       href: how-to-create-custom-endpoint.md
     - name: Customize voice fonts (bot brand voice)
       href: how-to-customize-voice-font.md

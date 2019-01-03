@@ -35,8 +35,8 @@ Select an alert to see its details.
 ## What problems are detected?
 There are three kinds of detection:
 
-* [Smart detection - Failure Anomalies](app-insights-proactive-failure-diagnostics.md). We use machine learning to set the expected rate of failed requests for your app, correlating with load and other factors. If the failure rate goes outside the expected envelope, we send an alert.
-* [Smart detection - Performance Anomalies](app-insights-proactive-performance-diagnostics.md). You get notifications if response time of an operation or dependency duration is slowing down compared to historical baseline or if we identify an anomalous pattern in response time or page load time.   
+* [Smart detection - Failure Anomalies](../azure-monitor/app/proactive-failure-diagnostics.md). We use machine learning to set the expected rate of failed requests for your app, correlating with load and other factors. If the failure rate goes outside the expected envelope, we send an alert.
+* [Smart detection - Performance Anomalies](../azure-monitor/app/proactive-performance-diagnostics.md). You get notifications if response time of an operation or dependency duration is slowing down compared to historical baseline or if we identify an anomalous pattern in response time or page load time.   
 * [Smart detection - Azure Cloud Service issues](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). You get alerts if your app is hosted in Azure Cloud Services and a role instance has startup failures, frequent recycling, or runtime crashes.
 
 (The help links in each notification take you to the relevant articles.)
@@ -48,7 +48,7 @@ There are three kinds of detection:
 ## Next steps
 These diagnostic tools help you inspect the telemetry from your app:
 
-* [Metric explorer](app-insights-metrics-explorer.md)
+* [Metric explorer](../azure-monitor/app/metrics-explorer.md)
 * [Search explorer](../azure-monitor/app/diagnostic-search.md)
 * [Analytics - powerful query language](../azure-monitor/log-query/get-started-portal.md)
 

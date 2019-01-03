@@ -125,7 +125,7 @@ function addTermsOfUseLink() {
     var termsLabelText = termsOfUseLabel.innerHTML;
       
     // create a new <a> element with the same inner text 
-    var termsOfUseUrl = 'https://docs.microsoft.com/en-us/legal/termsofuse';
+    var termsOfUseUrl = 'https://docs.microsoft.com/legal/termsofuse';
     var termsOfUseLink = document.createElement('a');
     termsOfUseLink.setAttribute('href', termsOfUseUrl);
     termsOfUseLink.setAttribute('target', '_blank');
