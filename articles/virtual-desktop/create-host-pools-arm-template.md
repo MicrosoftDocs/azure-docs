@@ -24,87 +24,105 @@ See Copy Windows 10 Enterprise multi-session images to your storage account to u
 This section is the same as [Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md), only this time you’ll find the template in GitHub.
 
 1. Go to [this GitHub URL](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/Create%20and%20provision%20WVD%20host%20pool).
-2. If deploying in an Enterprise subscription:
+2. If you're deploying in an Enterprise subscription, follow these steps to deploy to Azure:
     1. Scroll down and select **Deploy to Azure**.
-    2. Fill in the fields as described in steps 5–10 of Run the Azure Marketplace offering to provision a new host pool.
-3. If deploying in a CSP subscription:
+    2. Skip ahead to step 4.
+3. If you're deploying in a CSP subscription, follow these steps to deploy to Azure:
     1. Scroll down and right-click **Deploy to Azure**, then select **Copy Link Location**.
     2. Open a text editor like Notepad and paste the link there.
-    3. Right after “https://portal.azure.com/” and before the hashtag (#) insert an at sign (@) followed by the tenant domain name. For example: https://portal.azure.com/@Contoso.onmicrosoft.com#create/...
+    3. Right after “https://portal.azure.com/” and before the hashtag (#) enter an at sign (@) followed by the tenant domain name. For example: https://portal.azure.com/@Contoso.onmicrosoft.com#create/...
     4. Sign in to the Azure portal as a user with Admin/Contributor permissions to the CSP subscription.
     5. Paste the link you copied to the text editor into the address bar.
-    6. Fill in the fields as described in 5–10 of Run the Azure Marketplace offering to provision a new host pool. The GitHub URL provided in Step 1 will contain the most up-to-date information about the deployment scenarios.
+4.	Fill out the following parameters based on the source of the image you want to use for the host pool's virtual machines:
+    1.	For Azure Gallery:
+        1.  For **Rdsh Image Source**, select **Gallery**.
+        2. For **Rdsh Gallery Image SKU**, select the appropriate image.
+        3.    For **Rdsh is Windows Server**, select the appropriate value based on the image. If you're using Windows 10 Enterprise multi-session, select **Windows client**.
+        4.	For **Rdsh is 1809 or Later**, select the appropriate value based on the image. Windows Server 2019 is an 1809 release.
+        5.	You can then leave the following parameters empty:
+            1.	**Vm Image Vhd Uri**
+            2.	**Rdsh Custom Image Source Name**
+            3.	**Rdsh Custom Image Source Resource Group**
+            4.	**Rdsh Use Managed Disks**
+            5.	**Storage Account Resource Group Name**
+    2.	For VHD from blob storage:
+        1.	For **Rdsh Image Source**, select **CustomVHD**.
+        2.	For **Vm Image Vhd Uri**, enter the full URL to the vhd in blob storage.
+        3.	For **Rdsh is Windows Server**, select the appropriate value based on the image. If you're using Windows 10 Enterprise multi-session, select **Windows client**.
+        4.	For **Rdsh is 1809 or Later**, select the appropriate value based on the image. Windows Server 2019 is an 1809 release.
+        5.	For **Rdsh Use Managed Disks**, select the desired value. If you select **false**, the VHD files for each virtual machine will be stored in the same storage account as the image you provided in the **Vm Image Vhd Uri** parameter.
+            1.	If you selected **false** for **Rdsh Use Managed Disks**, enter the name of the resource group containing the storage account and image for the **Storage Account Resource Group Name** parameter. Otherwise, leave this parameter empty.
+        6.	You can then leave the following parameters empty or unchanged:
+            1.	**Rdsh Gallery Image SKU**
+            2.	**Rdsh Custom Image Source Name**
+            3.	**Rdsh Custom Image Source Resource Group**
+    3.	For Azure managed VM image:
+        1.	For **Rdsh Image Source**, select **CustomImage**.
+        2.	For **Rdsh Custom Image Source Name**, enter the name of the Azure Image resource you want to use as the image source.
+        3.	For **Rdsh Custom Image Source Resource Group**, enter the name of the resource group containing the Azure Image resource.
+        4.	For **Rdsh is Windows Server**, select the appropriate value based on the image. If you're using Windows 10 Enterprise multi-session, select **Windows client**.
+        5.	For **Rdsh is 1809 or Later**, select the appropriate value based on the image. Windows Server 2019 is an 1809 release.
+        6.	You can then leave the following parameters empty or unchanged:
+            1.	**Vm Image Vhd Uri**
+            2.	**Rdsh Gallery Image SKU**
+            3.	**Rdsh Use Managed Disks**
+            4.	**Storage Account Resource Group Name**
+5.	Enter or change additional information regarding the virtual machines:
+    1.	For **Rdsh Name Prefix**, you can enter your own prefix into the text box. Otherwise, the virtual machine names will begin with the first 10 characters of the resource group name.
+    2.	For **Rdsh Number of Instances**, enter the number of virtual machines you would like to create.
+    3.	For **Rdsh VM Disk Type**, select the disk type you would like to use for the virtual machines. If you selected **CustomVHD** as the **Rdsh Image Source** and **false** for **Rdsh Use Managed Disks**, make sure this parameter matches the storage account type where the image is located.
+6.	Enter the appropriate domain and network properties:
+    1.	For **Domain to Join**, enter the name of the domain you'd like the virtual machines to join (for example, “contoso.com”).
+    2.	For **Existing Domain UPN**, enter the UPN of a user with permission join the virtual machines to the domain and organization unit (for example, “vmadmin@contoso.com”).
+    3.	For **Existing Domain Password**, enter the defined Existing Domain UPN's domain password.
+    4.	For **Ou Path**, enter the name of the organizational unit to place the virtual machines during the domain join process. If you do not have a pre-defined organizational unit for these virtual machines, you can leave this parameter empty.
+    5.	For **Existing Vnet Name**, enter the name of the virtual network Azure resource you would like to use for the virtual machines.
+    6.	For **Existing Subnet Name**, enter the name of the subnet of the virtual network you would like to use for the virtual machines.
+    7.	For **Virtual Network Resource Group Name**, enter the name of the resource group containing the virtual network Azure resource.
+7.	Enter the appropriate information to connect and authenticate to Windows Virtual Desktop:
+    1.	For **Rd Broker URL**, leave this value as “https://rdbroker.wvd.microsoft.com” unless provided a different URL.
+    2.	For **Existing Tenant Group Name**, enter the name of the tenant group that contains your Windows Virtual Desktop tenant. If you were not given a specific tenant group name, leave this value as “Default Tenant Group”.
+    3.	For **Existing Tenant Name**, enter the name of your Windows Virtual Desktop tenant.
+    4.	For **Host Pool Name**, enter the name of the Windows Virtual Desktop host pool you want to register your newly created virtual machines to. You can enter the name of an existing host pool or a new host pool you're creating with this template.
+    5.	For **Tenant Admin Upn or Application Id**, enter the appropriate UPN or Application ID that will authenticate to Windows Virtual Desktop. When you're creating a new host pool, this principal must be assigned either the **RDS Owner** or **RDS Contributor** role at the Windows Virtual Desktop tenant scope. If you're adding these virtual machines to an existing host pool, this principal must be assigned either the **RDS Owner** or **RDS Contributor** role at the Windows Virtual Desktop host pool scope. Don't enter a UPN that requries multi-factor authentication. If you do, the virtual machines this template creates won't be able to connect to a Windows Virtual Desktop host pool.
+    6.	For **Tenant Admin Password**, enter the password corresponding to the UPN or service principal (identified by the Application ID).
+    7.	For **Is Service Principal**, select the appropriate value for the **Tenant Admin Upn or Application Id** principal.
+        i.	If you selected **true** for **Is Service Principal**, enter your Azure AD Tenant ID for the **Aad Tenant Id** parameter to successfully authenticate to Windows Virtual Desktop as a service principal. Otherwise, leave this parameter empty.
 
-## Create a virtual machine for a host pool using a default image in Azure Gallery
+## Assign users to the desktop application group
 
-This section describes alternative ways to create individual session hosts and join them to the deployment.
+After the GitHub ARM template completes, assign user access before you start testing the full session desktops on your virtual machines.
 
-### Create a virtual machine from an Azure Gallery image
+To assign users to the desktop application group:
+1.	Copy the RDPowerShell.zip file and extract it to a folder on your local computer.
+2.	Unzip RDPowerShell.zip.
+3.	Open a PowerShell prompt as Administrator.
+4.	At the PowerShell command shell prompt, enter the following cmdlet:
 
-To create a virtual machine for the host pool:
+    ```powershell
+    cd <path-to-folder-where-RDPowerShell.zip-was-extracted>
+    Import-module .\Microsoft.RdInfra.RdPowershell.dll
+    ```
 
-1. Sign in to the tenant’s Azure subscription where you want to create the virtual machines for the host pool.
-2. Select **+** or **+ Create a resource**.
-3. In the Search Everything field, search for and select one of the following:
-    1. Windows Server 2016 Datacenter.
-    2. A custom image of your creation. (This will require an Enterprise Azure subscription.)
-4. Select **Create**. (We recommend selecting **Resource Manager**.)
-5. On the **Create virtual machine** blades, enter the required information based on the following examples:
-    1. **Name**: rdsh-x (rdsh-0, rdsh-1, and so on) or win10-x (win10-1, win10-2, and so on).
-    2. **User name**: a local admin user name you will remember.
-    3. **Password**: a local admin password that meets the Azure VM password complexity requirements.
-    4. **Resource group**: the resource group you want to manage your Azure resources. This may be the same resource group as the virtual network or a new resource group.
-    5. ** Size**: Select **View all** to see all VM sizes available and select whichever option works best for you. We suggest **DS1_V2 (SSD)** or **A1_V2 (HDD)** for testing.
-    6. Virtual Network: Select the virtual network created in Prepare Active Directory for the Windows Virtual Desktop tenant environment.
-    7. Public IP address: Leave with default settings, like a public IP. This is only required during setup to connect to the VM, join the AD domain, and register with Windows Virtual Desktop. Once these steps have been completed, you can remove all public IP addresses for the session host VMs.
-    8. Network security group (firewall): Create a new network security group (NSG) for the host pool with the default port rules. You can later use this NSG to disable all inbound ports to secure the Windows Virtual Desktop tenant environment.
-6. Select **Create** and then **Purchase**. (Deployment takes about 10 minutes.)
-7. Repeat steps 3–7 for each VM in the host pool.
+5.	Run the following cmdlet to sign in to the Windows Virtual Desktop environment.
 
-### Prepare the session host virtual machine for the domain
+    ```powershell
+    Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
+    ```
 
-Use the following procedure to prepare the VM for the domain if the OS is Windows Server 2012 R2 or Windows Server 2016. If your OS is Windows 10 Enterprise multi-session, follow the instructions in Prepare the session host VM for the domain.
+6.	Run the following cmdlet to set the context to the tenant group specified in the ARM template.
 
-1. Sign in to the VM:
-    1. In the Microsoft Azure Portal, open the host pool resource group.
-    2. Select the VM and select **Connect** at the top of the VM blade.
-    3. Select Download RDP file and Open. Sign on with the local admin account when creating the VM.
-2. Join the VM to the Active Directory domain.
-    1. Launch the Control Panel and select **System**.
-    2. Select **Computer name, Change settings**.
-    3. Select **Change…**
-    4. Select **Domain**, then enter the Active Directory domain and authenticate with domain admin credentials.
-    5. Restart the VM.
-3. Install the Remote Desktop Session Host (RDSH) server role.
-    1. Sign in to the VM with the local admin or domain account used to join the VM to the domain.
-    2. Launch Server Manager, select **Manage**, then select **Add Roles and Features**.
-    3. Follow the instructions until you reach the Server Selection page. Select **the name of the machine you’re currently connected to**, then select **Next**.
-    4. On the Server Roles page, expand the Remote Desktop Services option, check the box next to Remote Desktop Session Host, select** Add Features**, then select **Next**.
-    5. When you reach the Confirmation page, check the box next to **Restart the destination server automatically if required**, then select **Install**.
+    ```powershell
+    Set-RdsContext -TenantGroupName <Tenant Group name>
+    ```
 
-### Register the VM with the Windows Virtual Desktop host pool in Windows Server 2012 R2 or Windows Server 2016
+7.	Run the following cmdlet to add users to the desktop application group.
 
-Use the following procedure to register the VM with the Windows Virtual Desktop host pool if your OS is Windows Server 2012 R2 or Windows Server 2016. If your OS is Windows 10 Enterprise multi-session, follow the instructions in Register the VM with the Windows Virtual Desktop host pool.
+    ```powershell
+    Add-RdsAppGroupUser <tenantname> <hostpoolname> “Desktop Application Group” -UserPrincipalName <userupn>
+    ```
 
-You’ll need to download the following packages from the Azure Advisors Yammer Group to manually set up a session host:
+The user’s UPN should match the user’s identity in Azure Active Directory (for example, user1@contoso.com). If you want to add multiple users, you must run this cmdlet for each user.
 
-- The host agent folder, including RDInfra.RDAgent.Installer.msi
-- The host agent loader folder, including RDInfra.RDAgentBootLoader.Installer.msi
-- The host protocol folder, including RDInfra.StackSxS.Installer.msi
+After you've completed these steps, users added to the desktop application group can sign in to Windows Virtual Desktop with supported Remote Desktop clients and see a resource for a session desktop.
 
-To manually join session hosts to the Windows Virtual Desktop deployment:
-
-1. Install the Windows Virtual Desktop Agent on the new session host
-    1. Copy and paste the RDInfraAgentInstall folder and the file containing the registration token onto the VM. Use the registration token file you created in Create new host pool.
-    2. Double-click the .msi file from the RDInfraAgentInstall folder to run the GUI.
-    3. Select **Next**.
-    4. Copy the Registration Token string from the file that was copied to the VM and paste the string into the Registration Token field.
-    5. Select **Next**, **Install**, and then **Finish**.
-2. Install the Windows Virtual Desktop Boot Loader on the new session host.
-    1. Copy and paste the RDAgentBootLoaderInstall folder onto the VM.
-    2. Double-click the .msi file from the RDAgentBootLoaderInstall folder to run the GUI.
-    3. Follow the installer’s instructions to install the Windows Virtual Desktop Boot Loader.
-3. Install the Windows Virtual Desktop side-by-side stack on the new session host.
-    1. Copy and paste the RDInfraSxSStackInstall folder onto the VM.
-    2. Double-click the .msi file from the RDInfraSxSStackInstall folder to run the GUI.
-    3. Follow the installer’s instructions to install the Windows Virtual Desktop side-by-side stack.
