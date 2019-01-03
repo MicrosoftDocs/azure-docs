@@ -193,7 +193,7 @@ To use the code with the Machine Learning tutorials, you need a few more package
     pip install azureml-sdk[automl]
     ```
 
-After you install these packages, continue with the tutorials to train and deploy a modell. 
+After you install these packages, continue with the tutorials to train and deploy a model. 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Train an image classification model](tutorial-train-models-with-aml.md)
