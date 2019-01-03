@@ -37,7 +37,7 @@ This section is the same as [Create a host pool with Azure Marketplace](create-h
     1.	For Azure Gallery:
         1.  For **Rdsh Image Source**, select **Gallery**.
         2. For **Rdsh Gallery Image SKU**, select the appropriate image.
-        3.    For **Rdsh is Windows Server**, select the appropriate value based on the image. Windows 10 Enterprise multi-session is considered Windows client.
+        3.    For **Rdsh is Windows Server**, select the appropriate value based on the image. If you're using Windows 10 Enterprise multi-session, select **Windows client**.
         4.	For **Rdsh is 1809 or Later**, select the appropriate value based on the image. Windows Server 2019 is an 1809 release.
         5.	You can then leave the following parameters empty:
             1.	**Vm Image Vhd Uri**
@@ -48,7 +48,7 @@ This section is the same as [Create a host pool with Azure Marketplace](create-h
     2.	For VHD from blob storage:
         1.	For **Rdsh Image Source**, select **CustomVHD**.
         2.	For **Vm Image Vhd Uri**, enter the full URL to the vhd in blob storage.
-        3.	For **Rdsh Is Windows Server**, select the appropriate value based on the image. Windows 10 Enterprise multi-session is considered Windows client.
+        3.	For **Rdsh is Windows Server**, select the appropriate value based on the image. If you're using Windows 10 Enterprise multi-session, select **Windows client**.
         4.	For **Rdsh is 1809 or Later**, select the appropriate value based on the image. Windows Server 2019 is an 1809 release.
         5.	For **Rdsh Use Managed Disks**, select the desired value. If you select **false**, the VHD files for each virtual machine will be stored in the same storage account as the image you provided in the **Vm Image Vhd Uri** parameter.
             1.	If you selected **false** for **Rdsh Use Managed Disks**, enter the name of the resource group containing the storage account and image for the **Storage Account Resource Group Name** parameter. Otherwise, leave this parameter empty.
@@ -60,7 +60,7 @@ This section is the same as [Create a host pool with Azure Marketplace](create-h
         1.	For **Rdsh Image Source**, select **CustomImage**.
         2.	For **Rdsh Custom Image Source Name**, enter the name of the Azure Image resource you want to use as the image source.
         3.	For **Rdsh Custom Image Source Resource Group**, enter the name of the resource group containing the Azure Image resource.
-        4.	For **Rdsh is Windows Server**, select the appropriate value based on the image. Windows 10 Enterprise multi-session is considered Windows client.
+        4.	For **Rdsh is Windows Server**, select the appropriate value based on the image. If you're using Windows 10 Enterprise multi-session, select **Windows client**.
         5.	For **Rdsh is 1809 or Later**, select the appropriate value based on the image. Windows Server 2019 is an 1809 release.
         6.	You can then leave the following parameters empty or unchanged:
             1.	**Vm Image Vhd Uri**
@@ -122,7 +122,7 @@ To assign users to the desktop application group:
     Add-RdsAppGroupUser <tenantname> <hostpoolname> “Desktop Application Group” -UserPrincipalName <userupn>
     ```
 
-The user’s UPN should match the user’s identity in Azure AD, such as user1@contoso.com. If you would like to add multiple users, you must run this cmdlet for each user.
+The user’s UPN should match the user’s identity in Azure Active Directory (for example, user1@contoso.com). If you want to add multiple users, you must run this cmdlet for each user.
 
-Users added to the desktop application group can now sign in to Windows Virtual Desktop using the supported Remote Desktop clients and see a resource for a session desktop.
+After you've completed these steps, users added to the desktop application group can sign in to Windows Virtual Desktop with supported Remote Desktop clients and see a resource for a session desktop.
 
