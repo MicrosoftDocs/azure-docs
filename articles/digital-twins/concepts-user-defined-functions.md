@@ -37,10 +37,10 @@ Data processing in Azure Digital Twins consists of defining three objects: *matc
 
 Matchers define a set of conditions that evaluate what actions take place based on incoming sensor telemetry. Conditions to determine the match might include properties from the sensor, the sensor's parent device, and the sensor's parent space. The conditions are expressed as comparisons against a [JSON path](http://jsonpath.com/) as outlined in this example:
 
-- All sensors of datatype **Temperature**
+- All sensors of datatype **Temperature** represented by the escaped String value `\"Temperature\"`
 - Having `01` in their port
-- Which belong to devices with the extended property key **Manufacturer** set to the value `"GoodCorp"`
-- Which belong to spaces of type `"Venue"`
+- Which belong to devices with the extended property key **Manufacturer** set to the escaped String value `\"GoodCorp\"`
+- Which belong to spaces of the type specified by the escaped String `\"Venue\"`
 - Which are descendants of parent **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
 
 ```JSON
@@ -96,7 +96,7 @@ User-defined functions can be written in JavaScript. Helper methods interact wit
 - Create a notification when certain conditions are met for an incoming sensor reading.
 - Attach graph metadata to the sensor reading before sending out a notification.
 
-For more information, see [How to use user-defined functions](how-to-user-defined-functions.md).
+For more information, see [How to use user-defined functions](./how-to-user-defined-functions.md).
 
 ### Role assignment
 
