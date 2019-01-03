@@ -97,7 +97,7 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     docker build -t ta-lang-frontend  .
     ```
 
-1. Verify the image is in the images list:
+1. Verify the image is in the images list on your local machine:
 
     ```console
     docker images
@@ -106,7 +106,7 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     The response includes the new image:
 
     ```console
-    PS C:\Users\diberry\repos\cognitive-services-containers-samples\dotnet\Language\FrontendService> docker images
+    PS C:\Users\pattio\repos\cognitive-services-containers-samples\dotnet\Language\FrontendService> docker images
     REPOSITORY                      TAG                      IMAGE ID            CREATED             SIZE
     ta-lang-frontend                latest                   0faab2f01682        1 minute ago        1.85GB
     ```
@@ -131,30 +131,47 @@ In order to deploy the container to the Azure Kubernetes service, the container 
 
 1. Select the **ta-lang-frontend** repository, verify that the only tag in the list is **v1**.
 
+    The first image is in your Azure Container Registry. 
 
-## Get language detection image 
+## Get language detection docker image 
 
-From the local terminal or console, pull the docker image to the local machine. This command pulls down the latest version. 
+1. Pull the latest version of the docker image to the local machine. 
 
-```console
-docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
-```
+    ```console
+    docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
+    ```
 
-## Tag and movimages for Azure Container Registry
+1. Verify the image is in the images list on your local machine:
 
-## Move local Image to Azure Container Registry
+    ```console
+    docker images
+    ```
 
-1. Create images on local machine. For
+    The response includes the new image:
 
-    docker build
+    ```console
+    PS C:\Users\pattio\repos\cognitive-services-containers-samples\dotnet\Language\FrontendService> docker images
+    REPOSITORY                                               TAG                      IMAGE ID            CREATED             SIZE
+    mcr.microsoft.com/azure-cognitive-services/language      latest                   aaaab2f01682        1 minute ago        843MB
+    ```
 
-2. Tag local image with registry 
+1. Tag image with your Azure Container registry. Find the latest version and replace the version `1.1.006770001-amd64-preview` if you have a more recent version. 
 
-    docker tag
+    ```console
+    docker tag mcr.microsoft.com/azure-cognitive-services/language pattiowenscogservcontainerregistry.azurecr.io/azure-cognitive-services/language:1.1.006770001-amd64-preview
+    ```
 
-3. Push local image to registry
+1. Push the image to the Azure Container registry. 
 
-    docker push
+    ```console
+    docker push pattiowenscogservcontainerregistry.azurecr.io/azure-cognitive-services/language:1.1.006770001-amd64-preview
+    ```
+
+1. Verify the image is in your Container registry. On the Azure portal, on your Container registry, verify the repositories list has this new repository named **azure-cognitive-services**. 
+
+1. Select the **azure-cognitive-services** repository, verify that the only tag in the list is **1.1.006770001-amd64-preview**.
+
+    The second image is in your Azure Container Registry. 
 
     registry: diberrycontainerregistry001
     registry resourcegroup:diberry-rg-container
