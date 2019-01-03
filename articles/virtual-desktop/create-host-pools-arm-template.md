@@ -24,7 +24,7 @@ See Copy Windows 10 Enterprise multi-session images to your storage account to u
 This section is the same as [Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md), only this time you’ll find the template in GitHub.
 
 1. Go to [this GitHub URL](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/Create%20and%20provision%20WVD%20host%20pool).
-2. If deploying in an Enterprise subscription, follow these steps to deploy to Azure:
+2. If you're deploying in an Enterprise subscription, follow these steps to deploy to Azure:
     1. Scroll down and select **Deploy to Azure**.
     2. Skip ahead to step 4.
 3. If you're deploying in a CSP subscription, follow these steps to deploy to Azure:
@@ -56,7 +56,7 @@ This section is the same as [Create a host pool with Azure Marketplace](create-h
             1.	**Rdsh Gallery Image SKU**
             2.	**Rdsh Custom Image Source Name**
             3.	**Rdsh Custom Image Source Resource Group**
-    3.	Azure Image resource you have created from a VHD file or captured from a virtual machine:
+    3.	For Azure managed VM image:
         1.	For **Rdsh Image Source**, select **CustomImage**.
         2.	For **Rdsh Custom Image Source Name**, enter the name of the Azure Image resource you want to use as the image source.
         3.	For **Rdsh Custom Image Source Resource Group**, enter the name of the resource group containing the Azure Image resource.
