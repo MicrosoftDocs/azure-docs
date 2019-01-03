@@ -1,7 +1,7 @@
 ---
 title: Run Container Instances
 titleSuffix: Text Analytics -  Azure Cognitive Services
-description: 
+description: The following procedure demonstrates how to deploy the language detection container, with a running sample, to the Azure Kubernetes service, and test it in a web browser. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -12,45 +12,50 @@ ms.date: 01/03/2019
 ms.author: diberry
 ---
 
-## Prerequisites
+# Deploy the Language detection container to Azure Kubernetes service
 
-1. Install azure command line and validate that the cli works in a terminal. 
-1. Install docker engine and validate that the docker cli works in a terminal.
-1. Install kubectl and validate that the kubectl cli works in a terminal. 
-1. Have valid Azure subscription. The trial subscription will work. 
+The following procedure demonstrates how to deploy the language detection container, with a running sample, to the Azure Kubernetes service, and test it in a web browser. 
+
+## Prerequisites
+This procedure requires several tools that must be installed locally. 
+
+1. Install [Azure cli](../../azure/install-azure-cli?view=azure-cli-latest.md). 
+1. Install [Docker engine](https://www.docker.com/products/docker-engine) and validate that the docker cli works in a terminal.
+1. Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/). 
+1. Have a valid Azure subscription. The trial and pay-as-you-go subscriptions will both work. 
 
 ## Create Azure Container Registry service
 
-The steps in this section are performed from a terminal or command line. If you are using an enhanced terminal, validate that the azure command line is available. 
+In order to deploy the container to the Azure Kubernetes service, the container images need to be accessible. Create your own Azure Container Registry service to host the images. 
 
-1. Login to Azure
+1. Login to Azure.
 
     ```azurecli-interactive
     az login
     ```
 
-2. Create resource group to hold every created in tutorial
+2. Create a resource group named `cogserv-container-rg` to hold every created in this procedure.
 
     ```azurecli-interactive
     az group create --name cogserv-container-rg --location westus
     ```
 
-3. Create Azure Container Registry
+3. Create your own Azure Container Registry named `cogservcontainerregistry`. Prepend your login so the name is unique such as `pattiowenscogservcontainerregistry`
 
     ```azurecli-interactive
-    az acr create --resource-group cogserv-container-rg --name cogservcontainerregistry --sku Basic
+    az acr create --resource-group cogserv-container-rg --name pattiowenscogservcontainerregistry --sku Basic
     ```
 
-    Save the results to get the **loginServer** and **name** properties:
+    Save the results to get the **loginServer** property:
 
     ```json
     {
         "adminUserEnabled": false,
         "creationDate": "2019-01-02T23:49:53.783549+00:00",
-        "id": "/subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/cogservcontainerregistry",
+        "id": "/subscriptions/666a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattiowenscogservcontainerregistry",
         "location": "westus",
-        "loginServer": "cogservcontainerregistry.azurecr.io",
-        "name": "cogservcontainerregistry",
+        "loginServer": "pattiowenscogservcontainerregistry.azurecr.io",
+        "name": "pattiowenscogservcontainerregistry",
         "provisioningState": "Succeeded",
         "resourceGroup": "cogserv-container-rg",
         "sku": {
