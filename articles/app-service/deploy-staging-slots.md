@@ -78,6 +78,7 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Connection strings (can be configured to stick to a slot)
 * Handler mappings
 * Monitoring and diagnostic settings
+* Public certificates
 * WebJobs content
 * Hybrid connections
 
@@ -85,7 +86,7 @@ When you clone configuration from another deployment slot, the cloned configurat
 
 * Publishing endpoints
 * Custom Domain Names
-* SSL certificates and bindings
+* Private certificates and SSL bindings
 * Scale settings
 * WebJobs schedulers
 
