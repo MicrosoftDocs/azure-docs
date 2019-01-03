@@ -12,27 +12,9 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/11/2019
 abstract:
-  description: Learn how Microsoft Healthcare APIs can power healthcare iteroperability in Azure.
+  description: Microsoft Healthcare APIs are a set of services in Azure that provide interfaces for integrating healthcare data. The services are built around the emerging FHIR standard. Learn how Microsoft Healthcare APIs can power healthcare iteroperability in Azure.
 sections:
 - title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to deploy a PaaS FHIR Service in Azure:'
-  - type: list
-    style: icon48
-    items: 
-    - image:
-        src: media/index/portal.svg
-      text: Portal
-      href: fhir-paas-portal-quickstart.md
-    - image:
-        src: media/index/powershell.svg
-      text: PowerShell
-      href: fhir-paas-powershell-quickstart.md
-    - image:
-        src: media/index/cli.svg
-      text: CLI
-      href: fhir-paas-cli-quickstart.md
   - type: paragraph
     text: 'Learn how to deploy an Open Source FHIR Server in Azure:'
   - type: list

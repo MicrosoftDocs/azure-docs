@@ -9,7 +9,7 @@ ms.date: 02/11/2019.
 ms.author: mihansen
 ---
 
-# How-to Guide: Register a confidential client application in Azure Active Directory
+# Register a confidential client application in Azure Active Directory
 
 In this How-to guide, you'll learn how to register a confidential client application in Azure Active Directory. A client application registration is an Azure Active Directory representation of an application that can be used to authenticate on behalf of a user and request access to [resource applications](register-resource-aad-client-app.md). A confidential client application is an application that can be trusted to hold a secret and present that secret when requesting access tokens. Examples of confidential applications are server-side applications.
 

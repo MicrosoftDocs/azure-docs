@@ -2,50 +2,36 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Microsoft Healthcare APIs?
+  - name: About Microsoft Healthcare APIs?
     href: overview.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy PaaS FHIR Service
-    items:
-    - name: Azure Portal
-      href: fhir-paas-portal-quickstart.md
-    - name: PowerShell
-      href: fhir-paas-powershell-quickstart.md
-    - name: CLI
-      href: fhir-paas-cli-quickstart.md
-  - name: Deploy Open Source FHIR Server
-    items:
-    - name: Azure Portal
-      href: fhir-oss-portal-quickstart.md
-    - name: PowerShell
-      href: fhir-oss-powershell-quickstart.md
-    - name: CLI
-      href: fhir-oss-cli-quickstart.md
+  - name: Deploy OSS FHIR Server - Portal
+    href: fhir-oss-portal-quickstart.md
+  - name: Deploy OSS FHIR Server - PowerShell
+    href: fhir-oss-powershell-quickstart.md
+  - name: Deploy OSS FHIR Server - CLI
+    href: fhir-oss-cli-quickstart.md
 - name: Tutorials
   expanded: false
   items:
-  - name: Configuring identity
-    href: configure-fhir-identity-tutorial.md
-  - name: Using Postman
+  - name: Access FHIR API with Postman
     href: access-fhir-postman-tutorial.md
 - name: How-to guides
   expanded: false
   items:
-  - name: Azure AD Resource Application
+  - name: Register Resource Application
     href: register-resource-aad-client-app.md
-  - name: Azure AD Confidential Client Application
+  - name: Register Confidential Client Application
     href: register-confidential-aad-client-app.md
-  - name: Azure AD Public Client Application
+  - name: Register Public Client Application
     href: register-public-aad-client-app.md
-  - name: Azure AD Service Client Application
+  - name: Register Service Client Application
     href: register-service-aad-client-app.md
 - name: Resources
   items:
-  - name: Common questions
+  - name: FAQ
     href: fhir-faq.md
   - name: Supported Features
-    href: fhir-features-supported.md    
-  - name: Features Roadmap
-    href: fhir-features-roadmap.md
+    href: fhir-features-supported.md

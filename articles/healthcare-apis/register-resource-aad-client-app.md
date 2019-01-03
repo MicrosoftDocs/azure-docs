@@ -9,7 +9,7 @@ ms.date: 02/11/2019.
 ms.author: mihansen
 ---
 
-# How-to Guide: Register a resource/API application in Azure Active Directory
+# Register a resource/API application in Azure Active Directory
 
 In this How-to guide, you'll learn how to register a "resource" (or API) application in Azure Active Directory. A resource application is an Azure Active Directory representation of the FHIR server API itself and client applications can request access to the resource when authenticating. The resource application is also known as the "Audience" in OAuth parlance.
 

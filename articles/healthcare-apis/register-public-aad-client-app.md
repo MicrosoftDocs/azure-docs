@@ -9,7 +9,7 @@ ms.date: 02/11/2019.
 ms.author: mihansen
 ---
 
-# How-to Guide: Register a public client application in Azure Active Directory
+# Register a public client application in Azure Active Directory
 
 In this How-to guide, you'll learn how to register a public application in Azure Active Directory. Client application registrations are Azure Active Directory representations of applications that can authenticate and ask for API permissions on behalf of a user. Public clients are applications such as mobile applications and single page javascript applications that cannot keep secrets confidential. The procedure is similar to [registering a confidential client](register-confidential-aad-client-app.md), but since public clients cannot be trusted to hold an application secret, there is no need to add one.
 
