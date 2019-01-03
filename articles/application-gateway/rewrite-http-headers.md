@@ -71,7 +71,7 @@ You can rewrite the value in the headers to:
   *Example:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ssl_cipher}"
+  $requestHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
   ```
 
   > [!Note] 
@@ -90,8 +90,6 @@ The server variables mentioned above are the variables that provide information 
 | client_port                | client port                                                  |
 | client_tcp_rtt             | information about the client TCP connection; available on systems that support the TCP_INFO socket option |
 | client_user                | when using HTTP authentication, the username supplied for authentication |
-| content_length             | “Content-Length” request header field                        |
-| content_type               | “Content-Type” request header field                          |
 | host                       | in this order of precedence: host name from the request line, or host name from the “Host” request header field, or the server name matching a request |
 | http_method                | the method used to make the URL request. For example GET, POST etc. |
 | http_status                | session status, eg: 200, 400, 403 etc.                       |
@@ -102,7 +100,6 @@ The server variables mentioned above are the variables that provide information 
 | request_scheme             | request scheme, “http” or “https”                            |
 | request_uri                | full original request URI (with arguments)                   |
 | sent_bytes                 | number of bytes sent to a client                             |
-| server_name                | name of the server which accepted a request                  |
 | server_port                | port of the server, which accepted a request                 |
 | ssl_connection_protocol    | returns the protocol of an established SSL connection        |
 | ssl_enabled                | “on” if connection operates in SSL mode, or an empty string otherwise |
@@ -113,19 +110,21 @@ The server variables mentioned above are the variables that provide information 
 
 - Once you apply a header rewrite on your Application Gateway, you should not use the portal for making any subsequent changes to that Application Gateway until the capability is supported on portal. If you use the portal to make changes to the Application Gateway after applying a rewrite rule, the header rewrite rule. You can continue to make changes using Azure PowerShell, Azure APIs or Azure SDK.
 
-- The HTTP header rewrite support is only supported on the new SKU [Standard_V2]. The capability will not be supported on the old SKU.
+- The HTTP header rewrite support is only supported on the new SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). The capability will not be supported on the old SKU.
 
 - Rewriting the Connect, Upgrade and Host headers is not supported yet.
 
-- Two important server variables, client_ip (the IP address of the client making the request) and cookie_name (the name cookie), are not supported yet. The client_ip server variable is particularly useful in scenarios where customers intend to rewrite the x-forwarded-for header set by Application Gateway, so that the header contains only the IP address of the client and not the port information.
+- Two important server variables, client_ip (the IP address of the client making the request) and cookie_*name* (the *name* cookie), are not supported yet. The client_ip server variable is particularly useful in scenarios where customers intend to rewrite the x-forwarded-for header set by Application Gateway, so that the header contains only the IP address of the client and not the port information.
 
   Both these server variables will soon be supported.
 
 - The capability to conditionally rewrite the http headers will be available soon.
 
+- Header names can contain any alphanumeric character and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). However, we currently don't support the "underscore"(\_) special character in the Header name. 
+
 ## Need help?
 
-Contact us at [AppGwHeaderRewriteHelp@microsoft.com](mailto:AppGwHeaderRewriteHelp@microsoft.com) in case you need any help with this capability.
+Contact us at [AGHeaderRewriteHelp@microsoft.com](mailto:AGHeaderRewriteHelp@microsoft.com) in case you need any help with this capability.
 
 ## Next steps
 

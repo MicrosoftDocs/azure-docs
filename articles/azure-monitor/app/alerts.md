@@ -46,7 +46,7 @@ Open the Alert rules blade, and then use the add button.
 * Are you using an organizational account? You can set alerts if you have owner or contributor access to this application resource. Take a look at the Access Control blade. [Learn about access control][roles].
 
 > [!NOTE]
-> In the alerts blade, you see that there's already an alert set up: [Proactive Diagnostics](../../application-insights/app-insights-proactive-failure-diagnostics.md). The automatic alert monitors one particular metric, request failure rate. Unless you decide to disable the proactive alert, you don't need to set your own alert on request failure rate. 
+> In the alerts blade, you see that there's already an alert set up: [Proactive Diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md). The automatic alert monitors one particular metric, request failure rate. Unless you decide to disable the proactive alert, you don't need to set your own alert on request failure rate. 
 > 
 > 
 
@@ -82,12 +82,12 @@ Popular alerts include:
 
 * [Browser metrics][client], especially Browser **page load times**, are good for web applications. If your page has many scripts, you should look for **browser exceptions**. In order to get these metrics and alerts, you have to set up [web page monitoring][client].
 * **Server response time** for the server side of web applications. As well as setting up alerts, keep an eye on this metric to see if it varies disproportionately with high request rates: variation might indicate that your app is running out of resources. 
-* **Server exceptions** - to see them, you have to do some [additional setup](../../application-insights/app-insights-asp-net-exceptions.md).
+* **Server exceptions** - to see them, you have to do some [additional setup](../../azure-monitor/app/asp-net-exceptions.md).
 
-Don't forget that [proactive failure rate diagnostics](../../application-insights/app-insights-proactive-failure-diagnostics.md) automatically monitor the rate at which your app responds to requests with failure codes. 
+Don't forget that [proactive failure rate diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md) automatically monitor the rate at which your app responds to requests with failure codes. 
 
 ## Automation
-* [Use PowerShell to automate setting up alerts](../../application-insights/app-insights-powershell-alerts.md)
+* [Use PowerShell to automate setting up alerts](../../azure-monitor/app/powershell-alerts.md)
 * [Use webhooks to automate responding to alerts](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## Video
@@ -95,15 +95,15 @@ Don't forget that [proactive failure rate diagnostics](../../application-insight
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## See also
-* [Availability web tests](../../application-insights/app-insights-monitor-web-app-availability.md)
-* [Automate setting up alerts](../../application-insights/app-insights-powershell-alerts.md)
+* [Availability web tests](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Automate setting up alerts](../../azure-monitor/app/powershell-alerts.md)
 * [Proactive diagnostics](../../application-insights/app-insights-proactive-diagnostics.md) 
 
 <!--Link references-->
 
-[availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
-[client]: ../../application-insights/app-insights-javascript.md
-[platforms]: ../../application-insights/app-insights-platforms.md
+[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
+[client]: ../../azure-monitor/app/javascript.md
+[platforms]: ../../azure-monitor/app/platforms.md
 [roles]: ../../application-insights/app-insights-resources-roles-access-control.md
 [start]: ../../application-insights/app-insights-overview.md
 

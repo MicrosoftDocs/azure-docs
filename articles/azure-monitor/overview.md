@@ -53,7 +53,7 @@ As soon as you create an Azure subscription and start adding resources such as v
 
 Extend the data you're collecting into the actual operation of the resources by [enabling diagnostics](../azure-monitor/platform/diagnostic-logs-overview.md) and [adding an agent](platform/agent-windows.md) to compute resources. This will collect telemetry for the internal operation of the resource and allow you to configure different [data sources](platform/agent-data-sources.md) to collect logs and metrics from Windows and Linux guest operating system. 
 
-[Add an instrumentation package to your application](../application-insights/app-insights-azure-web-apps.md),  to enable Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](../application-insights/app-insights-monitor-web-app-availability.md) to simulate user traffic.
+[Add an instrumentation package to your application](../azure-monitor/app/azure-web-apps.md),  to enable Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](../azure-monitor/app/monitor-web-app-availability.md) to simulate user traffic.
 
 ### Custom sources
 Azure Monitor can collect log data from any REST client using the [Data Collector API](../azure-monitor/platform/data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.

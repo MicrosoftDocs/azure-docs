@@ -38,16 +38,21 @@ Additional information on RHEL images in Azure, including publishing and retenti
 * Access to Azure-hosted RHUI is limited to the VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). If you're proxying all VM traffic via an on-premises network infrastructure, you might need to set up user-defined routes for the RHEL PAYG VMs to access the Azure RHUI.
 
 ### RHEl EUS and version-locking RHEL VMs
-Some customers may want to lock their RHEL VMs to a certain RHEL minor release. You can version-lock your RHEL VM to a specific minor version by updating the repositories to point to the Extended Update Support repositories. Use the following instructions to lock a RHEL VM to a particular minor release.
+Some customers may want to lock their RHEL VMs to a certain RHEL minor release. You can version-lock your RHEL VM to a specific minor version by updating the repositories to point to the Extended Update Support repositories. Use the following instructions to lock a RHEL VM to a particular minor release:
+
+>[!NOTE]
+> This only applies for RHEL 7.2-7.5
 
 1. Disable non-EUS repos:
     ```
     sudo yum --disablerepo=* remove rhui-azure-rhel7
     ```
+
 1. Add EUS repos:
     ```
     yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config install rhui-azure-rhel7-eus
     ```
+
 1. Lock the releasever variable:
     ```
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
@@ -91,13 +96,19 @@ The new Azure RHUI servers are deployed with [Azure Traffic Manager](https://azu
 
 ### Update expired RHUI client certificate on a VM
 
-If you are using an older RHEL VM image, for example, RHEL 7.4 (image URN: `RedHat:RHEL:7.4:7.4.2018010506`), you will experience connectivity issues to RHUI due to a now-expired (on Nov 21 2018) SSL client certificate. To overcome this problem, please update the RHUI client package on the VM using the following command
+If you are using an older RHEL VM image, for example, RHEL 7.4 (image URN: `RedHat:RHEL:7.4:7.4.2018010506`), you will experience connectivity issues to RHUI due to a now-expired (on Nov 21 2018) SSL client certificate. To overcome this problem, please update the RHUI client package on the VM using the following command:
 
 ```bash
 sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-azure-rhel7
 ```
 
-Alternatively, running `sudo yum update` will also update this package despite "expired SSL certificate" errors you will see for other repositories. Following the update, normal connectivity to other RHUI repositories should be restored.
+If your RHEL VM is in US Government cloud, use the following command:
+```bash
+sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-usgov-rhel7
+```
+
+Alternatively, running `sudo yum update` will also update the client certificate package despite "expired SSL certificate" errors you will see for other repositories. Following the update, normal connectivity to other RHUI repositories should be restored, so you will be able to run `sudo yum update` successfully.
+
 
 ### Troubleshoot connection problems to Azure RHUI
 If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM, follow these steps:

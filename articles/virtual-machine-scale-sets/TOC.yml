@@ -201,6 +201,10 @@
         href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
     - name: Applications on scale sets
       href: virtual-machine-scale-sets-deploy-app.md
+    - name: Extensions on scale sets
+      items:
+        - name: Application Health extension
+          href: virtual-machine-scale-sets-health-extension.md
     - name: Use data disks with scale sets
       href: virtual-machine-scale-sets-attached-disks.md
     - name: Encrypt disks in scale sets

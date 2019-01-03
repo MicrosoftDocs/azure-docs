@@ -26,7 +26,7 @@ and investigate issues in near-real time.
 This article shows how to add and configure the Application Insights library 
 into your Azure Batch .NET solution and instrument your application code. It also shows ways to monitor your application via the Azure portal and build 
 custom dashboards. For Application Insights support in other languages, look at the 
-[languages, platforms, and integrations documentation](../application-insights/app-insights-platforms.md).
+[languages, platforms, and integrations documentation](../azure-monitor/app/platforms.md).
 
 A sample C# solution with code to accompany this article is available on [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). This example adds Application Insights instrumentation code to the [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) example. If you're not familiar with that example, try building and running TopNWords first. Doing this will help you understand a basic Batch workflow of processing a set of input blobs in parallel on multiple compute nodes. 
 
@@ -62,7 +62,7 @@ Reference Application Insights from your .NET application by using the **Microso
 
 ## Instrument your code
 
-To instrument your code, your solution needs to create an Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). In the example, the TelemetryClient loads its configuration from the [ApplicationInsights.config](../application-insights/app-insights-configuration-with-applicationinsights-config.md) file. Be sure to update ApplicationInsights.config in the following projects with your Application Insights instrumentation key: Microsoft.Azure.Batch.Samples.TelemetryStartTask and TopNWordsSample.
+To instrument your code, your solution needs to create an Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). In the example, the TelemetryClient loads its configuration from the [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md) file. Be sure to update ApplicationInsights.config in the following projects with your Application Insights instrumentation key: Microsoft.Azure.Batch.Samples.TelemetryStartTask and TopNWordsSample.
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
@@ -377,6 +377,6 @@ See [Sampling in Application Insights](../application-insights/app-insights-samp
 * Learn more about [Application Insights](../application-insights/app-insights-overview.md).
 
 * For Application Insights support in other languages, look at the 
-[languages, platforms, and integrations documentation](../application-insights/app-insights-platforms.md).
+[languages, platforms, and integrations documentation](../azure-monitor/app/platforms.md).
 
 
