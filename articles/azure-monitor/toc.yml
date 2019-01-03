@@ -98,7 +98,7 @@
       - name: Distributed tracing
         href: app/distributed-tracing.md
       - name: Log-based & pre-aggregated metrics
-        href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
+        href: app/pre-aggregated-metrics-log-metrics.md
     - name: Containers
       href: insights/container-insights-overview.md
     - name: Virtual Machines
@@ -288,7 +288,7 @@
         - name: Diagnostics
           href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: Previews
-          href: ../application-insights/app-insights-previews.md?toc=/azure/azure-monitor/toc.json
+          href: app/previews.md
       - name: ASP.NET apps
         items:
         - name: Web apps
@@ -307,7 +307,7 @@
         - name: Console
           href: app/console.md
         - name: Application dashboard
-          href: ../application-insights/app-insights-overview-dashboard.md?toc=/azure/azure-monitor/toc.json
+          href: app/overview-dashboard.md
         - name: Collect more telemetry
           href: app/asp-net-more.md
         - name: Exceptions
@@ -315,7 +315,7 @@
         - name: Log traces
           href: app/asp-net-trace-logs.md
         - name: Performance counters
-          href: ../application-insights/app-insights-performance-counters.md?toc=/azure/azure-monitor/toc.json
+          href: app/performance-counters.md
         - name: Dependencies
           href: app/asp-net-dependencies.md
         - name: Release annotations
@@ -357,7 +357,7 @@
         - name: Local forwarder
           href: app/opencensus-local-forwarder.md
         - name: Python
-          href: ../application-insights/opencensus-python.md?toc=/azure/azure-monitor/toc.json
+          href: app/opencensus-python.md
         - name: Go
           href: app/opencensus-go.md
       - name: Other platforms
@@ -382,11 +382,11 @@
         - name: Resource utilization
           href: ../application-insights/app-insights-proactive-low-utilization-cloud-resources.md?toc=/azure/azure-monitor/toc.json
         - name: Security detection
-          href: ../application-insights/app-insights-proactive-application-security-detection-pack.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-application-security-detection-pack.md
         - name: Azure Cloud Services
-          href: ../application-insights/app-insights-proactive-cloud-services.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-cloud-services.md
         - name: Manage smart detection rules
-          href: ../application-insights/app-insights-proactive-arm-config.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-arm-config.md
       - name: Create a resource
         href: ../application-insights/app-insights-create-new-resource.md?toc=/azure/azure-monitor/toc.json
       - name: Troubleshoot
@@ -829,7 +829,7 @@
     - name: Usage and estimated costs
       href: platform/usage-estimated-costs.md
     - name: Application usage and costs
-      href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
+      href: app/pricing.md
     - name: Log data usage and costs
       href: platform/manage-cost-storage.md
   - name: Automate 
@@ -843,13 +843,13 @@
       - name: Applications
         items:
         - name: Create Application Insights resources 
-          href: ../application-insights/app-insights-powershell.md?toc=/azure/azure-monitor/toc.json
+          href: app/powershell.md
         - name: Create resources
-          href: ../application-insights/app-insights-powershell-script-create-resource.md?toc=/azure/azure-monitor/toc.json
+          href: app/powershell-script-create-resource.md
         - name: Set alerts
-          href: ../application-insights/app-insights-powershell-alerts.md?toc=/azure/azure-monitor/toc.json
+          href: app/powershell-alerts.md
         - name: Get Azure diagnostics
-          href: ../application-insights/app-insights-powershell-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/powershell-azure-diagnostics.md
     - name: Azure CLI samples
       href: platform/cli-samples.md
     - name: Resource Manager templates
@@ -907,7 +907,7 @@
     - name: NuGet packages
       href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
     - name: Platform support
-      href: ../application-insights/app-insights-platforms.md?toc=/azure/azure-monitor/toc.json
+      href: app/platforms.md
   - name: Application Insights data model
     items:
     - name: Overview

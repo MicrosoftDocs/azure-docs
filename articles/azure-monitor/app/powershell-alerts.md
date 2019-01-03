@@ -14,12 +14,12 @@ ms.date: 10/31/2016
 ms.author: mbullwin
 ---
 # Use PowerShell to set alerts in Application Insights
-You can automate the configuration of [alerts](../azure-monitor/app/alerts.md) in [Application Insights](app-insights-overview.md).
+You can automate the configuration of [alerts](../../azure-monitor/app/alerts.md) in [Application Insights](../../application-insights/app-insights-overview.md).
 
-In addition, you can [set webhooks to automate your response to an alert](../azure-monitor/platform/alerts-webhooks.md).
+In addition, you can [set webhooks to automate your response to an alert](../../azure-monitor/platform/alerts-webhooks.md).
 
 > [!NOTE]
-> If you want to create resources and alerts at the same time, consider [using an Azure Resource Manager template](app-insights-powershell.md).
+> If you want to create resources and alerts at the same time, consider [using an Azure Resource Manager template](powershell.md).
 >
 >
 
@@ -75,7 +75,7 @@ The GUID is the subscription ID (not the instrumentation key of the application)
      -Location "East US" -RuleType Metric
 
 ## Example 2
-I have an application in which I use [TrackMetric()](../azure-monitor/app/api-custom-events-metrics.md#trackmetric) to report a metric named "salesPerHour." Send an email to my colleagues if "salesPerHour" drops below 100, averaged over 24 hours.
+I have an application in which I use [TrackMetric()](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) to report a metric named "salesPerHour." Send an email to my colleagues if "salesPerHour" drops below 100, averaged over 24 hours.
 
     Add-AzureRmMetricAlertRule -Name "poor sales" `
      -Description "slow sales alert" `
@@ -88,7 +88,7 @@ I have an application in which I use [TrackMetric()](../azure-monitor/app/api-cu
      -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
      -Location "East US" -RuleType Metric
 
-The same rule can be used for the metric reported by using the [measurement parameter](../azure-monitor/app/api-custom-events-metrics.md#properties) of another tracking call such as TrackEvent or trackPageView.
+The same rule can be used for the metric reported by using the [measurement parameter](../../azure-monitor/app/api-custom-events-metrics.md#properties) of another tracking call such as TrackEvent or trackPageView.
 
 ## Metric names
 | Metric name | Screen name | Description |
@@ -114,22 +114,22 @@ The same rule can be used for the metric reported by using the [measurement para
 | `request.rate` |Request rate |Rate of all requests to the application per second. |
 | `requestFailed.count` |Failed requests |Count of HTTP requests that resulted in a response code >= 400 |
 | `view.count` |Page views |Count of client user requests for a web page. Synthetic traffic is filtered out. |
-| {your custom metric name} |{Your metric name} |Your metric value reported by [TrackMetric](../azure-monitor/app/api-custom-events-metrics.md#trackmetric) or in the [measurements parameter of a tracking call](../azure-monitor/app/api-custom-events-metrics.md#properties). |
+| {your custom metric name} |{Your metric name} |Your metric value reported by [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) or in the [measurements parameter of a tracking call](../../azure-monitor/app/api-custom-events-metrics.md#properties). |
 
 The metrics are sent by different telemetry modules:
 
 | Metric group | Collector module |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[Browser JavaScript](../azure-monitor/app/javascript.md) |
-| performanceCounter |[Performance](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
-| remoteDependencyFailed |[Dependency](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
-| request,<br/>requestFailed |[Server request](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[Browser JavaScript](../../azure-monitor/app/javascript.md) |
+| performanceCounter |[Performance](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| remoteDependencyFailed |[Dependency](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| request,<br/>requestFailed |[Server request](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 
 ## Webhooks
-You can [automate your response to an alert](../azure-monitor/platform/alerts-webhooks.md). Azure will call a web address of your choice when an alert is raised.
+You can [automate your response to an alert](../../azure-monitor/platform/alerts-webhooks.md). Azure will call a web address of your choice when an alert is raised.
 
 ## See also
-* [Script to configure Application Insights](app-insights-powershell-script-create-resource.md)
-* [Create Application Insights and web test resources from templates](app-insights-powershell.md)
-* [Automate coupling Microsoft Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [Automate your response to an alert](../azure-monitor/platform/alerts-webhooks.md)
+* [Script to configure Application Insights](powershell-script-create-resource.md)
+* [Create Application Insights and web test resources from templates](powershell.md)
+* [Automate coupling Microsoft Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)
+* [Automate your response to an alert](../../azure-monitor/platform/alerts-webhooks.md)

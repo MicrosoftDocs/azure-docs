@@ -62,7 +62,7 @@ Click the Search tile to see [Diagnostic Search][diagnostic], where the first ev
 If you're expecting more data, click **Refresh** after a few seconds  .
 
 ## Creating a resource automatically
-You can write a [PowerShell script](app-insights-powershell.md) to create a resource automatically.
+You can write a [PowerShell script](../azure-monitor/app/powershell.md) to create a resource automatically.
 
 ## Next steps
 * [Create a dashboard](../azure-monitor/app/app-insights-dashboards.md)

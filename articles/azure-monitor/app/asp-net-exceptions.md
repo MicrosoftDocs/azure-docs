@@ -486,4 +486,4 @@ This is different from the 'Exceptions' count calculated by the Application Insi
 ## Next steps
 * [Monitor REST, SQL, and other calls to dependencies](../../azure-monitor/app/asp-net-dependencies.md)
 * [Monitor page load times, browser exceptions, and AJAX calls](../../azure-monitor/app/javascript.md)
-* [Monitor performance counters](../../application-insights/app-insights-performance-counters.md)
+* [Monitor performance counters](../../azure-monitor/app/performance-counters.md)

@@ -21,7 +21,7 @@ Windows provides a wide variety of [performance counters](https://docs.microsoft
 
 The Metrics pane shows the default set of performance counters.
 
-![Performance counters reported in Application Insights](./media/app-insights-performance-counters/performance-counters.png)
+![Performance counters reported in Application Insights](./media/performance-counters/performance-counters.png)
 
 The current default counters that are collected for .NET web applications are:
 
@@ -36,7 +36,7 @@ The current default counters that are collected for .NET web applications are:
          - ASP.NET Applications\\Requests In Application Queue
          - Processor(_Total)\\% Processor Time
 
-To see all your most useful charts in one place, create a [dashboard](../azure-monitor/app/app-insights-dashboards.md) and pin them to it.
+To see all your most useful charts in one place, create a [dashboard](../../azure-monitor/app/app-insights-dashboards.md) and pin them to it.
 
 ## Add counters
 
@@ -93,36 +93,36 @@ Or you can do the same thing with custom metrics you created:
 ```
 
 ## Performance counters in Analytics
-You can search and display performance counter reports in [Analytics](../azure-monitor/app/analytics.md).
+You can search and display performance counter reports in [Analytics](../../azure-monitor/app/analytics.md).
 
 The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter.  In the telemetry for each application, you'll see only the counters for that application. For example, to see what counters are available: 
 
-![Performance counters in Application Insights analytics](./media/app-insights-performance-counters/analytics-performance-counters.png)
+![Performance counters in Application Insights analytics](./media/performance-counters/analytics-performance-counters.png)
 
 ('Instance' here refers to the performance counter instance,  not the role, or server machine instance. The performance counter instance name typically segments counters such as processor time by the name of the process or application.)
 
 To get a chart of available memory over the recent period: 
 
-![Memory timechart in Application Insights analytics](./media/app-insights-performance-counters/analytics-available-memory.png)
+![Memory timechart in Application Insights analytics](./media/performance-counters/analytics-available-memory.png)
 
 Like other telemetry, **performanceCounters** also has a column `cloud_RoleInstance` that indicates the identity of the host server instance on which your app is running. For example, to compare the performance of your app on the different machines: 
 
-![Performance segmented by role instance in Application Insights analytics](./media/app-insights-performance-counters/analytics-metrics-role-instance.png)
+![Performance segmented by role instance in Application Insights analytics](./media/performance-counters/analytics-metrics-role-instance.png)
 
 ## ASP.NET and Application Insights counts
 *What's the difference between the Exception rate and Exceptions metrics?*
 
 * *Exception rate* is a system performance counter. The CLR counts all the handled and unhandled exceptions that are thrown, and divides the total in a sampling interval by the length of the interval. The Application Insights SDK collects this result and sends it to the portal.
 
-* *Exceptions* is a count of the TrackException reports received by the portal in the sampling interval of the chart. It includes only the handled exceptions where you have written TrackException calls in your code, and doesn't include all [unhandled exceptions](../azure-monitor/app/asp-net-exceptions.md). 
+* *Exceptions* is a count of the TrackException reports received by the portal in the sampling interval of the chart. It includes only the handled exceptions where you have written TrackException calls in your code, and doesn't include all [unhandled exceptions](../../azure-monitor/app/asp-net-exceptions.md). 
 
 ## Performance counters in ASP.Net Core applications
 Performance counters are supported only if the application is targeting the full .NET Framework. There is no ability to collect Performance counters for .Net Core applications.
 
 ## Alerts
-Like other metrics, you can [set an alert](../azure-monitor/app/alerts.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
+Like other metrics, you can [set an alert](../../azure-monitor/app/alerts.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
 
 ## <a name="next"></a>Next steps
-* [Dependency tracking](../azure-monitor/app/asp-net-dependencies.md)
-* [Exception tracking](../azure-monitor/app/asp-net-exceptions.md)
+* [Dependency tracking](../../azure-monitor/app/asp-net-dependencies.md)
+* [Exception tracking](../../azure-monitor/app/asp-net-exceptions.md)
 
