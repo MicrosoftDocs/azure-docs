@@ -2,9 +2,23 @@
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/08/2018
+ms.date: 12/11/2018
 ms.author: wolfma
 ---
+
+### Neural voices
+
+Neural voices are available in these regions:
+
+| Region | Endpoint |
+|--------|----------|
+| East US | https://eastus.tts.speech.microsoft.com/cognitiveservices/v1 |
+| Southeast Asia | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
+| West Europe | https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
+
+### Standard voices
+
+Standard voices are available in these regions:
 
 | Region | Endpoint |
 |--------|----------|
@@ -13,9 +27,10 @@ ms.author: wolfma
 | East US | https://eastus.tts.speech.microsoft.com/cognitiveservices/v1 |
 | East US2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1 |
 | East Asia | https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
-| South East Asia | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
+| Southeast Asia | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
 | North Europe | https://northeurope.tts.speech.microsoft.com/cognitiveservices/v |
 | West Europe | https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
 
-> [!NOTE]
-> If you've created a custom voice font, use the endpoint that you created, not the endpoints listed here.
+### Custom voices
+
+If you've created a custom voice font, use the endpoint that you've created, not one of the endpoints in these lists.

@@ -1,13 +1,14 @@
 ---
-title: Add blobs to objects in Azure Digital Twins | Microsoft Docs
-description: Understanding how to add blobs to objects in Azure Digital Twins
+title: 'How to add blobs to objects in Azure Digital Twins | Microsoft Docs'
+description: Learn how to add blobs to objects in Azure Digital Twins.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/28/2018
 ms.author: adgera
+ms.custom: seodec18
 ---
 
 # Add blobs to objects in Azure Digital Twins
@@ -16,10 +17,7 @@ Blobs are unstructured representations of common file types, like pictures and l
 
 Azure Digital Twins supports attaching blobs to devices, spaces, and users. Blobs can represent a profile picture for a user, a device photo, a video, a map, or a log.
 
-> [!NOTE]
-> This article assumes:
-> * That your instance is correctly configured to receive Management API requests.
-> * That you've correctly authenticated by using a REST client of your choice.
+[!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
 ## Uploading blobs: an overview
 
@@ -88,9 +86,9 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Parameter value | Replace with |
+| Value | Replace with |
 | --- | --- |
-| *USER_DEFINED_BOUNDARY* | A multipart content boundary name |
+| USER_DEFINED_BOUNDARY | A multipart content boundary name |
 
 The following code is a .NET implementation of the same blob upload, using the class [MultipartFormDataContent](https://docs.microsoft.com/dotnet/api/system.net.http.multipartformdatacontent):
 
@@ -111,7 +109,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 ## API endpoints
 
-The following sections walk you through core endpoints and their functionalities.
+The following sections describe the core blob-related API endpoints and their functionalities.
 
 ### Devices
 
@@ -189,7 +187,7 @@ The returned JSON (**UserBlob** objects) conforms to the following JSON models:
 
 ## Common errors
 
-A common error is not including the correct header information:
+A common error is to not include the correct header information:
 
 ```JSON
 {

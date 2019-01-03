@@ -25,7 +25,7 @@ Key points to remember:
 
 + You can only have one skillset per indexer.
 + A skillset must have at least one skill.
-+ You can create multiple skills of the same type (for example, variants of an image analysis skill) but each skill can only be used once within the same skillset.
++ You can create multiple skills of the same type (for example, variants of an image analysis skill).
 
 ## Begin with the end in mind
 

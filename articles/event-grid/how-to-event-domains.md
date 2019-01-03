@@ -7,7 +7,7 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 12/17/2018
 ---
 
 # Manage topics and publish events using event domains
@@ -135,7 +135,7 @@ Permissions that are set for a topic are stored in Azure Active Directory and mu
 
 ## Publish events to an Event Grid Domain
 
-Publishing events to a domain is the same as [publishing to a custom topic](./post-to-custom-topic.md). The only difference is that you need to specify the topic you wish each event to go to. The following array of events would result in event with `"id": "1111"` to topic `foo` while event with `"id": "2222"` would be sent to topic `bar`:
+Publishing events to a domain is the same as [publishing to a custom topic](./post-to-custom-topic.md). However, instead of publishing to the custom topic, you publish all events to the domain endpoint. In the JSON event data, you specify the topic you wish the events to go to. The following array of events would result in event with `"id": "1111"` to topic `demotopic1` while event with `"id": "2222"` would be sent to topic `demotopic2`:
 
 ```json
 [{
@@ -164,7 +164,15 @@ Publishing events to a domain is the same as [publishing to a custom topic](./po
 }]
 ```
 
-To get the keys for a domain with Azure CLI, use:
+To get the domain endpoint with Azure CLI, use
+
+```azurecli-interactive
+az eventgrid domain show \
+  -g <my-resource-group> \
+  -n <my-domain>
+```
+
+To get the keys for a domain, use:
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -172,7 +180,15 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-For PowerShell, use:
+To get the domain endpoint with PowerShell, use
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
+To get the keys for a domain, use:
 
 ```azurepowershell-interactive
 Get-AzureRmEventGridDomainKey `

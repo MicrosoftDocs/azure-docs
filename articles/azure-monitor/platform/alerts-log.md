@@ -17,10 +17,10 @@ This article shows you how to set up log alerts using the alerts interface insid
 - Criteria: Specific condition or logic that when seen in Signal, should trigger action
 - Action: Specific call sent to a receiver of a notification - email, SMS, webhook etc.
 
-The term **Log Alerts** to describe alerts where signal is custom query based on [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../../application-insights/app-insights-analytics.md). Learn more about functionality, terminology, and types from [Log alerts - Overview](../../azure-monitor/platform/alerts-unified-log.md).
+The term **Log Alerts** to describe alerts where signal is custom query based on [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../../azure-monitor/app/analytics.md). Learn more about functionality, terminology, and types from [Log alerts - Overview](../../azure-monitor/platform/alerts-unified-log.md).
 
 > [!NOTE]
-> Popular log data from [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) is now also available on the metric platform in Azure Monitor. For details view, [Metric Alert for Logs](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md)
+> Popular log data from [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) is now also available on the metric platform in Azure Monitor. For details view, [Metric Alert for Logs](../../azure-monitor/platform/alerts-metric-logs.md)
 
 ## Managing log alerts from the Azure portal
 
@@ -239,6 +239,6 @@ On successful operation, 201 will be returned to state new alert rule creation o
 
 * Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
 * Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
-* Learn more about [Application Insights](../../application-insights/app-insights-analytics.md)
+* Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
 * Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
 

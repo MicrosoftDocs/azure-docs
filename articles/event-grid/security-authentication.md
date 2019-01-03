@@ -75,6 +75,8 @@ To prove endpoint ownership, echo back the validation code in the validationResp
 }
 ```
 
+You must return an HTTP 200 OK response status code. HTTP 202 Accepted is not recognized as a valid Event Grid subscription validation response.
+
 Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated.
 
 For an example of handling the subscription validation handshake, see a [C# sample](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).

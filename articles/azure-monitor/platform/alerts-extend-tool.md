@@ -475,5 +475,5 @@ Here are the remediation steps for each error:
 
 ## Next steps
 
-* Learn more about the new [Azure Alerts experience](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+* Learn more about the new [Azure Alerts experience](../../azure-monitor/platform/alerts-overview.md).
 * Learn about [log alerts in Azure Alerts](alerts-unified-log.md).

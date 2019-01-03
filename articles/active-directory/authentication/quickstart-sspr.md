@@ -62,7 +62,7 @@ Now lets test your SSPR configuration with a test user. Since Microsoft enforces
 
 ## Clean up resources
 
-It's easy to disable self-service password reset. Open your Azure AD tenant and go to **Password Reset** > **Properties**, and then select **None** under **Self Service Password Reset Enabled**.
+It's easy to disable self-service password reset. Open your Azure AD tenant and go to **Properties** > **Password Reset**, and then select **None** under **Self Service Password Reset Enabled**.
 
 ## Next steps
 

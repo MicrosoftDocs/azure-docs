@@ -4,7 +4,7 @@ description: Find answers to frequently asked questions about Azure Files.
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 10/04/2018
+ms.date: 01/02/2019
 ms.author: renash
 ms.component: files
 ---
@@ -177,7 +177,7 @@ This article answers common questions about Azure Files features and functionali
 * <a id="ad-support-regions"></a>
 **Is the preview of Azure AD over SMB for Azure Files available in all Azure regions?**
 
-    The preview is available in all public regions except for: North Europe.
+    The preview is available in all public regions.
 
 * <a id="ad-support-on-premises"></a>
 **Does Azure AD authentication over SMB for Azure Files (Preview) support authentication using Azure AD from on-premises machines?**

@@ -1,5 +1,5 @@
 ---
-title: Change and redeploy a microservice | Microsoft Docs
+title: Change and redeploy a microservice - Azure | Microsoft Docs
 description: This tutorial shows you how to change and redeploy a microservice in Remote Monitoring
 author: dominicbetts
 ms.author: dobett
@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 # Customize and redeploy a microservice
 
-This tutorial shows you how to edit one of the [microservices](http://azure.com/microservices) in the Remote Monitoring solution, build an image of your microservice, deploy the image to your docker hub, and then use it in Remote Monitoring solution. To introduce this concept, the tutorial uses a basic scenario where you call a microservice API and change the status message from "Alive and Well" to "New Edits Made Here!"
+This tutorial shows you how to edit one of the [microservices](https://azure.com/microservices) in the Remote Monitoring solution, build an image of your microservice, deploy the image to your docker hub, and then use it in Remote Monitoring solution. To introduce this concept, the tutorial uses a basic scenario where you call a microservice API and change the status message from "Alive and Well" to "New Edits Made Here!"
 
 Remote Monitoring solution uses microservices that are built using docker images  that are pulled from a docker hub. 
 
@@ -67,8 +67,14 @@ Now change the status message of the Iot Hub Manager microservice to "New Edits 
  "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker".
 6. To build your new docker image, type
 
-    ```cmd/sh
+    ```sh
     sh build
+    ```
+    
+    or on Windows:
+    
+    ```cmd
+    ./build.cmd
     ```
 
 7. To verify your new image was successfully created, type
