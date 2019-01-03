@@ -1,12 +1,12 @@
 ---
 title: 'How to create user-defined functions in Azure Digital Twins | Microsoft Docs'
-description: Guideline on how to create user-defined functions, matchers, and role assignments with Azure Digital Twins.
+description: How to create user-defined functions, matchers, and role assignments in Azure Digital Twins.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 01/02/2019
 ms.author: alinast
 ms.custom: seodec18
 ---
@@ -68,19 +68,13 @@ With JSON body:
 
 ## Create a user-defined function
 
-After the matchers are created, upload the function snippet with the following authenticated HTTP **POST** request:
+After the matchers are created, upload the function snippet with the following authenticated multipart HTTP POST request:
+
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
-
-> [!IMPORTANT]
-> - Verify that the headers include: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
-> - The supplied body is multipart:
->   - The first part contains the required UDF metadata.
->   - The second part contains the JavaScript compute logic.
-> - In the **USER_DEFINED_BOUNDARY** section, replace the **spaceId** (`YOUR_SPACE_IDENTIFIER`) and **matchers**(`YOUR_MATCHER_IDENTIFIER`)  values.
-> - Note the JavaScript UDF supplied as `Content-Type: text/javascript`.
 
 Use the following JSON body:
 
@@ -111,6 +105,15 @@ function process(telemetry, executionContext) {
 | USER_DEFINED_BOUNDARY | A multipart content boundary name |
 | YOUR_SPACE_IDENTIFIER | The space identifier  |
 | YOUR_MATCHER_IDENTIFIER | The ID of the matcher you want to use |
+
+1. Verify that the headers include: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Verify that the body is multipart:
+
+   - The first part contains the required user-defined function metadata.
+   - The second part contains the JavaScript compute logic.
+
+1. In the **USER_DEFINED_BOUNDARY** section, replace the **spaceId** (`YOUR_SPACE_IDENTIFIER`) and **matchers** (`YOUR_MATCHER_IDENTIFIER`)  values.
+1. Verify that the JavaScript user-defined function is supplied as `Content-Type: text/javascript`.
 
 ### Example functions
 
@@ -185,16 +188,16 @@ For a more complex user-defined function code sample, see the [Occupancy quickst
 
 ## Create a role assignment
 
-Create a role assignment for the user-defined function to run under. If no role assignment exists for the user-defined function, it won't have the proper permissions to interact with the Management API or have access to perform actions on graph objects.Actions that a user-defined function may perform are specified and defined via role-based access control within the Azure Digital Twins Management APIs. For example, user-defined functions can be limited in scope by specifying certain roles or certain access control paths. For more information, see the [Role-based access control](./security-role-based-access-control.md) documentation.
+Create a role assignment for the user-defined function to run under. If no role assignment exists for the user-defined function, it won't have the proper permissions to interact with the Management API or have access to perform actions on graph objects. Actions that a user-defined function may perform are specified and defined via role-based access control within the Azure Digital Twins Management APIs. For example, user-defined functions can be limited in scope by specifying certain roles or certain access control paths. For more information, see the [Role-based access control](./security-role-based-access-control.md) documentation.
 
-1. [Query the System API](./security-create-manage-role-assignments.md#all) for all roles to get the role ID you want to assign to your UDF. Do so by making an authenticated HTTP GET request to:
+1. [Query the System API](./security-create-manage-role-assignments.md#all) for all roles to get the role ID you want to assign to your user-defined function. Do so by making an authenticated HTTP GET request to:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    Keep the desired role ID. It will be passed as the JSON body attribute **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) below.
 
-1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) will be the UDF ID that was created earlier.
+1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) will be the user-defined function ID that was created earlier.
 1. Find the value of **path** (`YOUR_ACCESS_CONTROL_PATH`) by querying your spaces with `fullpath`.
 1. Copy the returned `spacePaths` value. You'll use that below. Make an authenticated HTTP GET request to:
 
@@ -206,7 +209,7 @@ Create a role assignment for the user-defined function to run under. If no role 
     | --- | --- |
     | YOUR_SPACE_NAME | The name of the space you wish to use |
 
-1. Paste the returned `spacePaths` value into **path** to create a UDF role assignment by making an authenticated HTTP POST request to:
+1. Paste the returned `spacePaths` value into **path** to create a user-defined function role assignment by making an authenticated HTTP POST request to:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments
@@ -225,12 +228,12 @@ Create a role assignment for the user-defined function to run under. If no role 
     | Value | Replace with |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | The identifier for the desired role |
-    | YOUR_USER_DEFINED_FUNCTION_ID | The ID for the UDF you want to use |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | The ID specifying the UDF type |
+    | YOUR_USER_DEFINED_FUNCTION_ID | The ID for the user-defined function you want to use |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | The ID specifying the user-defined function type |
     | YOUR_ACCESS_CONTROL_PATH | The access control path |
 
 >[!TIP]
-> Read the article [How to create and manage role assignments](./security-create-manage-role-assignments.md) for more information about UDF-related Management API operations and endpoints.
+> Read the article [How to create and manage role assignments](./security-create-manage-role-assignments.md) for more information about user-defined function Management API operations and endpoints.
 
 ## Send telemetry to be processed
 
