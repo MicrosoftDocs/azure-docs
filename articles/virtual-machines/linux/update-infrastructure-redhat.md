@@ -60,8 +60,9 @@ Some customers may want to lock their RHEL VMs to a certain RHEL minor release. 
 
     >[!NOTE]
     > The above instruction will lock the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 7.5 > /etc/yum/vars/releasever` will lock your RHEL version to RHEL 7.5
+
 1. Update your RHEL VM
-    ```bash
+    ```
     sudo yum update
     ```
 
