@@ -118,21 +118,21 @@ ms.author: mbullwin
 ### Azure Application Insights Trends
 Azure Application Insights is a new tool in Visual Studio that you can use to help you analyze how your app operates over time. To get started, on the **Application Insights** toolbar button or in the Application Insights Search window, choose **Explore Telemetry Trends**. Or, on the **View** menu, click **Other Windows**, and then click **Application Insights Trends**. Choose one of five common queries to get started. You can analyze different data sets based on telemetry types, time ranges, and other properties. To find anomalies in your data, choose one of the anomaly options in the **View Type** drop-down list. The filtering options at the bottom of the window make it easy to hone in on specific subsets of your telemetry.
 
-![Application Insights Trends](./media/app-insights-release-notes-vsix/Trends.png)
+![Application Insights Trends](./media/release-notes-vsix/Trends.png)
 
 ### Exceptions in CodeLens
 Exception telemetry is now displayed in CodeLens. If you've connected your project to the Application Insights service, you'll see the number of exceptions that have occurred in each method in production in the past 24 hours. From CodeLens, you can jump to Search or Trends to investigate the exceptions in more detail.
 
-![Exceptions in CodeLens](./media/app-insights-release-notes-vsix/ExceptionsCodeLens.png)
+![Exceptions in CodeLens](./media/release-notes-vsix/ExceptionsCodeLens.png)
 
 ### ASP.NET Core support
 Application Insights now supports ASP.NET Core RC2 projects in Visual Studio. You can add Application Insights to new ASP.NET Core RC2 projects from the **New Project** dialog, as in the following screenshot. Or, you can add it to an existing project, right-click the project in Solution Explorer, and then click **Add Application Insights Telemetry**.
 
-![ASP.NET Core support](./media/app-insights-release-notes-vsix/NetCoreSupport.png)
+![ASP.NET Core support](./media/release-notes-vsix/NetCoreSupport.png)
 
 ASP.NET 5 RC1 and ASP.NET Core RC2 projects also have new support in the Diagnostic Tools window. You'll see Application Insights events like requests and exceptions from your ASP.NET app while you debug locally on your PC. From each event, click **Search** to drill down for more information.
 
-![Diagnostic Tools support](./media/app-insights-release-notes-vsix/DiagnosticTools.png)
+![Diagnostic Tools support](./media/release-notes-vsix/DiagnosticTools.png)
 
 ### HockeyApp for Universal Windows apps
 In addition to beta distribution and user feedback, HockeyApp provides symbolicated crash reporting for your Universal Windows apps. We've made it even easier to add the HockeyApp SDK: right-click on your Universal Windows project, and then click **Hockey App - Enable Crash Analytics**. This installs the SDK, sets up crash collection, and provisions a HockeyApp resource in the cloud, all without uploading your app to the HockeyApp service.
@@ -154,36 +154,36 @@ Check out how simple it is to upload builds for beta distribution from within Vi
 ### Universal Windows apps
 The context menu for a Universal Windows app project node now includes an option to upload your build to HockeyApp.
 
-![Project context menu for Universal Windows apps](./media/app-insights-release-notes-vsix/UniversalContextMenu.png)
+![Project context menu for Universal Windows apps](./media/release-notes-vsix/UniversalContextMenu.png)
 
 Choose the item and the HockeyApp upload dialog box opens. You will need a HockeyApp account to upload your build. If you are a new user, don't worry. Creating an account is a simple process.
 
 When you are connected, you will see the upload form in the dialog.
 
-![Upload dialog for Universal Windows apps](./media/app-insights-release-notes-vsix/UniversalUploadDialog.png)
+![Upload dialog for Universal Windows apps](./media/release-notes-vsix/UniversalUploadDialog.png)
 
 Select the content to upload (a .appxbundle or .appx file), and then choose release options in the wizard. Optionally, you can add release notes on the next page. Choose **Finish** to begin the upload.
 
 When the upload is complete, a HockeyApp notification with confirmation and a link to the app in the HockeyApp portal appears.
 
-![Upload complete notification](./media/app-insights-release-notes-vsix/UploadComplete.png)
+![Upload complete notification](./media/release-notes-vsix/UploadComplete.png)
 
 That’s it! You've just uploaded a build for beta distribution with just a few clicks.
 
 You can manage your application in numerous ways in the HockeyApp portal. This includes inviting users, viewing crash reports and feedback, changing details, and so on.
 
-![HockeyApp portal](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
+![HockeyApp portal](./media/release-notes-vsix/HockeyAppPortal.png)
 
 See the [HockeyApp Knowledge Base](https://support.hockeyapp.net/kb/app-management-2) for more details about app management.
 
 ### Windows Forms apps
 The context menu for a Windows Form project node now includes an option to upload your build to HockeyApp.
 
-![Project context menu for Windows Forms apps](./media/app-insights-release-notes-vsix/WinFormContextMenu.png)
+![Project context menu for Windows Forms apps](./media/release-notes-vsix/WinFormContextMenu.png)
 
 This opens the HockeyApp upload dialog, which is similar to the one in a Universal Windows app.
 
-![Upload dialog for Windows Forms apps](./media/app-insights-release-notes-vsix/WinFormsUploadDialog.png)
+![Upload dialog for Windows Forms apps](./media/release-notes-vsix/WinFormsUploadDialog.png)
 
 Note a new field in this wizard, for specifying the version of the app. For Universal Windows apps, the information is populated from the manifest. Windows Forms apps, unfortunately, don’t have an equivalent to this feature. You will need to specify them manually.
 
@@ -205,7 +205,7 @@ If you have an ASP.NET application with the Application Insights SDK, do the fol
 3. If you haven't signed up with Application Insights, the Search window will open in debug session telemetry mode.
 4. Click the **Search** icon to see your local telemetry.
 
-![Upload complete](./media/app-insights-release-notes-vsix/LocalSearch.png)
+![Upload complete](./media/release-notes-vsix/LocalSearch.png)
 
 ## Version 4.2
 In this release, we added features to make searching for data easier in the context of events, with the ability to jump to code from more data events, and an effortless experience to send your logging data to Application Insights. This extension is updated monthly. If you have feedback or feature requests, send it to aidevtools@microsoft.com.
@@ -218,31 +218,31 @@ If you already have one of these logging frameworks configured, the following se
 1. Right-click the project node, and then click **Application Insights**, and then click **Configure Application Insights**. Make sure that you see the option to add the correct adapter in the configuration window.
 2. Alternatively, when you build the solution, note the pop-up window that appears on the top right of your screen and click **Configure**.
 
-![Logging notification](./media/app-insights-release-notes-vsix/LoggingToast.png)
+![Logging notification](./media/release-notes-vsix/LoggingToast.png)
 
 When you have the Logging adapter installed, run your application and make sure you see the data in the diagnostic tools tab, like this:
 
-![Traces](./media/app-insights-release-notes-vsix/Traces.png)
+![Traces](./media/release-notes-vsix/Traces.png)
 
 ### Jump to or find the code where the telemetry event property is emitted
 With the new release user can click on any value in the event detail and this will search for a matching string in the current open solution. Results will show up in Visual Studio "Find Results" list as shown below:
 
-![Find match](./media/app-insights-release-notes-vsix/FindMatch.png)
+![Find match](./media/release-notes-vsix/FindMatch.png)
 
 ### New Search window for when you are not signed in
 We've improved the look of the Application Insights Search window to help you search your data while your app is in production.
 
-![Search window](./media/app-insights-release-notes-vsix/SearchWindow.png)
+![Search window](./media/release-notes-vsix/SearchWindow.png)
 
 ### See all telemetry events associated with the event
 We've added a new tab, with predefined queries for all data related to the telemetry event the user is viewing, next to the tab for event details. For example, a request has a field called **Operation ID**. Every event associated to this request has the same value for **Operation ID**. If an exception occurs while the operation is processing the request, the exception is given the same operation ID as the request to make it easier to find. If you're looking at a request, click **All telemetry for this operation** to open a new tab that displays the new search results.
 
-![Related items](./media/app-insights-release-notes-vsix/RelatedItems.png)
+![Related items](./media/release-notes-vsix/RelatedItems.png)
 
 ### Forward and Back history in Search
 Now you can go back and forth between search results.
 
-![Go back](./media/app-insights-release-notes-vsix/GoBAck.png)
+![Go back](./media/release-notes-vsix/GoBAck.png)
 
 ## Version 4.1
 This release comes with a number of new features and updates. You need to have Update 1 installed to install this release.
@@ -256,31 +256,31 @@ If file information is available, some items might be links, but the solution in
 
 If you click the hyperlink, you'll jump to the location of the selected method in your code. There might be a difference in the version number, but the feature, to jump to the correct version of the code, will come in later releases.
 
-![Click exception details](./media/app-insights-release-notes-vsix/jumptocode.png)
+![Click exception details](./media/release-notes-vsix/jumptocode.png)
 
 ### New entry points to the Search experience in Solution Explorer
 Now you can access Search through Solution Explorer.
 
-![Search in Solution Explorer](./media/app-insights-release-notes-vsix/searchentry.png)
+![Search in Solution Explorer](./media/release-notes-vsix/searchentry.png)
 
 ### Displays a notification when publish is completed
 A pop-up dialog box appears when the project is published online, so that you can view your Application Insights data in production.
 
-![Publish complete notification](./media/app-insights-release-notes-vsix/publishtoast.png)
+![Publish complete notification](./media/release-notes-vsix/publishtoast.png)
 
 ## Version 4.0
 ### Search Application Insights data from within Visual Studio
 Like the search function in the Application Insights portal, now in Visual Studio you can filter and search on event types, property values, and text, and then inspect individual events.
 
-![Search window](./media/app-insights-release-notes-vsix/search.png)
+![Search window](./media/release-notes-vsix/search.png)
 
 ### See data coming from your local computer in Diagnostic Tools
 You can view your telemetry, in addition to other debugging data, on the Visual Studio Diagnostic Tools page. Only ASP.NET 4.5 is supported.
 
-![Diagnostic Tools page](./media/app-insights-release-notes-vsix/diagtools.png)
+![Diagnostic Tools page](./media/release-notes-vsix/diagtools.png)
 
 ### Add the SDK to your project without signing in to Azure
 You no longer have to sign in to Azure to add Application Insights packages to your project, either through the **New Project** dialog or from the project context menu. If you do sign in, the SDK will be installed and configured to send telemetry to the portal as before. If you don’t sign in, the SDK will be added to your project and it will generate telemetry for the diagnostic hub. You can configure it later if you want.
 
-![New Project dialog](./media/app-insights-release-notes-vsix/newproject.png)
+![New Project dialog](./media/release-notes-vsix/newproject.png)
 

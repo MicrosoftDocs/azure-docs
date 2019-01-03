@@ -23,7 +23,7 @@ There are some limits on the number of metrics and events per application (that 
 | Property value string length | 8,192 | See [type schemas](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/).
 | Trace and exception message length | 10 K | See [type schemas](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/).
 | [Availability tests](../articles/azure-monitor/app/monitor-web-app-availability.md) count per app | 100 |
-| [Profiler](../articles/application-insights/app-insights-profiler.md) data retention | 5 days |
-| [Profiler](../articles/application-insights/app-insights-profiler.md) data sent per day | 10 GB |
+| [Profiler](../articles/azure-monitor/app/profiler.md) data retention | 5 days |
+| [Profiler](../articles/azure-monitor/app/profiler.md) data sent per day | 10 GB |
 
 For more information, see [About pricing and quotas in Application Insights](../articles/azure-monitor/app/pricing.md).
