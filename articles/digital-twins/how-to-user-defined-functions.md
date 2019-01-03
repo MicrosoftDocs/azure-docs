@@ -1,6 +1,6 @@
 ---
 title: 'How to create user-defined functions in Azure Digital Twins | Microsoft Docs'
-description: Guideline on how to create user-defined functions, matchers, and role assignments with Azure Digital Twins.
+description: How to create user-defined functions, matchers, and role assignments in Azure Digital Twins.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
@@ -112,7 +112,7 @@ function process(telemetry, executionContext) {
    - The first part contains the required user-defined function metadata.
    - The second part contains the JavaScript compute logic.
 
-1. In the **USER_DEFINED_BOUNDARY** section, replace the **spaceId** (`YOUR_SPACE_IDENTIFIER`) and **matchers**(`YOUR_MATCHER_IDENTIFIER`)  values.
+1. In the **USER_DEFINED_BOUNDARY** section, replace the **spaceId** (`YOUR_SPACE_IDENTIFIER`) and **matchers** (`YOUR_MATCHER_IDENTIFIER`)  values.
 1. Verify that the JavaScript user-defined function is supplied as `Content-Type: text/javascript`.
 
 ### Example functions
@@ -188,7 +188,7 @@ For a more complex user-defined function code sample, see the [Occupancy quickst
 
 ## Create a role assignment
 
-Create a role assignment for the user-defined function to run under. If no role assignment exists for the user-defined function, it won't have the proper permissions to interact with the Management API or have access to perform actions on graph objects.Actions that a user-defined function may perform are specified and defined via role-based access control within the Azure Digital Twins Management APIs. For example, user-defined functions can be limited in scope by specifying certain roles or certain access control paths. For more information, see the [Role-based access control](./security-role-based-access-control.md) documentation.
+Create a role assignment for the user-defined function to run under. If no role assignment exists for the user-defined function, it won't have the proper permissions to interact with the Management API or have access to perform actions on graph objects. Actions that a user-defined function may perform are specified and defined via role-based access control within the Azure Digital Twins Management APIs. For example, user-defined functions can be limited in scope by specifying certain roles or certain access control paths. For more information, see the [Role-based access control](./security-role-based-access-control.md) documentation.
 
 1. [Query the System API](./security-create-manage-role-assignments.md#all) for all roles to get the role ID you want to assign to your user-defined function. Do so by making an authenticated HTTP GET request to:
 

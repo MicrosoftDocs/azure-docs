@@ -137,7 +137,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-Making a **PATCH** request to the same endpoint enables you to update a metadata description and create a new version of the blob. The HTTP request is made through the **PATCH** method, along with any necessary meta and multipart form data.
+Making a **PATCH** request to the same endpoint enables you to update a metadata description and create a new version of the blob. The HTTP request is made through the **PATCH** method, along with any necessary meta, and multipart form data.
 
 Successful operations return a **SpaceBlob** object that conforms to the following schema. You can use it to consume returned data.
 
