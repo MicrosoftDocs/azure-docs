@@ -123,7 +123,6 @@ Backup consists of two phases, taking snapshots and transferring the snapshots t
 
 Situations that can affect backup time include the following:
 
-
 - **Initial backup for a newly added disk to an already protected VM**: If a VM is undergoing incremental backup, when a new disk is added then the backup might miss the one day SLA, depending on the size of the new disk.
 - **Fragmented app**: If an app is poorly configured it might not be optimal for storage:
     - If the snapshot contains many small, fragmented writes, the service spends additional time processing the data written by the applications.
@@ -188,6 +187,5 @@ For example, take an A2 Standard-sized virtual machine that has two additional d
 
 After reviewing the backup process and performance considerations, do the following:
 
-- Download the [capacity planning Excel spreadsheet](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) to try out disk and backup scheduling numbers.
 - [Learn about](../virtual-machines/windows/premium-storage-performance.md) tuning apps for optimal performance with Azure storage. The article focus on premium storage, but is also applicable for standard storage disks.
 - [Get started](backup-azure-arm-vms-prepare.md) with backup by reviewing VM support and limitations, creating a vault, and getting VMs ready for backup.
