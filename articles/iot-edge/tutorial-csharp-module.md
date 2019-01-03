@@ -276,7 +276,7 @@ The environment file stores the credentials for your container registry and shar
 
    3. The **registryCredentials** section stores your Docker registry credentials, so that the IoT Edge agent can pull your module image. The actual username and password pairs are stored in the .env file, which is ignored by git. Add your credentials to the .env file if you haven't already.  
 
-   4. If you want to learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
+   4. If you want to learn more about deployment manifests, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
 
 10. Add the **CSharpModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **modulesContent** section, after the **$edgeHub** module twin: 
 
