@@ -116,11 +116,11 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
     | Event hub namespace | A unique namespace name | The name you chose earlier that identifies your namespace. |
     | Event hub | *test-hub* | The event hub you created. |
     | Consumer group | *test-group* | The consumer group defined in the event hub you created. |
-
+    | | |
 
     Target table:
-    There are two options for routing: *static* and *dynamic*. For this quickstart, you use static routing (the default), where you specify the table name, file format, and mapping. Therefore, leave **My data includes routing info** unselected. 
-    You can also use dynamic routing, where your data includes the necessary routing information. 
+    There are two options for routing: *static* and *dynamic*. For this quickstart, you use static routing (the default), where you specify the table name, file format, and mapping. Therefore, leave **My data includes routing info** unselected.
+    You can also use dynamic routing, where your data includes the necessary routing information.
 
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
@@ -176,13 +176,13 @@ With the app generating data, you can now see the flow of that data from the eve
     | count
     ```
 
-1. To see the content of the messages, run the following query.
+1. To see the content of the messages, run the following query:
 
     ```Kusto
     TestTable
     ```
 
-    The result set should look like the following.
+    The result set should look like the following:
 
     ![Message result set](media/ingest-data-event-hub/message-result-set.png)
 
