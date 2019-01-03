@@ -1,9 +1,7 @@
 ---
 title: High availability in Azure Cosmos DB 
 description: This article describes how Azure Cosmos DB provides high availability
-services: cosmos-db
 author: markjbrown
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/15/2018
