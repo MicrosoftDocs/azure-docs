@@ -119,7 +119,7 @@ Continue to the next page.
 
 Next, add enrichment steps to the indexing pipeline. If you do not have a Cognitive Services resource, you can sign up for a free version that gives you 20 transactions daily. The sample data consists of 14 files, so your daily allocation will be mostly used up once you run this wizard.
 
-1. Expand **Attach Cognitive Services** to view options for resourcing the Cognitives Services APIs. For the purposes of this tutorial, you can use the **Free** resource.
+1. Expand **Attach Cognitive Services** to view options for resourcing the Cognitive Services APIs. For the purposes of this tutorial, you can use the **Free** resource.
 
   ![Attach Cognitive Services](media/search-get-started-portal/cog-search-attach.png)
 
