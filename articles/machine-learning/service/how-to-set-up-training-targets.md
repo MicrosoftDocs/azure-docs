@@ -44,8 +44,7 @@ Azure Machine Learning service has varying support across different compute targ
 
 When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute targets without having to change your script. 
 
-All you need to do is define the environment for each compute target with a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify that run configuration.
-
+All you need to do is define the environment for each compute target with a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify that run configuration.  
 
 Learn more about [submitting experiments](#submit) at the end of this article.
 
@@ -427,6 +426,7 @@ experiment_name = 'my experiment'
 
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
+
 <a name=submit></a>
 
 ### Submit the experiment
@@ -476,3 +476,4 @@ See these notebooks for examples of training with various compute targets:
 
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
+* View the [RunConfiguration class](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK reference.
