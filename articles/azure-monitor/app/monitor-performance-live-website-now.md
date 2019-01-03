@@ -33,7 +33,7 @@ Here's a summary of what you get by each route:
 | Requests & exceptions |Yes |Yes |
 | [More detailed exceptions](../../azure-monitor/app/asp-net-exceptions.md) | |Yes |
 | [Dependency diagnostics](../../azure-monitor/app/asp-net-dependencies.md) |On .NET 4.6+, but less detail |Yes, full detail: result codes, SQL command text, HTTP verb|
-| [System performance counters](../../application-insights/app-insights-performance-counters.md) |Yes |Yes |
+| [System performance counters](../../azure-monitor/app/performance-counters.md) |Yes |Yes |
 | [API for custom telemetry][api] |Yes |No |
 | [Trace log integration](../../azure-monitor/app/asp-net-trace-logs.md) |Yes |No |
 | [Page view & user data](../../azure-monitor/app/javascript.md) |Yes |No |
@@ -252,7 +252,7 @@ For applications already instrumented at compile time:
 
 View your telemetry:
 
-* [Explore metrics](../../application-insights/app-insights-metrics-explorer.md) to monitor performance and usage
+* [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage
 * [Search events and logs][diagnostic] to diagnose problems
 * [Analytics](../../azure-monitor/app/analytics.md) for more advanced queries
 * [Create dashboards](../../azure-monitor/app/app-insights-dashboards.md)

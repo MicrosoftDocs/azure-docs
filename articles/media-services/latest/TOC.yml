@@ -27,8 +27,14 @@
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: Migrate from v2 to v3
-    href: migrate-from-v2-to-v3.md
+  - name: Accounts
+    items:
+    - name: Migrate from v2 to v3
+      href: migrate-from-v2-to-v3.md
+    - name: Quotas and limitations
+      href: limits-quotas-constraints.md   
+    - name: Storage accounts
+      href: storage-account-concept.md      
   - name: Entities
     href: entities-overview.md
     items:
@@ -78,15 +84,19 @@
       href: live-event-states-billing.md
     - name: Latency
       href: live-event-latency.md
-  - name: Sorage accounts
-    href: storage-account-concept.md
 - name: How-to guides
   items:
-  - name: Create an account - CLI
-    href: create-account-cli-how-to.md  
-  - name: Access APIs - CLI
-    href: access-api-cli-how-to.md
-  - name: Upload  
+  - name: Get started
+    items:
+    - name: Create an account - CLI
+      href: create-account-cli-how-to.md  
+    - name: Access APIs - CLI
+      href: access-api-cli-how-to.md
+    - name: Scale Media Reserved Units - CLI
+      href: media-reserved-units-cli-how-to.md      
+  - name: Configure Postman
+    href: media-rest-apis-with-postman.md      
+  - name: Upload content
     items:
     - name: From HTTP(s) - .NET
       href: job-input-from-http-how-to.md
@@ -94,17 +104,9 @@
       href: job-input-from-local-file-how-to.md  
     - name: From a local file - REST
       href: upload-files-rest-how-to.md
-  - name: Create filters
+  - name: Encode content
     items:
-    - name: With .NET
-      href: filters-dynamic-manifest-dotnet-howto.md
-    - name: With REST
-      href: filters-dynamic-manifest-rest-howto.md
-    - name: With CLI
-      href: filters-dynamic-manifest-cli-howto.md
-  - name: Encode 
-    items:
-    - name: Customize Transform presets - .NET Core
+    - name: Customize Transform presets - .NET
       href: customize-encoder-presets-how-to.md
   - name: Use Event Grid
     items:
@@ -112,16 +114,20 @@
       href: monitor-events-portal-how-to.md
     - name: Monitor events - CLI
       href: job-state-events-cli-how-to.md 
-  - name: Protect 
+  - name: Protect content
     items:
     - name: With AES-128 - .NET
       href: protect-with-aes128.md    
     - name: With DRM - .NET
       href: protect-with-drm.md
-  - name: Configure Postman
-    href: media-rest-apis-with-postman.md
-  - name: Scale Media Reserved Units - CLI
-    href: media-reserved-units-cli-how-to.md
+  - name: Create filters
+    items:
+    - name: With .NET
+      href: filters-dynamic-manifest-dotnet-howto.md
+    - name: With REST
+      href: filters-dynamic-manifest-rest-howto.md
+    - name: With CLI
+      href: filters-dynamic-manifest-cli-howto.md  
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
@@ -180,7 +186,5 @@
       href: https://aka.ms/ams-v3-ruby-sdk
   - name: Release notes
     href: release-notes.md
-  - name: Quotas and limitations
-    href: limits-quotas-constraints.md
   - name: FAQ
     href: frequently-asked-questions.md
