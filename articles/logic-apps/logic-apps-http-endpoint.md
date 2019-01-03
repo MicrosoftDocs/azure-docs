@@ -392,7 +392,7 @@ To ask questions, answer questions, and learn what other Azure Logic Apps users 
 visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 To help improve Azure Logic Apps and connectors, vote on or submit ideas at the 
-[Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+[Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

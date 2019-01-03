@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 
 # Apache Cassandra features supported by Azure Cosmos DB Cassandra API 
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB Cassandra API through Cassandra Query Language (CQL) v4 [wire protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) compliant open-source Cassandra client [drivers](http://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver). 
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB Cassandra API through Cassandra Query Language (CQL) v4 [wire protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) compliant open-source Cassandra client [drivers](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver). 
 
 By using the Azure Cosmos DB Cassandra API, you can enjoy the benefits of the Apache Cassandra APIs as well as the enterprise capabilities that Azure Cosmos DB provides. The enterprise capabilities include [global distribution](distribute-data-globally.md), [automatic scale out partitioning](partition-data.md), availability and latency guarantees, encryption at rest, backups, and much more.
 
@@ -102,11 +102,13 @@ Azure Cosmos DB Cassandra API is a managed service platform. It does not require
 
 CQLSH command-line utility comes with Apache Cassandra 3.1.1 and works out of box with following environment variables enabled:
 
+Before running the following commands, [add a Baltimore root certificate to the cacerts store](https://docs.microsoft.com/java/azure/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store). 
+
 **Windows:** 
 
 ```bash
 set SSL_VERSION=TLSv1_2 
-SSL_CERTIFICATE=<path to balitmore root ca cert>
+SSL_CERTIFICATE=<path to Baltimore root ca cert>
 set CQLSH_PORT=10350 
 cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
 ```
@@ -114,7 +116,7 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 
 ```bash
 export SSL_VERSION=TLSv1_2 
-SSL_CERTIFICATE=<path to balitmore root ca cert>
+export SSL_CERTFILE=<path to Baltimore root ca cert>
 cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
 ```
 
@@ -123,24 +125,17 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 Azure Cosmos DB supports the following database commands on Cassandra API accounts.
 
 * CREATE KEYSPACE 
-
 * CREATE TABLE 
-
 * ALTER TABLE 
-
 * USE 
-
 * INSERT 
-
 * SELECT 
-
 * UPDATE 
-
 * BATCH - Only unlogged commands are supported 
-
 * DELETE
 
 All crud operations when executed through CQLV4 compatible SDK will return extra information about error, request units consumed, activity ID. Delete and update commands need to be handled with resource governance in consideration, to avoid over use of provisioned resources. 
+* Note  gc_grace_seconds value must be zero if specified.
 
 ```csharp
 var tableInsertStatement = table.Insert(sampleEntity); 
@@ -160,7 +155,15 @@ Azure Cosmos DB Cassandra API provides choice of consistency for read operations
 
 ## Permission and role management
 
-Azure Cosmos DB supports role-based access control (RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com. Azure Cosmos DB does not yet support users and roles for data plane activities. 
+Azure Cosmos DB supports role-based access control (RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com). Azure Cosmos DB does not yet support users and roles for data plane activities. 
+
+## Planned support 
+* Using timestamp and TTL together  
+* Region name in create keyspace command is ignored at present- Distribution of data is implemented in underlying Cosmos DB platform and exposed via portal or powershell for the account. 
+
+
+
+
 
 ## Next steps
 

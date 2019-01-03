@@ -1,10 +1,9 @@
 ---
-title: 'Azure Cosmos DB: Java examples for the SQL API | Microsoft Docs'
+title: 'Azure Cosmos DB: Java examples for the SQL API'
 description: Find Java examples on GitHub for common tasks using the Azure Cosmos DB SQL API, including CRUD operations.
 keywords: NoSQL example
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -119,7 +118,7 @@ The [CollectionCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/
 | --- | --- |
 | [Create an index and set indexing policy](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L125-L141) | [Index](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.index)<br>[IndexingPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy) |
 
-For more information about indexing, see [Azure Cosmos DB indexing policies](indexing-policies.md).
+For more information about indexing, see [Azure Cosmos DB indexing policies](index-policy.md).
 
 ## Query examples
 The [DocumentQuerySamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java) file shows how to perform the following tasks:
@@ -129,7 +128,7 @@ The [DocumentQuerySamples](https://github.com/Azure/azure-documentdb-java/blob/m
 | [Perform a simple cross-partition document query](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L108-L129) | [DocumentClient.queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.querydocuments)<br>[FeedOptions.setEnableCrossPartitionQuery](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setenablecrosspartitionquery) |
 | [Order by query](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L132-L154) | [FeedResponse<T>.getQueryIterator](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse.getqueryiterator) |
 
-For more information about writing queries, see [SQL query within Azure Cosmos DB](sql-api-sql-query.md).
+For more information about writing queries, see [SQL query within Azure Cosmos DB](how-to-sql-query.md).
 
 ## Offer examples
 The [OfferCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) file shows how to perform the following tasks:

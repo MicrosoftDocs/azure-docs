@@ -1,18 +1,18 @@
 ---
-title:  Azure Application Insights Usage Impact | Microsoft docs
+title: Azure Application Insights Usage Impact | Microsoft docs
 description: Analyze how different properties potentially impact conversion rates for parts of your apps.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/25/2018
-ms.reviewer: daviste
-ms.author: mbullwin
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
 ---
 
 # Impact analysis with Application Insights
@@ -30,7 +30,7 @@ But analyzing performance is just a subset of Impact's capabilities. Since Impac
 ![Screenshot conversion by browsers](./media/app-insights-usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> Your Application Insights resource must contain page views or custom events to use the Impact tool. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](app-insights-javascript.md). Also keep in mind that since you are analyzing correlation, sample size matters.
+> Your Application Insights resource must contain page views or custom events to use the Impact tool. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](../azure-monitor/app/javascript.md). Also keep in mind that since you are analyzing correlation, sample size matters.
 >
 >
 
@@ -64,7 +64,7 @@ In this case, the results no longer fit into a continuous x-axis model as they d
 
 ## How does the Impact tool calculate these conversion rates?
 
-Under the hood, the Impact tool relies on the [Pearson correlation coefficient] (https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Results are computed between -1 and 1 with -1 representing zero correlation and 1 representing a positive correlation.
+Under the hood, the Impact tool relies on the [Pearson correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Results are computed between -1 and 1 with -1 representing zero correlation and 1 representing a positive correlation.
 
 The basic breakdown of how Impact Analysis works is as follows:
 

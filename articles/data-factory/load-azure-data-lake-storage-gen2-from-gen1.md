@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/29/2018
 ms.author: jingwang
 ---
 
 # Copy data from Azure Data Lake Storage Gen1 to Gen2 (Preview) with Azure Data Factory
 
-[Azure Data Lake Storage Gen2 (Preview)](../storage/data-lake-storage/introduction.md) adds a protocol with hierarchical file system namespace and security features to Azure Blob Storage making it easy to connect analytics frameworks to a durable storage layer. In Data Lake Storage Gen2 (Preview), all the qualities of object storage remain while adding the advantages of a file system interface.
+Azure Data Lake Storage Gen2 Preview is a set of capabilities dedicated to big data analytics, built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). It allows you to interface with your data using both file system and object storage paradigms.
 
 If you are currently using Azure Data Lake Storage Gen1, you can evaluate the Gen2 new capability by copying data from Data Lake Storage Gen1 to Gen2 using Azure Data Factory.
 
@@ -71,17 +71,15 @@ This article shows you how to use the Data Factory Copy Data tool to copy data f
 	![Source data store Azure Data Lake Storage Gen1 page](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
 	
 4. In the **Specify Azure Data Lake Storage Gen1 connection** page, do the following steps:
-   1. Select your Data Lake Storage Gen1 for the account name.
-   2. Specify or validate the **Tenant**, and select Finish.
-   3. Select **Next**.
+   1. Select your Data Lake Storage Gen1 for the account name, and specify or validate the **Tenant**.
+   2. Click **Test connection** to validate the settings, then select **Finish**.
+   3. You will see a new connection gets created. Select **Next**.
    
    > [!IMPORTANT]
-   > In this walkthrough, you use a _managed service identity_ to authenticate your Data Lake Storage Gen1e. Be sure to grant the MSI the proper permissions in Azure Data Lake Storage Gen1 by following [these instructions](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > In this walkthrough, you use a managed identity for Azure resources to authenticate your Data Lake Storage Gen1. Be sure to grant the MSI the proper permissions in Azure Data Lake Storage Gen1 by following [these instructions](connector-azure-data-lake-store.md#managed-identity).
    
    ![Specify Azure Data Lake Storage Gen1 account](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
-   
-   4. You will see a new connection gets created. Select **Next**.
-   
+      
 5. In the **Choose the input file or folder** page, browse to the folder and file that you want to copy over. Select the folder/file, select **Choose**:
 
     ![Choose input file or folder](./media/load-azure-data-lake-storage-gen2-from-gen1/choose-input-folder.png)
@@ -97,7 +95,7 @@ This article shows you how to use the Data Factory Copy Data tool to copy data f
 8. In the **Specify Azure Data Lake Storage Gen2 connection** page, do the following steps:
 
    1. Select your Data Lake Storage Gen2 capable account from the "Storage account name" drop down list.
-   2. Select **Next**.
+   2. Select **Finish** to create the connection. Then select **Next**.
    
    ![Specify Azure Data Lake Storage Gen2 account](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 

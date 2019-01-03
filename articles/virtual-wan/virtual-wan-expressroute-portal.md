@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 10/5/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ---
@@ -36,28 +36,12 @@ In this tutorial, you learn how to:
 
 ## <a name="register"></a>Register this feature
 
-Click the **TryIt** to register this feature easily using Azure Cloud Shell.
+Before you can configure Virtual WAN, you must first enroll your subscription in the Preview. Otherwise, you will not be able to work with Virtual WAN in the portal. To enroll, send an email to **azurevirtualwan@microsoft.com** with your subscription ID. You will receive an email back once your subscription has been enrolled.
 
->[!NOTE]
->If you don't register this feature, you will not be able to use it, or to see it in the portal.
->
->
+**Preview Considerations:**
 
-After clicking **TryIt** to open the Azure Cloud Shell, copy and paste the following commands:
-
-```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowCortexExpressRouteGateway
-```
- 
-```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowCortexExpressRouteGateway
-```
-
-Once the feature shows as registered, reregister the subscription to Microsoft.Network namespace.
-
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+* Region Availability: West Central US
+* ExpressRoute circuit must be enabled in a country that supports [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
 
 ## <a name="vnet"></a>1. Create a virtual network
 
@@ -65,7 +49,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="openvwan"></a>2. Create a virtual WAN
 
-From a browser, navigate to the [Azure portal (preview)](http://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
+From a browser, navigate to the [Azure portal (preview)](https://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 

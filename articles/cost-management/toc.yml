@@ -22,6 +22,10 @@
     items:
     - name: Azure Cost Management best practices
       href: cost-mgt-best-practices.md
+  - name: How-to guides
+    items:
+    - name: Assign access to data
+      href: assign-access-acm-data.md
   - name: Reference
     items:
     - name: Azure Cost Management REST API
@@ -32,6 +36,8 @@
     items:
     - name: Build your skills with Microsoft Learn
       href: /learn/browse/?products=azure-cost-management
+    - name: Cost Management feedback forum
+      href: https://feedback.azure.com/forums/906772-cost-management
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
@@ -94,7 +100,7 @@
         href: https://azure.microsoft.com/roadmap/
       - name: Cloudyn Pricing
         href: https://azure.microsoft.com/pricing/details/cost-management
-      - name: Clouydn Regional Availability
+      - name: Cloudyn Regional Availability
         href: https://azure.microsoft.com/regions/services/
       - name: Cloudyn FAQ
         href: cost-mgt-faq.md

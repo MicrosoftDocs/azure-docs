@@ -6,7 +6,7 @@ ms.date: 09/24/2018
 ms.author: wolfma
 ---
 
-| Programming language | Platform                                                                      | API Reference
+| Programming language | Platform                                                                      | API reference
 | -                    | -                                                                             | -
 | C#, .NET Standard    | Windows, UWP, .NET Standard (Windows)                                         | [Browse](https://aka.ms/csspeech/csharpref)
 | C/C++                | Windows, Linux                                                                | [Browse](https://aka.ms/csspeech/cppref)

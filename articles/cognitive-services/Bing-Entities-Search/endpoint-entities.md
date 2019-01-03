@@ -1,12 +1,14 @@
 ---
-title: Entity Search endpoint | Microsoft Docs
-description: Summary of the Entity Search API endpoint.
+title: Bing Entity Search endpoint
+titlesuffix: Azure Cognitive Services
+description: Summary of the Bing Entity Search API endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
 ---

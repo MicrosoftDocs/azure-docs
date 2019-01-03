@@ -13,21 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/06/2017
+ms.date: 11/06/2018
 ms.author: spelluru
 
 ---
 # Azure WCF Relay REST tutorial
-
 This tutorial describes how to build a simple Azure Relay host application that exposes a REST-based interface. REST enables a web client, such as a web browser, to access the Service Bus APIs through HTTP requests.
 
 The tutorial uses the Windows Communication Foundation (WCF) REST programming model to construct a REST service on Azure Relay. For more information, see [WCF REST Programming Model](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) and [Designing and Implementing Services](/dotnet/framework/wcf/designing-and-implementing-services) in the WCF documentation.
 
-## Step 1: Create a namespace
+You take the following steps in this tutorial:
+
+> [!div class="checklist"]
+> * Create a Relay namespace.
+> * Define a REST-based WCF service contract
+> * Implement the REST-based WCF contract
+> * Host and run the REST-based WCF service
+> * Run and test the service
+
+## Prerequisites
+
+To complete this tutorial, you need the following prerequisites:
+
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- [Visual Studio 2015 or later](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017.
+- Azure SDK for .NET. Install it from the [SDK downloads page](https://azure.microsoft.com/downloads/).
+
+## Create a Relay namespace
 
 To begin using the relay features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Azure resources within your application. Follow the [instructions here](relay-create-namespace-portal.md) to create a Relay namespace.
 
-## Step 2: Define a REST-based WCF service contract to use with Azure Relay
+## Define a REST-based WCF service contract to use with Azure Relay
 
 When you create a WCF REST-style service, you must define the contract. The contract specifies what operations the host supports. A service operation can be thought of as a web service method. Contracts are created by defining a C++, C#, or Visual Basic interface. Each method in the interface corresponds to a specific service operation. The [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) attribute must be applied to each interface, and the [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) attribute must be applied to each operation. If a method in an interface that has the [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) does not have the [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), that method is not exposed. The code used for these tasks is shown in the example following the procedure.
 
@@ -61,7 +77,7 @@ The primary difference between a WCF contract and a REST-style contract is the a
     {
         ...
     ```
-8. Directly after the opening curly brace of the namespace declaration, define a new interface named **IImageContract** and apply the **ServiceContractAttribute** attribute to the interface with a value of `http://samples.microsoft.com/ServiceModel/Relay/`. The namespace value differs from the namespace that you use throughout the scope of your code. The namespace value is used as a unique identifier for this contract, and should have version information. For more information, see [Service Versioning](http://go.microsoft.com/fwlink/?LinkID=180498). Specifying the namespace explicitly prevents the default namespace value from being added to the contract name.
+8. Directly after the opening curly brace of the namespace declaration, define a new interface named **IImageContract** and apply the **ServiceContractAttribute** attribute to the interface with a value of `http://samples.microsoft.com/ServiceModel/Relay/`. The namespace value differs from the namespace that you use throughout the scope of your code. The namespace value is used as a unique identifier for this contract, and should have version information. For more information, see [Service Versioning](https://go.microsoft.com/fwlink/?LinkID=180498). Specifying the namespace explicitly prevents the default namespace value from being added to the contract name.
    
     ```csharp
     [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
@@ -132,7 +148,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## Step 3: Implement a REST-based WCF service contract to use Service Bus
+## Implement the REST-based WCF service contract
 Creating a REST-style WCF Relay service requires that you first create the contract, which is defined by using an interface. The next step is to implement the interface. This involves creating a class named **ImageService** that implements the user-defined **IImageContract** interface. After you implement the contract, you then configure the interface using an App.config file. The configuration file contains necessary information for the application, such as the name of the service, the name of the contract, and the type of protocol that is used to communicate with the relay service. The code used for these tasks is provided in the example following the procedure.
 
 As with the previous steps, there is very little difference between implementing a REST-style contract and a WCF Relay contract.
@@ -426,7 +442,7 @@ The following example shows the App.config file associated with the service.
 </configuration>
 ```
 
-## Step 4: Host the REST-based WCF service to use Azure Relay
+## Host the REST-based WCF service to use Azure Relay
 This step describes how to run a web service using a console application with WCF Relay. A complete listing of the code written in this step is provided in the example following the procedure.
 
 ### To create a base address for the service
@@ -472,7 +488,7 @@ This step describes how to run a web service using a console application with WC
     host.Close();
     ```
 
-## Example
+### Example
 The following example includes the service contract and implementation from previous steps in the tutorial and hosts the service in a console application. Compile the following code into an executable named ImageListener.exe.
 
 ```csharp
@@ -547,7 +563,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-### Compiling the code
+## Run and test the service
 After building the solution, do the following to run the application:
 
 1. Press **F5**, or browse to the executable file location (ImageListener\bin\Debug\ImageListener.exe), to run the service. Keep the app running, as it's required to perform the next step.
@@ -557,7 +573,6 @@ After building the solution, do the following to run the application:
 ## Next steps
 Now that you've built an application that uses the Azure Relay service, see the following articles to learn more:
 
-* [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Azure Relay overview](relay-what-is-it.md)
 * [How to use the WCF relay service with .NET](relay-wcf-dotnet-get-started.md)
 

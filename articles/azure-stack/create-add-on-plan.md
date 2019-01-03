@@ -3,7 +3,7 @@ title: In this article, you learn how to update Azure Stack offers and plans | M
 description: This article describes how to view and modify existing Azure Stack offers and plans. 
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.custom: mvc
 ms.date: 07/30/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: 
 ---
 
@@ -28,7 +28,7 @@ There are times when combining everything in a single plan is optimal. Other tim
 Another reason to use add-on plans is to help users be mindful of their resource usage. To do so, you could start with a base plan that includes relatively small quotas (depending on the services required). Then, as users reach capacity, they would be alerted that they've consumed the allocation of resources based on their assigned plan. From there, the users could then select an add-on plan that provides the additional resources.
 
 > [!NOTE]
-> When you don’t want to use an add-on plan to extend a quota, you can also choose to [edit the original configuration of the quota](azure-stack-quota-types.md#to-edit-a-quota). 
+> When you don’t want to use an add-on plan to extend a quota, you can also choose to [edit the original configuration of the quota](azure-stack-quota-types.md#edit-a-quota). 
 
 When a user adds an add-on plan to an existing offer subscription, the additional resources could take up to an hour to appear. 
 

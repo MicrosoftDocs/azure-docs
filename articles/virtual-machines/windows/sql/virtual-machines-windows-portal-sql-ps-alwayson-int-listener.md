@@ -37,7 +37,7 @@ Related topics include:
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
 ## Configure the Windows Firewall
-Configure the Windows Firewall to allow SQL Server access. The firewall rules allow TCP connections to the ports use by the SQL Server instance, and the listener probe. For detailed instructions, see [Configure a Windows Firewall for Database Engine Access](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Create an inbound rule for the SQL Server port and for the probe port.
+Configure the Windows Firewall to allow SQL Server access. The firewall rules allow TCP connections to the ports use by the SQL Server instance, and the listener probe. For detailed instructions, see [Configure a Windows Firewall for Database Engine Access](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Create an inbound rule for the SQL Server port and for the probe port.
 
 If you are restricting access with an Azure Network Security Group, ensure that the allow rules include the backend SQL Server VM IP addresses, and the load balancer floating IP addresses for the AG listener and the cluster core IP address, if applicable.
 
@@ -106,7 +106,7 @@ The front-end port is the port that applications use to connect to the SQL Serve
 > For SQL Server availability groups, each IP address requires a specific probe port. For example, if one IP address on a load balancer uses probe port 59999, no other IP addresses on that load balancer can use probe port 59999.
 
 * For information about load balancer limits, see **Private front end IP per load balancer** under [Networking Limits - Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
-* For information about availability group limits, see [Restrictions (Availability Groups)](http://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
+* For information about availability group limits, see [Restrictions (Availability Groups)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
 
 The following script adds a new IP address to an existing load balancer. The ILB uses the listener port for the load balancing front-end port. This port can be the port that SQL Server is listening on. For default instances of SQL Server, the port is 1433. The load balancing rule for an availability group requires a floating IP (direct server return) so the back-end port is the same as the front-end port. Update the variables for your environment. 
 
@@ -184,7 +184,7 @@ To test the connection:
 The SQLCMD connection automatically connects to whichever instance of SQL Server hosts the primary replica. 
 
 > [!NOTE]
-> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. See [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx) for more information. 
+> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. See [Add or Edit Firewall Rule](https://technet.microsoft.com/library/cc753558.aspx) for more information. 
 > 
 > 
 
@@ -201,9 +201,9 @@ For more information, see [Configure Always On availability group in Azure VM ma
 ## PowerShell cmdlets
 Use the following PowerShell cmdlets to create an internal load balancer for Azure virtual machines.
 
-* [New-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt619450.aspx) creates a load balancer. 
-* [New-AzureRMLoadBalancerFrontendIpConfig](http://msdn.microsoft.com/library/mt603510.aspx) creates a front-end IP configuration for a load balancer. 
-* [New-AzureRmLoadBalancerRuleConfig](http://msdn.microsoft.com/library/mt619391.aspx) creates a rule configuration for a load balancer. 
-* [New-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx) creates a backend address pool configuration for a load balancer. 
-* [New-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) creates a probe configuration for a load balancer.
-* [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) removes a load balancer from an Azure resource group.
+* [New-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) creates a load balancer. 
+* [New-AzureRMLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) creates a front-end IP configuration for a load balancer. 
+* [New-AzureRmLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) creates a rule configuration for a load balancer. 
+* [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) creates a backend address pool configuration for a load balancer. 
+* [New-AzureRmLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) creates a probe configuration for a load balancer.
+* [Remove-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx) removes a load balancer from an Azure resource group.

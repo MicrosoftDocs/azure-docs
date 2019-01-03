@@ -81,7 +81,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
    2. Specify the **Secret Access Key** value.
    3. Select **Finish**.
    
-   ![Specify Amazon S3 account](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+     ![Specify Amazon S3 account](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
    
    4. You will see a new connection. Select **Next**.
    
@@ -106,7 +106,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
    3. Select **Next**.
    
    > [!IMPORTANT]
-   > In this walkthrough, you use a _managed service identity_ to authenticate your Data Lake Storage Gen1 account. Be sure to grant the MSI the proper permissions in Data Lake Storage Gen1 by following [these instructions](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > In this walkthrough, you use a managed identity for Azure resources to authenticate your Data Lake Storage Gen1 account. Be sure to grant the MSI the proper permissions in Data Lake Storage Gen1 by following [these instructions](connector-azure-data-lake-store.md#managed-identity).
    
    ![Specify Data Lake Storage Gen1 account](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. In the **Choose the output file or folder** page, enter **copyfroms3** as the output folder name, and select **Next**: 

@@ -13,14 +13,12 @@ ms.component: blobs
 
 # How to use Blob storage from C++
 
-This guide demonstrates how to perform common scenarios using the Azure Blob storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include uploading, listing, downloading, and deleting blobs.  
+This guide demonstrates how to perform common scenarios using Azure Blob storage. The examples show how to upload, list, download, and delete blobs. The samples are written in C++ and use the [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
+
+To learn more about Blob storage, see [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
 > [!NOTE]
 > This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. Microsoft recommends using the latest version of the Storage Client Library for C++, available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).
-
-## What is Blob storage?
-
-[!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 

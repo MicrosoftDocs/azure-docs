@@ -1,12 +1,14 @@
 ---
-title: Bake acoustics with Project Acoustics - Cognitive Services
+title: Bake acoustics with Project Acoustics
+titlesuffix: Azure Cognitive Services
 description: This document describes the process of submitting an acoustics bake using the Unity editor extension.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
 ---
@@ -193,15 +195,19 @@ Once you're happy with the preview data, use the **Bake** tab to submit your bak
 1. The Bake Tab button used to bring up this page.
 2. A brief description of what to do on this page.
 3. Fields to enter your Azure Credentials once your Azure account has been created. For more information, see [Create an Azure Batch Account](create-azure-account.md).
-4. Azure batch compute node type to use for the calculation. The node type must be supported by your Azure data center location. If not sure, leave at **Standard_F8**.
-5. Number of nodes to use for this calculation. The number you enter here affects the time to complete the bake and is limited by your Azure Batch core allocation. The default allocation only allows for two 8 core nodes or one 16 core node, but can be expanded. For more information on core allocation constraints, see [Create an Azure Batch Account](create-azure-account.md).
-6. The probe count for your scene as calculated on the **Probes** tab. The number of probes determines the number of simulations that need to be run in the cloud. You cannot specify more nodes than there are probes.
-7. The amount of elapsed time it is expected to take for your job to run in the cloud. This does not include node startup time. Once the job starts running, this is about how long it should be before you get back the results. Note that this is only an estimate.
-8. The total amount of computing time needed to run the simulations. This is the total amount of node compute time that will be used in Azure. See [Estimating bake cost](#Estimating-bake-cost) below for more information on using this value.
-9. This message tells you where the results of the bake will be saved once the job completes.
-10. (Advanced Use Only) If for some reason you need to force Unity to forget about a bake you submitted (e.g. you downloaded the results using another machine), click the **Clear State** button to forget about the job that was submitted. Note that this means the result file, when ready, will **not** be downloaded, and **this is not the same as canceling the job**. The job, if running, will continue to run in the cloud.
-11. Click the Bake button to submit the bake to the cloud. While a job is running, this shows **Cancel Job** instead.
-12. This area shows the status of the bake. When completed, it should show **Downloaded**.
+4. Docker image tag for the acoustics toolset.
+5. Launch Azure portal to manage your subscriptions, monitor usage and view billing information etc. 
+6. Azure batch compute node type to use for the calculation. The node type must be supported by your Azure data center location. If not sure, leave at **Standard_F8s_v2**.
+7. Number of nodes to use for this calculation. The number you enter here affects the time to complete the bake and is limited by your Azure Batch core allocation. The default allocation only allows for two 8 core nodes or one 16 core node, but can be expanded. For more information on core allocation constraints, see [Create an Azure Batch Account](create-azure-account.md).
+8. Select this checkbox to configure your compute pool to use [low-priority nodes](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Low-priority compute nodes have much lower cost but they may not always be available or may be preempted at any time.
+9. The probe count for your scene as calculated on the **Probes** tab. The number of probes determines the number of simulations that need to be run in the cloud. You cannot specify more nodes than there are probes.
+10. The amount of elapsed time it is expected to take for your job to run in the cloud. This does not include node startup time. Once the job starts running, this is about how long it should be before you get back the results. Note that this is only an estimate.
+11. The total amount of computing time needed to run the simulations. This is the total amount of node compute time that will be used in Azure. See [Estimating bake cost](#Estimating-bake-cost) below for more information on using this value.
+12. This message tells you where the results of the bake will be saved once the job completes.
+13. (Advanced Use Only) If for some reason you need to force Unity to forget about a bake you submitted (e.g. you downloaded the results using another machine), click the **Clear State** button to forget about the job that was submitted. Note that this means the result file, when ready, will **not** be downloaded, and **this is not the same as canceling the job**. The job, if running, will continue to run in the cloud.
+14. Click the Bake button to submit the bake to the cloud. While a job is running, this shows **Cancel Job** instead.
+15. Prepares for processing acoustics simulation on a local machines. See [Local bake](#Local-bake) for more information.  
+16. This area shows the status of the bake. When completed, it should show **Downloaded**.
 
 You can always get complete information about active jobs, compute pools, and storage at the [Azure Portal](https://portal.azure.com).
 
@@ -211,13 +217,34 @@ Once you've started a bake, you can close Unity. Depending on the project, node 
 
 The Azure credentials are stored securely on your local machine and associated with your Unity editor. They are used solely to establish a secure connection to Azure.
 
-### <a name="Estimating-bake-cost"></a> Estimating bake cost
+### <a name="Estimating-bake-cost"></a> Estimating Azure bake cost
 
-To estimate what a given bake will cost, take the value shown for **Estimated Compute Cost**, which is a duration, and multiply that by the hourly cost in your local currency of the **VM Node Type** you selected. The result will not include the node time needed to get the nodes up and running. For example, if you select **Standard_F8** for your node type, which has a cost of $0.75/hr, and the Estimated Compute Cost is 3 hours and 57 minutes, the estimated cost to run the job will be $0.75 * ~4 hours = ~$3.00. The actual cost will likely be a bit higher due to the extra time to get the nodes started. You can find the hourly node cost on the [Azure Batch Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux) page (select "Compute optimized" or "High performance compute" for the category).
+To estimate what a given bake will cost, take the value shown for **Estimated Compute Cost**, which is a duration, and multiply that by the hourly cost in your local currency of the **VM Node Type** you selected. The result will not include the node time needed to get the nodes up and running. For example, if you select **Standard_F8s_v2** for your node type, which has a cost of $0.40/hr, and the Estimated Compute Cost is 3 hours and 57 minutes, the estimated cost to run the job will be $0.40 * ~4 hours = ~$1.60. The actual cost will likely be a bit higher due to the extra time to get the nodes started. You can find the hourly node cost on the [Azure Batch Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux) page (select "Compute optimized" or "High performance compute" for the category).
 
 ### Reviewing the bake results
 
 After the bake completes, check that the voxels and probe points are in their expected locations by running the runtime plugin. More information is in [Design Process Overview for Acoustics](design-process.md).
+
+## <a name="Local-bake"></a>Local bake
+Local bake runs acoustics simulation on your own PC instead of offloading it to the Azure Batch compute cluster. This can be a good option for experimenting with acoustics without requiring an Azure subscription. Note that the Acoustics simulation is computationally demanding and can take a long time depending on the size of the scene, simulation configuration, and raw computing power of the processing machine.
+
+### Minimum hardware requirements
+64-bit Intel processor with at least 8 cores and 32 GB of RAM or higher.
+
+As an example, on an 8 core machine with Intel Xeon E5-1660 @ 3 GHz and 32 GB RAM -
+* Small scene with 100 probes takes ~2 hours for a coarse bake and ~32 hours for a fine resolution bake.
+* Larger scene with 1000 probes can take up to ~20 hours for a coarse resolution and ~21 days for a fine resolution bake.
+
+### Setup Docker
+Install and configure Docker on the PC that will process the simulation -
+1. Install the [Docker toolset](https://www.docker.com/products/docker-desktop).
+2. Launch Docker settings, navigate to the "Advanced" options and configure resources to have at leat 8GB RAM. The more CPUs you can allocate to Docker, the faster the bake will complete. ![Example Docker settings](media/DockerSettings.png)
+3. Navigate to "Shared Drives" and turn on sharing for the drive used for processing.![DockerDriveSharing](media/DockerSharedDrives.png)
+
+### Run local bake
+1. Click on "Prepare Local Bake" button on the Bake tab and select a folder where the input files and execution scripts will be saved. You can then run the bake on any machine as long as it meets the minimum hardware requirements and has Docker installed by copying the folder to that machine.
+2. Launch the simulation using the "runlocalbake.bat" script. This script will fetch the Project Acoustics Docker image with the toolset necessary for simulation processing and start the simulation. 
+3. Once the simulation has finished, copy the resulting .ace file back to your Unity project. To make sure Unity recognizes this as a binary file, append ".bytes" to the file extension (for example, "Scene1.ace.bytes"). The detailed logs for the simulation are stored in "AcousticsLog.txt." If you run into any issues, share this file to assist with diagnosis.
 
 ## <a name="Data-Files"></a>Data files
 

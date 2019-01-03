@@ -22,11 +22,22 @@ This article describes how to deploy the cluster autoscaler on the agent nodes. 
 > Azure Kubernetes Service (AKS) cluster autoscaler integration is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 >
 
-## Prerequisites
+## Prerequisites and considerations
 
 This document assumes that you have an RBAC-enabled AKS cluster. If you need an AKS cluster, see the [Azure Kubernetes Service (AKS) quickstart][aks-quick-start].
 
  To use the cluster autoscaler, your cluster must be using Kubernetes v1.10.X or higher and must be RBAC-enabled. To upgrade your cluster, see the article on [upgrading an AKS cluster][aks-upgrade].
+
+Define resource requests for your pods. The cluster autoscaler looks at what resource requests are made by pods, not the resources actually in use like the horizontal pod autoscaler does. Within the `spec: containers` section of your deployment definition, define the CPU and memory requirements. The following example snippet requests 0.5 vCPU and 64Mb of memory on the node:
+
+  ```yaml
+  resources:
+    requests:
+      cpu: 500m
+      memory: 64Mb
+  ```
+
+When cluster autoscaler is used, avoid manually scaling the number of nodes. The cluster autoscaler may not be able to determine the correct amount of compute resources required and conflict with the number of nodes that you manually define.
 
 ## Gather information
 
@@ -123,7 +134,7 @@ metadata:
   name: cluster-autoscaler
   namespace: kube-system
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: cluster-autoscaler
@@ -164,7 +175,7 @@ rules:
   verbs: ["get", "list", "watch"]
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: cluster-autoscaler
@@ -182,7 +193,7 @@ rules:
   verbs: ["delete","get","update"]
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: cluster-autoscaler
@@ -199,7 +210,7 @@ subjects:
     namespace: kube-system
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: cluster-autoscaler
@@ -217,7 +228,7 @@ subjects:
     namespace: kube-system
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -236,7 +247,7 @@ spec:
     spec:
       serviceAccountName: cluster-autoscaler
       containers:
-      - image: k8s.gcr.io/cluster-autoscaler:{{ ca_version }}
+      - image: gcr.io/google-containers/cluster-autoscaler:v1.2.2
         imagePullPolicy: Always
         name: cluster-autoscaler
         resources:
@@ -367,7 +378,7 @@ Events:  <none>
 The cluster autoscaler status allows you to see the state of the cluster autoscaler on two different levels: cluster-wide and within each node group. Since AKS currently only supports one node pool, these metrics are the same.
 
 * Health indicates the overall health of the nodes. If the cluster autoscaler struggles to create or removes nodes in the cluster, this status will change to "Unhealthy". There's also a breakdown of the status of different nodes:
-    * "Ready" means a node is a ready to have pods scheduled on it.
+    * "Ready" means a node is ready to have pods scheduled on it.
     * "Unready" means a node that broke down after it started.
     * "NotStarted" means a node isn't fully started yet.
     * "LongNotStarted" means a node failed to start within a reasonable limit.
@@ -383,7 +394,7 @@ The cluster autoscaler status allows you to see the state of the cluster autosca
     * A candidate for scale down is a node the cluster autoscaler has determined can be removed without affecting the cluster's ability to handle its workload. 
     * The times provided show the last time the cluster was checked for scale down candidates and its last transition time.
 
-Finally, under Events, you can see up any scale or scale down events, failed or successful, and their times, that the cluster autoscaler has carried out.
+Finally, under Events, you can see any scale up or scale down events, failed or successful, and their times, that the cluster autoscaler has carried out.
 
 ## Next steps
 

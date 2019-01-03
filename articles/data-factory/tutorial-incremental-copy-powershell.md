@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
@@ -32,7 +32,7 @@ You perform the following steps in this tutorial:
 ## Overview
 Here is the high-level solution diagram: 
 
-![Incrementally load data](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
+![Incrementally load data](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)
 
 Here are the important steps to create this solution: 
 

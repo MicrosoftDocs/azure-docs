@@ -1,19 +1,19 @@
 ---
-title: Use Azure Database Migration Service module in Microsoft Azure PowerShell to migrate SQL Server on-premises to Azure SQL DB | Microsoft Docs
-description: Learn to migrate from on-premises SQL Server to Azure SQL by using Azure PowerShell.
+title: Migrate SQL Server to Azure SQL Database with Database Migration Service and PowerShell | Microsoft Docs
+description: Learn to migrate from on-premises SQL Server to Azure SQL Database by using Azure PowerShell.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
-manager: 
-ms.reviewer: 
-ms.service: database-migration
+author: pochiraju
+ms.author: rajpo
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 11/10/2018
 ---
 
-# Migrate SQL Server on-premises to Azure SQL DB using Azure PowerShell
+# Migrate SQL Server on-premises to Azure SQL Database using Azure PowerShell
 In this article, you migrate the **Adventureworks2012** database restored to an on-premises instance of SQL Server 2016 or above to an Azure SQL Database by using Microsoft Azure PowerShell. You can migrate databases from an on-premises SQL Server instance to Azure SQL Database by using the `AzureRM.DataMigration` module in Microsoft Azure PowerShell.
 
 In this article, you learn how to:
@@ -57,7 +57,7 @@ This cmdlet expects the following required parameters:
 - *Azure Resource Group name*. You can use [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) command to create Azure Resource group as previously shown and provide its name as a parameter.
 - *Service name*. String that corresponds to the desired unique service name for Azure Database Migration Service 
 - *Location*. Specifies the location of the service. Specify an Azure data center location, such as West US or Southeast Asia
-- *Sku*. This parameter corresponds to DMS Sku name. Currently supported Sku names are *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*
+- *Sku*. This parameter corresponds to DMS Sku name. The currently supported Sku name is *GeneralPurpose_4vCores*.
 - *Virtual Subnet Identifier*. You can use cmdlet [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-4.4.1) to create a subnet. 
 
 The following example creates a service named *MyDMS* in the resource group *MyDMSResourceGroup* located in the *East US* region using a virtual network named *MyVNET* and  subnet called *MySubnet*.

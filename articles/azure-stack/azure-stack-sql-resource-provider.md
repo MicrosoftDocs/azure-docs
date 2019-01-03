@@ -12,23 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
+ms.reviewer: quying
 ---
 
 # Use SQL databases on Microsoft Azure Stack
 
-Use the SQL Server resource provider adapter API to expose SQL databases as a service of [Azure Stack](azure-stack-poc.md). After you install the resource provider and connect it to one or more SQL Server instances, you and your users can create:
+Use the SQL Server resource provider adapter to offer SQL databases as a service of [Azure Stack](azure-stack-poc.md). After you install the resource provider and connect it to one or more SQL Server instances, you and your users can create:
 
 - Databases for cloud-native apps.
 - Websites that use SQL.
 - Workloads that use SQL.
 
-The resource provider doesn't provide all the database management abilities of [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). For example, elastic pools that automatically allocate resources aren't supported. However, the resource provider supports similar create, read, update, and delete (CRUD) operations on a SQL Server database. For more information about the resource provider API, see [Windows Azure Pack SQL Server Resource Provider REST API Reference](https://msdn.microsoft.com/library/dn528529.aspx).
-
->[!NOTE]
-The SQL Server resource provider API isn't compatible with Azure SQL Database.
+The resource provider doesn't provide all the database management abilities of [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). For example, elastic pools that automatically allocate resources aren't supported. However, the resource provider supports similar create, read, update, and delete (CRUD) operations on a SQL Server database. 
 
 ## SQL resource provider adapter architecture
 

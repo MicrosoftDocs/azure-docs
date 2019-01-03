@@ -16,6 +16,15 @@ metadata:
   ms.author: rolyon
 abstract:
   description: Azure Active Directory (Azure AD) identity governance gives organizations the ability to govern the identity lifecycle, govern access lifecycle, and secure administration across employees and partners. 
+  aside:
+    image:
+      alt: 
+      height: 112
+      src: media/index/video-thumb-identity-governance.png
+      width: 200  
+    title: Govern access to your resources (1:17:24)
+    href: https://www.youtube.com/embed/aY7A0Br8u5M
+    width: 200
 sections:
   - title: Identity governance
     items:

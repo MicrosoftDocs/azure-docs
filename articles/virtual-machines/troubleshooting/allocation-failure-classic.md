@@ -11,7 +11,7 @@ tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: bb939e23-77fc-4948-96f7-5037761c30e8
 ms.service: virtual-machines
 ms.topic: troubleshooting
-ms.date: 04/13/2018
+ms.date: 11/01/2018
 ms.author: genli
 
 ---

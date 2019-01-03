@@ -3,7 +3,7 @@ title: Azure AD Connect Health Version History
 description: This document describes the releases for Azure AD Connect Health and what has been included in those releases.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: mtillman
 editor: curtand
 
@@ -20,7 +20,23 @@ ms.author: billmath
 # Azure AD Connect Health: Version Release History
 The Azure Active Directory team regularly updates Azure AD Connect Health with new features and functionality. This article lists the versions and features that have been released.
 Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
+For feature feedback, vote at [Connnect Health User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
+## November 2018
+**New GA features:** 
+* Azure AD Connect Health for Sync - Diagnose and remediate duplicated attribute sync errors from the portal
+
+**Agent Update:** 
+*  Azure AD Connect Health agent for AD DS (version 3.1.24.0) 
+1. Transport Layer Security (TLS) protocol version 1.2 compliance and enforcement
+2. Reduce Global Catalog alert noise
+3. Health agent registration bug fixes
+
+*	Azure AD Connect Health agent for AD FS (version 3.1.24.0)
+1. Transport Layer Security (TLS) protocol version 1.2 compliance and enforcement
+2. Support of Test-ADFSRequestToken for localized operating system
+3. Solved disgnostic agent EventHandler locking issue
+4. Health agent registration bug fixes
 
 ## August 2018 
 *  Azure AD Connect Health agent for Sync (version 3.1.7.0) released with Azure AD Connect version 1.1.880.0    

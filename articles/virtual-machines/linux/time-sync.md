@@ -3,7 +3,7 @@ title: Time sync for Linux VMs in Azure | Microsoft Docs
 description: Time sync for Linux virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: cynthn
+ms.author: zarhoads
 ---
 
 # Time sync for Linux VMs in Azure
@@ -40,7 +40,7 @@ Virtual machine interactions with the host can also affect the clock. During [me
 
 Without time synchronization working, the clock on the VM would accumulate errors. When there is only one VM, the effect might not be significant unless the workload requires highly accurate timekeeping. But in most cases, we have multiple, interconnected VMs that use time to track transactions and the time needs to be consistent throughout the entire deployment. When time between VMs is different, you could see the following effects:
 
-- Security protocols like Kerberos or certificate-dependent technology rely on time being consistent across the systems. 
+- Authentication will fail. Security protocols like Kerberos or certificate-dependent technology rely on time being consistent across the systems.
 - It's very hard to figure out what have happened in a system if logs (or other data) don't agree on time. The same event would look like it occurred at different times, making correlation difficult.
 - If clock is off, the billing could be calculated incorrectly.
 

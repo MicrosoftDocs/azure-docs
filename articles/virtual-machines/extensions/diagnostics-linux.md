@@ -8,7 +8,7 @@ manager: sankalpsoni
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2018 
 ms.author: agaiha
 ---
 # Use Linux Diagnostic Extension to monitor metrics and logs
@@ -33,9 +33,7 @@ This extension works with both Azure deployment models.
 
 ## Installing the extension in your VM
 
-You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI scripts, or Azure deployment templates. For more information, see [Extensions Features](features-linux.md).
-
-The Azure portal cannot be used to enable or configure LAD 3.0. Instead, it installs and configures version 2.3. Azure portal graphs and alerts work with data from both versions of the extension.
+You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI scripts, ARM templates, or the Azure portal. For more information, see [Extensions Features](features-linux.md).
 
 These installation instructions and a [downloadable sample configuration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configure LAD 3.0 to:
 

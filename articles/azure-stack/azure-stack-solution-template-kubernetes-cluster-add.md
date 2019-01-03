@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -69,9 +69,10 @@ Add the following Ubuntu Server image to the Marketplace:
 
 1. Enter `UbuntuServer`.
 
-1. Select the newest version of the server with the following profile:
+1. Select the newest version of the server. Check the full version and ensure that you have the newest version:
     - **Publisher**: Canonical
     - **Offer**: UbuntuServer
+    - **Version**: 16.04.201806120
     - **SKU**: 16.04-LTS
 
 1. Select **Download.**
@@ -116,7 +117,7 @@ Add the Kubernetes from the Marketplace:
     > [!note]  
     > It may take five minutes for the marketplace item to appear in the Marketplace.
 
-    ![Kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
+    ![Kubernetes](user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
 
 ## Update or remove the Kubernetes 
 
@@ -132,7 +133,7 @@ To remove the Kubernetes item:
     Get-AzsGalleryItem | Select Name
     ```
     
-3. Note name of the current item, such as `Microsoft.AzureStackKubernetesCluster.0.2.0`
+3. Note name of the current item, such as `Microsoft.AzureStackKubernetesCluster.0.3.0`
 
 4. Use the following PowerShell cmdlet to remove the item:
 

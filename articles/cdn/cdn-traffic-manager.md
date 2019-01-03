@@ -3,8 +3,8 @@ title: Set up failover across multiple Azure CDN endpoints with Azure Traffic Ma
 description: Learn about how to set up Azure Traffic Manager with Azure CDN endpoints.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
-ms.author: v-deasim
+ms.author: kumud
 ms.custom: 
 
 ---

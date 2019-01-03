@@ -3,16 +3,16 @@ title: User, session, and event analysis in Azure Application Insights | Microso
 description: Demographic analysis of users of your web app.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/24/2018
-ms.reviewer: daviste
-ms.author: mbullwin
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
 ---
 
 # Users, sessions, and events analysis in Application Insights
@@ -31,9 +31,9 @@ Three of the usage blades use the same tool to slice and dice telemetry from you
 
 * **Users tool**: How many people used your app and its features.  Users are counted by using anonymous IDs stored in browser cookies. A single person using different browsers or machines will be counted as more than one user.
 * **Sessions tool**: How many sessions of user activity have included certain pages and features of your app. A session is counted after half an hour of user inactivity, or after 24 hours of continuous use.
-* **Events tool**: How often certain pages and features of your app are used. A page view is counted when a browser loads a page from your app, provided you have [instrumented it](app-insights-javascript.md). 
+* **Events tool**: How often certain pages and features of your app are used. A page view is counted when a browser loads a page from your app, provided you have [instrumented it](../azure-monitor/app/javascript.md). 
 
-    A custom event represents one occurrence of something happening in your app, often a user interaction like a button click or the completion of some task. You insert code in your app to [generate custom events](app-insights-api-custom-events-metrics.md#trackevent).
+    A custom event represents one occurrence of something happening in your app, often a user interaction like a button click or the completion of some task. You insert code in your app to [generate custom events](../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 ## Querying for certain users
 

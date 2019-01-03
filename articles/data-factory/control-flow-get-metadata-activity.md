@@ -11,9 +11,9 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/19/2018
 ms.author: shlo
 
 ---
@@ -57,6 +57,7 @@ The GetMetadata Activity takes a dataset as a required input, and outputs metada
 | Connector/Metadata | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
 | Azure SQL Database | √ | √ | √ |
+| Azure SQL Database Managed Instance | √ | √ | √ |
 | Azure SQL Data Warehouse | √ | √ | √ |
 | SQL Server | √ | √ | √ |
 

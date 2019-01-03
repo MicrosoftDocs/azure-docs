@@ -7,8 +7,8 @@ ms.subservice: security
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: giladm
-ms.author: giladm
+author: ronitr
+ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/01/2018

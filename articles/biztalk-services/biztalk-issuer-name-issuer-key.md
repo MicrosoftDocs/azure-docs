@@ -81,17 +81,17 @@ Service Bus Issuer Name and Issuer Key are used by BizTalk Adapter Services. In 
 ## Next
 Additional Azure BizTalk Services topics:
 
-* [Installing the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [Tutorials: Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
-* [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
+* [Installing the Azure BizTalk Services SDK](https://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+* [Tutorials: Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [How do I Start Using the Azure BizTalk Services SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## See Also
-* [How to: Use ACS Management Service to Configure Service Identities](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
-* [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk Services: Provisioning](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-* [BizTalk Services: Provisioning Status Chart](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [How to: Use ACS Management Service to Configure Service Identities](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [BizTalk Services: Provisioning](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk Services: Provisioning Status Chart](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [BizTalk Services: Dashboard, Monitor and Scale tabs](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [BizTalk Services: Backup and Restore](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [BizTalk Services: Throttling](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 

@@ -1,6 +1,6 @@
 ---
-title: Glossary for the Language Understanding (LUIS) API Service
-titleSuffix: Azure Cognitive Services
+title: Glossary 
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: The glossary explains terms that you might encounter as you work with the LUIS API Service.
 services: cognitive-services
 author: diberry
@@ -12,7 +12,7 @@ ms.date: 09/10/2018
 ms.author: diberry
 ---
 
-# Glossary
+# Language understanding glossary of common vocabulary and concepts
 The Language Understanding (LUIS) glossary explains terms that you might encounter as you work with the LUIS API Service.
 
 ## <a name="active-version"></a>Active version
@@ -69,7 +69,7 @@ In the LUIS context, a **domain** is an area of knowledge. Your domain is specif
 
 ## <a name="endpoint"></a>Endpoint
 
-The [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL is where you submit LUIS queries after the [LUIS app](#luis-app) is authored and published. The endpoint URL contains the region of the published app as well as the app ID. You can find the endpoint on the **[Keys and endpoints](/luis-how-to-manage-keys.md)** page of your app, or you can get the endpoint URL from the [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+The [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL is where you submit LUIS queries after the [LUIS app](#luis-app) is authored and published. The endpoint URL contains the region of the published app as well as the app ID. You can find the endpoint on the **[Keys and endpoints](luis-how-to-manage-keys.md)** page of your app, or you can get the endpoint URL from the [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 An example endpoint looks like:
 

@@ -3,13 +3,13 @@ title: Azure SQL Database elastic query overview | Microsoft Docs
 description: Elastic query enables you to run a Transact-SQL query that spans multiple databases.
 services: sql-database
 ms.service: sql-database
-subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer:
+ms.reviewer: sstein
 manager: craigg
 ms.date: 09/14/2018
 ---

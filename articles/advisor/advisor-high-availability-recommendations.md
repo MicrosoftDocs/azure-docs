@@ -3,18 +3,17 @@ title: Azure Advisor High Availability recommendations | Microsoft Docs
 description: Use Azure Advisor to improve high availability of your Azure deployments.
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: carmonm
 editor: ''
 
 ms.assetid: 
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: makohli
+ms.author: kasparks
 ---
 
 # Advisor High Availability recommendations
@@ -78,7 +77,7 @@ Enable [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob
 For more information about Advisor recommendations, see:
 * [Introduction to Azure Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
-* [Advisor Cost recommendations](advisor-performance-recommendations.md)
+* [Advisor Cost recommendations](advisor-cost-recommendations.md)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
 

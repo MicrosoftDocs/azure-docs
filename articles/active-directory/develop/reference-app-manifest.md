@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 12/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
@@ -21,7 +21,21 @@ ms.reviewer: sureshja
 
 # Azure Active Directory app manifest
 
-Apps that integrate with Azure Active Directory (Azure AD) must be registered with an Azure AD tenant. You can configure the app in the [Azure portal](https://portal.azure.com) by selecting **App registrations** under **Azure Active Directory**, choosing the app you want to configure, and then selecting **Manifest**.
+The application manifest contains a definition of all the attributes of an application object in the Microsoft identity platform. It also serves as a mechanism for updating the application object. For more information on the Application entity and its schema, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
+
+You can configure an app's attributes through the Azure portal or programmatically using Microsoft Graph. However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
+
+* If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you cannot change the supported Microsoft accounts in the UI. Instead, you must use the application manifest editor to change the supported account type.
+* If you need to define permissions and roles that your app supports, you must modify the application manifest.
+
+## Configure the app manifest
+
+To configure the application manifest:
+
+1. Log in the [Azure portal](https://portal.azure.com).
+1. Select the **Azure Active Directory** service, and then select **App registrations** or **App registrations (Preview)**.
+1. Select the app you want to configure.
+1. From the app's **Overview** page, select the **Manifest** section. A web-based manifest editor opens, allowing you to edit the manifest within the portal. Optionally, you can select **Download** to edit the manifest locally, and then use **Upload** to reapply it to your application.
 
 ## Manifest reference
 
@@ -37,10 +51,10 @@ Apps that integrate with Azure Active Directory (Azure AD) must be registered wi
 | `allowPublicClient` | boolean | Specifies the fallback application type. Azure AD infers the application type from the replyUrlsWithType by default. There are certain scenarios where Azure AD cannot determine the client app type (e.g. [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) flow where HTTP request happens without a URL redirection). In those cases Azure AD will interpret the application type based on the value of this property. If this value is set to true the fallback application type is set as public client, such as an installed app running on a mobile device. The default value is false which means the fallback application type is confidential client such as web app. | `false` |
 | `appId` | Identifier string | Specifies the unique identifier for the app that is assigned to an app by Azure AD. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Type of array | Specifies the collection of roles that an app may declare. These roles can be assigned to users, groups, or service principals. For more examples and info, see [Add app roles in your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
-| `groupMembershipClaims` | string | A bitmask that configures the `groups` claim issued in a user or OAuth 2.0 access token that the app expects. The bitmask values are:<br>0: None<br>1: Security groups and Azure AD roles<br>2: Reserved<br>4: Reserved<br>Setting the bitmask to 7 will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of. | `1` |
-| `optionalClaims` | string | The optional claims returned in the token by the security token service for this specific app. For more info, see [optional claims](active-directory-optional-claims.md). | `null` |
+| `groupMembershipClaims` | string | Configures the `groups` claim issued in a user or OAuth 2.0 access token that the app expects. To set this attribute, use one of the following valid string values:<br/><br/>- `"None"`<br/>- `"SecurityGroup"` (for security groups and Azure AD roles)<br/>- `"All"` (this will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of. | `"SecurityGroup"` |
+| `optionalClaims` | string | The optional claims returned in the token by the security token service for this specific app.<br>At this time, apps that support both personal accounts and Azure AD (registered through the app registration portal) cannot use optional claims. However, apps registered for just Azure AD using the v2.0 endpoint can get the optional claims they requested in the manifest. For more info, see [optional claims](active-directory-optional-claims.md). | `null` |
 | `id` | Identifier string | The unique identifier for the app in the directory. This ID is not the identifier used to identify the app in any protocol transaction. It's used for the referencing the object in directory queries. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
-| `identifierUris` | String array | User-defined URI(s) that uniquely identify a Web app within its Azure AD tenant, or within a verified custom domain if the app is multi-tenant. | <code>[<br>&nbsp;&nbsp;"https://MyRegistererdApp"<br>]</code> |
+| `identifierUris` | String array | User-defined URI(s) that uniquely identify a Web app within its Azure AD tenant, or within a verified custom domain if the app is multi-tenant. | <code>[<br>&nbsp;&nbsp;"https://MyRegisteredApp"<br>]</code> |
 | `informationalUrls` | string | Specifies the links to the app's terms of service and privacy statement. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see [How to: Add Terms of service and privacy statement for registered Azure AD apps](howto-add-terms-of-service-privacy-statement.md). | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |
 | `keyCredentials` | Type of array | Holds references to app-assigned credentials, string-based shared secrets and X.509 certificates. These credentials are used when requesting access tokens (when the app is acting as a client rather that as resource). | <code>[<br>&nbsp;{<br>&nbsp;&nbsp;&nbsp;"customKeyIdentifier":null,<br>&nbsp;&nbsp;&nbsp;"endDate":"2018-09-13T00:00:00Z",<br>&nbsp;&nbsp;&nbsp;"keyId":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"startDate":"2017-09-12T00:00:00Z",<br>&nbsp;&nbsp;&nbsp;"type":"AsymmetricX509Cert",<br>&nbsp;&nbsp;&nbsp;"usage":"Verify",<br>&nbsp;&nbsp;&nbsp;"value":null<br>&nbsp;&nbsp;}<br>]</code> |
 | `knownClientApplications` | Type of array | Used for bundling consent if you have a solution that contains two parts: a client app and a custom web API app. If you enter the appID of the client app into this value, the user will only have to consent once to the client app. Azure AD will know that consenting to the client means implicitly consenting to the web API and will automatically provision service principals for both the client and web API at the same time. Both the client and the web API app must be registered in the same tenant. | `[GUID]` |
@@ -58,7 +72,7 @@ Apps that integrate with Azure Active Directory (Azure AD) must be registered wi
 | `requiredResourceAccess` | Type of array | With dynamic consent, `requiredResourceAccess` drives the admin consent experience and the user consent experience for users who are using static consent. However, this does not drive the user consent experience for the general case.<br>`resourceAppId` is the unique identifier for the resource that the app requires access to. This value should be equal to the appId declared on the target resource app.<br>`resourceAccess` is an array that lists the OAuth2.0 permission scopes and app roles that the app requires from the specified resource. Contains the `id` and `type` values of the specified resources. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAccess":[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;}<br>] </code> |
 | `samlMetadataUrl` | string | The URL to the SAML metadata for the app. | `https://MyRegisteredAppSAMLMetadata` |
 | `signInUrl` | string | Specifies the URL to the app's home page. | `https://MyRegisteredApp` |
-| `signInAudience` | string | Specifies what microsoft accounts are supported for the current application. Supported values are:<ul><li>**AzureADMyOrg** - Users with a Microsoft work or school account in my organization’s Azure AD tenant (i.e. single tenant)</li><li>**AzureADMultipleOrgs** - Users with a Microsoft work or school account in any organization’s Azure AD tenant (i.e. multi-tenant)</li> <li>**AzureADandPersonalMicrosoftAccount** - Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant</li></ul> | `AzureADandPersonalMicrosoftAccount` |
+| `signInAudience` | string | Specifies what Microsoft accounts are supported for the current application. Supported values are:<ul><li>**AzureADMyOrg** - Users with a Microsoft work or school account in my organization’s Azure AD tenant (i.e. single tenant)</li><li>**AzureADMultipleOrgs** - Users with a Microsoft work or school account in any organization’s Azure AD tenant (i.e. multi-tenant)</li> <li>**AzureADandPersonalMicrosoftAccount** - Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | String array | Custom strings that can be used to categorize and identify the application. | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
 
 ## Next steps

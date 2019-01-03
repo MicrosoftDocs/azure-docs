@@ -7,8 +7,10 @@ ms.subservice: security
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: giladm
-ms.author: giladm
+f1_keywords: 
+  - "mi.azure.sqlaudit.general.f1"
+author: ronitr
+ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/20/2018
@@ -145,7 +147,7 @@ The key differences in the `CREATE AUDIT` syntax for Auditing to Azure blob stor
 
 ## Next steps
 
-- For a full list of audit log consumption methods, refer to the [Get started with SQL database auditing](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
+- For a full list of audit log consumption methods, refer to the [Get started with SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 - For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
 

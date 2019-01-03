@@ -4,7 +4,7 @@ description: More detailed SSH troubleshooting steps for issues connecting to an
 keywords: ssh connection refused,ssh error,azure ssh,SSH connection failed
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: genlin
 manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/13/2017
-ms.author: cynthn
+ms.date: 10/31/2018
+ms.author: genli
 
 ---
 # Detailed SSH troubleshooting steps for issues connecting to a Linux VM in Azure

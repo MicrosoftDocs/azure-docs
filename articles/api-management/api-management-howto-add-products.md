@@ -27,19 +27,20 @@ In this tutorial, you learn how to:
 > * Create and publish a product
 > * Add an API to the product
 
-![add product](media/api-management-howto-add-products/added-product.png)
+![Add product tutorial](media/api-management-howto-add-products/added-product.png)
 
 ## Prerequisites
 
++ Learn the [Azure API Management terminology](api-management-terminology.md).
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
 ## Create and publish a product
 
+![Add product](media/api-management-howto-add-products/02-create-publish-product-01.png)
+
 1. Click on **Products** in the menu on the left to display the **Products** page.
 2. Click **+ Add**.
-
-    ![added product](media/api-management-howto-add-products/add-product.png)
 
     When you add a product, you need to supply the following information: 
 
@@ -73,12 +74,15 @@ Developers must first subscribe to a product to get access to the API. When they
 
 ### Add an API to an existing product
 
-![add product API](media/api-management-howto-add-products/add-product-api.png)
+![add product API](media/api-management-howto-add-products/02-create-publish-product-02.png)
 
 1. From the **Products** tab, select a product.
 2. Navigate to the **APIs** tab.
 3. Click **+ Add**.
 4. Choose an API and click **Select**.
+
+> [!TIP]
+> You can create or update user's subscription to a *Product* with custom subscription keys [through REST API](https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate) or PowerShell command.
 
 ## Next steps
 

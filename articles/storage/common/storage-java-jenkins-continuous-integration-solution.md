@@ -124,7 +124,7 @@ This section provides an overview of the Blob service components.
 
 * **Storage Account**: All access to Azure Storage is done through a storage account. A storage account is the highest level of the namespace for accessing blobs. An account can contain an unlimited number of containers, as long as their total size is under 100 TB.
 * **Container**: A container provides a grouping of a set of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs.
-* **Blob**: A file of any type and size. There are two types of blobs that can be stored in Azure Storage: block and page blobs. Most files are block blobs. A single block blob can be up to 200 GB in size. This tutorial uses block blobs. Page blobs, another blob type, can be up to 1 TB in size, and are more efficient when ranges of bytes in a file are modified frequently. For more information about blobs, see [Understanding Block Blobs, Append Blobs, and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **Blob**: A file of any type and size. There are two types of blobs that can be stored in Azure Storage: block and page blobs. Most files are block blobs. A single block blob can be up to 200 GB in size. This tutorial uses block blobs. Page blobs, another blob type, can be up to 1 TB in size, and are more efficient when ranges of bytes in a file are modified frequently. For more information about blobs, see [Understanding Block Blobs, Append Blobs, and Page Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **URL format**: Blobs are addressable using the following URL format:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -144,6 +144,6 @@ If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkin
 * [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)
 * [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)
 
 For more information, visit [Azure for Java developers](/java/azure).

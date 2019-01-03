@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to create an Azure Analysis Services server by using PowerShell.
@@ -29,9 +29,9 @@ To create a server in your subscription, you use the [AzureRM.AnalysisServices](
 Import-Module AzureRM.AnalysisServices
 ```
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to your Azure subscription by using the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) command. Follow the on-screen directions.
+Sign in to your Azure subscription by using the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) command. Follow the on-screen directions.
 
 ```powershell
 Connect-AzureRmAccount

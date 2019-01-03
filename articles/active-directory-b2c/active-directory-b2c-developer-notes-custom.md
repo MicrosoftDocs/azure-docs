@@ -96,7 +96,7 @@ Interfaces with external components and applications
 |   Local Account Sign-in, api.localaccountsignin |  | x |  |  |
 |   Local Account Sign-up, api.localaccountsignup |  | x |  |  |
 |   MFA page, api.phonefactor |  | x |  |  |
-|   Self-asserted -for example social account sig-up, api.selfasserted |  | x |  |  |
+|   Self-asserted -for example social account sign-up, api.selfasserted |  | x |  |  |
 |   Self-asserted profile update, api.selfasserted.profileupdate |  | x |  |  |
 |   Unified signup or sign-in page, api.signuporsignin |  | x |  |  |
 

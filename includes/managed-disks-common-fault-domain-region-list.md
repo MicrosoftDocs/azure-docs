@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: cynthn
+---
 ### Number of Fault Domains per region
 
 | Region              | Max # of Fault Domains  |

@@ -127,6 +127,10 @@
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
+    items:
+    - name: Durable Functions
+      tocHRef: /azure/azure-functions/durable/
+      topicHref: /azure/azure-functions/durable/durable-functions-overview
   - name: Azure Government
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
@@ -139,7 +143,7 @@
   - name: Azure NetApp Files
     tocHref: /azure/azure-netapp-files/
     topicHref: /azure/azure-netapp-files/
-  - name: Azure portal
+  - name: Azure portal customization
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
   - name: Resource Manager
@@ -223,7 +227,7 @@
       topicHref: /azure/cognitive-services/computer-vision/
     - name: Content Moderator
       tocHref: /azure/cognitive-services/content-moderator/
-      topicHref: /azure/cognitive-services/content-moderator/overview
+      topicHref: /azure/cognitive-services/content-moderator/
     - name: Custom Decision Service
       tocHref: /azure/cognitive-services/custom-decision-service/
       topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview
@@ -318,12 +322,16 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
-  - name: Data Box
-    tocHref: /azure/databox/
-    topicHref: /azure/databox/ 
-  - name: Data Box Edge/Data Box Gateway
-    tocHref: /azure/databox-online/
-    topicHref: /azure/databox-online/ 
+  - name: Data Box family
+    tocHref: /azure/databox-family/
+    topicHref: /azure/databox-family/
+    items:
+    - name: Data Box offline transfer
+      tocHref: /azure/databox/
+      topicHref: /azure/databox/
+    - name: Data Box online transfer
+      tocHref: /azure/databox-online/
+      topicHref: /azure/databox-online/ 
   - name: Data Catalog
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
@@ -336,6 +344,9 @@
   - name: Data Lake Storage Gen1
     tocHref: /azure/data-lake-store/
     topicHref: /azure/data-lake-store/
+  - name: Dedicated HSM
+    tocHref: /azure/dedicated-hsm/
+    topicHref: /azure/dedicated-hsm/
   - name: Devtest Lab
     tocHref: /azure/devtest-lab/
     topicHref: /azure/devtest-lab/
@@ -476,6 +487,9 @@
       - name: v2
         tocHref: /azure/media-services/previous/
         topicHref: /azure/media-services/previous/
+      - name: Video Indexer
+        tocHref: /azure/media-services/video-indexer/
+        topicHref: /azure/media-services/video-indexer/        
   - name: Mobile Engagement
     tocHref: /azure/mobile-engagement/
     topicHref: /azure/mobile-engagement/
@@ -498,6 +512,9 @@
   - name: Networking
     tocHref: /azure/networking/
     topicHref: /azure/networking/networking-overview
+  - name: Notebooks
+    tocHref: /azure/notebooks/
+    topicHref: /azure/notebooks/azure-notebooks-overview
   - name: Notification Hubs
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/
@@ -513,9 +530,9 @@
   - name: Power BI Workspace Collections
     tocHref: /azure/power-bi-workspace-collections/
     topicHref: /azure/power-bi-workspace-collections/
-  - name: Redis Cache
-    tocHref: /azure/redis-cache/
-    topicHref: /azure/redis-cache/
+  - name: Azure Cache for Redis
+    tocHref: /azure/azure-cache-for-redis/
+    topicHref: /azure/azure-cache-for-redis/
   - name: Remoteapp
     tocHref: /azure/remoteapp/
     topicHref: /azure/remoteapp/
@@ -620,6 +637,9 @@
           - name: Windows classic deployments
             tocHref: /azure/virtual-machines/windows/classic/
             topicHref: /azure/virtual-machines/windows/classic/
+          - name: SQL VM
+            tocHref: /azure/virtual-machines/windows/sql
+            topicHref: /azure/virtual-machines/windows/sql
   - name: Virtual Network
     tocHref: /azure/virtual-network/
     topicHref: /azure/virtual-network/

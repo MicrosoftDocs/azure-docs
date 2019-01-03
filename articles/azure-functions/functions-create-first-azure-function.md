@@ -18,7 +18,7 @@ ms.custom: mvc, devcenter, cc996988-fb4f-47
 ---
 # Create your first function in the Azure portal
 
-Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/overview/serverless-computing/) environment without having to first create a VM or publish a web application. In this topic, learn how to use Functions to create a "hello world" function in the Azure portal.
+Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application. In this topic, learn how to use Functions to create a "hello world" function in the Azure portal.
 
 ![Create function app in the Azure portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
@@ -29,7 +29,7 @@ Azure Functions lets you execute your code in a [serverless](https://azure.micro
 
 ## Log in to Azure
 
-Sign in to the Azure portal at <http://portal.azure.com> with your Azure account.
+Sign in to the Azure portal at <https://portal.azure.com> with your Azure account.
 
 ## Create a function app
 

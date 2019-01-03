@@ -433,7 +433,6 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 ## Next steps
 To learn more about Service Bus, see the following resources:  
 
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * [Get started using Service Bus queues][sbacomqhowto]
 * [Service Bus service page][sbacom]  
 

@@ -2,8 +2,8 @@
 title: 'Quickstart: Query data in Azure Data Explorer'
 description: 'In this quickstart, you learn how to query and share data in Azure Data Explorer.'
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
@@ -131,7 +131,7 @@ Now you've seen how basic queries work, let's look at how you can use the table 
 
 1. Run the following query.
 
-    ```Kutso
+    ```Kusto
     StormEvents
     | sort by StartTime desc
     | where DamageProperty > 5000

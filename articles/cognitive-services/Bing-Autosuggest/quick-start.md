@@ -1,17 +1,18 @@
 ---
-title: Autosuggest API quickstart | Microsoft Docs
+title: "Quickstart: Bing Autosuggest API"
+titlesuffix: Azure Cognitive Services
 description: Shows how to get started using the Bing Autosuggest API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 1482E781-7352-4A3F-B1D5-B896381348C4
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
 ---
-# Making your first Autosuggest query
+# Quickstart: Making your first Autosuggest query
 
 Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 

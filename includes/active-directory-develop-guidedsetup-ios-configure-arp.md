@@ -7,7 +7,6 @@ author: andretms
 manager: mtillman
 editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -16,17 +15,19 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file 
-
+#Do not delete: File is used in the Azure portal guided setup experience but not rendered as part of docs.microsoft.com
 ---
 
 ## Add the application’s registration information to your app
 
 In this step, you need to add the Application ID to your project:
 
-1.	In `ViewController.swift`, replace the line starting with '`let kClientID`' with:
+1. In `ViewController.swift`, replace the line starting with '`let kClientID`' with:
+
 ```swift
 let kClientID = "[Enter the application Id here]"
 ```
+
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>

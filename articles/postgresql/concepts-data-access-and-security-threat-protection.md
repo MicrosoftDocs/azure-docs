@@ -1,14 +1,11 @@
 ---
-title: Advanced Threat Protection - Azure Database for PostgreSQL | Microsoft Docs
+title: Advanced Threat Protection - Azure Database for PostgreSQL
 description: Advanced Threat Protection detects anomalous database activities indicating potential security threats to the database. 
-services: postgresql
 author: bolzmj
-manager: kfile
-ms.service: postgresql
-ms.topic: article
-ms.date: 09/20/2018
 ms.author: mbolz
-
+ms.service: postgresql
+ms.topic: conceptual
+ms.date: 09/20/2018
 ---
 # Azure Database for PostgreSQL Advanced Threat Protection
 
@@ -29,8 +26,8 @@ Advanced Threat Protection for Azure Database for PostgreSQL provides a new laye
 ## Advanced Threat Protection alerts 
 Advanced Threat Protection for Azure Database for PostgreSQL detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases and it can trigger the following alerts:
 - **Access from unusual location**: This alert is triggered when there is a change in the access pattern to the Azure Database for PostgreSQL server, where someone has logged on to the Azure Database for PostgreSQL server from an unusual geographical location. In some cases, the alert detects a legitimate action (a new application or developer maintenance). In other cases, the alert detects a malicious action (former employee, external attacker).
-- **Access from unusual Azure data center**: This alert is triggered when there is a change in the access pattern to the Azure Database for PostgreSQL server, where someone has logged on to the SQL server from an unusual Azure data center that was seen on this server during the recent period. In some cases, the alert detects a legitimate action (your new application in Azure, Power BI, Azure Database for PostgreSQL Query Editor). In other cases, the alert detects a malicious action from an Azure resource/service (former employee, external attacker).
-- **Access from unfamiliar principal**: This alert is triggered when there is a change in the access pattern to the Azure Database for PostgreSQL server, where someone has logged on to the SQL server using an unusual principal (Azure Database for PostgreSQL user). In some cases, the alert detects a legitimate action (new application, developer maintenance). In other cases, the alert detects a malicious action (former employee, external attacker).
+- **Access from unusual Azure data center**: This alert is triggered when there is a change in the access pattern to the Azure Database for PostgreSQL server, where someone has logged on to the server from an unusual Azure data center that was seen on this server during the recent period. In some cases, the alert detects a legitimate action (your new application in Azure, Power BI, Azure Database for PostgreSQL Query Editor). In other cases, the alert detects a malicious action from an Azure resource/service (former employee, external attacker).
+- **Access from unfamiliar principal**: This alert is triggered when there is a change in the access pattern to the Azure Database for PostgreSQL server, where someone has logged on to the server using an unusual principal (Azure Database for PostgreSQL user). In some cases, the alert detects a legitimate action (new application, developer maintenance). In other cases, the alert detects a malicious action (former employee, external attacker).
 - **Access from a potentially harmful application**: This alert is triggered when a potentially harmful application is used to access the database. In some cases, the alert detects penetration testing in action. In other cases, the alert detects an attack using common attack tools.
 - **Brute force Azure Database for PostgreSQL credentials**: This alert is triggered when there is an abnormal high number of failed logins with different credentials. In some cases, the alert detects penetration testing in action. In other cases, the alert detects brute force attack.
 

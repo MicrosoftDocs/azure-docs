@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: dsc
 author: bobbytreed
 ms.author: robreed
-ms.date: 08/08/2018
+ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -41,7 +41,7 @@ To begin importing data from Azure Automation DSC into Log Analytics, complete t
 
   ```powershell
   # Find the ResourceId for the Automation Account
-  Find-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
+  Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
   ```
 
 1. Get the _ResourceId_ of your Log Analytics workspace by running the following PowerShell command:
@@ -49,7 +49,7 @@ To begin importing data from Azure Automation DSC into Log Analytics, complete t
 
   ```powershell
   # Find the ResourceId for the Log Analytics workspace
-  Find-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
+  Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
   ```
 
 1. Run the following PowerShell command, replacing `<AutomationResourceId>` and `<WorkspaceResourceId>` with the _ResourceId_ values from each of the previous steps:
@@ -207,4 +207,4 @@ and can help address incidents more quickly.
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/)
 - To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Continuous Deployment Using Azure Automation State Configuration and Chocolatey](automation-dsc-cd-chocolatey.md)
 - To learn more about how to construct different search queries and review the Automation State Configuration logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md)
-- To learn more about Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md)
+- To learn more about Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../azure-monitor/platform/collect-azure-metrics-logs.md)

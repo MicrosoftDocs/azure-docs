@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Stack syslog forwarding
 description: Learn how to integrate Azure Stack with monitoring solutions by using syslog forwarding
 services: azure-stack
@@ -6,7 +6,7 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 10/23/2018
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords:
@@ -16,9 +16,10 @@ keywords:
 
 This article shows you how to use syslog to integrate Azure Stack infrastructure with external security solution(s) already deployed in your datacenter. For example, a Security Information Event Management (SIEM) system. The syslog channel exposes audits, alerts, and security logs from all the components of the Azure Stack infrastructure. Use syslog forwarding to integrate with security monitoring solutions and/or to retrieve all audits, alerts, and security logs to store them for retention. 
 
-Starting with the 1805 update, Azure Stack has an integrated syslog client that, once configured, emits syslog messages with the payload in Common Event Format (CEF). 
+Starting with the 1809 update, Azure Stack has an integrated syslog client that, once configured, emits syslog messages with the payload in Common Event Format (CEF).
 
-The following diagram shows the main components that participate in the syslog integration.
+The following diagram describes the integration of Azure Stack with an external SIEM. There are two integration patterns that need to be considered: the first one (the one in blue) is the Azure Stack infrastructure that encompasses the infrastructure virtual machines and the Hyper-V nodes. All the audits, security logs and alerts from those components are centrally collected and exposed via syslog with CEF payload. This integration pattern is described in this document page.
+The second integration pattern is the one depicted in orange and covers the baseboard management controllers (BMCs), the hardware lifecycle host (HLH), the virtual machines and/or virtual appliances that run the hardware partner monitoring and management software, and the top of rack (TOR) switches. Since these components are hardware-partner specific, please reach out to your hardware partner for documentation on how to integrate them with an external SIEM.
 
 ![Syslog forwarding diagram](media/azure-stack-integrate-security/syslog-forwarding.png)
 
@@ -78,7 +79,7 @@ In this configuration, the syslog client in Azure Stack forwards the messages to
 > [!IMPORTANT]
 > Microsoft strongly recommends to use this configuration for production environments. 
 
-To configure syslog forwarding with TCP, mutual authentication, and TLS 1.2 encryption, run both these cmdlets:
+To configure syslog forwarding with TCP, mutual authentication, and TLS 1.2 encryption, run both these cmdlets on a PEP session:
 
 ```powershell
 # Configure the server
@@ -92,7 +93,7 @@ The client certificate must have the same root as the one provided during the de
 
 ```powershell
 ##Example on how to set your syslog client with the certificate for mutual authentication.
-##Run these cmdlets from your hardware lifecycle host or privileged access workstation.
+##This example script must be run from your hardware lifecycle host or privileged access workstation.
 
 $ErcsNodeName = "<yourPEP>"
 $password = ConvertTo-SecureString -String "<your cloudAdmin account password" -AsPlainText -Force
@@ -118,7 +119,7 @@ $params = @{
 Write-Verbose "Invoking cmdlet to set syslog client certificate..." -Verbose 
 Invoke-Command @params -ScriptBlock { 
     param($CertContent, $CertPassword) 
-    Set-SyslogClient -PfxBinary $CertContent -CertPassword $CertPassword 
+    Set-SyslogClient -PfxBinary $CertContent -CertPassword $CertPassword }
 ```
 
 ### Configuring syslog forwarding with TCP, Server authentication, and TLS 1.2 encryption
@@ -135,15 +136,15 @@ In case you want to test the integration of your syslog server with the Azure St
 ```powershell
  #Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
  Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
- ```-SkipCNCheck
- 
+ -SkipCNCheck
+
  #Skip entirely the server certificate validation
  Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
-```-SkipCertificateCheck
+ -SkipCertificateCheck
 ```
+
 > [!IMPORTANT]
 > Microsoft recommends against the use of -SkipCertificateCheck flag for production environments. 
-
 
 ### Configuring syslog forwarding with TCP and no encryption
 
@@ -164,6 +165,7 @@ In this configuration, the syslog client in Azure Stack forwards the messages to
 ```powershell
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -UseUDP
 ```
+
 While UDP with no encryption is the easiest to configure, it does not provide any protection against man-in-the-middle attacks and eavesdropping of messages. 
 
 > [!IMPORTANT]

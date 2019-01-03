@@ -1,20 +1,20 @@
 ---
-title: Get subscription keys - Custom Speech Service
-titlesuffix: Azure Cognitive Services
-description: Learn how to get subscription keys for calls to the Custom Speech Service.
+title: Get subscription keys for the Custom Speech Service on Azure | Microsoft Docs
+description: Learn how to get subscription keys for calls to the Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
-
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
 ---
 
 # Obtain subscription keys
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 To get started using the Azure Custom Speech Service, you first need to link your user account to an Azure subscription. Subscriptions to free and paid tiers are available. For information about the tiers, see the [pricing page](https://www.microsoft.com/cognitive-services/en-us/pricing).
 
 ## Get a subscription key

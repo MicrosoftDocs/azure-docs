@@ -21,7 +21,7 @@ ms.custom: mvc
 
 This tutorial is part one of a series. You learn how to deploy a Service Fabric cluster running Windows into an [Azure virtual network (VNET)](../virtual-network/virtual-networks-overview.md) and [network security group](../virtual-network/virtual-networks-nsg.md) using PowerShell and a template. When you're finished, you have a cluster running in the cloud that you can deploy applications to.  To create a Linux cluster using Azure CLI, see [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
-This tutorial describes a production scenario.  If you want to quickly create a small cluster for testing purposes, see [Create a three node test cluster](./scripts/service-fabric-powershell-create-test-cluster.md).
+This tutorial describes a production scenario.  If you want to quickly create a smaller cluster for testing purposes, see [Create a test cluster](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
 In this tutorial, you learn how to:
 
@@ -83,7 +83,7 @@ This template deploys a secure cluster of five virtual machines and a single nod
 
 ### Service Fabric cluster
 
-A Windows cluster is deployed with the following characteristics:
+In the **Microsoft.ServiceFabric/clusters** resource, a Windows cluster is configured with the following characteristics:
 
 * a single node type
 * five nodes in the primary node type (configurable in the template parameters)
@@ -98,7 +98,7 @@ A Windows cluster is deployed with the following characteristics:
 
 ### Azure load balancer
 
-A load balancer is deployed and probes and rules are setup for the following ports:
+In the **Microsoft.Network/loadBalancers** resource, a load balancer is configured and probes and rules are setup for the following ports:
 
 * client connection endpoint: 19000
 * HTTP gateway endpoint: 19080
@@ -106,16 +106,16 @@ A load balancer is deployed and probes and rules are setup for the following por
 * application port: 443
 * Service Fabric reverse proxy: 19081
 
-If any other application ports are needed, then you will need to adjust the Microsoft.Network/loadBalancers resource and the Microsoft.Network/networkSecurityGroups resource to allow the traffic in.
+If any other application ports are needed, then you will need to adjust the **Microsoft.Network/loadBalancers** resource and the **Microsoft.Network/networkSecurityGroups** resource to allow the traffic in.
 
 ### Virtual network, subnet, and network security group
 
-The names of the virtual network, subnet, and network security group are declared in the template parameters.  Address spaces of the virtual network and subnet are also declared in the template parameters:
+The names of the virtual network, subnet, and network security group are declared in the template parameters.  Address spaces of the virtual network and subnet are also declared in the template parameters and configured in the **Microsoft.Network/virtualNetworks** resource:
 
 * virtual network address space: 172.16.0.0/20
 * Service Fabric subnet address space: 172.16.2.0/23
 
-The following inbound traffic rules are enabled in the network security group. You can change the port values by changing the template variables.
+The following inbound traffic rules are enabled in the **Microsoft.Network/networkSecurityGroups** resource. You can change the port values by changing the template variables.
 
 * ClientConnectionEndpoint (TCP): 19000
 * HttpGatewayEndpoint (HTTP/TCP): 19080
@@ -126,7 +126,7 @@ The following inbound traffic rules are enabled in the network security group. Y
 * Application port range – 49152 to 65534 (used for service to service communication and unlike are not opened on the Load balancer )
 * Block all other ports
 
-If any other application ports are needed, then you will need to adjust the Microsoft.Network/loadBalancers resource and the Microsoft.Network/networkSecurityGroups resource to allow the traffic in.
+If any other application ports are needed, then you will need to adjust the **Microsoft.Network/loadBalancers** resource and the **Microsoft.Network/networkSecurityGroups** resource to allow the traffic in.
 
 ## Set template parameters
 
@@ -175,7 +175,7 @@ New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 # Create the Service Fabric cluster.
 New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
--KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateFile $certpath
+-KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
 ### Create a cluster using a new, self-signed certificate
@@ -206,7 +206,7 @@ New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 # Create the Service Fabric cluster.
 New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
--CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
+-CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateSubjectName $subname
 
 ```
 

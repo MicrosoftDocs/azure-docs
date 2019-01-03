@@ -28,7 +28,7 @@ This article introduces you to the architecture of the Azure IoT device SDK for 
 
 ## SDK architecture
 
-You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](https://azure.github.io/azure-iot-sdk-c/index.html).
+You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
 
 The latest version of the libraries can be found in the **master** branch of the repository:
 
@@ -70,11 +70,11 @@ There are several open source tools to help you manage your IoT hub.
 
 * A Windows application called [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-* A cross-platform Visual Studio Code extension called [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+* A cross-platform Visual Studio Code extension called [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (formerly Azure IoT Toolkit).
 
 * A cross-platform Python CLI called [the IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
-This tutorial uses the graphical *device explorer* tool. You can use the *Azure IoT Toolkit extension for VS Code* if you develop in VS Code. You can also use the *the IoT extension for Azure CLI 2.0* tool if you prefer to use a CLI tool.
+This tutorial uses the graphical *device explorer* tool. You can use the *Azure IoT Hub Toolkit extension for VS Code* if you develop in VS Code. You can also use the *the IoT extension for Azure CLI 2.0* tool if you prefer to use a CLI tool.
 
 The device explorer tool uses the Azure IoT service libraries to perform various functions on IoT Hub, including adding devices. If you use the device explorer tool to add a device, you get a connection string for your device. You need this connection string to run the sample applications.
 
@@ -82,29 +82,29 @@ If you're not familiar with the device explorer tool, the following procedure de
 
 1. To install the device explorer tool, see [How to use the Device Explorer for IoT Hub devices](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-2. When you run the program, you see this interface:
+1. When you run the program, you see this interface:
 
   ![Device Explorer Twin screenshot](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
 
-3. Enter your **IoT Hub Connection String** in the first field and click **Update**. This step configures the tool so that it can communicate with IoT Hub. 
+1. Enter your **IoT Hub Connection String** in the first field and click **Update**. This step configures the tool so that it can communicate with IoT Hub. 
 
 The **Connection String** can be found under **IoT Hub Service** > **Settings** > **Shared Access Policy** > **iothubowner**.
 
-4. When the IoT Hub connection string is configured, click the **Management** tab:
+1. When the IoT Hub connection string is configured, click the **Management** tab:
 
   ![Device Explorer Twin / Management screenshot](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
 
 This tab is where you manage the devices registered in your IoT hub.
 
-5. You create a device by clicking the **Create** button. A dialog displays with a set of pre-populated keys (primary and secondary). Enter a **Device ID** and then click **Create**.
+1. You create a device by clicking the **Create** button. A dialog displays with a set of pre-populated keys (primary and secondary). Enter a **Device ID** and then click **Create**.
 
   ![Create Device screenshot](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
 
-6. When the device is created, the Devices list updates with all the registered devices, including the one you just created. If you right-click your new device, you see this menu:
+1. When the device is created, the Devices list updates with all the registered devices, including the one you just created. If you right-click your new device, you see this menu:
 
   ![Device Explorer Twin right-click result](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
 
-7. If you choose **Copy connection string for selected device**, the device connection string is copied to the clipboard. Keep a copy of the device connection string. You need it when running the sample applications described in the following sections.
+1. If you choose **Copy connection string for selected device**, the device connection string is copied to the clipboard. Keep a copy of the device connection string. You need it when running the sample applications described in the following sections.
 
 When you've completed the steps above, you're ready to start running some code. Most samples have a constant at the top of the main source file that enables you to enter a connection string. For example, the corresponding line from the **iothub\_client\_sample\_mqtt** application appears as follows.
 
@@ -315,7 +315,7 @@ Use the **IoTHubMessage\_GetByteArray** function to retrieve the message, which 
 
 When you're done sending events and receiving messages, you can uninitialize the IoT library. To do so, issue the following function call:
 
-```
+```c
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 

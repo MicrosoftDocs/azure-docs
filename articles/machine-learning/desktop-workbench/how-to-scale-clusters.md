@@ -61,7 +61,7 @@ This will take a few minutes to complete. For more information on scaling the nu
 
 ### Scaling the number of Kubernetes pod replicas in a cluster
  
-You can scale the number of pod replicas assigned to the cluster using the Azure Machine Learning CLI or the [Kubernetes dashboard] (https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
+You can scale the number of pod replicas assigned to the cluster using the Azure Machine Learning CLI or the [Kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
 
 For more information on Kubernetes replica pods, see the [Kubernetes Pods](https://kubernetes.io/docs/concepts/workloads/pods/pod/) documentation.
 

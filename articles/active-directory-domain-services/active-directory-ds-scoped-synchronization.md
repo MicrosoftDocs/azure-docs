@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Scoped synchronization | Microso
 description: Configure scoped synchronization from Azure AD to your managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Configure scoped synchronization from Azure AD to your managed domain
@@ -43,7 +43,12 @@ The following table helps you determine how to use scoped synchronization:
 >
 
 
-## Create a new managed domain and enable group-based scoped synchronization
+## Create a new managed domain and enable group-based scoped synchronization using Azure portal
+
+1. Follow the [Getting Started guide](active-directory-ds-getting-started.md) to create a managed domain.
+2. Choose **scoped** during the synchronization style selection in the Azure AD Domain Services creation wizard.
+
+## Create a new managed domain and enable group-based scoped synchronization using PowerShell
 Use PowerShell to complete this set of steps. Refer to the instructions to [enable Azure Active Directory Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md). A couple of steps in this article are modified slightly to configure scoped synchronization.
 
 Complete the following steps to configure group-based scoped synchronization to your managed domain:
@@ -61,7 +66,7 @@ Complete the following steps to configure group-based scoped synchronization to 
 3. Save the [script in the following section](active-directory-ds-scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) to a file called ```Select-GroupsToSync.ps1```. Execute the script like below:
 
   ```powershell
-  .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", “GroupName1”, “GroupName2”)
+  .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
   ```
 
   > [!WARNING]

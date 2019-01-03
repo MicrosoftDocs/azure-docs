@@ -108,19 +108,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Predictix Assortment Planning Domain and URLs single sign-on information](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern:
+
 	| |
 	|--|--|
 	| `https://<sub-domain>.ap.predictix.com/sso/request`|
 	| `https://<sub-domain>.dev.ap.predictix.com/`|
 
 	b. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|--|
 	| `https://<sub-domain>.ap.predictix.com`|
 	| `https://<sub-domain>.dev.ap.predictix.com`|
 	
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Predictix Assortment Planning Client support team](http://www.infor.com/support) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Predictix Assortment Planning Client support team](https://www.infor.com/support) to get these values. 
  
 
 
@@ -136,7 +138,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Predictix Assortment Planning Configuration](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_configure.png) 
 
-1. To configure single sign-on on **Predictix Assortment Planning** side, you need to send the downloaded **Certificate(Base64)**, **SAML Entity ID**, **SAML Single Sign-On Service URL**, and **Sign-Out URL**  to [Predictix Assortment Planning support team](http://www.infor.com/support). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **Predictix Assortment Planning** side, you need to send the downloaded **Certificate(Base64)**, **SAML Entity ID**, **SAML Single Sign-On Service URL**, and **Sign-Out URL**  to [Predictix Assortment Planning support team](https://www.infor.com/support). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -176,7 +178,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Predictix Assortment Planning test user
 
-In this section, you create a user called Britta Simon in Predictix Assortment Planning. Please work with [Predictix Assortment Planning support team](http://www.infor.com/contact/) to add the users in the Predictix Assortment Planning platform.
+In this section, you create a user called Britta Simon in Predictix Assortment Planning. Please work with [Predictix Assortment Planning support team](https://www.infor.com/contact/) to add the users in the Predictix Assortment Planning platform.
  > [!NOTE]
  > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
 

@@ -2,7 +2,6 @@
 title: Publishing applications on separate networks and locations using connector groups in Azure AD App Proxy | Microsoft Docs
 description: Covers how to create and manage groups of connectors in Azure AD Application Proxy.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 
@@ -12,10 +11,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.custom: H1Hack27Feb2017; it-pro
+ms.reviewer: japere
 
 ---
 
@@ -31,7 +29,7 @@ All applications are assigned to a connector group. If you don't create groups, 
 >If you have a large Application Proxy deployment, don't assign any applications to the default connector group. That way, new connectors don't receive any live traffic until you assign them to an active connector group. This configuration also enables you to put connectors in an idle mode by moving them back to the default group, so that you can perform maintenance without impacting your users.
 
 ## Prerequisites
-To group your connectors, you have to make sure you [installed multiple connectors](application-proxy-enable.md). When you install a new connector, it automatically joins the **Default** connector group.
+To group your connectors, you have to make sure you [installed multiple connectors](application-proxy-add-on-premises-application.md). When you install a new connector, it automatically joins the **Default** connector group.
 
 ## Create connector groups
 Use these steps to create as many connector groups as you want. 
@@ -124,6 +122,6 @@ In the example below, the company has two datacenters, A and B, with two connect
 ## Next steps
 
 * [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
-* [Enable single-sign on](application-proxy-single-sign-on.md)
+* [Enable single-sign on](what-is-single-sign-on.md)
 
 

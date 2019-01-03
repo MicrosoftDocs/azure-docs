@@ -2,12 +2,12 @@
 title: Deploy the configuration server for VMware disaster recovery with Azure Site Recovery | Microsoft Docs
 description: This article describes how to deploy a configuration server for VMware disaster recovery with Azure Site Recovery
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: raynew
+ms.date: 12/11/2018
+ms.author: mayg
 ---
 
 # Deploy a configuration server
@@ -92,7 +92,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 ### Configure settings
 
-1. In the configuration server management wizard, select **Setup connectivity**, and then select the NIC that the process server uses to receive replication traffic from VMs. Then select **Save**. You can't change this setting after it is configured.
+1. In the configuration server management wizard, select **Setup connectivity**, and then select the NIC that the process server uses to receive replication traffic from VMs. Then select **Save**. You can't change this setting after it is configured. It is strongly advised to not change the IP address of a configuration server. Ensure IP assigned to the Configuration Server is STATIC IP and not DHCP IP.
 2. In **Select Recovery Services vault**, sign in to Microsoft Azure, select your Azure subscription and the relevant resource group and vault.
 
     > [!NOTE]
@@ -111,6 +111,14 @@ If you want to add an additional NIC to the configuration server, add it before 
 7. In **Configure virtual machine credentials**, enter the user name, and password of Virtual machines to automatically install Mobility Service during replication. For **Windows** machines, the account needs local administrator privileges on the machines you want to replicate. For **Linux**, provide details for the root account.
 8. Select **Finalize configuration** to complete registration.
 9. After registration finishes, open Azure portal, verify that the configuration server and VMware server are listed on **Recovery Services Vault** > **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
+
+## Upgrade the configuration server
+
+To upgrade the configuration server to the latest version, follow these [steps](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+
+## Manage the configuration server
+
+To avoid interruptions in ongoing replication, ensure that IP address of the configuration server does not change after the configuration server has been registered to a vault. You can learn more about common configuration server management tasks [here](vmware-azure-manage-configuration-server.md).
 
 ## FAQ
 
@@ -135,14 +143,13 @@ If you want to add an additional NIC to the configuration server, add it before 
 7. Where can I download vault registration keys?
 
     In the **Recovery Services Vault**, **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**. In Servers, select **Download registration key** to download the vault credentials file.
+8. Can I clone an existing Configuration Server and use it for replication orchestration?
 
-## Upgrade the configuration server
+    **No**, use of a cloned Configuration Server component is not supported.
 
-To upgrade the configuration server to the latest version, follow these [steps](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+9. Can I change the IP of configuration server?
 
-## Manage the configuration server
-
-To avoid interruptions in ongoing replication, ensure that IP address of the configuration server does not change after the configuration server has been registered to a vault. You can learn more about common configuration server management tasks [here](vmware-azure-manage-configuration-server.md).
+    **No**, it is strongly recommended to not change the IP address of a configuration server. Ensure all IPs assigned to the Configuration Server are STATIC IPs and not DHCP IPs.
 
 ## Troubleshoot deployment issues
 

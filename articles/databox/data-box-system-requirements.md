@@ -2,18 +2,12 @@
 title: Microsoft Azure Data Box system requirements| Microsoft Docs
 description: Learn about the software and networking requirements for your Azure Data Box
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 12/27/2018
 ms.author: alkohli
 ---
 # Azure Data Box system requirements
@@ -56,6 +50,9 @@ Here is a list of the supported storage types for the Data Box device.
 | Classic | Standard |
 | General purpose  |Standard; both V1 and V2 are supported. |
 | Blob |Both hot and cool are supported. |
+
+>[!NOTE]
+> Azure Data Lake Storage Gen 2 accounts are not supported.
 
 
 ### Supported storage types

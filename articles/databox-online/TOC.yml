@@ -1,4 +1,4 @@
-- name: Documentation - Azure Data Box for online transfer
+- name: Azure Data Box Documentation - Online Transfer 
   href: /azure/databox-online/
   expanded: true
 - name: Data Box Gateway
@@ -25,6 +25,20 @@
       href: data-box-gateway-system-requirements.md
     - name: Understand limits
       href: data-box-gateway-limits.md
+  - name: How to
+    items:
+    - name: Manage
+      items:
+        - name: Shares
+          href: data-box-gateway-manage-shares.md
+        - name: Users
+          href: data-box-gateway-manage-users.md
+        - name: Bandwidth schedules
+          href: data-box-gateway-manage-bandwidth-schedules.md
+        - name: Access, power, connectivity
+          href: data-box-gateway-manage-access-power-connectivity-mode.md
+    - name: Troubleshoot
+      href: data-box-gateway-troubleshoot.md
   - name: Release notes
     items:
     - name: Preview
@@ -35,15 +49,33 @@
     items:
     - name: What is Azure Data Box Edge?
       href: data-box-edge-overview.md
+  - name: Tutorials
+    items:
+    - name: 1 - Prepare
+      href: data-box-edge-deploy-prep.md
+    - name: 2 - Install
+      href: data-box-edge-deploy-install.md
+    - name: 3 - Connect, set up, activate
+      href: data-box-edge-deploy-connect-setup-activate.md
+    - name: 4 - Add, connect to share
+      href: data-box-edge-deploy-add-shares.md
+    - name: 5 - Configure compute
+      href: data-box-edge-deploy-configure-compute.md
+  - name: Concepts
+    items:
+    - name: Review requirements
+      href: data-box-edge-system-requirements.md
+  - name: How to
+    items:
+    - name: Develop C# module
+      href: data-box-edge-create-iot-edge-module.md
 - name: Resources
   items:
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=storage
-  - name: Azure Data Box marketing
-    href: https://azure.microsoft.com/services/storage/databox-online
+  - name: Data Box Edge C# module samples (.NET)
+    href: https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/
+  - name: Data Box Edge/Gateway product  
+    href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=databox
+    href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
 
 

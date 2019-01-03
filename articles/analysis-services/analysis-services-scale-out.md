@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 10/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -75,7 +75,7 @@ Use the **sync** operation.
 `POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 #### Get sync status  
-`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
 ### PowerShell
 Before using PowerShell, [install or update the latest AzureRM module](https://github.com/Azure/azure-powershell/releases). 

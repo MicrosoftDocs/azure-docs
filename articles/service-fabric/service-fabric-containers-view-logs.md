@@ -3,7 +3,7 @@ title: View containers logs in Azure Service Fabric | Microsoft Docs
 description: Describes how to view container logs for a running Service Fabric container services using Service Fabric Explorer.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: TylerMSFT
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
-ms.author: ryanwi
+ms.author: twhitney
 
 ---
 # View logs for a Service Fabric container service
@@ -60,10 +60,10 @@ GET http://localhost:19080/Nodes/_Node_0/$/GetApplications/SimpleHttpServerApp/$
 ```
 
 ### Service Fabric (SFCTL)
-Use the [sfctl service get-container-logs](service-fabric-sfctl-service.md) command to fetch the logs for a crashed container.  Specify the name of the node that the container was running on, application name, service manifest name, and the code package name. Specify the `-previous` flag.  The response will contain the container logs for the dead container of the code package instance.
+Use the [sfctl service get-container-logs](service-fabric-sfctl-service.md) command to fetch the logs for a crashed container.  Specify the name of the node that the container was running on, application name, service manifest name, and the code package name. Specify the `--previous` flag.  The response will contain the container logs for the dead container of the code package instance.
 
 ```
-sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –previous
+sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –-previous
 ```
 Response:
 ```json

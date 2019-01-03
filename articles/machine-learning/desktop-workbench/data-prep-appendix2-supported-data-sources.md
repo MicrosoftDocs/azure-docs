@@ -111,7 +111,7 @@ Scale-out execution relies on Spark's Parquet reading capabilities and supports 
 A local hard drive or a mapped network storage location.
 
 ### SQL Server
-On-prem SQL sever, or Azure SQL database.
+On-prem SQL server, or Azure SQL database.
 
 ### Azure Blob storage
 Azure Blob storage, which requires an Azure subscription.

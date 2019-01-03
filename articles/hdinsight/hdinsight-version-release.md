@@ -6,18 +6,18 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 10/04/2018
 ---
 
 # HDInsight 4.0 overview (Preview)
 
-Azure HDInsight is one of the most popular services among enterprise customers for open-source Hadoop and Spark analytics on Azure. HDInsight (HDI) 4.0 is a cloud distribution of the Hadoop components from the [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). This article provides information about the most recent Azure HDInsight release and how to upgrade.
+Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure. HDInsight (HDI) 4.0 is a cloud distribution of the Apache Hadoop components from the [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). This article provides information about the most recent Azure HDInsight release and how to upgrade.
 
 ## What's new in HDI 4.0?
 
-### Hive 3.0 and LLAP
+### Apache Hive 3.0 and LLAP
 
-Hive low-latency analytical processing (LLAP) uses persistent query servers and in-memory caching to deliver quick SQL query results on data in remote cloud storage. Hive LLAP leverages a set of persistent daemons that execute fragments of Hive queries. Query execution on LLAP is similar to Hive without LLAP, with worker tasks running inside LLAP daemons instead of containers.
+Apache Hive low-latency analytical processing (LLAP) uses persistent query servers and in-memory caching to deliver quick SQL query results on data in remote cloud storage. Hive LLAP leverages a set of persistent daemons that execute fragments of Hive queries. Query execution on LLAP is similar to Hive without LLAP, with worker tasks running inside LLAP daemons instead of containers.
 
 Benefits of Hive LLAP include:
 
@@ -67,7 +67,7 @@ You no longer have to worry about accidentally trying to access Hive transaction
 Learn more about [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html).
 
 
-### Oozie
+### Apache Oozie
 
 Apache Oozie 4.3.1 is included in HDI 4.0 with the following changes:
 
@@ -85,9 +85,15 @@ There is no supported upgrade path from previous versions of HDI to HDI 4.0. Bec
 
 ## Limitations
 
-* HDI 4.0 does not support MapReduce. Use Tez instead. Learn more about [Apache Tez](https://tez.apache.org/).
+* HDI 4.0 does not support MapReduce. Use Apache Tez instead. Learn more about [Apache Tez](https://tez.apache.org/).
 
 * Hive View is no longer available in HDI 4.0. 
+
+* Shell interpreter in Apache Zeppelin is not supported in Spark and Interactive Query clusters.
+
+* You can't *disable* LLAP on a Spark-LLAP cluster. You can only turn LLAP off.
+
+* Azure Data Lake Storage Gen2 can't save Juypter notebooks in a Spark cluster.
 
 ## Next steps
 

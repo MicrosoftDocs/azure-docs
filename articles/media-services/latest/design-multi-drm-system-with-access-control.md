@@ -1,10 +1,10 @@
 ---
-title: Design of a multi-DRM content protection system with cccess control using Azure Media Services | Microsoft Docs
-description: Learn about how to license the Microsoft Smooth Streaming Client Porting Kit.
+title: Design of a multi-DRM content protection system with acccess control - Azure Media Services | Microsoft Docs
+description: Learn about licensing the Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: cfowler
+manager: steveng
 editor: ''
 
 ms.service: media-services
@@ -12,8 +12,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2018
-ms.author: willzhan;juliako
+ms.date: 12/21/2018
+ms.author: willzhan
+ms.custom: seodec18
 
 ---
 # Design of a multi-DRM content protection system with access control 
@@ -211,7 +212,7 @@ For more information, see [JWT token authentication in Azure Media Services and 
 
 For information on Azure AD:
 
-* You can find developer information in the [Azure Active Directory developer's guide](../../active-directory/develop/azure-ad-developers-guide.md).
+* You can find developer information in the [Azure Active Directory developer's guide](../../active-directory/develop/v1-overview.md).
 * You can find administrator information in [Administer your Azure AD tenant directory](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### Some issues in implementation
@@ -397,15 +398,15 @@ The following screenshots show different sign-in pages used by different domain 
 
 **Custom Azure AD tenant domain account**: The customized sign-in page of the custom Azure AD tenant domain.
 
-![Custom Azure AD tenant domain account](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
+![Custom Azure AD tenant domain account one](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
 **Microsoft domain account with smart card**: The sign-in page customized by Microsoft corporate IT with two-factor authentication.
 
-![Custom Azure AD tenant domain account](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
+![Custom Azure AD tenant domain account two](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
 **Microsoft account**: The sign-in page of the Microsoft account for consumers.
 
-![Custom Azure AD tenant domain account](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
+![Custom Azure AD tenant domain account three](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 
 ### Use Encrypted Media Extensions for PlayReady
 On a modern browser with Encrypted Media Extensions (EME) for PlayReady support, such as Internet Explorer 11 on Windows 8.1 or later and Microsoft Edge browser on Windows 10, PlayReady is the underlying DRM for EME.

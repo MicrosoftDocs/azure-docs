@@ -21,12 +21,12 @@ This article provides examples for using the date claims transformations of the 
 
 ## AssertDateTimeIsGreaterThan 
 
-Checks that one date and time claim (string data type) is greater than a second date and time claim (string data type), and throws an exception.
+Checks that one date and time claim (string data type) is later than a second date and time claim (string data type), and throws an exception.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | string | First claim's type, which should be greater than the second claim. |
-| inputClaim | rightOperand | string | Second claim's type, which should be less than the first claim. |
+| inputClaim | leftOperand | string | First claim's type, which should be later than the second claim. |
+| inputClaim | rightOperand | string | Second claim's type, which should be earlier than the first claim. |
 | InputParameter | AssertIfEqualTo | boolean | Specifies whether this assertion should pass if the left operand is equal to the right operand. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Specifies whether this assertion should pass if the right operand is missing. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Specifies the number of milliseconds to allow between the two date times to consider the times equal (for example, to account for clock skew). |
@@ -35,7 +35,7 @@ The **AssertDateTimeIsGreaterThan** claims transformation is always executed fro
 
 ![AssertStringClaimsAreEqual execution](./media/date-transformations/assert-execution.png)
 
-The following example compares the `currentDateTime` claim with the `approvedDateTime` claim. An error is thrown if `currentDateTime` is greater than  `approvedDateTime`. The transformation treats values as equal if they are within 5 minutes (30000 milliseconds) difference.
+The following example compares the `currentDateTime` claim with the `approvedDateTime` claim. An error is thrown if `currentDateTime` is later than `approvedDateTime`. The transformation treats values as equal if they are within 5 minutes (30000 milliseconds) difference.
 
 ```XML
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
@@ -134,17 +134,17 @@ Get the current UTC date and time and add the value to a ClaimType.
 
 ## DateTimeComparison
 
-Determine whether one dateTime is greater, lesser, or equal to another. The result is a new boolean ClaimType boolean with a value of true or false.
+Determine whether one dateTime is later, earlier, or equal to another. The result is a new boolean ClaimType boolean with a value of `true` or `false`.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | firstDateTime | dateTime | The first dateTime to compare. Null value throws an exception. |
-| InputClaim | secondDateTime | dateTime | The second dateTime to complete. Null value treats as current datetTime. |
+| InputClaim | firstDateTime | dateTime | The first dateTime to compare whether it is earlier or later than the second dateTime. Null value throws an exception. |
+| InputClaim | secondDateTime | dateTime | The second dateTime to compare whether it is earlier or later than the first dateTime. Null value is treated as the current datetTime. |
 | InputParameter | operator | string | One of following values: same, later than, or earlier than. |
 | InputParameter | timeSpanInSeconds | int | Add the timespan to the first datetime. |
 | OutputClaim | result | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
 
-Use this claims transformation to determine if two ClaimTypes are  equal, greater, or lesser from each other. For example, you may store the last time a user accepted your terms of services (TOS). After 3 months, you can ask the user to access the TOS again.
+Use this claims transformation to determine if two ClaimTypes are  equal, later, or earlier than each other. For example, you may store the last time a user accepted your terms of services (TOS). After 3 months, you can ask the user to access the TOS again.
 To run the claim transformation, you first need to get the current dateTime and also the last time user accepts the TOS.
 
 ```XML
@@ -154,7 +154,7 @@ To run the claim transformation, you first need to get the current dateTime and 
     <InputClaim ClaimTypeReferenceId="extension_LastTOSAccepted" TransformationClaimType="secondDateTime" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="operator" DataType="string" Value="greater than" />
+    <InputParameter Id="operator" DataType="string" Value="later than" />
     <InputParameter Id="timeSpanInSeconds" DataType="int" Value="7776000" />
   </InputParameters>
   <OutputClaims>
@@ -169,7 +169,7 @@ To run the claim transformation, you first need to get the current dateTime and 
     - **firstDateTime**: 2018-01-01T00:00:00.100000Z
     - **secondDateTime**: 2018-04-01T00:00:00.100000Z
 - Input parameters:
-    - **operator**: greater than
+    - **operator**: later than
     - **timeSpanInSeconds**: 7776000 (90 days)
 - Output claims: 
     - **result**: true

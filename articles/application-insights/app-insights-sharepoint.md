@@ -1,20 +1,17 @@
-﻿---
+---
 title: Monitor a SharePoint site with Application Insights
 description: Start monitoring a new application with a new instrumentation key
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: mbullwin
-
 ---
 # Monitor a SharePoint site with Application Insights
 Azure Application Insights monitors the availability, performance and usage of your apps. Here you'll learn how to set it up for a SharePoint site.
@@ -141,7 +138,7 @@ function onRequestFail(sender, args) {
 
 
 ## Next Steps
-* [Web tests](app-insights-monitor-web-app-availability.md) to monitor the availability of your site.
+* [Web tests](../azure-monitor/app/monitor-web-app-availability.md) to monitor the availability of your site.
 * [Application Insights](app-insights-overview.md) for other types of app.
 
 <!--Link references-->

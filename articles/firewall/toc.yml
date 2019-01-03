@@ -19,6 +19,8 @@
   items:
   - name: Azure PowerShell
     href: sample-powershell.md
+  - name: Log Analytics
+    href: log-analytics-samples.md
 - name: Concepts
   items:
     - name: FQDN tags
@@ -62,6 +64,6 @@
   - name: Community templates
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing
-    href: https://azure.microsoft.com/en-us/pricing/details/azure-firewall/
+    href: https://azure.microsoft.com/pricing/details/azure-firewall/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/

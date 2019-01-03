@@ -36,7 +36,7 @@ If you don't have an Azure subscription, you can create a [free account][] befor
 
 To develop a Service Bus app with Java, you must have the following installed:
 
-- [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), latest version.
+- [Java Development Kit](https://aka.ms/azure-jdks), latest version.
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
 - [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
@@ -124,7 +124,7 @@ After the last command runs, copy and paste the connection string, and the queue
 
 ## Create filter rules on subscriptions
 
-After the namespace and topic/subscriptions are provisioned, and you have the necessary credentials, you are ready to create filter rules on the subscriptions, then send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/tutorial-topics-subscriptions-filters-java/src/main/java/com/microsoft/azure/).
+After the namespace and topic/subscriptions are provisioned, and you have the necessary credentials, you are ready to create filter rules on the subscriptions, then send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 ## Send and receive messages
 

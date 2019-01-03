@@ -1,16 +1,16 @@
 ---
-title: 'Common questions - Hyper-V to Azure replication with Azure Site Recovery | Microsoft Docs'
-description: This article summarizes common questions about replicating on-premises Hyper-V VMs to Azure using Azure Site Recovery.
+title: 'Common questions - Hyper-V to Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
+description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 09/12/2018
+ms.date: 12/27/2018
 ms.topic: conceptual
 ms.author: raynew
 
 ---
-# Common questions - Hyper-V to Azure replication
+# Common questions - Hyper-V to Azure disaster recovery
 
 This article provides answers to common questions we see when replicating on-premises Hyper-V VMs to Azure. 
 
@@ -119,7 +119,7 @@ Site Recovery replicates data from on-premises to Azure storage over a public en
 
 ### Can I replicate to Azure with ExpressRoute?
 
-Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicates data to an Azure Storage Account over a public endpoint, and you need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) for Site Recovery replication. After VMs fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicates data to an Azure Storage Account over a public endpoint, and you need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) for Site Recovery replication. After VMs fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### Why can't I replicate over VPN?
@@ -130,7 +130,7 @@ When you replicate to Azure, replication traffic reaches the public endpoints of
 
 For replication, a Hyper-V VM must be running a supported operating system. In addition, the VM must meet the requirements for Azure VMs. [Learn more](hyper-v-azure-support-matrix.md#replicated-vms) in the support matrix.
 
-###How often can I replicate to Azure?
+### How often can I replicate to Azure?
 
 Hyper-V VMs can be replicated every 30 seconds (except for premium storage), 5 minutes or 15 minutes.
 
@@ -202,6 +202,3 @@ After your on-premises infrastructure is up and running again, you can fail back
 
 ### Can I fail back to a different location?
 Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
-
-
-
