@@ -110,6 +110,7 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
     ![Event hub connection](media/ingest-data-event-hub/event-hub-connection.png)
 
     Data Source:
+
     **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Data connection name | *test-hub-connection* | The name of the connection you want to create in Azure Data Explorer.|
