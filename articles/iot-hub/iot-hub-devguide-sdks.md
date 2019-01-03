@@ -45,7 +45,7 @@ Azure IoT Hub device SDK for .NET:
 * [API reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
 * [Module reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
 
-Azure IoT Hub device SDK for C, written in ANSI C (C99) for portability and broad platform compatibility:
+Azure IoT Hub device SDK for C (ANSI C - C99):
 
 * Install from [apt-get, MBED, Arduino IDE or iOS](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#packages-and-libraries)
 * [Source code](https://github.com/Azure/azure-iot-sdk-c)
@@ -53,6 +53,7 @@ Azure IoT Hub device SDK for C, written in ANSI C (C99) for portability and broa
 * [API reference](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 * [Module reference](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)
 * [Porting the C SDK to other platforms](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
+* [Developer documentation](https://github.com/Azure/azure-iot-sdk-c/tree/master/doc) for information on cross-compiling, getting started on different platforms, etc.
 
 Azure IoT Hub device SDK for Java: 
 
@@ -79,7 +80,6 @@ Azure IoT Hub device SDK for iOS:
 * Install from [CocoaPod](https://cocoapods.org/pods/AzureIoTHubClient)
 * [Samples](https://github.com/Azure-Samples/azure-iot-samples-ios)
 * API reference: see [C API reference](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
-
 
 ## Azure IoT Hub Service SDKs
 
@@ -160,6 +160,12 @@ Azure IoT SDKs also provide a set of tools to help with development:
 * [iothub-diagnostics](https://github.com/Azure/iothub-diagnostics): a cross-platform command line tool to help diagnose issues related to connection with IoT Hub.
 * [device-explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer): a Windows desktop application to connect to your IoT Hub.
 
+Relevant docs related to development using the Azure IoT SDKs:
+* Learn about [how to manage connectivity and reliable messaging](iot-hub-reliability-features-in-sdks.md) using the IoT Hub SDKs.
+* Learn about how to [develop for mobile platforms](iot-hub-how-to-develop-for-mobile-devices.md) such as iOS and Android.
+* [Azure IoT SDK platform support](iot-hub-device-sdk-platform-support.md)
+
+
 Other reference topics in this IoT Hub developer guide include:
 
 * [IoT Hub endpoints](iot-hub-devguide-endpoints.md)
@@ -167,4 +173,3 @@ Other reference topics in this IoT Hub developer guide include:
 * [Quotas and throttling](iot-hub-devguide-quotas-throttling.md)
 * [IoT Hub MQTT support](iot-hub-mqtt-support.md)
 * [IoT Hub REST API reference](/rest/api/iothub/)
-* [Azure IoT SDK platform support](iot-hub-device-sdk-platform-support.md)
