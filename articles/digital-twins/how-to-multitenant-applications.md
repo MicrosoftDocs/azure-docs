@@ -51,12 +51,21 @@ To solve the previous problem scenario, the following actions are needed to crea
 
   1. Open **Subscriptions**.
   1. Select the subscription that has the Azure Active Directory tenant to be used in **DEVELOPER**'s application.
+
+     ![Azure Active Directory subscriptions][1]
+
   1. Select **Resource Providers**.
   1. Search for **Microsoft.IoTSpaces**.
   1. Select **Register**.
+
+     ![Azure Active Directory resource providers][2]
   
 ## Next steps
 
 - To learn more about how to use user-defined functions with Azure Digital Twins, read [How to create Azure Digital Twins user-defined functions](./how-to-user-defined-functions.md).
 
 - To learn how to use role-based access control to further secure the application with role assignments, read [How to create and manage Azure Digital Twins role-based access control](./security-create-manage-role-assignments.md).
+
+<!-- Images -->
+[1]: media/multitenant/ad-subscriptions.png
+[2]: media/multitenant/ad-resource-providers.png
