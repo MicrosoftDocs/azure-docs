@@ -44,8 +44,6 @@
     href: active-directory-b2c-apps.md
   - name: Authentication protocols
     href: active-directory-b2c-reference-protocols.md
-  - name: User flows
-    href: active-directory-b2c-reference-policies.md
   - name: Identity Experience Framework
     items:
     - name: Custom policies
@@ -64,6 +62,8 @@
     href: user-overview.md
   - name: User data
     href: manage-user-data.md
+  - name: User flows
+    href: active-directory-b2c-reference-policies.md
   - name: User interface customization
     href: customize-ui-overview.md
 - name: How-to guides
