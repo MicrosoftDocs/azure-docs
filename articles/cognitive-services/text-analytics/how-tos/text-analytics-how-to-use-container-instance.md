@@ -25,42 +25,44 @@ The steps in this section are performed from a terminal or command line. If you 
 
 1. Login to Azure
 
-    ```cli
+    ```azurecli-interactive
     az login
     ```
 
 2. Create resource group to hold every created in tutorial
 
-    ```cli
+    ```azurecli-interactive
     az group create --name cogserv-container-rg --location westus
     ```
 
 3. Create Azure Container Registry
 
-    `az acr create --resource-group cogserv-container-rg --name cogservcontainerregistry --sku Basic`
+    ```azurecli-interactive
+    az acr create --resource-group cogserv-container-rg --name cogservcontainerregistry --sku Basic
+    ```
 
-    save results to get:
-        loginServer property:
-        name property:
+    Save the results to get the **loginServer** and **name** properties:
 
-    ```{
-    "adminUserEnabled": false,
-    "creationDate": "2019-01-02T23:49:53.783549+00:00",
-    "id": "/subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/cogservcontainerregistry",
-    "location": "westus",
-    "loginServer": "cogservcontainerregistry.azurecr.io",
-    "name": "cogservcontainerregistry",
-    "provisioningState": "Succeeded",
-    "resourceGroup": "cogserv-container-rg",
-    "sku": {
-        "name": "Basic",
-        "tier": "Basic"
-    },
-    "status": null,
-    "storageAccount": null,
-    "tags": {},
-    "type": "Microsoft.ContainerRegistry/registries"
-    }```
+    ```json
+    {
+        "adminUserEnabled": false,
+        "creationDate": "2019-01-02T23:49:53.783549+00:00",
+        "id": "/subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/cogservcontainerregistry",
+        "location": "westus",
+        "loginServer": "cogservcontainerregistry.azurecr.io",
+        "name": "cogservcontainerregistry",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "cogserv-container-rg",
+        "sku": {
+            "name": "Basic",
+            "tier": "Basic"
+        },
+        "status": null,
+        "storageAccount": null,
+        "tags": {},
+        "type": "Microsoft.ContainerRegistry/registries"
+    }
+    ```
 
 ## Pull down image from docker hub
 
