@@ -23,14 +23,14 @@ ms.author: cshoe
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. See Resource Manager templates for [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) and [Spark cluster and Cassandra on CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
 ## Overview
-Microsoft Azure is an open cloud platform that runs both Microsoft and non-Microsoft software which includes operating systems, application servers, messaging middleware as well as SQL and NoSQL databases from both commercial and open source models. Building resilient services on public clouds including Azure requires careful planning and deliberate architecture for both applications servers as well storage layers. Cassandra’s distributed storage architecture naturally helps in building highly available systems that are fault tolerant for cluster failures. Cassandra is a cloud scale NoSQL database maintained by Apache Software Foundation at cassandra.apache.org. Cassandra is written in Java. So it runs on both on Windows and Linux platforms.
+Microsoft Azure is an open cloud platform that runs both Microsoft and non-Microsoft software. This software includes operating systems, application servers, messaging middleware as well as SQL and NoSQL databases from both commercial and open source models. Building resilient services on public clouds including Azure requires careful planning and deliberate architecture for both applications servers as well storage layers. Cassandra’s distributed storage architecture naturally helps in building highly available systems that are fault tolerant for cluster failures. Cassandra is a cloud scale NoSQL database maintained by Apache Software Foundation at cassandra.apache.org. Cassandra is written in Java. So it runs on both on Windows and Linux platforms.
 
-The focus of this article is to show Cassandra deployment on Ubuntu as a single and multi-data center cluster that uses Azure Virtual Machines and Virtual Networks. The cluster deployment for production optimized workloads is out of scope of this article as it requires multi-disk node configuration, appropriate ring topology design and data modeling to support the needed replication, data consistency, throughput and high availability requirements.
+The focus of this article is to show Cassandra deployment on Ubuntu as a single and multi-data center cluster that uses Azure Virtual Machines and Virtual Networks. The cluster deployment for production optimized workloads is out of scope for this article, because it requires multi-disk node configuration, appropriate ring topology design, and data modeling to support the needed replication, data consistency, throughput, and high availability requirements.
 
-This article takes a fundamental approach to show what is involved in building the Cassandra cluster compared Docker, Chef or Puppet which can make the infrastructure deployment a lot easier.
+This article takes a fundamental approach to show what is involved in building the Cassandra cluster, as compared to Docker, Chef, or Puppet. This approach can make the infrastructure deployment a lot easier.
 
 ## The Deployment Models
-Microsoft Azure networking allows the deployment of isolated private clusters, the access of which can be restricted to attain fine grained network security. Since this article is about showing the Cassandra deployment at a fundamental level, it doesn't focus on the consistency level and the optimal storage design for throughput. Here is the list of networking requirements for the hypothetical cluster:
+Microsoft Azure networking allows the deployment of isolated private clusters, the access of which can be restricted to attain fine grained network security. Because this article is about showing the Cassandra deployment at a fundamental level, it doesn't focus on the consistency level and the optimal storage design for throughput. Here is the list of networking requirements for the hypothetical cluster:
 
 * External systems can’t access Cassandra database from within or outside Azure
 * Cassandra cluster has to be behind a load balancer for thrift traffic
@@ -694,7 +694,7 @@ Using one of the Linux VMs created in the "web" tier previously, you execute a s
         con.shutdown();
     }
 
-    //exectue the code
+    //execute the code
     createKeyspace(createColumnFamily);
     readCustomer(ksConOptions)
     ```
