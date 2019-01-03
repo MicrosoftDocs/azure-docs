@@ -238,16 +238,17 @@ In this section, learn how to apply script actions to a running cluster.
 
 ### Apply a script action to a running cluster from the Azure portal
 
-1. From the [Azure portal](https://portal.azure.com), select your HDInsight cluster.
+From the [Azure portal](https://portal.azure.com):
 
-2. From the HDInsight cluster overview, select the **Script Actions** tile.
+1. From the left menu, select **All services**.
 
-    ![Script actions tile](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
+1. Under **ANALYTICS**, select **HDInsight clusters**.
 
-   > [!NOTE]  
-   > You can also select **All settings** and then select **Script Actions** from the Settings section.
+1. Select your cluster from the list, which will open the default view.
 
-3. From the top of the script actions section, select **Submit new**.
+1. From the default view, under **Settings**, select **Script actions**.
+
+1. From the top of the **Script actions** page, select **+ Submit new**.
 
     ![Add a script to a running cluster](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
 
@@ -338,14 +339,15 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [https:/
 
 ### Using the Azure portal
 
-1. From the [Azure portal](https://portal.azure.com), select your HDInsight cluster.
+1. Log in to  the [Azure portal](https://portal.azure.com).
 
-2. From the HDInsight cluster overview, select the **Script Actions** tile.
+1. From the left menu, select **All services**.
 
-    ![Script actions tile](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
+1. Under **ANALYTICS**, select **HDInsight clusters**.
 
-   > [!NOTE]
-   > You can also select **All settings** and then select **Script Actions** from the Settings section.
+1. Select your cluster from the list, which will open the default view.
+
+1. From the default view, under **Settings**, select **Script actions**.
 
 4. A history of scripts for this cluster is displayed on the script actions section. This information includes a list of persisted scripts. In the screenshot below, you can see that the Solr script has been ran on this cluster. The screenshot does not show any persisted scripts.
 

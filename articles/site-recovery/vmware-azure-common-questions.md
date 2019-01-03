@@ -4,9 +4,10 @@ description: This article summarizes common questions when you set up disaster r
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 12/27/2018
+services: site-recovery
+ms.date: 12/31/2018
 ms.topic: conceptual
-ms.author: mayg
+ms.author: rayne
 
 ---
 # Common questions - VMware to Azure replication

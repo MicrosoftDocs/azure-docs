@@ -80,7 +80,7 @@ After you have set up Application Insights integration as shown in the previous 
 
 1. Select **Refresh** periodically until the list of function invocations appears.
 
-   It may take up to 5 minutes for the list to appear, due to the way the telemetry client batches data for transmission to the server. (This delay doesn't apply to the [Live Metrics Stream](../application-insights/app-insights-live-stream.md). That service connects to the Functions host when you load the page, so logs are streamed directly to the page.)
+   It may take up to 5 minutes for the list to appear, due to the way the telemetry client batches data for transmission to the server. (This delay doesn't apply to the [Live Metrics Stream](../azure-monitor/app/live-stream.md). That service connects to the Functions host when you load the page, so logs are streamed directly to the page.)
 
    ![Invocations list](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
@@ -110,7 +110,7 @@ To open Application Insights from a function app in the Azure portal, select the
 
 For information about how to use Application Insights, see the [Application Insights documentation](https://docs.microsoft.com/azure/application-insights/). This section shows some examples of how to view data in Application Insights. If you are already familiar with Application Insights, you can go directly to [the sections about configuring and customizing the telemetry data](#configure-categories-and-log-levels).
 
-In [Metrics Explorer](../application-insights/app-insights-metrics-explorer.md), you can create charts and alerts based on metrics such as number of function invocations, execution time, and success rate.
+In [Metrics Explorer](../azure-monitor/app/metrics-explorer.md), you can create charts and alerts based on metrics such as number of function invocations, execution time, and success rate.
 
 ![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
@@ -126,7 +126,7 @@ The **Servers** tab shows resource utilization and throughput per server. This d
 
 ![Servers](media/functions-monitoring/servers.png)
 
-The [Live Metrics Stream](../application-insights/app-insights-live-stream.md) tab shows metrics data as it is created in real time.
+The [Live Metrics Stream](../azure-monitor/app/live-stream.md) tab shows metrics data as it is created in real time.
 
 ![Live stream](media/functions-monitoring/live-stream.png)
 

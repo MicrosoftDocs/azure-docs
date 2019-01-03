@@ -33,13 +33,13 @@ Pricing for [Azure Application Insights][start] is based on data volume ingested
 
 * Data volume is the number of bytes of telemetry received by Application Insights. Data volume is measured as the size of the uncompressed JSON data package that's received by Application Insights from your application. For [tabular data imported to Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), data volume is measured as the uncompressed size of files that are sent to Application Insights.
 * Your application's data volume charges are now reported on a new billing meter named **Data Ingestion** as of April 2018. This new meter is be shared across monitoring technologies such as Applications Insights and Log Analytics and is currently under the service name **Log Analytics**. 
-* [Live Metrics Stream](app-insights-live-stream.md) data isn't counted for pricing purposes.
+* [Live Metrics Stream](../azure-monitor/app/live-stream.md) data isn't counted for pricing purposes.
 
 For current prices in your currency and region, see [Application Insights pricing][pricing].
 
 ### Multi-step web tests
 
-[Multi-step web tests](app-insights-monitor-web-app-availability.md#multi-step-web-tests) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions.
+[Multi-step web tests](../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions.
 
 There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
 
@@ -50,7 +50,7 @@ Application Insights makes it easy to understand what your costs are likely to b
 ![Choose pricing](./media/app-insights-pricing/pricing-001.png)
 
 A. Review your data volume for the month. This includes all the data that's received and retained (after any [sampling](app-insights-sampling.md)) from your server and client apps, and from availability tests.  
-B. A separate charge is made for [multi-step web tests](app-insights-monitor-web-app-availability.md#multi-step-web-tests). (This doesn't include simple availability tests, which are included in the data volume charge.)  
+B. A separate charge is made for [multi-step web tests](../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests). (This doesn't include simple availability tests, which are included in the data volume charge.)  
 C. View data volume trends for the past month.  
 D. Enable data ingestion [sampling](app-insights-sampling.md).   
 E. Set the daily data volume cap.  
@@ -88,7 +88,7 @@ You can use one of the following options to see how much data your app is sendin
 Here are some things you can do to reduce your data volume:
 
 * Use [Sampling](app-insights-sampling.md). This technology reduces your data rate without skewing your metrics. You don't lose the ability to navigate between related items in Search. In server apps, sampling operates automatically.
-* [Limit the number of Ajax calls that can be reported](app-insights-javascript.md#detailed-configuration) in every page view, or switch off Ajax reporting.
+* [Limit the number of Ajax calls that can be reported](../azure-monitor/app/javascript.md#detailed-configuration) in every page view, or switch off Ajax reporting.
 * [Edit ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data are inessential.
 * Split your telemetry among separate instrumentation keys. 
 * Pre-aggregate metrics. If you put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or, you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs).
@@ -168,7 +168,7 @@ Because this plan is applicable only to customers with an Operations Management 
  * A *node* is a physical or virtual server machine or a platform-as-a-service role instance that hosts your app.
  * Development machines, client browsers, and mobile devices do not count as nodes.
  * If your app has several components that send telemetry, such as a web service and a back-end worker, the components are counted separately.
- * [Live Metrics Stream](app-insights-live-stream.md) data isn't counted for pricing purposes. In a subscription, your charges are per node, not per app. If you have five nodes that send telemetry for 12 apps, the charge is for five nodes.
+ * [Live Metrics Stream](../azure-monitor/app/live-stream.md) data isn't counted for pricing purposes. In a subscription, your charges are per node, not per app. If you have five nodes that send telemetry for 12 apps, the charge is for five nodes.
 * Although charges are quoted per month, you're charged only for any hour in which a node sends telemetry from an app. The hourly charge is the quoted monthly charge divided by 744 (the number of hours in a 31-day month).
 * A data volume allocation of 200 MB per day is given for each node that's detected (with hourly granularity). Unused data allocation isn't carried over from one day to the next.
  * If you choose the Enterprise pricing plan, each subscription gets a daily allowance of data based on the number of nodes that send telemetry to the Application Insights resources in that subscription. So, if you have five nodes that send data all day, you'll have a pooled allowance of 1 GB applied to all Application Insights resources in that subscription. It doesn't matter if certain nodes send more data than other nodes because the included data is shared across all nodes. If, on a given day, the Application Insights resources receive more data than is included in the daily data allocation for this subscription, the per-GB overage data charges apply. 
