@@ -280,11 +280,11 @@ When the test is complete, you are shown response times and success rates.
 ![Performance test results](./media/monitor-web-app-availability/12performance-test.png)
 
 > [!TIP]
-> To observe the effects of a performance test, use [Live Stream](../../application-insights/app-insights-live-stream.md) and [Profiler](../../application-insights/app-insights-profiler.md).
+> To observe the effects of a performance test, use [Live Stream](../../azure-monitor/app/live-stream.md) and [Profiler](../../application-insights/app-insights-profiler.md).
 >
 
 ## Automation
-* [Use PowerShell scripts to set up an availability test](../../application-insights/app-insights-powershell.md#add-an-availability-test) automatically.
+* [Use PowerShell scripts to set up an availability test](../../azure-monitor/app/powershell.md#add-an-availability-test) automatically.
 * Set up a [webhook](../../azure-monitor/platform/alerts-webhooks.md) that is called when an alert is raised.
 
 ## <a name="qna"></a> FAQ

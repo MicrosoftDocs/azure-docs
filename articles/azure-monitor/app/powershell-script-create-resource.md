@@ -23,7 +23,7 @@ You can automate the creation of a new resource by using PowerShell.
 For example, if you are developing a mobile device app, it's likely that, at any time, there will be several published versions of your app in use by your customers. You don't want to get the telemetry results from different versions mixed up. So you get your build process to create a new resource for each build.
 
 > [!NOTE]
-> If you want to create a set of resources all at the same time, consider [creating the resources using an Azure template](app-insights-powershell.md).
+> If you want to create a set of resources all at the same time, consider [creating the resources using an Azure template](powershell.md).
 > 
 > 
 
@@ -97,14 +97,14 @@ Each resource is identified by its instrumentation key (iKey). The iKey is an ou
 
 There are two ways to make the iKey available to the SDK:
 
-* In [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md): 
+* In [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md): 
   * `<instrumentationkey>`*ikey*`</instrumentationkey>`
-* Or in [initialization code](../azure-monitor/app/api-custom-events-metrics.md): 
+* Or in [initialization code](../../azure-monitor/app/api-custom-events-metrics.md): 
   * `Microsoft.ApplicationInsights.Extensibility.
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 
 ## See also
-* [Create Application Insights and web test resources from templates](app-insights-powershell.md)
-* [Set up monitoring of Azure diagnostics with PowerShell](app-insights-powershell-azure-diagnostics.md) 
-* [Set alerts by using PowerShell](app-insights-powershell-alerts.md)
+* [Create Application Insights and web test resources from templates](powershell.md)
+* [Set up monitoring of Azure diagnostics with PowerShell](powershell-azure-diagnostics.md) 
+* [Set alerts by using PowerShell](powershell-alerts.md)
 

@@ -15,13 +15,13 @@ ms.reviewer: olegan
 ms.author: mbullwin
 ---
 # Developer analytics: languages, platforms, and integrations
-These items are implementations of [Application Insights](app-insights-overview.md) that we've heard about, including some by third parties.
+These items are implementations of [Application Insights](../../application-insights/app-insights-overview.md) that we've heard about, including some by third parties.
 
 ## Languages - officially supported by Application Insights team
-* [C#|VB (.NET)](../azure-monitor/app/asp-net.md)
-* [Java](../azure-monitor/app/java-get-started.md)
-* [JavaScript web pages](../azure-monitor/app/javascript.md)
-* [Node.JS](app-insights-nodejs.md)
+* [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
+* [Java](../../azure-monitor/app/java-get-started.md)
+* [JavaScript web pages](../../azure-monitor/app/javascript.md)
+* [Node.JS](../../azure-monitor/app/nodejs.md)
 
 ## Languages - community-supported
 * [F#](https://safe-stack.github.io/docs/template-azure-ai/)
@@ -31,34 +31,34 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [Anything else](#projects)
 
 ## Platforms and frameworks
-* [ASP.NET](../azure-monitor/app/asp-net.md)
-* [ASP.NET - for apps that are already live](../azure-monitor/app/monitor-performance-live-website-now.md)
-* [ASP.NET Core](../azure-monitor/app/asp-net-core.md)
-* [Android](app-insights-mobile-center-quickstart.md) (App Center)
+* [ASP.NET](../../azure-monitor/app/asp-net.md)
+* [ASP.NET - for apps that are already live](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
+* [Android](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
-* [Azure App Service](../azure-monitor/app/azure-web-apps.md)
-* [Azure Cloud Services](../azure-monitor/app/cloudservices.md)&#151;including both web and worker roles
+* [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
+* [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)&#151;including both web and worker roles
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
-* [Docker](../azure-monitor/app/docker.md)
+* [Docker](../../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
-* [iOS](app-insights-mobile-center-quickstart.md) (App Center)
+* [iOS](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
 * [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center)
-* [J2EE](../azure-monitor/app/java-get-started.md)
-* [J2EE - for apps that are already live](../azure-monitor/app/java-live.md)
+* [J2EE](../../azure-monitor/app/java-get-started.md)
+* [J2EE - for apps that are already live](../../azure-monitor/app/java-live.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [SAFE Stack](https://safe-stack.github.io/docs/template-azure-ai/)
 * [Spring](https://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
-* [Universal Windows app](app-insights-mobile-center-quickstart.md) (App Center)
+* [Universal Windows app](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
-* [Windows desktop applications, services, and worker roles](app-insights-windows-desktop.md)
+* [Windows desktop applications, services, and worker roles](../../application-insights/app-insights-windows-desktop.md)
 * [Anything else](#projects)
 
 ## Logging frameworks
-* [Log4Net, NLog, or System.Diagnostics.Trace](../azure-monitor/app/asp-net-trace-logs.md)
-* [Java, Log4J, or Logback](../azure-monitor/app/java-trace-logs.md)
+* [Log4Net, NLog, or System.Diagnostics.Trace](../../azure-monitor/app/asp-net-trace-logs.md)
+* [Java, Log4J, or Logback](../../azure-monitor/app/java-trace-logs.md)
 * [Semantic Logging (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 * [Cloud-based load testing](https://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
@@ -71,13 +71,13 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 * [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 * [Orchard](https://azure.microsoft.com/blog/integrating-application-insights-into-a-modular-cms-and-a-multi-tenant-public-saas/preview/)
-* [SharePoint](app-insights-sharepoint.md)
+* [SharePoint](../../application-insights/app-insights-sharepoint.md)
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
 ## Export and Data Analysis
 * [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
-* [Stream Analytics](app-insights-export-power-bi.md)
+* [Stream Analytics](../../application-insights/app-insights-export-power-bi.md)
 
 ## <a name="projects"></a> Build your own SDK
 If there isn't yet an SDK for your language or platform, perhaps you'd like to build one? Take a look at the code of the existing SDKs listed in the [Application Insights SDK project on GitHub](https://github.com/Microsoft/AppInsights-Home).
