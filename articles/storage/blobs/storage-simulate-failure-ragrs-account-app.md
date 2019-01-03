@@ -96,7 +96,7 @@ Once the application begins reading from the primary endpoint, press **any key**
 
 ![Scenario app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-# [Java v10] (#tab/Java v10)
+# [Java v10] (#tab/Java-v10)
 
 Run the application in your IDE or shell.
 
@@ -156,7 +156,7 @@ This pattern is the [Circuit Breaker](https://docs.microsoft.com/azure/architect
 
 ![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-# [Java v10] (#tab/Java v10)
+# [Java v10] (#tab/Java-v10)
 
 Now that you've introduced the failure, enter **G** to test the failure.
 
@@ -226,7 +226,7 @@ When complete, press **any key** to resume the application. The application cont
 
 ![Resume application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-# [Java v10] (#tab/Java v10)
+# [Java v10] (#tab/Java-v10)
 
 With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail.
 
@@ -258,7 +258,7 @@ Run the application in your IDE or shell. Once the application begins reading fr
 
 Run the application in your IDE or shell. Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application.
 
-# [Java v10] (#tab/Java v10)
+# [Java v10] (#tab/Java-v10)
 
 Since you control the sample, you do not need to interrupt it in order to test failure.
 
@@ -309,7 +309,7 @@ To resume the application, press **any key**.
 
 Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint five times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint. This pattern is the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern described in the previous tutorial.
 
-# [Java v10] (#tab/Java v10)
+# [Java v10] (#tab/Java-v10)
 
 Now that you've introduced the failure, enter **G** to test the failure. It will inform you that it is using the secondary pipeline as opposed to the primary pipeline.
 
@@ -347,7 +347,7 @@ Press **any key** to resume the application. The application continues reading f
 
 ![Resume application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-# [Java v10] (#tab/Java v10)
+# [Java v10] (#tab/Java-v10)
 
 Enter **G** to test the download. The application will report that it is now using the primary pipeline again.
 
