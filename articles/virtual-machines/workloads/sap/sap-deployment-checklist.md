@@ -150,7 +150,8 @@ In this steps you usually deploy development systems, unit tests systems and bus
 	1.	[Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 	2.	[Sizes for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 10.	Work on system copy functionality and processes. Goal is to make it easy for you to copy a development system or a test system, so, that project teams can get new systems fast. Consider [SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) as a tool performing such tasks.
-7.
+11.	Optimize and hone your team's Azure role based accesses, permissions and processes in order to make sure that you have a separation of duty on the one side. On the other side, you want to have all teams enabled to perform their tasks in the Azure infrastructure.
+12.	Exercise, test and document high-availability and disaster recovery procedures to enable your staff to execute such tasks. Identify shortcomings and adapt new Azure functionality that you are integrating
 
  
 Production Preparation Phase 
