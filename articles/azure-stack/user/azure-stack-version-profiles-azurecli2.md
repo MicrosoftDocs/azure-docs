@@ -252,7 +252,7 @@ If the resource group is created successfully, the previous command outputs the 
 
 ## Known issues
 
-There are known issues that you must be aware of when using CLI in Azure Stack:
+There are known issues when using CLI in Azure Stack:
 
  - The CLI interactive mode; for example, the `az interactive` command, is not yet supported in Azure Stack.
  - To get the list of virtual machine images available in Azure Stack, use the `az vm image list --all` command instead of the `az vm image list` command. Specifying the `--all` option ensures that the response returns only the images that are available in your Azure Stack environment.
