@@ -73,7 +73,7 @@ Open Certificate Manager MMC console and connect to the Local Machine certificat
     
     - Select **Include all certificates in the certificate if possible**.  
     - Select **Export all Extended Properties**.  
-    - Select **Enable certificate privacy**  
+    - Select **Enable certificate privacy**.  
     - Click **Next**.  
     
     ![Certificate export wizard with selected options](./media/prepare-pki-certs\azure-stack-save-cert.png)
