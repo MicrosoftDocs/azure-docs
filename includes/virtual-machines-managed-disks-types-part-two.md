@@ -13,7 +13,7 @@
 
 **Transactions**: You are billed for the number of transactions that you perform on a standard managed disk. Azure charges $0.0036 per 100,000 transactions for standard HDDs. Transactions include both read and write operations to storage.
 
-Standard SSD Disks use IO Unit size of 256KB. If the data being transferred is less than 256 KB, it is considered 1 I/O unit. Larger I/O sizes are counted as multiple I/Os of size 256 KB. For example, a 1,100 KB I/O is counted as five I/O units.
+Standard SSD Disks use IO Unit size of 256KB. If the data being transferred is less than 256 KB, it is considered one I/O unit. Larger I/O sizes are counted as multiple I/Os of size 256 KB. For example, a 1,100 KB I/O is counted as five I/O units.
 
 There is no cost for transactions for a premium managed disk.
 
@@ -33,8 +33,6 @@ The following table provides a comparison of Standard HDD, Standard SSD, Premium
 |---------|---------|---------|---------|---------|
 |Disk Type   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |IO-intensive workloads such as SAP HANA, top tier databases (e.g. SQL, Oracle), and other transaction-heavy workloads.   |Production and performance sensitive workloads   |Web servers, lightly used enterprise applications and Dev/Test   |Backup, Non-critical, Infrequent access   |
-|Overview   |Highest performance offering   |SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting mission critical production environment   |More consistent performance and reliability than HDD. Optimized for low-IOPS workloads   |HDD-based cost effective disk for infrequent access   |
 |Disk size   |65,536 GiB (Preview)   |4,095 GiB (GA), 32,767 GiB (Preview)    |4,095 (GA) GiB, 32,767 GiB (Preview)   |4,095 GiB (GA), 32,767 GiB (Preview)   |
 |Max Throughput   |2,000 MiB/s (Preview)   |250 (GA) MiB/s, 750 MiB/s (Preview)   |60 MiB/s (GA), 500 MiB/s (Preview)   |60 Mib/s (GA), 500 MiB/s (Preview)   |
 |Max IOPS   |160,000 (Preview)   |7500 (GA), 20,000 (Preview)   |500 (GA), 2,000 (Preview)   |500 (GA), 2,000 (Preview)   |
-|   |   |   |   |   |
