@@ -19,7 +19,7 @@ Initial replication failures often are caused by connectivity issues between the
 
 ### Check the source machine
 
-To check the source machine:
+The following list shows ways you can check the source machine:
 
 * At the command line on the source server, use Telnet to ping the process server via the HTTPS port (the default HTTPS port is 9443) by running the following command. The command checks for network connectivity issues and for issues that block the firewall port.
 
@@ -34,7 +34,7 @@ To check the source machine:
 
 ### Check the process server
 
-To check the process server:
+The following list shows ways you can check the process server:
 
 * **Check whether the process server is actively pushing data to Azure**.
 
@@ -42,9 +42,9 @@ To check the process server:
    2. Select the **Performance** tab, and then select the **Open Resource Monitor** link. 
    3. On the **Resource Monitor** page, select the **Network** tab. Under **Processes with Network Activity**, check whether **cbengine.exe** is actively sending a large volume of data.
 
-      ![Screenshot that shows the Processes with Network Activity volumes](./media/vmware-azure-troubleshoot-replication/cbengine.png)
+   ![Screenshot that shows the Processes with Network Activity volumes](./media/vmware-azure-troubleshoot-replication/cbengine.png)
 
-      If cbengine.exe isn't sending a large volume of data, complete the steps in the following sections.
+   If cbengine.exe isn't sending a large volume of data, complete the steps in the following sections.
 
 * **Check whether the process server can connect to Azure Blob storage**.
 
@@ -58,7 +58,7 @@ To check the process server:
    * InMage Scout VX Agent – Sentinel/Outpost
    * Microsoft Azure Recovery Services Agent
    * Microsoft Azure Site Recovery Service
-    * tmansvc
+   * tmansvc
       
    Start or restart any service that isn't running. Check to see whether the problem still occurs.
 
@@ -66,7 +66,7 @@ To check the process server:
 
    In %programfiles%\Microsoft Azure Recovery Services Agent\Temp, open the latest CBEngineCurr.errlog file. In the file, search for **443** or for the string **connection attempt failed**.
 
-   ![Enable replication](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+   ![Screenshot that shows the error logs in the Temp folder](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
 
    If issues are shown, at the command line in the process server, use Telnet to ping your Azure public IP address (the IP address is masked in the preceding image). You can find your Azure public IP address in the CBEngineCurr.currLog file by using port 443:
 
@@ -76,11 +76,11 @@ To check the process server:
 
 * **Check whether the IP address-based firewall on the process server blocks access**.
 
-    If you use IP address-based firewall rules on the server, download the complete list of [Microsoft Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). Add the IP address ranges to your firewall configuration to ensure that the firewall allows communication to Azure (and to the default HTTPS port, 443). Allow IP address ranges for the Azure region of your subscription and for the Azure West US region (used for access control and identity management).
+   If you use IP address-based firewall rules on the server, download the complete list of [Microsoft Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). Add the IP address ranges to your firewall configuration to ensure that the firewall allows communication to Azure (and to the default HTTPS port, 443). Allow IP address ranges for the Azure region of your subscription and for the Azure West US region (used for access control and identity management).
 
 * **Check whether a URL-based firewall on the process server blocks access**.
 
-    If you use a URL-based firewall rule on the server, add the following URLs to the firewall configuration:
+   If you use a URL-based firewall rule on the server, add the following URLs to the firewall configuration:
 
    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
