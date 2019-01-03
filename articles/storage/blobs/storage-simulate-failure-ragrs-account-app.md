@@ -88,6 +88,8 @@ Since you control the sample, you do not need to interrupt it in order to simula
 
 ![Scenario app](media/storage-simulate-failure-ragrs-account-app/Java-put-list-output.png)
 
+---
+
 ### Simulate failure
 
 While the application is paused, uncomment the custom rule we saved in Fiddler.
@@ -124,6 +126,8 @@ Now that you've introduced the failure, enter **G** to test the failure.
 
 It will inform you that it is using the secondary pipeline as opposed to the primary pipeline.
 
+---
+
 ### Simulate primary endpoint restoration
 
 # [.Net, Python, and Java v7] (#tab/dotnet, Python, and Java v7)
@@ -158,6 +162,8 @@ Select **File** and **Save** to save the changes.
 
 When complete, enter **G** to test the download. The application will report that it is now using the primary pipeline again.
 
+---
+
 ## Simulate a failure with an invalid static route
 
 You can create an invalid static route for all requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account. In this tutorial, the local host is used as the gateway for routing requests to the storage account. Using the local host as the gateway causes all requests to your storage account primary endpoint to loop back inside the host, which subsequently leads to failure. Follow the following steps to simulate a failure, and primary endpoint restoration with an invalid static route. 
@@ -166,13 +172,15 @@ You can create an invalid static route for all requests to the primary endpoint 
 
 # [.Net, Python, and Java v7] (#tab/dotnet, Python, and Java v7)
 
-Run the application in your IDE or shell. Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application. 
+Run the application in your IDE or shell. Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application.
 
 # [Java v10] (#tab/Java v10)
 
 Since you control the sample, you do not need to interrupt it in order to test failure.
 
 Make sure that the file has been uploaded to your storage account by running the sample and entering **P**.
+
+---
 
 ### Simulate failure
 
@@ -189,16 +197,13 @@ To get the IP address of your local host, type `ipconfig` on the Windows command
 
 To add a static route for a destination host, type the following command on a Windows command prompt or Linux terminal. 
 
+#### Linux
 
-# [Linux](#tab/linux)
+`route add <destination_ip> gw <gateway_ip>`
 
-  route add <destination_ip> gw <gateway_ip>
+#### Windows
 
-# [Windows](#tab/windows)
-
-  route add <destination_ip> <gateway_ip>
-
----
+`route add <destination_ip> <gateway_ip>`
 
 Replace  `<destination_ip>` with your storage account IP address, and `<gateway_ip>` with your local host IP address.
 
@@ -212,21 +217,21 @@ Once the application starts running again, the requests to the primary endpoint 
 
 Now that you've introduced the failure, enter **G** to test the failure. It will inform you that it is using the secondary pipeline as opposed to the primary pipeline.
 
+---
+
 ### Simulate primary endpoint restoration
 
 To simulate the primary endpoint functioning again, delete the static route of the primary endpoint from the routing table. This allows all requests to the primary endpoint to be routed through the default gateway.
 
 To delete the static route of a destination host, the storage account, type the following command on a Windows command prompt or linux terminal.
 
-# [Linux](#tab/linux)
+#### Linux
 
-route del <destination_ip> gw <gateway_ip>
+`route del <destination_ip> gw <gateway_ip>`
 
-# [Windows](#tab/windows)
+#### Windows
 
-route delete <destination_ip>
-
----
+`route delete <destination_ip>`
 
 # [.Net, Python, and Java v7] (#tab/dotnet, Python, and Java v7)
 
@@ -239,6 +244,8 @@ Press **any key** to resume the application. The application continues reading f
 Enter **G** to test the download. The application will report that it is now using the primary pipeline again.
 
 ![Resume application](media/storage-simulate-failure-ragrs-account-app/java-get-pipeline-example-v10.png)
+
+---
 
 ## Next steps
 
