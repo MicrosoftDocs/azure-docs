@@ -16,12 +16,12 @@ ms.author: magoedte
 ---
 
 # Deploy Azure Monitor for VMs Preview
-This article describes how to set up Azure Monitor for VMs. The service monitors the operating system health of your Azure virtual machines (VMs) and virtual machine scale sets, and the virtual machines in your environment. This monitoring includes the discovery and mapping of application dependencies that might be hosted on them. 
+This article describes how to set up Azure Monitor for VMs. The service monitors the operating system health of your Azure virtual machines (VMs) and virtual machine scale sets, and the virtual machines in your environment. This monitoring includes the discovery and mapping of application dependencies that might be hosted on them.
 
-You enable Azure Monitor for VMs by using one of the following methods:  
+You enable Azure Monitor for VMs by using one of the following methods:
 
 * Enable a single Azure virtual machine by selecting **Insights (preview)** directly from the VM.
-* Enable two or more Azure VMs by using Azure Policy. Through this method, the required dependencies of existing and new VMs are installed and properly configured. Non-compliant VMs are reported, so you can decide whether to enable them and how you want to remediate them. 
+* Enable two or more Azure VMs by using Azure Policy. Through this method, the required dependencies of existing and new VMs are installed and properly configured. Non-compliant VMs are reported, so you can decide whether to enable them and how you want to remediate them.
 * Enable two or more Azure VMs or virtual machine scale sets across a specified subscription or resource group by using PowerShell.
 
 Additional information about each method is provided later in the article.
@@ -29,32 +29,32 @@ Additional information about each method is provided later in the article.
 ## Prerequisites
 Before you start, make sure that you understand the information in the following sections.
 
-### Log Analytics 
+### Log Analytics
 
 A Log Analytics workspace is currently supported in the following regions:
 
-  - West Central US  
-  - East US  
-  - West Europe  
-  - Southeast Asia<sup>1</sup>  
+- West Central US
+- East US
+- West Europe
+- Southeast Asia<sup>1</sup>
 
-<sup>1</sup> This region doesn't currently support the Health feature of Azure Monitor for VMs.   
+<sup>1</sup> This region doesn't currently support the Health feature of Azure Monitor for VMs.
 
 >[!NOTE]
->Azure virtual machines can be deployed from any region and  aren't limited to the supported regions for the Log Analytics workspace.
+>Azure virtual machines can be deployed from any region and aren't limited to the supported regions for the Log Analytics workspace.
 >
 
 If you don't have a workspace, you can create one with one of the following methods:
 * [The Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
 * [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
 * [The Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
-* [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md) 
+* [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
-If you're enabling monitoring for a single Azure VM in the Azure portal, you can create a workspace during this process. 
+If you're enabling monitoring for a single Azure VM in the Azure portal, you can create a workspace during this process.
 
 To enable the solution for the at-scale scenario, first configure the following in your Log Analytics workspace:
 
-* Install the ServiceMap and InfrastructureInsights solutions. You can complete this installation only by using an Azure Resource Manager template that's provided in this article.  
+* Install the ServiceMap and InfrastructureInsights solutions. You can complete this installation only by using an Azure Resource Manager template that's provided in this article.
 * Configure the Log Analytics workspace to collect performance counters.
 
 To configure your workspace for the at-scale scenario, see [Set up Log Analytics workspace for an at-scale deployment](#setup-log-analytics-workspace).
@@ -63,30 +63,29 @@ To configure your workspace for the at-scale scenario, see [Set up Log Analytics
 
 The following table lists the Windows and Linux operating systems that are supported with Azure Monitor for VMs. A full list that details the major and minor Linux OS release and supported kernel versions is provided later in this section.
 
-|OS version |Performance |Maps |Health |  
-|-----------|------------|-----|-------|  
+|OS version |Performance |Maps |Health |
+|-----------|------------|-----|-------|
 |Windows Server 2016 1803 | X | X | X |
-|Windows Server 2016 | X | X | X |  
-|Windows Server 2012 R2 | X | X | |  
-|Windows Server 2012 | X | X | |  
-|Windows Server 2008 R2 | X | X| |  
-|Red Hat Enterprise Linux (RHEL) 7, 6| X | X| X |  
-|Ubuntu 18.04, 16.04, 14.04 | X | X | X |  
-|CentOS Linux 7, 6 | X | X | X |  
-|SUSE Linux Enterprise Server (SLES) 12 | X | X | X |  
-|Oracle Linux 7 | X<sup>1</sup> | | X |  
-|Oracle Linux 6 | X | X | X |  
-|Debian 9.4, 8 | X<sup>1</sup> | | X | 
+|Windows Server 2016 | X | X | X |
+|Windows Server 2012 R2 | X | X | |
+|Windows Server 2012 | X | X | |
+|Windows Server 2008 R2 | X | X| |
+|Red Hat Enterprise Linux (RHEL) 7, 6| X | X| X |
+|Ubuntu 18.04, 16.04, 14.04 | X | X | X |
+|CentOS Linux 7, 6 | X | X | X |
+|SUSE Linux Enterprise Server (SLES) 12 | X | X | X |
+|Oracle Linux 7 | X<sup>1</sup> | | X |
+|Oracle Linux 6 | X | X | X |
+|Debian 9.4, 8 | X<sup>1</sup> | | X |
 
-<sup>1</sup> The Performance feature of Azure Monitor for VMs is available only from Azure Monitor. It isn't available when you access it directly from the left pane of the Azure VM. 
+<sup>1</sup> The Performance feature of Azure Monitor for VMs is available only from Azure Monitor. It isn't available when you access it directly from the left pane of the Azure VM.
 
 >[!NOTE]
->The following information applies to support of the Linux operating system:  
-> - Only default and SMP Linux kernel releases are supported. 
-> - Nonstandard kernel releases, such as Physical Address Extension (PAE) and Xen, aren't supported for any Linux distribution. For example, a system with the release string of *2.6.16.21-0.8-xen* isn't supported. 
-> - Custom kernels, including recompiles of standard kernels, aren't supported. 
-> - CentOSPlus kernel isn't supported. 
-
+>The following information applies to support of the Linux operating system:
+> - Only default and SMP Linux kernel releases are supported.
+> - Nonstandard kernel releases, such as Physical Address Extension (PAE) and Xen, aren't supported for any Linux distribution. For example, a system with the release string of *2.6.16.21-0.8-xen* isn't supported.
+> - Custom kernels, including recompiles of standard kernels, aren't supported.
+> - CentOSPlus kernel isn't supported.
 
 #### Red Hat Linux 7
 
@@ -147,11 +146,11 @@ The following table lists the Windows and Linux operating systems that are suppo
 |12 SP3 | 4.4.* |
 
 ### The Microsoft Dependency agent
-The Azure Monitor for VMs Map feature gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. Therefore, your system must have the Log Analytics agent installed and configured with the Dependency agent. 
+The Azure Monitor for VMs Map feature gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. Therefore, your system must have the Log Analytics agent installed and configured with the Dependency agent.
 
-Whether you enable Azure Monitor for VMs for a single Azure VM or you use the at-scale deployment method, you need to use the Azure VM Dependency agent extension to install the agent as part of the experience. 
+Whether you enable Azure Monitor for VMs for a single Azure VM or you use the at-scale deployment method, you need to use the Azure VM Dependency agent extension to install the agent as part of the experience.
 
-In a hybrid environment, you can download and install the Dependency agent in either of two ways: Manually, or by using an automated deployment method for virtual machines that are hosted outside Azure. 
+In a hybrid environment, you can download and install the Dependency agent in either of two ways: Manually, or by using an automated deployment method for virtual machines that are hosted outside Azure.
 
 The following table describes the connected sources that the Map feature supports in a hybrid environment.
 
@@ -159,7 +158,7 @@ The following table describes the connected sources that the Map feature support
 |:--|:--|:--|
 | Windows agents | Yes | In addition to the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows agents require the Microsoft Dependency agent. For a complete list of operating system versions, see [supported operating systems](#supported-operating-systems). |
 | Linux agents | Yes | In addition to the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux agents require the Microsoft Dependency agent. For a complete list of operating system versions, see [supported operating systems](#supported-operating-systems). |
-| System Center Operations Manager management group | No | |  
+| System Center Operations Manager management group | No | |
 
 The Dependency agent can be downloaded from the following locations:
 
@@ -169,20 +168,20 @@ The Dependency agent can be downloaded from the following locations:
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 ## Role-based access control
-To enable and access the features in Azure Monitor for VMs, you need to be assigned the following access roles: 
-  
-- To enable the solution, you must have the *Log Analytics contributor* role. 
+To enable and access the features in Azure Monitor for VMs, you need to be assigned the following access roles:
 
-- To view performance, health, and map data, you must have the *Monitoring Reader* role for the Azure VM. The Log Analytics workspace must be configured for Azure Monitor for VMs.  
+- To enable the solution, you must have the *Log Analytics contributor* role.
+
+- To view performance, health, and map data, you must have the *Monitoring Reader* role for the Azure VM. The Log Analytics workspace must be configured for Azure Monitor for VMs.
 
 For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../../azure-monitor/platform/manage-access.md).
 
 ## Enable monitoring in the Azure portal
 To enable monitoring of your Azure VM in the Azure portal, do the following:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-1. Select **Virtual Machines**. 
-1. From the list, select a VM. 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select **Virtual Machines**.
+1. From the list, select a VM.
 1. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
 1. On the **Insights (preview)** page, select **Try now**.
 
@@ -192,106 +191,106 @@ To enable monitoring of your Azure VM in the Azure portal, do the following:
     The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
 
     >[!NOTE]
-    >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md) in one of the supported regions listed earlier.  
+    >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md) in one of the supported regions listed earlier.
 
-After you've enabled monitoring, it might take about 10 minutes before you can view the health metrics for the virtual machine. 
+After you've enabled monitoring, it might take about 10 minutes before you can view the health metrics for the virtual machine.
 
 ![Enable Azure Monitor for VMs monitoring deployment processing](./media/vminsights-onboard/onboard-vminsights-vm-portal-status.png)
 
 
 ## Deploy at scale
-In this section, you deploy Azure Monitor for VMs at scale by using either Azure Policy or Azure PowerShell. 
+In this section, you deploy Azure Monitor for VMs at scale by using either Azure Policy or Azure PowerShell.
 
 Before you deploy your VMs, pre-configure your Log Analytics workspace by doing the following:
 
 1. If you don't already have a workspace, create one that can support Azure Monitor for VMs.  
-    Before you proceed, see [Manage workspaces](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) to understand the cost, management, and compliance considerations.      
+    Before you proceed, see [Manage workspaces](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) to understand the cost, management, and compliance considerations.
 
-1. Create a new workspace if one does not already exist that can be used to support Azure Monitor for VMs. Review [Manage workspaces](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json) before creating a new workspace to understand the cost, management, and compliance considerations before proceeding.       
+1. Create a new workspace if one does not already exist that can be used to support Azure Monitor for VMs. Review [Manage workspaces](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json) before creating a new workspace to understand the cost, management, and compliance considerations before proceeding.
 
 1. Enable performance counters in the workspace for collection on Linux and Windows VMs.
 
-1. Install and enable the ServiceMap and InfrastructureInsights solution in your workspace. 
+1. Install and enable the ServiceMap and InfrastructureInsights solution in your workspace.
 
 ### Set up a Log Analytics workspace
-If you don't have a Log Analytics workspace, create one by reviewing the methods that are suggested in the ["Prerequisites"](#log-analytics) section. 
+If you don't have a Log Analytics workspace, create one by reviewing the methods that are suggested in the ["Prerequisites"](#log-analytics) section.
 
 #### Enable performance counters
 If the Log Analytics workspace that's referenced by the solution isn't already configured to collect the performance counters required by the solution, you need to enable them. You can do so in either of two ways:
 * Manually, as described in [Windows and Linux performance data sources in Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
 * By downloading and running a PowerShell script that's available from [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
- 
+
 #### Install the ServiceMap and InfrastructureInsights solutions
-This method includes a JSON template that specifies the configuration for enabling the solution components in your Log Analytics workspace. 
+This method includes a JSON template that specifies the configuration for enabling the solution components in your Log Analytics workspace.
 
 If you're unfamiliar with deploying resources by using a template, see:
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md) 
+* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 1. Copy and paste the following JSON syntax into your file:
 
     ```json
     {
-
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "WorkspaceName": {
-            "type": "string"
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "WorkspaceName": {
+                "type": "string"
+            },
+            "WorkspaceLocation": {
+                "type": "string"
+            }
         },
-        "WorkspaceLocation": {
-            "type": "string"
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2017-03-15-preview",
-            "type": "Microsoft.OperationalInsights/workspaces",
-            "name": "[parameters('WorkspaceName')]",
-            "location": "[parameters('WorkspaceLocation')]",
-            "resources": [
-                {
-                    "apiVersion": "2015-11-01-preview",
-                    "location": "[parameters('WorkspaceLocation')]",
-                    "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
-                    "type": "Microsoft.OperationsManagement/solutions",
-                    "dependsOn": [
-                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                    ],
-                    "properties": {
-                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                    },
-
-                    "plan": {
+        "resources": [
+            {
+                "apiVersion": "2017-03-15-preview",
+                "type": "Microsoft.OperationalInsights/workspaces",
+                "name": "[parameters('WorkspaceName')]",
+                "location": "[parameters('WorkspaceLocation')]",
+                "resources": [
+                    {
+                        "apiVersion": "2015-11-01-preview",
+                        "location": "[parameters('WorkspaceLocation')]",
                         "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
-                        "publisher": "Microsoft",
-                        "product": "[Concat('OMSGallery/', 'ServiceMap')]",
-                        "promotionCode": ""
-                    }
-                },
-                {
-                    "apiVersion": "2015-11-01-preview",
-                    "location": "[parameters('WorkspaceLocation')]",
-                    "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                    "type": "Microsoft.OperationsManagement/solutions",
-                    "dependsOn": [
-                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                    ],
-                    "properties": {
-                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        "type": "Microsoft.OperationsManagement/solutions",
+                        "dependsOn": [
+                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        ],
+                        "properties": {
+                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        },
+
+                        "plan": {
+                            "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                            "publisher": "Microsoft",
+                            "product": "[Concat('OMSGallery/', 'ServiceMap')]",
+                            "promotionCode": ""
+                        }
                     },
-                    "plan": {
+                    {
+                        "apiVersion": "2015-11-01-preview",
+                        "location": "[parameters('WorkspaceLocation')]",
                         "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                        "publisher": "Microsoft",
-                        "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
-                        "promotionCode": ""
+                        "type": "Microsoft.OperationsManagement/solutions",
+                        "dependsOn": [
+                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        ],
+                        "properties": {
+                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        },
+                        "plan": {
+                            "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
+                            "publisher": "Microsoft",
+                            "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
+                            "promotionCode": ""
+                        }
                     }
-                }
-            ]
-        }
-    ]
+                ]
+            }
+        ]
+    }
     ```
 
 1. Save this file as *installsolutionsforvminsights.json* to a local folder.
@@ -311,91 +310,88 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 ### Enable by using Azure Policy
 To enable Azure Monitor for VMs at scale in a way that helps ensure consistent compliance and the automatic enabling of the newly provisioned VMs, we recommend [Azure Policy](../../azure-policy/azure-policy-introduction.md). These policies:
 
-* Deploy the Log Analytics agent and the Dependency agent. 
-* Report on compliance results. 
+* Deploy the Log Analytics agent and the Dependency agent.
+* Report on compliance results.
 * Remediate for non-compliant VMs.
 
-To enable Azure Monitor for VMs by using Azure Policy in your tenant: 
+To enable Azure Monitor for VMs by using Azure Policy in your tenant:
 
-- Assign the initiative to a scope: management group, subscription, or resource group 
-- Review and remediate compliance results  
+- Assign the initiative to a scope: management group, subscription, or resource group
+- Review and remediate compliance results
 
-For more information about assigning Azure Policy, see [Azure Policy overview](../../governance/policy/overview.md#policy-assignment) and review the [overview of management groups](../../governance/management-groups/index.md) before you continue. 
+For more information about assigning Azure Policy, see [Azure Policy overview](../../governance/policy/overview.md#policy-assignment) and review the [overview of management groups](../../governance/management-groups/index.md) before you continue.
 
-The policy definitions are listed in the following table: 
+The policy definitions are listed in the following table:
 
-|Name |Description |Type |  
-|-----|------------|-----|  
-|[Preview]: Enable Azure Monitor for VMs |Enable Azure Monitor for the Virtual Machines (VMs) in the specified scope (management group, subscription, or resource group). Takes Log Analytics workspace as a parameter. |Initiative |  
-|[Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) isn't defined in the list and the agent isn't installed. |Policy |  
-|[Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) isn't defined in the list and the agent isn't installed. |Policy |  
-|[Preview]: Deploy Dependency Agent for Linux VMs |Deploy Dependency Agent for Linux VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |  
-|[Preview]: Deploy Dependency Agent for Windows VMs |Deploy Dependency Agent for Windows VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |  
-|[Preview]: Deploy Log Analytics Agent for Linux VMs |Deploy Log Analytics Agent for Linux VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |  
-|[Preview]: Deploy Log Analytics Agent for Windows VMs |Deploy Log Analytics Agent for Windows VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |  
+|Name |Description |Type |
+|-----|------------|-----|
+|[Preview]: Enable Azure Monitor for VMs |Enable Azure Monitor for the Virtual Machines (VMs) in the specified scope (management group, subscription, or resource group). Takes Log Analytics workspace as a parameter. |Initiative |
+|[Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Deploy Dependency Agent for Linux VMs |Deploy Dependency Agent for Linux VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Deploy Dependency Agent for Windows VMs |Deploy Dependency Agent for Windows VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Deploy Log Analytics Agent for Linux VMs |Deploy Log Analytics Agent for Linux VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Deploy Log Analytics Agent for Windows VMs |Deploy Log Analytics Agent for Windows VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
 
-Standalone policy (not included with the initiative) is described here: 
+Standalone policy (not included with the initiative) is described here:
 
-|Name |Description |Type |  
-|-----|------------|-----|  
+|Name |Description |Type |
+|-----|------------|-----|
 |[Preview]: Audit Log Analytics Workspace for VM - Report Mismatch |Report VMs as non-compliant if they aren't logging to the Log Analytics workspace specified in the policy/initiative assignment. |Policy |
 
 #### Assign the Azure Monitor initiative
-With this initial release, you can create the policy assignment only in the Azure portal. To understand how to complete these steps, see [Create a policy assignment from the Azure portal](../../governance/policy/assign-policy-portal.md). 
+With this initial release, you can create the policy assignment only in the Azure portal. To understand how to complete these steps, see [Create a policy assignment from the Azure portal](../../governance/policy/assign-policy-portal.md).
 
-1. To launch the Azure Policy service in the Azure portal, select **All services**, and then search for and select **Policy**. 
+1. To launch the Azure Policy service in the Azure portal, select **All services**, and then search for and select **Policy**.
 1. In the left pane of the Azure Policy page, select **Assignments**.  
     An assignment is a policy that has been assigned to take place within a specific scope.
 1. At the top of the **Policy - Assignments** page, select **Assign Initiative**.
 1. On the **Assign Initiative** page, select the **Scope** by clicking the ellipsis (...), and select a management group or subscription.  
     In our example, a scope limits the policy assignment to a grouping of virtual machines for enforcement.
 1. At the bottom of the **Scope** page, save your changes by selecting **Select**.
-1. (Optional) To remove one or more resources from the scope, select **Exclusions**. 
+1. (Optional) To remove one or more resources from the scope, select **Exclusions**.
 1. Select the **Initiative definition** ellipsis (...) to display the list of available definitions, select **[Preview] Enable Azure Monitor for VMs**, and then select **Select**.  
     The **Assignment name** box is automatically populated with the initiative name you selected, but you can change it. You can also add an optional description. The **Assigned by** box is automatically populated based on who is logged in, and this value is optional.
 1. In the **Log Analytics workspace** drop-down list for the supported region, select a workspace.
 
     >[!NOTE]
-    >If the workspace is beyond the scope of the assignment, grant *Log Analytics Contributor* permissions to the policy assignment's Principal ID. If you don't do this, you might see a deployment failure such as: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` 
+    >If the workspace is beyond the scope of the assignment, grant *Log Analytics Contributor* permissions to the policy assignment's Principal ID. If you don't do this, you might see a deployment failure such as: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... `
     >To grant access, review [how to manually configure the managed identity](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
     >  
-    The **Managed Identity** check box is selected, because the initiative being assigned includes a policy with the *deployIfNotExists* effect. 
-1. In the **Manage Identity location** drop-down list, select the appropriate region. 
+    The **Managed Identity** check box is selected, because the initiative being assigned includes a policy with the *deployIfNotExists* effect.
+1. In the **Manage Identity location** drop-down list, select the appropriate region.
 1. Select **Assign**.
 
-#### Review and remediate the compliance results 
+#### Review and remediate the compliance results
 
 You can learn how to review compliance results by reading [identify non-compliance results](../../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). In the left pane, select **Compliance**, and then locate the **[Preview] Enable Azure Monitor for VMs** initiative for VMs that aren't compliant according to the assignment you created.
 
 ![Policy compliance for Azure VMs](./media/vminsights-onboard/policy-view-compliance-01.png)
 
-Based on the results of the policies included with the initiative, VMs are reported as non-compliant in the following scenarios:  
-  
-* Log Analytics or the Dependency agent isn't deployed. 
-   This scenario is typical for a scope with existing VMs. To mitigate it, deploy the required agents by [creating remediation tasks](../../governance/policy/how-to/remediate-resources.md) on a non-compliant policy.   
- 
-    - [Preview]: Deploy Dependency Agent for Linux VMs   
-    - [Preview]: Deploy Dependency Agent for Windows VMs  
-    - [Preview]: Deploy Log Analytics Agent for Linux VMs  
-    - [Preview]: Deploy Log Analytics Agent for Windows VMs  
+Based on the results of the policies included with the initiative, VMs are reported as non-compliant in the following scenarios:
 
-* VM Image (OS) isn't identified in the policy definition. 
-   The criteria of the deployment policy include only VMs that are deployed from well-known Azure VM images. Check the documentation to see whether the VM OS is supported. If it isn't supported, duplicate the deployment policy and update or modify it to make the image compliant. 
-  
-    - [Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted  
+* Log Analytics or the Dependency agent isn't deployed.  
+    This scenario is typical for a scope with existing VMs. To mitigate it, deploy the required agents by [creating remediation tasks](../../governance/policy/how-to/remediate-resources.md) on a non-compliant policy.  
+    - [Preview]: Deploy Dependency Agent for Linux VMs
+    - [Preview]: Deploy Dependency Agent for Windows VMs
+    - [Preview]: Deploy Log Analytics Agent for Linux VMs
+    - [Preview]: Deploy Log Analytics Agent for Windows VMs
+
+* VM Image (OS) isn't identified in the policy definition.  
+    The criteria of the deployment policy include only VMs that are deployed from well-known Azure VM images. Check the documentation to see whether the VM OS is supported. If it isn't supported, duplicate the deployment policy and update or modify it to make the image compliant.  
+    - [Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted
     - [Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted
 
 * VMs aren't logging in to the specified Log Analytics workspace.  
-    It's possible that some VMs in the initiative scope are logging in to a Log Analytics workspace other than the one that's specified in the policy assignment. This policy is a tool to identify which VMs are reporting to a non-compliant workspace. 
- 
-    - [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch  
+    It's possible that some VMs in the initiative scope are logging in to a Log Analytics workspace other than the one that's specified in the policy assignment. This policy is a tool to identify which VMs are reporting to a non-compliant workspace.  
+    - [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
 
 ### Enable with PowerShell
-To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, you can use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0), available from the Azure PowerShell Gallery. This script iterates through every virtual machine and virtual machine scale set in your subscription, in the scoped resource group that's specified by *ResourceGroup*, or to a single VM or virtual machine scale set that's specified by *Name*. For each VM or virtual machine scale set, the script verifies whether the VM extension is already installed. If the VM extension is not installed, the script tries to reinstall it. If the VM extension is installed, the script installs the Log Analytics and Dependency agent VM extensions.  
+To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, you can use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0), available from the Azure PowerShell Gallery. This script iterates through every virtual machine and virtual machine scale set in your subscription, in the scoped resource group that's specified by *ResourceGroup*, or to a single VM or virtual machine scale set that's specified by *Name*. For each VM or virtual machine scale set, the script verifies whether the VM extension is already installed. If the VM extension is not installed, the script tries to reinstall it. If the VM extension is installed, the script installs the Log Analytics and Dependency agent VM extensions.
 
 This script requires Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you're running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
-To get a list of the script's argument details and example usage, run `Get-Help`.  
+To get a list of the script's argument details and example usage, run `Get-Help`.
 
 ```powershell
 Get-Help .\Install-VMInsights.ps1 -Detailed
@@ -547,11 +543,11 @@ Failed: (0)
 ```
 
 ## Enable for a hybrid environment
-This section explains how to deploy virtual machines or physical computers that are hosted in your datacenter or other cloud environments for monitoring by Azure Monitor for VMs. 
+This section explains how to deploy virtual machines or physical computers that are hosted in your datacenter or other cloud environments for monitoring by Azure Monitor for VMs.
 
 The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
-Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../../log-analytics/log-analytics-agent-overview.md). 
+Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../../log-analytics/log-analytics-agent-overview.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -562,13 +558,13 @@ The steps are summarized as follows:
 1. Enable the collection of performance counters.
 1. Deploy Azure Monitor for VMs.
 
-### Install the Dependency agent on Windows 
-You can install the Dependency agent manually on Windows computers by running `InstallDependencyAgent-Windows.exe`. If you run this executable file without any options, it starts a setup wizard that you can follow to install the agent interactively. 
+### Install the Dependency agent on Windows
+You can install the Dependency agent manually on Windows computers by running `InstallDependencyAgent-Windows.exe`. If you run this executable file without any options, it starts a setup wizard that you can follow to install the agent interactively.
 
 >[!NOTE]
 >*Administrator* privileges are required to install or uninstall the agent.
 
-The following table highlights the parameters that are supported by setup for the agent from the command line. 
+The following table highlights the parameters that are supported by setup for the agent from the command line.
 
 | Parameter | Description |
 |:--|:--|
@@ -577,14 +573,14 @@ The following table highlights the parameters that are supported by setup for th
 
 For example, to run the installation program with the `/?` parameter, type **InstallDependencyAgent-Windows.exe /?**.
 
-Files for the Windows Dependency agent are installed in *C:\Program Files\Microsoft Dependency Agent* by default. If the Dependency agent fails to start after setup is complete, check the logs for detailed error information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*. 
+Files for the Windows Dependency agent are installed in *C:\Program Files\Microsoft Dependency Agent* by default. If the Dependency agent fails to start after setup is complete, check the logs for detailed error information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
 
 ### Install the Dependency agent on Linux
 The Dependency agent is installed on Linux servers from *InstallDependencyAgent-Linux64.bin*, a shell script with a self-extracting binary. You can run the file by using `sh` or add execute permissions to the file itself.
 
 >[!NOTE]
 > Root access is required to install or configure the agent.
-> 
+>
 
 | Parameter | Description |
 |:--|:--|
@@ -595,7 +591,7 @@ The Dependency agent is installed on Linux servers from *InstallDependencyAgent-
 For example, to run the installation program with the `-help` parameter, type **InstallDependencyAgent-Linux64.bin -help**.
 
 Install the Linux Dependency agent as root by running the following command, `sh InstallDependencyAgent-Linux64.bin`.
-    
+
 If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*.
 
 Files for the Dependency agent are placed in the following directories:
@@ -609,18 +605,18 @@ Files for the Dependency agent are placed in the following directories:
 | Binary storage files | /var/opt/microsoft/dependency-agent/storage |
 
 ### Enable performance counters
-If the Log Analytics workspace that's referenced by the solution isn't already configured to collect the performance counters required by the solution, you will need to enable them. You can do so in either of two ways: 
+If the Log Analytics workspace that's referenced by the solution isn't already configured to collect the performance counters required by the solution, you will need to enable them. You can do so in either of two ways:
 * Manually, as described in [Windows and Linux performance data sources in Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
 * By downloading and running a PowerShell script that's available from [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
- 
+
 ### Deploy Azure Monitor for VMs
-This method includes a JSON template that specifies the configuration for enabling the solution components in your Log Analytics workspace. 
+This method includes a JSON template that specifies the configuration for enabling the solution components in your Log Analytics workspace.
 
 If you're unfamiliar with deploying resources by using a template, see:
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md) 
+* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 #### Create and execute a template
 
@@ -628,64 +624,64 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
     ```json
     {
-
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "WorkspaceName": {
-            "type": "string"
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "WorkspaceName": {
+                "type": "string"
+            },
+            "WorkspaceLocation": {
+                "type": "string"
+            }
         },
-        "WorkspaceLocation": {
-            "type": "string"
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2017-03-15-preview",
-            "type": "Microsoft.OperationalInsights/workspaces",
-            "name": "[parameters('WorkspaceName')]",
-            "location": "[parameters('WorkspaceLocation')]",
-            "resources": [
-                {
-                    "apiVersion": "2015-11-01-preview",
-                    "location": "[parameters('WorkspaceLocation')]",
-                    "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
-                    "type": "Microsoft.OperationsManagement/solutions",
-                    "dependsOn": [
-                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                    ],
-                    "properties": {
-                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                    },
-
-                    "plan": {
+        "resources": [
+            {
+                "apiVersion": "2017-03-15-preview",
+                "type": "Microsoft.OperationalInsights/workspaces",
+                "name": "[parameters('WorkspaceName')]",
+                "location": "[parameters('WorkspaceLocation')]",
+                "resources": [
+                    {
+                        "apiVersion": "2015-11-01-preview",
+                        "location": "[parameters('WorkspaceLocation')]",
                         "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
-                        "publisher": "Microsoft",
-                        "product": "[Concat('OMSGallery/', 'ServiceMap')]",
-                        "promotionCode": ""
-                    }
-                },
-                {
-                    "apiVersion": "2015-11-01-preview",
-                    "location": "[parameters('WorkspaceLocation')]",
-                    "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                    "type": "Microsoft.OperationsManagement/solutions",
-                    "dependsOn": [
-                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                    ],
-                    "properties": {
-                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        "type": "Microsoft.OperationsManagement/solutions",
+                        "dependsOn": [
+                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        ],
+                        "properties": {
+                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        },
+
+                        "plan": {
+                            "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                            "publisher": "Microsoft",
+                            "product": "[Concat('OMSGallery/', 'ServiceMap')]",
+                            "promotionCode": ""
+                        }
                     },
-                    "plan": {
+                    {
+                        "apiVersion": "2015-11-01-preview",
+                        "location": "[parameters('WorkspaceLocation')]",
                         "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                        "publisher": "Microsoft",
-                        "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
-                        "promotionCode": ""
+                        "type": "Microsoft.OperationsManagement/solutions",
+                        "dependsOn": [
+                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        ],
+                        "properties": {
+                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        },
+                        "plan": {
+                            "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
+                            "publisher": "Microsoft",
+                            "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
+                            "promotionCode": ""
+                        }
                     }
-                }
-            ]
-        }
-    ]
+                ]
+            }
+        ]
+    }
     ```
 
 1. Save this file as *installsolutionsforvminsights.json* to a local folder.
@@ -701,47 +697,47 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     ```powershell
     provisioningState       : Succeeded
     ```
-After you've enabled monitoring, it might take about 10 minutes before you can view the health state and metrics for the hybrid computer. 
+After you've enabled monitoring, it might take about 10 minutes before you can view the health state and metrics for the hybrid computer.
 
 ## Performance counters enabled
 Azure Monitor for VMs configures a Log Analytics workspace to collect the performance counters that are used by the solution. The following table lists the objects and counters configured by the solution that are collected every 60 seconds.
 
 ### Windows performance counters
 
-|Object name |Counter name |  
-|------------|-------------|  
-|LogicalDisk |% Free Space |  
-|LogicalDisk |Avg. Disk sec/Read |  
-|LogicalDisk |Avg. Disk sec/Transfer |  
-|LogicalDisk |Avg. Disk sec/Write |  
-|LogicalDisk |Disk Bytes/sec |  
-|LogicalDisk |Disk Read Bytes/sec |  
-|LogicalDisk |Disk Reads/sec |  
-|LogicalDisk |Disk Transfers/sec |  
-|LogicalDisk |Disk Write Bytes/sec |  
-|LogicalDisk |Disk Writes/sec |  
-|LogicalDisk |Free Megabytes |  
-|Memory |Available MBytes |  
-|Network Adapter |Bytes Received/sec |  
-|Network Adapter |Bytes Sent/sec |  
-|Processor |% Processor Time |  
+|Object name |Counter name |
+|------------|-------------|
+|LogicalDisk |% Free Space |
+|LogicalDisk |Avg. Disk sec/Read |
+|LogicalDisk |Avg. Disk sec/Transfer |
+|LogicalDisk |Avg. Disk sec/Write |
+|LogicalDisk |Disk Bytes/sec |
+|LogicalDisk |Disk Read Bytes/sec |
+|LogicalDisk |Disk Reads/sec |
+|LogicalDisk |Disk Transfers/sec |
+|LogicalDisk |Disk Write Bytes/sec |
+|LogicalDisk |Disk Writes/sec |
+|LogicalDisk |Free Megabytes |
+|Memory |Available MBytes |
+|Network Adapter |Bytes Received/sec |
+|Network Adapter |Bytes Sent/sec |
+|Processor |% Processor Time |
 
 ### Linux performance counters
 
-|Object name |Counter name |  
-|------------|-------------|  
-|Logical Disk |% Used Space |  
-|Logical Disk |Disk Read Bytes/sec |  
-|Logical Disk |Disk Reads/sec |  
-|Logical Disk |Disk Transfers/sec |  
-|Logical Disk |Disk Write Bytes/sec |  
-|Logical Disk |Disk Writes/sec |  
-|Logical Disk |Free Megabytes |  
-|Logical Disk |Logical Disk Bytes/sec |  
-|Memory |Available MBytes Memory |  
-|Network |Total Bytes Received |  
-|Network |Total Bytes Transmitted |  
-|Processor |% Processor Time |  
+|Object name |Counter name |
+|------------|-------------|
+|Logical Disk |% Used Space |
+|Logical Disk |Disk Read Bytes/sec |
+|Logical Disk |Disk Reads/sec |
+|Logical Disk |Disk Transfers/sec |
+|Logical Disk |Disk Write Bytes/sec |
+|Logical Disk |Disk Writes/sec |
+|Logical Disk |Free Megabytes |
+|Logical Disk |Logical Disk Bytes/sec |
+|Memory |Available MBytes Memory |
+|Network |Total Bytes Received |
+|Network |Total Bytes Transmitted |
+|Processor |% Processor Time |
 
 ## Diagnostic and usage data
 Microsoft automatically collects usage and performance data through your use of the Azure Monitor service. Microsoft uses this data to provide and improve the quality, security, and integrity of the service. To provide accurate and efficient troubleshooting capabilities, data from the Map feature includes information about the configuration of your software, such as the operating system and version, IP address, DNS name, and workstation name. Microsoft doesn't collect names, addresses, or other contact information.
@@ -751,4 +747,4 @@ For more information about data collection and usage, see the [Microsoft Online 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 ## Next steps
 
-Now that monitoring is enabled for your virtual machine, this information is available for analysis with Azure Monitor for VMs. To learn how to use the Health feature, see [View Azure Monitor for VMs Health](vminsights-health.md). To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). 
+Now that monitoring is enabled for your virtual machine, this information is available for analysis with Azure Monitor for VMs. To learn how to use the Health feature, see [View Azure Monitor for VMs Health](vminsights-health.md). To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
