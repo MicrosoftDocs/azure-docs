@@ -25,6 +25,16 @@ This procedure requires several tools that must be installed locally.
 1. Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/). 
 1. Have a valid Azure subscription. The trial and pay-as-you-go subscriptions will both work. 
 
+## Running the sample 
+
+This procedure loads and runs the Cognitive Services Container sample for language detection. 
+
+* The sample has two images, one for the website with its own API. This website is equivalent to your own client-side application that makes requests of the language detection endpoint. The second image is the language detection image returning the detected language of text. 
+* Both these images need to be pushed to your own Azure Container Registry.
+* Once they are on your own Azure Container Registry, you create an Azure Kubernetes service to access these images and run the containers.
+* Once the containers are running, use the kubectl cli to watch the containers performance.
+* Access the website (client-application) with an HTTP request and see the results. 
+
 
 ## Create Azure Container Registry service
 
@@ -71,7 +81,58 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     }
     ```
 
-## Pull down language detection image from docker hub
+## Get website docker image 
+
+1. The sample code for the language detection container is in the Cognitive Services container repository. Clone the repository to have a local copy of the sample.
+
+    ```console
+    git clone https://github.com/Azure-Samples/cognitive-services-containers-samples
+    ```
+
+    Once the repository is on your local computer, find the website in the [\dotnet\Language\FrontendService](https://github.com/Azure-Samples/cognitive-services-containers-samples/tree/master/dotnet/Language/FrontendService) directory. There is also a python version if you are comfortable with that language instead. This website acts as the client application.  
+
+1. Build the docker image for this website. Make sure the console is in the FrontendService directory when you run the following command:
+
+    ```console
+    docker build -t ta-lang-frontend  .
+    ```
+
+1. Verify the image is in the images list:
+
+    ```console
+    docker images
+    ```
+
+    The response includes the new image:
+
+    ```console
+    PS C:\Users\diberry\repos\cognitive-services-containers-samples\dotnet\Language\FrontendService> docker images
+    REPOSITORY                      TAG                      IMAGE ID            CREATED             SIZE
+    ta-lang-frontend                latest                   0faab2f01682        1 minute ago        1.85GB
+    ```
+
+1. Tag image with your Azure Container registry. The format of the command is:
+
+    `docker tag <local-repository-value>:<local-repository-tag> <your-container-registry>/<repository>:<tag>`
+
+    Locally your image probably has the tag of latest. In order to track the version on the Container Registry, change the tag to a version format. For this simple example, use `v1`. 
+
+    ```console
+    docker tag ta-lang-frontend:latest pattiowenscogservcontainerregistry.azurecr.io/ta-lang-frontend:v1
+    ```
+
+1. Push the image to the Azure Container registry. 
+
+    ```console
+    docker push pattiowenscogservcontainerregistry.azurecr.io/ta-lang-frontend:v1
+    ```
+
+1. Verify the image is in your Container registry. On the Azure portal, on your Container registry, verify the repositories list has this new repository named **ta-lang-frontend**. 
+
+1. Select the **ta-lang-frontend** repository, verify that the only tag in the list is **v1**.
+
+
+## Get language detection image 
 
 From the local terminal or console, pull the docker image to the local machine. This command pulls down the latest version. 
 
@@ -79,13 +140,7 @@ From the local terminal or console, pull the docker image to the local machine. 
 docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 ```
 
-## Clone sample code repository
-
-The sample code for the language detection container is in the Cognitive Services container repository. Clone the repository to have a local copy of the sample.
-
-```console
-git clone https://github.com/Azure-Samples/cognitive-services-containers-samples
-```
+## Tag and movimages for Azure Container Registry
 
 ## Move local Image to Azure Container Registry
 
