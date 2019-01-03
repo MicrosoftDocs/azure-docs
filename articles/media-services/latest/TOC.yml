@@ -106,7 +106,7 @@
       href: upload-files-rest-how-to.md
   - name: Encode content
     items:
-    - name: Customize Transform presets - .NET Core
+    - name: Customize Transform presets - .NET
       href: customize-encoder-presets-how-to.md
   - name: Use Event Grid
     items:
