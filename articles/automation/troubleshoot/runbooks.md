@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Azure Automation runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/04/2018
+ms.date: 01/03/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -88,13 +88,15 @@ This error occurs if the subscription name isn't valid or if the Azure Active Di
 To determine if you've properly authenticated to Azure and have access to the subscription you're trying to select, take the following steps:  
 
 1. Test your script outside of Azure Automation to make sure it works stand-alone.
-2. Make sure that you run the **Add-AzureAccount** cmdlet before running the **Select-AzureSubscription** cmdlet.  
-3. If you still see this error message, modify your code by adding the **-AzureRmContext** parameter following the **Add-AzureAccount** cmdlet and then execute the code.
+2. Make sure that you run the `Add-AzureAccount` cmdlet before running the `Select-AzureSubscription` cmdlet. 
+3. Add `Disable-AzureRmContextAutosave –Scope Process` to the beginning of your runbook. This ensures that any credentials apply only to the execution of the current runbook.
+4. If you still see this error message, modify your code by adding the **AzureRmContext** parameter following the `Add-AzureAccount` cmdlet and then execute the code.
 
    ```powershell
+   Disable-AzureRmContextAutosave –Scope Process
+
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
--ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
    $context = Get-AzureRmContext
 
