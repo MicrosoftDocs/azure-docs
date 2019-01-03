@@ -45,7 +45,7 @@ To assign one of the Azure roles to a user, you need to get the resource ID of t
 * The [az account show][az-account-show] and [az ad user show][az-ad-user-show] commands get your user ID.
 * Finally, the role is assigned using the [az role assignment create][az-role-assignment-create] command.
 
-The following example assigns the *Azure Kubernetes Service Cluster Admin Role*. You can change this to the *Cluster User Role* as needed:
+The following example assigns the *Azure Kubernetes Service Cluster Admin Role*:
 
 ```azurecli-interactive
 # Get the resource ID of your AKS cluster
@@ -58,6 +58,8 @@ ACCOUNT_ID=$(az ad user show --upn-or-object-id $ACCOUNT_UPN --query objectId -o
 # Assign the 'Cluster Admin' role to the user
 az role assignment create --assignee $ACCOUNT_ID --scope $AKS_CLUSTER --role "Azure Kubernetes Service Cluster Admin Role"
 ```
+
+You can change the previous assignment to the *Cluster User Role* as needed.
 
 The following example output shows the role assignment has been successfully created:
 
@@ -74,7 +76,40 @@ The following example output shows the role assignment has been successfully cre
 }
 ```
 
-You can then use the [az aks get-credentials][az-aks-get-credentials] command to get the kubeconfig definition for your cluster. Depending on the *Cluster Admin* or *Cluster User* role you assign, the appropriate *kubeconfig* definition is applied.
+## Get and verify configuration information
+
+With RBAC roles assigned, use the [az aks get-credentials][az-aks-get-credentials] command to get the *kubeconfig* definition for your cluster. The following example gets the *--admin* credentials, which works correctly if the user has been granted the *Cluster Admin Role*:
+
+```azurecli-interactive
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
+```
+
+You can then use the [kubectl config view][kubectl-config-view] command to verify that the *context* for the cluster shows that the admin configuration information has been applied:
+
+```
+$ kubectl config view
+
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: DATA+OMITTED
+    server: https://myaksclust-myresourcegroup-19da35-4839be06.hcp.eastus.azmk8s.io:443
+  name: myAKSCluster
+contexts:
+- context:
+    cluster: myAKSCluster
+    user: clusterAdmin_myResourceGroup_myAKSCluster
+  name: myAKSCluster-admin
+current-context: myAKSCluster-admin
+kind: Config
+preferences: {}
+users:
+- name: clusterAdmin_myResourceGroup_myAKSCluster
+  user:
+    client-certificate-data: REDACTED
+    client-key-data: REDACTED
+    token: e9f2f819a4496538b02cefff94e61d35
+```
 
 ## Remove role permissions
 
@@ -90,6 +125,7 @@ For enhanced security and access to AKS clusters, [integrate Azure Active Direct
 
 <!-- LINKS - external -->
 [kubectl-config-use-context]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config
+[kubectl-config-view]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
