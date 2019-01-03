@@ -216,7 +216,7 @@ public static Family getJohnsonFamilyDocument() {
 
 ## <a id="Query"></a>Step 8: Query Azure Cosmos DB resources
 
-Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON documents stored in each collection. The following sample code shows how to query documents in Azure Cosmos DB using SQL syntax with the [queryDocuments](/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments) method.
+Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON documents stored in each collection. The following sample code shows how to query documents in Azure Cosmos DB using SQL syntax with the [queryDocuments](/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.querydocuments) method.
 
 ```java
 private void executeSimpleQueryAsyncAndRegisterListenerForResult(CountDownLatch completionLatch) 
