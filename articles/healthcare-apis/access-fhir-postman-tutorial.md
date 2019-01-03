@@ -16,8 +16,7 @@ A client application would access a FHIR server through a [REST API](https://www
 
 ## Prerequisites
 
-- A FHIR endpoint in Azure. You can set that up using the Microsoft Healthcare APIs for FHIR. There are quickstarts available for [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
-- [Azure Active Directory authentication](configure-fhir-identity-tutorial.md) configured for the FHIR endpoint.
+- A FHIR endpoint in Azure. You can set that up using the Microsoft Healthcare APIs for FHIR. There are quickstarts available for [Azure portal](fhir-oss-portal-quickstart.md), [PowerShell](fhir-oss-powershell-quickstart.md), or [Azure CLI](fhir-oss-cli-quickstart.md).
 - Postman installed. You can get it from [https://www.getpostman.com](https://www.getpostman.com)
 
 ## Collect FHIR Server and Authentication details

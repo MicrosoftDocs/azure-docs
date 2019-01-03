@@ -53,7 +53,7 @@ az group delete --name $servicename
 
 ## Next steps
 
-In this tutorial, you've deployed the Microsoft Open Source FHIR Server for Azure into your subscription. To learn how to configure an identity provider for the FHIR server, proceed to the identity provider tutorial.
+In this tutorial, you've deployed the Microsoft Open Source FHIR Server for Azure into your subscription. To learn how to access the FHIR API using Postman, proceed to the Postman tutorial.
  
 >[!div class="nextstepaction"]
->[Configure FHIR Identity Provider](configure-fhir-identity-tutorial.md)
+>[Access FHIR API using Postman](access-fhir-postman-tutorial.md)
