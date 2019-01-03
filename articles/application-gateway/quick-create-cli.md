@@ -66,7 +66,7 @@ In this example, you create two virtual machines Azure uses as backend servers f
 
 ### Create two virtual machines
 
-Install the [NGINX web server](https://docs.nginx.com/nginx/) on the virtual machines to verify the application gateway was successfully created. You can use a cloud-init configuration file to install NGINX and run a "Hello World" Node.js app on a Linux virtual machine. For more information about cloud-init, see [Cloud-init support for virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init).
+Install the [NGINX web server](https://docs.nginx.com/nginx/) on the virtual machines to verify the application gateway was successfully created. You can use a cloud-init configuration file to install NGINX and run a "Hello World" Node.js app on a Linux virtual machine. For more information about cloud-init, see [Cloud-init support for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
 
 In your Azure Cloud Shell, copy and paste the following configuration into a file named *cloud-init.txt*. Enter *editor cloud-init.txt* to create the file.
 
@@ -162,7 +162,7 @@ It can take up to 30 minutes for Azure to create the application gateway. After 
 
 ## Test the application gateway
 
-Although Azure doesn't require an NGINX web server to create the application gateway, you installed it in this quickstart to verify whether the application gateway was successfully created. To get the public IP address of the new application gateway, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
+Although Azure doesn't require an NGINX web server to create the application gateway, you installed it in this quickstart to verify whether Azure successfully created the application gateway. To get the public IP address of the new application gateway, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
 
 ```azurepowershell-interactive
 az network public-ip show \
