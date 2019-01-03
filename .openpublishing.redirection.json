@@ -1,6 +1,20 @@
 {
     "redirections": [
-        
+        {
+            "source_path": "articles/cognitive-services/Bing-News-Search/tutorial-bing-news-search-single-page-app-source.md",
+            "redirect_url": "/azure/cognitive-services/bing-custom-search/tutorial-bing-news-search-single-page-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-News-Search/quickstart.md",
+            "redirect_url": "/azure/cognitive-services/bing-custom-search/sending-queries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-News-Search/sdk.md",
+            "redirect_url": "/azure/cognitive-services/bing-custom-search/sdk-csharp-quick-start",
+            "redirect_document_id": false
+        },
         {
             "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/demo-vr-app-launcher.md",
             "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/overview",
@@ -90,21 +104,6 @@
             "source_path":  "articles/cognitive-services/Labs/Conversation-Learner/tutorials/17-hybrid-bots.md",
             "redirect_url":  "/azure/cognitive-services/Labs/Conversation-Learner/tutorials/16-hybrid-bots",
             "redirect_document_id":  true
-        },
-        {
-            "source_path": "articles/cognitive-services/Bing-News-Search/tutorial-bing-news-search-single-page-app-source.md",
-            "redirect_url": "/azure/cognitive-services/bing-custom-search/tutorial-bing-news-search-single-page-app",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/Bing-News-Search/quickstart.md",
-            "redirect_url": "/azure/cognitive-services/bing-custom-search/sending-queries",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/Bing-News-Search/sdk.md",
-            "redirect_url": "/azure/cognitive-services/bing-custom-search/sdk-csharp-quick-start",
-            "redirect_document_id": false
         },
         {
             "source_path": "articles/machine-learning/service/how-to-deploy-to-aci.md",
@@ -492,11 +491,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
-            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-function",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/iot-edge/iot-edge-what-is-azure-iot.md",
             "redirect_url": "/azure/iot-fundamentals/iot-introduction",
             "redirect_document_id": false
@@ -515,6 +509,21 @@
         {
             "source_path": "articles/cosmos-db/multi-master-conflict-resolution.md",
             "redirect_url": "/azure/cosmos-db/conflict-resolution-policies",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/programming.md",
+            "redirect_url": "/azure/cosmos-db/storedprocedures-triggers-udfs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/sql-api-sql-query-metrics.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-query-metrics",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/sql-api-sql-query-reference.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-query-reference",
             "redirect_document_id": true
         },
         {
@@ -555,11 +564,6 @@
         {
             "source_path": "articles/cognitive-services/Computer-vision/Research.md",
             "redirect_url": "/azure/cognitive-services/Computer-vision",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-edge/how-to-vscode-develop-csharp-module.md",
-            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-module",
             "redirect_document_id": false
         },
         {
@@ -1438,13 +1442,63 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-edge/how-to-vscode-debug-csharp-module.md",
-            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-module",
+            "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-csharp-function.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-edge/how-to-vscode-debug-azure-function.md",
-            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-function",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-vscode-develop-csharp-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-csharp-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-vscode-debug-csharp-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-python-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-node-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-java-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-c-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-multiple-modules-vscode.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-debug-multiple-modules-vscode.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
             "redirect_document_id": false
         },
         {
@@ -1480,6 +1534,21 @@
         {
             "source_path": "articles/iot-edge/how-to-create-transparent-gateway-windows.md",
             "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-with-windows.md",
+            "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-with-linux.md",
+            "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-install-iot-core.md",
+            "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
             "redirect_document_id": false
         },
         {
@@ -1893,6 +1962,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-managed-instance-vnet-configuration.md",
+            "redirect_url": "/azure/sql-database/sql-database-managed-instance-configure-vnet-subnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-management-endpoint.md",
+            "redirect_url": "/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-scheduled-events.md",
             "redirect_url": "/azure/virtual-machines/windows/scheduled-events",
             "redirect_document_id": false
@@ -1960,6 +2039,11 @@
         {
             "source_path": "articles/azure-portal/resource-group-portal-linked-resources.md",
             "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/create-resource-group-in-template.md",
+            "redirect_url": "/azure/azure-resource-manager/deploy-to-subscription",
             "redirect_document_id": false
         },
         {
@@ -3842,17 +3926,17 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-cli-continuous-deployment-github.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-continuous-deployment-github",
+            "redirect_url": "/azure/app-service/scripts/cli-continuous-deployment-github",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-cli-deploy-local-git.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-deploy-local-git",
+            "redirect_url": "/azure/app-service/scripts/cli-deploy-local-git",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-cli-deploy-staging-environment.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-deploy-staging-environment",
+            "redirect_url": "/azure/app-service/scripts/cli-deploy-staging-environment",
             "redirect_document_id": false
         },
         {
@@ -4027,7 +4111,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-changes-existing-services.md",
-            "redirect_url": "/azure/app-service/app-service-web-overview",
+            "redirect_url": "/azure/app-service/overview",
             "redirect_document_id": false
         },
         {
@@ -4037,27 +4121,27 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-app-azure-resource-manager-powershell.md",
-            "redirect_url": "/azure/app-service/app-service-powershell-samples",
+            "redirect_url": "/azure/app-service/samples-powershell",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-app-azure-resource-manager-xplat-cli.md",
-            "redirect_url": "/azure/app-service/app-service-cli-samples",
+            "redirect_url": "/azure/app-service/samples-resource-manager-templates",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-arm-from-github-provision.md",
-            "redirect_url": "/azure/app-service/app-service-cli-samples",
+            "redirect_url": "/azure/app-service/samples-resource-manager-templates",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-arm-with-msdeploy-provision.md",
-            "redirect_url": "/azure/app-service/app-service-cli-samples",
+            "redirect_url": "/azure/app-service/samples-resource-manager-templates",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-arm-with-sql-database-provision.md",
-            "redirect_url": "/azure/app-service/app-service-cli-samples",
+            "redirect_url": "/azure/app-service/samples-resource-manager-templates",
             "redirect_document_id": false
         },
         {
@@ -4087,7 +4171,7 @@
         },
         {
             "source_path": "articles/app-service-web/automation-manage-web-app.md",
-            "redirect_url": "/azure/app-service/app-service-cli-samples",
+            "redirect_url": "/azure/app-service/samples-cli",
             "redirect_document_id": false
         },
         {
@@ -4117,7 +4201,7 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-enterprise-offerings.md",
-            "redirect_url": "/azure/app-service/app-service-web-overview",
+            "redirect_url": "/azure/app-service/overview",
             "redirect_document_id": false
         },
         {
@@ -4322,12 +4406,22 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-cli-samples.md",
-            "redirect_url": "/azure/app-service/app-service-cli-samples",
+            "redirect_url": "/azure/app-service/samples-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-cli-samples.md",
+            "redirect_url": "/azure/app-service/samples-cli",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-continuous-deployment.md",
-            "redirect_url": "/azure/app-service/app-service-continuous-deployment",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-continuous-deployment.md",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
@@ -4342,27 +4436,57 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-complex-application-predictably.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-complex-application-predictably",
+            "redirect_url": "/azure/app-service/deploy-complex-application-predictably",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-complex-application-predictably.md",
+            "redirect_url": "/azure/app-service/deploy-complex-application-predictably",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-content-sync.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-content-sync",
+            "redirect_url": "/azure/app-service/deploy-content-sync",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-content-sync.md",
+            "redirect_url": "/azure/app-service/deploy-content-sync",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-ftp.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-ftp",
+            "redirect_url": "/azure/app-service/deploy-ftp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-ftp.md",
+            "redirect_url": "/azure/app-service/deploy-ftp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-zip.md",
+            "redirect_url": "/azure/app-service/deploy-zip",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-local-git.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-local-git",
+            "redirect_url": "/azure/app-service/deploy-local-git",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-local-git.md",
+            "redirect_url": "/azure/app-service/deploy-local-git",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deployment-credentials.md",
-            "redirect_url": "/azure/app-service/app-service-deployment-credentials",
+            "redirect_url": "/azure/app-service/deploy-configure-credentials",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deployment-credentials.md",
+            "redirect_url": "/azure/app-service/deploy-configure-credentials",
             "redirect_document_id": false
         },
         {
@@ -4377,7 +4501,12 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-powershell-samples.md",
-            "redirect_url": "/azure/app-service/app-service-powershell-samples",
+            "redirect_url": "/azure/app-service/samples-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-powershell-samples.md",
+            "redirect_url": "/azure/app-service/samples-powershell",
             "redirect_document_id": false
         },
         {
@@ -4387,12 +4516,22 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-availability-performance-application-issues-faq.md",
-            "redirect_url": "/azure/app-service/app-service-web-availability-performance-application-issues-faq",
+            "redirect_url": "/azure/app-service/faq-availability-performance-application-issues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-availability-performance-application-issues-faq.md",
+            "redirect_url": "/azure/app-service/faq-availability-performance-application-issues",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-configuration-and-management-faq.md",
-            "redirect_url": "/azure/app-service/app-service-web-configuration-and-management-faq",
+            "redirect_url": "/azure/app-service/faq-configuration-and-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-configuration-and-management-faq.md",
+            "redirect_url": "/azure/app-service/faq-configuration-and-management",
             "redirect_document_id": false
         },
         {
@@ -4422,7 +4561,12 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-deployment-faq.md",
-            "redirect_url": "/azure/app-service/app-service-web-deployment-faq",
+            "redirect_url": "/azure/app-service/faq-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-deployment-faq.md",
+            "redirect_url": "/azure/app-service/faq-deployment",
             "redirect_document_id": false
         },
         {
@@ -4472,12 +4616,22 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-open-source-technologies-faq.md",
-            "redirect_url": "/azure/app-service/app-service-web-open-source-technologies-faq",
+            "redirect_url": "/azure/app-service/faq-open-source-technologies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-open-source-technologies-faq.md",
+            "redirect_url": "/azure/app-service/faq-open-source-technologies",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-overview.md",
-            "redirect_url": "/azure/app-service/app-service-web-overview",
+            "redirect_url": "/azure/app-service/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-overview.md",
+            "redirect_url": "/azure/app-service/overview",
             "redirect_document_id": false
         },
         {
@@ -4487,12 +4641,22 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-troubleshoot-http-502-http-503.md",
-            "redirect_url": "/azure/app-service/app-service-web-troubleshoot-http-502-http-503",
+            "redirect_url": "/azure/app-service/troubleshoot-http-502-http-503",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-troubleshoot-http-502-http-503.md",
+            "redirect_url": "/azure/app-service/troubleshoot-http-502-http-503",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-troubleshoot-performance-degradation.md",
-            "redirect_url": "/azure/app-service/app-service-web-troubleshoot-performance-degradation",
+            "redirect_url": "/azure/app-service/troubleshoot-performance-degradation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-troubleshoot-performance-degradation.md",
+            "redirect_url": "/azure/app-service/troubleshoot-performance-degradation",
             "redirect_document_id": false
         },
         {
@@ -4532,32 +4696,62 @@
         },
         {
             "source_path": "articles/app-service-web/azure-sdk-dotnet-release-notes-2-6.md",
-            "redirect_url": "/azure/app-service/azure-sdk-dotnet-release-notes-2-6",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/reference/dn479282(v=azure.100)#azure-sdk-release-dates-retirement-dates-and-support-information",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/azure-sdk-dotnet-release-notes-2-7.md",
-            "redirect_url": "/azure/app-service/azure-sdk-dotnet-release-notes-2-7",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/reference/dn479282(v=azure.100)#azure-sdk-release-dates-retirement-dates-and-support-information",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/azure-sdk-dotnet-release-notes-2-8.md",
-            "redirect_url": "/azure/app-service/azure-sdk-dotnet-release-notes-2-8",
+            "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/7416792b00ff9256c22d65e29f22bcbdb5ce41cf/articles/app-service/azure-sdk-dotnet-release-notes-2-8.md",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/azure-sdk-dotnet-release-notes-2-9.md",
-            "redirect_url": "/azure/app-service/azure-sdk-dotnet-release-notes-2-9",
+            "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/7416792b00ff9256c22d65e29f22bcbdb5ce41cf/articles/app-service/azure-sdk-dotnet-release-notes-2-9.md",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/azure-sdk-dotnet-release-notes-3-0.md",
-            "redirect_url": "/azure/app-service/azure-sdk-dotnet-release-notes-3-0",
+            "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/7416792b00ff9256c22d65e29f22bcbdb5ce41cf/articles/app-service/azure-sdk-dotnet-release-notes-3-0.md",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/azure-sdk-dotnet-release-notes.md",
-            "redirect_url": "/azure/app-service/azure-sdk-dotnet-release-notes-3-0",
+            "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/7416792b00ff9256c22d65e29f22bcbdb5ce41cf/articles/app-service/azure-sdk-dotnet-release-notes-3-0.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-release-notes.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/reference/dn479282(v=azure.100)#azure-sdk-release-dates-retirement-dates-and-support-information",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/azure-sdk-dotnet-release-notes-2-6.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/reference/dn479282(v=azure.100)#azure-sdk-release-dates-retirement-dates-and-support-information",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/azure-sdk-dotnet-release-notes-2-7.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/reference/dn479282(v=azure.100)#azure-sdk-release-dates-retirement-dates-and-support-information",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/azure-sdk-dotnet-release-notes-2-8.md",
+            "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/7416792b00ff9256c22d65e29f22bcbdb5ce41cf/articles/app-service/azure-sdk-dotnet-release-notes-2-8.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/azure-sdk-dotnet-release-notes-2-9.md",
+            "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/7416792b00ff9256c22d65e29f22bcbdb5ce41cf/articles/app-service/azure-sdk-dotnet-release-notes-2-9.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/azure-sdk-dotnet-release-notes-3-0.md",
+            "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/7416792b00ff9256c22d65e29f22bcbdb5ce41cf/articles/app-service/azure-sdk-dotnet-release-notes-3-0.md",
             "redirect_document_id": false
         },
         {
@@ -4582,7 +4776,12 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-available-operating-system-functionality.md",
-            "redirect_url": "/azure/app-service/web-sites-available-operating-system-functionality",
+            "redirect_url": "/azure/app-service/operating-system-functionality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/web-sites-available-operating-system-functionality.md",
+            "redirect_url": "/azure/app-service/operating-system-functionality",
             "redirect_document_id": false
         },
         {
@@ -4667,167 +4866,372 @@
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-app-service-documentdb.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-app-service-documentdb",
+            "redirect_url": "/azure/app-service/scripts/cli-connect-to-documentdb",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-app-service-redis.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-app-service-redis",
+            "redirect_url": "/azure/app-service/scripts/cli-connect-to-redis",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-app-service-sql.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-app-service-sql",
+            "redirect_url": "/azure/app-service/scripts/cli-connect-to-sql",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-app-service-storage.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-app-service-storage",
+            "redirect_url": "/azure/app-service/scripts/cli-connect-to-storage",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-configure-custom-domain.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-configure-custom-domain",
+            "redirect_url": "/azure/app-service/scripts/cli-configure-custom-domain",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-configure-ssl-certificate.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-configure-ssl-certificate",
+            "redirect_url": "/azure/app-service/scripts/cli-configure-ssl-certificate",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-continuous-deployment-github.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-continuous-deployment-github",
+            "redirect_url": "/azure/app-service/scripts/cli-continuous-deployment-github",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-continuous-deployment-vsts.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-continuous-deployment-vsts",
+            "redirect_url": "/azure/app-service/scripts/cli-continuous-deployment-vsts",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-deploy-github.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-deploy-github",
+            "redirect_url": "/azure/app-service/scripts/cli-deploy-github",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-deploy-local-git.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-deploy-local-git",
+            "redirect_url": "/azure/app-service/scripts/cli-deploy-local-git",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-deploy-staging-environment.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-deploy-staging-environment",
+            "redirect_url": "/azure/app-service/scripts/cli-deploy-staging-environment",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-linux-acr-aspnetcore.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-linux-acr-aspnetcore",
+            "redirect_url": "/azure/app-service/scripts/cli-linux-acr-aspnetcore",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-linux-docker-aspnetcore.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-linux-docker-aspnetcore",
+            "redirect_url": "/azure/app-service/scripts/cli-linux-docker-aspnetcore",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-monitor.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-monitor",
+            "redirect_url": "/azure/app-service/scripts/cli-monitor",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-scale-high-availability.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-scale-high-availability",
+            "redirect_url": "/azure/app-service/scripts/cli-scale-high-availability",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-scale-manual.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-cli-scale-manual",
+            "redirect_url": "/azure/app-service/scripts/cli-scale-manual",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-powershell-configure-custom-domain.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-powershell-configure-custom-domain",
+            "redirect_url": "/azure/app-service/scripts/powershell-configure-custom-domain",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-powershell-configure-ssl-certificate.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-powershell-configure-ssl-certificate",
+            "redirect_url": "/azure/app-service/scripts/powershell-configure-ssl-certificate",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-powershell-connect-to-sql.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-powershell-connect-to-sql",
+            "redirect_url": "/azure/app-service/scripts/powershell-connect-to-sql",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-powershell-connect-to-storage.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-powershell-connect-to-storage",
+            "redirect_url": "/azure/app-service/scripts/powershell-connect-to-storage",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-powershell-continuous-deployment-github.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-powershell-continuous-deployment-github",
+            "redirect_url": "/azure/app-service/scripts/powershell-continuous-deployment-github",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-powershell-deploy-ftp.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-powershell-deploy-ftp",
+            "redirect_url": "/azure/app-service/scripts/powershell-deploy-ftp",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-powershell-deploy-github.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-powershell-deploy-github",
+            "redirect_url": "/azure/app-service/scripts/powershell-deploy-github",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-powershell-deploy-local-git.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-powershell-deploy-local-git",
+            "redirect_url": "/azure/app-service/scripts/powershell-deploy-local-git",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-powershell-deploy-staging-environment.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-powershell-deploy-staging-environment",
+            "redirect_url": "/azure/app-service/scripts/powershell-deploy-staging-environment",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-powershell-monitor.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-powershell-monitor",
+            "redirect_url": "/azure/app-service/scripts/powershell-monitor",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-powershell-scale-high-availability.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-powershell-scale-high-availability",
+            "redirect_url": "/azure/app-service/scripts/powershell-scale-high-availability",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-powershell-scale-manual.md",
-            "redirect_url": "/azure/app-service/scripts/app-service-powershell-scale-manual",
+            "redirect_url": "/azure/app-service/scripts/powershell-scale-manual",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-powershell-backup-delete.md",
+            "redirect_url": "/azure/app-service/scripts/powershell-backup-delete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-powershell-backup-onetime.md",
+            "redirect_url": "/azure/app-service/scripts/powershell-backup-onetime",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-powershell-backup-restore-diff-sub.md",
+            "redirect_url": "/azure/app-service/scripts/powershell-backup-restore-diff-sub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-powershell-backup-scheduled.md",
+            "redirect_url": "/azure/app-service/scripts/powershell-backup-scheduled",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-app-service-documentdb.md",
+            "redirect_url": "/azure/app-service/scripts/cli-connect-to-documentdb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-app-service-redis.md",
+            "redirect_url": "/azure/app-service/scripts/cli-connect-to-redis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-app-service-sql.md",
+            "redirect_url": "/azure/app-service/scripts/cli-connect-to-sql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-app-service-storage.md",
+            "redirect_url": "/azure/app-service/scripts/cli-connect-to-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-configure-custom-domain.md",
+            "redirect_url": "/azure/app-service/scripts/cli-configure-custom-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-configure-ssl-certificate.md",
+            "redirect_url": "/azure/app-service/scripts/cli-configure-ssl-certificate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-continuous-deployment-github.md",
+            "redirect_url": "/azure/app-service/scripts/cli-continuous-deployment-github",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-continuous-deployment-vsts.md",
+            "redirect_url": "/azure/app-service/scripts/cli-continuous-deployment-vsts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-deploy-github.md",
+            "redirect_url": "/azure/app-service/scripts/cli-deploy-github",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-deploy-local-git.md",
+            "redirect_url": "/azure/app-service/scripts/cli-deploy-local-git",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-deploy-staging-environment.md",
+            "redirect_url": "/azure/app-service/scripts/cli-deploy-staging-environment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-linux-acr-aspnetcore.md",
+            "redirect_url": "/azure/app-service/scripts/cli-linux-acr-aspnetcore",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-linux-docker-aspnetcore.md",
+            "redirect_url": "/azure/app-service/scripts/cli-linux-docker-aspnetcore",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-monitor.md",
+            "redirect_url": "/azure/app-service/scripts/cli-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-scale-high-availability.md",
+            "redirect_url": "/azure/app-service/scripts/cli-scale-high-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-scale-manual.md",
+            "redirect_url": "/azure/app-service/scripts/cli-scale-manual",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-backup-onetime.md",
+            "redirect_url": "/azure/app-service/scripts/cli-backup-onetime",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-backup-restore.md",
+            "redirect_url": "/azure/app-service/scripts/cli-backup-restore",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-backup-scheduled.md",
+            "redirect_url": "/azure/app-service/scripts/cli-backup-scheduled",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-cli-deploy-ftp.md",
+            "redirect_url": "/azure/app-service/scripts/cli-deploy-ftp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-powershell-configure-custom-domain.md",
+            "redirect_url": "/azure/app-service/scripts/powershell-configure-custom-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-powershell-configure-ssl-certificate.md",
+            "redirect_url": "/azure/app-service/scripts/powershell-configure-ssl-certificate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-powershell-connect-to-sql.md",
+            "redirect_url": "/azure/app-service/scripts/powershell-connect-to-sql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-powershell-connect-to-storage.md",
+            "redirect_url": "/azure/app-service/scripts/powershell-connect-to-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-powershell-continuous-deployment-github.md",
+            "redirect_url": "/azure/app-service/scripts/powershell-continuous-deployment-github",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-powershell-deploy-ftp.md",
+            "redirect_url": "/azure/app-service/scripts/powershell-deploy-ftp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-powershell-deploy-github.md",
+            "redirect_url": "/azure/app-service/scripts/powershell-deploy-github",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-powershell-deploy-local-git.md",
+            "redirect_url": "/azure/app-service/scripts/powershell-deploy-local-git",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-powershell-deploy-staging-environment.md",
+            "redirect_url": "/azure/app-service/scripts/powershell-deploy-staging-environment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-powershell-monitor.md",
+            "redirect_url": "/azure/app-service/scripts/powershell-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-powershell-scale-high-availability.md",
+            "redirect_url": "/azure/app-service/scripts/powershell-scale-high-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/scripts/app-service-powershell-scale-manual.md",
+            "redirect_url": "/azure/app-service/scripts/powershell-scale-manual",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md",
-            "redirect_url": "/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication",
+            "redirect_url": "/azure/app-service/configure-authentication-provider-aad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-mobile-how-to-configure-active-directory-authentication.md",
+            "redirect_url": "/azure/app-service/configure-authentication-provider-aad",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md",
-            "redirect_url": "/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication",
+            "redirect_url": "/azure/app-service/configure-authentication-provider-facebook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-mobile-how-to-configure-facebook-authentication.md",
+            "redirect_url": "/azure/app-service/configure-authentication-provider-facebook",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md",
-            "redirect_url": "/azure/app-service/app-service-mobile-how-to-configure-google-authentication",
+            "redirect_url": "/azure/app-service/configure-authentication-provider-google",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-mobile-how-to-configure-google-authentication.md",
+            "redirect_url": "/azure/app-service/configure-authentication-provider-google",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md",
-            "redirect_url": "/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication",
+            "redirect_url": "/azure/app-service/configure-authentication-provider-microsoft",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-mobile-how-to-configure-microsoft-authentication.md",
+            "redirect_url": "/azure/app-service/configure-authentication-provider-microsoft",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md",
-            "redirect_url": "/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication",
+            "redirect_url": "/azure/app-service/configure-authentication-provider-twitter",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-mobile-how-to-configure-twitter-authentication.md",
+            "redirect_url": "/azure/app-service/configure-authentication-provider-twitter",
             "redirect_document_id": false
         },
         {
@@ -4902,17 +5306,17 @@
         },
         {
             "source_path": "articles/app-service/app-service-deployment-readme.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-local-git",
+            "redirect_url": "/azure/app-service/deploy-local-git",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service/app-service-how-works-readme.md",
-            "redirect_url": "/azure/app-service/app-service-web-overview",
+            "redirect_url": "/azure/app-service/overview",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service/app-service-powershell-backup.md",
-            "redirect_url": "/azure/app-service/web-sites-backup",
+            "redirect_url": "/azure/app-service/scripts/powershell-backup-onetime",
             "redirect_document_id": false
         },
         {
@@ -4937,7 +5341,7 @@
         },
         {
             "source_path": "articles/app-service/app-service-value-prop-what-is.md",
-            "redirect_url": "/azure/app-service/app-service-web-overview",
+            "redirect_url": "/azure/app-service/overview",
             "redirect_document_id": false
         },
         {
@@ -4967,7 +5371,7 @@
         },
         {
             "source_path": "articles/app-service-api/app-service-api-apps-why-best-platform.md",
-            "redirect_url": "/azure/app-service/app-service-web-overview",
+            "redirect_url": "/azure/app-service/overview",
             "redirect_document_id": false
         },
         {
@@ -5027,12 +5431,17 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-agile-software-development.md",
-            "redirect_url": "/azure/app-service/app-service-continuous-deployment",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-command-line.md",
-            "redirect_url": "/azure/app-service/app-service-cli-samples",
+            "redirect_url": "/azure/app-service/samples-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-rm-template-samples.md",
+            "redirect_url": "/azure/app-service/samples-resource-manager-templates",
             "redirect_document_id": false
         },
         {
@@ -5072,7 +5481,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-test-in-production-controlled-test-flight.md",
-            "redirect_url": "/azure/app-service/app-service-continuous-deployment",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
@@ -5122,7 +5531,7 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-deploy.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-local-git",
+            "redirect_url": "/azure/app-service/deploy-local-git",
             "redirect_document_id": false
         },
         {
@@ -10363,7 +10772,7 @@
         {
             "source_path": "articles/cosmos-db/documentdb-sql-query-metrics.md",
             "redirect_url": "/azure/cosmos-db/sql-api-sql-query-metrics",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/cosmos-db/sql-api-introduction.md",
@@ -10378,7 +10787,7 @@
         {
             "source_path": "articles/cosmos-db/documentdb-sql-query-reference.md",
             "redirect_url": "/azure/cosmos-db/sql-api-sql-query-reference",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/cosmos-db/documentdb-sql-query.md",
@@ -13570,6 +13979,16 @@
             "source_path": "articles/cognitive-services/Translator/languages.md",
             "redirect_url": "/azure/cognitive-services/Translator/language-support",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/translator-speech/index.md",
+            "redirect_url": "/azure/cognitive-services/translator-speech/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/translator-speech/translator-speech-how-to-signup.md",
+            "redirect_url": "/azure/cognitive-services/translator-speech/overview",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-solution-build-system.md",
@@ -23182,8 +23601,53 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/security-center/security-center-ata-integration.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-compliance-rest-api.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/securitycenter/compliances",
+            "redirect_document_id": false
+        },
+         {
+            "source_path": "articles/security-center/security-center-review-policy-compliance.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/securitycenter/tasks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-export-data-to-siem.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-aadip-integration.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-connect-application-gateway.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/quick-security-solutions.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-partner-solutions.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-azure-policy.md",
+            "redirect_url": "/azure/security-center/tutorial-security-policy",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/security-center/security-center-policies.md",
-            "redirect_url": "/azure/security-center/security-center-azure-policy",
+            "redirect_url": "/azure/security-center/tutorial-security-policy",
             "redirect_document_id": false
         },
         {
@@ -31104,6 +31568,11 @@
         {
             "source_path": "articles/azure-stack/user/azure-stack-tutorial-sql.md",
             "redirect_url": "/azure/azure-stack/azure-stack-tutorial-sql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-solution-machine-learning.md",
+            "redirect_url": "/azure/azure-stack/user/",
             "redirect_document_id": false
         },
         {
