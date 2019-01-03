@@ -42,7 +42,7 @@ The following list shows ways you can check the process server:
    2. Select the **Performance** tab, and then select the **Open Resource Monitor** link. 
    3. On the **Resource Monitor** page, select the **Network** tab. Under **Processes with Network Activity**, check whether **cbengine.exe** is actively sending a large volume of data.
 
-   ![Screenshot that shows the Processes with Network Activity volumes](./media/vmware-azure-troubleshoot-replication/cbengine.png)
+        ![Screenshot that shows the volumes under Processes with Network Activity](./media/vmware-azure-troubleshoot-replication/cbengine.png)
 
    If cbengine.exe isn't sending a large volume of data, complete the steps in the following sections.
 
@@ -80,7 +80,7 @@ The following list shows ways you can check the process server:
 
 *  **Check whether a URL-based firewall on the process server blocks access**.
 
-   If you use a URL-based firewall rule on the server, add the following URLs to the firewall configuration:
+   If you use a URL-based firewall rule on the server, add the URLs listed in the following table to the firewall configuration:
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
