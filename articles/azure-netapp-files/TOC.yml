@@ -36,7 +36,9 @@
     href: azure-netapp-files-manage-snapshots.md
   - name: Resize a capacity pool or a volume
     href: azure-netapp-files-resize-capacity-pools-or-volumes.md
-# - name: Reference
-#  items:
-#  - name: REST
-#    href: https://docs.microsoft.com/rest/api/ 
+- name: Reference
+  items:
+  - name: Resource limits for Azure NetApp Files
+    href: azure-netapp-files-resource-limits.md
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/netapp/ 
