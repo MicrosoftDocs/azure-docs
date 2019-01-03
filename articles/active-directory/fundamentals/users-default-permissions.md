@@ -20,7 +20,7 @@ In Azure Active Directory (Azure AD), all users are granted a set of default per
 memberships](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal), and their ownership of individual objects. This article describes those default permissions and contains a comparison of the member and guest user defaults.
 
 ## Member and guest users
-The set of default permissions received depends on if the user is a native member of the tenant (member user) or if the user is a B2B collaboration guest (guest user). For more information about B2B collaboration, see [What is Azure AD B2B collaboration?](../b2b/what-is-b2b.md) for more information about guest users). 
+The set of default permissions received depends on if the user is a native member of the tenant (member user) or if the user is a B2B collaboration guest (guest user). For more information about B2B collaboration, see [What is Azure AD B2B collaboration?](../b2b/what-is-b2b.md) for more information about guest users. 
 * Member users can register applications, manage their own profile photo and mobile phone number, change their own password, and invite B2B guests. In addition, users can read all directory information (with a few exceptions). 
 * Azure AD B2B guest users have restricted directory permissions. For example, guest users cannot browse information from the tenant beyond their own profile information. However, a guest user can retrieve information about another user by providing the User Principal Name or objectId. A guest cannot view any information about other tenant objects such as groups and applications.
 
