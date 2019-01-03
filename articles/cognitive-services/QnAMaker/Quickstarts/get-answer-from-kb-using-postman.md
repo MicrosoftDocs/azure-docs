@@ -37,10 +37,8 @@ The yellow numbers in the following image indicate which name/value pairs to use
 
 To generate an answer with Postman, complete the following steps:
 
-1. Open Postman. 
-1. Select the building block to create a **Basic Request**.
-1. Set the **Request name** as `Generate QnA Maker answer`and the **collection** as `Generate QnA Maker answers`. If you don't want to save to a collection, select the **Cancel** button.
-1. In the resulting workspace, select the HTTP method of **POST**.
+1. Open Postman. If you're asked to choose a building block, select the **Basic Request** building block. Set the **Request name** as `Generate QnA Maker answer`and the **collection** as `Generate QnA Maker answers`. If you don't want to save to a collection, select the **Cancel** button.
+1. In the workspace, select the HTTP method of **POST**.
 
     [![In Postman, set POST Method](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png)](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png#lightbox)
 
@@ -51,6 +49,7 @@ To generate an answer with Postman, complete the following steps:
     [![In Postman, set the complete URL](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
 
 1. Select the **Headers** tab under the URL, then select **Bulk Edit**. 
+
 1. Copy the headers (#3 and #4 from image) into the text area.
 
     [![In Postman, set the headers](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png#lightbox)
