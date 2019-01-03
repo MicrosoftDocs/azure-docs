@@ -8,6 +8,7 @@ ms.subservice: cosmosdb-table
 ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 08/08/2018
+ms.reviewer: sngun
 ---
 
 # Azure Cosmos DB: Create a Table API account using PowerShell

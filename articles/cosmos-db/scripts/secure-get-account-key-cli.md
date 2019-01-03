@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/26/2018
+ms.reviewer: sngun
 ---
 
 # Get account keys for Azure Cosmos DB using the Azure CLI

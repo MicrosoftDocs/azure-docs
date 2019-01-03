@@ -8,6 +8,7 @@ ms.subservice: cosmosdb-sql
 ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 05/10/2017
+ms.reviewer: sngun
 ---
 
 # Azure Cosmos DB: Create a firewall using PowerShell

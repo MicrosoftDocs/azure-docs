@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 10/26/2018
+ms.reviewer: sngun
 ---
 
 # Create an Azure Cosmos DB account with Azure Cosmos DB's API for MongoDB using Azure CLI

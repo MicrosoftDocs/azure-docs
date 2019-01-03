@@ -7,6 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
+ms.reviewer: sngun
 ---
 
 # Scale Azure Cosmos DB container throughput using the Azure CLI

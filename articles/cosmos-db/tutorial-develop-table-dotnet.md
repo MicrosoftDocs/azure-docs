@@ -2,14 +2,13 @@
 title: Develop with the Table API using .NET SDK
 titleSuffix: Azure Cosmos DB
 description: Learn how to develop with Table API in Azure Cosmos DB by using .NET SDK
-author: SnehaGunda
-
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.author: sngun
+author: wmengmsft
+ms.author: wmeng
 ms.custom: seodec18
 ---
 

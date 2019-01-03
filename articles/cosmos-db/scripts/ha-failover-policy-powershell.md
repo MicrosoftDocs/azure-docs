@@ -8,6 +8,7 @@ ms.devlang: PowerShell
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/10/2017
+ms.reviewer: sngun
 ---
 
 # Create an Azure Cosmos DB failover policy for high availability using PowerShell

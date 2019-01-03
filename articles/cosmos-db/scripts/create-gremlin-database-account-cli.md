@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 10/26/2018
+ms.reviewer: sngun
 ---
 
 # Azure Cosmos DB: Create a Gremlin API account using Azure CLI

@@ -8,6 +8,7 @@ ms.author: sngun
 ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 05/10/2017
+ms.reviewer: sngun
 ---
 
 # Replicate an Azure Cosmos DB database account in multiple regions and configure failover priorities using PowerShell

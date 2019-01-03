@@ -4,11 +4,12 @@ description: Azure PowerShell Script Sample - Get Azure Cosmos DB connection str
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.subservice: cosmosdb-sql
 ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 05/10/2017
+ms.reviewer: sngun
 ---
 
 # Get an Azure Cosmos DB connection string for MongoDB apps using PowerShell
