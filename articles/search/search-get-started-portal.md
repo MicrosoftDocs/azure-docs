@@ -111,9 +111,9 @@ Click **Submit** to create and simultaneously run the indexer.
 ## Monitor progress
 
 The wizard should take you to the Indexers list where you can monitor progress. For self-navigation, go to the Overview page and click 
-**Indexers** tile to open the indexers list. You should see the newly created indexer in the list, with status indicating "in progress" or success, along with the number of documents indexed.
+**Indexers**.
 
-It can take a few minutes for the portal to update the page.
+It can take a few minutes for the portal to update the page, but you should see the newly created indexer in the list, with status indicating "in progress" or success, along with the number of documents indexed.
 
    ![Indexer progress message](media/search-get-started-portal/indexers-inprogress2.png)
 
@@ -163,7 +163,7 @@ You can enter terms and phrases, similar to what you might do in a Bing or Googl
 
 * **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. This is intentional; visibility into the entire document is important for development purposes, especially during testing. For a better user experience, you will need to write code that [handles search results](search-pagination-page-layout.md) to bring out important elements.
 
-* Documents are composed of all fields marked as "retrievable" in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** tile.
+* Documents are composed of all fields marked as "retrievable" in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** list.
 
 #### Example (parameterized query): `search=seattle&$count=true&$top=100`
 
@@ -251,7 +251,7 @@ You learned how to create a search index using the **Import data** wizard. You l
 
 Using the **Search explorer** in the Azure portal, you learned some basic query syntax through hands-on examples that demonstrated key capabilities such as filters, hit highlighting, fuzzy search, and geo-search.
 
-You also learned how to use the tiles in the portal dashboard for the search index, indexer, and  data sources. Given any new data source in the future, you can use the portal to quickly check its definitions or field collections with minimal effort.
+You also learned how to find indexes, indexers, and data sources in the portal. Given any new data source in the future, you can use the portal to quickly check its definitions or field collections with minimal effort.
 
 ## Clean up
 
@@ -261,6 +261,6 @@ If this tutorial was your first use of the Azure Search service, delete the reso
 
 You can explore more of Azure Search using the programmatic tools:
 
-* [Creating an index using .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [Creating an index using REST APIs](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* Using [web testing tool such as Postman or Fiddler for calling the Azure Search REST APIs](search-fiddler.md)
+* [Create an index using .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+* [Create an index using REST APIs](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
+* [Create an index using Postman or Fiddler and the Azure Search REST APIs](search-fiddler.md)

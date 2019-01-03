@@ -1,26 +1,26 @@
 ---
-title: 'Quickstart:Cognitive search pipeline in Azure portal - Azure Search'
+title: 'Quickstart: Cognitive search pipeline in Azure portal - Azure Search'
 description: Data extraction, natural language and image processing skills example in Azure portal using sample data. 
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/01/2018
+ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
 # Quickstart: Create a cognitive search pipeline using skills and sample data
 
-Cognitive search (preview) adds data extraction, natural language processing (NLP), and image processing skills to an Azure Search indexing pipeline, making unsearchable or unstructured content more searchable. 
-Information created by a skill, such as entity recognition or image analysis, gets added to an index in Azure Search.
+Cognitive search (preview) adds data extraction, natural language processing (NLP), and image processing skills to an Azure Search indexing pipeline, making unsearchable or unstructured content more searchable. Information created by a skill, such as entity recognition or image analysis, gets added to an index in Azure Search.
 
 In this quickstart, try the enrichment pipeline in the [Azure portal](https://portal.azure.com) before writing a single line of code:
 
-* Begin with sample data in Azure Blob storage
-* Configure the [Import data wizard](search-import-data-portal.md) for indexing and enrichment 
-* Run the wizard (an entity skill detects people, location, and organizations)
-* Use [Search explorer](search-explorer.md) to query the enriched data.
+> [!div class="checklist"]
+> * Begin with sample data in Azure Blob storage
+> * Configure the [Import data wizard](search-import-data-portal.md) for indexing and enrichment 
+> * Run the wizard (an entity skill detects people, location, and organizations)
+> * Use [Search explorer](search-explorer.md) to query the enriched data
 
 ## <a name="supported-regions"></a> Supported Regions
 
@@ -67,7 +67,7 @@ First, sign up for the Azure Search service.
 
   ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Create Azure Search service in the portal")
 
-1. For Resource group, create a resource group to contain all the resources you create in this quickstart. This makes it easier to clean up the resources after you have finished the quickstart.
+1. For Resource group, create a new resource group to contain all the resources you create in this quickstart. This makes it easier to clean up the resources after you have finished the quickstart.
 
 1. For Location, choose one of the [supported regions](#supported-regions) for Cognitive Search.
 
@@ -75,8 +75,8 @@ First, sign up for the Azure Search service.
 
   A Free service is limited to 3 indexes, 16 MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
 
-  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Service definition page in the portal")
   ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Service definition page in the portal")
+
   > [!NOTE]
   > Cognitive search is in public preview. Skillset execution is currently available in all tiers, including free. You will be able to perform a limited number of enrichments without associating a paid Cognitive Services resource. Learn [more](cognitive-search-attach-cognitive-services.md).
 
@@ -102,14 +102,13 @@ Go back to the Azure Search service dashboard page and click **Import data** on 
 
 ### Step 1: Create a data source
 
-In **Connect to your data** > **Azure Blob storage**, select the account and container you created. Give the data source a name, and use default values for the rest. 
+In **Connect to your data**, choose **Azure Blob storage**, select the account and container you created. Give the data source a name, and use default values for the rest. 
 
-   ![Azure blob configuration](./media/cognitive-search-quickstart-blob/blob-datasource2.png)
+  ![Azure blob configuration](./media/cognitive-search-quickstart-blob/blob-datasource.png)
 
+Continue to the next page.
 
-Click **OK** to create the data source.
-
-One advantage of using the **Import data** wizard is that it can also create your index. As the data source is created, the wizard simultaneously constructs an index schema. It can take a few seconds to create the index.
+  ![Next page button for cognitive search](media/search-get-started-portal/next-button-add-cog-search.png)
 
 ### Step 2: Add cognitive skills
 
@@ -117,13 +116,16 @@ Next, add enrichment steps to the indexing pipeline. The portal gives you predef
 
 Sometimes you would like to extract the textual representation from files that are composed of mostly scanned images, like a PDF that gets generated by a scanner. Azure Search can automatically extract content from embedded images in the document. To do that, select the **Enable OCR and merge all text into merged_content field** option. This will automatically create a `merged_content` field that contains both the text extracted from the document as well as the textual representation of images embedded in the document. When you select this option the `Source data field` will be set to `merged_content`.
 
-In **Add cognitive skills**, choose skills that perform natural language processing. For this quickstart, choose entity recognition for people, organizations, and locations.
-
-Click **OK** to accept the definition.
+1. Choose skills that perform natural language processing. For this quickstart, choose entity recognition for people, organizations, and locations.
    
   ![Skillset definition](./media/cognitive-search-quickstart-blob/skillset.png)
 
-Natural language processing skills operate over text content in the sample data set. Since we didn't select any image processing options, the JPEG files found in the sample data set won't be processed in this quickstart. 
+2. Continue to the next page.
+
+  ![Next page create indexer](media/search-get-started-portal/next-button-create-indexer.png)
+
+> [!NOTE]
+> Natural language processing skills operate over text content in the sample data set. Since we didn't select any image processing options, the JPEG files found in the sample data set won't be processed in this quickstart. 
 
 ### Step 3: Configure the index
 
@@ -158,7 +160,7 @@ In the **Indexer** page, give the indexer a name and use the default "run once" 
 
   ![Indexer definition](./media/cognitive-search-quickstart-blob/indexer-def.png)
 
-Click **OK** to import, enrich, and index the data.
+Click **Submit** to create and simultaneously run the indexer.
 
   ![Azure search notification](./media/cognitive-search-quickstart-blob/indexer-notification.png)
 
