@@ -232,13 +232,17 @@ In addition to automatic traffic routing, App Service can route requests to a sp
 
 To let users opt out of your beta app, for example, you can put this link in your web page:
 
-    <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
+```HTML
+<a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
+```
 
 The string `x-ms-routing-name=self` specifies the production slot. Once the client browser accesses the link, not only is it redirected to the production slot, but every subsequent request has the `x-ms-routing-name=self` cookie that pins the session to the production slot.
 
 To let users opt in to your beta app, set the same query parameter to the name of the non-production slot, for example:
 
-        <webappname>.azurewebsites.net/?x-ms-routing-name=staging
+```
+<webappname>.azurewebsites.net/?x-ms-routing-name=staging
+```
 
 <a name="Delete"></a>
 
@@ -256,7 +260,7 @@ Navigate to your app's resource page. Select **Deployment slots (Preview)** > *\
 
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing deployment slots in Azure App Service.
 
-* For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](/powershell/azure/overview).  
+For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 - - -
 ### Create web app
