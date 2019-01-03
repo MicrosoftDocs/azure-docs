@@ -9,12 +9,6 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-# Azure Managed Disks Overview
-
-An Azure Managed Disk is a VHD (virtual hard disk). You can think of it like a physical disk like disks in an on-premises server but, virtualized.
-
-You can select the type and size of the managed disks that you require, Azure then creates and manages the disk for you. The available types are [Ultra SSD (Preview)](disk-types.md#UltraSSD) , [Premium SSD](disk-types.md#Premium-SSD), [Standard SSD](disk-types.md#standard-ssd), and [Standard HDD](disk-types.md#standard-hdd).
-
 ## Benefits of managed disks
 
 Let's take a look at some of the benefits you gain by using managed disks. The following Channel 9 video is a good introduction: [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
