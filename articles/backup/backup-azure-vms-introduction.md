@@ -132,7 +132,7 @@ A restore operation consists of two main tasks: copying data back from the vault
 
 We suggest following these practices while configuring VM backups:
 
-- Upgrade vaults to Instant RP. Review these [benefits]((backup-upgrade-to-vm-backup-stack-v2.md), [considerations](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), and then proceed to upgrade by following these [instructions](backup-upgrade-to-vm-backup-stack-v2#upgrade).  
+- Upgrade vaults to Instant RP. Review these [benefits]((backup-upgrade-to-vm-backup-stack-v2.md), [considerations](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), and then proceed to upgrade by following these [instructions](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
 - The limit on number of disks per storage account is relative to how heavy the disks are being accessed by applications running on IaaS VM. Verify if multiple disks are hosted on a single storage account. As a general practice, if 5 to 10 disks or more are present on single storage account, balance the load by moving some disks to separate storage accounts.
 - Consider staggering backup times of the VMs by an hour to ensure resources are optimally used. Increase the staggering time if required.
 - Daily churn greater than 200 GB (~2-5 % of original disk size) can slow the backup performance or will fail with *CopyingVHDsFromBackUpVaultTakingLongTime* error.  
