@@ -22,7 +22,7 @@ This procedure requires several tools that must be installed locally.
 1. Install [Git](https://git-scm.com/downloads) for your operating system so you can clone the sample used in this procedure. 
 1. Install [Azure cli](../../../azure/install-azure-cli?view=azure-cli-latest.md). 
 1. Install [Docker engine](https://www.docker.com/products/docker-engine) and validate that the docker cli works in a terminal.
-1. Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/). 
+1. Install [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe). 
 1. Have a valid Azure subscription. The trial and pay-as-you-go subscriptions will both work. 
 
 ## Running the sample 
@@ -173,21 +173,81 @@ In order to deploy the container to the Azure Kubernetes service, the container 
 
     The second image is in your Azure Container Registry. 
 
+
+
+## Get Container Registry credentials
+
     registry: diberrycontainerregistry001
     registry resourcegroup:diberry-rg-container
     registry loginserver = diberrycontainerregistry001.azurecr.io
     registry username = diberrycontainerregistry001
     registry password = ntRFwOFd9AOmcEUvpOdTEMPwN6D/hTAS
 
+
+The following steps are needed to get information needed to connect your Container Registry with the Kubernetes service you will create later in this procedure.
+
+1. Create service principal.
+
+    ```azurecli-interactive
+    az ad sp create-for-rbac --skip-assignment
+    ```
+
+    Save the appId value for step 3 in this section.
+
+    ```json
+    {
+      "appId": "55962827-4bd0-41c3-aa91-d8cc383a1025",
+      "displayName": "azure-cli-2018-12-31-18-39-32",
+      "name": "http://azure-cli-2018-12-31-18-39-32",
+      "password": "ba839221-f513-4e86-b952-5a8fcdb9610c",
+      "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+    }
+    ```
+
+1. Get Container Registry id.
+
+    ```azurecli-interactive
+    az acr show --resource-group cogserv-container-rg --name pattiowenscogservcontainerregistry --query "id" --output tsv
+    ```
+
+    Save the full id value for step 3 in this section. 
+
+1. To grant the correct access for the AKS cluster to use images stored in your Container Registry, create a role assignment. Replace <appId> and <acrId> with the values gathered in the previous two steps.
+
+    ```azurecli-interactive
+    az role assignment create --assignee 55962827-4bd0-41c3-aa91-d8cc383a1025 --scope /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/diberry-rg-container/providers/Microsoft.ContainerRegistry/registries/diberrycontainerregistry001 --role Reader
+    ```
+
+    The result includes the full JSON of the role assignment.
+
+    ```JSON
+    {
+      "canDelegate": null,
+      "id": "/subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/diberry-rg-container/providers/Microsoft.ContainerRegistry/registries/diberrycontainerregistry001/providers/Microsoft.Authorization/roleAssignments/d85b34d4-b46e-4239-8eab-a10d7bdb95b0",
+      "name": "d85b34d4-b46e-4239-8eab-a10d7bdb95b0",
+      "principalId": "b183584b-cec4-4307-8dbc-3fa833b3e394",
+      "resourceGroup": "diberry-rg-container",
+      "roleDefinitionId": "/subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+      "scope": "/subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/diberry-rg-container/providers/Microsoft.ContainerRegistry/registries/diberrycontainerregistry001",
+      "type": "Microsoft.Authorization/roleAssignments"
+    }
+    ```
+
 ## Create Azure Kubernetes service
-
-1. Get credentials
-
-    az aks get-credentials
 
 1. Create service
 
-    az aks create
+    ```azurecli-interactive
+    az aks create --resource-group diberry-rg-container --name diberryAKSCluster --node-count 3  --service-principal 55962827-4bd0-41c3-aa91-d8cc383a1025  --client-secret ba839221-f513-4e86-b952-5a8fcdb9610c  --generate-ssh-keys
+    ```
+
+    SSH key files 'C:\Users\diberry\.ssh\id_rsa' and 'C:\Users\diberry\.ssh\id_rsa.pub' have been generated under ~/.ssh to allow SSH access to the VM. If using machines without permanent storage like Azure Cloud Shell without an attached file share, back up your keys to a safe location
+
+1. Get credentials
+
+    ```azurecli-interactive
+    az aks get-credentials --resource-group diberry-rg-container --name diberryAKSCluster
+    ```
 
 1. List service
 
