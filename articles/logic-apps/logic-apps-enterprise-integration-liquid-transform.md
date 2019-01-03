@@ -137,7 +137,7 @@ Liquid is not limited to only JSON transformations. Here are other available tra
    ``` json
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
-   Here are sample input and output:
+   Here are sample inputs and outputs:
   
    ![Example output JSON to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
 
@@ -150,7 +150,7 @@ Liquid is not limited to only JSON transformations. Here are other available tra
         {{item}}
     {% endJSONArrayFor -%}]
    ```
-   Here are sample input and output:
+   Here are sample inputs and outputs:
 
    ![Example output XML to JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
 
@@ -162,7 +162,7 @@ Liquid is not limited to only JSON transformations. Here are other available tra
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
 
-   Here are sample input and output:
+   Here are sample inputs and outputs:
 
    ![Example output XML to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
