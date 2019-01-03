@@ -46,7 +46,7 @@ Open the Alert rules blade, and then use the add button.
 * Are you using an organizational account? You can set alerts if you have owner or contributor access to this application resource. Take a look at the Access Control blade. [Learn about access control][roles].
 
 > [!NOTE]
-> In the alerts blade, you see that there's already an alert set up: [Proactive Diagnostics](../../application-insights/app-insights-proactive-failure-diagnostics.md). The automatic alert monitors one particular metric, request failure rate. Unless you decide to disable the proactive alert, you don't need to set your own alert on request failure rate. 
+> In the alerts blade, you see that there's already an alert set up: [Proactive Diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md). The automatic alert monitors one particular metric, request failure rate. Unless you decide to disable the proactive alert, you don't need to set your own alert on request failure rate. 
 > 
 > 
 
@@ -84,7 +84,7 @@ Popular alerts include:
 * **Server response time** for the server side of web applications. As well as setting up alerts, keep an eye on this metric to see if it varies disproportionately with high request rates: variation might indicate that your app is running out of resources. 
 * **Server exceptions** - to see them, you have to do some [additional setup](../../azure-monitor/app/asp-net-exceptions.md).
 
-Don't forget that [proactive failure rate diagnostics](../../application-insights/app-insights-proactive-failure-diagnostics.md) automatically monitor the rate at which your app responds to requests with failure codes. 
+Don't forget that [proactive failure rate diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md) automatically monitor the rate at which your app responds to requests with failure codes. 
 
 ## Automation
 * [Use PowerShell to automate setting up alerts](../../azure-monitor/app/powershell-alerts.md)

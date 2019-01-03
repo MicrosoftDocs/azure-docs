@@ -16,9 +16,9 @@ ms.author: mbullwin
 ---
 # Smart Detection - Performance Anomalies
 
-[Application Insights](app-insights-overview.md) automatically analyzes the performance of your web application, and can warn you about potential problems. You might be reading this because you received one of our smart detection notifications.
+[Application Insights](../../application-insights/app-insights-overview.md) automatically analyzes the performance of your web application, and can warn you about potential problems. You might be reading this because you received one of our smart detection notifications.
 
-This feature requires no special setup, other than configuring your app for Application Insights (on [ASP.NET](../azure-monitor/app/asp-net.md), [Java](../azure-monitor/app/java-get-started.md), or [Node.js](../azure-monitor/app/nodejs.md), and in [web page code](../azure-monitor/app/javascript.md)). It is active when your app generates enough telemetry.
+This feature requires no special setup, other than configuring your app for Application Insights (on [ASP.NET](../../azure-monitor/app/asp-net.md), [Java](../../azure-monitor/app/java-get-started.md), or [Node.js](../../azure-monitor/app/nodejs.md), and in [web page code](../../azure-monitor/app/javascript.md)). It is active when your app generates enough telemetry.
 
 ## When would I get a smart detection notification?
 
@@ -40,21 +40,21 @@ No, a notification doesn't mean that your app definitely has a problem. It's sim
 The notifications include diagnostic information. Here's an example:
 
 
-![Here is an example of Server Response Time Degradation detection](media/app-insights-proactive-performance-diagnostics/server_response_time_degradation.png)
+![Here is an example of Server Response Time Degradation detection](media/proactive-performance-diagnostics/server_response_time_degradation.png)
 
 1. **Triage**. The notification shows you how many users or how many operations are affected. This can help you assign a priority to the problem.
 2. **Scope**. Is the problem affecting all traffic, or just some pages? Is it restricted to particular browsers or locations? This information can be obtained from the notification.
 3. **Diagnose**. Often, the diagnostic information in the notification will suggest the nature of the problem. For example, if response time slows down when request rate is high, that suggests your server or dependencies are overloaded. 
 
-    Otherwise, open the Performance blade in Application Insights. There, you will find [Profiler](app-insights-profiler.md) data. If exceptions are thrown, you can also try the [snapshot debugger](app-insights-snapshot-debugger.md).
+    Otherwise, open the Performance blade in Application Insights. There, you will find [Profiler](profiler.md) data. If exceptions are thrown, you can also try the [snapshot debugger](../../application-insights/app-insights-snapshot-debugger.md).
 
 
 
 ## Configure Email Notifications
 
-Smart Detection notifications are enabled by default and sent to those who have [owners, contributors and readers access to the Application Insights resource](app-insights-resources-roles-access-control.md). To change this, either click **Configure** in the email notification, or open Smart Detection settings in Application Insights. 
+Smart Detection notifications are enabled by default and sent to those who have [owners, contributors and readers access to the Application Insights resource](../../application-insights/app-insights-resources-roles-access-control.md). To change this, either click **Configure** in the email notification, or open Smart Detection settings in Application Insights. 
   
-  ![Smart Detection Settings](media/app-insights-proactive-performance-diagnostics/smart_detection_configuration.png)
+  ![Smart Detection Settings](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
   * You can use the **unsubscribe** link in the Smart Detection email to stop receiving the email notifications.
 
@@ -63,22 +63,22 @@ Emails about Smart Detections performance anomalies are limited to one email per
 ## FAQ
 
 * *So, Microsoft staff look at my data?*
-  * No. The service is entirely automatic. Only you get the notifications. Your data is [private](../azure-monitor/app/data-retention-privacy.md).
+  * No. The service is entirely automatic. Only you get the notifications. Your data is [private](../../azure-monitor/app/data-retention-privacy.md).
 * *Do you analyze all the data collected by Application Insights?*
   * Not at present. Currently, we analyze request response time, dependency response time and page load time. Analysis of additional metrics is on our backlog looking forward.
 
 * What types of application does this work for?
-  * These degradations are detected in any application that generates the appropriate telemetry. If you installed Application Insights in your web app, then requests and dependencies are automatically tracked. But in backend services or other apps, if you inserted calls to [TrackRequest()](../azure-monitor/app/api-custom-events-metrics.md#trackrequest) or [TrackDependency](../azure-monitor/app/api-custom-events-metrics.md#trackdependency), then Smart Detection will work in the same way.
+  * These degradations are detected in any application that generates the appropriate telemetry. If you installed Application Insights in your web app, then requests and dependencies are automatically tracked. But in backend services or other apps, if you inserted calls to [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) or [TrackDependency](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency), then Smart Detection will work in the same way.
 
 * *Can I create my own anomaly detection rules or customize existing rules?*
 
   * Not yet, but you can:
-    * [Set up alerts](../azure-monitor/app/alerts.md) that tell you when a metric crosses a threshold.
-    * [Export telemetry](../azure-monitor/app/export-telemetry.md) to a [database](../azure-monitor/app/code-sample-export-sql-stream-analytics.md) or [to PowerBI](app-insights-export-power-bi.md), where you can analyze it yourself.
+    * [Set up alerts](../../azure-monitor/app/alerts.md) that tell you when a metric crosses a threshold.
+    * [Export telemetry](../../azure-monitor/app/export-telemetry.md) to a [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) or [to PowerBI](../../application-insights/app-insights-export-power-bi.md), where you can analyze it yourself.
 * *How often is the analysis performed?*
 
   * We run the analysis daily on the telemetry from the previous day (full day in UTC timezone).
-* *So does this replace [metric alerts](../azure-monitor/app/alerts.md)?*
+* *So does this replace [metric alerts](../../azure-monitor/app/alerts.md)?*
   * No.  We don't commit to detecting every behavior that you might consider abnormal.
 
 
@@ -95,16 +95,16 @@ First, does it matter? If a page is always slow to load, but only 1% of your sit
 
 Use the impact statement (affected users or % of traffic) as a general guide, but be aware that it isn't the whole story. Gather other evidence to confirm.
 
-Consider the parameters of the issue. If it's geography-dependent, set up [availability tests](../azure-monitor/app/monitor-web-app-availability.md) including that region: there might simply be network issues in that area.
+Consider the parameters of the issue. If it's geography-dependent, set up [availability tests](../../azure-monitor/app/monitor-web-app-availability.md) including that region: there might simply be network issues in that area.
 
 ### Diagnose slow page loads
 Where is the problem? Is the server slow to respond, is the page very long, or does the browser have to do a lot of work to display it?
 
 Open the Browsers metric blade. The segmented display of browser page load time shows where the time is going. 
 
-* If **Send Request Time** is high, either the server is responding slowly, or the request is a post with a lot of data. Look at the [performance metrics](app-insights-web-monitor-performance.md#metrics) to investigate response times.
-* Set up [dependency tracking](../azure-monitor/app/asp-net-dependencies.md) to see whether the slowness is due to external services or your database.
-* If **Receiving Response** is predominant, your page and its dependent parts - JavaScript, CSS, images and so on (but not asynchronously loaded data) are long. Set up an [availability test](../azure-monitor/app/monitor-web-app-availability.md), and be sure to set the option to load dependent parts. When you get some results, open the detail of a result and expand it to see the load times of different files.
+* If **Send Request Time** is high, either the server is responding slowly, or the request is a post with a lot of data. Look at the [performance metrics](../../application-insights/app-insights-web-monitor-performance.md#metrics) to investigate response times.
+* Set up [dependency tracking](../../azure-monitor/app/asp-net-dependencies.md) to see whether the slowness is due to external services or your database.
+* If **Receiving Response** is predominant, your page and its dependent parts - JavaScript, CSS, images and so on (but not asynchronously loaded data) are long. Set up an [availability test](../../azure-monitor/app/monitor-web-app-availability.md), and be sure to set the option to load dependent parts. When you get some results, open the detail of a result and expand it to see the load times of different files.
 * High **Client Processing time** suggests scripts are running slowly. If the reason isn't obvious, consider adding some timing code and send the times in trackMetric calls.
 
 ### Improve slow pages
@@ -136,7 +136,7 @@ Modern application more and more adopt micro services design approach, which in 
 
 Example dependency degradation notification:
 
-![Here is an example of Dependency Duration Degradation detection](media/app-insights-proactive-performance-diagnostics/dependency_duration_degradation.png)
+![Here is an example of Dependency Duration Degradation detection](media/proactive-performance-diagnostics/dependency_duration_degradation.png)
 
 Notice that it tells you:
 
@@ -160,7 +160,7 @@ Currently, our algorithms look at page load times, request response times at the
 
 You don't have to set any thresholds or configure rules. Machine learning and data mining algorithms are used to detect abnormal patterns.
 
-![From the email alert, click the link to open the diagnostic report in Azure](./media/app-insights-proactive-performance-diagnostics/03.png)
+![From the email alert, click the link to open the diagnostic report in Azure](./media/proactive-performance-diagnostics/03.png)
 
 * **When** shows the time the issue was detected.
 * **What** describes:
@@ -176,12 +176,12 @@ Modify the time range and filters to explore the telemetry.
 ## Next steps
 These diagnostic tools help you inspect the telemetry from your app:
 
-* [Profiler](app-insights-profiler.md) 
-* [Snapshot debugger](app-insights-snapshot-debugger.md)
-* [Analytics](../azure-monitor/log-query/get-started-portal.md)
-* [Analytics smart diagnostics](../azure-monitor/app/analytics.md)
+* [Profiler](profiler.md) 
+* [Snapshot debugger](../../application-insights/app-insights-snapshot-debugger.md)
+* [Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Analytics smart diagnostics](../../azure-monitor/app/analytics.md)
 
 Smart detections are completely automatic. But maybe you'd like to set up some more alerts?
 
-* [Manually configured metric alerts](../azure-monitor/app/alerts.md)
-* [Availability web tests](../azure-monitor/app/monitor-web-app-availability.md)
+* [Manually configured metric alerts](../../azure-monitor/app/alerts.md)
+* [Availability web tests](../../azure-monitor/app/monitor-web-app-availability.md)
