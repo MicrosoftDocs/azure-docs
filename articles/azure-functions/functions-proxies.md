@@ -177,7 +177,7 @@ Proxies read all strings in C# string notation C# string notation, using \\\\\\ 
 |Character|Escaped Character|Example|
 |-|-|-|
 |{ or }|{{ or }}|`{{ example }}` --> `{ example }`
-|\\|\\\\\\\\| `example.com\\\text.html` --> `example.com\text.html`
+| \ | \\\\\\\\ | `example.com\\\text.html` --> `example.com\text.html`
 |"|\\\\\\"| `\\\"example\\\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>Define a requestOverrides object
