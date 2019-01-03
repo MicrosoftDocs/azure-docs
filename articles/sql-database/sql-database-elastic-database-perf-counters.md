@@ -28,7 +28,7 @@ Counters are used to track the performance of [data dependent routing](sql-datab
 
 ## Create performance category and counters
 
-To create the counters, call the CreatePeformanceCategoryAndCounters method of the [ShardMapManagementFactory class](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Only an administrator can execute the method:
+To create the counters, call the CreatePerformanceCategoryAndCounters method of the [ShardMapManagementFactory class](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Only an administrator can execute the method:
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
@@ -52,7 +52,7 @@ The following events trigger the creation of the performance counters:
 * Successful lookup of a shard map (using [GetShardMap()](https://msdn.microsoft.com/library/azure/dn824215.aspx), [GetListShardMap()](https://msdn.microsoft.com/library/azure/dn824212.aspx) or [GetRangeShardMap()](https://msdn.microsoft.com/library/azure/dn824173.aspx)).
 * Successful creation of shard map using CreateShardMap().
 
-The performance counters will be updated by all cache operations performed on the shard map and mappings. Successful removal of the shard map using DeleteShardMap()reults in deletion of the performance counters instance.  
+The performance counters will be updated by all cache operations performed on the shard map and mappings. Successful removal of the shard map using DeleteShardMap() results in deletion of the performance counters instance.  
 
 ## Best practices
 
