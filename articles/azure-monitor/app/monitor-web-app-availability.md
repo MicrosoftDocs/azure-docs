@@ -185,9 +185,9 @@ From an availability test result, you can see the transaction details across all
 * Log an issue or work item in Git or Azure Boards to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
-Learn more about the end to end transaction diagnostics experience [here](../../application-insights/app-insights-transaction-diagnostics.md).
+Learn more about the end to end transaction diagnostics experience [here](../../azure-monitor/app/transaction-diagnostics.md).
 
-Click on the exception row to see the details of the server side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](../../application-insights/app-insights-snapshot-debugger.md) for richer code level diagnostics.
+Click on the exception row to see the details of the server side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](../../azure-monitor/app/snapshot-debugger.md) for richer code level diagnostics.
 
 ![Server side diagnostics](./media/monitor-web-app-availability/open-instance-4.png)
 
@@ -317,7 +317,7 @@ When the test is complete, you are shown response times and success rates.
     
 * *I don't see any related server side telemetry to diagnose test failures?*
     
-    If you have Application Insights set up for your server-side application, that may be because [sampling](../../application-insights/app-insights-sampling.md) is in operation. Select a different availability result.
+    If you have Application Insights set up for your server-side application, that may be because [sampling](../../azure-monitor/app/sampling.md) is in operation. Select a different availability result.
 
 * *Can I call code from my web test?*
 

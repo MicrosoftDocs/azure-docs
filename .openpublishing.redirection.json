@@ -33367,6 +33367,36 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/application-insights/app-insights-resources-roles-access-control.md",
+            "redirect_url":  "/azure/azure-monitor/app/resources-roles-access-control",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-sample-mscrm.md",
+            "redirect_url":  "/azure/azure-monitor/app/sample-mscrm",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-sampling.md",
+            "redirect_url":  "/azure/azure-monitor/app/sampling",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-scom.md",
+            "redirect_url":  "/azure/azure-monitor/app/scom",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-snapshot-debugger.md",
+            "redirect_url":  "/azure/azure-monitor/app/snapshot-debugger",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-transaction-diagnostics.md",
+            "redirect_url":  "/azure/azure-monitor/app/transaction-diagnostics",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
