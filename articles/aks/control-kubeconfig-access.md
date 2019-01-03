@@ -10,7 +10,7 @@ ms.date: 01/03/2019
 ms.author: iainfou
 ---
 
-# Use Azure role-based access controls to define access to the Kubernetes configuration file (kubeconfig) in Azure Kubernetes Service (AKS)
+# Use Azure role-based access controls to define access to the Kubernetes configuration file in Azure Kubernetes Service (AKS)
 
 You can interact with Kubernetes clusters using the `kubectl` tool. The Azure CLI provides an easy way to get the access credentials and configuration information to connect to your AKS clusters using `kubectl`. To limit who can get that Kubernetes configuration (*kubeconfig*) information and the permissions they then have, you can use Azure role-based access controls (RBAC).
 
@@ -26,7 +26,7 @@ This article also requires that you are running the Azure CLI version 2.0.53 or 
 
 When you interact with an AKS cluster using the `kubectl` tool, a configuration file is used that defines cluster connection information. This configuration file is typically stored in *~/.kube/config*. Multiple clusters can be defined in this *kubeconfig* file. You switch between clusters using the [kubectl config use-context][kubectl-config-use-context] command.
 
-The [az aks get-credentials][az-aks-get-credentials] command then gets the access credentials for an AKS cluster and merges them into the *kubeconfig* file. You can use Azure role-based access controls (RBAC) to control access to these credentials. These Azure RBAC roles let you define who can retrieve the *kubeconfig* file, and what permissions they then have within the cluster.
+The [az aks get-credentials][az-aks-get-credentials] command lets you get the access credentials for an AKS cluster and merges them into the *kubeconfig* file. You can use Azure role-based access controls (RBAC) to control access to these credentials. These Azure RBAC roles let you define who can retrieve the *kubeconfig* file, and what permissions they then have within the cluster.
 
 The two built-in roles are:
 
@@ -41,9 +41,9 @@ The two built-in roles are:
 
 To assign one of the Azure roles to a user, you need to get the resource ID of the AKS cluster and the ID of the user account. The following example commands do the following steps:
 
-* Use the [az aks show][az-aks-show] command to get the cluster resource ID to get the resource ID for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. Provide your own cluster and resource group name as needed.
-* The [az account show][az-account-show] and [az ad user show][az-ad-user-show] commands get your user ID.
-* Finally, the role is assigned using the [az role assignment create][az-role-assignment-create] command.
+* Gets the cluster resource ID using the [az aks show][az-aks-show] command for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. Provide your own cluster and resource group name as needed.
+* Uses the [az account show][az-account-show] and [az ad user show][az-ad-user-show] commands get your user ID.
+* Finally, assigns a role using the [az role assignment create][az-role-assignment-create] command.
 
 The following example assigns the *Azure Kubernetes Service Cluster Admin Role*:
 
@@ -56,7 +56,10 @@ ACCOUNT_UPN=$(az account show --query user.name -o tsv)
 ACCOUNT_ID=$(az ad user show --upn-or-object-id $ACCOUNT_UPN --query objectId -o tsv)
 
 # Assign the 'Cluster Admin' role to the user
-az role assignment create --assignee $ACCOUNT_ID --scope $AKS_CLUSTER --role "Azure Kubernetes Service Cluster Admin Role"
+az role assignment create \
+    --assignee $ACCOUNT_ID \
+    --scope $AKS_CLUSTER \
+    --role "Azure Kubernetes Service Cluster Admin Role"
 ```
 
 You can change the previous assignment to the *Cluster User Role* as needed.
@@ -76,9 +79,9 @@ The following example output shows the role assignment has been successfully cre
 }
 ```
 
-## Get and verify configuration information
+## Get and verify the configuration information
 
-With RBAC roles assigned, use the [az aks get-credentials][az-aks-get-credentials] command to get the *kubeconfig* definition for your cluster. The following example gets the *--admin* credentials, which works correctly if the user has been granted the *Cluster Admin Role*:
+With RBAC roles assigned, use the [az aks get-credentials][az-aks-get-credentials] command to get the *kubeconfig* definition for your AKS cluster. The following example gets the *--admin* credentials, which work correctly if the user has been granted the *Cluster Admin Role*:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
@@ -139,4 +142,5 @@ For enhanced security and access to AKS clusters, [integrate Azure Active Direct
 [az-account-show]: /cli/azure/account#az-account-show
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-role-assignment-delete]: /cli/azure/role/assignment#az-role-assignment-delete
 [aad-integration]: aad-integration.md
