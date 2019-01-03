@@ -169,7 +169,7 @@ If your application uses Managed Instance as the data tier, follow these general
 
   When a new instance is created, a unique id is automatically generated as the DNS Zone and included in the instance DNS name. A multi-domain (SAN) certificate for this instance is provisioned with the SAN field in the form of `zone_id.database.windows.net`. This certificate can be used to authenticate the client connections to an  instance in the same DNS zone. To ensure non-interrupted connectivity to the primary instance after failover both the primary and secondary instances must be in the same DNS zone. When your application is ready for production deployment, create a secondary instance in a different region and make sure it shares the DNS zone with the primary instance. This is done by specifying a `DNS Zone Partner` optional parameter using the Azure portal, PowerShell, or the REST API.
 
-  For more information about creating the secondary instance in the same DNS zone as the primary instance, see [Managing failover groups with Managed Instances (preview)](#managing-failover-groups-with-managed-instances-preview).
+  For more information about creating the secondary instance in the same DNS zone as the primary instance, see [Managing failover groups with Managed Instances (preview)](#powershell-managing-failover-groups-with-managed-instances-preview).
 
 - **Enable replication traffic between two instances**
 
