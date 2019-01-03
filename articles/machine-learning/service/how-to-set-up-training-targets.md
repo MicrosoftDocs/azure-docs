@@ -56,15 +56,7 @@ You use a run configuration to identify the compute target and install the Pytho
     
     The initial setup up of a new environment can take several minutes to complete based on the size of the required dependencies. The following code snippet demonstrates how to create a system-managed environment that depends on scikit-learn:
     
-    ```python
-    from azureml.core.runconfig import RunConfiguration
-    from azureml.core.conda_dependencies import CondaDependencies
-    
-    run_config_system_managed = RunConfiguration()
-
-    # Specify the conda dependencies with scikit-learn
-    run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
-    ```
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=system-managed)]
     
     You will use system-managed environments in most of your remote compute targets, as you see in many of the examples in this article. 
 
@@ -72,14 +64,8 @@ You use a run configuration to identify the compute target and install the Pytho
 
     In a user-managed environment, you ensure all the packages your training script needs are available in the Python environment where you run the script. The following code snippet is an example of how to configure training for a user-managed environment:
     
-    ```python
-    from azureml.core.runconfig import RunConfiguration
-    
-    run_config_user_managed = RunConfiguration()
-    run_config_user_managed.environment.python.user_managed_dependencies = True
-    
-    # Choose a specific Python environment by pointing to a Python path. For example: #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
-    ```
+    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=user-managed)]
+
 
     Use this configuration when you have already installed all packages necessary to run your training code on your compute target, such as your local machine. You might also use this configuration for a remote machine that you sign into and configure, such as a Data Science Virtual Machine (DSVM). No new environment will be created which can save time when setting up the resource.
   
@@ -103,8 +89,8 @@ Use the sections below to configure these compute targets:
     ```python
     from azureml.core.runconfig import RunConfiguration
     
-    run_config_local = RunConfiguration()
-    run_config_local.user_managed_dependencies = True
+    run_local = RunConfiguration()
+    run_local.user_managed_dependencies = True
     ```
 
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
@@ -136,14 +122,14 @@ You can create Azure Machine Learning Compute as a compute target at run time. T
     from azureml.core.runconfig import RunConfiguration
     
     # Create a new runconfig object 
-    run_config_temp_compute = RunConfiguration()
+    run_temp_compute = RunConfiguration()
     
     # Signal that you want to use AmlCompute to execute the script
-    run_config_temp_compute.target = "amlcompute"
+    run_temp_compute.target = "amlcompute"
     
     # AmlCompute is created in the same region as your workspace 
     # Set the VM size for AmlCompute from the list of supported_vmsizes
-    run_config_temp_compute.vm_size = 'STANDARD_D2_V2'
+    run_temp_compute.vm_size = 'STANDARD_D2_V2'
     ```
 
 
@@ -190,25 +176,25 @@ A persistent Azure Machine Learning Compute can be reused across jobs. The compu
     from azureml.core.runconfig import DEFAULT_CPU_IMAGE
     
     # Create a new runconfig object
-    run_config_amlcompute = RunConfiguration()
+    run_amlcompute = RunConfiguration()
     
     # Use the cpu_cluster you created above. 
-    run_config_amlcompute.target = cpu_cluster
+    run_amlcompute.target = cpu_cluster
     
     # Enable Docker
-    run_config_amlcompute.environment.docker.enabled = True
+    run_amlcompute.environment.docker.enabled = True
     
     # Set Docker base image to the default CPU-based image
-    run_config_amlcompute.environment.docker.base_image = DEFAULT_CPU_IMAGE
+    run_amlcompute.environment.docker.base_image = DEFAULT_CPU_IMAGE
     
     # Use conda_dependencies.yml to create a conda environment in the Docker image for execution
-    run_config_amlcompute.environment.python.user_managed_dependencies = False
+    run_amlcompute.environment.python.user_managed_dependencies = False
     
     # Auto-prepare the Docker image when used for execution (if it is not already prepared)
-    run_config_amlcompute.auto_prepare_environment = True
+    run_amlcompute.auto_prepare_environment = True
     
     # Specify CondaDependencies obj, add necessary packages
-    run_config_amlcompute.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
+    run_amlcompute.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
     ```
 
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
@@ -260,27 +246,27 @@ Use the Azure Data Science Virtual Machine (DSVM)  as the Azure VM of choice for
     from azureml.core.runconfig import RunConfiguration
     from azureml.core.conda_dependencies import CondaDependencies
 
-    run_config_dsvm = RunConfiguration(framework = "python")
+    run_dsvm = RunConfiguration(framework = "python")
 
     # Set the compute target to the Linux DSVM
-    run_config_dsvm.target = compute_target_name 
+    run_dsvm.target = compute_target_name 
 
     # Use Docker in the remote VM
-    run_config_dsvm.environment.docker.enabled = True
+    run_dsvm.environment.docker.enabled = True
 
     # Use the CPU base image 
     # To use GPU in DSVM, you must also use the GPU base Docker image "azureml.core.runconfig.DEFAULT_GPU_IMAGE"
-    run_config_dsvm.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-    print('Base Docker image is:', run_config_dsvm.environment.docker.base_image)
+    run_dsvm.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
+    print('Base Docker image is:', run_dsvm.environment.docker.base_image)
 
     # Ask the system to provision a new conda environment based on the conda_dependencies.yml file 
-    run_config_dsvm.environment.python.user_managed_dependencies = False
+    run_dsvm.environment.python.user_managed_dependencies = False
 
     # Prepare the Docker and conda environment automatically when they're used for the first time 
-    run_config_dsvm.prepare_environment = True
+    run_dsvm.prepare_environment = True
 
     # Specify the CondaDependencies object
-    run_config_dsvm.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
+    run_dsvm.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
     ```
 
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
@@ -326,10 +312,10 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
     from azureml.core.runconfig import RunConfiguration
     # Configure the HDInsight run 
     # Load the runconfig object from the myhdi.runconfig file generated in the previous attach operation
-    run_config_hdi = RunConfiguration.load(project_object = project, run_config_name = 'myhdi')
+    run_hdi = RunConfiguration.load(project_object = project, run_name = 'myhdi')
     
     # Ask the system to prepare the conda environment automatically when it's used for the first time
-    run_config_hdi.auto_prepare_environment = True
+    run_hdi.auto_prepare_environment = True
     ```
 
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
@@ -459,7 +445,7 @@ from azureml.core import ScriptRunConfig
 import os 
 
 script_folder = os.getcwd()
-src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_local)
+src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_local)
 run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
@@ -469,7 +455,7 @@ Switch the same experiment to run in a different compute target by using a diffe
 ```python
 from azureml.core import ScriptRunConfig
 
-src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_amlcompute)
+src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_amlcompute)
 run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
