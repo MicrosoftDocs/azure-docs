@@ -197,18 +197,18 @@ if ($resourceGroups -notcontains $resourceGroup) {
 # the following command creates an AFS context 
 # it enables subsequent AFS cmdlets to be executed with minimal 
 # repetition of parameters or separate authentication 
-Login-AzStorageSync `
+Login-AzureRmStorageSync `
     -SubscriptionId $subID `
     -ResourceGroupName $resourceGroup `
     -TenantId $tenantID `
     -Location $region
 ```
 
-Once you have created the Azure File Sync context with the `Login-AzStorageSync` cmdlet, you can create the Storage Sync Service. Be sure to replace `<my-storage-sync-service>` with the desired name of your Storage Sync Service.
+Once you have created the Azure File Sync context with the `Login-AzureR,StorageSync` cmdlet, you can create the Storage Sync Service. Be sure to replace `<my-storage-sync-service>` with the desired name of your Storage Sync Service.
 
 ```PowerShell
 $storageSyncName = "<my-storage-sync-service>"
-New-AzStorageSyncService -StorageSyncServiceName $storageSyncName
+New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
 ```
 
 ---
@@ -234,7 +234,7 @@ After you have selected the appropriate information, select **Register** to comp
 
 # [PowerShell](#tab/azure-powershell)
 ```PowerShell
-$registeredServer = Register-AzStorageSyncServer -StorageSyncServiceName $storageSyncName
+$registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $storageSyncName
 ```
 
 ---
@@ -264,7 +264,7 @@ To create the sync group, execute the following PowerShell. Remember to replace 
 
 ```PowerShell
 $syncGroupName = "<my-sync-group>"
-New-AzStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
+New-AzureRmStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
 ```
 
 Once the sync group has been successfully created, you can create your cloud endpoint. Be sure to replace `<my-storage-account>` and `<my-file-share>` with the expected values.
@@ -297,7 +297,7 @@ if ($fileShare -eq $null) {
 }
 
 # Create the cloud endpoint
-New-AzStorageSyncCloudEndpoint `
+New-AzureRmStorageSyncCloudEndpoint `
     -StorageSyncServiceName $storageSyncName `
     -SyncGroupName $syncGroupName ` 
     -StorageAccountResourceId $storageAccount.Id `
@@ -340,7 +340,7 @@ if ($cloudTieringDesired) {
     }
 
     # Create server endpoint
-    New-AzStorageSyncServerEndpoint `
+    New-AzureRmStorageSyncServerEndpoint `
         -StorageSyncServiceName $storageSyncName `
         -SyncGroupName $syncGroupName `
         -ServerId $registeredServer.Id `
@@ -350,7 +350,7 @@ if ($cloudTieringDesired) {
 }
 else {
     # Create server endpoint
-    New-AzStorageSyncServerEndpoint `
+    New-AzureRmStorageSyncServerEndpoint `
         -StorageSyncServiceName $storageSyncName `
         -SyncGroupName $syncGroupName `
         -ServerId $registeredServer.Id `
