@@ -79,7 +79,7 @@ The FAQs in this section cover common monitoring and troubleshooting questions. 
 * [Which Azure Cache offering is right for me?](#which-azure-cache-offering-is-right-for-me)
 
 ### What is Azure Cache for Redis?
-Azure Cache for Redis is based on the popular open-source [Azure Cache for Redis](http://redis.io). It gives you access to a secure, dedicated Azure Cache for Redis, managed by Microsoft, and accessible from any application within Azure. For a more detailed overview, see the [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) product page on Azure.com.
+Azure Cache for Redis is based on the popular open-source software [Redis](https://redis.io/). It gives you access to a secure, dedicated Azure Cache for Redis, managed by Microsoft, and accessible from any application within Azure. For a more detailed overview, see the [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) product page on Azure.com.
 
 ### How can I get started with Azure Cache for Redis?
 There are several ways you can get started with Azure Cache for Redis.
@@ -170,7 +170,7 @@ Yes, Azure Cache for Redis is available in Azure Government Cloud, Azure China C
 For more information on considerations when using Azure Cache for Redis with other clouds, see the following links.
 
 - [Azure Government Databases - Azure Cache for Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [Azure China Cloud - Azure Cache for Redis](https://www.azure.cn/documentation/services/azure-cache-for-redis/)
+- [Azure China Cloud - Azure Cache for Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 
 For information on using Azure Cache for Redis with PowerShell in Azure Government Cloud, Azure China Cloud, and Microsoft Azure Germany, see [How to connect to other clouds - Azure Cache for Redis PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).

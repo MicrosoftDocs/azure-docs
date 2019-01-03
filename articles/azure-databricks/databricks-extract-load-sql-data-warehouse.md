@@ -48,7 +48,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an Azure Databricks workspace
 
-In this section, you create an Azure Databricks workspace using the Azure portal. 
+In this section, you create an Azure Databricks workspace using the Azure portal.
 
 1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **Azure Databricks**.
 
@@ -59,7 +59,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     ![Create an Azure Databricks workspace](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
     Provide the following values:
-     
+    
     |Property  |Description  |
     |---------|---------|
     |**Workspace name**     | Provide a name for your Databricks workspace        |
@@ -100,11 +100,11 @@ In this section, you create an Azure Data Lake Store account and associate an Az
 
 1. From the [Azure portal](https://portal.azure.com), select **Create a resource** > **Storage** > **Data Lake Store**.
 3. In the **New Data Lake Store** blade, provide the values as shown in the following screenshot:
-   
+
     ![Create a new Azure Data Lake Store account](./media/databricks-extract-load-sql-data-warehouse/create-new-datalake-store.png "Create a new Azure Data Lake account")
 
-    Provide the following values: 
-     
+    Provide the following values:
+    
     |Property  |Description  |
     |---------|---------|
     |**Name**     | Enter a unique name for the Data Lake Store account.        |
@@ -119,7 +119,7 @@ In this section, you create an Azure Data Lake Store account and associate an Az
 You now create an Azure Active Directory service principal and associate with the Data Lake Store account you created.
 
 ### Create an Azure Active Directory service principal
-   
+
 1. From the [Azure portal](https://portal.azure.com), select **All services**, and then search for **Azure Active Directory**.
 
 2. Select **App registrations**.
@@ -187,7 +187,7 @@ When programmatically logging in, you need to pass the tenant ID with your authe
 
 ## Upload data to Data Lake Store
 
-In this section, you upload a sample data file to Data Lake Store. You use this file later in Azure Databricks to run some transformations. The sample data (**small_radio_json.json**) that you use in this tutorial is available in this [Github repo](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
+In this section, you upload a sample data file to Data Lake Store. You use this file later in Azure Databricks to run some transformations. The sample data (**small_radio_json.json**) that you use in this tutorial is available in this [GitHub repo](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 
 1. From the [Azure portal](https://portal.azure.com), select the Data Lake Store account you created.
 
@@ -372,7 +372,7 @@ In this section, you upload the transformed data into Azure SQL Data Warehouse. 
 
 As mentioned earlier, the SQL data warehouse connector uses Azure Blob Storage as temporary storage location to upload data between Azure Databricks and Azure SQL Data Warehouse. So, you start by providing the configuration to connect to the storage account. You must have already created the account as part of the prerequisites for this article.
 
-1. Provide the configuration to access the Azure Storage account from Azure Databricks. If you copy the URL for your blob storage from the portal, be sure to remove *https://* from the beginning. 
+1. Provide the configuration to access the Azure Storage account from Azure Databricks. If you copy the URL for your blob storage from the portal, be sure to remove *https://* from the beginning.
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
@@ -404,7 +404,7 @@ As mentioned earlier, the SQL data warehouse connector uses Azure Blob Storage a
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
           "true")
-        
+    
         renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
             .option("url", sqlDwUrlSmall)

@@ -77,7 +77,7 @@
       href: batch-virtual-network.md
     - name: Mount an Azure file share
       href: pool-file-shares.md
-    - name: Use compute-intensive VMs
+    - name: Use RDMA or GPU instances
       href: batch-pool-compute-intensive-sizes.md
     - name: Use Linux compute nodes
       href: batch-linux-nodes.md

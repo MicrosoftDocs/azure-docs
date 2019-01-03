@@ -72,7 +72,7 @@ Visual Studio creates an empty function app project.  It contains the basic conf
 
 A new durable function will be added to the app.  Open the new file to view the contents.  This durable function is a simple function chaining example.  
 
-* The `RunOrchestrator` method is associated with the orchestrator function.  This function will start, create a list, and add the result of three functions calls to the list.  When the three function calls are completed, it will return the list.  The function it is calling is the `SayHello` method (default it will be called "<NameOfFile>_Hello").
+* The `RunOrchestrator` method is associated with the orchestrator function.  This function will start, create a list, and add the result of three functions calls to the list.  When the three function calls are completed, it will return the list.  The function it is calling is the `SayHello` method (default it will be called `<NameOfFile>_Hello`).
 * The `SayHello` function will return a hello.
 * The `HttpStart` method describes the function that will start instances of the orchestration.  It is associated with an [HTTP trigger](../functions-bindings-http-webhook.md) that will start a new instance of the orchestrator and return back a check status response.
 
@@ -88,7 +88,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     ![Azure local runtime](./media/durable-functions-create-first-csharp/functions-vs-debugging.png)
 
-3. Paste the URL for the HTTP request into your browser's address bar and execute the request. The following shows the response in the browser to the local GET request returned by the function: 
+3. Paste the URL for the HTTP request into your browser's address bar and execute the request. The following shows the response in the browser to the local GET request returned by the function:
 
     ![Function localhost response in the browser](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 
