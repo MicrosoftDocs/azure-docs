@@ -35,12 +35,13 @@ When you work with Stream Analytics, you can take advantage of partitioning in t
 -	Azure Functions
 -	Azure Table
 -	Blob storage (can set the partition key explicitly)
--	CosmosDB  (need to set the partition key explicitly)
--	EventHub (need to set the partition key explicitly)
+-	Cosmos DB  (need to set the partition key explicitly)
+-	Event Hubs (need to set the partition key explicitly)
 -	IoT Hub  (need to set the partition key explicitly)
 -	Service Bus
+- SQL and SQL Data Warehouse with optional partitioning: see more information on the [Output to Azure SQL Database page](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
-PowerBI, SQL, and SQL Data-Warehouse outputs don’t support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
+PowerBI doesn't support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
 
 For more information about partitions, see the following articles:
 
