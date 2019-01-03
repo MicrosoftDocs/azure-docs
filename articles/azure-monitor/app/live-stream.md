@@ -17,7 +17,7 @@ ms.author: mbullwin
 
 # Live Metrics Stream: Monitor & Diagnose with 1-second latency
 
-Probe the beating heart of your live, in-production web application by using Live Metrics Stream from [Application Insights](app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](app-insights-profiler.md), [Snapshot debugger](app-insights-snapshot-debugger.md), and [performance testing](../azure-monitor/app/monitor-web-app-availability.md#performance-tests),  Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.
+Probe the beating heart of your live, in-production web application by using Live Metrics Stream from [Application Insights](../../application-insights/app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](../../application-insights/app-insights-profiler.md), [Snapshot debugger](../../application-insights/app-insights-snapshot-debugger.md), and [performance testing](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests),  Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.
 
 With Live Metrics Stream, you can:
 
@@ -29,11 +29,11 @@ With Live Metrics Stream, you can:
 * Monitor any Windows performance counter live.
 * Easily identify a server that is having issues, and filter all the KPI/live feed to just that server.
 
-[![Live Metrics Stream video](./media/app-insights-live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[![Live Metrics Stream video](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
 ## Get started
 
-1. If you haven't yet [installed Application Insights](../azure-monitor/app/asp-net.md) in your ASP.NET web app or [Windows server app](app-insights-windows-services.md), do that now. 
+1. If you haven't yet [installed Application Insights](../../azure-monitor/app/asp-net.md) in your ASP.NET web app or [Windows server app](../../application-insights/app-insights-windows-services.md), do that now. 
 2. **Update to the latest version** of the Application Insights package. In Visual Studio, right-click your project and choose **Manage Nuget packages**. Open the **Updates** tab, check **Include prerelease**, and select all the Microsoft.ApplicationInsights.* packages.
 
     Redeploy your app.
@@ -43,11 +43,11 @@ With Live Metrics Stream, you can:
 4. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data such as customer names in your filters.
 
 
-![In the Overview blade, click Live Stream](./media/app-insights-live-stream/live-stream-2.png)
+![In the Overview blade, click Live Stream](./media/live-stream/live-stream-2.png)
 
 ### No data? Check your server firewall
 
-Check the [outgoing ports for Live Metrics Stream](../azure-monitor/app/ip-addresses.md#outgoing-ports) are open in the firewall of your servers. 
+Check the [outgoing ports for Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) are open in the firewall of your servers. 
 
 
 ## How does Live Metrics Stream differ from Metrics Explorer and Analytics?
@@ -55,10 +55,10 @@ Check the [outgoing ports for Live Metrics Stream](../azure-monitor/app/ip-addre
 | |Live Stream | Metrics Explorer and Analytics |
 |---|---|---|
 |Latency|Data displayed within one second|Aggregated over minutes|
-|No retention|Data persists while it's on the chart, and is then discarded|[Data retained for 90 days](../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|No retention|Data persists while it's on the chart, and is then discarded|[Data retained for 90 days](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |On demand|Data is streamed while you open Live Metrics|Data is sent whenever the SDK is installed and enabled|
-|Free|There is no charge for Live Stream data|Subject to [pricing](app-insights-pricing.md)
-|Sampling|All selected metrics and counters are transmitted. Failures and stack traces are sampled. TelemetryProcessors are not applied.|Events may be [sampled](../azure-monitor/app/api-filtering-sampling.md)|
+|Free|There is no charge for Live Stream data|Subject to [pricing](../../azure-monitor/app/pricing.md)
+|Sampling|All selected metrics and counters are transmitted. Failures and stack traces are sampled. TelemetryProcessors are not applied.|Events may be [sampled](../../azure-monitor/app/api-filtering-sampling.md)|
 |Control channel|Filter control signals are sent to the SDK. We recommend you [secure this channel](#secure-channel).|Communication is one-way, to the portal|
 
 
@@ -68,11 +68,11 @@ Check the [outgoing ports for Live Metrics Stream](../azure-monitor/app/ip-addre
 
 You can monitor custom KPI live by applying arbitrary filters on any Application Insights telemetry from the portal. Click the filter control that shows when you mouse-over any of the charts. The following chart is plotting a custom Request count KPI with filters on URL and Duration attributes. Validate your filters with the Stream Preview section that shows a live feed of telemetry that matches the criteria you have specified at any point in time. 
 
-![Custom Request KPI](./media/app-insights-live-stream/live-stream-filteredMetric.png)
+![Custom Request KPI](./media/live-stream/live-stream-filteredMetric.png)
 
-You can monitor a value different from Count. The options depend on the type of stream, which could be any Application Insights telemetry: requests, dependencies, exceptions, traces, events, or metrics. It can be your own [custom measurement](../azure-monitor/app/api-custom-events-metrics.md#properties):
+You can monitor a value different from Count. The options depend on the type of stream, which could be any Application Insights telemetry: requests, dependencies, exceptions, traces, events, or metrics. It can be your own [custom measurement](../../azure-monitor/app/api-custom-events-metrics.md#properties):
 
-![Value Options](./media/app-insights-live-stream/live-stream-valueoptions.png)
+![Value Options](./media/live-stream/live-stream-valueoptions.png)
 
 In addition to Application Insights telemetry, you can also monitor any Windows performance counter by selecting that from the stream options, and providing the name of the performance counter.
 
@@ -81,23 +81,23 @@ Live metrics are aggregated at two points: locally on each server, and then acro
 ## Sample Telemetry: Custom Live Diagnostic Events
 By default, the live feed of events shows samples of failed requests and dependency calls, exceptions, events, and traces. Click the filter icon to see the applied criteria at any point in time. 
 
-![Default live feed](./media/app-insights-live-stream/live-stream-eventsdefault.png)
+![Default live feed](./media/live-stream/live-stream-eventsdefault.png)
 
 As with metrics, you can specify any arbitrary criteria to any of the Application Insights telemetry types. In this example, we are selecting specific request failures, traces, and events. We are also selecting all exceptions and dependency failures.
 
-![Custom live feed](./media/app-insights-live-stream/live-stream-events.png)
+![Custom live feed](./media/live-stream/live-stream-events.png)
 
 Note: Currently, for Exception message-based criteria, use the outermost exception message. In the preceding example, to filter out the benign exception with inner exception message (follows the "<--" delimiter) "The client disconnected." use a message not-contains "Error reading request content" criteria.
 
 See the details of an item in the live feed by clicking it. You can pause the feed either by clicking **Pause** or simply scrolling down, or clicking an item. Live feed will resume after you scroll back to the top, or by clicking the counter of items collected while it was paused.
 
-![Sampled live failures](./media/app-insights-live-stream/live-metrics-eventdetail.png)
+![Sampled live failures](./media/live-stream/live-metrics-eventdetail.png)
 
 ## Filter by server instance
 
 If you want to monitor a particular server role instance, you can filter by server.
 
-![Sampled live failures](./media/app-insights-live-stream/live-stream-filter.png)
+![Sampled live failures](./media/live-stream/live-stream-filter.png)
 
 ## SDK Requirements
 Custom Live Metrics Stream is available with version 2.4.0-beta2 or newer of [Application Insights SDK for web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Remember to select "Include Prerelease" option from NuGet package manager.
@@ -106,7 +106,7 @@ Custom Live Metrics Stream is available with version 2.4.0-beta2 or newer of [Ap
 The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.
 ### Create an API Key
 
-![Create api key](./media/app-insights-live-stream/live-metrics-apikeycreate.png)
+![Create api key](./media/live-stream/live-metrics-apikeycreate.png)
 
 ### Add API key to Configuration
 
@@ -175,7 +175,7 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 
 However, if you recognize and trust all the connected servers, you can try the custom filters without the authenticated channel. This option is available for six months. This override is required once every new session, or when a new server comes online.
 
-![Live Metrics Auth options](./media/app-insights-live-stream/live-stream-auth.png)
+![Live Metrics Auth options](./media/live-stream/live-stream-auth.png)
 
 >[!NOTE]
 >We strongly recommend that you set up the authenticated channel before entering potentially sensitive information like CustomerID in the filter criteria.
@@ -183,7 +183,7 @@ However, if you recognize and trust all the connected servers, you can try the c
 
 ## Generating a performance test load
 
-If you want to watch the effect of a load increase, use the Performance Test blade. It simulates requests from a number of simultaneous users. It can run either "manual tests" (ping tests) of a single URL, or it can run a [multi-step web performance test](../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) that you upload (in the same way as an availability test).
+If you want to watch the effect of a load increase, use the Performance Test blade. It simulates requests from a number of simultaneous users. It can run either "manual tests" (ping tests) of a single URL, or it can run a [multi-step web performance test](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) that you upload (in the same way as an availability test).
 
 > [!TIP]
 > After you create the performance test, open the test and the Live Stream blade in separate windows. You can see when the queued performance test starts, and watch live stream at the same time.
@@ -192,12 +192,12 @@ If you want to watch the effect of a load increase, use the Performance Test bla
 
 ## Troubleshooting
 
-No data? If your application is in a protected network: Live Metrics Stream uses a different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](../azure-monitor/app/ip-addresses.md) are open in your firewall.
+No data? If your application is in a protected network: Live Metrics Stream uses a different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](../../azure-monitor/app/ip-addresses.md) are open in your firewall.
 
 
 
 ## Next steps
-* [Monitoring usage with Application Insights](app-insights-usage-overview.md)
-* [Using Diagnostic Search](../azure-monitor/app/diagnostic-search.md)
-* [Profiler](app-insights-profiler.md)
-* [Snapshot debugger](app-insights-snapshot-debugger.md)
+* [Monitoring usage with Application Insights](../../application-insights/app-insights-usage-overview.md)
+* [Using Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
+* [Profiler](../../application-insights/app-insights-profiler.md)
+* [Snapshot debugger](../../application-insights/app-insights-snapshot-debugger.md)

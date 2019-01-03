@@ -298,7 +298,7 @@ In general, for most small and medium size applications you don’t need samplin
 The main advantages of sampling are:
 
 * Application Insights service drops ("throttles") data points when your app sends a very high rate of telemetry in short time interval. 
-* To keep within the [quota](app-insights-pricing.md) of data points for your pricing tier. 
+* To keep within the [quota](../azure-monitor/app/pricing.md) of data points for your pricing tier. 
 * To reduce network traffic from the collection of telemetry. 
 
 ### Which type of sampling should I use?

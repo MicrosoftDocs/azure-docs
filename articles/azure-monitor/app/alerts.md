@@ -87,7 +87,7 @@ Popular alerts include:
 Don't forget that [proactive failure rate diagnostics](../../application-insights/app-insights-proactive-failure-diagnostics.md) automatically monitor the rate at which your app responds to requests with failure codes. 
 
 ## Automation
-* [Use PowerShell to automate setting up alerts](../../application-insights/app-insights-powershell-alerts.md)
+* [Use PowerShell to automate setting up alerts](../../azure-monitor/app/powershell-alerts.md)
 * [Use webhooks to automate responding to alerts](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## Video
@@ -96,14 +96,14 @@ Don't forget that [proactive failure rate diagnostics](../../application-insight
 
 ## See also
 * [Availability web tests](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Automate setting up alerts](../../application-insights/app-insights-powershell-alerts.md)
+* [Automate setting up alerts](../../azure-monitor/app/powershell-alerts.md)
 * [Proactive diagnostics](../../application-insights/app-insights-proactive-diagnostics.md) 
 
 <!--Link references-->
 
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [client]: ../../azure-monitor/app/javascript.md
-[platforms]: ../../application-insights/app-insights-platforms.md
+[platforms]: ../../azure-monitor/app/platforms.md
 [roles]: ../../application-insights/app-insights-resources-roles-access-control.md
 [start]: ../../application-insights/app-insights-overview.md
 

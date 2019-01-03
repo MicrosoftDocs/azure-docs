@@ -46,7 +46,7 @@ If you don't have a reference on Application Insights SDK yet:
 
   * [ASP.NET project](../../azure-monitor/app/asp-net.md)
   * [Java project](../../azure-monitor/app/java-get-started.md)
-  * [Node.js project](../../application-insights/app-insights-nodejs.md)
+  * [Node.js project](../../azure-monitor/app/nodejs.md)
   * [JavaScript in each webpage](../../azure-monitor/app/javascript.md) 
 * In your device or web server code, include:
 
@@ -108,7 +108,7 @@ In Node.js projects, you can use `new applicationInsights.TelemetryClient(instru
 
 ## TrackEvent
 
-In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md) as an aggregated count, and in [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md) as individual occurrences. (It isn't related to MVC or other framework "events.")
+In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) as an aggregated count, and in [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md) as individual occurrences. (It isn't related to MVC or other framework "events.")
 
 Insert `TrackEvent` calls in your code to count various events. How often users choose a particular feature, how often they achieve particular goals, or maybe how often they make particular types of mistakes.
 
@@ -448,7 +448,7 @@ requests
 
 Send exceptions to Application Insights:
 
-* To [count them](../../application-insights/app-insights-metrics-explorer.md), as an indication of the frequency of a problem.
+* To [count them](../../azure-monitor/app/metrics-explorer.md), as an indication of the frequency of a problem.
 * To [examine individual occurrences](../../azure-monitor/app/diagnostic-search.md).
 
 The reports include the stack traces.
@@ -761,7 +761,7 @@ If your app groups users into accounts, you can also pass an identifier for the 
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-In [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md), you can create a chart that counts **Users, Authenticated**, and **User accounts**.
+In [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md), you can create a chart that counts **Users, Authenticated**, and **User accounts**.
 
 You can also [search](../../azure-monitor/app/diagnostic-search.md) for client data points with specific user names and accounts.
 

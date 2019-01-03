@@ -13,13 +13,13 @@ manager: carmonm
 
 # Collect distributed traces from Python (Preview)
 
-Application Insights now supports distributed tracing of Python applications through integration with [OpenCensus](https://opencensus.io) and our new [local forwarder](./opencensus-local-forwarder.md). This article will walk you step-by-step through the process of setting up OpenCensus for Python and getting your trace data to Application Insights.
+Application Insights now supports distributed tracing of Python applications through integration with [OpenCensus](https://opencensus.io) and our new [local forwarder](./../../azure-monitor/app/opencensus-local-forwarder.md). This article will walk you step-by-step through the process of setting up OpenCensus for Python and getting your trace data to Application Insights.
 
 ## Prerequisites
 
 - You need an Azure Subscription.
 - Python should be installed, this article uses [Python 3.7.0](https://www.python.org/downloads/), though earlier versions will likely work with minor adjustment.
-- Follow the instructions to install the [local forwarder as a Windows service](./opencensus-local-forwarder.md#windows-service)
+- Follow the instructions to install the [local forwarder as a Windows service](./../../azure-monitor/app/opencensus-local-forwarder.md#windows-service)
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -52,7 +52,7 @@ First you have to create an Application Insights resource which will generate an
 
    ![Screenshot of instrumentation key](./media/opencensus-python/0003-instrumentation-key.png)
 
-2. Edit your `LocalForwarder.config` file and add your instrumentation key. If you followed the instructions in the [pre-requisite](./opencensus-local-forwarder.md#windows-service) the file is located at `C:\LF-WindowsServiceHost`
+2. Edit your `LocalForwarder.config` file and add your instrumentation key. If you followed the instructions in the [pre-requisite](./../../azure-monitor/app/opencensus-local-forwarder.md#windows-service) the file is located at `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -198,5 +198,5 @@ We only covered the basics of wiring up OpenCensus for Python with the local for
 ## Next steps
 
 * [OpenCensus Python usage guide](https://opencensus.io/api/python/trace/usage.html)
-* [Application map](./../azure-monitor/app/app-map.md)
-* [End-to-end performance monitoring](./app-insights-tutorial-performance.md)
+* [Application map](./../../azure-monitor/app/app-map.md)
+* [End-to-end performance monitoring](./../../application-insights/app-insights-tutorial-performance.md)

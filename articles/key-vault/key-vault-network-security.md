@@ -1,6 +1,6 @@
 ---
 ms.assetid: 
-title: Configure Azure Key Vault firewalls and virtual networks
+title: Configure Azure Key Vault firewalls and virtual networks - Azure Key Vault 
 description: Step-by-step instructions to configure Key Vault firewalls and virtual networks
 services: key-vault
 author: amitbapat
@@ -8,7 +8,7 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/31/2018
+ms.date: 01/02/2019
 ms.author: ambapat
 ---
 # Configure Azure Key Vault firewalls and virtual networks
