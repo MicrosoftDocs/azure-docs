@@ -103,7 +103,7 @@ You can change the default PITR backup retention period using the Azure Portal, 
 
 ### Change PITR backup retention period using the Azure portal
 
-To change the PITR backup retention period using the Azure portal, navigate to the server object whose retention period you wish to change within the Portal and then select the appropriate option based on which server object you're modifying. 
+To change the PITR backup retention period using the Azure portal, navigate to the server object whose retention period you wish to change within the Portal and then select the appropriate option based on which server object you're modifying.
 
 #### Change PITR for a logical server
 
