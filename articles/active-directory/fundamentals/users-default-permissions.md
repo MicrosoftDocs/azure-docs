@@ -16,7 +16,7 @@ ms.custom: "it-pro, seodec18"
 ---
 
 # What are the default user permissions in Azure Active Directory?
-In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user’s access consists the type of user, their [role
+In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user’s access consists of the type of user, their [role
 memberships](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal), and their ownership of individual objects. This article describes those default permissions and contains a comparison of the member and guest user defaults.
 
 ## Member and guest users
