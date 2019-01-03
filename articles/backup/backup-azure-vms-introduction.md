@@ -112,11 +112,11 @@ Backup consists of two phases, taking snapshots and transferring the snapshots t
 Situations that can affect backup time include the following:
 
 - **Initial backup for a newly added disk to an already protected VM**: If a VM is undergoing incremental backup and a new disk gets added to this VM, then the backup duration can go beyond 24 hours since the newly added disk has to undergo initial replication along with delta replication of existing disks.
-- **Fragmented app**: If an app is poorly configured it might not be optimal for storage:
+- **Fragmented app**: If an app is poorly configured, it might not be optimal for storage:
     - If the snapshot contains many small, fragmented writes, the service spends additional time processing the data written by the applications.
     - For applications running inside the VM, the recommended application-writes block minimum is 8 KB. If your application uses a block of less than 8 KB, backup performance is affected.
 - **Storage account overloaded**: A backup could be scheduled when the app is running in production, or if more than five to ten disks are hosted from the same storage account.
-- **Checksum Comparison (CC) mode**: Inherently, CC mode is comparatively slower than optimized mode used by Instant RP. The Backup performance can exceed 24hrs (or fail), if backup switches to CC mode for the following reasons:
+- **Checksum Comparison (CC) mode**: Inherently, CC mode is comparatively slower than optimized mode used by Instant RP. The Backup performance can exceed 24 hours (or fail), if backup switches to CC mode for the following reasons:
   - If Instant RP is used and the Tier-1 snapshots are deleted
   - Managed disk reboots causing it move across storage accounts
   - Disk experiencing high churn
@@ -132,7 +132,7 @@ A restore operation consists of two main tasks: copying data back from the vault
 
 We suggest following these practices while configuring VM backups:
 
-- Upgrade vaults to Instant RP. Review these [benefits]((backup-upgrade-to-vm-backup-stack-v2.md), [considerations](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), and then proceed to upgrade by following these [instructions](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+- Upgrade vaults to Instant RP. Review these [benefits](backup-upgrade-to-vm-backup-stack-v2.md), [considerations](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), and then proceed to upgrade by following these [instructions](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
 - The limit on number of disks per storage account is relative to how heavy the disks are being accessed by applications running on IaaS VM. Verify if multiple disks are hosted on a single storage account. As a general practice, if 5 to 10 disks or more are present on single storage account, balance the load by moving some disks to separate storage accounts.
 - Consider staggering backup times of the VMs by an hour to ensure resources are optimally used. Increase the staggering time if required.
 - Daily churn greater than 200 GB (~2-5 % of original disk size) can slow the backup performance or will fail with *CopyingVHDsFromBackUpVaultTakingLongTime* error.  
