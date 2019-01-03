@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/20/2018
+ms.date: 01/03/2018
 ms.author: jeedes
 
 ---
@@ -151,8 +151,6 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 	b. Azure Ad Identifier
 
 	c. Logout URL
-
-	![image](./media/zendesk-tutorial/d1_saml.png) 
 
 9. There are two ways in which Zendesk can be configured - Automatic and Manual.
   
