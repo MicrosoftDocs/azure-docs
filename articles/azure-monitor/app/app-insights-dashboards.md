@@ -105,7 +105,7 @@ The overview blade is the gateway to more information about your app.
 ### Overview blade buttons
 ![Overview blade top navigation bar](./media/app-insights-dashboards/app-overview-top-nav.png)
 
-* [**Metrics Explorer**](../../application-insights/app-insights-metrics-explorer.md) - Create your own charts of performance and usage.
+* [**Metrics Explorer**](../../azure-monitor/app/metrics-explorer.md) - Create your own charts of performance and usage.
 * [**Search**](../../azure-monitor/app/diagnostic-search.md) - Investigate specific instances of events such as requests, exceptions, or log traces.
 * [**Analytics**](../../azure-monitor/app/analytics.md) - Powerful queries over your telemetry.
 * **Time range** - Adjust the range displayed by all the charts on the blade.
@@ -126,7 +126,7 @@ INVESTIGATE
 
 * [**Application map**](app-map.md) - Active map showing the components of your application, derived from the dependency information.
 * [**Smart Detection**](../../application-insights/app-insights-proactive-diagnostics.md) - Review recent performance alerts.
-* [**Live Stream**](../../application-insights/app-insights-live-stream.md) - A fixed set of near-instant metrics, useful when deploying a new build or debugging.
+* [**Live Stream**](../../azure-monitor/app/live-stream.md) - A fixed set of near-instant metrics, useful when deploying a new build or debugging.
 * [**Availability / Web tests**](../../azure-monitor/app/monitor-web-app-availability.md) - Send regular requests to your web app from around the world.*
 * [**Failures, Performance**](../../application-insights/app-insights-web-monitor-performance.md) - Exceptions, failure rates and response times for requests to your app and for requests from your app to [dependencies](../../azure-monitor/app/asp-net-dependencies.md).
 * [**Performance**](../../application-insights/app-insights-web-monitor-performance.md) - Response time, dependency response times.
@@ -159,6 +159,6 @@ SETTINGS
 
 |  |  |
 | --- | --- |
-| [Metrics explorer](../../application-insights/app-insights-metrics-explorer.md)<br/>Filter and segment metrics |![Search example](./media/app-insights-dashboards/64.png) |
+| [Metrics explorer](../../azure-monitor/app/metrics-explorer.md)<br/>Filter and segment metrics |![Search example](./media/app-insights-dashboards/64.png) |
 | [Diagnostic search](../../azure-monitor/app/diagnostic-search.md)<br/>Find and inspect events, related events, and create bugs |![Search example](./media/app-insights-dashboards/61.png) |
 | [Analytics](../../azure-monitor/app/analytics.md)<br/>Powerful query language |![Search example](./media/app-insights-dashboards/63.png) |

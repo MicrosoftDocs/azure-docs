@@ -280,7 +280,7 @@ When the test is complete, you are shown response times and success rates.
 ![Performance test results](./media/monitor-web-app-availability/12performance-test.png)
 
 > [!TIP]
-> To observe the effects of a performance test, use [Live Stream](../../application-insights/app-insights-live-stream.md) and [Profiler](../../application-insights/app-insights-profiler.md).
+> To observe the effects of a performance test, use [Live Stream](../../azure-monitor/app/live-stream.md) and [Profiler](../../application-insights/app-insights-profiler.md).
 >
 
 ## Automation
