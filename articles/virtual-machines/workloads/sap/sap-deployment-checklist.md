@@ -81,8 +81,8 @@ The pilot can run before or in parallel to project planning and preparation. The
 		1.	Validate the resources on SAP support notes, SAP HANA hardware directory and SAP PAM again to make sure that there were no changes in supported VMs for Azure, supported OS releases in those VMs and supported SAP and DBMS releases
 		2.	Validate again the sizing of your application and the infrastructure you deploy on Azure. In case of moving existing applications you often can derive the necessary SAPS from the infrastructure you use and the [SAP benchmark webpage](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) and compare it to the SAPS numbers listed in SAP support note [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Also keep [this article](https://blogs.msdn.microsoft.com/saponsqlserver/2018/11/04/saps-ratings-on-azure-vms-where-to-look-and-where-you-can-get-confused/) in mind
 		3.	Evaluate and test the sizing of your Azure VMs in regards to maximum storage throughput and network throughput of the different VM types you chose in the planning phase. The data can be found in:
-			1.	[Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). It is important to consider the **max uncached disk throughput** for sizing
-			2.	[Sizes for Linux virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) It is important to consider the **max uncached disk throughput** for sizing
+			1.	[Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). It is important to consider the **max uncached disk throughput** for sizing
+			2.	[Sizes for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) It is important to consider the **max uncached disk throughput** for sizing
 	2.	Storage
 		1.	Use Azure Premium Storage for Database VMs
 		2.	Use [Azure managed disks](https://azure.microsoft.com/services/managed-disks/)
@@ -122,101 +122,35 @@ The pilot can run before or in parallel to project planning and preparation. The
 		1.	 For SUSE Linux use SBD devices instead of the Azure Fencing Agent to speed up failover
 		2.	 For SAP HANA, if the reload of data takes too long consider to provision more storage bandwidth
 	3.	 Test backup and restore sequence and tune if necessary
-
-
-3.	Azure platform availability check 
-a.	Open Support Request to Microsoft support
-i.	List all VMs & RG 
-ii.	Ask Support to check for unplanned reboots in Azure Support Center -> Health 
-iii.	Analyze any unplanned reboots – determine if root cause is Azure Platform or Guest OS 
-iv.	Ensure Guest Agents are up to date – Win & Linux – check monitoring in Azure Portal is working  
-b.	VM Pinning based on /SSA/CAT results (if required) 
-4.	Security Check 
-a.	RBAC concept implemented.  Super users protected.  2FA for admins
-b.	Lock Resources to prevent accidental deletion of SAP objects 
-c.	Verify NSG and ASC 
-d.	DB encryption, DBMS TDE and Keyvault configuration (for SQL Server see here) 
-e.	ADE for boot disks and/or disks containing SSFS to prevent cloning 
-f.	Check that too many layers of encryption have not been used (SSE, ADE & DBMS layer in combination not recommended)
-5.	Network 
-a.	NVA / Firewall – Checkpoint, Fortigate, Palo Alto HA test completed 
-b.	Hub & Spoke Peer vNet topology recommended 
-c.	Basic vs. Standard ILB – recommend Standard AZ aware 
-d.	Load balancer config – Backend/Frontend pools, probe ports and timeouts set correctly
-e.	Network Placement Groups 
-6.	Backup/Restore & DBA Tasks 
-a.	Backup throughput adequate 
-b.	Restore throughput adequate
-c.	Confirm Backup Storage Georedundancy requirements  
-d.	Check DB integrity runtime 
-7.	HA/DR Testing 
-a.	Guest OS clustering (Windows or Linux) 
-b.	DBMS failover tests pass
-c.	ASCS failover tests pass
-d.	ASR – Test Recovery Plans (no more than 10 VMs per Recovery Plan) 
-e.	AZ vs. AS concepts explained to customer & partner 
-f.	Customers relying on Single VM SLA – ensure SAP and DBMS set to Autostart and other mitigations  
-g.	Check cluster timeout values (Win & Linux) and brief customer on OS Cluster + VM-PHU conflicts 
-8.	Performance Testing 
-a.	Compare top 10 online reports to current on-prem 
-b.	Compare top 10 batch jobs to current on-prem 
-c.	Compare top 10 BDC or interface to current on-prem 
+	4.	 Test across region DR functionality and architecture
+6.	Security checks
+	1.	Test the validity of the Azure Role based Access architecture you implemented. Goal is to separate and limit access and permissions of different teams. As an example, SAP Basis team members should be able to deploy VMs and assign disks from Azure storage into a given Azure virtual network. However the SAP Basis team should not be able to create own virtual networks or change the settings of existing virtual networks. On the other hand members of the network team should not be able to deploy VMs into virtual networks where SAP application and DBMS VMs are running. Nor should members of the network team be able to change attributes of VMs or even delete those.  
+	2.	Verify [NSG and ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) rules are working as expected and shield the protected resources
+	3.	Make sure that all resources that need to be encrypted are encrypted. Define and execute processes to backup certificates, store and access those certificates and restore the encrypted entities. 
+	4.	Use [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) and/or for OS disks where possible from an OS support point of view
+	5.	Check that not too many layers of encryption have been used. It does make limited sense to use Azure Disk encryption and then on top one of the DBMS Transparent Database Encryption methods
+7.	Performance Testing
+	1.	In SAP based on SAP tracing and measurements, compare top 10 online reports to current implementation where applicable 
+	2.	In SAP based on SAP tracing and measurements, compare top 10 batch jobs to current implementation where applicable 
+	3.	In SAP based on SAP tracing and measurements, compare data transfers through interfaces into the SAP system. Focus on interfaces where you know that the transfer is now going between different locations, like going from on-premise to Azure 
  
-Non-Production Phase 
-Migrate Development, QAS and PreProd to Azure.  It is recommended that PreProd should have HA  
-1.	OS/DB Migration or DMO Throughput & Sizing Validation 
-a.	Confirm Export, Dump file upload to Azure and Import performance.  Ensure file upload is fast
-b.	Confirm Source -> Target DB compression ratio 
-c.	Validate sizing for Migration or DMO vs. normal “run” sizing – huge sizing to be used for migration 
-2.	Technical Validation 
-a.	VM Types are certified as per Note 1928533 - SAP Applications on Azure - Supported Products and Azure VM types
-b.	DB & APP VMs are on the same vNet and no traffic redirection or inspection between DB & APP VMs
-c.	Run /SSA/CAT in SE38 and record results – target range for DB Acc and E DB Acc = 50-60 for VMs
-d.	Accelerated Networking enabled 
-e.	Write Accelerator enabled (Hana DB /log only) 
-f.	Validate Linux Kernel and package updates against “Known good” configurations. Update Windows OS to latest available patch 
-g.	Ensure DB version is up to date and supported in SAP PAM 
-h.	ASC or NSG protect DB & APP server – NFS, Netbios and DBMS blocked. OS level firewall enabled 
-i.	Confirm disk configuration – Premium Storage should always be used for DBMS servers.  Managed Disks used.  File System type and block size correct.  For Hana follow template #8
-3.	Azure platform availability check 
-a.	Open Support Request to Microsoft support
-i.	List all VMs & RG 
-ii.	Ask Support to check for unplanned reboots in Azure Support Center -> Health 
-iii.	Analyze any unplanned reboots – determine if root cause is Azure Platform or Guest OS 
-iv.	Ensure Guest Agents are up to date – Win & Linux – check monitoring in Azure Portal is working  
-b.	VM network affinity based on /SSA/CAT results (if required) 
-4.	Security Check 
-a.	RBAC concept implemented.  Super users protected.  2FA for admins
-b.	Lock Resources to prevent accidental deletion of SAP objects 
-c.	Verify NSG and ASC 
-d.	DB encryption, DBMS TDE and Keyvault configuration (for SQL Server see here) 
-e.	ADE for boot disks and/or disks containing SSFS to prevent cloning 
-f.	Check that too many layers of encryption have not been used (SSE, ADE & DBMS layer in combination not recommended)
-5.	Network 
-a.	NVA / Firewall – Checkpoint, Fortigate, Palo Alto HA test completed 
-b.	Hub & Spoke Peer vNet topology recommended 
-c.	Basic vs. Standard ILB – recommend Standard AZ aware 
-d.	Load balancer config – Backend/Frontend pools, probe ports and timeouts set correctly
-e.	Network Placement Groups 
-6.	Backup/Restore & DBA Tasks 
-a.	Backup throughput adequate 
-b.	Restore throughput adequate
-c.	Confirm Backup Storage Georedundancy requirements  
-d.	Check DB integrity runtime 
-7.	HA/DR Testing 
-a.	Guest OS clustering (Windows or Linux) 
-b.	DBMS failover tests pass
-c.	ASCS failover tests pass
-d.	ASR – Test Recovery Plans (no more than 10 VMs per Recovery Plan) 
-e.	AZ vs. AS concepts explained to customer & partner 
-f.	Customers relying on Single VM SLA – ensure SAP and DBMS set to Autostart and other mitigations  
-g.	Check cluster timeout values (Win & Linux) and brief customer on OS Cluster + VM-PHU conflicts 
-8.	Performance Testing 
-a.	Compare top 10 online reports to current on-prem 
-b.	Compare top 10 batch jobs to current on-prem 
-c.	Compare top 10 BDC or interface to current on-prem 
-d.	Technical testing of interfaces
-e.	Optional: Run load generation tools, simulating concurrent users executing a selection of the top transactions
+## Non-Production Phase 
+In this phase, we assume that after a successful pilot or PoC, you are starting to deploy non-production SAP systems into Azure. All the learnings and experiences out of the proof of concepts should be adapted to such a deployment. All the criteria and steps listed in the PoC do apply in this type of deployments as well. 
+In this steps you usually deploy development systems, unit tests systems and business regression tests systems into Azure. It is recommended that at least one non-production system in one SAP application line have the full high availability configuration as the future production system is going to have. Additional steps you need to consider during that phase are:  
+
+1.	Before moving systems from the old platform into Azure collect resource consumption data, like CPU usage, storage throughput and IOPS data. Especially from the DBMS layer units, but also from the application layer units. Also measure network and storage latency.
+2.	Record the availability usage time patterns of the systems. Goal is to figure out whehter non-production systems need to be 7x24 available or whether there are non-production systems that can be shut down during certain phases of a week or month
+3.	Steadily check Azure documentation of Microsoft presentations on channels like [Channel9](https://channel9.msdn.com/) for new functionality that might apply to your deployments
+4.	Check SAP notes related to Azure, like support note [#1928533](https://launchpad.support.sap.com/#/notes/1928533) for new VMs ore newly supported OS and DBMS release. Compare new VM types against older VM types in pricing, so, that you are able to deploy VMs with the best price/performance ratio
+5.	Check [here](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) for new HANA certified SKUs in Azure and compare pricing with the ones you planned and evewntually change to get the units with better price performance ration 
+6.	Adapt your deployment scripts to leverage new VM types and incorporate new features of Azure you want to use
+7.	After deployment of the infrastructure, test and evaluate the network latency between SAP aplication layer VM and DBMS VM according to SAP support note [#500235](https://launchpad.support.sap.com/#/notes/500235) and SAP support note [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Evaluate the results against network latency guidance of SAP support note [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). The network latency should be in the moderate and good range. Exceptions apply to traffic between VMs and HANA Large Instance units as documented [here](#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Make sure that none of the restrictions mentioned in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#azure-network-considerations) and [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations) apply to your deployment
+8.	Perform all the other checks as listed in the Proof of Concepts phase before applying workload
+9.	As workload applies, record the resource consumption of those systems in Azure and compare with the records you got from your own platform. Adjust VM sizing of future deployments if you see that you have larger differences. Keep in mind that in case of downsizing, storage and network bandwidths of a VM will be reduced as well:
+	1.	[Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+	2.	[Sizes for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+10.	Work on system copy functionality and processes. Goal is to make it easy for you to copy a development system or a test system, so, that project teams can get new systems fast. Consider [SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) as a tool performing such tasks.
+7.
 
  
 Production Preparation Phase 
