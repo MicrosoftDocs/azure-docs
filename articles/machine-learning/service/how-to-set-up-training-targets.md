@@ -71,15 +71,7 @@ For a user-managed environments, you're responsible for setting up your environm
 
 The following code shows an example of configuring training runs for a user-managed environment:
 
-```python
-from azureml.core.runconfig import RunConfiguration
-
-run_cfg_user = RunConfiguration()
-run_cfg_user.environment.python.user_managed_dependencies = True
-
-# Point to another Python environment. For example: 
-# run_config.environment.python.interpreter_path = '/home/me/miniconda3/envs/sdk2/bin/python'
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=user-managed)]
   
 ## Set up compute targets with Python
 
