@@ -223,7 +223,7 @@ except ComputeTargetException:
 
 ## Construct your pipeline steps
 
-Now you're ready to define a pipeline step. There are many built-in steps available via the Azure Machine Learning SDK. The most basic of these steps is a `PythonScriptStep`, which runs a Python script in a specified compute target.
+Now you're ready to define a pipeline step. There are many built-in steps available via the Azure Machine Learning SDK. The most basic of these steps is a [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), which runs a Python script in a specified compute target.
 
 ```python
 trainStep = PythonScriptStep(

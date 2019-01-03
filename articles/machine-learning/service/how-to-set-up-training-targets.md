@@ -38,7 +38,9 @@ Azure Machine Learning service has varying support across different compute targ
 |[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
-<a id="pipeline-only"></a>__*__ Azure Databricks and Azure Data Lake Analytics can __only__ be used in a pipeline. The steps to use a compute target in a pipeline differ from what is shown below.  For more information about using compute targets in a pipeline see [Create and run a machine learning pipeline](how-to-create-your-first-pipeline.md).
+<a id="pipeline-only"></a>__*__ Azure Databricks and Azure Data Lake Analytics can __only__ be used in a pipeline. 
+
+You create compute targets for machine learning pipelines as shown in this article, but you use these computes in pipeline steps instead of the methods listed here.  Also, only some pipeline steps use the run configuration described in this article.  For more information about using compute targets in a pipeline see [Create and run a machine learning pipeline](how-to-create-your-first-pipeline.md).
 
 ## What's a run configuration
 
@@ -407,6 +409,16 @@ Follow the steps described earlier to view the list of compute targets. Then use
 1. Select __Attach__. 
 1. View the status of the attach operation by selecting the compute target from the list.
 
+## Set up compute with the CLI
+
+You can access the compute targets that are associated with your workspace using the [CLI extension](reference-azure-machine-learning-cli.md) for Azure Machine Learning service.  You can use the CLI to:
+
+* Create a managed compute target
+* Update a managed compute target
+* Attach an unmanaged compute target
+
+For more information, see [Resource management](reference-azure-machine-learning-cli.md#resource-management).
+
 
 ## <a id="submit"></a>Submit training run
 
@@ -437,7 +449,6 @@ Submit the experiment with a `ScriptRunConfig` object.  This object includes the
 * **script**: Identify the training script
 * **run_config**: The run configuration, which in turn defines where the training will occur.
 
-Or you can submit the experiment with an `Estimator` object as shown in [Train ML models with estimators](how-to-train-ml-models.md).
 
 
 When you submit a training run, a snapshot of the directory that contains your training scripts is created and sent to the compute target. For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshot).
@@ -463,6 +474,11 @@ src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run
 run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
+
+Or you can:
+
+* Submit the experiment with an `Estimator` object as shown in [Train ML models with estimators](how-to-train-ml-models.md). 
+* Submit an experiment [using the CLI extension](reference-azure-machine-learning-cli.md#experiments).
 
 ## Notebook examples
 
