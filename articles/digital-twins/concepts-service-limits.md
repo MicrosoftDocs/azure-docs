@@ -34,6 +34,10 @@ In turn, each Azure Digital Twins instance can have:
 - Exactly One **EventHub** endpoint for the event type **DeviceMessage**.
 - Up to three **EventHub**, **ServiceBus**, or **EventGrid** endpoints of the event type **SensorChange**, **SpaceChange**, **TopologyOperation**, or **UdfCustom**.
 
+> [!NOTE]
+> Some parameters that are usually defined in creating the above Azure IoT entities are not required during public preview.
+> - Consult the [Swagger reference documentation](./how-to-use-swagger.md) for the most recent API specifications.
+
 ## Azure Digital Twins Management API limits
 
 The request rate limits for your Azure Digital Twins Management API are:
