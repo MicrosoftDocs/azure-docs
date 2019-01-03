@@ -40,7 +40,7 @@
     - name: Azure CLI
       href: tutorial-design-database-using-cli.md
     - name: Azure Resource Manager templates
-      href: tutorial-provision-mysql-server-using-ARM-templates.md
+      href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
   - name: 2 - Create a Web App
     items:
     - name: Wordpress - Portal
