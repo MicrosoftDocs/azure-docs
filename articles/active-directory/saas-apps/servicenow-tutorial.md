@@ -80,10 +80,11 @@ To configure and test Azure AD single sign-on with ServiceNow, you need to compl
 1. **[Configure Azure AD Single Sign-On for ServiceNow](#configure-azure-ad-single-sign-on-for-servicenow)** - to enable your users to use this feature.
 2. **[Configure ServiceNow Single Sign-On](#configure-servicenow-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Configure Azure AD Single Sign-On for ServiceNow Express](#configure-azure-ad-single-sign-on-for-servicenow-express)** - to enable your users to use this feature.
-4. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-6. **[Create ServiceNow test user](#create-servicenow-test-user)** - to have a counterpart of Britta Simon in ServiceNow that is linked to the Azure AD representation of user.
-7. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+4. **[Configure ServiceNow Express Single Sign-On](#configure-servicenow-express-single-sign-on)** - to configure the Single Sign-On settings on application side.
+5. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+6. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+7. **[Create ServiceNow test user](#create-servicenow-test-user)** - to have a counterpart of Britta Simon in ServiceNow that is linked to the Azure AD representation of user.
+8. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD Single Sign-On for ServiceNow
 
@@ -326,13 +327,15 @@ To configure Azure AD single sign-on with ServiceNow, perform the following step
 
 	![Configure app URL](./media/servicenow-tutorial/configure.png "Configure app URL")
 
-8. Sign on to your ServiceNow Express application as an administrator.
+### Configure ServiceNow Express Single Sign-On
 
-9. In the navigation pane on the left side, click **Single Sign-On**.
+1. Sign on to your ServiceNow Express application as an administrator.
+
+2. In the navigation pane on the left side, click **Single Sign-On**.
 
 	![Configure app URL](./media/servicenow-tutorial/ic7694980ex.png "Configure app URL")
 
-10. On the **Single Sign-On** dialog, click the configuration icon on the upper right and set the following properties:
+3. On the **Single Sign-On** dialog, click the configuration icon on the upper right and set the following properties:
 
 	![Configure app URL](./media/servicenow-tutorial/ic7694981ex.png "Configure app URL")
 
@@ -342,11 +345,11 @@ To configure Azure AD single sign-on with ServiceNow, perform the following step
 
 	c. In **The field on the user table that...** textbox, type **user_name**.
 
-11. On the **Single Sign-On** dialog, click **Add New Certificate**.
+4. On the **Single Sign-On** dialog, click **Add New Certificate**.
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694973ex.png "Configure single sign-on")
 
-12. On the **X.509 Certificates** dialog, perform the following steps:
+5. On the **X.509 Certificates** dialog, perform the following steps:
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694975.png "Configure single sign-on")
 
@@ -362,11 +365,11 @@ To configure Azure AD single sign-on with ServiceNow, perform the following step
 
 	f. Click **Update**
 
-13. On the **Single Sign-On** dialog, click **Add New IdP**.
+6. On the **Single Sign-On** dialog, click **Add New IdP**.
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694976ex.png "Configure single sign-on")
 
-14. On the **Add New Identity Provider** dialog, under **Configure Identity Provider**, perform the following steps:
+7. On the **Add New Identity Provider** dialog, under **Configure Identity Provider**, perform the following steps:
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694982ex.png "Configure single sign-on")
 
@@ -380,7 +383,7 @@ To configure Azure AD single sign-on with ServiceNow, perform the following step
 
 	e. As **Identity Provider Certificate**, select the certificate you have created in the previous step.
 
-15. Click **Advanced Settings**, and under **Additional Identity Provider Properties**, perform the following steps:
+8. Click **Advanced Settings**, and under **Additional Identity Provider Properties**, perform the following steps:
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694983ex.png "Configure single sign-on")
 
@@ -392,7 +395,7 @@ To configure Azure AD single sign-on with ServiceNow, perform the following step
 
 	d. Deselect **Create an AuthnContextClass**.
 
-16. Under **Additional Service Provider Properties**, perform the following steps:
+9. Under **Additional Service Provider Properties**, perform the following steps:
 
 	![Configure single sign-on](./media/servicenow-tutorial/ic7694984ex.png "Configure single sign-on")
 
