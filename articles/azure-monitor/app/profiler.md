@@ -54,17 +54,6 @@ If you use WebDeploy to deploy changes to your web application, make sure you ex
 
 * [Working with Application Insights in Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 
-[appinsights-in-appservices]:./media/profiler/AppInsights-AppServices.png
 [Enablement UI]: ./media/profiler/Enablement_UI.png
 [profiler-app-setting]:./media/profiler/profiler-app-setting.png
-[performance-blade]: ./media/profiler/performance-blade.png
-[performance-blade-examples]: ./media/profiler/performance-blade-examples.png
-[performance-blade-v2-examples]:./media/profiler/performance-blade-v2-examples.png
-[trace-explorer]: ./media/profiler/trace-explorer.png
-[trace-explorer-toolbar]: ./media/profiler/trace-explorer-toolbar.png
-[trace-explorer-hint-tip]: ./media/profiler/trace-explorer-hint-tip.png
-[trace-explorer-hot-path]: ./media/profiler/trace-explorer-hot-path.png
-[enable-profiler-banner]: ./media/profiler/enable-profiler-banner.png
 [disable-profiler-webjob]: ./media/profiler/disable-profiler-webjob.png
-[linked app services]: ./media/profiler/linked-app-services.png
-

@@ -988,9 +988,9 @@
     - name: Log Analytics service updates
       href: https://azure.microsoft.com/updates/?product=log-analytics
     - name: SDK release notes
-      href: ../application-insights/app-insights-release-notes.md
+      href: app/release-notes.md
     - name: Release notes for Developer Analytics Tools
-      href: ../application-insights/app-insights-release-notes-vsix.md
+      href: app/release-notes-vsix.md
   - name: Windows Analytics
     href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
   - name: Regional availability
