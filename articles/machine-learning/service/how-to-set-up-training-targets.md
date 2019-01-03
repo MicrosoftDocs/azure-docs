@@ -63,7 +63,7 @@ The initial set up of a new environment can take several minutes depending on th
   
 The following code shows an example for a system-managed environment requiring scikit-learn:
     
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=system-managed)]
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=systemManaged)]
 
 #### User-managed environment
 
@@ -71,7 +71,7 @@ For a user-managed environments, you're responsible for setting up your environm
 
 The following code shows an example of configuring training runs for a user-managed environment:
 
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=user-managed)]
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=user_managed)]
   
 ## Set up compute targets with Python
 
