@@ -77,5 +77,5 @@ These packages make up part of the core functionality of the runtime monitoring 
 ## Next steps
 
 - Monitor [ASP.NET Core](../azure-monitor/app/asp-net-core.md).
-- Profile ASP.NET Core [Azure Linux web apps](app-insights-profiler-aspnetcore-linux.md).
-- Debug ASP.NET [snapshots](app-insights-snapshot-debugger.md).
+- Profile ASP.NET Core [Azure Linux web apps](../azure-monitor/app/profiler-aspnetcore-linux.md).
+- Debug ASP.NET [snapshots](../azure-monitor/app/snapshot-debugger.md).
