@@ -52,7 +52,7 @@ While this feature is in preview, the following limitations apply when deploying
 
 **Network resource deletion** requires [additional steps](#delete-network-resources) once you've deployed container groups to the virtual network.
 
-**Container resources are limited** are limited to 2 CPUs and 2 GB of memory, including in regions that otherwise support higher limits.
+**Container resources are limited** to 2 CPUs and 2 GB of memory, including in regions that otherwise support higher limits.
 
 **Virtual network peering** is currently not supported.
 
