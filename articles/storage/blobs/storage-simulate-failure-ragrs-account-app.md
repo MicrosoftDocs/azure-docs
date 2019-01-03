@@ -72,7 +72,23 @@ Once complete, select **File** and **Save** to save your changes.
 
 ### Interrupting the application
 
-# [.Net, Python, and Java v7] (#tab/dotnet, Python, and Java v7)
+# [.NET] (#tab/dotnet)
+
+Run the application in your IDE or shell.
+
+Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application.
+
+![Scenario app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
+
+# [Python] (#tab/python)
+
+Run the application in your IDE or shell.
+
+Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application.
+
+![Scenario app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
+
+# [Java V7 SDK ] (#tab/java-v7)
 
 Run the application in your IDE or shell.
 
@@ -110,7 +126,27 @@ Uncomment the following lines, replace `STORAGEACCOUNTNAME` with the name of you
          }
 ```
 
-# [.Net, Python, and Java v7] (#tab/dotnet, Python, and Java v7)
+# [.NET] (#tab/dotnet)
+
+To resume the application, press **any key**.
+
+Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint 5 times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. When the application successfully retrieves the image 20 times from the secondary endpoint it will attempt to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint.
+
+This pattern is the [Circuit Breaker](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) pattern described in the previous tutorial.
+
+![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure3.png)
+
+# [Python] (#tab/python)
+
+To resume the application, press **any key**.
+
+Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint 5 times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. When the application successfully retrieves the image 20 times from the secondary endpoint it will attempt to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint.
+
+This pattern is the [Circuit Breaker](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) pattern described in the previous tutorial.
+
+![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure3.png)
+
+# [Java V7 SDK ] (#tab/java-v7)
 
 To resume the application, press **any key**.
 
@@ -130,7 +166,47 @@ It will inform you that it is using the secondary pipeline as opposed to the pri
 
 ### Simulate primary endpoint restoration
 
-# [.Net, Python, and Java v7] (#tab/dotnet, Python, and Java v7)
+# [.NET] (#tab/dotnet)
+
+With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail.
+
+In order to simulate the primary endpoint functioning again, you remove the logic to inject the `503` error.
+
+To pause the application, press **any key**.
+
+Navigate to Fiddler and select **Rules** and **Customize Rules...**. 
+
+Comment or remove the custom logic in the `OnBeforeResponse` function, leaving the default function.
+
+Select **File** and **Save** to save the changes.
+
+![Remove customized rule](media/storage-simulate-failure-ragrs-account-app/figure5.png)
+
+When complete, press **any key** to resume the application. The application continues reading from the primary endpoint until it hits 999 reads.
+
+![Resume application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+
+# [Python] (#tab/python)
+
+With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail.
+
+In order to simulate the primary endpoint functioning again, you remove the logic to inject the `503` error.
+
+To pause the application, press **any key**.
+
+Navigate to Fiddler and select **Rules** and **Customize Rules...**. 
+
+Comment or remove the custom logic in the `OnBeforeResponse` function, leaving the default function.
+
+Select **File** and **Save** to save the changes.
+
+![Remove customized rule](media/storage-simulate-failure-ragrs-account-app/figure5.png)
+
+When complete, press **any key** to resume the application. The application continues reading from the primary endpoint until it hits 999 reads.
+
+![Resume application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+
+# [Java V7 SDK ] (#tab/java-v7)
 
 With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail.
 
@@ -170,7 +246,15 @@ You can create an invalid static route for all requests to the primary endpoint 
 
 ### Start and pause the application
 
-# [.Net, Python, and Java v7] (#tab/dotnet, Python, and Java v7)
+# [.NET] (#tab/dotnet)
+
+Run the application in your IDE or shell. Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application.
+
+# [Python] (#tab/python)
+
+Run the application in your IDE or shell. Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application.
+
+# [Java V7 SDK ] (#tab/java-v7)
 
 Run the application in your IDE or shell. Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application.
 
@@ -207,7 +291,19 @@ To add a static route for a destination host, type the following command on a Wi
 
 Replace  `<destination_ip>` with your storage account IP address, and `<gateway_ip>` with your local host IP address.
 
-# [.Net, Python, and Java v7] (#tab/dotnet, Python, and Java v7)
+# [.NET] (#tab/dotnet)
+
+To resume the application, press **any key**.
+
+Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint five times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint. This pattern is the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern described in the previous tutorial.
+
+# [Python] (#tab/python)
+
+To resume the application, press **any key**.
+
+Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint five times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint. This pattern is the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern described in the previous tutorial.
+
+# [Java V7 SDK ] (#tab/java-v7)
 
 To resume the application, press **any key**.
 
@@ -233,7 +329,19 @@ To delete the static route of a destination host, the storage account, type the 
 
 `route delete <destination_ip>`
 
-# [.Net, Python, and Java v7] (#tab/dotnet, Python, and Java v7)
+# [.NET] (#tab/dotnet)
+
+Press **any key** to resume the application. The application continues reading from the primary endpoint until it hits 999 reads.
+
+![Resume application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+
+# [Python] (#tab/python)
+
+Press **any key** to resume the application. The application continues reading from the primary endpoint until it hits 999 reads.
+
+![Resume application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+
+# [Java V7 SDK ] (#tab/java-v7)
 
 Press **any key** to resume the application. The application continues reading from the primary endpoint until it hits 999 reads.
 
