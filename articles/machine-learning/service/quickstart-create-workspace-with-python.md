@@ -130,7 +130,7 @@ pip install azureml-sdk[databricks]
 
    When you execute the code, you might be prompted to sign into your Azure account. After you sign in, the authentication token is cached locally.
 
-1. To viewe the workspace details, such as associated storage, container registry, and key vault, enter the following code:
+1. To view the workspace details, such as associated storage, container registry, and key vault, enter the following code:
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=getDetails)]
 
@@ -193,7 +193,7 @@ To use the code with the Machine Learning tutorials, you need a few more package
     pip install azureml-sdk[automl]
     ```
 
-After you install these packages, continue with the tutorials to train and deploy a modell. 
+After you install these packages, continue with the tutorials to train and deploy a model. 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Train an image classification model](tutorial-train-models-with-aml.md)
