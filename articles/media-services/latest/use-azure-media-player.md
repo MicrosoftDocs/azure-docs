@@ -28,7 +28,8 @@ Microsoft Azure Media Services allows for content to be served up with HLS, DASH
 
 You can use the [Azure Media Player demo page](http://aka.ms/amp) to monitor diagnostics of a video stream. 
 
-![Azure Media Player diagnostics][amp_diagnostics]
+![Azure Media Player diagnostics](./media/azure-media-player/diagnostics.png)
+
 
 ## Next steps
 
