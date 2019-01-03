@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/29/2018
+ms.date: 01/03/2019
 ms.author: lizross
 ---
 
@@ -27,7 +27,7 @@ The Microsoft Authenticator app helps you prove your identity without needing to
 ## Terminology
 |Term|Description|
 |----|-----------|
-|Two-factor verification |A verification process that requires you to specifically use only two pieces of verification info, like a password and a PIN. The Microsoft Authenticator app uses this form of verification.|
+|Two-factor verification |A verification process that requires you to specifically use only two pieces of verification info, like a password and a PIN. The Microsoft Authenticator app uses two-factor verification.|
 |Multi-factor authentication (MFA)|All two-factor verification is multi-factor authentication, requiring you to use *at least* two pieces of verification info, based on your organization's requirements.|
 |Microsoft account (also called, MSA)|You create your own personal accounts, to get access to your consumer-oriented Microsoft products and cloud services, such as Outlook, OneDrive, Xbox LIVE, or Office 365. Your Microsoft account is created and stored in the Microsoft consumer identity account system that's run by Microsoft.|
 |Work or school account|Your organization creates your work or school account (such as alain@contoso.com) to let you access internal and potentially restricted resources, such as Microsoft Azure, Windows Intune, and Office 365.|
@@ -56,9 +56,9 @@ Depending on your account type, your organization might decide that you have to 
 |Article |Description |
 |------|------------|
 |[Download and install the app](microsoft-authenticator-app-how-to.md)|Describes where and how to get and install the Microsoft Authenticator app for devices running Android, iOS, and Windows Phone.|
-|[Add your accounts](microsoft-authenticator-app-add-work-account.md)|Describes how to add your various work or school and personal accounts to the Microsoft Authenticator app.|
+|[Add your work or school accounts](microsoft-authenticator-app-add-work-account.md)|Describes how to add your various work or school and personal accounts to the Microsoft Authenticator app.|
 |[Add your personal accounts](microsoft-authenticator-app-add-personal-account.md)|Describes how to add your personal Microsoft and non-Microsoft accounts to the Microsoft Authenticator app.|
 |[Manually add your accounts](microsoft-authenticator-app-add-account-manual.md)|Describes how to manually add your accounts to the Microsoft Authenticator app, if you're unable to scan the provided QR code.|
 |[Sign-in using the app](microsoft-authenticator-app-sign-in.md)|Describes how to sign in to your various accounts, using the Microsoft Authenticator app.|
-|[Backup and recover account credentials with the Microsoft Authenticator app](microsoft-authenticator-app-backup-and-recovery.md)| Provides information about how to back up and recover your account credentials, using the Microsoft Authenticator app.|
+|[Backup and recover account credentials](microsoft-authenticator-app-backup-and-recovery.md)| Provides information about how to back up and recover your account credentials, using the Microsoft Authenticator app.|
 |[Microsoft Authenticator app FAQ](microsoft-authenticator-app-faq.md)|Provides answers to frequently asked questions about the app.|
