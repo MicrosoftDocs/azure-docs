@@ -61,7 +61,7 @@ The VS Code extension will automatically create a local compute target and run c
 This is a snippet from the default local run configuration file. By default, `userManagedDependencies: True`  so you must install all of your libraries/dependencies yourself and then local experiment runs will use your default Python environment as specified by the VS Code Python extension.
 
 ```yaml
-# user_managed_dependencies=True indicates that the environment will be user managed. False indicates that AzureML will manage the user environment.
+# user_managed_dependencies = True indicates that the environment will be user managed. False indicates that AzureML will manage the user environment.
     userManagedDependencies: True
 # The python interpreter path
     interpreterPath: python
