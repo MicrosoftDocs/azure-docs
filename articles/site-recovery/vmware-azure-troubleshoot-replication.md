@@ -60,6 +60,7 @@ The following list shows ways you can check the process server:
    * Microsoft Azure Site Recovery Service
    * tmansvc
       
+   
    Start or restart any service that isn't running. Check to see whether the problem still occurs.
 
 * **Check whether the process server can connect to the Azure public IP address by using port 443**.
@@ -82,7 +83,7 @@ The following list shows ways you can check the process server:
 
    If you use a URL-based firewall rule on the server, add the following URLs to the firewall configuration:
 
-   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
 * **Check whether proxy settings on the process server block access**.
 
