@@ -98,14 +98,14 @@ In the portal, click any tile or chart to see more detail.
 [Learn more about using Application Insights in the Azure portal](../../azure-monitor/app/app-insights-dashboards.md).
 
 ## Step 4: Publish your app
-Publish your app to your IIS server or to Azure. Watch [Live Metrics Stream](../../application-insights/app-insights-metrics-explorer.md#live-metrics-stream) to make sure everything is running smoothly.
+Publish your app to your IIS server or to Azure. Watch [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) to make sure everything is running smoothly.
 
 Your telemetry builds up in the Application Insights portal, where you can monitor metrics, search your telemetry, and set up [dashboards](../../azure-monitor/app/app-insights-dashboards.md). You can also use the powerful [Log Analytics query language](https://aka.ms/LogAnalyticsLanguage) to analyze usage and performance, or to find specific events.
 
 You can also continue to analyze your telemetry in [Visual Studio](../../application-insights/app-insights-visual-studio.md), with tools such as diagnostic search and [trends](../../application-insights/app-insights-visual-studio-trends.md).
 
 > [!NOTE]
-> If your app sends enough telemetry to approach the [throttling limits](../../application-insights/app-insights-pricing.md#limits-summary), automatic [sampling](../../application-insights/app-insights-sampling.md) switches on. Sampling reduces the quantity of telemetry sent from your app, while preserving correlated data for diagnostic purposes.
+> If your app sends enough telemetry to approach the [throttling limits](../../azure-monitor/app/pricing.md#limits-summary), automatic [sampling](../../application-insights/app-insights-sampling.md) switches on. Sampling reduces the quantity of telemetry sent from your app, while preserving correlated data for diagnostic purposes.
 >
 >
 
@@ -155,4 +155,4 @@ There are alternative topics to look at if you are interested in:
 
 ### Automation
 
-* [Automate creating an Application Insights resource](../../application-insights/app-insights-powershell.md)
+* [Automate creating an Application Insights resource](../../azure-monitor/app/powershell.md)
