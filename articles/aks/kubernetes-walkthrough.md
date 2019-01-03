@@ -44,7 +44,7 @@ The following example output shows the resource group created successfully:
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup",
   "location": "eastus",
   "managedBy": null,
-  "name": "myAKSCluster",
+  "name": "myResourceGroup",
   "properties": {
     "provisioningState": "Succeeded"
   },

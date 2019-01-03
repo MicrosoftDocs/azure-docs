@@ -21,7 +21,7 @@ ms.author: mbullwin
 
 > [!NOTE]
 > This article describes how to analyze data usage Application Insights.  Refer to the following articles for related information.
-> - [Monitoring usage and estimated costs](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
+> - [Monitoring usage and estimated costs](../../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
 
 If you have questions about how pricing works for Application Insights, you can post a question in our [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights).
 
@@ -33,13 +33,13 @@ Pricing for [Azure Application Insights][start] is based on data volume ingested
 
 * Data volume is the number of bytes of telemetry received by Application Insights. Data volume is measured as the size of the uncompressed JSON data package that's received by Application Insights from your application. For [tabular data imported to Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), data volume is measured as the uncompressed size of files that are sent to Application Insights.
 * Your application's data volume charges are now reported on a new billing meter named **Data Ingestion** as of April 2018. This new meter is be shared across monitoring technologies such as Applications Insights and Log Analytics and is currently under the service name **Log Analytics**. 
-* [Live Metrics Stream](app-insights-live-stream.md) data isn't counted for pricing purposes.
+* [Live Metrics Stream](../../azure-monitor/app/live-stream.md) data isn't counted for pricing purposes.
 
 For current prices in your currency and region, see [Application Insights pricing][pricing].
 
 ### Multi-step web tests
 
-[Multi-step web tests](../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions.
+[Multi-step web tests](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions.
 
 There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
 
@@ -47,24 +47,24 @@ There's no separate charge for *ping tests* of a single page. Telemetry from pin
 
 Application Insights makes it easy to understand what your costs are likely to be based on recent usage patterns. To get started, in the Azure portal, for the Application Insights resource, go to the **Usage and estimated costs** page:
 
-![Choose pricing](./media/app-insights-pricing/pricing-001.png)
+![Choose pricing](./media/pricing/pricing-001.png)
 
-A. Review your data volume for the month. This includes all the data that's received and retained (after any [sampling](app-insights-sampling.md)) from your server and client apps, and from availability tests.  
-B. A separate charge is made for [multi-step web tests](../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests). (This doesn't include simple availability tests, which are included in the data volume charge.)  
+A. Review your data volume for the month. This includes all the data that's received and retained (after any [sampling](../../application-insights/app-insights-sampling.md)) from your server and client apps, and from availability tests.  
+B. A separate charge is made for [multi-step web tests](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests). (This doesn't include simple availability tests, which are included in the data volume charge.)  
 C. View data volume trends for the past month.  
-D. Enable data ingestion [sampling](app-insights-sampling.md).   
+D. Enable data ingestion [sampling](../../application-insights/app-insights-sampling.md).   
 E. Set the daily data volume cap.  
 
 To investigate your Application Insights usage more deeply, open the **Metrics** page, add the metric named "Data point volume", and then select the *Apply splitting* option to split the data by "Telemetry item type". 
 
 Application Insights charges are added to your Azure bill. You can see details of your Azure bill in the **Billing** section of the Azure portal, or in the [Azure billing portal](https://account.windowsazure.com/Subscriptions). 
 
-![In the left menu, select Billing](./media/app-insights-pricing/02-billing.png)
+![In the left menu, select Billing](./media/pricing/02-billing.png)
 
 ## Data rate
 The volume of data you send is limited in three ways:
 
-* **Sampling**: You can use sampling to reduce the amount of telemetry that's sent from your server and client apps, with minimal distortion of metrics. Sampling is the primary tool you can use to tune the amount of data you send. Learn more about [sampling features](app-insights-sampling.md). 
+* **Sampling**: You can use sampling to reduce the amount of telemetry that's sent from your server and client apps, with minimal distortion of metrics. Sampling is the primary tool you can use to tune the amount of data you send. Learn more about [sampling features](../../application-insights/app-insights-sampling.md). 
 * **Daily cap**: When you create an Application Insights resource in the Azure portal, the daily cap is set to 100 GB/day. When you create an Application Insights resource in Visual Studio, the default is small (only 32.3 MB/day). The daily cap default is set to facilitate testing. It's intended that the user will raise the daily cap before deploying the app into production. 
 
     The maximum cap is 1,000 GB/day unless you request a higher maximum for a high-traffic application. 
@@ -87,9 +87,9 @@ You can use one of the following options to see how much data your app is sendin
 ## Reduce your data rate
 Here are some things you can do to reduce your data volume:
 
-* Use [Sampling](app-insights-sampling.md). This technology reduces your data rate without skewing your metrics. You don't lose the ability to navigate between related items in Search. In server apps, sampling operates automatically.
-* [Limit the number of Ajax calls that can be reported](../azure-monitor/app/javascript.md#detailed-configuration) in every page view, or switch off Ajax reporting.
-* [Edit ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data are inessential.
+* Use [Sampling](../../application-insights/app-insights-sampling.md). This technology reduces your data rate without skewing your metrics. You don't lose the ability to navigate between related items in Search. In server apps, sampling operates automatically.
+* [Limit the number of Ajax calls that can be reported](../../azure-monitor/app/javascript.md#detailed-configuration) in every page view, or switch off Ajax reporting.
+* [Edit ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data are inessential.
 * Split your telemetry among separate instrumentation keys. 
 * Pre-aggregate metrics. If you put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or, you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs).
 
@@ -97,31 +97,31 @@ Here are some things you can do to reduce your data volume:
 
 You can use the daily volume cap to limit the data collected. However, if the cap is met, a loss of all telemetry sent from your application for the remainder of the day occurs. It is *not advisable* to have your application hit the daily cap. You can't track the health and performance of your application after it reaches the daily cap.
 
-Instead of using the daily volume cap, use [sampling](app-insights-sampling.md) to tune the data volume to the level you want. Then, use the daily cap only as a "last resort" in case your application unexpectedly begins to send much higher volumes of telemetry.
+Instead of using the daily volume cap, use [sampling](../../application-insights/app-insights-sampling.md) to tune the data volume to the level you want. Then, use the daily cap only as a "last resort" in case your application unexpectedly begins to send much higher volumes of telemetry.
 
 To change the daily cap, in the **Configure** section of your Application Insights resource, in the **Usage and estimated costs** pane, select  **Daily Cap**.
 
-![Adjust the daily telemetry volume cap](./media/app-insights-pricing/pricing-003.png)
+![Adjust the daily telemetry volume cap](./media/pricing/pricing-003.png)
 
 ## Sampling
-[Sampling](app-insights-sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while retaining the ability to find related events during diagnostic searches. You also retain correct event counts.
+[Sampling](../../application-insights/app-insights-sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while retaining the ability to find related events during diagnostic searches. You also retain correct event counts.
 
 Sampling is an effective way to reduce charges and stay within your monthly quota. The sampling algorithm retains related items of telemetry so, for example, when you use Search, you can find the request related to a particular exception. The algorithm also retains correct counts so you see the correct values in Metric Explorer for request rates, exception rates, and other counts.
 
 There are several forms of sampling.
 
-* [Adaptive sampling](app-insights-sampling.md) is the default for the ASP.NET SDK. Adaptive sampling automatically adjusts to the volume of telemetry that your app sends. It operates automatically in the SDK in your web app so that telemetry traffic on the network is reduced. 
+* [Adaptive sampling](../../application-insights/app-insights-sampling.md) is the default for the ASP.NET SDK. Adaptive sampling automatically adjusts to the volume of telemetry that your app sends. It operates automatically in the SDK in your web app so that telemetry traffic on the network is reduced. 
 * *Ingestion sampling* is an alternative that operates at the point where telemetry from your app enters the Application Insights service. Ingestion sampling doesn't affect the volume of telemetry sent from your app, but it reduces the volume that's retained by the service. You can use ingestion sampling to reduce the quota that's used up by telemetry from browsers and other SDKs.
 
 To set ingestion sampling, go to the  **Pricing** pane:
 
-![In the Quota and pricing pane, select the Samples tile, and then select a sampling fraction](./media/app-insights-pricing/pricing-004.png)
+![In the Quota and pricing pane, select the Samples tile, and then select a sampling fraction](./media/pricing/pricing-004.png)
 
 > [!WARNING]
 > The **Data sampling** pane controls only the value of ingestion sampling. It doesn't reflect the sampling rate that's applied by the Application Insights SDK in your app. If the incoming telemetry has already been sampled in the SDK, ingestion sampling isn't applied.
 >
 
-To discover the actual sampling rate, no matter where it's been applied, use an [Analytics query](app-insights-analytics.md). The query looks like this:
+To discover the actual sampling rate, no matter where it's been applied, use an [Analytics query](analytics.md). The query looks like this:
 
     requests | where timestamp > ago(1d)
     | summarize 100/avg(itemCount) by bin(timestamp, 1h)
@@ -131,11 +131,11 @@ In each retained record, `itemCount` indicates the number of original records th
 
 ## Automation
 
-You can write a script to set the price plan by using Azure Resource Management. [Learn how](app-insights-powershell.md#price).
+You can write a script to set the price plan by using Azure Resource Management. [Learn how](powershell.md#price).
 
 ## Limits summary
 
-[!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
+[!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
 ## Disable daily cap e-mails
 
@@ -168,7 +168,7 @@ Because this plan is applicable only to customers with an Operations Management 
  * A *node* is a physical or virtual server machine or a platform-as-a-service role instance that hosts your app.
  * Development machines, client browsers, and mobile devices do not count as nodes.
  * If your app has several components that send telemetry, such as a web service and a back-end worker, the components are counted separately.
- * [Live Metrics Stream](app-insights-live-stream.md) data isn't counted for pricing purposes. In a subscription, your charges are per node, not per app. If you have five nodes that send telemetry for 12 apps, the charge is for five nodes.
+ * [Live Metrics Stream](../../azure-monitor/app/live-stream.md) data isn't counted for pricing purposes. In a subscription, your charges are per node, not per app. If you have five nodes that send telemetry for 12 apps, the charge is for five nodes.
 * Although charges are quoted per month, you're charged only for any hour in which a node sends telemetry from an app. The hourly charge is the quoted monthly charge divided by 744 (the number of hours in a 31-day month).
 * A data volume allocation of 200 MB per day is given for each node that's detected (with hourly granularity). Unused data allocation isn't carried over from one day to the next.
  * If you choose the Enterprise pricing plan, each subscription gets a daily allowance of data based on the number of nodes that send telemetry to the Application Insights resources in that subscription. So, if you have five nodes that send data all day, you'll have a pooled allowance of 1 GB applied to all Application Insights resources in that subscription. It doesn't matter if certain nodes send more data than other nodes because the included data is shared across all nodes. If, on a given day, the Application Insights resources receive more data than is included in the daily data allocation for this subscription, the per-GB overage data charges apply. 
@@ -193,9 +193,9 @@ Because this plan is applicable only to customers with an Operations Management 
 
 ## Next steps
 
-* [Sampling](app-insights-sampling.md)
+* [Sampling](../../application-insights/app-insights-sampling.md)
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[start]: app-insights-overview.md
+[start]: ../../application-insights/app-insights-overview.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/

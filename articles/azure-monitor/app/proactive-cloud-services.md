@@ -86,28 +86,28 @@ EventLogs
 
 In the navigation menu within your Application Insights resource, go to **Alerts**, and then select **New Alert Rule**.
 
-![Screenshot of Create rule](./media/app-insights-proactive-cloud-services/001.png)
+![Screenshot of Create rule](./media/proactive-cloud-services/001.png)
 
 In the **Create rule** window, under the **Define alert condition** section, click on **Add criteria**, and then select **Custom log search**.
 
-![Screenshot of define condition criteria for alert](./media/app-insights-proactive-cloud-services/002.png)
+![Screenshot of define condition criteria for alert](./media/proactive-cloud-services/002.png)
 
 In the **Search query** box, paste the combined query you prepared in the previous step.
 
 Then, continue to the **Threshold** box, and set its value to 0. You may optionally tweak the **Period** and Frequency **fields**.
 Click **Done**.
 
-![Screenshot of configure signal logic query](./media/app-insights-proactive-cloud-services/003.png)
+![Screenshot of configure signal logic query](./media/proactive-cloud-services/003.png)
 
 Under the **Define alert details** section, provide a **Name** and **Description** to the alert rule, and set its **Severity**.
 Also, make sure that the **Enable rule upon creation** button is set to **Yes**.
 
-![Screenshot alert details](./media/app-insights-proactive-cloud-services/004.png)
+![Screenshot alert details](./media/proactive-cloud-services/004.png)
 
 Under the **Define action group** section, you can select an existing **Action group** or create a new one.
 You may choose to have the action group contain multiple actions of various types.
 
-![Screenshot action group](./media/app-insights-proactive-cloud-services/005.png)
+![Screenshot action group](./media/proactive-cloud-services/005.png)
 
 Once you've defined the Action group, confirm your changes and click **Create alert rule**.
 
@@ -115,7 +115,7 @@ Once you've defined the Action group, confirm your changes and click **Create al
 
 Learn more about automatically detecting:
 
-[Failure anomalies](app-insights-proactive-failure-diagnostics.md)
-[Memory Leaks](app-insights-proactive-potential-memory-leak.md)
-[Performance anomalies](app-insights-proactive-performance-diagnostics.md)
+[Failure anomalies](../../application-insights/app-insights-proactive-failure-diagnostics.md)
+[Memory Leaks](../../application-insights/app-insights-proactive-potential-memory-leak.md)
+[Performance anomalies](../../application-insights/app-insights-proactive-performance-diagnostics.md)
 
