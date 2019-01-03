@@ -41,7 +41,7 @@ When you work with Stream Analytics, you can take advantage of partitioning in t
 -	Service Bus
 - SQL and SQL Data Warehouse with optional partitioning: see more information on the [Output to Azure SQL Database page](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
-PowerBI doesn't support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
+Power BI doesn't support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
 
 For more information about partitions, see the following articles:
 
@@ -110,9 +110,9 @@ In this case, it doesn't matter what the query is. If the input partition count 
 
 ### Query using non-partitioned output
 * Input: Event hub with 8 partitions
-* Output: PowerBI
+* Output: Power BI
 
-PowerBI output doesn't currently support partitioning. Therefore, this scenario is not embarrassingly parallel.
+Power BI output doesn't currently support partitioning. Therefore, this scenario is not embarrassingly parallel.
 
 ### Multi-step query with different PARTITION BY values
 * Input: Event hub with 8 partitions
