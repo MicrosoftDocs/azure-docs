@@ -107,13 +107,13 @@ function process(telemetry, executionContext) {
 | YOUR_MATCHER_IDENTIFIER | The ID of the matcher you want to use |
 
 1. Verify that the headers include: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
-1. Note that the body is multipart:
+1. Verify that the body is multipart:
 
-   * The first part contains the required user-defined function metadata.
-   * The second part contains the JavaScript compute logic.
+   - The first part contains the required user-defined function metadata.
+   - The second part contains the JavaScript compute logic.
 
 1. In the **USER_DEFINED_BOUNDARY** section, replace the **spaceId** (`YOUR_SPACE_IDENTIFIER`) and **matchers**(`YOUR_MATCHER_IDENTIFIER`)  values.
-1. Note the JavaScript user-defined function supplied as `Content-Type: text/javascript`.
+1. Verify that the JavaScript user-defined function is supplied as `Content-Type: text/javascript`.
 
 ### Example functions
 
