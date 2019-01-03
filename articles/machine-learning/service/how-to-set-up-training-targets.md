@@ -63,15 +63,15 @@ The initial set up of a new environment can take several minutes depending on th
   
 The following code shows an example for a system-managed environment requiring scikit-learn:
     
-    ```python
-    from azureml.core.runconfig import RunConfiguration
-    from azureml.core.conda_dependencies import CondaDependencies
-    
-    run_cfg_system = RunConfiguration()
+```python
+from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
 
-    # Specify scikit-learn as a package dependency
-    run_cfg_system.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
-    ```
+run_cfg_system = RunConfiguration()
+
+# Specify scikit-learn as a package dependency
+run_cfg_system.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
+```
 
 #### User-managed environment
 
@@ -79,15 +79,15 @@ For a user-managed environments, you're responsible for setting up your environm
 
 The following code shows an example of configuring training runs for a user-managed environment:
     
-    ```python
-    from azureml.core.runconfig import RunConfiguration
-    
-    run_cfg_user = RunConfiguration()
-    run_cfg_user.environment.python.user_managed_dependencies = True
-    
-    # Point to another Python environment. For example: 
-    # run_config.environment.python.interpreter_path = '/home/me/miniconda3/envs/sdk2/bin/python'
-    ```
+```python
+from azureml.core.runconfig import RunConfiguration
+
+run_cfg_user = RunConfiguration()
+run_cfg_user.environment.python.user_managed_dependencies = True
+
+# Point to another Python environment. For example: 
+# run_config.environment.python.interpreter_path = '/home/me/miniconda3/envs/sdk2/bin/python'
+```
   
 ## Set up compute targets with Python
 
