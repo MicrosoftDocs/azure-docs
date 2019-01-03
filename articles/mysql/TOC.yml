@@ -39,7 +39,7 @@
       href: tutorial-design-database-using-portal.md
     - name: Azure CLI
       href: tutorial-design-database-using-cli.md
-    - name: ARM Templates
+    - name: Azure Resource Manager templates
       href: tutorial-provision-mysql-server-using-ARM-templates.md
   - name: 2 - Create a Web App
     items:
