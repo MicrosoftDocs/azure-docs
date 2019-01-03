@@ -132,6 +132,10 @@
         items:
         - name: Deploy a Kubernetes cluster
           href: azure-stack-solution-template-kubernetes-deploy.md
+        - name: Deploy Kubernetes using Azure AD
+          href: azure-stack-solution-template-kubernetes-azuread.md
+        - name: Deploy Kubernetes using AD FS
+          href: azure-stack-solution-template-kubernetes-adfs.md
         - name: Troubleshoot Kubernetes cluster
           href: azure-stack-solution-template-kubernetes-trouble.md
       - name: Deploy Cognitive Services
