@@ -4,7 +4,7 @@ description: Shows which Azure resource types support tags. Provides details for
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 12/21/2018
+ms.date: 01/02/2019
 ms.author: tomfitz
 ---
 
@@ -19,15 +19,20 @@ This article describes whether a resource type supports [tagging](resource-group
 ## AD Hybrid Health Service
 | Resource type | Supports tags |
 | ------------- | ----------- |
-| services | No | 
-| addsservices | No | 
-| configuration | No | 
-| agents | No | 
+| addsservices | No |
 | aadsupportcases | No | 
-| reports | No | 
-| servicehealthmetrics | No | 
-| logs | No | 
+| agents | No | 
 | anonymousapiusers | No | 
+| configuration | No | 
+| logs | No | 
+| reports | No | 
+| services | No | 
+| servicehealthmetrics | No | 
+
+## AKS
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| managedClusters | Yes | 
 
 ## Analysis Services
 | Resource type | Supports tags |
@@ -38,11 +43,11 @@ This article describes whether a resource type supports [tagging](resource-group
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | apiManagementAccounts | No | 
-| apiManagementAccounts/connectionProviders | No | 
-| apiManagementAccounts/connections | No | 
-| apiManagementAccounts/connectionAcls | No | 
-| apiManagementAccounts/connectionProviderAcls | No | 
 | apiManagementAccounts/apis | No | 
+| apiManagementAccounts/connectionAcls | No | 
+| apiManagementAccounts/connectionProviders | No | 
+| apiManagementAccounts/connectionProviderAcls | No | 
+| apiManagementAccounts/connections | No | 
 
 ## API Management
 | Resource type | Supports tags |
@@ -53,11 +58,48 @@ This article describes whether a resource type supports [tagging](resource-group
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | automationAccounts | Yes | 
-| automationAccounts/runbooks | Yes | 
 | automationAccounts/configurations | Yes | 
-| automationAccounts/webhooks | No | 
-| automationAccounts/softwareUpdateConfigurations | No | 
 | automationAccounts/jobs | No | 
+| automationAccounts/runbooks | Yes | 
+| automationAccounts/softwareUpdateConfigurations | No | 
+| automationAccounts/webhooks | No | 
+
+## Azure Database for MariaDB
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| servers | Yes | 
+| servers/configurations | No |
+| servers/databases | No |
+| servers/firewallRules | No |
+| servers/recoverableServers | No | 
+| servers/securityAlertPolicies | No |
+| servers/virtualNetworkRules | No | 
+
+## Azure Database for MySQL
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| servers | Yes | 
+| servers/configurations | No |
+| servers/databases | No |
+| servers/firewallRules | No |
+| servers/recoverableServers | No | 
+| servers/securityAlertPolicies | No |
+| servers/virtualNetworkRules | No | 
+
+## Azure Database for PostgreSQL
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| servers | Yes | 
+| servers/advisors | No | 
+| servers/configurations | No |
+| servers/databases | No |
+| servers/firewallRules | No |
+| servers/queryTexts | No | 
+| servers/recoverableServers | No | 
+| servers/securityAlertPolicies | No |
+| servers/topQueryStatistics | No | 
+| servers/virtualNetworkRules | No | 
+| servers/waitStatistics | No | 
 
 ## Batch
 | Resource type | Supports tags |
@@ -82,12 +124,12 @@ This article describes whether a resource type supports [tagging](resource-group
 ## CDN
 | Resource type | Supports tags |
 | ------------- | ----------- |
+| edgenodes | No | 
 | profiles | Yes | 
 | profiles/endpoints | Yes | 
-| profiles/endpoints/origins | No | 
 | profiles/endpoints/customdomains | No | 
+| profiles/endpoints/origins | No | 
 | validateProbe | No | 
-| edgenodes | No | 
 
 ## Classic Compute
 | Resource type | Supports tags |
@@ -109,8 +151,8 @@ This article describes whether a resource type supports [tagging](resource-group
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | virtualNetworks | No | 
-| virtualNetworks/virtualNetworkPeerings | No | 
 | virtualNetworks/remoteVirtualNetworkPeeringProxies | No | 
+| virtualNetworks/virtualNetworkPeerings | No | 
 
 ## Classic Storage
 | Resource type | Supports tags |
@@ -122,23 +164,23 @@ This article describes whether a resource type supports [tagging](resource-group
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | availabilitySets | Yes | 
-| virtualMachines | Yes | 
-| virtualMachines/extensions | Yes | 
-| virtualMachineScaleSets | Yes | 
-| virtualMachineScaleSets/extensions | No | 
-| virtualMachineScaleSets/virtualMachines | No | 
-| virtualMachineScaleSets/networkInterfaces | No | 
-| virtualMachineScaleSets/virtualMachines/networkInterfaces | No | 
-| virtualMachineScaleSets/publicIPAddresses | No | 
+| disks | Yes | 
+| images | Yes | 
 | restorePointCollections | Yes | 
 | restorePointCollections/restorePoints | No | 
-| virtualMachines/diagnosticSettings | No | 
-| virtualMachines/metricDefinitions | No | 
 | sharedVMImages | Yes | 
 | sharedVMImages/versions | Yes | 
-| disks | Yes | 
 | snapshots | Yes | 
-| images | Yes | 
+| virtualMachines | Yes | 
+| virtualMachines/diagnosticSettings | No | 
+| virtualMachines/extensions | Yes | 
+| virtualMachines/metricDefinitions | No | 
+| virtualMachineScaleSets | Yes | 
+| virtualMachineScaleSets/extensions | No | 
+| virtualMachineScaleSets/networkInterfaces | No | 
+| virtualMachineScaleSets/publicIPAddresses | No | 
+| virtualMachineScaleSets/virtualMachines | No | 
+| virtualMachineScaleSets/virtualMachines/networkInterfaces | No | 
 
 ## Container
 | Resource type | Supports tags |
@@ -150,6 +192,14 @@ This article describes whether a resource type supports [tagging](resource-group
 | ------------- | ----------- |
 | containerGroups | Yes | 
 | serviceAssociationLinks | No | 
+
+## Container Registry
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| registries | Yes | 
+| registries/replications | Yes |
+| registries/tasks | Yes |
+| registries/webhooks | Yes |
 
 ## Container Service
 | Resource type | Supports tags |
@@ -172,6 +222,11 @@ This article describes whether a resource type supports [tagging](resource-group
 | ------------- | ----------- |
 | Connectors | Yes | 
 
+## Data Box
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| jobs | Yes | 
+
 ## Data Box Edge
 | Resource type | Supports tags |
 | ------------- | ----------- |
@@ -191,11 +246,11 @@ This article describes whether a resource type supports [tagging](resource-group
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | dataFactories | Yes | 
-| factories | Yes | 
-| factories/integrationRuntimes | No | 
 | dataFactories/diagnosticSettings | No | 
 | dataFactories/metricDefinitions | No | 
 | dataFactorySchema | No | 
+| factories | Yes | 
+| factories/integrationRuntimes | No | 
 
 ## Devices
 | Resource type | Supports tags |
@@ -213,9 +268,24 @@ This article describes whether a resource type supports [tagging](resource-group
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | labs | Yes | 
-| schedules | Yes | 
-| labs/virtualMachines | Yes | 
+| labs/artifactsources | Yes |
+| labs/costs | Yes |
+| labs/customimages | Yes |
+| labs/formulas | Yes |
+| labs/notificationchannels | Yes |
+| labs/policysets/policies | Yes |
+| labs/schedules | Yes |
 | labs/serviceRunners | Yes | 
+| labs/users | Yes |
+| labs/users/disks | Yes |
+| labs/users/environments | Yes |
+| labs/users/secrets | Yes |
+| labs/users/servicefabrics | Yes |
+| labs/users/servicefabrics/schedules | Yes |
+| labs/virtualMachines | Yes | 
+| labs/virtualmachines/schedules | Yes |
+| labs/virtualnetworks | Yes |
+| schedules | Yes | 
 
 ## Dynamics LCS
 | Resource type | Supports tags |
@@ -227,18 +297,23 @@ This article describes whether a resource type supports [tagging](resource-group
 ## Event Grid
 | Resource type | Supports tags |
 | ------------- | ----------- |
-| eventSubscriptions | No | 
-| topics | Yes | 
 | domains | Yes | 
 | domains/topics | No | 
-| topicTypes | No | 
+| eventSubscriptions | No | 
 | extensionTopics | No | 
+| topics | Yes | 
+| topicTypes | No | 
 
 ## Event Hub
 | Resource type | Supports tags |
 | ------------- | ----------- |
-| namespaces | Yes | 
 | clusters | Yes | 
+| namespaces | Yes | 
+| namespaces/AuthorizationRules | No |
+| namespaces/disasterRecoveryConfigs | No |
+| namespaces/eventhubs | No |
+| namespaces/eventhubs/authorizationRules | No |
+| namespaces/eventhubs/consumergroups | No |
 
 ## Hana on Azure
 | Resource type | Supports tags |
@@ -260,28 +335,31 @@ This article describes whether a resource type supports [tagging](resource-group
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | actionGroups | Yes |
-| components | Yes | 
-| components/query | No | 
-| components/metrics | No | 
-| components/events | No | 
-| webtests | Yes | 
-| queries | No | 
-| scheduledqueryrules | Yes | 
-| components/pricingPlans | No | 
-| migrateToNewPricingModel | No | 
-| rollbackToLegacyPricingModel | No | 
+| activityLogAlerts | Yes |
+| alertrules | Yes |
 | automatedExportSettings | No | 
-| workbooks | Yes | 
-| myWorkbooks | No | 
+| components | Yes | 
+| components/events | No | 
+| components/metrics | No | 
+| components/pricingPlans | No | 
+| components/query | No | 
 | logs | No | 
+| metricAlerts | Yes |
+| migrateToNewPricingModel | No | 
+| myWorkbooks | No | 
+| queries | No | 
+| rollbackToLegacyPricingModel | No | 
+| scheduledqueryrules | Yes | 
+| webtests | Yes | 
+| workbooks | Yes | 
 
 ## Key Vault
 | Resource type | Supports tags |
 | ------------- | ----------- |
-| vaults | Yes | 
-| vaults/secrets | No | 
-| vaults/accessPolicies | No | 
 | deletedVaults | No | 
+| vaults | Yes | 
+| vaults/accessPolicies | No | 
+| vaults/secrets | No | 
 
 ## Log Analytics
 | Resource type | Supports tags |
@@ -291,8 +369,8 @@ This article describes whether a resource type supports [tagging](resource-group
 ## Logic
 | Resource type | Supports tags |
 | ------------- | ----------- |
-| workflows | Yes | 
 | integrationAccounts | Yes | 
+| workflows | Yes | 
 
 ## Machine Learning Services
 | Resource type | Supports tags |
@@ -305,13 +383,6 @@ This article describes whether a resource type supports [tagging](resource-group
 | ------------- | ----------- |
 | Identities | No | 
 | userAssignedIdentities | Yes | 
-
-## MariaDB
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| servers | Yes | 
-| servers/recoverableServers | No | 
-| servers/virtualNetworkRules | No | 
 
 ## Marketplace Apps
 | Resource type | Supports tags |
@@ -328,64 +399,57 @@ This article describes whether a resource type supports [tagging](resource-group
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | mediaservices | Yes | 
+| mediaservices/accountFilters | No | 
 | mediaservices/assets | No | 
+| mediaservices/assets/assetFilters | No | 
 | mediaservices/contentKeyPolicies | No | 
-| mediaservices/streamingLocators | No | 
-| mediaservices/streamingPolicies | No | 
 | mediaservices/eventGridFilters | No | 
-| mediaservices/transforms | No | 
-| mediaservices/transforms/jobs | No | 
-| mediaservices/streamingEndpoints | Yes | 
+| mediaservices/liveEventOperations | No | 
 | mediaservices/liveEvents | Yes | 
 | mediaservices/liveEvents/liveOutputs | No | 
-| mediaservices/streamingEndpointOperations | No | 
-| mediaservices/liveEventOperations | No | 
 | mediaservices/liveOutputOperations | No | 
-| mediaservices/assets/assetFilters | No | 
-| mediaservices/accountFilters | No | 
-
-## MySQL
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| servers | Yes | 
-| servers/recoverableServers | No | 
-| servers/virtualNetworkRules | No | 
+| mediaservices/streamingEndpoints | Yes | 
+| mediaservices/streamingEndpointOperations | No | 
+| mediaservices/streamingLocators | No | 
+| mediaservices/streamingPolicies | No | 
+| mediaservices/transforms | No | 
+| mediaservices/transforms/jobs | No | 
 
 ## Network
 | Resource type | Supports tags |
 | ------------- | ----------- |
-| virtualNetworks | Yes | 
-| publicIPAddresses | Yes | 
-| networkInterfaces | Yes | 
+| applicationGateways | Yes | 
+| applicationSecurityGroups | Yes | 
+| azureFirewalls | Yes | 
+| connections | Yes | 
+| ddosProtectionPlans | Yes | 
+| expressRouteCircuits | Yes | 
+| frontdoors | Yes | 
+| frontdoorWebApplicationFirewallPolicies | Yes | 
 | interfaceEndpoints | Yes | 
 | loadBalancers | Yes | 
-| networkSecurityGroups | Yes | 
-| applicationSecurityGroups | Yes | 
-| serviceEndpointPolicies | Yes | 
+| localNetworkGateways | Yes | 
 | networkIntentPolicies | Yes | 
-| routeTables | Yes | 
-| publicIPPrefixes | Yes | 
+| networkInterfaces | Yes | 
+| networkProfiles | Yes | 
+| networkSecurityGroups | Yes | 
 | networkWatchers | Yes | 
 | networkWatchers/connectionMonitors | Yes | 
 | networkWatchers/lenses | Yes | 
 | networkWatchers/pingMeshes | Yes | 
-| virtualNetworkGateways | Yes | 
-| localNetworkGateways | Yes | 
-| connections | Yes | 
-| applicationGateways | Yes | 
-| expressRouteCircuits | Yes | 
-| routeFilters | Yes | 
-| virtualWans | Yes | 
-| vpnSites | Yes | 
-| virtualHubs | Yes | 
-| vpnGateways | Yes | 
-| azureFirewalls | Yes | 
-| virtualNetworkTaps | Yes | 
 | privateLinkServices | Yes | 
-| ddosProtectionPlans | Yes | 
-| networkProfiles | Yes | 
-| frontdoors | Yes | 
-| frontdoorWebApplicationFirewallPolicies | Yes | 
+| publicIPAddresses | Yes | 
+| publicIPPrefixes | Yes | 
+| routeFilters | Yes | 
+| routeTables | Yes | 
+| serviceEndpointPolicies | Yes | 
+| virtualHubs | Yes | 
+| virtualNetworks | Yes | 
+| virtualNetworkGateways | Yes | 
+| virtualNetworkTaps | Yes | 
+| virtualWans | Yes | 
+| vpnGateways | Yes | 
+| vpnSites | Yes | 
 | webApplicationFirewallPolicies | Yes | 
 
 ## Notification Hubs
@@ -393,6 +457,20 @@ This article describes whether a resource type supports [tagging](resource-group
 | ------------- | ----------- |
 | namespaces | Yes | 
 | namespaces/notificationHubs | Yes | 
+
+## Operational Insights
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| workspaces | Yes |
+| workspaces/dataSources | Yes |
+| workspaces/linkedServices | Yes |
+| workspaces/savedSearches | No |
+| workspaces/storageInsightConfigs | Yes |
+
+## Operations Management
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| solutions | No |
 
 ## Portal
 | Resource type | Supports tags |
@@ -404,17 +482,6 @@ This article describes whether a resource type supports [tagging](resource-group
 | ------------- | ----------- |
 | rootResources | Yes | 
 
-## PostgreSQL
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| servers | Yes | 
-| servers/recoverableServers | No | 
-| servers/virtualNetworkRules | No | 
-| servers/topQueryStatistics | No | 
-| servers/queryTexts | No | 
-| servers/waitStatistics | No | 
-| servers/advisors | No | 
-
 ## Power BI
 | Resource type | Supports tags |
 | ------------- | ----------- |
@@ -423,8 +490,8 @@ This article describes whether a resource type supports [tagging](resource-group
 ## Recovery Services
 | Resource type | Supports tags |
 | ------------- | ----------- |
-| vaults | Yes | 
 | backupProtectedItems | No | 
+| vaults | Yes | 
 
 ## Relay
 | Resource type | Supports tags |
@@ -446,8 +513,8 @@ This article describes whether a resource type supports [tagging](resource-group
 ## Search
 | Resource type | Supports tags |
 | ------------- | ----------- |
-| searchServices | Yes | 
 | resourceHealthMetadata | No | 
+| searchServices | Yes | 
 
 ## Security
 | Resource type | Supports tags |
@@ -490,6 +557,64 @@ This article describes whether a resource type supports [tagging](resource-group
 | applicationDefinitions | Yes | 
 | jitRequests | Yes | 
 
+## SQL
+| Resource type | Supports tags |
+| ------------- | ----------- |
+| locations/instanceFailoverGroups | No |
+| managedInstances | Yes |
+| managedInstances/databases | Yes |
+| managedInstances/databases/backupShortTermRetentionPolicies | No |
+| managedInstances/databases/schemas/tables/columns/sensitivityLabels | No |
+| managedInstances/databases/vulnerabilityAssessments | No |
+| managedInstances/databases/vulnerabilityAssessments/rules/baselines | No |
+| managedInstances/encryptionProtector | No |
+| managedInstances/keys | No |
+| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | No |
+| managedInstances/vulnerabilityAssessments | No |
+| servers | Yes |
+| servers/administrators | No |
+| servers/advisors | No |
+| servers/auditingSettings | No |
+| servers/backupLongTermRetentionVaults | No |
+| servers/communicationLinks | No |
+| servers/connectionPolicies | No |
+| servers/databases | Yes |
+| servers/databases/advisors | No |
+| servers/databases/auditingSettings | No |
+| servers/databases/backupLongTermRetentionPolicies | No |
+| servers/databases/backupShortTermRetentionPolicies | No |
+| servers/databases/connectionPolicies | No |
+| servers/databases/dataMaskingPolicies | No |
+| servers/databases/dataMaskingPolicies/rules | No |
+| servers/databases/extendedAuditingSettings | No |
+| servers/databases/extensions | No |
+| servers/databases/geoBackupPolicies | No |
+| servers/databases/schemas/tables/columns/sensitivityLabels | No |
+| servers/databases/securityAlertPolicies | No |
+| servers/databases/syncGroups | No |
+| servers/databases/syncGroups/syncMembers | No |
+| servers/databases/transparentDataEncryption | No |
+| servers/databases/vulnerabilityAssessments | No |
+| servers/databases/vulnerabilityAssessments/rules/baselines | No |
+| servers/disasterRecoveryConfiguration | No |
+| servers/dnsAliases | No |
+| servers/elasticPools | Yes |
+| servers/encryptionProtector | No |
+| servers/extendedAuditingSettings | No |
+| servers/failoverGroups | Yes |
+| servers/firewallRules | No |
+| servers/jobAgents | Yes |
+| servers/jobAgents/credentials | No |
+| servers/jobAgents/jobs | No |
+| servers/jobAgents/jobs/executions | No |
+| servers/jobAgents/jobs/steps | No |
+| servers/jobAgents/targetGroups | No |
+| servers/keys | No |
+| servers/securityAlertPolicies | No |
+| servers/syncAgents | No |
+| servers/virtualNetworkRules | No |
+| servers/vulnerabilityAssessments | No |
+
 ## SQL virtual machine
 | Resource type | Supports tags |
 | ------------- | ----------- |
@@ -500,20 +625,20 @@ This article describes whether a resource type supports [tagging](resource-group
 | ------------- | ----------- |
 | storageAccounts | Yes | 
 | storageAccounts/blobServices | No | 
-| storageAccounts/tableServices | No | 
-| storageAccounts/queueServices | No | 
 | storageAccounts/fileServices | No | 
+| storageAccounts/queueServices | No | 
 | storageAccounts/services | No | 
 | storageAccounts/services/metricDefinitions | No | 
+| storageAccounts/tableServices | No | 
 
 ## Storage Sync
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | storageSyncServices | Yes | 
+| storageSyncServices/registeredServers | No | 
 | storageSyncServices/syncGroups | No | 
 | storageSyncServices/syncGroups/cloudEndpoints | No | 
 | storageSyncServices/syncGroups/serverEndpoints | No | 
-| storageSyncServices/registeredServers | No | 
 | storageSyncServices/workflows | No | 
 
 ## Storsimple
@@ -543,53 +668,50 @@ This article describes whether a resource type supports [tagging](resource-group
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | account | Yes | 
-| account/project | Yes | 
 | account/extension | Yes | 
-| account | Yes | 
 | account/project | Yes | 
-| account/extension | Yes | 
 
 ## Web
 | Resource type | Supports tags |
 | ------------- | ----------- |
-| sites/instances | No | 
-| sites/slots/instances | No | 
-| sites/instances/extensions | No | 
-| sites/slots/instances/extensions | No | 
-| publishingUsers | No | 
-| validate | No | 
-| sourceControls | No | 
-| sites/hostNameBindings | No | 
-| sites/domainOwnershipIdentifiers | No | 
-| sites/slots/hostNameBindings | No | 
+| apiManagementAccounts | No | 
+| apiManagementAccounts/apiAcls | No | 
+| apiManagementAccounts/apis | No | 
+| apiManagementAccounts/apis/apiAcls | No | 
+| apiManagementAccounts/apis/connectionAcls | No | 
+| apiManagementAccounts/apis/connections | No | 
+| apiManagementAccounts/apis/connections/connectionAcls | No | 
+| apiManagementAccounts/apis/localizedDefinitions | No | 
+| apiManagementAccounts/connectionAcls | No | 
+| apiManagementAccounts/connections | No | 
+| billingMeters | No | 
 | certificates | Yes | 
+| connectionGateways | Yes | 
+| connections | Yes | 
+| customApis | Yes | 
+| deletedSites | No | 
+| functions | No | 
+| hostingEnvironments | Yes | 
+| hostingEnvironments/metrics | No | 
+| hostingEnvironments/multiRolePools | No | 
+| hostingEnvironments/workerPools | No | 
+| publishingUsers | No | 
 | serverFarms | Yes | 
 | serverFarms/workers | No | 
 | sites | Yes | 
-| sites/slots | Yes | 
+| sites/domainOwnershipIdentifiers | No | 
+| sites/hostNameBindings | No | 
+| sites/instances | No | 
+| sites/instances/extensions | No | 
 | sites/metrics | No | 
-| sites/slots/metrics | No | 
 | sites/premieraddons | Yes | 
-| hostingEnvironments | Yes | 
-| hostingEnvironments/multiRolePools | No | 
-| hostingEnvironments/workerPools | No | 
-| hostingEnvironments/metrics | No | 
-| functions | No | 
-| deletedSites | No | 
-| apiManagementAccounts | No | 
-| apiManagementAccounts/connections | No | 
-| apiManagementAccounts/connectionAcls | No | 
-| apiManagementAccounts/apis/connections/connectionAcls | No | 
-| apiManagementAccounts/apis/connectionAcls | No | 
-| apiManagementAccounts/apiAcls | No | 
-| apiManagementAccounts/apis/apiAcls | No | 
-| apiManagementAccounts/apis | No | 
-| apiManagementAccounts/apis/localizedDefinitions | No | 
-| apiManagementAccounts/apis/connections | No | 
-| connections | Yes | 
-| customApis | Yes | 
-| connectionGateways | Yes | 
-| billingMeters | No | 
+| sites/slots | Yes | 
+| sites/slots/hostNameBindings | No | 
+| sites/slots/instances | No | 
+| sites/slots/instances/extensions | No | 
+| sites/slots/metrics | No | 
+| sourceControls | No | 
+| validate | No | 
 | verifyHostingEnvironmentVnet | No | 
 
 ## XRM

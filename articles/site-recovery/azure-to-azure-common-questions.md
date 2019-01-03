@@ -127,6 +127,9 @@ Yes. Site Recovery processes all pending data before failing over, so this optio
 ### What does the **Latest processed** option in recovery points mean?
 The **Last processed** option fails over all VMs in the plan to the latest recovery point that Site Recovery processed. To see the latest recovery point for a specific VM, check **Latest Recovery Points** in the VM settings. This option provides a low RTO, because no time is spent processing unprocessed data.
 
+### If I'm replicating between two Azure regions, what happens if my primary region experiences an unexpected outage?
+You can trigger a failover after the outage. Site Recovery doesn't need connectivity from the primary region to perform the failover.
+
 ## Recovery plan
 
 ### What is a recovery plan?
@@ -162,6 +165,14 @@ It depends on the situation. For example, if the source region VM exists, then o
 
 ### How much time does it take to fail back?
 After reprotection, the amount of time for failback is usually similar to the time for failover from the primary region to a secondary region. 
+
+## Security
+### Is replication data sent to the Site Recovery service?
+No, Site Recovery doesn't intercept replicated data, and doesn't have any information about what's running on your virtual machines. Only the metadata needed to orchestrate replication and failover is sent to the Site Recovery service.  
+Site Recovery is ISO 27001:2013, 27018, HIPAA, DPA certified, and is in the process of SOC2 and FedRAMP JAB assessments.
+
+### Does Site Recovery encrypt replication?
+Yes, both encryption-in-transit and [encryption in Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) are supported.
 
 ## Next steps
 * [Review](azure-to-azure-support-matrix.md) support requirements.

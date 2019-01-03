@@ -184,7 +184,7 @@ Congratulations! You have successfully connected to an Azure Cosmos DB account.
 
 ## Step 4: Create a database
 
-A database can be created by using either the [**CreateDatabaseIfNotExistsAsync**](https://aka.ms/CosmosDotnetAPIDocs) or [**CreateDatabaseAsync**](https://aka.ms/CosmosDotnetAPIDocs) function of the `Databases` class. A database is the logical container of items partitioned across containers.
+A database can be created by using either the [**CreateDatabaseIfNotExistsAsync**](https://aka.ms/CosmosDotnetAPIDocs) or [**CreateDatabaseAsync**](https://aka.ms/CosmosDotnetAPIDocs) function of the **CosmosDatabases** class. A database is the logical container of items partitioned across containers.
 
 1. Copy and paste the **CreateDatabase** method below your **GetStartedDemoAsync** method. **CreateDatabase** will create a new database with id `FamilyDatabase` if it does not already exist, with the id specified from the `databaseId` field.
 
@@ -300,7 +300,7 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 > [!WARNING]
 > Calling the method **CreateContainerIfNotExistsAsync** will create a new container, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-A container can be created by using either the [**CreateContainerIfNotExistsAsync**](https://aka.ms/CosmosDotnetAPIDocs) or [**CreateContainerAsync**](https://aka.ms/CosmosDotnetAPIDocs) function in the **Containers** class. A container consists of items (which in the case of the SQL API is JSON documents) and associated JavaScript server-side application logic, e.g. stored procedures, user-defined functions, and triggers.
+A container can be created by using either the [**CreateContainerIfNotExistsAsync**](https://aka.ms/CosmosDotnetAPIDocs) or [**CreateContainerAsync**](https://aka.ms/CosmosDotnetAPIDocs) function in the **CosmosContainers** class. A container consists of items (which in the case of the SQL API is JSON documents) and associated JavaScript server-side application logic, e.g. stored procedures, user-defined functions, and triggers.
 
 1. Copy and paste the **CreateContainer** method below your **CreateDatabase** method. **CreateContainer** will create a new container with id `FamilyContainer` if it does not already exist, with the id specified from the `containerId` field.
 
@@ -337,7 +337,7 @@ Congratulations! You have successfully created an Azure Cosmos DB container.
 
 ## <a id="CreateDoc"></a>Step 6: Add items to the container
 
-An item can be created by using the [**CreateItemAsync**](https://aka.ms/CosmosDotnetAPIDocs) function of the **Items** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
+An item can be created by using the [**CreateItemAsync**](https://aka.ms/CosmosDotnetAPIDocs) function of the **CosmosItems** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
 
 First, we need to create a **Family** class that will represent objects stored within Azure Cosmos DB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note that documents must have an **Id** property serialized as **id** in JSON.
 
