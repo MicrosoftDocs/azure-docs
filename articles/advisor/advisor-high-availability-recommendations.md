@@ -31,20 +31,16 @@ To provide redundancy to your application, we recommend that you group two or mo
 
 To provide redundancy to your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies availability sets that contain a single virtual machine and recommends adding one or more virtual machines to it. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create a virtual machine or to add an existing virtual machine to the availability set.  
 
+## Use Managed Disks to improve data reliability
+Virtual machines that are in an availability set with disks that share either storage accounts or storage scale units are not resilient to single storage scale unit failures during outages. Advisor will identify these availability sets and recommend migrating to Azure Managed Disks. This will ensure that the disks of the different virtual machines in the availability set are sufficiently isolated to avoid a single point of failure. 
+
 ## Ensure application gateway fault tolerance
+
 To ensure the business continuity of mission-critical applications that are powered by application gateways, Advisor identifies application gateway instances that are not configured for fault tolerance, and it suggests remediation actions that you can take. Advisor identifies medium or large single-instance application gateways, and it recommends adding at least one more instance. It also identifies single- or multi-instance small application gateways and recommends migrating to medium or large SKUs. Advisor recommends these actions to ensure that your application gateway instances are configured to satisfy the current SLA requirements for these resources.
-
-## Improve the performance and reliability of virtual machine disks
-
-Advisor identifies virtual machines with standard disks and recommends upgrading to premium disks.
- 
-Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines that run I/O-intensive workloads. Virtual machine disks that use premium storage accounts store data on solid-state drives (SSDs). For the best performance for your application, we recommend that you migrate any virtual machine disks requiring high IOPS to premium storage. 
-
-If your disks do not require high IOPS, you can limit costs by maintaining them in standard storage. Standard storage stores virtual machine disk data on hard disk drives (HDDs) instead of SSDs. You can choose to migrate your virtual machine disks to premium disks. Premium disks are supported on most virtual machine SKUs. However, in some cases, if you want to use premium disks, you might need to upgrade your virtual machine SKUs as well.
 
 ## Protect your virtual machine data from accidental deletion
 
-Setting up virtual machine backup ensures the availability of your business-critical data and offers protection against accidental deletion or corruption.  Advisor identifies virtual machines where backup is not enabled, and it recommends enabling backup. 
+Setting up virtual machine backup ensures the availability of your business-critical data and offers protection against accidental deletion or corruption. Advisor identifies virtual machines where backup is not enabled, and it recommends enabling backup. 
 
 ## Ensure you have access to Azure cloud experts when you need it
 
@@ -65,6 +61,10 @@ If a Traffic Manager profile is configured for geographic routing, then traffic 
 ## Use soft delete on your Azure Storage Account to save and recover data in the event of accidental overwrite or deletion
 
 Enable [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) on your storage account so that deleted blobs transition to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. This allows you to recover in the event of accidental deletion or overwrites. Advisor identifies Azure Storage Accounts that don't have soft delete enabled and suggests you enable it.
+
+## Configure your VPN gateway to active-active for connection resiliency
+
+In active-active configuration, both instances of a VPN gateway will establish S2S VPN tunnels to your on-premise VPN device. When a planned maintenance event or unplanned event happens to one gateway instance, traffic will be switched over to the other active IPsec tunnel automatically. Azure Advisor will identify VPN gateways that are not configured as active-active and suggest that you configure them for high availability.
 
 ## How to access High Availability recommendations in Advisor
 
