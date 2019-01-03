@@ -152,9 +152,7 @@ After importing a file or URL, it is converted into Markdown and stored in that 
 
 ## Editing your knowledge base locally
 
-The initial import and conversion of a file or URL is successful. Errors are commonly introduced when a user exports a knowledge base, edit, then re-import.
-
-There may be times, due to your own organization's security, that you need to edit the knowledge base locally. You should export the knowledge base from the **Settings** page, then edit the knowledge base with Microsoft Excel. If you choose to use another application to edit your exported TSV file, the application may introduce syntax errors because it is not fully TSV compliant. Microsoft Excel's TSV files generally don't introduce any formatting errors. Once you are done with your edits, re-import the TSV file from the **Settings** page. 
+Once a knowledge base is created, it is recommended that you make edits to the knowledge base text in the portal, rather than exporting and re-importing through local files. However, there may be times that you need to edit a knowledge base locallyYou should export the knowledge base from the **Settings** page, then edit the knowledge base with Microsoft Excel. If you choose to use another application to edit your exported TSV file, the application may introduce syntax errors because it is not fully TSV compliant. Microsoft Excel's TSV files generally don't introduce any formatting errors. Once you are done with your edits, re-import the TSV file from the **Settings** page. 
 
 ## Testing your markdown
 
