@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Create an Azure Cosmos DB Gremlin API acc
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 10/26/2018
 ---

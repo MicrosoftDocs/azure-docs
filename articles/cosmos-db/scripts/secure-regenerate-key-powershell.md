@@ -1,11 +1,10 @@
 ---
 title: Azure PowerShell Script-Regenerate Azure Cosmos DB account key
 description: Azure PowerShell Script Sample - Regenerate Azure Cosmos DB account key
-services: cosmos-db
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
-ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 05/10/2017

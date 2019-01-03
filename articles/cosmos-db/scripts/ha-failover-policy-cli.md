@@ -4,6 +4,7 @@ description: Azure CLI Script Sample - Create a failover policy for high availab
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/26/2018
 ---
