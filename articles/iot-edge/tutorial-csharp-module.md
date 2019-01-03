@@ -264,9 +264,9 @@ The environment file stores the credentials for your container registry and shar
     }
     ```
 
-8. Save this file.
+8. Save the Program.cs file.
 
-9. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the IoT Edge agent which modules to deploy, in this case **tempSensor** and **CSharpModule**, and tells the IoT Edge hub how to route messages between them. The Visual Studio Code extension prepopulates most of the information that you need in the deployment template, but verify that everything is accurate for your solution: 
+9. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the IoT Edge agent which modules to deploy, in this case **tempSensor** and **CSharpModule**, and tells the IoT Edge hub how to route messages between them. The Visual Studio Code extension automatically populates most of the information that you need in the deployment template, but verify that everything is accurate for your solution: 
 
    1. The default platform of your IoT Edge is set to **amd64** in your VS Code status bar, which means your **CSharpModule** is set to Linux amd64 version of the image. Change the default platform in status bar from **amd64** to **arm32v7** or **windows-amd64** if that is your IoT Edge device's architecture. 
 
