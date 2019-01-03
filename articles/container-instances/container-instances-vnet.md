@@ -36,25 +36,24 @@ Certain limitations apply when you deploy container groups to a virtual network.
 
 ## Preview limitations
 
-While this feature is in preview, the following limitations apply when deploying container instances to a virtual network.
+While this feature is in preview, the following limitations apply when deploying container instances to a virtual network. 
 
-**Supported** regions:
+**Supported regions and resource limits**
 
-* North Europe (northeurope)
-* West Europe (westeurope)
-* West US (westus)
-* East US (eastus)
+| Location | CPU | Memory (GB) |
+| -------- | :---: | :-----------: |
+| West Europe | 4 | 14 |
+| East US, West US | 2 | 3.5 |
+| Australia East, North Europe | 1 | 1.5 |
 
-**Unsupported** network resources:
+Container resource limits may differ from limits for non-networked container instances in these regions.
 
-* Network Security Group
+**Unsupported network resources and features**
+
 * Azure Load Balancer
+* Virtual network peering
 
 **Network resource deletion** requires [additional steps](#delete-network-resources) once you've deployed container groups to the virtual network.
-
-**Container resources are limited** to 2 CPUs and 2 GB of memory, including in regions that otherwise support higher limits.
-
-**Virtual network peering** is currently not supported.
 
 ## Required network resources
 
