@@ -25,7 +25,7 @@ You can create and use multiple versions of an Azure Blockchain Workbench app.
 
 ## Add an app version
 
-To add a blockchain application to Blockchain Workbench, you upload the configuration and smart contract files to define the application.
+You can add new versions of a blockchain application to Blockchain Workbench. To add a new version, upload the new configuration and smart contract files to Blockchain Workbench. A version history of the application is available to users of the application.
 
 1. In a web browser, navigate to the Blockchain Workbench web address. For example, `https://{workbench URL}.azurewebsites.net/` The web application is created when you deploy Blockchain Workbench. For information on how to find your Blockchain Workbench web address, see [Blockchain Workbench Web URL](deploy.md#blockchain-workbench-web-url)
 2. Sign in as a [Blockchain Workbench administrator](manage-users.md#manage-blockchain-workbench-administrators).

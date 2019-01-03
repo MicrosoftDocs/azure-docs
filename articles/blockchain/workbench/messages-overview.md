@@ -544,65 +544,6 @@ public class AssignContractChainIdentifierRequest : MessageModelBase
 }
 ```
 
-## Classes used by message types
-
-### MessageModelBase
-
-The base model for all messages.
-
-| Name          | Description                          |
-|---------------|--------------------------------------|
-| OperationName | The name of the operation           |
-| RequestId     | Unique identifier for the request |
-
-``` csharp
-public class MessageModelBase
-{
-    public string OperationName { get; set; }
-    public string RequestId { get; set; }
-}
-```
-
-### ContractInputParameter
-
-Contains the name, value and type of a parameter.
-
-| Name  | Description                 |
-|-------|-----------------------------|
-| Name  | The name of the parameter  |
-| Value | The value of the parameter |
-| Type  | The type of the parameter  |
-
-``` csharp
-public class ContractInputParameter
-{
-    public string Name { get; set; }
-    public string Value { get; set; }
-    public string Type { get; set; }
-}
-```
-
-#### ContractProperty
-
-Contains the ID, name, value and type of a property.
-
-| Name  | Description                |
-|-------|----------------------------|
-| Id    | The ID of the property    |
-| Name  | The name of the property  |
-| Value | The value of the property |
-| Type  | The type of the property  |
-
-``` csharp
-public class ContractProperty
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Value { get; set; }
-    public string DataType { get; set; }
-}
-```
-
 
 ### BlockMessage
 
@@ -1103,6 +1044,65 @@ Example of an *EventMessage RoleAssignment* from Blockchain Workbench:
     "messageSchemaVersion": "1.0.0",
     "messageName": "EventMessage",
     "additionalInformation": { }
+}
+```
+
+## Classes used by message types
+
+### MessageModelBase
+
+The base model for all messages.
+
+| Name          | Description                          |
+|---------------|--------------------------------------|
+| OperationName | The name of the operation           |
+| RequestId     | Unique identifier for the request |
+
+``` csharp
+public class MessageModelBase
+{
+    public string OperationName { get; set; }
+    public string RequestId { get; set; }
+}
+```
+
+### ContractInputParameter
+
+Contains the name, value and type of a parameter.
+
+| Name  | Description                 |
+|-------|-----------------------------|
+| Name  | The name of the parameter  |
+| Value | The value of the parameter |
+| Type  | The type of the parameter  |
+
+``` csharp
+public class ContractInputParameter
+{
+    public string Name { get; set; }
+    public string Value { get; set; }
+    public string Type { get; set; }
+}
+```
+
+#### ContractProperty
+
+Contains the ID, name, value and type of a property.
+
+| Name  | Description                |
+|-------|----------------------------|
+| Id    | The ID of the property    |
+| Name  | The name of the property  |
+| Value | The value of the property |
+| Type  | The type of the property  |
+
+``` csharp
+public class ContractProperty
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Value { get; set; }
+    public string DataType { get; set; }
 }
 ```
 
