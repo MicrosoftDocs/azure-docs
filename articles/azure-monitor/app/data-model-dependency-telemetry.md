@@ -61,7 +61,7 @@ Indication of successful or unsuccessful call.
 ## Next steps
 
 - Set up dependency tracking for [.NET](../../azure-monitor/app/asp-net-dependencies.md).
-- Set up dependency tracking for [Java](../../application-insights/app-insights-java-agent.md).
+- Set up dependency tracking for [Java](../../azure-monitor/app/java-agent.md).
 - [Write custom dependency telemetry](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
 - See [data model](data-model.md) for Application Insights types and data model.
-- Check out [platforms](../../application-insights/app-insights-platforms.md) supported by Application Insights.
+- Check out [platforms](../../azure-monitor/app/platforms.md) supported by Application Insights.

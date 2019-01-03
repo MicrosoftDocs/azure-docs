@@ -3,7 +3,7 @@ title: Choose the right pricing tier for Azure Maps | Microsoft Docs
 description: Learn about pricing tiers offered by Azure Maps 
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -50,9 +50,8 @@ See the **pricing tier targeted customers** table to get a better sense of the S
 
 | Pricing tier  |        Targeted customers                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>The S0 pricing tier is for customers who are either small or medium-sized enterprises. It's the right pricing tier for you if you don't expect high volumes of concurrent users. It's also right if the core geospatial APIs shown in the following table meet your service requirements. This tier is generally available. It works for applications in all stages of production: from proof-of-concept development and early stage testing to application production and deployment.<p>|
+| S0            |    <p>The S0 pricing tier is for customers who are either small or medium-sized enterprises. It's the right pricing tier for you if you don't expect high volumes of concurrent users. It's also right if the core geospatial APIs shown in the preceding table meet your service requirements. This tier is generally available. It works for applications in all stages of production: from proof-of-concept development and early stage testing to application production and deployment.<p>|
 | S1            |    <p>The S1 pricing tier is for customers in need of support for large-scale enterprise, mission-critical applications, or high volumes of concurrent users. It's also for those customers who require advanced geospatial services.</p>|
-
 
 ## Next steps
 

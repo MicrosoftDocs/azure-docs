@@ -45,9 +45,9 @@ If you don't have a reference on Application Insights SDK yet:
 * Add the Application Insights SDK to your project:
 
   * [ASP.NET project](../../azure-monitor/app/asp-net.md)
-  * [Java project](../../application-insights/app-insights-java-get-started.md)
-  * [Node.js project](../../application-insights/app-insights-nodejs.md)
-  * [JavaScript in each webpage](../../application-insights/app-insights-javascript.md) 
+  * [Java project](../../azure-monitor/app/java-get-started.md)
+  * [Node.js project](../../azure-monitor/app/nodejs.md)
+  * [JavaScript in each webpage](../../azure-monitor/app/javascript.md) 
 * In your device or web server code, include:
 
     *C#:* `using Microsoft.ApplicationInsights;`
@@ -108,7 +108,7 @@ In Node.js projects, you can use `new applicationInsights.TelemetryClient(instru
 
 ## TrackEvent
 
-In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md) as an aggregated count, and in [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md) as individual occurrences. (It isn't related to MVC or other framework "events.")
+In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) as an aggregated count, and in [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md) as individual occurrences. (It isn't related to MVC or other framework "events.")
 
 Insert `TrackEvent` calls in your code to count various events. How often users choose a particular feature, how often they achieve particular goals, or maybe how often they make particular types of mistakes.
 
@@ -448,7 +448,7 @@ requests
 
 Send exceptions to Application Insights:
 
-* To [count them](../../application-insights/app-insights-metrics-explorer.md), as an indication of the frequency of a problem.
+* To [count them](../../azure-monitor/app/metrics-explorer.md), as an indication of the frequency of a problem.
 * To [examine individual occurrences](../../azure-monitor/app/diagnostic-search.md).
 
 The reports include the stack traces.
@@ -505,7 +505,7 @@ catch (ex)
 The SDKs catch many exceptions automatically, so you don't always have to call TrackException explicitly.
 
 * ASP.NET: [Write code to catch exceptions](../../azure-monitor/app/asp-net-exceptions.md).
-* J2EE: [Exceptions are caught automatically](../../application-insights/app-insights-java-get-started.md#exceptions-and-request-failures).
+* J2EE: [Exceptions are caught automatically](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
 * JavaScript: Exceptions are caught automatically. If you want to disable automatic collection, add a line to the code snippet that you insert in your webpages:
 
 ```javascript
@@ -546,7 +546,7 @@ Use TrackTrace to help diagnose problems by sending a "breadcrumb trail" to Appl
 
 In .NET [Log adapters](../../azure-monitor/app/asp-net-trace-logs.md) use this API to send third-party logs to the portal.
 
-In Java for [Standard loggers like Log4J, Logback](../../application-insights/app-insights-java-trace-logs.md) use Application Insights Log4j or Logback Appenders to send third-party logs to the portal.
+In Java for [Standard loggers like Log4J, Logback](../../azure-monitor/app/java-trace-logs.md) use Application Insights Log4j or Logback Appenders to send third-party logs to the portal.
 
 *C#*
 
@@ -665,7 +665,7 @@ finally
 
 Remember that the server SDKs include a [dependency module](../../azure-monitor/app/asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically--for example, to databases and REST APIs. You have to install an agent on your server to make the module work. 
 
-In Java, certain dependency calls can be automatically tracked using [Java Agent](../../application-insights/app-insights-java-agent.md).
+In Java, certain dependency calls can be automatically tracked using [Java Agent](../../azure-monitor/app/java-agent.md).
 
 You use this call if you want to track calls that the automated tracking doesn't catch, or if you don't want to install the agent.
 
@@ -761,7 +761,7 @@ If your app groups users into accounts, you can also pass an identifier for the 
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-In [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md), you can create a chart that counts **Users, Authenticated**, and **User accounts**.
+In [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md), you can create a chart that counts **Users, Authenticated**, and **User accounts**.
 
 You can also [search](../../azure-monitor/app/diagnostic-search.md) for client data points with specific user names and accounts.
 
@@ -1167,7 +1167,7 @@ To determine how long data is kept, see [Data retention and privacy](../../azure
     None. You don't need to wrap them in try-catch clauses. If the SDK encounters problems, it will log messages in the debug console output and--if the messages get through--in Diagnostic Search.
 * *Is there a REST API to get data from the portal?*
 
-    Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [export from Analytics to Power BI](../../application-insights/app-insights-export-power-bi.md) and [continuous export](../../application-insights/app-insights-export-telemetry.md).
+    Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [export from Analytics to Power BI](../../application-insights/app-insights-export-power-bi.md) and [continuous export](../../azure-monitor/app/export-telemetry.md).
 
 ## <a name="next"></a>Next steps
 
