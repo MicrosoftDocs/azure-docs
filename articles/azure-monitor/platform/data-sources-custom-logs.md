@@ -1,6 +1,6 @@
 ---
-title: Collect custom logs in Azure Log Analytics | Microsoft Docs
-description: Log Analytics can collect events from text files on both Windows and Linux computers.  This article describes how to define a new custom log and details of the records they create in the Log Analytics workspace.
+title: Collect custom logs in Azure Monitor | Microsoft Docs
+description: Azure Monitor can collect events from text files on both Windows and Linux computers.  This article describes how to define a new custom log and details of the records they create in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,12 +11,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/19/2018
+ms.date: 11/27/2018
 ms.author: bwren
 ---
 
-# Custom logs in Log Analytics
-The Custom Logs data source in Log Analytics allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog. Once collected, you can either parse the data into individual fields in your queries or extract the data during collection to individual fields.
+# Custom logs in Azure Monitor
+The Custom Logs data source in Azure Monitor allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog. Once collected, you can either parse the data into individual fields in your queries or extract the data during collection to individual fields.
 
 ![Custom log collection](media/data-sources-custom-logs/overview.png)
 
@@ -30,7 +30,7 @@ The log files to be collected must match the following criteria.
 - The log file must use ASCII or UTF-8 encoding.  Other formats such as UTF-16 are not supported.
 
 >[!NOTE]
->If there are duplicate entries in the log file, Log Analytics will collect them.  However, the search results will be inconsistent where the filter results show more events than the result count.  It will be important that you validate the log to determine if the application that creates it is causing this behavior and address it if possible before creating the custom log collection definition.  
+>If there are duplicate entries in the log file, Azure Monitor will collect them.  However, the query results will be inconsistent where the filter results show more events than the result count.  It will be important that you validate the log to determine if the application that creates it is causing this behavior and address it if possible before creating the custom log collection definition.  
 >
   
 >[!NOTE]
@@ -49,11 +49,11 @@ The Custom Log Wizard runs in the Azure portal and allows you to define a new cu
 4. Click **Add+** to open the Custom Log Wizard.
 
 ### Step 2. Upload and parse a sample log
-You start by uploading a sample of the custom log.  The wizard will parse and display the entries in this file for you to validate.  Log Analytics will use the delimiter that you specify to identify each record.
+You start by uploading a sample of the custom log.  The wizard will parse and display the entries in this file for you to validate.  Azure Monitor will use the delimiter that you specify to identify each record.
 
 **New Line** is the default delimiter and is used for log files that have a single entry per line.  If the line starts with a date and time in one of the available formats, then you can specify a **Timestamp** delimiter which supports entries that span more than one line.
 
-If a timestamp delimiter is used, then the TimeGenerated property of each record stored in Log Analytics will be populated with the date/time specified for that entry in the log file.  If a new line delimiter is used, then TimeGenerated is populated with date and time that Log Analytics collected the entry.
+If a timestamp delimiter is used, then the TimeGenerated property of each record stored in Azure Monitor will be populated with the date/time specified for that entry in the log file.  If a new line delimiter is used, then TimeGenerated is populated with date and time that Azure Monitor collected the entry.
 
 
 1. Click **Browse** and browse to a sample file.  Note that this may button may be labeled **Choose File** in some browsers.
@@ -92,16 +92,16 @@ The name that you specify will be used for the log type as described above.  It 
 3. Click **Next** to save the custom log definition.
 
 ### Step 5. Validate that the custom logs are being collected
-It may take up to an hour for the initial data from a new custom log to appear in Log Analytics.  It will start collecting entries from the logs found in the path you specified from the point that you defined the custom log.  It will not retain the entries that you uploaded during the custom log creation, but it will collect already existing entries in the log files that it locates.
+It may take up to an hour for the initial data from a new custom log to appear in Azure Monitor.  It will start collecting entries from the logs found in the path you specified from the point that you defined the custom log.  It will not retain the entries that you uploaded during the custom log creation, but it will collect already existing entries in the log files that it locates.
 
-Once Log Analytics starts collecting from the custom log, its records will be available with a Log Search.  Use the name that you gave the custom log as the **Type** in your query.
+Once Azure Monitor starts collecting from the custom log, its records will be available with a log query.  Use the name that you gave the custom log as the **Type** in your query.
 
 > [!NOTE]
-> If the RawData property is missing from the search, you may need to close and reopen your browser.
+> If the RawData property is missing from the query, you may need to close and reopen your browser.
 
 
 ### Step 6. Parse the custom log entries
-The entire log entry will be stored in a single property called **RawData**.  You will most likely want to separate the different pieces of information in each entry into individual properties for each record. Refer to [Parse text data in Log Analytics](../log-query/parse-text.md) for options on parsing **RawData** into multiple properties.
+The entire log entry will be stored in a single property called **RawData**.  You will most likely want to separate the different pieces of information in each entry into individual properties for each record. Refer to [Parse text data in Azure Monitor](../log-query/parse-text.md) for options on parsing **RawData** into multiple properties.
 
 ## Removing a custom log
 Use the following process in the Azure portal to remove a custom log that you previously defined.
@@ -111,16 +111,16 @@ Use the following process in the Azure portal to remove a custom log that you pr
 
 
 ## Data collection
-Log Analytics will collect new entries from each custom log approximately every 5 minutes.  The agent will record its place in each log file that it collects from.  If the agent goes offline for a period of time, then Log Analytics will collect entries from where it last left off, even if those entries were created while the agent was offline.
+Azure Monitor will collect new entries from each custom log approximately every 5 minutes.  The agent will record its place in each log file that it collects from.  If the agent goes offline for a period of time, then Azure Monitor will collect entries from where it last left off, even if those entries were created while the agent was offline.
 
-The entire contents of the log entry are written to a single property called **RawData**.  See [Parse text data in Log Analytics](../log-query/parse-text.md) for methods to parse each imported log entry into multiple properties.
+The entire contents of the log entry are written to a single property called **RawData**.  See [Parse text data in Azure Monitor](../log-query/parse-text.md) for methods to parse each imported log entry into multiple properties.
 
 ## Custom log record properties
 Custom log records have a type with the log name that you provide and the properties in the following table.
 
 | Property | Description |
 |:--- |:--- |
-| TimeGenerated |Date and time that the record was collected by Log Analytics.  If the log uses a time-based delimiter then this is the time collected from the entry. |
+| TimeGenerated |Date and time that the record was collected by Azure Monitor.  If the log uses a time-based delimiter then this is the time collected from the entry. |
 | SourceSystem |Type of agent the record was collected from. <br> OpsManager – Windows agent, either direct connect or System Center Operations Manager <br> Linux – All Linux agents |
 | RawData |Full text of the collected entry. You will most likely want to [parse this data into individual properties](../log-query/parse-text.md). |
 | ManagementGroupName |Name of the management group for System Center Operations Manage agents.  For other agents, this is AOI-\<workspace ID\> |
@@ -161,5 +161,5 @@ We use Custom Fields to define the *EventTime*, *Code*, *Status*, and *Message* 
 ![Log query with custom fields](media/data-sources-custom-logs/query-02.png)
 
 ## Next steps
-* See [Parse text data in Log Analytics](../log-query/parse-text.md) for methods to parse each imported log entry into multiple properties.
-* Learn about [log searches](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
+* See [Parse text data in Azure Monitor](../log-query/parse-text.md) for methods to parse each imported log entry into multiple properties.
+* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.

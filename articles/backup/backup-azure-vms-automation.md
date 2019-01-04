@@ -12,7 +12,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Use PowerShell to back up and restore virtual machines
 
-This article shows how to use Azure PowerShell cmdlets to back up and recover an Azure virtual machine (VM) from a Recovery Services vault. A Recovery Services vault is an Azure Resource Manager resource used to protect data and assets in Azure Backup and Azure Site Recovery services. 
+This article shows how to use Azure PowerShell cmdlets to back up and recover an Azure virtual machine (VM) from a Recovery Services vault. A Recovery Services vault is an Azure Resource Manager resource used to protect data and assets in Azure Backup and Azure Site Recovery services.
 
 > [!NOTE]
 > Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article is for use with VMs created using the Resource Manager model.
@@ -22,6 +22,7 @@ This article shows how to use Azure PowerShell cmdlets to back up and recover an
 This article walks you through using PowerShell to protect a VM, and restore data from a recovery point.
 
 ## Concepts
+
 If you are not familiar with the Azure Backup service, for an overview of the service, see the article, [What is Azure Backup?](backup-introduction-to-azure-backup.md) Before you start, ensure that you cover the prerequisites needed with Azure Backup, and the limitations of the current VM backup solution.
 
 To use PowerShell effectively, it is necessary to understand the hierarchy of objects and from where to start.
@@ -37,7 +38,7 @@ To begin:
 1. [Download the latest version of PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (the minimum version required is: 1.4.0)
 
 2. Find the Azure Backup PowerShell cmdlets available by typing the following command:
-   
+
     ```powershell
     Get-Command *azurermrecoveryservices*
     ```    
@@ -320,7 +321,7 @@ $rp[0]
 
 The output is similar to the following example:
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -344,6 +345,7 @@ To restore the disks and configuration information:
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
 $restorejob
 ```
+
 #### Restore managed disks
 
 > [!NOTE]
@@ -353,16 +355,15 @@ $restorejob
 
 Provide an additional parameter **TargetResourceGroupName** to specify the RG to which managed disks will be restored.
 
-
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"
 ```
 
 The **VMConfig.JSON** file will be restored to the storage account and the managed disks will be restored to the specified target RG.
 
-
 The output is similar to the following example:
-```
+
+```powershell
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
 ------------     ---------          ------               ---------                 -------          ----------
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -391,6 +392,27 @@ After you restore the disks, use the following steps to create and configure the
 > To create encrypted VMs from restored disks, your Azure role must have permission to perform the action, **Microsoft.KeyVault/vaults/deploy/action**. If your role does not have this permission, create a custom role with this action. For more information, see [Custom Roles in Azure RBAC](../role-based-access-control/custom-roles.md).
 >
 >
+
+> [!NOTE]
+> After restoring disks, you can now get a deployment template which you can directly use to create a new VM. No more different PS cmdlets to create managed/unmanaged VMs which are encrypted/unencrypted.
+
+The resultant job details gives the template URI which can be queried and deployed.
+
+```powershell
+   $properties = $details.properties
+   $templateBlobURI = $properties["Template Blob Uri"]
+```
+
+Just deploy the template to create a new VM as explained [here](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source).
+
+```powershell
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS
+```
+
+The following section lists steps necessary to create a VM using "VMConfig" file.
+
+> [!NOTE]
+> It is highly recommended to use the deployment template detailed above to create a VM. This section (Points 1-6) will be deprecated soon.
 
 1. Query the restored disk properties for the job details.
 
@@ -470,14 +492,14 @@ After you restore the disks, use the following steps to create and configure the
    * **Managed and non-encrypted VMs** - For managed non-encrypted VMs, attach the restored managed disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
    * **Managed and encrypted VMs (BEK only)** - For managed encrypted VMs (encrypted using BEK only), attach the restored managed disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
-   
-      Use the following command to manually enable encryption for the data disks.
+
+     Use the following command to manually enable encryption for the data disks.
 
        ```powershell
        Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
        ```
 
-   * **Managed and encrypted VMs (BEK and KEK)** - For managed encrypted VMs (encrypted using BEK and KEK), attach the restored managed disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md). 
+   * **Managed and encrypted VMs (BEK and KEK)** - For managed encrypted VMs (encrypted using BEK and KEK), attach the restored managed disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
       Use the following command to manually enable encryption for the data disks.
 
@@ -514,7 +536,6 @@ The basic steps to restore a file from an Azure VM backup are:
 * Mount the disks of recovery point
 * Copy the required files
 * Unmount the disk
-
 
 ### Select the VM
 
@@ -569,7 +590,7 @@ Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 The output is similar to the following example:
 
-```
+```powershell
 OsType  Password        Filename
 ------  --------        --------
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe

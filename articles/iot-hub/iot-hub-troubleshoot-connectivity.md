@@ -46,7 +46,7 @@ To get alerts when devices disconnect, configure alerts on the **connected devic
 
    ![Recommended metric alert][3]
 
-To learn more, see [What are classic alerts in Microsoft Azure?](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+To learn more, see [What are classic alerts in Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
 
 ## Resolve connectivity errors
 

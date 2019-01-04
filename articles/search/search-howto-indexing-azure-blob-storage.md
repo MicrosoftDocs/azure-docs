@@ -1,6 +1,6 @@
 ---
-title: Indexing Azure Blob Storage with Azure Search
-description: Learn how to index Azure Blob Storage and extract text from documents with Azure Search
+title: Index Azure Blob storage content for full text search - Azure Search
+description: Learn how to index Azure Blob Storage and extract text from documents with Azure Search.
 
 ms.date: 10/17/2018
 author: mgottein 
@@ -11,6 +11,7 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
+ms.custom: seodec2018
 ---
 
 # Indexing Documents in Azure Blob Storage with Azure Search
@@ -332,7 +333,7 @@ Indexing blobs can be a time-consuming process. In cases where you have millions
 
 You may want to "assemble" documents from multiple sources in your index. For example, you may want to merge text from blobs with other metadata stored in Cosmos DB. You can even use the push indexing API together with various indexers to  build up search documents from multiple parts. 
 
-For this to work, all indexers and other components need to agree on the document key. For a detailed walk-through, see this external article: [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+For this to work, all indexers and other components need to agree on the document key. For a detailed walk-through, see this external article: [Combine documents with other data in Azure Search ](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## Indexing plain text 

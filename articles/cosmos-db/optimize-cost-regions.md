@@ -2,7 +2,6 @@
 title: Optimize cost for multi-region deployments in Azure Cosmos DB
 description: This article explains how to manage costs of multi-region deployments in Azure Cosmos DB.
 author: rimman
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
@@ -17,7 +16,7 @@ You can add and remove regions to your Azure Cosmos account at any time. The thr
 
 1. `T x (N+1) RU/s` if your Azure Cosmos account is configured with all regions capable of processing writes. 
 
-Provisioned throughput with single write region costs $0.008/hour per 100 RU/s and provisioned throughput with multiple writable regions costs $0.016/per hour per 100 RU/s. To learn more, see Cosmos DB [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
+Provisioned throughput with single write region costs $0.008/hour per 100 RU/s and provisioned throughput with multiple writable regions costs $0.016/per hour per 100 RU/s. To learn more, see Azure Cosmos DB [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## Costs for multiple write regions
 

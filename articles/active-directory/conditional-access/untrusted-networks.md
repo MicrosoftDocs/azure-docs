@@ -24,7 +24,7 @@ ms.reviewer: calebb
 
 Azure Active Directory (Azure AD) enables single sign-on to devices, apps, and services from anywhere. Your users can access your cloud apps not only from your organization's network, but also from any untrusted Internet location. A common best practice for access from untrusted networks is to require multi-factor authentication (MFA).
 
-This article gives you the information you need to configure a conditional access policy that requires MFA for access attempts from untrusted networks. 
+This article gives you the information you need to configure a conditional access policy that requires MFA for access from untrusted networks. 
 
 ## Prerequisites
 
@@ -47,14 +47,14 @@ With Azure AD conditional access, you can address this requirement with a single
 
 - Requiring multi-factor authentication 
 
-- When an access is originated from: 
+- When access is originated from: 
 
     - A location that is not trusted
 
 
 ## Implementation
 
-The challenge of this scenario is to translate *when an access attempt is made from a location that is not trusted* into a conditional access condition. In a conditional access policy, you can configure the [locations condition](location-condition.md) to address scenarios that are related to network locations. The locations condition enables you to select named locations, which represent logical groupings of IP address ranges, countries and regions.  
+The challenge of this scenario is to translate *access from an untrusted network location* into a conditional access condition. In a conditional access policy, you can configure the [locations condition](location-condition.md) to address scenarios that are related to network locations. The locations condition enables you to select named locations, which are logical groupings of IP address ranges, countries and regions.  
 
 Typically, your organization owns one or more address ranges, for example, 199.30.16.0 - 199.30.16.24.
 You can configure a named location by:
@@ -66,7 +66,7 @@ You can configure a named location by:
 
 Instead of trying to define what all locations are that are not trusted, you can:
 
-- Include 
+- Include any location 
 
     ![Conditional access](./media/untrusted-networks/02.png)
 
@@ -78,7 +78,7 @@ Instead of trying to define what all locations are that are not trusted, you can
 
 ## Policy deployment
 
-With the approach outlined in this article, you can now configure a conditional access policy for untrusted locations. You should always test your policy before rolling it out into production to make sure that it works as expected. Ideally, you should do your initial tests in a test tenant if possible. For more information, see [How should you deploy a new policy](best-practices.md#how-should-you-deploy-a-new-policy). 
+With the approach outlined in this article, you can now configure a conditional access policy for untrusted locations. To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended. For more information, see [How to deploy a new policy](best-practices.md#how-should-you-deploy-a-new-policy). 
 
 
 

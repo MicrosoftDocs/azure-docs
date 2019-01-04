@@ -58,5 +58,5 @@ If you want to use a Solution, click **Deploy**. Follow the steps presented to c
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

@@ -50,18 +50,17 @@ The first two users associated with your Azure Machine Learning Experimentation 
 
 **Will I be charged based on how many experiments I run?**
 
-No, the Experimentation Service allows as many experiments as you need and charges only based on the number of users. Experimentation compute resources are charged separately. We encourage you to perform multiple experiments so you can find the best fitting model for your solution.   
+No, the Experimentation Service allows as many experiments as you need and charges only based on the number of users. Experimentation compute resources are charged separately. We encourage you to perform multiple experiments so you can find the best fitting model for your solution.
 
 **What specific kinds of compute and storage resources can I use?**
 
-The Experimentation service can execute your experiments on local machines (direct or Docker-based), [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), and [HDInsight](https://azure.microsoft.com/services/hdinsight/). The service also accesses an [Azure Storage](https://azure.microsoft.com/services/storage/) account for storing execution outputs and can leverage a [Visual Studio Team Service](https://azure.microsoft.com/services/visual-studio-team-services/) account for version-control and Git storage. Note that you will be billed independently for any consumed compute and storage resources, based upon their individual pricing.  
-
+The Experimentation service can execute your experiments on local machines (direct or Docker-based), [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), and [HDInsight](https://azure.microsoft.com/services/hdinsight/). The service also accesses an [Azure Storage](https://azure.microsoft.com/services/storage/) account for storing execution outputs and can leverage an [Azure DevOps](https://azure.microsoft.com/services/devops/) account for version-control and Git storage. Note that you will be billed independently for any consumed compute and storage resources, based upon their individual pricing.
 
 ## Model Management
 
 **What is Azure Machine Learning Model Management?**
 
-Azure Machine Learning Model Management is a managed Azure service that allows data scientists and dev-ops teams to deploy predictive models reliably into a wide variety of environments. Git repositories and Docker containers provide traceability and repeatability. Models can be deployed reliably in the cloud, on-premises, or edge. Once in production, you can manage model performance, then proactively retrain if performance degrades. You can deploy models on local machines, to [Azure VMs](https://azure.microsoft.com/services/virtual-machines/), Spark on [HDInsight](https://azure.microsoft.com/services/hdinsight/) or Kubernetes-orchestrated [Azure Container Service](https://azure.microsoft.com/services/container-service/) clusters.  
+Azure Machine Learning Model Management is a managed Azure service that allows data scientists and dev-ops teams to deploy predictive models reliably into a wide variety of environments. Git repositories and Docker containers provide traceability and repeatability. Models can be deployed reliably in the cloud, on-premises, or edge. Once in production, you can manage model performance, then proactively retrain if performance degrades. You can deploy models on local machines, to [Azure VMs](https://azure.microsoft.com/services/virtual-machines/), Spark on [HDInsight](https://azure.microsoft.com/services/hdinsight/) or Kubernetes-orchestrated [Azure Container Service](https://azure.microsoft.com/services/container-service/) clusters.
 
 **What is a "model"?**
 
@@ -73,15 +72,15 @@ A model is the output of a training process and is the application of a machine 
  
 **What is a "deployment?"**
 
-Model Management allows you to deploy models as packaged web service containers in Azure. These web services can be invoked using REST APIs. Each web service is counted as a single deployment, and the total number of active deployments are counted towards your plan. Using the sales forecasting example, when you deploy your best performing model, your plan is incremented by one deployment. If you then retrain and deploy another version, you have two deployments. If you determine that the newer model is better, and delete the original, your deployment count is decremented by one.  
+Model Management allows you to deploy models as packaged web service containers in Azure. These web services can be invoked using REST APIs. Each web service is counted as a single deployment, and the total number of active deployments are counted towards your plan. Using the sales forecasting example, when you deploy your best performing model, your plan is incremented by one deployment. If you then retrain and deploy another version, you have two deployments. If you determine that the newer model is better, and delete the original, your deployment count is decremented by one.
 
 **What specific compute resources are available for my deployments?** 
 
-Model Management can run your deployments as Docker containers registered to [Azure Container Service](https://azure.microsoft.com/services/container-service/), as [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), or on local machines. Additional deployment targets will be added shortly. Note that you will be billed independently for any consumed compute resources, based upon their individual pricing.     
+Model Management can run your deployments as Docker containers registered to [Azure Container Service](https://azure.microsoft.com/services/container-service/), as [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), or on local machines. Additional deployment targets will be added shortly. Note that you will be billed independently for any consumed compute resources, based upon their individual pricing.
 
 **Can I use the Azure Machine Learning Model Management to deploy models built using tools other than the Experimentation Service?**
 
-You get the best experience when you deploy models created using the Experimentation Service. However, you can deploy models built using other frameworks and tools. We support a variety of models including  MMLSpark, TensorFlow, Microsoft Cognitive Toolkit, scikit-learn, Keras, etc. 
+You get the best experience when you deploy models created using the Experimentation Service. However, you can deploy models built using other frameworks and tools. We support a variety of models including MMLSpark, TensorFlow, Microsoft Cognitive Toolkit, scikit-learn, Keras, etc. 
 
 **Can I use my own Azure resources?**
 
@@ -97,21 +96,21 @@ Yes. You can use the image as a web service on any docker host as long as host h
 
 **Do you support retraining of deployed models?**
 
-Yes, you can deploy multiple versions of the same model. Model Management will support  service updates for all updated models and images.
+Yes, you can deploy multiple versions of the same model. Model Management will support service updates for all updated models and images.
 
 ## Workbench
 
 **What is the Azure Machine Learning Workbench?**
 
-The Azure Machine Learning Workbench is a companion application built for professional data scientists. Available for Windows and Mac, the Machine Learning Workbench provides overview, management, and control for machine learning solutions. The Machine Learning Workbench includes access to cutting edge AI frameworks from both Microsoft and the open source community. We've included the most popular data science toolkits, including TensorFlow, Microsoft Cognitive Toolkit, Spark ML, scikit-learn and more. We’ve also enabled integration with popular data science IDEs such as Jupyter notebooks, PyCharm, and Visual Studio Code. The Machine Learning Workbench has built-in data preparation capabilities to rapidly sample, understand, and prepare data, whether structured or unstructured. Our new data preparation tool, called [PROSE](https://microsoft.github.io/prose/), is built on cutting-edge technology from Microsoft Research.  
+The Azure Machine Learning Workbench is a companion application built for professional data scientists. Available for Windows and Mac, the Machine Learning Workbench provides overview, management, and control for machine learning solutions. The Machine Learning Workbench includes access to cutting edge AI frameworks from both Microsoft and the open source community. We've included the most popular data science toolkits, including TensorFlow, Microsoft Cognitive Toolkit, Spark ML, scikit-learn and more. We’ve also enabled integration with popular data science IDEs such as Jupyter notebooks, PyCharm, and Visual Studio Code. The Machine Learning Workbench has built-in data preparation capabilities to rapidly sample, understand, and prepare data, whether structured or unstructured. Our new data preparation tool, called [PROSE](https://microsoft.github.io/prose/), is built on cutting-edge technology from Microsoft Research.
 
 **Is Workbench an IDE?**
 
-No. The Machine Learning Workbench has been designed as a companion to popular IDEs such as Jupyter Notebooks, Visual Studio Code, and PyCharm but it is not a fully functional IDE. The Machine Learning Workbench offers some basic text editing capabilities, but debugging, intellisense and other commonly used IDE capabilities are not supported. We recommend that you use your favorite IDE for code development, editing and debugging. You may also wish to try [Visual Studio Code Tools for AI](https://www.visualstudio.com/downloads/ai-tools-vscode).
+No. The Machine Learning Workbench has been designed as a companion to popular IDEs such as Jupyter Notebooks, Visual Studio Code, and PyCharm but it is not a fully functional IDE. The Machine Learning Workbench offers some basic text editing capabilities, but debugging, intellisense and other commonly used IDE capabilities are not supported. We recommend that you use your favorite IDE for code development, editing and debugging. You may also wish to try [Visual Studio Code Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
 **Is there a charge for using the Azure Machine Learning Workbench?**
 
-No. Azure Machine Learning Workbench is a free application. You can download it on as many machines, and for as many users, as you need. In order to use the Azure Machine Learning Workbench, you must have an Experimentation account. .  
+No. Azure Machine Learning Workbench is a free application. You can download it on as many machines, and for as many users, as you need. In order to use the Azure Machine Learning Workbench, you must have an Experimentation account.
 
 **Do you support command-line capabilities?**
 
@@ -133,7 +132,7 @@ The current version of Jupyter included with Workbench launches a Python 3 kerne
 **Which file formats are currently supported for data ingestion in Workbench?**
 
 The data preparation tools in Workbench currently support ingestion from the following formats: 
-- Delimited files such as CSV, TSV, etc.  
+- Delimited files such as CSV, TSV, etc.
 - Fixed width files
 - Plain text files
 - Excel (.xls/xlsx)
@@ -153,7 +152,7 @@ For public preview, Workbench supports data ingestion from:
 
 **What kinds of data wrangling, preparation, and transformations are available?**
 
-For public preview, Workbench supports “Derive Column by Example”, “Split Column by Example”, “Text Clustering”, “Handle Missing Values” and many others.  Workbench also supports data type conversion, data aggregation (COUNT, MEAN, VARIANCE, etc.), and complex data joins. For a full list of supported capabilities, visit our product documentation. 
+For public preview, Workbench supports “Derive Column by Example”, “Split Column by Example”, “Text Clustering”, “Handle Missing Values” and many others. Workbench also supports data type conversion, data aggregation (COUNT, MEAN, VARIANCE, etc.), and complex data joins. For a full list of supported capabilities, visit our product documentation. 
 
 **Are there any data size limits enforced by Azure Machine Learning Workbench, Experimentation, or Model Management?**
 

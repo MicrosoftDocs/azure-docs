@@ -20,7 +20,7 @@ ms.date: 11/29/2017
 # Interpret model results in Azure Machine Learning Studio
 This topic explains how to visualize and interpret prediction results in Azure Machine Learning Studio. After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 There are four major kinds of machine learning models in Azure Machine Learning:
 

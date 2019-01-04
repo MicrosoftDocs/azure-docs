@@ -1,14 +1,11 @@
 ---
 title: 'Tutorial: Design an Azure Database for PostgreSQL using Azure CLI'
 description: This tutorial shows how to create, configure, and query your first Azure Database for PostgreSQL server using Azure CLI.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ---
