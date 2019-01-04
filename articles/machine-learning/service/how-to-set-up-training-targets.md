@@ -114,22 +114,7 @@ You can create Azure Machine Learning Compute as a compute target at run time. T
 
 1.  **Create, attach, and configure**: The run-based creation performs all the necessary steps to create, attach, and configure the compute target with the run configuration.  
 
-    ```python
-    from azureml.core.compute import ComputeTarget, AmlCompute
-    
-    # First, list the supported VM families for Azure Machine Learning Compute AmlCompute.supported_vmsizes()
-    from azureml.core.runconfig import RunConfiguration
-    
-    # Create a new runconfig object 
-    run_temp_compute = RunConfiguration()
-    
-    # Signal that you want to use AmlCompute to execute the script
-    run_temp_compute.target = "amlcompute"
-    
-    # AmlCompute is created in the same region as your workspace 
-    # Set the VM size for AmlCompute from the list of supported_vmsizes
-    run_temp_compute.vm_size = 'STANDARD_D2_V2'
-    ```
+ [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/ampcompute.py?name=amlcompute_temp)]
 
 
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
@@ -143,25 +128,8 @@ A persistent Azure Machine Learning Compute can be reused across jobs. The compu
     * **vm_size**: The VM family of the nodes created by Azure Machine Learning Compute.
     * **max_nodes**: The max number of nodes to autoscale up to when you run a job on Azure Machine Learning Compute.
     
-    ```python
-    from azureml.core.compute import ComputeTarget, AmlCompute
-    from azureml.core.compute_target import ComputeTargetException
-    
-    # Choose a name for your CPU cluster.  The name should be between 2-16 characters in length.
-    cpu_cluster_name = "cpucluster"
-    
-    # Verify that the cluster doesn't already exist
-    try:
-        cpu_cluster = ComputeTarget(workspace=ws, name=cpu_cluster_name)
-        print('Found existing cluster, use it.')
-    except ComputeTargetException:
-        compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                               max_nodes=4)
-        cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
-    
-    cpu_cluster.wait_for_completion(show_output=True)
-    ```
-    
+     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/ampcompute2.py?name=cpu_basic)]
+
     You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) for details.
     
@@ -169,32 +137,7 @@ A persistent Azure Machine Learning Compute can be reused across jobs. The compu
 
 1. **Configure**: Create a run configuration for the persistent compute target.
 
-    ```python
-    from azureml.core.runconfig import RunConfiguration
-    from azureml.core.conda_dependencies import CondaDependencies
-    from azureml.core.runconfig import DEFAULT_CPU_IMAGE
-    
-    # Create a new runconfig object
-    run_amlcompute = RunConfiguration()
-    
-    # Use the cpu_cluster you created above. 
-    run_amlcompute.target = cpu_cluster
-    
-    # Enable Docker
-    run_amlcompute.environment.docker.enabled = True
-    
-    # Set Docker base image to the default CPU-based image
-    run_amlcompute.environment.docker.base_image = DEFAULT_CPU_IMAGE
-    
-    # Use conda_dependencies.yml to create a conda environment in the Docker image for execution
-    run_amlcompute.environment.python.user_managed_dependencies = False
-    
-    # Auto-prepare the Docker image when used for execution (if it is not already prepared)
-    run_amlcompute.auto_prepare_environment = True
-    
-    # Specify CondaDependencies obj, add necessary packages
-    run_amlcompute.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
-    ```
+    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/ampcompute2.py?name=aml_runconfig)]
 
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
 
@@ -445,13 +388,7 @@ For example, to use [the local target](#local) configuration:
 
 Switch the same experiment to run in a different compute target by using a different run configuration, such as the [amlcompute target](#amlcompute):
 
-```python
-from azureml.core import ScriptRunConfig
-
-src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_amlcompute)
-run = exp.submit(src)
-run.wait_for_completion(show_output = True)
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/ampcompute2.py?name=amlcompute_submit)]
 
 Or you can:
 
