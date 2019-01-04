@@ -21,7 +21,7 @@ Azure SQL Database secures data in a single SQL database by allowing you to:
 - Enable security features
 
 > [!NOTE]
-> An Azure SQL Database on a managed instance is secured using network security rules and private endpoints as described in [Azure SQL Database managed instance](sql-database-managed-instance-index.yml) and [connectivity architecture](sql-database-managed-instance-connectivity-architecture.md).
+> An Azure SQL database on a managed instance is secured using network security rules and private endpoints as described in [Azure SQL database managed instance](sql-database-managed-instance-index.yml) and [connectivity architecture](sql-database-managed-instance-connectivity-architecture.md).
 
 You can improve your database security with just a few simple steps. In this tutorial you learn how to:
 
@@ -54,7 +54,7 @@ SQL databases are protected by firewalls in Azure. By default, all connections t
 Set **Allow access to Azure services** to **OFF** for the most secure configuration. Then, create a [reserved IP (classic deployment)](../virtual-network/virtual-networks-reserved-public-ip.md) for the resource that needs to connect, such as an Azure VM or cloud service, and only allow that IP address access through the firewall. If you're using the [resource manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) deployment model, a dedicated public IP address is required for each resource.
 
 > [!NOTE]
-> SQL database communicates over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you can't connect to the Azure SQL Database server unless your administrator opens port 1433.
+> SQL database communicates over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you can't connect to the Azure SQL database server unless your administrator opens port 1433.
 
 ### Set up server-level firewall rules
 
@@ -105,7 +105,7 @@ To setup a database-level firewall rule:
 
 ## Create an Azure AD admin
 
-Make sure you're using the appropriate Azure Active Directory (AD) managed domain. To select the AD domain, use the upper-right corner of the Azure portal. This process confirms the same subscription is used for both Azure AD and the SQL Server hosting your Azure SQL Database or data warehouse.
+Make sure you're using the appropriate Azure Active Directory (AD) managed domain. To select the AD domain, use the upper-right corner of the Azure portal. This process confirms the same subscription is used for both Azure AD and the SQL Server hosting your Azure SQL database or data warehouse.
 
    ![choose-ad](./media/sql-database-security-tutorial/8choose-ad.png)
 
@@ -187,7 +187,7 @@ Azure Active Directory authentication requires that database users are created a
 > For example, the *SQL Server Contributor* role does not grant access to connect to a database or data warehouse. This permission must be granted within the database using T-SQL statements.
 
 > [!IMPORTANT]
-> Special characters like  colon `:` or ampersand `&` are not supported in user names in the T-SQL `CREATE LOGIN` and `CREATE USER` statements.
+> Special characters like colon `:` or ampersand `&` are not supported in user names in the T-SQL `CREATE LOGIN` and `CREATE USER` statements.
 
 To add a user with Azure AD authentication:
 
