@@ -56,7 +56,7 @@ To use password writeback, you must have one of the following licenses assigned 
 * Microsoft 365 F1
 
 > [!WARNING]
-> Standalone Office 365 licensing plans *don't support password writeback* and require that you have one of the preceding plans for this functionality to work.
+> Standalone Office 365 licensing plans *don't support "Self-Service Password Reset/Change/Unlock with on-premises writeback"* and require that you have one of the preceding plans for this functionality to work.
 >
 
 ## How password writeback works
