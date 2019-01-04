@@ -42,7 +42,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Are you looking at the correct AI resource? Please match the iKey of your application to the resource where you are expecting telemetry. They should be the same.
 
 #### I don't see all the data I'm expecting
-* Open the Usage and estimated cost page and check whether [sampling](../../application-insights/app-insights-sampling.md) is in operation. (100% transmission means that sampling isn't in operation.) The Application Insights service can be set to accept only a fraction of the telemetry that arrives from your app. This helps you keep within your monthly quota of telemetry.
+* Open the Usage and estimated cost page and check whether [sampling](../../azure-monitor/app/sampling.md) is in operation. (100% transmission means that sampling isn't in operation.) The Application Insights service can be set to accept only a fraction of the telemetry that arrives from your app. This helps you keep within your monthly quota of telemetry.
 * Do you have SDK Sampling turned on? If yes, data would be sampled at the rate specified for all the applicable types.
 * Are you running an older version of Java SDK? Starting with version 2.0.1, we have introduced fault tolerance mechanism to handle intermittent network and backend failures as well as data persistence on local drives.
 * Are you getting throttled due to excessive telemetry? If you turn on INFO logging, you will see a log message "App is throttled". Our current limit is 32k telemetry items/second.
