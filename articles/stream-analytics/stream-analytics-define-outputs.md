@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/21/2018
 ms.custom: seodec18
 ---
 
@@ -154,7 +154,7 @@ For a walk-through of configuring a Power BI output and dashboard, see the [Azur
 >
 
 ### Schema Creation
-Azure Stream Analytics creates a Power BI dataset and table on behalf of the user if one does not already exist. In all other cases, the table is updated with new values. Currently, there is a limitation that only one table can exist within a dataset.
+Azure Stream Analytics creates a Power BI dataset and table on behalf of the user if one does not already exist. In all other cases, the table is updated with new values. Currently, there is a limitation that only one table can exist within a dataset. Power BI uses the FIFO retention policy. When enabled, data will collect in a table until it hits 200,000 rows.
 
 ### Data type conversion from Stream Analytics to Power BI
 Azure Stream Analytics updates the data model dynamically at runtime if the output schema changes. Column name changes, column type changes, and the addition or removal of columns are all tracked.
