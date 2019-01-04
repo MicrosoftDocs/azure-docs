@@ -6,7 +6,7 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.component: files
 ---
@@ -255,6 +255,15 @@ To resolve this problem,  adjusting the **DirectoryCacheEntrySizeMax** registry 
  
 For example, you can set it to 0x100000 and see if the performance become better.
 
+## Error AadDsTenantNotFound in enabling Azure Active Directory authentication for Azure Files "Unable to locate active tenants with tenant Id aad-tenant-id"
+
+### Cause
+
+Error AadDsTenantNotFound happens when you try to [enable Azure Active Directory (AAD) authentication for Azure Files](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-enable) on a storage account where [AAD Domain Service(AAD DS)](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview) is not created on the AAD tenant of the associated subscription.  
+
+### Solution
+
+Enable AAD DS on the AAD tenant of the subscription that your storage account is deployed to. You need administrator privileges of the AAD tenant to create a managed domain. If you aren't the administrator of the Azure AD tenant, contact the administrator and follow the step-by-step guidance to [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

@@ -1,13 +1,11 @@
 ---
 title: Manage Azure Cosmos DB resources using Azure Storage Explorer
 description: Learn how to connect to Azure Cosmos DB and manage its resources by using Azure Storage Explorer.
-author: Jejiang 
-tags: Azure Cosmos DB
-
+author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: jejiang 
+ms.author: dech
 ms.custom: seodec18
 ---
 # Manage Azure Cosmos DB resources using Azure Storage Explorer
