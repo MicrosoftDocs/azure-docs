@@ -15,14 +15,14 @@ ms.topic: article
 
 # Create loops that repeat workflow actions or process arrays in Azure Logic Apps
 
-To cycle through arrays in your logic app, 
+To process arrays in your logic app, 
 you can use a ["Foreach" loop](#foreach-loop) or a 
 [sequential "Foreach" loop](#sequential-foreach-loop). 
 By default, the iterations in a "Foreach" loop run in parallel, 
 while the iterations in a sequential "Foreach" loop run one at a time. 
 For example, when you increment or decrement values by setting a variable 
-in a "Foreach" loop, run the loop sequentially so the correct values get assigned. 
-For the maximum number of array items that "Foreach" loops 
+in a "Foreach" loop, run the loop sequentially. That way, the correct values get assigned. 
+For the highest number of array items that "Foreach" loops 
 can process in a single logic app run, see 
 [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
 
@@ -33,10 +33,10 @@ can process in a single logic app run, see
 > [**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
   
 To repeat actions until a condition is met or some state has changed, 
-use an ["Until" loop](#until-loop). Your logic app first performs all 
+use an ["Until" loop](#until-loop). Your logic app first runs all 
 the actions inside the loop and then checks the condition as the last step. 
 If the condition is met, the loop stops. Otherwise, the loop repeats. 
-For the maximum number of "Until" loops in a single logic app run, see 
+For the highest number of "Until" loops in a single logic app run, see 
 [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
 
 ## Prerequisites
@@ -52,10 +52,10 @@ For the maximum number of "Until" loops in a single logic app run, see
 
 To repeat actions for each item in an array, 
 use a "Foreach" loop in your logic app workflow. 
-You can include multiple actions in a "Foreach" loop, 
+You can include more than one action in a "Foreach" loop, 
 and you can nest "Foreach" loops inside each other. 
 By default, cycles in a standard "Foreach" loop run in parallel. 
-For the maximum number of parallel cycles that 
+For the highest number of parallel cycles that 
 "Foreach" loops can run, see [Limits and config](../logic-apps/logic-apps-limits-and-config.md).
 
 > [!NOTE] 
@@ -96,7 +96,7 @@ select the **Feed links** array, which is output from the RSS trigger.
 
    ![Select array](media/logic-apps-control-flow-loops/for-each-loop-select-array.png)
 
-4. To perform an action on each array item, 
+4. To run an action on each array item, 
 drag the **Send an email** action into the **For each** loop. 
 
    Your logic app might look something like this example:
@@ -152,9 +152,9 @@ logic app's JSON definition instead, for example:
 ## "Foreach" loop: Sequential
 
 By default, each cycle in a "Foreach" loop runs in parallel for each array item. 
-To run each cycle sequentially, set the **Sequential** option in your "Foreach" loop. 
-For example, suppose you use a variable in a "Foreach" loop that increments or decrements a value during each cycle. 
-To get that value assigned correctly and predictably, run that loop sequentially.
+To run each cycle sequentially, set the **Sequential** option for your loop. 
+For example, suppose you have a variable that increments a value during each cycle. 
+To get predictable results from that variable, run that loop sequentially.
 
 1. In the loop's upper right corner, choose **ellipses** (**...**) > **Settings**.
 
@@ -292,8 +292,8 @@ if any of these conditions happen:
 
 | Property | Default value | Description | 
 | -------- | ------------- | ----------- | 
-| **Count** | 60 | The maximum number of loops that run before the loop exits. The default is 60 cycles. | 
-| **Timeout** | PT1H | The maximum amount of time to run a loop before the loop exits. The default is one hour and is specified in ISO 8601 format. <p>The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop, but the next cycle doesn't start because the limit condition isn't met. | 
+| **Count** | 60 | The highest number of loops that run before the loop exits. The default is 60 cycles. | 
+| **Timeout** | PT1H | The most amount of time to run a loop before the loop exits. The default is one hour and is specified in ISO 8601 format. <p>The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop, but the next cycle doesn't start because the limit condition isn't met. | 
 |||| 
 
 To change these default limits, 
