@@ -226,7 +226,7 @@ In this section, you create a user called Britta Simon in Lifesize Cloud. Lifesi
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Lifesize Cloud tile in the Access Panel, you should be automatically signed in to the Lifesize Cloud for which you set up SSO. Here you need to enter your username, and after that you will redirected to the application homepage.
+When you click the Lifesize Cloud tile in the Access Panel,  you should get login page of Lifesize Cloud application. Here you need to enter your username, and after that you will redirected to the application homepage.
 
 For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
