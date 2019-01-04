@@ -4,24 +4,24 @@ title: Add loops that repeat actions or process arrays - Azure Logic Apps | Micr
 description: How to create loops that repeat workflow actions or process arrays in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 03/05/2018
 ms.topic: article
-
-# optional metadata
-ms.reviewer: klam, LADocs
-ms.suite: integration
 ---
 
 # Create loops that repeat workflow actions or process arrays in Azure Logic Apps
 
-To iterate through arrays in your logic app, 
+To cycle through arrays in your logic app, 
 you can use a ["Foreach" loop](#foreach-loop) or a 
 [sequential "Foreach" loop](#sequential-foreach-loop). 
-The iterations for a standard "Foreach" loop run in parallel, 
-while the iterations for a sequential "Foreach" loop run one at a time. 
+By default, the iterations in a "Foreach" loop run in parallel, 
+while the iterations in a sequential "Foreach" loop run one at a time. 
+For example, when you increment or decrement values by setting a variable 
+in a "Foreach" loop, run the loop sequentially so the correct values get assigned. 
 For the maximum number of array items that "Foreach" loops 
 can process in a single logic app run, see 
 [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
@@ -152,18 +152,21 @@ logic app's JSON definition instead, for example:
 ## "Foreach" loop: Sequential
 
 By default, each cycle in a "Foreach" loop runs in parallel for each array item. 
-To run each cycle sequentially, set the **Sequential** option in your "Foreach" loop.
+To run each cycle sequentially, set the **Sequential** option in your "Foreach" loop. 
+For example, suppose you use a variable in a "Foreach" loop that increments or decrements a value during each cycle. 
+To get that value assigned correctly and predictably, run that loop sequentially.
 
 1. In the loop's upper right corner, choose **ellipses** (**...**) > **Settings**.
 
    ![On "Foreach" loop, choose "..." > "Settings"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-2. Turn on the **Sequential** setting, then choose **Done**.
+1. Turn on the **Sequential** setting, then choose **Done**.
 
    ![Turn on "Foreach" loop's Sequential setting](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
-You can also set the **operationOptions** parameter to 
-`Sequential` in your logic app's JSON definition. For example:
+If you're working with your logic app's JSON definition, 
+you can use the `Sequential` option by adding the 
+`operationOptions` parameter, for example:
 
 ``` json
 "actions": {
