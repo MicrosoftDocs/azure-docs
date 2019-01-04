@@ -1,6 +1,6 @@
 ---
-title: Setup an encryption certificate and encrypt secrets on Linux clusters | Microsoft Docs
-description: Learn how to setup an encryption certificate and encrypt secrets on Linux clusters.
+title: Set up an encryption certificate and encrypt secrets on Azure Service Fabric Linux clusters | Microsoft Docs
+description: Learn how to set up an encryption certificate and encrypt secrets on Linux clusters.
 services: service-fabric
 documentationcenter: .net
 author: shsha
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.author: shsha
 
 ---
@@ -49,7 +49,7 @@ The resulting base-64 encoded string output to encrypted.txt contains both the s
 user@linux:$ cat encrypted.txt | base64 -d | openssl smime -decrypt -inform der -inkey TestCert.prv
 ```
 
-## Next Steps
+## Next steps
 Learn how to [Specify encrypted secrets in an application.][secret-management-specify-encrypted-secrets-link]
 
 <!-- Links -->
