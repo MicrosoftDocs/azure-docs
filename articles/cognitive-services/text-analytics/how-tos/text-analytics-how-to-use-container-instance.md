@@ -37,7 +37,9 @@ This procedure loads and runs the Cognitive Services Container sample for langua
 * Access the website (client-application) with an HTTP request and see the results. 
 
 
-## Set up cli 
+## Set up the Azure cli 
+
+If you have access to more than one subscription, make sure to set the correct subscription as the default before creating your resources.
 
 1. Login to Azure.
 
@@ -47,13 +49,13 @@ This procedure loads and runs the Cognitive Services Container sample for langua
 
 1. Get list of subscriptions
 
-    ```
+    ```azurecli-interactive
     az account list
     ```
 
 1. Set Azure subscription default
 
-    ```
+    ```azurecli-interactive
     az account set --subscription <name or id>
     ```
 
