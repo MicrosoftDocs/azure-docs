@@ -141,7 +141,7 @@ Azure Provisioning device and service SDKs for Java:
 
 * Add to [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk) project
 * [Source code](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning)
-* [API reference](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.sdk.iot.provisioning.device?view=azure-java-stable)
+* [API reference](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.provisioning.device?view=azure-java-stable)
 
 Azure Provisioning device and service SDKs for Node.js:
 
