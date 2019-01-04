@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/04/2019
 ms.author: jeedes
 
 ---
@@ -235,7 +235,8 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
     b. Test is successful when users access the ADP service app on the gallery and can access their ADP service.
  
-11. On confirmation of a successful test, assign the federated ADP service to individual users or user groups, which is explained later in the tutorial and roll it out to your employees. 
+11. On confirmation of a successful test, assign the federated ADP service to individual users or user groups, which is explained later in the tutorial and roll it out to your employees.
+ 
 ### Create an Azure AD test user 
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
