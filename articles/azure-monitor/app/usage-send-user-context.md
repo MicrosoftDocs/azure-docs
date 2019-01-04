@@ -37,7 +37,7 @@ custom event or page view.
 - Sessions: Include session ID.
 
 > [!NOTE]
-> This is an advanced article outlining the manual steps for tracking user activity with Application Insights. With many web applications **these steps may not be required**, as the default server-side SDKs in conjunction with the [Client/Browser-side JavaScript SDK](app-insights-website-monitoring.md), are often sufficient to automatically track user activity. If you haven't configured [client-side monitoring](app-insights-website-monitoring.md) in addition to the server-side SDK, do that first and test to see if the user behavior analytics tools are performing as expected.
+> This is an advanced article outlining the manual steps for tracking user activity with Application Insights. With many web applications **these steps may not be required**, as the default server-side SDKs in conjunction with the [Client/Browser-side JavaScript SDK](../../application-insights/app-insights-website-monitoring.md), are often sufficient to automatically track user activity. If you haven't configured [client-side monitoring](../../application-insights/app-insights-website-monitoring.md) in addition to the server-side SDK, do that first and test to see if the user behavior analytics tools are performing as expected.
 
 ## Choosing user IDs
 
@@ -138,8 +138,8 @@ namespace MvcWebRole.Telemetry
 
 - To enable usage experiences, start sending [custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
-    - [Usage overview](app-insights-usage-overview.md)
-    - [Users, Sessions, and Events](app-insights-usage-segmentation.md)
+    - [Usage overview](usage-overview.md)
+    - [Users, Sessions, and Events](usage-segmentation.md)
     - [Funnels](usage-funnels.md)
-    - [Retention](app-insights-usage-retention.md)
-    - [Workbooks](app-insights-usage-workbooks.md)
+    - [Retention](usage-retention.md)
+    - [Workbooks](../../application-insights/app-insights-usage-workbooks.md)

@@ -17,13 +17,13 @@ ms.author: daviste
 
 # Users, sessions, and events analysis in Application Insights
 
-Find out when people use your web app, what pages they're most interested in, where your users are located, and what browsers and operating systems they use. Analyze business and usage telemetry by using [Azure Application Insights](app-insights-overview.md).
+Find out when people use your web app, what pages they're most interested in, where your users are located, and what browsers and operating systems they use. Analyze business and usage telemetry by using [Azure Application Insights](../../application-insights/app-insights-overview.md).
 
-![Screenshot of Application Insights Users](./media/app-insights-usage-segmentation/0001-users.png)
+![Screenshot of Application Insights Users](./media/usage-segmentation/0001-users.png)
 
 ## Get started
 
-If you don't yet see data in the users, sessions, or events blades in the Application Insights portal, [learn how to get started with the usage tools](app-insights-usage-overview.md).
+If you don't yet see data in the users, sessions, or events blades in the Application Insights portal, [learn how to get started with the usage tools](usage-overview.md).
 
 ## The Users, Sessions, and Events segmentation tool
 
@@ -31,9 +31,9 @@ Three of the usage blades use the same tool to slice and dice telemetry from you
 
 * **Users tool**: How many people used your app and its features.  Users are counted by using anonymous IDs stored in browser cookies. A single person using different browsers or machines will be counted as more than one user.
 * **Sessions tool**: How many sessions of user activity have included certain pages and features of your app. A session is counted after half an hour of user inactivity, or after 24 hours of continuous use.
-* **Events tool**: How often certain pages and features of your app are used. A page view is counted when a browser loads a page from your app, provided you have [instrumented it](../azure-monitor/app/javascript.md). 
+* **Events tool**: How often certain pages and features of your app are used. A page view is counted when a browser loads a page from your app, provided you have [instrumented it](../../azure-monitor/app/javascript.md). 
 
-    A custom event represents one occurrence of something happening in your app, often a user interaction like a button click or the completion of some task. You insert code in your app to [generate custom events](../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+    A custom event represents one occurrence of something happening in your app, often a user interaction like a button click or the completion of some task. You insert code in your app to [generate custom events](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 ## Querying for certain users
 
@@ -62,7 +62,7 @@ The **Meet your users** section shows information about five sample users matche
 - To enable usage experiences, start sending [custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Funnels](usage-funnels.md)
-    - [Retention](app-insights-usage-retention.md)
-    - [User Flows](app-insights-usage-flows.md)
-    - [Workbooks](app-insights-usage-workbooks.md)
-    - [Add user context](app-insights-usage-send-user-context.md)
+    - [Retention](usage-retention.md)
+    - [User Flows](usage-flows.md)
+    - [Workbooks](../../application-insights/app-insights-usage-workbooks.md)
+    - [Add user context](usage-send-user-context.md)
