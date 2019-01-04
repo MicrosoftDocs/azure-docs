@@ -52,6 +52,7 @@ To begin tracking changes, you need to enable the Change Tracking and Inventory 
 * [From a virtual machine](automation-onboard-solutions-from-vm.md)
 * [From browsing multiple machines](automation-onboard-solutions-from-browse.md)
 * [From your Automation account](automation-onboard-solutions-from-automation-account.md)
+* [With an Azure Automation runbook](automation-onboard-solutions.md)
 
 ## Configuring Change Tracking and Inventory
 
