@@ -12,7 +12,7 @@ ms.date: 12/06/2018
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure portal
 
-This quickstart shows how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in a storage account with Azure Data Lake Storage Gen2 preview enabled.
+This quickstart shows how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in a storage account with Azure Data Lake Storage Gen2 enabled.
 
 As part of the Spark job, you analyze a radio channel subscription data to gain insights into free/paid usage based on demographics.
 

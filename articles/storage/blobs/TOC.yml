@@ -550,12 +550,14 @@
       href: ../blobs/data-lake-storage-tutorial-extract-transform-load-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Concepts
     items:
-    - name: Azure Blob FileSystem driver for Hadoop
+    - name: Azure Blob File System driver for Hadoop
       href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Introduction to the Azure Blob File System URI
+    - name: Azure Blob File System URI
       href: ../blobs/data-lake-storage-introduction-abfs-uri.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Hierarchical Namespace Service
       href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Azure service integration
+      href: ../blobs/data-lake-storage-integrate-with-other-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Best practices
       href: data-lake-storage-best-practices.md
     - name: Security
@@ -614,7 +616,7 @@
       href: https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2
   - name: Resources
     items:
-    - name: Data Lake Storage Gen2 known issues
+    - name: Known issues
       href: data-lake-storage-known-issues.md
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=storage

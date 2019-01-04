@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Storage Gen2 Preview Introduction
-description: Provides an overview of Azure Data Lake Storage Gen2 Preview
+title: Azure Data Lake Storage Gen2 Introduction
+description: Provides an overview of Azure Data Lake Storage Gen2 
 services: storage
 author: jamesbak
 
@@ -11,9 +11,9 @@ ms.author: jamesbak
 ms.component: data-lake-storage-gen2
 ---
 
-# Introduction to Azure Data Lake Storage Gen2 Preview
+# Introduction to Azure Data Lake Storage Gen2
 
-‎Azure Data Lake Storage Gen2 Preview is a set of capabilities dedicated to big data analytics, built on [Azure Blob
+‎Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on [Azure Blob
 storage](storage-blobs-introduction.md). Data Lake Storage Gen2 is the result of converging the capabilities of our two existing storage services, Azure Blob storage and Azure Data Lake Storage Gen1. Features from [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), such as file system semantics, directory, and file level security and scale are combined with low-cost, tiered storage, high availability/disaster recovery capabilities from [Azure Blob storage](storage-blobs-introduction.md).
 
 ## Designed for enterprise big data analytics

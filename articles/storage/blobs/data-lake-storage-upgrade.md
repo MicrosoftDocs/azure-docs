@@ -1,6 +1,6 @@
 ---
-title: Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2 Preview
-description: Upgrade your solution to use Azure Data Lake Storage Gen2 Preview
+title: Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2
+description: Upgrade your solution to use Azure Data Lake Storage Gen2
 services: storage
 author: normesta
 ms.topic: conceptual
@@ -10,9 +10,9 @@ ms.service: storage
 ms.component: data-lake-storage-gen2
 ---
 
-# Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2 Preview
+# Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2
 
-If you're using Azure Data Lake Storage Gen1 in your big data analytics solutions, this guide helps you to upgrade those solutions to use Azure Data Lake Storage Gen2 Preview. You can use this document to assess the dependencies that your solution has on Data Lake Storage Gen1. This guide also shows you how to plan and perform the upgrade.
+If you're using Azure Data Lake Storage Gen1 in your big data analytics solutions, this guide helps you to upgrade those solutions to use Azure Data Lake Storage Gen2. You can use this document to assess the dependencies that your solution has on Data Lake Storage Gen1. This guide also shows you how to plan and perform the upgrade.
 
 We'll help you through the following tasks:
 
@@ -74,7 +74,7 @@ This section describes which Data Lake Storage Gen1 platform capabilities that a
 | Data Operations – Authorization  | File and folder level POSIX Access Control Lists (ACLs) based on Azure Active Directory Identities  | File and folder level POSIX Access Control Lists (ACLs) based on Azure Active Directory Identities [Share Key](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key) for account level authorization Role Based Access Control ([RBAC](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)) to access containers | *Available now* |
 | Data Operations – Logs  | Yes | One-off requests for logs for specific duration using support ticket Azure Monitoring integration | One-off requests for logs for specific duration using support ticket – *Available now*, Azure Monitoring integration – *Not yet available* |
 | Encryption data at rest | Transparent, Server side with service-managed keys and with customer-managed keys in Azure KeyVault | Transparent, Server side with service-managed keys and with customer keys managed keys in Azure KeyVault | Service-managed keys – *Available now*, Customer-managed keys – *Available now*  |
-| Virtual Network (VNet) support  | [Using Virtual Network integration (Preview)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-network-security)  | [Using Service Endpoint for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | *Available now* | Management operations (e.g. Account Create) | [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) provided by Azure for account management | [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) provided by Azure for account management | *Available now*| Developer SDKs | .NET, Java, Python, Node.js  | .NET, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS| *Not yet available* | Optimized performance for parallel analytics workloads. High Throughput and IOPS. | Optimized performance for parallel analytics workloads. High Throughput and IOPS. | *Available now* |
+| Virtual Network (VNet) support  | [Using Virtual Network integration](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-network-security)  | [Using Service Endpoint for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | *Available now* | Management operations (e.g. Account Create) | [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) provided by Azure for account management | [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) provided by Azure for account management | *Available now*| Developer SDKs | .NET, Java, Python, Node.js  | .NET, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS| *Not yet available* | Optimized performance for parallel analytics workloads. High Throughput and IOPS. | Optimized performance for parallel analytics workloads. High Throughput and IOPS. | *Available now* |
 | Size limits | No limits on account sizes, file sizes or number of files | No limits on account sizes or number of files. File size limited to 5TB. | *Available now*|
 | Geo-redundancy| Locally-redundant (LRS) | Locally redundant (LRS) Zone redundant (ZRS) Globally redundant (GRS) Read-access globally redundant (RA-GRS) See [here](https://docs.microsoft.com/azure/storage/common/storage-redundancy) for more information| *Available now* |
 | Regional availability | See [here](https://azure.microsoft.com/regions/) | All [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/)                                                                                                                                                                                                                                                                                                                                       | *Available now*                                                                                                                           |
