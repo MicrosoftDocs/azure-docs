@@ -30,20 +30,22 @@ You can add new versions of an application to Blockchain Workbench. To add a new
 1. In a web browser, navigate to the Blockchain Workbench web address. For example, `https://{workbench URL}.azurewebsites.net/` For information on how to find your Blockchain Workbench web address, see [Blockchain Workbench Web URL](deploy.md#blockchain-workbench-web-url)
 2. Sign in as a [Blockchain Workbench administrator](manage-users.md#manage-blockchain-workbench-administrators).
 3. Select the blockchain application you want to update with another version.
-4. Select **Add version**. The **New application** pane is displayed.
-1. Select **Upload the contract configuration** > **Browse** to locate the **HelloBlockchain.json** configuration file you created. The configuration file is automatically validated. Select the **Show** link to display validation errors. Fix validation errors before you deploy the application.
-1. Select **Upload the contract code** > **Browse** to locate the **HelloBlockchain.sol** smart contract code file. The code file is automatically validated. Select the **Show** link to display validation errors. Fix validation errors before you deploy the application.
-1. Select **Deploy** to create the blockchain application based on the configuration and smart contract files.
+4. Select **Add version**. The **Add version** pane is displayed.
+5. Choose the new version contract configuration and contract code files to upload. The configuration file is automatically validated. Fix any validation errors before you deploy the application.
+6. Select **Add version** to add the new blockchain application version.
+    ![Add a new version](media/version-app/add-version.png)
 
-Deployment of the blockchain application takes a few minutes. When deployment is finished, the new application is displayed in **Applications**. 
+Deployment of the blockchain application can take a few minutes. When deployment is finished, refresh the application page. Choosing the application and selecting the **Version history** button, displays the version history of the application.
+
+> [!IMPORTANT]
+> Previous versions will convert to read only. You can individually re-enable past versions.
+>
+> Member roles won't be carried over if you made changes to them.
 
 ## Using app versions
 
-Select the version.
+Select the version?
 
 ## Next steps
 
-In this how-to article, you've created a basic request and response application. To learn how to use the application, continue to the next how-to article.
-
-> [!div class="nextstepaction"]
-> [Using a blockchain application](use.md)
+* [Azure Blockchain Workbench troubleshooting](troubleshooting.md)
