@@ -282,6 +282,6 @@ Try out the API. Go to [News Search API Testing Console](https://dev.cognitive.m
 
 For details about consuming the response objects, see [What is Bing News Search?](./search-the-web.md). You'll also find more information about the following common actions:
 
-- [Getting today's top news](./search-the-web.md#getting-todays-top-news)
-- [Getting news by category](./search-the-web.md#getting-news-by-category)
-- [Getting trending news](./search-the-web.md#getting-trending-news)
+- [Getting today's top news](./search-for-news.md#get-todays-top-news)
+- [Getting news by category](./search-for-news.md#get-news-by-category)
+- [Getting trending news](./search-for-news.md#get-trending-news)
