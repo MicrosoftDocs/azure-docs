@@ -177,9 +177,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 3. In Visual Studio Enterprise, select **Access Control (IAM)**.
 
-    ![Access Control (IAM)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
-
-4. Select **Add**.
+4. Select **Add role assignment**.
 
     ![Add](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 

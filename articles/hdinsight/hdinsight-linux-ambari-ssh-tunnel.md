@@ -43,7 +43,7 @@ If you use Script Actions to customize your cluster, any services or utilities t
 
 * A web browser that can be configured to use a SOCKS5 proxy.
 
-    > [!WARNING]
+    > [!WARNING]  
     > The SOCKS proxy support built into Windows Internet settings does not support SOCKS5, and does not work with the steps in this document. The following browsers rely on Windows proxy settings, and do not currently work with the steps in this document:
     >
     > * Microsoft Edge
@@ -74,7 +74,7 @@ Once the command finishes, traffic sent to port 9876 on the local computer is ro
 
 ## <a name="useputty"></a>Create a tunnel using PuTTY
 
-[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) is a graphical SSH client for Windows. If you are not familiar with PuTTY, see the [PuTTY documentation](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Use the following steps to create an SSH tunnel using PuTTY:
+[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) is a graphical SSH client for Windows. If you are not familiar with PuTTY, see the [PuTTY documentation](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Use the following steps to create an SSH tunnel using PuTTY:
 
 ### Create or load a session
 
@@ -116,7 +116,7 @@ Once the command finishes, traffic sent to port 9876 on the local computer is ro
    > [!NOTE]  
    > Selecting **Remote DNS** resolves Domain Name System (DNS) requests by using the HDInsight cluster. This setting resolves DNS using the head node of the cluster.
 
-2. Verify that the tunnel works by visiting a site such as [http://www.whatismyip.com/](http://www.whatismyip.com/). The IP returned should be one used by the Microsoft Azure datacenter.
+2. Verify that the tunnel works by visiting a site such as [https://www.whatismyip.com/](https://www.whatismyip.com/). The IP returned should be one used by the Microsoft Azure datacenter.
 
 ## Verify with Ambari web UI
 

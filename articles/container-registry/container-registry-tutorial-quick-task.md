@@ -200,12 +200,12 @@ az keyvault secret set \
   --value $(az ad sp create-for-rbac \
                 --name $ACR_NAME-pull \
                 --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-                --role reader \
+                --role acrpull \
                 --query password \
                 --output tsv)
 ```
 
-The `--role` argument in the preceding command configures the service principal with the *reader* role, which grants it pull-only access to the registry. To grant both push and pull access, change the `--role` argument to *contributor*.
+The `--role` argument in the preceding command configures the service principal with the *acrpull* role, which grants it pull-only access to the registry. To grant both push and pull access, change the `--role` argument to *acrpush*.
 
 Next, store the service principal's *appId* in the vault, which is the **username** you pass to Azure Container Registry for authentication:
 

@@ -1081,8 +1081,8 @@ download the project to your local computer. To edit script files in the online 
 [Configure Twitter authentication]: ../app-service/configure-authentication-provider-twitter.md
 [Azure App Service deployment guide]: ../app-service/deploy-local-git.md
 [Monitoring Azure App Service]: ../app-service/web-sites-monitor.md
-[Enable diagnostic logging in Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
-[Troubleshoot Azure App Service in Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
+[Enable diagnostic logging in Azure App Service]: ../app-service/troubleshoot-diagnostic-logs.md
+[Troubleshoot Azure App Service in Visual Studio]: ../app-service/troubleshoot-dotnet-visual-studio.md
 [specify the Node version]: ../nodejs-specify-node-version-azure-apps.md
 [use Node modules]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/

@@ -5,7 +5,7 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: arduppal
-ms.date: 10/03/2018
+ms.date: 01/04/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -111,7 +111,7 @@ Choose one of the two ways to find the blob storage module:
 
 ### Visual Studio Code templates
 
-Azure IoT Edge provides templates in Visual Studio Code to help you develop edge solutions. These steps require that you have [Visual Studio Code](https://code.visualstudio.com/) installed on your development machine, and configured with the [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
+Azure IoT Edge provides templates in Visual Studio Code to help you develop edge solutions. These steps require that you have [Visual Studio Code](https://code.visualstudio.com/) installed on your development machine, and configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 Use the following steps to create a new IoT Edge solution with a blob storage module, and configure the deployment manifest. 
 
