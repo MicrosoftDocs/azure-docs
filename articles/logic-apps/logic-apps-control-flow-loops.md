@@ -59,8 +59,9 @@ in a nested loop, create and [call a child logic app](../logic-apps/logic-apps-h
 * To get predictable results from operations on 
 variables in loops, run those loops sequentially.
 
-* Actions in a "Foreach" loop use the `@item()` expression 
-to reference and process each item in the array. 
+* Actions in a "Foreach" loop use the 
+[`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
+expression to reference and process each item in the array. 
 If you specify data that's not in an array, 
 the logic app workflow fails. 
 
