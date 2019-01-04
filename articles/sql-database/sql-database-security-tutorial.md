@@ -54,7 +54,7 @@ SQL databases are protected by firewalls in Azure. By default, all connections t
 Set **Allow access to Azure services** to **OFF** for the most secure configuration. Then, create a [reserved IP (classic deployment)](../virtual-network/virtual-networks-reserved-public-ip.md) for the resource that needs to connect, such as an Azure VM or cloud service, and only allow that IP address access through the firewall. If you're using the [resource manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) deployment model, a dedicated public IP address is required for each resource.
 
 > [!NOTE]
-> SQL database communicates over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you can't connect to the Azure SQL database server unless your administrator opens port 1433.
+> SQL Database communicates over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you can't connect to the Azure SQL Database server unless your administrator opens port 1433.
 
 ### Set up server-level firewall rules
 
@@ -80,7 +80,7 @@ To set up a server-level firewall rule:
 You can now connect to any database in the server with the specified IP address or IP address range.
 
 > [!IMPORTANT]
-> By default, access through the SQL database firewall is enabled for all Azure services, under **Allow access to Azure services**. Choose **OFF** to disable access for all Azure services.
+> By default, access through the SQL Database firewall is enabled for all Azure services, under **Allow access to Azure services**. Choose **OFF** to disable access for all Azure services.
 
 ### Setup database-level firewall rules
 
