@@ -28,7 +28,7 @@ The solution to securing outbound addresses lies in use of a firewall device tha
 
 ## Configuring Azure Firewall with your ASE 
 
-The steps to lock down egress from your ASE with Azure Firewall are:
+The steps to lock down egress from your existing ASE with Azure Firewall are:
 
 1. Enable service endpoints to SQL, Storage and Event Hub on your ASE subnet. To do this go into the networking portal > subnets and select Microsoft.EventHub, Microsoft.SQL and Microsoft.Storage from the Service endpoints dropdown. When you have service endpoints enabled to Azure SQL, any Azure SQL dependencies that your apps have must be configured with service endpoints as well. 
 
@@ -48,6 +48,10 @@ The steps to lock down egress from your ASE with Azure Firewall are:
    ![Creating a route table][4]
    
 1. Assign the route table you created to your ASE subnet.
+
+#### Deploying your ASE behind a firewall
+
+The steps to deploy your ASE behind a firewall are the same as configuring your existing ASE with an Azure Firewall except you will need to create your ASE subnet and then follow the previous steps. To create your ASE in a pre-existing subnet you need to use a Resource Manager template as described in the document on [Creating your ASE with a Resource Manager template](https://docs.microsoft.com/azure/app-service/environment/create-from-template).
 
 ## Application traffic 
 
