@@ -172,6 +172,8 @@ In order to deploy the container to the Azure Kubernetes service, the container 
 
     The first image is in your Azure Container Registry. 
 
+    ![Verify frontend repository and tag](../media/how-tos/container-instance-sample/view-frontend-container-repository-and-tag.png)
+
 ## Get language detection docker image 
 
 1. Pull the latest version of the docker image to the local machine. 
@@ -210,11 +212,9 @@ In order to deploy the container to the Azure Kubernetes service, the container 
 
 1. Verify the image is in your Container registry. On the Azure portal, on your Container registry, verify the repositories list has this new repository named **azure-cognitive-services**. 
 
-    ![Verify the image in the container registry](../media/how-tos/container-instance-sample/view-container-registry-repository.png)
-
 1. Select the **azure-cognitive-services** repository, verify that the only tag in the list is **1.1.006770001-amd64-preview**.
 
-    ![Verify the tag is in the repository](../media/how-tos/container-instance-sample/view-container-registry-repository-tag-list.png)
+    ![Verify the tag is in the repository](../media/how-tos/container-instance-sample/view-cognitiver-service-container-repository-and-tag.png)
 
     The second image is in your Azure Container Registry. 
 
