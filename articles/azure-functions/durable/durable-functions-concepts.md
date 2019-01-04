@@ -68,10 +68,10 @@ module.exports = df.orchestrator(function*(context) {
 
 The values "F1", "F2", "F3", and "F4" are the names of other functions in the function app. Control flow is implemented using normal imperative coding constructs. That is, code executes top-down and can involve existing language control flow semantics, like conditionals, and loops.  Error handling logic can be included in try/catch/finally blocks.
 
-The `context` parameter ([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)) (.NET) and `context.df` object (JavaScript) provide methods for invoking other functions by name, passing parameters, and returning function output. Each time the code calls `await` (C#) or `yield` (JavaScript), the Durable Functions framework *checkpoints* the progress of the current function instance. If the process or VM recycles midway through the execution, the function instance resumes from the previous `await` or `yield` call. More on this restart behavior later.
+The `context` parameter [DurableOrchestrationContext] \(.NET\) and the `context.df` object (JavaScript) provide methods for invoking other functions by name, passing parameters, and returning function output. Each time the code calls `await` (C#) or `yield` (JavaScript), the Durable Functions framework *checkpoints* the progress of the current function instance. If the process or VM recycles midway through the execution, the function instance resumes from the previous `await` or `yield` call. More on this restart behavior later.
 
 > [!NOTE]
-> The `context` object in JavaScript represents the [function context as a whole](../functions-reference-node.md#context-object), not the DurableOrchestrationContext..
+> The `context` object in JavaScript represents the [function context](../functions-reference-node.md#context-object) as a whole, not the [DurableOrchestrationContext].
 
 ### <a name="fan-in-out"></a>Pattern #2: Fan-out/fan-in
 
@@ -338,7 +338,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-The durable timer is created by calling `context.CreateTimer` (.NET) or `context.df.createTimer`(JavaScript). The notification is received by `context.WaitForExternalEvent` (.NET) or `context.df.waitForExternalEvent` (JavaScript). And `Task.WhenAny` (.NET) or `context.df.Task.any` (JavaScript) is called to decide whether to escalate (timeout happens first) or process approval (approval is received before timeout).
+The durable timer is created by calling `context.CreateTimer` (.NET) or `context.df.createTimer` (JavaScript). The notification is received by `context.WaitForExternalEvent` (.NET) or `context.df.waitForExternalEvent` (JavaScript). And `Task.WhenAny` (.NET) or `context.df.Task.any` (JavaScript) is called to decide whether to escalate (timeout happens first) or process approval (approval is received before timeout).
 
 An external client can deliver the event notification to a waiting orchestrator function using either the [built-in HTTP APIs](durable-functions-http-api.md#raise-event) or by using [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) API from another function:
 
@@ -415,3 +415,5 @@ To learn more about Durable Functions, see [Overview of function types and featu
 
 > [!div class="nextstepaction"]
 > [Create your first durable function](durable-functions-create-first-csharp.md)
+
+[DurableOrchestrationContext]: https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html
