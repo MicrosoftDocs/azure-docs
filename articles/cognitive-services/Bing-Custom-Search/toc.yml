@@ -4,14 +4,10 @@
   expanded: true
   items:
     - name: What is the Bing Custom Search API?
-<<<<<<< HEAD
       href: overview.md  
     - name: Compare the Bing Search APIs
-      href: ../Bing-Web-Search/Bing-Web-Search/bing-api-comparison.md
+      href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-=======
-      href: overview.md 
->>>>>>> 5a8bd41e31c1362e03bdf82306a32a2af093adab
 - name: Quickstarts
   expanded: true
   items:

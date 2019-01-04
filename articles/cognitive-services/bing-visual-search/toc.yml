@@ -4,6 +4,9 @@
   items:
     - name: What is Bing Visual Search API?
       href: overview.md
+    - name: Compare the Bing Search APIs
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Quickstarts
   items:
     - name: REST API 

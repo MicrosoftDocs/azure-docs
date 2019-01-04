@@ -8,7 +8,7 @@
   - name: What is the Bing Local Business Search API?
     href: overview.md
   - name: Compare the Bing Search APIs
-    href: ../Bing-Web-Search/Bing-Web-Search/bing-api-comparison.md
+    href: ../Bing-Web-Search/bing-api-comparison.md
     maintainContext: true
 - name: Quickstarts  
   items: 
