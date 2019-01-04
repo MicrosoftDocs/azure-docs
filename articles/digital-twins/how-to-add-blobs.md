@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: seodec18
 ---
@@ -23,23 +23,7 @@ Azure Digital Twins supports attaching blobs to devices, spaces, and users. Blob
 
 You can use multipart requests to upload blobs to specific endpoints and their respective functionalities.
 
-> [!IMPORTANT]
-> Multipart requests require three pieces of information:
-> * A **Content-Type** header:
->   * `application/json; charset=utf-8`
->   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`
-> * A **Content-Disposition**: `form-data; name="metadata"`
-> * The file content to upload
->
-> The **Content-Type** and **Content-Disposition** information can vary depending on the use scenario.
-
-Multipart requests made to the Azure Digital Twins Management APIs have two parts:
-
-* Blob metadata such as an associated MIME type, as shown in the **Content-Type** and **Content-Disposition** information
-
-* Blob contents (the unstructured contents of the file)  
-
-Neither of the two parts is required for **PATCH** requests. Both are required for **POST** or create operations.
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ### Blob metadata
 
@@ -153,7 +137,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-Making a **PATCH** request to the same endpoint enables you to update a metadata description and create a new version of the blob. The HTTP request is made through the **PATCH** method, along with any necessary meta and multipart form data.
+Making a **PATCH** request to the same endpoint enables you to update a metadata description and create a new version of the blob. The HTTP request is made through the **PATCH** method, along with any necessary meta, and multipart form data.
 
 Successful operations return a **SpaceBlob** object that conforms to the following schema. You can use it to consume returned data.
 
