@@ -20,7 +20,7 @@ This article explains the Azure SQL Database and SQL Data Warehouse connectivity
 > [!IMPORTANT]
 > **[Upcoming change] For service endpoint connections to Azure SQL servers, a `Default` connectivity behavior changes to `Redirect`.**
 >
-> Change is already effective from November 10th, 2018 for Brazil South and West Europe regions. For all other regions change will be effective from January 2nd, 2019.
+> Change is effective for all regions on or before January 2nd, 2019.
 >
 > To prevent connectivity through a service endpoint from breaking in existing environments as a result of this change, we use telemetry do the following:
 > - For servers that we detect that were accessed through service endpoints before the change, we switch the connection type to `Proxy`.
