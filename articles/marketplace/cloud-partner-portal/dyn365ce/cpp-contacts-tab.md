@@ -28,7 +28,7 @@ Use the **Contacts** tab to provide engineering and customer support information
 
 Supply the following values to define the primary **Engineering Contact** and for your offer.
 
-|    **Field**    |  **Description**                |
+|    Field        |  Description                    |
 |    ---------    |  ---------------                |
 |  **Name**       |  Name of the engineering contact for your app. This contact will receive technical communications from Microsoft.   |
 |  **Email**      |  Email address of the engineering contact  |
@@ -37,7 +37,7 @@ Supply the following values to define the primary **Engineering Contact** and fo
 
 Supply the following values to define the primary **Support Contact** and for your offer.
 
-|    **Field**    |  **Description**                |
+|    Field        |   Description                   |
 |    ---------    |  ---------------                |
 |  **Name**       |  Name of the customer support contact for your app. This contact will receive support-related communications from Microsoft.   |
 |  **Email**      |  Email address of the customer support contact  |

@@ -30,7 +30,7 @@ You will provide details about your Dynamics 365 application in this section.
 
 The following table describes these fields.
 
-|    **Field**                  |  **Description**                |
+|      Field                    |    Description                  |
 |    ---------                  |  ---------------                |
 |   Base license model          |  License model determines how customers are assigned  your application in the Dynamics 365 Admin Center. **Resource** licensing is instance-based, whereas **User** licenses are assigned one per tenant.  |
 |  S2S outbound & CRM Secure Store Access |  Enables configuration of CRM Secure Store or Server-to-Server (S2S) outbound access. *This feature requires specialized consideration from the Dynamics 365 Team during the certification phase.* Microsoft will contact you to complete additional steps to support this feature.  |
@@ -49,7 +49,7 @@ You will provide details about your AppSource package file in this section.  Thi
 
 The following table describes these fields.
 
-|    **Field**                  |  **Description**                |
+|      Field                    |    Description                  |
 |    ---------                  |  ---------------                |
 |  Filename of your package     |  Filename of your package (.zip).  This name is *not* public and will be used internally by Dynamics 365 certification team.  |
 |  Url                          |  URL of an Azure Storage account that contains the uploaded package file. This URL should include a read-only SAS key to allow our team to pick up your package for verification.  |

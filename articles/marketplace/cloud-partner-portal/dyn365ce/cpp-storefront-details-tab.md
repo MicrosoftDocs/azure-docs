@@ -69,7 +69,7 @@ In this section, you will provide marketing collateral: logo images, promotional
 
 Where the following table describes the fields in this tab: 
 
-|    **Field**          |  **Description**               |
+|      Field            |    Description                 |
 |  ---------------      |  ---------------               |
 | Offer logo (png format, 48x48) | Upload an image that will display on your app's search page. Format is PNG and size must be 48 x 48 pixel. |
 | Offer logo (png format, 216x216) | Upload an image that will disaply on your app's detail page. Format is PNG and size must be 216 x 216 pixel. |
@@ -87,7 +87,7 @@ You will provide *privacy policy* and *terms of use* for your app in this sectio
 
 Where the following table describes the fields in this tab: 
 
-|    **Field**          |  **Description**               |
+|      Field            |    Description                 |
 |  ---------------      |  ---------------               |
 | Privacy Policy URL    | URL of the online privacy policy for your app.  |
 | Terms of use          | Terms of use for your app in plain text.  AppSource customers are required to accept these terms before they can try your app. |

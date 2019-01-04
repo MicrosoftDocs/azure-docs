@@ -31,7 +31,7 @@ The **Dynamics 365 for Customer Engagement** > **New Offer** page opens with the
 
 The following table describes the fields in this tab. 
 
-|  **Field**       |     **Description**                                                          |
+|    Field         |       Description                                                            |
 |  ---------       |     ---------------                                                          |
 | **Offer ID**       | A unique identifier (within a publisher profile) for the offer. This identifier will be visible in product URLs and insights reports. It has a maximum length of 50 characters, and can use lowercase alphanumeric characters and dashes (-). (The identifier can't end with a dash.) **Note:** This field can't be changed after an offer goes live because it's tied to the offer's marketplace base URL.  |
 | **Publisher ID**     | Your organization's unique identifier in the Azure Marketplace. All your offerings should be associated with your publisher ID. This value can't be changed after the offer is saved. |

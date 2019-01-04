@@ -27,7 +27,7 @@ This article describes the technical and business prerequisites for publishing a
 Your Dynamics 365 for Customer Engagement application must conform to the [Microsoft AppSource app review guidelines](https://smp-cdn-prod.azureedge.net/documents/AppsourceGuidelines/Microsoft%20AppSource%20app%20review%20guidelines_v5.pdf), which includes the following requirements:
 
 
-|            **Requirement**           |      **Description**         |
+|              Requirement             |        Description           |
 |            ---------------           |      ---------------         |
 | Azure Active Directory integration   | Your app must allow Azure Active Directory federated single sign-on (AAD federated SSO) with consent enabled. For more information, see [How to get AppSource Certified for Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-get-appsource-certified). |
 | Integration with Microsoft Cloud services (optional) | Where this functionality is required, your app should integrate with other Microsoft Cloud services like Microsoft Power BI, Microsoft Flow, or Microsoft Azure services such as machine learning or cognitive services. |

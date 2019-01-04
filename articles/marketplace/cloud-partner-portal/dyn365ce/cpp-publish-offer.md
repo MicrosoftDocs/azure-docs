@@ -32,7 +32,7 @@ The following table describes each publishing step, with a time estimate (maximu
 The following table describes each publishing step. An estimated time to finish each step is also given.
 
 
-|  **Publishing Step**           | **Time**    | **Description**                                                            |
+|    Publishing Step             |   Time      |   Description                                                              |
 |  -------------------           | --------    | ---------------                                                            |
 | Validate prerequisites         | 15 min   | Offer information and offer settings are validated.                        |
 | Certification                  | 1 week | Offer is analyzed by the Azure Certification Team. The offer is scanned for viruses, malware, safety compliance, and security issues. The offer is checked to see that it meets all the eligibility criteria. For more information, see [prerequisites](./cpp-prerequisites.md). Feedback is provided if an issue is found. |
