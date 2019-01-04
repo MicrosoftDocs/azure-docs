@@ -16,7 +16,7 @@ ms.reviewer: jairoc
 
 ---
 # Register your personal device on your organization's network
-Register your personal device, typically a phone or tablet, on your organization's network. After your device is registered, it will be able to access your organization's restricted resources.
+Register your personal device (typically a phone or tablet) on your organization's network. After your device is registered, it will be able to access your organization's restricted resources.
 
 >[!Note]
 >This article uses a Windows device for demonstration purposes, but you can also register devices running iOS, Android, or macOS.
@@ -50,7 +50,7 @@ Follow these steps to register your personal device on your network.
 
 5. Complete the rest of the registration process, including approving your identity verification request (if you use two-step verification) and setting up Windows Hello (if necessary).
 
-## To make sure you're registered
+## To verify that you're registered
 You can make sure that you're registered by looking at your settings.
 
 1. Open **Settings**, and then select **Accounts**.
