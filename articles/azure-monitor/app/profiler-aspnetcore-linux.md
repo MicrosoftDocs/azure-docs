@@ -26,7 +26,7 @@ After you complete this walkthrough, your app can collect Profiler traces like t
 ## Prerequisites
 The following instructions apply to all Windows, Linux, and Mac development environments:
 
-* Install the [.NET Core SDK 2.1.2 or later](https://www.microsoft.com/net/download/windows/build).
+* Install the [.NET Core SDK 2.1.2 or later](https://dotnet.microsoft.com/download/archives).
 * Install Git by following the instructions at [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ## Set up the project locally

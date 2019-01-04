@@ -125,12 +125,12 @@ The overview blade is the gateway to more information about your app.
 INVESTIGATE
 
 * [**Application map**](app-map.md) - Active map showing the components of your application, derived from the dependency information.
-* [**Smart Detection**](../../application-insights/app-insights-proactive-diagnostics.md) - Review recent performance alerts.
+* [**Smart Detection**](../../azure-monitor/app/proactive-diagnostics.md) - Review recent performance alerts.
 * [**Live Stream**](../../azure-monitor/app/live-stream.md) - A fixed set of near-instant metrics, useful when deploying a new build or debugging.
 * [**Availability / Web tests**](../../azure-monitor/app/monitor-web-app-availability.md) - Send regular requests to your web app from around the world.*
-* [**Failures, Performance**](../../application-insights/app-insights-web-monitor-performance.md) - Exceptions, failure rates and response times for requests to your app and for requests from your app to [dependencies](../../azure-monitor/app/asp-net-dependencies.md).
-* [**Performance**](../../application-insights/app-insights-web-monitor-performance.md) - Response time, dependency response times.
-* [Servers](../../application-insights/app-insights-web-monitor-performance.md) - Performance counters. Available if you [install Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md).
+* [**Failures, Performance**](../../azure-monitor/app/web-monitor-performance.md) - Exceptions, failure rates and response times for requests to your app and for requests from your app to [dependencies](../../azure-monitor/app/asp-net-dependencies.md).
+* [**Performance**](../../azure-monitor/app/web-monitor-performance.md) - Response time, dependency response times.
+* [Servers](../../azure-monitor/app/web-monitor-performance.md) - Performance counters. Available if you [install Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md).
 * **Browser** - Page view and AJAX performance. Available if you [instrument your web pages](../../azure-monitor/app/javascript.md).
 * **Usage** - Page view, user, and session counts. Available if you [instrument your web pages](../../azure-monitor/app/javascript.md).
 
