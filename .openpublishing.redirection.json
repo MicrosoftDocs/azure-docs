@@ -1102,7 +1102,7 @@
     },
     {
       "source_path": "articles/machine-learning/preview/scenario-aerial-image-classification.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/scenario-aerial-image-classification",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
       "redirect_document_id": false
     },
     {
@@ -1467,7 +1467,7 @@
     },
     {
       "source_path": "articles/machine-learning/preview/frequently-asked-questions.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/frequently-asked-questions",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
       "redirect_document_id": false
     },
     {
