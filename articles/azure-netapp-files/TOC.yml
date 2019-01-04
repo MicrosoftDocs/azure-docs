@@ -22,8 +22,10 @@
     href: azure-netapp-files-configure-export-policy.md
 # - name: Tutorials
 # - name: Samples
-# - name: Concepts
-#  items:
+- name: Concepts
+  items:
+  - name: Resource limits for Azure NetApp Files
+    href: azure-netapp-files-resource-limits.md
 #  - name: FAQ for networking and security
 #    href: azure-netapp-files-faq-for-networking-security.md
 - name: How-to guides
@@ -38,7 +40,5 @@
     href: azure-netapp-files-resize-capacity-pools-or-volumes.md
 - name: Reference
   items:
-  - name: Resource limits for Azure NetApp Files
-    href: azure-netapp-files-resource-limits.md
   - name: REST
     href: https://docs.microsoft.com/rest/api/netapp/ 
