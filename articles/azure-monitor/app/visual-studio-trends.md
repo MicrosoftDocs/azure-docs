@@ -19,11 +19,11 @@ ms.author: daviste
 # Analyzing Trends in Visual Studio
 The Application Insights Trends tool visualizes how your web application's important telemetry events change over time, helping you quickly identify problems and anomalies. By linking you to more detailed diagnostic information, Trends can help you improve your app's performance, track down the causes of exceptions, and uncover insights from your custom events.
 
-![Example Trends window](./media/app-insights-visual-studio-trends/app-insights-trends-hero-750.png)
+![Example Trends window](./media/visual-studio-trends/app-insights-trends-hero-750.png)
 
 ## Configure your web app for Application Insights
 
-If you haven't done this already, [configure your web app for Application Insights](app-insights-overview.md). This allows it to send telemetry to the Application Insights portal. The Trends tool reads the telemetry from there.
+If you haven't done this already, [configure your web app for Application Insights](../../application-insights/app-insights-overview.md). This allows it to send telemetry to the Application Insights portal. The Trends tool reads the telemetry from there.
 
 Application Insights Trends is available in Visual Studio 2015 Update 3 and later.
 
@@ -37,7 +37,7 @@ To open the Application Insights Trends window:
 You may see a prompt to select a resource. Click **Select a resource**, sign in with an Azure subscription, then choose an Application Insights resource from the list for which you'd like to analyze telemetry trends.
 
 ## Choose a trend analysis
-![Menu of common types of trend analysis](./media/app-insights-visual-studio-trends/app-insights-trends-1-750.png)
+![Menu of common types of trend analysis](./media/visual-studio-trends/app-insights-trends-1-750.png)
 
 Get started by choosing from one of five common trend analyses, each analyzing data from the last 24 hours:
 
@@ -74,7 +74,7 @@ To navigate between bubbles in the visualization:
 ## Filter
 Discover more specific trends with the filter controls at the bottom of the window. To apply a filter, click on its name. You can quickly switch between different filters to discover trends that may be hiding in a particular dimension of your telemetry. If you apply a filter in one dimension, like Exception Type, filters in other dimensions remain clickable even though they appear grayed-out. To un-apply a filter, click it again. Ctrl-click to select multiple filters in the same dimension.
 
-![Trend filters](./media/app-insights-visual-studio-trends/TrendsFiltering-750.png)
+![Trend filters](./media/visual-studio-trends/TrendsFiltering-750.png)
 
 What if you want to apply multiple filters? 
 
@@ -85,12 +85,12 @@ What if you want to apply multiple filters?
 
 To un-apply one of these filters, click the **Remove selected filters and query again** button for the dimension.
 
-![Multiple filters](./media/app-insights-visual-studio-trends/TrendsFiltering2-750.png)
+![Multiple filters](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## Find anomalies
 The Trends tool can highlight bubbles of events that are anomalous compared to other bubbles in the same time series. In the View Type dropdown, choose **Counts in time bucket (highlight anomalies)** or **Percentages in time bucket (highlight anomalies)**. Red bubbles are anomalous. Anomalies are defined as bubbles with counts/percentages exceeding 2.1 times the standard deviation of the counts/percentages that occured in the past two time periods (48 hours if you're viewing the last 24 hours, etc.).
 
-![Colored dots indicate anomalies](./media/app-insights-visual-studio-trends/TrendsAnomalies-750.png)
+![Colored dots indicate anomalies](./media/visual-studio-trends/TrendsAnomalies-750.png)
 
 > [!TIP]
 > Highlighting anomalies is especially helpful for finding outliers in time series of small bubbles that may otherwise look similarly sized.  
@@ -100,7 +100,7 @@ The Trends tool can highlight bubbles of events that are anomalous compared to o
 ## <a name="next"></a>Next steps
 |  |  |
 | --- | --- |
-| **[Working with Application Insights in Visual Studio](../azure-monitor/app/visual-studio.md)**<br/>Search telemetry, see data in CodeLens, and configure Application Insights. All within Visual Studio. |![Right-click the project and choose Application Insights, Search](./media/app-insights-visual-studio-trends/34.png) |
-| **[Add more data](../azure-monitor/app/asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |![Visual studio](./media/app-insights-visual-studio-trends/64.png) |
-| **[Working with the Application Insights portal](../azure-monitor/app/app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/app-insights-visual-studio-trends/62.png) |
+| **[Working with Application Insights in Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Search telemetry, see data in CodeLens, and configure Application Insights. All within Visual Studio. |![Right-click the project and choose Application Insights, Search](./media/visual-studio-trends/34.png) |
+| **[Add more data](../../azure-monitor/app/asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |![Visual studio](./media/visual-studio-trends/64.png) |
+| **[Working with the Application Insights portal](../../azure-monitor/app/app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/visual-studio-trends/62.png) |
 
