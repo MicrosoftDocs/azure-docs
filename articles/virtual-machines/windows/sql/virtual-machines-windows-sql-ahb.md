@@ -18,7 +18,7 @@ ms.reviewer: jroth
 
 ---
 # How to change the licensing model for a SQL Server virtual machine in Azure
-This article describes how to change the licensing model for a SQL Server virtual machine in Azure using the new SQL resource provider - **Microsoft.SqlVirtualMachine**. There are two licensing models for a virtual machine (VM) hosting SQL Server - pay-per-usage, and bring your own license (BYOL). And now, using either PowerShell or Azure CLI, you can modify which licensing model your SQL Server VM uses. 
+This article describes how to change the licensing model for a SQL Server virtual machine in Azure using the new SQL VM resource provider - **Microsoft.SqlVirtualMachine**. There are two licensing models for a virtual machine (VM) hosting SQL Server - pay-per-usage, and bring your own license (BYOL). And now, using either PowerShell or Azure CLI, you can modify which licensing model your SQL Server VM uses. 
 
 The **Pay-per-usage** model means that the per-second cost of running the Azure VM includes the cost of the SQL Server license.
 

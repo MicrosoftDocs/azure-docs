@@ -83,7 +83,7 @@ Once your SQL Server VMs have been registered with the SQL VM new resource provi
    | --- | --- |
    | **Subscription** |  The subscription where your SQL Server VMs exist. |
    |**Resource group** | The resource group where your SQL Server VMs reside. | 
-   |**Failover Cluster Name** | The desired name for you new Windows Failover Cluster |
+   |**Failover Cluster Name** | The desired name for you new Windows Failover Cluster. |
    | **Existing Vm List** | The SQL Server VMs you want to participate in the availability group, and as such, be part of this new cluster. Separate these values with a comma and a space (ex: SQLVM1, SQLVM2). |
    | **SQL Server Version** | Select the SQL Server version of your SQL Server VMs from the drop-down; currently only SQL 2016 and SQL 2017 images are supported. |
    | **Existing Fully Qualified Domain Name** | The existing FQDN for the domain in which your SQL Server VMs reside. |
@@ -97,23 +97,25 @@ Once your SQL Server VMs have been registered with the SQL VM new resource provi
 1. To monitor your deployment, either select the deployment from the **Notifications** bell icon in your top navigation banner or navigate to your **Resource Group** in the Azure portal, select **Deployments** in the **Settings** field, and choose the 'Microsoft.Template' deployment. 
 
 ## Step 2 - Manually create the availability group 
-Configure the availability group as you normally would,  manually using either [PowerShell](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell?view=sql-server-2017),  [SQL Server Management Studio](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-2017) or [Transact-SQL](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql?view=sql-server-2017). 
+Manually create the availability group as you normally would, using either [PowerShell](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell?view=sql-server-2017),  [SQL Server Management Studio](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-2017) or [Transact-SQL](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql?view=sql-server-2017). 
 
   >[!IMPORTANT]
   > Do **not** create a listener at this time. 
 
 ## Step 3 - Manually create the Internal Load Balanced (ILB)
-
-The Always On availability group (AG) listener requires an internal Azure Load Balancer (ILB). The ILB provides a “floating” IP address for the AG listener that allows for faster failover and reconnection. If the SQL Server VMs in an availability group are part of the same availability set, then you can use a Basic Load Balancer; otherwise, you need to use a Standard Load Balancer. The public IP resource should have a standard SKU to be compatible with the Standard Load Balancer.  **The ILB should be in the same vNet as the SQL Server VM instances.** The ILB only needs to be created, the rest of the configuration (such as the back-end pool and health probe) is handled by the Azure Quickstart Template in Step 4. 
+The Always On availability group (AG) listener requires an internal Azure Load Balancer (ILB). The ILB provides a “floating” IP address for the AG listener that allows for faster failover and reconnection. If the SQL Server VMs in an availability group are part of the same availability set, then you can use a Basic Load Balancer; otherwise, you need to use a Standard Load Balancer.  **The ILB should be in the same vNet as the SQL Server VM instances.** The ILB only needs to be created, the rest of the configuration (such as the backend pool, health probe and load-balancing rules) is handled by the Azure Quickstart Template in Step 4. 
 
 Create the ILB manually either using the [Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener) or [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener#example-script-create-an-internal-load-balancer-with-powershell) but do not configure it as the configuration will be handled automatically by the Quickstart template described in Step 4. 
+
+  >[!NOTE]
+  > The public IP resource for each SQL Server VM should have a standard SKU to be compatible with the Standard Load Balancer. To determine the SKU of your VM's public IP resource, navigate to your **Resource Group**, select your **Public IP Address** resource for the desired SQL Server VM, and locate the value under **SKU** of the **Overview** pane. 
 
 ## Step 4 - Create the AG listener and configure the ILB with the quickstart template
 
 Create the availability group listener and configure the Internal Load Balancer (ILB) automatically with the Azure Quickstart Template as it provisions the Microsoft.SqlVirtualMachine/Sql Virtual Machine Groups/Availability Group Listener resource. The Quickstart template, via the SQL VM resource provider, does the following actions:
 
  - Configures the network settings for the cluster and ILB. 
- - Configures the ILB back-end pool and health probe, and load-balancing zones.
+ - Configures the ILB backend pool, health probe, and load-balancing rules.
  - Creates the AG listener with the given IP address and name.
 
 To configure the ILB and create the AG listener, do the following:
@@ -131,8 +133,8 @@ To configure the ILB and create the AG listener, do the following:
    | **Existing Fully Qualified Domain Name** | The existing FQDN for the domain in which your SQL Server VMs reside. |
    | **Listener** | The DNS name you would like to assign to the listener. By default, this template specifies the name 'aglistener' but it can be changed. | 
    | **Listener Port** | The port that the listener will use. Typically, this port should be the default port of 1433, and as such, this is the port number specified by this template. However, if your default port has been changed, then the listener port should use that value instead. | 
-   | **Existing Vnet** | The name of the vNet where your SQL Server VMs, and ILB reside.](https://docs.microsoft.com/sql/relational-databases/sql-server-configuration-manager?view=sql-server-2017). |
-   | **Existing Subnet** | The *name* of the internal subnet of your SQL Server VMs (ex: default). This value can be determined by navigating to your **Resource Group**, selecting your **vNet**, selecting **Subnets, under the Settings pane and copying the value under **Name** |
+   | **Existing Vnet** | The name of the vNet where your SQL Server VMs, and ILB reside. |
+   | **Existing Subnet** | The *name* of the internal subnet of your SQL Server VMs (ex: default). This value can be determined by navigating to your **Resource Group**, selecting your **vNet**, selecting **Subnets**, under the **Settings** pane and copying the value under **Name**. |
    | **Existing Internal Load Balancer** | The name of the ILB that you created in Step 3. |
    | **Probe Port** | The probe port that you want the ILB to use. The template uses 59999 by default but this value can be changed. |
    | &nbsp; | &nbsp; |
@@ -146,22 +148,22 @@ To configure the ILB and create the AG listener, do the following:
 ## Remove availability group listener
 Since the listener is registered through the SQL VM resource provider, just deleting it via SQL Server Management Studio is insufficient. It actually should be deleted through the SQL VM resource provider using PowerShell. Doing so will remove the AG listener metadata from the SQL VM resource provider, and physically delete the listener from the availability group. 
 
-The following code snippet will delete the SQL availability group listener from the SQL resource provider, and from your availability group: 
+The following code snippet will delete the SQL availability group listener from both the SQL resource provider, and from your availability group: 
 
 ```PowerShell
 # Remove the AG listener
 # example: Remove-AzureRmResource -ResourceId '/subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLAG-RG/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/Cluster/availabilitygrouplisteners/aglistener' -Force
-Remove-AzureRmResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<RG-Name>/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/<Cluster-Name>/availabilitygrouplisteners/<Listener-name>' -Force
+Remove-AzureRmResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<resource-group-name>/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/<cluster-name>/availabilitygrouplisteners/<listener-name>' -Force
 ```
  
 ## Known issues and errors
-This section covers some known issues and their resolution. 
+This section discusses some known issues and their possible resolution. 
 
 ### Availability group listener for availability group '<AG-Name>' already exists
 The selected availability group used in the AG listener Azure Quickstart Template already contains a listener, either physically within the availability group, or as metadata within the SQL VM resource provider.  Remove the listener using [PowerShell](#remove-availability-group-listener) before redeploying the AG listener Quickstart template. 
 
 ### Connection only works from primary replica
-This behavior is likely from a failed AG listener Quickstart template deployment leaving the ILB configuration in an inconsistent state. Verify that the backend pool lists the availability set, and that rules exist for the health probe and for the load-balancing zones. If anything is missing, then the ILB configuration is an inconsistent state. 
+This behavior is likely from a failed AG listener Quickstart template deployment leaving the ILB configuration in an inconsistent state. Verify that the backend pool lists the availability set, and that rules exist for the health probe and for the load-balancing rules. If anything is missing, then the ILB configuration is an inconsistent state. 
 
 To resolve this behavior, remove the listener using [PowerShell](#remove-availability-group-listener), delete the Internal Load Balancer via the Azure portal, and start again at [Step 3](#step-3---manually-create-the-internal-load-balanced-ilb). 
 
@@ -176,7 +178,7 @@ For more information, see the following articles:
 
 * [Overview of SQL Server VM](virtual-machines-windows-sql-server-iaas-overview.md)
 * [SQL Server VM FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
-* [SQL ServerVM pricing guidance](virtual-machines-windows-sql-server-pricing-guidance.md)
+* [SQL Server VM pricing guidance](virtual-machines-windows-sql-server-pricing-guidance.md)
 * [SQL Server VM release notes](virtual-machines-windows-sql-server-iaas-release-notes.md)
 * [Switching licensing models for a SQL Server VM](virtual-machines-windows-sql-ahb.md)
 
