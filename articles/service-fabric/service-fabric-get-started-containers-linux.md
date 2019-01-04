@@ -190,6 +190,12 @@ Specify the port mapping in the appropriate format. For this article, you need t
    </ServiceManifestImport>
 ```	
 
+We recommend that you encrypt the repository password, please refer to [
+Manage encrypted secrets in Service Fabric applications](service-fabric-application-secret-management.md)
+
+### Configure cluster-wide credentials
+Refer to [documentation here](
+service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
 
 ## Configure isolation mode
 With the 6.3 runtime release, VM isolation is supported for Linux containers, thereby supporting two isolation modes for containers: process and hyperv. With the hyperv isolation mode, the kernels are isolated between each container and the container host. The hyperv isolation is implemented using [Clear Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). The isolation mode is specified for Linux clusters in the `ServicePackageContainerPolicy` element in the application manifest file. The isolation modes that can be specified are `process`, `hyperv`, and `default`. The default is process isolation mode. The following snippet shows how the isolation mode is specified in the application manifest file.

@@ -32,21 +32,21 @@ A workbook is made up of sections consisting of independently editable charts, t
 
 Select **Workbooks** from the left-hand menu from inside the Application Insights experience for your app.
 
-![Screenshot of navigation to workbooks](./media/app-insights-usage-workbooks/001-workbooks.png)
+![Screenshot of navigation to workbooks](./media/usage-workbooks/001-workbooks.png)
 
 This launches a workbook gallery with a number of prebuilt workbooks to help you get started.
 
-![Screenshot of workbook gallery](./media/app-insights-usage-workbooks/002-workbook-gallery.png)
+![Screenshot of workbook gallery](./media/usage-workbooks/002-workbook-gallery.png)
 
 We'll start with the **Default Template**, which is located under the heading **Quick start**.
 
-![Screenshot of workbook gallery](./media/app-insights-usage-workbooks/003-default-template.png)
+![Screenshot of workbook gallery](./media/usage-workbooks/003-default-template.png)
 
 ## Editing, rearranging, cloning, and deleting workbook sections
 
 Workbooks have two modes: **editing mode**, and **reading mode**. When the default workbook is first launched, it opens in **editing mode**. This shows all the content of the workbook, including any steps and parameters that are otherwise hidden. **Reading mode** presents a simplified report style view. This allows you to abstract away the complexity that went into creating a report while still having the underlying mechanics only a few clicks away when needed for modification.
 
-![Application Insights Workbooks section editing controls](./media/app-insights-usage-workbooks/editing-controls-new.png)
+![Application Insights Workbooks section editing controls](./media/usage-workbooks/editing-controls-new.png)
 
 1. When you're done editing a section, click **Done Editing** in the bottom left corner of the section.
 
@@ -64,7 +64,7 @@ To add a text section to your workbook, use the **Add text** button at the botto
 
 ## Adding query sections
 
-![Query section in Workbooks](./media/app-insights-usage-workbooks/analytics-section-new.png)
+![Query section in Workbooks](./media/usage-workbooks/analytics-section-new.png)
 
 To add query section to your workbook, use the **Add query** button at the bottom of the workbook, or at the bottom of any section.
 
@@ -91,9 +91,9 @@ To learn more about cross-resource queries refer to the [official guidance](http
 
 ### Advanced analytic query settings
 
-Each section has its own advanced settings, which are accessible via the settings icon ![Application Insights Workbooks section editing controls](./media/app-insights-usage-workbooks/005-settings.png) located to the right of the **Add parameters** button.
+Each section has its own advanced settings, which are accessible via the settings icon ![Application Insights Workbooks section editing controls](./media/usage-workbooks/005-settings.png) located to the right of the **Add parameters** button.
 
-![Application Insights Workbooks section editing controls](./media/app-insights-usage-workbooks/0006-settings-expanded.png)
+![Application Insights Workbooks section editing controls](./media/usage-workbooks/0006-settings-expanded.png)
 
    |         |          |
    | ---------------- |:-----|
@@ -109,15 +109,15 @@ One of the prebuilt workbooks provides information on Active Users.
 
 The first section of the workbook is based on Analytic query data:
 
-![Application Insights Workbooks section editing controls](./media/app-insights-usage-workbooks/003-active-users.png)
+![Application Insights Workbooks section editing controls](./media/usage-workbooks/003-active-users.png)
 
 The second section is also based on analytic query data, but selecting a row in the first table will interactively update the contents of the chart:
 
-![Application Insights Workbooks section editing controls](./media/app-insights-usage-workbooks/004-active-users-trend.png)
+![Application Insights Workbooks section editing controls](./media/usage-workbooks/004-active-users-trend.png)
 
  This is possible through use of the **When an item is selected, export a parameter** advanced settings that are enabled in the table's Analytics query.
 
-![Application Insights Workbooks section editing controls](./media/app-insights-usage-workbooks/007-settings-export.png)
+![Application Insights Workbooks section editing controls](./media/usage-workbooks/007-settings-export.png)
 
 The second analytics query then utilizes the exported values when a row is selected. If no row is selected, it defaults to the row representing the overall values. 
 
@@ -140,7 +140,7 @@ Metrics sections give you full access to incorporate Azure Monitor metrics data 
 
 Here is an example of Virtual machine data being pulled into a workbook to provide a grid visualization of CPU performance:
 
-![Application Insights Workbooks section editing controls](./media/app-insights-usage-workbooks/008-metrics-grid.png)
+![Application Insights Workbooks section editing controls](./media/usage-workbooks/008-metrics-grid.png)
 
 ## Adding parameter sections
 
@@ -181,11 +181,11 @@ The dropdown is populated by an analytics query. If the query returns one column
 
 Let's look at the parameters present in the Active Users report. Click the edit symbol next to **TimeRange**.
 
-![Application Insights Workbooks section editing controls](./media/app-insights-usage-workbooks/009-time-range.png)
+![Application Insights Workbooks section editing controls](./media/usage-workbooks/009-time-range.png)
 
 This will launch the Edit Parameter menu item:
 
-![Application Insights Workbooks section editing controls](./media/app-insights-usage-workbooks/010-time-range-edit.png)
+![Application Insights Workbooks section editing controls](./media/usage-workbooks/010-time-range-edit.png)
 
 The query uses a feature of the analytics query language called a **datatable** that lets you generate an arbitrary table, full of content, out of thin air! For example, the following analytics query:
 
@@ -199,7 +199,7 @@ datatable( column1:string, column2:string )
 
 Generates the result:
 
-![Application Insights Workbooks section editing controls](./media/app-insights-usage-workbooks/011-data-table.png)
+![Application Insights Workbooks section editing controls](./media/usage-workbooks/011-data-table.png)
 
 A more applicable example is using a dropdown to pick from a set of countries by name:
 
@@ -214,7 +214,7 @@ customEvents
 
 The query will display results as follows:
 
-![Country dropdown](./media/app-insights-usage-workbooks/012-country-dropdown.png)
+![Country dropdown](./media/usage-workbooks/012-country-dropdown.png)
 
 Dropdowns are incredibly powerful tools for customizing and creating interactive reports.
 
@@ -228,7 +228,7 @@ Time range parameter types have 15 default ranges that go from five minutes to t
 
 The resource picker parameter type gives you the ability to scope your report to certain types of resources. An example of prebuilt workbook that leverages the resource picker type is the **Failure Insights** workbook.
 
-![Country dropdown](./media/app-insights-usage-workbooks/013-resource-picker.png)
+![Country dropdown](./media/usage-workbooks/013-resource-picker.png)
 
 ## Saving and sharing workbooks with your team
 
@@ -255,8 +255,8 @@ Have you created an awesome workbook template and want to share it with the comm
 ## Next steps
 - To enable usage experiences, start sending [custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
-    - [Users, Sessions, Events](../azure-monitor/app/usage-segmentation.md)
-    - [Funnels](../azure-monitor/app/usage-funnels.md)
-    - [Retention](../azure-monitor/app/usage-retention.md)
-    - [User Flows](../azure-monitor/app/usage-flows.md)
-    - [Add user context](../azure-monitor/app/usage-send-user-context.md)
+    - [Users, Sessions, Events](../../azure-monitor/app/usage-segmentation.md)
+    - [Funnels](../../azure-monitor/app/usage-funnels.md)
+    - [Retention](../../azure-monitor/app/usage-retention.md)
+    - [User Flows](../../azure-monitor/app/usage-flows.md)
+    - [Add user context](../../azure-monitor/app/usage-send-user-context.md)
