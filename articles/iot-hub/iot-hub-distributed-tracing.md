@@ -14,11 +14,13 @@ ms.author: jlian
 
 ![IoT distributed tracing in App Map](./media/iot-hub-distributed-tracing/flow.png)
 
-Azure IoT Hub distributed tracing helps developers analyze and diagnose IoT Hub applications. With distributed tracing, you can understand how your IoT devices and applications are performing and discover the performance bottlenecks and problem root causes. You can easily detect where high latencies are occurring, visualize node and edge latency, and then drill down into the specific messages, devices, and paths impacting IoT application performance. You can use Azure IoT Hub distributed tracing to analyze your IoT devices and applications both in development and in production. 
+As your IoT solution grows in size and complexity, so does the difficulty of pinpointing bottlenecks and root causes. For example, you have an IoT solution that uses 5 different Azure services and 1500 active devices. Each device is programmed to send 10 device-to-cloud messages/second (for a total of 15000 messages/second), but you notice that your web app sees only 10000 messages/second - where is the issue? How do you find the culprit?
+
+To better understand the flow of messages and events across Azure services, consider the [distributed tracing pattern](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing). In this article, you learn how to enable distributed tracing for your IoT Hub and devices running the Azure IoT Device SDK. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Distributed tracing for IoT Hub works by adding correlation IDs (following the [proposed W3C Trace Context format](https://github.com/w3c/trace-context)) to a subset (or all, configured via device twin) of your IoT device-to-cloud messages headers. When IoT Hub sees that a message has arrived with a trace context, it can log the messages arrival time, egress time, and destination to [Azure Monitor diagnostic logs](iot-hub-monitor-resource-health.md). As more Azure services begin to support distributed tracing, you can start tracing IoT messages life cycles throughout Azure. 
+Distributed tracing for IoT Hub works by adding correlation IDs (following the [proposed W3C Trace Context format](https://github.com/w3c/trace-context)) to a subset (or all, configured via device twin) of your IoT device-to-cloud messages headers. When IoT Hub sees that a message has arrived with a trace context, it logs the messages arrival time, egress time, and destination to [Azure Monitor diagnostic logs](iot-hub-monitor-resource-health.md). As more Azure services begin to support distributed tracing, you can start tracing IoT messages life cycles throughout Azure. 
 
 ## Prerequisites
 
@@ -46,7 +48,7 @@ To make annotating messages in W3C format easier, use Azure IoT client SDK versi
 
 Then you can also use [automatic device configuration](iot-hub-auto-device-config.md) to update your entire fleet to sample at a specific percentage, let's say.
 
-For a client app that can receive sampling decisions from the cloud, check out [this sample](link-pending).
+For a client app that can receive sampling decisions from the cloud, check out [this sample](https://aka.ms/iottracingCsample).
 
 You must update every device or module that you want to enable distributed tracing from.
 
@@ -57,13 +59,17 @@ Other languages are coming later.
 IoT Hub uses the twin to communicate the sampling decision with the device, so you can use whatever way you like (JSON editor in portal, API, etc.) to update it. For the best experience, use the Azure portal:
 
 1. Go to your IoT hub in Azure portal, then click **IoT devices**
+
 1. Click your device
+
 1. Look for **Distributed Tracing (Preview)**, then click **Enable**
 
     ![Enable distributed tracing in Azure portal](./media/iot-hub-distributed-tracing/azure-portal.png)
 
 1. Choose a **Sampling rate** between 0% and 100%.
+
 1. Click **Save**
+
 1. If successfully acknowledged by device, a check mark is shown (*pending*)
 
 This doesn't do anything unless your device is set up to listen to twin changes by following the [Deploy client application to your IoT device](#deploy-client-application-to-your-IoT-device) section.
@@ -156,12 +162,6 @@ Here's what it looks like
 
 ## Next steps
 
-In this article, you learned how to configure distributed tracing for IoT Hub. Follow these links to learn more about managing Azure IoT Hub:
-
-* [IoT Hub metrics](iot-hub-metrics.md)
-* [IoT Hub SDKs](iot-hub-devguide-sdks.md)
-
-To further explore the capabilities of IoT Hub, see:
-
-* [IoT Hub developer guide](iot-hub-devguide.md)
-
+* To learn more about the general distributed tracing pattern in microservices, see [Microservice architecture pattern: distributed tracing](https://microservices.io/patterns/observability/distributed-tracing.html).
+* To set up configuration to apply distributed tracing settings to a large number of devices, see [Configure and monitor IoT devices at scale](iot-hub-auto-device-config.md).
+* To learn more about Azure Monitor, see [What is Azure Monitor?](../azure-monitor/overview.md).
