@@ -1172,4 +1172,4 @@ To determine how long data is kept, see [Data retention and privacy](../../azure
 ## <a name="next"></a>Next steps
 
 * [Search events and logs](../../azure-monitor/app/diagnostic-search.md)
-* [Troubleshooting](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md)
