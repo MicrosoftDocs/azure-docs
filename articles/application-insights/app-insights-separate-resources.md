@@ -73,7 +73,7 @@ In the [portal.azure.com](https://portal.azure.com), add an Application Insights
 ![Click New, Application Insights](./media/app-insights-separate-resources/01-new.png)
 
 * **Application type** affects what you see on the overview blade and the properties available in [metric explorer](../azure-monitor/app/metrics-explorer.md). If you don't see your type of app, choose one of the web types for web pages.
-* **Resource group** is a convenience for managing properties like [access control](app-insights-resources-roles-access-control.md). You could use separate resource groups for development, test, and production.
+* **Resource group** is a convenience for managing properties like [access control](../azure-monitor/app/resources-roles-access-control.md). You could use separate resource groups for development, test, and production.
 * **Subscription** is your payment account in Azure.
 * **Location** is where we keep your data. Currently it can't be changed. 
 * **Add to dashboard** puts a quick-access tile for your resource on your Azure Home page. 

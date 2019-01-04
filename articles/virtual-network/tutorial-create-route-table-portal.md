@@ -1,5 +1,6 @@
 ---
-title: Route network traffic - tutorial - Azure portal | Microsoft Docs
+title: Route network traffic - tutorial - Azure portal
+titlesuffix: Azure Virtual Network
 description: In this tutorial, learn how to route network traffic with a route table using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
