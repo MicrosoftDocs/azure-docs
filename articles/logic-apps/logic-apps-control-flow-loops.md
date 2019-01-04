@@ -195,10 +195,12 @@ For example, at 8:00 AM each day, this logic app increments a variable
 until the variable's value equals 10. The logic app then sends an email 
 that confirms the current value. 
 
-This example uses Office 365 Outlook, but you can use any email provider supported by Logic Apps 
-([check the connectors list here](https://docs.microsoft.com/connectors/)). 
-If you use another email account, the overall steps are the same, 
-but your UI might slightly differ. 
+> [!NOTE]
+> These steps use Office 365 Outlook, but you can 
+> use any email provider that Logic Apps supports. 
+> [Check the connectors list here](https://docs.microsoft.com/connectors/). 
+> If you use another email account, the general steps stay the same, 
+> but your UI might look slightly different. 
 
 1. Create a blank logic app. 
 In Logic App Designer, search for "recurrence", 
