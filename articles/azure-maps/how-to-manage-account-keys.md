@@ -1,5 +1,5 @@
 ---
-title: How to manage your Azure Maps account and keys | Microsoft Docs 
+title: Manage your Azure Maps account and keys | Microsoft Docs 
 description: You can use the Azure portal to manage your Azure Maps account and manage your access keys.
 author: walsehgal
 ms.author: v-musehg
@@ -10,7 +10,7 @@ services: azure-maps
 manager: timlt
 ---
 
-# How to manage your Azure Maps account and keys
+# Manage your Azure Maps account and keys
 
 You can manage your Azure Maps account and keys through the Azure portal. After you have an account and a key, you can implement the APIs in your website or mobile application.
 
