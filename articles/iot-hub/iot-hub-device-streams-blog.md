@@ -28,14 +28,14 @@ IoT Hub device streams provide the following benefits:
 - **Compatibility with TCP/IP stack:** IoT Hub device streams can accommodate TCP/IP application traffic. This means that a wide range of proprietary as well as standards-based protocols can leverage this feature. This includes well established protocols such as Remote Desktop Protocol (RDP), Secure Shell (SSH), File Transfer Protocol (FTP), HTTP/REST, among many others.
 - **Ease of use in private network setups:** Devices that are deployed inside of private networks can be reached without the need to assign publicly routable IP addresses to each device. Another similar case involves devices with dynamic IP assignment which might not be known by the service at all times. In both cases, device streams enable connectivity to a target device using its device ID (rather than IP address) as identifier.
 
-As outlined above, IoT Hub device streams are particularly helpful when devices are placed behind a firewall or inside a private network (with no publicly reachable IP address). Next we review one such setup as a case study where direct connectivity to the device is restricted. 
+As outlined above, IoT Hub device streams are particularly helpful when devices are placed behind a firewall or inside a private network (with no publicly reachable IP address). Next, we review one such setup as a case study where direct connectivity to the device is restricted. 
 
 ## A case study: Remote device access
-To further illustrate the applicability of device streams in real-world IoT scenarios, consider a setup involving equipment and machinery (i.e., IoT devices) on a factory floor that are connected to the factory's local area network. The LAN typically is connected to the internet through a network gateway or an HTTP proxy, and is protected by a firewall at the network boundary. In this setup, the firewall is configured based on the organizations security policies which may prohibit opening of certain firewall ports. For example, port 3389 used by Remote Desktop Protocol is often blocked. Therefore, users from outside of the network cannot access devices over this port.
+To further illustrate the applicability of device streams in real-world IoT scenarios, consider a setup involving equipment and machinery (i.e., IoT devices) on a factory floor that are connected to the factory's local area network. The LAN typically is connected to the internet through a network gateway or an HTTP proxy and is protected by a firewall at the network boundary. In this setup, the firewall is configured based on the organizations security policies which may prohibit opening of certain firewall ports. For example, port 3389 used by Remote Desktop Protocol is often blocked. Therefore, users from outside of the network cannot access devices over this port.
 
 While such a network setup is in widespread use, it introduces challenges to many common IoT scenarios. For example, if operators need to access equipment from outside of the LAN, the firewall may need to allow inbound connectivity on arbitrary ports used by the application. In the case of a windows machine that uses the RDP protocol, this comes at odds with the security policies that block port 3389.
 
-Using device streams, the RDP traffic to target devices is tunneled through IoT Hub. Specifically, this tunnel is established over port 443 using outbound connections originating from device and service. As a result, there is no need to relax firewall policies in the factory network. In our quick start guides available in [C](./iot-hub-device-streams-c-proxy-quickstart.md), [C#](./iot-hub-device-streams-csharp-proxy-quickstart.md) and [NodeJS](./iot-hub-device-streams-csharp-nodejs-quickstart.md) languages, we have included instructions on how to leverage IoT Hub device streams to enable the RDP scenario. Other protocols, can use a similar approach by simply configuring their corresponding communication port.
+Using device streams, the RDP traffic to target devices is tunneled through IoT Hub. Specifically, this tunnel is established over port 443 using outbound connections originating from device and service. As a result, there is no need to relax firewall policies in the factory network. In our quick start guides available in [C](./iot-hub-device-streams-c-proxy-quickstart.md), [C#](./iot-hub-device-streams-csharp-proxy-quickstart.md) and [NodeJS](./iot-hub-device-streams-csharp-nodejs-quickstart.md) languages, we have included instructions on how to leverage IoT Hub device streams to enable the RDP scenario. Other protocols can use a similar approach by simply configuring their corresponding communication port.
 
 
 ## Next Steps
@@ -43,9 +43,9 @@ We are excited about the possibilities that can be enabled to communicate with I
 - [Device streams documentation page](./iot-hub-device-streams-overview.md)
 - [Device streams tutorials page](./iot-hub-device-streams-tutorial.md)
 - [IoT Show recording on Channel 9](https://channel9.msdn.com/)
-- [Quickstart: Communicate with IoT devices using device streams (echo) (C#)](iot-hub-device-streams-csharp-echo-quickstart.md)
-- [Quickstart: Communicate with IoT devices using device streams (echo) (NodeJS)](iot-hub-device-streams-nodejs-echo-quickstart.md)
-- [Quickstart: Communicate with IoT devices using device streams (echo) (C)](iot-hub-device-streams-c-echo-quickstart.md)
-- [Quickstart: SSH/RDP to your IoT device device streams (C#)](iot-hub-device-streams-nodejs-csharp-quickstart.md)
-- [Quickstart: SSH/RDP to your IoT device device streams (NodeJS)](iot-hub-device-streams-nodejs-proxy-quickstart.md)
-- [Quickstart: SSH/RDP to your IoT device using device streams (C)](iot-hub-device-streams-c-proxy-quickstart.md)
+- [QuickStart: Communicate with IoT devices using device streams (echo) (C#)](iot-hub-device-streams-csharp-echo-quickstart.md)
+- [QuickStart: Communicate with IoT devices using device streams (echo) (NodeJS)](iot-hub-device-streams-nodejs-echo-quickstart.md)
+- [QuickStart: Communicate with IoT devices using device streams (echo) (C)](iot-hub-device-streams-c-echo-quickstart.md)
+- [QuickStart: SSH/RDP to your IoT devices using device streams (C#)](iot-hub-device-streams-nodejs-csharp-quickstart.md)
+- [QuickStart: SSH/RDP to your IoT devices using device streams (NodeJS)](iot-hub-device-streams-nodejs-proxy-quickstart.md)
+- [QuickStart: SSH/RDP to your IoT devices using device streams (C)](iot-hub-device-streams-c-proxy-quickstart.md)

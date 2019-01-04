@@ -121,8 +121,8 @@ In this quickstart, you have set up an IoT hub, registered a device, established
 To learn how to use IoT Hub device streams for an existing client/server application such as SSH or RDP, continue to the next quickstart.
 
 > [!div class="nextstepaction"]
-> [Quickstart: SSH/RDP to your IoT device device streams (NodeJS)](iot-hub-device-streams-nodejs-proxy-quickstart.md)
-> [Quickstart: SSH/RDP to your IoT device using device streams (C)](iot-hub-device-streams-c-proxy-quickstart.md)
-> [Quickstart: SSH/RDP to your IoT device using device streams (C#)](iot-hub-device-streams-csharp-proxy-quickstart.md)
-> [Quickstart: Communicate with IoT devices using device streams (echo) (C#)](iot-hub-device-streams-csharp-echo-quickstart.md)
-> [Quickstart: Communicate with IoT devices using device streams (echo) (C)](iot-hub-device-streams-c-echo-quickstart.md)
+> [QuickStart: SSH/RDP to your IoT devices device streams (NodeJS)](iot-hub-device-streams-nodejs-proxy-quickstart.md)
+> [QuickStart: SSH/RDP to your IoT devices using device streams (C)](iot-hub-device-streams-c-proxy-quickstart.md)
+> [QuickStart: SSH/RDP to your IoT devices using device streams (C#)](iot-hub-device-streams-csharp-proxy-quickstart.md)
+> [QuickStart: Communicate with IoT devices using device streams (echo) (C#)](iot-hub-device-streams-csharp-echo-quickstart.md)
+> [QuickStart: Communicate with IoT devices using device streams (echo) (C)](iot-hub-device-streams-c-echo-quickstart.md)
