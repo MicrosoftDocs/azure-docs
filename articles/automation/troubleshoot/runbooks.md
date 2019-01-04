@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Azure Automation runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/03/2019
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -143,21 +143,24 @@ This error can be resolved by updating your Azure modules to the latest version.
 
 In your Automation Account, click **Modules**, and click **Update Azure modules**. The update takes roughly 15 minutes, once complete re-run the runbook that was failing. To learn more about updating your modules, see [Update Azure modules in Azure Automation](../automation-update-azure-modules.md).
 
-### <a name="child-runbook-auth-failure"></a>Scenario: Child runbook fails when dealing with multiple subscriptions
+### <a name="runbook-auth-failure"></a>Scenario: Runbooks fail when dealing with multiple subscriptions
 
 #### Issue
 
-When executing child runbooks with `Start-AzureRmRunbook`, the child runbook fails to manage Azure resources.
+When executing runbooks with `Start-AzureRmAutomationRunbook`, the runbook fails to manage Azure resources.
 
 #### Cause
 
-The child runbook isn't using the correct context when running.
+The runbook isn't using the correct context when running.
 
 #### Resolution
 
-When working with multiple subscriptions, the subscription context might be lost when invoking child runbooks. To ensure that the subscription context is passed to the child runbooks, add the `AzureRmContext` parameter to the cmdlet and pass the context to it.
+When working with multiple subscriptions, the subscription context might be lost when invoking runbooks. To ensure that the subscription context is passed to the runbooks, add the `AzureRmContext` parameter to the cmdlet and pass the context to it. It is also recommended to use the `Disable-AzureRmContextAutosave` cmdlet with the **Process** scope to ensure that the credentials you use are only used for the current runbook.
 
 ```azurepowershell-interactive
+# Ensures that any credentials apply only to the execution of this runbook
+Disable-AzureRmContextAutosave –Scope Process
+
 # Connect to Azure with RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
