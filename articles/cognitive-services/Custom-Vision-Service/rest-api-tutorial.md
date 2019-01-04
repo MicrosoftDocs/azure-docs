@@ -279,7 +279,7 @@ The response to the request is similar to the following JSON document:
 
 Save the `id` value, as it is used to test and export the model.
 
-For more information, see [TrainProject](https://docs.microsoft.com/rest/api/cognitiveservices/customvisiontraining/trainproject/trainproject).
+For more information, see [TrainProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8294).
 
 ## Test the model
 
@@ -316,7 +316,7 @@ The response to the request is similar to the following JSON document:
 }
 ```
 
-For more information, see [QuickTestImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8294).
+For more information, see [QuickTestImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a828d).
 
 ## Export the model
 
