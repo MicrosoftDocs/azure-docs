@@ -15,7 +15,6 @@ ms.date: 10/27/2017
 
 The following steps show you how to install Python packages by running **HDInsight: PySpark Interactive**.
 
-
 ## Set up the PySpark interactive environment on macOS and Linux
 If you're using **python 3.x**, you need to use the command **pip3** for the following steps:
 

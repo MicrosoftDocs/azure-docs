@@ -292,7 +292,7 @@ You have been running the function app and chat application locally. You will no
 
 ### Configure function app for authentication
 
-So far, the chat app works anonymously. In Azure, you will use [App Service Authentication](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) to authenticate the user. The user ID or username of the authenticated user can be passed to the *SignalRConnectionInfo* binding to generate connection information that is authenticated as the user.
+So far, the chat app works anonymously. In Azure, you will use [App Service Authentication](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) to authenticate the user. The user ID or username of the authenticated user can be passed to the *SignalRConnectionInfo* binding to generate connection information that is authenticated as the user.
 
 When a sending message, the app can decide whether to send it to all connected clients, or only to the clients that have been authenticated to a given user.
 

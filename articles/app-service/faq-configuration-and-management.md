@@ -35,7 +35,7 @@ For answers to common questions about using a custom domain name with your Azure
 
 ## How do I purchase a new custom domain for my web app?
 
-To learn how to purchase and set up a custom domain for your App Service web app, see [Buy and configure a custom domain name in App Service](custom-dns-web-site-buydomains-web-app.md).
+To learn how to purchase and set up a custom domain for your App Service web app, see [Buy and configure a custom domain name in App Service](manage-custom-dns-buy-domain.md).
 
 
 ## How do I upload and configure an existing SSL certificate for my web app?
@@ -68,9 +68,11 @@ To set the server time zone for your web app:
     * Value = *The time zone you want*
 3. Select **Save**.
 
+See the **Timezone** column in the [Default Time Zones](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) article for accepted values.
+
 ## Why do my continuous WebJobs sometimes fail?
 
-By default, web apps are unloaded if they are idle for a set period of time. This lets the system conserve resources. In Basic and Standard plans, you can turn on the **Always On** setting to keep the web app loaded all the time. If your web app runs continuous WebJobs, you should turn on **Always On**, or the WebJobs might not run reliably. For more information, see [Create a continuously running WebJob](web-sites-create-web-jobs.md#CreateContinuous).
+By default, web apps are unloaded if they are idle for a set period of time. This lets the system conserve resources. In Basic and Standard plans, you can turn on the **Always On** setting to keep the web app loaded all the time. If your web app runs continuous WebJobs, you should turn on **Always On**, or the WebJobs might not run reliably. For more information, see [Create a continuously running WebJob](webjobs-create.md#CreateContinuous).
 
 ## How do I get the outbound IP address for my web app?
 
@@ -120,7 +122,7 @@ For more information, see [Microsoft Azure App Service web app compliance with P
 
 In Standard and Premium App Service plans, when you deploy your web app to App Service, you can deploy to a separate deployment slot instead of to the default production slot. Deployment slots are live web apps that have their own host names. Web app content and configuration elements can be swapped between two deployment slots, including the production slot.
 
-For more information about using deployment slots, see [Set up a staging environment in App Service](web-sites-staged-publishing.md).
+For more information about using deployment slots, see [Set up a staging environment in App Service](deploy-staging-slots.md).
 
 ## How do I access and review WebJob logs?
 
@@ -244,7 +246,7 @@ You can create a scheduled WebJob by using Cron expressions:
     {month} {day of the week}" }
     ```
 
-For more information about scheduled WebJobs, see [Create a scheduled WebJob by using a Cron expression](web-sites-create-web-jobs.md#CreateScheduledCRON).
+For more information about scheduled WebJobs, see [Create a scheduled WebJob by using a Cron expression](webjobs-create.md#CreateScheduledCRON).
 
 ## How do I perform penetration testing for my App Service app?
 
