@@ -37,14 +37,39 @@ This procedure loads and runs the Cognitive Services Container sample for langua
 * Access the website (client-application) with an HTTP request and see the results. 
 
 
-## Create Azure Container Registry service
-
-In order to deploy the container to the Azure Kubernetes service, the container images need to be accessible. Create your own Azure Container Registry service to host the images. 
+## Set up cli 
 
 1. Login to Azure.
 
     ```azurecli-interactive
     az login
+    ```
+
+1. Get list of subscriptions
+
+    ```
+    az account list
+    ```
+
+1. Set Azure subscription default
+
+    ```
+    az account set --subscription <name or id>
+    ```
+
+
+## Create Azure Container Registry service
+
+In order to deploy the container to the Azure Kubernetes service, the container images need to be accessible. Create your own Azure Container Registry service to host the images. 
+
+
+
+
+
+2. Create a resource group named `cogserv-container-rg` to hold every created in this procedure.
+
+    ```azurecli-interactive
+    az group create --name cogserv-container-rg --location westus
     ```
 
     The result looks like: 
@@ -62,35 +87,6 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     }
     ```
 
-2. Create a resource group named `cogserv-container-rg` to hold every created in this procedure.
-
-    ```azurecli-interactive
-    az group create --name cogserv-container-rg --location westus
-    ```
-
-    The result looks like:
-
-    ```json
-    {
-      "adminUserEnabled": false,
-      "creationDate": "2019-01-04T15:23:39.540586+00:00",
-      "id": "/subscriptions/333d9379-a62c-4b5d-84ab-52f2b0fc40ac/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattiocogservcontainerregistry",
-      "location": "westus",
-      "loginServer": "pattiocogservcontainerregistry.azurecr.io",
-      "name": "pattiocogservcontainerregistry",
-      "provisioningState": "Succeeded",
-      "resourceGroup": "cogserv-container-rg",
-      "sku": {
-        "name": "Basic",
-        "tier": "Basic"
-      },
-      "status": null,
-      "storageAccount": null,
-      "tags": {},
-      "type": "Microsoft.ContainerRegistry/registries"
-    }
-    ```
-
 3. Create your own Azure Container Registry named `cogservcontainerregistry`. Prepend your login so the name is unique such as `pattiowenscogservcontainerregistry`
 
     ```azurecli-interactive
@@ -103,7 +99,7 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     {
         "adminUserEnabled": false,
         "creationDate": "2019-01-02T23:49:53.783549+00:00",
-        "id": "/subscriptions/666a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattiowenscogservcontainerregistry",
+        "id": "/subscriptions/333d9379-a62c-4b5d-84ab-52f2b0fc40ac/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattiowenscogservcontainerregistry",
         "location": "westus",
         "loginServer": "pattiowenscogservcontainerregistry.azurecr.io",
         "name": "pattiowenscogservcontainerregistry",
