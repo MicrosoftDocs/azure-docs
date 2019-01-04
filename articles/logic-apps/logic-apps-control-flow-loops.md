@@ -94,7 +94,7 @@ select the **Feed links** array, which is output from the RSS trigger.
    ![Select array](media/logic-apps-control-flow-loops/for-each-loop-select-array.png)
 
 4. To run an action on each array item, 
-drag the **Send an email** action into the **For each** loop. 
+drag the **Send an email** action into the loop. 
 
    Your logic app might look something like this example:
 
@@ -113,35 +113,35 @@ logic app's JSON definition instead, for example:
 
 ``` json
 "actions": {
-    "myForEachLoopName": {
-        "type": "Foreach",
-        "actions": {
-            "Send_an_email": {
-                "type": "ApiConnection",
-                "inputs": {
-                    "body": {
-                        "Body": "@{item()}",
-                        "Subject": "New CNN post @{triggerBody()?['publishDate']}",
-                        "To": "me@contoso.com"
-                    },
-                    "host": {
-                        "api": {
-                            "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
-                        },
-                        "connection": {
-                            "name": "@parameters('$connections')['office365']['connectionId']"
-                        }
-                    },
-                    "method": "post",
-                    "path": "/Mail"
-                },
-                "runAfter": {}
-            }
-        },
-        "foreach": "@triggerBody()?['links']",
-        "runAfter": {},
-    }
-},
+   "myForEachLoopName": {
+      "type": "Foreach",
+      "actions": {
+         "Send_an_email": {
+            "type": "ApiConnection",
+            "inputs": {
+               "body": {
+                  "Body": "@{item()}",
+                  "Subject": "New CNN post @{triggerBody()?['publishDate']}",
+                  "To": "me@contoso.com"
+               },
+               "host": {
+                  "api": {
+                     "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
+                  },
+                  "connection": {
+                     "name": "@parameters('$connections')['office365']['connectionId']"
+                  }
+               },
+               "method": "post",
+               "path": "/Mail"
+            },
+            "runAfter": {}
+         }
+      },
+      "foreach": "@triggerBody()?['links']",
+      "runAfter": {}
+   }
+}
 ```
 
 <a name="sequential-foreach-loop"></a>
@@ -158,7 +158,7 @@ loops or variables inside loops where you expect predictable results.
    ![On "Foreach" loop, choose "..." > "Settings"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
 1. Turn on the **Concurrency Control** setting. 
-Move the **Degree of Parllelism** slider to **1**, 
+Move the **Degree of Parallelism** slider to **1**, 
 and choose **Done**.
 
    ![Turn on "Concurrency Control" setting](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
@@ -205,16 +205,16 @@ then sends an email that confirms the current value.
 > If you use another email account, the general steps stay the same, 
 > but your UI might look slightly different. 
 
-1. Create a blank logic app. 
-In Logic App Designer, search for "recurrence", 
-and select this trigger: **Schedule - Recurrence** 
+1. Create a blank logic app. In Logic App Designer, 
+under the search box, choose **All**. Search for "recurrence". 
+From the triggers list, select this trigger: **Recurrence - Schedule**
 
-   ![Add "Schedule - Recurrence" trigger](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
+   ![Add "Recurrence - Schedule" trigger](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
-2. Specify when the trigger fires by setting the interval, frequency, 
+1. Specify when the trigger fires by setting the interval, frequency, 
 and hour of the day. To set the hour, choose **Show advanced options**.
 
-   ![Add "Schedule - Recurrence" trigger](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
+   ![Set up recurrence schedule](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
    | Property | Value |
    | -------- | ----- |
@@ -223,12 +223,13 @@ and hour of the day. To set the hour, choose **Show advanced options**.
    | **At these hours** | 8 |
    ||| 
 
-3. Under the trigger, choose **New step** > **Add an action**. 
-Search for "variables", and then select this action: **Variables - Initialize variable**
+1. Under the trigger, choose **New step**. 
+Search for "variables", and select this action: 
+**Initialize variable - Variables**
 
-   ![Add "Variables - Initialize variable" action](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
+   ![Add "Initialize variable - Variables" action](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
-4. Set up your variable with these values:
+1. Set up your variable with these values:
 
    ![Set variable properties](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
@@ -239,34 +240,42 @@ Search for "variables", and then select this action: **Variables - Initialize va
    | **Value** | 0 | Your variable's starting value | 
    |||| 
 
-5. Under the **Initialize variable** action, 
-choose **New step** > **More**. Select this loop: **Add a do until**
+1. Under the **Initialize variable** action, choose **New step**. 
 
-   ![Add "do until" loop](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
+1. Under the search box, choose **All**. Search for "until", 
+and select this action: **Until - Control**
 
-6. Build the loop's exit condition by selecting 
+   ![Add "Until" loop](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
+
+1. Build the loop's exit condition by selecting 
 the **Limit** variable and the **is equal** operator. 
 Enter **10** as the comparison value.
 
    ![Build exit condition for stopping loop](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
-7. Inside the loop, choose **Add an action**. 
-Search for "variables", and then add this action: 
-**Variables - Increment variable**
+1. Inside the loop, choose **Add an action**. 
+
+1. Under the search box, choose **All**. Search for "variables", 
+and select this action: **Increment variable - Variables**
 
    ![Add action for incrementing variable](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-8. For **Name**, select the **Limit** variable. For **Value**, 
+1. For **Name**, select the **Limit** variable. For **Value**, 
 enter "1". 
 
    ![Increment "Limit" by 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
-9. Under but outside the loop, add an action that sends email. 
-If prompted, sign in to your email account.
+1. Outside and under the loop, choose **New step**. 
+
+1. Under the search box, choose **All**. 
+Find and add an action that sends email, 
+for example: 
 
    ![Add action that sends email](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
-10. Set the email's properties. Add the **Limit** 
+1. If prompted, sign in to your email account.
+
+1. Set the email action's properties. Add the **Limit** 
 variable to the subject. That way, you can confirm the 
 variable's current value meets your specified condition, 
 for example:
@@ -280,7 +289,7 @@ for example:
     | **Body** | <*email-content*> | Specify the email message content you want to send. For this example, enter whatever text you like. | 
     |||| 
 
-11. Save your logic app. To manually test your logic app, 
+1. Save your logic app. To manually test your logic app, 
 on the designer toolbar, choose **Run**.
 
     After your logic starts running, you get an email with the content that you specified:
@@ -311,37 +320,37 @@ JSON definition instead, for example:
 
 ``` json
 "actions": {
-    "Initialize_variable": {
-        // Definition for initialize variable action
-    },
-    "Send_an_email": {
-        // Definition for send email action
-    },
-    "Until": {
-        "type": "Until",
-        "actions": {
-            "Increment_variable": {
-                "type": "IncrementVariable",
-                "inputs": {
-                    "name": "Limit",
-                    "value": 1
-                },
-                "runAfter": {}
-            }
-        },
-        "expression": "@equals(variables('Limit'), 10)",
-        // To prevent endless loops, an "Until" loop 
-        // includes these default limits that stop the loop. 
-        "limit": { 
-            "count": 60,
-            "timeout": "PT1H"
-        },
-        "runAfter": {
-            "Initialize_variable": [
-                "Succeeded"
-            ]
-        }
-    }
+   "Initialize_variable": {
+      // Definition for initialize variable action
+   },
+   "Send_an_email": {
+      // Definition for send email action
+   },
+   "Until": {
+      "type": "Until",
+      "actions": {
+         "Increment_variable": {
+            "type": "IncrementVariable",
+            "inputs": {
+               "name": "Limit",
+               "value": 1
+            },
+            "runAfter": {}
+         }
+      },
+      "expression": "@equals(variables('Limit'), 10)",
+      // To prevent endless loops, an "Until" loop 
+      // includes these default limits that stop the loop. 
+      "limit": { 
+         "count": 60,
+         "timeout": "PT1H"
+      },
+      "runAfter": {
+         "Initialize_variable": [
+            "Succeeded"
+         ]
+      }
+   }
 }
 ```
 
@@ -359,32 +368,32 @@ The default is one hour.
   
 ``` json
 "actions": {
-    "myUntilLoopName": {
-        "type": "Until",
-        "actions": {
-            "Create_new_resource": {
-                "type": "Http",
-                "inputs": {
-                    "body": {
-                        "resourceId": "@triggerBody()"
-                    },
-                    "url": "https://domain.com/provisionResource/create-resource",
-                    "body": {
-                        "resourceId": "@triggerBody()"
-                    }
-                },
-                "runAfter": {},
-                "type": "ApiConnection"
-            }
-        },
-        "expression": "@equals(triggerBody(), 'Completed')",
-        "limit": {
-            "count": 10,
-            "timeout": "PT2H"
-        },
-        "runAfter": {}
-    }
-},
+   "myUntilLoopName": {
+      "type": "Until",
+      "actions": {
+         "Create_new_resource": {
+            "type": "Http",
+            "inputs": {
+               "body": {
+                  "resourceId": "@triggerBody()"
+               },
+               "url": "https://domain.com/provisionResource/create-resource",
+               "body": {
+                  "resourceId": "@triggerBody()"
+               }
+            },
+            "runAfter": {},
+            "type": "ApiConnection"
+         }
+      },
+      "expression": "@equals(triggerBody(), 'Completed')",
+      "limit": {
+         "count": 10,
+         "timeout": "PT2H"
+      },
+      "runAfter": {}
+   }
+}
 ```
 
 ## Get support
