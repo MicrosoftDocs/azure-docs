@@ -112,8 +112,8 @@ Backup consists of two phases, taking snapshots and transferring the snapshots t
 Situations that can affect backup time include the following:
 
 - **Initial backup for a newly added disk to an already protected VM**: If a VM is undergoing incremental backup and a new disk gets added to this VM, then the backup duration can go beyond 24 hours since the newly added disk has to undergo initial replication along with delta replication of existing disks.
-- **Fragmentation**: Backup product scans for incremental changes between 2 backups operations. Backup operations are faster when the changes on the disk are collocated when compared to changes are spread across then the operation. 
-- **Churn**: Daily churn (for incremental replication) per disk greater than 200 GB can take greater than ~8 hours to complete the operation. If VM has more than one disk and if one of those disks is taking longer time to backup then it can impact the overall backup operation (or can result in failure). 
+- **Fragmentation**: Backup product scans for incremental changes between two backups operations. Backup operations are faster when the changes on the disk are collocated when compared to changes are spread across then the operation. 
+- **Churn**: Daily churn (for incremental replication) per disk greater than 200 GB can take greater than ~8 hours to complete the operation. If VM has more than one disk and if one of those disks is taking longer time to backup, then it can impact the overall backup operation (or can result in failure). 
 - **Checksum Comparison (CC) mode**: CC mode is comparatively slower than optimized mode used by Instant RP. If you are already using Instant RP and have deleted the Tier-1 snapshots, then backup switches to CC mode causing the Backup operation to exceed 24 hours (or fail).
 
 ## Restore considerations
@@ -121,7 +121,7 @@ Situations that can affect backup time include the following:
 A restore operation consists of two main tasks: copying data back from the vault to the chosen storage account, and creating the virtual machine. The time needed to copy data from the vault depends on where the backups are stored in Azure, and the storage account location. Time taken to copy data depends upon:
 
 - **Queue wait time**: Since the service processes restore jobs from multiple storage accounts at the same time, restore requests are put in a queue.
-- **Data copy time**: Data is copied from the vault to the storage account. Restore time depends on IOPS and throughput of the selected storage account which the Azure Backup service uses. To reduce the copying time during the restore process, select a storage account not loaded with other application writes and reads.
+- **Data copy time**: Data is copied from the vault to the storage account. Restore time depends on IOPS and throughput of the selected storage account, which the Azure Backup service uses. To reduce the copying time during the restore process, select a storage account not loaded with other application writes and reads.
 
 ## Best practices
 
@@ -131,9 +131,9 @@ We suggest following these practices while configuring VM backups:
 - Consider modifying the default provided policy time (for ex. If your default policy time is 12:00AM consider incrementing it by minutes) when the data snapshots are taken to ensure resources are optimally used.
 - Daily churn greater than 200 GB (~2-5 % of original disk size) can slow the backup performance or will fail with CopyingVHDsFromBackUpVaultTakingLongTime error.
 - Backup performance will also be impacted (and can fail) if the disk is highly fragmented.
-- For Premium VM backup on [non-Instant RP feature](backup-upgrade-to-vm-backup-stack-v2.md) allocate ~50% of the total storage account space. Backup service requires this space to copy the snapshot to same storage account and for transferring it to the vault.
-- For restoring VMs from a single vault, it is highly recommended to use different [v2 storage accounts](azure-storage-common-storage-account-upgrade.md) to ensure the target storage account doesn’t get throttled. For example, each VM must have different storage account (If 10 VMs are restored, then consider using 10 different storage accounts) 
-- The restores from Tier-1 storage layer (snapshot) will be completed in minutes (since it is the same storage account) against the Tier-2 storage layer (vault) restores which can takes hours. We recommend you to use [Instant RP](backup-upgrade-to-vm-backup-stack-v2.md) feature for faster restores for case where data is available in Tier-1 (if the data has to be restored from vault then it will take time)
+- For Premium VM backup on [non-Instant RP feature](backup-upgrade-to-vm-backup-stack-v2.md) allocates ~50% of the total storage account space. Backup service requires this space to copy the snapshot to same storage account and for transferring it to the vault.
+- For restoring VMs from a single vault, it is highly recommended to use different [v2 storage accounts](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) to ensure the target storage account doesn’t get throttled. For example, each VM must have different storage account (If 10 VMs are restored, then consider using 10 different storage accounts) 
+- The restores from Tier-1 storage layer (snapshot) will be completed in minutes (since it is the same storage account) against the Tier-2 storage layer (vault) restores which can take hours. We recommend you to use [Instant RP](backup-upgrade-to-vm-backup-stack-v2.md) feature for faster restores for case where data is available in Tier-1 (if the data has to be restored from vault then it will take time)
 - The limit on number of disks per storage account is relative to how heavy the disks are being accessed by applications running on IaaS VM. Verify if multiple disks are hosted on a single storage account. As a general practice, if 5 to 10 disks or more are present on single storage account, balance the load by moving some disks to separate storage accounts.
 
 ## Backup costs
