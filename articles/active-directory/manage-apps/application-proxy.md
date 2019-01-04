@@ -2,24 +2,18 @@
 title: Remote access to on-premises apps - Azure Active Directory Application Proxy | Microsoft Docx
 description: Azure Active Directory's Application Proxy provides secure remote access to on-premises web applications. After a single sign-on to Azure AD, users can access both cloud and on-premises applications through an external URL or an internal application portal. For example, Application Proxy can provide remote access and single sign-on to Remote Desktop, Sharepoint, Teams, Tableau, Qlik, and line of business (LOB) applications. 
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: barbkess
 ms.reviewer: japere
-
-
 ---
 
-#  Remote access to on-premises applications through Azure Active Directory's Application Proxy service 
+# Remote access to on-premises applications through Azure Active Directory's Application Proxy 
 
 Azure Active Directory's Application Proxy provides secure remote access to on-premises web applications. After a single sign-on to Azure AD, users can access both cloud and on-premises applications through an external URL or an internal application portal. For example, Application Proxy can provide remote access and single sign-on to Remote Desktop, Sharepoint, Teams, Tableau, Qlik, and line of business (LOB) applications.
 
