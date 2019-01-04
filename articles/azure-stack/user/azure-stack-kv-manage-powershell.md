@@ -132,7 +132,7 @@ You can now reference the newly created key by using its URI. If you create or i
 Use the **Get-AzureKeyVaultKey** cmdlet to read a key and its details.
 
 ```PowerShell
-Get-AzureKeyVaultKey -VaultName "Vault01" -Name “Key01”
+Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
 ```
 
 ### Create a secret
