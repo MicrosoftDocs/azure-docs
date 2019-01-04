@@ -239,6 +239,6 @@ Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Se
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
+[qna]: ../../azure-monitor/app/troubleshoot-faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../application-insights/app-insights-overview.md 

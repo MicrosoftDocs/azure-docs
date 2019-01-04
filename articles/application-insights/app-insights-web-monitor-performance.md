@@ -149,7 +149,7 @@ The performance investigation experience shows relevant insights along side the 
 [availability]: ../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../azure-monitor/app/asp-net.md
-[qna]: app-insights-troubleshoot-faq.md
+[qna]: ../azure-monitor/app/troubleshoot-faq.md
 [redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
