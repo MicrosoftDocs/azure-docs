@@ -71,7 +71,7 @@ The values "F1", "F2", "F3", and "F4" are the names of other functions in the fu
 The `context` parameter ([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)) (.NET) and `context.df` object (JavaScript) provide methods for invoking other functions by name, passing parameters, and returning function output. Each time the code calls `await` (C#) or `yield` (JavaScript), the Durable Functions framework *checkpoints* the progress of the current function instance. If the process or VM recycles midway through the execution, the function instance resumes from the previous `await` or `yield` call. More on this restart behavior later.
 
 > [!NOTE]
-> The `context` object in JavaScript represents the [function context as a whole], not the DurableOrchestrationContext.(../functions-reference-node.md#context-object).
+> The `context` object in JavaScript represents the [function context as a whole](../functions-reference-node.md#context-object), not the DurableOrchestrationContext..
 
 ### <a name="fan-in-out"></a>Pattern #2: Fan-out/fan-in
 
