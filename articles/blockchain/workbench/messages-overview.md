@@ -341,8 +341,8 @@ If a user wants to use Event Grid to be notified about events that happen in Blo
 
 ### Consuming Event Grid events with Logic Apps
 
-1.  Create a new **Azure Logic App** in the Azure portal.
-2.  When opening the Azure Logic App in the portal, you will be prompted to select a trigger. Select **Azure Event Grid -- When a resource event occurs**.
+1. Create a new **Azure Logic App** in the Azure portal.
+2. When opening the Azure Logic App in the portal, you will be prompted to select a trigger. Select **Azure Event Grid -- When a resource event occurs**.
 3. When the workflow designer is displayed, you will be prompted to sign in.
 4. Select the Subscription. Resource as **Microsoft.EventGrid.Topics**. Select the **Resource Name** from the name of the resource from the Azure Blockchain Workbench resource group.
 5. Select the Event Grid from Blockchain Workbench's resource group.
@@ -351,11 +351,11 @@ If a user wants to use Event Grid to be notified about events that happen in Blo
 
 Service Bus Topics can be used to notify users about events that happen in Blockchain Workbench. 
 
-1.	Browse to the Service Bus within the Workbench’s resource group.
-2.	Select **Topics**.
-3.	Select **workbench-external**.
-4.	Create a new subscription to this topic. Obtain a key for it.
-5.	Create a program, which subscribes to events from this subscription.
+1. Browse to the Service Bus within the Workbench’s resource group.
+2. Select **Topics**.
+3. Select **egress-topic**.
+4. Create a new subscription to this topic. Obtain a key for it.
+5. Create a program, which subscribes to events from this subscription.
 
 ### Consuming Service Bus Messages with Logic Apps
 
@@ -370,182 +370,7 @@ this trigger.
 
 Depending on the **OperationName**, the notification messages have one of the following message types.
 
-### AccountCreated
-
-Indicates that a new account has been requested to be added to the specified chain.
-
-| Name    | Description  |
-|----------|--------------|
-| UserId  | ID of the user that was created. |
-| ChainIdentifier | Address of the user that was created on the blockchain network. In Ethereum, this would be the user's **on-chain** address. |
-
-``` csharp
-public class NewAccountRequest : MessageModelBase
-{
-  public int UserID { get; set; }
-  public string ChainIdentifier { get; set; }
-}
-```
-
-### ContractInsertedOrUpdated
-
-Indicates that a request has been made to insert or update a contract on a distributed ledger.
-
-| Name | Description |
-|-----|--------------|
-| ChainID | Unique identifier for the chain associated with the request |
-| BlockId | Unique identifier for a block on the ledger |
-| ContractId | A unique identifier for the contract |
-| ContractAddress |       The address of the contract on the ledger |
-| TransactionHash  |     The hash of the transaction on the ledger |
-| OriginatingAddress |   The address of the originator of the transaction |
-| ActionName       |     The name of the action |
-| IsUpdate        |      Identifies if this is an update |
-| Parameters       |     A list of objects that identify the name, value, and data type of parameters sent to an action |
-| TopLevelInputParams |  In scenarios where a contract is connected to one or more other contracts, these are the parameters from the top-level contract. |
-
-``` csharp
-public class ContractInsertOrUpdateRequest : MessageModelBase
-{
-    public int ChainId { get; set; }
-    public int BlockId { get; set; }
-    public int ContractId { get; set; }
-    public string ContractAddress { get; set; }
-    public string TransactionHash { get; set; }
-    public string OriginatingAddress { get; set; }
-    public string ActionName { get; set; }
-    public bool IsUpdate { get; set; }
-    public List<ContractProperty> Parameters { get; set; }
-    public bool IsTopLevelUpdate { get; set; }
-    public List<ContractInputParameter> TopLevelInputParams { get; set; }
-}
-```
-
-#### UpdateContractAction
-
-Indicates that a request has been made to execution an action on a specific contract on a distributed ledger.
-
-| Name                     | Description                                                                                                                                                                   |
-|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ContractActionId         | Unique identifier for this contract action |
-| ChainIdentifier          | Unique identifier for the chain |
-| ConnectionId             | Unique identifier for the connection |
-| UserChainIdentifier      | Address of the user that was created on the blockchain network. In Ethereum, this address is the user’s **on chain** address. |
-| ContractLedgerIdentifier | Address of the contract on the ledger |
-| WorkflowFunctionName     | Name of the workflow function |
-| WorkflowName             | Name of the workflow |
-| WorkflowBlobStorageURL   | The url of the contract in blob storage |
-| ContractActionParameters | Parameters for the contract action |
-| TransactionHash          | The hash of the transaction on the ledger |
-| Provisioning Status      | The current provisioning status of the action.</br>0 – Created</br>1 – In Process</br>2 – Complete</br> Complete indicates a confirmation from the ledger that this as been successfully added |
-
-```csharp
-public class ContractActionRequest : MessageModelBase
-{
-    public int ContractActionId { get; set; }
-    public int ConnectionId { get; set; }
-    public string UserChainIdentifier { get; set; }
-    public string ContractLedgerIdentifier { get; set; }
-    public string WorkflowFunctionName { get; set; }
-    public string WorkflowName { get; set; }
-    public string WorkflowBlobStorageURL { get; set; }
-    public IEnumerable<ContractActionParameter> ContractActionParameters { get; set; }
-    public string TransactionHash { get; set; }
-    public int ProvisioningStatus { get; set; }
-}
-```
-
-### UpdateUserBalance
-
-Indicates that a request has been made to update the user balance on a specific distributed ledger.
-
-> [!NOTE]
-> This message is generated only for those ledgers that require the funding of accounts.
-> 
-
-| Name    | Description                              |
-|---------|------------------------------------------|
-| Address | The address of the user that was funded |
-| Balance | The balance of the user balance         |
-| ChainID | Unique identifier for the chain     |
-
-
-``` csharp
-public class UpdateUserBalanceRequest : MessageModelBase
-{
-    public string Address { get; set; }
-    public decimal Balance { get; set; }
-    public int ChainID { get; set; }
-}
-```
-
-### InsertBlock
-
-Message indicates that a request has been made to add a block on a distributed ledger.
-
-| Name           | Description                                                            |
-|----------------|------------------------------------------------------------------------|
-| ChainId        | Unique identifier of the chain to which the block was added             |
-| BlockId        | Unique identifier for the block inside Azure Blockchain Workbench |
-| BlockHash      | The hash of the block                                                 |
-| BlockTimeStamp | The timestamp of the block                                            |
-
-``` csharp
-public class InsertBlockRequest : MessageModelBase
-{
-    public int ChainId { get; set; }
-    public int BlockId { get; set; }
-    public string BlockHash { get; set; }
-    public int BlockTimestamp { get; set; }
-}
-```
-
-### InsertTransaction
-
-Message provides details on a request to add a transaction on a distributed ledger.
-
-| Name            | Description                                                            |
-|-----------------|------------------------------------------------------------------------|
-| ChainId         | Unique identifier of the chain to which the block was added             |
-| BlockId         | Unique identifier for the block inside Azure Blockchain Workbench |
-| TransactionHash | The hash of the transaction                                           |
-| From            | The address of the originator of the transaction                      |
-| To              | The address of the intended recipient of the transaction              |
-| Value           | The value included in the transaction                                 |
-| IsAppBuilderTx  | Identifies if this is a Blockchain Workbench transaction                         |
-
-``` csharp
-public class InsertTransactionRequest : MessageModelBase
-{
-    public int ChainId { get; set; }
-    public int BlockId { get; set; }
-    public string TransactionHash { get; set; }
-    public string From { get; set; }
-    public string To { get; set; }
-    public decimal Value { get; set; }
-    public bool IsAppBuilderTx { get; set; }
-}
-```
-
-### AssignContractChainIdentifier
-
-Provides details on the assignment of a chain identifier for a contract. For example, in Ethereum blockchain, the address of a contract on the ledger.
-
-| Name            | Description                                                                       |
-|-----------------|-----------------------------------------------------------------------------------|
-| ContractId      | Unique identifier for the contract inside Azure Blockchain Workbench |
-| ChainIdentifier | Identifier for the contract on the chain                             |
-
-``` csharp
-public class AssignContractChainIdentifierRequest : MessageModelBase
-{
-    public int ContractId { get; set; }
-    public string ChainIdentifier { get; set; }
-}
-```
-
-
-### BlockMessage
+### Block message
 
 Contains information about individual blocks. The *BlockMessage* includes a section with block level information and a section with transaction information.
 
@@ -612,7 +437,7 @@ Example of a *BlockMessage* from Blockchain Workbench:
 }
 ```
 
-### ContractMessage
+### Contract message
 
 Contains information about a contract. The message includes a section with contract properties and a section with transaction information. All
 transactions that have modified the contract for the particular block are included in the transaction section.
@@ -725,7 +550,9 @@ Example of a *ContractMessage* from Blockchain Workbench:
 }
 ```
 
-### EventMessage - ContractFunctionInvocation
+### Event message: Contract function invocation
+
+Contains information when a contract function is invoked, such as the function name, parameters input, and the caller of the function.
 
 | Name | Description |
 |------|-------------|
@@ -757,7 +584,7 @@ Example of a *ContractMessage* from Blockchain Workbench:
 | name | Parameter name |
 | value | Parameter value |
 
-#### EventMessage transaction information
+#### Event message transaction information
 
 | Name               | Description |
 |--------------------|-------------|
@@ -803,7 +630,9 @@ Example of an *EventMessage ContractFunctionInvocation* from Blockchain Workbenc
 }
 ```
 
-### EventMessage - ApplicationIngestion
+### Event message: Application ingestion
+
+Contains information when an application is uploaded to Workbench, such as the name and version of the application uploaded.
 
 | Name | Description |
 |------|-------------|
@@ -995,7 +824,9 @@ Example of an *EventMessage ApplicationIngestion* from Blockchain Workbench:
 }
 ```
 
-### EventMessage - RoleAssignment
+### Event message: Role assignment
+
+Contains information when a user is assigned a role in Workbench, such as who performed the role assignment and the name of the role and corresponding application.
 
 | Name | Description |
 |------|-------------|
@@ -1062,65 +893,6 @@ Example of an *EventMessage RoleAssignment* from Blockchain Workbench:
     "messageSchemaVersion": "1.0.0",
     "messageName": "EventMessage",
     "additionalInformation": { }
-}
-```
-
-## Classes used by message types
-
-### MessageModelBase
-
-The base model for all messages.
-
-| Name          | Description                          |
-|---------------|--------------------------------------|
-| OperationName | The name of the operation           |
-| RequestId     | Unique identifier for the request |
-
-``` csharp
-public class MessageModelBase
-{
-    public string OperationName { get; set; }
-    public string RequestId { get; set; }
-}
-```
-
-### ContractInputParameter
-
-Contains the name, value and type of a parameter.
-
-| Name  | Description                 |
-|-------|-----------------------------|
-| Name  | The name of the parameter  |
-| Value | The value of the parameter |
-| Type  | The type of the parameter  |
-
-``` csharp
-public class ContractInputParameter
-{
-    public string Name { get; set; }
-    public string Value { get; set; }
-    public string Type { get; set; }
-}
-```
-
-#### ContractProperty
-
-Contains the ID, name, value and type of a property.
-
-| Name  | Description                |
-|-------|----------------------------|
-| Id    | The ID of the property    |
-| Name  | The name of the property  |
-| Value | The value of the property |
-| Type  | The type of the property  |
-
-``` csharp
-public class ContractProperty
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Value { get; set; }
-    public string DataType { get; set; }
 }
 ```
 
