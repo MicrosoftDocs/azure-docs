@@ -104,6 +104,7 @@ Change `MyNodeDevice` to the device ID you chose for your device.
 - Navigate to `service/samples` in your unzipped project folder and run the service-local proxy.
 ```
   cd ./service/samples
+  npm install
   node tcp_streaming_proxy.js
 ```
 
@@ -132,9 +133,13 @@ Now use your RDP client program and connect to service proxy on port `2222`.
 
 ## Next steps
 
-In this quickstart, you have setup an IoT hub, registered a device, established a device stream between applications on the device and service side, and used the stream to send data back and forth between the applications.
+In this quickstart, you have set up an IoT hub, registered a device, and deployed a service proxy program to enable RDP and SSH to an IoT device. The RDP and SSH traffic will be tunneled through a device stream through IoT Hub. This eliminates the need for direct connectivity to the device.
 
-To learn how to use IoT Hub device streams for an existing client/server application such as SSH or RDP, continue to the next quickstart.
+Use the links below to learn how to use IoT Hub device streams.
 
 > [!div class="nextstepaction"]
-> [Quickstart: SSH/RDP to your IoT device using IoT Hub device streams](iot-hub-device-streams-nodejs-proxy-quickstart.md)
+> [Quickstart: Communicate with IoT devices using device streams (echo) (NodeJS)](iot-hub-device-streams-nodejs-echo-quickstart.md)
+> [Quickstart: Communicate with IoT devices using device streams (echo) (C#)](iot-hub-device-streams-csharp-echo-quickstart.md)
+> [Quickstart: Communicate with IoT devices using device streams (echo) (C)](iot-hub-device-streams-c-echo-quickstart.md)
+> [Quickstart: SSH/RDP to your IoT device using device streams (C)](iot-hub-device-streams-c-proxy-quickstart.md)
+> [Quickstart: SSH/RDP to your IoT device using device streams (C#)](iot-hub-device-streams-csharp-proxy-quickstart.md)

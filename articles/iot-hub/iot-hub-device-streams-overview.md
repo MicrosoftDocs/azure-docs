@@ -56,11 +56,11 @@ In our SDK's, we have included two sample programs to demonstrate the use of C2D
 ### Echo Sample
 The echo sample demonstrates programmatic use of C2D stream to send/receive bytes between service and device endpoints. Use the links below to access the code (you can use service and device programs in different languages, e.g., C device program can work with C# service program):
 
-| SDK    | Service Program | Device Program |
-|--------|-----------------|----------------|
-| C#     | LINK            | LINK           |
-| NodeJS | LINK            | -              |
-| C      |                 | LINK           |
+| SDK    | Service Program                                          | Device Program                                           |
+|--------|----------------------------------------------------------|----------------------------------------------------------|
+| C#     | (link)(iot-hub-device-streams-csharp-echo-quickstart.md) | (link)(iot-hub-device-streams-csharp-echo-quickstart.md) |
+| NodeJS | (link)(iot-hub-device-streams-nodejs-echo-quickstart.md) | -                                                        |
+| C      | -                                                        | (link)(iot-hub-device-streams-c-echo-quickstart.md)      |
 
 ### Local Proxies Sample (for SSH or RDP)
 The local proxies sample demonstrate a way to enable tunneling of an existing application's traffic that involves communication between a client and a server program. This set up works for protocols like SSH and RDP, where the service-side acts as a client (running SSH or RDP client programs), and the device-side acts as the server (running SSH daemon or RDP server programs). In this section, we describe the setup for SSH only (RDP simply uses a different port and is covered in a similar manner).
@@ -80,8 +80,8 @@ The above steps complete an end-to-end tunnel between the SSH client (on the rig
 
 Use the links below for instructions on how to run the proxy programs in your language of choice. Similar to the echo sample, you can run service and device local proxies from different languages, as they are they are fully interoperable.
 
-| SDK    | Service Local Proxy | Device Local Proxy |
-|--------|---------------------|--------------------|
-| C#     | LINK                | LINK               |
-| NodeJS | LINK                | -                  |
-| C      |                     | LINK               |
+| SDK    | Service Local Proxy                                       | Device Local Proxy                                        |
+|--------|-----------------------------------------------------------|-----------------------------------------------------------|
+| C#     | (link)(iot-hub-device-streams-nodejs-proxy-quickstart.md) | (link)(iot-hub-device-streams-csharp-proxy-quickstart.md) |
+| NodeJS | (link)(iot-hub-device-streams-nodejs-proxy-quickstart.md) | -                                                         |
+| C      | -                                                         | (link)(iot-hub-device-streams-c-proxy-quickstart.md)      |

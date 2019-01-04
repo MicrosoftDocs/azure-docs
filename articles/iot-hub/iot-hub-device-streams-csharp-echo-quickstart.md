@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub device streams quickstart (C#) | Microsoft Docs
-description: In this quickstart, you will run two sample C# applications that communicate via a device stream establlished through IoT Hub.
+description: In this quickstart, you will run two sample C# applications that communicate via a device stream established through IoT Hub.
 author: rezasherafat
 manager: briz
 ms.service: iot-hub
@@ -12,7 +12,7 @@ ms.date: 12/18/2018
 ms.author: rezas
 ---
 
-# Quickstart: communicate to a application application via IoT Hub device streams (C#)
+# Quickstart: Communicate to device applications via IoT Hub device streams (C#)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -97,7 +97,7 @@ Navigate to `ServiceClientC2DStreamingSample` in your unzipped project folder, a
 Compile and run the code as follows:
 
 ```azurecli-interactive
-cd ./iothub/service/samples/ServiceClientC2DStreamingSample/
+cd ./iot-hub/Samples/service/ServiceClientC2DStreamingSample/
 
 # Build the application
 dotnet build
@@ -117,7 +117,7 @@ Navigate to `DeviceClientC2DStreamingSample` in your unzipped project folder, an
 Compile and run the code as follows:
 
 ```azurecli-interactive
-cd ./iothub/device/samples/DeviceClientC2DStreamingSample/
+cd ./iot-hub/Samples/device/DeviceClientC2DStreamingSample/
 
 # Build the application
 dotnet build
@@ -146,9 +146,13 @@ The traffic being sent over the stream will be tunneled through IoT Hub rather t
 
 ## Next steps
 
-In this quickstart, you've setup an IoT hub, registered a device, established a device stream between C# applications on the device and service side, and used the stream to send data back and forth between the applications.
+In this quickstart, you have set up an IoT hub, registered a device, established a device stream between C# applications on the device and service side, and used the stream to send data back and forth between the applications.
 
 To learn how to use IoT Hub device streams for an existing client/server application such as SSH or RDP, continue to the next quickstart.
 
 > [!div class="nextstepaction"]
-> [Quickstart: SSH/RDP to your IoT device using IoT Hub device streams](iot-hub-device-streams-proxy-quickstart.md)
+> [Quickstart: SSH/RDP to your IoT device using device streams (C#)](iot-hub-device-streams-csharp-proxy-quickstart.md)
+> [Quickstart: SSH/RDP to your IoT device device streams (NodeJS)](iot-hub-device-streams-nodejs-proxy-quickstart.md)
+> [Quickstart: SSH/RDP to your IoT device using device streams (C)](iot-hub-device-streams-c-proxy-quickstart.md)
+> [Quickstart: Communicate with IoT devices using device streams (echo) (NodeJS)](iot-hub-device-streams-nodejs-echo-quickstart.md)
+> [Quickstart: Communicate with IoT devices using device streams (echo) (C)](iot-hub-device-streams-c-echo-quickstart.md)
