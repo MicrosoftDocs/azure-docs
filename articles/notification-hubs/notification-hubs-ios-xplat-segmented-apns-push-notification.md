@@ -3,8 +3,8 @@ title: Push notifications to specific iOS devices using Azure Notification Hubs 
 description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to specific iOS devices. 
 services: notification-hubs
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 
 ms.assetid: 6ead4169-deff-4947-858c-8c6cf03cc3b2
@@ -13,9 +13,10 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
+ms.date: 01/04/2019
+ms.author: jowargo
 ---
+
 # Tutorial: Push notifications to specific iOS devices using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -139,7 +140,6 @@ The first step is to add the UI elements to your existing storyboard that enable
     ```
 
 8. In the **didFinishLaunchingWithOptions** method in AppDelegate.m, add the code to initialize the notifications instance at the beginning of the method.  
-
     `HUBNAME` and `HUBLISTENACCESS` (defined in hubinfo.h) should already have the `<hub name>` and `<connection string with listen access>` placeholders replaced with your notification hub name and the connection string for *DefaultListenSharedAccessSignature* that you obtained earlier
 
     ```objc
@@ -217,7 +217,7 @@ The first step is to add the UI elements to your existing storyboard that enable
 
     This method creates an **NSMutableArray** of categories and uses the **Notifications** class to store the list in the local storage and registers the corresponding tags with your notification hub. When categories are changed, the registration is recreated with the new categories.
 
-3. In ViewController.m, add the following code in the **viewDidLoad** method to set the user interface based on the previously saved categories.
+12. In ViewController.m, add the following code in the **viewDidLoad** method to set the user interface based on the previously saved categories.
 
     ```objc
     // This updates the UI on startup based on the status of previously saved categories.
@@ -238,7 +238,7 @@ The app can now store a set of categories in the device local storage used to re
 
 ## (optional) Send tagged notifications
 
-If you don't have access to Visual Studio, you can skip to the next section and send notifications from the app itself. You can also send the proper template notification from the [Azure portal] using the debug tab for your notification hub. 
+If you don't have access to Visual Studio, you can skip to the next section and send notifications from the app itself. You can also send the proper template notification from the [Azure portal] using the debug tab for your notification hub.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -344,23 +344,15 @@ Normally notifications would be sent by a backend service but, you can send brea
 
 ## Next steps
 
-In this tutorial, you sent broadcast notifications to specific iOS devices that have registered for the categories. To learn how to push localized notifications, advance to the following tutorial: 
+In this tutorial, you sent broadcast notifications to specific iOS devices that have registered for the categories. To learn how to push localized notifications, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
 >[Push localized notifications](notification-hubs-ios-xplat-localized-apns-push-notification.md)
-
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-subscribed.png
 [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
 [3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
-
-
-
-
-
-
-
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx

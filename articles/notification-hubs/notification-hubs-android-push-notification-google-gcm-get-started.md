@@ -4,8 +4,8 @@ description: In this tutorial, you learn how to use Azure Notification Hubs and 
 services: notification-hubs
 documentationcenter: android
 keywords: push notifications,push notification,android push notification
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 
 ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
@@ -16,7 +16,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: dimazaid
+ms.author: jowargo
 ---
 
 # Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging

@@ -3,8 +3,8 @@ title: Push notifications to specific Android application users using Azure Noti
 description: Learn how to send push notifications to specific users by using Azure Notification Hubs.
 documentationcenter: android
 services: notification-hubs
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 
 ms.assetid: ae0e17a8-9d2b-496e-afd2-baa151370c25
@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: dimazaid
+ms.author: jowargo
 ---
 
 # Tutorial: Push notification to specific Android application users by using Azure Notification Hubs
@@ -476,7 +476,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
 In this tutorial, you learned how to push notifications to specific users that have tags associated with their registrations. To learn how to push location-based notifications, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
->[Push location-based notifications](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+>[Push location-based notifications](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png

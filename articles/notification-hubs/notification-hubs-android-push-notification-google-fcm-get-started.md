@@ -4,8 +4,8 @@ description: In this tutorial, you learn how to use Azure Notification Hubs and 
 services: notification-hubs
 documentationcenter: android
 keywords: push notifications,push notification,android push notification,fcm,firebase cloud messaging
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 
 ms.assetid: 02298560-da61-4bbb-b07c-e79bd520e420
@@ -16,9 +16,9 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: dimazaid
-
+ms.author: jowargo
 ---
+
 # Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Firebase Cloud Messaging
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]

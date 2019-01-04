@@ -4,8 +4,8 @@ description: In this tutorial, you learn how to use Azure Notification Hubs to s
 services: notification-hubs
 documentationcenter: ios
 keywords: push notification,push notifications,ios push notifications
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 
 ms.assetid: b7fcd916-8db8-41a6-ae88-fc02d57cb914
@@ -15,9 +15,10 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/14/2018
-ms.author: dimazaid
+ms.date: 01/04/2019
+ms.author: jowargo
 ---
+
 # Tutorial: Push notifications to iOS apps using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -39,27 +40,28 @@ The completed code for this tutorial can be found [on GitHub](https://github.com
 
 ## Prerequisites
 
-- An active Azure account. If you don't have an account, you can create a [free trial account](https://azure.microsoft.com/free) in just a couple of minutes. 
-- [Windows Azure Messaging Framework]
-- Latest version of [Xcode]
-- An iOS 10 (or later version)-capable device
-- [Apple Developer Program](https://developer.apple.com/programs/) membership.
+* An active Azure account. If you don't have an account, you can create a [free trial account](https://azure.microsoft.com/free) in just a couple of minutes. 
+* [Windows Azure Messaging Framework]
+* Latest version of [Xcode]
+* An iOS 10 (or later version)-capable device
+* [Apple Developer Program](https://developer.apple.com/programs/) membership.
   
-  > [!NOTE]
-  > Because of configuration requirements for push notifications, you must deploy and test push notifications on a physical iOS device (iPhone or iPad) instead of the iOS Simulator.
+ > [!NOTE]
+ > Because of configuration requirements for push notifications, you must deploy and test push notifications on a physical iOS device (iPhone or iPad) instead of the iOS Simulator.
   
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for iOS apps.
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
 ## Configure your Notification Hub for iOS push notifications
+
 In this section, you create a notification hub and configure authentication with APNS using the **.p12** push certificate that you previously created. If you want to use a notification hub that you have already created, you can skip to step 5.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 ### Configure your notification hub with APNS information
 
-1. Under **Notification Services**, select **Apple (APNS)**. 
+1. Under **Notification Services**, select **Apple (APNS)**.
 2. Select **Certificate**.
 3. Select the **file icon**.
 4. Select the **.p12** file that you exported earlier.
@@ -191,7 +193,6 @@ In this simple example, you broadcasted push notifications to all your registere
 > [!div class="nextstepaction"]
 >[Push notifications to specific devices](notification-hubs-ios-xplat-segmented-apns-push-notification.md)
 
-
 <!-- Images. -->
 
 [6]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png
@@ -208,8 +209,6 @@ In this simple example, you broadcasted push notifications to all your registere
 [32]: ./media/notification-hubs-ios-get-started/notification-hubs-storyboard-view.png
 [33]: ./media/notification-hubs-ios-get-started/notification-hubs-test1.png
 [35]: ./media/notification-hubs-ios-get-started/notification-hubs-test3.png
-
-
 
 <!-- URLs. -->
 [Windows Azure Messaging Framework]: http://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409

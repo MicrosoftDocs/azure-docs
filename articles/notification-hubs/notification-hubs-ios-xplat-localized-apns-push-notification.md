@@ -3,8 +3,8 @@ title: Push localized notifications to iOS devices using Azure Notification Hubs
 description: Learn how to use push localized notifications to iOS devices by using Azure Notification Hubs. 
 services: notification-hubs
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 
 ms.assetid: 484914b5-e081-4a05-a84a-798bbd89d428
@@ -13,10 +13,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
+ms.date: 01/04/2019
+ms.author: jowargo
 ---
-# Tutorial: Push localized notifications to iOS devices using Azure Notification Hubs 
+
+# Tutorial: Push localized notifications to iOS devices using Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
@@ -68,8 +69,8 @@ For more information on templates, see [Templates](notification-hubs-templates-c
 
 ## Prerequisites
 
-- Complete the [Push notifications to specific iOS devices](notification-hubs-ios-xplat-segmented-apns-push-notification.md) tutorial and have the code available, because this tutorial builds directly upon that code.
-- Visual Studio 2017 is optional.
+* Complete the [Push notifications to specific iOS devices](notification-hubs-ios-xplat-segmented-apns-push-notification.md) tutorial and have the code available, because this tutorial builds directly upon that code.
+* Visual Studio 2017 is optional.
 
 ## Update the app user interface
 
@@ -134,7 +135,7 @@ Then make sure to add an IBOutlet in your ViewController.h as shown in the follo
     }
     ```
 
-    You use the method *registerTemplateWithDeviceToken*, instead of *registerNativeWithDeviceToken*. When you register for a template, you have to provide the json template and also a name for the template (as the app might want to register different templates). Make sure to register your categories as tags, as you want to make sure to receive the notifciations for those news.
+    You use the method *registerTemplateWithDeviceToken*, instead of *registerNativeWithDeviceToken*. When you register for a template, you have to provide the json template and also a name for the template (as the app might want to register different templates). Make sure to register your categories as tags, as you want to make sure to receive the notifications for those news.
 
     Add a method to retrieve the locale from the user default settings:
 
@@ -256,20 +257,14 @@ If you don't have access to Visual Studio, or want to just test sending the loca
 
 ## Next steps
 
-In this tutorial, you sent localized notifications to iOS devices. To learn how to push notifications to specific users of iOS apps, advance to the following tutorial: 
+In this tutorial, you sent localized notifications to iOS devices. To learn how to push notifications to specific users of iOS apps, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
 >[Push notifications to specific users](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 
 <!-- Images. -->
-
 [13]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
 [14]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
-
-
-
-
-
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx

@@ -3,8 +3,8 @@ title: Push notifications to specific Android devices using Azure Notification H
 description: Learn how to use Notification Hubs to push notifications to specific Android devices by using Azure Notification Hubs and Google Cloud Messaging.
 services: notification-hubs
 documentationcenter: android
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru'
 
 ms.assetid: 3c23cb80-9d35-4dde-b26d-a7bfd4cb8f81
@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: dimazaid
+ms.author: jowargo
 ---
 
 # Tutorial: Push notifications to specific Android devices using Azure Notification Hubs and Google Cloud Messaging

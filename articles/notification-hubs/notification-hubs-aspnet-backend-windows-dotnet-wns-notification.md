@@ -2,8 +2,8 @@
 title: Send notifications to specific users using Azure Notification Hubs | Microsoft Docs
 description: Learn how to send notifications to specific users using Universal Windows Platform (UWP) applications. 
 documentationcenter: windows
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 services: notification-hubs
 
@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: dimazaid
+ms.author: jowargo
 ---
 
 # Tutorial: Send notifications to specific users by using Azure Notification Hubs
@@ -184,7 +184,7 @@ In this section, you update the code in the project you completed for the [Tutor
         // The tag passed here can be whatever other tags you may want to use.
         try
         {
-            // The device handle used is different depending on the device and PNS. 
+            // The device handle used is different depending on the device and PNS.
             // Windows devices use the channel uri as the PNS handle.
             await new RegisterClient(BACKEND_ENDPOINT).RegisterAsync(channel.Uri, new string[] { "myTag" });
 
@@ -333,10 +333,10 @@ In this section, you update the code in the project you completed for the [Tutor
 
 ## Next steps
 
-In this tutorial, you learned how to push notifications to specific users that have tags associated with their registrations. To learn how to push location-based notifications, advance to the following tutorial: 
+In this tutorial, you learned how to push notifications to specific users that have tags associated with their registrations. To learn how to push location-based notifications, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
->[Push location-based notifications](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+>[Push location-based notifications](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
 
 [9]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
 [10]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png
