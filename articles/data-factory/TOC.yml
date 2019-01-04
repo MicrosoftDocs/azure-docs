@@ -456,7 +456,7 @@
   - name: Solution templates
     items:
     - name: Introduction to solution templates
-      href: solution-template-introduction.md
+      href: solution-templates-introduction.md
     - name: Copy files from multiple containers
       href: solution-template-copy-files-multiple-containers.md
     - name: Transform data with Databricks
