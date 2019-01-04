@@ -56,7 +56,7 @@ Failures show up as red dots on the web test chart:
 But more importantly, an alert about any failure is emailed to the development team. In that way, they know about it before nearly all the customers.
 
 ## Monitor Performance
-On the overview page in Application Insights, there's a chart that shows a variety of [key metrics](../../application-insights/app-insights-web-monitor-performance.md).
+On the overview page in Application Insights, there's a chart that shows a variety of [key metrics](../../azure-monitor/app/web-monitor-performance.md).
 
 ![Screenshot of overview performance KPI graphs](./media/detect-triage-diagnose/overview-graphs.png)
 
@@ -147,7 +147,7 @@ Exceptions and events show up in the [Diagnostic Search](diagnostic-search.md) b
 
 
 ## Monitor proactively
-Marcela doesn't just sit around waiting for alerts. Soon after every redeployment, she takes a look at [response times](../../application-insights/app-insights-web-monitor-performance.md) - both the overall figure and the table of slowest requests, as well as exception counts.  
+Marcela doesn't just sit around waiting for alerts. Soon after every redeployment, she takes a look at [response times](../../azure-monitor/app/web-monitor-performance.md) - both the overall figure and the table of slowest requests, as well as exception counts.  
 
 ![Response time graph and grid of server response times.](./media/detect-triage-diagnose/response-time.png)
 

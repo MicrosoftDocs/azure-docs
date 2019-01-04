@@ -13,19 +13,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
 
 ---
 
-# Azure Stack Managed Disks: Differences and considerations
-This article summarizes the known differences between Azure Stack Managed Disks and Managed Disks for Azure. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) article.
+# Azure Stack Managed Disks: differences and considerations
 
-Managed Disks simplifies disk management for IaaS VMs by managing the [storage accounts](/azure/azure-stack/azure-stack-manage-storage-accounts) associated with the VM disks.
+This article summarizes the known differences between [Azure Stack Managed Disks](azure-stack-manage-vm-disks.md) and [Managed Disks for Azure](../../virtual-machines/windows/managed-disks-overview.md). To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) article.
+
+Managed Disks simplifies disk management for IaaS VMs by managing the [storage accounts](../azure-stack-manage-storage-accounts.md) associated with the VM disks.
 
 > [!Note]  
-> Managed Disks on Azure Stack is available from 1808.
+> Managed Disks on Azure Stack is available from release 1808.
   
 
 ## Cheat sheet: Managed disk differences
@@ -43,30 +44,34 @@ Managed Disks simplifies disk management for IaaS VMs by managing the [storage a
 |Disk size  |Azure Premium Disk: P4 (32 GiB) to P80 (32 TiB)<br>Azure Standard SSD Disk: E10 (128 GiB) to E80 (32 TiB)<br>Azure Standard HDD Disk: S4 (32 GiB) to S80 (32 TiB) |M4: 32 GiB<br>M6: 64 GiB<br>M10: 128 GiB<br>M15: 256 GiB<br>M20: 512 GiB<br>M30: 1024 GiB |
 |Disks snapshot copy|Snapshot Azure managed disks attached to a running VM supported|Not yet supported |
 |Disks performance analytic |Aggregate metrics and per disk metrics supported |Not yet supported |
-|Migration      |Provide tool to migrate from existing unmanaged Azure Resource Manager VMs without the need to recreate the VM  |Not yet supported |
+|Migration      |Provide tool to migrate from existing un-managed Azure Resource Manager VMs without the need to recreate the VM  |Not yet supported |
 
-> [!Note]  
+> [!NOTE]  
 > Managed Disks IOPs and throughput in Azure Stack is a cap number instead of a provisioned number, which may impacted by hardware and workloads running in Azure Stack.
 
-
 ## Metrics
-There are also differences with storage metrics:
-- With Azure Stack, the transaction data in storage metrics doesn't differentiate internal or external network bandwidth.
-- Azure Stack transaction data in storage metrics doesn't include virtual machine access to the mounted disks.
 
+There are also differences with storage metrics:
+
+- With Azure Stack, the transaction data in storage metrics does not differentiate internal or external network bandwidth.
+- Azure Stack transaction data in storage metrics does not include virtual machine access to the mounted disks.
 
 ## API versions
+
 Azure Stack Managed Disks supports the following API versions:
+
 - 2017-03-30
 
 ## Known Issues
-After applying the 1809 update, you might encounter the following issues when deploying VMs with Managed Disks:
 
-   - If the subscription was created before the 1808 update, deploying a VM with Managed Disks might fail with an internal error message. To resolve the error, follow these steps for each subscription:
-      1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
-      2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
-   - If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
+After applying the [1811 update](../azure-stack-update-1811.md), you might encounter the following issues when deploying VMs with Managed Disks:
+
+- If the subscription was created before the 1808 update, deploying a VM with Managed Disks might fail with an internal error message. To resolve the error, follow these steps for each subscription:
+   1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
+   2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
+- If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 
 ## Next steps
-[Learn about Azure Stack virtual machines](azure-stack-compute-overview.md)
+
+- [Learn about Azure Stack virtual machines](azure-stack-compute-overview.md)
