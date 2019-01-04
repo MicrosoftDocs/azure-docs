@@ -64,7 +64,7 @@ After the last command runs, copy and paste the connection string, and the queue
 
 ## Send and receive messages
 
-After you've created the namespace and queue, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java).
+After you've created the namespace and queue, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 1. Make sure that Cloud Shell is open and displaying the Bash prompt.
 
@@ -106,7 +106,7 @@ az group delete --resource-group myResourceGroup
 
 ## Understand the sample code
 
-This section contains more details about key sections of the sample code. You can browse the code, located in the GitHub repository [here](https://github.com/Azure/azure-service-bus/blob/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java).
+This section contains more details about key sections of the sample code. You can browse the code, located in the GitHub repository [here](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 ### Get connection string and queue
 

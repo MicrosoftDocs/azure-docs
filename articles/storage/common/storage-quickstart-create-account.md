@@ -22,11 +22,11 @@ In this quickstart, you learn to create a storage account using the [Azure porta
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 
 None.
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 This quickstart requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find your current version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
@@ -55,11 +55,11 @@ You can also install and use the Azure CLI locally. This quickstart requires tha
 
 ## Log in to Azure
 
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 
 Log in to the [Azure portal](https://portal.azure.com).
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 Log in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions to authenticate.
 
@@ -87,11 +87,11 @@ Every storage account must belong to an Azure resource group. A resource group i
 
 A **general-purpose v2** storage account provides access to all of the Azure Storage services: blobs, files, queues, tables, and disks. The quickstart creates a general-purpose v2 storage account, but the steps to create any type of storage account are similar.   
 
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 First, create a new resource group with PowerShell using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command: 
 
@@ -174,7 +174,7 @@ For more information about available replication options, see [Storage replicati
 
 If you wish to clean up the resources created by this quickstart, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account, and any other resources associated with the resource group.
 
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 
 To remove a resource group using the Azure portal:
 
@@ -182,7 +182,7 @@ To remove a resource group using the Azure portal:
 2. Locate the resource group to delete, and right-click the **More** button (**...**) on the right side of the listing.
 3. Select **Delete resource group**, and confirm.
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command: 
 
@@ -195,21 +195,21 @@ Remove-AzResourceGroup -Name $resourceGroup
 To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group#az_group_delete) command.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name storage-quickstart-resource-group
 ```
 
 ---
 
 ## Next steps
 
-In this quick start, you've created a general-purpose standard storage account. To learn how to upload and download blobs to and from your storage account, continue to the Blob storage quickstart.
+In this quick start, you've created a general-purpose v2 standard storage account. To learn how to upload and download blobs to and from your storage account, continue to the Blob storage quickstart.
 
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 
 > [!div class="nextstepaction"]
 > [Work with blobs using the Azure portal](../blobs/storage-quickstart-blobs-portal.md)
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 > [!div class="nextstepaction"]
 > [Work with blobs using PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
@@ -217,6 +217,6 @@ In this quick start, you've created a general-purpose standard storage account. 
 # [Azure CLI](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
-> [Work with blobs storage using the Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
+> [Work with blobs using the Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 
 ---

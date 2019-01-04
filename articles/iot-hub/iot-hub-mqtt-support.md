@@ -274,11 +274,12 @@ When a device is connected, IoT Hub sends notifications to the topic `$iothub/tw
 ```json
 {
     "telemetrySendFrequency": "5m",
-    "route": null
+    "route": null,
+    "$version": 8
 }
 ```
 
-As for property updates, `null` values means that the JSON object member is being deleted.
+As for property updates, `null` values means that the JSON object member is being deleted. Also, note that `$version` indicates the new version of the desired properties section of the twin.
 
 > [!IMPORTANT]
 > IoT Hub generates change notifications only when devices are connected. Make sure to implement the [device reconnection flow][lnk-devguide-twin-reconnection] to keep the desired properties synchronized between IoT Hub and the device app.

@@ -110,7 +110,7 @@ If you create users in your:
 
 - **Azure AD**, no additional setup is required.
 
-[Alternate login IDs](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) are not supported on Azure AD joined devices. If your users use an alternate login ID, you should plan to switch to using their primary UPN in Azure AD.
+On-premises UPNs that are different from Azure AD UPNs are not supported on Azure AD joined devices. If your users use an on-premises UPN, you should plan to switch to using their primary UPN in Azure AD.
 
 
 
