@@ -88,9 +88,9 @@ The following container OS images can be used to deploy services:
 
 ## Developer experience issues
 
-### DNS resolution from a container doesn't work
+### DNS resolution and outgoing traffic from a container doesn't work
 
-If you have a container that sends outgoing traffic to a DNS service, it may fail under certain circumstances. This is being investigated. To mitigate:
+If you have a container that sends outgoing traffic, including trying to contact a DNS service, it may fail under certain circumstances. This is being investigated. To mitigate:
 
 - Use Windows Fall Creators update (version 1709) or higher as your base container image.
 - If the service name alone doesn't work, try the fully qualified name: ServiceName.ApplicationName.
