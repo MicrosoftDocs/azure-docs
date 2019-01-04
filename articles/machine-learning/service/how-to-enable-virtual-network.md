@@ -14,24 +14,23 @@ ms.date: 01/02/2019
 
 # Securely run experiments and inferencing inside an Azure Virtual Network
 
-In this article, you will learn how to run your experiments and inferencing inside a Virtual Network. Azure Machine Learning Service works with Azure Services that can be created in a virtual network. For example, you can use a Data Science VM to train a model and then deploy the model to Azure Kubernetes Service.
+In this article, you will learn how to run your experiments and inferencing inside a Virtual Network. The Azure Machine Learning service works with Azure Services that can be created in a virtual network. For example, you can use a Data Science VM to train a model and then deploy the model to Azure Kubernetes Service.
 
 A virtual network acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure Virtual Network to your on-premise network. It allows you to securely train your models and access your deployed models for inferencing. For more information about virtual networks, see the [Virtual Networks Overview](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) document.
 
-## Storage account for Azure Machine Learning
+## Storage account for your workspace
 
-> [!IMPORTANT]
-> The Azure Machine Learning workspace requires an Azure Storage storage account. Do not create this storage account within a virtual network. The Azure Machine Learning service cannot work with a storage account in a virtual network.
+When you create an Azure Machine Learning service workspace, it requires an Azure Storage account. Do not create this storage account within a virtual network.
 
 ## Use Machine Learning Compute
 
 To use Machine Learning Compute in a virtual network, use the follow information to understand network requirements:
 
-- The virtual network must be in the same subscription and region as the Azure Machine Learning workspace
+- The virtual network must be in the same subscription and region as the Azure Machine Learning service workspace
 - The subnet specified for the Machine Learning Compute cluster must have enough unassigned IP addresses to accommodate the number of VMs targeted for the cluster. If the subnet doesn't have enough unassigned IP addresses, the cluster will be partially allocated
 - If you plan to secure the virtual network by restricting traffic, you must leave some ports open for the Machine Learning Compute service. For more information, see the [Required ports](#mlcports) section.
 - Check whether your security policies or locks on the virtual network's subscription or resource group restrict a user's permissions to manage the virtual network
-- Machine Learning Compute automatically allocates additional networking resources in the resource group containing the virtual network. For each Machine Learning Compute cluster, Azure Machine Learning allocates the following resources: 
+- Machine Learning Compute automatically allocates additional networking resources in the resource group containing the virtual network. For each Machine Learning Compute cluster, Azure Machine Learning service allocates the following resources: 
 
     - One network security group (NSG)
     - One public IP address
@@ -76,21 +75,21 @@ Follow the steps below to create a Machine Learning Compute cluster that is insi
 
     ![A screenshot showing virtual network settings for machine learning compute](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
 
-1. You can now create Machine Learning Compute and you're now ready to train your model on the newly created compute. For more information on configuring Azure Machine Learning Compute, see the [Select and use a compute target for training](how-to-set-up-training-targets.md) document.
+1. You can now train your model on the newly created compute. For more information, see the [Select and use a compute target for training](how-to-set-up-training-targets.md) document.
 
 
 ## Use a Virtual Machine or HDInsight
 
-To use a virtual machine or HDInsight cluster in a Virtual Network with Azure Machine Learning, use the following steps:
+To use a virtual machine or HDInsight cluster in a Virtual Network with your workspace, use the following steps:
 
 > [!IMPORTANT]
-> Please note that Azure Machine Learning service only supports virtual machines running Ubuntu.
+> The Azure Machine Learning service only supports virtual machines running Ubuntu.
 
 1. Create a VM or HDInsight cluster using Azure portal, Azure CLI, etc., and put it in an Azure Virtual Network. For more information, see the following documents:
     * [Create and manage Azure Virtual Networks for Linux VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-virtual-network)
     * [Extend HDInsight using Azure Virtual Networks](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network) 
 
-1. Allow access from Azure Machine Learning to the SSH port on the VM or cluster. The SSH port is usually port 22. To allow traffic from this source, use the following information:
+1. Allow access from Azure Machine Learning service to the SSH port on the VM or cluster. The SSH port is usually port 22. To allow traffic from this source, use the following information:
     * __Source__: Select __Service Tag__.
     * __Source service tag__: Select __AzureMachineLearning__
     * __Source port ranges__: Select __*__
@@ -105,7 +104,7 @@ To use a virtual machine or HDInsight cluster in a Virtual Network with Azure Ma
 
     ![Outbound rules for doing experimentation on VM or HDI inside a virtual network](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
     
-1. Attach the vm or cluster to your Azure ML workspace. For more information, see the following Jupyter notebooks:
+1. Attach the vm or cluster to your Azure Machine Learning service workspace. For more information, see the following Jupyter notebooks:
 
     * [Train using a remote VM](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb)
     * [Train using an HDI cluster](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb) 
@@ -122,7 +121,7 @@ To use a virtual machine or HDInsight cluster in a Virtual Network with Azure Ma
 >
 > Azure Kubernetes Service and the Azure Virtual Network should be in the same region.
 
-To add Azure Kubernetes Service in a Virtual Network to your Azure Machine Learning workspace, use the following steps:
+To add Azure Kubernetes Service in a Virtual Network to your workspace, use the following steps:
 
 1. From the [Azure portal](https://portal.azure.com), select your Azure Machine Learning service workspace.
 
@@ -143,6 +142,6 @@ To add Azure Kubernetes Service in a Virtual Network to your Azure Machine Learn
     ![Azure Machine Learning service: Machine Learning Compute Virtual Network Settings](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
     > [!TIP]
-    > If you already have an AKS cluster in a Virtual Network, you can attach it to Azure ML workspace. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
+    > If you already have an AKS cluster in a Virtual Network, you can attach it to the workspace. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
 
 5. You are not ready to do inferencing on an AKS cluster behind a virtual network. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
