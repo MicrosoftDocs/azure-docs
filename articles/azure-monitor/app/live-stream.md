@@ -17,7 +17,7 @@ ms.author: mbullwin
 
 # Live Metrics Stream: Monitor & Diagnose with 1-second latency
 
-Probe the beating heart of your live, in-production web application by using Live Metrics Stream from [Application Insights](../../application-insights/app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](../../application-insights/app-insights-profiler.md), [Snapshot debugger](../../application-insights/app-insights-snapshot-debugger.md), and [performance testing](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests),  Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.
+Probe the beating heart of your live, in-production web application by using Live Metrics Stream from [Application Insights](../../application-insights/app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](../../azure-monitor/app/profiler.md), [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md), and [performance testing](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests),  Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.
 
 With Live Metrics Stream, you can:
 
@@ -199,5 +199,5 @@ No data? If your application is in a protected network: Live Metrics Stream uses
 ## Next steps
 * [Monitoring usage with Application Insights](../../application-insights/app-insights-usage-overview.md)
 * [Using Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
-* [Profiler](../../application-insights/app-insights-profiler.md)
-* [Snapshot debugger](../../application-insights/app-insights-snapshot-debugger.md)
+* [Profiler](../../azure-monitor/app/profiler.md)
+* [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md)

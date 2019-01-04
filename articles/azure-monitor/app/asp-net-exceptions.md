@@ -87,7 +87,7 @@ To see these events, open [Search](../../azure-monitor/app/diagnostic-search.md)
 ![Drill through](./media/asp-net-exceptions/viewCustomEvents.png)
 
 > [!NOTE]
-> If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. Events that are part of the same operation will be selected or deselected as a group, so that you can navigate between related events. [Learn about sampling.](../../application-insights/app-insights-sampling.md)
+> If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. Events that are part of the same operation will be selected or deselected as a group, so that you can navigate between related events. [Learn about sampling.](../../azure-monitor/app/sampling.md)
 >
 >
 

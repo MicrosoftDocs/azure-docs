@@ -78,7 +78,7 @@ Max length: 64
 
 Anonymous user id. Represents the end user of the application. When telemetry is sent from a service, the user context is about the user that initiated the operation in the service.
 
-[Sampling](../../application-insights/app-insights-sampling.md) is one of the techniques to minimize the amount of collected telemetry. Sampling algorithm attempts to either sample in or out all the correlated telemetry. Anonymous user id is used for sampling score generation. So anonymous user id should be a random enough value. 
+[Sampling](../../azure-monitor/app/sampling.md) is one of the techniques to minimize the amount of collected telemetry. Sampling algorithm attempts to either sample in or out all the correlated telemetry. Anonymous user id is used for sampling score generation. So anonymous user id should be a random enough value. 
 
 Using anonymous user id to store user name is a misuse of the field. Use Authenticated user id.
 
