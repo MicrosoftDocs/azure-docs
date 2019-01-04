@@ -7,13 +7,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/04/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Use Data copy service to directly ingest data into Azure Data Box
 
-This tutorial describes how to ingest data using the data copy service without the need of an intermediate host. The data copy service is useful in the network-attached storage (NAS) environments where the intermediate hosts may not be available. The data copy service runs locally on the Data Box, connects to your NAS device via SMB, and copies data to Data Box.
+This tutorial describes how to ingest data using the data copy service without the need of an intermediate host. The data copy service runs locally on the Data Box, connects to your NAS device via SMB, and copies data to Data Box.
+
+Use data copy service:
+
+- In the network-attached storage (NAS) environments where the intermediate hosts may not be available. 
+- With small files that take weeks for ingestion and upload of data. This service significantly improves the ingestion and upload time. 
 
 In this tutorial, you learn how to:
 
@@ -36,6 +41,7 @@ Once you're connected to the NAS, the next step is to copy data. Before you begi
 
 - While copying data, make sure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
+- If the data is being churned while the data copy service is reading it, this could result in failures or data corruption.
 
 To copy data using data copy service, you need to create a job. Follow these steps to create a job to copy data.
 
@@ -48,13 +54,13 @@ To copy data using data copy service, you need to create a job. Follow these ste
     
     |Field                          |Value    |
     |-------------------------------|---------|
-    |Job name                       |A unique name for the job.         |
-    |Source location                |Provide the SMB path to the data source in the format: `\\<DeviceIPAddress>\<ShareName>`.        |
-    |Username                       |Username to access the data source. Source credentials are stored encrypted for the entire lifetime of the job.        |
-    |Password                       |Password to access the data source. Source credentials are stored encrypted for the entire lifetime of the job.          |
+    |Job name                       |A unique name less than 230 characters for the job. These characters '<', '>', '\"', ':', '/', '\\', '|', '?', '*' are not allowed in the job name.        |
+    |Source location                |Provide the SMB path to the data source in the format: `\\<ServerIPAddress>\<ShareName>` or `\\<ServerName>\<ShareName>`.        |
+    |Username                       |Username to access the data source.        |
+    |Password                       |Password to access the data source.           |
     |Destination storage account    |Select the target storage account to upload data to from the dropdown list.         |
     |Destination storage type       |Select the target storage type from block blob, page blob, or Azure Files.        |
-    |Destination container/share    |Enter the name of the container to upload data in your destination storage account. The name can be of form share name or container name. For example, `myshare` or `mycontainer`. You can also enter in the folrmat `sharename\virtual_directoryname` or `containername\virtual_dir_name` in cloud.        |
+    |Destination container/share    |Enter the name of the container or share to upload data in your destination storage account. The name can be of the form share name or container name. For example, `myshare` or `mycontainer`. You can also enter in the format `sharename\virtual_directoryname` or `containername\virtual_directory_name` in cloud.        |
     |Copy files matching pattern    | Enter file name matching pattern in the following two ways.<br><li>**Use wildcard expressions** Only `“*”` and `“?”` are supported in wildcard expressions. For example, this expression ``“*.vhd”`` will match all the files that have .vhd extension. Similarly, `“*.dl?”` will match all the files whose extension is either `.dl` or `.dll`. Also, `“*foo”` will match all the files whose names end with `“foo”`.<br>You can directly enter wildcard expression enclosed within double quotes in the field. <br>By default, value entered in the field is treated as wildcard expression.</li><li>**Use regular expressions** - POSIX-based regular expressions are supported. For example, a regular expression `“.*\.vhd”` will match all the files that have `.vhd` extension.<br>Enter regular expression as `regex(<pattern>)` where `<pattern>` is a regular expression enclosed within double quotes. |
     |File optimization              |When enabled, the files are packed at the ingest. This speeds up the data copy for small files.        |
  
@@ -63,6 +69,8 @@ To copy data using data copy service, you need to create a job. Follow these ste
     ![Start a job as specified in Configure and start dialog box](media/data-box-deploy-copy-data-via-copy-service/configure-and-start.png)
 
 5. A job with the specified settings is created. Select the checkbox and then you can pause and resume, cancel, or restart a job.
+
+    If you cancel or pause a job, large files that are in the process of getting copied may be left half-copied and are uploaded in the same state to Azure. When trying to cancel or pause, validate that your files are properly copied by looking at the SMB shares or downloading the BOM file.
 
     ![Manage a job on copy data page](media/data-box-deploy-copy-data-via-copy-service/select-job.png)
     
@@ -85,15 +93,24 @@ To copy data using data copy service, you need to create a job. Follow these ste
     
     - In this release, you cannot delete a job.
     
-    - You can create unlimited jobs but a maximum of 25 jobs can run in parallel at any given time.  
-    
-    >[!NOTE]
-    > If you have any errors during the copy process, download the error logs for troubleshooting. These are available in the **Error log** column on the **Copy data** page.
+    - You can create unlimited jobs but a maximum of 10 jobs can run in parallel at any given time. 
+
+6. While the job is in progress, on the **Copy data** page: 
+
+    - In the **Status** column, you can view the status of the copy job. This can be 
+    - In the **Files** column, you can see the number and the size of total files being copied.
+    - In the **Processed** column, you can see the number and the size of files that are processed.
+    - In the **Details** column, click **View** to see the job details.
+    - If you have any errors during the copy process as shown in the **# Errors** column, go to **Error log** column and download the error logs for troubleshooting.
 
 To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
     
    ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
+Wait for the copy jobs to finish before you go to the next step.
+
+>[!NOTE]
+> Prepare to ship can't run while copy jobs are in progress.
 
 ## Prepare to ship
 
