@@ -460,6 +460,10 @@ To add Failover Clustering features, do the following steps on both SQL Server V
 
 Repeat the steps on the other SQL Server VM.
 
+  >[!NOTE]
+  > This step, along with actually joining the SQL Server VMs to the failover cluster, can now be automated with an Azure Quickstart Template. For more information, see [Create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM with Azure Quickstart template](virtual-machines-windows-sql-ag-arm-how-to.md).
+
+
 ## <a name="endpoint-firewall"> Configure the firewall on each SQL Server VM
 
 The solution requires the following TCP ports to be open in the firewall:
