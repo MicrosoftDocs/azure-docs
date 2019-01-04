@@ -74,7 +74,7 @@ When digging into the details of dynamic resource classes on Gen1, there are a f
 
 On **Gen2 only**, dynamic resource classes are truly dynamic addressing the points mentioned above.  The new rule is 3-10-22-70 for memory percentage allocations for small-medium-large-xlarge resource classes, **regardless of service level**.  The below table has the consolidated details of memory allocation percentages and the minimum number of concurrent queries that run, regardless of the service level.
 
-| Resource Class | Percentage Memory | Min Concurrent Queries |
+| Resource Class | Percentage Memory | Max Concurrent Queries |
 |:--------------:|:-----------------:|:----------------------:|
 | smallrc        | 3%                | 32                     |
 | mediumrc       | 10%               | 10                     |
