@@ -35,7 +35,7 @@ The result is a private and isolated relationship between the workloads bound to
 > - Azure Data Explorer
 >
 > The below Microsoft services are required to be on a virtual network
-> - Azure Web Apps
+> - Azure App Service
 > - Azure Functions
 
 > [!IMPORTANT]

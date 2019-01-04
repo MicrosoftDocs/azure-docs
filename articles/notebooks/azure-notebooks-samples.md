@@ -33,7 +33,7 @@ Once you've identified a notebook you'd like to explore, here are a few details 
 - [Gallery of interesting notebooks](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (Jupyter project on GitHub)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Physics instruction from the [Physics Department at the Imperial College of London](https://notebooks.azure.com/cvanbreu/libraries)
-- [Azure Machine Learning getting started samples](https://notebooks.azure.com/azureml/projects/0f41b597b1ea)
+- [Azure Machine Learning getting started samples](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
 
 ## Next steps  
 

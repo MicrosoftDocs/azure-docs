@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 12/19/2018
 ms.author: magoedte
 ---
 # Log Analytics data security
@@ -144,7 +144,7 @@ For your organization to send data to Log Analytics, you configure a Windows or 
 * [Organizational ID](../../active-directory/fundamentals/sign-up-organization.md)
 * [Microsoft Account - Outlook, Office Live, MSN](https://account.microsoft.com/account)
 
-A Log Analytics workspace is where data is collected, aggregated, analyzed, and presented. A workspace is primarily used as a means to partition data, and each workspace is unique. For example, you might want to have your production data managed with one workspace and your test data managed with another workspace. Workspaces also help an administrator control user access to the data. Each workspace can have multiple user accounts associated with it, and each user account can access multiple Log Analytics workspaces. You create workspaces based on datacenter region. Each workspace is replicated to other datacenters in the region, primarily for Log Analytics service availability.
+A Log Analytics workspace is where data is collected, aggregated, analyzed, and presented. A workspace is primarily used as a means to partition data, and each workspace is unique. For example, you might want to have your production data managed with one workspace and your test data managed with another workspace. Workspaces also help an administrator control user access to the data. Each workspace can have multiple user accounts associated with it, and each user account can access multiple Log Analytics workspaces. You create workspaces based on datacenter region.
 
 For Operations Manager, the Operations Manager management group establishes a connection with the Log Analytics service. You then configure which agent-managed systems in the management group are allowed to collect and send data to the service. Depending on the solution you have enabled, data from these solutions are either sent directly from an Operations Manager management server to the Log Analytics service, or because of the volume of data collected by the agent-managed system, are sent directly from the agent to the service. For systems not monitored by Operations Manager, each connects securely to the Log Analytics service directly.
 

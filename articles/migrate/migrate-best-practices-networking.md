@@ -115,7 +115,7 @@ Azure adds a DNS server by default when you deploy a VNet. This allows you to ra
 
 **Learn more:**
 - [Learn about](https://docs.microsoft.com/azure/migrate/contoso-migration-infrastructure) name resolution when you use your own DNS server.
-- [Learn about](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) DNS naming rules and restrictions.
+- [Learn about](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) DNS naming rules and restrictions.
 
 
 ## Best practice: Set up availability zones
@@ -336,7 +336,7 @@ Service tags take the manual work out of assigning a rule to groups of Azure ser
 
 **Learn more:**
 
-- [Read about](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) NSGs.
+- [Read about](https://docs.microsoft.com/azure/virtual-network/security-overview) NSGs.
 - [Review](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) the service tags available for NSGs.
 
 

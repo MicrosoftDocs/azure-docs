@@ -81,7 +81,7 @@ There are three fundamental sources of metrics collected by Azure Monitor. All o
 **Application metrics** are created by Application Insights for your monitored applications and help you detect performance issues and track trends in how your application is being used. This includes such values as _Server response time_ and _Browser exceptions_.
 
 **Custom metrics** are metrics that you define in addition to the standard metric that are automatically available. Custom metrics must be created against a single resource in the same region as that resource. You can create custom metrics using the following methods:
-    - [Define custom metrics in your application](../../application-insights/app-insights-api-custom-events-metrics.md) that's monitored by Application Insights. These are in addition to the standard set of application metrics.
+    - [Define custom metrics in your application](../../azure-monitor/app/api-custom-events-metrics.md) that's monitored by Application Insights. These are in addition to the standard set of application metrics.
     - Publish custom metrics from your Windows virtual machines using [Windows Diagnostic Extension (WAD)](../../azure-monitor/platform/diagnostics-extension-overview.md).
     - Publish custom metrics from your Linux virtual machines using [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/).
     - Write custom metrics from an Azure service using the custom metrics API.
@@ -151,7 +151,7 @@ Tasks that you can perform with logs include the following:
 All log data in Azure Monitor is retrieved using a [log query](../log-query/log-query-overview.md)  written with the [Data Explorer query language](../log-query/get-started-queries.md), which allows you to quickly retrieve, consolidate, and analyze collected data. Use [Log Analytics](../log-query/portals.md) to write and test queries in the Azure portal. You can  work with results interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve logs by using the [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 > [!IMPORTANT]
-> Data from Application Insights is stored in a separate partition than other log data in Azure Monitor. This supports the same functionality as other log data, but you must use the [Application Insights console](/application-insights/app-insights-analytics.md) or the [Application Insights API](https://dev.applicationinsights.io/) to access this data. You can use a [cross-resource query](../log-query/cross-workspace-query.md) to analyze application data together with other log data.
+> Data from Application Insights is stored in a separate partition than other log data in Azure Monitor. This supports the same functionality as other log data, but you must use the [Application Insights console](/azure-monitor/app/analytics.md) or the [Application Insights API](https://dev.applicationinsights.io/) to access this data. You can use a [cross-resource query](../log-query/cross-workspace-query.md) to analyze application data together with other log data.
 
 ![Logs](media/data-collection/logs.png)
 

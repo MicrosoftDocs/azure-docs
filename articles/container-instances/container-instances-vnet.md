@@ -43,6 +43,7 @@ While this feature is in preview, the following limitations apply when deploying
 * North Europe (northeurope)
 * West Europe (westeurope)
 * West US (westus)
+* East US (eastus)
 
 **Unsupported** network resources:
 
