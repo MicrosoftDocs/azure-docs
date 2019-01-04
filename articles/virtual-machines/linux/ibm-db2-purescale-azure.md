@@ -68,7 +68,7 @@ This architecture runs the application, storage, and data tiers on Azure virtual
 
 -   A DB2 pureScale cluster. The type of compute resources you need on Azure depends on your setup. In general, you can use two approaches:
 
-    -   Use a multi-node, high-performance computing (HPC)-style network where multiple small to medium-sized instances access shared storage. For this HPC type of configuration, Azure memory-optimized E-series or storage-optimized L-series [virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) provide the needed compute power.
+    -   Use a multi-node, high-performance computing (HPC)-style network where small to medium-sized instances access shared storage. For this HPC type of configuration, Azure memory-optimized E-series or storage-optimized L-series [virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) provide the needed compute power.
 
     -   Use fewer large virtual machine instances for the data engines. For large instances, the largest memory-optimized [M-series](https://azure.microsoft.com/pricing/details/virtual-machines/series/) virtual machines are ideal for heavy in-memory workloads. You might need a dedicated instance, depending on the size of the logical partition (LPAR) that's used to run DB2.
 
@@ -89,7 +89,7 @@ This architecture runs the application, storage, and data tiers on Azure virtual
 
 Like Oracle RAC, DB2 pureScale is a high-performance block I/O, scale-out database. We recommend using the largest [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) option that suits your needs. Smaller storage options might be suitable for development and test environments, while production environments often need more storage capacity. The example architecture uses [P30](https://azure.microsoft.com/pricing/details/managed-disks/) because of its ratio of IOPS to size and price. Regardless of size, use Premium Storage for best performance.
 
-DB2 pureScale uses a shared-everything architecture, where all data is accessible from all cluster nodes. Premium storage must be shared across multiple instances, whether on demand or on dedicated instances.
+DB2 pureScale uses a shared-everything architecture, where all data is accessible from all cluster nodes. Premium storage must be shared across instances, whether on demand or on dedicated instances.
 
 A large DB2 pureScale cluster can require 200 terabytes (TB) or more of premium shared storage, with IOPS of 100,000. DB2 pureScale supports an iSCSI block interface that you can use on Azure. The iSCSI interface requires a shared storage cluster that you can implement with GlusterFS, S2D, or another tool. This type of solution creates a virtual storage area network (vSAN) device in Azure. DB2 pureScale uses the vSAN to install the clustered file system that's used to share data among virtual machines.
 
@@ -101,7 +101,7 @@ IBM recommends InfiniBand networking for all members in a DB2 pureScale cluster.
 
 During setup, you create an Azure [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to contain all the virtual machines. In general, you group resources based on their lifetime and who will manage them. The virtual machines in this architecture require [accelerated networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). It's an Azure feature that provides consistent, ultra-low network latency via single-root I/O virtualization (SR-IOV) to a virtual machine.
 
-Every Azure virtual machine is deployed into a virtual network that has subnets: main, Gluster FS front end (gfsfe), Gluster FS back end (bfsbe), DB2 pureScale (db2be), and DB2 purescale front end (db2fe). The installation script also creates the primary [NICs](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics) on the virtual machines in the main subnet.
+Every Azure virtual machine is deployed into a virtual network that has subnets: main, Gluster FS front end (gfsfe), Gluster FS back end (bfsbe), DB2 pureScale (db2be), and DB2 pureScale front end (db2fe). The installation script also creates the primary [NICs](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics) on the virtual machines in the main subnet.
 
 Use [network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) to restrict network traffic within the virtual network and to
 isolate the subnets.

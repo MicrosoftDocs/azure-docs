@@ -21,7 +21,7 @@ ms.author: njray
 
 # Deploy IBM DB2 pureScale on Azure
 
-This article describes how to deploy an [example architecture](ibm-db2-purescale-azure.md) that an enterprise customer recently used to migrate from their IBM DB2 environment running on z/OS to IBM DB2 pureScale on Azure.
+This article describes how to deploy an [example architecture](ibm-db2-purescale-azure.md) that an enterprise customer recently used to migrate from its IBM DB2 environment running on z/OS to IBM DB2 pureScale on Azure.
 
 To follow the steps used for the migration, see the installation scripts in the [DB2onAzure](http://aka.ms/db2onazure) repository on GitHub. These scripts are based on the architecture for a typical, medium-sized online transaction processing (OLTP) workload.
 
@@ -42,7 +42,7 @@ The deploy.sh script creates and configures the Azure resources for this archite
 
 -   Sets up the network security groups and SSH for the environment
 
--   Sets up multiple NICs on both the GlusterFS and the DB2 pureScale virtual machines
+-   Sets up NICs on both the GlusterFS and the DB2 pureScale virtual machines
 
 -   Creates the GlusterFS storage virtual machines
 
@@ -52,7 +52,7 @@ The deploy.sh script creates and configures the Azure resources for this archite
 
 -   Creates the witness virtual machine that DB2 pureScale pings
 
--   Creates a Windows virtual machine to use for testing but does not install anything on it
+-   Creates a Windows virtual machine to use for testing but doesn't install anything on it
 
 Next, the deployment scripts set up an iSCSI virtual storage area network (vSAN) for shared storage on Azure. In this example, iSCSI connects to GlusterFS. This solution also gives you the option to install the iSCSI targets as a single Windows node. iSCSI provides a shared block storage interface over TCP/IP that allows the DB2 pureScale setup procedure to use a device interface to connect to shared storage. For GlusterFS basics, see the [Architecture: Types of volumes](https://docs.gluster.org/en/latest/Quick-Start-Guide/Architecture/) topic in Gluster Docs.
 
@@ -119,7 +119,7 @@ The GitHub repository includes DB2server.rsp, a response (.rsp) file that enable
 
 ## Troubleshooting and known issues
 
-The GitHub repo includes a knowledge base that the authors maintain. It lists potential problems you might encounter and resolutions you can try. For example, known problems can happen when:
+The GitHub repo includes a knowledge base that the authors maintain. It lists potential problems you might have and resolutions you can try. For example, known problems can happen when:
 
 -   You're trying to reach the gateway IP address.
 
