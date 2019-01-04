@@ -106,7 +106,7 @@ You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/librar
 Before setting up of Azure Site Recovery infrastructure, you need to access the environment to measure the following factors: compatible virtual machines, daily data change rate, required network bandwidth for desired RPO, number of Azure site recovery components required, time taken to complete the initial replication etc.,
 
 1. To measure these parameters, ensure to run the deployment planner on your environment with the help of guidelines shared [here](site-recovery-deployment-planner.md).
-2. Deploy a configuration server with requirements mentioned [here](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server). If your production workload exceeds 650 virtual machines, deploy another configuration server.
+2. Deploy a configuration server with requirements mentioned above. If your production workload exceeds 650 virtual machines, deploy another configuration server.
 3. Based on the measured daily data change rate, deploy [scale-out process servers](vmware-azure-set-up-process-server-scale.md#download-installation-file) with the help of size guidelines stated [here](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
 4. If you expect the data change rate for a disk virtual machine would exceed 2 MBps, ensure to [set up a premium storage account](tutorial-prepare-azure.md#create-a-storage-account). Since deployment planner is run for a specific time period, peaks in data change rate during other time periods might not be captured in the report.
 5. As per the desired RPO, [set the network bandwidth](site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
