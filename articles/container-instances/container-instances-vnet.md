@@ -29,7 +29,6 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 
 Certain limitations apply when you deploy container groups to a virtual network.
 
-* Windows containers are unsupported
 * To deploy container groups to a subnet, the subnet cannot contain any other resource types. Remove all existing resources from an existing subnet prior to deploying container groups to it, or create a new subnet.
 * Container groups deployed to a virtual network do not currently support public IP addresses or DNS name labels.
 * Due to the additional networking resources involved, deploying a container group to a virtual network is typically somewhat slower than deploying a standard container instance.
@@ -40,13 +39,13 @@ While this feature is in preview, the following limitations apply when deploying
 
 **Supported regions and resource limits**
 
-| Location | CPU | Memory (GB) |
-| -------- | :---: | :-----------: |
-| West Europe | 4 | 14 |
-| East US, West US | 2 | 3.5 |
-| Australia East, North Europe | 1 | 1.5 |
+| Location | OS | CPU | Memory (GB) |
+| -------- | :---: | :---: | :-----------: |
+| West Europe | Linux | 4 | 14 |
+| East US, West US | Linux | 2 | 3.5 |
+| Australia East, North Europe | Linux | 1 | 1.5 |
 
-Container resource limits may differ from limits for non-networked container instances in these regions.
+Container resource limits may differ from limits for non-networked container instances in these regions. Currently only Linux containers are supported for this feature. Windows support is planned.
 
 **Unsupported network resources and features**
 
