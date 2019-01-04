@@ -31,7 +31,6 @@ To use Machine Learning Compute in a virtual network, use the follow information
 - If you plan to secure the virtual network by restricting traffic, you must leave some ports open for the Machine Learning Compute service. For more information, see the [Required ports](#mlcports) section.
 - Check whether your security policies or locks on the virtual network's subscription or resource group restrict a user's permissions to manage the virtual network
 - Machine Learning Compute automatically allocates additional networking resources in the resource group containing the virtual network. For each Machine Learning Compute cluster, Azure Machine Learning service allocates the following resources: 
-
     - One network security group (NSG)
     - One public IP address
     - One load balancer
@@ -75,7 +74,13 @@ Follow the steps below to create a Machine Learning Compute cluster that is insi
 
     ![A screenshot showing virtual network settings for machine learning compute](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
 
-1. You can now train your model on the newly created compute. For more information, see the [Select and use a compute target for training](how-to-set-up-training-targets.md) document.
+VNet doesn’t seem to be a keyword we should be using; searches for it return:
+•	21 Vianet group inc. stock ticker
+•	VNET fiber
+•	More 21 Vianet stuff
+•	Two or three Azure virtual network docs.
+
+You can now train your model on the newly created compute. For more information, see the [Select and use a compute target for training](how-to-set-up-training-targets.md) document.
 
 
 ## Use a Virtual Machine or HDInsight
@@ -90,6 +95,7 @@ To use a virtual machine or HDInsight cluster in a Virtual Network with your wor
     * [Extend HDInsight using Azure Virtual Networks](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network) 
 
 1. Allow access from Azure Machine Learning service to the SSH port on the VM or cluster. The SSH port is usually port 22. To allow traffic from this source, use the following information:
+
     * __Source__: Select __Service Tag__.
     * __Source service tag__: Select __AzureMachineLearning__
     * __Source port ranges__: Select __*__
@@ -98,7 +104,7 @@ To use a virtual machine or HDInsight cluster in a Virtual Network with your wor
     * __Protocol__: Select __Any__
     * __Action__: Select __Allow__
 
-    ![Inbound rules for doing experimentation on VM or HDI inside a virtual network](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
+   ![Inbound rules for doing experimentation on VM or HDI inside a virtual network](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
 
     Keep the default outbound rules as shown in the screenshot below:
 
@@ -144,4 +150,4 @@ To add Azure Kubernetes Service in a Virtual Network to your workspace, use the 
     > [!TIP]
     > If you already have an AKS cluster in a Virtual Network, you can attach it to the workspace. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
 
-5. You are not ready to do inferencing on an AKS cluster behind a virtual network. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
+You are not ready to do inferencing on an AKS cluster behind a virtual network. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
