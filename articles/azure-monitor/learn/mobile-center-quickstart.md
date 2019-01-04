@@ -65,7 +65,7 @@ Once your app is sending custom events and these events are being received by Ap
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **Create a resource** > **Management Tools** > **Application Insights**.
 
-    ![Adding Application Insights resource](./media/app-insights-mobile-center-quickstart/add-b.png)
+    ![Adding Application Insights resource](./media/mobile-center-quickstart/add-b.png)
 
     A configuration box will appear. Use the table below to fill out the input fields.
 
@@ -103,7 +103,7 @@ Application Insights can query, segment, filter, and analyze the custom event te
 
 1. **Query your custom event telemetry.** From the Application Insights **Overview** page, choose **Analytics**. 
 
-   ![Analytics button in Application Insights](./media/app-insights-mobile-center-quickstart/analytics.png)
+   ![Analytics button in Application Insights](./media/mobile-center-quickstart/analytics.png)
 
    The Application Insights Analytics portal associated with your Application Insights resource will open. The Analytics portal lets you directly query your data using the Log Analytics query language, so you can ask arbitrarily complex questions about your app and its users.
    
@@ -116,27 +116,27 @@ Application Insights can query, segment, filter, and analyze the custom event te
    | order by dcount_user_Id desc 
    ```
 
-   ![Analytics portal](./media/app-insights-mobile-center-quickstart/analytics-portal.png)
+   ![Analytics portal](./media/mobile-center-quickstart/analytics-portal.png)
 
    1. Select the query by clicking anywhere on the query in the text editor.
    2. Then click **Go** to run the query. 
 
-   Learn more about [Application Insights Analytics](../azure-monitor/app/analytics.md) and the [Log Analytics query language](https://aka.ms/LogAnalyticsLanguageReference).
+   Learn more about [Application Insights Analytics](../../azure-monitor/app/analytics.md) and the [Log Analytics query language](https://aka.ms/LogAnalyticsLanguageReference).
 
 
 2. **Segment and filter your custom event telemetry.** From the Application Insights **Overview** page, choose **Users** in the table of contents.
 
-   ![Users tool icon](./media/app-insights-mobile-center-quickstart/users-icon.png)
+   ![Users tool icon](./media/mobile-center-quickstart/users-icon.png)
 
    The Users tool shows how many users of your app clicked certain buttons, visited certain screens, or performed any other action that you are tracking as an event with the App Center SDK. If you've been looking for a way to segment and filter your App Center events, the Users tool is a great choice.
 
-   ![Users tool](./media/app-insights-mobile-center-quickstart/users.png) 
+   ![Users tool](./media/mobile-center-quickstart/users.png) 
 
    For example, segment your usage by geography by choosing **Country or region** in the **Split by** dropdown menu.
 
 3. **Analyze conversion, retention, and navigation patterns in your app.** From the Application Insights **Overview** page, choose **User Flows** in the table of contents.
 
-   ![User Flows tool](./media/app-insights-mobile-center-quickstart/user-flows.png)
+   ![User Flows tool](./media/mobile-center-quickstart/user-flows.png)
 
    The User Flows tool visualizes which events users send after some starting event. It's useful for getting an overall picture of how users navigate through your app. It can also reveal places where many users are churning from your app, or repeating the same actions over and over.
 
@@ -164,4 +164,4 @@ To delete the Application Insights resource:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Understand how customers are using your app](../azure-monitor/app/usage-overview.md)
+> [Understand how customers are using your app](../../azure-monitor/app/usage-overview.md)

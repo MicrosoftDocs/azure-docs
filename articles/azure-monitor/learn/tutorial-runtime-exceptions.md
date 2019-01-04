@@ -34,7 +34,7 @@ To complete this tutorial:
 	- Azure development
 - Download and install the [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
 - Enable [Visual Studio Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
-- Deploy a .NET application to Azure and [enable the Application Insights SDK](../azure-monitor/app/asp-net.md). 
+- Deploy a .NET application to Azure and [enable the Application Insights SDK](../../azure-monitor/app/asp-net.md). 
 - The tutorial tracks the identification of an exception in your application, so modify your code in your development or test environment to generate an exception. 
 
 ## Log in to Azure
@@ -47,27 +47,27 @@ Application Insights collects any failures in your application and lets you view
 1. Select **Application Insights** and then your subscription.  
 2. To open the **Failures** panel either select **Failures** under the **Investigate** menu or click the **Failed requests** graph.
 
-	![Failed requests](media/app-insights-tutorial-runtime-exceptions/failed-requests.png)
+	![Failed requests](media/tutorial-runtime-exceptions/failed-requests.png)
 
 3. The **Failed requests** panel shows the count of failed requests and the number of users affected for each operation for the application.  By sorting this information by user you can identify those failures that most impact users.  In this example, the **GET Employees/Create** and **GET Customers/Details** are likely candidates to investigate because of their large number of failures and impacted users.  Selecting an operation shows further information about this operation in the right panel.
 
-	![Failed requests panel](media/app-insights-tutorial-runtime-exceptions/failed-requests-blade.png)
+	![Failed requests panel](media/tutorial-runtime-exceptions/failed-requests-blade.png)
 
 4. Reduce the time window to zoom in on the period where the failure rate shows a spike.
 
-	![Failed requests window](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
+	![Failed requests window](media/tutorial-runtime-exceptions/failed-requests-window.png)
 
 5. See the related samples by clicking on the button with the number of filtered results. The "suggested" samples have related telemetry from all components, even if sampling may have been in effect in any of them. Click on a search result to see the details of the failure.
 
-	![Failed request samples](media/app-insights-tutorial-runtime-exceptions/failed-requests-search.png)
+	![Failed request samples](media/tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. The details of the failed request shows the Gantt chart which shows that there were two dependency failures in this transaction, which also attributed to over 50% of the total duration of the transaction. This experience presents all telemetry, across components of a distributed application that are related to this operation ID. [Learn more about the new experience](../azure-monitor/app/transaction-diagnostics.md). You can select any of the items to see its details on the right side. 
+6. The details of the failed request shows the Gantt chart which shows that there were two dependency failures in this transaction, which also attributed to over 50% of the total duration of the transaction. This experience presents all telemetry, across components of a distributed application that are related to this operation ID. [Learn more about the new experience](../../azure-monitor/app/transaction-diagnostics.md). You can select any of the items to see its details on the right side. 
 
-	![Failed request details](media/app-insights-tutorial-runtime-exceptions/failed-request-details.png)
+	![Failed request details](media/tutorial-runtime-exceptions/failed-request-details.png)
 
 7. The operations detail also shows a FormatException which appears to have caused the failure.  You can see that it's due to an invalid zip code. You can open the debug snapshot to see code level debug information in Visual Studio.
 
-	![Exception details](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
+	![Exception details](media/tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## Identify failing code
 The Snapshot Debugger collects snapshots of the most frequent exceptions in your application to assist you in diagnosing its root cause in production.  You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. Afterwards, you have the option to debug the source code by downloading the snapshot and opening it in Visual Studio 2017 Enterprise.
@@ -75,17 +75,17 @@ The Snapshot Debugger collects snapshots of the most frequent exceptions in your
 1. In the properties of the exception, click **Open debug snapshot**.
 2. The **Debug Snapshot** panel opens with the call stack for the request.  Click any method to view the values of all local variables at the time of the request.  Starting from the top method in this example, we can see local variables that have no value.
 
-	![Debug snapshot](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-01.png)
+	![Debug snapshot](media/tutorial-runtime-exceptions/debug-snapshot-01.png)
 
 3. The first call that has valid values is **ValidZipCode**, and we can see that a zip code was provided with letters that isn't able to be translated into an integer.  This appears to be the error in the code that needs to be corrected.
 
-	![Debug snapshot](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-02.png)
+	![Debug snapshot](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
 4. You then have the option to download this snapshot into Visual Studio where we can locate the actual code that needs to be corrected. To do so, click **Download Snapshot**.
 5. The snapshot is loaded into Visual Studio.
 6. You can now run a debug session in Visual Studio Enterprise that quickly identifies the line of code that caused the exception.
 
-	![Exception in code](media/app-insights-tutorial-runtime-exceptions/exception-code.png)
+	![Exception in code](media/tutorial-runtime-exceptions/exception-code.png)
 
 
 ## Use analytics data
@@ -93,9 +93,9 @@ All data collected by Application Insights is stored in Azure Log Analytics, whi
 
 8. Click the CodeLens information above the code to view telemetry provided by Application Insights.
 
-	![Code](media/app-insights-tutorial-runtime-exceptions/codelens.png)
+	![Code](media/tutorial-runtime-exceptions/codelens.png)
 
-9. Click **Analyze impact** to open Application Insights Analytics.  It's populated with several queries that provide details on failed requests such as impacted users, browsers, and regions.<br><br>![Analytics](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
+9. Click **Analyze impact** to open Application Insights Analytics.  It's populated with several queries that provide details on failed requests such as impacted users, browsers, and regions.<br><br>![Analytics](media/tutorial-runtime-exceptions/analytics.png)<br>
 
 ## Add work item
 If you connect Application Insights to a tracking system such as Azure DevOps or GitHub, you can create a work item directly from Application Insights.
@@ -104,10 +104,10 @@ If you connect Application Insights to a tracking system such as Azure DevOps or
 2. Click **New Work Item**.
 3. The **New Work Item** panel opens with details about the exception already populated.  You can add any additional information before saving it.
 
-	![New Work Item](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
+	![New Work Item](media/tutorial-runtime-exceptions/new-work-item.png)
 
 ## Next steps
 Now that you've learned how to identify run-time exceptions, advance to the next tutorial to learn how to identify and diagnose performance issues.
 
 > [!div class="nextstepaction"]
-> [Identify performance issues](app-insights-tutorial-performance.md)
+> [Identify performance issues](../../application-insights/app-insights-tutorial-performance.md)

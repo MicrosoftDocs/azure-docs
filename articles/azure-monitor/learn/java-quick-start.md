@@ -43,7 +43,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. Select **Create a resource** > **Monitoring + Management** > **Application Insights**.
 
-   ![Adding Application Insights Resource](./media/app-insights-java-quick-start/001-j.png)
+   ![Adding Application Insights Resource](./media/java-quick-start/001-j.png)
 
    A configuration box appears; use the following table to fill out the input fields.
 
@@ -60,7 +60,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. Launch **Eclipse** > Click **Help** > Select **Install New Software**.
 
-   ![New App Insights resource form](./media/app-insights-java-quick-start/000-j.png)
+   ![New App Insights resource form](./media/java-quick-start/000-j.png)
 
 2. Copy ```https://dl.microsoft.com/eclipse``` into the "Work With" field > Check **Azure Toolkit for Java** > Select **Application Insights Plugin for Java** > **Uncheck** "Contact all update sites during install to find required software."
 
@@ -76,7 +76,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 4. Check **Enable telemetry with Application Insights** > Select the App Insights resource and associated **Instrumentation Key** you want to link to your Java app.
 
-   ![Eclipse Azure Config Menu](./media/app-insights-java-quick-start/0007-j.png)
+   ![Eclipse Azure Config Menu](./media/java-quick-start/0007-j.png)
 
 > [!NOTE]
 > The Application Insights SDK for Java is capable of capturing and visualizing live metrics, but when you first enable telemetry collection it can take a few minutes before data begins appearing in the portal. If this app is a low-traffic test app, keep in mind that most metrics are only captured when there are active requests or operations.
@@ -85,19 +85,19 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. You can now reopen the Application Insights **Overview** page in the Azure portal, where you retrieved your instrumentation key, to view details about your currently running application.
 
-   ![Application Insights Overview Menu](./media/app-insights-java-quick-start/overview-001.png)
+   ![Application Insights Overview Menu](./media/java-quick-start/overview-001.png)
 
 2. Click **Application map** for a visual layout of the dependency relationships between your application components. Each component shows KPIs such as load, performance, failures, and alerts.
 
-   ![Application Map](./media/app-insights-java-quick-start/application-map-001.png)
+   ![Application Map](./media/java-quick-start/application-map-001.png)
 
-3. Click on the **App Analytics** icon ![Application Map icon](./media/app-insights-java-quick-start/006.png). This opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
+3. Click on the **App Analytics** icon ![Application Map icon](./media/java-quick-start/006.png). This opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
 
-   ![Analytics graph of user requests over a period of time](./media/app-insights-java-quick-start/0010-j.png)
+   ![Analytics graph of user requests over a period of time](./media/java-quick-start/0010-j.png)
 
 4. Return to the **Overview** page and examine the KPI graphs.  This dashboard provides statistics about your application health, including the number of incoming requests, the duration of those requests, and any failures that occur.
 
-   ![Health Overview timeline graphs](./media/app-insights-java-quick-start/overview-perf.png)
+   ![Health Overview timeline graphs](./media/java-quick-start/overview-perf.png)
 
    To enable the **Page View Load Time** chart to populate with **client-side telemetry** data, add this script to each page that you want to track:
 
@@ -123,9 +123,9 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 5. Click on **Live Stream**. Here you find live metrics related to the performance of your Java web app. **Live Metrics Stream** includes data regarding the number of incoming requests, the duration of those requests, and any failures that occur. You can also monitor critical performance metrics, such as processor and memory in real-time.
 
-   ![Server metrics graphs](./media/app-insights-java-quick-start/livemetricsjava.png)
+   ![Server metrics graphs](./media/java-quick-start/livemetricsjava.png)
 
-To learn more about monitoring Java, check out the [additional App Insights Java documentation](./../azure-monitor/app/java-get-started.md).
+To learn more about monitoring Java, check out the [additional App Insights Java documentation](./../../azure-monitor/app/java-get-started.md).
 
 ## Clean up resources
 
