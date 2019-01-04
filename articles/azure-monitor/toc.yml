@@ -162,7 +162,7 @@
       - name: Deep diagnostics for web apps and services
         href: ../application-insights/app-insights-devops.md?toc=/azure/azure-monitor/toc.json
       - name: Monitor performance in web applications
-        href: ../application-insights/app-insights-web-monitor-performance.md?toc=/azure/azure-monitor/toc.json
+        href: app/web-monitor-performance.md
       - name: Separate development, test, and production
         href: app/separate-resources.md
       - name: How do I ... in Application Insights?
@@ -266,7 +266,7 @@
         - name: Azure Cloud Services
           href: app/cloudservices.md
         - name: Add continuous monitoring
-          href: ../application-insights/app-insights-vsts-continuous-monitoring.md?toc=/azure/azure-monitor/toc.json
+          href: app/continuous-monitoring.md
         - name: Profiler
           items:
           - name: Overview
@@ -298,7 +298,7 @@
         - name: Windows services
           href: ../application-insights/app-insights-windows-services.md?toc=/azure/azure-monitor/toc.json
         - name: Windows desktop
-          href: ../application-insights/app-insights-windows-desktop.md?toc=/azure/azure-monitor/toc.json
+          href: app/windows-desktop.md
         - name: ASP.NET Core
           href: app/asp-net-core.md
           items:
@@ -367,7 +367,7 @@
         - name: Dynamics CRM
           href: app/sample-mscrm.md
       - name: Smart Detection
-        href: ../application-insights/app-insights-proactive-diagnostics.md?toc=/azure/azure-monitor/toc.json
+        href: app/proactive-diagnostics.md
         items:
         - name: Failure anomalies
           href: app/proactive-failure-diagnostics.md
@@ -485,9 +485,9 @@
         - name: F5 insights
           href: app/visual-studio.md
         - name: Trends
-          href: ../application-insights/app-insights-visual-studio-trends.md?toc=/azure/azure-monitor/toc.json
+          href: app/visual-studio-trends.md
         - name: CodeLens
-          href: ../application-insights/app-insights-visual-studio-codelens.md?toc=/azure/azure-monitor/toc.json
+          href: app/visual-studio-codelens.md
       - name: Usage
         items:
         - name: Overview
@@ -507,7 +507,7 @@
         - name: User Flows
           href: app/usage-flows.md
         - name: Workbooks
-          href: ../application-insights/app-insights-usage-workbooks.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-workbooks.md
       - name: Web App Analytics solution
         href: insights/azure-web-apps-analytics.md
     - name: Monitor containers
