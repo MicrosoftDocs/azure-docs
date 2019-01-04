@@ -46,13 +46,13 @@ The notifications include diagnostic information. Here's an example:
 2. **Scope**. Is the problem affecting all traffic, or just some pages? Is it restricted to particular browsers or locations? This information can be obtained from the notification.
 3. **Diagnose**. Often, the diagnostic information in the notification will suggest the nature of the problem. For example, if response time slows down when request rate is high, that suggests your server or dependencies are overloaded. 
 
-    Otherwise, open the Performance blade in Application Insights. There, you will find [Profiler](profiler.md) data. If exceptions are thrown, you can also try the [snapshot debugger](../../application-insights/app-insights-snapshot-debugger.md).
+    Otherwise, open the Performance blade in Application Insights. There, you will find [Profiler](profiler.md) data. If exceptions are thrown, you can also try the [snapshot debugger](../../azure-monitor/app/snapshot-debugger.md).
 
 
 
 ## Configure Email Notifications
 
-Smart Detection notifications are enabled by default and sent to those who have [owners, contributors and readers access to the Application Insights resource](../../application-insights/app-insights-resources-roles-access-control.md). To change this, either click **Configure** in the email notification, or open Smart Detection settings in Application Insights. 
+Smart Detection notifications are enabled by default and sent to those who have [owners, contributors and readers access to the Application Insights resource](../../azure-monitor/app/resources-roles-access-control.md). To change this, either click **Configure** in the email notification, or open Smart Detection settings in Application Insights. 
   
   ![Smart Detection Settings](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -177,7 +177,7 @@ Modify the time range and filters to explore the telemetry.
 These diagnostic tools help you inspect the telemetry from your app:
 
 * [Profiler](profiler.md) 
-* [Snapshot debugger](../../application-insights/app-insights-snapshot-debugger.md)
+* [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md)
 * [Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Analytics smart diagnostics](../../azure-monitor/app/analytics.md)
 

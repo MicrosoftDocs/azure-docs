@@ -154,7 +154,7 @@ The performance investigation experience shows relevant insights along side the 
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 [livestream]: ../azure-monitor/app/live-stream.md
-[snapshot]: app-insights-snapshot-debugger.md
+[snapshot]: ../azure-monitor/app/snapshot-debugger.md
 
 
 
