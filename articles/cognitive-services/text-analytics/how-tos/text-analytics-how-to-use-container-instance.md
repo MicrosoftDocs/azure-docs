@@ -384,13 +384,119 @@ This section uses the kubectl cli to talk with the Azure Kubernetes service.
 
     Because the apiKey and billing endpoint are set as part of the Kubernetes orchestration definition, the website container doesn't need to know about these or pass them as part of the request. 
 
+
+    The altered `language.yml` file  is:
+
+    ```console
+    # A service which exposes the .net frontend app container through a dependable hostname: http://language-frontend:5000
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: language-frontend
+      labels:
+        run: language-frontend
+    spec:
+      selector:
+        app: language-frontend
+      type: LoadBalancer
+      ports:
+      - name: front
+        port: 80
+        targetPort: 80
+        protocol: TCP
+    ---
+    # A deployment declaratively indicating how many instances of the .net frontend app container we want up
+    apiVersion: apps/v1beta1
+    kind: Deployment
+    metadata:
+      name: language-frontend
+    spec:
+      replicas: 1
+      template:
+        metadata:
+          labels:
+            app: language-frontend
+        spec:
+          containers:
+          - name: language-frontend
+            image: diberrycogservcontainerregistry.azurecr.io/ta-lang-frontend:v1
+            ports:
+            - name: public-port
+              containerPort: 80
+            livenessProbe:
+              httpGet:
+                path: /status
+                port: public-port
+              initialDelaySeconds: 30
+              timeoutSeconds: 1
+              periodSeconds: 10
+          imagePullSecrets:
+            - name: <client-password>
+          automountServiceAccountToken: false
+    ---
+    # A service which exposes the cognitive-service containers through a dependable hostname: http://language:5000
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: language
+      labels:
+        run: language
+    spec:
+      selector:
+        app: language
+      type: LoadBalancer
+      ports:
+      - name: face
+        port: 5000
+        targetPort: 5000
+        protocol: TCP
+    ---
+    # A deployment declaratively indicating how many instances of the cognitive-service container we want up
+    apiVersion: apps/v1beta1
+    kind: Deployment
+    metadata:
+      name: language
+    spec:
+      replicas: 1
+      template:
+        metadata:
+          labels:
+            app: language
+        spec:
+          containers:
+          - name: language
+            image: diberrycogservcontainerregistry.azurecr.io/azure-cognitive-services/language
+            ports:
+            - name: public-port
+              containerPort: 5000
+            livenessProbe:
+              httpGet:
+                path: /status
+                port: public-port
+              initialDelaySeconds: 30
+              timeoutSeconds: 1
+              periodSeconds: 10
+            args:
+                - "eula=accept"
+                - "apikey=<apiKey>" 
+                - "billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0" 
+                - "Logging:Console:LogLevel:Default=Debug"
+    
+          imagePullSecrets:
+            - name: <client-password>
+    
+          automountServiceAccountToken: false
+    ```
+
 1. Load the orchestration definition file for this sample. Make sure the console is in the Cognitive Samples Repository folder downloaded in a [previous section](#get-website-docker-image), in the subdirectory `\Kubernetes\language\`, where the `language.yml` file is located. 
 
+    ```console
     kubectl apply -f language.yml
+    ```
 
-1. Delete service
+    
 
-    az aks delete
+
 
 
 
