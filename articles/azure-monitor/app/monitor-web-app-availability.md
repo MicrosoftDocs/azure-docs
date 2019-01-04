@@ -366,5 +366,5 @@ When the test is complete, you are shown response times and success rates.
 
 [azure-availability]: ../../insights-create-web-tests.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
+[qna]: ../../azure-monitor/app/troubleshoot-faq.md
 [start]: ../../application-insights/app-insights-overview.md

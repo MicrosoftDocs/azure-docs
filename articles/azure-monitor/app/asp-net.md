@@ -80,7 +80,7 @@ In the Visual Studio Application Insights Search window, you will see the data f
 > [!Tip]
 > If you don't see any data, make sure the time range is correct, and click the Search icon.
 
-[Learn more about Application Insights tools in Visual Studio](../../application-insights/app-insights-visual-studio.md).
+[Learn more about Application Insights tools in Visual Studio](../../azure-monitor/app/visual-studio.md).
 
 <a name="monitor"></a>
 ### See telemetry in web portal
@@ -102,7 +102,7 @@ Publish your app to your IIS server or to Azure. Watch [Live Metrics Stream](../
 
 Your telemetry builds up in the Application Insights portal, where you can monitor metrics, search your telemetry, and set up [dashboards](../../azure-monitor/app/app-insights-dashboards.md). You can also use the powerful [Log Analytics query language](https://aka.ms/LogAnalyticsLanguage) to analyze usage and performance, or to find specific events.
 
-You can also continue to analyze your telemetry in [Visual Studio](../../application-insights/app-insights-visual-studio.md), with tools such as diagnostic search and [trends](../../application-insights/app-insights-visual-studio-trends.md).
+You can also continue to analyze your telemetry in [Visual Studio](../../azure-monitor/app/visual-studio.md), with tools such as diagnostic search and [trends](../../application-insights/app-insights-visual-studio-trends.md).
 
 > [!NOTE]
 > If your app sends enough telemetry to approach the [throttling limits](../../azure-monitor/app/pricing.md#limits-summary), automatic [sampling](../../azure-monitor/app/sampling.md) switches on. Sampling reduces the quantity of telemetry sent from your app, while preserving correlated data for diagnostic purposes.
@@ -143,7 +143,7 @@ There are alternative topics to look at if you are interested in:
 
 ### Analysis
 
-* **[Working with Application Insights in Visual Studio](../../application-insights/app-insights-visual-studio.md)**<br/>Includes information about debugging with telemetry, diagnostic search, and drill through to code.
+* **[Working with Application Insights in Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Includes information about debugging with telemetry, diagnostic search, and drill through to code.
 * **[Working with the Application Insights portal](../../azure-monitor/app/app-insights-dashboards.md)**<br/> Includes information about dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export.
 * **[Analytics](../../azure-monitor/log-query/get-started-portal.md)** - The powerful query language.
 
