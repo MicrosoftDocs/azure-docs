@@ -116,6 +116,12 @@ A web application firewall (WAF) provides an additional layer of security by fil
 
 Load balancer or ingress resources continue to run in your AKS cluster to further refine the traffic distribution. App Gateway can be centrally managed as an ingress controller with a resource definition. To get started, [create an Application Gateway Ingress controller][app-gateway-ingress].
 
+## Control traffic flow with network policies
+
+**Best practice guidance** - Use network policies to allow or deny traffic to pods. By default, all traffic is allowed between pods within a cluster. For improved security, define rules that limit pod communication.
+
+To get started with policies, see [Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)][use-network-policies].
+
 ## Securely connect to nodes through a bastion host
 
 **Best practice guidance** - Don't expose remote connectivity to your AKS nodes. Create a bastion host, or jump box, in a management virtual network. Use the bastion host to securely route traffic into your AKS cluster to remote management tasks.
@@ -152,3 +158,4 @@ This article focused on network connectivity and security. For more information 
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
 [advanced-networking]: configure-advanced-networking.md
+[use-network-policies]: use-network-policies.md
