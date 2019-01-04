@@ -1,16 +1,17 @@
 ---
-title: Understand how to use Azure Digital Twins Swagger | Microsoft Docs
-description: Use Azure Digital Twins Swagger
+title: 'Understand how to use Azure Digital Twins reference Swagger | Microsoft Docs'
+description: Understanding how to use Azure Digital Twins Swagger reference documentation.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/31/2018
 ms.author: adgera
+ms.custom: seodec18
 ---
 
-# Use Azure Digital Twins Swagger
+# Azure Digital Twins Swagger reference documentation
 
 Each provisioned Azure Digital Twins instance includes its own automatically generated Swagger reference documentation.
 
@@ -29,19 +30,19 @@ Swagger provides an interactive summary of your API, which includes:
 * Example response information used to validate and confirm HTTP responses.
 * Error code information.
 
-Swagger is a convenient tool to assist with development and testing calls made to the Management API.
+Swagger is a convenient tool to assist with development and testing calls made to the Azure Digital Twins Management APIs.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## Reference material
 
-Automatically generated reference material explains critical concepts and object models.
+The automatically generated Swagger reference material supplies a quick overview of important concepts, available Management API endpoints, and a description of each object model to assist development and testing.
 
 A concise summary describes the API.
 
 ![Swagger top][1]
 
-Core API object models are also listed.
+Management API object models are also listed.
 
 ![Swagger models][2]
 
@@ -53,7 +54,7 @@ The generated Swagger object models are convenient to see all available Azure Di
 
 ## Endpoint summary
 
-Swagger also provides a thorough overview of all endpoints that compose the API.
+Swagger also provides a thorough overview of all endpoints that compose the Management APIs.
 
 Each listed endpoint also includes the required request information, such as the:
 

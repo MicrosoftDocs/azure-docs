@@ -27,7 +27,7 @@ The following items are required for completing the steps in this article:
 
 - A HDInsight cluster. To create a cluster, see [Get started with HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
-- [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono is only required for Linux and macOS.
+- [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono is only required for Linux and macOS.
 
 ## Install the HDInsight Tools
    
@@ -84,7 +84,7 @@ Before you can submit scripts to HDInsight clusters from VS Code, you need to ei
 
     After you're connected, your Azure account name is shown on the status bar at the bottom left of the VS Code window. 
 
-    > [!NOTE]
+    > [!NOTE]  
     > Because of a known Azure authentication issue, you need to open a browser in private mode or incognito mode. 
     > If your Azure account has two factors enabled, we recommended using phone authentication instead of PIN authentication.
   
@@ -111,7 +111,7 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
    
    ![link cluster dialog](./media/hdinsight-for-vscode/link-cluster-process.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > The linked username and password are used if the cluster both logged in Azure subscription and Linked a cluster. 
    
 3. You can see a Linked cluster by using command **List Cluster**. Now you can submit a script to this linked cluster.
@@ -230,7 +230,7 @@ With HDInsight Tools for VS Code, you can submit interactive Hive queries, Hive 
    ![Submit Python job result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
    The submission status appears on the left of the bottom status bar when you're running queries. Don't submit other queries when the status is **PySpark Kernel (busy)**. 
 
->[!NOTE]
+>[!NOTE]  
 >The clusters can maintain session information. The defined variable, function and corresponding values are kept in the session, so they can be referenced across multiple service calls for the same cluster. 
 
 ### To disable environment check

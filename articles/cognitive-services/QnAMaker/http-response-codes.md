@@ -7,7 +7,7 @@ author: tulasim88
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: luis
+ms.component: qna-maker
 ms.topic: article
 ms.date: 10/09/2018
 ms.author: tulasim

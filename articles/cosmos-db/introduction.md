@@ -1,14 +1,12 @@
 ---
 title: Introduction to Azure Cosmos DB
 description: Learn about Azure Cosmos DB. This globally-distributed multi-model database is built for low latency, elastic scalability, high availability, and offers native support for NoSQL data.
-services: cosmos-db
 author: SnehaGunda
-
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 12/18/2018
 ms.author: sngun
-ms.custom: mvc
+
 ---
 
 # Welcome to Azure Cosmos DB
@@ -100,7 +98,7 @@ Read more about Cosmos DB's [global distribution](distribute-data-globally.md) a
 Get started with Azure Cosmos DB with one of our quickstarts:
 
 * [Get started with Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
-* [Get started with Azure Cosmos DB API for MongoDB](create-mongodb-nodejs.md)
+* [Get started with Azure Cosmos DB's API for MongoDB](create-mongodb-nodejs.md)
 * [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md)
 * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
 * [Get started with Azure Cosmos DB Table API](create-table-dotnet.md)

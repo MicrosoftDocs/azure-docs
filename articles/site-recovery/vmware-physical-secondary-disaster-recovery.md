@@ -4,8 +4,9 @@ description: Learn how to set up disaster recovery of VMware VMs, or Windows and
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 
 ---

@@ -92,4 +92,4 @@ There are several such phrases: *I*, *a new hybrid automobile*, *Bluetooth*, and
 
 ## Specification
 
-Trees here use the S-expressions from the [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+Trees here use the S-expressions from the [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42).
