@@ -181,7 +181,7 @@ New-AzureRmOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroup
 New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
 
 ```
-In the above example regexDelimiter was defined as "\\n" for newline.  The following delimeters can also be used:
+In the above example regexDelimiter was defined as "\\n" for newline. The log delimeter may also be a timestamp.  These are the supported formats:
 
 | Format | Json RegEx format uses two \\ for every \ in a standard RegEx so if testing in a RegEx app reduce \\ to \ |
 | --- | --- |
