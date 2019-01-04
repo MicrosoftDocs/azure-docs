@@ -15,14 +15,14 @@ ms.topic: article
 
 # Create loops that repeat workflow actions or process arrays in Azure Logic Apps
 
-To process arrays in your logic app, you can create a ["Foreach" loop](#foreach-loop). 
-Your logic app can repeat one or more actions on each item in the array. 
-For limits on the number of array items processed by "Foreach" loops in a logic app run, see 
+To process an array in your logic app, you can create a ["Foreach" loop](#foreach-loop). 
+This loop repeats one or more actions on each item in the array. 
+For limits on the number of array items that "Foreach" loops can process, see 
 [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
 
-To repeat actions until a condition is met or some state has changed, 
-you can create an ["Until" loop](#until-loop). Your logic app first runs all 
-the actions inside the loop and then checks the condition as the last step. 
+To repeat actions until a condition is met or a state has changed, 
+you can create an ["Until" loop](#until-loop). Your logic app runs all 
+the actions inside the loop, and then checks the condition or state. 
 If the condition is met, the loop stops. Otherwise, the loop repeats. 
 For limits on the number of "Until" loops in a logic app run, see 
 [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
@@ -44,13 +44,13 @@ For limits on the number of "Until" loops in a logic app run, see
 
 ## "Foreach" loop
 
-A "Foreach loop" repeats one or more actions on 
-each item in your array and works only on arrays. 
-By default, loop iterations run in parallel. 
-However, sometimes you might want to nest "Foreach" loops 
-or use variables inside loops where you expect predictable results. 
-To run each iteration one at a time, set up a 
-[sequential "Foreach" loop](#sequential-foreach-loop). 
+A "Foreach loop" repeats one or more actions 
+on each array item and works only on arrays. 
+Iterations in a "Foreach" loop run in parallel. 
+However, you can run each iteration one at a time 
+by setting up a [sequential "Foreach" loop](#sequential-foreach-loop). 
+"Foreach" loops must run sequentially when you have nested 
+loops or variables inside loops where you expect predictable results. 
 
 > [!NOTE]
 > Actions in a "Foreach" loop use the `@item()` expression 
