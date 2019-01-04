@@ -10,9 +10,10 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: sajagtap
+ms.custom: seodec18
 ---
 
-# Text moderation
+# Learn text moderation concepts
 
 Use Content Moderator’s machine-assisted text moderation and [human review](Review-Tool-User-Guide/human-in-the-loop.md) capabilities to moderate text content.
 

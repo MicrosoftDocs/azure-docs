@@ -12,7 +12,8 @@ ms.date: 06/25/2017
 ms.author: sajagtap
 ms.custom: seodec18
 ---
-# Manage credentials
+
+# Manage Content Moderator service credentials
 
 Your Content Moderator credentials are created in the following locations:
 

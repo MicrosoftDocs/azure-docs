@@ -13,7 +13,7 @@ ms.author: sajagtap
 ms.custom: seodec18
 ---
 
-# Connectors
+# Connect to other cognitive services
 
 Azure Content Moderator workflows can use other APIs, in addition to Content Moderator APIs. You access other APIs by using a connector in Content Moderator. The connector provides a link to the other APIs.
 

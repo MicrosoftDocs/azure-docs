@@ -13,7 +13,7 @@ ms.author: sajagtap
 ms.custom: seodec18
 ---
 
-# Review moderated images
+# Let human reviewers review images
 
 After you have signed up for Content Moderation and obtained a subscription key, you can try out the image review features.
 

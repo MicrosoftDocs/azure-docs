@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Content Moderator SDK for .NET helper method"
+title: "Quickstart: Create a moderation client for .NET - Content Moderator"
 titlesuffix: Azure Cognitive Services
 description: How to return a Content Moderator client using Azure Content Moderator SDK for .NET
 services: cognitive-services

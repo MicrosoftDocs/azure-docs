@@ -13,7 +13,7 @@ ms.author: sajagtap
 ms.custom: seodec18
 ---
 
-# About Tags
+# Create and use moderation Tags
 
 In addition to the two default tags, **isadult** (**a**) and **isracy** (**r**), you can create custom tags for more targeted scanning. These custom tags are then available for human reviewers to assign to images or text.
 

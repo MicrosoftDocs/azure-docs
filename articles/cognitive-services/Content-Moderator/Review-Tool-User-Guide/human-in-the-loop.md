@@ -13,7 +13,7 @@ ms.author: sajagtap
 ms.custom: seodec18
 ---
 
-# Review tool overview
+# Learn about the Review tool
 
 You get the best results when humans and machines work together on content moderation. Machines effectively augment human reviews where the prediction confidence has to be assisted or tempered within a real world context. The result is a hybrid content moderation process that performs better than if the humans or machines were working alone.
 

@@ -11,8 +11,9 @@ ms.component: content-moderator
 ms.topic: sample
 ms.date: 01/10/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
-# REST API samples in C#
+# Content Moderator REST samples in C#
 
 The following list includes links to code samples built using the Azure Content Moderator API.
 

@@ -12,7 +12,7 @@ ms.author: sajagtap
 ms.custom: seodec18
 ---
 
-# Review text
+# Let human reviewers review text
 
 You can use Azure Content Moderator to review text by using scores and detected tags. Use the information to determine whether content is appropriate. 
 

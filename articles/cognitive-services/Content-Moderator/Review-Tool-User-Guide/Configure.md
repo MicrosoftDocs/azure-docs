@@ -13,7 +13,7 @@ ms.author: sajagtap
 ms.custom: seodec18
 ---
 
-# Review tool settings
+# Configure Review tool settings
 
 Using the Settings tab on the Review tool dashboard, it is easy to define and change many components.
 

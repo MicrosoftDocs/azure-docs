@@ -11,9 +11,10 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 02/04/2018
 ms.author: sajagtap
+ms.custom: seodec18
 ---
 
-# Moderation workflows
+# Automate moderation reviews with workflows
 
 Content Moderator includes tools and APIs to manage workflows. You use workflows with the [Review API's Job operations](review-api.md) to automate human-in-the-loop review creation based on your content policies and thresholds.
 

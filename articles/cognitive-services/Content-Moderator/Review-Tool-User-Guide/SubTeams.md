@@ -13,7 +13,7 @@ ms.author: sajagtap
 ms.custom: seodec18
 ---
 
-# Team and Subteams
+# Manage review teams and subteams
 
 You must create a Team before using Content Moderator. When you sign up and name your team, this team will become your default team. 
 You can only have one team in the Review tool. However, you can create multiple subteams. Subteams are useful for creating escalation teams or teams dedicated to reviewing specific categories of content. For example, you may want send adult content to a different team for more review.

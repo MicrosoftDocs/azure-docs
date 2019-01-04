@@ -10,8 +10,9 @@ ms.component: content-moderator
 ms.topic: sample
 ms.date: 01/10/2018
 ms.author: sajagtap
+ms.custom: seodec18
 ---
-# .NET SDK samples
+# Content Moderator .NET SDK samples
 
 The following list includes links to the code samples built using the Azure Content Moderator SDK for .NET.
 

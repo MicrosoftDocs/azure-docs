@@ -10,9 +10,10 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 1/21/2018
 ms.author: sajagtap
+ms.custom: seodec18
 ---
 
-# Moderation jobs and reviews
+# Content moderation jobs and reviews
 
 Combine machine-assisted moderation with human-in-the-loop capabilities by using the Azure Content Moderator [Review API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) to get the best results for your business.
 
