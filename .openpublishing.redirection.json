@@ -6,11 +6,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Bing-News-Search/quickstart.md",
-            "redirect_url": "/azure/cognitive-services/bing-custom-search/sending-queries",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cognitive-services/Bing-News-Search/sdk.md",
             "redirect_url": "/azure/cognitive-services/bing-custom-search/sdk-csharp-quick-start",
             "redirect_document_id": false
