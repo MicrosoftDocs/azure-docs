@@ -5,7 +5,7 @@ metadata:
   document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
   title: Azure Cosmos DB Documentation - Tutorials, API Reference
   description: Learn how to use Azure Cosmos DB to build globally distributed multi-model databases. Tutorials show you how to build and query document, key/value, and graph databases.
-  services: cosmos-db
+  
   author: SnehaGunda
   ms.author: sngun
   ms.service: cosmos-db

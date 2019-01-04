@@ -93,7 +93,7 @@ If you made any customizations to ApplicationInsights.config, save a copy of it 
     `<InstrumentationKey>` *the instrumentation key you copied* `</InstrumentationKey>`
 * Make sure that the properties of ApplicationInsights.config in Solution Explorer are set to **Build Action = Content, Copy to Output Directory = Copy**.
 
-It's useful to set the instrumentation key in code if you want to [switch the key for different build configurations](app-insights-separate-resources.md). If you set the key in code, you don't have to set it in the `.config` file.
+It's useful to set the instrumentation key in code if you want to [switch the key for different build configurations](../azure-monitor/app/separate-resources.md). If you set the key in code, you don't have to set it in the `.config` file.
 
 ## <a name="run"></a> Run your project
 Use the **F5** to run your application and try it out: open different pages to generate some telemetry.
@@ -115,7 +115,7 @@ Click through any chart to see more detailed metrics. [Learn more about metrics.
 * Use the application, opening different pages so that it generates some telemetry.
 * Open the [Search](../azure-monitor/app/diagnostic-search.md) tile, to see individual events. Sometimes it takes events a little while longer to get through the metrics pipeline.
 * Wait a few seconds and click **Refresh**. Charts refresh themselves periodically, but you can refresh manually if you're waiting for some data to show up.
-* See [Troubleshooting](app-insights-troubleshoot-faq.md).
+* See [Troubleshooting](../azure-monitor/app/troubleshoot-faq.md).
 
 ## Publish your app
 Now deploy your application to your server or to Azure and watch the data accumulate.
