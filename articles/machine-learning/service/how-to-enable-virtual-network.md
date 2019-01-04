@@ -118,7 +118,7 @@ To use a virtual machine or HDInsight cluster in a Virtual Network with your wor
 
     ![Outbound rules for doing experimentation on VM or HDI inside a virtual network](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
     
-1. Attach the vm or cluster to your Azure Machine Learning service workspace. For more information, see the following Jupyter notebooks:
+1. Attach the VM or cluster to your Azure Machine Learning service workspace. For more information, see the following Jupyter notebooks:
 
     * [Train using a remote VM](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb)
     * [Train using an HDI cluster](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb) 
