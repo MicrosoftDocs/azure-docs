@@ -5,10 +5,10 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 1/7/2019
+ms.date: 1/8/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
 #customer intent: As a developer, I want to use Azure Blockchain Workbench to create a blockchain app.
 ---
