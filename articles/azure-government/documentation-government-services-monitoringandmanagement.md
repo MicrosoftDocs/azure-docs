@@ -21,7 +21,7 @@ ms.author: gsacavdm
 This article outlines the monitoring and management services variations and considerations for the Azure Government environment.
 
 ## Advisor
-Advisor is in public preview in Azure Government.
+Advisor is generally available in Azure Government.
 
 For more information, see [Advisor public documentation](../advisor/advisor-overview.md).
 
