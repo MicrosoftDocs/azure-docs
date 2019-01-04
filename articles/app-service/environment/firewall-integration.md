@@ -34,8 +34,8 @@ The steps to lock down egress from your existing ASE with Azure Firewall are:
 
    ![select service endpoints][2]
   
-1. Create an Azure Firewall in the VNet where your ASE is, or will be. [Azure Firewall documenation](https://docs.microsoft.com/azure/firewall/)
-1. From Azure Firewall UI > Rules > Application rule collection, select Add application rule collection. Provide a name, priority, and set Allow. In the FQDN tags section, provide a name, set the source addresses to * and select the App Service Environment FQDN Tag and the Windows. 
+1. Create a subnet in the VNet where your ASE is that is named AzureFirewallSubnet. Follow the directions in the [Azure Firewall documenation](https://docs.microsoft.com/azure/firewall/) to create your Azure Firewall.
+1. From the Azure Firewall UI > Rules > Application rule collection, select Add application rule collection. Provide a name, priority, and set Allow. In the FQDN tags section, provide a name, set the source addresses to * and select the App Service Environment FQDN Tag and the Windows. 
    
    ![Add application rule][1]
    
