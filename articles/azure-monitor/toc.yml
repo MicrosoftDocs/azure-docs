@@ -142,7 +142,7 @@
     - name: Log Analytics
       href: platform/log-faq.md
     - name: Application Insights
-      href: ../application-insights/app-insights-troubleshoot-faq.md?toc=/azure/azure-monitor/toc.json
+      href: app/troubleshoot-faq.md
 - name: How-to guides
   items:
   - name: Plan and prepare
@@ -164,7 +164,7 @@
       - name: Monitor performance in web applications
         href: ../application-insights/app-insights-web-monitor-performance.md?toc=/azure/azure-monitor/toc.json
       - name: Separate development, test, and production
-        href: ../application-insights/app-insights-separate-resources.md?toc=/azure/azure-monitor/toc.json
+        href: app/separate-resources.md
       - name: How do I ... in Application Insights?
         href: app/how-do-i.md
     - name: Manage workspaces
@@ -363,7 +363,7 @@
       - name: Other platforms
         items:
         - name: SharePoint sites
-          href: ../application-insights/app-insights-sharepoint.md?toc=/azure/azure-monitor/toc.json
+          href: app/sharepoint.md
         - name: Dynamics CRM
           href: app/sample-mscrm.md
       - name: Smart Detection
@@ -400,7 +400,7 @@
         - name: Java
           href: app/java-troubleshoot.md
         - name: Usage analytics
-          href: ../application-insights/app-insights-usage-troubleshoot.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-troubleshoot.md
     - name: Azure resources
       items:
       - name: Azure activity logs
@@ -483,7 +483,7 @@
       - name: Visual Studio
         items:
         - name: F5 insights
-          href: ../application-insights/app-insights-visual-studio.md?toc=/azure/azure-monitor/toc.json
+          href: app/visual-studio.md
         - name: Trends
           href: ../application-insights/app-insights-visual-studio-trends.md?toc=/azure/azure-monitor/toc.json
         - name: CodeLens
@@ -491,21 +491,21 @@
       - name: Usage
         items:
         - name: Overview
-          href: ../application-insights/app-insights-usage-overview.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-overview.md
         - name: Send user context
-          href: ../application-insights/app-insights-usage-send-user-context.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-send-user-context.md
         - name: Users, Sessions, Events
-          href: ../application-insights/app-insights-usage-segmentation.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-segmentation.md
         - name: Funnels
-          href: ../application-insights/usage-funnels.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-funnels.md
         - name: Cohorts
-          href: ../application-insights/app-insights-usage-cohorts.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-cohorts.md
         - name: Impact
-          href: ../application-insights/app-insights-usage-impact.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-impact.md
         - name: Retention
-          href: ../application-insights/app-insights-usage-retention.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-retention.md
         - name: User Flows
-          href: ../application-insights/app-insights-usage-flows.md?toc=/azure/azure-monitor/toc.json
+          href: app/usage-flows.md
         - name: Workbooks
           href: ../application-insights/app-insights-usage-workbooks.md?toc=/azure/azure-monitor/toc.json
       - name: Web App Analytics solution

@@ -17,15 +17,15 @@ ms.author: daviste
 
 # Usage analysis with Application Insights
 
-Which features of your web or mobile app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later?  [Azure Application Insights](app-insights-overview.md) helps you gain powerful insights into how people use your app. Every time you update your app, you can assess how well it works for users. With this knowledge, you can make data driven decisions about your next development cycles.
+Which features of your web or mobile app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later?  [Azure Application Insights](../../application-insights/app-insights-overview.md) helps you gain powerful insights into how people use your app. Every time you update your app, you can assess how well it works for users. With this knowledge, you can make data driven decisions about your next development cycles.
 
 ## Send telemetry from your app
 
 The best experience is obtained by installing Application Insights both in your app server code, and in your web pages. The client and server components of your app send telemetry back to the Azure portal for analysis.
 
-1. **Server code:** Install the appropriate module for your [ASP.NET](../azure-monitor/app/asp-net.md), [Azure](app-insights-overview.md), [Java](../azure-monitor/app/java-get-started.md), [Node.js](../azure-monitor/app/nodejs.md), or [other](../azure-monitor/app/platforms.md) app.
+1. **Server code:** Install the appropriate module for your [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../application-insights/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md), or [other](../../azure-monitor/app/platforms.md) app.
 
-    * *Don't want to install server code? Just [create an Azure Application Insights resource](app-insights-create-new-resource.md).*
+    * *Don't want to install server code? Just [create an Azure Application Insights resource](../../application-insights/app-insights-create-new-resource.md).*
 
 2. **Web page code:** Add the following script to your web page before the closing ``</head>``. Replace instrumentation key with the appropriate value for your Application Insights resource:
 
@@ -42,7 +42,7 @@ The best experience is obtained by installing Application Insights both in your 
     ```
     To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK API reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md).
 
-3. **Mobile app code:** Use the App Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](app-insights-mobile-center-quickstart.md).
+3. **Mobile app code:** Use the App Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](../../application-insights/app-insights-mobile-center-quickstart.md).
 
 4. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview blade in Application Insights.
 
@@ -58,14 +58,14 @@ Find out when people use your app, what pages they're most interested in, where 
 
 The Users and Sessions reports filter your data by pages or custom events, and segment them by properties such as location, environment, and page. You can also add your own filters.
 
-![Users](./media/app-insights-usage-overview/users.png)  
+![Users](./media/usage-overview/users.png)  
 
 Insights on the right point out interesting patterns in the set of data.  
 
 * The **Users** report counts the numbers of unique users that access your pages within your chosen time periods. For web apps, users are counted by using cookies. If someone accesses your site with different browsers or client machines, or clears their cookies, then they will be counted more than once.
 * The **Sessions** report counts the number of user sessions that access your site. A session is a period of activity by a user, terminated by a period of inactivity of more than half an hour.
 
-[More about the Users, Sessions, and Events tools](app-insights-usage-segmentation.md)  
+[More about the Users, Sessions, and Events tools](usage-segmentation.md)  
 
 ## Retention - how many users come back?
 
@@ -75,11 +75,11 @@ Retention helps you understand how often your users return to use their app, bas
 - Form hypotheses based on real user data 
 - Determine whether retention is a problem in your product 
 
-![Retention](./media/app-insights-usage-overview/retention.png) 
+![Retention](./media/usage-overview/retention.png) 
 
 The retention controls on top allow you to define specific events and time range to calculate retention. The graph in the middle gives a visual representation of the overall retention percentage by the time range specified. The graph on the bottom represents individual retention in a given time period. This level of detail allows you to understand what your users are doing and what might affect returning users on a more detailed granularity.  
 
-[More about the Retention tool](app-insights-usage-retention.md)
+[More about the Retention tool](usage-retention.md)
 
 ## Custom business events
 
@@ -109,12 +109,12 @@ Or from the server side:
 
 You can attach property values to these events, so that you can filter or split the events when you inspect them in the portal. In addition, a standard set of properties is attached to each event, such as anonymous user ID, which allows you to trace the sequence of activities of an individual user.
 
-Learn more about [custom events](../azure-monitor/app/api-custom-events-metrics.md#trackevent) and [properties](../azure-monitor/app/api-custom-events-metrics.md#properties).
+Learn more about [custom events](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) and [properties](../../azure-monitor/app/api-custom-events-metrics.md#properties).
 
 ### Slice and dice events
 
 In the Users, Sessions, and Events tools, you can slice and dice custom events by user, event name, and properties.
-![Users](./media/app-insights-usage-overview/users.png)  
+![Users](./media/usage-overview/users.png)  
   
 ## Design the telemetry with the app
 
@@ -127,7 +127,7 @@ For this technique, you attach distinct property values to all the telemetry tha
 
 In the Application Insights portal, filter and split your data on the property values, so as to compare the different versions.
 
-To do this, [set up a telemetry initializer](../azure-monitor/app/api-filtering-sampling.md##add-properties-itelemetryinitializer):
+To do this, [set up a telemetry initializer](../../azure-monitor/app/api-filtering-sampling.md##add-properties-itelemetryinitializer):
 
 ```csharp
 
@@ -157,9 +157,9 @@ In the web app initializer such as Global.asax.cs:
 All new TelemetryClients automatically add the property value you specify. Individual telemetry events can override the default values.
 
 ## Next steps
-   - [Users, Sessions, Events](app-insights-usage-segmentation.md)
+   - [Users, Sessions, Events](usage-segmentation.md)
    - [Funnels](usage-funnels.md)
-   - [Retention](app-insights-usage-retention.md)
-   - [User Flows](app-insights-usage-flows.md)
-   - [Workbooks](app-insights-usage-workbooks.md)
-   - [Add user context](app-insights-usage-send-user-context.md)
+   - [Retention](usage-retention.md)
+   - [User Flows](usage-flows.md)
+   - [Workbooks](../../application-insights/app-insights-usage-workbooks.md)
+   - [Add user context](usage-send-user-context.md)
