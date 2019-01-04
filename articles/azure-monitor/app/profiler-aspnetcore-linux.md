@@ -17,11 +17,11 @@ ms.author: mbullwin
 
 This feature is currently in preview.
 
-Find out how much time is spent in each method of your live web application when using [Application Insights](app-insights-overview.md). Application Insights Profiler is now available for ASP.NET Core web apps that are hosted in Linux on Azure App Service. This guide provides step-by-step instructions on how the Profiler traces can be collected for ASP.NET Core Linux web apps.
+Find out how much time is spent in each method of your live web application when using [Application Insights](../../application-insights/app-insights-overview.md). Application Insights Profiler is now available for ASP.NET Core web apps that are hosted in Linux on Azure App Service. This guide provides step-by-step instructions on how the Profiler traces can be collected for ASP.NET Core Linux web apps.
 
 After you complete this walkthrough, your app can collect Profiler traces like the traces that are shown in the image. In this example, the Profiler trace indicates that a particular web request is slow because of time spent waiting. The *hot path* in the code that's slowing the app is marked by a flame icon. The **About** method in the **HomeController** section is slowing the web app because the method is calling the **Thread.Sleep** function.
 
-![Profiler traces](./media/app-insights-profiler-aspnetcore-linux/profiler-traces.png)
+![Profiler traces](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
 ## Prerequisites
 The following instructions apply to all Windows, Linux, and Mac development environments:
@@ -74,18 +74,18 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
 1. Create the web app environment by using App Service on Linux:
 
-    ![Create the Linux web app](./media/app-insights-profiler-aspnetcore-linux/create-linux-appservice.png)
+    ![Create the Linux web app](./media/profiler-aspnetcore-linux/create-linux-appservice.png)
 
 2. Create the deployment credentials:
 
     > [!NOTE]
     > Record your password to use later when deploying your web app.
 
-    ![Create the deployment credentials](./media/app-insights-profiler-aspnetcore-linux/create-deployment-credentials.png)
+    ![Create the deployment credentials](./media/profiler-aspnetcore-linux/create-deployment-credentials.png)
 
 3. Choose the deployment options. Set up a local Git repository in the web app by following the instructions on the Azure portal. A Git repository is automatically created.
 
-    ![Set up the Git repository](./media/app-insights-profiler-aspnetcore-linux/setup-git-repo.png)
+    ![Set up the Git repository](./media/profiler-aspnetcore-linux/setup-git-repo.png)
 
 For more deployment options, see [this article](https://docs.microsoft.com/azure/app-service/containers/choose-deployment-type).
 
@@ -131,7 +131,7 @@ You should see output similar to the following example:
 
 ## Add Application Insights to monitor your web apps
 
-1. [Create an Application Insights resource](./app-insights-create-new-resource.md).
+1. [Create an Application Insights resource](./../../application-insights/app-insights-create-new-resource.md).
 
 2. Copy the **iKey** value of the Application Insights resource and set the following settings in your web apps:
 
@@ -140,7 +140,7 @@ You should see output similar to the following example:
     ASPNETCORE_HOSTINGSTARTUPASSEMBLIES: Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-    ![Configure the app settings](./media/app-insights-profiler-aspnetcore-linux/set-appsettings.png)
+    ![Configure the app settings](./media/profiler-aspnetcore-linux/set-appsettings.png)
 
     When the app settings are changed, the site automatically restarts. After the new settings are applied, the Profiler immediately runs for two minutes. The Profiler then runs for two minutes every hour.
 
@@ -150,7 +150,7 @@ You should see output similar to the following example:
 
 5. Browse to the Application Insights **Performance** pane in the Azure portal. You can view the Profiler traces at the bottom right of the pane.
 
-    ![View Profiler traces](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
+    ![View Profiler traces](./media/profiler-aspnetcore-linux/view-traces.png)
 
 ## Known issues
 
@@ -159,11 +159,11 @@ You should see output similar to the following example:
 > [!NOTE]
 > If you host your app by using App Service on Linux, you don't need to re-enable the Profiler in the **Performance** pane in the Application Insights portal. You can include the NuGet package in your project and set the Application Insights **iKey** value in your web app settings to enable the Profiler.
 
-If you follow the enablement workflow for [Application Insights Profiler for Windows](./app-insights-profiler.md) and select **Enable** in the **Configure Profiler** pane, you receive an error. The enable action tries to install the Windows version of the Profiler agent on the Linux environment.
+If you follow the enablement workflow for [Application Insights Profiler for Windows](./profiler.md) and select **Enable** in the **Configure Profiler** pane, you receive an error. The enable action tries to install the Windows version of the Profiler agent on the Linux environment.
 
 We're working on a resolution for this issue.
 
-![Don't try to re-enable the Profiler in the Performance pane](./media/app-insights-profiler-aspnetcore-linux/issue-enable-profiler.png)
+![Don't try to re-enable the Profiler in the Performance pane](./media/profiler-aspnetcore-linux/issue-enable-profiler.png)
 
 
 ## Next steps

@@ -370,7 +370,7 @@ pool.StartTask = new StartTask()
 Due to the large-scale nature of Azure Batch applications 
 running in production, you might want to limit the amount of data collected by 
 Application Insights to manage costs. 
-See [Sampling in Application Insights](../application-insights/app-insights-sampling.md) for some mechanisms to achieve this.
+See [Sampling in Application Insights](../azure-monitor/app/sampling.md) for some mechanisms to achieve this.
 
 
 ## Next steps
