@@ -40,7 +40,7 @@ Azure Machine Learning service has varying support across different compute targ
 
 <a id="pipeline-only"></a>__*__ Azure Databricks and Azure Data Lake Analytics can __only__ be used in a pipeline. 
 
-You create compute targets for machine learning pipelines as shown in this article, but you use these computes in pipeline steps instead of the methods listed here.  Also, only some pipeline steps use the run configuration described in this article.  For more information about using compute targets in a pipeline see [Create and run a machine learning pipeline](how-to-create-your-first-pipeline.md).
+ You create compute targets for machine learning pipelines as shown in this article, but you use these computes in pipeline steps instead of the methods listed here.  Also, only some pipeline steps use the run configuration described in this article.  For more information about using compute targets in a pipeline see [Create and run a machine learning pipeline](how-to-create-your-first-pipeline.md).
 
 ## What's a run configuration
 
@@ -243,9 +243,9 @@ Now that you’ve attached the compute and configured your run, the next step is
 
 You can access the compute targets that are associated with your workspace in the Azure portal.  You can use the portal to:
 
-* View  compute targets attached to your workspace
-* Create an Azure Machine Learning Compute target
-* Reuse existing compute targets
+* [View  compute targets](#portal-view) attached to your workspace
+* [Create a compute target](#portal-create) in your workspace
+* [Reuse existing compute targets](#portal-reuse)
 
 After a target is created and attached to your workspace, you will use it in your run configuration with a `ComputeTarget` object: 
 
@@ -253,7 +253,7 @@ After a target is created and attached to your workspace, you will use it in you
 myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 ```
 
-### View compute targets
+### <a id="portal-view">View compute targets
 
 
 To see the compute targets for your workspace, use the following steps:
