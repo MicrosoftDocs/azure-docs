@@ -15,22 +15,12 @@ ms.topic: article
 
 # Create loops that repeat workflow actions or process arrays in Azure Logic Apps
 
-To process arrays in your logic app, 
-you can use a ["Foreach" loop](#foreach-loop) or a 
-[sequential "Foreach" loop](#sequential-foreach-loop). 
-By default, the iterations in a "Foreach" loop run in parallel, 
-while the iterations in a sequential "Foreach" loop run one at a time. 
-For example, when you increment or decrement values by setting a variable 
-in a "Foreach" loop, run the loop sequentially. That way, the correct values get assigned. 
-For the highest number of array items that "Foreach" loops 
-can process in a single logic app run, see 
+To process arrays in your logic app, you can use a ["Foreach" loop](#foreach-loop). 
+By default, iterations in a "Foreach" loop run in parallel, 
+but you can also set up a [sequential "Foreach" loop](#sequential-foreach-loop) 
+so that each iteration runs one at a time. For the highest number of array items 
+that "Foreach" loops can process in a single logic app run, see 
 [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
-
-> [!TIP] 
-> If you have a trigger that receives an array 
-> and want to run a workflow for each array item, 
-> you can *debatch* that array with the 
-> [**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
   
 To repeat actions until a condition is met or some state has changed, 
 use an ["Until" loop](#until-loop). Your logic app first runs all 
@@ -38,6 +28,11 @@ the actions inside the loop and then checks the condition as the last step.
 If the condition is met, the loop stops. Otherwise, the loop repeats. 
 For the highest number of "Until" loops in a single logic app run, see 
 [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
+
+If you have a trigger that receives an array 
+and want to run a workflow for each array item, 
+you can *debatch* that array with the 
+[**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
 
 ## Prerequisites
 
@@ -293,7 +288,7 @@ if any of these conditions happen:
 | Property | Default value | Description | 
 | -------- | ------------- | ----------- | 
 | **Count** | 60 | The highest number of loops that run before the loop exits. The default is 60 cycles. | 
-| **Timeout** | PT1H | The most amount of time to run a loop before the loop exits. The default is one hour and is specified in ISO 8601 format. <p>The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop, but the next cycle doesn't start because the limit condition isn't met. | 
+| **Timeout** | PT1H | The most amount of time to run a loop before the loop exits. The default is one hour and is specified in ISO 8601 format. <p>The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. | 
 |||| 
 
 To change these default limits, 
