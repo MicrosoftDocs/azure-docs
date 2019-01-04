@@ -51,7 +51,7 @@ To complete the tutorial, make sure the following is installed:
 
 To connect to your database and create user accounts, use one of the following query tools:
 
-- Query editor in the Azure portal
+- Azure portal query editor
 - SQL Server Management Studio (SSMS)
 - Visual Studio Code (VS Code)
 
@@ -73,23 +73,23 @@ This grants *db_owner* permissions to the *app_admin* account and `SELECT`, `UPD
 
 ## Create a database-level firewall
 
-Create a [database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) for your SQL database.
-
-In the query window, run the following script after replacing the IP addresses with the IP addresses for your environment:
+For this tutorial, use the public IP address of the computer on which you're performing the steps in this tutorial. In the query window, run the following script after replacing the IP addresses with the IP addresses for your environment:
 
    ```sql
    -- Create database-level firewall setting for your public IP address
    EXECUTE sp_set_database_firewall_rule @name = N'myGeoReplicationFirewallRule',@start_ip_address = '0.0.0.0', @end_ip_address = '0.0.0.0';
    ```
 
-Database-level firewall rules replicate automatically to the secondary server. For this tutorial, use the public IP address of the computer on which you're performing the steps in this tutorial. To determine the IP address used for the server-level firewall rule for your computer, see [Create a server-level firewall](sql-database-get-started-portal-firewall.md).  
+Database-level firewall rules replicate automatically to the secondary server. For more information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database).
+
+To determine the IP address used for the server-level firewall rule for your computer, see [Create a server-level firewall](sql-database-get-started-portal-firewall.md).  
 
 ## Create a failover group
 
-Using Azure PowerShell, create an [failover groups](sql-database-auto-failover-group.md) between your existing Azure SQL server and the new empty Azure SQL server in an Azure region, and then add your sample database to the failover group.
+Using Azure PowerShell, create [failover groups](sql-database-auto-failover-group.md) between your existing Azure SQL server and a new Azure SQL server in another region. Then add your sample database to the failover group.
 
 > [!IMPORTANT]
-> The cmdlets here require Azure PowerShell 4.0. [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
+> [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 
 1. Set variables for your server and database:
 
@@ -116,7 +116,7 @@ Using Azure PowerShell, create an [failover groups](sql-database-auto-failover-g
    $mydrserver
    ```
 
-1. Create a failover group between the two servers:
+1. Create a failover group between the servers:
 
    ```powershell
    $myfailovergroup = New-AzureRMSqlDatabaseFailoverGroup `
@@ -145,7 +145,7 @@ Using Azure PowerShell, create an [failover groups](sql-database-auto-failover-g
 
 ## Install Java software
 
-The steps here assume that you're familiar with Java development and are new to working with Azure SQL database. Use Maven to help manage dependencies, build, test, and run your Java project. 
+The steps here assume that you're familiar with Java development and are new to working with Azure SQL database. Use Maven to help manage dependencies, build, test, and run your Java project.
 
 ### Mac OS
 
@@ -157,7 +157,7 @@ brew update
 brew install maven
 ```
 
-For guidance on installing the Java and Maven environment, see [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), select **Java** > **MacOS**, and follow step 1.2 and 1.3 to configure Java and Maven.
+For guidance on installing and configuring the Java and Maven environment, see [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), then select **Java** > **MacOS** and follow step 1.2 and 1.3.
 
 ### Linux (Ubuntu)
 
@@ -167,11 +167,13 @@ Open the terminal and navigate to a directory where you plan to create the Java 
 sudo apt-get install maven
 ```
 
-To install the Java and Maven environment, see [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), select **Java** > **Ubuntu**, and follow step 1.2, 1.3, and 1.4 to configure Java and Maven.
+To install and configure the Java and Maven environment, see [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), then select **Java** > **Ubuntu**, and follow step 1.2, 1.3, and 1.4.
 
 ### Windows
 
-Install [Maven](https://maven.apache.org/download.cgi) using the installer. For detailed guidance on installing and configuring Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), select **Java** > **Windows** and follow step 1.2 and 1.3 to configure Java and Maven.
+Install [Maven](https://maven.apache.org/download.cgi) using the installer.
+
+For guidance on installing and configuring Java and Maven environment, see [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), then select **Java** > **Windows** and follow step 1.2 and 1.3.
 
 ## Create SqlDbSample project
 
@@ -334,7 +336,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the installer. For 
 
 ## Run the project
 
-1. In the command console, execute to following command:
+1. In the command console, run to following command:
 
    ```bash
    mvn package
@@ -344,7 +346,9 @@ Install [Maven](https://maven.apache.org/download.cgi) using the installer. For 
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
+   ```
 
+   ```output
    #######################################
    ## GEO DISTRIBUTED DATABASE TUTORIAL ##
    #######################################
@@ -356,35 +360,35 @@ Install [Maven](https://maven.apache.org/download.cgi) using the installer. For 
 
 ## Perform disaster recovery drill
 
-1. Call manual failover of failover group:
+1. Call manual failover of the failover group:
 
    ```powershell
    Switch-AzureRMSqlDatabaseFailoverGroup `
-   -ResourceGroupName $myresourcegroupname  `
-   -ServerName $mydrservername `
-   -FailoverGroupName $myfailovergroupname
+      -ResourceGroupName $myresourcegroupname `
+      -ServerName $mydrservername `
+      -FailoverGroupName $myfailovergroupname
    ```
 
 1. Observe the application results during failover. Some inserts fail while the DNS cache refreshes.
 
-1. Find out which role your disaster recovery server is performing.
+1. Find out which role your disaster recovery server is performing:
 
    ```powershell
    $mydrserver.ReplicationRole
    ```
 
-1. Failback.
+1. Start failback:
 
    ```powershell
    Switch-AzureRMSqlDatabaseFailoverGroup `
-   -ResourceGroupName $myresourcegroupname  `
-   -ServerName $myservername `
-   -FailoverGroupName $myfailovergroupname
+      -ResourceGroupName $myresourcegroupname `
+      -ServerName $myservername `
+      -FailoverGroupName $myfailovergroupname
    ```
 
 1. Observe the application results during failback. Some inserts fail while the DNS cache refreshes.
 
-1. Find out which role your disaster recovery server is performing.
+1. Find out which role your disaster recovery server is performing:
 
    ```powershell
    $fileovergroup = Get-AzureRMSqlDatabaseFailoverGroup `
