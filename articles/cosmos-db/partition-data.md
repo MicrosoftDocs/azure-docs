@@ -1,12 +1,12 @@
 ---
 title: Partitioning and horizontal scaling in Azure Cosmos DB
 description: Learn about how partitioning works in Azure Cosmos DB, how to configure partitioning and partition keys, and how to pick the right partition key for your application.
-author: aliuy
-
+ms.author: mjbrown
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.author: andrl
+
 
 ---
 

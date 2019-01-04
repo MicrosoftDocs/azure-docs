@@ -10,9 +10,9 @@ ms.topic: conceptual
 keywords: SQL Server cloud, SQL Server in the cloud, PaaS database, cloud SQL Server, DBaaS
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer:
+ms.reviewer: 
 manager: craigg
-ms.date: 01/02/2019
+ms.date: 01/03/2019
 ---
 # Choose the right SQL Server option in Azure - PaaS or IaaS
 
@@ -81,10 +81,11 @@ The following table summarizes the main characteristics of SQL Database and SQL 
 ## Business motivations for choosing Azure SQL Database or SQL Server on Azure VMs
 
 There are several factors that can influence your decision to choose PaaS or IaaS to host your SQL databases:
+
 - [Cost](#cost) - Both PaaS and IaaS option include base price that cover underlying infrastructure and licensing. However, with IaaS option you need to invest additional time and resources to manage your database, while in PaaS you are getting these administration features included in the price. IaaS option enables you to shut-down your resources while you are not using them to decrease the cost, while PaaS version is always running unless if you drop and re-create your resources when they are needed.
 - [Administration](#administration) - PaaS options reduce the amount of time that you need to invest to administer the database. However, it also prevent you to do some custom administration tasks that could improve performance of your workload.
 - [Service-Level Agreement](#service-level-agreement-sla) - Both IaaS and PaaS provide high, industry standard SLA. PaaS option guarantees 99.99% SLA, while IaaS guarantees 99.95% SLA for infrastructure, meaning that you need to implement additional mechanisms to ensure availability of your databases. In the extreme case, if you want to implement High-availability solution that is matching PaaS, you might need to create additional SQL Server in VM and configure AlwaysOn Availability groups, which might double the cost of your database.
-- [Time to move to cloud](#time-to-move-to-cloud) - SQL Server in Azure VM is the exact match of your environment, so migration from on-premises to Azure SQL VM is not different than moving the databases from one on-premises server to another. Managed Instance also enables extremely easy migration; however, there might be some changes that you need to apply before you migrate to Managed Instance.
+- [Time to move to Azure](#market) - SQL Server in Azure VM is the exact match of your environment, so migration from on-premises to Azure SQL VM is not different than moving the databases from one on-premises server to another. Managed Instance also enables extremely easy migration; however, there might be some changes that you need to apply before you migrate to Managed Instance.
 
 These factors will be discussed in more details in the following sections.
 
@@ -96,10 +97,8 @@ Whether you’re a startup that is strapped for cash, or a team in an establishe
 
 Currently, **SQL Database** is sold as a service and is available in several service tiers with different prices for resources, all of which are billed hourly at a fixed rate based on the service tier and compute size you choose.
 With SQL Single Database you can choose a service tier that fits your needs from a wide range of prices starting from 5$/month for Basic Tier.
-With SQL Database Managed Instance, you can also bring your own license. For more information on bring-your-own licensing, see [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/) or use [Azure Hybrid Benefit calculator](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/#sql-database) to see how to **save up to 40%**.
+With SQL Database Managed Instance, you can also bring your own license. For more information on bring-your-own licensing, see [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/) or use [Azure Hybrid Benefit calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) to see how to **save up to 40%**.
 In addition, you are billed for outgoing Internet traffic at regular [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/). You can dynamically adjust service tiers and compute sizes to match your application’s varied throughput needs. For the latest information on the current supported service tiers, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md). You can also create [elastic pools](sql-database-elastic-pool.md) to share resources among database instances to reduce costs and accommodate usage spikes.
-
-
 
 With **SQL Database**, the database software is automatically configured, patched, and upgraded by Microsoft, which reduces your administration costs. In addition, its [built-in backup](sql-database-automated-backups.md) capabilities help you achieve significant cost savings, especially when you have a large number of databases.
 

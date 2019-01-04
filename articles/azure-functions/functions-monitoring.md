@@ -23,7 +23,7 @@ Functions also has [built-in monitoring that doesn't use Application Insights](#
 
 ## Application Insights pricing and limits
 
-You can try out Application Insights integration with Function Apps for free. However, there's a daily limit to how much data can be processed for free, and you might hit that limit during testing. Azure provides portal and email notifications when you're approaching your daily limit.  But if you miss those alerts and hit the limit, new logs won't appear in Application Insights queries. So be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Manage pricing and data volume in Application Insights](../application-insights/app-insights-pricing.md).
+You can try out Application Insights integration with Function Apps for free. However, there's a daily limit to how much data can be processed for free, and you might hit that limit during testing. Azure provides portal and email notifications when you're approaching your daily limit.  But if you miss those alerts and hit the limit, new logs won't appear in Application Insights queries. So be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Manage pricing and data volume in Application Insights](../azure-monitor/app/pricing.md).
 
 ## Enable App Insights integration
 
@@ -118,7 +118,7 @@ On the [Failures](../azure-monitor/app/asp-net-exceptions.md) tab, you can creat
 
 ![Failures](media/functions-monitoring/failures.png)
 
-On the [Performance](../application-insights/app-insights-performance-counters.md) tab, you can analyze performance issues.
+On the [Performance](../azure-monitor/app/performance-counters.md) tab, you can analyze performance issues.
 
 ![Performance](media/functions-monitoring/performance.png)
 
@@ -324,7 +324,7 @@ As noted in the previous section, the runtime aggregates data about function exe
 
 ## Configure sampling
 
-Application Insights has a [sampling](../application-insights/app-insights-sampling.md) feature that can protect you from producing too much telemetry data at times of peak load. When the rate of incoming telemetry exceeds a specified threshold, Application Insights starts to randomly ignore some of the incoming items. The default setting for maximum number of items per second is 5. You can configure sampling in [host.json](functions-host-json.md).  Here's an example:
+Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature that can protect you from producing too much telemetry data at times of peak load. When the rate of incoming telemetry exceeds a specified threshold, Application Insights starts to randomly ignore some of the incoming items. The default setting for maximum number of items per second is 5. You can configure sampling in [host.json](functions-host-json.md).  Here's an example:
 
 ### Version 2.x 
 
@@ -355,7 +355,7 @@ Application Insights has a [sampling](../application-insights/app-insights-sampl
 ```
 
 > [!NOTE]
-> [Sampling](../application-insights/app-insights-sampling.md) is enabled by default. If you appear to be missing data, you may just need to adjust the sampling settings to fit your particular monitoring scenario.
+> [Sampling](../azure-monitor/app/sampling.md) is enabled by default. If you appear to be missing data, you may just need to adjust the sampling settings to fit your particular monitoring scenario.
 
 ## Write logs in C# functions
 
