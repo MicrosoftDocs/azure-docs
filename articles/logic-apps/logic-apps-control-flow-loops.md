@@ -165,17 +165,16 @@ you can use the `Sequential` option by adding the
 
 ``` json
 "actions": {
-    "myForEachLoopName": {
-        "type": "Foreach",
-        "actions": {
-            "Send_an_email": {               
-            }
-        },
-        "foreach": "@triggerBody()?['links']",
-        "runAfter": {},
-        "operationOptions": "Sequential"
-    }
-},
+   "myForEachLoopName": {
+      "type": "Foreach",
+      "actions": {
+         "Send_an_email": { }
+      },
+      "foreach": "@triggerBody()?['links']",
+      "runAfter": {},
+      "operationOptions": "Sequential"
+   }
+}
 ```
 
 <a name="until-loop"></a>
@@ -183,15 +182,15 @@ you can use the `Sequential` option by adding the
 ## "Until" loop
   
 To repeat actions until a condition is met or some state has changed, 
-use an "Until" loop in your logic app workflow. Here are some 
-common use cases where you can use an "Until" loop:
+put those actions in an "Until" loop. Here are some common use cases 
+where you can use an "Until" loop:
 
 * Call an endpoint until you get the response that you want.
 * Create a record in a database, 
 wait until a specific field in that record gets approved, 
 and continue processing. 
 
-For example, at 8:00 AM each day, this logic app increments a variable 
+Starting at 8:00 AM each day, this example logic app increments a variable 
 until the variable's value equals 10. The logic app then sends an email 
 that confirms the current value. 
 
