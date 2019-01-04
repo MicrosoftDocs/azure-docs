@@ -163,7 +163,7 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 ### Configure Deskradar Single Sign-On
 
-1. Log in to your Deskradar instance with administrator account using email and password you defined when you signed up with an invite link.
+1. Sign in to your Deskradar instance with administrator account using email and password you defined when you signed up with an invite link.
 
 2. Open **Team** panel by clicking the icon in the Sidebar.
 
@@ -250,7 +250,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 - You will be signed in to Deskradar directly, if you’re already signed in on Active Directory.
 - You will be redirected to Active Directory Sign In form, if you’re not signed in yet. You can enter your corporate account credentials there to sign in.
-- You will be taken back to Deskradar and signed in to Deskradar upon successful sign in with your corporate account credentials.
+- You will be taken back to Deskradar and signed in to Deskradar upon successful sign-in with your corporate account credentials.
 
 **For using the application in IDP initiated mode follow the below step:**
 
