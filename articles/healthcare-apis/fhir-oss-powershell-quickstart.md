@@ -1,30 +1,30 @@
 ---
-title: Deploy Open Source FHIR Server using PowerShell
-description: Deploy Open Source FHIR Server using PowerShell.
+title: Deploy Open Source FHIR server using PowerShell - Microsoft Healthcare APIs
+description: This quickstart explains how to deploy the Microsoft Open Source FHIR server using PowerShell.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
 ms.topic: quickstart 
-ms.date: 02/11/2019.
+ms.date: 02/11/2019
 ms.author: mihansen
 ---
 
-# Quickstart: Deploy Open Source FHIR Server using PowerShell
+# Quickstart: Deploy Open Source FHIR server using PowerShell
 
-In this quickstart, you can deploy the Open Source Microsoft FHIR Server for Azure Using PowerShell.
+In this quickstart, you'll learn how to deploy the Open Source Microsoft FHIR server for Azure Using PowerShell.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-## Create a Resource Group
+## Create a resource group
 
 ```azurepowershell-interactive
 $fhirServiceName = "MyFhirService"
 $rg = New-AzureRmResourceGroup -Name $fhirServiceName -Location westus2
 ```
 
-## Deploy the FHIR Server template
+## Deploy the FHIR server template
 
 The Microsoft FHIR Server for Azure [GitHub Repository](https://github.com/Microsoft/fhir-server) contains a template that will deploy all necessary resources. Deploy it with:
 
@@ -32,7 +32,7 @@ The Microsoft FHIR Server for Azure [GitHub Repository](https://github.com/Micro
 New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Microsoft/fhir-server/master/samples/templates/default-azuredeploy.json -ResourceGroupName $rg.ResourceGroupName -serviceName $fhirServiceName `
 ```
 
-## Verify FHIR Server is running
+## Verify FHIR server is running
 
 ```azurepowershell-interactive
 $metadataUrl = "https://" + $fhirServiceName + ".azurewebsites.net/metadata" 

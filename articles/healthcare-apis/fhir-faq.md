@@ -1,15 +1,15 @@
 ---
-title: Common Questions
-description: Common Questions
+title: Frequently asked questions (FAQ) - Microsoft Healthcare APIs
+description: This FAQ article answers frequently asked questions about Microsoft Healthcare APIs
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 02/11/2019.
+ms.date: 02/11/2019
 ms.author: mihansen
 ---
 
-# Frequently Asked Questions for Microsoft Healthcare APIs
+# Frequently Asked Questions about Microsoft Healthcare APIs
 
 ## Are the data behind the FHIR APIs stored in Azure?
 
@@ -19,7 +19,7 @@ Yes, the data are stored in managed databases in Azure. The Microsoft Healthcare
 
 We currently support Microsoft Azure Active Directory as the identity provider.
 
-## What version of FHIR is supported?
+## What versions of FHIR are supported?
 
 Currently we support version 3.0.1. R4 will be supported in the future. See [Supported Features](fhir-features-supported.md) for details.
 

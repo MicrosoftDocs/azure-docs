@@ -1,23 +1,23 @@
 ---
-title: Deploy Open Source FHIR Server using Azure CLI
-description: Deploy Open Source FHIR Server using Azure CLI.
+title: Deploy Open Source FHIR server using Azure CLI - Microsoft Healthcare APIs
+description: This quickstart explains how to deploy the Open Source Microsoft FHIR server for Azure.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
 ms.topic: quickstart 
-ms.date: 02/11/2019.
+ms.date: 02/11/2019
 ms.author: mihansen
 ---
 
-# Quickstart: Deploy Open Source FHIR Server using Azure CLI
+# Quickstart: Deploy Open Source FHIR server using Azure CLI
 
-In this quickstart, you'll learn how to deploy an Open Source FHIR Server in Azure using the Azure CLI.
+In this quickstart, you'll learn how to deploy an Open Source FHIR server in Azure using the Azure CLI.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Create Resource Group
+## Create resource group
 
 ```azurecli-interactive
 servicename="myfhirservice"
@@ -32,7 +32,7 @@ The Microsoft FHIR Server for Azure [GitHub Repository](https://github.com/Micro
 az group deployment create -g $servicename --template-uri https://raw.githubusercontent.com/Microsoft/fhir-server/master/samples/templates/default-azuredeploy.json --parameters serviceName=$servicename
 ```
 
-## Verify FHIR Server is running:
+## Verify FHIR Server is running
 
 Obtain a capability statement from the FHIR server with:
 

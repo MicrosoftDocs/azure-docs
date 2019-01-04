@@ -1,4 +1,4 @@
-- name: Microsoft Healthcare APIs Documentation
+- name: Microsoft Healthcare APIs documentation
   href: index.yml
 - name: Overview
   items:
@@ -7,11 +7,11 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy OSS FHIR Server - Portal
+  - name: Deploy OSS FHIR server - Portal
     href: fhir-oss-portal-quickstart.md
   - name: Deploy OSS FHIR Server - PowerShell
     href: fhir-oss-powershell-quickstart.md
-  - name: Deploy OSS FHIR Server - CLI
+  - name: Deploy OSS FHIR server - CLI
     href: fhir-oss-cli-quickstart.md
 - name: Tutorials
   expanded: false
@@ -21,17 +21,17 @@
 - name: How-to guides
   expanded: false
   items:
-  - name: Register Resource Application
+  - name: Register a resource application
     href: register-resource-aad-client-app.md
-  - name: Register Confidential Client Application
+  - name: Register a confidential client application
     href: register-confidential-aad-client-app.md
-  - name: Register Public Client Application
+  - name: Register a public client application
     href: register-public-aad-client-app.md
-  - name: Register Service Client Application
+  - name: Register a service client application
     href: register-service-aad-client-app.md
 - name: Resources
   items:
   - name: FAQ
     href: fhir-faq.md
-  - name: Supported Features
+  - name: Supported features
     href: fhir-features-supported.md

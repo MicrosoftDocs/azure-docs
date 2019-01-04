@@ -1,11 +1,11 @@
 ---
-title: Features
-description: Supported Features
+title: Supported FHIR features - Microsoft Healthcare APIs 
+description: This article explains which features of the FHIR specification that are implemented in Microsoft Healthcare APIs
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 02/11/2019.
+ms.date: 02/11/2019
 ms.author: mihansen
 ---
 
@@ -103,7 +103,7 @@ Currently the FHIR Server open source code includes an implementation for [Azure
 
 Cosmos DB is a globally distributed multi-model (SQL API, MongoDB API, etc.) database. It supports different [consistency levels](../cosmos-db/consistency-levels.md). The default deployment template configures the FHIR Server with `Strong` consistency, but the consistency policy can be modified (generally relaxed) on a request by request basis using the `x-ms-consistency-level` request header.
 
-## Role Based Access Control
+## Role based access control
 
 The FHIR Server uses [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) for access control. Specifically, Role Based Access Control (RBAC) is enforced, if the `FhirServer:Security:Enabled` configuration parameter is set to `true`, and all requests (except `/metadata`) to the FHIR Server must have `Authorization` request header set to `Bearer <TOKEN>`. The token must contain one or more roles as defined in the `roles` claim. A request will be allowed if the token contains a role that allows the specified action on the specified resource.
 

@@ -1,52 +1,62 @@
 ---
-title: Register service application in Azure Active Directory
-description: Register service application in Azure Active Directory
+title: Register a service application in Azure Active Directory - Microsoft Healthcare APIs
+description: This article explains how to register a service application in Azure Active Directory.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
-ms.topic: conceptual 
-ms.date: 02/11/2019.
+ms.topic: conceptual
+ms.date: 02/11/2019
 ms.author: mihansen
 ---
 
 # Register a service client application in Azure Active Directory
 
-In this How-to guide, you'll learn how to register a service client application in Azure Active Directory. Client application registrations are Azure Active Directory representations of applications that can be used to authenticate and obtain tokens. A service client is intended to be used by an application to obtain an access token without interactive authentication of a user. It will have certain application permissions and use an application secret (password) when obtaining access tokens.
+In this article, you'll learn how to register a service client application in Azure Active Directory. Client application registrations are Azure Active Directory representations of applications that can be used to authenticate and obtain tokens. A service client is intended to be used by an application to obtain an access token without interactive authentication of a user. It will have certain application permissions and use an application secret (password) when obtaining access tokens.
 
 Follow the steps below to create a new service client.
 
-## Open the Azure portal's Active Directory section
+## Open app registrations in Azure portal's Active Directory section
 
-Azure Active Directory applications can be registered and edited in the "App registrations" view of the Azure AD section of the Azure portal:
+1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, click **Azure Active Directory**.
 
-![Azure portal. New App Registration.](media/how-to-aad/portal-aad-new-app-registration.png)
+2. In the **Azure Active Directory** blade click **App registrations (Preview)**:
 
-Click the "+ New registration".
+    ![Azure portal. New App Registration.](media/how-to-aad/portal-aad-new-app-registration.png)
+
+3. Click **New registration**.
 
 ## Service client application details
 
-The service client needs a display name and you can also provide a reply URL but it will typically not be used.
+1. The service client needs a display name and you can also provide a reply URL but it will typically not be used.
 
-![Azure portal. New Service Client App Registration.](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-NAME.png)
+    ![Azure portal. New Service Client App Registration.](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-NAME.png)
 
-## API Permissions
+## API permissions
 
-You will need to grant the service client application roles. First you should open the API permissions and select your [FHIR API Resource Application Registration](register-resource-aad-client-app.md):
+You will need to grant the service client application roles. 
 
-![Azure portal. Service Client API Permissions](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-API-PERMISSIONS.png)
+1. Open the **API permissions** and select your [FHIR API Resource Application Registration](register-resource-aad-client-app.md):
 
-Now select the application roles you from the ones that are defined on the resource application:
+    ![Azure portal. Service Client API Permissions](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-API-PERMISSIONS.png)
 
-![Azure portal. Service Client Application Permissions](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-APPLICATION-PERMISSIONS.png)
+2. Select the application roles you from the ones that are defined on the resource application:
 
-You will need to grant consent to the application. If you don't have the permissions required, check with your Azure Active Directory administrator:
+    ![Azure portal. Service Client Application Permissions](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-APPLICATION-PERMISSIONS.png)
 
-![Azure portal. Service Client Admin Consent](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-ADMIN-CONSENT.png)
+3. Grant consent to the application. If you don't have the permissions required, check with your Azure Active Directory administrator:
 
-## Application Secret
+    ![Azure portal. Service Client Admin Consent](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-ADMIN-CONSENT.png)
+
+## Application secret
 
 The service client needs a secret (password), which you will used when obtaining tokens.
 
-![Azure portal. Service Client Secret](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-SECRET.png)
+1. Click **Certificates &amp; secrets**
 
-Provide a duration of the secret. Once it has been generated, it will only be displayed once in the portal. Make a note of it and store in a securely.
+2. Click **New client secret**
+
+    ![Azure portal. Service Client Secret](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-SECRET.png)
+
+3. Provide a duration of the secret.
+
+4. Once it has been generated, it will only be displayed once in the portal. Make a note of it and store in a securely.

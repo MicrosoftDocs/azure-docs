@@ -1,6 +1,6 @@
 ---
-title: Postman FHIR Server Tutorial
-description: This article describes how to use Postman to interact with a FHIR Server in Azure.
+title: Postman FHIR server tutorial - Microsoft Healthcare APIs
+description: This article describes how to access a FHIR API with Postman.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.topic: tutorial
@@ -10,28 +10,28 @@ author: hansenms
 ms.date: 02/11/2019
 ---
 
-# Tutorial: Access FHIR API with Postman FHIR
+# Tutorial: Access FHIR API with Postman
 
-A client application would access a FHIR server through a [REST API](https://www.hl7.org/fhir/http.html). You may also want to interact directly with the FHIR server as you build applications, for example, for debugging purposes. In this tutorial, we will walk through the steps needed to use [Postman](https://www.getpostman.com/) to access the FHIR server. Postman is a tool often used for debugging when building applications that access APIs.
+A client application would access a FHIR API through a [REST API](https://www.hl7.org/fhir/http.html). You may also want to interact directly with the FHIR server as you build applications, for example, for debugging purposes. In this tutorial, we will walk through the steps needed to use [Postman](https://www.getpostman.com/) to access the FHIR server. Postman is a tool often used for debugging when building applications that access APIs.
 
 ## Prerequisites
 
 - A FHIR endpoint in Azure. You can set that up using the Microsoft Healthcare APIs for FHIR. There are quickstarts available for [Azure portal](fhir-oss-portal-quickstart.md), [PowerShell](fhir-oss-powershell-quickstart.md), or [Azure CLI](fhir-oss-cli-quickstart.md).
 - Postman installed. You can get it from [https://www.getpostman.com](https://www.getpostman.com)
 
-## Collect FHIR Server and Authentication details
+## Collect FHIR server and authentication details
 
 In order to use Postman, you will need to know the following details:
 
 - Your FHIR server URL, for example, `https://MYFHIRSERVICE.azurewebsites.net` or `https://MYACCOUNT.microsofthealthcare-apis.com/fhir`
 - The identity provider `Authority` for your FHIR server, for example, `https://login.microsoftonline.com/{TENANT-ID}`
-- The configured `Audience`, which would be set in the [Azure AD resource application registration](register-resource-aad-client-app.md).
+- The configured `audience`, which would be set in the [Azure AD resource application registration](register-resource-aad-client-app.md).
 - The `client_id` (or application ID) of the [client application](register-confidential-aad-client-app.md) you will be using to access the FHIR service.
 - The `client_secret` (or application secret) of the client application.
 
 Finally, you should check that `https://www.getpostman.com/oauth2/callback` is a registered reply URL for your client application.
 
-## Open Postman and connect to FHIR Server
+## Open Postman and connect to FHIR server
 
 Using Postman, do a `GET` request to `https://fhir-server-url/metadata`:
 
@@ -59,7 +59,7 @@ You will need to some details:
 | Token Name            | MYTOKEN                                                                                                         | A name you choose          |
 | Grant Type            | Authorization Code                                                                                              |                            |
 | Callback URL          | `https://www.getpostman.com/oauth2/callback`                                                                      |                            |
-| Auth URL              | `https://login.microsoftonline.com/{TENANT-ID}/oauth2/authorize?resource=https://MYFHIRSERVICE.azurewebsites.net` | resource is the `Audience` |
+| Auth URL              | `https://login.microsoftonline.com/{TENANT-ID}/oauth2/authorize?resource=https://MYFHIRSERVICE.azurewebsites.net` | resource is the `audience` |
 | Access Token URL      | `https://login.microsoftonline.com/{TENANT ID}/oauth2/token`                                                      |                            |
 | Client ID             | `2a73e546-XXX-XXXX-XXXX-35d04139f7cc`                                                                            | Application ID             |
 | Client Secret         | `XXXXXXXX`                                                                                                        | Secret client key          |
@@ -99,7 +99,7 @@ If you inspect the access token with a tool like [https://jwt.ms](https://jwt.ms
 }
 ```
 
-In troubleshooting situations, validating that you have the correct Audience (`aud` claim) is a good place to start
+In troubleshooting situations, validating that you have the correct audience (`aud` claim) is a good place to start
 
 ## Inserting a patient
 
@@ -114,4 +114,3 @@ Hit "Send" and you should see that the patient is successfully created:
 If you repeat the patient search, you should now see the patient record:
 
 ![Patient Created](media/tutorial-postman/postman-patient-found.png)
-

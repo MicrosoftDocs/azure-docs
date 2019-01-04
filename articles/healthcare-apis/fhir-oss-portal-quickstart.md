@@ -1,21 +1,21 @@
 ---
-title: Deploy Open Source FHIR Server using Azure Portal
-description: Deploy Open Source FHIR Server using Azure Portal.
+title: Deploy Open Source FHIR server using Azure Portal - Microsoft Healthcare APIs
+description: This quickstart explains how to deploy the Microsoft Open Source FHIR server using Azure Portal.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
 ms.topic: quickstart 
-ms.date: 02/11/2019.
+ms.date: 02/11/2019
 ms.author: mihansen
 ---
 
-# Quickstart: Deploy Open Source FHIR Server using Azure portal
+# Quickstart: Deploy Open Source FHIR server using Azure portal
 
 In this quickstart, you'll learn how to deploy an Open Source FHIR Server in Azure using the Azure portal. We will use easy deployment links in the [Open Source repository](https://github.com/Microsoft/fhir-server)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## GitHub Open Source Repository
+## GitHub Open Source repository
 
 Navigate to the [GitHub deployment page](https://github.com/Microsoft/fhir-server/blob/master/docs/DefaultDeployment.md) and locate the "Deploy to Azure" buttons:
 

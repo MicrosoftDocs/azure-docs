@@ -1,10 +1,10 @@
 ---
-title: What are Microsoft Healthcare APIs | Microsoft Docs 
-description: Learn how to power interoperable healthcare applications with Microsoft Healthcare APIs.
+title: What are Microsoft Healthcare APIs - Microsoft Healthcare APIs
+description: This article describes Microsoft Healthcare APIs.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
-ms.topic: overview 
+ms.topic: overview
 ms.date: 02/11/2019
 ms.author: mihansen
 ---
@@ -26,7 +26,7 @@ FHIR is an evolving standard and users would want to explore the source code and
 
 Use the OSS FHIR Server if you want to make changes to the code. The PaaS FHIR service is recommended for production use cases (using PHI).
 
-## Get Started
+## Get started
 
 To start working with the FHIR Service, follow the 5-minute quickstarts:
 
