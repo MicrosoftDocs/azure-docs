@@ -67,12 +67,18 @@ with an Outlook.com or Office 365 Outlook account.
 2. Between the RSS trigger and send email action, 
 add a "Foreach" loop. 
 
-   To add a loop between steps, move your 
+   1. To add a loop between steps, move your 
    pointer over the arrow between those steps. 
    Choose the **plus sign** (**+**) that appears, 
-   then choose **Add a for each**.
+   then select **Add an action**.
 
-   ![Add a "Foreach" loop between steps](media/logic-apps-control-flow-loops/add-for-each-loop.png)
+      ![Select "Add an action"](media/logic-apps-control-flow-loops/add-for-each-loop.png)
+
+   1. Under the search box, choose **All**. In the search box, 
+   type "for each" as your filter. From the actions list, 
+   select this action: **For each - Control**
+
+      ![Add "For each" loop](media/logic-apps-control-flow-loops/select-for-each.png)
 
 3. Now build the loop. Under **Select an output from previous steps** 
 after the **Add dynamic content** list appears, 
@@ -151,9 +157,11 @@ loops or variables inside loops where you expect predictable results.
 
    ![On "Foreach" loop, choose "..." > "Settings"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. Turn on the **Sequential** setting, then choose **Done**.
+1. Turn on the **Concurrency Control** setting. 
+Move the **Degree of Parllelism** slider to **1**, 
+and choose **Done**.
 
-   ![Turn on "Foreach" loop's Sequential setting](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
+   ![Turn on "Concurrency Control" setting](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
 If you're working with your logic app's JSON definition, 
 you can use the `Sequential` option by adding the 
