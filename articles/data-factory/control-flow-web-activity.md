@@ -1,6 +1,6 @@
 ---
 title: Web Activity in Azure Data Factory | Microsoft Docs
-description: Learn how you can use Web Activity, one of the control flow activities supported by Data Factory, to invoke a REST endpoint from a pipeline. 
+description: Learn how you can use Web Activity, one of the control flow activities supported by Data Factory, to invoke a REST endpoint from a pipeline.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -17,36 +17,36 @@ ms.author: shlo
 
 ---
 # Web activity in Azure Data Factory
-Web Activity can be used to call a custom REST endpoint from a Data Factory pipeline. You can pass datasets and linked services to be consumed and accessed by the activity. 
+Web Activity can be used to call a custom REST endpoint from a Data Factory pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
 
 ## Syntax
 
 ```json
-{  
+{
    "name":"MyWebActivity",
    "type":"WebActivity",
-   "typeProperties":{  
+   "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
-      "headers":{  
+      "headers":{
          "Content-Type":"application/json"
       },
-      "authentication":{  
-         "type":"ClientCertificate",  
+      "authentication":{
+         "type":"ClientCertificate",
          "pfx":"****",
          "password":"****"
       },
-      "datasets":[  
-         {  
+      "datasets":[
+         {
             "referenceName":"<ConsumedDatasetName>",
             "type":"DatasetReference",
-            "parameters":{  
+            "parameters":{
                ...
             }
          }
       ],
-      "linkedServices":[  
-         {  
+      "linkedServices":[
+         {
             "referenceName":"<ConsumedLinkedServiceName>",
             "type":"LinkedServiceReference"
          }
@@ -89,10 +89,10 @@ The following table shows the requirements for JSON content:
 If authentication is not required, do not include the "authentication" property.
 
 ### Basic
-Specify user name and password to use with the basic authentication. 
+Specify user name and password to use with the basic authentication.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"Basic",
    "username":"****",
    "password":"****"
@@ -100,12 +100,12 @@ Specify user name and password to use with the basic authentication.
 ```
 
 ### Client certificate
-Specify base64-encoded contents of a PFX file and the password. 
+Specify base64-encoded contents of a PFX file and the password.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"ClientCertificate",
-   "pfx":"****",   
+   "pfx":"****",
    "password":"****"
 }
 ```
@@ -122,7 +122,7 @@ Specify the resource uri for which the access token will be requested using the 
 ```
 
 ## Request payload schema
-When you use the POST/PUT method, the body property represents the payload that is sent to the endpoint. You can pass linked services and datasets as part of the payload. Here is the schema for the payload: 
+When you use the POST/PUT method, the body property represents the payload that is sent to the endpoint. You can pass linked services and datasets as part of the payload. Here is the schema for the payload:
 
 ```json
 {
@@ -141,11 +141,11 @@ When you use the POST/PUT method, the body property represents the payload that 
             }
         }]
     }
-} 
+}
 ```
 
 ## Example
-In this example, the web activity in the pipeline calls a REST end point. It passes an Azure SQL linked service and an Azure SQL dataset to the endpoint. The REST end point uses the Azure SQL connection string to connect to the Azure SQL server and returns the name of the instance of SQL server. 
+In this example, the web activity in the pipeline calls a REST end point. It passes an Azure SQL linked service and an Azure SQL dataset to the endpoint. The REST end point uses the Azure SQL connection string to connect to the Azure SQL server and returns the name of the instance of SQL server.
 
 ### Pipeline definition
 
@@ -239,7 +239,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## Next steps
-See other control flow activities supported by Data Factory: 
+See other control flow activities supported by Data Factory:
 
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
 - [For Each Activity](control-flow-for-each-activity.md)
