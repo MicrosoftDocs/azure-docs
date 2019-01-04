@@ -26,13 +26,20 @@ When you create an Azure Machine Learning service workspace, it requires an Azur
 
 To use Machine Learning Compute in a virtual network, use the follow information to understand network requirements:
 
-- The virtual network must be in the same subscription and region as the Azure Machine Learning service workspace
-- The subnet specified for the Machine Learning Compute cluster must have enough unassigned IP addresses to accommodate the number of VMs targeted for the cluster. If the subnet doesn't have enough unassigned IP addresses, the cluster will be partially allocated
+- The virtual network must be in the same subscription and region as the Azure Machine Learning service workspace.
+
+- The subnet specified for the Machine Learning Compute cluster must have enough unassigned IP addresses to accommodate the number of VMs targeted for the cluster. If the subnet doesn't have enough unassigned IP addresses, the cluster will be partially allocated.
+
 - If you plan to secure the virtual network by restricting traffic, you must leave some ports open for the Machine Learning Compute service. For more information, see the [Required ports](#mlcports) section.
-- Check whether your security policies or locks on the virtual network's subscription or resource group restrict a user's permissions to manage the virtual network
+
+- Check whether your security policies or locks on the virtual network's subscription or resource group restrict a user's permissions to manage the virtual network.
+
 - Machine Learning Compute automatically allocates additional networking resources in the resource group containing the virtual network. For each Machine Learning Compute cluster, Azure Machine Learning service allocates the following resources: 
+
     - One network security group (NSG)
+
     - One public IP address
+
     - One load balancer
 
     These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). If you are going to place multiple Machine Learning Compute clusters in one virtual network, you may need to request a quota increase for one or more of these resources.
@@ -41,9 +48,13 @@ To use Machine Learning Compute in a virtual network, use the follow information
 
 > [!IMPORTANT]
 > Machine Learning Compute currently uses the Azure Batch Service to provision VMs in the specified virtual network. The subnet must allow inbound communication from the Batch service to be able to schedule runs on the Machine Learning Compute nodes and outbound communication to communicate with Azure Storage and other resources. Note that Batch adds NSGs at the level of network interfaces (NICs) attached to VMs. These NSGs automatically configure inbound and outbound rules to allow the following traffic:
+>
 >- Inbound TCP traffic on ports 29876 and 29877 from Batch service role IP addresses. 
+> 
 >- Inbound TCP traffic on port 22 to permit remote access.
+> 
 >- Outbound traffic on any port to the virtual network.
+>
 >- Outbound traffic on any port to the internet.
 
 > [!IMPORTANT]
@@ -68,17 +79,14 @@ Follow the steps below to create a Machine Learning Compute cluster that is insi
 1. To configure this compute resource to use a virtual network, use these options:
 
     - __Network configuration__: Select __Advanced__.
+
     - __Resource group__: Select the resource group that contains the virtual network.
+
     - __Virtual network__: Select the virtual network that contains the subnet.
+
     - __Subnet__: Select the subnet that the Machine Learning Compute will use.
 
     ![A screenshot showing virtual network settings for machine learning compute](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
-
-VNet doesn’t seem to be a keyword we should be using; searches for it return:
-•	21 Vianet group inc. stock ticker
-•	VNET fiber
-•	More 21 Vianet stuff
-•	Two or three Azure virtual network docs.
 
 You can now train your model on the newly created compute. For more information, see the [Select and use a compute target for training](how-to-set-up-training-targets.md) document.
 
