@@ -3,7 +3,7 @@ title: Install the Chef client from the Azure portal
 description: Learn how to deploy and configure your Chef client from the Azure portal
 keywords: azure, chef, devops, client, install, portal
 ms.service: virtual-machines-linux
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
