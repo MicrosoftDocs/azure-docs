@@ -144,10 +144,10 @@ logic app's JSON definition instead, for example:
 
 ## "Foreach" loop: Sequential
 
-By default, each cycle in a "Foreach" loop runs in parallel. 
+By default, cycles in a "Foreach" loop run in parallel. 
 To run each cycle sequentially, set the loop's **Sequential** option. 
-For example, suppose you have a variable that increments a value during each cycle. 
-Run that loop sequentially so you get predictable results.  
+"Foreach" loops must run sequentially when you have nested 
+loops or variables inside loops where you expect predictable results. 
 
 1. In the loop's upper right corner, choose **ellipses** (**...**) > **Settings**.
 
@@ -179,18 +179,18 @@ you can use the `Sequential` option by adding the
 
 ## "Until" loop
   
-To repeat actions until a condition is met or some state has changed, 
-put those actions in an "Until" loop. Here are some common use cases 
-where you can use an "Until" loop:
+To repeat actions until a condition gets met or a state changes, 
+put those actions in an "Until" loop. Here are some common 
+scenarios where you can use an "Until" loop:
 
-* Call an endpoint until you get the response that you want.
-* Create a record in a database, 
-wait until a specific field in that record gets approved, 
-and continue processing. 
+* Call an endpoint until you get the response you want.
 
-Starting at 8:00 AM each day, this example logic app increments a variable 
-until the variable's value equals 10. The logic app then sends an email 
-that confirms the current value. 
+* Create a record in a database. Wait until a specific field 
+in that record gets approved. Continue processing. 
+
+Starting at 8:00 AM each day, this example logic app increments 
+a variable until the variable's value equals 10. The logic app 
+then sends an email that confirms the current value. 
 
 > [!NOTE]
 > These steps use Office 365 Outlook, but you can 

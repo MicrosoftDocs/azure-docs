@@ -42,7 +42,7 @@ not the action's name, which is the usual way to reference an action's outputs.
 
 > [!IMPORTANT]
 > By default, cycles in a "Foreach" loop run in parallel. 
-> When you use variables in loops,  
+> When you use variables in loops, 
 > run the loop [sequentially](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) 
 > so variables return predictable results. 
 
