@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 01/04/2019
 ms.author: jeedes
 
 ---
@@ -64,6 +64,7 @@ To configure the integration of CBRE ServiceInsight into Azure AD, you need to a
 4. In the search box, type **CBRE ServiceInsight**, select **CBRE ServiceInsight** from result panel then click **Add** button to add the application.
 
 	 ![CBRE ServiceInsight in the results list](common/search-new-app.png)
+
 ## Configure and test Azure AD single sign-on
 
 In this section, you configure and test Azure AD single sign-on with CBRE ServiceInsight based on a test user called **Britta Simon**.
