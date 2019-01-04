@@ -206,20 +206,23 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
   ![Get the FQDN for an HDInsight cluster in the Azure portal](./media/how-to-set-up-training-targets/hdinsight-overview.png)
 
   ```python
-  from azureml.core.compute import HDInsightCompute, ComputeTarget
+from azureml.core.compute import ComputeTarget, HDInsightCompute
+from azureml.exceptions import ComputeTargetException
 
-  try:
-    # Attach an HDInsight cluster as a compute target
-    attach_config = HDInsightCompute.attach_configuration(address = "<fqdn-or-ipaddress>",
-                                                            ssh_port = 22,
-                                                            username = "<username>",
-                                                            password = None, #if using ssh key
-                                                            private_key_file = "<path-to-key-file>",
-                                                            private_key_phrase = "<key-phrase>")
-    compute = ComputeTarget.attach(ws, "myhdi", attach_config)
-  except UserErrorException as e:
+try:
+    # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
+    attach_config = HDInsightCompute.attach_configuration(address='<fqdn or ipaddress>, 
+                                                          ssh_port=22, 
+                                                          username='<ssh-username>', 
+                                                          password='<ssh-pwd>')
+    hdi_compute = ComputeTarget.attach(workspace=ws, 
+                                       name='myhdi', 
+                                       attach_configuration=attach_config)
+
+except ComputeTargetException as e:
     print("Caught = {}".format(e.message))
-    print("Compute config already attached.")
+
+hdi_compute.wait_for_completion(show_output=True)
   ```
 
   Or you can attach the HDInsight cluster to your workspace [using the Azure portal](#portal-reuse).
