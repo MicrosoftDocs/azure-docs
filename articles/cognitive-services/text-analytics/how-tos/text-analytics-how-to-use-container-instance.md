@@ -228,15 +228,15 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     registry password = ntRFwOFd9AOmcEUvpOdTEMPwN6D/hTAS
 
 
-The following steps are needed to get information needed to connect your Container Registry with the Kubernetes service you will create later in this procedure.
+The following steps are needed to get the required information to connect your Container Registry with the Kubernetes service you will create later in this procedure.
 
 1. Create service principal.
 
-    ```azurecli-interactive
+    ```azurecli
     az ad sp create-for-rbac --skip-assignment
     ```
 
-    Save the appId value for step 3 in this section.
+    Save the appId value for the assignee parameter in step 3, `<appId>`. Save the password for the next section's client-secret parameter `<client-secret>`.
 
     ```json
     {
@@ -250,16 +250,22 @@ The following steps are needed to get information needed to connect your Contain
 
 1. Get Container Registry id.
 
-    ```azurecli-interactive
-    az acr show --resource-group cogserv-container-rg --name pattiowenscogservcontainerregistry --query "id" --output tsv
+    ```azurecli
+    az acr show --resource-group cogserv-container-rg --name pattiowenscogservcontainerregistry --query "id" --o table
     ```
 
-    Save the full id value for step 3 in this section. 
+    Save the output for the scope parameter value, `<acrId>`, in the next step. It looks like:
+
+    ```text
+    /subscriptions/333d9379-a62c-4b5d-84ab-52f2b0fc40ac/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattiocogservcontainerregistry
+    ```
+
+    Save the full value for step 3 in this section. 
 
 1. To grant the correct access for the AKS cluster to use images stored in your Container Registry, create a role assignment. Replace <appId> and <acrId> with the values gathered in the previous two steps.
 
     ```azurecli-interactive
-    az role assignment create --assignee 55962827-4bd0-41c3-aa91-d8cc383a1025 --scope /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/diberry-rg-container/providers/Microsoft.ContainerRegistry/registries/diberrycontainerregistry001 --role Reader
+    az role assignment create --assignee <appId> --scope <acrId> --role Reader
     ```
 
     The result includes the full JSON of the role assignment.
@@ -267,30 +273,34 @@ The following steps are needed to get information needed to connect your Contain
     ```JSON
     {
       "canDelegate": null,
-      "id": "/subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/diberry-rg-container/providers/Microsoft.ContainerRegistry/registries/diberrycontainerregistry001/providers/Microsoft.Authorization/roleAssignments/d85b34d4-b46e-4239-8eab-a10d7bdb95b0",
+      "id": "/subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/diberrycontainerregistry001/providers/Microsoft.Authorization/roleAssignments/d85b34d4-b46e-4239-8eab-a10d7bdb95b0",
       "name": "d85b34d4-b46e-4239-8eab-a10d7bdb95b0",
       "principalId": "b183584b-cec4-4307-8dbc-3fa833b3e394",
-      "resourceGroup": "diberry-rg-container",
+      "resourceGroup": "cogserv-container-rg",
       "roleDefinitionId": "/subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-      "scope": "/subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/diberry-rg-container/providers/Microsoft.ContainerRegistry/registries/diberrycontainerregistry001",
+      "scope": "/subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/diberrycontainerregistry001",
       "type": "Microsoft.Authorization/roleAssignments"
     }
     ```
 
 ## Create Azure Kubernetes service
 
-1. Create service
+1. Create service. All the parameter values are from previous sections except the name parameter. Choose a name that indicates who created and its purpose, such as `pattio-kubernetes-languagedetection`. The container sample originally called for 2 nodes but this procedure will show 1 frontend website load-balanced across two containers for language detection. That makes a total of 3 nodes, shown in the node-count parameter. 
 
-    ```azurecli-interactive
-    az aks create --resource-group diberry-rg-container --name diberryAKSCluster --node-count 3  --service-principal 55962827-4bd0-41c3-aa91-d8cc383a1025  --client-secret ba839221-f513-4e86-b952-5a8fcdb9610c  --generate-ssh-keys
+    ```azurecli
+    az aks create --resource-group cogserv-container-rg --name pattio-kubernetes-languagedetection --node-count 3  --service-principal <appId>  --client-secret <client-secret>  --generate-ssh-keys
     ```
 
-    SSH key files 'C:\Users\diberry\.ssh\id_rsa' and 'C:\Users\diberry\.ssh\id_rsa.pub' have been generated under ~/.ssh to allow SSH access to the VM. If using machines without permanent storage like Azure Cloud Shell without an attached file share, back up your keys to a safe location
+    This step may take a few minutes. The result is: 
+
+    ```text
+    SSH key files 'C:\Users\pattio\.ssh\id_rsa' and 'C:\Users\pattio\.ssh\id_rsa.pub' have been generated under ~/.ssh to allow SSH access to the VM. If using machines without permanent storage like Azure Cloud Shell without an attached file share, back up your keys to a safe location
+    ```
 
 1. Get credentials
 
     ```azurecli-interactive
-    az aks get-credentials --resource-group diberry-rg-container --name diberryAKSCluster
+    az aks get-credentials --resource-group cogserv-container-rg --name diberryAKSCluster
     ```
 
 1. List service
