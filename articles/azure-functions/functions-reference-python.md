@@ -366,7 +366,10 @@ steps:
   displayName: 'Install python tools'
 
 - script: |
-    sudo npm i -g azure-functions-core-tools --unsafe-perm true
+    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+    sudo dpkg -i packages-microsoft-prod.deb
+    sudo apt-get update
+    sudo apt-get install azure-functions-core-tools
   displayName: 'Install Azure Functions Core Tools'
 
 - script: |
