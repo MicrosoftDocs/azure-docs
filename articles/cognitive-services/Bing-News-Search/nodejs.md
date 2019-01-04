@@ -178,8 +178,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Paging news](paging-news.md)
-> [Using decoration markers to highlight text](hit-highlighting.md)
-> [Searching the web for news](search-the-web.md)  
-> [Try it](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
-
+[Create a single-page web app](tutorial-bing-news-search-single-page-app.md)

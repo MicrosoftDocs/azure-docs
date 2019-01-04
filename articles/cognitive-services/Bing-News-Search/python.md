@@ -80,5 +80,4 @@ These descriptions can then be rendered as a table with the search keyword highl
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Paging news](paging-news.md)
-> [Using decoration markers to highlight text](hit-highlighting.md)
+[Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
