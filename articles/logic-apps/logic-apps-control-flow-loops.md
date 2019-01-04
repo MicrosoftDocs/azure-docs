@@ -47,16 +47,22 @@ For limits on the number of "Until" loops in a logic app run, see
 A "Foreach loop" repeats one or more actions 
 on each array item and works only on arrays. 
 Iterations in a "Foreach" loop run in parallel. 
-However, you can run each iteration one at a time 
+However, you can run iterations one at a time 
 by setting up a [sequential "Foreach" loop](#sequential-foreach-loop). 
-"Foreach" loops must run sequentially when you have nested 
-loops or variables inside loops where you expect predictable results. 
 
-> [!NOTE]
-> Actions in a "Foreach" loop use the `@item()` expression 
-> to reference and process each item in the array. 
-> If you specify data that's not in an array, 
-> the logic app workflow fails. 
+Here are some considerations when you use "Foreach" loops:
+
+* In nested loops, iterations always run sequentially, 
+not in parallel. To run operations in parallel for items 
+in a nested loop, create and [call a child logic app](../logic-apps/logic-apps-http-endpoint.md).
+
+* To get predictable results from operations on 
+variables in loops, run those loops sequentially.
+
+* Actions in a "Foreach" loop use the `@item()` expression 
+to reference and process each item in the array. 
+If you specify data that's not in an array, 
+the logic app workflow fails. 
 
 This example logic app sends a daily summary for a website RSS feed. 
 The app uses a "Foreach" loop that sends an email for each new item.
