@@ -119,7 +119,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ![Server metrics graph](./media/app-insights-nodejs-quick-start/009-Black.png)
 
-To learn more about monitoring Node.js, check out the [additional App Insights Node.js documentation](app-insights-nodejs.md).
+To learn more about monitoring Node.js, check out the [additional App Insights Node.js documentation](../azure-monitor/app/nodejs.md).
 
 ## Clean up resources
 

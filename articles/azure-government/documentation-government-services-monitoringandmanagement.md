@@ -21,21 +21,25 @@ ms.author: gsacavdm
 This article outlines the monitoring and management services variations and considerations for the Azure Government environment.
 
 ## Advisor
-Advisor is in public preview in Azure Government.
+Advisor is generally available in Azure Government.
 
 For more information, see [Advisor public documentation](../advisor/advisor-overview.md).
 
 ### Variations
 The following Advisor recommendations are not currently available in Azure Government:
 
-* Security
-  * Security recommendations from Security Center
-* Cost
-  * Optimize virtual machine spend by resizing or shutting down underutilized instances
-  * Eliminate unprovisioned ExpressRoute circuits
+* High Availability
+  * Configure your VPN gateway to active-active for connection resilience
+  * Create Azure Service Health alerts to be notified when Azure issues affect you
+  * Configure Traffic Manager endpoints for resiliency
 * Performance
   * Improve App Service performance and reliability
-  * Improve Azure Cache for Redis performance and reliability
+  * Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
+  * Improve SQL Datawarehouse performance
+* Cost
+  * Buy reserved virtual machines instances to save money over pay-as-you-go costs
+  * Eliminate unprovisioned ExpressRoute circuits
+  * Delete or reconfigure idle virtual network gateways
 
 ## Automation
 Automation is generally available in Azure Government.

@@ -122,7 +122,7 @@ And when viewing the properties of a request, you can see the telemetry events a
 
 ![](./media/java-live/7-instance.png)
 
-[Learn more about metrics.](../../application-insights/app-insights-metrics-explorer.md)
+[Learn more about metrics.](../../azure-monitor/app/metrics-explorer.md)
 
 ## Next steps
 * [Add telemetry to your web pages](javascript.md) to monitor page views and user metrics.

@@ -33,20 +33,20 @@ ms.author: mbullwin
 
 * [Web apps on an IIS server - on-premises or in a VM](../azure-monitor/app/asp-net.md)
 * [Java web apps](../azure-monitor/app/java-get-started.md)
-* [Node.js apps](app-insights-nodejs.md)
+* [Node.js apps](../azure-monitor/app/nodejs.md)
 * [Web apps on Azure](../azure-monitor/app/azure-web-apps.md)
 * [Cloud Services on Azure](../azure-monitor/app/cloudservices.md)
 * [App servers running in Docker](../azure-monitor/app/docker.md)
 * [Single-page web apps](../azure-monitor/app/javascript.md)
 * [Sharepoint](app-insights-sharepoint.md)
 * [Windows desktop app](app-insights-windows-desktop.md)
-* [Other platforms](app-insights-platforms.md)
+* [Other platforms](../azure-monitor/app/platforms.md)
 
 ## Is it free?
 
 Yes, for experimental use. In the basic pricing plan, your application can send a certain allowance of data each month free of charge. The free allowance is large enough to cover development, and publishing an app for a small number of users. You can set a cap to prevent more than a specified amount of data from being processed.
 
-Larger volumes of telemetry are charged by the Gb. We provide some tips on how to [limit your charges](app-insights-pricing.md).
+Larger volumes of telemetry are charged by the Gb. We provide some tips on how to [limit your charges](../azure-monitor/app/pricing.md).
 
 The Enterprise plan incurs a charge for each day that each web server node sends telemetry. It is suitable if you want to use Continuous Export on a large scale.
 
@@ -80,7 +80,7 @@ The details depend on the type of project. For a web application:
 * (New projects only - if you [add Application Insights to an existing project][start], you have to do this manually.) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the master page Views/Shared/_Layout.cshtml
 
 ## How do I upgrade from older SDK versions?
-See the [release notes](app-insights-release-notes.md) for the SDK appropriate to your type of application.
+See the [release notes](../azure-monitor/app/release-notes.md) for the SDK appropriate to your type of application.
 
 ## <a name="update"></a>How can I change which Azure resource my project sends data to?
 In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in ApplicationInsights.config, which determines where the server SDK sends your data. Unless you deselect "Update all," it will also change the key where it appears in your web pages.
@@ -98,7 +98,7 @@ From server web apps:
 * HTTP requests
 * [Dependencies](../azure-monitor/app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue. 
 * [Exceptions](../azure-monitor/app/asp-net-exceptions.md) and stack traces.
-* [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md), [Azure monitoring](../azure-monitor/app/azure-web-apps.md), or the [Application Insights collectd writer](../azure-monitor/app/java-collectd.md).
+* [Performance Counters](../azure-monitor/app/performance-counters.md) - If you use [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md), [Azure monitoring](../azure-monitor/app/azure-web-apps.md), or the [Application Insights collectd writer](../azure-monitor/app/java-collectd.md).
 * [Custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md) that you code.
 * [Trace logs](../azure-monitor/app/asp-net-trace-logs.md) if you configure the appropriate collector.
 
@@ -195,7 +195,7 @@ Use a single resource for all the components or roles in a single business syste
 
 ## Why are the counts in Search and Metrics charts unequal?
 
-[Sampling](app-insights-sampling.md) reduces the number of telemetry items (requests, custom events, and so on) that are actually sent from your app to the portal. In Search, you see the number of items actually received. In metric charts that display a count of events, you see the number of original events that occurred. 
+[Sampling](../azure-monitor/app/sampling.md) reduces the number of telemetry items (requests, custom events, and so on) that are actually sent from your app to the portal. In Search, you see the number of items actually received. In metric charts that display a count of events, you see the number of original events that occurred. 
 
 Each item that is transmitted carries an `itemCount` property that shows how many original events that item represents. To observe sampling in operation, you can run this query in Analytics:
 
@@ -208,7 +208,7 @@ Each item that is transmitted carries an `itemCount` property that shows how man
 
 ### Configuring Application Insights
 
-You can [write PowerShell scripts](app-insights-powershell.md) using Azure Resource Monitor to:
+You can [write PowerShell scripts](../azure-monitor/app/powershell.md) using Azure Resource Monitor to:
 
 * Create and update Application Insights resources.
 * Set the pricing plan.
@@ -235,7 +235,7 @@ This doesn't depend on where your Application Insights resource is hosted. It ju
 
 ## Can I send telemetry to the Application Insights portal?
 
-We recommend you use our SDKs and use the [SDK API](../azure-monitor/app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app-insights-platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
+We recommend you use our SDKs and use the [SDK API](../azure-monitor/app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](../azure-monitor/app/platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
 
 ## Can I monitor an intranet web server?
 
@@ -294,6 +294,6 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 <!--Link references-->
 
 [data]: ../azure-monitor/app/data-retention-privacy.md
-[platforms]: app-insights-platforms.md
+[platforms]: ../azure-monitor/app/platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
