@@ -35,4 +35,4 @@ In each Azure Virtual Network (Vnet), only one subnet can be delegated to Azure 
 
 ## Next steps
 
-[Understand the storage hierarchy](azure-netapp-files-understand-storage-hierarchy.md)
+[Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)

@@ -54,5 +54,5 @@ The following example shows the relationships of the Azure subscription, NetApp 
 
 ## Next steps
 
-[Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-[Register for Azure NetApp Files](azure-netapp-files-register.md)
+- [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+- [Register for Azure NetApp Files](azure-netapp-files-register.md)
