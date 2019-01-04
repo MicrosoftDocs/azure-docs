@@ -181,7 +181,7 @@ choose **Create**, for example:
    If deployment finishes successfully, 
    Azure shows this notification:
 
-   ![Deployment succeeded](./media/connect-virtual-network-vnet-isolated-enironment/deployment-success.png)
+   ![Deployment succeeded](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
    > [!NOTE]
    > If deployment fails or you delete your ISE, 
