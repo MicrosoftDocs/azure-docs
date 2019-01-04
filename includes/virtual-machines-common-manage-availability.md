@@ -28,7 +28,7 @@ To reduce the impact of downtime due to one or more of these events, we recommen
 
 * [Configure multiple virtual machines in an availability set for redundancy]
 * [Use managed disks for VMs in an availability set]
-* [Use Scheduled Events to proactively response to VM impacting events ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Use Scheduled Events to proactively response to VM impacting events ]
 * [Configure each application tier into separate availability sets]
 * [Combine a Load Balancer with availability sets]
 * [Use availability zones to protect from datacenter level failures]
@@ -63,6 +63,10 @@ If you plan to use VMs with [unmanaged disks](../articles/virtual-machines/windo
 2. **Review the [limits](../articles/storage/common/storage-scalability-targets.md) on the number of unmanaged disks in a Storage account** before adding more VHDs to a storage account
 3. **Use separate storage account for each VM in an Availability Set.** Do not share Storage accounts with multiple VMs in the same Availability Set. It is acceptable for VMs across different Availability Sets to share storage accounts if above best practices are followed
 ![Unmanaged disks FDs](./media/virtual-machines-common-manage-availability/umd-updated.png)
+
+## Use Scheduled Events to proactively response to VM impacting events
+
+Subscribing to [scheduled events](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events) allows your VM to be notified about upcoming maintenance events that would impact your VM. Enabling scheduled events gives your virtual machine a minimum amount of time before the maintenance activity is performed. For example Host OS updates that would have an impact on your VM are queued up as events specifying the impact as well as a time at which the maintenance would be performed if no action is taken. Schedule events are also queued up when Azure detects imminent hardware failure that could impact your VM, allowing you to decide when the healing should be performed. Customers can use the event to perform tasks prior to the maintenance such as saving state or failing over to the secondary etc. Once you have completed your logic for gracefully handling the maintenance event, you can approve the outstanding scheduled event to allow the platform to proceed with maintenance.
 
 ## Configure each application tier into separate availability sets
 If your virtual machines are all nearly identical and serve the same purpose for your application, we recommend that you configure an availability set for each tier of your application.  If you place two different tiers in the same availability set, all virtual machines in the same application tier can be rebooted at once. By configuring at least two virtual machines in an availability set for each tier, you guarantee that at least one virtual machine in each tier is available.
