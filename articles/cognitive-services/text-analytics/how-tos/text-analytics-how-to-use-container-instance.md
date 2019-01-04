@@ -114,7 +114,7 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     }
     ```
 
-1. Login to your registry
+1. Login to your Container Registry. You need to login before you can push images to it.
 
     ```azurecli
     az acr login --name pattiocogservcontainerregistry
@@ -130,10 +130,10 @@ In order to deploy the container to the Azure Kubernetes service, the container 
 
     Once the repository is on your local computer, find the website in the [\dotnet\Language\FrontendService](https://github.com/Azure-Samples/cognitive-services-containers-samples/tree/master/dotnet/Language/FrontendService) directory. There is also a python version if you are comfortable with that language instead. This website acts as the client application calling the language detection API hosted in the language detection container.  
 
-1. Build the docker image for this website. Make sure the console is in the FrontendService directory when you run the following command:
+1. Build the docker image for this website. Make sure the console is in the \FrontendService directory where the Dockerfile is located when you run the following command:
 
     ```console
-    docker build -t ta-lang-frontend  .
+    docker build -t language-frontend  .
     ```
 
 1. Verify the image is in the images list on your local machine:
@@ -147,7 +147,7 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     ```console
     PS C:\Users\pattio\repos\cognitive-services-containers-samples\dotnet\Language\FrontendService> docker images
     REPOSITORY                      TAG                      IMAGE ID            CREATED             SIZE
-    ta-lang-frontend                latest                   0faab2f01682        1 minute ago        1.85GB
+    language-frontend                latest                   0faab2f01682        1 minute ago        1.85GB
     ```
 
 1. Tag image with your Azure Container registry. The format of the command is:
@@ -157,18 +157,18 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     Locally your image probably has the tag of latest. In order to track the version on the Container Registry, change the tag to a version format. For this simple example, use `v1`. 
 
     ```console
-    docker tag ta-lang-frontend:latest pattiocogservcontainerregistry.azurecr.io/ta-lang-frontend:v1
+    docker tag language-frontend:latest pattiocogservcontainerregistry.azurecr.io/language-frontend:v1
     ```
 
 1. Push the image to the Azure Container registry. 
 
     ```console
-    docker push pattiocogservcontainerregistry.azurecr.io/ta-lang-frontend:v1
+    docker push pattiocogservcontainerregistry.azurecr.io/language-frontend:v1
     ```
 
-1. Verify the image is in your Container registry. On the Azure portal, on your Container registry, verify the repositories list has this new repository named **ta-lang-frontend**. 
+1. Verify the image is in your Container registry. On the Azure portal, on your Container registry, verify the repositories list has this new repository named **language-frontend**. 
 
-1. Select the **ta-lang-frontend** repository, verify that the only tag in the list is **v1**.
+1. Select the **language-frontend** repository, verify that the only tag in the list is **v1**.
 
     The first image is in your Azure Container Registry. 
 
@@ -199,7 +199,7 @@ In order to deploy the container to the Azure Kubernetes service, the container 
 1. Tag image with your Azure Container registry. Find the latest version and replace the version `1.1.006770001-amd64-preview` if you have a more recent version. 
 
     ```console
-    docker tag mcr.microsoft.com/azure-cognitive-services/language pattiocogservcontainerregistry.azurecr.io/azure-cognitive-services/language:1.1.006770001-amd64-preview
+    docker tag mcr.microsoft.com/azure-cognitive-services/language pattiocogservcontainerregistry.azurecr.io/language:1.1.006770001-amd64-preview
     ```
 
     No results are returned.
@@ -207,7 +207,7 @@ In order to deploy the container to the Azure Kubernetes service, the container 
 1. Push the image to the Azure Container registry. 
 
     ```console
-    docker push pattiocogservcontainerregistry.azurecr.io/azure-cognitive-services/language:1.1.006770001-amd64-preview
+    docker push pattiocogservcontainerregistry.azurecr.io/language:1.1.006770001-amd64-preview
     ```
 
 1. Verify the image is in your Container registry. On the Azure portal, on your Container registry, verify the repositories list has this new repository named **azure-cognitive-services**. 
@@ -220,13 +220,6 @@ In order to deploy the container to the Azure Kubernetes service, the container 
 
 
 ## Get Container Registry credentials
-
-    registry: diberrycontainerregistry001
-    registry resourcegroup:diberry-rg-container
-    registry loginserver = diberrycontainerregistry001.azurecr.io
-    registry username = diberrycontainerregistry001
-    registry password = ntRFwOFd9AOmcEUvpOdTEMPwN6D/hTAS
-
 
 The following steps are needed to get the required information to connect your Container Registry with the Kubernetes service you will create later in this procedure.
 
@@ -273,12 +266,12 @@ The following steps are needed to get the required information to connect your C
     ```JSON
     {
       "canDelegate": null,
-      "id": "/subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/diberrycontainerregistry001/providers/Microsoft.Authorization/roleAssignments/d85b34d4-b46e-4239-8eab-a10d7bdb95b0",
+      "id": "/subscriptions/333d9379-a62c-4b5d-84ab-52f2b0fc40ac/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/diberrycontainerregistry001/providers/Microsoft.Authorization/roleAssignments/d85b34d4-b46e-4239-8eab-a10d7bdb95b0",
       "name": "d85b34d4-b46e-4239-8eab-a10d7bdb95b0",
       "principalId": "b183584b-cec4-4307-8dbc-3fa833b3e394",
       "resourceGroup": "cogserv-container-rg",
-      "roleDefinitionId": "/subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-      "scope": "/subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/diberrycontainerregistry001",
+      "roleDefinitionId": "/subscriptions/333d9379-a62c-4b5d-84ab-52f2b0fc40ac/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+      "scope": "/subscriptions/333d9379-a62c-4b5d-84ab-52f2b0fc40ac/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/diberrycontainerregistry001",
       "type": "Microsoft.Authorization/roleAssignments"
     }
     ```
@@ -293,27 +286,107 @@ The following steps are needed to get the required information to connect your C
 
     This step may take a few minutes. The result is: 
 
-    ```text
-    SSH key files 'C:\Users\pattio\.ssh\id_rsa' and 'C:\Users\pattio\.ssh\id_rsa.pub' have been generated under ~/.ssh to allow SSH access to the VM. If using machines without permanent storage like Azure Cloud Shell without an attached file share, back up your keys to a safe location
+    ```json
+    {
+      "aadProfile": null,
+      "addonProfiles": null,
+      "agentPoolProfiles": [
+        {
+          "count": 3,
+          "dnsPrefix": null,
+          "fqdn": null,
+          "maxPods": 110,
+          "name": "nodepool1",
+          "osDiskSizeGb": 30,
+          "osType": "Linux",
+          "ports": null,
+          "storageProfile": "ManagedDisks",
+          "vmSize": "Standard_DS1_v2",
+          "vnetSubnetId": null
+        }
+      ],
+      "dnsPrefix": "pattio-ku-cogserv--65a101",
+      "enableRbac": true,
+      "fqdn": "pattio-ku-cogserv--65a101-341f1f54.hcp.westus.azmk8s.io",
+      "id": "/subscriptions/333d9379-a62c-4b5d-84ab-52f2b0fc40ac/resourcegroups/cogserv-container-rg/providers/Microsoft.ContainerService/managedClusters/pattio-kubernetes-languagedetection",
+      "kubernetesVersion": "1.9.11",
+      "linuxProfile": {
+        "adminUsername": "azureuser",
+        "ssh": {
+          "publicKeys": [
+            {
+              "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCyXd/YyBKx50GNV5WKxqehxR7qrihRjITjKyAvMqOT5IPxlPssJdVQAFgdYOaJnavJke1BbgR1lXZ49pgDSMeasdIWIQa6qW/15sG/G1/1pHBR0krzQTQtvDfLlablgGUbKVYOlVGtEq2jRsmKsNJWLxvohR2d81mFCAAAAB3NzaC1yc2EAAAADAQABAAABAQCyXd/YyBKx50GNV5WKxqehxR7qrihRjITjKyAvMqOT5IPxlPssJdVQAFgdYOaJnavJke1BbgR1lXZ49pgDSMeasdIWIQa6qW/15sG/G1/1pHBR0krzQTQtvDfLlablgGUbKVYOlVGtEq2jRsmKsNJWLxvohR2d81mFC
+            }
+          ]
+        }
+      },
+      "location": "westus",
+      "name": "pattio-kubernetes-languagedetection",
+      "networkProfile": {
+        "dnsServiceIp": "10.0.0.10",
+        "dockerBridgeCidr": "172.17.0.1/16",
+        "networkPlugin": "kubenet",
+        "networkPolicy": null,
+        "podCidr": "10.244.0.0/16",
+        "serviceCidr": "10.0.0.0/16"
+      },
+      "nodeResourceGroup": "MC_pattio-cogserv-container-rg_pattio-kubernetes-languagedetection_westus",
+      "provisioningState": "Succeeded",
+      "resourceGroup": "cogserv-container-rg",
+      "servicePrincipalProfile": {
+        "clientId": "7778a1cc-8fbb-4daf-800f-2320c2fc6ae1",
+        "keyVaultSecretRef": null,
+        "secret": null
+      },
+      "tags": null,
+      "type": "Microsoft.ContainerService/ManagedClusters"
+    }
     ```
 
-1. Get credentials
+    The service is created but it doesn't have the website container or language detection container yet. When the containers are eventually up and running, later in the procedure, you access the frontend website using the `fqdn` property. 
 
-    ```azurecli-interactive
-    az aks get-credentials --resource-group cogserv-container-rg --name diberryAKSCluster
+1. Get credentials of Kubernetes service. 
+
+    ```azurecli
+    az aks get-credentials --resource-group cogserv-container-rg --name pattio-kubernetes-languagedetection
     ```
 
-1. List service
+## Load the orchestration definition into the Kubernetes service
 
-    az aks list
+This section uses the kubectl cli to talk with the Azure Kubernetes service. 
 
-1. Verify creation
+1. Before loading the orchestration definition, check the kubectl has access to the nodes.
 
+    ```console
     kubectl get nodes
+    ```
 
-1. Create nodes in service
+    The response looks like:
 
-    kubectl apply -f dina-ta-language-aks.yml
+    ```console
+    NAME                       STATUS    ROLES     AGE       VERSION
+    aks-nodepool1-13756812-0   Ready     agent     11m       v1.9.11
+    aks-nodepool1-13756812-1   Ready     agent     11m       v1.9.11
+    aks-nodepool1-13756812-2   Ready     agent     11m       v1.9.11
+    ```
+
+1. Modify the `language.yml` orchestration definition file found in the Cognitive Samples Repository folder downloaded in a [previous section](#get-website-docker-image). It is located in the subdirectory `\Kubernetes\language\`. The file has a `service` section and a `deployment` section for the two container types, the `language-frontend` website and the `language` detection container. The language detection deployment section specifies 1 replica. Change this to 
+
+    |Change|Purpose|Value example|
+    |--|--|
+    |Line 32, `image` property|Image location for the frontend image in your Container Registry|<container-registry-name>.azurecr.io/language:latest|
+    |Line 44, `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|GUID|
+    |Line 78, `image` property|Image location for the language image in your Container Registry||
+    |Line 95, `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|GUID|
+    |Line 91, `apiKey` property|Your text analytics resource key|GUID|
+    |Line 92, `billing` property|The billing endpoint for your text analytics resource.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |Line 70, `replicas` property|Change the value from 1 to 2 so that the website can request across two load-balanced containers.|2|
+
+    Because the apiKey and billing endpoint are set as part of the Kubernetes orchestration definition, the website container doesn't need to know about these or pass them as part of the request. 
+
+1. Load the orchestration definition file for this sample. Make sure the console is in the Cognitive Samples Repository folder downloaded in a [previous section](#get-website-docker-image), in the subdirectory `\Kubernetes\language\`, where the `language.yml` file is located. 
+
+    kubectl apply -f language.yml
 
 1. Delete service
 
