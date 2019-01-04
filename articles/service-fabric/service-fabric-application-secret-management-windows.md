@@ -1,6 +1,6 @@
 ---
-title: Setup an encryption certificate and encrypt secrets on Windows clusters | Microsoft Docs
-description: Learn how to setup an encryption certificate and encrypt secrets on Windows clusters.
+title: Set up an encryption certificate and encrypt secrets on Azure Service Fabric Windows clusters | Microsoft Docs
+description: Learn how to set up an encryption certificate and encrypt secrets on Windows clusters.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 01/04/2019
 ms.author: vturecek
 
 ---
@@ -47,7 +47,7 @@ Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text 
 
 The resulting base-64 encoded string contains both the secret ciphertext as well as information about the certificate that was used to encrypt it.
 
-## Next Steps
+## Next steps
 Learn how to [Specify encrypted secrets in an application.][secret-management-specify-encrypted-secrets-link]
 
 <!-- Links -->
