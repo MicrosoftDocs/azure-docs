@@ -24,7 +24,9 @@ Microsoft Azure Media Services allows for content to be served up with HLS, DASH
 
 [Start your free trial](http://azure.microsoft.com/en-us/pricing/free-trial/)
 
-## Start using
+## Use Azure Media Player demo page
+
+### Start using
 
 You can use the [Azure Media Player demo page](http://aka.ms/amp) to play Azure Media Services samples or your own stream.  
 
@@ -34,11 +36,15 @@ To configure various playback options (for example, tech, language, or encryptio
 
 ![Azure Media Player](./media/azure-media-player/home-page.png)
 
-## Monitor diagnostics of a video stream
+### Monitor diagnostics of a video stream
 
 You can use the [Azure Media Player demo page](http://aka.ms/amp) to monitor diagnostics of a video stream. 
 
 ![Azure Media Player diagnostics](./media/azure-media-player/diagnostics.png)
+
+## Setup Azure Media Player in your HTML
+
+Azure Media Player is easy to set up. It only takes a few moments to get basic playback of media content from your Media Services account. See [Azure Media Player documentation](https://aka.ms/ampdocs) for details on how to set up and configure Azure Media Player. 
 
 ## Next steps
 
