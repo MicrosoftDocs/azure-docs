@@ -137,6 +137,8 @@
     items:
     - name: Create or use existing virtual network
       href: configure-advanced-networking.md
+    - name: Secure pod traffic with network policies
+      href: use-network-policies.md
     - name: Create an internal load balancer
       href: internal-lb.md
     - name: Use a static IP addresses
