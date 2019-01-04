@@ -54,7 +54,7 @@ To copy data using data copy service, you need to create a job. Follow these ste
     
     |Field                          |Value    |
     |-------------------------------|---------|
-    |Job name                       |A unique name less than 230 characters for the job. These characters '<', '>', '\"', ':', '/', '\\', '|', '?', '*' aren't allowed in the job name.        |
+    |Job name                       |A unique name fewer than 230 characters for the job. These characters - `<, >, \, :, /, \\, |, ?, *` aren't allowed in the job name.        |
     |Source location                |Provide the SMB path to the data source in the format: `\\<ServerIPAddress>\<ShareName>` or `\\<ServerName>\<ShareName>`.        |
     |Username                       |Username to access the data source.        |
     |Password                       |Password to access the data source.           |
