@@ -21,7 +21,7 @@ This procedure requires several tools that must be installed locally.
 
 1. Have a valid Azure subscription. The trial and pay-as-you-go subscriptions will both work. 
 1. Install [Git](https://git-scm.com/downloads) for your operating system so you can clone the sample used in this procedure. 
-1. Install [Azure cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or use integrated Azure **Try it** feature next to each code snippet. 
+1. Install [Azure cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or use integrated Azure Cloud shell's **Try it** feature next to each code snippet. 
 1. Install [Docker engine](https://www.docker.com/products/docker-engine) and validate that the docker cli works in a terminal.
 1. Install [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe). 
 
@@ -47,10 +47,48 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     az login
     ```
 
+    The result looks like: 
+
+    ```json
+    {
+      "id": "/subscriptions/333d9379-a62c-4b5d-84ab-52f2b0fc40ac/resourceGroups/cogserv-container-rg",
+      "location": "westus",
+      "managedBy": null,
+      "name": "cogserv-container-rg",
+      "properties": {
+        "provisioningState": "Succeeded"
+      },
+      "tags": null
+    }
+    ```
+
 2. Create a resource group named `cogserv-container-rg` to hold every created in this procedure.
 
     ```azurecli-interactive
     az group create --name cogserv-container-rg --location westus
+    ```
+
+    The result looks like:
+
+    ```json
+    {
+      "adminUserEnabled": false,
+      "creationDate": "2019-01-04T15:23:39.540586+00:00",
+      "id": "/subscriptions/333d9379-a62c-4b5d-84ab-52f2b0fc40ac/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattiocogservcontainerregistry",
+      "location": "westus",
+      "loginServer": "pattiocogservcontainerregistry.azurecr.io",
+      "name": "pattiocogservcontainerregistry",
+      "provisioningState": "Succeeded",
+      "resourceGroup": "cogserv-container-rg",
+      "sku": {
+        "name": "Basic",
+        "tier": "Basic"
+      },
+      "status": null,
+      "storageAccount": null,
+      "tags": {},
+      "type": "Microsoft.ContainerRegistry/registries"
+    }
     ```
 
 3. Create your own Azure Container Registry named `cogservcontainerregistry`. Prepend your login so the name is unique such as `pattiowenscogservcontainerregistry`
