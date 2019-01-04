@@ -1,8 +1,7 @@
 ---
 title: Working with Azure Cosmos DB databases, containers and items 
 description: This article describes how to create and use Azure Cosmos DB databases, containers and items
-author: dharmas
-
+author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/08/2018

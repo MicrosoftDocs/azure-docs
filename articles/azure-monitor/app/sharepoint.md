@@ -19,7 +19,7 @@ Azure Application Insights monitors the availability, performance and usage of y
 ## Create an Application Insights resource
 In the [Azure portal](https://portal.azure.com), create a new Application Insights resource. Choose ASP.NET as the application type.
 
-![Click Properties, select the key, and press ctrl+C](./media/app-insights-sharepoint/001.png)
+![Click Properties, select the key, and press ctrl+C](./media/sharepoint/001.png)
 
 The window that opens is the place where you'll see performance and usage data about your app. To get back to it next time you login to Azure, you should find a tile for it on the start screen. Alternatively click Browse to find it.
 
@@ -54,18 +54,18 @@ If you can edit the site's master page, that will provide monitoring for every p
 
 Check out the master page and edit it using SharePoint Designer or any other editor.
 
-![](./media/app-insights-sharepoint/03-master.png)
+![](./media/sharepoint/03-master.png)
 
 Add the code just before the </head> tag. 
 
-![](./media/app-insights-sharepoint/04-code.png)
+![](./media/sharepoint/04-code.png)
 
 #### Or on individual pages
 To monitor a limited set of pages, add the script separately to each page. 
 
 Insert a web part and embed the code snippet in it.
 
-![](./media/app-insights-sharepoint/05-page.png)
+![](./media/sharepoint/05-page.png)
 
 ## View data about your app
 Redeploy your app.
@@ -74,7 +74,7 @@ Return to your application blade in the [Azure portal](https://portal.azure.com)
 
 The first events will appear in Search. 
 
-![](./media/app-insights-sharepoint/09-search.png)
+![](./media/sharepoint/09-search.png)
 
 Click Refresh after a few seconds if you're expecting more data.
 
@@ -83,7 +83,7 @@ The standard web page code snippet doesn't capture the user id from SharePoint, 
 
 1. Copy your app's instrumentation key from the Essentials drop-down in Application Insights. 
 
-    ![](./media/app-insights-sharepoint/02-props.png)
+    ![](./media/sharepoint/02-props.png)
 
 1. Substitute the instrumentation key for 'XXXX' in the snippet below. 
 2. Embed the script in your SharePoint app instead of the snippet you get from the portal.
@@ -138,8 +138,8 @@ function onRequestFail(sender, args) {
 
 
 ## Next Steps
-* [Web tests](../azure-monitor/app/monitor-web-app-availability.md) to monitor the availability of your site.
-* [Application Insights](app-insights-overview.md) for other types of app.
+* [Web tests](../../azure-monitor/app/monitor-web-app-availability.md) to monitor the availability of your site.
+* [Application Insights](../../application-insights/app-insights-overview.md) for other types of app.
 
 <!--Link references-->
 

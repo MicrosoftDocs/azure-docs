@@ -255,8 +255,8 @@ Have you created an awesome workbook template and want to share it with the comm
 ## Next steps
 - To enable usage experiences, start sending [custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
-    - [Users, Sessions, Events](app-insights-usage-segmentation.md)
-    - [Funnels](usage-funnels.md)
-    - [Retention](app-insights-usage-retention.md)
-    - [User Flows](app-insights-usage-flows.md)
-    - [Add user context](app-insights-usage-send-user-context.md)
+    - [Users, Sessions, Events](../azure-monitor/app/usage-segmentation.md)
+    - [Funnels](../azure-monitor/app/usage-funnels.md)
+    - [Retention](../azure-monitor/app/usage-retention.md)
+    - [User Flows](../azure-monitor/app/usage-flows.md)
+    - [Add user context](../azure-monitor/app/usage-send-user-context.md)

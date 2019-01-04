@@ -7,7 +7,7 @@ author: kgremban
 manager: philmea
 
 ms.author: kgremban
-ms.date: 11/25/2018
+ms.date: 01/03/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: "mvc, seodec18"
@@ -121,7 +121,7 @@ The environment file stores the credentials for your container registry and shar
 
 1. In the VS Code explorer, open **modules** > **CSharpModule** > **Program.cs**.
 
-5. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
+2. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>
@@ -129,13 +129,13 @@ The environment file stores the credentials for your container registry and shar
     using Newtonsoft.Json;                // For JsonConvert
     ```
 
-6. Add the **temperatureThreshold** variable to the **Program** class. This variable sets the value that the measured temperature must exceed for the data to be sent to the IoT hub. 
+3. Add the **temperatureThreshold** variable to the **Program** class. This variable sets the value that the measured temperature must exceed for the data to be sent to the IoT hub. 
 
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-7. Add the **MessageBody**, **Machine**, and **Ambient** classes to the **Program** class. These classes define the expected schema for the body of incoming messages.
+4. Add the **MessageBody**, **Machine**, and **Ambient** classes to the **Program** class. These classes define the expected schema for the body of incoming messages.
 
     ```csharp
     class MessageBody
@@ -156,7 +156,7 @@ The environment file stores the credentials for your container registry and shar
     }
     ```
 
-8. In the **Init** method, the code creates and configures a **ModuleClient** object. This object allows the module to connect to the local Azure IoT Edge runtime to send and receive messages. The connection string that's used in the **Init** method is supplied to the module by the IoT Edge runtime. After creating the **ModuleClient**, the code reads the **temperatureThreshold** value from the module twin's desired properties. The code registers a callback to receive messages from an IoT Edge hub via the **input1** endpoint. Replace the **SetInputMessageHandlerAsync** method with a new one, and add a **SetDesiredPropertyUpdateCallbackAsync** method for updates to the desired properties. To make this change, replace the last line of the **Init** method with the following code:
+5. In the **Init** method, the code creates and configures a **ModuleClient** object. This object allows the module to connect to the local Azure IoT Edge runtime to send and receive messages. The connection string that's used in the **Init** method is supplied to the module by the IoT Edge runtime. After creating the **ModuleClient**, the code reads the **temperatureThreshold** value from the module twin's desired properties. The code registers a callback to receive messages from an IoT Edge hub via the **input1** endpoint. Replace the **SetInputMessageHandlerAsync** method with a new one, and add a **SetDesiredPropertyUpdateCallbackAsync** method for updates to the desired properties. To make this change, replace the last line of the **Init** method with the following code:
 
     ```csharp
     // Register a callback for messages that are received by the module.
@@ -173,7 +173,7 @@ The environment file stores the credentials for your container registry and shar
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
     ```
 
-9. Add the **onDesiredPropertiesUpdate** method to the **Program** class. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
+6. Add the **onDesiredPropertiesUpdate** method to the **Program** class. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
 
     ```csharp
     static Task OnDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
@@ -204,7 +204,7 @@ The environment file stores the credentials for your container registry and shar
     }
     ```
 
-10. Replace the **PipeMessage** method with the **FilterMessages** method. This method is called whenever the module receives a message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin. It also adds the **MessageType** property to the message with the value set to **Alert**. 
+7. Replace the **PipeMessage** method with the **FilterMessages** method. This method is called whenever the module receives a message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin. It also adds the **MessageType** property to the message with the value set to **Alert**. 
 
     ```csharp
     static async Task<MessageResponse> FilterMessages(Message message, object userContext)
@@ -259,17 +259,21 @@ The environment file stores the credentials for your container registry and shar
     }
     ```
 
-11. Save this file.
+8. Save the Program.cs file.
 
-12. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the **$edgeAgent** to deploy two modules: **tempSensor** and **CSharpModule**. The default platform of your IoT Edge is set to **amd64** in your VS Code status bar, which means your **CSharpModule** is set to Linux amd64 version of the image. Change the default platform in status bar from **amd64** to **arm32v7** or **windows-amd64** if that is your IoT Edge device's architecture. 
+9. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the IoT Edge agent which modules to deploy, in this case **tempSensor** and **CSharpModule**, and tells the IoT Edge hub how to route messages between them. The Visual Studio Code extension automatically populates most of the information that you need in the deployment template, but verify that everything is accurate for your solution: 
 
-   Verify that the template has the correct module name, not the default **SampleModule** name that you changed when you created the IoT Edge solution.
+   1. The default platform of your IoT Edge is set to **amd64** in your VS Code status bar, which means your **CSharpModule** is set to Linux amd64 version of the image. Change the default platform in status bar from **amd64** to **arm32v7** or **windows-amd64** if that is your IoT Edge device's architecture. 
 
-   To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
+      ![Update module image platform](./media/tutorial-csharp-module/image-platform.png)
 
-   In the deployment.template.json file, the **registryCredentials** section stores your Docker registry credentials. The actual username and password pairs are stored in the .env file, which is ignored by git.  
+   2. Verify that the template has the correct module name, not the default **SampleModule** name that you changed when you created the IoT Edge solution.
 
-13. Add the **CSharpModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **modulesContent** section, after the **$edgeHub** module twin: 
+   3. The **registryCredentials** section stores your Docker registry credentials, so that the IoT Edge agent can pull your module image. The actual username and password pairs are stored in the .env file, which is ignored by git. Add your credentials to the .env file if you haven't already.  
+
+   4. If you want to learn more about deployment manifests, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
+
+10. Add the **CSharpModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **modulesContent** section, after the **$edgeHub** module twin: 
 
    ```json
        "CSharpModule": {
@@ -281,7 +285,7 @@ The environment file stores the credentials for your container registry and shar
 
    ![Add module twin to deployment template](./media/tutorial-csharp-module/module-twin.png)
 
-14. Save this file.
+11. Save the deployment.template.json file.
 
 
 ## Build your IoT Edge solution
