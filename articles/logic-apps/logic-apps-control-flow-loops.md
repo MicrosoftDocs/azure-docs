@@ -67,8 +67,8 @@ with an Outlook.com or Office 365 Outlook account.
 2. Between the RSS trigger and send email action, 
 add a "Foreach" loop. 
 
-   To add a loop between steps, move the pointer over 
-   the arrow where you want to add the loop. 
+   To add a loop between steps, move your 
+   pointer over the arrow between those steps. 
    Choose the **plus sign** (**+**) that appears, 
    then choose **Add a for each**.
 
