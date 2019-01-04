@@ -90,12 +90,7 @@ Use the sections below to configure these compute targets:
 
 1. **Configure**:  When you use your local computer as a compute target, the training code is run in your [development environment](how-to-configure-environment.md).  If that environment already has the Python packages you need, use the user-managed environment.
 
-    ```python
-    from azureml.core.runconfig import RunConfiguration
-    
-    run_local = RunConfiguration()
-    run_local.user_managed_dependencies = True
-    ```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=local_env)]
 
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
 
@@ -432,12 +427,7 @@ After you create a run configuration, you use it to run your experiment.  The co
 
 First, create an experiment in your workspace.
 
-```
-from azureml.core import Experiment
-experiment_name = 'my experiment'
-
-exp = Experiment(workspace=ws, name=experiment_name)
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=experiment)]
 
 ### Submit the experiment
 
@@ -447,21 +437,11 @@ Submit the experiment with a `ScriptRunConfig` object.  This object includes the
 * **script**: Identify the training script
 * **run_config**: The run configuration, which in turn defines where the training will occur.
 
-
-
 When you submit a training run, a snapshot of the directory that contains your training scripts is created and sent to the compute target. For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshot).
 
 For example, to use [the local target](#local) configuration:
 
-```python
-from azureml.core import ScriptRunConfig
-import os 
-
-script_folder = os.getcwd()
-src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_local)
-run = exp.submit(src)
-run.wait_for_completion(show_output = True)
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=local_submit)]
 
 Switch the same experiment to run in a different compute target by using a different run configuration, such as the [amlcompute target](#amlcompute):
 
