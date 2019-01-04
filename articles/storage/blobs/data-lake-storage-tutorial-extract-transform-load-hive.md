@@ -64,8 +64,8 @@ In this section, you use `scp` to upload data to your HDInsight cluster.
     scp <FILE_NAME>.zip <SSH_USER_NAME>@<CLUSTER_NAME>-ssh.azurehdinsight.net:<FILE_NAME.zip>
     ```
 
-    * Replace \<FILE_NAME. with the name of the .zip file.
-    * Replace \<SSH_USER_NAME*> with the SSH login for the HDInsight cluster.
+    * Replace \<FILE_NAME> with the name of the .zip file.
+    * Replace \<SSH_USER_NAME> with the SSH login for the HDInsight cluster.
     * Replace \<CLUSTER_NAME> with the name of the HDInsight cluster.
 
     If you use a password to authenticate your SSH login, you're prompted for the password. 
@@ -105,13 +105,13 @@ In this section, you use Beeline to run an Apache Hive job.
 
 As part of the Apache Hive job, you import the data from the .csv file into an Apache Hive table named **delays**.
 
-1. From the SSH prompt that you already have for the HDInsight cluster, use the following command to create and edit a new file named **flightdelays.hql**:
+1. From the SSH prompt that you already have for the HDInsight cluster, use the following command to create a new file named **flightdelays.hql**:
 
     ```bash
     nano flightdelays.hql
     ```
 
-1. Use the following text as the contents of this file:
+1. Use the following text for the contents of the file:
 
     ```hiveql
     DROP TABLE delays_raw;
@@ -319,7 +319,7 @@ In the previous sections, you copied the transformed data at the location  `abfs
 
 ## Clean up resources
 
-All resources used in this tutorial are preexisting. No clean up is necessary.
+All resources used in this tutorial are preexisting. No cleanup is necessary.
 
 ## Next steps
 
