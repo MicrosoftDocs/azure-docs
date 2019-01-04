@@ -33488,6 +33488,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path":  "articles/application-insights/app-insights-proactive-diagnostics.md",
+      "redirect_url":  "/azure/azure-monitor/app/proactive-diagnostics",
+      "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-usage-workbooks.md",
+        "redirect_url":  "/azure/azure-monitor/app/usage-workbooks",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-visual-studio-codelens.md",
+        "redirect_url":  "/azure/azure-monitor/app/visual-studio-codelens",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-visual-studio-trends.md",
+        "redirect_url":  "/azure/azure-monitor/app/visual-studio-trends",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-vsts-continuous-monitoring.md",
+        "redirect_url":  "/azure/azure-monitor/app/continuous-monitoring",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-web-monitor-performance.md",
+        "redirect_url":  "/azure/azure-monitor/app/web-monitor-performance",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-windows-desktop.md",
+        "redirect_url":  "/azure/azure-monitor/app/windows-desktop",
+        "redirect_document_id":  true
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
