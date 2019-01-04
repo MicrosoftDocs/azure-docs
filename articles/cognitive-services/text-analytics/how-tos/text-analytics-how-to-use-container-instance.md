@@ -17,7 +17,8 @@ ms.author: diberry
 The following procedure demonstrates how to deploy the language detection container, with a running sample, to the Azure Kubernetes service, and test it in a web browser. 
 
 ## Prerequisites
-This procedure requires several tools that must be installed locally. 
+
+This procedure requires several tools that must be installed and run locally. Do not use Azure Cloud shell. 
 
 1. Have a valid Azure subscription. The trial and pay-as-you-go subscriptions will both work. 
 1. Install [Git](https://git-scm.com/downloads) for your operating system so you can clone the sample used in this procedure. 
@@ -43,22 +44,21 @@ If you have access to more than one subscription, make sure to set the correct s
 
 1. Login to Azure.
 
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
 
 1. Get list of subscriptions
 
-    ```azurecli-interactive
-    az account list
+    ```azurecli
+    az account list -o table
     ```
 
 1. Set Azure subscription default
 
-    ```azurecli-interactive
+    ```azurecli
     az account set --subscription <name or id>
     ```
-
 
 ## Create Azure Container Registry service
 
@@ -66,7 +66,7 @@ In order to deploy the container to the Azure Kubernetes service, the container 
 
 1. Create a resource group named `cogserv-container-rg` to hold every created in this procedure.
 
-    ```azurecli-interactive
+    ```azurecli
     az group create --name cogserv-container-rg --location westus
     ```
 
@@ -85,10 +85,10 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     }
     ```
 
-1. Create your own Azure Container Registry named `cogservcontainerregistry`. Prepend your login so the name is unique such as `pattiowenscogservcontainerregistry`
+1. Create your own Azure Container Registry named `cogservcontainerregistry`. Prepend your login, such as `pattio`, so the name is unique such as `pattiocogservcontainerregistry`. Do not use dashes or underline characters in the name.
 
-    ```azurecli-interactive
-    az acr create --resource-group cogserv-container-rg --name pattiowenscogservcontainerregistry --sku Basic
+    ```azurecli
+    az acr create --resource-group cogserv-container-rg --name pattiocogservcontainerregistry --sku Basic
     ```
 
     Save the results to get the **loginServer** property:
@@ -97,10 +97,10 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     {
         "adminUserEnabled": false,
         "creationDate": "2019-01-02T23:49:53.783549+00:00",
-        "id": "/subscriptions/333d9379-a62c-4b5d-84ab-52f2b0fc40ac/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattiowenscogservcontainerregistry",
+        "id": "/subscriptions/333d9379-a62c-4b5d-84ab-52f2b0fc40ac/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattiocogservcontainerregistry",
         "location": "westus",
-        "loginServer": "pattiowenscogservcontainerregistry.azurecr.io",
-        "name": "pattiowenscogservcontainerregistry",
+        "loginServer": "pattiocogservcontainerregistry.azurecr.io",
+        "name": "pattiocogservcontainerregistry",
         "provisioningState": "Succeeded",
         "resourceGroup": "cogserv-container-rg",
         "sku": {
@@ -114,6 +114,12 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     }
     ```
 
+1. Login to your registry
+
+    ```azurecli
+    az acr login --name pattiocogservcontainerregistry
+    ```
+
 ## Get website docker image 
 
 1. The sample code for the language detection container is in the Cognitive Services container repository. Clone the repository to have a local copy of the sample.
@@ -122,7 +128,7 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     git clone https://github.com/Azure-Samples/cognitive-services-containers-samples
     ```
 
-    Once the repository is on your local computer, find the website in the [\dotnet\Language\FrontendService](https://github.com/Azure-Samples/cognitive-services-containers-samples/tree/master/dotnet/Language/FrontendService) directory. There is also a python version if you are comfortable with that language instead. This website acts as the client application.  
+    Once the repository is on your local computer, find the website in the [\dotnet\Language\FrontendService](https://github.com/Azure-Samples/cognitive-services-containers-samples/tree/master/dotnet/Language/FrontendService) directory. There is also a python version if you are comfortable with that language instead. This website acts as the client application calling the language detection API hosted in the language detection container.  
 
 1. Build the docker image for this website. Make sure the console is in the FrontendService directory when you run the following command:
 
@@ -151,13 +157,13 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     Locally your image probably has the tag of latest. In order to track the version on the Container Registry, change the tag to a version format. For this simple example, use `v1`. 
 
     ```console
-    docker tag ta-lang-frontend:latest pattiowenscogservcontainerregistry.azurecr.io/ta-lang-frontend:v1
+    docker tag ta-lang-frontend:latest pattiocogservcontainerregistry.azurecr.io/ta-lang-frontend:v1
     ```
 
 1. Push the image to the Azure Container registry. 
 
     ```console
-    docker push pattiowenscogservcontainerregistry.azurecr.io/ta-lang-frontend:v1
+    docker push pattiocogservcontainerregistry.azurecr.io/ta-lang-frontend:v1
     ```
 
 1. Verify the image is in your Container registry. On the Azure portal, on your Container registry, verify the repositories list has this new repository named **ta-lang-frontend**. 
@@ -171,7 +177,7 @@ In order to deploy the container to the Azure Kubernetes service, the container 
 1. Pull the latest version of the docker image to the local machine. 
 
     ```console
-    docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
+    docker pull mcr.microsoft.com/azure-cognitive-services/language:1.1.006770001-amd64-preview
     ```
 
 1. Verify the image is in the images list on your local machine:
@@ -191,21 +197,26 @@ In order to deploy the container to the Azure Kubernetes service, the container 
 1. Tag image with your Azure Container registry. Find the latest version and replace the version `1.1.006770001-amd64-preview` if you have a more recent version. 
 
     ```console
-    docker tag mcr.microsoft.com/azure-cognitive-services/language pattiowenscogservcontainerregistry.azurecr.io/azure-cognitive-services/language:1.1.006770001-amd64-preview
+    docker tag mcr.microsoft.com/azure-cognitive-services/language pattiocogservcontainerregistry.azurecr.io/azure-cognitive-services/language:1.1.006770001-amd64-preview
     ```
+
+    No results are returned.
 
 1. Push the image to the Azure Container registry. 
 
     ```console
-    docker push pattiowenscogservcontainerregistry.azurecr.io/azure-cognitive-services/language:1.1.006770001-amd64-preview
+    docker push pattiocogservcontainerregistry.azurecr.io/azure-cognitive-services/language:1.1.006770001-amd64-preview
     ```
 
 1. Verify the image is in your Container registry. On the Azure portal, on your Container registry, verify the repositories list has this new repository named **azure-cognitive-services**. 
 
+    ![Verify the image in the container registry](../media/how-tos/container-instance-sample/view-container-registry-repository.png)
+
 1. Select the **azure-cognitive-services** repository, verify that the only tag in the list is **1.1.006770001-amd64-preview**.
 
-    The second image is in your Azure Container Registry. 
+    ![Verify the tag is in the repository](../media/how-tos/container-instance-sample/view-container-registry-repository-tag-list.png)
 
+    The second image is in your Azure Container Registry. 
 
 
 ## Get Container Registry credentials
