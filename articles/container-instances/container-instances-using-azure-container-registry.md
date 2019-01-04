@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Deploy to Azure Container Instances from Azure Container Registry
 
-[Azure Container Registry](../container-registry/container-registry-intro.md) is an Azure-based, managed container registry serviced used to store private Docker container images. This article describes how to deploy container images stored in an Azure container registry to Azure Container Instances.
+[Azure Container Registry](../container-registry/container-registry-intro.md) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to deploy container images stored in an Azure container registry to Azure Container Instances.
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 You now need to create a service principal and store its credentials in your key vault.
 
-The following command uses [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] to store the service principal's **password** in the vault. 
+The following command uses [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] to store the service principal's **password** in the vault.
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
