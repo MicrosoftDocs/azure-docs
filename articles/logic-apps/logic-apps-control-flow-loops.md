@@ -20,7 +20,7 @@ This loop repeats one or more actions on each item in the array.
 For limits on the number of array items that "Foreach" loops can process, see 
 [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
 
-To repeat actions until a condition is met or a state has changed, 
+To repeat actions until a condition gets met or a state changes, 
 you can create an ["Until" loop](#until-loop). Your logic app runs all 
 the actions inside the loop, and then checks the condition or state. 
 If the condition is met, the loop stops. Otherwise, the loop repeats. 
@@ -58,10 +58,8 @@ loops or variables inside loops where you expect predictable results.
 > If you specify data that's not in an array, 
 > the logic app workflow fails. 
 
-For example, this logic app sends you a 
-daily summary from a website's RSS feed. 
-The app uses a "Foreach" loop that sends 
-an email for each new item found.
+This example logic app sends a daily summary for a website RSS feed. 
+The app uses a "Foreach" loop that sends an email for each new item.
 
 1. [Create this sample logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 with an Outlook.com or Office 365 Outlook account.
