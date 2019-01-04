@@ -137,9 +137,9 @@ and then choose **Review + create**, for example:
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you want to create your environment |
    | **Integration Service Environment Name** | Yes | <*environment-name*> | The name to give your environment | 
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment | 
-   | **Capacity** | Yes | 0, 1, 2, 3 | The number of processing units to use for this ISE resource | 
+   | **Additional capacity** | Yes | 0, 1, 2, 3 | The number of processing units to use for this ISE resource | 
    | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, you can create one here. <p>**Important**: You can *only* perform this injection when you create your ISE. However, before you can create this relationship, make sure you already [set up role-based access control in your virtual network for Azure Logic Apps](#vnet-access). | 
-   | **Subnets** | Yes | <*IP-address-range*> | An ISE requires four *empty* subnets. These subnets are undelegated to any service and are used for creating resources in your environment. You *can't change* these IP ranges after you create your environment. <p><p>To create each subnet, [follow the steps under this table](#create-subnet). Each subnet must meet these criteria: <p>- Must not exist in the same address range for your selected virtual network nor any other private IP addresses where the virtual network is connected. <br>- Uses a name that doesn't start with a number or a hyphen. <br>- Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>- Requires a Class B address space. <br>- Includes a `/27`. For example, each subnet here specifies a 32-bit address range: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, and `10.0.0.96/27`. <br>- Must be empty. |
+   | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets. These subnets are not delegated to any service and are used for creating resources in your environment. You *can't change* these subnet addresses after you create your environment. <p><p>To create each subnet, [follow the steps under this table](#create-subnet). Each subnet must meet these criteria: <p>- Must be empty. <br>- Uses a name that doesn't start with a number or a hyphen. <br>- Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) and a Class B address space. <br>- Includes at least a `/27` in the address space so the subnet gets at least 32 addresses. Entities in each subnet must have at least 32 addresses. <p>Here is the formula for calculating the number of addresses: <p>*a*.*b*.*c*.*d*/*n* where *n* provides 2<sup>(32-*n*)</sup> addresses <p>So for example: <p>- `10.0.0.0/24` has 256 addresses because 2<sup>(32-24)</sup> is 2<sup>8</sup> or 256 addresses. <br>- `10.0.0.0/27` has 32 addresses because 2<sup>(32-27)</sup> is 2<sup>5</sup> or 32 addresses. <br>- `10.0.0.0/32` has only one address because 2<sup>(32-32)</sup> is 2<sup>0</sup> or one address. |
    |||||
 
    <a name="create-subnet"></a>
@@ -181,7 +181,7 @@ choose **Create**, for example:
    If deployment finishes successfully, 
    Azure shows this notification:
 
-   ![Deployment succeeded](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+   ![Deployment succeeded](./media/connect-virtual-network-vnet-isolated-enironment/deployment-success.png)
 
    > [!NOTE]
    > If deployment fails or you delete your ISE, 
