@@ -18,15 +18,15 @@ This article helps you troubleshoot issues when deploying and managing the [Azur
 Source machine registers with configuration server during mobility agent installation. Any failures during this step can be debugged by following the guidelines given below:
 
 1. Go to C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log file. ProgramData can be a hidden folder. If not able to locate, try to un-hide the folder. The failures can be due to multiple issues.
-2. Search for string “No Valid IP Address found”. If the string is found,
+2. Search for string **“No Valid IP Address found”**. If the string is found,
     - Validate if requested host id is same as source machine.
     - The source machine should have at least one IP address assigned to the physical NIC for agent registration with the CS to succeed.
     - Run the command on source machine `> ipconfig /all` (for Windows OS) and `# ifconfig -a` (for Linux OS) to get all IP addresses of source machine.
     - Please note that agent registration requires a valid IP v4 address assigned to the physical NIC.
-3. If the above string is not found, search for string "Reason"=>"NULL". If found,
+3. If the above string is not found, search for string **"Reason"=>"NULL"**. If found,
     - When source machine uses an empty host if to register with configuration server, this error occurs.
     - After resolving the issues, follow guidelines given [here](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) to retry the registration manually.
-4. If the above string is not found, go to source machine, and check the log C:\ProgramData\ASRSetupLogs\UploadedLogs\* ASRUnifiedAgentInstaller.log ProgramData can be a hidden folder. If not able to locate, try to un-hide the folder. The failures can be due to multiple issues. Search for string “post request: (7) - Couldn't connect to server”. If found,
+4. If the above string is not found, **go to source machine**, and check the log C:\ProgramData\ASRSetupLogs\UploadedLogs\* ASRUnifiedAgentInstaller.log ProgramData can be a hidden folder. If not able to locate, try to un-hide the folder. The failures can be due to multiple issues. Search for string **“post request: (7) - Couldn't connect to server”**. If found,
     - Resolve the network issues between the source machine and configuration server. Verify that configuration server is reachable from source machine using network tools like ping, traceroute, web browser etc., Make sure that source machine is able to reach configuration server through port 443.
     - Check if there are any firewall rules on source machine are blocking the connection between source machine and configuration server. Work with the your network admin to unblock the connection issues.
     - Ensure the folders mentioned [here](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) are excluded from the antivirus software.
