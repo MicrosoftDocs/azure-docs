@@ -1,9 +1,7 @@
 ---
 title: Learn how to manage conflicts between regions in Azure Cosmos DB
 description: Learn how to manage conflicts in Azure Cosmos DB
-services: cosmos-db
 author: christopheranderson
-
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
