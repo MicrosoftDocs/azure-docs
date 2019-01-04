@@ -12,7 +12,7 @@ ms.date: 12/07/2018
 ms.author: azfuncdf
 ---
 
-# Diagnostics in Durable Functions (Azure Functions)
+# Diagnostics in Durable Functions in Azure
 
 There are several options for diagnosing issues with [Durable Functions](durable-functions-overview.md). Some of these options are the same for regular functions and some of them are unique to Durable Functions.
 

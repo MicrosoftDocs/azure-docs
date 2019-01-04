@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 01/04/2019
 ---
 
 # Use Azure storage with Azure HDInsight clusters
@@ -26,13 +26,16 @@ Azure storage is a robust, general-purpose storage solution that integrates seam
 
 | Storage account type | Supported services | Supported performance tiers | Supported access tiers |
 |----------------------|--------------------|-----------------------------|------------------------|
-| General-purpose V2   | Blob               | Standard                    | Hot, Cool, Archive3    |
+| General-purpose V2   | Blob               | Standard                    | Hot, Cool, Archive*    |
 | General-purpose V1   | Blob               | Standard                    | N/A                    |
-| Blob storage         | Blob               | Standard                    | Hot, Cool, Archive3    |
+| Blob storage         | Blob               | Standard                    | Hot, Cool, Archive*    |
 
 We do not recommend that you use the default blob container for storing business data. Deleting the default blob container after each use to reduce storage cost is a good practice. Note that the default container contains application and system logs. Make sure to retrieve the logs before deleting the container.
 
 Sharing one blob container as the default file system for multiple clusters is not supported.
+ 
+ > [!NOTE]  
+ > The Archive access tier is an offline tier that has a several hour retrieval latency and is not recommended for use with HDInsight. For more information, see <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier">Archive access tier</a>.
 
 ## HDInsight storage architecture
 The following diagram provides an abstract view of the HDInsight storage architecture of using Azure Storage:
