@@ -1,6 +1,6 @@
 ---
-title: Secure a single database in Azure SQL database | Microsoft Docs
-description: Learn about techniques and features to secure a single database in Azure SQL database.
+title: Secure a single database in Azure SQL Database | Microsoft Docs
+description: Learn about techniques and features to secure a single database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,7 +13,7 @@ ms.date: 12/18/2018
 ---
 # Tutorial: Secure a single database
 
-Azure SQL database secures data in a single SQL database by allowing you to:
+Azure SQL Database secures data in a single SQL database by allowing you to:
 
 - Limit access using firewall rules
 - Use authentication mechanisms that require identity
@@ -21,7 +21,7 @@ Azure SQL database secures data in a single SQL database by allowing you to:
 - Enable security features
 
 > [!NOTE]
-> An Azure SQL database on a managed instance is secured using network security rules and private endpoints as described in [Azure SQL database managed instance](sql-database-managed-instance-index.yml) and [connectivity architecture](sql-database-managed-instance-connectivity-architecture.md).
+> An Azure SQL Database on a managed instance is secured using network security rules and private endpoints as described in [Azure SQL Database managed instance](sql-database-managed-instance-index.yml) and [connectivity architecture](sql-database-managed-instance-connectivity-architecture.md).
 
 You can improve your database security with just a few simple steps. In this tutorial you learn how to:
 
@@ -31,7 +31,7 @@ You can improve your database security with just a few simple steps. In this tut
 > - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
 > - Enable security features, such as threat protection, auditing, data masking, and encryption
 
-To learn more, see the [Azure SQL database security overview](/azure/sql-database/sql-database-security-index) and [capabilities](sql-database-security-overview.md) articles.
+To learn more, see the [Azure SQL Database security overview](/azure/sql-database/sql-database-security-index) and [capabilities](sql-database-security-overview.md) articles.
 
 ## Prerequisites
 
@@ -49,12 +49,12 @@ For all steps in the tutorial, sign in to [Azure portal](https://portal.azure.co
 
 ## Create firewall rules
 
-SQL databases are protected by firewalls in Azure. By default, all connections to the server and database are rejected, except for connections from other Azure services. To learn more, see [Azure SQL database server-level and database-level firewall rules](sql-database-firewall-configure.md).
+SQL databases are protected by firewalls in Azure. By default, all connections to the server and database are rejected, except for connections from other Azure services. To learn more, see [Azure SQL Database server-level and database-level firewall rules](sql-database-firewall-configure.md).
 
 Set **Allow access to Azure services** to **OFF** for the most secure configuration. Then, create a [reserved IP (classic deployment)](../virtual-network/virtual-networks-reserved-public-ip.md) for the resource that needs to connect, such as an Azure VM or cloud service, and only allow that IP address access through the firewall. If you're using the [resource manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) deployment model, a dedicated public IP address is required for each resource.
 
 > [!NOTE]
-> SQL database communicates over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you can't connect to the Azure SQL database server unless your administrator opens port 1433.
+> SQL database communicates over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you can't connect to the Azure SQL Database server unless your administrator opens port 1433.
 
 ### Set up server-level firewall rules
 
@@ -105,7 +105,7 @@ To setup a database-level firewall rule:
 
 ## Create an Azure AD admin
 
-Make sure you're using the appropriate Azure Active Directory (AD) managed domain. To select the AD domain, use the upper-right corner of the Azure portal. This process confirms the same subscription is used for both Azure AD and the SQL Server hosting your Azure SQL database or data warehouse.
+Make sure you're using the appropriate Azure Active Directory (AD) managed domain. To select the AD domain, use the upper-right corner of the Azure portal. This process confirms the same subscription is used for both Azure AD and the SQL Server hosting your Azure SQL Database or data warehouse.
 
    ![choose-ad](./media/sql-database-security-tutorial/8choose-ad.png)
 
@@ -225,11 +225,11 @@ To copy a secure connection string:
 
 ## Enable security features
 
-Azure SQL database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Advanced threat detection](sql-advanced-threat-protection.md), [Auditing](sql-database-auditing.md), [Dynamic data masking](sql-database-dynamic-data-masking-get-started.md), and [Transparent data encryption](transparent-data-encryption-azure-sql.md).
+Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Advanced threat detection](sql-advanced-threat-protection.md), [Auditing](sql-database-auditing.md), [Dynamic data masking](sql-database-dynamic-data-masking-get-started.md), and [Transparent data encryption](transparent-data-encryption-azure-sql.md).
 
 ### Advanced threat protection
 
-The advanced threat protection feature detects potential threats as they occur and provides security alerts on anomalous activities. Users can explore these suspicious events using the Auditing feature, and determine if the event was to access, breach, or exploit data in the database. Users are also provided a security overview that includes a vulnerability assessment and the data discovery and classification tool.
+The advanced threat protection feature detects potential threats as they occur and provides security alerts on anomalous activities. Users can explore these suspicious events using the auditing feature, and determine if the event was to access, breach, or exploit data in the database. Users are also provided a security overview that includes a vulnerability assessment and the data discovery and classification tool.
 
 > [!NOTE]
 > An example threat is SQL injection, a process where attackers inject malicious SQL into application inputs. An application can then unknowingly execute the malicious SQL and allow attackers access to breach or modify data in the database.
@@ -258,7 +258,7 @@ If anomalous activities are detected, you receive an email with information on t
 
 ### Auditing
 
-The auditing feature tracks database events and writes events to an audit log in either Azure Storage, log analytics, or to an event hub. Auditing helps maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate potential security violations.
+The auditing feature tracks database events and writes events to an audit log in either Azure storage, log analytics, or to an event hub. Auditing helps maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate potential security violations.
 
 To enable auditing:
 
