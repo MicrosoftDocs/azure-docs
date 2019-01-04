@@ -16,13 +16,12 @@ ms.topic: article
 # Create loops that repeat workflow actions or process arrays in Azure Logic Apps
 
 To process arrays in your logic app, you can create a ["Foreach" loop](#foreach-loop). 
-By default, iterations in a "Foreach" loop run in parallel. To have each iteration 
-run one at a time, set up a [sequential "Foreach" loop](#sequential-foreach-loop). 
+Your logic app can repeat one or more actions on each item in the array. 
 For limits on the number of array items processed by "Foreach" loops in a logic app run, see 
 [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
-  
+
 To repeat actions until a condition is met or some state has changed, 
-use an ["Until" loop](#until-loop). Your logic app first runs all 
+you can create an ["Until" loop](#until-loop). Your logic app first runs all 
 the actions inside the loop and then checks the condition as the last step. 
 If the condition is met, the loop stops. Otherwise, the loop repeats. 
 For limits on the number of "Until" loops in a logic app run, see 
@@ -45,18 +44,17 @@ For limits on the number of "Until" loops in a logic app run, see
 
 ## "Foreach" loop
 
-To repeat actions on each item in an array, 
-use a "Foreach" loop in your logic app workflow. 
-You can include more than one action in a "Foreach" loop, 
-and you can nest "Foreach" loops inside each other. 
-By default, cycles in a standard "Foreach" loop run in parallel. 
-For the highest number of parallel cycles that 
-"Foreach" loops can run, see [Limits and config](../logic-apps/logic-apps-limits-and-config.md).
+A "Foreach loop" repeats one or more actions on 
+each item in your array and works only on arrays. 
+By default, loop iterations run in parallel. 
+However, sometimes you might want to nest "Foreach" loops 
+or use variables inside loops where you expect predictable results. 
+To run each iteration one at a time, set up a 
+[sequential "Foreach" loop](#sequential-foreach-loop). 
 
-> [!NOTE] 
-> A "Foreach" loop works only with an array, 
-> and actions in the loop use the `@item()` 
-> reference to process each item in the array. 
+> [!NOTE]
+> Actions in a "Foreach" loop use the `@item()` expression 
+> to reference and process each item in the array. 
 > If you specify data that's not in an array, 
 > the logic app workflow fails. 
 
