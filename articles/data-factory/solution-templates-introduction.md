@@ -48,19 +48,19 @@ These predefined templates provided by Microsoft include but are not limited to 
 
     -   Copy from \<source\> to \<destination\>
 
-        1.  From Amazon S3 to Azure Data Lake Store Gen 2
+        -   From Amazon S3 to Azure Data Lake Store Gen 2
 
-        1.  From Google Big Query to Azure Data Lake Store Gen 2
+        -   From Google Big Query to Azure Data Lake Store Gen 2
 
-        1.  From HDF to Azure Data Lake Store Gen 2
+        -   From HDF to Azure Data Lake Store Gen 2
 
-        4.  From Netezza to Azure Data Lake Store Gen 1
+        -   From Netezza to Azure Data Lake Store Gen 1
 
-        5.  From SQL Server on premises to Azure SQL Database
+        -   From SQL Server on premises to Azure SQL Database
 
-        6.  From SQL Server on premises to Azure SQL Data Warehouse
+        -   From SQL Server on premises to Azure SQL Data Warehouse
 
-        7.  From Oracle on premises to Azure SQL Data Warehouse
+        -   From Oracle on premises to Azure SQL Data Warehouse
 
 -   SSIS templates
 
