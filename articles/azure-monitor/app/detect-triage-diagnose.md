@@ -211,7 +211,7 @@ Whatever the reasons, the data helps the team work out what users are doing. Mor
 
 The team is getting used to having information about user activity. Nowadays, whenever they design a new feature, they work out how they will get feedback about its usage. They design tracking calls into the feature from the start. They use the feedback to improve the feature in each development cycle.
 
-[Read more about tracking usage](../../application-insights/app-insights-usage-overview.md).
+[Read more about tracking usage](../../azure-monitor/app/usage-overview.md).
 
 ## Apply the DevOps cycle
 So that's how one team use Application Insights not just to fix individual issues, but to improve their development lifecycle. I hope it has given you some ideas about how Application Insights can help you with application performance management in your own applications.
