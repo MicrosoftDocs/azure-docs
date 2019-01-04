@@ -128,7 +128,7 @@ To configure Azure AD single sign-on with Cisco Webex, perform the following ste
 
 	![choose metadata file](common/browse-upload-metadata.png)
 
-	c. After successful completion of uploading Service Provider metadata file the **Identifier** and **Reply URL** values get auto populated in Cisco Webex section textbox:
+	c. After successful completion of uploading Service Provider metadata file the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section:
 
 	![Cisco Webex Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
