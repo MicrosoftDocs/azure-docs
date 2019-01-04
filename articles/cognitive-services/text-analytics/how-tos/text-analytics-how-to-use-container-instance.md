@@ -62,11 +62,7 @@ This procedure loads and runs the Cognitive Services Container sample for langua
 
 In order to deploy the container to the Azure Kubernetes service, the container images need to be accessible. Create your own Azure Container Registry service to host the images. 
 
-
-
-
-
-2. Create a resource group named `cogserv-container-rg` to hold every created in this procedure.
+1. Create a resource group named `cogserv-container-rg` to hold every created in this procedure.
 
     ```azurecli-interactive
     az group create --name cogserv-container-rg --location westus
@@ -87,7 +83,7 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     }
     ```
 
-3. Create your own Azure Container Registry named `cogservcontainerregistry`. Prepend your login so the name is unique such as `pattiowenscogservcontainerregistry`
+1. Create your own Azure Container Registry named `cogservcontainerregistry`. Prepend your login so the name is unique such as `pattiowenscogservcontainerregistry`
 
     ```azurecli-interactive
     az acr create --resource-group cogserv-container-rg --name pattiowenscogservcontainerregistry --sku Basic
