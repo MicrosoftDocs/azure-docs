@@ -30,7 +30,7 @@ You can use the [Azure Media Player demo page](http://aka.ms/amp) to play Azure 
 
 To play a new video, paste a different URL and press **Update**.
 
-To configure various playback options (for example, tech, language, or encryption), press **Advanced Options** to configure
+To configure various playback options (for example, tech, language, or encryption), press **Advanced Options**.
 
 ![Azure Media Player](./media/azure-media-player/home-page.png)
 
