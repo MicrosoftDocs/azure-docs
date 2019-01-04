@@ -24,18 +24,17 @@ The following benefits are associated with file systems that implement a hierarc
 
 - **Familiar Interface Style:** File systems are well understood by developers and users alike. There is no need to learn a new storage paradigm when you move to the cloud as the file system interface exposed by Data Lake Storage Gen2 is the same paradigm used by computers, large and small.
 
-One of the reasons that object stores have not historically supported hierarchical namespaces is that hierarchical namespaces limited scale. However, the Data Lake Storage Gen2 hierarchical namespace scales linearly and does not degrade either the data capacity or performance.
+One of the reasons that object stores haven't historically supported hierarchical namespaces is that hierarchical namespaces limit scale. However, the Data Lake Storage Gen2 hierarchical namespace scales linearly and does not degrade either the data capacity or performance.
 
 ## When to enable the hierarchical namespace
 
-Turning on the hierarchical namespace is recommended for storage workloads that are designed for file systems that manipulate directories. This includes all workloads that are primarily for analytics processing. Datasets that require a high degree of organization will also benefit by enabling the hierarchical namespace.
+We recommend that you turn on the hierarchical namespace for storage workloads that are designed for file systems that manipulate directories. This includes all workloads that are primarily for analytics processing. Datasets that require a high degree of organization will also benefit by enabling the hierarchical namespace.
 
 The reasons for enabling the hierarchical namespace are determined by a TCO analysis. Generally speaking, improvements in workload latency due to storage acceleration will require compute resources for less time. Latency for many workloads may be improved due to atomic directory manipulation that is enabled by the hierarchical namespace. In many workloads, the compute resource represents > 85% of the total cost and so even a modest reduction in workload latency equates to a significant amount of TCO savings. Even in cases where enabling the hierarchical namespace increases storage costs, the TCO is still lowered due to reduced compute costs.
 
 ## When to disable the hierarchical namespace
 
-Some object store workloads may not gain any benefit by enabling the hierarchical namespace. Examples of these workloads include backups, image storage, and other applications where object organization is stored separately from the objects themselves (*e.g.*, in a separate database).
-
+Some object store workloads might not gain any benefit by enabling the hierarchical namespace. Examples include backups, image storage, and other applications where object organization is stored separately from the objects themselves (for example: in a separate database).
 
 ## Next steps
 

@@ -14,9 +14,7 @@ ms.author: nitinme
 
 # Integrate Azure Data Lake Storage Gen2 with other Azure services
 
-You can ingest, analyze, and visualize data in Azure Data Lake Storage Gen2 by using a variety of Azure services.
-
-This article highlights them. 
+You can ingest, analyze, and visualize data in Azure Data Lake Storage Gen2 by using a variety of Azure services. This article highlights these services.
 
 ## Services to ingest data into your data lake
 
