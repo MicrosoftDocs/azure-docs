@@ -15,24 +15,24 @@ ms.topic: article
 
 # Create loops that repeat workflow actions or process arrays in Azure Logic Apps
 
-To process arrays in your logic app, you can use a ["Foreach" loop](#foreach-loop). 
-By default, iterations in a "Foreach" loop run in parallel, 
-but you can also set up a [sequential "Foreach" loop](#sequential-foreach-loop) 
-so that each iteration runs one at a time. For the highest number of array items 
-that "Foreach" loops can process in a single logic app run, see 
+To process arrays in your logic app, you can create a ["Foreach" loop](#foreach-loop). 
+By default, iterations in a "Foreach" loop run in parallel. To have each iteration 
+run one at a time, set up a [sequential "Foreach" loop](#sequential-foreach-loop). 
+For limits on the number of array items processed by "Foreach" loops in a logic app run, see 
 [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
   
 To repeat actions until a condition is met or some state has changed, 
 use an ["Until" loop](#until-loop). Your logic app first runs all 
 the actions inside the loop and then checks the condition as the last step. 
 If the condition is met, the loop stops. Otherwise, the loop repeats. 
-For the highest number of "Until" loops in a single logic app run, see 
+For limits on the number of "Until" loops in a logic app run, see 
 [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
 
-If you have a trigger that receives an array 
-and want to run a workflow for each array item, 
-you can *debatch* that array with the 
-[**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
+> [!TIP]
+> If you have a trigger that receives an array 
+> and want to run a workflow for each array item, 
+> you can *debatch* that array with the 
+> [**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ you can *debatch* that array with the
 
 ## "Foreach" loop
 
-To repeat actions for each item in an array, 
+To repeat actions on each item in an array, 
 use a "Foreach" loop in your logic app workflow. 
 You can include more than one action in a "Foreach" loop, 
 and you can nest "Foreach" loops inside each other. 
