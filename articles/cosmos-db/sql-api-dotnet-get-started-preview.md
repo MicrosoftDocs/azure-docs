@@ -1,11 +1,9 @@
 ---
 title: 'Build a .NET console app to manage data in Azure Cosmos DB SQL API account (SDK Version 3 Preview)'
 description: A tutorial that creates an online database and C# console application using the SQL API.
-keywords: nosql tutorial, online database, c# console application
 author: deborahc
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018

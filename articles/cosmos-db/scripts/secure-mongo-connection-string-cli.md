@@ -4,9 +4,10 @@ description: Azure CLI Script Sample - Get Azure Cosmos DB connection string for
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 10/26/2018
+ms.reviewer: sngun
 ---
 
 # Get an Azure Cosmos DB connection string for MongoDB using the Azure CLI

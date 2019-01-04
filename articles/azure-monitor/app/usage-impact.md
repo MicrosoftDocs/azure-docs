@@ -19,7 +19,7 @@ ms.author: daviste
 
 Impact analyzes how load times and other properties influence conversion rates for various parts of your app. To put it more precisely, it discovers how **any dimension** of a **page view**, **custom event**, or **request** affects the usage of a different **page view** or **custom event**. 
 
-![Impact tool](./media/app-insights-usage-impact/0001-impact.png)
+![Impact tool](./media/usage-impact/0001-impact.png)
 
 ## Still not sure what Impact does?
 
@@ -27,10 +27,10 @@ One way to think of Impact is as the ultimate tool for settling arguments with s
 
 But analyzing performance is just a subset of Impact's capabilities. Since Impact supports custom events and dimensions, answering questions like how does user browser choice correlate with different rates of conversion are just a few clicks away.
 
-![Screenshot conversion by browsers](./media/app-insights-usage-impact/0004-browsers.png)
+![Screenshot conversion by browsers](./media/usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> Your Application Insights resource must contain page views or custom events to use the Impact tool. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](../azure-monitor/app/javascript.md). Also keep in mind that since you are analyzing correlation, sample size matters.
+> Your Application Insights resource must contain page views or custom events to use the Impact tool. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md). Also keep in mind that since you are analyzing correlation, sample size matters.
 >
 >
 
@@ -38,13 +38,13 @@ But analyzing performance is just a subset of Impact's capabilities. Since Impac
 
 To begin answering questions with the Impact tool, choose an initial page view, custom event, or request.
 
-![Impact tool](./media/app-insights-usage-impact/0002-dropdown.png)
+![Impact tool](./media/usage-impact/0002-dropdown.png)
 
 1. Select a page view from the **For the page view** dropdown.
 2. Leave the **analyze how its** dropdown on the default selection of **Duration** (In this context **Duration** is an alias for **Page Load Time**.)
 3. For the **impacts the usage of** dropdown, select a custom event. This event should correspond to a UI element on the page view you selected in step 1.
 
-![Screenshot of results](./media/app-insights-usage-impact/0003-results.png)
+![Screenshot of results](./media/usage-impact/0003-results.png)
 
 In this instance as **Product Page** load time increases the conversion rate to **Purchase Product clicked** goes down. Based on the distribution above, an optimal page load duration of 3.5 seconds could be targeted to achieve a potential 55% conversion rate. Further performance improvements to reduce load time below 3.5 seconds do not currently correlate with additional conversion benefits.
 
@@ -86,7 +86,7 @@ How Impact is ultimately calculated varies based on whether we are analyzing by 
 - To enable usage experiences, start sending [custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Funnels](usage-funnels.md)
-    - [Retention](app-insights-usage-retention.md)
-    - [User Flows](app-insights-usage-flows.md)
-    - [Workbooks](app-insights-usage-workbooks.md)
-    - [Add user context](app-insights-usage-send-user-context.md)
+    - [Retention](usage-retention.md)
+    - [User Flows](usage-flows.md)
+    - [Workbooks](../../application-insights/app-insights-usage-workbooks.md)
+    - [Add user context](usage-send-user-context.md)

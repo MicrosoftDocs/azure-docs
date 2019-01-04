@@ -59,7 +59,7 @@ Continuous Integration / Continuous Deployment allows you to automatically integ
 
 - Use [Azure Pipelines](/azure/devops/pipelines) to implement Continuous Deployment and automate your entire process from code commit to production based on your CI/CD tests.
 - Use [Quality Gates](/devops/pipelines/release/approvals/gates) to integrate monitoring into your pre-deployment or post-deployment. This ensures that you are meeting the key health/performance metrics (KPIs) as your applications move from dev to production and any differences in the infrastructure environment or scale is not negatively impacting your KPIs.
-- [Maintain separate monitoring instances](../application-insights/app-insights-separate-resources.md) between your different deployment environments such as Dev, Test, Canary, and Prod. This ensures that collected data is relevant across the associated applications and infrastructure. If you need to correlate data across environments, you can use [multi-resource charts in Metrics Explorer](../azure-monitor/platform/metrics-charts.md) or create [cross-resource queries in Log Analytics](log-query/cross-workspace-query.md).
+- [Maintain separate monitoring instances](../azure-monitor/app/separate-resources.md) between your different deployment environments such as Dev, Test, Canary, and Prod. This ensures that collected data is relevant across the associated applications and infrastructure. If you need to correlate data across environments, you can use [multi-resource charts in Metrics Explorer](../azure-monitor/platform/metrics-charts.md) or create [cross-resource queries in Log Analytics](log-query/cross-workspace-query.md).
 
 
 ## Create actionable alerts with actions
@@ -81,7 +81,7 @@ Ensuring that your development and operations have access to the same telemetry 
  Monitoring is one of the fundamental aspects of the popular Build-Measure-Learn philosophy, which recommends continuously tracking your KPIs and user behavior metrics and then striving to optimize them through planning iterations. Azure Monitor helps you collect metrics and logs relevant to your business and to add new data points in the next deployment as required.
 
 - Use tools in Application Insights to [track end-user behavior and engagement](../application-insights/app-insights-tutorial-users.md).
-- Use [Impact Analysis](../application-insights/app-insights-usage-impact.md) to help you prioritize which areas to focus on to drive to important KPIs.
+- Use [Impact Analysis](../azure-monitor/app/usage-impact.md) to help you prioritize which areas to focus on to drive to important KPIs.
 
 
 ## Next steps

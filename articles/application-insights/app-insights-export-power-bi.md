@@ -61,7 +61,7 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 8. Refresh the report manually at intervals, or set up a scheduled refresh on the options page.
 
 ### Export a Funnel
-1. [Make your Funnel](usage-funnels.md).
+1. [Make your Funnel](../azure-monitor/app/usage-funnels.md).
 2. Select **Power BI**.
 
    ![Screenshot of Power BI button](./media/app-insights-export-power-bi/button.png)

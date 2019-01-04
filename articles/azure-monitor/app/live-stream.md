@@ -197,7 +197,7 @@ No data? If your application is in a protected network: Live Metrics Stream uses
 
 
 ## Next steps
-* [Monitoring usage with Application Insights](../../application-insights/app-insights-usage-overview.md)
+* [Monitoring usage with Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Using Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
 * [Profiler](../../azure-monitor/app/profiler.md)
 * [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md)
