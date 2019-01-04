@@ -6,7 +6,7 @@
     - name: What is Bing Image Search?
       href: overview.md
     - name: Compare the Bing Search APIs
-      href: ../Bing-Web-Search/Bing-Web-Search/bing-api-comparison.md
+      href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
 - name: Quickstarts
   items:
