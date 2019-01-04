@@ -1,7 +1,7 @@
 ---
 title: Code samples - Content Moderator, C#
 titlesuffix: Azure Cognitive Services
-description: Use Content Moderator in your applications
+description: Use Content Moderator in your applications through REST API calls.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
