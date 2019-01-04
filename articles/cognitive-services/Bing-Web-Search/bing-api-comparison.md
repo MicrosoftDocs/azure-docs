@@ -7,8 +7,8 @@ author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: overview
-ms.date: 09/27/2018
+ms.topic:article
+ms.date: 1/04/2018
 ms.author: aahi
 ---
 
@@ -20,13 +20,15 @@ By sending queries to the Bing search REST APIs or SDKs, you can get instant, re
 
 ## Bing Web Search and Custom Search
 
-The [Bing Web Search API](../Bing-Web-Search/index.yml) can return webpages in addition to the content formats listed below. The search queries sent to this API can be filtered to include or exclude certain content formats.
+The [Bing Web Search API](../Bing-Web-Search/index.yml) can return webpages in addition to images, video, news and more. The search queries sent to this API can be filtered to include or exclude certain content types.
 
 By creating a custom search instance with [Bing Custom Search](../Bing-Custom-Search/index.yml), you can create a search experience focused only on content and topics you care about. For example, after specifying the domains, websites, and specific webpages that Bing will search, your users will see results tailored to that specific content. 
 
 Consider using the Bing Web Search API in applications that may need to search for all types of relevant web content. If your application searches for a specific type of online content, consider one of the search APIs below: 
 
-## Content-specific Bing Search APIs
+## Content-specific Bing search APIs
+
+The following Bing search APIs return specific content from the web such as images, news, local businesses and videos.
 
 | Bing API | Description |
 | -- | -- | 
@@ -40,11 +42,13 @@ Consider using the Bing Web Search API in applications that may need to search f
 
 ## Additional Bing Search APIs
 
+The following Bing Search APIs enable you to improve your search experience by combining them with other Bing search APIs.
+
 | API | Description |
 | -- | -- | 
 | [Bing Autosuggest](../Bing-Autosuggest/index.yml) | The Bing Autosuggest API can improve your application's search experience by returning suggested searches as your users type.  |
 | [Bing Statistics](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-news-search/bing-news-stats) | Bing Statistics provides analytics for the Bing Search APIs your application uses. Some of the available analytics include call volume, top query strings, and geographic distribution. |
 
-## Next steps
-
 ## See also
+
+* The [Bing Use and Display Requirements](./useanddisplayrequirements.md) specify acceptable uses of the content and information gained through the Bing search APIs.
