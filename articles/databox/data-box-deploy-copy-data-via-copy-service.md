@@ -97,7 +97,7 @@ To copy data using data copy service, you need to create a job. Follow these ste
 
 6. While the job is in progress, on the **Copy data** page: 
 
-    - In the **Status** column, you can view the status of the copy job. This can be 
+    - In the **Status** column, you can view the status of the copy job. The status can be **Starting**, **Started**, **Failed**, **Succeeded**, **Pausing**, **Paused**, **Canceling**, or **Canceled**.
     - In the **Files** column, you can see the number and the size of total files being copied.
     - In the **Processed** column, you can see the number and the size of files that are processed.
     - In the **Details** column, click **View** to see the job details.
