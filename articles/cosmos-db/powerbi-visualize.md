@@ -1,10 +1,7 @@
 ---
 title: Power BI tutorial for Azure Cosmos DB connector
 description: Use this Power BI tutorial to import JSON, create insightful reports, and visualize data using the Azure Cosmos DB and Power BI connector.
-keywords: power bi tutorial, visualize data, power bi connector
-services: cosmos-db
 author: SnehaGunda
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/03/2018
@@ -30,7 +27,19 @@ Before following the instructions in this Power BI tutorial, ensure that you hav
 
 * Download the [sample volcano data](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) from GitHub.
 
-* [Create an Azure Cosmos DB database account](https://azure.microsoft.com/documentation/articles/create-account/) and import the volcano data by using the [Azure Cosmos DB data migration tool](import-data.md).
+* [Create an Azure Cosmos DB database account](https://azure.microsoft.com/documentation/articles/create-account/) and import the volcano data by using the [Azure Cosmos DB data migration tool](import-data.md). When importing data, consider the following settings for the source and destinations in the data migration tool:
+
+   * **Source parameters** 
+
+       * **Import from:** JSON file(s)
+
+   * **Target parameters** 
+
+      * **Connection string:** `AccountEndpoint=<Your_account_endpoint>;AccountKey=<Your_primary_or_secondary_key>;Database= <Your_database_name>` 
+
+      * **Partition key:** /Country 
+
+      * **Collection Throughput:** 1000 
 
 To share your reports in PowerBI.com, you must have an account in PowerBI.com.  To learn more about Power BI and Power BI Pro, see [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 

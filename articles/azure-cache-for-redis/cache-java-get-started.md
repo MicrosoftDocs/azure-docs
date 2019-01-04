@@ -115,7 +115,7 @@ public class App
         System.out.println( "\nCache Command  : SET Message" );
         System.out.println( "Cache Response : " + jedis.set("Message", "Hello! The cache is working from Java!"));
 
-        // Demostrate "SET Message" executed as expected...
+        // Demonstrate "SET Message" executed as expected...
         System.out.println( "\nCache Command  : GET Message" );
         System.out.println( "Cache Response : " + jedis.get("Message"));
 

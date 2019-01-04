@@ -1,14 +1,15 @@
 ---
-title: Azure Batch APIs and tools for developers | Microsoft Docs
+title: APIs and tools for developers - Azure Batch | Microsoft Docs
 description: Learn about the APIs and tools available for developing solutions with the Azure Batch service.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 
 ms.service: batch
 ms.topic: get-started-article
-ms.date: 06/18/2018
-ms.author: danlep
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
 ---
 
 
@@ -82,8 +83,8 @@ Here are some additional tools that may be helpful for building and debugging yo
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: /java/api/overview/azure/batch
 [api_java_mgmt]: /java/api/overview/azure/batch/managementapi
-[api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
-[api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
+[api_java_jar]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
+[api_java_mgmt_jar]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_net]: /dotnet/api/overview/azure/batch/
 [api_net_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [api_rest_mgmt]: /rest/api/batchmanagement/
@@ -106,5 +107,5 @@ Here are some additional tools that may be helpful for building and debugging yo
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [batch_labs]: https://azure.github.io/BatchExplorer/
-[storage_explorer]: http://storageexplorer.com/
+[storage_explorer]: https://storageexplorer.com/
 [portal]: https://portal.azure.com

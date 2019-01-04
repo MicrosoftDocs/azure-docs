@@ -2,7 +2,6 @@
 title: Request units and throughput in Azure Cosmos DB
 description: Learn about how to specify, and estimate request unit requirements in Azure Cosmos DB
 author: rimman
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018

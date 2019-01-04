@@ -1,15 +1,14 @@
 ---
 title: 'Azure Cosmos DB: SQL .NET API, SDK & resources'
 description: Learn all about the SQL .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET SDK.
-author: rnagpal
-
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
+ms.author: sngun
+
 
 ---
 # Azure Cosmos DB .NET SDK for SQL API: Download and release notes
@@ -23,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 

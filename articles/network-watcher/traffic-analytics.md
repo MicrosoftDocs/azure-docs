@@ -287,7 +287,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
     ![Dashboard showcasing virtual network distribution](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - The Virtual Network Topology shows the top ribbon for selection of parameters like a virtual network’s (Inter virtual network Connections/Active/Inactive), External Connections, Active Flows, and Malicious flows of the virtual network.
-- You can filter the Virtual Network Topology based on subscriptions, workspaces, resouece groups and time interval. Additional filters that help you understand the flow are:
+- You can filter the Virtual Network Topology based on subscriptions, workspaces, resource groups and time interval. Additional filters that help you understand the flow are:
 Flow Type (InterVNet, IntraVNET etc), Flow Direction (Inbound, Outbound), Flow Status ( Allowed, Blocked) VNETs (Targeted and Connected) , Connection Type (Peering or Gateway - P2S and S2S) and NSG. Use these filters to focus on VNets that you want to examine in detail.
 - The Virtual Network Topology shows the traffic distribution to a virtual network with regards to flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and network security groups, for example:
 

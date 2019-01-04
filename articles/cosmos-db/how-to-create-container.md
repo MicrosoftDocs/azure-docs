@@ -1,9 +1,7 @@
 ---
 title: Create a container in Azure Cosmos DB
 description: Learn how to create a container in Azure Cosmos DB
-services: cosmos-db
 author: markjbrown
-
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
@@ -16,7 +14,7 @@ This article explains the different ways to create a container (collection, tabl
 
 ## Create a container using Azure portal
 
-### <a id="portal-sql"></a>SQL (Core) API
+### <a id="portal-sql"></a>SQL API
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
@@ -32,7 +30,7 @@ This article explains the different ways to create a container (collection, tabl
 
 ![SQL API creates a collection](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
-### <a id="portal-mongodb"></a>MongoDB API
+### <a id="portal-mongodb"></a>Azure Cosmos DB's API for MongoDB
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
@@ -47,7 +45,7 @@ This article explains the different ways to create a container (collection, tabl
    * Enter a throughput, for example 1000 RUs.
    * Select **OK**.
 
-![MongoDB API creates a collection](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+![Azure Cosmos DB's API for MongoDB creates a collection](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 ### <a id="portal-cassandra"></a>Cassandra API
 
@@ -105,7 +103,7 @@ This article explains the different ways to create a container (collection, tabl
 
 ## Create a container using Azure CLI
 
-### <a id="cli-sql"></a>SQL (Core) API
+### <a id="cli-sql"></a>SQL API
 
 ```azurecli-interactive
 # Create a container with a partition key and provision 1000 RU/s throughput.
@@ -119,7 +117,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-mongodb"></a>MongoDB API
+### <a id="cli-mongodb"></a>Azure Cosmos DB's API for MongoDB
 
 ```azurecli-interactive
 # Create a collection with a shard key and provision 1000 RU/s throughput.
@@ -187,7 +185,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 1000 });
 ```
 
-### <a id="dotnet-mongodb"></a>MongoDB API
+### <a id="dotnet-mongodb"></a>Azure Cosmos DB's API for MongoDB
 
 ```csharp
 // Create a collection with a partition key by using Mongo Shell:
@@ -195,7 +193,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-> MongoDB does not have a concept of request units. To create a new collection with throughput, use the Azure Portal or SQL API as shown in the previous examples.
+MongoDB wire protocol does not have a concept of request units. To create a new collection with throughput, use the Azure Portal or SQL API as shown in theprevious examples.
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 

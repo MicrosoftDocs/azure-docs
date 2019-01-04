@@ -62,7 +62,7 @@ For each notebook, you select the kernel (that is, the runtime environment) that
 - Python 2.7 + Anaconda2-5.3.0
 - Python 3.6 + Anaconda3-5.3.0
 - Python 3.5 + Anaconda3-4.2.0 (will be deprecated)
-- R 3.3 + Microsoft R Open 3.3.0
+- R 3.4.1 + Microsoft R Open 3.4.1
 - F# 4.1.9
 
 Azure Notebooks also includes extra packages beyond the base distributions. The Python kernels, for example, include the numpy, pandas, scikit-learn, matplotlib, and bokeh libraries.

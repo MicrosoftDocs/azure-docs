@@ -2,7 +2,6 @@
 title: Optimize storage cost in Azure Cosmos DB
 description: This article explains how to manage storage costs for the data stored in Azure Cosmos DB
 author: rimman
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
@@ -23,7 +22,7 @@ Azure Cosmos DB expects the item size to be 2 MB or less for optimal performance
 
 ## Optimize cost with indexing
 
-By default, the data is automatically indexed, which can increase the total storage consumed. However, you can apply custom index policies to reduce this overhead. Automatic indexing that has not been tuned through policy is about 10-20% of the item size. By removing or customizing index policies, you don't pay extra cost for writes and don't require additional throughput capacity. See [Indexing in Cosmos DB](indexing-policies.md) to configure custom indexing policies. If you have worked with relational databases before, you may think that “index everything” means doubling of storage or higher. However, in Azure Cosmos DB, in the median case, it’s much lower. In Azure Cosmos DB, the storage overhead of index is typically low (10-20%) even with automatic indexing, because it is designed for a low storage footprint. By managing the indexing policy, you can control the tradeoff of index footprint and query performance in a more fine-grained manner.
+By default, the data is automatically indexed, which can increase the total storage consumed. However, you can apply custom index policies to reduce this overhead. Automatic indexing that has not been tuned through policy is about 10-20% of the item size. By removing or customizing index policies, you don't pay extra cost for writes and don't require additional throughput capacity. See [Indexing in Azure Cosmos DB](indexing-policies.md) to configure custom indexing policies. If you have worked with relational databases before, you may think that “index everything” means doubling of storage or higher. However, in Azure Cosmos DB, in the median case, it’s much lower. In Azure Cosmos DB, the storage overhead of index is typically low (10-20%) even with automatic indexing, because it is designed for a low storage footprint. By managing the indexing policy, you can control the tradeoff of index footprint and query performance in a more fine-grained manner.
 
 ## Optimize cost with time to live and change feed
 

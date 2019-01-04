@@ -14,7 +14,9 @@ ms.author: dobett
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-This tutorial shows you how to connect a physical device to the Remote Monitoring solution accelerator. In this tutorial, you use Node.js, which is a good option for environments with minimal resource constraints.
+This tutorial shows you how to connect a real device to the Remote Monitoring solution accelerator. In this tutorial, you use Node.js, which is a good option for environments with minimal resource constraints.
+
+If you prefer to simulate a device, see [Create and test a new simulated device](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ### Required hardware
 
@@ -31,7 +33,7 @@ A desktop computer to enable you to connect remotely to the command line on the 
 
 You need SSH client on your desktop machine to enable you to remotely access the command line on the Raspberry Pi.
 
-- Windows does not include an SSH client. We recommend using [PuTTY](http://www.putty.org/).
+- Windows does not include an SSH client. We recommend using [PuTTY](https://www.putty.org/).
 - Most Linux distributions and Mac OS include the command-line SSH utility. For more information, see [SSH Using Linux or Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
 ### Required Raspberry Pi software
@@ -121,7 +123,6 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
     var temperatureSchema = 'chiller-temperature;v1';
     var humiditySchema = 'chiller-humidity;v1';
     var pressureSchema = 'chiller-pressure;v1';
-    var interval = "00:00:05";
     var deviceType = "Chiller";
     var deviceFirmware = "1.0.0";
     var deviceFirmwareUpdateStatus = "";
@@ -139,8 +140,6 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
       "SupportedMethods": "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure",
       "Telemetry": {
         "TemperatureSchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"temperature\":${temperature},\"temperature_unit\":\"${temperature_unit}\"}",
           "MessageSchema": {
             "Name": temperatureSchema,
             "Format": "JSON",
@@ -151,8 +150,6 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
           }
         },
         "HumiditySchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"humidity\":${humidity},\"humidity_unit\":\"${humidity_unit}\"}",
           "MessageSchema": {
             "Name": humiditySchema,
             "Format": "JSON",
@@ -163,8 +160,6 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
           }
         },
         "PressureSchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"pressure\":${pressure},\"pressure_unit\":\"${pressure_unit}\"}",
           "MessageSchema": {
             "Name": pressureSchema,
             "Format": "JSON",
