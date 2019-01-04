@@ -64,7 +64,7 @@ The initial set up of a new environment can take several minutes depending on th
   
 The following code shows an example for a system-managed environment requiring scikit-learn:
     
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=systemManaged)]
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_system_managed)]
 
 #### User-managed environment
 
@@ -72,7 +72,7 @@ For a user-managed environments, you're responsible for setting up your environm
 
 The following code shows an example of configuring training runs for a user-managed environment:
 
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=user_managed)]
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
   
 ## Set up compute targets with Python
 
@@ -90,7 +90,7 @@ Use the sections below to configure these compute targets:
 
 1. **Configure**:  When you use your local computer as a compute target, the training code is run in your [development environment](how-to-configure-environment.md).  If that environment already has the Python packages you need, use the user-managed environment.
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=local_env)]
+ [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=run_local)]
 
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
 
@@ -114,7 +114,7 @@ You can create Azure Machine Learning Compute as a compute target at run time. T
 
 1.  **Create, attach, and configure**: The run-based creation performs all the necessary steps to create, attach, and configure the compute target with the run configuration.  
 
-  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=amlcompute_temp)]
+  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=run_temp_compute)]
 
 
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
@@ -128,7 +128,7 @@ A persistent Azure Machine Learning Compute can be reused across jobs. The compu
     * **vm_size**: The VM family of the nodes created by Azure Machine Learning Compute.
     * **max_nodes**: The max number of nodes to autoscale up to when you run a job on Azure Machine Learning Compute.
     
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/ampcompute2.py?name=cpu_basic)]
+ [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/ampcompute2.py?name=cpu_cluster)]
 
   You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) for details.
@@ -137,7 +137,7 @@ A persistent Azure Machine Learning Compute can be reused across jobs. The compu
 
 1. **Configure**: Create a run configuration for the persistent compute target.
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=aml_runconfig)]
+ [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
 
@@ -184,32 +184,8 @@ Use the Azure Data Science Virtual Machine (DSVM)  as the Azure VM of choice for
 
 1. **Configure**: Create a run configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on the DSVM.
 
-    ```python
-    from azureml.core.runconfig import RunConfiguration
-    from azureml.core.conda_dependencies import CondaDependencies
+ [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
-    run_dsvm = RunConfiguration(framework = "python")
-
-    # Set the compute target to the Linux DSVM
-    run_dsvm.target = compute_target_name 
-
-    # Use Docker in the remote VM
-    run_dsvm.environment.docker.enabled = True
-
-    # Use the CPU base image 
-    # To use GPU in DSVM, you must also use the GPU base Docker image "azureml.core.runconfig.DEFAULT_GPU_IMAGE"
-    run_dsvm.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-    print('Base Docker image is:', run_dsvm.environment.docker.base_image)
-
-    # Ask the system to provision a new conda environment based on the conda_dependencies.yml file 
-    run_dsvm.environment.python.user_managed_dependencies = False
-
-    # Prepare the Docker and conda environment automatically when they're used for the first time 
-    run_dsvm.prepare_environment = True
-
-    # Specify the CondaDependencies object
-    run_dsvm.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
-    ```
 
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
 
