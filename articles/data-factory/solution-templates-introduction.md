@@ -16,7 +16,7 @@ ms.reviewer: douglasl
 ---
 # Templates
 
-Templates are predefined Azure Data Factory pipelines that allow you to get started quickly with Data Factory. This is useful when you are new to Data Factory and want to get started quickly with the help of pre-defined templates. These templates reduce the development time for building data integration projects thereby improving developer productivity.
+Templates are predefined Azure Data Factory pipelines that allow you to get started quickly with Data Factory. Templates are useful when you're new to Data Factory and want to get started quickly. These templates reduce the development time for building data integration projects thereby improving developer productivity.
 
 ## Create Data Factory pipelines from templates
 
@@ -26,7 +26,7 @@ You can get started creating a Data Factory pipeline from a template in the foll
 
     ![Open the template gallery from the Overview page](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  On the Author tab in Resource Explorer, select **+**,then **Pipeline from template** to open the template gallery.
+1.  On the Author tab in Resource Explorer, select **+**, then **Pipeline from template** to open the template gallery.
 
     ![Open the template gallery from the Author tab](media/solution-templates-introduction/templates-intro-image2.png)
 
@@ -72,7 +72,7 @@ These predefined templates provided by Microsoft include but are not limited to 
 
 ### My Templates
 
-You can also save a pipelines as a template by selecting **Save as template** on the Pipeline tab.
+You can also save a pipeline as a template by selecting **Save as template** on the Pipeline tab.
 
 ![Save a pipeline as a template](media/solution-templates-introduction/templates-intro-image4.png)
 
@@ -81,4 +81,4 @@ You can view pipelines saved as templates in the **My Templates** section of the
 ![My templates](media/solution-templates-introduction/templates-intro-image5.png)
 
 > [!NOTE]
-> To use this feature, you have to enable GIT integration. Both Azure DevOps GIT and GitHub are supported.
+> To use the My Templates feature, you have to enable GIT integration. Both Azure DevOps GIT and GitHub are supported.
