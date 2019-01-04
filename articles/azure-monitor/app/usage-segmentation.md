@@ -64,5 +64,5 @@ The **Meet your users** section shows information about five sample users matche
     - [Funnels](usage-funnels.md)
     - [Retention](usage-retention.md)
     - [User Flows](usage-flows.md)
-    - [Workbooks](../../application-insights/app-insights-usage-workbooks.md)
+    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
     - [Add user context](usage-send-user-context.md)

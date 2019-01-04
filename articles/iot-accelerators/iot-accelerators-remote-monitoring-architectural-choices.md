@@ -46,7 +46,7 @@ Azure IoT Hub is used as the Remote Monitoring solution cloud gateway. [IoT Hub]
 
 For IoT device connectivity, you can use:
 
-- The [IoT Hub device SDKs](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks) to implement a native client application for your device. The SDKs offer wrappers around the IoT Hub REST API and handle scenarios such as retries.
+- The [IoT Hub device SDKs](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) to implement a native client application for your device. The SDKs offer wrappers around the IoT Hub REST API and handle scenarios such as retries.
 - The integration with Azure IoT Edge to deploy and manage custom modules running in containers on your devices.
 - The integration with automatic device management in IoT Hub to manage connected devices in bulk.
 
