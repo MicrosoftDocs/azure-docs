@@ -1,5 +1,5 @@
 ---
-title: How to Create an App Service Environment v1
+title: How to Create an App Service Environment v1 - Azure
 description: Creation flow description for an app service environment v1
 services: app-service
 documentationcenter: ''
@@ -13,8 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/11/2017
+ms.date: 07/11/2017
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 # How to Create an App Service Environment v1 
@@ -82,8 +83,8 @@ To get started with App Service Environment v1, see [Introduction to the App Ser
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ILBASE]: app-service-environment-with-internal-load-balancer.md
-[ILBAseTemplate]: http://azure.microsoft.com/documentation/templates/201-web-app-ase-create/
+[ILBAseTemplate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/
 [ASEfromTemplate]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md

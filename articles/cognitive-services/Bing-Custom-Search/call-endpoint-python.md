@@ -22,7 +22,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 - A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
 - [Python](https://www.python.org/) 2.x or 3.x
 
-[!INCLUDE [cognitive-services-bing-news-search-prerequisites](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 
 ## Create and initialize the application

@@ -1,6 +1,6 @@
 ﻿---
-title: Tutorial – Azure Dedicated HSM Deploying HSMs into an existing virtual network using CLI | Microsoft Docs
-description: Tutorial showing how to deploy a dedicated HSM using the CLI
+title: Tutorial deploy into an existing virtual network using the Azure CLI - Azure Dedicated HSM | Microsoft Docs
+description: Tutorial showing how to deploy a dedicated HSM using the CLI into an existing virtual network
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -9,14 +9,14 @@ editor: ''
 
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "mvc, seodec18"
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/07/2018
 ms.author: barclayn
 ---
 
-# Tutorial – Deploying HSMs into an existing virtual network using CLI
+# Tutorial: Deploying HSMs into an existing virtual network using CLI
 
 Azure Dedicated HSM provides a physical device for sole customer use, with complete administrative control and full management responsibility. The use of physical devices creates the need for Microsoft to control device allocation to ensure capacity is managed effectively. As a result, within an Azure subscription, the Dedicated HSM service will not normally be visible for resource provisioning. Any Azure customer requiring access to the Dedicated HSM service, must first contact their Microsoft account executive to request registration for the Dedicated HSM service. Only once this process completes successfully will provisioning be possible. 
 
@@ -126,7 +126,7 @@ Once parameter values are set, the files need to be uploaded to Azure portal clo
 
 The command shell has an upload/download option on the toolbar and you should select this to upload the template and parameter files to your file share:
 
-![subscription status](media/tutorial-deploy-hsm-cli/file-share.png)
+![file share](media/tutorial-deploy-hsm-cli/file-share.png)
 
 Once the files are uploaded, you are ready to create resources. Prior to creating new HSM resources there are some pre-requisite resources you should ensure are in place. You must have a virtual network with subnet ranges for compute, HSMs, and gateway. The following commands serve as an example of what would create such a virtual network.
 
@@ -187,7 +187,7 @@ az resource show \
    --ids /subscriptions/$subid/resourceGroups/myRG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSM2
 ```
 
-![provision status](media/tutorial-deploy-hsm-cli/progress-status2.png)
+![provisioning output](media/tutorial-deploy-hsm-cli/progress-status2.png)
 
 You will also now be able to see the resources using the [Azure resource explorer](https://resources.azure.com/).   Once in the explorer, expand “subscriptions” on the left, expand your specific subscription for Dedicated HSM, expand “resource groups”, expand the resource group you used and finally select the “resources” item.
 

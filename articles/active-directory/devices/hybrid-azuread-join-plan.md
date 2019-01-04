@@ -108,6 +108,10 @@ If your organization requires access to the Internet via an authenticated outbou
 
 Hybrid Azure AD join is a process to automatically register your on-premises domain-joined devices with Azure AD. There are cases where you don't want all your devices to register automatically. If this is true for you, see [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md).
 
+If your Windows 10 domain joined devices are already [Azure AD registered](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) to your tenant, you should consider removing that state before enabling Hybrid Azure AD join. The dual state of a device to be both Hybrid Azure Ad join and Azure AD registered is not supported. From Windows 10 1809 release, the following changes have been made to avoid this dual state: 
+ - Any existing Azure AD registered state would be automatically removed after the device is Hybrid Azure AD joined. 
+ - You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin , "BlockAADWorkplaceJoin"=dword:00000001
+
 
 ## Review how to control the hybrid Azure AD join of your devices
 
@@ -126,9 +130,9 @@ You can configure hybrid Azure AD join for the following scenarios:
 
 If your environment has managed domains, hybrid Azure AD join supports:
 
-- Pass Through Authentication (PTA) with Seamless Single Sign On (SSO) 
+- Pass Through Authentication (PTA)
 
-- Password Hash Sync (PHS) with Seamless Single Sign On (SSO) 
+- Password Hash Sync (PHS)
 
 Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. For more information, see:
 
@@ -141,7 +145,22 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
  If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](../device-management-hybrid-azuread-joined-devices-setup.md). 
 
 
+## Alternate Login Id support in Hybrid Azure AD join
 
+Windows 10 Hybrid Azure AD join provides limited support for [Alternate login Ids](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) based on the type of alternate login id, [authentication method](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), domain type and Windows 10 version. There are two type of alternate login ids that can exist in your environment.
+
+ - Routable alternate login id: A routable alternate login id has a valid verified domain, that is registered with a domain registrar. For example, if contoso.com is the primary domain, contoso.org and contoso.co.uk are valid domains that are owned by Contoso and [verified in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+ 
+ - Non-routable alternate login id: A non-routable alternate login id does not have a verified domain. It is applicable only within your organization's private network . For example, if contoso.com is the primary domain, contoso.local is not a verifiable domain in the internet but is used within Contoso's network.
+ 
+The table below provides details on support for either of these alternate login ids in Windows 10 Hybrid Azure AD join
+
+|Type of Alternate login id|Domain type|Windows 10 version|Description|
+|-----|-----|-----|-----|
+|Routable|Federated |From 1703 release|Generally available|
+|Routable|Managed|From 1709 release|Currently in private preview. Azure AD SSPR is not supported |
+|Non-routable|Federated|From 1803 release|Generally available|
+|Non-routable|Managed|Not supported||
 
 
 

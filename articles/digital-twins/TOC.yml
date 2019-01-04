@@ -62,8 +62,10 @@
     href: how-to-diagnose-user-defined-functions.md
   - name: How to configure monitoring
     href: how-to-configure-monitoring.md
-#- name: Reference
-#  items:
+- name: Reference
+  items:
+  - name: User-defined functions client library
+    href: reference-user-defined-functions-client-library.md
 - name: Related
   items:
   - name: Solutions
@@ -100,6 +102,8 @@
     href: https://azure.microsoft.com/pricing/details/digital-twins/     
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+    name: Azure Digital Twins Graph Viewer
+    href: https://github.com/Azure/azure-digital-twins-graph-viewer
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-digital-twins
   - name: Customer stories

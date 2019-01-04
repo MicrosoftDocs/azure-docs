@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
@@ -56,7 +56,7 @@ Here are the important steps to create this solution:
 
     Here is the high-level solution diagram: 
 
-    ![Incrementally load data](media\tutorial-incremental-copy-multiple-tables-portal\high-level-solution-diagram.png)
+    ![Incrementally load data](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.

@@ -1,15 +1,17 @@
 ---
-title: Azure Disk Encryption FAQ| Microsoft Docs
+title: FAQ - Azure Disk Encryption for IaaS VMs | Microsoft Docs
 description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 10/16/2018
+ms.date: 12/07/2018
+
+ms.custom: seodec18
 ---
 
-# Azure Disk Encryption FAQ
+# Azure Disk Encryption for Iaas VMs FAQ
 
 This article provides answers to frequently asked questions (FAQ) about Azure Disk Encryption for Windows and Linux IaaS VMs. For more information about this service, see [Azure Disk Encryption for Windows and Linux IaaS VMs](azure-security-disk-encryption-overview.md).
 
@@ -38,10 +40,10 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | OS and data disk |
 | Ubuntu | 14.04.5-DAILY-LTS | OS and data disk |
-| RHEL | 7.5 | Data disk* |
-| RHEL | 7.4 | Data disk* |
-| RHEL | 7.3 | Data disk* |
-| RHEL | 7.2 | Data disk* |
+| RHEL | 7.5 | OS and data disk* |
+| RHEL | 7.4 | OS and data disk* |
+| RHEL | 7.3 | OS and data disk* |
+| RHEL | 7.2 | OS and data disk* |
 | RHEL | 6.8 | Data disk* |
 | RHEL | 6.7 | Data disk* |
 | CentOS | 7.4 | OS and data disk |
@@ -61,7 +63,7 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 | SLES | 11 SP4 | Data disk |
 
 
-*__ADE is supported for RHEL for data disk. The current ADE implementation does work for OS disk but isn't currently jointly supported. Both Microsoft and Red Hat are working on a jointly supported solution. In the interim, you can reference the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article.__
+*__New ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. Please also refer to the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article for more information.__
 
 ## How can I start using Azure Disk Encryption?
 

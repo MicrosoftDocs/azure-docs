@@ -49,17 +49,19 @@ For security signals, the collection process starts when you opt-in to use the *
 
 **Activity reports**	
 
-| Report                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--                 | :--                 |
-| Directory Audit        | 7 days        | 30 days             | 30 days             |
-| Sign-in Activity       | N/A           | 30 days             | 30 days             |
-| Azure MFA Usage        | 30 days       | 30 days             | 30 days             |
+| Report                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--                    | :--           | :--            | :--                 | :--                 |
+| Directory Audit        | 7 days        |  7 days        | 30 days             | 30 days             |
+| Sign-in Activity       | N/A           |  N/A           | 30 days             | 30 days             |
+| Azure MFA Usage        | 30 days       |  30 days       | 30 days             | 30 days             |
+
+You can retain the audit and sign-in activity data for longer than the default retention period outlined above by routing it to an Azure storage account using Azure Monitor. For more information, see [Archive Azure AD logs to an Azure storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 **Security signals**
 
-| Report         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--            | :--           | :--                 | :--                 |
-| Users at risk  | 7 days        | 30 days             | 90 days             |
-| Risky sign-ins | 7 days        | 30 days             | 90 days             |
+| Report         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--            | :--           | :--            | :--                 | :--                 |
+| Users at risk  | 7 days        | 7 days         | 30 days             | 90 days             |
+| Risky sign-ins | 7 days        | 7 days         |  30 days            | 90 days             |
 
 ---

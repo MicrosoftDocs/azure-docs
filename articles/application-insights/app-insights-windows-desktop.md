@@ -1,24 +1,21 @@
-﻿---
+---
 title: Monitoring usage and performance for Windows desktop apps
 description: Analyze usage and performance of your Windows desktop app with Application Insights.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-
 ---
 # Monitoring usage and performance in Classic Windows Desktop apps
 
-Applications hosted on premises, in Azure, and in other clouds can all take advantage of Application Insights. The only limitation is the need to [allow communication](app-insights-ip-addresses.md) to the Application Insights service. For monitoring Universal Windows Platform (UWP) applications, we recommend [Visual Studio App Center](app-insights-mobile-center-quickstart.md).
+Applications hosted on premises, in Azure, and in other clouds can all take advantage of Application Insights. The only limitation is the need to [allow communication](../azure-monitor/app/ip-addresses.md) to the Application Insights service. For monitoring Universal Windows Platform (UWP) applications, we recommend [Visual Studio App Center](app-insights-mobile-center-quickstart.md).
 
 ## To send telemetry to Application Insights from a Classic Windows application
 1. In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](app-insights-create-new-resource.md). For application type, choose ASP.NET app.
@@ -33,7 +30,7 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
     `<InstrumentationKey>`*your key*`</InstrumentationKey>` 
    
     If you use ApplicationInsights.config, make sure its properties in Solution Explorer are set to **Build Action = Content, Copy to Output Directory = Copy**.
-5. [Use the API](app-insights-api-custom-events-metrics.md) to send telemetry.
+5. [Use the API](../azure-monitor/app/api-custom-events-metrics.md) to send telemetry.
 6. Run your app, and see the telemetry in the resource you created in the Azure Portal.
 
 ## <a name="telemetry"></a>Example code
@@ -74,8 +71,8 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
 ```
 
 ## Next steps
-* [Create a dashboard](app-insights-dashboards.md)
-* [Diagnostic Search](app-insights-diagnostic-search.md)
-* [Explore metrics](app-insights-metrics-explorer.md)
-* [Write Analytics queries](app-insights-analytics.md)
+* [Create a dashboard](../azure-monitor/app/app-insights-dashboards.md)
+* [Diagnostic Search](../azure-monitor/app/diagnostic-search.md)
+* [Explore metrics](../azure-monitor/app/metrics-explorer.md)
+* [Write Analytics queries](../azure-monitor/app/analytics.md)
 

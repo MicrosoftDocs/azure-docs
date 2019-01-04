@@ -1,20 +1,19 @@
 ---
-title: 'Azure Cosmos DB: Develop with the Table API in .NET | Microsoft Docs'
-description: Learn how to develop with Azure Cosmos DB's Table API using .NET
-services: cosmos-db
-author: SnehaGunda
-manager: kfile
-editor: ''
-
+title: Develop with the Table API using .NET SDK
+titleSuffix: Azure Cosmos DB
+description: Learn how to develop with Table API in Azure Cosmos DB by using .NET SDK
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/18/2017
-ms.author: sngun
-ms.custom: mvc
+ms.date: 12/07/2018
+author: wmengmsft
+ms.author: wmeng
+ms.custom: seodec18
+ms.reviewer: sngun
 ---
-# Azure Cosmos DB: Develop with the Table API in .NET
+
+# Develop with Azure Cosmos DB's Table API using .NET SDK
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
@@ -74,7 +73,7 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
 
 ## Clone the sample application
 
-Now let's clone a Table app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Table app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app. 
 
@@ -94,7 +93,7 @@ Now let's clone a Table app from github, set the connection string, and run it. 
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
 
-1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
+1. In the [Azure portal](https://portal.azure.com/), click **Connection String**. 
 
     Use the copy buttons on the right side of the screen to copy the PRIMARY CONNECTION STRING.
 
@@ -177,7 +176,8 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 This client is initialized using the `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel`, and `TablePreferredLocations` configuration values if specified in the app settings.
 
 ## Create a table
-Then, you create a table using `CloudTable`. Tables in Azure Cosmos DB can scale independently in terms of storage and throughput, and partitioning is handled automatically by the service. Azure Cosmos DB supports both fixed size and unlimited tables. See [Partitioning in Azure Cosmos DB](partition-data.md) for details. 
+
+Then, you create a table using `CloudTable`. Tables in Azure Cosmos DB can scale independently in terms of storage and throughput, and partitioning is handled automatically by the service. 
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");

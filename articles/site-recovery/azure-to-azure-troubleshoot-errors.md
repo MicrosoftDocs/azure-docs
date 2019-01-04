@@ -5,9 +5,8 @@ services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 11/27/2018
 ms.author: sujayt
 
 ---
@@ -56,37 +55,37 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
       ``# cd /etc/ssl/certs``
 
-3. Check if the Symantec root CA cert is present.
+1. Check if the Symantec root CA cert is present.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4. If the Symantec root CA cert is not found, run the following command to download the file. Check for any errors and follow recommended action for network failures.
+2. If the Symantec root CA cert is not found, run the following command to download the file. Check for any errors and follow recommended action for network failures.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-5. Check if the Baltimore root CA cert is present.
+3. Check if the Baltimore root CA cert is present.
 
       ``# ls Baltimore_CyberTrust_Root.pem``
 
-6. If the Baltimore root CA cert is not found, download the certificate.  
+4. If the Baltimore root CA cert is not found, download the certificate.  
 
     ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-7. Check if the DigiCert_Global_Root_CA cert is present.
+5. Check if the DigiCert_Global_Root_CA cert is present.
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
-8. If the DigiCert_Global_Root_CA is not found, run the following commands to download the certificate.
+6. If the DigiCert_Global_Root_CA is not found, run the following commands to download the certificate.
 
     ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
 
     ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
 
-9. Run rehash script to update the certificate subject hashes for the newly downloaded certificates.
+7. Run rehash script to update the certificate subject hashes for the newly downloaded certificates.
 
     ``# c_rehash``
 
-10. Check if the subject hashes as symlinks are created for the certificates.
+8.  Check if the subject hashes as symlinks are created for the certificates.
 
     - Command
 
@@ -115,11 +114,11 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
-11. Create a copy of the file VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem with filename b204d74a.0
+9.  Create a copy of the file VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem with filename b204d74a.0
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
-12. Create a copy of the file Baltimore_CyberTrust_Root.pem with filename 653b494a.0
+10. Create a copy of the file Baltimore_CyberTrust_Root.pem with filename 653b494a.0
 
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 
@@ -180,15 +179,16 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
 
 
  - **Resolution**
-  1.	Mobility Service agent detects the proxy settings from IE on Windows and /etc/environment on Linux.
-  2.  If you prefer to set proxy only for ASR Mobility Service, then you can provide the proxy details in ProxyInfo.conf located at:</br>
-      - ``/usr/local/InMage/config/`` on ***Linux***
-      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
-  3.	The ProxyInfo.conf should have the proxy settings in the following INI format. </br>
+   1.	Mobility Service agent detects the proxy settings from IE on Windows and /etc/environment on Linux.
+   2.  If you prefer to set proxy only for ASR Mobility Service, then you can provide the proxy details in ProxyInfo.conf located at:</br>
+       - ``/usr/local/InMage/config/`` on ***Linux***
+       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
+   3.	The ProxyInfo.conf should have the proxy settings in the following INI format.</br>
                    *[proxy]*</br>
                    *Address=http://1.2.3.4*</br>
                    *Port=567*</br>
-  4. ASR Mobility Service agent supports only ***un-authenticated proxies***.
+   4. ASR Mobility Service agent supports only ***un-authenticated proxies***.
+ 
 
 ### Fix the problem
 To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
@@ -273,6 +273,14 @@ To enable replication on the VM, the provisioning state should be **Succeeded**.
 
 You can open 'Services' console and ensure the 'COM+ System Application' and 'Volume Shadow Copy' are not set to 'Disabled' for 'Startup Type'.
   ![com-error](./media/azure-to-azure-troubleshoot-errors/com-error.png)
+
+## Unsupported Managed Disk Size (error code 150172)
+
+
+**Error code** | **Possible causes** | **Recommendations**
+--- | --- | ---
+150172<br></br>**Message**: Protection couldn't be enabled for the virtual machine as it has (DiskName) with size (DiskSize) that is lesser than the minimum supported size 10 GB. | - The disk is less than supported size of 1024 MB| Ensure that the disk sizes are within the supported size range and retry the operation. 
+
 
 ## Next steps
 [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)

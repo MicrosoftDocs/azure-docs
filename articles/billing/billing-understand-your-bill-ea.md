@@ -86,6 +86,6 @@ Compare your Azure Marketplace total on **Reports** > **Usage Summary** in the E
 
      ![Screenshot that shows download option under Marketplace charges.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-marketplace.png)
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

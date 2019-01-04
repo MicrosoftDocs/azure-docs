@@ -7,15 +7,15 @@ ms.subservice: data-movement
 ms.custom: 
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer:
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/07/2018
 ---
 # Use PowerShell to copy a SQL database to a new server
 
-This PowerShell script example creates a copy of an existing database in a new server. 
+This PowerShell script example creates a copy of an existing database in a new server.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

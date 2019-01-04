@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-
 ---
 # Profile production applications in Azure with Application Insights
 ## Enable Profiler for your application
@@ -23,7 +20,7 @@ Application Insights Profiler provides performance traces for applications runni
 
 The profiler works with .Net applications deployed on the following Azure services. Specific instructions for enabling the profiler for each service type are in the links below.
 
-* [App Services](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [App Services](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric Applications](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtual Machines and VM Scalesets](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -121,11 +118,11 @@ Profiler randomly runs two minutes every hour on each virtual machine that hosts
 
 ## Next Steps
 Enable Application Insights Profiler for your Azure application
-* [App Services](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [App Services](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric Applications](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtual Machines and VM Scalesets](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
-[performance-blade]: ./media/app-insights-profiler/performance-blade-v2-examples.png
-[trace-explorer]: ./media/app-insights-profiler/trace-explorer.png
+[performance-blade]: ./media/app-insights-profiler-overview/performance-blade-v2-examples.png
+[trace-explorer]: ./media/app-insights-profiler-overview/trace-explorer.png

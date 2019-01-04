@@ -1,16 +1,16 @@
 ﻿---
-title: Dedicated HSM Networking  | Microsoft Docs
-description: Azure Dedicated HSM provides key storage capabilities within Azure that meets FIPS 140-2 Level 3 certification
+title: Networking considerations - Azure Dedicated HSM | Microsoft Docs
+description: Overview of networking considerations applicable to Azure Dedicated HSM deployments
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
-
+ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 12/06/2018
 ms.author: barclayn
 
 ---

@@ -1,14 +1,10 @@
 ---
-title: Create an Azure virtual network peering - different deployment models -different subscriptions | Microsoft Docs
+title: Create an Azure virtual network peering - different deployment models -different subscriptions
+titlesuffix: Azure Virtual Network
 description: Learn how to create a virtual network peering between virtual networks created through different Azure deployment models that exist in different Azure subscriptions.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -52,8 +48,8 @@ This tutorial uses different accounts for each subscription. If you're using an 
     - **Location**: *East US*
 4. In the **Search resources** box at the top of the portal, type *myVnetA*. Click **myVnetA** when it appears in the search results. A blade appears for the **myVnetA** virtual network.
 5. In the **myVnetA** blade that appears, click **Access control (IAM)** from the vertical list of options on the left side of the blade.
-6. In the **myVnetA - Access control (IAM)** blade that appears, click **+ Add**.
-7. In the **Add permissions** blade that appears, select **Network contributor** in the **Role** box.
+6. In the **myVnetA - Access control (IAM)** blade that appears, click **+ Add role assignment**.
+7. In the **Add role assignment** blade that appears, select **Network contributor** in the **Role** box.
 8. In the **Select** box, select UserB, or type UserB's email address to search for it. The list of users shown is from the same Azure Active Directory tenant as the virtual network you're setting up the peering for. Click UserB when it appears in the list.
 9. Click **Save**.
 10. Log out of the portal as UserA, then log in as UserB.

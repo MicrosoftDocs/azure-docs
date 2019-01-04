@@ -110,7 +110,7 @@ If you create users in your:
 
 - **Azure AD**, no additional setup is required.
 
-[Alternate login IDs](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) are not supported on Azure AD joined devices. If your users use an alternate login ID, you should plan to switch to using their primary UPN in Azure AD.
+On-premises UPNs that are different from Azure AD UPNs are not supported on Azure AD joined devices. If your users use an on-premises UPN, you should plan to switch to using their primary UPN in Azure AD.
 
 
 
@@ -211,7 +211,7 @@ Azure AD joined devices don't support on-premises applications relying on machin
 
 ### Remote Desktop Services
 
-Remote desktop connection to an Azure AD joined devices requires the host machine to be either Azure AD joined or Hybrid Azure AD joined. Remote desktop from an unjoined or non-Windows device is not supported. For more information, see [Connect to remote Azure AD joined pc](https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc)
+Remote desktop connection to an Azure AD joined devices requires the host machine to be either Azure AD joined or Hybrid Azure AD joined. Remote desktop from an unjoined or non-Windows device is not supported. For more information, see [Connect to remote Azure AD joined pc](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
 
 
 ## Understand your provisioning options

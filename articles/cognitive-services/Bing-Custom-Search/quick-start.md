@@ -23,7 +23,7 @@ To create the instance, use the [Bing Custom Search portal](https://customsearch
 
 ## Prerequisites
 
-[!INCLUDE [cognitive-services-bing-news-search-prerequisites](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## Create a custom search instance
 

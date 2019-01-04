@@ -25,7 +25,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 
 - The [Gson library](https://github.com/google/gson)
 
-[!INCLUDE [cognitive-services-bing-news-search-prerequisites](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## Create and initialize the application
 
@@ -84,7 +84,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 
 ## Send and receive a search request 
 
-1. Create a function named `SearchWeb()` that sends a request and returns a `SearchResults` object. Create the request url by combining your Custom Configuration ID, query, and  endpoint information. Add your Subcription key to the `Ocp-Apim-Subscription-Key` header.
+1. Create a function named `SearchWeb()` that sends a request and returns a `SearchResults` object. Create the request url by combining your Custom Configuration ID, query, and  endpoint information. Add your Subscription key to the `Ocp-Apim-Subscription-Key` header.
 
     ```java
     public class CustomSrchJava {

@@ -1,5 +1,5 @@
 ---
-title: Load data into Azure storage environments for analytics | Microsoft Docs
+title: Load data into Azure storage environments - Team Data Science Process
 description: Move Data to and from Azure Blob Storage
 services: machine-learning
 author: marktab
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Load data into storage environments for analytics
 

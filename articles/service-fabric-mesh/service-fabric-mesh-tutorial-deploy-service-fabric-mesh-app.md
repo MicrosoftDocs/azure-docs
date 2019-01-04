@@ -109,10 +109,10 @@ You can use the Azure Cloud Shell or a local installation of the Azure CLI for t
 
 At this point, your application has been deployed. You can check to see its status by using the `app show` command. 
 
-The application name for the tutorial app is `ServiceMeshApp`. Gather the details on the application with the following command:
+The application name for the tutorial app is `todolistapp`. Gather the details on the application with the following command:
 
 ```azurecli-interactive
-az mesh app show --resource-group $rg --name ServiceMeshApp
+az mesh app show --resource-group $rg --name todolistapp
 ```
 
 ## See all applications currently deployed to your subscription

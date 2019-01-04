@@ -5,21 +5,18 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-
 ---
 # Profile live Azure cloud services with Application Insights
 
 You can also deploy Application Insights profiler on these services:
-* [Azure Web Apps](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric Applications](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtual Machines](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
@@ -27,7 +24,7 @@ Application Insights Profiler is installed with the Windows Azure Diagnostics (W
 
 ## Enable profiler for your Azure Cloud Service
 1. Check to see that you  using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later.  It's sufficient to confirm that the *ServiceConfiguration.\*.cscfg* files have an `osFamily` value of "5" or later.
-1. Add [Application Insights SDK to cloud service](app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json).
+1. Add [Application Insights SDK to cloud service](../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 1. Track requests with Application Insights:
 
     For ASP.Net web roles, Application Insights can track the requests automatically.

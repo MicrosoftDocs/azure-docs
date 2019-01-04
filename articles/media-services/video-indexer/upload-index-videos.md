@@ -8,29 +8,28 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: juliako
 ---
 
 # Upload and index your videos  
 
-This article shows how to upload a video with Azure Video Indexer. The Video Indexer API provides two uploading options: 
+When uploading videos with Video Indexer API, you have two uploading options: 
 
 * upload your video from a URL (preferred),
 * send the video file as a byte array in the request body,
 * Use existing Azure Media Services asset by providing the [asset id](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (supported in paid accounts only).
 
-The article shows how to use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos based on a URL. The code sample in the article includes the commented out code that shows how to upload the byte array.  
+The article shows how to use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos based on a URL. The code sample in the article includes the commented out code that shows how to upload the byte array. <br/>The article also discusses some of the parameters that you can set on the API to change the process and output of the API.
 
-The article also discusses some of the parameters that you can set on the API to change the process and output of the API.
-
-> [!Note]
-> When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). <br/>With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Indexer account that is [connected to your Azure subscription and a Azure Media Services account](connect-to-azure.md). You pay for minutes indexed as well as the Media Account related charges. 
+Once your video has been uploaded, Video Indexer, optionally encodes the video (discussed in the article). When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Indexer account that is [connected to your Azure subscription and a Azure Media Services account](connect-to-azure.md). You pay for minutes indexed as well as the Media Account related charges. 
 
 ## Uploading considerations
     
 - When uploading your video based on the URL (preferred) the endpoint must be secured with TLS 1.2 (or higher)
-- The byte array option is limited to 2GB and times out after 30 min
+- The upload size with the URL option is limited to 10GB
+- The upload size with the byte array option is limited to 2GB 
+- The byte array option times out after 30 min
 - The URL provided in the `videoURL` param needs to be encoded
 
 > [!Tip]

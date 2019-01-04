@@ -6,7 +6,7 @@ manager: abhemraj
 ms.service: site-recovery
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 09/22/2018
+ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
 ---
@@ -84,7 +84,7 @@ Perform the following tasks to prepare the Azure subscription and on-premises VM
 ## Create a Recovery Services vault
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
-2. Click **Create a resource** > **Monitoring & Management** > **Backup and Site Recovery**.
+2. Click **Create a resource** > **Management Tools** > **Backup and Site Recovery**.
 3. In **Name**, specify the friendly name **W2K8-migration**. If you have more than one
    subscription, select the appropriate one.
 4. Create a resource group **w2k8migrate**.

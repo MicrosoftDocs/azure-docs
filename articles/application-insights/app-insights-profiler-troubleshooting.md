@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-
 ---
 # Troubleshoot problems enabling or viewing Application Insights Profiler
 
@@ -128,9 +125,9 @@ Check that the ikey on the profiler command line is correct.
 Third, using the path found in the config.json file above, check the profiler log file. It will show debug information indicating the settings the profiler is using and status and error messages from the profiler. If the profiler is running while your application is receiving requests, you'll see this message: Activity detected from iKey. When the trace is being uploaded, you'll see this message: Start to upload trace. 
 
 
-[profiler-search-telemetry]:./media/app-insights-profiler/Profiler-Search-Telemetry.png
-[profiler-webjob]:./media/app-insights-profiler/Profiler-webjob.png
-[profiler-webjob-log]:./media/app-insights-profiler/Profiler-webjob-log.png
+[profiler-search-telemetry]:./media/app-insights-profiler-troubleshooting/Profiler-Search-Telemetry.png
+[profiler-webjob]:./media/app-insights-profiler-troubleshooting/Profiler-webjob.png
+[profiler-webjob-log]:./media/app-insights-profiler-troubleshooting/Profiler-webjob-log.png
 
 
 

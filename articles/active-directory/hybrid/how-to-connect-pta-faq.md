@@ -78,7 +78,7 @@ Yes. If Web Proxy Auto-Discovery (WPAD) is enabled in your on-premises environme
 If you don't have WPAD in your environment, you can add proxy information (as shown below) to allow a Pass-through Authentication Agent to communicate with Azure AD:
 - Configure proxy information in Internet Explorer before you install the Pass-through Authentication Agent on the server. This will allow you to complete the installation of the Authentication Agent, but it will still show up as **Inactive** on the Admin portal.
 - On the server, navigate to "C:\Program Files\Microsoft Azure AD Connect Authentication Agent".
-- Edit the "AzureADConnectAuthenticationAgentService" configuration file and add the following lines (replace "http://contosoproxy.com:8080" with your actual proxy address):
+- Edit the "AzureADConnectAuthenticationAgentService" configuration file and add the following lines (replace "http\://contosoproxy.com:8080" with your actual proxy address):
 
 ```
    <system.net>
@@ -148,6 +148,22 @@ Rerun the Azure AD Connect wizard and change the user sign-in method from Pass-t
 ## What happens when I uninstall a Pass-through Authentication Agent?
 
 If you uninstall a Pass-through Authentication Agent from a server, it causes the server to stop accepting sign-in requests. To avoid breaking the user sign-in capability on your tenant, ensure that you have another Authentication Agent running before you uninstall a Pass-through Authentication Agent.
+
+## I have an older tenant that was originally setup using AD FS.  We recently migrated to PTA but now are not seeing our UPN changes synchronizing to Azure AD.  Why are our UPN changes not being synchronized?
+
+A: Under the following circumstances your on-premises UPN changes may not synchronize if:
+
+- Your Azure AD tenant was created prior to June 15th 2015
+- You initially were federated with your Azure AD tenant using AD FS for authentication
+- You switched to having managed users using PTA as authentication
+
+This is because the default behavior of tenants created prior to June 15th 2015 was to block UPN changes.  If you need to un-block UPN changes you need to run the following PowerShell cmdlt:  
+
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+
+Tenants created after June 15th 2015 have the default behavior of synchronizing UPN changes.   
+
+
 
 ## Next steps
 - [Current limitations](how-to-connect-pta-current-limitations.md): Learn which scenarios are supported and which ones are not.

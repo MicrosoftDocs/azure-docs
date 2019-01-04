@@ -13,8 +13,12 @@ ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
 
+ROBOTS: NOINDEX
+
 ---
 # Store Batch AI job input and output with Azure Storage
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 This guide describes how to use Azure Storage for storing input and output files when running a job. Azure Storage is one of several storage options supported by Batch AI. Batch AI integrates with Azure Storage by mounting Azure Storage systems to a Batch AI job or cluster filesystem, allowing seamless access to files stored in the cloud. 
 

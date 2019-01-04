@@ -1,12 +1,12 @@
 ---
 title: Azure AI Gallery tutorials - Azure Machine Learning Studio | Microsoft Docs
-description: Discover and share tutorials in Azure AI Gallery.
+description: Discover and share tutorials in Azure AI Gallery. Displays a list of recently added and popular tutorials.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: 70f0eb31-7dca-4907-a5d7-504357dcd889
 ms.service: machine-learning
@@ -71,5 +71,5 @@ Your tutorial is now in Azure AI Gallery. Your tutorials are listed on your acco
 
 **[Go to the Gallery](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

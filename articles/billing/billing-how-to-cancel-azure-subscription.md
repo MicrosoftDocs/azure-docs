@@ -54,6 +54,6 @@ If you cancel your Pay-As-You-Go subscription accidentally, you can [reactivate 
 
 If your subscription is not Pay-As-You-Go, contact support within 90 days of cancellation to reactivate your subscription.
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
