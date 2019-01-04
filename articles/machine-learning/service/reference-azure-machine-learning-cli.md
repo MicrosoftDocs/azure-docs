@@ -115,11 +115,15 @@ The following commands demonstrate how to use the CLI to work with experiments:
     az ml project attach --experiment-name myhistory
     ```
 
-* Start a run of your experiment. When using this command, specify a compute target. In this example, `local` uses the local computer to train the model using the `train.py` script:
+* Start a run of your experiment. When using this command, specify the name of the `.runconfig` file that contains the run configuration. The run configuration is used configure the compute target that is used to train the model. In this example, the run configuration is loaded from the `./aml_config/myrunconfig.runconfig` file.
 
     ```azurecli-interactive
-    az ml run submit -c local train.py
+    az ml run submit -c myrunconfig train.py
     ```
+
+    Default `.runconfig` files named `docker.runconfig` and `local.runconfig` are created when you attach a project using the `az ml project attach` command. You may need to modify these before using them to train a model. 
+
+    You can also create a run configuration programmatically and then save to file using the `save` method of the [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) class.
 
 * View a list of submitted experiments:
 
