@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Service Fabric application secrets | Microsoft Docs
-description: Learn how to secure secret values in a Service Fabric application (Platform Agnostic).
+description: Learn how to secure secret values in a Service Fabric application (platform-agnostic).
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 01/04/2019
 ms.author: vturecek
 
 ---
@@ -131,7 +131,7 @@ if (MySecretIsEncrypted)
 string MyEnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
-## Next Steps
+## Next steps
 Learn more about [application and service security](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
