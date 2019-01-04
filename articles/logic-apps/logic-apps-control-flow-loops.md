@@ -146,10 +146,10 @@ logic app's JSON definition instead, for example:
 
 ## "Foreach" loop: Sequential
 
-By default, each cycle in a "Foreach" loop runs in parallel for each array item. 
-To run each cycle sequentially, set the **Sequential** option for your loop. 
+By default, each cycle in a "Foreach" loop runs in parallel. 
+To run each cycle sequentially, set the loop's **Sequential** option. 
 For example, suppose you have a variable that increments a value during each cycle. 
-To get predictable results from that variable, run that loop sequentially.
+Run that loop sequentially so you get predictable results.  
 
 1. In the loop's upper right corner, choose **ellipses** (**...**) > **Settings**.
 
@@ -192,9 +192,11 @@ wait until a specific field in that record gets approved,
 and continue processing. 
 
 For example, at 8:00 AM each day, this logic app increments a variable 
-until the variable's value equals 10. Then, the logic app sends an email 
-that confirms the current value. Although this example uses Office 365 Outlook, 
-you can use any email provider supported by Logic Apps ([review the connectors list here](https://docs.microsoft.com/connectors/)). 
+until the variable's value equals 10. The logic app then sends an email 
+that confirms the current value. 
+
+This example uses Office 365 Outlook, but you can use any email provider supported by Logic Apps 
+([check the connectors list here](https://docs.microsoft.com/connectors/)). 
 If you use another email account, the overall steps are the same, 
 but your UI might slightly differ. 
 
@@ -333,21 +335,21 @@ JSON definition instead, for example:
             "Initialize_variable": [
                 "Succeeded"
             ]
-        },
+        }
     }
-},
+}
 ```
 
-In another example, this "Until" loop calls an HTTP 
-endpoint that creates a resource and stops when the 
-HTTP response body returns with "Completed" status. 
+This example "Until" loop calls an HTTP endpoint, 
+which creates a resource. The loop stops when the 
+HTTP response body returns with `Completed` status. 
 To prevent endless loops, the loop also stops 
 if any of these conditions happen:
 
-* The loop has run 10 times as specified by the `count` attribute. 
+* The loop ran 10 times as specified by the `count` attribute. 
 The default is 60 times. 
-* The loop has tried to run for two hours 
-as specified by the `timeout` attribute in ISO 8601 format. 
+
+* The loop ran for two hours as specified by the `timeout` attribute in ISO 8601 format. 
 The default is one hour.
   
 ``` json
