@@ -277,7 +277,7 @@ If your application uses Data Lake Storage REST APIs, you'll need to modify your
 
 ##### SDKs
 
-As called out in the *Assess your upgrade readiness* section, SDKs aren't currently available. If you want port over your applications to Data Lake Storage Gen2, we will recommend that you wait for supported SDKs to be available.￼.
+As called out in the *Assess your upgrade readiness* section, SDKs aren't currently available. If you want port over your applications to Data Lake Storage Gen2, we will recommend that you wait for supported SDKs to be available.
 
 ##### PowerShell
 
