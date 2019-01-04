@@ -13,7 +13,7 @@ As an example, consider an IoT device or equipment deployed in a factory'
 	
 During public preview, device steams will be available to IoT Hub instances created in Central US, and Central US EUAP regions. The service will be free of charge during preview and will allow for up-to 50 concurrent streams per Hub and 10 GB of aggregated transferred data per month. These caps will be relaxed when the feature becomes generally available.
 	
-To learn more, see the documentation page [here] or watch the IoT show recording [here].
+To learn more, see device streams [documentation page](iot-hub-device-streams-overview.md) for feature information, or refer to [Azure pricing page](https://azure.microsoft.com/en-us/pricing/details/iot-hub/) for updates on pricing.
 
 ## FAQ
 - **How much will IoT Hub device streams cost?**<br/>
