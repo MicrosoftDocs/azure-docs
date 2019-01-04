@@ -1,15 +1,13 @@
 ---
 title: Azure Cosmos DB Table API .NET Standard SDK & Resources
 description: Learn all about the Azure Cosmos DB Table API and the .NET Standard SDK including release dates, retirement dates, and changes made between each version.
-services: cosmos-db
-author: donghexu
-
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
-ms.author: dox
 
 ---
 # Azure Cosmos DB Table .NET Standard API: Download and release notes
