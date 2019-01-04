@@ -26,7 +26,7 @@ The following table describes the types of storage accounts and their capabiliti
 
 <sup>1</sup>Using the Azure Resource Manager deployment model is recommended. Storage accounts using the classic deployment model can still be created in some locations, and existing classic accounts continue to be supported. For more information, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../articles/azure-resource-manager/resource-manager-deployment-model.md).
 
-<sup>2</sup>All storage accounts are encrypted using Storage Service Encryption (SSE) for data at rest. For more information, see [Azure Storage Service Encryption for Data at Rest](../articles/storage/commonstorage-service-encryption.md).
+<sup>2</sup>All storage accounts are encrypted using Storage Service Encryption (SSE) for data at rest. For more information, see [Azure Storage Service Encryption for Data at Rest](../articles/storage/common/storage-service-encryption.md).
 
 <sup>3</sup>The Archive tier is available at level of an individual blob only, not at the storage account level. Only block blobs and append blobs can be archived. For more information, see [Azure Blob storage: Hot, Cool, and Archive storage tiers](../articles/storage/blobs/storage-blob-storage-tiers.md).
 
