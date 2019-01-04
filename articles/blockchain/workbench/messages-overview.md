@@ -644,7 +644,7 @@ Contains information when an application is uploaded to Workbench, such as the n
 | applicationDefinitionLocation | URL where the application configuration file is located |
 | contractCodes | Collection of [contract codes](#contract-code-information) for the application |
 | applicationRoles | Collection of [application roles](#application-role-information) for the application |
-| applicationWorkflows | Collection of [application workflows](#application-workflow-information)for the application |
+| applicationWorkflows | Collection of [application workflows](#application-workflow-information) for the application |
 | connectionId | Unique identifier for the connection |
 | messageSchemaVersion | Messaging schema version |
 | messageName | **EventMessage** |
