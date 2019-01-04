@@ -20,7 +20,7 @@ ms.author: pbutlerm
 
 # Create technical assets for Azure application offer
 
-Typically you develop solutions using the [SDK for Dynamics 365 for Customer Engagement apps](https://docs.microsoft.com/dynamics365/customer-engagement/developer/get-started-sdk).  Solutions take a variety of forms, as described in [Programming models for Dynamics 365 for Customer Engagement apps](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/programming-models).  You must chose the form that best conforms to your solution requirements.  When developing a solution, there are a number of issues you must address, such as extensibility choices, solution components, version compatibility, which are discussed in the topic [Introduction to solutions](https://docs.microsoft.com/dynamics365/customer-engagement/developer/introduction-solutions).
+Typically you develop solutions using the [SDK for Dynamics 365 for Customer Engagement apps](https://docs.microsoft.com/dynamics365/customer-engagement/developer/get-started-sdk).  Solutions take a variety of forms, as described in [Programming models for Dynamics 365 for Customer Engagement apps](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/programming-models).  Chose the form that best conforms to your solution requirements.  When developing a solution, there are a number of issues you must address, such as extensibility choices, solution components, and version compatibility.  For more information, see  [Introduction to solutions](https://docs.microsoft.com/dynamics365/customer-engagement/developer/introduction-solutions).
 
 Most of the Dynamics 365 solutions published to AppSource are managed applications distributed as package files.
 
