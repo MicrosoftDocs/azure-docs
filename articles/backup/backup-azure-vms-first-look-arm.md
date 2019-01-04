@@ -285,9 +285,6 @@ To run the initial backup job:
 
   > [!NOTE]
   > - All the data being backed up by Azure Backup is encrypted at rest through [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
-  - Recovery point is generated on the date and time when the backup snapshot is triggered regardless when the backup job was schedule. 
-    - Ex. If the backup frequency is scheduled at 11:30 PM and due to any issue backup is triggered at 12:01 AM then the recovery point will be created with the next date at 12:01 AM.
-  - In case of monthly backup if backup is set to run on 1st day of every month and if it is triggered on the next day due to any issue then the recovery point created for monthly backup will tagged with the next day (i.e 2nd of that month)
   >
   >
 

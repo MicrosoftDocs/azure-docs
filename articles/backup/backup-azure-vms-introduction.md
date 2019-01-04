@@ -112,7 +112,7 @@ Backup consists of two phases, taking snapshots and transferring the snapshots t
 Situations that can affect backup time include the following:
 
 - **Initial backup for a newly added disk to an already protected VM**: If a VM is undergoing incremental backup and a new disk gets added to this VM, then the backup duration can go beyond 24 hours since the newly added disk has to undergo initial replication along with delta replication of existing disks.
-- **Fragmentation**: Backup product scans for incremental changes between two backups operations. Backup operations are faster when the changes on the disk are collocated when compared to changes are spread across then the operation. 
+- **Fragmentation**: Backup product scans for incremental changes between two backups operations. Backup operations are faster when the changes on the disk are collocated when compared to changes are spread across then the disk. 
 - **Churn**: Daily churn (for incremental replication) per disk greater than 200 GB can take greater than ~8 hours to complete the operation. If VM has more than one disk and if one of those disks is taking longer time to backup, then it can impact the overall backup operation (or can result in failure). 
 - **Checksum Comparison (CC) mode**: CC mode is comparatively slower than optimized mode used by Instant RP. If you are already using Instant RP and have deleted the Tier-1 snapshots, then backup switches to CC mode causing the Backup operation to exceed 24 hours (or fail).
 
