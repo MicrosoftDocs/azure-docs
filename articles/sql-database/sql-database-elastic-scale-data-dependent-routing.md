@@ -38,8 +38,8 @@ RangeShardMap<int> rangeShardMap = smm.getRangeShardMap(Configuration.getRangeSh
 ```
 
 ```csharp
-ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString, ShardMapManagerLoadPolicy.Lazy);
-RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap");
+ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnectionString, ShardMapManagerLoadPolicy.Lazy);
+RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap"); 
 ```
 
 ### Use lowest privilege credentials possible for getting the shard map
