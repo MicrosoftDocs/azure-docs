@@ -1,16 +1,14 @@
 ---
 title: 'Azure Cosmos DB: SQL Node.js API, SDK & resources'
 description: Learn all about the SQL Node.js API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Node.js SDK.
-services: cosmos-db
 author: deborahc
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
+ms.author: dech
+
 
 ---
 # Azure Cosmos DB Node.js SDK for SQL API: Release notes and resources

@@ -106,5 +106,5 @@ Learn how for: [Java web apps](../../azure-monitor/app/java-get-started.md), [Wi
 ## Next steps
 
 * [Application Insights for Java](../../azure-monitor/app/java-get-started.md)
-* [Application Insights for Node.js](../../application-insights/app-insights-nodejs.md)
+* [Application Insights for Node.js](../../azure-monitor/app/nodejs.md)
 * [Application Insights for ASP.NET](../../azure-monitor/app/asp-net.md)

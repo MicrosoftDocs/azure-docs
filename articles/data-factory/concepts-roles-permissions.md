@@ -12,7 +12,7 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ---
 
 # Roles and permissions for Azure Data Factory

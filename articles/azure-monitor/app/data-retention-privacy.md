@@ -83,7 +83,7 @@ Raw data points (that is, items that you can query in Analytics and inspect in S
 
 Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 90 days.
 
-[Debug snapshots](../../application-insights/app-insights-snapshot-debugger.md) are stored for seven days. This retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal.
+[Debug snapshots](../../azure-monitor/app/snapshot-debugger.md) are stored for seven days. This retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal.
 
 ## Who can access the data?
 The data is visible to you and, if you have an organization account, your team members. 
@@ -291,7 +291,7 @@ This product includes GeoLite2 data created by MaxMind, available from [https://
 [config]: ../../azure-monitor/app/configuration-with-applicationinsights-config.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [java]: ../../azure-monitor/app/java-get-started.md
-[platforms]: ../../application-insights/app-insights-platforms.md
+[platforms]: ../../azure-monitor/app/platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../application-insights/app-insights-overview.md
