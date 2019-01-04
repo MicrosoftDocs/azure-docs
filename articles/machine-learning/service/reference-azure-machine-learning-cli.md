@@ -115,7 +115,7 @@ The following commands demonstrate how to use the CLI to work with experiments:
     az ml project attach --experiment-name myhistory
     ```
 
-* Start a run of your experiment. When using this command, specify the name of the `.runconfig` file that contains the run configuration. The run configuration is used configure the compute target that is used to train the model. In this example, the run configuration is loaded from the `./aml_config/myrunconfig.runconfig` file.
+* Start a run of your experiment. When using this command, specify the name of the `.runconfig` file that contains the run configuration. The compute target uses the run configuration to create the training environment for the model. In this example, the run configuration is loaded from the `./aml_config/myrunconfig.runconfig` file.
 
     ```azurecli-interactive
     az ml run submit -c myrunconfig train.py
@@ -123,7 +123,7 @@ The following commands demonstrate how to use the CLI to work with experiments:
 
     Default `.runconfig` files named `docker.runconfig` and `local.runconfig` are created when you attach a project using the `az ml project attach` command. You may need to modify these before using them to train a model. 
 
-    You can also create a run configuration programmatically and then save to file using the `save` method of the [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) class.
+    You can also create a run configuration programmatically using the [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) class. Once created, you can then use the `save()` method to create the `.runconfig` file.
 
 * View a list of submitted experiments:
 
