@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub device streams quickstart for SSH/RDP (C#) | Microsoft Docs
-description: In this quickstart, you will run two sample C# applications that enable SSH/RDP scenarios voer an IoT Hub device stream.
+description: In this quickstart, you will run two sample C# applications that enable SSH/RDP scenarios over an IoT Hub device stream.
 author: rezasherafat
 manager: briz
 ms.service: iot-hub
@@ -16,7 +16,7 @@ ms.author: rezas
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart involves two C# programs that enable SSH and RDP traffic to be sent over a device stream established through IoT Hub.
+[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart involves two C# programs that enable SSH and RDP traffic to be sent over a device stream established through IoT Hub. See [this page](./iot-hub-device-streams-overview.md#local-proxies-sample-for-ssh-or-rdp) for an overview of the setup.
 
 We first describe the setup for SSH (using port `22`). We then describe how to modify the setup for RDP (which uses port `3389`). Since device streams are application and protocol agnostic, the same sample can be modified (usually by changing the communication ports) to accommodate other types of application traffic.
 
@@ -25,7 +25,7 @@ We first describe the setup for SSH (using port `22`). We then describe how to m
 The figure below, illustrates the setup of how the deivce- and service-local proxy programs in this sample will enable end-to-end connectivity between SSH client and SSH daemon. Here, we assume that the daemon is running on the same device as the device-local proxy.
 
 <p>
-    <img style="margin:auto;display:block;background-color:white;" 
+    <img style="margin:auto;display:block;background-color:white;width:50%;" 
     src="./media/iot-hub-device-streams-csharp-proxy-quickstart/device-stream-proxy-diagram.svg">
 </p>
 
@@ -103,7 +103,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## SSH to a device via IoT Hub device streams
 
-### Run the service-side application
+### Run the service-side proxy
 
 Navigate to `ServiceLocalProxyC2DStreamingSample` in your unzipped project folder, and edit `App.config` file as follows:
 
@@ -116,7 +116,7 @@ Navigate to `ServiceLocalProxyC2DStreamingSample` in your unzipped project folde
 Compile and run the code as follows:
 
 ```azurecli-interactive
-cd ./iothub/service/samples/ServiceLocalProxyC2DStreamingSample/
+cd ./iot-hub/Samples/service/ServiceLocalProxyC2DStreamingSample/
 
 # Build the application
 dotnet build
@@ -125,7 +125,7 @@ dotnet build
 dotnet run
 ```
 
-### Run the device-side application
+### Run the device-side proxy
 
 Navigate to `DeviceLocalProxyC2DStreamingSample` in your unzipped project folder, and edit `App.config` file as follows:
 
@@ -138,7 +138,7 @@ Navigate to `DeviceLocalProxyC2DStreamingSample` in your unzipped project folder
 Compile and run the code as follows:
 
 ```azurecli-interactive
-cd ./iothub/device/samples/DeviceLocalProxyC2DStreamingSample/
+cd ./iot-hub/Samples/device/DeviceLocalProxyC2DStreamingSample/
 
 # Build the application
 dotnet build
@@ -172,7 +172,7 @@ At this point, you will be presented with the SSH login prompt to enter your pas
 
 ## RDP to a device via IoT Hub device streams
 
-The setup for RDP is very similar to SSH. We basically need to use the RDP destination IP and port `3389` instead and use RDP client (instead of SSH client).
+The setup for RDP is very similar to SSH (described above). We basically need to use the RDP destination IP and port `3389` instead and use RDP client (instead of SSH client).
 
 ### Run the service-side application
 
@@ -221,7 +221,7 @@ dotnet run
 Now use your RDP client program and connect to service-local proxy on port `2222`. 
 
 <p>
-    <img style="margin:auto;display:block;background-color:white;" src="./media/iot-hub-device-streams-csharp-proxy-quickstart/rdp-screen-capture.PNG">
+    <img style="margin:auto;display:block;background-color:white;width:50%;" src="./media/iot-hub-device-streams-csharp-proxy-quickstart/rdp-screen-capture.PNG">
 </p>
 
 ## Clean up resources
@@ -235,4 +235,4 @@ In this quickstart, you've setup an IoT hub, registered a device, established a 
 To learn how to use IoT Hub device streams for an existing client/server application such as SSH or RDP, continue to the next quickstart.
 
 > [!div class="nextstepaction"]
-> [Quickstart: SSH/RDP to your IoT device using IoT Hub device streams](iot-hub-device-streams-proxy-quickstart.md)
+> [Quickstart: SSH/RDP to your IoT device using IoT Hub device streams](iot-hub-device-streams-csharp-proxy-quickstart.md)
