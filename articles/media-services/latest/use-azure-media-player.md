@@ -42,7 +42,7 @@ You can use the [Azure Media Player demo page](http://aka.ms/amp) to monitor dia
 
 ![Azure Media Player diagnostics](./media/azure-media-player/diagnostics.png)
 
-## Setup Azure Media Player in your HTML
+## Set up Azure Media Player in your HTML
 
 Azure Media Player is easy to set up. It only takes a few moments to get basic playback of media content from your Media Services account. See [Azure Media Player documentation](https://aka.ms/ampdocs) for details on how to set up and configure Azure Media Player. 
 
