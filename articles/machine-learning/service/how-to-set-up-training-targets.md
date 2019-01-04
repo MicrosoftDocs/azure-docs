@@ -90,7 +90,7 @@ Use the sections below to configure these compute targets:
 
 1. **Configure**:  When you use your local computer as a compute target, the training code is run in your [development environment](how-to-configure-environment.md).  If that environment already has the Python packages you need, use the user-managed environment.
 
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=local_env)]
+ [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=local_env)]
 
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
 
@@ -114,7 +114,7 @@ You can create Azure Machine Learning Compute as a compute target at run time. T
 
 1.  **Create, attach, and configure**: The run-based creation performs all the necessary steps to create, attach, and configure the compute target with the run configuration.  
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/ampcompute.py?name=amlcompute_temp)]
+  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=amlcompute_temp)]
 
 
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
@@ -128,16 +128,16 @@ A persistent Azure Machine Learning Compute can be reused across jobs. The compu
     * **vm_size**: The VM family of the nodes created by Azure Machine Learning Compute.
     * **max_nodes**: The max number of nodes to autoscale up to when you run a job on Azure Machine Learning Compute.
     
-     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/ampcompute2.py?name=cpu_basic)]
+ [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/ampcompute2.py?name=cpu_basic)]
 
-    You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
+  You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) for details.
     
-    Or you can create and attach a persistent Azure Machine Learning Compute resource [in the Azure portal](#portal-create).
+ Or you can create and attach a persistent Azure Machine Learning Compute resource [in the Azure portal](#portal-create).
 
 1. **Configure**: Create a run configuration for the persistent compute target.
 
-    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/ampcompute2.py?name=aml_runconfig)]
+ [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=aml_runconfig)]
 
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
 
@@ -388,7 +388,7 @@ For example, to use [the local target](#local) configuration:
 
 Switch the same experiment to run in a different compute target by using a different run configuration, such as the [amlcompute target](#amlcompute):
 
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/ampcompute2.py?name=amlcompute_submit)]
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=amlcompute_submit)]
 
 Or you can:
 
