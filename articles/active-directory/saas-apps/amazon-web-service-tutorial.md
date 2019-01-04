@@ -158,7 +158,7 @@ To configure Azure AD single sign-on with Amazon Web Services (AWS), perform the
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. Leave the **Namespace** blank.
+	c. In the **Namespace** textbox, type the Namespace value shown for that row.
 
 	d. Select Source as **Attribute**.
 
