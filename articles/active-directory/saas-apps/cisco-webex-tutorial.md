@@ -114,7 +114,7 @@ To configure Azure AD single sign-on with Cisco Webex, perform the following ste
 
 	![Configure Single Sign-On](./media/cisco-webex-tutorial/tutorial_cisco_webex_16.png)
 
-8. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+8. In the Azure portal, On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
