@@ -175,9 +175,9 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 	a. Enable **SAML** authentication method.
 
-	b. In the **SAML SSO URL** textbox, enter the **Login URL** value which you have copied from the Azure Portal.
+	b. In the **SAML SSO URL** textbox, enter the **Login URL** value, which you have copied from the Azure portal.
 
-	c. In the **Identity Provider Issuer** textbox, enter the **Azure AD Identifier** value which you have copied from the Azure Portal.
+	c. In the **Identity Provider Issuer** textbox, enter the **Azure AD Identifier** value, which you have copied from the Azure portal.
 
 5. Open the downloaded **Certificate (Base64)** file with a text editor and copy and paste its content into **Public Certificate** field in Deskradar.
 
@@ -199,7 +199,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** field, enter **BrittaSimon**.
   
     b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
@@ -232,7 +232,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+7. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create Deskradar test user
 
