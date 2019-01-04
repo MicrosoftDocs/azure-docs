@@ -2,7 +2,6 @@
 title: Diagnostic logging in Azure Cosmos DB 
 description: Learn about the different ways to log and monitor data stored in Azure Cosmos DB.
 author: SnehaGunda
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/06/2018

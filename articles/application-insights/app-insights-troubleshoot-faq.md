@@ -80,7 +80,7 @@ The details depend on the type of project. For a web application:
 * (New projects only - if you [add Application Insights to an existing project][start], you have to do this manually.) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the master page Views/Shared/_Layout.cshtml
 
 ## How do I upgrade from older SDK versions?
-See the [release notes](app-insights-release-notes.md) for the SDK appropriate to your type of application.
+See the [release notes](../azure-monitor/app/release-notes.md) for the SDK appropriate to your type of application.
 
 ## <a name="update"></a>How can I change which Azure resource my project sends data to?
 In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in ApplicationInsights.config, which determines where the server SDK sends your data. Unless you deselect "Update all," it will also change the key where it appears in your web pages.
@@ -195,7 +195,7 @@ Use a single resource for all the components or roles in a single business syste
 
 ## Why are the counts in Search and Metrics charts unequal?
 
-[Sampling](app-insights-sampling.md) reduces the number of telemetry items (requests, custom events, and so on) that are actually sent from your app to the portal. In Search, you see the number of items actually received. In metric charts that display a count of events, you see the number of original events that occurred. 
+[Sampling](../azure-monitor/app/sampling.md) reduces the number of telemetry items (requests, custom events, and so on) that are actually sent from your app to the portal. In Search, you see the number of items actually received. In metric charts that display a count of events, you see the number of original events that occurred. 
 
 Each item that is transmitted carries an `itemCount` property that shows how many original events that item represents. To observe sampling in operation, you can run this query in Analytics:
 

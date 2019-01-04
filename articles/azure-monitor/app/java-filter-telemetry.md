@@ -25,7 +25,7 @@ The out-of-the-box filters include:
 
 > [!NOTE]
 > Filters skew the metrics of your app. For example, you might decide that, in order to diagnose slow responses, you will set a filter to discard fast response times. But you must be aware that the average response times reported by Application Insights will then be slower than the true speed, and the count of requests will be smaller than the real count.
-> If this is a concern, use [Sampling](../../application-insights/app-insights-sampling.md) instead.
+> If this is a concern, use [Sampling](../../azure-monitor/app/sampling.md) instead.
 
 ## Setting filters
 
@@ -256,4 +256,4 @@ In ApplicationInsights.xml:
 
 ## Next steps
 
-* [Sampling](../../application-insights/app-insights-sampling.md) - Consider sampling as an alternative that does not skew your metrics.
+* [Sampling](../../azure-monitor/app/sampling.md) - Consider sampling as an alternative that does not skew your metrics.
