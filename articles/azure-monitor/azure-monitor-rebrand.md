@@ -17,16 +17,6 @@ ms.author: bwren
 # Azure Monitor branding changes
 This article describes the recent branding and name changes recently made to Azure management services. 
 
-## Summary of changes
-The following table lists recent changes in terminology used for monitoring services in Azure.
-
-| Term | Previous definition | New definition | 
-|:---|:---|:---|
-| Azure Monitor |  |  |
-| [Log Analytics](#log-analytics-redefinition) | Azure service that included agents to collect log data, query language to analyze data, and views to visualize data.  | Page in the Azure portal used to write and run queries and analyze log data in Azure Monitor. Other features are unchanged but are now considered part of Azure Monitor. |
-| Metrics Explorer | Page in the Azure portal for analyzing metric data in Azure Monitor. | This tool has been renamed to Metrics Analytics for consistency with Log Analytics. |
-| Log Analytics query language<br>Azure Monitor query language<br>Kusto | Query language to analyze log data in Log Analytics. | Now that Data Explorer is publicly available, this is known as Data Explorer query language. It's the same language as before and is a flavor of the language used by Data Explorer. Most of the documentation for the language is with Data Explorer with this section providing content on the differences. |
-| Operations Management Suite (OMS) | Bundling of Azure management services for licensing purposes. | No equivalent.  |
 
 ## Consolidation of monitoring services into Azure Monitor
 Log Analytics and Application Insights have been consolidated into Azure Monitor to provide a single integrated experience for monitoring Azure resources and hybrid environments. No functionality has been removed from these services, and users can perform the same scenarios that they've always completed with no loss or compromise of any features.
