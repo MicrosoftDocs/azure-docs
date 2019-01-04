@@ -38,13 +38,20 @@ To add a new version, upload the new configuration and smart contract files to B
 Deployment of the blockchain application can take a few minutes. When deployment is finished, refresh the application page. Choosing the application and selecting the **Version history** button, displays the version history of the application.
 
 > [!IMPORTANT]
-> Previous versions will convert to read only. You can individually re-enable past versions.
+> Previous versions of the application are disabled. You can individually re-enable past versions.
 >
-> Member roles won't be carried over if you made changes to them.
+> You may need to re-add members to application roles if changes were made to the application roles in the new version.
 
 ## Using app versions
 
-Select the version?
+By default, the latest enabled version of the application is used in Blockchain Workbench. If you want to use a previous version of an application, you need to choose the version from the application page first.
+
+1. In Blockchain Workbench application section, select the application checkbox that contains the contract you want to use. If previous versions are enabled, the version history button is available.
+2. Select the **Version history** button.
+3. In the version history pane, choose the version of the application by selecting the link in the *Date modified* column.
+    ![Choose a previous version](media/version-app/use-version.png)
+
+    You can create new contracts or take actions on previous version contracts. The version of the application is displayed following the application name and a warning is displayed about the older version.
 
 ## Next steps
 
