@@ -49,10 +49,10 @@ Application Insights makes it easy to understand what your costs are likely to b
 
 ![Choose pricing](./media/pricing/pricing-001.png)
 
-A. Review your data volume for the month. This includes all the data that's received and retained (after any [sampling](../../application-insights/app-insights-sampling.md)) from your server and client apps, and from availability tests.  
+A. Review your data volume for the month. This includes all the data that's received and retained (after any [sampling](../../azure-monitor/app/sampling.md)) from your server and client apps, and from availability tests.  
 B. A separate charge is made for [multi-step web tests](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests). (This doesn't include simple availability tests, which are included in the data volume charge.)  
 C. View data volume trends for the past month.  
-D. Enable data ingestion [sampling](../../application-insights/app-insights-sampling.md).   
+D. Enable data ingestion [sampling](../../azure-monitor/app/sampling.md).   
 E. Set the daily data volume cap.  
 
 To investigate your Application Insights usage more deeply, open the **Metrics** page, add the metric named "Data point volume", and then select the *Apply splitting* option to split the data by "Telemetry item type". 
@@ -64,7 +64,7 @@ Application Insights charges are added to your Azure bill. You can see details o
 ## Data rate
 The volume of data you send is limited in three ways:
 
-* **Sampling**: You can use sampling to reduce the amount of telemetry that's sent from your server and client apps, with minimal distortion of metrics. Sampling is the primary tool you can use to tune the amount of data you send. Learn more about [sampling features](../../application-insights/app-insights-sampling.md). 
+* **Sampling**: You can use sampling to reduce the amount of telemetry that's sent from your server and client apps, with minimal distortion of metrics. Sampling is the primary tool you can use to tune the amount of data you send. Learn more about [sampling features](../../azure-monitor/app/sampling.md). 
 * **Daily cap**: When you create an Application Insights resource in the Azure portal, the daily cap is set to 100 GB/day. When you create an Application Insights resource in Visual Studio, the default is small (only 32.3 MB/day). The daily cap default is set to facilitate testing. It's intended that the user will raise the daily cap before deploying the app into production. 
 
     The maximum cap is 1,000 GB/day unless you request a higher maximum for a high-traffic application. 
@@ -87,7 +87,7 @@ You can use one of the following options to see how much data your app is sendin
 ## Reduce your data rate
 Here are some things you can do to reduce your data volume:
 
-* Use [Sampling](../../application-insights/app-insights-sampling.md). This technology reduces your data rate without skewing your metrics. You don't lose the ability to navigate between related items in Search. In server apps, sampling operates automatically.
+* Use [Sampling](../../azure-monitor/app/sampling.md). This technology reduces your data rate without skewing your metrics. You don't lose the ability to navigate between related items in Search. In server apps, sampling operates automatically.
 * [Limit the number of Ajax calls that can be reported](../../azure-monitor/app/javascript.md#detailed-configuration) in every page view, or switch off Ajax reporting.
 * [Edit ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data are inessential.
 * Split your telemetry among separate instrumentation keys. 
@@ -97,20 +97,20 @@ Here are some things you can do to reduce your data volume:
 
 You can use the daily volume cap to limit the data collected. However, if the cap is met, a loss of all telemetry sent from your application for the remainder of the day occurs. It is *not advisable* to have your application hit the daily cap. You can't track the health and performance of your application after it reaches the daily cap.
 
-Instead of using the daily volume cap, use [sampling](../../application-insights/app-insights-sampling.md) to tune the data volume to the level you want. Then, use the daily cap only as a "last resort" in case your application unexpectedly begins to send much higher volumes of telemetry.
+Instead of using the daily volume cap, use [sampling](../../azure-monitor/app/sampling.md) to tune the data volume to the level you want. Then, use the daily cap only as a "last resort" in case your application unexpectedly begins to send much higher volumes of telemetry.
 
 To change the daily cap, in the **Configure** section of your Application Insights resource, in the **Usage and estimated costs** pane, select  **Daily Cap**.
 
 ![Adjust the daily telemetry volume cap](./media/pricing/pricing-003.png)
 
 ## Sampling
-[Sampling](../../application-insights/app-insights-sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while retaining the ability to find related events during diagnostic searches. You also retain correct event counts.
+[Sampling](../../azure-monitor/app/sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while retaining the ability to find related events during diagnostic searches. You also retain correct event counts.
 
 Sampling is an effective way to reduce charges and stay within your monthly quota. The sampling algorithm retains related items of telemetry so, for example, when you use Search, you can find the request related to a particular exception. The algorithm also retains correct counts so you see the correct values in Metric Explorer for request rates, exception rates, and other counts.
 
 There are several forms of sampling.
 
-* [Adaptive sampling](../../application-insights/app-insights-sampling.md) is the default for the ASP.NET SDK. Adaptive sampling automatically adjusts to the volume of telemetry that your app sends. It operates automatically in the SDK in your web app so that telemetry traffic on the network is reduced. 
+* [Adaptive sampling](../../azure-monitor/app/sampling.md) is the default for the ASP.NET SDK. Adaptive sampling automatically adjusts to the volume of telemetry that your app sends. It operates automatically in the SDK in your web app so that telemetry traffic on the network is reduced. 
 * *Ingestion sampling* is an alternative that operates at the point where telemetry from your app enters the Application Insights service. Ingestion sampling doesn't affect the volume of telemetry sent from your app, but it reduces the volume that's retained by the service. You can use ingestion sampling to reduce the quota that's used up by telemetry from browsers and other SDKs.
 
 To set ingestion sampling, go to the  **Pricing** pane:
@@ -193,7 +193,7 @@ Because this plan is applicable only to customers with an Operations Management 
 
 ## Next steps
 
-* [Sampling](../../application-insights/app-insights-sampling.md)
+* [Sampling](../../azure-monitor/app/sampling.md)
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties

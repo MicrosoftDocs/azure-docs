@@ -71,7 +71,7 @@ These items are implementations of [Application Insights](../../application-insi
 * [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 * [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 * [Orchard](https://azure.microsoft.com/blog/integrating-application-insights-into-a-modular-cms-and-a-multi-tenant-public-saas/preview/)
-* [SharePoint](../../application-insights/app-insights-sharepoint.md)
+* [SharePoint](../../azure-monitor/app/sharepoint.md)
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
 ## Export and Data Analysis
