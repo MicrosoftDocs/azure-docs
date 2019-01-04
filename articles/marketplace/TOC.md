@@ -163,12 +163,26 @@
 
 <!-- ## [Cortana Intelligence](./cloud-partner-portal-orig/cloud-partner-portal-publish-cortana-intelligence-app.md)  -->
 
+## [Dynamics 365 for Customer Engagement offer](./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md)
+### [Prerequisites](./cloud-partner-portal/dyn365ce/cpp-prerequisites.md)
+### [Create IoT Edge module offer](./cloud-partner-portal/dyn365ce/cpp-create-offer.md)
+#### [Offer Settings tab](./cloud-partner-portal/dyn365ce/cpp-offer-settings-tab.md)
+#### [Technical Info tab](./cloud-partner-portal/dyn365ce/cpp-technical-info-tab.md)
+#### [Test Drive tab](./cloud-partner-portal/dyn365ce/cpp-testdrive-tab.md)
+#### [Storefront Details tab](./cloud-partner-portal/dyn365ce/cpp-storefront-details-tab.md)
+#### [Contacts tab](./cloud-partner-portal/dyn365ce/cpp-contacts-tab.md)
+### [Create Customer Engagement technical assets](./cloud-partner-portal/dyn365ce/cpp-create-technical-assets.md)
+### [Publish Customer Engagement offer](./cloud-partner-portal/dyn365ce/cpp-publish-offer.md)
+
+<!-- Following legacy IoT section was replaced.  -->
+<!-- 
 ## [Dynamics 365 for Customer Engagement offer](./cloud-partner-portal-orig/cpp-customer-engagement-offer.md)
 ### [Create solution](./cloud-partner-portal-orig/dynamics-365-solution-preparation.md)
 ### [Create package](./cloud-partner-portal-orig/appSource-package-preparation.md)
 ### [Generate SAS key](./cloud-partner-portal-orig/store-your-appSource-package-to-azure-storage-and-generate-sas-key.md)
 ### [Create offer](./cloud-partner-portal-orig/setup-your-application-in-the-publishing-portal.md)
 ### [Publish offer](./cloud-partner-portal-orig/request-to-publish-the-app.md)
+-->
 
 ## [Dynamics 365 for Business Central offer](./cloud-partner-portal-orig/cpp-business-central-offer.md)
 ### [Publish overview](./cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md)
