@@ -106,8 +106,8 @@ To configure and test Azure AD single sign-on with Amazon Web Services (AWS), yo
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure Amazon Web Services (AWS) Single Sign-On](#configure-amazon-web-services-aws-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create Amazon Web Services (AWS) test user](#create-amazon-web-services-aws-test-user)** - to have a counterpart of Britta Simon in Amazon Web Services (AWS) that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Amazon Web Services (AWS) test user](#create-amazon-web-services-aws-test-user)** - to have a counterpart of Britta Simon in Amazon Web Services (AWS) that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -230,7 +230,7 @@ To configure Azure AD single sign-on with Amazon Web Services (AWS), perform the
   
     d. Click **Next: Permissions**.
 
-9. On the **Attach Permissions Policies** dialog, you don't need to attach any policy. Click **Next: Review**.  
+9. On the **Attach Permissions Policies** dialog, please attach appropriate policy as per your organisation. Click **Next: Review**.  
 
     ![Configure Single Sign-On Policy][33]
 
