@@ -70,7 +70,7 @@ When you invoke the Key Vault commands, you might receive an error, such as "The
 Before you create a key vault, create a resource group so that all of the resources related to the key vault exist in a resource group. Use the following command to create a new resource group:
 
 ```PowerShell
-New-AzureRmResourceGroup -Name “VaultRG” -Location local -verbose -Force
+New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
 ```
 
 **Output**
@@ -82,7 +82,7 @@ Now, use the **New-AzureRMKeyVault** cmdlet to create a key vault in the resourc
 Run the following command to create a key vault:
 
 ```PowerShell
-New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -Location local -verbose
+New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
 ```
 
 **Output**
@@ -132,7 +132,7 @@ You can now reference the newly created key by using its URI. If you create or i
 Use the **Get-AzureKeyVaultKey** cmdlet to read a key and its details.
 
 ```PowerShell
-Get-AzureKeyVaultKey -VaultName “Vault01” -Name “Key01”
+Get-AzureKeyVaultKey -VaultName "Vault01" -Name “Key01”
 ```
 
 ### Create a secret
@@ -153,7 +153,7 @@ Set-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01" -SecretValue $secr
 Use the **Get-AzureKeyVaultSecret** cmdlet to read a secret in a key vault. This command can return all or specific versions of a secret.
 
 ```PowerShell
-Get-AzureKeyVaultSecret -VaultName “Vault01” -Name “Secret01”
+Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
 ```
 
 After you create the keys and secrets, you can authorize external applications to use them.

@@ -101,4 +101,4 @@ The following default limits apply when using Azure Stack DNS:
 
 ## Next steps
 
-[Introducing iDNS for Azure Stack](azure-stack-understanding-dns.md)
+- [Introducing iDNS for Azure Stack](azure-stack-understanding-dns.md)
