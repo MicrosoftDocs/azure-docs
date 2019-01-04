@@ -194,7 +194,7 @@ From a metric chart, you can click the Analytics icon to get directly to the equ
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## Next steps
-* [Monitoring usage with Application Insights](../../application-insights/app-insights-usage-overview.md)
+* [Monitoring usage with Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Using Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
 
 <!--Link references-->
