@@ -60,7 +60,7 @@ To use Azure Notification Hubs, you need to download and use the Node.js [azure 
 
 ### Import the module
 
-Using a text editor, add the following to the top of the **server.js** file of the application:
+Using a text editor, add the following to the top of the `server.js` file of the application:
 
     ```javascript
     var azure = require('azure');

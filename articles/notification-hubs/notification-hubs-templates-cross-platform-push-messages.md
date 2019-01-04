@@ -32,7 +32,7 @@ This section provides two in-depth examples of how to use templates to send plat
 
 ## Using templates cross-platform
 
-The standard way to send push notifications is to send, for each notification that is to be sent, a specific payload to platform notification services (WNS, APNS). For example, to send an alert to APNS, the payload is a Json object of the following form:
+The standard way to send push notifications is to send, for each notification that is to be sent, a specific payload to platform notification services (WNS, APNS). For example, to send an alert to APNS, the payload is a JSON object of the following form:
 
 ```json
 {"aps": {"alert" : "Hello!" }}
@@ -50,11 +50,11 @@ To send a similar toast message on a Windows Store application, the XML payload 
 </toast>
 ```
 
-You can create similar payloads for MPNS (Windows Phone) and GCM (Android) platforms.
+You can create similar payloads for MPNS (Windows Phone) and FCM (Android) platforms.
 
 This requirement forces the app backend to produce different payloads for each platform, and effectively makes the backend responsible for part of the presentation layer of the app. Some concerns include localization and graphical layouts (especially for Windows Store apps that include notifications for various types of tiles).
 
-The Notification Hubs template feature enables a client app to create special registrations, called template registrations, which include, in addition to the set of tags, a template. The Notification Hubs template feature enables a client app to associate devices with templates whether you are working with Installations (preferred) or Registrations. Given the preceding payload examples, the only platform-independent information is the actual alert message (Hello!). A template is a set of instructions for the Notification Hub on how to format a platform-independent message for the registration of that specific client app. In the preceding example, the platform-independent message is a single property: **message = Hello!**.
+The Notification Hubs template feature enables a client app to create special registrations, called template registrations, which include, in addition to the set of tags, a template. The Notification Hubs template feature enables a client app to associate devices with templates whether you are working with Installations (preferred) or Registrations. Given the preceding payload examples, the only platform-independent information is the actual alert message (Hello!). A template is a set of instructions for the Notification Hub on how to format a platform-independent message for the registration of that specific client app. In the preceding example, the platform-independent message is a single property: `message = Hello!`.
 
 The following picture illustrates the process:
 

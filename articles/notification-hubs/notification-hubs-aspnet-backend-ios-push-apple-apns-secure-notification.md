@@ -54,12 +54,12 @@ Now that you modified your app back-end to send just the *ID* of a notification,
 
 To achieve this goal, we have to write the logic to retrieve the secure content from the app back-end.
 
-1. In **AppDelegate.m**, make sure the app registers for silent notifications so it processes the notification ID sent from the backend. Add the **UIRemoteNotificationTypeNewsstandContentAvailability** option in didFinishLaunchingWithOptions:
+1. In `AppDelegate.m`, make sure the app registers for silent notifications so it processes the notification ID sent from the backend. Add the `UIRemoteNotificationTypeNewsstandContentAvailability` option in didFinishLaunchingWithOptions:
 
     ```objc
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
     ```
-2. In your **AppDelegate.m** add an implementation section at the top with the following declaration:
+2. In your `AppDelegate.m` add an implementation section at the top with the following declaration:
 
     ```objc
     @interface AppDelegate ()
@@ -121,7 +121,7 @@ To achieve this goal, we have to write the logic to retrieve the secure content 
 5. Then click your **Capabilities** tab at the top of your central pane, and check the **Remote Notifications** checkbox.
 
     ![][IOS1]
-6. In **AppDelegate.m** add the following method to handle push notifications:
+6. In `AppDelegate.m` add the following method to handle push notifications:
 
     ```objc
     -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler

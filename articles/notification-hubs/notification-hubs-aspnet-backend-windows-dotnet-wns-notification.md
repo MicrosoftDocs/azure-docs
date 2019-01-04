@@ -60,7 +60,7 @@ In this section, you update the code in the project you completed for the [Tutor
 5. In the results list, click **System.Net.Http**, and click **Install**. Complete the installation.
 6. Back in the NuGet **Search** box, type **Json.net**. Install the **Newtonsoft.json** package, and then close the NuGet Package Manager window.
 7. In Solution Explorer, in the **WindowsApp** project, double-click **MainPage.xaml** to open it in the Visual Studio editor.
-8. In the **MainPage.xaml** XML code, replace the `<Grid>` section with the following code: This code adds a username and password textbox that the user authenticates with. It also adds text boxes for the notification message and the username tag that should receive the notification:
+8. In the `MainPage.xaml` XML code, replace the `<Grid>` section with the following code: This code adds a username and password textbox that the user authenticates with. It also adds text boxes for the notification message and the username tag that should receive the notification:
 
     ```xml
     <Grid>
@@ -112,7 +112,7 @@ In this section, you update the code in the project you completed for the [Tutor
         </StackPanel>
     </Grid>
     ```
-9. In Solution Explorer, open the **MainPage.xaml.cs** file for the **(Windows 8.1)** and **(Windows Phone 8.1)** projects. Add the following `using` statements at the top of both files:
+9. In Solution Explorer, open the `MainPage.xaml.cs` file for the **(Windows 8.1)** and **(Windows Phone 8.1)** projects. Add the following `using` statements at the top of both files:
 
     ```csharp
     using System.Net.Http;
@@ -122,12 +122,12 @@ In this section, you update the code in the project you completed for the [Tutor
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
-10. In **MainPage.xaml.cs** for the **WindowsApp** project, add the following member to the `MainPage` class. Be sure to replace `<Enter Your Backend Endpoint>` with your actual backend endpoint obtained previously. For example, `http://mybackend.azurewebsites.net`.
+10. In `MainPage.xaml.cs` for the **WindowsApp** project, add the following member to the `MainPage` class. Be sure to replace `<Enter Your Backend Endpoint>` with your actual backend endpoint obtained previously. For example, `http://mybackend.azurewebsites.net`.
 
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
     ```
-11. Add the code below to the MainPage class in **MainPage.xaml.cs** for the **(Windows 8.1)** and **(Windows Phone 8.1)** projects.
+11. Add the code below to the MainPage class in `MainPage.xaml.cs` for the **(Windows 8.1)** and **(Windows Phone 8.1)** projects.
 
     The `PushClick` method is the click handler for the **Send Push** button. It calls the backend to trigger a notification to all devices with a username tag that matches the `to_tag` parameter. The notification message is sent as JSON content in the request body.
 
@@ -209,14 +209,14 @@ In this section, you update the code in the project you completed for the [Tutor
         ApplicationData.Current.LocalSettings.Values["AuthenticationToken"] = token;
     }
     ```
-12. Open **App.xaml.cs** file. Find the call to `InitNotificationsAsync()` in the `OnLaunched()` event handler. Comment out or delete the call to `InitNotificationsAsync()`. The button handler initializes notification registrations.
+12. Open `App.xaml.cs` and find the call to `InitNotificationsAsync()` in the `OnLaunched()` event handler. Comment out or delete the call to `InitNotificationsAsync()`. The button handler initializes notification registrations.
 
     ```csharp
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
         //InitNotificationsAsync();
     ```
-13. Right-click the **WindowsApp** project, click **Add**, and then click **Class**. Name the class **RegisterClient.cs**, then click **OK** to generate the class.
+13. Right-click the **WindowsApp** project, click **Add**, and then click **Class**. Name the class `RegisterClient.cs`, then click **OK** to generate the class.
 
    This class wraps the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](https://msdn.microsoft.com/library/dn743807.aspx). It uses an authorization token stored in local storage when you click the **Login and register** button.
 14. Add the following `using` statements at the top of the RegisterClient.cs file:

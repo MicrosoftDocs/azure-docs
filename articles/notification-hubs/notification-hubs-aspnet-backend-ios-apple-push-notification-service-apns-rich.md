@@ -44,12 +44,12 @@ At a high level:
 4. With the image selected, change its Build Action in Properties window to **Embedded Resource**.
 
     ![][IOS2]
-5. In **Notifications.cs**, add the following using statement:
+5. In `Notifications.cs`, add the following using statement:
 
     ```c#
     using System.Reflection;
     ```
-6. Update the whole **Notifications** class with the following code. Be sure to replace the placeholders with your notification hub credentials and image file name.
+6. Update the whole `Notifications` class with the following code. Be sure to replace the placeholders with your notification hub credentials and image file name.
 
     ```c#
     public class Notification {
@@ -99,7 +99,7 @@ At a high level:
    > [!NOTE]
    > (optional) Refer to [How to embed and access resources by using Visual C#](https://support.microsoft.com/kb/319292) for more information on how to add and obtain project resources.
 
-7. In **NotificationsController.cs**, redefine **NotificationsController**  with the following snippets. This sends an initial silent rich notification id to device and allows client-side retrieval of image:
+7. In `NotificationsController.cs`, redefine `NotificationsController with the following snippets. This sends an initial silent rich notification id to device and allows client-side retrieval of image:
 
     ```c#
     // Return http response with image binary
@@ -141,7 +141,7 @@ Now that you have modified your app backend to send just the *id* of a notificat
 2. Click on **Capabilities**, turn on **Background Modes**, and check the **Remote Notifications** checkbox.
 
     ![][IOS3]
-3. Go to **Main.storyboard**, and make sure you have a View Controller (referred to as Home View Controller in this tutorial) from [Notify User](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial.
+3. Open `Main.storyboard`, and make sure you have a View Controller (referred to as Home View Controller in this tutorial) from [Notify User](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial.
 4. Add a **Navigation Controller** to your storyboard, and control-drag to Home View Controller to make it the **root view** of navigation. Make sure the **Is Initial View Controller** in Attributes inspector is selected for the Navigation Controller only.
 5. Add a **View Controller** to storyboard and add an **Image View**. This is the page users will see once they choose to learn more by clicking on the notification. Your storyboard should look as follows:
 
@@ -155,13 +155,13 @@ Now that you have modified your app backend to send just the *id* of a notificat
     @property (weak, nonatomic) IBOutlet UIImageView *myImage;
     @property (strong) UIImage* imagePayload;
     ```
-10. In **imageViewController.m**, add the following at the end of **viewDidload**:
+10. In `imageViewController.m`, add the following at the end of `viewDidload`:
 
     ```objc
     // Display the UI Image in UI Image View
     [self.myImage setImage:self.imagePayload];
     ```
-11. In **AppDelegate.m**, import the image controller you created:
+11. In `AppDelegate.m`, import the image controller you created:
 
     ```objc
     #import "imageViewController.h"
@@ -183,7 +183,7 @@ Now that you have modified your app backend to send just the *id* of a notificat
 
     @end
     ```
-13. In **AppDelegate**, make sure your app registers for silent notifications in **application: didFinishLaunchingWithOptions**:
+13. In `AppDelegate`, make sure your app registers for silent notifications in `application: didFinishLaunchingWithOptions`:
 
     ```objc
     // Software version
@@ -227,7 +227,7 @@ Now that you have modified your app backend to send just the *id* of a notificat
     return YES;
     ```
 
-14. Substitute in the following implementation for **application:didRegisterForRemoteNotificationsWithDeviceToken** to take the storyboard UI changes into account:
+14. Substitute in the following implementation for `application:didRegisterForRemoteNotificationsWithDeviceToken` to take the storyboard UI changes into account:
 
     ```objc
     // Access navigation controller which is at the root of window
@@ -236,7 +236,7 @@ Now that you have modified your app backend to send just the *id* of a notificat
     homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
     hvc.deviceToken = deviceToken;
     ```
-15. Then, add the following methods to **AppDelegate.m** to retrieve the image from your endpoint and send a local notification when retrieval is complete. Make sure to substitute the placeholder `{backend endpoint}` with your backend endpoint:
+15. Then, add the following methods to `AppDelegate.m` to retrieve the image from your endpoint and send a local notification when retrieval is complete. Make sure to substitute the placeholder `{backend endpoint}` with your backend endpoint:
 
     ```objc
     NSString *const GetNotificationEndpoint = @"{backend endpoint}/api/notifications";
@@ -317,7 +317,7 @@ Now that you have modified your app backend to send just the *id* of a notificat
         // Add "else if" here to handle more types of rich content such as url, sound files, etc.
     }
     ```
-16. Handle the local notification above by opening up the image view controller in **AppDelegate.m** with the following methods:
+16. Handle the local notification above by opening up the image view controller in `AppDelegate.m` with the following methods:
 
     ```objc
     // Helper: redirect users to image view controller

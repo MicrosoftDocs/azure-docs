@@ -44,7 +44,7 @@ This tutorial builds on the app you created in [Tutorial: Push notifications to 
 
 The first step is to add the UI elements to your existing main activity that enable the user to select categories to register. The categories selected by a user are stored on the device. When the app starts, a device registration is created in your notification hub with the selected categories as tags.
 
-1. Open your res/layout/activity_main.xml file, and substitute the content with the following content:
+1. Open the `res/layout/activity_main.xml file`, and replace the content with the following:
 
     ```xml
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -97,7 +97,7 @@ The first step is to add the UI elements to your existing main activity that ena
             />
     </LinearLayout>
     ```
-2. Open your res/values/strings.xml file and add the following lines:
+2. Open the `res/values/strings.xml` file and add the following lines:
 
     ```xml
     <string name="button_subscribe">Subscribe</string>
@@ -109,10 +109,10 @@ The first step is to add the UI elements to your existing main activity that ena
     <string name="label_sports">Sports</string>
     ```
 
-    Your main_activity.xml graphical layout should look like in the following image:
+    Your `main_activity.xml` graphical layout should look like in the following image:
 
     ![][A1]
-3. Create a class `Notifications` in the same package as your **MainActivity** class.
+3. Create a class `Notifications` in the same package as your `MainActivity` class.
 
     ```java
     import java.util.HashSet;
@@ -187,14 +187,14 @@ The first step is to add the UI elements to your existing main activity that ena
     ```
 
     This class uses the local storage to store the categories of news that this device has to receive. It also contains methods to register for these categories.
-4. In your **MainActivity** class remove your private fields for **NotificationHub** and **GoogleCloudMessaging**, and add a field for **Notifications**:
+4. In your `MainActivity` class remove your private fields for `NotificationHub` and `GoogleCloudMessaging`, and add a field for `Notifications`:
 
     ```java
     // private GoogleCloudMessaging gcm;
     // private NotificationHub hub;
     private Notifications notifications;
     ```
-5. Then, in the **onCreate** method, remove the initialization of the **hub** field and the **registerWithNotificationHubs** method. Then add the following lines, which initialize an instance of the **Notifications** class.
+5. Then, in the `onCreate` method, remove the initialization of the `hub` field and the `registerWithNotificationHubs` method. Then add the following lines, which initialize an instance of the `Notifications` class.
 
     ```java
     protected void onCreate(Bundle savedInstanceState) {
@@ -250,7 +250,7 @@ The first step is to add the UI elements to your existing main activity that ena
     }
     ```
 
-    This method creates a list of categories and uses the **Notifications** class to store the list in the local storage and register the corresponding tags with your notification hub. When categories are changed, the registration is recreated with the new categories.
+    This method creates a list of categories and uses the `Notifications` class to store the list in the local storage and register the corresponding tags with your notification hub. When categories are changed, the registration is recreated with the new categories.
 
 Your app is now able to store a set of categories in local storage on the device and register with the notification hub whenever the user changes the selection of categories.
 
@@ -261,7 +261,7 @@ These steps register with the notification hub on startup using the categories t
 > [!NOTE]
 > Because the registrationId assigned by Google Cloud Messaging (GCM) can change at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.
 
-1. Add the following code at the end of the **onCreate** method in the **MainActivity** class:
+1. Add the following code at the end of the `onCreate` method in the `MainActivity` class:
 
     ```java
     notifications.subscribeToCategories(notifications.retrieveCategories());

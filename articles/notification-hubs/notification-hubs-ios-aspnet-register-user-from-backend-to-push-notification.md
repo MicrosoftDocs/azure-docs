@@ -1,6 +1,6 @@
 ---
 title: Register the current user for push notifications by using Web API | Microsoft Docs
-description: Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by ASP.NET Web API.
+description: Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registration is performed by ASP.NET Web API.
 services: notification-hubs
 documentationcenter: ios
 author: jwargo
@@ -55,7 +55,7 @@ This topic shows you how to request push notification registration with Azure No
 
     - (IBAction)login:(id)sender;
     ```
-3. Create a class named **DeviceInfo**, and copy the following code into the interface section of the file DeviceInfo.h:
+3. Create a class named `DeviceInfo`, and copy the following code into the interface section of the file DeviceInfo.h:
 
     ```objc
     @property (readonly, nonatomic) NSString* installationId;
@@ -100,7 +100,7 @@ This topic shows you how to request push notification registration with Azure No
     ```objc
     @property (strong, nonatomic) DeviceInfo* deviceInfo;
     ```
-6. In the **didFinishLaunchingWithOptions** method in PushToUserAppDelegate.m, add the following code:
+6. In the `didFinishLaunchingWithOptions` method in PushToUserAppDelegate.m, add the following code:
 
     ```objc
     self.deviceInfo = [[DeviceInfo alloc] init];
@@ -108,8 +108,8 @@ This topic shows you how to request push notification registration with Azure No
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     ```
 
-    The first line initializes the **DeviceInfo** singleton. The second line starts the registration for push notifications, which is already present if you have already completed the [Get Started with Notification Hubs] tutorial.
-7. In PushToUserAppDelegate.m, implement the method **didRegisterForRemoteNotificationsWithDeviceToken** in your AppDelegate and add the following code:
+    The first line initializes the `DeviceInfo` singleton. The second line starts the registration for push notifications, which is already present if you have already completed the [Get Started with Notification Hubs] tutorial.
+7. In PushToUserAppDelegate.m, implement the method `didRegisterForRemoteNotificationsWithDeviceToken` in your AppDelegate and add the following code:
 
     ```objc
     self.deviceInfo.deviceToken = deviceToken;
@@ -118,9 +118,9 @@ This topic shows you how to request push notification registration with Azure No
     This sets the device token for the request.
 
    > [!NOTE]
-   > At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the [Get Started with Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial, you must comment-out or remove that call.
+   > At this point, there should not be any other code in this method. If you already have a call to the `registerNativeWithDeviceToken` method that was added when you completed the [Get Started with Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial, you must comment-out or remove that call.
 
-8. In the PushToUserAppDelegate.m file, add the following handler method:
+8. In the `PushToUserAppDelegate.m` file, add the following handler method:
 
     ```objc
     * (void) application:(UIApplication *) application didReceiveRemoteNotification:(NSDictionary *)userInfo {
@@ -134,7 +134,7 @@ This topic shows you how to request push notification registration with Azure No
 
     This method displays an alert in the UI when your app receives notifications while it is running.
 
-9. Open the PushToUserViewController.m file, and return the keyboard in the following implementation:
+9. Open the `PushToUserViewController.m` file, and return the keyboard in the following implementation:
 
     ```objc
     - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
@@ -145,14 +145,14 @@ This topic shows you how to request push notification registration with Azure No
     }
     ```
 
-10. In the **viewDidLoad** method in the PushToUserViewController.m file, initialize the installationId label as follows:
+10. In the `viewDidLoad` method in the `PushToUserViewController.m` file, initialize the `installationId` label as follows:
 
     ```objc
     DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
     Self.installationId.text = deviceInfo.installationId;
     ```
 
-11. Add the following properties in interface in PushToUserViewController.m:
+11. Add the following properties in interface in `PushToUserViewController.m`:
 
     ```objc
     @property (readonly) NSOperationQueue* downloadQueue;
@@ -205,7 +205,7 @@ This topic shows you how to request push notification registration with Azure No
     }
     ```
 
-13. Copy the following code into the **login** handler method created by XCode:
+13. Copy the following code into the `login` handler method created by XCode:
 
     ```objc
     DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
@@ -252,5 +252,4 @@ Now that the client app has been updated, return to the [Notify users with Notif
 
 <!-- URLs. -->
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-
 [Get Started with Notification Hubs]: notification-hubs-ios-apple-push-notification-apns-get-started.md

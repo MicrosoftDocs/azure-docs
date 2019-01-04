@@ -129,9 +129,9 @@ Your notification hub is now configured to work with WNS. You have the connectio
     This code retrieves the channel URI for the app from WNS, and then registers that channel URI with your notification hub.
 
     >[!NOTE]
-    > Replace the **hub name** placeholder with the name of the notification hub that appears in the Azure portal. Also replace the connection string placeholder with the **DefaultListenSharedAccessSignature** connection string that you obtained from the **Access Polices** page of your notification hub in a previous section.
+    > Replace the `hub name` placeholder with the name of the notification hub that appears in the Azure portal. Also replace the connection string placeholder with the `DefaultListenSharedAccessSignature` connection string that you obtained from the **Access Polices** page of your notification hub in a previous section.
 
-11. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
+11. At the top of the `OnLaunched` event handler in `App.xaml.cs`, add the following call to the new `InitNotificationsAsync` method:
 
     ```csharp
     InitNotificationsAsync();

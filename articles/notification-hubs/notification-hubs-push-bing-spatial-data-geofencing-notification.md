@@ -47,7 +47,7 @@ In this tutorial, you take the following steps:
 3. If you don't have an existing data source, you see a link to create a data source. Select **Upload data as a data source**. You can also use **Data sources** > **Upload data** menu.
 
     ![](./media/notification-hubs-geofence/bing-maps-create-data.png)
-4. Create a file **NotificationHubsGeofence.pipe** on your hard drive with the following content: In this tutorial, you use a sample pipe-based file that frames an area of the San Francisco waterfront:
+4. Create a file `NotificationHubsGeofence.pipe` on your hard drive with the following content: In this tutorial, you use a sample pipe-based file that frames an area of the San Francisco waterfront:
 
     ```text
     Bing Spatial Data Services, 1.0, TestBoundaries
@@ -60,7 +60,7 @@ In this tutorial, you take the following steps:
     ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. In the **Upload a data source** page, do the following actions:
     1. Select **pipe** for **Data format**.
-    2. Browse and select **NotificationHubGeofence.pipe** file that you created in the previous step.
+    2. Browse and select the `NotificationHubGeofence.pipe` file that you created in the previous step.
     3. Select **Upload** button.
 
     > [!NOTE]

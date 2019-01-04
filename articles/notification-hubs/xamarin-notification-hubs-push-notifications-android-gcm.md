@@ -58,7 +58,7 @@ In this tutorial, you take the following steps:
 
 Your notification hub is configured to work with FCM, and you have the connection strings to both register your app to receive notifications and to send push notifications.
 
-## Create Xamarin.Android app and connect it to notification hub
+## Create a Xamarin.Android app and connect it to notification hub
 
 ### Create Visual Studio project and add NuGet packages
 
@@ -109,36 +109,36 @@ Your notification hub is configured to work with FCM, and you have the connectio
 4. Create a `Constants.cs` class for your Xamarin project and define the following constant values in the class. Replace the placeholders with your values.
 
     ```csharp
-        public static class Constants
-        {
-           public const string ListenConnectionString = "<Listen connection string>";
-           public const string NotificationHubName = "<hub name>";
-        }
+    public static class Constants
+    {
+        public const string ListenConnectionString = "<Listen connection string>";
+        public const string NotificationHubName = "<hub name>";
+    }
     ```
 5. Add the following using statements to `MainActivity.cs`:
 
     ```csharp
-        using Android.Util;
+    using Android.Util;
     ```
 6. Add an instance variable to `MainActivity.cs*` that will be used to show an alert dialog when the app is running:
 
     ```csharp
-        public const string TAG = "MainActivity";
+    public const string TAG = "MainActivity";
     ```
 7. In `MainActivity.cs`, add the following code to `OnCreate` after `base.OnCreate(savedInstanceState)`:
 
     ```csharp
-        if (Intent.Extras != null)
+    if (Intent.Extras != null)
+    {
+        foreach (var key in Intent.Extras.KeySet())
         {
-            foreach (var key in Intent.Extras.KeySet())
+            if(key!=null)
             {
-                if(key!=null)
-                {
-                    var value = Intent.Extras.GetString(key);
-                    Log.Debug(TAG, "Key: {0} Value: {1}", key, value);
-                }
+                var value = Intent.Extras.GetString(key);
+                Log.Debug(TAG, "Key: {0} Value: {1}", key, value);
             }
         }
+    }
     ```
 8. Create a new class, `MyFirebaseIIDService` like you created the `Constants` class.
 9. Add the following using statements to `MyFirebaseIIDService.cs`:
@@ -153,88 +153,88 @@ Your notification hub is configured to work with FCM, and you have the connectio
 10. In `MyFirebaseIIDService.cs`, add the following `class` declaration, and have your class inherit from `FirebaseInstanceIdService`:
 
     ```csharp
-        [Service]
-        [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
-        public class MyFirebaseIIDService : FirebaseInstanceIdService
+    [Service]
+    [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
+    public class MyFirebaseIIDService : FirebaseInstanceIdService
     ```
 11. In `MyFirebaseIIDService.cs`, add the following code:
 
     ```csharp
-        const string TAG = "MyFirebaseIIDService";
-        NotificationHub hub;
+    const string TAG = "MyFirebaseIIDService";
+    NotificationHub hub;
 
-        public override void OnTokenRefresh()
-        {
-            var refreshedToken = FirebaseInstanceId.Instance.Token;
-            Log.Debug(TAG, "FCM token: " + refreshedToken);
-            SendRegistrationToServer(refreshedToken);
-        }
+    public override void OnTokenRefresh()
+    {
+        var refreshedToken = FirebaseInstanceId.Instance.Token;
+        Log.Debug(TAG, "FCM token: " + refreshedToken);
+        SendRegistrationToServer(refreshedToken);
+    }
 
-        void SendRegistrationToServer(string token)
-        {
-            // Register with Notification Hubs
-            hub = new NotificationHub(Constants.NotificationHubName,
-                                      Constants.ListenConnectionString, this);
+    void SendRegistrationToServer(string token)
+    {
+        // Register with Notification Hubs
+        hub = new NotificationHub(Constants.NotificationHubName,
+                                    Constants.ListenConnectionString, this);
 
-            var tags = new List<string>() { };
-            var regID = hub.Register(token, tags.ToArray()).RegistrationId;
+        var tags = new List<string>() { };
+        var regID = hub.Register(token, tags.ToArray()).RegistrationId;
 
-            Log.Debug(TAG, $"Successful registration of ID {regID}");
-        }
+        Log.Debug(TAG, $"Successful registration of ID {regID}");
+    }
     ```
 12. Create another new class for your project, name it `MyFirebaseMessagingService`.
 13. Add the following using statements to `MyFirebaseMessagingService.cs`.
 
     ```csharp
-        using Android.App;
-        using Android.Util;
-        using Firebase.Messaging;
+    using Android.App;
+    using Android.Util;
+    using Firebase.Messaging;
     ```
 14. Add the following above your class declaration, and have your class inherit from `FirebaseMessagingService`:
 
     ```csharp
-        [Service]
-        [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
-        public class MyFirebaseMessagingService : FirebaseMessagingService
+    [Service]
+    [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
+    public class MyFirebaseMessagingService : FirebaseMessagingService
     ```
 15. Add the following code to `MyFirebaseMessagingService.cs`:
 
     ```csharp
-        const string TAG = "MyFirebaseMsgService";
-        public override void OnMessageReceived(RemoteMessage message)
+    const string TAG = "MyFirebaseMsgService";
+    public override void OnMessageReceived(RemoteMessage message)
+    {
+        Log.Debug(TAG, "From: " + message.From);
+        if(message.GetNotification()!= null)
         {
-            Log.Debug(TAG, "From: " + message.From);
-            if(message.GetNotification()!= null)
-            {
-                //These is how most messages will be received
-                Log.Debug(TAG, "Notification Message Body: " + message.GetNotification().Body);
-                SendNotification(message.GetNotification().Body);
-            }
-            else
-            {
-                //Only used for debugging payloads sent from the Azure portal
-                SendNotification(message.Data.Values.First());
-
-            }
+            //These is how most messages will be received
+            Log.Debug(TAG, "Notification Message Body: " + message.GetNotification().Body);
+            SendNotification(message.GetNotification().Body);
         }
-
-        void SendNotification(string messageBody)
+        else
         {
-            var intent = new Intent(this, typeof(MainActivity));
-            intent.AddFlags(ActivityFlags.ClearTop);
-            var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
+            //Only used for debugging payloads sent from the Azure portal
+            SendNotification(message.Data.Values.First());
 
-            var notificationBuilder = new Notification.Builder(this)
-                        .SetContentTitle("FCM Message")
-                        .SetSmallIcon(Resource.Drawable.ic_launcher)
-                        .SetContentText(messageBody)
-                        .SetAutoCancel(true)
-                        .SetContentIntent(pendingIntent);
-
-            var notificationManager = NotificationManager.FromContext(this);
-
-            notificationManager.Notify(0, notificationBuilder.Build());
         }
+    }
+
+    void SendNotification(string messageBody)
+    {
+        var intent = new Intent(this, typeof(MainActivity));
+        intent.AddFlags(ActivityFlags.ClearTop);
+        var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
+
+        var notificationBuilder = new Notification.Builder(this)
+                    .SetContentTitle("FCM Message")
+                    .SetSmallIcon(Resource.Drawable.ic_launcher)
+                    .SetContentText(messageBody)
+                    .SetAutoCancel(true)
+                    .SetContentIntent(pendingIntent);
+
+        var notificationManager = NotificationManager.FromContext(this);
+
+        notificationManager.Notify(0, notificationBuilder.Build());
+    }
     ```
 16. **Build** your project.
 17. **Run** your app on your device or loaded emulator

@@ -65,11 +65,11 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
 1. **EnterprisePushBackendSystem**
 
-    a. This project uses the *WindowsAzure.ServiceBus* NuGet package and is  based on [Service Bus Pub/Sub programming].
+    a. This project uses the **WindowsAzure.ServiceBus** NuGet package and is  based on [Service Bus Pub/Sub programming].
 
     b. This application is a simple C# console app to simulate an LoB system, which initiates the message to be delivered to the mobile app.
 
-        ```
+        ```csharp
         static void Main(string[] args)
         {
             string connectionString =
@@ -85,7 +85,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
     c. `CreateTopic` is used to create the Service Bus topic.
 
-        ```
+        ```csharp
         public static void CreateTopic(string connectionString)
         {
             // Create the topic if it does not exist already
@@ -102,7 +102,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
     d. `SendMessage` is used to send the messages to this Service Bus Topic. This code simply sends a set of random messages to the topic periodically for the purpose of the sample. Normally there is a backend system, which sends messages when an event occurs.
 
-        ````
+        ```csharp
         public static void SendMessage(string connectionString)
         {
             TopicClient client =
@@ -134,11 +134,11 @@ The full sample code is available at [Notification Hub Samples]. It is split int
         ```
 2. **ReceiveAndSendNotification**
 
-    a. This project uses the *WindowsAzure.ServiceBus* and *Microsoft.Web.WebJobs.Publish* NuGet packages and is based on [Service Bus Pub/Sub programming].
+    a. This project uses the *WindowsAzure.ServiceBus* and **Microsoft.Web.WebJobs.Publish** NuGet packages and is based on [Service Bus Pub/Sub programming].
 
     b. The following console app runs as an [Azure WebJob] since it has to run continuously to listen for messages from the LoB/backend systems. This application is part of your Mobile backend.
 
-        ```
+        ```csharp
         static void Main(string[] args)
         {
             string connectionString =
@@ -154,7 +154,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
     c. `CreateSubscription` is used to create a Service Bus subscription for the topic where the backend system sends messages. Depending on the business scenario, this component creates one or more subscriptions to corresponding topics (for example, some may be receiving messages from HR system, some from Finance system, and so on)
 
-        ```
+        ```csharp
         static void CreateSubscription(string connectionString)
         {
             // Create the subscription if it does not exist already
@@ -168,9 +168,9 @@ The full sample code is available at [Notification Hub Samples]. It is split int
         }
         ```
 
-    d. ReceiveMessageAndSendNotification is used to read the message from the topic using its subscription and if the read is successful then craft a notification (in the sample scenario a Windows native toast notification) to be sent to the mobile application using Azure Notification Hubs.
+    d. `ReceiveMessageAndSendNotification` is used to read the message from the topic using its subscription and if the read is successful then craft a notification (in the sample scenario a Windows native toast notification) to be sent to the mobile application using Azure Notification Hubs.
 
-        ```
+        ```csharp
         static void ReceiveMessageAndSendNotification(string connectionString)
         {
             // Initialize the Notification Hub
@@ -238,9 +238,9 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
     b. Ensure that your application is enabled to receive toast notifications.
 
-    c. Ensure that the following Notification Hubs registration code is being called at the App start up (after replacing the *HubName* and *DefaultListenSharedAccessSignature*:
+    c. Ensure that the following Notification Hubs registration code is being called at the App start up (after replacing the `HubName` and `DefaultListenSharedAccessSignature` values:
 
-        ```
+        ```csharp
         private async void InitNotificationsAsync()
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();

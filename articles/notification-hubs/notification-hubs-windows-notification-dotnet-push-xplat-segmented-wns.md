@@ -49,7 +49,7 @@ Complete the [Tutorial: Send notifications to Universal Windows Platform apps by
 
 The first step is to add UI elements to your existing main page so that users can select categories to register. The selected categories are stored on the device. When the app starts, a device registration is created in your notification hub, with the selected categories as tags.
 
-1. Open the MainPage.xaml project file, and then copy the following code in the **Grid** element:
+1. Open the MainPage.xaml project file, and then copy the following code in the `Grid` element:
 
     ```xml
     <Grid>
@@ -75,7 +75,7 @@ The first step is to add UI elements to your existing main page so that users ca
     </Grid>
     ```
 
-2. In **Solution Explorer**, right-click the project, add a new class: **Notifications**. Add the **public** modifier to the class definition, and then add the following **using** statements to the new code file:
+2. In **Solution Explorer**, right-click the project, add a new class: **Notifications**. Add the **public** modifier to the class definition, and then add the following `using` statements to the new code file:
 
     ```csharp
     using Windows.Networking.PushNotifications;
@@ -84,7 +84,7 @@ The first step is to add UI elements to your existing main page so that users ca
     using System.Threading.Tasks;
     ```
 
-3. Copy the following code to the new **Notifications** class:
+3. Copy the following code to the new `Notifications` class:
 
     ```csharp
     private NotificationHub hub;
@@ -126,7 +126,7 @@ The first step is to add UI elements to your existing main page so that users ca
     }
     ```
 
-    This class uses the local storage to store the categories of news that this device must receive. Instead of calling the *RegisterNativeAsync* method, call *RegisterTemplateAsync* to register for the categories by using a template registration.
+    This class uses the local storage to store the categories of news that this device must receive. Instead of calling the `RegisterNativeAsync` method, call `RegisterTemplateAsync` to register for the categories by using a template registration.
 
     If you want to register more than one template (for example, one for toast notifications and one for tiles), provide a template name (for example, "simpleWNSTemplateExample"). You name the templates so that you can update or delete them.
 
@@ -135,26 +135,26 @@ The first step is to add UI elements to your existing main page so that users ca
 
     For more information, see [Templates](notification-hubs-templates-cross-platform-push-messages.md).
 
-4. In the App.xaml.cs project file, add the following property to the **App** class:
+4. In the App.xaml.cs project file, add the following property to the `App` class:
 
     ```csharp
     public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
     ```
 
-    You use this property to create and access a **Notifications** instance.
+    You use this property to create and access a `Notifications` instance.
 
     In the code, replace the `<hub name>` and `<connection string with listen access>` placeholders with your notification hub name and the connection string for *DefaultListenSharedAccessSignature*, which you obtained earlier.
 
    > [!NOTE]
    > Because credentials that are distributed with a client app are not usually secure, distribute only the key for *listen* access with your client app. With listen access, your app can register for notifications, but existing registrations cannot be modified, and notifications cannot be sent. The full access key is used in a secured back-end service for sending notifications and changing existing registrations.
 
-5. In the MainPage.xaml.cs project file, add the following line:
+5. In the `MainPage.xaml.cs` file, add the following line:
 
     ```csharp
     using Windows.UI.Popups;
     ```
 
-6. In the MainPage.xaml.cs project file, add the following method:
+6. In the `MainPage.xaml.cs` file, add the following method:
 
     ```csharp
     private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
@@ -175,7 +175,7 @@ The first step is to add UI elements to your existing main page so that users ca
     }
     ```
 
-    This method creates a list of categories and uses the **Notifications** class to store the list in the local storage. It also registers the corresponding tags with your notification hub. When the categories are changed, the registration is re-created with the new categories.
+    This method creates a list of categories and uses the `Notifications` class to store the list in the local storage. It also registers the corresponding tags with your notification hub. When the categories are changed, the registration is re-created with the new categories.
 
 Your app can now store a set of categories in local storage on the device. The app registers with the notification hub whenever users change the category selection.
 
@@ -186,7 +186,7 @@ In this section, you register with the notification hub on startup by using the 
 > [!NOTE]
 > Because the channel URI that's assigned by the Windows Notification Service (WNS) can change at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that you run frequently (more than once a day), you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.
 
-1. To use the `notifications` class to subscribe based on categories, open the App.xaml.cs file, and then update the **InitNotificationsAsync** method.
+1. To use the `notifications` class to subscribe based on categories, open the App.xaml.cs file, and then update the `InitNotificationsAsync` method.
 
     ```csharp
     // *** Remove or comment out these lines ***
@@ -197,8 +197,8 @@ In this section, you register with the notification hub on startup by using the 
     var result = await notifications.SubscribeToCategories();
     ```
 
-    This process ensures that when the app starts, it retrieves the categories from local storage and requests registration of these categories. You created the **InitNotificationsAsync** method as part of the [Get started with Notification Hubs][get-started] tutorial.
-2. In the MainPage.xaml.cs project file, add the following code to the *OnNavigatedTo* method:
+    This process ensures that when the app starts, it retrieves the categories from local storage and requests registration of these categories. You created the `InitNotificationsAsync` method as part of the [Get started with Notification Hubs][get-started] tutorial.
+2. In the `MainPage.xaml.cs` project file, add the following code to the `OnNavigatedTo` method:
 
     ```csharp
     protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -272,5 +272,4 @@ In this article, you learned how to broadcast breaking news by category. The bac
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591

@@ -143,7 +143,7 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
     }
     ```
 
-    To avoid the List conflict, add the following code in the project's **Manifest.xml** file:
+    To avoid the List conflict, add the following code in the project's `Manifest.xml` file:
 
     ```xml
     <manifest package="YOUR.PACKAGE.NAME"
@@ -166,7 +166,7 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
 
     ![Azure Notification Hubs - Baidu Add As A Library](./media/notification-hubs-baidu-get-started/BaiduAddAsALib.jpg)
 
-8. Open the Android project's **AndroidManifest.xml** file and add the permissions required by the Baidu SDK. **Replace `YOURPACKAGENAME` with your package name**.
+8. Open the Android project's `AndroidManifest.xml` file and add the permissions required by the Baidu SDK. **Replace `YOURPACKAGENAME` with your package name**.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
@@ -494,7 +494,7 @@ In this section, we show sending a notification using a .NET console app.
     Install-Package Microsoft.Azure.NotificationHubs
     ```
 
-    This instruction adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
+    This instruction adds a reference to the Azure Notification Hubs SDK using the [Microsoft.Azure.Notification Hubs NuGet package](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 

@@ -86,13 +86,13 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
     ![Visual Studio- iOS App Config][32]
 
-4. From the Solution view, double-click *Entitlements.plist* and ensure that **Enable Push Notifications**"** is checked.
+4. From the Solution view, double-click the `Entitlements.plist` and ensure that **Enable Push Notifications**"** is checked.
 
     ![Visual Studio- iOS Entitlements Config][33]
 
 5. Add the Azure Messaging package. In the Solution view, right-click the project and select **Add** > **Add NuGet Packages**. Search for **Xamarin.Azure.NotificationHubs.iOS** and add the package to your project.
 
-6. Add a new file to your class, name it `Constants.cs` and add the following variables and replace the string literal placeholders with the **hub name** and the **DefaultListenSharedAccessSignature** noted earlier.
+6. Add a new file to your class, name it `Constants.cs` and add the following variables and replace the string literal placeholders with the `hubname` and the `DefaultListenSharedAccessSignature` noted earlier.
 
     ```csharp
     // Azure app-specific connection string and hub path

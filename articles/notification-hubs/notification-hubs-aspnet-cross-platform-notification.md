@@ -19,7 +19,7 @@ ms.author: jowargo
 
 # Send cross-platform notifications to users with Notification Hubs
 
-In a previous tutorial, [Notify users with Notification Hubs], you learned how to push notifications to all devices that are registered to a specific authenticated user. In that tutorial, multiple requests were required to send a notification to each supported client platform. Azure Notification Hubs supports templates, with which you can specify how a specific device wants to receive notifications. This method simplifies sending cross-platform notifications. 
+In a previous tutorial, [Notify users with Notification Hubs], you learned how to push notifications to all devices that are registered to a specific authenticated user. In that tutorial, multiple requests were required to send a notification to each supported client platform. Azure Notification Hubs supports templates, with which you can specify how a specific device wants to receive notifications. This method simplifies sending cross-platform notifications.
 
 This article demonstrates how to take advantage of templates to send, in a single request, a platform-agnostic notification that targets all platforms. For more detailed information about templates, see [Azure Notification Hubs Overview][Templates].
 
@@ -33,9 +33,9 @@ To send cross-platform notifications by using templates, do the following:
 
 1. In the Solution Explorer in Visual Studio, expand the **Controllers** folder, and then open the RegisterController.cs file.
 
-2. Locate the block of code in the **Put** method that creates a new registration, and then replace the `switch` content with the following code:
+2. Locate the block of code in the `Put` method that creates a new registration, and then replace the `switch` content with the following code:
 
-    ```
+    ```csharp
     switch (deviceUpdate.Platform)
     {
         case "mpns":
@@ -66,9 +66,9 @@ To send cross-platform notifications by using templates, do the following:
 
     This code calls the platform-specific method to create a template registration instead of a native registration. Because template registrations derive from native registrations, you don't need to modify existing registrations.
 
-3. In the **Notifications** controller, replace the **sendNotification** method with the following code:
+3. In the `Notifications` controller, replace the `sendNotification` method with the following code:
 
-    ```
+    ```csharp
     public async Task<HttpResponseMessage> Post()
     {
         var user = HttpContext.Current.User.Identity.Name;

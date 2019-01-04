@@ -30,7 +30,7 @@ ms.author: jowargo
 > [!IMPORTANT]
 > To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 
-Push notification support in Microsoft Azure enables you to access an easy-to-use, multiplatform, scaled-out push message infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.
+Push notification support in Microsoft Azure enables you to access an easy-to-use, multi-platform, scaled-out push message infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.
 
 Due to regulatory or security constraints, sometimes an application might want to include something in the notification that cannot be transmitted through the standard push notification infrastructure. This tutorial describes how to achieve the same experience by sending sensitive information through a secure, authenticated connection between the client Android device and the app backend.
 
@@ -59,13 +59,13 @@ To achieve this goal, you must ensure that your Android app knows how to authent
 
 Now, modify the *login* flow in order to save the authentication header value in the shared preferences of your app. Analogous mechanisms can be used to store any authentication token (for example, OAuth tokens) that the app has to use without requiring user credentials.
 
-1. In your Android app project, add the following constants at the top of the **MainActivity** class:
+1. In your Android app project, add the following constants at the top of the `MainActivity` class:
 
     ```java
     public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
     public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
     ```
-2. Still in the **MainActivity** class, update the `getAuthorizationHeader()` method to contain the following code:
+2. Still in the `MainActivity` class, update the `getAuthorizationHeader()` method to contain the following code:
 
     ```java
     private String getAuthorizationHeader() throws UnsupportedEncodingException {
@@ -80,7 +80,7 @@ Now, modify the *login* flow in order to save the authentication header value in
         return basicAuthHeader;
     }
     ```
-3. Add the following `import` statements at the top of the **MainActivity** file:
+3. Add the following `import` statements at the top of the `MainActivity` file:
 
     ```java
     import android.content.SharedPreferences;
@@ -88,7 +88,7 @@ Now, modify the *login* flow in order to save the authentication header value in
 
 Now, change the handler that is called when the notification is received.
 
-1. In the **MyHandler** class change the `OnReceive()` method to contain:
+1. In the `MyHandler` class change the `OnReceive()` method to contain:
 
     ```java
     public void onReceive(Context context, Bundle bundle) {

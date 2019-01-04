@@ -100,76 +100,80 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
 2. Download the [crypto-js library] in the folder you created in the second step. This library folder contains two subfolders: `components` and `rollups`.
 3. Create a `manifest.json` file. All Chrome Apps are backed by a manifest file that contains the app metadata and, most importantly, all permissions that are granted to the app when the user installs it.
 
-        {
-          "name": "NH-GCM Notifications",
-          "description": "Chrome platform app.",
-          "manifest_version": 2,
-          "version": "0.1",
-          "app": {
-            "background": {
-              "scripts": ["background.js"]
-            }
-          },
-          "permissions": ["gcm", "storage", "notifications", "https://*.servicebus.windows.net/*"],
-          "icons": { "128": "gcm_128.png" }
+    ```json
+    {
+        "name": "NH-GCM Notifications",
+        "description": "Chrome platform app.",
+        "manifest_version": 2,
+        "version": "0.1",
+        "app": {
+        "background": {
+            "scripts": ["background.js"]
         }
+        },
+        "permissions": ["gcm", "storage", "notifications", "https://*.servicebus.windows.net/*"],
+        "icons": { "128": "gcm_128.png" }
+    }
+    ```
 
     Notice the `permissions` element, which specifies that this Chrome App is allowed to receive push notifications from GCM. The sample app also uses an icon file, `gcm_128.png`, that you find at the source that's reused from the original GCM sample. You can substitute it for any image that fits the [icon criteria](https://developer.chrome.com/apps/manifest/icons).
 4. Create a file called `background.js` with the following code:
 
-        // Returns a new notification ID used in the notification.
-        function getNotificationId() {
-          var id = Math.floor(Math.random() * 9007199254740992) + 1;
-          return id.toString();
+    ```javascript
+    // Returns a new notification ID used in the notification.
+    function getNotificationId() {
+        var id = Math.floor(Math.random() * 9007199254740992) + 1;
+        return id.toString();
+    }
+
+    function messageReceived(message) {
+        // A message is an object with a data property that
+        // consists of key-value pairs.
+
+        // Concatenate all key-value pairs to form a display string.
+        var messageString = "";
+        for (var key in message.data) {
+        if (messageString != "")
+            messageString += ", "
+        messageString += key + ":" + message.data[key];
         }
+        console.log("Message received: " + messageString);
 
-        function messageReceived(message) {
-          // A message is an object with a data property that
-          // consists of key-value pairs.
+        // Pop up a notification to show the GCM message.
+        chrome.notifications.create(getNotificationId(), {
+        title: 'GCM Message',
+        iconUrl: 'gcm_128.png',
+        type: 'basic',
+        message: messageString
+        }, function() {});
+    }
 
-          // Concatenate all key-value pairs to form a display string.
-          var messageString = "";
-          for (var key in message.data) {
-            if (messageString != "")
-              messageString += ", "
-            messageString += key + ":" + message.data[key];
-          }
-          console.log("Message received: " + messageString);
+    var registerWindowCreated = false;
 
-          // Pop up a notification to show the GCM message.
-          chrome.notifications.create(getNotificationId(), {
-            title: 'GCM Message',
-            iconUrl: 'gcm_128.png',
-            type: 'basic',
-            message: messageString
-          }, function() {});
-        }
+    function firstTimeRegistration() {
+        chrome.storage.local.get("registered", function(result) {
 
-        var registerWindowCreated = false;
+        registerWindowCreated = true;
+        chrome.app.window.create(
+            "register.html",
+            {  width: 520,
+                height: 500,
+                frame: 'chrome'
+            },
+            function(appWin) {}
+        );
+        });
+    }
 
-        function firstTimeRegistration() {
-          chrome.storage.local.get("registered", function(result) {
+    // Set up a listener for GCM message event.
+    chrome.gcm.onMessage.addListener(messageReceived);
 
-            registerWindowCreated = true;
-            chrome.app.window.create(
-              "register.html",
-              {  width: 520,
-                 height: 500,
-                 frame: 'chrome'
-              },
-              function(appWin) {}
-            );
-          });
-        }
+    // Set up listeners to trigger the first-time registration.
+    chrome.runtime.onInstalled.addListener(firstTimeRegistration);
+    chrome.runtime.onStartup.addListener(firstTimeRegistration);
+    ```
 
-        // Set up a listener for GCM message event.
-        chrome.gcm.onMessage.addListener(messageReceived);
-
-        // Set up listeners to trigger the first-time registration.
-        chrome.runtime.onInstalled.addListener(firstTimeRegistration);
-        chrome.runtime.onStartup.addListener(firstTimeRegistration);
-
-    This file pops up the Chrome App window HTML (**register.html**) and also defines the handler **messageReceived** to handle the incoming push notification.
+    This file pops up the Chrome App window HTML (`register.html`) and also defines the handler `messageReceived` to handle the incoming push notification.
 5. Create a file called `register.html`, which defines the UI of the Chrome App.
 
    > [!NOTE]
@@ -205,165 +209,166 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
 6. Create a file called `register.js` with the code in this step. This file specifies the script behind `register.html`. Chrome Apps do not allow inline execution, so you have to create a separate backing script for your UI.
 
     ```javascript
-        var registrationId = "";
-        var hubName        = "", connectionString = "";
-        var originalUri    = "", targetUri = "", endpoint = "", sasKeyName = "", sasKeyValue = "", sasToken = "";
+    var registrationId = "";
+    var hubName        = "", connectionString = "";
+    var originalUri    = "", targetUri = "", endpoint = "", sasKeyName = "", sasKeyValue = "", sasToken = "";
 
-        window.onload = function() {
-          document.getElementById("registerWithGCM").onclick = registerWithGCM;  
-          document.getElementById("registerWithNH").onclick = registerWithNH;
-          updateLog("You have not registered yet. Please provider sender ID and register with GCM and then with  Notification Hubs.");
+    window.onload = function() {
+        document.getElementById("registerWithGCM").onclick = registerWithGCM;  
+        document.getElementById("registerWithNH").onclick = registerWithNH;
+        updateLog("You have not registered yet. Please provider sender ID and register with GCM and then with  Notification Hubs.");
+    }
+
+    function updateLog(status) {
+        currentStatus = document.getElementById("console").innerHTML;
+        if (currentStatus != "") {
+        currentStatus = currentStatus + "\n\n";
         }
 
-        function updateLog(status) {
-          currentStatus = document.getElementById("console").innerHTML;
-          if (currentStatus != "") {
-            currentStatus = currentStatus + "\n\n";
-          }
+        document.getElementById("console").innerHTML = currentStatus  + status;
+    }
 
-          document.getElementById("console").innerHTML = currentStatus  + status;
+    function registerWithGCM() {
+        var senderId = document.getElementById("senderId").value.trim();
+        chrome.gcm.register([senderId], registerCallback);
+
+        // Prevent register button from being clicked again before the registration finishes.
+        document.getElementById("registerWithGCM").disabled = true;
+    }
+
+    function registerCallback(regId) {
+        registrationId = regId;
+        document.getElementById("registerWithGCM").disabled = false;
+
+        if (chrome.runtime.lastError) {
+        // When the registration fails, handle the error and retry the
+        // registration later.
+        updateLog("Registration failed: " + chrome.runtime.lastError.message);
+        return;
         }
 
-        function registerWithGCM() {
-          var senderId = document.getElementById("senderId").value.trim();
-          chrome.gcm.register([senderId], registerCallback);
+        updateLog("Registration with GCM succeeded.");
+        document.getElementById("registerWithNH").disabled = false;
 
-          // Prevent register button from being clicked again before the registration finishes.
-          document.getElementById("registerWithGCM").disabled = true;
+        // Mark that the first-time registration is done.
+        chrome.storage.local.set({registered: true});
+    }
+
+    function registerWithNH() {
+        hubName = document.getElementById("hubName").value.trim();
+        connectionString = document.getElementById("connectionString").value.trim();
+        splitConnectionString();
+        generateSaSToken();
+        sendNHRegistrationRequest();
+    }
+
+    // From http://msdn.microsoft.com/library/dn495627.aspx
+    function splitConnectionString()
+    {
+        var parts = connectionString.split(';');
+        if (parts.length != 3)
+        throw "Error parsing connection string";
+
+        parts.forEach(function(part) {
+        if (part.indexOf('Endpoint') == 0) {
+        endpoint = 'https' + part.substring(11);
+        } else if (part.indexOf('SharedAccessKeyName') == 0) {
+        sasKeyName = part.substring(20);
+        } else if (part.indexOf('SharedAccessKey') == 0) {
+        sasKeyValue = part.substring(16);
         }
+        });
 
-        function registerCallback(regId) {
-          registrationId = regId;
-          document.getElementById("registerWithGCM").disabled = false;
+        originalUri = endpoint + hubName;
+    }
 
-          if (chrome.runtime.lastError) {
-            // When the registration fails, handle the error and retry the
-            // registration later.
-            updateLog("Registration failed: " + chrome.runtime.lastError.message);
-            return;
-          }
+    function generateSaSToken()
+    {
+        targetUri = encodeURIComponent(originalUri.toLowerCase()).toLowerCase();
+        var expiresInMins = 10; // 10 minute expiration
 
-          updateLog("Registration with GCM succeeded.");
-          document.getElementById("registerWithNH").disabled = false;
+        // Set expiration in seconds.
+        var expireOnDate = new Date();
+        expireOnDate.setMinutes(expireOnDate.getMinutes() + expiresInMins);
+        var expires = Date.UTC(expireOnDate.getUTCFullYear(), expireOnDate
+        .getUTCMonth(), expireOnDate.getUTCDate(), expireOnDate
+        .getUTCHours(), expireOnDate.getUTCMinutes(), expireOnDate
+        .getUTCSeconds()) / 1000;
+        var tosign = targetUri + '\n' + expires;
 
-          // Mark that the first-time registration is done.
-          chrome.storage.local.set({registered: true});
-        }
+        // Using CryptoJS.
+        var signature = CryptoJS.HmacSHA256(tosign, sasKeyValue);
+        var base64signature = signature.toString(CryptoJS.enc.Base64);
+        var base64UriEncoded = encodeURIComponent(base64signature);
 
-        function registerWithNH() {
-          hubName = document.getElementById("hubName").value.trim();
-          connectionString = document.getElementById("connectionString").value.trim();
-          splitConnectionString();
-          generateSaSToken();
-          sendNHRegistrationRequest();
-        }
+        // Construct authorization string.
+        sasToken = "SharedAccessSignature sr=" + targetUri + "&sig="
+                        + base64UriEncoded + "&se=" + expires + "&skn=" + sasKeyName;
+    }
 
-        // From http://msdn.microsoft.com/library/dn495627.aspx
-        function splitConnectionString()
-        {
-          var parts = connectionString.split(';');
-          if (parts.length != 3)
-          throw "Error parsing connection string";
+    function sendNHRegistrationRequest()
+    {
+        var registrationPayload =
+        "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+        "<entry xmlns=\"http://www.w3.org/2005/Atom\">" +
+            "<content type=\"application/xml\">" +
+                "<GcmRegistrationDescription xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/netservices/2010/10/servicebus/connect\">" +
+                    "<GcmRegistrationId>{GCMRegistrationId}</GcmRegistrationId>" +
+                "</GcmRegistrationDescription>" +
+            "</content>" +
+        "</entry>";
 
-          parts.forEach(function(part) {
-            if (part.indexOf('Endpoint') == 0) {
-            endpoint = 'https' + part.substring(11);
-            } else if (part.indexOf('SharedAccessKeyName') == 0) {
-            sasKeyName = part.substring(20);
-            } else if (part.indexOf('SharedAccessKey') == 0) {
-            sasKeyValue = part.substring(16);
+        // Update the payload with the registration ID obtained earlier.
+        registrationPayload = registrationPayload.replace("{GCMRegistrationId}", registrationId);
+
+        var url = originalUri + "/registrations/?api-version=2014-09";
+        var client = new XMLHttpRequest();
+
+        client.onload = function () {
+        if (client.readyState == 4) {
+            if (client.status == 200) {
+            updateLog("Notification Hub Registration successful!");
+            updateLog(client.responseText);
+            } else {
+            updateLog("Notification Hub Registration did not succeed!");
+            updateLog("HTTP Status: " + client.status + " : " + client.statusText);
+            updateLog("HTTP Response: " + "\n" + client.responseText);
             }
-          });
+        }
+        };
 
-          originalUri = endpoint + hubName;
+        client.onerror = function () {
+            updateLog("ERROR - Notification Hub Registration did not succeed!");
         }
 
-        function generateSaSToken()
-        {
-          targetUri = encodeURIComponent(originalUri.toLowerCase()).toLowerCase();
-          var expiresInMins = 10; // 10 minute expiration
+        client.open("POST", url, true);
+        client.setRequestHeader("Content-Type", "application/atom+xml;type=entry;charset=utf-8");
+        client.setRequestHeader("Authorization", sasToken);
+        client.setRequestHeader("x-ms-version", "2014-09");
 
-          // Set expiration in seconds.
-          var expireOnDate = new Date();
-          expireOnDate.setMinutes(expireOnDate.getMinutes() + expiresInMins);
-          var expires = Date.UTC(expireOnDate.getUTCFullYear(), expireOnDate
-            .getUTCMonth(), expireOnDate.getUTCDate(), expireOnDate
-            .getUTCHours(), expireOnDate.getUTCMinutes(), expireOnDate
-            .getUTCSeconds()) / 1000;
-          var tosign = targetUri + '\n' + expires;
-
-          // Using CryptoJS.
-          var signature = CryptoJS.HmacSHA256(tosign, sasKeyValue);
-          var base64signature = signature.toString(CryptoJS.enc.Base64);
-          var base64UriEncoded = encodeURIComponent(base64signature);
-
-          // Construct authorization string.
-          sasToken = "SharedAccessSignature sr=" + targetUri + "&sig="
-                          + base64UriEncoded + "&se=" + expires + "&skn=" + sasKeyName;
+        try {
+            client.send(registrationPayload);
         }
-
-        function sendNHRegistrationRequest()
-        {
-          var registrationPayload =
-          "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-          "<entry xmlns=\"http://www.w3.org/2005/Atom\">" +
-              "<content type=\"application/xml\">" +
-                  "<GcmRegistrationDescription xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/netservices/2010/10/servicebus/connect\">" +
-                      "<GcmRegistrationId>{GCMRegistrationId}</GcmRegistrationId>" +
-                  "</GcmRegistrationDescription>" +
-              "</content>" +
-          "</entry>";
-
-          // Update the payload with the registration ID obtained earlier.
-          registrationPayload = registrationPayload.replace("{GCMRegistrationId}", registrationId);
-
-          var url = originalUri + "/registrations/?api-version=2014-09";
-          var client = new XMLHttpRequest();
-
-          client.onload = function () {
-            if (client.readyState == 4) {
-              if (client.status == 200) {
-                updateLog("Notification Hub Registration successful!");
-                updateLog(client.responseText);
-              } else {
-                updateLog("Notification Hub Registration did not succeed!");
-                updateLog("HTTP Status: " + client.status + " : " + client.statusText);
-                updateLog("HTTP Response: " + "\n" + client.responseText);
-              }
-            }
-          };
-
-          client.onerror = function () {
-                updateLog("ERROR - Notification Hub Registration did not succeed!");
-          }
-
-          client.open("POST", url, true);
-          client.setRequestHeader("Content-Type", "application/atom+xml;type=entry;charset=utf-8");
-          client.setRequestHeader("Authorization", sasToken);
-          client.setRequestHeader("x-ms-version", "2014-09");
-
-          try {
-              client.send(registrationPayload);
-          }
-          catch(err) {
-              updateLog(err.message);
-          }
+        catch(err) {
+            updateLog(err.message);
         }
-       ```
+    }
+    ```
+
     The script has the following key parameters:
 
-   * **window.onload** defines the button-click events of the two buttons on the UI. The first button-click event handler registers with GCM, and the other one uses the registration ID that's returned after registration with GCM to register with Azure Notification Hubs.
-   * **updateLog** is the function that allows the code log information.
-   * **registerWithGCM** is the first button-click handler, which makes the `chrome.gcm.register` call to GCM to register the current Chrome App instance.
-   * **registerCallback** is the callback function that gets called when the GCM registration call returns.
-   * **registerWithNH** is the second button-click handler, which registers with Notification Hubs. It gets `hubName` and `connectionString` (which the user has specified) and crafts the Notification Hubs Registration REST API call.
-   * **splitConnectionString** and **generateSaSToken** are helpers that represent the JavaScript implementation of a SaS token creation process, that must be used in all REST API calls. For more information, see [Common Concepts](https://msdn.microsoft.com/library/dn495627.aspx).
-   * **sendNHRegistrationRequest** is the function that makes an HTTP REST call to Azure Notification Hubs.
-   * **registrationPayload** defines the registration XML payload. For more information, see [Create Registration NH REST API]. Update the registration ID in it with the value received from GCM.
-   * **client** is an instance of **XMLHttpRequest** that the application uses to make the HTTP POST request. Update the `Authorization` header with `sasToken`. Successful completion of this call registers this Chrome App instance with Azure Notification Hubs.
+    * `window.onload` defines the button-click events of the two buttons on the UI. The first button-click event handler registers with GCM, and the other one uses the registration ID that's returned after registration with GCM to register with Azure Notification Hubs.
+    * `updateLog` is the function that allows the code log information.
+    * `registerWithGCM` is the first button-click handler, which makes the `chrome.gcm.register` call to GCM to register the current Chrome App instance.
+    * `registerCallback` is the callback function that gets called when the GCM registration call returns.
+    * `registerWithNH` is the second button-click handler, which registers with Notification Hubs. It gets `hubName` and `connectionString` (which the user has specified) and crafts the Notification Hubs Registration REST API call.
+    * `splitConnectionString` and `generateSaSToken` are helpers that represent the JavaScript implementation of a SaS token creation process, that must be used in all REST API calls. For more information, see [Common Concepts](https://msdn.microsoft.com/library/dn495627.aspx).
+    * `sendNHRegistrationRequest` is the function that makes an HTTP REST call to Azure Notification Hubs.
+    * `registrationPayload` defines the registration XML payload. For more information, see [Create Registration NH REST API]. Update the registration ID in it with the value received from GCM.
+    * `client` is an instance of `XMLHttpRequest` that the application uses to make the HTTP POST request. Update the `Authorization` header with `sasToken`. Successful completion of this call registers this Chrome App instance with Azure Notification Hubs.
 
-        The overall folder structure for this project should be like the following structure:
-        ![Google Chrome App - Folder Structure][21]
+    The overall folder structure for this project should be like the following structure:
+    ![Google Chrome App - Folder Structure][21]
 
 ### Set up and test your Chrome App
 
@@ -394,20 +399,26 @@ For testing purposes, send Chrome push notifications by using a .NET console app
 2. From the **Tools** menu, click **NuGet Package Manager** and then **Package Manager Console**. You see displays the Package Manager Console in the bottom window.
 3. In the console window, execute the following command:
 
-        Install-Package Microsoft.Azure.NotificationHubs
+    ```shell
+    Install-Package Microsoft.Azure.NotificationHubs
+    ```
 
    A reference to the Azure Service Bus SDK with the [WindowsAzure.ServiceBus NuGet package is automatically added to the project](http://nuget.org/packages/WindowsAzure.ServiceBus/).
 4. Open `Program.cs` and add the following `using` statement:
 
-        using Microsoft.Azure.NotificationHubs;
+    ```csharp
+    using Microsoft.Azure.NotificationHubs;
+    ```
 5. In the `Program` class, add the following method:
 
-        private static async void SendNotificationAsync()
-        {
-            NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            String message = "{\"data\":{\"message\":\"Hello Chrome from Azure Notification Hubs\"}}";
-            await hub.SendGcmNativeNotificationAsync(message);
-        }
+    ```csharp
+    private static async void SendNotificationAsync()
+    {
+        NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
+        String message = "{\"data\":{\"message\":\"Hello Chrome from Azure Notification Hubs\"}}";
+        await hub.SendGcmNativeNotificationAsync(message);
+    }
+    ```
 
     Make sure to replace the `<hub name>` placeholder with the name of the notification hub that appears in the [portal](https://portal.azure.com) in your Notification Hub page. Also, replace the connection string placeholder with the connection string called `DefaultFullSharedAccessSignature` that you obtained in the notification hub configuration section.
 
@@ -416,8 +427,11 @@ For testing purposes, send Chrome push notifications by using a .NET console app
 
 6. Add the following calls in the `Main` method:
 
-         SendNotificationAsync();
-         Console.ReadLine();
+    ```csharp
+    SendNotificationAsync();
+    Console.ReadLine();
+    ```
+
 7. Make sure that Chrome is running, and run the console application.
 8. You should see the following notification pop-up on your desktop.
 

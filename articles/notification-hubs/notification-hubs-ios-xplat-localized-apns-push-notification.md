@@ -59,7 +59,7 @@ Then you ensure that devices register with a template that refers to the correct
 
 ```json
 {
-    aps:{
+    aps: {
         alert: "$(News_French)"
     }
 }
@@ -76,7 +76,7 @@ For more information on templates, see [Templates](notification-hubs-templates-c
 
 In this section, you modify the Breaking News app that you created in the topic [Use Notification Hubs to send breaking news] to send localized breaking news using templates.
 
-In your **MainStoryboard_iPhone.storyboard**, add a Segmented Control with the three languages: English, French, and Mandarin.
+In your `MainStoryboard_iPhone.storyboard`, add a Segmented Control with the three languages: English, French, and Mandarin.
 
 ![Creating the iOS UI storyboard][13]
 
@@ -86,7 +86,7 @@ Then make sure to add an IBOutlet in your ViewController.h as shown in the follo
 
 ## Build the iOS app
 
-1. In your Notification.h add the *retrieveLocale* method, and modify the store and subscribe methods as shown in the following code:
+1. In your `Notification.h` add the `retrieveLocale` method, and modify the store and subscribe methods as shown in the following code:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
@@ -97,7 +97,7 @@ Then make sure to add an IBOutlet in your ViewController.h as shown in the follo
 
     - (int) retrieveLocale;
     ```
-    In your Notification.m, modify the *storeCategoriesAndSubscribe* method, by adding the locale parameter and storing it in the user defaults:
+    In your `Notification.m`, modify the `storeCategoriesAndSubscribe` method, by adding the `locale` parameter and storing it in the user defaults:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion {
@@ -135,7 +135,7 @@ Then make sure to add an IBOutlet in your ViewController.h as shown in the follo
     }
     ```
 
-    You use the method *registerTemplateWithDeviceToken*, instead of *registerNativeWithDeviceToken*. When you register for a template, you have to provide the json template and also a name for the template (as the app might want to register different templates). Make sure to register your categories as tags, as you want to make sure to receive the notifications for those news.
+    You use the method `registerTemplateWithDeviceToken`, instead of `registerNativeWithDeviceToken`. When you register for a template, you have to provide the json template and also a name for the template (as the app might want to register different templates). Make sure to register your categories as tags, as you want to make sure to receive the notifications for those news.
 
     Add a method to retrieve the locale from the user default settings:
 
@@ -149,13 +149,13 @@ Then make sure to add an IBOutlet in your ViewController.h as shown in the follo
     }
     ```
 
-2. Now that you modified the Notifications class, you have to make sure that the ViewController makes use of the new UISegmentControl. Add the following line in the *viewDidLoad* method to make sure to show the locale that is currently selected:
+2. Now that you modified the `Notifications` class, you have to make sure that the `ViewController` makes use of the new `UISegmentControl`. Add the following line in the `viewDidLoad` method to make sure to show the locale that is currently selected:
 
     ```objc
     self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
     ```
 
-    Then, in your *subscribe* method, change your call to the *storeCategoriesAndSubscribe* to the following code:
+    Then, in your `subscribe` method, change your call to the `storeCategoriesAndSubscribe` to the following code:
 
     ```objc
     [notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {
@@ -170,7 +170,7 @@ Then make sure to add an IBOutlet in your ViewController.h as shown in the follo
     }];
     ```
 
-3. Finally, you have to update the *didRegisterForRemoteNotificationsWithDeviceToken* method in your AppDelegate.m, so that you can correctly refresh your registration when your app starts. Change your call to the *subscribe* method of notifications with the following code:
+3. Finally, you have to update the `didRegisterForRemoteNotificationsWithDeviceToken` method in your AppDelegate.m, so that you can correctly refresh your registration when your app starts. Change your call to the `subscribe` method of notifications with the following code:
 
     ```obj-c
     NSSet* categories = [self.notifications retrieveCategories];
@@ -282,7 +282,6 @@ In this tutorial, you sent localized notifications to iOS devices. To learn how 
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [JavaScript and HTML]: ../get-started-with-push-js.md
-
 [Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx

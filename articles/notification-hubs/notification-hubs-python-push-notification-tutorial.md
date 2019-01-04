@@ -97,7 +97,7 @@ class NotificationHub:
 ### Create security token
 
 The details of the security token creation are available [here](https://msdn.microsoft.com/library/dn495627.aspx).
-Add following methods to the **NotificationHub** class to create the token based on the URI of the current request and the credentials extracted from the connection string.
+Add following methods to the `NotificationHub` class to create the token based on the URI of the current request and the credentials extracted from the connection string.
 
 ```python
 @staticmethod
@@ -155,7 +155,7 @@ This class is a container for a native notification body or a set of properties 
 
 Refer to the [Notification Hubs REST APIs documentation](https://msdn.microsoft.com/library/dn495827.aspx) and the specific notification platforms' formats for all the options available.
 
-Now with this class, write the send notification methods inside of the **NotificationHub** class.
+Now with this class, write the send notification methods inside of the `NotificationHub` class.
 
 ```python
 def make_http_request(self, url, payload, headers):
@@ -277,7 +277,7 @@ To use it - initialize using the following code:
 hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 ```
 
-The Notification Hub Send request HTTP URL gets appended with a "test" querystring as a result.
+The Notification Hub Send request HTTP URL gets appended with a "test" query string as a result.
 
 ## <a name="complete-tutorial"></a>Complete the tutorial
 

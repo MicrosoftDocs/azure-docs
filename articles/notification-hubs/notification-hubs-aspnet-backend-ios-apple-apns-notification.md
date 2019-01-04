@@ -48,7 +48,7 @@ This tutorial assumes that you have created and configured your notification hub
    > [!NOTE]
    > This section assumes that your project is configured with an empty organization name. If not, you need to prepend your organization name to all class names.
 
-2. In the **Main.storyboard**, add the components shown in the screenshot from the object library.
+2. In the `Main.storyboard` file, add the components shown in the screenshot from the object library.
 
     ![Edit storybard in Xcode interface builder][1]
 
@@ -62,7 +62,7 @@ This tutorial assumes that you have created and configured your notification hub
 
     Some components were added in the [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial.
 
-3. **Ctrl** drag from the components in the view to **ViewController.h** and add these new outlets.
+3. **Ctrl** drag from the components in the view to `ViewController.h` and add these new outlets.
 
     ```objc
     @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
@@ -82,13 +82,13 @@ This tutorial assumes that you have created and configured your notification hub
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. In **ViewController.h**, add the following `#define` after your import statements. Substitute the *<Enter Your Backend Endpoint\>* placeholder with the Destination URL you used to deploy your app backend in the previous section. For example, *http://you_backend.azurewebsites.net*.
+4. In `ViewController.h`, add the following `#define` after your import statements. Substitute the `<Enter Your Backend Endpoint>` placeholder with the Destination URL you used to deploy your app backend in the previous section. For example, *http://your_backend.azurewebsites.net*.
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
     ```
 
-5. In your project, create a new **Cocoa Touch class** named **RegisterClient** to interface with the ASP.NET back-end you created. Create the class inheriting from `NSObject`. Then add the following code in the RegisterClient.h.
+5. In your project, create a new Cocoa Touch class named `RegisterClient` to interface with the ASP.NET back-end you created. Create the class inheriting from `NSObject`. Then add the following code in the `RegisterClient.h`.
 
     ```objc
     @interface RegisterClient : NSObject
@@ -284,9 +284,9 @@ This tutorial assumes that you have created and configured your notification hub
 
     This code implements the logic explained in the guidance article [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) using NSURLSession to perform REST calls to your app backend, and NSUserDefaults to locally store the registrationId returned by the notification hub.
 
-    This class requires its property **authorizationHeader** to be set in order to work properly. This property is set by the **ViewController** class after the login.
+    This class requires its property `authorizationHeader` to be set in order to work properly. This property is set by the `ViewController` class after the login.
 
-8. In ViewController.h, add a `#import` statement for RegisterClient.h. Then add a declaration for the device token and reference to a `RegisterClient` instance in the `@interface` section:
+8. In `ViewController.h`, add a `#import` statement for `RegisterClient.h`. Then add a declaration for the device token and reference to a `RegisterClient` instance in the `@interface` section:
 
     ```objc
     #import "RegisterClient.h"
@@ -308,7 +308,7 @@ This tutorial assumes that you have created and configured your notification hub
     ```
 
     > [!NOTE]
-    > The following snippet is not a secure authentication scheme, you should substitute the implementation of the **createAndSetAuthenticationHeaderWithUsername:AndPassword:** with your specific authentication mechanism that generates an authentication token to be consumed by the register client class, e.g. OAuth, Active Directory.
+    > The following snippet is not a secure authentication scheme, you should substitute the implementation of the    `createAndSetAuthenticationHeaderWithUsername:AndPassword:` with your specific authentication mechanism that generates an authentication token to be consumed by the register client class, e.g. OAuth, Active Directory.
 
 10. Then in the `@implementation` section of `ViewController.m`, add the following code, which adds the implementation for setting the device token and authentication header.
 
@@ -440,7 +440,7 @@ This tutorial assumes that you have created and configured your notification hub
     }
     ```
 
-13. In function **ViewDidLoad**, add the following to instantiate the RegisterClient instance and set the delegate for your text fields.
+13. In the `ViewDidLoad` function, add the following to instantiate the `RegisterClient` instance and set the delegate for your text fields.
 
     ```objc
     self.UsernameField.delegate = self;
@@ -449,7 +449,7 @@ This tutorial assumes that you have created and configured your notification hub
     self.registerClient = [[RegisterClient alloc] initWithEndpoint:BACKEND_ENDPOINT];
     ```
 
-14. Now in **AppDelegate.m**, remove all the content of the method `application:didRegisterForPushNotificationWithDeviceToken:` and replace it with the following to make sure that the view controller contains the latest device token retrieved from APNs:
+14. Now in `AppDelegate.m`, remove all the content of the method `application:didRegisterForPushNotificationWithDeviceToken:` and replace it with the following (to make sure that the view controller contains the latest device token retrieved from APNs):
 
     ```objc
     // Add import to the top of the file
@@ -463,7 +463,7 @@ This tutorial assumes that you have created and configured your notification hub
     }
     ```
 
-15. Finally in **AppDelegate.m**, make sure you have the following method:
+15. Finally in `AppDelegate.m`, make sure you have the following method:
 
     ```objc
     - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {

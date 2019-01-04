@@ -26,7 +26,7 @@ ms.author: jowargo
 
 ## Overview
 
-Push notification support in Microsoft Azure enables you to access an easy-to-use, multiplatform, scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.
+Push notification support in Microsoft Azure enables you to access an easy-to-use, multi-platform, scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.
 
 Due to regulatory or security constraints, sometimes an application might want to include something in the notification that cannot be transmitted through the standard push notification infrastructure. This tutorial describes how to achieve the same experience by sending sensitive information through a secure, authenticated connection between the client device and the app backend.
 
@@ -89,10 +89,10 @@ The next step is to create the push background component.
 2. Expand **Store Apps**, then click **Windows Phone Apps**, then click **Windows Runtime Component (Windows Phone)**. Name the project **PushBackgroundComponent**, and then click **OK** to create the project.
 
     ![][12]
-3. In Solution Explorer, right-click the **PushBackgroundComponent (Windows Phone 8.1)** project, then click **Add**, then click **Class**. Name the new class **PushBackgroundTask.cs**. Click **Add** to generate the class.
-4. Replace the entire contents of the **PushBackgroundComponent** namespace definition with the following code, substituting the placeholder `{back-end endpoint}` with the back-end endpoint obtained while deploying your back-end:
+3. In Solution Explorer, right-click the **PushBackgroundComponent (Windows Phone 8.1)** project, then click **Add**, then click **Class**. Name the new class `PushBackgroundTask.cs`. Click **Add** to generate the class.
+4. Replace the entire contents of the `PushBackgroundComponent` namespace definition with the following code, substituting the placeholder `{back-end endpoint}` with the back-end endpoint obtained while deploying your back-end:
 
-    ```
+    ```csharp
     public sealed class Notification
         {
             public int Id { get; set; }
@@ -141,7 +141,7 @@ The next step is to create the push background component.
 7. In the **Search** box, type **Http Client**.
 8. In the results list, click **Microsoft HTTP Client Libraries**, and then click **Install**. Complete the installation.
 9. Back in the NuGet **Search** box, type **Json.net**. Install the **Json.NET** package, then close the NuGet Package Manager window.
-10. Add the following `using` statements at the top of the **PushBackgroundTask.cs** file:
+10. Add the following `using` statements at the top of the `PushBackgroundTask.cs` file:
 
     ```c#
     using Windows.ApplicationModel.Background;

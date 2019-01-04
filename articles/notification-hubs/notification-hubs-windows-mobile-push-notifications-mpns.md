@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+* **Azure subscription**. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/) before you begin.
 * [Visual Studio 2015 Express with mobile development components](https://www.visualstudio.com/vs/older-downloads/)
 
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Windows Phone 8 apps.
@@ -80,7 +80,7 @@ In this section, you create a Windows Phone application that registers itself wi
 
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
-5. Add the following code at the top of **Application_Launching** method in App.xaml.cs:
+5. Add the following code at the top of `Application_Launching` method in `App.xaml.cs`:
 
     ```csharp
     private void Application_Launching(object sender, LaunchingEventArgs e)
@@ -93,12 +93,12 @@ In this section, you create a Windows Phone application that registers itself wi
             channel.Open();
             channel.BindToShellToast();
         }
-    
+
         channel.ChannelUriUpdated += new EventHandler<NotificationChannelUriEventArgs>(async (o, args) =>
         {
             var hub = new NotificationHub("<hub name>", "<connection string>");
             var result = await hub.RegisterNativeAsync(args.ChannelUri.ToString());
-    
+
             System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() =>
             {
                 MessageBox.Show("Registration :" + result.RegistrationId, "Registered", MessageBoxButton.OK);
@@ -108,15 +108,15 @@ In this section, you create a Windows Phone application that registers itself wi
     ```
 
    > [!NOTE]
-   > The value **MyPushChannel** is an index that is used to lookup an existing channel in the [HttpNotificationChannel](https://msdn.microsoft.com/library/windows/apps/microsoft.phone.notification.httpnotificationchannel.aspx) collection. If there isn't one there, create a new entry with that name.
- 
+   > The value `MyPushChannel` is an index that is used to lookup an existing channel in the [HttpNotificationChannel](https://msdn.microsoft.com/library/windows/apps/microsoft.phone.notification.httpnotificationchannel.aspx) collection. If there isn't one there, create a new entry with that name.
+
     Insert the name of your hub and the connection string called `DefaultListenSharedAccessSignature` that you noted in the previous section.
     This code retrieves the channel URI for the app from MPNS, and then registers that channel URI with your notification hub. It also guarantees that the channel URI is registered in your notification hub each time the application is launched.
 
    > [!NOTE]
-   > This tutorial sends a toast notification to the device. When you send a tile notification, you must instead call the **BindToShellTile** method on the channel. To support both toast and tile notifications, call both **BindToShellTile** and  **BindToShellToast**.
+   > This tutorial sends a toast notification to the device. When you send a tile notification, you must instead call the `BindToShellTile` method on the channel. To support both toast and tile notifications, call both `BindToShellTile` and  `BindToShellToast`.
 
-6. In Solution Explorer, expand **Properties**, open the `WMAppManifest.xml` file, click the **Capabilities** tab, and make sure that the **ID_CAP_PUSH_NOTIFICATION** capability is checked. Your app can receive push notifications now. 
+6. In Solution Explorer, expand **Properties**, open the `WMAppManifest.xml` file, click the **Capabilities** tab, and make sure that the **ID_CAP_PUSH_NOTIFICATION** capability is checked. Your app can receive push notifications now.
 
     ![Visual Studio - Windows Phone App Capabilities][14]
 7. Press the `F5` key to run the app. A registration message is displayed in the app.
@@ -158,7 +158,6 @@ In this simple example, you broadcasted push notifications to all your Windows P
 [10]: ./media/notification-hubs-windows-phone-get-started/notification-hub-select-from-portal2.png
 [11]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-silverlight-app.png
 [12]: ./media/notification-hubs-windows-phone-get-started/notification-hub-connection-strings.png
-
 [13]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-app.png
 [14]: ./media/notification-hubs-windows-phone-get-started/mobile-app-enable-push-wp8.png
 [15]: ./media/notification-hubs-windows-phone-get-started/notification-hub-pushauth.png

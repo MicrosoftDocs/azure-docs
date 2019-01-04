@@ -100,52 +100,52 @@ Edit your app manifest to support ADM:
 1. Add the Amazon namespace in the root manifest element:
 
     ```xml
-        xmlns:amazon="http://schemas.amazon.com/apk/res/android"
+    xmlns:amazon="http://schemas.amazon.com/apk/res/android"
     ```
 
 2. Add permissions as the first element under the manifest element. Substitute **[YOUR PACKAGE NAME]** with the package that you used to create your app.
 
     ```xml
-        <permission
-         android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
-         android:protectionLevel="signature" />
+    <permission
+        android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
+        android:protectionLevel="signature" />
 
-        <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
-        <uses-permission android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE" />
+    <uses-permission android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE" />
 
-        <!-- This permission allows your app access to receive push notifications
-        from ADM. -->
-        <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
+    <!-- This permission allows your app access to receive push notifications
+    from ADM. -->
+    <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
 
-        <!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
-        <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     ```
 3. Insert the following element as the first child of the application element. Remember to substitute **[YOUR SERVICE NAME]** with the name of your ADM message handler that you create in the next section (including the package), and replace **[YOUR PACKAGE NAME]** with the package name with which you created your app.
 
     ```xml
-        <amazon:enable-feature
-              android:name="com.amazon.device.messaging"
-                     android:required="true"/>
-        <service
-            android:name="[YOUR SERVICE NAME]"
-            android:exported="false" />
+    <amazon:enable-feature
+            android:name="com.amazon.device.messaging"
+                    android:required="true"/>
+    <service
+        android:name="[YOUR SERVICE NAME]"
+        android:exported="false" />
 
-        <receiver
-            android:name="[YOUR SERVICE NAME]$Receiver" />
+    <receiver
+        android:name="[YOUR SERVICE NAME]$Receiver" />
 
-            <!-- This permission ensures that only ADM can send your app registration broadcasts. -->
-            android:permission="com.amazon.device.messaging.permission.SEND" >
+        <!-- This permission ensures that only ADM can send your app registration broadcasts. -->
+        android:permission="com.amazon.device.messaging.permission.SEND" >
 
-            <!-- To interact with ADM, your app must listen for the following intents. -->
-            <intent-filter>
-          <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
-          <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
+        <!-- To interact with ADM, your app must listen for the following intents. -->
+        <intent-filter>
+        <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
+        <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
 
-          <!-- Replace the name in the category tag with your app's package name. -->
-          <category android:name="[YOUR PACKAGE NAME]" />
-            </intent-filter>
-        </receiver>
+        <!-- Replace the name in the category tag with your app's package name. -->
+        <category android:name="[YOUR PACKAGE NAME]" />
+        </intent-filter>
+    </receiver>
     ```
 
 ## Create your ADM message handler
@@ -157,117 +157,117 @@ Edit your app manifest to support ADM:
 2. Add the following `import` statements:
 
     ```java
-        import android.app.NotificationManager;
-        import android.app.PendingIntent;
-        import android.content.Context;
-        import android.content.Intent;
-        import android.support.v4.app.NotificationCompat;
-        import com.amazon.device.messaging.ADMMessageReceiver;
-        import com.microsoft.windowsazure.messaging.NotificationHub
+    import android.app.NotificationManager;
+    import android.app.PendingIntent;
+    import android.content.Context;
+    import android.content.Intent;
+    import android.support.v4.app.NotificationCompat;
+    import com.amazon.device.messaging.ADMMessageReceiver;
+    import com.microsoft.windowsazure.messaging.NotificationHub
     ```
 
 3. Add the following code in the class that you created. Remember to substitute the hub name and connection string (listen):
 
     ```java
-        public static final int NOTIFICATION_ID = 1;
-        private NotificationManager mNotificationManager;
-        NotificationCompat.Builder builder;
-          private static NotificationHub hub;
-        public static NotificationHub getNotificationHub(Context context) {
-            Log.v("com.wa.hellokindlefire", "getNotificationHub");
-            if (hub == null) {
-                hub = new NotificationHub("[hub name]", "[listen connection string]", context);
-            }
-            return hub;
+    public static final int NOTIFICATION_ID = 1;
+    private NotificationManager mNotificationManager;
+    NotificationCompat.Builder builder;
+        private static NotificationHub hub;
+    public static NotificationHub getNotificationHub(Context context) {
+        Log.v("com.wa.hellokindlefire", "getNotificationHub");
+        if (hub == null) {
+            hub = new NotificationHub("[hub name]", "[listen connection string]", context);
+        }
+        return hub;
+    }
+
+    public MyADMMessageHandler() {
+            super("MyADMMessageHandler");
         }
 
-        public MyADMMessageHandler() {
-                super("MyADMMessageHandler");
-            }
-
-            public static class Receiver extends ADMMessageReceiver
+        public static class Receiver extends ADMMessageReceiver
+        {
+            public Receiver()
             {
-                public Receiver()
-                {
-                    super(MyADMMessageHandler.class);
-                }
+                super(MyADMMessageHandler.class);
             }
-
-            private void sendNotification(String msg) {
-                Context ctx = getApplicationContext();
-
-                mNotificationManager = (NotificationManager)
-                    ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-
-            PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-                  new Intent(ctx, MainActivity.class), 0);
-
-            NotificationCompat.Builder mBuilder =
-                  new NotificationCompat.Builder(ctx)
-                  .setSmallIcon(R.mipmap.ic_launcher)
-                  .setContentTitle("Notification Hub Demo")
-                  .setStyle(new NotificationCompat.BigTextStyle()
-                         .bigText(msg))
-                  .setContentText(msg);
-
-             mBuilder.setContentIntent(contentIntent);
-             mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
         }
+
+        private void sendNotification(String msg) {
+            Context ctx = getApplicationContext();
+
+            mNotificationManager = (NotificationManager)
+                ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
+                new Intent(ctx, MainActivity.class), 0);
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(ctx)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle("Notification Hub Demo")
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(msg))
+                .setContentText(msg);
+
+            mBuilder.setContentIntent(contentIntent);
+            mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+    }
     ```
 4. Add the following code to the `OnMessage()` method:
 
     ```java
-        String nhMessage = intent.getExtras().getString("msg");
-        sendNotification(nhMessage);
+    String nhMessage = intent.getExtras().getString("msg");
+    sendNotification(nhMessage);
     ```
 5. Add the following code to the `OnRegistered` method:
 
     ```java
-        try {
-            getNotificationHub(getApplicationContext()).register(registrationId);
-        } catch (Exception e) {
-            Log.e("[your package name]", "Fail onRegister: " + e.getMessage(), e);
-        }
+    try {
+        getNotificationHub(getApplicationContext()).register(registrationId);
+    } catch (Exception e) {
+        Log.e("[your package name]", "Fail onRegister: " + e.getMessage(), e);
+    }
     ```
 6. Add the following code to the `OnUnregistered` method:
 
     ```java
-         try {
-             getNotificationHub(getApplicationContext()).unregister();
-         } catch (Exception e) {
-             Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
-         }
+    try {
+        getNotificationHub(getApplicationContext()).unregister();
+    } catch (Exception e) {
+        Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
+    }
     ```
 7. In the `MainActivity` method, add the following import statement:
 
     ```java
-        import com.amazon.device.messaging.ADM;
+    import com.amazon.device.messaging.ADM;
     ```
 8. Add the following code at the end of the `OnCreate` method:
 
     ```java
-        final ADM adm = new ADM(this);
-        if (adm.getRegistrationId() == null)
-        {
-           adm.startRegister();
-        } else {
-            new AsyncTask() {
-                  @Override
-                  protected Object doInBackground(Object... params) {
-                     try {                         MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
-                     } catch (Exception e) {
-                         Log.e("com.wa.hellokindlefire", "Failed registration with hub", e);
-                         return e;
-                     }
-                     return null;
-                 }
-               }.execute(null, null, null);
-        }
+    final ADM adm = new ADM(this);
+    if (adm.getRegistrationId() == null)
+    {
+        adm.startRegister();
+    } else {
+        new AsyncTask() {
+                @Override
+                protected Object doInBackground(Object... params) {
+                    try {                         MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
+                    } catch (Exception e) {
+                        Log.e("com.wa.hellokindlefire", "Failed registration with hub", e);
+                        return e;
+                    }
+                    return null;
+                }
+            }.execute(null, null, null);
+    }
     ```
 
 ## Add your API key to your app
 
-1. In Eclipse, create a new file named **api_key.txt** in the directory assets of your project.
+1. In Eclipse, create a new file named `api_key.txt` in the directory assets of your project.
 2. Open the file and copy the API key that you generated in the Amazon developer portal.
 
 ## Run the app
@@ -308,7 +308,6 @@ In this tutorial, you sent broadcast notifications to all your Kindle devices re
 <!-- URLs. -->
 [Amazon developer portal]: https://developer.amazon.com/home.html
 [download the SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
-
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
 [1]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png
 [2]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal3.png

@@ -46,7 +46,7 @@ First, make sure your script can locate the **Microsoft.Azure.NotificationHubs.d
 
 1. Determines the path at which it was invoked.
 2. Traverses the path until it finds a folder named `packages`. This folder is created when you install NuGet packages for Visual Studio projects.
-3. Recursively searches the `packages` folder for an assembly named **Microsoft.Azure.NotificationHubs.dll**.
+3. Recursively searches the `packages` folder for an assembly named `Microsoft.Azure.NotificationHubs.dll`.
 4. References the assembly so that the types are available for later use.
 
 Here's how these steps are implemented in a PowerShell script:
@@ -70,7 +70,7 @@ catch [System.Exception]
 }
 ```
 
-## Create the NamespaceManager class
+## Create the `NamespaceManager` class
 
 To provision Notification Hubs, create an instance of the [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) class from the SDK.
 

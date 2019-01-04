@@ -108,7 +108,7 @@ If a push notification service attempts to deliver a notification but the device
 
 For each app, only one recent notification is stored. If multiple notifications are sent while a device is offline, each new notification causes the prior notification to be discarded. Keeping only the newest notification is referred to as *coalescing notifications* in APNs, and *collapsing* in FCM (which uses a collapsing key). If the device remains offline for a long time, any notifications that were being stored for the device  are discarded. For more information, see [APNs overview] and [About FCM messages].
 
-With Azure Notification Hubs, you can pass a coalescing key via an HTTP header by using the generic SendNotification API. For example, for the .NET SDK, you'd use **SendNotificationAsync**. The SendNotification API also takes HTTP headers that are passed as-is to the respective push notification service.
+With Azure Notification Hubs, you can pass a coalescing key via an HTTP header by using the generic SendNotification API. For example, for the .NET SDK, you'd use `SendNotificationAsync`. The SendNotification API also takes HTTP headers that are passed as-is to the respective push notification service.
 
 ## Self-diagnosis tips
 
@@ -220,7 +220,7 @@ The Token obtained from the Token Provider is wrong
 This message indicates that either invalid credentials are configured in Notification Hubs, or there's an issue with the registrations in the hub. We recommend that you delete this registration, and let the client re-create the registration before sending the message.
 
 > [!NOTE]
-> Use of the **EnableTestSend** property is heavily throttled. Use this option only in a dev/test environment, and with a limited set of registrations. We send debug notifications to only 10 devices. We also have a limit of processing debug sends to 10 per minute.
+> Use of the `EnableTestSend` property is heavily throttled. Use this option only in a dev/test environment, and with a limited set of registrations. We send debug notifications to only 10 devices. We also have a limit of processing debug sends to 10 per minute.
 
 ### Review telemetry
 

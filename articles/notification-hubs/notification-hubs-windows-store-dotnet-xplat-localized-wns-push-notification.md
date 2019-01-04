@@ -29,7 +29,7 @@ ms.author: jowargo
 This tutorial shows you how to push localized notifications to mobile devices registered with the Notification Hubs service. In the tutorial, you update applications created in the [Tutorial: Send notifications to specific devices (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) to support the following scenarios:
 
 - The Windows Store app allows client devices to specify a language, and to subscribe to different breaking news categories.
-- The back-end app broadcasts notifications, using  **tag** and **template** features of Azure Notification Hubs.
+- The back-end app broadcasts notifications, using the **tag** and **template** features of Azure Notification Hubs.
 
 When you complete the tutorial, the mobile application lets you register for categories you are interested in, and also specify a language in which to receive the notifications. The backend application sends notifications that are localized by language and device.
 
