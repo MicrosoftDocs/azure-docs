@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ---
 # Replicate Azure Stack VMs to Azure
@@ -136,7 +136,7 @@ For each machine you want to replicate, find the IP address:
 
 ## Step 2: Create a vault and select a replication goal
 
-1. In the Azure portal, select **Create a resource** > **Monitoring + Management** > **Backup and Site Recovery**.
+1. In the Azure portal, select **Create a resource** > **Management Tools** > **Backup and Site Recovery**.
 2. In **Name**, enter a friendly name to identify the vault. 
 3. In **Resource group**, create or select a resource group. We're using **contosoRG**.
 4. In **Location**, enter the Azure region. We're using **West Europe**.

@@ -13,16 +13,16 @@ ROBOTS: NOINDEX
 
 ---
 # Use Apache Maven to build Java applications that use Apache HBase with Windows-based HDInsight (Apache Hadoop)
-Learn how to create and build an [Apache HBase](http://hbase.apache.org/) application in Java by using Apache Maven. Then use the application with Azure HDInsight (Apache Hadoop).
+Learn how to create and build an [Apache HBase](https://hbase.apache.org/) application in Java by using Apache Maven. Then use the application with Azure HDInsight (Apache Hadoop).
 
-[Apache Maven](http://maven.apache.org/) is a software project management and comprehension tool that allows you to build software, documentation, and reports for Java projects. In this article, you learn how to use it to create a basic Java application that creates, queries, and deletes an HBase table on an Azure HDInsight cluster.
+[Apache Maven](https://maven.apache.org/) is a software project management and comprehension tool that allows you to build software, documentation, and reports for Java projects. In this article, you learn how to use it to create a basic Java application that creates, queries, and deletes an HBase table on an Azure HDInsight cluster.
 
 > [!IMPORTANT]  
 > The steps in this document require an HDInsight cluster that uses Windows. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Requirements
 * [Java platform JDK](https://aka.ms/azure-jdks) 7 or later
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 * A Windows-based HDInsight cluster with HBase
 
     > [!NOTE]  
@@ -36,7 +36,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
     This command creates a directory in the current location, with the name specified by the **artifactID** parameter (**hbaseapp** in this example.) This directory contains the following items:
 
-   * **pom.xml**:  The Project Object Model ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contains information and configuration details used to build the project.
+   * **pom.xml**:  The Project Object Model ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contains information and configuration details used to build the project.
    * **src**: The directory that contains the **main\java\com\microsoft\examples** directory, where you will author the application.
 3. Delete the **src\test\java\com\microsoft\examples\apptest.java** file because it is not used in this example.
 
@@ -49,7 +49,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
           <version>1.1.2</version>
         </dependency>
 
-    This section tells Maven that the project requires **hbase-client** version **1.1.2**. At compile time, this dependency is downloaded from the default Maven repository. You can use the [Apache Maven Central Repository Search](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) to learn more about this dependency.
+    This section tells Maven that the project requires **hbase-client** version **1.1.2**. At compile time, this dependency is downloaded from the default Maven repository. You can use the [Apache Maven Central Repository Search](https://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) to learn more about this dependency.
 
    > [!IMPORTANT]  
    > The version number must match the version of HBase that is provided with your HDInsight cluster. Use the following table to find the correct version number.
@@ -123,7 +123,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
    >
    >
 
-    This `<plugins>` section configures the [Apache Maven Compiler Plugin](http://maven.apache.org/plugins/maven-compiler-plugin/) and [Apache Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/). The compiler plug-in is used to compile the topology. The shade plug-in is used to prevent license duplication in the JAR package that is built by Maven. The reason this is used is that the duplicate license files cause an error at run time on the HDInsight cluster. Using maven-shade-plugin with the `ApacheLicenseResourceTransformer` implementation prevents this error.
+    This `<plugins>` section configures the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) and [Apache Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/). The compiler plug-in is used to compile the topology. The shade plug-in is used to prevent license duplication in the JAR package that is built by Maven. The reason this is used is that the duplicate license files cause an error at run time on the HDInsight cluster. Using maven-shade-plugin with the `ApacheLicenseResourceTransformer` implementation prevents this error.
 
     The maven-shade-plugin also produces an uber jar (or fat jar) that contains all the dependencies required by the application.
 4. Save the **pom.xml** file.
@@ -143,7 +143,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
           * "License"); you may not use this file except in compliance
           * with the License.  You may obtain a copy of the License at
           *
-          *     http://www.apache.org/licenses/LICENSE-2.0
+          *     https://www.apache.org/licenses/LICENSE-2.0
           *
           * Unless required by applicable law or agreed to in writing, software
           * distributed under the License is distributed on an "AS IS" BASIS,
