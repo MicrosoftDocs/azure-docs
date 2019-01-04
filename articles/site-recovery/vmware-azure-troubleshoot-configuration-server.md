@@ -29,7 +29,7 @@ The source machine registers with the configuration server when you install the 
 3. If the string **No Valid IP Address found** isn't found, search for the string **Reason=>NULL**. This error occurs if the source machine uses an empty host to register with the configuration server. If the string is found:
     - After you resolve the issues, follow guidelines in [Register the source machine with the configuration server](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) to retry the registration manually.
 
-4. If the string **Reason=>NULL** isn't found, on the source machine, open the C:\ProgramData\ASRSetupLogs\UploadedLogs\* ASRUnifiedAgentInstaller.log file. (The ProgramData might be a hidden folder. If you don't see the ProgramData folder, in File Explorer, on the **View** tab, in the **Show/hide** section, select the **Hidden items** check box.) Failures might be caused by multiple issues. 
+4. If the string **Reason=>NULL** isn't found, on the source machine, open the C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log file. (The ProgramData folder might be a hidden folder. If you don't see the ProgramData folder, in File Explorer, on the **View** tab, in the **Show/hide** section, select the **Hidden items** check box.) Failures might be caused by multiple issues. 
 
 5. Search for the string **post request: (7) - Couldn't connect to server**. If the string is found:
     1. Resolve the network issues between the source machine and the configuration server. Verify that the configuration server is reachable from the source machine by using network tools like ping, traceroute, or a web browser. Ensure that the source machine can reach the configuration server through port 443.
@@ -45,8 +45,8 @@ The source machine registers with the configuration server when you install the 
 
 7. On Linux, if the value of the platform in <INSTALLATION_DIR\>/etc/drscout.conf is corrupted, registration fails. To identify this issue, open the /var/log/ua_install.log file. Search for the string **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure**. The platform should be set to either **VmWare** or **Azure**. If the drscout.conf file is corrupted, we recommend that you [uninstall the mobility agent](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) and then reinstall the mobility agent. If uninstallation fails, complete the following steps:
     1. Open the Installation_Directory/uninstall.sh file and comment out the call to the **StopServices** function.
-    2. Open the Installation_Directory/Vx/bin/uninstall file and comment out the call to the **stop_services** function.
-    3. Open the Installation_Directory/Fx/uninstall file and comment out the entire section that's trying to stop the Fx service.
+    2. Open the Installation_Directory/Vx/bin/uninstall.sh file and comment out the call to the **stop_services** function.
+    3. Open the Installation_Directory/Fx/uninstall.sh file and comment out the entire section that's trying to stop the Fx service.
     4. [Uninstall](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) the mobility agent. After successful uninstallation, reboot the system, and then try to reinstall the mobility agent.
 
 ## Installation failure: Failed to load accounts

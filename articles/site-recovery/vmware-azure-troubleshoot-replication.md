@@ -30,7 +30,7 @@ The following list shows ways you can check the source machine:
 
    If you can't connect to the process server, allow inbound port 9443 on the process server. For example, you might need to allow inbound port 9443 on the process server if your network has a perimeter network or screened subnet. Then, check to see whether the problem still occurs.
 
-*  Check the status of the **InMage Scout VX Agent – Sentinel/OutpostStart** service. If the service isn't running, check to see whether the problem still occurs.   
+*  Check the status of the **InMage Scout VX Agent – Sentinel/OutpostStart** service. If the service isn't running, start the service, and then check to see whether the problem still occurs.   
 
 ### Check the process server
 
