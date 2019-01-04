@@ -61,7 +61,7 @@ Application Insights collects any failures in your application and lets you view
 
 	![Failed request samples](media/app-insights-tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. The details of the failed request shows the Gantt chart which shows that there were two dependency failures in this transaction, which also attributed to over 50% of the total duration of the transaction. This experience presents all telemetry, across components of a distributed application that are related to this operation ID. [Learn more about the new experience](app-insights-transaction-diagnostics.md). You can select any of the items to see its details on the right side. 
+6. The details of the failed request shows the Gantt chart which shows that there were two dependency failures in this transaction, which also attributed to over 50% of the total duration of the transaction. This experience presents all telemetry, across components of a distributed application that are related to this operation ID. [Learn more about the new experience](../azure-monitor/app/transaction-diagnostics.md). You can select any of the items to see its details on the right side. 
 
 	![Failed request details](media/app-insights-tutorial-runtime-exceptions/failed-request-details.png)
 

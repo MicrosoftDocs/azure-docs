@@ -92,7 +92,7 @@ When you've created a dashboard, you can share it with other users.
 
 ![In the dashboard header, click Share](./media/app-insights-dashboards/41.png)
 
-Learn about [Roles and access control](../../application-insights/app-insights-resources-roles-access-control.md).
+Learn about [Roles and access control](../../azure-monitor/app/resources-roles-access-control.md).
 
 ## Create dashboards programmatically
 You can automate dashboard creation using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) and a simple JSON editor.
@@ -119,18 +119,18 @@ The overview blade is the gateway to more information about your app.
 
 * **Overview** - Return to the app overview blade.
 * **Activity log** - Alerts and Azure administrative events.
-* [**Access control**](../../application-insights/app-insights-resources-roles-access-control.md) - Provide access to team members and others.
+* [**Access control**](../../azure-monitor/app/resources-roles-access-control.md) - Provide access to team members and others.
 * [**Tags**](../../azure-resource-manager/resource-group-using-tags.md) - Use tags to group your app with others.
 
 INVESTIGATE
 
 * [**Application map**](app-map.md) - Active map showing the components of your application, derived from the dependency information.
-* [**Smart Detection**](../../application-insights/app-insights-proactive-diagnostics.md) - Review recent performance alerts.
+* [**Smart Detection**](../../azure-monitor/app/proactive-diagnostics.md) - Review recent performance alerts.
 * [**Live Stream**](../../azure-monitor/app/live-stream.md) - A fixed set of near-instant metrics, useful when deploying a new build or debugging.
 * [**Availability / Web tests**](../../azure-monitor/app/monitor-web-app-availability.md) - Send regular requests to your web app from around the world.*
-* [**Failures, Performance**](../../application-insights/app-insights-web-monitor-performance.md) - Exceptions, failure rates and response times for requests to your app and for requests from your app to [dependencies](../../azure-monitor/app/asp-net-dependencies.md).
-* [**Performance**](../../application-insights/app-insights-web-monitor-performance.md) - Response time, dependency response times.
-* [Servers](../../application-insights/app-insights-web-monitor-performance.md) - Performance counters. Available if you [install Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md).
+* [**Failures, Performance**](../../azure-monitor/app/web-monitor-performance.md) - Exceptions, failure rates and response times for requests to your app and for requests from your app to [dependencies](../../azure-monitor/app/asp-net-dependencies.md).
+* [**Performance**](../../azure-monitor/app/web-monitor-performance.md) - Response time, dependency response times.
+* [Servers](../../azure-monitor/app/web-monitor-performance.md) - Performance counters. Available if you [install Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md).
 * **Browser** - Page view and AJAX performance. Available if you [instrument your web pages](../../azure-monitor/app/javascript.md).
 * **Usage** - Page view, user, and session counts. Available if you [instrument your web pages](../../azure-monitor/app/javascript.md).
 
@@ -141,7 +141,7 @@ CONFIGURE
 * [Alerts](../../azure-monitor/app/alerts.md) - metric alert configuration.
 * [Continuous export](../../azure-monitor/app/export-telemetry.md) - configure export of telemetry to Azure storage.
 * [Performance testing](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests) - set up a synthetic load on your website.
-* [Quota and pricing](../../azure-monitor/app/pricing.md) and [ingestion sampling](../../application-insights/app-insights-sampling.md).
+* [Quota and pricing](../../azure-monitor/app/pricing.md) and [ingestion sampling](../../azure-monitor/app/sampling.md).
 * **API Access** - Create [release annotations](annotations.md) and for the Data Access API.
 * [**Work Items**](../../azure-monitor/app/diagnostic-search.md#create-work-item) - Connect to a work tracking system so that you can create bugs while inspecting telemetry.
 
