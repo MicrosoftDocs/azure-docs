@@ -33,14 +33,14 @@ Before you begin, make sure that:
 1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
 2. You've received your Data Box and the order status in the portal is **Delivered**.
 3. You have the credentials of the source NAS device that you connect to for data copy.
-4. You are connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds will be impacted.
+4. You're connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds will be impacted.
 
 ## Copy data to Data Box
 
 Once you're connected to the NAS, the next step is to copy data. Before you begin the data copy, review the following considerations:
 
 - While copying data, make sure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
-- If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
+- If data uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
 - If the data is being churned while the data copy service is reading it, this could result in failures or data corruption.
 
 To copy data using data copy service, you need to create a job. Follow these steps to create a job to copy data.
@@ -54,7 +54,7 @@ To copy data using data copy service, you need to create a job. Follow these ste
     
     |Field                          |Value    |
     |-------------------------------|---------|
-    |Job name                       |A unique name less than 230 characters for the job. These characters '<', '>', '\"', ':', '/', '\\', '|', '?', '*' are not allowed in the job name.        |
+    |Job name                       |A unique name less than 230 characters for the job. These characters '<', '>', '\"', ':', '/', '\\', '|', '?', '*' aren't allowed in the job name.        |
     |Source location                |Provide the SMB path to the data source in the format: `\\<ServerIPAddress>\<ShareName>` or `\\<ServerName>\<ShareName>`.        |
     |Username                       |Username to access the data source.        |
     |Password                       |Password to access the data source.           |
@@ -70,7 +70,7 @@ To copy data using data copy service, you need to create a job. Follow these ste
 
 5. A job with the specified settings is created. Select the checkbox and then you can pause and resume, cancel, or restart a job.
 
-    If you cancel or pause a job, large files that are in the process of getting copied may be left half-copied and are uploaded in the same state to Azure. When trying to cancel or pause, validate that your files are properly copied by looking at the SMB shares or downloading the BOM file.
+    If you cancel or pause a job, large files that are in the process of getting copied may be left half-copied. These files are uploaded in the same state to Azure. When trying to cancel or pause, validate your files are properly copied by looking at the SMB shares or downloading the BOM file.
 
     ![Manage a job on copy data page](media/data-box-deploy-copy-data-via-copy-service/select-job.png)
     
@@ -91,9 +91,9 @@ To copy data using data copy service, you need to create a job. Follow these ste
 
         ![Restart a failed job](media/data-box-deploy-copy-data-via-copy-service/restart-failed-job.png)
     
-    - In this release, you cannot delete a job.
+    - In this release, you can't delete a job.
     
-    - You can create unlimited jobs but a maximum of 10 jobs can run in parallel at any given time. 
+    - You can create unlimited jobs but run a maximum of 10 jobs in parallel at any given time.
 
 6. While the job is in progress, on the **Copy data** page: 
 
