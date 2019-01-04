@@ -100,16 +100,23 @@ To use a virtual machine or HDInsight cluster in a Virtual Network with your wor
 
 1. Create a VM or HDInsight cluster using Azure portal, Azure CLI, etc., and put it in an Azure Virtual Network. For more information, see the following documents:
     * [Create and manage Azure Virtual Networks for Linux VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-virtual-network)
+
     * [Extend HDInsight using Azure Virtual Networks](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network) 
 
 1. Allow access from Azure Machine Learning service to the SSH port on the VM or cluster. The SSH port is usually port 22. To allow traffic from this source, use the following information:
 
-    * __Source__: Select __Service Tag__.
+    * __Source__: Select __Service Tag__
+
     * __Source service tag__: Select __AzureMachineLearning__
+
     * __Source port ranges__: Select __*__
+
     * __Destination__: Select __Any__
+
     * __Destination port ranges__: Select __22__
+
     * __Protocol__: Select __Any__
+
     * __Action__: Select __Allow__
 
    ![Inbound rules for doing experimentation on VM or HDI inside a virtual network](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
@@ -121,6 +128,7 @@ To use a virtual machine or HDInsight cluster in a Virtual Network with your wor
 1. Attach the VM or cluster to your Azure Machine Learning service workspace. For more information, see the following Jupyter notebooks:
 
     * [Train using a remote VM](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb)
+
     * [Train using an HDI cluster](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb) 
 
 
@@ -146,14 +154,20 @@ To add Azure Kubernetes Service in a Virtual Network to your workspace, use the 
 1. To configure this compute resource to use a virtual network, use these options:
 
     - __Network configuration__: Select __Advanced__.
+
     - __Resource group__: Select the resource group that contains the virtual network.
+
     - __Virtual network__: Select the virtual network that contains the subnet.
+
     - __Subnet__: Select the subnet that the AKS will use.
-    - __Kubernetes Service address range__: Select the Kubernetes Service address range. This address range uses a CIDR notation IP range to define the IP addresses available for the cluster. It must not overlap with any Subnet IP ranges. For example: 10.0.0.0/16
-    - __Kubernetes DNS service IP address__: Select the Kubernetes DNS service IP address. This IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes Service address range. For example: 10.0.0.10
+
+    - __Kubernetes Service address range__: Select the Kubernetes Service address range. This address range uses a CIDR notation IP range to define the IP addresses available for the cluster. It must not overlap with any Subnet IP ranges. For example: 10.0.0.0/16.
+
+    - __Kubernetes DNS service IP address__: Select the Kubernetes DNS service IP address. This IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes Service address range. For example: 10.0.0.10.
+
     - __Docker bridge address__: Select the Docker bridge address. This IP address is assigned to Docker Bridge. It must not be in any Subnet IP ranges, or the Kubernetes Service address range. For example: 172.17.0.1/16
 
-    ![Azure Machine Learning service: Machine Learning Compute Virtual Network Settings](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
+   ![Azure Machine Learning service: Machine Learning Compute Virtual Network Settings](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
     > [!TIP]
     > If you already have an AKS cluster in a Virtual Network, you can attach it to the workspace. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
