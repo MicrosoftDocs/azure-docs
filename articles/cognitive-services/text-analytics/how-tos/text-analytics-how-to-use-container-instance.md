@@ -19,19 +19,20 @@ The following procedure demonstrates how to deploy the language detection contai
 ## Prerequisites
 This procedure requires several tools that must be installed locally. 
 
+1. Have a valid Azure subscription. The trial and pay-as-you-go subscriptions will both work. 
 1. Install [Git](https://git-scm.com/downloads) for your operating system so you can clone the sample used in this procedure. 
-1. Install [Azure cli](../../../azure/install-azure-cli?view=azure-cli-latest.md). 
+1. Install [Azure cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or use integrated Azure **Try it** feature next to each code snippet. 
 1. Install [Docker engine](https://www.docker.com/products/docker-engine) and validate that the docker cli works in a terminal.
 1. Install [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe). 
-1. Have a valid Azure subscription. The trial and pay-as-you-go subscriptions will both work. 
+
 
 ## Running the sample 
 
 This procedure loads and runs the Cognitive Services Container sample for language detection. 
 
-* The sample has two images, one for the website with its own API. This website is equivalent to your own client-side application that makes requests of the language detection endpoint. The second image is the language detection image returning the detected language of text. 
+* The sample has two container images, one for the website with its own API. This website is equivalent to your own client-side application that makes requests of the language detection endpoint. The second image is the language detection image returning the detected language of text. 
 * Both these images need to be pushed to your own Azure Container Registry.
-* Once they are on your own Azure Container Registry, you create an Azure Kubernetes service to access these images and run the containers.
+* Once they are on your own Azure Container Registry, create an Azure Kubernetes service to access these images and run the containers.
 * Once the containers are running, use the kubectl cli to watch the containers performance.
 * Access the website (client-application) with an HTTP request and see the results. 
 
