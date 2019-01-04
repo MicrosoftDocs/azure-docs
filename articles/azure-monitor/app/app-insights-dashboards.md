@@ -92,7 +92,7 @@ When you've created a dashboard, you can share it with other users.
 
 ![In the dashboard header, click Share](./media/app-insights-dashboards/41.png)
 
-Learn about [Roles and access control](../../application-insights/app-insights-resources-roles-access-control.md).
+Learn about [Roles and access control](../../azure-monitor/app/resources-roles-access-control.md).
 
 ## Create dashboards programmatically
 You can automate dashboard creation using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) and a simple JSON editor.
@@ -119,7 +119,7 @@ The overview blade is the gateway to more information about your app.
 
 * **Overview** - Return to the app overview blade.
 * **Activity log** - Alerts and Azure administrative events.
-* [**Access control**](../../application-insights/app-insights-resources-roles-access-control.md) - Provide access to team members and others.
+* [**Access control**](../../azure-monitor/app/resources-roles-access-control.md) - Provide access to team members and others.
 * [**Tags**](../../azure-resource-manager/resource-group-using-tags.md) - Use tags to group your app with others.
 
 INVESTIGATE
@@ -141,14 +141,14 @@ CONFIGURE
 * [Alerts](../../azure-monitor/app/alerts.md) - metric alert configuration.
 * [Continuous export](../../azure-monitor/app/export-telemetry.md) - configure export of telemetry to Azure storage.
 * [Performance testing](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests) - set up a synthetic load on your website.
-* [Quota and pricing](../../application-insights/app-insights-pricing.md) and [ingestion sampling](../../application-insights/app-insights-sampling.md).
+* [Quota and pricing](../../azure-monitor/app/pricing.md) and [ingestion sampling](../../azure-monitor/app/sampling.md).
 * **API Access** - Create [release annotations](annotations.md) and for the Data Access API.
 * [**Work Items**](../../azure-monitor/app/diagnostic-search.md#create-work-item) - Connect to a work tracking system so that you can create bugs while inspecting telemetry.
 
 SETTINGS
 
 * [**Locks**](../../azure-resource-manager/resource-group-lock-resources.md) - lock Azure resources
-* [**Automation script**](../../application-insights/app-insights-powershell.md) - export a definition of the Azure resource so that you can use it as a template to create new resources.
+* [**Automation script**](../../azure-monitor/app/powershell.md) - export a definition of the Azure resource so that you can use it as a template to create new resources.
 
 
 ## Video

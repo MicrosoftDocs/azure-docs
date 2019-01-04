@@ -132,7 +132,7 @@ Please see [this Troubleshooting item](../azure-monitor/app/asp-net-troubleshoot
 
 > [!NOTE]
 > If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request will be selected or deselected as a group, so that you can navigate between related events. 
-> [Learn about sampling](app-insights-sampling.md).
+> [Learn about sampling](../azure-monitor/app/sampling.md).
 > 
 > 
 

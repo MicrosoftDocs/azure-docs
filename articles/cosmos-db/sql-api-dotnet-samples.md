@@ -1,14 +1,12 @@
 ---
 title: 'Azure Cosmos DB: .NET examples for the SQL API'
 description: Find C# .NET examples on GitHub for common tasks using the Azure Cosmos DB SQL API, including CRUD operations.
-keywords: NoSQL example
-author: rnagpal
-
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 02/22/2017
-ms.author: rnagpal
+ms.author: sngun
 
 ---
 # Azure Cosmos DB: .NET examples for the SQL API

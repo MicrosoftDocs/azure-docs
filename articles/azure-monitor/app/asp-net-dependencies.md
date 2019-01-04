@@ -117,7 +117,7 @@ There seems to be a large gap after the first dependency call, so we should look
 
 ### Profile your live site
 
-No idea where the time goes? The [Application Insights profiler](../../application-insights/app-insights-profiler.md) traces HTTP calls to your live site and shows you which functions in your code took the longest time.
+No idea where the time goes? The [Application Insights profiler](../../azure-monitor/app/profiler.md) traces HTTP calls to your live site and shows you which functions in your code took the longest time.
 
 ## Failed requests
 Failed requests might also be associated with failed calls to dependencies. Again, we can click through to track down the problem.
