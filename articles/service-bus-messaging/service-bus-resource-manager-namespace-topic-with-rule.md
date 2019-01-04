@@ -157,6 +157,8 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
     }]
 ```
 
+For JSON syntax and properties, see [Microsoft.ServiceBus/namespaces](/azure/templates/microsoft.servicebus/namespaces), [Microsoft.ServiceBus/namespaces/topics](/azure/templates/microsoft.servicebus/namespaces/topics), [Microsoft.ServiceBus/namespaces/topics/subscriptions](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions), and [Microsoft.ServiceBus/namespaces/topics/subscriptions/rules](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions/rules).
+
 ## Commands to run deployment
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
