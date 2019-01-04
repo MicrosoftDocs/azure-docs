@@ -82,7 +82,7 @@ Example successful **create user** response from Blockchain Workbench:
 } 
 ```
 
-If the request was unsuccessful, details about the failure are includedd in additional information.
+If the request was unsuccessful, details about the failure are included in additional information.
 
 ``` json
 {
@@ -211,7 +211,7 @@ The request requires the following fields:
 | **Name**                 | **Description**                                                                                                           |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | requestId                | Client supplied GUID |
-| userChainIdentifier      | Address of the user that was created on the blockchain network. In Ethereum, this is the user’s **on chain** address. |
+| userChainIdentifier      | Address of the user that was created on the blockchain network. In Ethereum, this address is the user’s **on chain** address. |
 | contractLedgerIdentifier | Address of the contract on the ledger |
 | workflowFunctionName     | Name of the workflow function |
 | parameters               | Parameters input for contract creation |
