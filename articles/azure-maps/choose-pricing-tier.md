@@ -37,7 +37,7 @@ The S0 and S1 pricing tiers handle different amounts of data throughput. Before 
 | * Batch routing (preview)                |        ✓           |     ✓    |
 | * Matrix routing (preview)               |        ✓           |     ✓    |
 
-/* Access to these capabilities from the S0 pricing tier will be deprecated after February 4, 2019.
+/*/ Access to these capabilities from the S0 pricing tier will be deprecated after February 4, 2019.
 
 These additional data points are worth considering:
 * What kind of enterprise do you have?
