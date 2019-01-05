@@ -424,7 +424,7 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### Logging custom metrics  
 
-In Node.js functions, you can use the `context.log.metric` method to create custom metrics in Application Insights. Here's a sample method call:
+In Azure Functions version 1.x, Node.js functions can use the `context.log.metric` method to create custom metrics in Application Insights. Here's a sample method call:
 
 ```javascript
 context.log.metric("TestMetric", 1234); 
