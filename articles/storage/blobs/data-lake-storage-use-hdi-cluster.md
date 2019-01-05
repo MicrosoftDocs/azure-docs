@@ -1,6 +1,6 @@
 ---
-title: Use Azure Data Lake Storage Gen2 Preview with Azure HDInsight clusters
-description: Learn how to query data from Azure Data Lake Storage Gen2 Preview and store results of your analysis.
+title: Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
+description: Learn how to query data from Azure Data Lake Storage Gen2 and store results of your analysis.
 author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ---
-# Use Azure Data Lake Storage Gen2 Preview with Azure HDInsight clusters
+# Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
 
-To analyze data in an HDInsight cluster, you can store the data either in any combination of Azure Blob Storage, Azure Blob Storage with Azure Data Lake Storage Gen2 Preview enabled, or Azure Data Lake Storage Gen1. All storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
+To analyze data in an HDInsight cluster, you can store the data either in any combination of Azure Blob Storage, Azure Blob Storage with Azure Data Lake Storage Gen2 enabled, or Azure Data Lake Storage Gen1. All storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
 Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage or the hierarchical namespace offered by Data Lake Storage Gen2 as the default file system. Alternatively with HDInsight 3.5, you can select either a container or the hierarchical namespace as the default file system with a few exceptions.
 
@@ -149,7 +149,7 @@ az storage account create \
 ```
 
 > [!NOTE]
-> During the public preview of Data Lake Storage Gen2 only `--sku Standard_LRS` is supported.
+> During the public of Data Lake Storage Gen2 only `--sku Standard_LRS` is supported.
 
 You are prompted to specify the geographic region that the storage account is created in. Create the storage account in the same region that you plan on creating your HDInsight cluster.
 
