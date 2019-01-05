@@ -1,5 +1,5 @@
 ---
-title: Run Container Instances
+title: Run Kubernetes service
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: The following procedure demonstrates how to deploy the language detection container, with a running sample, to the Azure Kubernetes service, and test it in a web browser. 
 services: cognitive-services
@@ -278,10 +278,10 @@ The following steps are needed to get the required information to connect your C
 
 ## Create Azure Kubernetes service
 
-1. Create service. All the parameter values are from previous sections except the name parameter. Choose a name that indicates who created and its purpose, such as `pattio-kubernetes-languagedetection`. The container sample originally called for 2 nodes but this procedure will show 1 frontend website load-balanced across two containers for language detection. That makes a total of 3 nodes, shown in the node-count parameter. 
+1. Create service. All the parameter values are from previous sections except the name parameter. Choose a name that indicates who created it and its purpose, such as `pattio-kubernetes-languagedetection`. <!--The container sample originally called for 2 nodes but this procedure will show 1 frontend website load-balanced across two containers for language detection. That makes a total of 3 nodes, shown in the node-count parameter. -->
 
     ```azurecli
-    az aks create --resource-group cogserv-container-rg --name pattio-kubernetes-languagedetection --node-count 3  --service-principal <appId>  --client-secret <client-secret>  --generate-ssh-keys
+    az aks create --resource-group cogserv-container-rg --name pattio-kubernetes-languagedetection --node-count 2  --service-principal <appId>  --client-secret <client-secret>  --generate-ssh-keys
     ```
 
     This step may take a few minutes. The result is: 
@@ -292,7 +292,7 @@ The following steps are needed to get the required information to connect your C
       "addonProfiles": null,
       "agentPoolProfiles": [
         {
-          "count": 3,
+          "count": 2,
           "dnsPrefix": null,
           "fqdn": null,
           "maxPods": 110,
@@ -365,9 +365,8 @@ This section uses the kubectl cli to talk with the Azure Kubernetes service.
 
     ```console
     NAME                       STATUS    ROLES     AGE       VERSION
-    aks-nodepool1-13756812-0   Ready     agent     11m       v1.9.11
-    aks-nodepool1-13756812-1   Ready     agent     11m       v1.9.11
-    aks-nodepool1-13756812-2   Ready     agent     11m       v1.9.11
+    aks-nodepool1-13756812-0   Ready     agent     6m        v1.9.11
+    aks-nodepool1-13756812-1   Ready     agent     6m        v1.9.11
     ```
 
 1. Modify the `language.yml` orchestration definition file found in the Cognitive Samples Repository folder downloaded in a [previous section](#get-website-docker-image). It is located in the subdirectory `\Kubernetes\language\`. The file has a `service` section and a `deployment` section for the two container types, the `language-frontend` website and the `language` detection container. The language detection deployment section specifies 1 replica. Change this to 
@@ -505,37 +504,28 @@ This section uses the kubectl cli to talk with the Azure Kubernetes service.
 
 ## Test the application
 
-1. For the frontend web application, verify the service is running and get the external IP address.
+1. For the frontend web application, verify the `language-frontend` service is running and get the external IP address.
 
-```console
-kubectl get service <name-from-language.yml> --watch
-```
+    ```console
+    kubectl get service language-frontend --watch
+    ```
+  
+    ```console
+    NAME       TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
+    language   LoadBalancer   10.0.196.26   168.62.220.174   5000:31834/TCP   22m
+    ```
 
-Response is: 
+    _Initially_ the EXTERNAL-IP for the service is shown as pending. Wait until the IP address is show before testing the service in the browser. 
+  
+    You can get the language detection external IP from the `language` service as well. 
 
-```console
-NAME       TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
-language   LoadBalancer   10.0.196.26   168.62.220.174   5000:31834/TCP   22m
-```
-
-_Initially_ the EXTERNAL-IP for the service is shown as pending. Wait until the IP address is show before testing the service in the browser. 
-
-1. For the language detection container, verify the service is running and get the external IP address.
-
-```console
-kubectl get service <name-from-language.yml> --watch
-```
-
-Response is: 
-
-```console
-NAME       TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
-language   LoadBalancer   10.0.196.26   168.62.220.174   5000:31834/TCP   22m
-```
-
-_Initially_ the EXTERNAL-IP for the service is shown as pending. Wait until the IP address is show before testing the service in the browser. 
+    ```console
+    kubectl get service language --watch
+    ```
 
 1. To see the web frontend app in action, open a web browser to the external IP address of your service.
+
+
 
 <!--
 ### Configure basic settings
