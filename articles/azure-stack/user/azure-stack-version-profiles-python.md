@@ -105,7 +105,7 @@ Each operation is clearly labeled with a comment and a print function. The examp
     pip install -r requirements.txt
     ```
 
-6. Create a [service principal](../azure-stack-create-service-principals.md) to work with Azure Stack. Make sure your service principal has [contributor/owner role](../azure-stack-create-service-principals.md#assign-a-role.md) on your subscription.
+6. Create a [service principal](../azure-stack-create-service-principals.md) to work with Azure Stack. Make sure your service principal has [contributor/owner role](../azure-stack-create-service-principals.md#assign-a-role) on your subscription.
 
 7. Set the following variables and export these environment variables into your current shell:
 
