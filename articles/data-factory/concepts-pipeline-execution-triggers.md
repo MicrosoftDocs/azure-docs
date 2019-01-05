@@ -18,7 +18,7 @@ ms.author: shlo
 ---
 
 # Pipeline execution and triggers in Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
 > * [Version 1](v1/data-factory-scheduling-and-execution.md)
 > * [Current version](concepts-pipeline-execution-triggers.md)
 
