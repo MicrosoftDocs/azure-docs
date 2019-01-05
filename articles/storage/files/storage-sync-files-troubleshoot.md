@@ -140,11 +140,13 @@ A server endpoint health status of "No Activity" means the server endpoint has n
 
 A server endpoint may not log sync activity for the following reasons:
 
-- The server has reached the maximum number of concurrent sync sessions. Azure File Sync currently supports 2 active sync sessions per processor or a maximum of 8 active sync sessions per server.
+- The server has an active VSS sync session (SnapshotSync). When a VSS sync session is active for a server endpoint, other server endpoints on the same volume cannot start a start sync session until the VSS sync session completes.
 
-- The server has an active VSS sync session (SnapshotSync). When a VSS sync session is active for a server endpoint, other server endpoints on the server cannot start a start sync session until the VSS sync session completes.
+	To check current sync activity on a server, see [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-To check current sync activity on a server, see [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- The server has reached the maximum number of concurrent sync sessions. 
+	- Agent version 4.x and later: Limit varies based on available system resources.
+	- Agent version 3.x: 2 active sync sessions per processor or a maximum of 8 active sync sessions per server.
 
 > [!Note]  
 > If the server state on the registered servers blade is “Appears Offline,” perform the steps documented in the [Server endpoint has a health status of “No Activity” or “Pending” and the server state on the registered servers blade is “Appears offline”](#server-endpoint-noactivity) section.

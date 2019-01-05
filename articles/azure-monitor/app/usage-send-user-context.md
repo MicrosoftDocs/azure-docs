@@ -142,4 +142,4 @@ namespace MvcWebRole.Telemetry
     - [Users, Sessions, and Events](usage-segmentation.md)
     - [Funnels](usage-funnels.md)
     - [Retention](usage-retention.md)
-    - [Workbooks](../../application-insights/app-insights-usage-workbooks.md)
+    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)

@@ -81,7 +81,7 @@ Some points to consider:
 * Reporting build versions: Add a property using a telemetry initializer. [Learn more](../../azure-monitor/app/separate-resources.md)
 
 ## Monitor backend servers and desktop apps
-[Use the Windows Server SDK module](../../application-insights/app-insights-windows-desktop.md).
+[Use the Windows Server SDK module](../../azure-monitor/app/windows-desktop.md).
 
 ## Visualize data
 #### Dashboard with metrics from multiple apps
