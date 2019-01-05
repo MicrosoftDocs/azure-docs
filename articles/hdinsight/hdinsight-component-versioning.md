@@ -225,42 +225,42 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
 * All supported regions except Brazil South and Japan West:
 
 <html><body><table width="100%">
-<tr align="left"><th>Cluster type</th><th>Hadoop</th><th>HBase&nbsp;&nbsp;</th><th>Interactive Query</th><th>Storm&nbsp;&nbsp;</th><th>Spark&nbsp;&nbsp;</th><th>ML Server&nbsp;</th></tr>
+<tr align="left"><th>Cluster type</th><th>Hadoop</th><th>HBase&nbsp;&nbsp;</th><th>Interactive Query</th><th>Storm&nbsp;&nbsp;</th><th>Spark&nbsp;&nbsp;</th><th>ML Server&nbsp;</th><th>Kafka&nbsp;</th></tr>
 
-<tr><td>Head: default VM size</td><td>D12 v2</td><td>D12 v2</td><td>D13 v2</td><td>A3</td><td>D12 v2</td><td>D12 v2</td></tr>
+<tr><td>Head: default VM size</td><td>D12 v2</td><td>D12 v2</td><td>D13 v2</td><td>A3</td><td>D12 v2</td><td>D12 v2</td><td>D3v2</td></tr>
 
-<tr><td rowspan="4" valign="top">Head: recommended VM sizes</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>A4 v2</td><td>D12 v2</td><td>D12 v2</td></tr>
-<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>A8 v2</td><td>D13 v2</td><td>D13 v2</td></tr>
-<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>A2m v2</td><td>D14 v2</td><td>D14 v2</td></tr>
-<tr><td>E4 v3</td><td>E4 v3</td><td>E32 v3</td><td>E4 v3</td><td>E4 v3</td><td>E4 v3</td></tr>
+<tr><td rowspan="4" valign="top">Head: recommended VM sizes</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>A4 v2</td><td>D12 v2</td><td>D12 v2</td><td>A2M v2</td></tr>
+<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>A8 v2</td><td>D13 v2</td><td>D13 v2</td><td>D3 v2</td></tr>
+<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>A2m v2</td><td>D14 v2</td><td>D14 v2</td><td>D4 v2</td></tr>
+<tr><td>E4 v3</td><td>E4 v3</td><td>E32 v3</td><td>E4 v3</td><td>E4 v3</td><td>E4 v3</td><td>D12 v2</td></tr>
 
-<tr><td>Worker: default VM size</td><td>D4 v2</td><td>D4 v2</td><td>D14 v2</td><td>D3 v2</td><td>D13 v2</td><td>D4 v2</td></tr>
+<tr><td>Worker: default VM size</td><td>D4 v2</td><td>D4 v2</td><td>D14 v2</td><td>D3 v2</td><td>D13 v2</td><td>D4 v2</td><td>4 D12v2 with 2 S30 disks per broker</td></tr>
 
-<tr><td rowspan="8" valign="top">Worker: recommended VM sizes</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>D3 v2</td><td>D4 v2</td><td>D4 v2</td></tr>
-<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>D4 v2</td><td>D12 v2</td><td>D12 v2</td></tr>
-<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>D12 v2</td><td>D13 v2</td><td>D13 v2</td></tr>
-<tr><td>E4 v3</td><td>E4 v3</td><td>E20 v3</td><td>E4 v3</td><td>D14 v2</td><td>D14 v2</td></tr>
-<tr><td></td><td></td><td>E32 v3</td><td></td><td>E16 v3</td><td>E16 v3</td></tr>
-<tr><td></td><td></td><td>E64 v3</td><td></td><td>E20 v3</td><td>E20 v3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td>E32 v3</td><td>E32 v3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td>E64 v3</td><td>E64 v3</td></tr>
+<tr><td rowspan="8" valign="top">Worker: recommended VM sizes</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>D3 v2</td><td>D4 v2</td><td>D4 v2</td><td>D13 v2</td></tr>
+<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>D4 v2</td><td>D12 v2</td><td>D12 v2</td><td>DS12 v2</td></tr>
+<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>D12 v2</td><td>D13 v2</td><td>D13 v2</td><td>DS13 v2</td></tr>
+<tr><td>E4 v3</td><td>E4 v3</td><td>E20 v3</td><td>E4 v3</td><td>D14 v2</td><td>D14 v2</td><td>E4 v3</td></tr>
+<tr><td></td><td></td><td>E32 v3</td><td></td><td>E16 v3</td><td>E16 v3</td><td>ES4 v3</td></tr>
+<tr><td></td><td></td><td>E64 v3</td><td></td><td>E20 v3</td><td>E20 v3</td><td>E8 v3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>E32 v3</td><td>E32 v3</td><td>ES8 v3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>E64 v3</td><td>E64 v3</td><td></td></tr>
 
-<tr><td>ZooKeeper: default VM size</td><td></td><td>A4 v2</td><td>A4 v2</td><td>A4 v2</td><td></td><td>A2 v2</td></tr>
+<tr><td>ZooKeeper: default VM size</td><td></td><td>A4 v2</td><td>A4 v2</td><td>A4 v2</td><td></td><td>A2 v2</td><td>D3v2</td></tr>
 
-<tr><td rowspan="3" valign="top">ZooKeeper: recommended VM sizes</td><td></td><td>A4 v2</td><td></td><td>A2 v2</td><td></td><td></td></tr>
-<tr><td></td><td>A8 v2</td><td></td><td>A4 v2</td><td></td><td></td></tr>
-<tr><td></td><td>A2m v2</td><td></td><td>A8 v2</td><td></td><td></td></tr>
+<tr><td rowspan="3" valign="top">ZooKeeper: recommended VM sizes</td><td></td><td>A4 v2</td><td></td><td>A2 v2</td><td></td><td></td><td>A2M v2</td></tr>
+<tr><td></td><td>A8 v2</td><td></td><td>A4 v2</td><td></td><td></td><td>D3 v2</td></tr>
+<tr><td></td><td>A2m v2</td><td></td><td>A8 v2</td><td></td><td></td><td>E8 v3</td></tr>
 
-<tr align="left"><td>Edge: default VM size</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td></tr>
+<tr align="left"><td>Edge: default VM size</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
 
-<tr><td rowspan="8" valign="top">Edge: recommended VM size</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>D12 v2</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>D13 v2</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>D14 v2</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>E16 v3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>E20 v3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>E32 v3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>E64 v3</td></tr>
+<tr><td rowspan="8" valign="top">Edge: recommended VM size</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D12 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D13 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D14 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E16 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E20 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E32 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E64 v3</td><td></td></tr>
 
 </table></body></html>
 
