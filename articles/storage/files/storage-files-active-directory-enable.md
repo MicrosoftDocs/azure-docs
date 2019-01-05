@@ -153,8 +153,8 @@ The following custom role template provides share-level Change permissions, gran
   ],
   "NotActions": [
 	"Microsoft.Authorization/*/Delete",
-    "Microsoft.Authorization/*/Write",
-    "Microsoft.Authorization/elevateAccess/Action"
+        "Microsoft.Authorization/*/Write",
+        "Microsoft.Authorization/elevateAccess/Action"
   ],
   "DataActions": [
    	"*"
