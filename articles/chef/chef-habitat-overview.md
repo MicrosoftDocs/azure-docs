@@ -3,7 +3,7 @@ title: Use Habitat to deploy your application to Azure
 description: Learn how to consistently deploy your application to Azure virtual machines and containers
 keywords: azure, chef, devops, virtual machines, overview, automate, habitat
 ms.service: virtual-machines-linux
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
@@ -22,7 +22,7 @@ Habitat packages include everything that an application needs to run throughout 
 - The Habitat ecosystem also provides a build service that takes a Habitat build plan, creates the Habitat package, and publishes it to a depot.
 
 ## Run any application anywhere
-With Habitat, applications can run unmodified in any runtime environment. This includes everything from bare metal and virtual machines to containers (such as Docker), cluster-management systems (such as Mesosphere or Kubernetes), and PaaS systems (such as Pivotal Cloud Foundry).
+With Habitat, applications can run unmodified in any runtime environment. The application can be anything from bare metal and virtual machines to containers (such as Docker), cluster-management systems (such as Mesosphere or Kubernetes), and PaaS systems (such as Pivotal Cloud Foundry).
 
 ## Easily port legacy applications
 When legacy applications are wrapped in a Habitat package, the applications are independent of the environment for which they were originally designed. The packages can quickly be moved to more modern environments such as the cloud or containers. Also, because Habitat packages have a standard, outward facing interface, legacy applications become much easier to manage.
@@ -31,7 +31,7 @@ When legacy applications are wrapped in a Habitat package, the applications are 
 Habitat reduces the complexity of managing containers in production environments. By automating application configuration within a container, Habitat addresses the challenges developers face when moving container-based applications from development environments into production.
 
 ## Integrate into the Chef DevOps workflow
-The Habitat project is sponsored by Chef. Habitat leverages Chef’s deep experience with infrastructure automation to bring unprecedented automation capabilities to applications. Chef will offer commercial support for Habitat and ensure seamless integration between Habitat and Chef Delivery to fully automate the application release cycle, from development to deployment.
+The Habitat project is sponsored by Chef. Habitat leverages Chef’s deep experience with infrastructure automation to bring unprecedented automation capabilities to applications. Chef will offer commercial support for Habitat and ensure seamless integration between Habitat and Chef Delivery to automate the application release cycle, from development to deployment.
 
 ## Next steps
 * [Create a Windows virtual machine on Azure using Chef](/azure/virtual-machines/windows/chef-automation)
