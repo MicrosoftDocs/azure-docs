@@ -109,7 +109,7 @@ Look for data in the Overview charts. At first, you'll just see one or two point
 
 ![Click through to more data](./media/app-insights-windows-services/12-first-perf.png)
 
-Click through any chart to see more detailed metrics. [Learn more about metrics.](app-insights-web-monitor-performance.md)
+Click through any chart to see more detailed metrics. [Learn more about metrics.](../azure-monitor/app/web-monitor-performance.md)
 
 ### No data?
 * Use the application, opening different pages so that it generates some telemetry.

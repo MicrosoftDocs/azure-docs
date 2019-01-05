@@ -66,7 +66,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 
 
 ## Application Insights Workbooks
-[Workbooks](../application-insights/app-insights-usage-workbooks.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
+[Workbooks](../azure-monitor/app/usage-workbooks.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
 
 ![Workbook](media/visualizations/workbook.png)
 
@@ -135,6 +135,6 @@ You can access data in log and metric data in Azure Monitor through their API us
 - Learn about the [data collected by Azure Monitor](platform/data-collection.md).
 - Learn about [Azure dashboards](../azure-portal/azure-portal-dashboards.md).
 - Learn about [Views in Azure Monitor](platform/view-designer.md).
-- Learn about [Workbooks in Application Insights](../application-insights/app-insights-usage-workbooks.md).
-- Learn about [import log data into Power BI](platform/powerbi.md).
-- Learn about the [Grafana Azure Monitor data source plugin](platform/grafana-plugin.md).
+- Learn about [Workbooks in Application Insights](../azure-monitor/app/usage-workbooks.md).
+- Learn about [import log data into Power BI](../azure-monitor/platform/powerbi.md).
+- Learn about the [Grafana Azure Monitor data source plugin](../azure-monitor/platform/grafana-plugin.md).
