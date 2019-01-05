@@ -63,9 +63,9 @@ Start training your models and tracking the run histories using the new CLI and 
 
 Your pre-existing data preparation files aren't portable to the latest release because we don't have Machine Learning Workbench anymore. But you can still prepare any size data set for modeling.   
 
-With smaller and larger data sets, you can use the <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning data prep SDK</a> to quickly prepare your data before modeling. 
+With smaller and larger data sets, you can use the <a href="https://aka.ms/data-prep-sdk" target="_blank">Azure Machine Learning data prep SDK</a> to quickly prepare your data before modeling. 
 
-You can use this same <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> for larger data sets. Or use Azure Databricks to prepare large data sets. 
+You can use this same <a href="https://aka.ms/data-prep-sdk" target="_blank">SDK</a> for larger data sets. Or use Azure Databricks to prepare large data sets. 
 
 ## Will projects persist?
 
