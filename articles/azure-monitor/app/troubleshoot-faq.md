@@ -39,7 +39,7 @@ ms.author: mbullwin
 * [App servers running in Docker](../../azure-monitor/app/docker.md)
 * [Single-page web apps](../../azure-monitor/app/javascript.md)
 * [Sharepoint](sharepoint.md)
-* [Windows desktop app](../../application-insights/app-insights-windows-desktop.md)
+* [Windows desktop app](../../azure-monitor/app/windows-desktop.md)
 * [Other platforms](../../azure-monitor/app/platforms.md)
 
 ## Is it free?
