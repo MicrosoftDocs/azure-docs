@@ -494,11 +494,48 @@ This section uses the kubectl cli to talk with the Azure Kubernetes service.
     kubectl apply -f language.yml
     ```
 
-    
+    The response is:
 
+    ```console
+    deployment "azure-vote-back" created
+    service "azure-vote-back" created
+    deployment "azure-vote-front" created
+    service "azure-vote-front" created
+    ```
 
+## Test the application
 
+1. For the frontend web application, verify the service is running and get the external IP address.
 
+```console
+kubectl get service <name-from-language.yml> --watch
+```
+
+Response is: 
+
+```console
+NAME       TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
+language   LoadBalancer   10.0.196.26   168.62.220.174   5000:31834/TCP   22m
+```
+
+_Initially_ the EXTERNAL-IP for the service is shown as pending. Wait until the IP address is show before testing the service in the browser. 
+
+1. For the language detection container, verify the service is running and get the external IP address.
+
+```console
+kubectl get service <name-from-language.yml> --watch
+```
+
+Response is: 
+
+```console
+NAME       TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
+language   LoadBalancer   10.0.196.26   168.62.220.174   5000:31834/TCP   22m
+```
+
+_Initially_ the EXTERNAL-IP for the service is shown as pending. Wait until the IP address is show before testing the service in the browser. 
+
+1. To see the web frontend app in action, open a web browser to the external IP address of your service.
 
 <!--
 ### Configure basic settings
