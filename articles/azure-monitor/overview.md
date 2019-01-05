@@ -53,7 +53,7 @@ As soon as you create an Azure subscription and start adding resources such as v
 
 Extend the data you're collecting into the actual operation of the resources by [enabling diagnostics](../azure-monitor/platform/diagnostic-logs-overview.md) and [adding an agent](platform/agent-windows.md) to compute resources. This will collect telemetry for the internal operation of the resource and allow you to configure different [data sources](platform/agent-data-sources.md) to collect logs and metrics from Windows and Linux guest operating system. 
 
-[Add an instrumentation package to your application](../application-insights/app-insights-azure-web-apps.md),  to enable Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](../application-insights/app-insights-monitor-web-app-availability.md) to simulate user traffic.
+[Add an instrumentation package to your application](../azure-monitor/app/azure-web-apps.md),  to enable Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](../azure-monitor/app/monitor-web-app-availability.md) to simulate user traffic.
 
 ### Custom sources
 Azure Monitor can collect log data from any REST client using the [Data Collector API](../azure-monitor/platform/data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
@@ -124,7 +124,7 @@ Autoscale allows you to have the right amount of resources running to handle the
 You'll often have the requirement to integrate Azure Monitor with other systems and to build custom solutions that use your monitoring data. Other Azure services work with Azure Monitor to provide this integration.
 
 ### Event Hub
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) is a streaming platform and event ingestion service that can transform and store data using any real-time analytics provider or batching/storage adapters. Use Event Hubs to [stream log data from Azure Monitor](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) to partner SIEM and monitoring tools.
+[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) is a streaming platform and event ingestion service that can transform and store data using any real-time analytics provider or batching/storage adapters. Use Event Hubs to [stream log data from Azure Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) to partner SIEM and monitoring tools.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 

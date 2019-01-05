@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
+ms.custom: seodec18
 ---
 
 # What is Computer Vision API Version 1.0?

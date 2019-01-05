@@ -21,21 +21,25 @@ ms.author: gsacavdm
 This article outlines the monitoring and management services variations and considerations for the Azure Government environment.
 
 ## Advisor
-Advisor is in public preview in Azure Government.
+Advisor is generally available in Azure Government.
 
 For more information, see [Advisor public documentation](../advisor/advisor-overview.md).
 
 ### Variations
 The following Advisor recommendations are not currently available in Azure Government:
 
-* Security
-  * Security recommendations from Security Center
-* Cost
-  * Optimize virtual machine spend by resizing or shutting down underutilized instances
-  * Eliminate unprovisioned ExpressRoute circuits
+* High Availability
+  * Configure your VPN gateway to active-active for connection resilience
+  * Create Azure Service Health alerts to be notified when Azure issues affect you
+  * Configure Traffic Manager endpoints for resiliency
 * Performance
   * Improve App Service performance and reliability
-  * Improve Azure Cache for Redis performance and reliability
+  * Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
+  * Improve SQL Datawarehouse performance
+* Cost
+  * Buy reserved virtual machines instances to save money over pay-as-you-go costs
+  * Eliminate unprovisioned ExpressRoute circuits
+  * Delete or reconfigure idle virtual network gateways
 
 ## Automation
 Automation is generally available in Azure Government.
@@ -140,7 +144,7 @@ $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com
 Add-AzureRmMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup myrg1 -TargetResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.ClassicCompute/virtualMachines/my_vm1 -MetricName "Percentage CPU" -Operator GreaterThan -Threshold 1 -WindowSize 00:05:00 -TimeAggregationOperator Average -Actions $actionEmail, $actionWebhook -Description "alert on CPU > 1%"
 ```
 
-For more information on using PowerShell, see [public documentation](../monitoring-and-diagnostics/insights-powershell-samples.md).
+For more information on using PowerShell, see [public documentation](../azure-monitor/platform/powershell-quickstart-samples.md).
 
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
