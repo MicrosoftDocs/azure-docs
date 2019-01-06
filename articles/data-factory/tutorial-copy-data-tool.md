@@ -15,7 +15,7 @@ ms.author: jingwang
 
 ---
 # Copy data from Azure Blob storage to a SQL database by using the Copy Data tool
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](tutorial-copy-data-tool.md)
 
