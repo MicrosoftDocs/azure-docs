@@ -117,7 +117,7 @@ To configure Azure AD single sign-on with Flex Global View, perform the followin
 
 	![The Certificate download link](common/metadataxml.png)
 
-### Configure Flex Global View Single Sign-On
+### Configure Flex Global View single sign-on
 
 To configure single sign-on on **Flex Global View** side, you need to send the **Federation Metadata XML** to [Flex Global View support team](mailto:support@gtnexus.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -182,7 +182,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Flex Global View tile in the Access Panel, you should be automatically signed in to the Flex Global View for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
