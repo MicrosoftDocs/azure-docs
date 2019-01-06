@@ -72,7 +72,7 @@ Verify that the job is complete by running `qstat -Q` in your shell periodically
 
 Once the job queue has been empty for five minutes, the execute nodes will begin to auto-stop and your cluster will return to just having the master node.
 
-Quickstart 3 is complete. In this exercise, you've submitted 100 jobs to your Master Node, confirmed the request went through, and observed the auto scaling via the GUI. When the jobs are complete, you will need to clean up the resources used to free them for other activity.
+Quickstart 3 is complete. In this exercise, you've submitted a job containing 1000 tasks to your Master Node, confirmed the request went through, and observed the auto scaling via the GUI. When the jobs are complete, you will need to clean up the resources used to free them for other activity.
 
 > [!NOTE]
 > If you want to continue with this Azure CycleCloud installation for the [CycleCloud Tutorials](/tutorials/modify-cluster-template.md), you do not need to follow quickstart 4. Be aware that you are charged for usage while the nodes are running, even if no jobs are scheduled.
