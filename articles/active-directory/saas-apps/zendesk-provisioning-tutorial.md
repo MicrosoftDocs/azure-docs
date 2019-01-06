@@ -165,6 +165,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Connector Limitations
 * Zendesk supports usage of groups for Users with Agent roles only. For more information, please refer to [Zendesk's documentation](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
+* When a custom role is assigned to a user and/or group, the Azure AD automatic user provisioning service will also assign the default role **Agent**. Only **Agents** can be assigned a custom role. For more information, refer to this [Zendesk API documentation](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests).  
 
 ## Additional resources
 

@@ -198,6 +198,7 @@ Now you have deployed an IoT hub using an Azure Resource Manager template with a
 
 * Read about the capabilities of the [IoT Hub resource provider REST API][lnk-rest-api].
 * Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
+* For the JSON syntax and properties to use in templates, see [Microsoft.Devices resource types](/azure/templates/microsoft.devices/iothub-allversions).
 
 To learn more about developing for IoT Hub, see the following articles:
 

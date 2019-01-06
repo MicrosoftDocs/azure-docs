@@ -1,9 +1,9 @@
 ---
 title: Working with Azure Cosmos DB accounts 
 description: This article describes how create and use Azure Cosmos DB accounts
-author: dharmas
-
+author: dharmas-cosmos
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas

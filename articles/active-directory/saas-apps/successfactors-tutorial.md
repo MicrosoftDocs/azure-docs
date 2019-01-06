@@ -147,7 +147,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     | `https://<companyname>.sapsf.cn/<companyname>`|
     	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [SuccessFactors Client support team](https://www.successfactors.com/support.html) to get these values. 
+	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [SuccessFactors Client support team](https://www.successfactors.com/content/ssf-site/en/support.html) to get these values. 
 
 5. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Certificate (Base64)** and then save certificate file on your computer.
 
@@ -258,7 +258,7 @@ The objective of this section is to create a test user in the Azure portal calle
 To enable Azure AD users to log in to SuccessFactors, they must be provisioned into SuccessFactors.  
 In the case of SuccessFactors, provisioning is a manual task.
 
-To get users created in SuccessFactors, you need to contact the [SuccessFactors support team](https://www.successfactors.com/support.html).
+To get users created in SuccessFactors, you need to contact the [SuccessFactors support team](https://www.successfactors.com/content/ssf-site/en/support.html).
 
 ### Assigning the Azure AD test user
 
