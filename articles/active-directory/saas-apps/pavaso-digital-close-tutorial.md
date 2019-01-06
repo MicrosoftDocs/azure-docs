@@ -130,7 +130,7 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 	c. Logout URL
 
-### Configure Pavaso Digital Close Single Sign-On
+### Configure Pavaso Digital Close single sign-on
 
 To configure single sign-on on **Pavaso Digital Close** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Pavaso Digital Close support team](mailto:support@pavaso.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -195,7 +195,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Pavaso Digital Close tile in the Access Panel, you should be automatically signed in to the Pavaso Digital Close for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
