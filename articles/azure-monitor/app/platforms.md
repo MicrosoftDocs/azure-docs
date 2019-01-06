@@ -53,7 +53,7 @@ These items are implementations of [Application Insights](../../application-insi
 * [Spring](https://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 * [Universal Windows app](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
-* [Windows desktop applications, services, and worker roles](../../application-insights/app-insights-windows-desktop.md)
+* [Windows desktop applications, services, and worker roles](../../azure-monitor/app/windows-desktop.md)
 * [Anything else](#projects)
 
 ## Logging frameworks
@@ -71,7 +71,7 @@ These items are implementations of [Application Insights](../../application-insi
 * [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 * [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 * [Orchard](https://azure.microsoft.com/blog/integrating-application-insights-into-a-modular-cms-and-a-multi-tenant-public-saas/preview/)
-* [SharePoint](../../application-insights/app-insights-sharepoint.md)
+* [SharePoint](../../azure-monitor/app/sharepoint.md)
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
 ## Export and Data Analysis

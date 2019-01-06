@@ -43,13 +43,13 @@ With Azure Functions Proxies, you can modify requests to and responses from the 
 
 By default, the back-end request is initialized as a copy of the original request. In addition to setting the back-end URL, you can make changes to the HTTP method, headers, and query string parameters. The modified values can reference [application settings] and [parameters from the original client request].
 
-Back-end requests can be modified in the portal by expading the *request override* section of the proxy detail page. 
+Back-end requests can be modified in the portal by expanding the *request override* section of the proxy detail page. 
 
 ### <a name="modify-response"></a>Modify the response
 
 By default, the client response is initialized as a copy of the back-end response. You can make changes to the response's status code, reason phrase, headers, and body. The modified values can reference [application settings], [parameters from the original client request], and [parameters from the back-end response].
 
-Back-end requests can be modified in the portal by expading the *response override* section of the proxy detail page. 
+Back-end requests can be modified in the portal by expanding the *response override* section of the proxy detail page. 
 
 ## <a name="using-variables"></a>Use variables
 
@@ -172,13 +172,13 @@ The proxy behavior can be controlled by several app settings. They are all outli
 
 ### <a name="reservedChars"></a> Reserved Characters (string formatting)
 
-Proxies read all strings in C# string notation C# string notation, using \\\\\\ as an escape symbol. Proxies also interprets curley braces. See a full set of examples below.
+Proxies read all strings out of a JSON file, using \ as an escape symbol. Proxies also interpret curly braces. See a full set of examples below.
 
 |Character|Escaped Character|Example|
 |-|-|-|
 |{ or }|{{ or }}|`{{ example }}` --> `{ example }`
-| \ | \\\\\\\\ | `example.com\\\text.html` --> `example.com\text.html`
-|"|\\\\\\"| `\\\"example\\\"` --> `"example"`
+| \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
+|"|\\\"| `\"example\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>Define a requestOverrides object
 
