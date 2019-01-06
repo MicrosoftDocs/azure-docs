@@ -76,7 +76,7 @@ Now you create a table in Azure Data Explorer, to which Event Hubs will send dat
 
     ![Query application link](media/ingest-data-event-hub/query-explorer-link.png)
 
-1. Copy the following command into the window and select **Run**.
+1. Copy the following command into the window and select **Run** to create the table (TestTable) which will receive the ingested data.
 
     ```Kusto
     .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
@@ -84,12 +84,11 @@ Now you create a table in Azure Data Explorer, to which Event Hubs will send dat
 
     ![Run create query](media/ingest-data-event-hub/run-create-query.png)
 
-1. Copy the following command into the window and select **Run**.
+1. Copy the following command into the window and select **Run** to map the incoming JSON data to the column names and data types of the table (TestTable).
 
     ```Kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
     ```
-    This command maps incoming JSON data to the column names and data types of the table (TestTable).
 
 ## Connect to the event hub
 
@@ -144,7 +143,7 @@ When you run the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet
 
 ## Generate sample data
 
-Now that Azure Data Explorer and the event hub are connected, you use the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) you downloaded to generate data.
+Use the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) you downloaded to generate data.
 
 1. Open the sample app solution in Visual Studio.
 
@@ -162,13 +161,11 @@ Now that Azure Data Explorer and the event hub are connected, you use the [sampl
 
 ## Review the data flow
 
-With the app generating data, you can now see the flow of that data from the event hub to the table in your cluster.
+With the app generating data, you can now see the flow of that data from the event hub to the table in your cluster. The flow may take at least 5 minutes to complete.
 
 1. In the Azure portal, under your event hub, you see the spike in activity while the app is running.
 
     ![Event hub graph](media/ingest-data-event-hub/event-hub-graph.png)
-
-1. Go back to the sample app and stop it after it reaches message 99.
 
 1. To check how many messages have made it to the database so far, run the following query in your test database.
 
