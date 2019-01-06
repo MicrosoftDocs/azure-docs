@@ -17,7 +17,7 @@ ms.author: jingwang
 
 ---
 # Copy data to or from Azure SQL Database by using Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-azure-sql-connector.md)
 > * [Current version](connector-azure-sql-database.md)
 
