@@ -119,6 +119,7 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
     | | |
 
     Target table:
+
     There are two options for routing: *static* and *dynamic*. For this quickstart, you use static routing (the default), where you specify the table name, file format, and mapping. Therefore, leave **My data includes routing info** unselected.
     You can also use dynamic routing, where your data includes the necessary routing information.
 
@@ -161,7 +162,7 @@ Use the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) 
 
 ## Review the data flow
 
-With the app generating data, you can now see the flow of that data from the event hub to the table in your cluster. The flow may take at least 5 minutes to complete.
+With the app generating data, you can now see the flow of that data from the event hub to the table in your cluster.
 
 1. In the Azure portal, under your event hub, you see the spike in activity while the app is running.
 
