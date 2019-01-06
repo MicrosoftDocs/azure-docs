@@ -148,7 +148,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>\.00</td>
+      <td>.00</td>
       <td>21.25</td>
     </tr>
     <tr>
@@ -162,7 +162,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>2</td>
-      <td>\.00</td>
+      <td>.00</td>
       <td>74.5</td>
     </tr>
     <tr>
@@ -176,7 +176,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>\.00</td>
+      <td>.00</td>
       <td>1</td>
     </tr>
     <tr>
@@ -190,7 +190,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>\.00</td>
+      <td>.00</td>
       <td>3.25</td>
     </tr>
     <tr>
@@ -204,7 +204,7 @@ tmp_df.head(5)
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>\.00</td>
+      <td>.00</td>
       <td>8.5</td>
     </tr>
   </tbody>
