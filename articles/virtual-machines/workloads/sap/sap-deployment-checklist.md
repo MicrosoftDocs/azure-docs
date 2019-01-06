@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-#SAP workload on Azure planning and deployment checklist 
+# SAP workload on Azure planning and deployment checklist 
 
 This checklist is designed for customers moving their SAP NetWeaver, S/4HANA, and Hybris applications to Azure Infrastructure as a Service.  This checklist should be reviewed by a customer and/or SAP partner during the duration of the project. It is important that many of the checks are conducted at the beginning of the project and in the planning phase. Once the deployment is done, elementary changes on deployed Azure infrastructure or SAP software releases can become complex. Review this checklist at key milestones throughout a project.  Small problems can be detected before they become large problems and sufficient time exists to re-engineer and test any necessary changes. The checklist in no ways claims to be complete. Dependent on your individual situation, there might be many more checks that need to be conducted. 
 
@@ -28,7 +28,7 @@ The checklist assembled does not include tasks that are independent of Azure.  E
 
 This checklist can also be used for already deployed systems. New features such as Write Accelerator, Availability Zones, and new VM types may have been added since you deployed.  It is therefore useful to review the checklist periodically to ensure you are aware of new features in the Azure platform. 
 
-##Project preparation and planning phase
+## Project preparation and planning phase
 In this phase a migration of SAP workload onto Azure public cloud is planned. The minimum set of entities and items discussed and defined list like:
 
 1. High-Level Design Document – this document should contain:
@@ -76,7 +76,7 @@ In this phase a migration of SAP workload onto Azure public cloud is planned. Th
 
 
  
-##Pilot Phase (Optional)
+## Pilot Phase (Optional)
  
 The pilot can run before or in parallel to project planning and preparation. The phase can also be used to test approaches and design made in the planning and preparation phase. The pilot phase can be stretched to a real proof of concepts. It is recommended to set up and validate a full HA/DR solution as well as security design during a pilot deployment. In some customer cases, scalability tests also can be conducted in this phase. Other customers use deployment of SAP sandbox systems as pilot phase. So we assume you identified a system that you want to migrate into Azure for the purpose of running a pilot.
 
