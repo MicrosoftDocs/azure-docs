@@ -30,7 +30,7 @@ When you've got access to a subscription, log in to Application Insights at [htt
 ## Create an Application Insights resource
 In the [portal.azure.com](https://portal.azure.com), add an Application Insights resource:
 
-![Click New, Application Insights](./media/app-insights-create-new-resource/01-new.png)
+![Click New, Application Insights](./media/create-new-resource/01-new.png)
 
 * **Application type** affects what you see on the overview blade and the properties available in [metric explorer][metrics]. If you don't see your type of app, choose General.
 * **Subscription** is your payment account in Azure.
@@ -45,7 +45,7 @@ To get back to it next time you log in to Azure, look for your app's quick-start
 ## Copy the instrumentation key
 The instrumentation key identifies the resource that you created. You need it to give to the SDK.
 
-![Click Essentials, click the Instrumentation Key, CTRL+C](./media/app-insights-create-new-resource/02-props.png)
+![Click Essentials, click the Instrumentation Key, CTRL+C](./media/create-new-resource/02-props.png)
 
 ## Install the SDK in your app
 Install the Application Insights SDK in your app. This step depends heavily on the type of your application. 
@@ -62,18 +62,18 @@ Click the Search tile to see [Diagnostic Search][diagnostic], where the first ev
 If you're expecting more data, click **Refresh** after a few seconds  .
 
 ## Creating a resource automatically
-You can write a [PowerShell script](../azure-monitor/app/powershell.md) to create a resource automatically.
+You can write a [PowerShell script](../../azure-monitor/app/powershell.md) to create a resource automatically.
 
 ## Next steps
-* [Create a dashboard](../azure-monitor/app/app-insights-dashboards.md)
-* [Diagnostic Search](../azure-monitor/app/diagnostic-search.md)
-* [Explore metrics](../azure-monitor/app/metrics-explorer.md)
-* [Write Analytics queries](../azure-monitor/app/analytics.md)
+* [Create a dashboard](../../azure-monitor/app/app-insights-dashboards.md)
+* [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
+* [Explore metrics](../../azure-monitor/app/metrics-explorer.md)
+* [Write Analytics queries](../../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
-[api]: ../azure-monitor/app/api-custom-events-metrics.md
-[diagnostic]: ../azure-monitor/app/diagnostic-search.md
-[metrics]: ../azure-monitor/app/metrics-explorer.md
-[start]: app-insights-overview.md
+[api]: ../../azure-monitor/app/api-custom-events-metrics.md
+[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[start]: ../../application-insights/app-insights-overview.md
 

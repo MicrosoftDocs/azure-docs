@@ -16,20 +16,20 @@ ms.author: mbullwin
 # Profile live Azure cloud services with Application Insights
 
 You can also deploy Application Insights profiler on these services:
-* [Azure App Service](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Service Fabric Applications](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Virtual Machines](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Service Fabric Applications](profiler-servicefabric.md ?toc=/azure/azure-monitor/toc.json)
+* [Virtual Machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler is installed with the Windows Azure Diagnostics (WAD) extension. You just need to configure WAD to install the profiler and send profiles to your Application Insights resource.
 
 ## Enable profiler for your Azure Cloud Service
 1. Check to see that you  using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later.  It's sufficient to confirm that the *ServiceConfiguration.\*.cscfg* files have an `osFamily` value of "5" or later.
-1. Add [Application Insights SDK to cloud service](../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
+1. Add [Application Insights SDK to cloud service](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 1. Track requests with Application Insights:
 
     For ASP.Net web roles, Application Insights can track the requests automatically.
 
-    For Worker Roles, [add code to track requests.](app-insights-profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json)
+    For Worker Roles, [add code to track requests.](profiler-trackrequests.md ?toc=/azure/azure-monitor/toc.json)
 
     
 
@@ -71,4 +71,4 @@ Application Insights Profiler is installed with the Windows Azure Diagnostics (W
 
 - Generate traffic to your application (for example, launch an [availability test](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
 - See [Profiler traces](https://docs.microsoft.com/azure/application-insights/app-insights-profiler-overview?toc=/azure/azure-monitor/toc.json) in the Azure portal.
-- Get help with troubleshooting profiler issues in [Profiler troubleshooting](app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+- Get help with troubleshooting profiler issues in [Profiler troubleshooting](profiler-troubleshooting.md ?toc=/azure/azure-monitor/toc.json).
