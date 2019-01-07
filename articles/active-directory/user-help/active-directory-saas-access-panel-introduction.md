@@ -38,9 +38,9 @@ By using the MyApps portal, you can edit some of your profile settings and do th
 
 ## Access the MyApps portal
 
-You can access the MyApps portal by going to `http://myapps.microsoft.com`.
+You can access the MyApps portal by going to `https://myapps.microsoft.com`.
 
-If you have custom branding configured for your sign-in page, you can load the branding by appending your organization’s domain to the URL (for example, `http://myapps.microsoft.com/<your domain>.com`).
+If you have custom branding configured for your sign-in page, you can load the branding by appending your organization’s domain to the URL (for example, `https://myapps.microsoft.com/<your domain>.com`).
 
 You can use any active or verified domain name that has been configured in your Azure portal, as shown here:
 ![Wingtip Toys domain name][2]  
@@ -81,7 +81,7 @@ To sign in to password-based single sign-on, you must use the extension. After t
 >
 You can download the extension directly from the following sites:
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 If you are using a My Apps URL other than `https://myapps.microsoft.com`, configure your default URL by doing the following:

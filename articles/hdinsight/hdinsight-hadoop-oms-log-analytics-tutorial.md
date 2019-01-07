@@ -22,7 +22,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* **A Log Analytics workspace**. You can think of this workspace as a unique Log Analytics environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
+* **A Log Analytics workspace**. You can think of this workspace as a unique Log Analytics environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
 * **An Azure HDInsight cluster**. Currently, you can use Log Analytics with the following HDInsight cluster types:
 
@@ -35,7 +35,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
   For the instructions on how to create an HDInsight cluster, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-> [!NOTE]
+> [!NOTE]  
 > It is recommended to place both the HDInsight cluster and the Log Analytics workspace in the same region for better performance. Azure Log Analytics is not available in all Azure regions.
 
 ## Enable Log Analytics by using the portal
@@ -87,7 +87,7 @@ These are the available HDInsight solutions:
 * HDInsight Spark Monitoring
 * HDInsight Storm Monitoring
 
-For the instructions to install a management solution, see [Management solutions in Azure](../monitoring/monitoring-solutions.md#install-a-management-solution). To experiment, install a HDInsight Hadoop Monotiring solution. When it is done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
+For the instructions to install a management solution, see [Management solutions in Azure](../azure-monitor/insights/solutions.md#install-a-management-solution). To experiment, install a HDInsight Hadoop Monotiring solution. When it is done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
 
 ![HDInsight monitoring solution view](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 

@@ -47,16 +47,6 @@
 - name: Worked-out examples
   href: walkthroughs.md
   items:
-  - name: Azure Machine Learning
-    href: walkthroughs-aml-with-tdsp.md
-    items:
-    - name: Sentiment classification using Keras & Scikit Learn
-      href: predict-twitter-sentiment.md
-    - name: Sentiment classification using AML text analytics package
-      href: predict-twitter-sentiment-amltextpackage.md
-    - name: Skin cancer image classification using AML vision package
-      href: isic-image-classification.md
-      maintainContext: true
   - name: Spark with PySpark and Scala
     href: walkthroughs-spark.md
     items:
@@ -233,14 +223,6 @@
         href: cortana-analytics-architecture-predictive-maintenance.md
       - name: Technical guide
         href: cortana-analytics-technical-guide-predictive-maintenance.md
-    - name: Vehicle telemetry
-      items:
-      - name: Overview
-        href: cortana-analytics-playbook-vehicle-telemetry.md
-      - name: Playbook Deep Dive
-        href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
-      - name: Power BI Setup
-        href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
 - name: Resources
   items:
   - name: Blogs

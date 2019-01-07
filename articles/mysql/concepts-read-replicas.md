@@ -1,13 +1,11 @@
 ---
 title: Read replicas in Azure Database for MySQL.
 description: This article describes read replicas for Azure Database for MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/13/2018
 ---
 
 # Read replicas in Azure Database for MySQL
@@ -55,12 +53,15 @@ Replica servers are created using the same server configurations as the master, 
 - Backup retention period
 - Backup redundancy option
 - MySQL engine version
+- Firewall rules
 
 After a replica has been created, you can change the pricing tier (except to and from Basic), compute generation, vCores, storage, and backup retention independently from the master server.
 
 ### Master server configuration
 
-If a master's server configuration (ex. vCores or storage) is updated, the replicas' configuration should also be updated to equal or greater values. Without this, the replica server may not be able to keep up with changes made to the master and may crash as a result. 
+If a master's server configuration (ex. vCores or storage) is updated, the replicas' configuration should also be updated to equal or greater values. Without this, the replica server may not be able to keep up with changes made to the master and may crash as a result.
+
+New firewall rules added to the master server after a replica server has been created are not replicated to the replica. The replica should be updated with this new firewall rule as well.
 
 ### Deleting the master server
 
@@ -82,7 +83,4 @@ Users on the master server are replicated to the read replicas. You can only con
 ## Next steps
 
 - Learn how to [create and manage read replicas using the Azure portal](howto-read-replicas-portal.md)
-
-<!--
-- Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-using-cli.md)
--->
+- Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-cli.md)

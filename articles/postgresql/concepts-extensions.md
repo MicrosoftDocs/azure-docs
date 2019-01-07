@@ -1,13 +1,10 @@
 ---
 title: Use PostgreSQL extensions in Azure Database for PostgreSQL
 description: Describes the ability to extend the functionality of your database using extensions in Azure Database for PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/12/2018
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL
@@ -83,6 +80,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Provides a means for showing tuple-level statistics. |
 | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Foreign-data wrapper used to access data stored in external PostgreSQL servers. |
 | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Provides a means of creating hypothetical indexes that don't cost CPU or disk. |
+| [dblink](https://www.postgresql.org/docs/current/dblink.html) | A module that supports connections to other PostgreSQL databases from within a database session. |
 
 
 ### PostGIS extensions

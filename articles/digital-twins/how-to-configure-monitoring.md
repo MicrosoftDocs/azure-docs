@@ -1,13 +1,14 @@
 ---
-title: How to configure monitoring in Azure Digital Twins | Microsoft Docs
-description: How to configure monitoring in Azure Digital Twins
+title: 'How to configure monitoring in Azure Digital Twins | Microsoft Docs'
+description: How to configure monitoring in Azure Digital Twins.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 12/26/2018
 ms.author: adgera
+ms.custom: seodec18
 ---
 
 # How to configure monitoring in Azure Digital Twins
@@ -18,7 +19,7 @@ This article summarizes logging and monitoring options and how to combine them i
 
 ## Review activity logs
 
-Azure [activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide quick insights into subscription-level event and operation histories for each Azure service instance.
+Azure [activity logs](../azure-monitor/platform/activity-logs-overview.md) provide quick insights into subscription-level event and operation histories for each Azure service instance.
 
 Subscription-level events include:
 
@@ -49,7 +50,7 @@ For advanced activity logging:
 
 ## Enable customer diagnostic logs
 
-Azure [diagnostic settings](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) can be set for each Azure instance to supplement activity logging. While activity logs pertain to subscription-level events, diagnostic logging provides insights into the operational history of the resources themselves.
+Azure [diagnostic settings](../azure-monitor/platform/diagnostic-logs-overview.md) can be set for each Azure instance to supplement activity logging. While activity logs pertain to subscription-level events, diagnostic logging provides insights into the operational history of the resources themselves.
 
 Examples of diagnostic logging include:
 
@@ -69,7 +70,7 @@ To enable diagnostic logs for an instance:
 
     ![Diagnostic settings two][5]
 
-    Diagnostic logs are often saved using [Azure File Storage](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide) and shared with [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal). Both options can be selected.
+    Diagnostic logs are often saved using [Azure File Storage](../storage/files/storage-files-deployment-guide.md) and shared with [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md). Both options can be selected.
 
 >[!TIP]
 >Use **diagnostic logs** for insights into resource operations.
@@ -86,7 +87,7 @@ Examples of use include:
 * Seeing logs for several user-defined functions
 * Displaying logs for two or more services within a specific time-frame
 
-Full log querying is provided through [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). To set up these powerful features:
+Full log querying is provided through [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md). To set up these powerful features:
 
 1. Search for **Log Analytics** in the Azure portal.
 1. You will see your available **Log Analytics** instances. Choose one and select **Logs** to query:
@@ -101,7 +102,7 @@ Once your **Log Analytics** instance is provisioned, you may use powerful querie
 
    ![Log management][8]
 
-For more information about powerful query operations, see [getting started with queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+For more information about powerful query operations, see [getting started with queries](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
 > You may experience a 5 minute delay when sending events to **Log Analytics** for the first time.
@@ -115,15 +116,15 @@ Azure Log Analytics also provides powerful error and alert notification services
 
 ## Other options
 
-Azure Digital Twins also supports application-specific logging and security auditing. For a thorough overview of all Azure logging options available to your Azure Digital Twins instance, see the [Azure log audit](https://docs.microsoft.com/azure/security/azure-log-audit) article.
+Azure Digital Twins also supports application-specific logging and security auditing. For a thorough overview of all Azure logging options available to your Azure Digital Twins instance, see the [Azure log audit](../security/azure-log-audit.md) article.
 
 ## Next steps
 
-Learn more about Azure [activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs).
+- Learn more about Azure [activity logs](../azure-monitor/platform/activity-logs-overview.md).
 
-Dive deeper into Azure diagnostic settings by reading an [overview of diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Dive deeper into Azure diagnostic settings by reading an [overview of diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Read more about [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal).
+- Read more about [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).
 
 <!-- Images -->
 [1]: media/how-to-configure-monitoring/activity-log.png

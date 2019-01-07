@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
      In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.teamseer.com/<companyid>`
 
 	> [!NOTE] 
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [TeamSeer Client support team](http://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html) to get the value. 
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [TeamSeer Client support team](https://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html) to get the value. 
  
 1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 

@@ -75,7 +75,7 @@ You will be asked to include the following information:
 Our Marketplace Onboarding Team will validate the marketplace registration details provided in step 3. Once approved, you will receive a welcome email with account credentials and guidance on signing-in to the [Cloud Partner Portal](https://cloudpartner.azure.com).
 
 You will use the [Cloud Partner Portal](https://cloudpartner.azure.com) to create, publish, and manage marketplace offers. Once you receive the approval welcome email, you can immediately log into the [Cloud Partner Portal](https://cloudpartner.azure.com) with your Microsoft account to access additional technical information about publishing to marketplace and creating your offer. 
-*	For more information about using Cloud Partner Portal, [visit the Getting Started article in Learn section](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). You must be logged in to the Cloud Partner Portal to access these details.
+*	For more information about using Cloud Partner Portal, [visit the Getting Started article in Learn section](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal). You must be logged in to the Cloud Partner Portal to access these details.
 *	If you have questions or would like to schedule an onboarding overview call, please review other articles in this Publisher Guide or open a support request under Problem Type > Marketplace Onboarding from within the Cloud Partner Portal.
 *	If you didn’t receive the welcome email, please check your spam folder for an email with the subject line “Welcome to Microsoft Marketplace!.” If there is no email in your spam folder, please [contact Microsoft support](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). On the support page, please select: Problem Type > Marketplace Onboarding.  Our Marketplace Publisher Onboarding Team will be happy to assist with your inquiries. 
 
@@ -94,15 +94,15 @@ The individual registering in [Dev Center](https://developer.microsoft.com/store
 Once you have completed the [Dev Center](https://developer.microsoft.com/store/register) registration, link your Cloud Partner Profile with your [Dev Center](https://developer.microsoft.com/store/register) account (see detailed steps here). This step must be completed before publishing your transact offer. 
 
 >[!Note]
->To waive the $99 Developer Center registration fee, complete the [marketplace registration form](https://azuremarketplace.microsoft.com/en-us/sell/signup) and you will receive an email containing your promotional code. 
+>To waive the $99 Developer Center registration fee, complete the [marketplace registration form](https://azuremarketplace.microsoft.com/sell/signup) and you will receive an email containing your promotional code. 
 
 >[!Important]
 >Before you create a Microsoft Dev Center account, please verify that your organization does not already have a Dev Center account to avoid duplicate accounts. For more information, visit the [Register in Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center) section.
 
 
 ## Next steps
-* Learn about the marketplace storefronts: [Comparing AppSource and the Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
-*	[Determine the listing type for your solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+* Learn about the marketplace storefronts: [Comparing AppSource and the Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+*	[Determine the listing type for your solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
 ---  

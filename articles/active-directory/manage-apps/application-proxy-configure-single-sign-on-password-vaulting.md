@@ -22,7 +22,7 @@ Azure Active Directory Application Proxy helps you improve productivity by publi
 
 Application Proxy supports several [single sign-on modes](what-is-single-sign-on.md#choosing-a-single-sign-on-method). Password-based sign-on is intended for applications that use a username/password combination for authentication. When you configure password-based sign-on for your application, your users have to sign in to the on-premises application once. After that, Azure Active Directory stores the sign-in information and automatically provides it to the application when your users access it remotely. 
 
-You should already have published and tested your app with Application Proxy. If not, follow the steps in [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md) then come back here. 
+You should already have published and tested your app with Application Proxy. If not, follow the steps in [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md) then come back here. 
 
 ## Set up password vaulting for your application
 

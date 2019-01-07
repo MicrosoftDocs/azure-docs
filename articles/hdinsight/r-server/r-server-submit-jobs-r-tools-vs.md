@@ -29,7 +29,7 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 
 4. Install [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) on your machine. ML Server provides the [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) and `RxSpark` functions.
 
-5. Install [PuTTY](http://www.putty.org/) to provide a compute context to run `RevoScaleR` functions from your local client to your HDInsight cluster.
+5. Install [PuTTY](https://www.putty.org/) to provide a compute context to run `RevoScaleR` functions from your local client to your HDInsight cluster.
 
 6. You have the option to apply the Data Science Settings to your Visual Studio environment, which provides a new layout for your workspace for the R tools.
     1. To save your current Visual Studio settings, use the **Tools > Import and Export Settings** command, then select **Export selected environment settings** and specify a file name. To restore those settings, use the same command and select **Import selected environment settings**.
@@ -38,7 +38,7 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 
         ![Data Science Settings...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Using the approach in step 1, you can also save and restore your personalized data scientist layout, rather than repeating the **Data Science Settings** command.
 
 ## Execute local R methods
@@ -58,7 +58,7 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 
 ## Submit jobs to an HDInsight ML Services cluster
 
-Using a Microsoft ML Server/Microsoft R Client from a Windows computer equipped with PuTTY, you can create a compute context that will run distributed `RevoScaleR` functions from your local client to your HDInsight cluster. Use `RxSpark` to create the compute context, specifying your username, the Hadoop cluster's edge node, SSH switches, and so forth.
+Using a Microsoft ML Server/Microsoft R Client from a Windows computer equipped with PuTTY, you can create a compute context that will run distributed `RevoScaleR` functions from your local client to your HDInsight cluster. Use `RxSpark` to create the compute context, specifying your username, the Apache Hadoop cluster's edge node, SSH switches, and so forth.
 
 1. To find your edge node's host name, open your HDInsight ML Services cluster pane on Azure, then select **Secure Shell (SSH)** on the top menu of the Overview pane.
 
@@ -126,7 +126,7 @@ Using a Microsoft ML Server/Microsoft R Client from a Windows computer equipped 
 
         ![Copied file](./media/r-server-submit-jobs-r-tools-vs/copied-file.png)
 
-6. After you are finished using the current Spark context, you must stop it. You cannot run multiple contexts at once.
+6. After you are finished using the current Apache Spark context, you must stop it. You cannot run multiple contexts at once.
 
     ```R
     rxStopEngine(mySparkCluster)

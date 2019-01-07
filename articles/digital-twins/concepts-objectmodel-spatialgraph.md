@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 12/14/2018
 ms.author: alinast
 ---
 
@@ -43,11 +43,11 @@ Other categories of objects are:
 - **Roles** are sets of permissions assigned to users and devices in the spatial graph, for example, `Space Administrator`, `User Administrator`, and `Device Administrator`.
 - **Role assignments** are the association between a role and an object in the spatial graph. For example, a user or a service principal can be granted permission to manage a space in the spatial graph.
 - **Security key stores** provide the security keys for all devices in the hierarchy under a given space object to allow the device to securely communicate with Digital Twins.
-- **User-defined functions** (UDFs) allow customizable sensor telemetry processing within the spatial graph. For example, a UDF can: 
-    - Set a sensor value. 
-    - Perform custom logic based on sensor readings, and set the output to a space. 
-    - Attach metadata to a space. 
-    - Send notifications when predefined conditions are met. Currently, UDFs can be written in JavaScript.
+- **User-defined functions** (UDFs) allow customizable sensor telemetry processing within the spatial graph. For example, a UDF can:
+  - Set a sensor value.
+  - Perform custom logic based on sensor readings, and set the output to a space.
+  - Attach metadata to a space.
+  - Send notifications when predefined conditions are met. Currently, UDFs can be written in JavaScript.
 - **Matchers** are objects that determine which UDFs are executed for a given telemetry message.
 - **Endpoints** are the locations where telemetry messages and Digital Twins events can be routed, for example, `Event Hub`, `Service Bus`, and `Event Grid`.
 
@@ -74,13 +74,13 @@ If you deploy a Digital Twins service in your subscription, you become the globa
 After you deploy Digital Twins from the [Azure portal](https://portal.azure.com), the [Swagger](https://swagger.io/tools/swagger-ui/) URL of the Management APIs is automatically generated. It's displayed in the Azure portal in the **Overview** section with the following format.
 
 ```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
+https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Custom attribute name | Replace with |
+| Name | Replace with |
 | --- | --- |
-| **yourInstanceName** | The name of your Digital Twins instance |
-| **yourLocation** | Which server region your instance is hosted on |
+| YOUR_INSTANCE_NAME | The name of your Digital Twins instance |
+| YOUR_LOCATION | Which server region your instance is hosted on |
 
  The full URL format appears in this image.
 
@@ -98,9 +98,9 @@ All API calls must be authenticated by using [OAuth](https://docs.microsoft.com/
 
 ## Next steps
 
-* To learn about device connectivity and how to send telemetry messages to Digital Twins, read [Azure Digital Twins device connectivity and telemetry ingress](concepts-device-ingress.md).
+- To learn about device connectivity and how to send telemetry messages to Digital Twins, read [Azure Digital Twins device connectivity and telemetry ingress](concepts-device-ingress.md).
 
-* To learn about Management API limitations and throttles, read [Azure Digital Twins API management and limitations](concepts-service-limits.md).
+- To learn about Management API limitations and throttles, read [Azure Digital Twins API management and limitations](concepts-service-limits.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png

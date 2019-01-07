@@ -48,7 +48,7 @@ Creating and managing test environments across an enterprise can require a signi
 
 - Testers can test the latest version of their application by quickly provisioning Windows and Linux environments by using reusable templates and artifacts.
 - Testers can scale up their load testing by provisioning multiple test agents
-- Admins can connect the lab to VSTS to enable DevOps scenarios
+- Admins can connect the lab to Azure DevOps to enable DevOps scenarios
 - Administrators can control costs by ensuring that:
     - Testers cannot get more VMs than they need
     - VMs are shut down when not in use

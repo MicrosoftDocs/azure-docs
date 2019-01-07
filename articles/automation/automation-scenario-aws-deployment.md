@@ -19,7 +19,7 @@ For the purposes of this article, you need to have an Azure Automation account a
 ## Deploy Amazon Web Services PowerShell Module
 Your VM provisioning runbook leverages the AWS PowerShell module to do its work. Perform the following steps to add the module to your Automation account that is configured with your AWS subscription credentials.  
 
-1. Open your web browser and navigate to the [PowerShell Gallery](http://www.powershellgallery.com/packages/AWSPowerShell/) and click on the **Deploy to Azure Automation button**.<br><br> ![AWS PS Module Import](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
+1. Open your web browser and navigate to the [PowerShell Gallery](https://www.powershellgallery.com/packages/AWSPowerShell/) and click on the **Deploy to Azure Automation button**.<br><br> ![AWS PS Module Import](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
 2. You are taken to the Azure login page and after authenticating, you will be routed to the Azure portal and presented with the following page:<br><br> ![Import Module page](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
 3. Select the Automation Account to use and click **OK** to start deployment.
 
@@ -35,11 +35,11 @@ Your VM provisioning runbook leverages the AWS PowerShell module to do its work.
 Once the AWS PowerShell Module has been deployed, you can now author a runbook to automate provisioning a virtual machine in AWS using a PowerShell script. The steps below demonstrate how to leverage native PowerShell script in Azure Automation.  
 
 > [!NOTE]
-> For further options and information regarding this script, please visit the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-AwsVM/DisplayScript).
+> For further options and information regarding this script, please visit the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-AwsVM/).
 > 
 
 1. Download the PowerShell script New-AwsVM from the PowerShell Gallery by opening a PowerShell session and typing the following:<br>
-   ```
+   ```powershell
    Save-Script -Name New-AwsVM -Path <path>
    ```
    <br>
@@ -54,11 +54,12 @@ Once the AWS PowerShell Module has been deployed, you can now author a runbook t
     > 
     > * The runbook contains a number of default parameter values. Evaluate all default values and update where necessary.
     > * If you have stored your AWS credentials as a credential asset named differently than **AWScred**, you need to update the script on line 57 to match accordingly.  
-    > * When working with the AWS CLI commands in PowerShell, especially with this example runbook, you must specify the AWS region. Otherwise, the cmdlets fail. View AWS topic [Specify AWS Region](http://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) in the AWS Tools for PowerShell document for further details.  
+    > * When working with the AWS CLI commands in PowerShell, especially with this example runbook, you must specify the AWS region. Otherwise, the cmdlets fail. View AWS topic [Specify AWS Region](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) in the AWS Tools for PowerShell document for further details.  
     >
 
 7. To retrieve a list of image names from your AWS subscription, launch PowerShell ISE and import the AWS PowerShell Module. Authenticate against AWS by replacing **Get-AutomationPSCredential** in your ISE environment with **AWScred = Get-Credential**. This prompts you for your credentials and you can provide your **Access Key ID** for the username and **Secret Access Key** for the password. See the example below:  
 
+        ```powershell
         #Sample to get the AWS VM available images
         #Please provide the path where you have downloaded the AWS PowerShell module
         Import-Module AWSPowerShell
@@ -72,7 +73,8 @@ Once the AWS PowerShell Module has been deployed, you can now author a runbook t
         Set-DefaultAWSRegion -Region $AwsRegion
    
         Get-EC2ImageByName -ProfileName AWSProfile
-
+        ```
+        
     The following output is returned:<br><br>
    ![Get AWS images](./media/automation-scenario-aws-deployment/powershell-ise-output.png)<br>  
 8. Copy and paste the one of the image names in an Automation variable as referenced in the runbook as **$InstanceType**. Since in this example you are using the free AWS tiered subscription, you use **t2.micro** for your runbook example.  

@@ -83,7 +83,7 @@ To mount a file share with SMB, see the following document based on your OS:
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### Using an Azure file share with the File REST protocol 
-It is possible work directly with the File REST protocol directly (i.e. handcrafting REST HTTP calls yourself), but the most common way to use the File REST protocol is to use the Azure CLI, the [AzureRM PowerShell module](storage-how-to-use-files-powershell.md), or an Azure Storage SDK, all of which provide a nice wrapper around the File REST protocol in the scripting/programming language of your choice.  
+It is possible work directly with the File REST protocol directly (i.e. handcrafting REST HTTP calls yourself), but the most common way to use the File REST protocol is to use the Azure CLI, the [Azure PowerShell module](storage-how-to-use-files-powershell.md), or an Azure Storage SDK, all of which provide a nice wrapper around the File REST protocol in the scripting/programming language of your choice.  
 
 We expect most uses of Azure Files will want to work with their Azure file share over the SMB protocol, as this allows them to use the existing applications and tools they expect to be able to use, but there are several reasons why it is advantageous to use the File REST API rather than SMB, such as:
 
@@ -91,7 +91,7 @@ We expect most uses of Azure Files will want to work with their Azure file share
 - You need to execute a script or application from a client which cannot mount an SMB shares, such as on-premises clients which do not have port 445 unblocked.
 - You are taking advantage of serverless resources, such as [Azure Functions](../../azure-functions/functions-overview.md). 
 
-The following examples show how to use the AzureRM PowerShell module to manipulate your Azure file share with the File REST protocol. 
+The following examples show how to use the Azure CLI to manipulate your Azure file share with the File REST protocol. 
 
 ### Create a directory
 To create a new directory named *myDirectory* at the root of your Azure file share, use the [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create) command:

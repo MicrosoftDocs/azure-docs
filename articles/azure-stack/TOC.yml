@@ -8,14 +8,14 @@
     items:
     - name: Recent updates
       href: azure-stack-servicing-policy.md#update-package-release-cadence 
+    - name: 1811 update 
+      href: azure-stack-update-1811.md      
     - name: 1809 update 
       href: azure-stack-update-1809.md
     - name: 1808 update 
       href: azure-stack-update-1808.md 
     - name: 1807 update 
       href: azure-stack-update-1807.md 
-    - name: 1805 update
-      href: azure-stack-update-1805.md
 - name: Quickstarts
   expanded: true
   items:
@@ -29,7 +29,7 @@
     href: azure-stack-tutorial-sql-server.md
   - name: Offer highly available SQL databases
     href: azure-stack-tutorial-sql.md
-  - name: Offer highly available MyQL databases
+  - name: Offer highly available MySQL databases
     href: azure-stack-tutorial-mysql.md
   - name: Offer Web Apps
     href: azure-stack-tutorial-app-service.md
@@ -45,6 +45,7 @@
     - name: Azure Stack Capacity Planner
       href: capacity-planning-spreadsheet.md
   - name: Datacenter integration
+    href: azure-stack-customer-journey.md
     items:
     - name: General Azure Stack integration considerations
       href: azure-stack-datacenter-integration.md
@@ -145,7 +146,7 @@
         href: azure-stack-powershell-install.md
       - name: Download tools
         href: azure-stack-powershell-download.md
-      - name: Configure PowerShell - Cloud operator
+      - name: Connect with PowerShell
         href: azure-stack-powershell-configure-admin.md
     - name: Access privileged endpoint
       href: azure-stack-privileged-endpoint.md
@@ -207,6 +208,8 @@
         href: Azure-stack-create-service-principals.md
       - name: Enable multi-tenancy
         href: azure-stack-enable-multitenancy.md
+    - name: Data at rest encryption
+      href: azure-stack-security-bitlocker.md
     - name: Rotate secrets
       href: azure-stack-rotate-secrets.md
     - name: Update antivirus
@@ -254,6 +257,10 @@
         href: azure-stack-sql-resource-provider-maintain.md                  
       - name: Remove the SQL Server resource provider
         href: azure-stack-sql-resource-provider-remove.md 
+      - name: SQL resource provider release notes
+        items:
+        - name: SQL resource provider 1.1.30.0 release notes
+          href: azure-stack-sql-resource-provider-11300.md 
   - name: Offer MySQL as PaaS
     href: azure-stack-mysql-resource-provider.md
     items:
@@ -269,6 +276,10 @@
       href: azure-stack-mysql-resource-provider-maintain.md
     - name: Remove the MySQL Server resource provider
       href: azure-stack-mysql-resource-provider-remove.md
+    - name: MySQL resource provider release notes
+      items:
+      - name: MySQL resource provider 1.1.30.0 release notes
+        href: azure-stack-mysql-resource-provider-11300.md
   - name: Offer App Service as PaaS
     href: azure-stack-app-service-overview.md
     items:

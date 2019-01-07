@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Deny hybrid use benefit
+title: Sample - Deny hybrid use benefit
 description: This sample policy prohibits use of Azure Hybrid Use Benefit (AHUB).
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Deny hybrid use benefit
 

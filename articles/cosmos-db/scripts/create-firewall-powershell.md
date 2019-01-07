@@ -1,20 +1,14 @@
 ---
-title: Azure PowerShell Script-Create a firewall for Azure Cosmos DB | Microsoft Docs
+title: Azure PowerShell Script-Create a firewall for Azure Cosmos DB
 description: Azure PowerShell Script Sample - Create a firewall for Azure Cosmos DB
-services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
-
 ms.service: cosmos-db
-ms.custom: mvc
+author: SnehaGunda
+ms.author: sngun
+ms.subservice: cosmosdb-sql
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 ms.date: 05/10/2017
-ms.author: sngun
+ms.reviewer: sngun
 ---
 
 # Azure Cosmos DB: Create a firewall using PowerShell

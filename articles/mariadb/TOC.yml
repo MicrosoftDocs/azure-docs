@@ -23,6 +23,10 @@
       href: tutorial-design-database-using-portal.md
     - name: Azure CLI
       href: tutorial-design-database-cli.md
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: sample-scripts-azure-cli.md
 - name: Concepts
   items:
   - name: DB & Servers
@@ -45,6 +49,8 @@
       href: concepts-firewall-rules.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
+    - name: VNet
+      href: concepts-data-access-security-vnet.md 
   - name: Business continuity
     items:
     - name: Overview
@@ -113,6 +119,12 @@
       href: howto-troubleshoot-common-connection-issues.md
     - name: Troubleshoot query performance
       href: howto-troubleshoot-query-performance.md
+  - name: Virtual Network
+    items:
+    - name: Azure portal
+      href: howto-manage-vnet-portal.md
+    - name: Azure CLI
+      href: howto-manage-vnet-cli.md
 - name: Reference
   items:
   - name: REST API

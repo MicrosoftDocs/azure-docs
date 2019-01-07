@@ -127,6 +127,7 @@ and sometimes, dictionaries, you can use these collection functions.
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Check whether a collection is empty. | 
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Return the first item from a collection. | 
 | [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Return a collection that has *only* the common items across the specified collections. | 
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | When inside a repeating action over an array, return the current item in the array during the action's current iteration. | 
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Return a string that has *all* the items from an array, separated by the specified character. | 
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Return the last item from a collection. | 
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. | 
@@ -1840,7 +1841,7 @@ equals('abc', 'abcd')
 And returns these results: 
 
 * First example: Both values are equivalent, so the function returns `true`.
-* Second exmaple: Both values aren't equivalent, so the function returns `false`.
+* Second example: Both values aren't equivalent, so the function returns `false`.
 
 <a name="first"></a>
 
@@ -1875,7 +1876,7 @@ first(createArray(0, 1, 2))
 And return these results: 
 
 * First example: `"h"`
-* Second exmaple: `0`
+* Second example: `0`
 
 <a name="float"></a>
 
@@ -4263,7 +4264,7 @@ xml('<value>')
 This example creates the XML version for this string, 
 which contains a JSON object: 
 
-`xml( '{ \"name\": \"Sophia Owen\" }' )`
+`xml(json('{ \"name\": \"Sophia Owen\" }'))`
 
 And returns this result XML: 
 
@@ -4286,7 +4287,7 @@ Suppose you have this JSON object:
 
 This example creates XML for a string that contains this JSON object:
 
-`xml( '{ \"person\": { \"name\": \"Sophia Owen\", \"city\": \"Seattle\" } }' )`
+`xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
 
 And returns this result XML: 
 

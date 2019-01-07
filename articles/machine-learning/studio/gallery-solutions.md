@@ -1,13 +1,13 @@
 ---
-title: Azure AI Gallery Solutions | Microsoft Docs
-description: Discover Solutions in the Azure AI Gallery.
+title: Azure AI Gallery Solutions - Azure Machine Learning Studio | Microsoft Docs
+description: Discover Solutions in the Azure AI Gallery. A Solution provides a jumpstart to quickly build Cortana Intelligence Solutions from preconfigured solutions, reference architectures, and design patterns.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
+author: ericlicoding
+ms.custom: seodec18
+ms.author: amlstudiodocs
 
+editor: cgronlun
 ms.assetid: c0be3f10-9e54-4fc1-b5df-725c2e919f65
 ms.service: machine-learning
 ms.component: studio
@@ -16,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-
 ---
 # Discover Solutions in the Azure AI Gallery
 
@@ -59,5 +58,5 @@ If you want to use a Solution, click **Deploy**. Follow the steps presented to c
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

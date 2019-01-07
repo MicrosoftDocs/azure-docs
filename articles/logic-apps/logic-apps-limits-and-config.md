@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.author: estfan
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 11/16/2018
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -96,7 +96,7 @@ Here are the limits for a single logic app run:
 | Trigger concurrency | 50 | The default limit is 20. This limit describes the maximum number of logic app instances that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change trigger concurrency](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
 | Maximum waiting runs | 100 | The default limit is 10. This limit describes the maximum number of logic app instances that can wait to run when your logic app is already running the maximum concurrent instances. <p><p>To change the default limit to a value between 0 and 100 inclusively, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
 | Foreach items | 100,000 | This limit describes the maximum number of array items that a "for each" loop can process. <p><p>To filter larger arrays, you can use the [query action](../connectors/connectors-native-query.md). | 
-| Foreach iterations | 50 | The default limit is 20. This limit describes the maximum number of "for each" loop iterations that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change "for each" concurrency](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| Foreach concurrency | 50 | The default limit is 20. This limit describes the maximum number of "for each" loop iterations that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change "for each" concurrency](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | SplitOn items | 100,000 | | 
 | Until iterations | 5,000 | | 
 |||| 
@@ -344,10 +344,13 @@ based on where your logic apps exist:
 ### Managed connectors
 
 To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, 
-set up your firewall configurations so they include these outbound IP addresses, 
-based on the regions where your logic apps exist.
+set up your firewall configurations so they include all the outbound IP addresses specified 
+for the regions where your logic apps exist. For [Azure Government](/azure-government/documentation-government-welcome) 
+and [Azure China 21Vianet](/azure/china/china-welcome), reserved IP addresses for connectors 
+aren't currently available.
 
 > [!IMPORTANT]
+> 
 > If you have existing configurations, please update them 
 > **as soon as possible before September 1, 2018** so they 
 > include and match the IP addresses in this list for the 

@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: java
 author: lgayhardt
 manager: carmonm
-
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-
 ---
 # How to use Micrometer with Azure Application Insights Java SDK
 Micrometer application monitoring measures metrics for JVM-based application code and lets you export the data to your favorite monitoring systems. This article will teach you how to use Micrometer with Application Insights for both Spring Boot and non-Spring Boot applications.
@@ -24,7 +21,7 @@ Add the following dependencies to your pom.xml or build.gradle file:
 * [Application Insights spring-boot-starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-BETA or above
 * Micrometer Azure Registry 1.1.0 or above
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 or above (this backports the autoconfig code in the Spring framework).
-* [ApplicationInsights Resource](app-insights-create-new-resource.md)
+* [ApplicationInsights Resource](../azure-monitor/app/create-new-resource.md )
 
 Steps
 
@@ -62,7 +59,7 @@ Add the following dependencies to your pom.xml or build.gradle file:
 
 * Application Insights Spring-boot-starter 2.1.2 or above
 * Azure-spring-boot-metrics-starters 2.0.7 or above  
-* [Application Insights Resource](app-insights-create-new-resource.md)
+* [Application Insights Resource](../azure-monitor/app/create-new-resource.md )
 
 Steps:
 
@@ -123,7 +120,7 @@ Add the following dependencies to your pom.xml or build.gradle file:
 * [Application Insights Web 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/2.2.0) or above
 * [Register Web Filter](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * Micrometer Azure Registry 1.1.0 or above
-* [Application Insights Resource](app-insights-create-new-resource.md)
+* [Application Insights Resource](../azure-monitor/app/create-new-resource.md )
 
 Steps:
 
@@ -225,7 +222,7 @@ Steps:
 
 To learn more about metrics, refer to the [Micrometer documentation](https://micrometer.io/docs/).
 
-Other sample code on how to create different types of metrics can be found in[the official Micrometer Github repo](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
+Other sample code on how to create different types of metrics can be found in[the official Micrometer GitHub repo](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
 
 ## How to bind additional metrics collection
 
@@ -239,7 +236,7 @@ Create a bean of the respective metric category. For example, say we need Guava 
 		Return new GuavaCacheMetrics();
 	}
 ```
-There are several metrics that are not enabled by default but can be bound in the above fashion. For a complete list, refer to [the official Micrometer Github repo](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
+There are several metrics that are not enabled by default but can be bound in the above fashion. For a complete list, refer to [the official Micrometer GitHub repo](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
 
 ### Non-Spring apps
 Add the following binding code to the configuration  file:

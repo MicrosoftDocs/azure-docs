@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
 
@@ -40,7 +40,7 @@ The following table summarizes the single sign-on methods, and links to more det
 | :------ | :------- | :----- |
 | [SAML](#saml-sso) | Cloud only | Use SAML whenever possible. SAML works when apps are configured to use one of the SAML protocols.|
 | [Password-based](#password-based-sso) | cloud and on-premises | Use when the application authenticates with username and password. Password-based single sign-on enables secure application password storage and replay using a web browser extension or mobile app. This method uses the existing sign-in process provided by the application, but enables an administrator to manage the passwords. |
-| [Linked](#linked-sso) | cloud and on-premises | Use linked single sign-on when the application is configured for single sign-on in another identify provider service. This option doesn't add single sign-on to the application. However, the application might already have single sign-on implemented using another service such as Active Directory Federation Services.|
+| [Linked](#linked-sso) | cloud and on-premises | Use linked single sign-on when the application is configured for single sign-on in another identity provider service. This option doesn't add single sign-on to the application. However, the application might already have single sign-on implemented using another service such as Active Directory Federation Services.|
 | [Disabled](#disabled-sso) | cloud and on-premises | Use disabled single sign-on when the app isn't ready to be configured for single sign-on. Users need to enter their username and password every time they launch this application.|
 | [Integrated Windows Authentication (IWA)](#integrated-windows-authentication-iwa-sso) | on-premises only | Use this single sign-on method for applications that use [Integrated Windows Authentication (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), or claims-aware applications. The Application Proxy connectors use Kerberos Constrained Delegation (KCD) to authenticate users to the application. | 
 | [Header-based](#header-based-sso) | on-premises only | Use header-based single sign-on when the application uses headers for authentication. Header-based single sign-on requires PingAccess for Azure Active Directory. Application Proxy uses Azure AD to authenticate the user and then passes traffic through the connector service.  | 
@@ -57,14 +57,13 @@ SAML-based single sign-on is supported for applications that use any of these pr
 
 - SAML 2.0
 - WS-Federation
-- OpenID connect
 
 To configure an application for SAML-based single sign-on, see [Configure SAML-based single sign-on](configure-single-sign-on-portal.md). Also, many applications have [application-specific tutorials](../saas-apps/tutorial-list.md) that step you through configuring SAML-based single sign-on for specific applications. 
 
 For more information about how the SAML protocol works, see [Single sign-on SAML protocol](../develop/single-sign-on-saml-protocol.md).
 
 ## Password-based SSO
-With password-based sign-on, the application authenticates to the application with a username and password. End-users sign in to the application the first time they access it. After the first sign-on, Azure Active Directory supplies the username and password to the application. 
+With password-based sign-on, end-users sign in to the application with a username and password the first time they access it. After the first sign-on, Azure Active Directory supplies the username and password to the application. 
 
 Password-based single sign-on uses the existing authentication process provided by the application. When you enable password single sign-on for an application, Azure AD collects and securely stores user names and passwords for the application. User credentials are stored in an encrypted state in the directory. 
 
@@ -174,6 +173,6 @@ For more information, see [Azure Active Directory editions](../fundamentals/acti
 * [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Tutorial for configuring single sign-on](configure-single-sign-on-portal.md)
 * [Introduction to Managing Access to applications](what-is-access-management.md)
-* Download link: [Single sign-on deployment plan](http://aka.ms/SSODeploymentPlan).
+* Download link: [Single sign-on deployment plan](https://aka.ms/SSODeploymentPlan).
 
 

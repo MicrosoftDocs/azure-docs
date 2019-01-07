@@ -81,15 +81,42 @@ Run the following cmdlets from an elevated PowerShell terminal:
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
+### CLI
+Run the following commands from a shell:
+1.	Sign in to your Azure account:
+
+    ```
+    az login
+    ```
+
+2.	Select the subscription that you want to register:
+
+    ```
+    az account set --subscription "Subscription Name"
+    ```
+
+3.	Register this subscription:
+
+    ```
+    az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+    ```
 
 ## Verify that the upgrade is finished
+### PowerShell
 From an elevated PowerShell terminal, run the following cmdlet:
 
 ```
-Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
+Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
 ```
 
-If it says "Registered," then your subscription is upgraded to VM backup stack Resource Manager deployment model.
+### CLI
+From ashell, run the following command:
+
+```
+az feature show --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+```
+
+If it says "Registered," then your subscription is upgraded to V2 backup stack.
 
 ## Frequently asked questions
 
@@ -115,3 +142,6 @@ Incremental snapshots are used for unmanaged disks. For managed disks, restore p
 
 ### How to get standard SSD managed disk support for a virtual machine?
 Upgrade to Azure VM Backup stack V2 to get Azure Backup support for the [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
+
+### What happens if I select retention period of restore point (Tier 2) less than snapshot (Tier1)?
+The VM backup stack v2  does not allow deleting the restore point (Tier2) unless the snapshot (Tier1) is deleted. Currently we support 7 days retention period for snapshot (Tier1) deletion, so the restore point (Tier2) retention period for less than 7 days is not honored. We recommend scheduling restore point (Tier2) retention period greater than 7 days.

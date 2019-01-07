@@ -59,7 +59,7 @@ import org.json.JSONObject;
 
 ### Add essential fields
 
-Add the following fields to the **Main** class. This data specifies how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `uriBase` string so that it contains the correct region identifier. You may also wish to set the `imageWithFaces` value to a path that points to a different image file.
+Add the following fields to the **Main** class. This data specifies how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `uriBase` string so that it contains the correct region identifier (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints). You may also wish to set the `imageWithFaces` value to a path that points to a different image file.
 
 The `faceAttributes` field is simply a list of certain types of attributes. It will specify which information to retrieve about the detected faces.
 
@@ -72,7 +72,7 @@ private static final String subscriptionKey = "<Subscription Key>";
 // subscription keys from westus, replace "westcentralus" in the URL
 // below with "westus".
 //
-// Free trial subscription keys are generated in the westcentralus region. If you
+// Free trial subscription keys are generated in the "westus" region. If you
 // use a free trial subscription key, you shouldn't need to change this region.
 private static final String uriBase =
     "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
