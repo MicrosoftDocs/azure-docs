@@ -91,7 +91,7 @@ private static async Task UploadFilesAsync()
         int max_outstanding = 100;
         int completed_count = 0;
 
-        // Define the BlobRequestionOptions on the upload.
+        // Define the BlobRequestOptions on the upload.
         // This includes defining an exponential retry policy to ensure that failed connections are retried with a backoff policy. As multiple large files are being uploaded
         // large block sizes this can cause an issue if an exponential retry policy is not defined.  Additionally parallel operations are enabled with a thread count of 8
         // This could be should be multiple of the number of cores that the machine has. Lastly MD5 hash validation is disabled for this example, this improves the upload speed.
@@ -192,6 +192,6 @@ In part two of the series, you learned about uploading large amounts of random d
 Advance to part three of the series to download large amounts of data from a storage account.
 
 > [!div class="nextstepaction"]
-> [Upload large amounts of large files in parallel to a storage account](storage-blob-scalable-app-download-files.md)
+> [Download large amounts of random data from Azure storage](storage-blob-scalable-app-download-files.md)
 
 [previous-tutorial]: storage-blob-scalable-app-create-vm.md

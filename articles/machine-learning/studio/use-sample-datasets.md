@@ -1,13 +1,13 @@
 ---
-title: Use the sample datasets in Machine Learning Studio | Microsoft Docs
+title: Use the sample datasets - Azure Machine Learning Studio | Microsoft Docs
 description: Descriptions of the datasets used in sample models included in Machine Learning Studio. You can use these sample datasets for your experiments.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
+author: ericlicoding
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: amlstudiodocs
 
+editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
 ms.component: studio
@@ -16,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-
 ---
 # Use the sample datasets in Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -29,7 +28,7 @@ The rest of these sample datasets are available in your workspace under **Saved 
 You can use any of these datasets in your own experiment by dragging it to your experiment canvas.
 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <table>
 

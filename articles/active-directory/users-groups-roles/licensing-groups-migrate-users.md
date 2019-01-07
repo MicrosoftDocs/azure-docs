@@ -13,7 +13,7 @@
   ms.topic: article
   ms.workload: identity
   ms.component: users-groups-roles
-  ms.date: 01/14/2018
+  ms.date: 10/29/2018
   ms.author: curtand
 
   ms.custom: seohack1
@@ -83,7 +83,9 @@ Here is what the migration process could look like:
 
 To learn more about other scenarios for license management through groups, read
 
-* [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
 * [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
 * [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
+* [How to migrate users between product licenses using group-based licensing in Azure Active Directory](licensing-groups-change-licenses.md)
 * [Azure Active Directory group-based licensing additional scenarios](licensing-group-advanced.md)
+* [PowerShell examples for group-based licensing in Azure Active Directory](licensing-ps-examples.md)

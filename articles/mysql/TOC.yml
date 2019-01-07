@@ -39,6 +39,8 @@
       href: tutorial-design-database-using-portal.md
     - name: Azure CLI
       href: tutorial-design-database-using-cli.md
+    - name: Azure Resource Manager template
+      href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
   - name: 2 - Create a Web App
     items:
     - name: Wordpress - Portal
@@ -73,7 +75,7 @@
       href: concepts-firewall-rules.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
-      name: Advanced Threat Protection
+    - name: Advanced Threat Protection
       href: concepts-data-access-and-security-threat-protection.md
     - name: VNet
       href: concepts-data-access-and-security-vnet.md 
@@ -95,6 +97,10 @@
       href: concepts-compatibility.md
     - name: Application development
       href: concepts-database-application-development.md
+    - name: Connection resiliency
+      href: concepts-connectivity.md
+    - name: Develop with Azure Kubernetes Service (AKS)
+      href: concepts-aks.md
   - name: Replication
     items:
     - name: Data-in replication
@@ -159,13 +165,17 @@
       href: howto-data-in-replication.md
     - name: Create read replicas Azure portal
       href: howto-read-replicas-portal.md
+    - name: Create read replicas Azure CLI
+      href: howto-read-replicas-cli.md
   - name: Troubleshoot
     items:
+    - name: Troubleshoot connection errors
+      href: howto-troubleshoot-common-connection-issues.md
     - name: Troubleshoot query performance
       href: howto-troubleshoot-query-performance.md
     - name: How to use views in sys schema
       href: howto-troubleshoot-sys-schema.md
-    name: Advanced Threat Protection
+  - name: Advanced Threat Protection
     items:
     - name: Azure portal
       href: howto-database-threat-protection-portal.md
@@ -175,6 +185,10 @@
       href: howto-manage-vnet-using-portal.md
     - name: Azure CLI
       href: howto-manage-vnet-using-cli.md
+  - name: Restart server
+    items:
+    - name: Azure portal
+      href: howto-restart-server-portal.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -194,7 +208,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-database-mysql
+    href: https://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Videos
     items:
     - name: Product videos

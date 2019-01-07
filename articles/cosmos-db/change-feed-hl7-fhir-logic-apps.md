@@ -1,13 +1,9 @@
 ---
-title: Change feed for HL7 FHIR resources - Azure Cosmos DB | Microsoft Docs
+title: Change feed for HL7 FHIR resources - Azure Cosmos DB
 description: Learn how to set up change notifications for HL7 FHIR patient health care records using Azure Logic Apps, Azure Cosmos DB, and Service Bus.
-keywords: hl7 fhir
-services: cosmos-db
 author: SnehaGunda
-manager: kfile
-
 ms.service: cosmos-db
-ms.devlang: na
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
@@ -22,7 +18,7 @@ This article walks through the change feed notification solution created for thi
 
 ## Project requirements
 - Providers send HL7 Consolidated-Clinical Document Architecture (C-CDA) documents in XML format. C-CDA documents encompass just about every type of clinical document, including clinical documents such as family histories and immunization records, as well as administrative, workflow, and financial documents. 
-- C-CDA documents are converted to [HL7 FHIR Resources](http://hl7.org/fhir/2017Jan/resourcelist.html) in JSON format.
+- C-CDA documents are converted to [HL7 FHIR Resources](https://hl7.org/fhir/2017Jan/resourcelist.html) in JSON format.
 - Modified FHIR resource documents are sent by email in JSON format.
 
 ## Solution workflow 
@@ -134,7 +130,7 @@ We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/li
 	        /// <returns></returns>
 	        [Metadata("Get New or Modified FHIR Documents",
 	            "Query for new or modifed FHIR Documents By Resource Type " +
-	            "from Last Run Date or Begining of Collection creation"
+	            "from Last Run Date or Beginning of Collection creation"
 	        )]
 	        [SwaggerResponse(HttpStatusCode.OK, type: typeof(Task<dynamic>))]
 	        [SwaggerResponse(HttpStatusCode.NotFound, "No New or Modifed Documents found")]

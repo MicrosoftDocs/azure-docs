@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 10/29/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -74,7 +74,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="openvwan"></a>2. Create a virtual WAN
 
-From a browser, navigate to the [Azure portal (Preview)](http://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
+From a browser, navigate to the [Azure portal (Preview)](https://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
@@ -106,12 +106,13 @@ A P2S configuration defines the parameters for connecting remote clients.
 
 ## <a name="hub"></a>5. Edit hub assignment
 
-1. On the page for your virtual WAN, click **Point-to-site configurations**.
-2. Under **Hub**, you see a list of configurations that haven't yet been connected to a hub.
-3. Select the configuration that you want to associate and click **Edit hub assignment**
-4. From the dropdown, select the hub(s) that you want to associate the configuration to.
-5. Click **Assign**. 
-6. The operation will can take upto 30 minutes to complete.
+1. On the page for your virtual WAN, click **Hubs**.
+2. Select the hub that you want to assign the point-to-site configuration to.
+3. Click **"..."** and pick **Edit virtual hub**
+4. Check **Include point-to-site gateway**.
+5. Pick the **Gateway scale units** and the **Point-to-site configuration** along with an **Address pool** for the clients.
+6. Click **Confirm**. 
+7. The operation can take upto 30 minutes to complete.
 
 ## <a name="vnet"></a>6. Connect your VNet to a hub
 
@@ -130,9 +131,10 @@ In this step, you create the peering connection between your hub and a VNet. Rep
 
 Use the VPN profile to configure your clients.
 
-1. On the page for your virtual WAN, click **Point-to-site configurations**.
-2. At the top of the  page, click **Download point-to-site profile**. 
-3. Once the file has finished creating, you can click the link to download it.
+1. On the page for your virtual WAN, click **Hubs**.
+2. Select the hub that you want to download the profile for.
+3. Click **"..."** and pick **Download profile**. 
+4. Once the file has finished creating, you can click the link to download it.
 4. Use the profile file to configure the point-to-site clients.
 
 ## <a name="device"></a>8. Configure point-to-site clients

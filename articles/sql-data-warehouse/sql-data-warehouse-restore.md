@@ -22,10 +22,6 @@ In this article you will learn how to do the following in the Azure portal and P
 - Restore from a geo-backup
 - Create a copy of your data warehouse from a user-defined restore point
 
-> [!NOTE]
-> As of 8/27, cross-server restore has been disabled due to a known regression. We are actively working on a fix at our highest priority. We apologize for this inconvenience. In the meantime, you can leverage your [geo-backup](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore#restore-from-an-azure-geographical-region) to restore across servers.  
->
-
 ## Before you begin
 **Verify your DTU capacity.** Each SQL Data Warehouse is hosted by a SQL server (e.g. myserver.database.windows.net) which has a default DTU quota.  Before you can restore a SQL data warehouse, verify that the your SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change][Request a DTU quota change].
 

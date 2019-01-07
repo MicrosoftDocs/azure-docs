@@ -6,7 +6,7 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 10/22/2018
 author: swinarko
@@ -23,6 +23,9 @@ Join your Azure-SSIS integration runtime (IR) to an Azure virtual network in the
 - You are hosting the SQL Server Integration Services (SSIS) catalog database in Azure SQL Database with virtual network service endpoints/Managed Instance. 
 
  Azure Data Factory lets you join your Azure-SSIS integration runtime to a virtual network created through the classic deployment model or the Azure Resource Manager deployment model. 
+
+> [!IMPORTANT]
+> The classic virtual network is currently being deprecated, so please use the Azure Resource Manager virtual network instead.  If you already use the classic virtual network, please switch to use the Azure Resource Manager virtual network as soon as possible.
 
 ## Access to on-premises data stores
 If SSIS packages access only public cloud data stores, you don't need to join the Azure-SSIS IR to a virtual network. If SSIS packages access on-premises data stores, you must join the Azure-SSIS IR to a virtual network that is connected to the on-premises network. 
@@ -41,11 +44,13 @@ Here are a few important points to note:
 If the SSIS catalog is hosted in Azure SQL Database with virtual network service endpoints, or Managed Instance, you can join your Azure-SSIS IR to: 
 
 - The same virtual network 
-- A different virtual network that has a network-to-network connection with the one that is used for Azure SQL Database with virtual network service endpoints/Managed Instance 
+- A different virtual network that has a network-to-network connection with the one that is used for the Managed Instance 
 
-If you join your Azure-SSIS IR to the same virtual network as the Managed Instance, make sure that the Azure-SSIS IR is in a different subnet than the  Managed Instance. If you join the Azure-SSIS IR to a different virtual network than the Managed Instance, we recommend either virtual network peering (which is limited to the same region) or a virtual network to virtual network connection. See [Connect your application to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+If you host your SSIS catalog in Azure SQL Database with virtual network service endpoints, make sure that you join your Azure-SSIS IR to the same virtual network and subnet.
 
-The virtual network can be deployed through the classic deployment model or the Azure Resource Manager deployment model.
+If you join your Azure-SSIS IR to the same virtual network as the Managed Instance, make sure that the Azure-SSIS IR is in a different subnet than the Managed Instance. If you join your Azure-SSIS IR to a different virtual network than the Managed Instance, we recommend either virtual network peering (which is limited to the same region) or a virtual network to virtual network connection. See [Connect your application to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+
+In all cases, the virtual network can only be deployed through the Azure Resource Manager deployment model.
 
 The following sections provide more details. 
 
@@ -68,13 +73,13 @@ The following sections provide more details.
 
 The user who creates the Azure-SSIS Integration Runtime must have the following permissions:
 
-- If you're joining the SSIS IR to an Azure virtual network of the current version, you have two options:
+- If you're joining your SSIS IR to an Azure Resource Manager virtual network, you have two options:
 
-  - Use the built-in role *Network Contributor*. This role requires the  *Microsoft.Network/\** permission, however, which has a much larger scope.
+  - Use the built-in *Network Contributor* role. This role comes with the *Microsoft.Network/\** permission, which has a much larger scope than necessary.
 
-  - Create a custom role that includes the permission *Microsoft.Network/virtualNetworks/\*/join/action*. 
+  - Create a custom role that includes only the necessary *Microsoft.Network/virtualNetworks/\*/join/action* permission. 
 
-- If you're joining the SSIS IR to a classic Azure virtual network, we recommend that you use the built-in role *Classic Virtual Machine Contributor*. Otherwise you have to define a custom role that includes permission to join the virtual network.
+- If you're joining your SSIS IR to a classic virtual network, we recommend that you use the built-in *Classic Virtual Machine Contributor* role. Otherwise you have to define a custom role that includes the permission to join the virtual network.
 
 ### <a name="subnet"></a> Select the subnet
 -   Do not select the GatewaySubnet for deploying an Azure-SSIS Integration Runtime, because it is dedicated for virtual network gateways. 
@@ -188,19 +193,21 @@ You need to configure a virtual network before you can join an Azure-SSIS IR to 
 
 1. Join **MicrosoftAzureBatch** to the **Classic Virtual Machine Contributor** role for the virtual network. 
 
-	a. Select **Access control (IAM)** on the left menu, and select **Add** on the toolbar. 
+	a. Select **Access control (IAM)** on the left menu, and select the **Role assignments** tab. 
 
 	!["Access control" and "Add" buttons](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-	b. On the **Add permissions** page, select **Classic Virtual Machine Contributor** for **Role**. Paste **ddbf3205-c6bd-46ae-8127-60eb93363864** in the **Select** box, and then select **Microsoft Azure Batch** from the list of search results. 
+    b. Select **Add role assignment**.
 
-	![Search results on "Add permissions" page](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+	c. On the **Add role assignment** page, select **Classic Virtual Machine Contributor** for **Role**. Paste **ddbf3205-c6bd-46ae-8127-60eb93363864** in the **Select** box, and then select **Microsoft Azure Batch** from the list of search results. 
 
-	c. Select **Save** to save the settings and to close the page. 
+	![Search results on "Add role assignment" page](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+
+	d. Select **Save** to save the settings and to close the page. 
 
 	![Save access settings](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
 
-	d. Confirm that you see **Microsoft Azure Batch** in the list of contributors. 
+	e. Confirm that you see **Microsoft Azure Batch** in the list of contributors. 
 
 	![Confirm Azure Batch access](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 

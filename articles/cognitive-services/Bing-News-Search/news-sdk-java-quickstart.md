@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Bing News Search SDK, Java"
+title: "Quickstart: Perform a news search - Bing News Search SDK for Java"
 titleSuffix: Azure Cognitive Services
-description: Learn how to set up the Bing News Search SDK console application.
+description: Use this quickstart to search for news using the Bing News Search SDK for Java, and process the response.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -11,10 +11,11 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
+ms.custom: seodec2018
 ---
 # Quickstart: Bing News Search SDK with Java
 
-The Bing News Search SDK provides the REST API functionality for news queries and parsing results. 
+The Bing News Search SDK provides the REST API functionality for news queries and parsing results.  Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
 
 The [source code for Java Bing News Search SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) is available on Git Hub.
 

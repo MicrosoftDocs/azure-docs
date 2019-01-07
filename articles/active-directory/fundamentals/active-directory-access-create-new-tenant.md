@@ -1,6 +1,6 @@
 ---
-title: Quickstart to access Azure Active Directory and to create a new tenant | Microsoft Docs
-description: Quickstart with steps about how to find Azure Active Directory and how to create a new tenant for your organization. 
+title: Quickstart to access and create a new tenant - Azure Active Directory | Microsoft Docs
+description: Instructions about how to find Azure Active Directory and how to create a new tenant for your organization. 
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,22 +11,15 @@ ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
-custom: it-pro
+ms.custom: "it-pro, seodec18"
 ---
 
-# Quickstart: Access Azure Active Directory to create a new tenant
+# Quickstart: Create a new tenant in Azure Active Directory
 You can do all of your administrative tasks using the Azure Active Directory (Azure AD) portal, including creating a new tenant for your organization. 
 
 In this quickstart, you'll learn how to get to the Azure portal and Azure Active Directory, and you'll learn how to create a basic tenant for your organization.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-
-## Prerequisites
-Before you begin, you'll need to:
-
-- Make sure your organization has a valid Azure AD license.
-
-- Make sure you're a Global administrator.
 
 ## Sign in to the Azure portal
 Sign in to your organization's [Azure portal](https://portal.azure.com/) using a Global administrator account.
@@ -72,3 +65,5 @@ If you’re not going to continue to use this application, you can delete the te
 - Add groups and members, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
 
 - Learn about [role-based access using Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) and [Conditional access](../../role-based-access-control/conditional-access-azure-management.md) to help manage your organization's application and resource access.
+
+- Learn about Azure AD, including [basic licensing information, terminology, and associated features](active-directory-whatis.md).

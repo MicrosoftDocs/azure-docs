@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.custom: vs-azure
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
@@ -332,7 +332,7 @@ Important points to note:
 		Get-AzureRmResourceProvider
 		```
 	- Login using the Azure subscription in to the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
-- The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+- The name of the data factory may be registered as a DNS name in the future and hence become publicly visible.
 - To create Data Factory instances, you need to be an admin or co-admin of the Azure subscription
 
 ### Monitor pipeline

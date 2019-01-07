@@ -112,7 +112,7 @@ To create a trusted certificate authority, use the [New-AzureADTrustedCertificat
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation
     $new_ca.AuthorityType=0
     $new_ca.TrustedCertificate=$cert
-    $new_ca.crlDistributionPoint=”<CRL Distribution URL>”
+    $new_ca.crlDistributionPoint="<CRL Distribution URL>"
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
 
 ### Remove

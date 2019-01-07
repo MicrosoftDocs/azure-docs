@@ -38,12 +38,12 @@ All resources in this solution belong to a single resource group.
 
 Before you start this tutorial, confirm the following:
 
-* You already have an Azure account. If you don't have one, [sign up for a trial account](http://azure.microsoft.com/pricing/free-trial/).
+* You already have an Azure account. If you don't have one, [sign up for a trial account](https://azure.microsoft.com/pricing/free-trial/).
 * You already know how to use the GUI to provision a SQL Server virtual machine from the virtual machine gallery. For more information, see [Provisioning a SQL Server virtual machine on Azure](virtual-machines-windows-portal-sql-server-provision.md).
-* You already have a solid understanding of availability groups. For more information, see [Always On availability groups (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
+* You already have a solid understanding of availability groups. For more information, see [Always On availability groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 > [!NOTE]
-> If you are interested in using availability groups with SharePoint, also see [Configure SQL Server 2012 Always On availability groups for SharePoint 2013](http://technet.microsoft.com/library/jj715261.aspx).
+> If you are interested in using availability groups with SharePoint, also see [Configure SQL Server 2012 Always On availability groups for SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 >
 >
 
@@ -121,7 +121,7 @@ On **VM size, storage settings**, choose a SQL Server virtual machine size, and 
 * **SQL Server virtual machine size** is the size for both virtual machines that run SQL Server. Choose an appropriate virtual machine size for your workload. If you are building this environment for the tutorial, use **DS2**. For production workloads, choose a virtual machine size that can support the workload. Many production workloads require **DS4** or larger. The template builds two virtual machines of this size and installs SQL Server on each one. For more information, see [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
-> Azure installs the Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [virtual machines pricing](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+> Azure installs the Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [virtual machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 >
 >
 
@@ -157,8 +157,8 @@ Additional optimizations depend on the size of the SQL Server data disks. For ea
 
 For additional information about storage space and storage pools, see:
 
-* [Storage Spaces Overview](http://technet.microsoft.com/library/hh831739.aspx)
-* [Windows Server Backup and Storage Pools](http://technet.microsoft.com/library/dn390929.aspx)
+* [Storage Spaces Overview](https://technet.microsoft.com/library/hh831739.aspx)
+* [Windows Server Backup and Storage Pools](https://technet.microsoft.com/library/dn390929.aspx)
 
 For more information about SQL Server configuration best practices, see
 [Performance best practices for SQL Server in Azure virtual machines](virtual-machines-windows-sql-performance.md).

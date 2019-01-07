@@ -1,12 +1,12 @@
----
+﻿---
 title: Understand the Azure IoT Hub query language | Microsoft Docs
 description: Developer guide - description of the SQL-like IoT Hub query language used to retrieve information about device/module twins and jobs from your IoT hub.
-author: fsautomata
+author: rezasherafat
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/26/2018
-ms.author: elioda
+ms.date: 10/29/2018
+ms.author: rezas
 ---
 
 # IoT Hub query language for device and module twins, jobs, and message routing
@@ -384,6 +384,11 @@ GROUP BY <group_by_element>
 **Attribute_name** refers to any property of the JSON document in the FROM collection.
 
 Currently, the GROUP BY clause is only supported when querying device twins.
+
+> [!IMPORTANT]
+> The term `group` is currently treated as a special keyword in queries. In case, you use `group` as your property name, consider surrounding it with double brackets to avoid errors, e.g., `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
+>
+>
 
 ## Expressions and conditions
 At a high level, an *expression*:

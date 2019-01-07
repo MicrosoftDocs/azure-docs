@@ -35,8 +35,6 @@
         href: azure-stack-solution-hybrid-identity.md
       - name: Configure hybrid cloud connectivity
         href: azure-stack-solution-hybrid-connectivity.md
-      - name: Create an edge machine learning solution
-        href: azure-stack-solution-machine-learning.md
       - name: Create a staged data analytics solution
         href: azure-stack-solution-staged-data-analytics.md
       - name: Create cross-cloud scaling solutions with Azure
@@ -126,6 +124,8 @@
         href: azure-stack-metrics-monitor.md
     - name: Solution templates
       items:
+      - name: Deploy Ethereum
+        href: azure-stack-ethereum.md
       - name: Deploy a Service Fabric cluster
         href: azure-stack-solution-template-service-fabric-cluster.md
       - name: Add Kubernetes cluster
@@ -134,6 +134,8 @@
           href: azure-stack-solution-template-kubernetes-deploy.md
         - name: Troubleshoot Kubernetes cluster
           href: azure-stack-solution-template-kubernetes-trouble.md
+      - name: Deploy Cognitive Services
+        href: azure-stack-solution-template-cognitive-services.md
   - name: Build apps
     items:
     - name: Develop for Azure Stack
@@ -143,7 +145,7 @@
       - name: Install Azure Stack PowerShell
         href: ../azure-stack-powershell-install.md
         maintainContext: true
-      - name: Configure PowerShell
+      - name: Connect with PowerShell
         href: azure-stack-powershell-configure-user.md
       - name: Download Azure Stack tools
         href: ../azure-stack-powershell-download.md
@@ -179,7 +181,7 @@
         href: azure-stack-develop-templates.md
       - name: Check templates
         href: azure-stack-validate-templates.md
-      - name: Deploy with the Portal
+      - name: Deploy with the portal
         href: azure-stack-deploy-template-portal.md
       - name: Deploy with PowerShell
         href: azure-stack-deploy-template-powershell.md

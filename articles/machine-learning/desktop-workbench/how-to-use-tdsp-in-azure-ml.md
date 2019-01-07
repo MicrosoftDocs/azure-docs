@@ -51,7 +51,7 @@ Review the following items *before* you create a new project:
 * The contents (other than what is already present in the "docs" folder) are required to be less than 25 MB in size. See the note that follows this list.
 * The sample\_data folder is only for small data files (less than 5 MB) with which you can test your code or start early development.
 * Storing files, such as Word and PowerPoint files, can increase the size of the "docs" folder substantially. We advise that you to find a collaborative Wiki, [SharePoint](https://products.office.com/sharepoint/collaboration), or other collaborative resource to store such files.
-* To learn how to handle large files and outputs in Machine Learning, read [Persisting changes and dealing with large files](http://aka.ms/aml-largefiles).
+* To learn how to handle large files and outputs in Machine Learning, read [Persisting changes and dealing with large files](https://aka.ms/aml-largefiles).
 
 > [!NOTE]
 > All documentation-related content (text, markdowns, images, and other document files) that is *not* used during project execution, other than the readme.md file, must reside in the folder named "docs" (all lowercase). The "docs" folder is a special folder ignored by Machine Learning execution so that the contents in this folder don't get copied to compute targets unnecessarily. Objects in this folder also don’t count toward the 25 MB cap for the project size. The "docs" folder, for example, is the place to store large image files needed in your documentation. These files are still tracked by Git through the run history. 

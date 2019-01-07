@@ -66,7 +66,7 @@ This section compares some of the fundamental queuing capabilities provided by S
 | Ordering guarantee |**No** <br/><br>For more information, see the first note in the “Additional Information” section.</br> |**Yes - First-In-First-Out (FIFO)**<br/><br>(through the use of messaging sessions) |
 | Delivery guarantee |**At-Least-Once** |**At-Least-Once**<br/><br/>**At-Most-Once** |
 | Atomic operation support |**No** |**Yes**<br/><br/> |
-| Receive behavior |**Non-blocking**<br/><br/>(completes immediately if no new message is found) |**Blocking with/without timeout**<br/><br/>(offers long polling, or the ["Comet technique"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non-blocking**<br/><br/>(through the use of .NET managed API only) |
+| Receive behavior |**Non-blocking**<br/><br/>(completes immediately if no new message is found) |**Blocking with/without timeout**<br/><br/>(offers long polling, or the ["Comet technique"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non-blocking**<br/><br/>(through the use of .NET managed API only) |
 | Push-style API |**No** |**Yes**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) and **OnMessage** sessions .NET API. |
 | Receive mode |**Peek & Lease** |**Peek & Lock**<br/><br/>**Receive & Delete** |
 | Exclusive access mode |**Lease-based** |**Lock-based** |

@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 10/07/2018
+ms.date: 10/15018
 ms.author: anvang
 ms.reviewer: igorstan
 ---
@@ -17,7 +17,7 @@ ms.reviewer: igorstan
 ## Portal
 A maintenance schedule can be updated or changed at any time. If the selected instance is going through an active maintenance cycle, the settings will be saved. They'll become active during the next identified maintenance period. [Learn more](https://docs.microsoft.com/azure/service-health/resource-health-overview) about monitoring your data warehouse during an active maintenance event. 
 
-While Azure maintenance schedules are in preview, you select two maintenance windows during a seven-day period. Each maintenance window can be three to eight hours. Maintenance can occur at any time within a maintenance window but won't occur outside time windows without prior notification. You'll also experience a brief loss of connectivity as the service deploys new code to your data warehouse. 
+To use maintenance schedules, you must select two maintenance windows during a seven-day period. Each maintenance window can be three to eight hours. Maintenance can occur at any time within a maintenance window but won't occur outside time windows without prior notification. You'll also experience a brief loss of connectivity as the service deploys new code to your data warehouse. 
 
 ## Identifying the primary and secondary windows
 

@@ -24,7 +24,7 @@ Name	|Description	            						|Type       | Operations
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Id		|Entity ID											|Int64		|Equals
 Ti		|Paper title										|String		|Equals,<br/>StartsWith
-L 		|Paper language code seperated by "\@@@"			|String		|Equals
+L 		|Paper language code separated by "\@@@"			|String		|Equals
 Y		|Paper year											|Int32		|Equals,<br/>IsBetween
 D		|Paper date											|Date		|Equals,<br/>IsBetween
 CC		|Citation count										|Int32		|none  

@@ -4,15 +4,12 @@ description: Application Insights automatically collect and visualize dependenci
 services: application-insights
 author: mrbullwinkle
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-
 ---
 
 # Application Insights NuGet packages
@@ -27,7 +24,7 @@ Below is the current list of stable release NuGet Packages for Application Insig
 |Microsoft.ApplicationInsights.Agent.Intercept | 2.4.0 | Enables Interception of method calls | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent.Intercept/) |
 | Microsoft.ApplicationInsights.DependencyCollector | 2.8.0 | Application Insights Dependency Collector for .NET applications. This is a dependent package for Application Insights platform-specific packages and provides automatic collection of dependency telemetry. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) |
 | Microsoft.ApplicationInsights.PerfCounterCollector | 2.8.0 | Application Insights Performance Counters Collector allows you to send data collected by Performance Counters to Application Insights. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
-| Microsoft.ApplicationInsights.Web | 2.8.0 | Application Insights for .NET web applications | [Download Package] (https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
+| Microsoft.ApplicationInsights.Web | 2.8.0 | Application Insights for .NET web applications | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
 | Microsoft.ApplicationInsights.WindowsServer | 2.8.0 | Application Insights Windows Server NuGet package provides automatic collection of application insights telemetry for .NET applications. This package can be used as a dependent package for Application Insights platform-specific packages or as a standalone package for .NET applications that are not covered by platform-specific packages (like for .NET worker roles). | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  
 | Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.8.0 | Provides a telemetry channel to Application Insights Windows Server SDK that will preserve telemetry in offline scenarios. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
 
@@ -68,7 +65,7 @@ Below is the current list of stable release NuGet Packages for Application Insig
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Enables runtime data collection for x64 applications | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Enables runtime data collection for x86 applications. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-These packages make up part of the core functionality of the runtime monitoring in [Status Monitor](app-insights-monitor-performance-live-website-now.md). You don't need to download these packages directly, just use the Status Monitor installer. If you want to understand more about how these packages work under the hood this [blog post](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) from one of our developers is a good start.
+These packages make up part of the core functionality of the runtime monitoring in [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md). You don't need to download these packages directly, just use the Status Monitor installer. If you want to understand more about how these packages work under the hood this [blog post](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) from one of our developers is a good start.
 
 ## Additional packages
 
@@ -79,6 +76,6 @@ These packages make up part of the core functionality of the runtime monitoring 
 
 ## Next steps
 
-- Monitor [ASP.NET Core](app-insights-asp-net-core.md).
-- Profile ASP.NET Core [Azure Linux web apps](app-insights-profiler-aspnetcore-linux.md).
-- Debug ASP.NET [snapshots](app-insights-snapshot-debugger.md).
+- Monitor [ASP.NET Core](../azure-monitor/app/asp-net-core.md).
+- Profile ASP.NET Core [Azure Linux web apps](../azure-monitor/app/profiler-aspnetcore-linux.md).
+- Debug ASP.NET [snapshots](../azure-monitor/app/snapshot-debugger.md).

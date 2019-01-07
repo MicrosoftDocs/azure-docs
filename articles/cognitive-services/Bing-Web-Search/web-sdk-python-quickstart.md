@@ -3,13 +3,13 @@ title: "Quickstart: Use the Bing Web Search SDK for Python"
 titleSuffix: Azure Cognitive Services
 description: The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Python application. In this quickstart, you'll learn how to send a request, receive a JSON response, and filter and parse the results.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
-ms.author: erhopf
+ms.author: aahi
 ---
 
 # Quickstart: Use the Bing Web Search SDK for Python
@@ -20,8 +20,9 @@ Want to see the code right now? The [Bing Web Search SDK for Python samples](htt
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-## Prerequisites
+See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
+## Prerequisites
 The Bing Web Search SDK is compatible with Python 2.7, 3.3, 3.4, 3.5, and 3.6. We recommend using a virtual environment for this quickstart.
 
 * Python 2.7, 3.3, 3.4, 3.5 or 3.6
@@ -201,7 +202,7 @@ This sample uses the `count` and `offset` parameters to limit the number of resu
 
 ### Filter for news and freshness
 
-This sample uses the `response_filter` and `freshness` parameters to filter search results using the SDK's [`search` method](https://docs.microsoft.com//api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search). The search results returned are limited to news articles and pages that Bing has discovered within the last 24 hours. The `name` and `URL` for the first result are printed.
+This sample uses the `response_filter` and `freshness` parameters to filter search results using the SDK's [`search` method](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations#search). The search results returned are limited to news articles and pages that Bing has discovered within the last 24 hours. The `name` and `URL` for the first result are printed.
 
 1. Add this code to your Python project:
     ```python

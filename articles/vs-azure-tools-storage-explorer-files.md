@@ -25,7 +25,7 @@ Azure File storage is a service that offers file shares in the cloud using the s
 
 To complete the steps in this article, you'll need the following:
 
-- [Download and install Storage Explorer](http://www.storageexplorer.com/)
+- [Download and install Storage Explorer](https://www.storageexplorer.com/)
 
 - [Connect to a Azure storage account or service](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
@@ -255,6 +255,6 @@ The following steps illustrate how to manage the files (and folders) within a fi
 
 ## Next steps
 
-- View the [latest Storage Explorer release notes and videos](http://www.storageexplorer.com/).
+- View the [latest Storage Explorer release notes and videos](https://www.storageexplorer.com/).
 
 - Learn how to [create applications using Azure blobs, tables, queues, and files](https://azure.microsoft.com/documentation/services/storage/).

@@ -35,20 +35,20 @@ Depending on the BizTalk Services Edition, all options listed may not be availab
         <td><strong>Get the tools</strong></td>
         <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
+        <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
         </td>
     </tr>
     <tr>
         <td><strong>Create partner agreements</strong></td>
         <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
+        <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
         </td>
     </tr>
 
 <tr>
         <td><strong>Learn more about BizTalk Services</strong></td>
-        <td>Go to the <a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">learning center</a> to learn more about Azure BizTalk Services.</td>
+        <td>Go to the <a HREF="https://azure.microsoft.com/documentation/services/biztalk-services/">learning center</a> to learn more about Azure BizTalk Services.</td>
 </tr>
 </table>
 
@@ -63,14 +63,14 @@ In the task bar at the bottom, you can:
 <br/><br/>
 This is the same as <strong>Create partner agreements</strong> on the <strong>Quick Start</strong> tab.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> provides more information on the BizTalk Services Portal.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> provides more information on the BizTalk Services Portal.</td>
 </tr>
 
 <tr>
 <td><strong>Connection Information</strong> of the Access Control Namespace</td>
 <td>When you select Connection Information, then the Access Control Namespace, Default Issuer, and Default Key are displayed. You can copy these values.
 <br/><br/>
-You can also open the Access Control Portal. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Create an Access control Namespace</a> provides more information on the Access Control Portal.</td>
+You can also open the Access Control Portal. <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285670">Create an Access control Namespace</a> provides more information on the Access Control Portal.</td>
 </tr>
 
 <tr>
@@ -118,7 +118,7 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 </tr>
 <tr>
 <td><strong>Update SSL Certificate</strong></td>
-<td>Can update the BizTalk Service to use a different SSL certificate. A self-signed SSL certificate is automatically created when you <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">create the BizTalk Service</a>.</td>
+<td>Can update the BizTalk Service to use a different SSL certificate. A self-signed SSL certificate is automatically created when you <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302280">create the BizTalk Service</a>.</td>
 </tr>
 <tr>
 <td><strong>Download Certificate</strong></td>
@@ -126,7 +126,7 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 </tr>
 <tr>
 <td><strong>Status</strong></td>
-<td>Displays the current status of your BizTalk Service. See <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=329870">BizTalk Services: Service state chart</a>. </td>
+<td>Displays the current status of your BizTalk Service. See <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=329870">BizTalk Services: Service state chart</a>. </td>
 </tr>
 <tr>
 <td><strong>Service URL</strong></td>
@@ -156,13 +156,13 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 <td><strong>Tracking Database</strong></td>
 <td>The Azure SQL Database name that stores the tracking tables used by your BizTalk Service. 
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Requirements Explained</a>  provides details on the Tracking Database.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302280">Requirements Explained</a>  provides details on the Tracking Database.</td>
 </tr>
 <tr>
 <td><strong>Monitoring/Archiving Storage</strong></td>
 <td>The Azure Storage account name that stores the monitoring output of your BizTalk Service.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Requirements Explained</a>  provides details on the Storage account.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302280">Requirements Explained</a>  provides details on the Storage account.</td>
 </tr>
 <tr>
 <td><strong>Subscription Name</strong></td>
@@ -174,7 +174,7 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 </tr>
 </table>
 
-[BizTalk Services: Provisioning](http://go.microsoft.com/fwlink/p/?LinkID=302280) lists the steps to create a BizTalk Service.
+[BizTalk Services: Provisioning](https://go.microsoft.com/fwlink/p/?LinkID=302280) lists the steps to create a BizTalk Service.
 
 ##### Manage, Connection Information, Sync Keys, and Delete in the task bar:
 <table border="1">
@@ -185,7 +185,7 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 <br/><br/>
 This is the same as <strong>Create partner agreements</strong> on the <strong>Quick Start</strong> tab.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> provides more information on the BizTalk Services Portal.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> provides more information on the BizTalk Services Portal.</td>
 </tr>
 <tr>
 <td><strong>Connection Information</strong> of the Access Control Namespace</td>
@@ -193,7 +193,7 @@ This is the same as <strong>Create partner agreements</strong> on the <strong>Qu
 <br/><br/>
 You can also open the Access Control Portal. This Access Control Portal is the same as using the Active Directory option in the left navigation pane.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the Access Control Portal.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the Access Control Portal.</td>
 </tr>
 <tr>
 <td><strong>Sync Keys</strong> in the Storage Account</td>
@@ -342,7 +342,7 @@ Now that you're familiar with the different tabs, you can learn more about the A
 * [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](biztalk-editions-feature-chart.md)  
 * [BizTalk Services: Provisioning](biztalk-provision-services.md)  
 * [BizTalk Services: BizTalk Service State Chart](biztalk-service-state-chart.md)  
-* [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [How do I Start Using the Azure BizTalk Services SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [Quickstart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png

@@ -3,7 +3,7 @@ title: Bind using Secure LDAP (LDAPS) to an Azure AD Domain Services managed dom
 description: Bind to an Azure AD Domain Services managed domain using secure LDAP (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Bind to an Azure AD Domain Services managed domain using secure LDAP (LDAPS)

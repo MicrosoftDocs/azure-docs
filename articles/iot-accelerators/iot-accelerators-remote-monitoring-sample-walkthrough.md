@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 11/10/2017
+ms.date: 10/26/2018
 ms.author: dobett
 ---
 
@@ -19,6 +19,11 @@ This article walks you through some of the key elements of the Remote Monitoring
 * Troubleshoot issues in the solution.
 * Plan how to customize to the solution to meet your own specific requirements.
 * Design your own IoT solution that uses Azure services.
+
+The Remote Monitoring solution accelerator code is available on GitHub:
+
+* [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
+* [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 
 ## Logical architecture
 
@@ -125,7 +130,7 @@ The [configuration microservice](https://github.com/Azure/remote-monitoring-serv
 
 ### Authentication and authorization microservice
 
-The [authentication and authorization microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) manages the users authorized to access the solution accelerator. User management can be done using any identity service provider that supports [OpenId Connect](http://openid.net/connect/).
+The [authentication and authorization microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) manages the users authorized to access the solution accelerator. User management can be done using any identity service provider that supports [OpenId Connect](https://openid.net/connect/).
 
 ### Azure Active Directory
 

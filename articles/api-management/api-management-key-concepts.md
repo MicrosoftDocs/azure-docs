@@ -55,7 +55,7 @@ The system is made up of the following components:
   * Create an account and subscribe to get API keys.
   * Access analytics on their own usage.
 
-For more information, see the [Cloud-based API Management: Harnessing the Power of APIs](http://j.mp/ms-apim-whitepaper) PDF whitepaper. This introductory whitepaper on API Management by CITO Research covers: 
+For more information, see the [Cloud-based API Management: Harnessing the Power of APIs](https://j.mp/ms-apim-whitepaper) PDF whitepaper. This introductory whitepaper on API Management by CITO Research covers: 
  
  * Common API requirements and challenges
  * Decoupling APIs and presenting facades

@@ -15,7 +15,7 @@ Learn how to analyze website logs using Data Lake Analytics, especially on findi
 
 ## Prerequisites
 * **Visual Studio 2015 or Visual Studio 2013**.
-* **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**.
+* **[Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs)**.
 
     Once Data Lake Tools for Visual Studio is installed, you will see a **Data Lake** item in the **Tools** menu in Visual Studio:
 

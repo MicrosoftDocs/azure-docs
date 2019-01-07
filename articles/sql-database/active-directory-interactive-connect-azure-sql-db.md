@@ -60,23 +60,23 @@ To use Azure AD authentication, your C# client program must supply a GUID as a *
 
 1. Azure portal &gt; **Azure Active Directory** &gt; **App registration**
 
-    ![App registration](media\active-directory-interactive-connect-azure-sql-db\sshot-create-app-registration-b20.png)
+    ![App registration](media/active-directory-interactive-connect-azure-sql-db/sshot-create-app-registration-b20.png)
 
 2. The **Application ID** value is generated and displayed.
 
-    ![App ID displayed](media\active-directory-interactive-connect-azure-sql-db\sshot-application-id-app-regis-mk49.png)
+    ![App ID displayed](media/active-directory-interactive-connect-azure-sql-db/sshot-application-id-app-regis-mk49.png)
 
 3. **Registered app** &gt; **Settings** &gt; **Required permissions** &gt; **Add**
 
-    ![Permissions settings for registered app](media\active-directory-interactive-connect-azure-sql-db\sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
+    ![Permissions settings for registered app](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
 4. **Required permissions** &gt; **Add API access** &gt; **Select an API** &gt; **Azure SQL Database**
 
-    ![Add access to API for Azure SQL Database](media\active-directory-interactive-connect-azure-sql-db\sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
+    ![Add access to API for Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
 5. **API access** &gt; **Select permissions** &gt; **Delegated permissions**
 
-    ![Delegate permissions to API for Azure SQL Database](media\active-directory-interactive-connect-azure-sql-db\sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
+    ![Delegate permissions to API for Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
 
 ### B. Set Azure AD admin on your SQL Database server

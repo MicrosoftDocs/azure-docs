@@ -1,3 +1,10 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+---
 ### <a name="server-auth"></a>How to: Authenticate with a provider (Server Flow)
 To have Mobile Apps manage the authentication process in your app, you must register your app with your identity
 provider. Then in your Azure App Service, you need to configure the application ID and secret provided by your provider.
@@ -47,27 +54,6 @@ client.login(
 
 ```
 This example assumes that the token provided by the respective provider SDK is stored in the token variable.
-
-#### Microsoft Account example
-
-The following example uses the Live SDK, which supports single-sign-on for Windows Store apps by using Microsoft Account:
-
-```
-WL.login({ scope: "wl.basic"}).then(function (result) {
-      client.login(
-            "microsoftaccount",
-            {"authenticationToken": result.session.authentication_token})
-      .done(function(results){
-            alert("You are now signed in as: " + results.userId);
-      },
-      function(error){
-            alert("Error: " + err);
-      });
-});
-
-```
-
-This example gets a token from Live Connect, which is supplied to your App Service by calling the login function.
 
 ### <a name="auth-getinfo"></a>How to: Obtain information about the authenticated user
 

@@ -2,14 +2,14 @@
 title: Query Azure Log Analytics to monitor Azure HDInsight clusters 
 description: Learn how to run queries on Azure Log Analytics to monitor jobs running in an HDInsight cluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/15/2018
-ms.author: jasonh
+ms.date: 11/05/2018
+ms.author: hrasheed
 
 ---
 # Query Azure Log Analytics to monitor HDInsight clusters
@@ -42,7 +42,7 @@ Learn how to look for specific metrics for your HDInsight cluster.
 
 5. From the left pane, under **Type**, select a metric that you want to dig deep into, and then select **Apply**. The following screenshot shows the `metrics_resourcemanager_queue_root_default_CL` type is selected.
 
-    > [!NOTE]
+    > [!NOTE]  
     > You may need to select the **[+]More** button to find the metric you are looking for. Also, the **Apply** button is at the bottom of the list so you must scroll down to see it.
 
     Notice that the query in the text box changes to one shown in the highlighted box in the following screenshot:

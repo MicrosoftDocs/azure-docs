@@ -1,5 +1,5 @@
 ---
-title: Manage Azure Key Vault using CLI | Microsoft Docs
+title: Manage Azure Key Vault using CLI - Azure Key Vault | Microsoft Docs
 description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
 services: key-vault
 documentationcenter: ''
@@ -11,9 +11,8 @@ ms.assetid:
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 01/07/2019
 ms.author: barclayn
 
 ---
@@ -46,7 +45,7 @@ To use the Azure CLI commands in this article, you must have the following items
 
 * A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
 * Azure Command-Line Interface version 2.0 or later. To install the latest version, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-* An application that will be configured to use the key or password that you create in this article. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the included Readme file.
+* An application that will be configured to use the key or password that you create in this article. A sample application is available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the included Readme file.
 
 ### Getting help with Azure Cross-Platform Command-Line Interface
 

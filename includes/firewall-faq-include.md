@@ -5,7 +5,7 @@
  author: vhorne
  ms.service: 
  ms.topic: include
- ms.date: 10/20/2018
+ ms.date: 12/14/2018
  ms.author: victorh
  ms.custom: include file
 ---
@@ -87,7 +87,7 @@ For example:
 ```azurepowershell
 # Stop an exisitng firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name” -ResourceGroupName "RG Name"
+$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
 Set-AzureRmFirewall -AzureFirewall $azfw
 ```
@@ -106,19 +106,20 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 
 ### What are the known service limits?
 
-* Azure Firewall has a soft limit of 1000 TB per firewall per month.
-* An instance of Azure Firewall that is running in a central virtual network has virtual network peering limitations, with a maximum of 50 spoke virtual networks.  
-* Azure Firewall does not work with global peering, so you should have at least one firewall deployment per region.
-* Azure Firewall supports 10k application rules and 10k network rules.
+For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md#azure-firewall-limits)
 
 ### Can Azure Firewall in a hub virtual network forward and filter network traffic between two spoke virtual networks?
 
 Yes, you can use Azure Firewall in a hub virtual network to route and filter traffic between two spoke virtual network. Subnets in each of the spoke virtual networks must have UDR pointing to the Azure Firewall as a default gateway for this scenario to work properly.
 
-### Can Azure Firewall forward and filter network traffic between subnets in the same virtual network?
+### Can Azure Firewall forward and filter network traffic between subnets in the same virtual network or peered virtual networks?
 
 Traffic between subnets in the same virtual network or in a directly peered virtual network is routed directly even if UDR points to the Azure Firewall as the default gateway. The recommended method for internal network segmentation is to use Network Security Groups. To send subnet to subnet traffic to the firewall in this scenario, UDR must contain the target subnet network prefix explicitly on both subnets.
 
 ### Are there any firewall resource group restrictions?
 
 Yes. The firewall, subnet, VNet, and the public IP address all must be in the same resource group.
+
+### When configuring DNAT for inbound network traffic, do I also need to configure a corresponding network rule to allow that traffic?
+
+No. NAT rules implicitly add a corresponding network rule to allow the translated traffic. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](../articles/firewall/rule-processing.md).

@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 01/03/2019
 ms.author: iainfou
 ---
 
@@ -27,18 +27,15 @@ Log Analytics is enabled and managed in the Azure portal. To enable log collecti
 1. Select the resource group for your AKS cluster, such as *myResourceGroup*. Don't select the resource group that contains your individual AKS cluster resources, such as *MC_myResourceGroup_myAKSCluster_eastus*.
 1. On the left-hand side, choose **Diagnostic settings**.
 1. Select your AKS cluster, such as *myAKSCluster*, then choose to **Turn on diagnostics**.
-1. Enter a name, such as *myAKSLogs*, then select the option to **Send to Log Analytics**.
+1. Enter a name, such as *myAKSClusterLogs*, then select the option to **Send to Log Analytics**.
     * Choose to *Configure* Log Analytics, then select an existing workspace or **Create New Workspace**.
     * If you need to create a workspace, provide a name, a resource group, and a location.
-1. In the list of available logs, select the logs you wish to enable, such as *kube-apiserver*, *kube-controller-manager*, and *kube-scheduler*. You can return and change the collected logs once Log Analytics are enabled.
+1. In the list of available logs, select the logs you wish to enable. By default, the *kube-apiserver*, *kube-controller-manager*, and *kube-scheduler* logs are enabled. You can enable additional logs, such as *kube-audit* and *cluster-autoscaler*. You can return and change the collected logs once Log Analytics are enabled.
 1. When ready, select **Save** to enable collection of the selected logs.
 
 The following example portal screenshot shows the *Diagnostics settings* window and then option to create an Log Analytics workspace:
 
 ![Enable Log Analytics workspace for Log Analytics of AKS cluster](media/view-master-logs/enable-oms-log-analytics.png)
-
->[!NOTE]
->OMS workspaces are now referred to as Log Analytics workspaces. 
 
 ## Schedule a test pod on the AKS cluster
 
@@ -78,7 +75,7 @@ It may take a few minutes for the diagnostics logs to be enabled and appear in t
 
 ![Select the Log Analytics workspace for your AKS cluster](media/view-master-logs/select-log-analytics-workspace.png)
 
-On the left-hand side, choose **Log Search**. To view the *kube-apiserver*, enter the following query in the text box:
+On the left-hand side, choose **Logs**. To view the *kube-apiserver*, enter the following query in the text box:
 
 ```
 AzureDiagnostics
@@ -112,7 +109,7 @@ To help analyze the log data, the following table details the schema used for ea
 | *resourceId*             | Azure resource that produced the log |
 | *time*                   | Timestamp of when the log was uploaded |
 | *category*               | Name of container/component generating the log |
-| *operationName*          | Always *Microsoft.ContainerService/managedClusters/diagnositicLogs/Read* |
+| *operationName*          | Always *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
 | *properties.log*         | Full text of the log from the component |
 | *properties.stream*      | *stderr* or *stdout* |
 | *properties.pod*         | Pod name that the log came from |
@@ -129,6 +126,6 @@ In this article, you learned how to enable and review the logs for the Kubernete
 [cli-quickstart]: kubernetes-walkthrough.md
 [portal-quickstart]: kubernetes-walkthrough-portal.md
 [log-analytics-overview]: ../log-analytics/log-analytics-overview.md
-[analyze-log-analytics]: ../log-analytics/log-analytics-tutorial-viewdata.md
+[analyze-log-analytics]: ../azure-monitor/learn/tutorial-viewdata.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
