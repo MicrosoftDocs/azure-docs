@@ -644,7 +644,7 @@ combined_df = combined_df.replace(columns="distance", find=".00", replace_with=0
 combined_df = combined_df.to_number(["distance"])
 ```
 
-Split the pickup and dropoff datetime values into the respective date and time columns. Use the `split_column_by_example()` function to make the split. In this case, the optional example parameter of the `split_column_by_example()` function is omitted. Therefore, the function automatically determines where to split based on the data.
+Split the pickup and dropoff datetime values into the respective date and time columns. Use the `split_column_by_example()` function to make the split. In this case, the optional `example` parameter of the `split_column_by_example()` function is omitted. Therefore, the function automatically determines where to split based on the data.
 
 
 ```python
