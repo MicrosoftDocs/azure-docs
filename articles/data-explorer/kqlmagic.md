@@ -152,12 +152,12 @@ In many analytics scenarios, you may want to create reusable notebooks that cont
     %%kql
     let _state = statefilter;
     StormEvents 
-    | where State in (_state) 
+    | where State in (_state)
     | summarize statecount=count() by bin(StartTime,1d), State
     | render timechart title = "Trend"
     ```
 
-1. Run the help command: 
+1. Run the help command:
 
     ```python
     %kql --help "help"
