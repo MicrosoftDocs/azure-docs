@@ -10,11 +10,11 @@ ms.date: 1/4/2019
 ms.author: sogup
 ---
 
-# Move Recovery Services vault across Azure subscriptions and resource groups is now in limited public preview
+# Move Recovery Services vault across Azure Subscriptions and Resource Groups (Limited Public Preview)
 
-This article explains how to move a Recovery Services vault configured for the Azure Backup across Azure subscriptions, or to another resource group in the same subscription. You can use the Azure portal and PowerShell to move a Recovery Services vault.
+This article explains how to move a Recovery Services vault configured for the Azure Backup across Azure subscriptions, or to another resource group in the same subscription. You can use the Azure portal or PowerShell to move a Recovery Services vault.
 
-## Prerequisite for moving a vault
+## Prerequisites for moving a vault
 
 - When moving between resource groups, both the source resource group and the target resource group are locked during the operation. Until the move completes, write and delete operations are blocked on the resource groups.
 - Only the subscription admin has the permissions to move a vault.
@@ -31,30 +31,47 @@ This article explains how to move a Recovery Services vault configured for the A
 -	Currently, you cannot move vaults containing the Azure Files, Azure File Sync, or SQL in IaaS VMs across subscriptions and resource groups. Support for these scenarios will be added in future releases.
 -	If you move a vault containing VM backup data, across subscriptions, you must move your VMs to the same subscription, and use the same target resource group to continue backups.<br>
 
+> [!NOTE]
+>
 Recovery Services vaults configured to use with **Azure Site Recovery** can’t move, yet. If you have configured any VMs (Azure IaaS, Hyper-V, VMware) or physical machines for disaster recovery using the **Azure Site Recovery**, the move operation will be blocked. The resource move feature for Site Recovery service is not yet available.
+>
+>
 
-## Use Azure portal to move a vault to another resource group
+To register the subscription to **Move** your Recovery Services vault, run the following cmdlets from an elevated PowerShell terminal:
 
-To move a recovery services vault and its associated resources to another resource group:
+1. Sign in to your Azure account
+  ```
+  Connect-AzureRmAccount
+  ```
+2.	Select the subscription that you want to register
+  ```
+    Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+```
+3.	Register this subscription
+
+  ```
+  Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+  ```
+
+
+## Use Azure portal to move a Recovery Services vault to different resource group
+
+To move a recovery services vault and its associated resources to different resource group
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Open the list of Recovery Services vaults and select the vault you want to move. When the vault dashboard opens, it appears as shown in the below image.
+2. Open the list of **Recovery Services vaults** and select the vault you want to move. When the vault dashboard opens, it appears as shown in the below image.
 
   ![Open Recover Service Vault](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-3. If you do not see the **Essentials** information for your vault, click the drop-down icon.
+  If you do not see the **Essentials** information for your vault, click the drop-down icon. You should now see the Essentials information for your vault.
 
   ![Essentials Information tab](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
-
-  You should now see the Essentials information for your vault.
-
-  ![Essentials Information](./media/backup-azure-move-recovery-services/essentials-information-info.png)
 
 4. In the vault overview menu, click **change** next to the **Resource group**, to open the **Move resources** menu.
 
   ![Change Resource Group](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
-5. In the **Move resources** menu, select the vault to move. Select the checkbox next to the resource, to select an item. In the below example, two disks are selected.
+5. In the **Move resources** blade, for the selected vault it is recommended to move the optional related resources by selecting the checkbox as shown in the image below.
 
   ![Move Subscription](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
@@ -62,36 +79,35 @@ To move a recovery services vault and its associated resources to another resour
 
   ![Create Resource](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
-7. After adding the resource group, confirm **I understand that tools and scripts associated with moved resources will not work until updated to use new Resource IDs** option and then click **OK** to complete moving the vault.
+7. After adding the resource group, confirm **I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs** option and then click **OK** to complete moving the vault.
 
   ![Confirmation Message](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
 
 ## Use Azure portal to move a Recovery Services vault to a different subscription
 
-You can move a Recovery Services vault and its associated resources to a different subscription using the portal.
+You can move a Recovery Services vault and its associated resources to a different subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Open the list of Recovery Services vaults and select the vault you want to move. When the vault dashboard opens, it appears as shown the below image.
 
-    ![Open Recover Service](./media/backup-azure-move-recovery-services/Open-recovery-service.png)
+    ![Open Recover Service Vault](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-3. If you do not see the **Essentials** information for your vault, click the drop-down icon.
+    If you do not see the **Essentials** information for your vault, click the drop-down icon. You should now see the Essentials information for your vault.
 
-    ![Essential Recover Service](./media/backup-azure-move-recovery-services/essentials-information-recovery-service.png)
-
-    You should now see the Essentials information for your vault.
-
-      ![move resource subscription](./media/backup-azure-move-recovery-services/move-resource-subscription.png)
-
+    ![Essentials Information tab](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
+    
 4. In the vault overview menu, click **change** next to **Subscription**, to open the **Move resources** menu.
+
+  ![Change Subscription](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
+
 5. Select the resources to be moved, here we recommend you to use the **Select All** option to select all the listed optional resources.
 
   ![move resource](./media/backup-azure-move-recovery-services/move-resource.png)
 
 6. Select the target Subscription form the drop-down list, where you want the vault to be moved.
 7. Select an existing **Resource group** or **create a new group**.
-8. Click **I understand that tools and scripts associated with moved resources will not work until updated to use new Resource IDs** option to confirm, and then click **OK**.
+8. Click **I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs** option to confirm, and then click **OK**.
 
 > [!NOTE]
 > Cross subscription backup (RS vault and protected VMs are in different subscriptions) is not a supported scenario. Also, storage redundancy option from local redundant storage (LRS) to global redundant storage (GRS) and vice versa cannot be modified during the vault move operation.
@@ -126,12 +142,10 @@ az resource move --destination-group <destinationResourceGroupName> --ids <Vault
 
 To move to a new subscription, provide the `--destination-subscription-id` parameter.
 
-## Post migration steps
+## Post migration
 
 1. You need to set/verify the access controls for the resource groups.  
-2. The Backup reporting and monitoring feature needs to be set up again for the vault post the move succeeds.
-
-The previous settings will be lost during the move operation.
+2. The Backup reporting and monitoring feature needs to be configured again for the vault post the move completes. The previous configuration will be lost during the move operation.
 
 
 
