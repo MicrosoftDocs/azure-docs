@@ -18,7 +18,7 @@ ms.author: barclayn
 ---
 # Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI
 
-Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates and other secrets. For more information on Key Vault you may review the [Overview](key-vault-overview.md). Azure CLI is used to create and manage Azure resources using commands or scripts. In this quickstart, you create a key vault. Once that you have completed that, you will store a secret.
+Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault you may review the [Overview](key-vault-overview.md). Azure CLI is used to create and manage Azure resources using commands or scripts. In this quickstart, you create a key vault. Once that you have completed that, you will store a secret.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -26,13 +26,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
-To log in to the Azure using the CLI you can type:
+To sign in to Azure using the CLI you can type:
 
 ```azurecli
 az login
 ```
 
-For more information on login options via the CLI take a look at [Log in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+For more information on login options via the CLI take a look at [sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ## Create a resource group
 
