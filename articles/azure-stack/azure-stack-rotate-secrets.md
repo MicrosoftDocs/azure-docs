@@ -154,7 +154,7 @@ The following PowerShell example demonstrates the cmdlets and parameters to run 
 #Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IPofERCSMachine>"}'
 $PEPCreds = Get-Credential
-$PEPsession = New-PSSession -computername <IPofERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint
+$PEPsession = New-PSSession -ComputerName <IPofERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint
 
 #Run Secret Rotation
 $CertPassword = ConvertTo-SecureString "Certpasswordhere" -Force
