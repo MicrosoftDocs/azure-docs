@@ -48,7 +48,7 @@ The following JSON shows the schema for the extension.
 ```json
 {
   "name": "<myExtensionName>",
-  "type": "extensions",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
   "apiVersion": "2015-06-15",
   "location": "<location>",
   "dependsOn": [
@@ -88,7 +88,7 @@ The following example assumes the extension is nested inside the virtual machine
 ```json
 {
   "name": "myExtensionName",
-  "type": "extensions",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
   "location": "[resourceGroup().location]",
   "apiVersion": "2015-06-15",
   "dependsOn": [
