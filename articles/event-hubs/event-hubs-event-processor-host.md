@@ -120,7 +120,7 @@ Here, each host acquires ownership of a partition for a certain duration (the le
 
 ## Receive messages
 
-Each call to [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) delivers a collection of events. It is your responsibility to handle these events. If you want to make sure processor host processes every message at least once, you need to write your own keep retrying code. But, be cautious about poisoned messages.
+Each call to [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) delivers a collection of events. It is your responsibility to handle these events. If you want to make sure the processor host processes every message at least once, you need to write your own keep retrying code. But be cautious about poisoned messages.
 
 It is recommended that you do things relatively fast; that is, do as little processing as possible. Instead, use consumer groups. If you need to write to storage and do some routing, it is generally better to use two consumer groups and have two [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementations that run separately.
 
