@@ -44,7 +44,7 @@ The following table shows the enforced throttles. Values refer to an individual 
 | Configurations and edge deployments<sup>1</sup> <br/> (create, update, list, delete) | 0.33/sec/unit (20/min/unit) | 0.33/sec/unit (20/min/unit) | 0.33/sec/unit (20/min/unit) |
 | Device stream initiation rate<sup>4</sup> | 5 new streams/sec | 300 MB | 300 MB |
 | Maximum number of concurrently connected device streams<sup>4</sup> | 50 | 50 | 50 |
-| Maximum device stream data transfer<sup>4</sup> (aggregate volume per day) | 10 GB | 10 GB | 10 GB |
+| Maximum device stream data transfer<sup>4</sup> (aggregate volume per day) | 300 MB | 300 MB | 300 MB |
 
 
 <sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 8 KB. <br/><sup>3</sup>You can only have one active device import/export job at a time. <br/><sup>4</sup>IoT Hub device streams are only available for S1, S2, S3, and F1 SKU's.
