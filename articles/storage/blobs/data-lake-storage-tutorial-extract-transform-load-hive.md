@@ -37,7 +37,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 > [!IMPORTANT]
 > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on Azure HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## Download the flight data
+### Download the flight data
+
+This tutorial uses flight data from the Bureau of Transportation Statistics in order to demonstrate how to perform an ETL. You must download the data in order to complete this tutorial.
 
 1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
 
@@ -57,25 +59,25 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 In this section, you use `scp` to upload data to your HDInsight cluster.
 
-1. Open a command prompt and use the following command to upload the .zip file to the HDInsight cluster head node:
+Open a command prompt and use the following command to upload the .zip file to the HDInsight cluster head node:
 
     ```bash
     scp <FILE_NAME>.zip <SSH_USER_NAME>@<CLUSTER_NAME>-ssh.azurehdinsight.net:<FILE_NAME.zip>
     ```
 
-    Replace *FILE_NAME* with the name of the .zip file. Replace *SSH_USER_NAME* with the SSH login for the HDInsight cluster. Replace *CLUSTER_NAME* with the name of the HDInsight cluster.
+Replace *FILE_NAME* with the name of the .zip file. Replace *SSH_USER_NAME* with the SSH login for the HDInsight cluster. Replace *CLUSTER_NAME* with the name of the HDInsight cluster.
 
 If you use a password to authenticate your SSH login, you're prompted for the password. 
 
 If you use a public key, you might need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa FILE_NAME.zip USER_NAME@CLUSTER_NAME-ssh.azurehdinsight.net:`.
 
-2. After the upload has finished, connect to the cluster by using SSH. On the command prompt, enter the following command:
+After the upload has finished, connect to the cluster by using SSH. On the command prompt, enter the following command:
 
     ```bash
     ssh <SSH_USER_NAME>@<CLUSTER_NAME>-ssh.azurehdinsight.net
     ```
 
-3. Use the following command to unzip the .zip file:
+Use the following command to unzip the .zip file:
 
     ```bash
     unzip <FILE_NAME>.zip
@@ -83,14 +85,14 @@ If you use a public key, you might need to use the `-i` parameter and specify th
 
     This command extracts a *.csv* file that is roughly 60 MB.
 
-4. Use the following commands to create a directory, and copy the *.csv* file to the directory:
+Use the following commands to create a directory, and copy the *.csv* file to the directory:
 
     ```bash
     hdfs dfs -mkdir -p abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data
     hdfs dfs -put <FILE_NAME>.csv abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data/
     ```
 
-5. Create the Data Lake Storage Gen2 file system.
+Use the following command to create the Data Lake Storage Gen2 file system.
 
     ```bash
     hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/
@@ -102,13 +104,13 @@ In this section, you use Beeline to run a Hive job.
 
 As part of the Hive job, you import the data from the .csv file into a Hive table named **Delays**.
 
-1. From the SSH prompt that you already have for the HDInsight cluster, use the following command to create and edit a new file named **flightdelays.hql**:
+From the SSH prompt that you already have for the HDInsight cluster, use the following command to create and edit a new file named **flightdelays.hql**:
 
     ```bash
     nano flightdelays.hql
     ```
 
-2. Use the following text as the contents of this file:
+Use the following text as the contents of this file:
 
     ```hiveql
     DROP TABLE delays_raw;
@@ -172,21 +174,21 @@ As part of the Hive job, you import the data from the .csv file into a Hive tabl
     FROM delays_raw;
     ```
 
-2. To save the file, press **Esc** and then enter `:x`.
+To save the file, press **Esc** and then enter `:x`.
 
-3. To start Hive and run the **flightdelays.hql** file, use the following command:
+To start Hive and run the **flightdelays.hql** file, use the following command:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
-4. After the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
+After the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
-5. When you receive the `jdbc:hive2://localhost:10001/>` prompt, use the following query to retrieve data from the imported flight delay data:
+When you receive the `jdbc:hive2://localhost:10001/>` prompt, use the following query to retrieve data from the imported flight delay data:
 
     ```hiveql
     INSERT OVERWRITE DIRECTORY 'abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output'
@@ -198,9 +200,9 @@ As part of the Hive job, you import the data from the .csv file into a Hive tabl
     GROUP BY origin_city_name;
     ```
 
-    This query retrieves a list of cities that experienced weather delays, along with the average delay time, and saves it to `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output`. Later, Sqoop reads the data from this location and exports it to Azure SQL Database.
+This query retrieves a list of cities that experienced weather delays, along with the average delay time, and saves it to `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output`. Later, Sqoop reads the data from this location and exports it to Azure SQL Database.
 
-6. To exit Beeline, enter `!quit` at the prompt.
+To exit Beeline, enter `!quit` at the prompt.
 
 ## Create a SQL database table
 
@@ -211,27 +213,27 @@ You need the server name from your SQL database for this operation. To find your
 
 ![Select SQL Databases](./media/data-lake-storage-tutorial-extract-transform-load-hive/azure-sql-db.png "Select SQL Databases")
 
-1. Filter on the name of the database that you choose to use. The server name is listed in the **Server name** column.
+3. Filter on the name of the database that you choose to use. The server name is listed in the **Server name** column.
 
 ![Get Azure SQL server details](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Get Azure SQL server details")
 
 There are many ways to connect to SQL Database and create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
 
-1. To install FreeTDS, use the following command from an SSH connection to the cluster:
+To install FreeTDS, use the following command from an SSH connection to the cluster:
 
     ```bash
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. After the installation finishes, use the following command to connect to the SQL Database server. Replace **serverName** with the SQL Database server name. Replace **adminLogin** and **adminPassword** with the login for SQL Database. Replace **databaseName** with the database name.
+After the installation finishes, use the following command to connect to the SQL Database server. Replace **serverName** with the SQL Database server name. Replace **adminLogin** and **adminPassword** with the login for SQL Database. Replace **databaseName** with the database name.
 
     ```bash
     TDSVER=8.0 tsql -H <SERVER_NAME>.database.windows.net -U <ADMIN_LOGIN> -p 1433 -D <DATABASE_NAME>
     ```
 
-    When prompted, enter the password for the SQL Database admin login.
+When prompted, enter the password for the SQL Database admin login.
 
-    You receive output similar to the following text:
+You receive output similar to the following text:
 
     ```
     locale is "en_US.UTF-8"
@@ -241,7 +243,7 @@ There are many ways to connect to SQL Database and create a table. The following
     1>
     ```
 
-3. At the `1>` prompt, enter the following lines:
+At the `1>` prompt, enter the following lines:
 
     ```hiveql
     CREATE TABLE [dbo].[delays](
@@ -252,61 +254,61 @@ There are many ways to connect to SQL Database and create a table. The following
     GO
     ```
 
-    When the `GO` statement is entered, the previous statements are evaluated. This query creates a table named **delays**, with a clustered index.
+When the `GO` statement is entered, the previous statements are evaluated. This query creates a table named **delays**, with a clustered index.
 
-    Use the following query to verify that the table has been created:
+Use the following query to verify that the table has been created:
 
     ```hiveql
     SELECT * FROM information_schema.tables
     GO
     ```
 
-    The output is similar to the following text:
+The output is similar to the following text:
 
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
     databaseName       dbo             delays        BASE TABLE
     ```
 
-4. Enter `exit` at the `1>` prompt to exit the tsql utility.
+Enter `exit` at the `1>` prompt to exit the tsql utility.
 
 ## Export and load the data
 
 In the previous sections, you copied the transformed data at `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output`. In this section, you use Sqoop to export the data from `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output` to the table you created in Azure SQL database.
 
-1. Use the following command to verify that Sqoop can see your SQL database:
+Use the following command to verify that Sqoop can see your SQL database:
 
     ```bash
     sqoop list-databases --connect jdbc:sqlserver://<SERVER_NAME>.database.windows.net:1433 --username <ADMIN_LOGIN> --password <ADMIN_PASSWORD>
     ```
 
-    This command returns a list of databases, including the database in which you created the delays table earlier.
+This command returns a list of databases, including the database in which you created the delays table earlier.
 
-2. Use the following command to export data from hivesampletable to the delays table:
+Use the following command to export data from hivesampletable to the delays table:
 
     ```bash
     sqoop export --connect 'jdbc:sqlserver://<SERVER_NAME>.database.windows.net:1433;database=<DATABASE_NAME>' --username <ADMIN_LOGIN> --password <ADMIN_PASSWORD> --table 'delays' --export-dir 'abfs://<FILE_SYSTEM_NAME>@.dfs.core.windows.net/tutorials/flightdelays/output' 
     --fields-terminated-by '\t' -m 1
     ```
 
-    Sqoop connects to the database that contains the delays table, and exports data from the `/tutorials/flightdelays/output` directory to the delays table.
+Sqoop then connects to the database that contains the delays table, and exports data from the `/tutorials/flightdelays/output` directory to the delays table.
 
-3. After the sqoop command finishes, use the tsql utility to connect to the database:
+Once the sqoop command finishes, use the tsql utility to connect to the database:
 
     ```bash
     TDSVER=8.0 tsql -H <SERVER_NAME>.database.windows.net -U <ADMIN_LOGIN> -P <ADMIN_PASSWORD> -p 1433 -D <DATABASE_NAME>
     ```
 
-    Use the following statements to verify that the data was exported to the delays table:
+Use the following statements to verify that the data was exported to the delays table:
 
     ```sql
     SELECT * FROM delays
     GO
     ```
 
-    You should see a listing of data in the table. The table includes the city name and the average flight delay time for that city.
+You should see a listing of data in the table. The table includes the city name and the average flight delay time for that city.
 
-    Enter `exit` to exit the tsql utility.
+Enter `exit` to exit the tsql utility.
 
 ## Clean up resources
 
