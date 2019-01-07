@@ -172,7 +172,7 @@ To use a virtual machine or HDInsight cluster in a Virtual Network with your wor
 >
 > Azure Kubernetes Service and the Azure Virtual Network should be in the same region.
 
-To add Azure Kubernetes Service in a Virtual Network to your workspace, use the following steps:
+To add Azure Kubernetes Service in a Virtual Network to your workspace, use the following steps from the __Azure portal__:
 
 1. From the [Azure portal](https://portal.azure.com), select your Azure Machine Learning service workspace.
 
@@ -201,7 +201,27 @@ To add Azure Kubernetes Service in a Virtual Network to your workspace, use the 
     > [!TIP]
     > If you already have an AKS cluster in a Virtual Network, you can attach it to the workspace. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
 
-You are now ready to do inferencing on an AKS cluster behind a virtual network. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
+You can also use the **Azure Machine Learning SDK** to add Azure Kubernetes service in a Virtual Network. The following code creates a new Azure Kubernetes Service in the `default` subnet of a virtual network named `mynetwork`:
+
+```python
+from azureml.core.compute import ComputeTarget, AksCompute
+
+# Create the compute configuration and set virtual network information
+config = AksCompute.provisioning_configuration(location="eastus2")
+config.vnet_resourcegroup_name = "mygroup"
+config.vnet_name = "mynetwork"
+config.subnet_name = "default"
+config.service_cidr = "10.0.0.0/16"
+config.dns_service_ip = "10.0.0.10"
+config.docker_bridge_cidr = "172.17.0.1/16"
+
+# Create the compute target
+aks_target = ComputeTarget.create(workspace = ws,
+                                  name = "myaks",
+                                  provisioning_configuration = config)
+```
+
+Once the creation process completes, you can do inferencing on an AKS cluster behind a virtual network. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
 
 ## Next steps
 
