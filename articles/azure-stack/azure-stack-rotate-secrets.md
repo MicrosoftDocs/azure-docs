@@ -241,7 +241,7 @@ The **Start-SecretRotation** cmdlet rotates the infrastructure secrets of an Azu
 This must be run via your Azure Stack [environment's privileged endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
 ```PowerShell  
-PS C:\> Start-SecretRotation  -Internal
+PS C:\> Start-SecretRotation -Internal
 ```
 
 This command rotates all of the infrastructure secrets exposed to Azure Stack internal network.
@@ -251,7 +251,7 @@ This command rotates all of the infrastructure secrets exposed to Azure Stack in
 ```PowerShell  
 PS C:\> Invoke-Command -session $PEPSession -ScriptBlock {  
 
-Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }  
+Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
 
 Remove-PSSession -Session $PEPSession
 ```
@@ -267,7 +267,7 @@ This command rotates the TLS certificates used for Azure Stack's external networ
 
 ```PowerShell
 PS C:\> Invoke-Command -session $PEPSession -ScriptBlock { 
-Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword } 
+Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
 Remove-PSSession -Session $PEPSession
 ```
 
