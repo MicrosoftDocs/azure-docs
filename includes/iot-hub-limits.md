@@ -42,8 +42,8 @@ The following table lists the limits that apply to IoT Hub resources:
 | Maximum concurrent jobs | 10 (for S3), 5 for (S2), 1 (for S1) |
 | Maximum additional endpoints | 10 (for S1, S2, S3) |
 | Maximum message routing rules | 100 (for S1, S2, S3) |
-| Maximum number of concurrently connected device streams | 50/unit (for S1, S2, S3, and F1 only) |
-| Maximum device stream data transfer (aggregate volume per billing cycle) | 10 GB (for S1, S2, S3, and F1 only) |
+| Maximum number of concurrently connected device streams | 50 (for S1, S2, S3, and F1 only) |
+| Maximum device stream data transfer | 300 MB (for S1, S2, S3, and F1 only) |
 
 
 > [!NOTE]
