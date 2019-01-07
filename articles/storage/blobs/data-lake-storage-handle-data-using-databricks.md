@@ -47,7 +47,7 @@ In this section, you create an Azure Databricks workspace by using the Azure por
 
     ![Databricks on Azure portal](./media/data-lake-storage-handle-data-using-databricks/azure-databricks-on-portal.png "Databricks on Azure portal")
 
-2. Under **Azure Databricks Service**, provide the following values to create a Databricks workspace:
+1. Under **Azure Databricks Service**, provide the following values to create a Databricks workspace:
 
     |Property  |Description  |
     |---------|---------|
@@ -59,9 +59,9 @@ In this section, you create an Azure Databricks workspace by using the Azure por
 
     ![Create an Azure Databricks workspace](./media/data-lake-storage-handle-data-using-databricks/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
-3. Select **Pin to dashboard** and then select **Create**.
+1. Select **Pin to dashboard** and then select **Create**.
 
-4. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right. To monitor the operation status, view the progress bar at the top.
+1. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right. To monitor the operation status, view the progress bar at the top.
 
     ![Databricks deployment tile](./media/data-lake-storage-handle-data-using-databricks/databricks-deployment-tile.png "Databricks deployment tile")
 
@@ -71,21 +71,21 @@ To perform the operations in this tutorial, you need a Spark cluster. Use the fo
 
 1. In the Azure portal, go to the Databricks workspace that you created, and select **Launch Workspace**.
 
-2. You're redirected to the Azure Databricks portal. From the portal, select **Cluster**.
+1. You're redirected to the Azure Databricks portal. From the portal, select **Cluster**.
 
     ![Databricks on Azure](./media/data-lake-storage-handle-data-using-databricks/databricks-on-azure.png "Databricks on Azure")
 
-3. In the **New cluster** page, provide the values to create a cluster.
+1. In the **New cluster** page, provide the values to create a cluster.
 
     ![Create Databricks Spark cluster on Azure](./media/data-lake-storage-handle-data-using-databricks/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
-4. Fill in values for the following fields, and accept the default values for the other fields:
+1. Fill in values for the following fields, and accept the default values for the other fields:
 
     * Enter a name for the cluster.
     * For this article, create a cluster with the **5.1** runtime.
     * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. If the cluster isn't being used, provide a duration (in minutes) to terminate the cluster.
 
-5. Select **Create cluster**.
+1. Select **Create cluster**.
 
 After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
@@ -97,33 +97,33 @@ First, you create a notebook in your Azure Databricks workspace and then run cod
 
 1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks workspace that you created, and select **Launch Workspace**.
 
-2. On the left, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
+1. On the left, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
 
     ![Create a notebook in Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-create-notebook.png "Create notebook in Databricks")
 
-3. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Scala** as the language, and then select the Spark cluster that you created earlier.
+1. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Scala** as the language, and then select the Spark cluster that you created earlier.
 
     ![Provide details for a notebook in Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-notebook-details.png "Provide details for a notebook in Databricks")
 
     Select **Create**.
 
-4. Enter the following code into the first notebook cell and execute the code. Replace the placeholders shown in brackets in the sample with your own values:
+1. Enter the following code into the first notebook cell and execute the code. Replace the placeholders shown in brackets in the sample with your own values:
 
-        ```scala
-        %python%
-        configs = {"fs.azure.account.auth.type": "OAuth",
-            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-            "fs.azure.account.oauth2.client.id": "<service-client-id>",
-            "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-            "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
+    ```scala
+    %python%
+    configs = {"fs.azure.account.auth.type": "OAuth",
+        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+        "fs.azure.account.oauth2.client.id": "<service-client-id>",
+        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
+        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
      
-        dbutils.fs.mount(
-            source = "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/[<directory-name>]",
-            mount_point = "/mnt/<mount-name>",
-            extra_configs = configs)
-        ```
+    dbutils.fs.mount(
+        source = "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/[<directory-name>]",
+        mount_point = "/mnt/<mount-name>",
+        extra_configs = configs)
+    ```
 
-5. Press `Shift` + `Enter` to run the code.
+1. Select the Shift+Enter keys to run the code.
 
 Now the file system is created for the storage account.
 
@@ -135,11 +135,11 @@ Upload the sample data that you downloaded into your storage account. The method
 
 You can use Azure Data Factory, distp, or AzCopy (version 10) to do the upload. AzCopy version 10 is currently only available via preview. To use AzCopy, paste in the following code into a command window:
 
-    ```bash
-    set ACCOUNT_NAME=<ACCOUNT_NAME>
-    set ACCOUNT_KEY=<ACCOUNT_KEY>
-    azcopy cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/data --recursive 
-    ```
+```bash
+set ACCOUNT_NAME=<ACCOUNT_NAME>
+set ACCOUNT_KEY=<ACCOUNT_KEY>
+azcopy cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/data --recursive 
+```
 
 ## Extract the data
 
@@ -149,39 +149,39 @@ Return to your DataBricks notebook and enter the following code in a new cell in
 
 Add the following snippet in an empty code cell. Replace the placeholders shown in brackets with the values that you saved earlier from the storage account.
 
-    ```scala
-    dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
-    dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
-    ```
+```scala
+dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
+dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
+```
 
-Press `Shift` + `Enter` to run the code.
+Select the Shift+Enter keys to run the code.
 
 You can now load the sample json file as a dataframe in Azure Databricks. Paste the following code in a new cell. Replace the placeholders shown in brackets with your values.
 
-    ```scala
-    val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
-    ```
+```scala
+val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
+```
 
-Press `Shift`+`Enter` to run the code.
+Select the Shift+Enter keys to run the code.
 
 Run the following code to see the contents of the data frame:
 
-    ```scala
-    df.show()
-    ```
+```scala
+df.show()
+```
 
-    You see an output similar to the following snippet:
+You see an output similar to the following snippet:
 
-    ```bash
-    +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
-    |               artist|     auth|firstName|gender|itemInSession|  lastName|   length|  level|            location|method|    page| registration|sessionId|                song|status|           ts|userId|
-    +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
-    | El Arrebato         |Logged In| Annalyse|     F|            2|Montgomery|234.57914| free  |  Killeen-Temple, TX|   PUT|NextSong|1384448062332|     1879|Quiero Quererte Q...|   200|1409318650332|   309|
-    | Creedence Clearwa...|Logged In|   Dylann|     M|            9|    Thomas|340.87138| paid  |       Anchorage, AK|   PUT|NextSong|1400723739332|       10|        Born To Move|   200|1409318653332|    11|
-    | Gorillaz            |Logged In|     Liam|     M|           11|     Watts|246.17751| paid  |New York-Newark-J...|   PUT|NextSong|1406279422332|     2047|                DARE|   200|1409318685332|   201|
-    ...
-    ...
-    ```
+```bash
++---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
+|               artist|     auth|firstName|gender|itemInSession|  lastName|   length|  level|            location|method|    page| registration|sessionId|                song|status|           ts|userId|
++---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
+| El Arrebato         |Logged In| Annalyse|     F|            2|Montgomery|234.57914| free  |  Killeen-Temple, TX|   PUT|NextSong|1384448062332|     1879|Quiero Quererte Q...|   200|1409318650332|   309|
+| Creedence Clearwa...|Logged In|   Dylann|     M|            9|    Thomas|340.87138| paid  |       Anchorage, AK|   PUT|NextSong|1400723739332|       10|        Born To Move|   200|1409318653332|    11|
+| Gorillaz            |Logged In|     Liam|     M|           11|     Watts|246.17751| paid  |New York-Newark-J...|   PUT|NextSong|1406279422332|     2047|                DARE|   200|1409318685332|   201|
+...
+...
+```
 
 You have now extracted the data from Azure Data Lake Storage Gen2 into Azure Databricks.
 
@@ -191,74 +191,74 @@ The raw sample data **small_radio_json.json** file captures the audience for a r
 
 First, retrieve only the columns **firstName**, **lastName**, **gender**, **location**, and **level** from the dataframe that you created.
 
-    ```scala
-    val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
-    ```
+```scala
+val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
+```
 
 You receive output as shown in the following snippet:
 
-    ```bash
-    +---------+----------+------+--------------------+-----+
-    |firstname|  lastname|gender|            location|level|
-    +---------+----------+------+--------------------+-----+
-    | Annalyse|Montgomery|     F|  Killeen-Temple, TX| free|
-    |   Dylann|    Thomas|     M|       Anchorage, AK| paid|
-    |     Liam|     Watts|     M|New York-Newark-J...| paid|
-    |     Tess|  Townsend|     F|Nashville-Davidso...| free|
-    |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
-    |     Alan|     Morse|     M|Chicago-Napervill...| paid|
-    |Gabriella|   Shelton|     F|San Jose-Sunnyval...| free|
-    |   Elijah|  Williams|     M|Detroit-Warren-De...| paid|
-    |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
-    |     Tess|  Townsend|     F|Nashville-Davidso...| free|
-    |     Alan|     Morse|     M|Chicago-Napervill...| paid|
-    |     Liam|     Watts|     M|New York-Newark-J...| paid|
-    |     Liam|     Watts|     M|New York-Newark-J...| paid|
-    |   Dylann|    Thomas|     M|       Anchorage, AK| paid|
-    |     Alan|     Morse|     M|Chicago-Napervill...| paid|
-    |   Elijah|  Williams|     M|Detroit-Warren-De...| paid|
-    |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
-    |     Alan|     Morse|     M|Chicago-Napervill...| paid|
-    |   Dylann|    Thomas|     M|       Anchorage, AK| paid|
-    |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
-    +---------+----------+------+--------------------+-----+
-    ```
+```bash
++---------+----------+------+--------------------+-----+
+|firstname|  lastname|gender|            location|level|
++---------+----------+------+--------------------+-----+
+| Annalyse|Montgomery|     F|  Killeen-Temple, TX| free|
+|   Dylann|    Thomas|     M|       Anchorage, AK| paid|
+|     Liam|     Watts|     M|New York-Newark-J...| paid|
+|     Tess|  Townsend|     F|Nashville-Davidso...| free|
+|  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
+|     Alan|     Morse|     M|Chicago-Napervill...| paid|
+|Gabriella|   Shelton|     F|San Jose-Sunnyval...| free|
+|   Elijah|  Williams|     M|Detroit-Warren-De...| paid|
+|  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
+|     Tess|  Townsend|     F|Nashville-Davidso...| free|
+|     Alan|     Morse|     M|Chicago-Napervill...| paid|
+|     Liam|     Watts|     M|New York-Newark-J...| paid|
+|     Liam|     Watts|     M|New York-Newark-J...| paid|
+|   Dylann|    Thomas|     M|       Anchorage, AK| paid|
+|     Alan|     Morse|     M|Chicago-Napervill...| paid|
+|   Elijah|  Williams|     M|Detroit-Warren-De...| paid|
+|  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
+|     Alan|     Morse|     M|Chicago-Napervill...| paid|
+|   Dylann|    Thomas|     M|       Anchorage, AK| paid|
+|  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
++---------+----------+------+--------------------+-----+
+```
 
 You can further transform this data to rename the column **level** to **subscription_type**.
 
-    ```scala
-    val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
-    renamedColumnsDF.show()
-    ```
+```scala
+val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
+renamedColumnsDF.show()
+```
 
-    You receive output as shown in the following snippet.
+You receive output as shown in the following snippet.
 
-    ```bash
-    +---------+----------+------+--------------------+-----------------+
-    |firstname|  lastname|gender|            location|subscription_type|
-    +---------+----------+------+--------------------+-----------------+
-    | Annalyse|Montgomery|     F|  Killeen-Temple, TX|             free|
-    |   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
-    |     Liam|     Watts|     M|New York-Newark-J...|             paid|
-    |     Tess|  Townsend|     F|Nashville-Davidso...|             free|
-    |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
-    |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
-    |Gabriella|   Shelton|     F|San Jose-Sunnyval...|             free|
-    |   Elijah|  Williams|     M|Detroit-Warren-De...|             paid|
-    |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
-    |     Tess|  Townsend|     F|Nashville-Davidso...|             free|
-    |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
-    |     Liam|     Watts|     M|New York-Newark-J...|             paid|
-    |     Liam|     Watts|     M|New York-Newark-J...|             paid|
-    |   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
-    |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
-    |   Elijah|  Williams|     M|Detroit-Warren-De...|             paid|
-    |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
-    |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
-    |   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
-    |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
-    +---------+----------+------+--------------------+-----------------+
-    ```
+```bash
++---------+----------+------+--------------------+-----------------+
+|firstname|  lastname|gender|            location|subscription_type|
++---------+----------+------+--------------------+-----------------+
+| Annalyse|Montgomery|     F|  Killeen-Temple, TX|             free|
+|   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
+|     Liam|     Watts|     M|New York-Newark-J...|             paid|
+|     Tess|  Townsend|     F|Nashville-Davidso...|             free|
+|  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
+|     Alan|     Morse|     M|Chicago-Napervill...|             paid|
+|Gabriella|   Shelton|     F|San Jose-Sunnyval...|             free|
+|   Elijah|  Williams|     M|Detroit-Warren-De...|             paid|
+|  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
+|     Tess|  Townsend|     F|Nashville-Davidso...|             free|
+|     Alan|     Morse|     M|Chicago-Napervill...|             paid|
+|     Liam|     Watts|     M|New York-Newark-J...|             paid|
+|     Liam|     Watts|     M|New York-Newark-J...|             paid|
+|   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
+|     Alan|     Morse|     M|Chicago-Napervill...|             paid|
+|   Elijah|  Williams|     M|Detroit-Warren-De...|             paid|
+|  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
+|     Alan|     Morse|     M|Chicago-Napervill...|             paid|
+|   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
+|  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
++---------+----------+------+--------------------+-----------------+
+```
 
 ## Load the data
 
@@ -268,63 +268,63 @@ The SQL Date Warehouse connector uses Azure Blob storage as temporary storage to
 
 Provide the configuration to access the Azure Storage account from Azure Databricks.
 
-    ```scala
-    val storageURI = "<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net"
-    val fileSystemName = "<FILE_SYSTEM_NAME>"
-    val accessKey =  "<ACCESS_KEY>"
-    ```
+```scala
+val storageURI = "<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net"
+val fileSystemName = "<FILE_SYSTEM_NAME>"
+val accessKey =  "<ACCESS_KEY>"
+```
 
 Specify a temporary folder to use while moving data between Azure Databricks and Azure SQL Data Warehouse.
 
-    ```scala
-    val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
-    ```
+```scala
+val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
+```
 
 Run the following snippet to store Azure Blob storage access keys in the configuration. This action ensures that you don't have to keep the access key in the notebook in plain text.
 
-    ```scala
-    val acntInfo = "fs.azure.account.key."+ storageURI
-    sc.hadoopConfiguration.set(acntInfo, accessKey)
-    ```
+```scala
+val acntInfo = "fs.azure.account.key."+ storageURI
+sc.hadoopConfiguration.set(acntInfo, accessKey)
+```
 
 Provide the values to connect to the Azure SQL Data Warehouse instance. You must have created a SQL data warehouse as a prerequisite.
 
-    ```scala
-    //SQL Data Warehouse related settings
-    val dwDatabase = "<DATABASE NAME>"
-    val dwServer = "<DATABASE SERVER NAME>" 
-    val dwUser = "<USER NAME>"
-    val dwPass = "<PASSWORD>"
-    val dwJdbcPort =  "1433"
-    val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
-    val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
-    val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
-    ```
+```scala
+//SQL Data Warehouse related settings
+val dwDatabase = "<DATABASE NAME>"
+val dwServer = "<DATABASE SERVER NAME>" 
+val dwUser = "<USER NAME>"
+val dwPass = "<PASSWORD>"
+val dwJdbcPort =  "1433"
+val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
+val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
+val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
+```
 
 Run the following snippet to load the transformed dataframe, **renamedColumnsDF**, as a table in a SQL data warehouse. This snippet creates a table called **SampleTable** in the SQL database.
 
-    ```scala
-    spark.conf.set(
-        "spark.sql.parquet.writeLegacyFormat",
-        "true")
+```scala
+spark.conf.set(
+    "spark.sql.parquet.writeLegacyFormat",
+    "true")
     
-    renamedColumnsDF.write
-        .format("com.databricks.spark.sqldw")
-        .option("url", sqlDwUrlSmall) 
-        .option("dbtable", "SampleTable")
-        .option( "forward_spark_azure_storage_credentials","True")
-        .option("tempdir", tempDir)
-        .mode("overwrite")
-        .save()
-    ```
+renamedColumnsDF.write
+    .format("com.databricks.spark.sqldw")
+    .option("url", sqlDwUrlSmall) 
+    .option("dbtable", "SampleTable")
+    .option( "forward_spark_azure_storage_credentials","True")
+    .option("tempdir", tempDir)
+    .mode("overwrite")
+    .save()
+```
 
 Connect to the SQL database and verify that you see a database named **SampleTable**.
 
-    ![Verify the sample table](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table.png "Verify sample table")
+![Verify the sample table](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table.png "Verify sample table")
 
 Run a select query to verify the contents of the table. The table should have the same data as the **renamedColumnsDF** dataframe.
 
-    ![Verify the sample table content](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table-content.png "Verify the sample table content")
+![Verify the sample table content](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table-content.png "Verify the sample table content")
 
 ## Clean up resources
 
