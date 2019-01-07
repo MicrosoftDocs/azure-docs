@@ -137,7 +137,7 @@ To rotate external secrets:
     When secret rotation successfully completes, your console will display **Overall action status: Success**.
 
     > [!Note]
-    > If secret rotation fails, follow the instructions in the error message and re-run **start-secretrotation** with the **-Rerun** Parameter.
+    > If secret rotation fails, follow the instructions in the error message and re-run **Start-SecretRotation** with the **-Rerun** Parameter.
 
     ```PowerShell
     Start-SecretRotation -Rerun
@@ -183,7 +183,7 @@ Remove-PSSession -Session $PEPSession
 
 When secret rotation successfully completes, your console will display **Overall action status: Success**.
     > [!Note]
-    > If secret rotation fails, follow the instructions in the error message and rerun **start-secretrotation** with the  **–Internal** and **-Rerun** parameters.  
+    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **–Internal** and **-Rerun** parameters.  
 
     ```PowerShell
     Start-SecretRotation -Internal -Rerun
