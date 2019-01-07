@@ -459,6 +459,10 @@
       href: solution-templates-introduction.md
     - name: Copy files from multiple containers
       href: solution-template-copy-files-multiple-containers.md
+    - name: Bulk copy with control table
+      href: solution-template-bulk-copy-with-control-table.md
+    - name: Delta copy with control table
+      href: solution-template-delta-copy-with-control-table.md
     - name: Transform data with Databricks
       href: solution-template-databricks-notebook.md
 - name: Reference
