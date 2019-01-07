@@ -99,9 +99,9 @@ To use a virtual machine or HDInsight cluster in a Virtual Network with your wor
 > The Azure Machine Learning service only supports virtual machines running Ubuntu.
 
 1. Create a VM or HDInsight cluster using Azure portal, Azure CLI, etc., and put it in an Azure Virtual Network. For more information, see the following documents:
-    * [Create and manage Azure Virtual Networks for Linux VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-virtual-network)
+    * [Create and manage Azure Virtual Networks for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 
-    * [Extend HDInsight using Azure Virtual Networks](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network) 
+    * [Extend HDInsight using Azure Virtual Networks](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network) 
 
 1. Allow access from Azure Machine Learning service to the SSH port on the VM or cluster. The SSH port is usually port 22. To allow traffic from this source, use the following information:
 
@@ -125,7 +125,7 @@ To use a virtual machine or HDInsight cluster in a Virtual Network with your wor
 
     ![Outbound rules for doing experimentation on VM or HDI inside a virtual network](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
     
-1. Attach the VM or HDInsight cluster to your Azure Machine Learning service workspace. For more information, see the [Set up compute targets for model training](how-to-set-up-training-targets) document.
+1. Attach the VM or HDInsight cluster to your Azure Machine Learning service workspace. For more information, see the [Set up compute targets for model training](how-to-set-up-training-targets.md) document.
 
 ## Use Azure Kubernetes Service (AKS)
 
@@ -171,6 +171,6 @@ You are not ready to do inferencing on an AKS cluster behind a virtual network. 
 
 ## Next steps
 
-* [Set up training environments](how-to-set-up-training-targets)
-* [Where to deploy models](how-to-deploy-and-where)
-* [Secure deployed models with SSL](how-to-secure-web-service)
+* [Set up training environments](how-to-set-up-training-targets.md)
+* [Where to deploy models](how-to-deploy-and-where.md)
+* [Secure deployed models with SSL](how-to-secure-web-service.md)

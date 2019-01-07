@@ -575,3 +575,4 @@ For examples, see the notebooks in the following locations:
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md)
 * [Where to deploy models](how-to-deploy-and-where.md)
 * [Build machine learning pipelines with Azure Machine Learning service](concept-ml-pipelines.md)
+* [Use Azure Machine Learning service with Azure Virtual Networks](how-to-enable-virtual-network.md)
