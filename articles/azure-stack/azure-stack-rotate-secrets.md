@@ -112,6 +112,24 @@ Running secret rotation using the instructions below will remediate these alerts
 8. Open a PowerShell ISE console from a computer where you have access to the fileshare. Navigate to your fileshare.
 9. Run **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
 
+> [!IMPORTANT]
+> The CertDirectoryMaker script will create a folder structure that will adhere to:
+>
+> .\Certificates\AAD
+>
+> .\Certificates\ADFS
+>
+> It is of utmost importance that your fileshare ends with **AAD** or **ADFS** otherwise **Start-SecretRotate** will come up with:
+> ```PowerShell
+> Cannot bind argument to parameter 'Path' because it is null.
+> + CategoryInfo          : InvalidData: (:) [Test-Certificate], ParameterBindingValidationException
+> + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Test-Certificate
+> + PSComputerName        : x.x.x.xxx
+> ```
+>
+> As you can see the error massage would indicate that there is a problem accessing your fileshare but in reality it is the folder structure that is being enforced here.
+> More information can be found in the Microsoft AzureStack Readiness Checker - [PublicCertHelper module](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1)
+
 ## Rotating external secrets
 
 To rotate external secrets:
