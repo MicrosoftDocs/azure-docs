@@ -305,9 +305,19 @@ This command rotates all of the infrastructure secrets exposed to Azure Stack in
 #### Rotate only external infrastructure secrets  
 
 ```PowerShell
-PS C:\> Invoke-Command -Session $PEPSession -ScriptBlock {  
+# Create a PEP Session
+winrm s winrm/config/client '@{TrustedHosts= "<IPofERCSMachine>"}'
+$PEPCreds = Get-Credential
+$PEPSession = New-PSSession -ComputerName <IPofERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint
 
-Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
+# Create Credentials for the fileshare
+$CertPassword = ConvertTo-SecureString "CertPasswordHere" -Force
+$CertShareCred = Get-Credential 
+$CertSharePath = "<NetworkPathofCertShare>"
+# Run Secret Rotation
+Invoke-Command -Session $PEPSession -ScriptBlock {  
+    Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword
+}
 
 Remove-PSSession -Session $PEPSession
 ```
@@ -322,10 +332,19 @@ This command rotates the TLS certificates used for Azure Stack's external networ
 > **From *1811+* you cannot rotate both internal and external certificates any more!!!**
 
 ```PowerShell
-PS C:\> Invoke-Command -Session $PEPSession -ScriptBlock {
+# Create a PEP Session
+winrm s winrm/config/client '@{TrustedHosts= "<IPofERCSMachine>"}'
+$PEPCreds = Get-Credential
+$PEPSession = New-PSSession -ComputerName <IPofERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint
 
-Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
-
+# Create Credentials for the fileshare
+$CertPassword = ConvertTo-SecureString "CertPasswordHere" -Force
+$CertShareCred = Get-Credential 
+$CertSharePath = "<NetworkPathofCertShare>"
+# Run Secret Rotation
+Invoke-Command -Session $PEPSession -ScriptBlock {
+    Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword
+}
 Remove-PSSession -Session $PEPSession
 ```
 
