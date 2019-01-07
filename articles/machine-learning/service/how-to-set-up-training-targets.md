@@ -248,7 +248,7 @@ from azureml.core.compute import ComputeTarget
 myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 ```
 
-### <a id="portal-view">View compute targets
+### <a id="portal-view"></a>View compute targets
 
 
 To see the compute targets for your workspace, use the following steps:
