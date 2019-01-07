@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Facebook content moderation - Azure Content Moderator"
 titlesuffix: Azure Cognitive Services
-description: Moderate Facebook pages with Content Moderator.
+description: In this tutorial, you will learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Tutorial: Facebook content moderation with Content Moderator
 
-In this tutorial, we learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
+In this tutorial, you will learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
 
 The tutorial guides you through these steps:
 

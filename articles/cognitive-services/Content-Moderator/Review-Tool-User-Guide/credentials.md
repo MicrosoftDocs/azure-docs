@@ -1,7 +1,7 @@
 ---
 title: Manage credentials in Azure Content Moderator - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Manage Content Moderator credentials to use with the APIs.
+description: Manage Content Moderator credentials, which you will need to use the APIs.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca

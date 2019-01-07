@@ -1,7 +1,7 @@
 ---
 title: Configure Content Moderator's Review tool settings - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Configure or get your team, tags, connectors, workflows, and credentials.
+description: Configure or retrieve your team, tags, connectors, workflows, and credentials.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca

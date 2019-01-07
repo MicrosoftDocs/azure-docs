@@ -1,7 +1,7 @@
 ---
 title: Review tagged images - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: The review tool allows human moderators to review images.
+description: Learn how the Review tool allows human moderators to review images in a web portal.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca

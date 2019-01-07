@@ -1,7 +1,7 @@
 ---
 title: Language support - Content Moderator API
 titleSuffix: Azure Cognitive Services
-description: A list of natural languages supported by Content Moderator API.
+description: This is a list of natural languages that the Content Moderator API supports.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -10,6 +10,7 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: sajagtap
+ms.custom: seodec18
 ---
 
 # Language support for Content Moderator API
