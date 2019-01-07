@@ -69,7 +69,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. Select **Overview** > **Essentials** > Copy your application's **Instrumentation Key**.
 
-   ![New App Insights resource form](media/app-insights-website-monitoring/instrumentation-key-001.png)
+   ![New App Insights resource form](media/website-monitoring/instrumentation-key-001.png)
 
 2. Add the following script to your ``hello_world.html`` before the closing ``</head>`` tag:
 
@@ -93,7 +93,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. You can now reopen the Application Insights **Overview** page in the Azure portal, where you retrieved your instrumentation key, to view details about your currently running application. The four default charts on the overview page are scoped to server-side application data. Since we are instrumenting the client/browser-side interactions with the JavaScript SDK this particular view doesn't apply unless we also have a server-side SDK installed.
 
-2. Click on ![Application Map icon](media/app-insights-website-monitoring/006.png) **Analytics**.  This opens **Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. To view data related to the client-side browser requests run the  following query:
+2. Click on ![Application Map icon](media/website-monitoring/006.png) **Analytics**.  This opens **Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. To view data related to the client-side browser requests run the  following query:
 
     ```kusto
     // average pageView duration by name
@@ -110,19 +110,19 @@ Application Insights can gather telemetry data from any internet-connected appli
     | render timechart
     ```
 
-   ![Analytics graph of user requests over a period of time](./media/app-insights-website-monitoring/analytics-query.png)
+   ![Analytics graph of user requests over a period of time](./media/website-monitoring/analytics-query.png)
 
-3. Go back to the **Overview** page. Click on **Browser** from under the **Investigate** header, then select **Performance**  Here you find metrics related to the performance of your website. There is also a corresponding view for analyzing failures and exceptions in your website. You can click **Samples** to drill into individual transaction details. From here, you can access the [end-to-end transaction details](../azure-monitor/app/transaction-diagnostics.md) experience.
+3. Go back to the **Overview** page. Click on **Browser** from under the **Investigate** header, then select **Performance**  Here you find metrics related to the performance of your website. There is also a corresponding view for analyzing failures and exceptions in your website. You can click **Samples** to drill into individual transaction details. From here, you can access the [end-to-end transaction details](../../azure-monitor/app/transaction-diagnostics.md) experience.
 
-   ![Server metrics graph](./media/app-insights-website-monitoring/browser-performance.png)
+   ![Server metrics graph](./media/website-monitoring/browser-performance.png)
 
-4. To begin exploring the [user behavior analytics tools](../azure-monitor/app/usage-overview.md), from the main Application Insights menu select [**Users**](../azure-monitor/app/usage-segmentation.md) under the **Usage** header. Since we are testing from a single machine, we will only see data for one user. For a live website, the distribution of users might look as follows:
+4. To begin exploring the [user behavior analytics tools](../../azure-monitor/app/usage-overview.md), from the main Application Insights menu select [**Users**](../../azure-monitor/app/usage-segmentation.md) under the **Usage** header. Since we are testing from a single machine, we will only see data for one user. For a live website, the distribution of users might look as follows:
 
-     ![User graph](./media/app-insights-website-monitoring/usage-users.png)
+     ![User graph](./media/website-monitoring/usage-users.png)
 
-5. If we had instrumented a more complex website with multiple pages, another useful tool is [**User Flows**](../azure-monitor/app/usage-flows.md). With **User Flows** you can track the pathway visitors takes through the various parts of your website.
+5. If we had instrumented a more complex website with multiple pages, another useful tool is [**User Flows**](../../azure-monitor/app/usage-flows.md). With **User Flows** you can track the pathway visitors takes through the various parts of your website.
 
-  ![User Flows visualization](./media/app-insights-website-monitoring/user-flows.png)
+  ![User Flows visualization](./media/website-monitoring/user-flows.png)
 
 To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK API reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md).
 

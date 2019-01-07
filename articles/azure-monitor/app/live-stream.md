@@ -33,7 +33,7 @@ With Live Metrics Stream, you can:
 
 ## Get started
 
-1. If you haven't yet [installed Application Insights](../../azure-monitor/app/asp-net.md) in your ASP.NET web app or [Windows server app](../../application-insights/app-insights-windows-services.md), do that now. 
+1. If you haven't yet [installed Application Insights](../../azure-monitor/app/asp-net.md) in your ASP.NET web app or [Windows server app](../../azure-monitor/app/windows-services.md), do that now. 
 2. **Update to the latest version** of the Application Insights package. In Visual Studio, right-click your project and choose **Manage Nuget packages**. Open the **Updates** tab, check **Include prerelease**, and select all the Microsoft.ApplicationInsights.* packages.
 
     Redeploy your app.

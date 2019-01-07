@@ -109,10 +109,10 @@ The overview blade is the gateway to more information about your app.
 * [**Search**](../../azure-monitor/app/diagnostic-search.md) - Investigate specific instances of events such as requests, exceptions, or log traces.
 * [**Analytics**](../../azure-monitor/app/analytics.md) - Powerful queries over your telemetry.
 * **Time range** - Adjust the range displayed by all the charts on the blade.
-* **Delete** - Delete the Application Insights resource for this app. You should also either remove the Application Insights packages from your app code, or edit the [instrumentation key](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) in your app to direct telemetry to a different Application Insights resource.
+* **Delete** - Delete the Application Insights resource for this app. You should also either remove the Application Insights packages from your app code, or edit the [instrumentation key](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) in your app to direct telemetry to a different Application Insights resource.
 
 ### Essentials tab
-* [Instrumentation key](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) - Identifies this app resource.
+* [Instrumentation key](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) - Identifies this app resource.
 
 ### App navigation bar
 ![Left navigation bar](./media/app-insights-dashboards/app-left-nav-bar.png)
