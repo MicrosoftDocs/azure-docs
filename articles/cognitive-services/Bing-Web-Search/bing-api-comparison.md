@@ -7,14 +7,14 @@ author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic:article
+ms.topic: article
 ms.date: 1/04/2018
 ms.author: aahi
 ---
 
 # What are the Bing Search APIs?
 
-The Bing Search APIs enable you to quickly build web-connected apps and services that can find webpages, images, news, translations, and more without advertisements. Use this article to learn about the various Bing search APIs and how you can integrate cognitive searches into your applications and services.  
+The Bing Search APIs enable you to quickly build web-connected apps and services that can find webpages, images, news, locations, and more without advertisements. Use this article to learn about the various Bing search APIs and how you can integrate cognitive searches into your applications and services.  
 
 By sending queries to the Bing search REST APIs or SDKs, you can get instant, relevant answers to user web searches in a variety of content types. These queries can be modified to narrow a search's scope, filter results and more, improving the search experience. 
 
