@@ -4,7 +4,7 @@ description: Use Terraform and HashiCorp Configuration Language (HCL) to create 
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, virtual machine, network, modules
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
