@@ -95,7 +95,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ### Planning considerations
 
-Azure AD provides a rich set of provisioning connectors to help you solve provisioning and identity life cycle management from Workday to Active Directory, Azure AD, SaaS apps, and beyond. Which features you will use and how you set up the solution will vary depending on your organization's environment and requirements. As a first step, take stock of how many of the following are present and deployed in your organization:
+Azure AD provides a rich set of user provisioning connectors to help you solve provisioning and identity life cycle management from Workday to Active Directory, Azure AD, SaaS apps, and beyond. Which features you will use and how you set up the solution will vary depending on your organization's environment and requirements. As a first step, take stock of how many of the following are present and deployed in your organization:
 
 * How many Active Directory Forests are in use?
 * How many Active Directory Domains are in use?
@@ -106,19 +106,6 @@ Azure AD provides a rich set of provisioning connectors to help you solve provis
 * Do user email addresses need to be written back to Workday?
 
 Once you have answers to these questions, you can plan your Workday provisioning deployment by following the guidance below.
-
-#### Planning deployment of AAD Connect Provisioning Agent
-
-The Workday to AD User Provisioning solution requires deploying one or more Provisioning Agents on servers running Windows 2012 R2 or greater with minimum of 4 GB RAM and .NET 4.7+ runtime. The following considerations must be taken into account before installing the Provisioning Agent:
-
-* Ensure that the host server running the Provisioning Agent has network access to the target AD domain
-* The Provisioning Agent Configuration Wizard registers the agent with your Azure AD tenant and the registration process requires access to *.msappproxy.net at port 8082. Ensure that outbound firewall rules are in place that enable this communication.
-* The Provisioning Agent uses a service account to communicate with the on-premises AD domain(s). Prior to installation of the agent, it is recommended that you create a service account with User properties Read/Write permissions and a password that does not expire.  
-* During the Provisioning Agent configuration, you can select domain controllers that should handle provisioning requests. If you have several geographically distributed domain controllers, install the Provisioning Agent in the same site as your preferred domain controller(s) to improve the reliability and performance of the end-to-end solution
-* For high availability, you can deploy more than one Provisioning Agent and register it to handle the same set of on-premises AD domains.
-
-> [!IMPORTANT]
-> In production environments, Microsoft recommends that you have a minimum of 3 Provisioning Agents configured with your Azure AD tenant for high availability.
 
 #### Selecting provisioning connector apps to deploy
 
@@ -135,14 +122,31 @@ To facilitate provisioning workflows between Workday and Active Directory, Azure
 
 ![AAD App Gallery](./media/workday-inbound-tutorial/wd_gallery.png)
 
-* **Workday to Active Directory Provisioning** - This app facilitates user account provisioning from Workday to a single Active Directory domain. If you have multiple domains, you can add one instance of this app from the Azure AD app gallery for each Active Directory domain you need to provision to.
+* **Workday to Active Directory User Provisioning** - This app facilitates user account provisioning from Workday to a single Active Directory domain. If you have multiple domains, you can add one instance of this app from the Azure AD app gallery for each Active Directory domain you need to provision to.
 
-* **Workday to Azure AD Provisioning** - While AAD Connect is the tool that should be used to synchronize Active Directory users to Azure Active Directory, this app can be used to facilitate provisioning of cloud-only users from Workday to a single Azure Active Directory tenant.
+* **Workday to Azure AD User Provisioning** - While AAD Connect is the tool that should be used to synchronize Active Directory users to Azure Active Directory, this app can be used to facilitate provisioning of cloud-only users from Workday to a single Azure Active Directory tenant.
 
 * **Workday Writeback** - This app facilitates write-back of user's email addresses from Azure Active Directory to Workday.
 
 > [!TIP]
-> The regular "Workday" app is used for setting up single sign-on between Workday and Azure Active Directory. 
+> The regular "Workday" app is used for setting up single sign-on between Workday and Azure Active Directory.
+
+Use the decision flow chart below to identify which Workday provisioning apps are relevant to your scenario.
+    ![Decision Flowchart](./media/workday-inbound-tutorial/wday_app_flowchart.png "Decision Flowchart")
+
+#### Planning deployment of AAD Connect Provisioning Agent
+
+This section is relevant if you plan to deploy the Workday to Active Directory User Provisioning App.
+The Workday to AD User Provisioning solution requires deploying one or more Provisioning Agents on servers running Windows 2012 R2 or greater with minimum of 4 GB RAM and .NET 4.7+ runtime. The following considerations must be taken into account before installing the Provisioning Agent:
+
+* Ensure that the host server running the Provisioning Agent has network access to the target AD domain
+* The Provisioning Agent Configuration Wizard registers the agent with your Azure AD tenant and the registration process requires access to *.msappproxy.net over the SSL port 443. Ensure that outbound firewall rules are in place that enable this communication.
+* The Provisioning Agent uses a service account to communicate with the on-premises AD domain(s). Prior to installation of the agent, it is recommended that you create a service account with User properties Read/Write permissions and a password that does not expire.  
+* During the Provisioning Agent configuration, you can select domain controllers that should handle provisioning requests. If you have several geographically distributed domain controllers, install the Provisioning Agent in the same site as your preferred domain controller(s) to improve the reliability and performance of the end-to-end solution
+* For high availability, you can deploy more than one Provisioning Agent and register it to handle the same set of on-premises AD domains.
+
+> [!IMPORTANT]
+> In production environments, Microsoft recommends that you have a minimum of 3 Provisioning Agents configured with your Azure AD tenant for high availability.
 
 #### Determine Workday to AD User Attribute Mapping and Transformations
 
