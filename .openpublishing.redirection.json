@@ -1,5 +1,5 @@
-{"redirections": 
-    [
+{
+    "redirections": [
         {
             "source_path": "articles/machine-learning/service/how-to-migrate.md",
             "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
@@ -899,7 +899,6 @@
       "redirect_url": "/azure/iot-fundamentals/iot-introduction",
       "redirect_document_id": false
     },
-
     {
       "source_path": "articles/iot-hub/iot-hub-create-using-cli-nodejs.md",
       "redirect_url": "/azure/iot-hub/iot-hub-create-using-cli",
@@ -1108,7 +1107,7 @@
     {
       "source_path": "articles/machine-learning/preview/scenario-big-data.md",
       "redirect_url": "/azure/machine-learning/desktop-workbench/scenario-big-data",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/preview/scenario-churn-prediction.md",
