@@ -68,4 +68,4 @@ The IoT Hub service throttles requests when the following quotas are exceeded:
 | Device twin updates | 50/sec/unit (for S3), Maximum of 10/sec or 1/sec/unit (for S2), 10/sec (for S1) |
 | Jobs operations <br/> (create, update, list, delete) | 83.33/sec/unit (5000/min/unit) (for S3), 1.67/sec/unit (100/min/unit) (for S2), 1.67/sec/unit (100/min/unit) (for S1) |
 | Jobs per-device operation throughput | 50/sec/unit (for S3), Maximum of 10/sec or 1/sec/unit (for S2), 10/sec (for S1) |
-| Device stream initiation rate | 5 new streams/sec/unit (for S1, S2, S3, and F1 only) |
+| Device stream initiation rate | 5 new streams/sec (for S1, S2, S3, and F1 only) |
