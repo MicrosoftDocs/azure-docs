@@ -261,21 +261,21 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 
 	#### Scenario: SAP User to Azure AD user mapping.
 
-	a. NameID details screen shot from SAP.
+	a. NameID details screenshot from SAP.
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/nameiddetails.png)
 
-	b. Screen shot mentioning Required claims from Azure AD.
+	b. screenshot mentioning Required claims from Azure AD.
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/claimsaad1.png)
 
 	#### Scenario: Select SAP user id based on configured email address in SU01. In this case email id should be configured in su01 for each user who requires SSO.
 
-	a.  NameID details screen shot from SAP.
+	a.  NameID details screenshot from SAP.
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
 
-	b. Screen shot mentioning Required claims from Azure AD.
+	b. screenshot mentioning Required claims from Azure AD.
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/claimsaad2.png)
 
