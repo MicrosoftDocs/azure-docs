@@ -204,9 +204,9 @@
     - name: Overview of Recovery Services vaults
       href: backup-azure-recovery-services-vault-overview.md
     - name: Upgrading a Backup vault to Recovery Services vault
-      href: backup-azure-upgrade-backup-to-recovery-services-vault.md
+      href: backup-azure-upgrade-backup-to-recovery-services.md
     - name: Move a Recovery Services vault
-      href: backup-azure-move-recovery-services-vaults.md
+      href: backup-azure-move-recovery-services-vault.md
     - name: Delete a Recovery Services vault
       href: backup-azure-delete-vault.md
   - name: Troubleshoot
