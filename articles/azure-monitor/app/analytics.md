@@ -45,7 +45,7 @@ We then count the number of records per country (that data is found in the colum
 The language has many attractive features:
 
 * [Filter](/azure/kusto/query/whereoperator) your raw app telemetry by any fields, including your custom properties and metrics.
-* [Join](/azure/kusto/query/joinoperator) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
+* [Join](/azure/kusto/query/joinoperator) multiple tables - correlate requests with page views, dependency calls, exceptions and log traces.
 * Powerful statistical [aggregations](/azure/kusto/query/summarizeoperator).
 * Immediate and powerful visualizations.
 * [REST API](https://dev.applicationinsights.io/) that you can use to run queries programmatically, for example from PowerShell.
