@@ -1101,13 +1101,13 @@
     },
     {
       "source_path": "articles/machine-learning/preview/scenario-aerial-image-classification.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/scenario-aerial-image-classification",
-      "redirect_document_id": true
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/preview/scenario-big-data.md",
       "redirect_url": "/azure/machine-learning/desktop-workbench/scenario-big-data",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/preview/scenario-churn-prediction.md",
@@ -1466,8 +1466,8 @@
     },
     {
       "source_path": "articles/machine-learning/preview/frequently-asked-questions.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/frequently-asked-questions",
-      "redirect_document_id": true
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/preview/how-to-configure-your-IDE.md",
