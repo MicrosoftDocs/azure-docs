@@ -46,6 +46,8 @@ When you enable replication for a VM, Site Recovery gives you the option of crea
 **Target availability sets** |  Availability set in which replicating VMs are located after failover.<br/><br/> Site Recovery creates an availability set in the target region with the suffix "asr", for VMs that are located in an availability set in the source location. If an availability set exists, it's used and a new one isn't created.
 **Target availability zones** | If the target region supports availability zones, Site Reocvery assigns the same zone number as that used in the source region.
 
+### Managing target resources
+
 You can manage target resources as follows:
 
 - You can modify target settings as you enable replication.
@@ -61,15 +63,22 @@ When you enable Azure VM replication, by default Site Recovery creates a new rep
 --- | --- | ---
 **Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 24 hours
 **App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot. | Every 60 minutes.
-**Multi-VM consistency** | If you want VMs to replicate together, and have shared crash-consistent and app-consistent recovery points at failover, you can gather them together into a replication group.<br/><br/>. Multi-VM consistency impacts workload performance, and should only be used for VMs running workloads that need consistency across all machines. 
 
-You can manage replication policy settings as follows:
+### Managing replication policies
+
+You can manage and modify the default replication policies settings as follows:
 - You can modify the settings as you enable replication.
 - You can create a replication policy at any time, and then apply it when you enable replication.
 
-### Recovery points
+### Multi-VM consistency
 
-Recovery points are created from snapshots of VM disks taken at a specific point in time. When you fail over a VM, you use  a recovery point to restore the VM in the target location.
+If you want VMs to replicate together, and have shared crash-consistent and app-consistent recovery points at failover, you can gather them together into a replication group. Multi-VM consistency impacts workload performance, and should only be used for VMs running workloads that need consistency across all machines. 
+
+
+
+## Snapshots and recovery points
+
+Recovery points are created from snapshots of VM disks taken at a specific point in time. When you fail over a VM, you use a recovery point to restore the VM in the target location.
 
 When failing over, we generally want to ensure that the VM starts with no corruption or data loss, and that the VM data is consistent for the operating system, and for apps that run on the VM. This depends on the type of snapshots taken.
 
@@ -78,12 +87,16 @@ Site Recovery takes snapshots as follows:
 1. Site Recovery takes crash-consistent snapshots of data by default, and app-consistent snapshots if you specify a frequency for them.
 2. Recovery points are created from the snapshots, and stored in accordance with retention settings in the replication policy.
 
+### Consistency
+
 The following table explains different types of consistency.
 
-**Snapshot** | **Details** | **Recommendation**
+### Crash-consistent
+
+**Description** | **Details** | **Recommendation**
 --- | --- | ---
-**Crash-consistent** | 	 Site Recovery creates crash-consistent recovery points every five minutes by default. This setting can't be modified.<br/><br/> A crash consistent snapshot has the equivalent of the on-disk data that would be present if the VM crashed or the power cord was pulled form the server at the time that the snapshot was taken. <br/><br/> It captures data that was on the disk when the snapshot was taken. It doesn't include anything in memory. It doesn't guarantee data consistency for the operating system, or for apps on the VM. | Today, most apps can recover well from crash-consistent points.<br/><br/> Crash-consistent recovery points are usually sufficient for the replication of operating systems, and apps such as DHCP servers and print servers.
-**App-consistent** | App-consistent recovery points are created from app-consistent snapshots.<br/><br/> An app-consistent snapshot contains all the information in a crash-consistent snapshot, plus all the data in memory and transactions in progress.<br/><br/> App-consistent snapshots are taken in accordance with the frequency you specify.<br/><br/> App-consistent snapshots use the Volume Shadow Copy Service (VSS):<br/><br/> 1) When a snapshot is initiated, VSS perform a copy-on-write (COW) operation on the volume.<br/><br/> 2) Before it performs the COW, VSS informs every app on the machine that it needs to flush its memory-resident data to disk.<br/><br/> 3) VSS then allows the backup/disaster recovery app (in this case Site Recovery) to read the snapshot data and proceed. | App-consistent snapshots are more complex, and take longer to complete. They affect the performance of apps running on a VM enabled for replication.<br/><br/> The frequency at which you create app-consistent snapshots should always be less than you set for retaining recovery points. For example, if you retain recovery points using the default setting of 24 hours, you should set the frequency at less than 24 hours. | Application-consistent recovery points are recommended for database operating systems and applications such as SQL.<br/><br/> App-consistent snapshots are only supported for VMs running Windows.<br/><br/>
+A crash consistent snapshot captures data that was on the disk when the snapshot was taken. It doesn't include anything in memory.<br/><br/> It contains the equivalent of the on-disk data that would be present if the VM crashed or the power cord was pulled from the server at the instant that the snapshot was taken.<br/><br/> A crash-consistent doesn't guarantee data consistency for the operating system, or for apps on the VM. | Site Recovery creates crash-consistent recovery points every five minutes by default. This setting can't be modified.<br/><br/>  | Today, most apps can recover well from crash-consistent points.<br/><br/> Crash-consistent recovery points are usually sufficient for the replication of operating systems, and apps such as DHCP servers and print servers.
+**App-consistent** | App-consistent recovery points are created from app-consistent snapshots.<br/><br/> An app-consistent snapshot contains all the information in a crash-consistent snapshot, plus all the data in memory and transactions in progress.<br/><br/> App-consistent snapshots use the Volume Shadow Copy Service (VSS):<br/><br/>   1) When a snapshot is initiated, VSS perform a copy-on-write (COW) operation on the volume.<br/><br/>   2) Before it performs the COW, VSS informs every app on the machine that it needs to flush its memory-resident data to disk.<br/><br/>   3) VSS then allows the backup/disaster recovery app (in this case Site Recovery) to read the snapshot data and proceed. | App-consistent snapshots are taken in accordance with the frequency you specify.<br/><br/>They're more complex and take longer to complete than crash-consistent snapshots.<br/><br/> They affect the performance of apps running on a VM enabled for replication.<br/><br/> The frequency at which you create app-consistent snapshots should always be less than you set for retaining recovery points. For example, if you retain recovery points using the default setting of 24 hours, you should set the frequency at less than 24 hours. | Application-consistent recovery points are recommended for database operating systems and applications such as SQL.<br/><br/> App-consistent snapshots are only supported for VMs running Windows.
 
 ## Replication process
 
