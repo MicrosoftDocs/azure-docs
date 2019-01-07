@@ -127,7 +127,7 @@ When secret rotation successfully completes, your console will display **Overall
     > [!Note]  
     > If secret rotation fails, follow the instructions in the error message and re-run **start-secretrotation** with the **-Rerun** Parameter. 
 
-    ```PowerShell  
+    ```PowerShell
     Start-SecretRotation -Rerun
     ```
     Contact Support if you experience repeated secret rotation failures.
@@ -137,7 +137,7 @@ When secret rotation successfully completes, your console will display **Overall
 
 The following PowerShell example demonstrates the cmdlets and parameters to run in order to rotate your secrets.
 
-```powershell
+```PowerShell
 #Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IPofERCSMachine>"}'
 $PEPCreds = Get-Credential 
@@ -170,7 +170,7 @@ When secret rotation successfully completes, your console will display **Overall
     > [!Note]  
     > If secret rotation fails, follow the instructions in the error message and rerun **start-secretrotation** with the  **–Internal** and **-Rerun** parameters.  
 
-    ```PowerShell  
+    ```PowerShell
     Start-SecretRotation -Internal -Rerun
     ```
     Contact Support if you experience repeated secret rotation failures.
@@ -183,25 +183,25 @@ Rotates the secrets of an Azure Stack System. Only executed against the Azure St
 
 #### For external secret rotation
 
-```Powershell  
+```PowerShell
 Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential] <PSCredential> [-CertificatePassword <SecureString>]  
 ```
 
 #### For internal secret rotation 
 
-```Powershell  
+```PowerShell
 Start-SecretRotation [-Internal]  
 ```
 
 #### For external secret rotation rerun 
 
-```Powershell  
+```PowerShell
 Start-SecretRotation [-Rerun]
 ```
 
 #### For internal secret rotation rerun 
 
-```Powershell  
+```PowerShell
 Start-SecretRotation [-Rerun] [-Internal]
 ```
 ### Description
@@ -224,7 +224,7 @@ The **Start-SecretRotation** cmdlet rotates the infrastructure secrets of an Azu
 
 This must be run via your Azure Stack [environment's privileged endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
-```powershell  
+```PowerShell  
 PS C:\> Start-SecretRotation  -Internal
 ```
 
@@ -232,7 +232,7 @@ This command rotates all of the infrastructure secrets exposed to Azure Stack in
 
 #### Rotate only external infrastructure secrets  
 
-```powershell  
+```PowerShell  
 PS C:\> Invoke-Command -session $PEPSession -ScriptBlock {  
 
 Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }  
@@ -244,7 +244,7 @@ This command rotates the TLS certificates used for Azure Stack's external networ
 
 **Rotate internal and external infrastructure secrets**
   
-```powershell
+```PowerShell
 PS C:\> Invoke-Command -session $PEPSession -ScriptBlock { 
 Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword } 
 Remove-PSSession -Session $PEPSession
@@ -261,7 +261,7 @@ The baseboard management controller (BMC) monitors the physical state of your se
 2. Open a privileged endpoint in Azure Stack sessions. For instructions, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
 3. After your PowerShell prompt has changed to **[IP address or ERCS VM name]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment, run `Set-BmcCredemtial` by running `invoke-command`. Pass your privileged endpoint session variable as a parameter. For example:
 
-    ```powershell
+    ```PowerShell
     # Interactive Version
     $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PECred = Get-Credential "<Domain>\CloudAdmin" -Message "PE Credentials" 
@@ -279,7 +279,7 @@ The baseboard management controller (BMC) monitors the physical state of your se
     
     You can also use the static PowerShell version with the Passwords as code lines:
     
-    ```powershell
+    ```PowerShell
     # Static Version
     $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"
