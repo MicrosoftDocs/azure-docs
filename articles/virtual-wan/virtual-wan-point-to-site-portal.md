@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 ## <a name="register"></a>Register this feature
 
-Click the **TryIt** to register this feature easily using Azure Cloud Shell. If you would rather run PowerShell locally, make sure you have the latest version and sign in using the `Connect-AzureRmAccount` and `Select-AzureRmSubscription` commands.
+Click the **TryIt** to register this feature easily using Azure Cloud Shell. If you would rather run PowerShell locally, make sure you have the latest version and sign in using the **Connect-AzureRmAccount** and **Select-AzureRmSubscription** commands.
 
 >[!NOTE]
 >If you don't register this feature, you will not be able to use it, or to see it in the portal.
