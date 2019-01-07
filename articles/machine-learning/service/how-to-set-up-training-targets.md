@@ -225,15 +225,8 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
 
 1. **Configure**: Create a run configuration for the HDI compute target. 
 
-    ```python
-    from azureml.core.runconfig import RunConfiguration
-    # Configure the HDInsight run 
-    # Load the runconfig object from the myhdi.runconfig file generated in the previous attach operation
-    run_hdi = RunConfiguration.load(project_object = project, run_name = 'myhdi')
-    
-    # Ask the system to prepare the conda environment automatically when it's used for the first time
-    run_hdi.auto_prepare_environment = True
-    ```
+ [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
+
 
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
 
