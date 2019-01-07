@@ -180,9 +180,13 @@ For more information about how to control access to a Log Analytics workspace, s
 To enable monitoring of your Azure VM in the Azure portal, do the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. Select **Virtual Machines**.
+
 1. From the list, select a VM.
+
 1. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
+
 1. On the **Insights (preview)** page, select **Try now**.
 
     ![Enable Azure Monitor for VMs for a VM](./media/vminsights-onboard/enable-vminsights-vm-portal-01.png)
