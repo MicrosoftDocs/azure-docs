@@ -51,11 +51,7 @@ In this section, you create an Azure Databricks workspace by using the Azure por
 
     ![Databricks on Azure portal](./media/data-lake-storage-handle-data-using-databricks/azure-databricks-on-portal.png "Databricks on Azure portal")
 
-1. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
-
-    ![Create an Azure Databricks workspace](./media/data-lake-storage-handle-data-using-databricks/create-databricks-workspace.png "Create an Azure Databricks workspace")
-
-    Provide the following values:
+2. Under **Azure Databricks Service**, provide the following values to create a Databricks workspace:
 
     |Property  |Description  |
     |---------|---------|
@@ -65,9 +61,11 @@ In this section, you create an Azure Databricks workspace by using the Azure por
     |**Location**     | Select **West US 2**.        |
     |**Pricing Tier**     |  Select **Standard**.     |
 
-    Select **Pin to dashboard** and then select **Create**.
+    ![Create an Azure Databricks workspace](./media/data-lake-storage-handle-data-using-databricks/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
-1. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right. To monitor the operation status, view the progress bar at the top.
+3. Select **Pin to dashboard** and then select **Create**.
+
+4. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right. To monitor the operation status, view the progress bar at the top.
 
     ![Databricks deployment tile](./media/data-lake-storage-handle-data-using-databricks/databricks-deployment-tile.png "Databricks deployment tile")
 
@@ -77,21 +75,23 @@ To perform the operations in this tutorial, you need a Spark cluster. Use the fo
 
 1. In the Azure portal, go to the Databricks workspace that you created, and select **Launch Workspace**.
 
-1. You're redirected to the Azure Databricks portal. From the portal, select **Cluster**.
+2. You're redirected to the Azure Databricks portal. From the portal, select **Cluster**.
 
     ![Databricks on Azure](./media/data-lake-storage-handle-data-using-databricks/databricks-on-azure.png "Databricks on Azure")
 
-1. In the **New cluster** page, provide the values to create a cluster.
+3. In the **New cluster** page, provide the values to create a cluster.
 
     ![Create Databricks Spark cluster on Azure](./media/data-lake-storage-handle-data-using-databricks/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
-    Fill in values for the following fields, and accept the default values for the other fields:
+4. Fill in values for the following fields, and accept the default values for the other fields:
 
     * Enter a name for the cluster.
     * For this article, create a cluster with the **5.1** runtime.
     * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. If the cluster isn't being used, provide a duration (in minutes) to terminate the cluster.
 
-    Select **Create cluster**. After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
+5. Select **Create cluster**.
+
+After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
 ## Create a file system
 
@@ -101,17 +101,17 @@ First, you create a notebook in your Azure Databricks workspace and then run cod
 
 1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks workspace that you created, and select **Launch Workspace**.
 
-1. On the left, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
+2. On the left, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
 
     ![Create a notebook in Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-create-notebook.png "Create notebook in Databricks")
 
-1. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Scala** as the language, and then select the Spark cluster that you created earlier.
+3. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Scala** as the language, and then select the Spark cluster that you created earlier.
 
     ![Provide details for a notebook in Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-notebook-details.png "Provide details for a notebook in Databricks")
 
     Select **Create**.
 
-1. Enter the following code into the first notebook cell and execute the code. Replace the placeholders shown in brackets in the sample with your own values:
+4. Enter the following code into the first notebook cell and execute the code. Replace the placeholders shown in brackets in the sample with your own values:
 
         ```scala
         %python%
@@ -127,7 +127,7 @@ First, you create a notebook in your Azure Databricks workspace and then run cod
             extra_configs = configs)
         ```
 
-1. Select Shift+Enter to run the code.
+5. Press `Shift` + `Enter` to run the code.
 
 Now the file system is created for the storage account.
 
@@ -151,24 +151,24 @@ To work with the sample data in Databricks, you need to extract the data from yo
 
 Return to your DataBricks notebook and enter the following code in a new cell in your notebook.
 
-1. Add the following snippet in an empty code cell. Replace the placeholders shown in brackets with the values that you saved earlier from the storage account.
+Add the following snippet in an empty code cell. Replace the placeholders shown in brackets with the values that you saved earlier from the storage account.
 
     ```scala
     dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
     dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
     ```
 
-    Select Shift+Enter to run the code.
+Press `Shift` + `Enter` to run the code.
 
-1. You can now load the sample json file as a dataframe in Azure Databricks. Paste the following code in a new cell. Replace the placeholders shown in brackets with your values.
+You can now load the sample json file as a dataframe in Azure Databricks. Paste the following code in a new cell. Replace the placeholders shown in brackets with your values.
 
     ```scala
     val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
     ```
-    
-    Select Shift+Enter to run the code.
 
-3. Run the following code to see the contents of the data frame:
+Press `Shift`+`Enter` to run the code.
+
+Run the following code to see the contents of the data frame:
 
     ```scala
     df.show()
@@ -193,13 +193,13 @@ You have now extracted the data from Azure Data Lake Storage Gen2 into Azure Dat
 
 The raw sample data **small_radio_json.json** file captures the audience for a radio station and has a variety of columns. In this section, you transform the data to only retrieve specific columns from the dataset.
 
-1. First, retrieve only the columns **firstName**, **lastName**, **gender**, **location**, and **level** from the dataframe that you created.
+First, retrieve only the columns **firstName**, **lastName**, **gender**, **location**, and **level** from the dataframe that you created.
 
     ```scala
     val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
     ```
 
-    You receive output as shown in the following snippet:
+You receive output as shown in the following snippet:
 
     ```bash
     +---------+----------+------+--------------------+-----+
@@ -228,7 +228,7 @@ The raw sample data **small_radio_json.json** file captures the audience for a r
     +---------+----------+------+--------------------+-----+
     ```
 
-1.  You can further transform this data to rename the column **level** to **subscription_type**.
+You can further transform this data to rename the column **level** to **subscription_type**.
 
     ```scala
     val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
@@ -270,7 +270,7 @@ In this section, you upload the transformed data into Azure SQL Data Warehouse. 
 
 The SQL Date Warehouse connector uses Azure Blob storage as temporary storage to upload data between Azure Databricks and Azure SQL Data Warehouse. So, you start by providing the configuration to connect to the storage account. You must already have created the account as part of the prerequisites for this article.
 
-1. Provide the configuration to access the Azure Storage account from Azure Databricks.
+Provide the configuration to access the Azure Storage account from Azure Databricks.
 
     ```scala
     val storageURI = "<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net"
@@ -278,20 +278,20 @@ The SQL Date Warehouse connector uses Azure Blob storage as temporary storage to
     val accessKey =  "<ACCESS_KEY>"
     ```
 
-1. Specify a temporary folder to use while moving data between Azure Databricks and Azure SQL Data Warehouse.
+Specify a temporary folder to use while moving data between Azure Databricks and Azure SQL Data Warehouse.
 
     ```scala
     val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
     ```
 
-1. Run the following snippet to store Azure Blob storage access keys in the configuration. This action ensures that you don't have to keep the access key in the notebook in plain text.
+Run the following snippet to store Azure Blob storage access keys in the configuration. This action ensures that you don't have to keep the access key in the notebook in plain text.
 
     ```scala
     val acntInfo = "fs.azure.account.key."+ storageURI
     sc.hadoopConfiguration.set(acntInfo, accessKey)
     ```
 
-1. Provide the values to connect to the Azure SQL Data Warehouse instance. You must have created a SQL data warehouse as a prerequisite.
+Provide the values to connect to the Azure SQL Data Warehouse instance. You must have created a SQL data warehouse as a prerequisite.
 
     ```scala
     //SQL Data Warehouse related settings
@@ -305,7 +305,7 @@ The SQL Date Warehouse connector uses Azure Blob storage as temporary storage to
     val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
     ```
 
-1. Run the following snippet to load the transformed dataframe, **renamedColumnsDF**, as a table in a SQL data warehouse. This snippet creates a table called **SampleTable** in the SQL database.
+Run the following snippet to load the transformed dataframe, **renamedColumnsDF**, as a table in a SQL data warehouse. This snippet creates a table called **SampleTable** in the SQL database.
 
     ```scala
     spark.conf.set(
@@ -322,11 +322,11 @@ The SQL Date Warehouse connector uses Azure Blob storage as temporary storage to
         .save()
     ```
 
-1. Connect to the SQL database and verify that you see a database named **SampleTable**.
+Connect to the SQL database and verify that you see a database named **SampleTable**.
 
     ![Verify the sample table](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table.png "Verify sample table")
 
-1. Run a select query to verify the contents of the table. The table should have the same data as the **renamedColumnsDF** dataframe.
+Run a select query to verify the contents of the table. The table should have the same data as the **renamedColumnsDF** dataframe.
 
     ![Verify the sample table content](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table-content.png "Verify the sample table content")
 
