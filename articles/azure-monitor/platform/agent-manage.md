@@ -68,11 +68,11 @@ $mma.ReloadConfiguration()
 ### Linux agent
 The following steps demonstrate how to reconfigure the Linux agent if you decide to register it with a different workspace or want to remove a workspace from its configuration.
 
-1. To verify it is registered to a workspace, run the following command.
+1. To verify it is registered to a workspace, run the following command:
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
 
-    It should return a status similar to the following example -
+    It should return a status similar to the following example:
 
     `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
 
@@ -82,12 +82,15 @@ The following steps demonstrate how to reconfigure the Linux agent if you decide
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -X`
 
-3. To register with a different workspace, run the command `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`
-4. To verify your changes took affect, run the command.
+3. To register with a different workspace, run the following command:
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`
+    
+4. To verify your changes took affect, run the following command:
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
 
-    It should return a status similar to the following example -
+    It should return a status similar to the following example:
 
     `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
 
