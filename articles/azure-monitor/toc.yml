@@ -712,7 +712,7 @@
         - name: Application data
           href: app/analytics.md
         - name: Standard properties
-          href: platfornm/log-standard-properties.md
+          href: platform/log-standard-properties.md
         - name: Parse text data
           href: log-query/parse-text.md
       - name: Take action from search results
