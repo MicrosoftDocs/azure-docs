@@ -93,7 +93,7 @@ Create a JSON file named **MyServiceBusNamespace.json** with the following conte
 }
 ```
 
-This template creates a standard Service Bus namespace.
+This template creates a standard Service Bus namespace. For JSON syntax and properties, see [namespaces](/azure/templates/microsoft.servicebus/namespaces) template reference.
 
 ## Create the parameters JSON
 The template you created in the previous step has a section called `Parameters`. You define parameters for those values that vary based on the project you are deploying or based on the target environment. This template defines the following parameters: **serviceBusNamespaceName**, **serviceBusSku**, and **location**. To learn more about SKUs of Service Bus, see [Service Bus SKUs](https://azure.microsoft.com/pricing/details/service-bus/) to create.

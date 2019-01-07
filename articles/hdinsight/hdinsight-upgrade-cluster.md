@@ -15,8 +15,6 @@ Follow the below guidelines to upgrade your HDInsight cluster versions.
 
 > [!NOTE]  
 > For information on supported versions of HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
->
->
 
 ## Upgrade tasks
 The workflow to upgrade HDInsight Cluster is as follows.

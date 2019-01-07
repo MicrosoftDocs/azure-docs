@@ -62,8 +62,10 @@
     href: how-to-diagnose-user-defined-functions.md
   - name: How to configure monitoring
     href: how-to-configure-monitoring.md
-#- name: Reference
-#  items:
+- name: Reference
+  items:
+  - name: User-defined functions client library
+    href: reference-user-defined-functions-client-library.md
 - name: Related
   items:
   - name: Solutions

@@ -47,7 +47,7 @@
     - name: Using Azure Storage
       href: ../hdinsight-hadoop-use-blob-storage.md
       maintainContext: true
-    - name: Using Azure Data Lake Store
+    - name: Using Azure Data Lake Storage
       href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
   - name: Use Apache Hadoop for batch queries
@@ -62,7 +62,7 @@
         href: apache-hadoop-use-hive-visual-studio.md
       - name: Use the Apache Hive View
         href: apache-hadoop-use-hive-ambari-view.md
-      - name: Use Beeline
+      - name: Use Apache Hive Beeline
         href: apache-hadoop-use-hive-beeline.md
       - name: Use REST API
         href: apache-hadoop-use-hive-curl.md
@@ -105,7 +105,7 @@
         href: apache-hadoop-use-pig-curl.md
       - name: Use Remote Desktop
         href: apache-hadoop-use-pig-remote-desktop.md
-    - name: Use DataFu with Apache Pig
+    - name: Use Apache DataFu with Apache Pig
       href: apache-hadoop-use-pig-datafu-udf.md
     - name: Submit Apache Hadoop jobs
       href: submit-apache-hadoop-jobs-programmatically.md
@@ -201,7 +201,7 @@
     - name: Install or update Mono
       href: ../hdinsight-hadoop-install-mono.md
       maintainContext: true
-    - name: Add Hive libraries
+    - name: Add Apache Hive libraries
       href: ../hdinsight-hadoop-add-hive-libraries.md
       maintainContext: true
     - name: Use Apache Giraph
@@ -337,7 +337,7 @@
     - name: Upload data for Apache Hadoop jobs
       href: ../hdinsight-upload-data.md
       maintainContext: true
-    - name: Multiple HDInsight clusters with Data Lake Store
+    - name: Multiple HDInsight clusters with Data Lake Storage
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
     - name: Import and export data with Apache Sqoop

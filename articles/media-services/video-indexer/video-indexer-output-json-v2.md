@@ -74,7 +74,7 @@ This section shows the summary of the insights.
 |Attribute | Description|
 |---|---|
 |name|The name of the video. For example, Azure Monitor.|
-|shortId|The ID of the video. For example, 63c6d532ff.|
+|id|The ID of the video. For example, 63c6d532ff.|
 |privacyMode|Your breakdown can have one of the following modes: **Private**, **Public**. **Public** - the video is visible to everyone in your account and anyone that has a link to the video. **Private** - the video is visible to everyone in your account.|
 |duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.|
 |thumbnailVideoId|The ID of the video from which the thumbnail was taken.
@@ -549,7 +549,7 @@ Business and product brand names detected in the speech to text transcript and/o
 |Name|Description|
 |---|---|
 |CorrespondenceCount|Number of correspondences in the video.|
-|WordCount|The number of words per speaker.|
+|SpeakerWordCount|The number of words per speaker.|
 |SpeakerNumberOfFragments|The amount of fragments the speaker has in a video.|
 |SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
 |SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
