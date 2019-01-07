@@ -16,7 +16,7 @@ ms.author: mbullwin
 # Exploring HockeyApp data in Application Insights
 
 > [!NOTE]
-> HockeyApp is no longer available for new applications. Existing HockeyApp deployments will continue to work. Visual Studio App Center is now the recommended service from Microsoft for monitoring new mobile apps. [Learn how to set up your apps with App Center and Application Insights](../../application-insights/app-insights-mobile-center-quickstart.md).
+> HockeyApp is no longer available for new applications. Existing HockeyApp deployments will continue to work. Visual Studio App Center is now the recommended service from Microsoft for monitoring new mobile apps. [Learn how to set up your apps with App Center and Application Insights](../../azure-monitor/learn/mobile-center-quickstart.md).
 
 [HockeyApp](https://azure.microsoft.com/services/hockeyapp/) is a service for monitoring live desktop and mobile apps. From HockeyApp, you can send custom and trace telemetry to monitor usage and assist in diagnosis (in addition to getting crash data). This stream of telemetry can be queried using the powerful [Analytics](../../azure-monitor/app/analytics.md) feature of [Azure Application Insights](../../application-insights/app-insights-overview.md). In addition, you can [export the custom and trace telemetry](export-telemetry.md). To enable these features, you set up a bridge that relays HockeyApp custom data to Application Insights.
 

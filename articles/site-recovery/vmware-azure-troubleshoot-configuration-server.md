@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot issues with the configuration server during disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery | Microsoft Docs
-description: This article provides troubleshooting information for deploying the configuration server for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery.
+title: Troubleshoot issues with the configuration server during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery | Microsoft Docs
+description: This article provides troubleshooting information for deploying the configuration server for disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -11,80 +11,89 @@ ms.author: ramamill
 ---
 # Troubleshoot configuration server issues
 
-This article helps you troubleshoot issues when deploying and managing the [Azure Site Recovery](site-recovery-overview.md) configuration server. The configuration server acts as a management server and is used for setting up disaster recovery for on-premises VMware VMs and physical servers to Azure using Site Recovery. Following sections discusses the most common failures seen while adding a new configuration server and managing a configuration server.
+This article helps you troubleshoot issues when you deploy and manage the [Azure Site Recovery](site-recovery-overview.md) configuration server. The configuration server acts as a management server. Use the configuration server to set up disaster recovery of on-premises VMware VMs and physical servers to Azure by using Site Recovery. The following sections discuss the most common failures you might experience when you add a new configuration server and when you manage a configuration server.
 
 ## Registration failures
 
-Source machine registers with configuration server during mobility agent installation. Any failures during this step can be debugged by following the guidelines given below:
+The source machine registers with the configuration server when you install the mobility agent. You can debug any failures during this step by following these guidelines:
 
-1. Go to C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log file. ProgramData can be a hidden folder. If not able to locate, try to un-hide the folder. The failures can be due to multiple issues.
-2. Search for string “No Valid IP Address found”. If the string is found,
-    - Validate if requested host id is same as source machine.
-    - The source machine should have at least one IP address assigned to the physical NIC for agent registration with the CS to succeed.
-    - Run the command on source machine `> ipconfig /all` (for Windows OS) and `# ifconfig -a` (for Linux OS) to get all IP addresses of source machine.
-    - Please note that agent registration requires a valid IP v4 address assigned to the physical NIC.
-3. If the above string is not found, search for string "Reason"=>"NULL". If found,
-    - When source machine uses an empty host if to register with configuration server, this error occurs.
-    - After resolving the issues, follow guidelines given [here](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) to retry the registration manually.
-4. If the above string is not found, go to source machine, and check the log C:\ProgramData\ASRSetupLogs\UploadedLogs\* ASRUnifiedAgentInstaller.log ProgramData can be a hidden folder. If not able to locate, try to un-hide the folder. The failures can be due to multiple issues. Search for string “post request: (7) - Couldn't connect to server”. If found,
-    - Resolve the network issues between the source machine and configuration server. Verify that configuration server is reachable from source machine using network tools like ping, traceroute, web browser etc., Make sure that source machine is able to reach configuration server through port 443.
-    - Check if there are any firewall rules on source machine are blocking the connection between source machine and configuration server. Work with the your network admin to unblock the connection issues.
-    - Ensure the folders mentioned [here](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) are excluded from the antivirus software.
-    - After resolving the network issues, retry the registration by following guidelines given [here](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
-5. If not found, in the same log look for string "request: (60) - Peer certificate cannot be authenticated with given CA certificates.". If found, 
-    - This error could be because the configuration server certificate has expired or source machine doesn't support TLS 1.0 and above SSL protocols or there is a firewall that is blocking SSL communication between source machine and configuration server.
-    - To resolve, connect to configuration server IP address using a web browser on source machine with the help of URI https://<CSIPADDRESS>:443/. Make sure that source machine is able to reach configuration server through port 443.
-    - Check if there are any firewall rules on source machine are blocking the connection between source machine and configuration server. Work with the your network admin to unblock the connection issues.
-    - Ensure the folders mentioned [here](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) are excluded from the antivirus software.  
-    - After resolving the issues, retry the registration by following guidelines given [here](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
-6. In Linux, if the value of platform from <INSTALLATION_DIR>/etc/drscout.conf is corrupted, then registration fails. To identify, go to the log /var/log/ua_install.log. You will find the string "Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure." The platform should be set to either "VmWare" or "Azure". As the drscout.conf file is corrupted, it is recommended to [uninstall](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) the mobility agent and re-install. If un-installation fails, follow the below steps:
-    - Open file Installation_Directory/uninstall.sh and comment out the call to the function *StopServices*
-    - Open file Installation_Directory/Vx/bin/uninstall and comment out the call to the function `stop_services`
-    - Open file Installation_Directory/Fx/uninstall and comment out the complete section that is trying to stop the Fx service.
-    - Now try to [uninstall](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) the mobility agent. After successful un-installation, reboot the system and try to install the agent again.
+1. Open the C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log file. (The ProgramData folder might be a hidden folder. If you don't see the ProgramData folder, in File Explorer, on the **View** tab, in the **Show/hide** section, select the **Hidden items** check box.) Failures might be caused by multiple issues.
 
-## Installation failure - Failed to load accounts
+2. Search for the string **No Valid IP Address found**. If the string is found:
+    1. Verify that the requested host ID is the same as the host ID of the source machine.
+    2. Verify that the source machine has at least one IP address assigned to the physical NIC. For agent registration with the configuration server to succeed, the source machine must have at least one valid IP v4 address assigned to the physical NIC.
+    3. Run one of the following commands on the source machine to get all the IP addresses of the source machine:
+      - For Windows: `> ipconfig /all`
+      - For Linux: `# ifconfig -a`
 
-This error occurs when service is unable to read data from the transport connection while installing mobility agent and registering with configuration server. To resolve, ensure TLS 1.0 is enable on your source machine.
+3. If the string **No Valid IP Address found** isn't found, search for the string **Reason=>NULL**. This error occurs if the source machine uses an empty host to register with the configuration server. If the string is found:
+    - After you resolve the issues, follow guidelines in [Register the source machine with the configuration server](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) to retry the registration manually.
 
-## Change IP address of configuration server
+4. If the string **Reason=>NULL** isn't found, on the source machine, open the C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log file. (The ProgramData folder might be a hidden folder. If you don't see the ProgramData folder, in File Explorer, on the **View** tab, in the **Show/hide** section, select the **Hidden items** check box.) Failures might be caused by multiple issues. 
 
-It is strongly advised to not change the IP address of a configuration server. Ensure all IPs assigned to the Configuration Server are static IPs and not DHCP IPs.
+5. Search for the string **post request: (7) - Couldn't connect to server**. If the string is found:
+    1. Resolve the network issues between the source machine and the configuration server. Verify that the configuration server is reachable from the source machine by using network tools like ping, traceroute, or a web browser. Ensure that the source machine can reach the configuration server through port 443.
+    2. Check whether any firewall rules on the source machine block the connection between the source machine and the configuration server. Work with your network admins to unblock any connection issues.
+    3. Ensure that the folders listed in [Site Recovery folder exclusions from antivirus programs](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) are excluded from the antivirus software.
+    4. When network issues are resolved, retry the registration by following the guidelines in [Register the source machine with the configuration server](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
+
+6. If the string **post request: (7) - Couldn't connect to server** isn't found, in the same log file, look for the string **request: (60) - Peer certificate cannot be authenticated with given CA certificates**. This error might occur because the configuration server certificate has expired or the source machine doesn't support TLS 1.0 or later SSL protocols. It also might occur if a firewall blocks SSL communication between the source machine and the configuration server. If the string is found: 
+    1. To resolve, connect to the configuration server IP address by using a web browser on the source machine. Use the URI https:\/\/<configuration server IP address\>:443/. Ensure that the source machine can reach the configuration server through port 443.
+    2. Check whether any firewall rules on the source machine need to be added or removed for the source machine to talk to the configuration server. Because of the variety of firewall software that might be in use, we can't list all required firewall configurations. Work with your network admins to unblock any connection issues.
+    3. Ensure that the folders listed in [Site Recovery folder exclusions from antivirus programs](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) are excluded from the antivirus software.  
+    4. After you resolve the issues, retry the registration by following guidelines in [Register the source machine with the configuration server](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
+
+7. On Linux, if the value of the platform in <INSTALLATION_DIR\>/etc/drscout.conf is corrupted, registration fails. To identify this issue, open the /var/log/ua_install.log file. Search for the string **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure**. The platform should be set to either **VmWare** or **Azure**. If the drscout.conf file is corrupted, we recommend that you [uninstall the mobility agent](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) and then reinstall the mobility agent. If uninstallation fails, complete the following steps:
+    1. Open the Installation_Directory/uninstall.sh file and comment out the call to the **StopServices** function.
+    2. Open the Installation_Directory/Vx/bin/uninstall.sh file and comment out the call to the **stop_services** function.
+    3. Open the Installation_Directory/Fx/uninstall.sh file and comment out the entire section that's trying to stop the Fx service.
+    4. [Uninstall](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) the mobility agent. After successful uninstallation, reboot the system, and then try to reinstall the mobility agent.
+
+## Installation failure: Failed to load accounts
+
+This error occurs when the service can't read data from the transport connection when it's installing the mobility agent and registering with the configuration server. To resolve the issue, ensure that TLS 1.0 is enabled on your source machine.
+
+## Change the IP address of the configuration server
+
+We strongly recommend that you don't change the IP address of a configuration server. Ensure that all IP addresses that are assigned to the configuration server are static IP addresses. Don't use DHCP IP addresses.
 
 ## ACS50008: SAML token is invalid
 
-To avoid this error, ensure that the time on your system clock is not more than 15 minutes off the local time. Rerun the installer to complete the registration.
+To avoid this error, ensure that the time on your system clock isn't different from the local time by more than 15 minutes. Rerun the installer to complete the registration.
 
-## Failed to create certificate
+## Failed to create a certificate
 
-A certificate required to authenticate Site Recovery cannot be created. Rerun Setup after ensuring that you are running setup as a local administrator.
+A certificate that's required to authenticate Site Recovery can't be created. Rerun setup after you ensure that you're running setup as a local administrator.
 
-## Register source machine with configuration server
+## Register the source machine with the configuration server
 
-### If source machine has Windows OS
+### If the source machine runs Windows
 
-Run the following command on source machine
+Run the following command on the source machine:
 
 ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+  UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
   ```
-**Setting** | **Details**
+
+Setting | Details
 --- | ---
-Usage | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
-Agent configuration logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
+Usage | UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address\> /PassphraseFilePath <passphrase file path\>
+Agent configuration logs | Located under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Mandatory parameter. Specifies the IP address of the configuration server. Use any valid IP address.
-/PassphraseFilePath |  Mandatory. Location of the passphrase. Use any valid UNC or local file path.
+/PassphraseFilePath |  Mandatory. The location of the passphrase. Use any valid UNC or local file path.
 
-### If source machine has Linux OS
+### If the source machine runs Linux
 
-Run the following command on source machine
+Run the following command on the source machine:
 
 ```
-  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
+  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <configuration server IP address> -P /var/passphrase.txt
   ```
-**Setting** | **Details**
+
+Setting | Details
 --- | ---
-Usage | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
+Usage | cd /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i <configuration server IP address\> -P <passphrase file path\>
 -i | Mandatory parameter. Specifies the IP address of the configuration server. Use any valid IP address.
--P |  Mandatory. Full file path of the file in which the passphrase is saved. Use any valid folder
+-P |  Mandatory. The full file path of the file in which the passphrase is saved. Use any valid folder.
+

@@ -2,7 +2,6 @@
 title: Database transactions and optimistic concurrency control in Azure Cosmos DB 
 description: This article describes database transactions and optimistic concurrency control in Azure Cosmos DB
 author: markjbrown
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/14/2018

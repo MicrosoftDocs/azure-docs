@@ -214,7 +214,7 @@ To get an overall picture of your system, you can bring the key monitoring chart
 
 If your system uses other Azure services such as Stream Analytics, include their monitoring charts as well. 
 
-If you have a client mobile app, use [App Center](../../application-insights/app-insights-mobile-center-quickstart.md). Create queries in [Analytics](../../azure-monitor/app/analytics.md) to display the event counts, and pin them to the dashboard.
+If you have a client mobile app, use [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Create queries in [Analytics](../../azure-monitor/app/analytics.md) to display the event counts, and pin them to the dashboard.
 
 ## Example
 [The example](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitors a service that has a web role and two worker roles.
@@ -239,6 +239,6 @@ Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Se
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
+[qna]: ../../azure-monitor/app/troubleshoot-faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../application-insights/app-insights-overview.md 

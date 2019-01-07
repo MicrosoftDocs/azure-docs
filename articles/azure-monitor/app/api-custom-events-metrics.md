@@ -148,7 +148,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 The telemetry is available in the `customEvents` table in [Application Insights Analytics](analytics.md). Each row represents a call to `trackEvent(..)` in your app.
 
-If [sampling](../../application-insights/app-insights-sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackEvent(), the sampling process only transmitted one of them. To get a correct count of custom events, you should use therefore use code such as `customEvents | summarize sum(itemCount)`.
+If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackEvent(), the sampling process only transmitted one of them. To get a correct count of custom events, you should use therefore use code such as `customEvents | summarize sum(itemCount)`.
 
 ## GetMetric
 
@@ -437,7 +437,7 @@ See [Track custom operations with Application Insights .NET SDK](../../azure-mon
 
 In [Application Insights Analytics](analytics.md), requests show up in the `requests` table.
 
-If [sampling](../../application-insights/app-insights-sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackRequest(), the sampling process only transmitted one of them. To get a correct count of requests and average duration segmented by request names, use code such as:
+If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackRequest(), the sampling process only transmitted one of them. To get a correct count of requests and average duration segmented by request names, use code such as:
 
 ```kusto
 requests
@@ -519,7 +519,7 @@ The SDKs catch many exceptions automatically, so you don't always have to call T
 
 In [Application Insights Analytics](analytics.md), exceptions show up in the `exceptions` table.
 
-If [sampling](../../application-insights/app-insights-sampling.md) is in operation, the `itemCount` property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackException(), the sampling process only transmitted one of them. To get a correct count of exceptions segmented by type of exception, use code such as:
+If [sampling](../../azure-monitor/app/sampling.md) is in operation, the `itemCount` property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackException(), the sampling process only transmitted one of them. To get a correct count of exceptions segmented by type of exception, use code such as:
 
 ```kusto
 exceptions
@@ -600,7 +600,7 @@ In [Search](../../azure-monitor/app/diagnostic-search.md), you can then easily f
 
 In [Application Insights Analytics](analytics.md), calls to TrackTrace show up in the `traces` table.
 
-If [sampling](../../application-insights/app-insights-sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to `trackTrace()`, the sampling process only transmitted one of them. To get a correct count of trace calls, you should use therefore code such as `traces | summarize sum(itemCount)`.
+If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to `trackTrace()`, the sampling process only transmitted one of them. To get a correct count of trace calls, you should use therefore code such as `traces | summarize sum(itemCount)`.
 
 ## TrackDependency
 
@@ -675,7 +675,7 @@ To turn off the standard dependency-tracking module in C#, edit [ApplicationInsi
 
 In [Application Insights Analytics](analytics.md), trackDependency calls show up in the `dependencies` table.
 
-If [sampling](../../application-insights/app-insights-sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackDependency(), the sampling process only transmitted one of them. To get a correct count of dependencies segmented by target component, use code such as:
+If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackDependency(), the sampling process only transmitted one of them. To get a correct count of dependencies segmented by target component, use code such as:
 
 ```kusto
 dependencies
@@ -894,7 +894,7 @@ requests
 Notice that:
 
 * When you extract a value from the customDimensions or customMeasurements JSON, it has dynamic type, and so you must cast it `tostring` or `todouble`.
-* To take account of the possibility of [sampling](../../application-insights/app-insights-sampling.md), you should use `sum(itemCount)`, not `count()`.
+* To take account of the possibility of [sampling](../../azure-monitor/app/sampling.md), you should use `sum(itemCount)`, not `count()`.
 
 ## <a name="timed"></a> Timing events
 
@@ -1138,7 +1138,7 @@ If you set any of these values yourself, consider removing the relevant line fro
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
-To avoid hitting the data rate limit, use [sampling](../../application-insights/app-insights-sampling.md).
+To avoid hitting the data rate limit, use [sampling](../../azure-monitor/app/sampling.md).
 
 To determine how long data is kept, see [Data retention and privacy](../../azure-monitor/app/data-retention-privacy.md).
 
@@ -1172,4 +1172,4 @@ To determine how long data is kept, see [Data retention and privacy](../../azure
 ## <a name="next"></a>Next steps
 
 * [Search events and logs](../../azure-monitor/app/diagnostic-search.md)
-* [Troubleshooting](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md)

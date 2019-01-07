@@ -38,6 +38,10 @@ Open the _Program.cs_ file and inspect the code. Insert your subscription keys i
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=21-30)]
 
+The Endpoint parameter should point to the region where the Azure resource group containing the Custom Vision resources was created in. For this example we assume the South Central US region and use:
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
+
 The following lines of code execute the primary functionality of the project.
 
 ### Create a new Custom Vision service project
