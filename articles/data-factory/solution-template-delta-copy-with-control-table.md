@@ -83,31 +83,31 @@ The template defines five parameters:
 	
 4. Go to template **Delta copy from Database**, and create a **new connection** to your source database where the data copy from.
 
-    ![Create a new connection to the source table](media/solution-template-delta-copy-with-control-tableDeltaCopyfromDB_with_ControlTable4.png)
+    ![Create a new connection to the source table](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable4.png)
 
 5. Create a **new connection** to your destination data store where the data copy to.
 
-    ![Create a new connection to the destination table](media/solution-template-delta-copy-with-control-tableDeltaCopyfromDB_with_ControlTable5.png)
+    ![Create a new connection to the destination table](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable5.png)
 
 6. Create a **new connection** to your external control table and stored procedure.  It is connecting to the database where you had created the control table and stored procedure in step #2 and #3.
 
-    ![Create a new connection to the control table data store](media/solution-template-delta-copy-with-control-tableDeltaCopyfromDB_with_ControlTable6.png)
+    ![Create a new connection to the control table data store](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
 7. Click **Use this template**.
 
-     ![Use this template](media/solution-template-delta-copy-with-control-tableDeltaCopyfromDB_with_ControlTable7.png)
+     ![Use this template](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
 	
 8. You see the pipeline available in the panel, as shown in the following example:
 
-     ![Review pipeline](media/solution-template-delta-copy-with-control-tableDeltaCopyfromDB_with_ControlTable8.png)
+     ![Review pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
 9. Click Stored Procedure activity, select **Stored procedure name**, click **import parameter** and click **Add dynamic content**.  
 
-     ![Set Stored Procedure activity](media/solution-template-delta-copy-with-control-tableDeltaCopyfromDB_with_ControlTable9.png)	
+     ![Set Stored Procedure activity](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)	
 
 10. Write the content **@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}** and click **Finish**.  
 
-     ![Write the content for parameter for Stored Procedure](media/solution-template-delta-copy-with-control-tableDeltaCopyfromDB_with_ControlTable10.png)		 
+     ![Write the content for parameter for Stored Procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)		 
 	 
 11. Click **Debug**, input the parameters and click **Finish**.
 
