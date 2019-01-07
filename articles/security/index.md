@@ -51,7 +51,7 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="http://aka.ms/sharedresponsibility">
+        <a href="https://aka.ms/sharedresponsibility">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -166,7 +166,7 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
 					    <h3>White papers</h3>
                         <ul class="noBullet">
                             <li style="list-style: none;">
-                            	<a class="barLink" href="http://aka.ms/SecurityResponsepaper">Azure security response in the cloud</a>
+                            	<a class="barLink" href="https://aka.ms/SecurityResponsepaper">Azure security response in the cloud</a>
                             </li>
 			                <li style="list-style: none;">
                             	<a class="barLink" href="/azure/security/azure-threat-detection">Azure advanced threat detection</a>

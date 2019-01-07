@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 12/07/2018
 ---
 
 # Azure Stream Analytics preview features
@@ -17,10 +17,6 @@ This article summarizes all the features currently in preview for Azure Stream A
 ## Public previews
 
 The following features are in public preview. You can take advantage of these features today, but don't use them in your production environment.
-
-### Azure Stream Analytics on IoT Edge
-
-Azure Stream Analytics on IoT Edge allows developers to deploy near-real-time analytics on IoT Edge devices. For more information, see the [Azure Stream Analytics on IoT Edge](stream-analytics-edge.md) documentation.
 
 ### Integration with Azure Machine Learning
 
@@ -62,9 +58,9 @@ Developers can now implement custom deserializers in C# to deserialize events re
 
 It is now possible to partition your Azure Stream Analytics output to Blob storage based on any column in your query.
 
-### Managed Service Identity (MSI) authentication to Azure Data Lake Storage
+### Managed identities for Azure resources authentication to Azure Data Lake Storage
 
-You can now operationalize your real-time pipelines with MSI-based authentication while writing to Azure Data Lake Storage Gen1, allowing you to create jobs programmatically. For further information, visit [Use Managed Identities to Authenticate Azure Stream Analytics Jobs to Azure Data Lake Storage Gen1 Output](stream-analytics-managed-identities-adls.md).
+You can now operationalize your real-time pipelines with managed identities for Azure resources based authentication while writing to Azure Data Lake Storage Gen1, allowing you to create jobs programmatically. For further information, visit [Use Managed identities for Azure resources to Authenticate Azure Stream Analytics Jobs to Azure Data Lake Storage Gen1 Output](stream-analytics-managed-identities-adls.md).
 
 ## Next steps
 

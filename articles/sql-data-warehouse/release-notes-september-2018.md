@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse Release Notes RSe 2018 | Microsoft Docs
+title: Azure SQL Data Warehouse Release Notes September 2018 | Microsoft Docs
 description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: twounder
@@ -54,7 +54,7 @@ WHERE
 	RTRIM(value) <> '';
 ```
 
-###COMPRESS/DECOMPRESS Functions
+### COMPRESS/DECOMPRESS Functions
 The [COMPRESS](https://docs.microsoft.com/sql/t-sql/functions/compress-transact-sql) / [DECOMPRESS](https://docs.microsoft.com/sql/t-sql/functions/decompress-transact-sql) functions allow you to compress or decompress a string input using the GZIP algorithm.
 
 #### Example

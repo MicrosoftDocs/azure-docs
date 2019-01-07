@@ -1,20 +1,17 @@
 ---
-title: Azure Standard Load Balancer diagnostics | Microsoft Docs
+title: Azure Standard Load Balancer diagnostics
+titlesuffix: Azure Load Balancer
 description: Use the available metrics and health information for diagnostics for Azure Standard Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/9/2018
+ms.date: 10/11/2018
 ms.author: Kumud
 ---
 
@@ -216,6 +213,6 @@ The various resource health statuses and their descriptions are listed in the fo
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
 - Learn more about your [Load balancer outbound connectivity](https://aka.ms/lboutbound).
 - Learn about [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
-- Learn about the [Azure Monitor Metrics REST API](https://docs.microsoft.com/rest/api/monitor/metrics/).
+- Learn about the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) and [how to retrieve metrics via REST API](/rest/api/monitor/metrics/list).
 
 

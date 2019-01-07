@@ -35,15 +35,7 @@ A Service SAS provides the ability to grant limited access to objects in a stora
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Sign in to Azure portal](https://portal.azure.com)
-
-- [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
-
-- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Create a storage account 
 
@@ -73,9 +65,9 @@ Later we will upload and download a file to the new storage account. Because fil
 
 Azure Storage does not natively support Azure AD authentication.  However, you can use your VM's system-assigned managed identity to retrieve a storage SAS from the Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS.   
 
-1. Navigate back to your newly created storage account..   
+1. Navigate back to your newly created storage account.
 2. Click the **Access control (IAM)** link in the left panel.  
-3. Click **+ Add** on top of the page to add a new role assignment for your VM
+3. Click **+ Add role assignment** on top of the page to add a new role assignment for your VM
 4. Set **Role** to "Storage Account Contributor", on the right side of the page. 
 5. In the next dropdown, set **Assign access to** the resource "Virtual Machine".  
 6. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  

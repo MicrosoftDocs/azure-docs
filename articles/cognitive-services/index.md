@@ -7,10 +7,8 @@ author: nitinme
 manager: cgronlun
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.topic: hub-page
-ms.prod: cognitive-services
-ms.technology: cognitive-services
 ---
 
 <h1>Azure Cognitive Services Documentation</h1>
@@ -56,6 +54,26 @@ ms.technology: cognitive-services
             </a>
         </li>
         <li>
+            <a href="/azure/cognitive-services/authentication/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Authenticate a request</h3>
+                                <p>Learn how to authenticate requests to Azure Cognitive Services.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+
+        <li>
             <a href="/azure/cognitive-services/language-support/">
                 <div class="cardSize">
                     <div class="cardPadding">
@@ -68,6 +86,25 @@ ms.technology: cognitive-services
                             <div class="cardText">
                                 <h3>Language support in Cognitive Services</h3>
                                 <p>Learn about the human languages supported by Cognitive Services APIs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Using Cognitive Services in Containers</h3>
+                                <p>Learn how to use Azure Cognitive Services in Containers.</p>
                             </div>
                         </div>
                     </div>
@@ -255,11 +292,11 @@ ms.technology: cognitive-services
                     <div class="cardText">
                         <h3>Vision API</h3>
                         <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
-                        <p><a href="/azure/cognitive-services/content-moderator/overview">Content Moderator</a></p>
-                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/home"><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/emotion/home"><span>Emotion API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
+                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/"><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/face/">Face API</a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
+                        <p><a href="/azure/cognitive-services/emotion/home"><span>Emotion API&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
                     </div>
                 </div>
             </div>
@@ -272,10 +309,10 @@ ms.technology: cognitive-services
                     <div class="cardText">
                         <h3>Speech API</h3>
 						<p><a href="/azure/cognitive-services/speech-service">Speech Service API</a></p>
-                        <p><a href="/azure/cognitive-services/speech/home">Bing Speech API</a></p>
-                        <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>Custom Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/translator-speech/">Translator Speech</a></p>
+                        <p><a href="/azure/cognitive-services/speech/home"><span>Bing Speech API&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>Custom Speech Service&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/translator-speech/"><span>Translator Speech&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
                      </div>
                 </div>
             </div>
@@ -289,10 +326,8 @@ ms.technology: cognitive-services
                         <h3>Language API</h3>
                         <p><a href="/azure/cognitive-services/bing-spell-check/">Bing Spell Check</a></p>
                         <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
-                        <p><a href="/azure/cognitive-services/linguisticanalysisapi/home"><span>Linguistic Analysis&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/text-analytics/">Text Analytics</a></p>
                         <p><a href="/azure/cognitive-services/translator/">Translator Text</a></p>
-                        <p><a href="/azure/cognitive-services/web-language-model/home"><span>Web Language Model&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                     </div>
                 </div>
             </div>
@@ -304,7 +339,6 @@ ms.technology: cognitive-services
                 <div class="card">
                     <div class="cardText">
                         <h3>Knowledge API</h3>
-                            <p><a href="/azure/cognitive-services/custom-decision-service/"><span>Custom Decision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                             <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                     </div>
                 </div>
@@ -325,6 +359,7 @@ ms.technology: cognitive-services
                         <p><a href="/azure/cognitive-services/bing-entities-search/">Bing Entity Search</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search">Bing Image Search</a></p>
                         <p><a href="/azure/cognitive-services/bing-visual-search">Bing Visual Search</a></p>
+                        <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Bing Local Business Search&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                     </div>
                 </div>
             </div>
@@ -348,6 +383,7 @@ ms.technology: cognitive-services
                         <p><a href="/azure/cognitive-services/labs/anomaly-finder/overview">Project Anomaly Finder</a></p>
                         <p><a href="/azure/cognitive-services/labs/conversation-learner/overview">Project Conversation Learner</a></p>
                         <p><a href="/azure/cognitive-services/acoustics/what-is-acoustics">Project Acoustics</a></p>
+                        <p><a href="/azure/cognitive-services/custom-decision-service/"><span>Custom Decision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                     </div>
                 </div>
             </div>

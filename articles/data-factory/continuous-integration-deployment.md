@@ -9,9 +9,9 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: douglasl
 ---
 # Continuous integration and delivery (CI/CD) in Azure Data Factory
@@ -723,19 +723,18 @@ Here is a sample deployment template that you can import in Azure Pipelines.
 
 ## Sample script to stop and restart triggers and clean up
 
-Here is a sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes code to delete resources that have been removed. To install the latest version of Azure PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0).
+Here is a sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes code to delete resources that have been removed. To install the latest version of Azure PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0).
 
 ```powershell
 param
 (
-    [parameter(Mandatory = $false)] [String] $rootFolder="$(env:System.DefaultWorkingDirectory)/Dev/",
-    [parameter(Mandatory = $false)] [String] $armTemplate="$rootFolder\arm_template.json",
-    [parameter(Mandatory = $false)] [String] $ResourceGroupName="sampleuser-datafactory",
-    [parameter(Mandatory = $false)] [String] $DataFactoryName="sampleuserdemo2",
-    [parameter(Mandatory = $false)] [Bool] $predeployment=$true
-
+    [parameter(Mandatory = $false)] [String] $rootFolder,
+    [parameter(Mandatory = $false)] [String] $armTemplate,
+    [parameter(Mandatory = $false)] [String] $ResourceGroupName,
+    [parameter(Mandatory = $false)] [String] $DataFactoryName,
+    [parameter(Mandatory = $false)] [Bool] $predeployment=$true,
+    [parameter(Mandatory = $false)] [Bool] $deleteDeployment=$false
 )
-
 
 $templateJson = Get-Content $armTemplate | ConvertFrom-Json
 $resources = $templateJson.resources
@@ -752,14 +751,12 @@ $triggerstostop = $triggerNames | where { ($triggersADF | Select-Object name).na
 if ($predeployment -eq $true) {
     #Stop all triggers
     Write-Host "Stopping deployed triggers"
-    $triggerstostop | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force }
+    $triggerstostop | ForEach-Object { 
+        Write-host "Disabling trigger " $_
+        Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+    }
 }
 else {
-
-    #start Active triggers
-    Write-Host "Starting active triggers"
-    $activeTriggerNames | ForEach-Object { Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force }
-
     #Deleted resources
     #pipelines
     Write-Host "Getting pipelines"
@@ -786,23 +783,109 @@ else {
     $integrationruntimesNames = $integrationruntimesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedintegrationruntimes = $integrationruntimesADF | Where-Object { $integrationruntimesNames -notcontains $_.Name }
 
-    #delte resources
+    #Delete resources
     Write-Host "Deleting triggers"
-    $deletedtriggers | ForEach-Object { Remove-AzureRmDataFactoryV2Trigger -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+    $deletedtriggers | ForEach-Object { 
+        Write-Host "Deleting trigger "  $_.Name
+        $trig = Get-AzureRmDataFactoryV2Trigger -name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
+        if ($trig.RuntimeState -eq "Started") {
+            Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name -Force 
+        }
+        Remove-AzureRmDataFactoryV2Trigger -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+    }
     Write-Host "Deleting pipelines"
-    $deletedpipelines | ForEach-Object { Remove-AzureRmDataFactoryV2Pipeline -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+    $deletedpipelines | ForEach-Object { 
+        Write-Host "Deleting pipeline " $_.Name
+        Remove-AzureRmDataFactoryV2Pipeline -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+    }
     Write-Host "Deleting datasets"
-    $deleteddataset | ForEach-Object { Remove-AzureRmDataFactoryV2Dataset -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+    $deleteddataset | ForEach-Object { 
+        Write-Host "Deleting dataset " $_.Name
+        Remove-AzureRmDataFactoryV2Dataset -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+    }
     Write-Host "Deleting linked services"
-    $deletedlinkedservices | ForEach-Object { Remove-AzureRmDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+    $deletedlinkedservices | ForEach-Object { 
+        Write-Host "Deleting Linked Service " $_.Name
+        Remove-AzureRmDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+    }
     Write-Host "Deleting integration runtimes"
-    $deletedintegrationruntimes | ForEach-Object { Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+    $deletedintegrationruntimes | ForEach-Object { 
+        Write-Host "Deleting integration runtime " $_.Name
+        Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+    }
+
+    if ($deleteDeployment -eq $true) {
+        Write-Host "Deleting ARM deployment ... under resource group: " $ResourceGroupName
+        $deployments = Get-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName
+        $deploymentsToConsider = $deployments | Where { $_.DeploymentName -like "ArmTemplate_master*" -or $_.DeploymentName -like "ArmTemplateForFactory*" } | Sort-Object -Property Timestamp -Descending
+        $deploymentName = $deploymentsToConsider[0].DeploymentName
+
+       Write-Host "Deployment to be deleted: " $deploymentName
+        $deploymentOperations = Get-AzureRmResourceGroupDeploymentOperation -DeploymentName $deploymentName -ResourceGroupName $ResourceGroupName
+        $deploymentsToDelete = $deploymentOperations | Where { $_.properties.targetResource.id -like "*Microsoft.Resources/deployments*" }
+
+        $deploymentsToDelete | ForEach-Object { 
+            Write-host "Deleting inner deployment: " $_.properties.targetResource.id
+            Remove-AzureRmResourceGroupDeployment -Id $_.properties.targetResource.id
+        }
+        Write-Host "Deleting deployment: " $deploymentName
+        Remove-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Name $deploymentName
+    }
+
+    #Start Active triggers - After cleanup efforts
+    Write-Host "Starting active triggers"
+    $activeTriggerNames | ForEach-Object { 
+        Write-host "Enabling trigger " $_
+        Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+    }
 }
 ```
 
 ## Use custom parameters with the Resource Manager template
 
 You can define custom parameters for the Resource Manager template. You simply need to have a file named `arm-template-parameters-definition.json` in the root folder of the repository. (The file name must match the name shown here exactly.) Data Factory tries to read the file from whichever branch you are currently working in, not just from the collaboration branch. If no file is found, Data Factory uses the default parameters and values.
+
+### Syntax of a custom parameters file
+
+Here are some guidelines to use when authoring the custom parameters file. To see examples of this syntax, see the following section, [Sample custom parameters file](#sample).
+
+1. When you specify array in the definition file, you indicate that the matching property in the template is an array. Data Factory iterates through all the objects in the array using the definition specified in the first object of the array. The second object, a string, becomes the name of the property, which is used as the name for the parameter for each iteration.
+
+    ```json
+    ...
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            }
+        }
+    },
+    ...
+    ```
+
+2. When you set a property name to `*`, you indicate that you want the template to use all the properties at that level, except the ones explicitly defined.
+
+3. When you set the value of a property as a string, you indicate that you want to parameterize the property. Use the format `<action>:<name>:<stype>`.
+    1.	`<action>` can be one of the following characters: 
+        1.	`=`  means keep the current value as the default value for the parameter.
+        2.	`-` means do not keep the default value for the parameter.
+        3.	`|` is a special case for secrets from Azure Key Vault for a connection string.
+    2.	`<name>` is the name of the parameter. If `<name`> is blank, it takes the name of the parameter 
+    3.	`<stype>` is the type of the parameter. If `<stype>` is blank, the default type is a string.
+4.	If you enter a `-` character at the beginning of a parameter name, the full Resource Manager parameter name is shortened to `<objectName>_<propertyName>`.
+For example, `AzureStorage1_properties_typeProperties_connectionString` is shortened to `AzureStorage1_connectionString`.
+
+
+### <a name="sample"></a> Sample custom parameters file
 
 The following example shows a sample parameters file. Use this sample as a reference to create your own custom parameters file. If the file you provide is not in the proper JSON format, Data Factory outputs an error message in the browser console and reverts to the default parameters and values shown in the Data Factory UI.
 
@@ -887,3 +970,17 @@ The following example shows a sample parameters file. Use this sample as a refer
 	}
 }
 ```
+
+## Linked Resource Manager templates
+
+If you've set up continuous integration and deployment (CI/CD) for your Data Factories, you may observe that, as your factory grows bigger, you run into the Resource Manager template limits, like the maximum number of resources or the maximum payload in an Resource Manager template. For scenarios like these, along with generating the full Resource Manager template for a factory, Data Factory also now generates Linked Resource Manager templates. As a result, you have the entire factory payload broken down into several files, so that you don’t run into the mentioned limits.
+
+If you have Git configured, the linked templates are generated and saved alongside the full Resource Manager templates, in the `adf_publish` branch, under a new folder called `linkedTemplates`.
+
+![Linked Resource Manager templates folder](media/continuous-integration-deployment/linked-resource-manager-templates.png)
+
+The Linked Resource Manager templates usually have a master template and a set of child templates linked to the master. The parent template is called `ArmTemplate_master.json`, and child templates are named with the pattern `ArmTemplate_0.json`, `ArmTemplate_1.json`, and so on. To move over from using the full Resource Manager template to using the linked templates, update your CI/CD task to point to `ArmTemplate_master.json` instead of pointing to `ArmTemplateForFactory.json` (that is, the full Resource Manager template). Resource Manager also requires you to upload the linked templates into a storage account so that they can be accessed by Azure during deployment. For more info, see [Deploying Linked ARM Templates with VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+
+Remember to add the Data Factory scripts in your CI/CD pipeline before and after the deployment task.
+
+If you don’t have Git configured, the linked templates are accessible via the **Export ARM template** gesture.

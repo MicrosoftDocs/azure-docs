@@ -37,10 +37,10 @@ To see which subscription you are using, run [Get-AzureRmSubscription](/powershe
 Get-AzureRmSubscription
 ```
 
-If you need to use a different subscription than the default, run [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription).
+If you need to use a different subscription than the default, run [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
+Set-AzureRmContext -SubscriptionName "MySubscription"
 ```
 
 ## Look up data warehouse information

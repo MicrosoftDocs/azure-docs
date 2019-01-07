@@ -3,7 +3,7 @@ title: Deploy applications to virtual machine scale sets in Azure using Ansible
 description: Learn how to use Ansible to configure a virtual machine scale set and deploy application on the virtual machine scale set in Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
@@ -18,7 +18,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **Virtual machine scale set** - If you don't already have a virtual machine scale set, you can [create a virtual machine scale set with Ansible](ansible-create-configure-vmss.md). 
 - **git** - [git](https://git-scm.com) is used to download a Java sample used in this tutorial.
-- **Java SE Development Kit (JDK)** - The JDK is used to build the sample Java project.
+- **Java SE Development Kit (JDK)** - The [JDK](https://aka.ms/azure-jdks) is used to build the sample Java project.
 - **Apache Maven build tools** - The [Apache Maven build tools](https://maven.apache.org/download.cgi) are used to build the sample Java project.
 
 > [!Note]
@@ -30,7 +30,7 @@ This section illustrates how to use Ansible to retrieve host information for a g
 
 Save the following sample playbook as `get-hosts-tasks.yml`: 
 
-  ```yaml
+  ```yml
   - name: Get facts for all Public IPs within a resource groups
     azure_rm_publicipaddress_facts:
       resource_group: "{{ resource_group }}"
@@ -58,7 +58,7 @@ Save the following sample playbook as `get-hosts-tasks.yml`:
 
 In this section, you use git to clone a Java sample project from GitHub and build the project. Save the following playbook as `app.yml`:
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       repo_url: https://github.com/spring-guides/gs-spring-boot.git
@@ -82,7 +82,7 @@ Run the sample Ansible playbook with the following command:
 
 The output from the ansible-playbook command displays out similar to the following where you see that it built the sample app cloned from GitHub:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -105,7 +105,7 @@ The following section in an Ansible playbook installs the JRE (Java Runtime Envi
 
 (Change the `admin_password` to your own password.)
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -162,7 +162,7 @@ Run the playbook with the following command:
 
 The output from running the ansible-playbook command indicates that the sample Java application has been installed to the host group of the virtual machine scale set:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -203,4 +203,4 @@ Congratulation! Your application is running in Azure now. You can now navigate t
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Ansible sample playbook for VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Automatically scale a virtual machine scale set using Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

@@ -157,10 +157,10 @@ You can also use PowerShell to explicitly override the retention period and imme
 1. Confirm that you have Azure PowerShell installed and configured. If not,
    use the following instructions: 
    * To install the latest Azure PowerShell version and associate it with your Azure subscription, see [How to install and configure Azure
-   PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+   PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
    For more information about Azure Resource Manager cmdlets, see
    [Using Azure PowerShell with Azure Resource
-   Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
+   Manager](https://go.microsoft.com/fwlink/?LinkId=394767)
 2. Run the following cmdlets:
 
 > [!NOTE]  

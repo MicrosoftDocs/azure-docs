@@ -185,11 +185,11 @@ The previous command runs the UI locally at [http://localhost:3000/dashboard](ht
 
 There are two options for enabling a user to select rows in the grid:
 
-### Hard select rows
+### Hard-select rows
 
 If a user needs to act on multiple rows at the same time, use checkboxes on rows:
 
-1. Enable hard selection of rows by adding a **checkboxColumn** to the **columnDefs** provided to the grid. **checkboxColumn** is defined in **/src/components/shared/pcsGrid/pcsGrid.js**:
+1. Enable hard-selection of rows by adding a **checkboxColumn** to the **columnDefs** provided to the grid. **checkboxColumn** is defined in **/src/components/shared/pcsGrid/pcsGrid.js**:
 
     ```js
     this.columnDefs = [
@@ -211,7 +211,7 @@ If a user needs to act on multiple rows at the same time, use checkboxes on rows
     };
     ```
 
-1. Provide context buttons to the page when a row in the grid is hard selected:
+1. Provide context buttons to the page when a row in the grid is hard-selected:
 
     ```js
     this.contextBtns = [
@@ -231,18 +231,18 @@ If a user needs to act on multiple rows at the same time, use checkboxes on rows
     }
     ```
 
-1. When a context button is clicked, get the hard selected items to do your work on:
+1. When a context button is clicked, get the hard-selected items to do your work on:
 
     ```js
     doSomething = () => {
       //Just for demo purposes. Don't console log in a real grid.
-      console.log('hard selected rows', this.gridApi.getSelectedRows());
+      console.log('Hard selected rows', this.gridApi.getSelectedRows());
     };
     ```
 
-### Soft Select Rows
+### Soft-select rows
 
-If the user only needs to act on a single row, configure a soft select link for one or more columns in the **columnDefs**.
+If the user only needs to act on a single row, configure a soft-select link for one or more columns in the **columnDefs**.
 
 1. In **exampleGridConfig.js**, add **SoftSelectLinkRenderer** as the **cellRendererFramework** for a **columnDef**.
 
@@ -257,19 +257,19 @@ If the user only needs to act on a single row, configure a soft select link for 
     };
     ```
 
-1. When a soft select link is clicked, it triggers the **onSoftSelectChange** event. Perform whatever action is desired for that row, such as opening a details fly-out. This example simply writes to the console:
+1. When a soft-select link is clicked, it triggers the **onSoftSelectChange** event. Perform whatever action is desired for that row, such as opening a details flyout. This example simply writes to the console:
 
     ```js
-    onSoftSelectChange = (rowId, rowEvent) => {
+    onSoftSelectChange = (rowId, rowData) => {
+      //Note: only the Id is reliable, rowData may be out of date
       const { onSoftSelectChange } = this.props;
-      const obj = (this.gridApi.getDisplayedRowAtIndex(rowId) || {}).data;
-      if (obj) {
+      if (rowId) {
         //Just for demo purposes. Don't console log a real grid.
-        console.log('Soft selected', obj);
-        this.setState({ softSelectedObj: obj });
+        console.log('Soft selected', rowId);
+        this.setState({ softSelectedId: rowId });
       }
       if (isFunc(onSoftSelectChange)) {
-        onSoftSelectChange(obj, rowEvent);
+        onSoftSelectChange(rowId, rowData);
       }
     }
     ```
@@ -278,6 +278,6 @@ If the user only needs to act on a single row, configure a soft select link for 
 
 In this article, you learned about the resources available to help you add or customize pages in the web UI in the Remote Monitoring solution accelerator.
 
-Now you have defined a grid, the next step is to [Add a custom fly-out to the Remote Monitoring solution accelerator web UI](iot-accelerators-remote-monitoring-customize-flyout.md) that displays on the example page.
+Now you have defined a grid, the next step is to [Add a custom flyout to the Remote Monitoring solution accelerator web UI](iot-accelerators-remote-monitoring-customize-flyout.md) that displays on the example page.
 
 For more conceptual information about the Remote Monitoring solution accelerator, see [Remote Monitoring architecture](iot-accelerators-remote-monitoring-sample-walkthrough.md).

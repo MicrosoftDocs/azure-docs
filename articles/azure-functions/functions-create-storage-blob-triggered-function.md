@@ -22,7 +22,7 @@ Learn how to create a function triggered when files are uploaded to or updated i
 
 ## Prerequisites
 
-+ Download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
++ Download and install the [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 + An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create an Azure Function app
@@ -47,7 +47,7 @@ Next, you create a function in the new function app.
 
 1. In the search field, type `blob` and then choose the **Blob trigger** template.
 
-1. If prompted, select **Install** to install the Azure Storage extension any any dependencies in the function app. After installation succeeds, select **Continue**.
+1. If prompted, select **Install** to install the Azure Storage extension any dependencies in the function app. After installation succeeds, select **Continue**.
 
     ![Install binding extensions](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
 
@@ -71,7 +71,7 @@ Next, you connect to your Azure Storage account and create the **samples-workite
 
     ![Get the Storage account connection credentials.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
 
-1. Run the [Microsoft Azure Storage Explorer](http://storageexplorer.com/) tool, click the connect icon on the left, choose **Use a storage account name and key**, and click **Next**.
+1. Run the [Microsoft Azure Storage Explorer](https://storageexplorer.com/) tool, click the connect icon on the left, choose **Use a storage account name and key**, and click **Next**.
 
     ![Run the Storage Account Explorer tool.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
 

@@ -19,7 +19,7 @@ To send container instance data to Log Analytics, you must create a container gr
 
 To enable logging in your container instances, you need the following:
 
-* [Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md)
+* [Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md)
 * [Azure CLI](/cli/azure/install-azure-cli) (or [Cloud Shell](/azure/cloud-shell/overview))
 
 ## Get Log Analytics credentials
@@ -95,7 +95,7 @@ You should receive a response from Azure containing deployment details shortly a
 
 After you've deployed the container group, it can take several minutes (up to 10) for the first log entries to appear in the Azure portal. To view the container group's logs, open your Log Analytics workspace, then:
 
-1. In the **OMS Workspace** overview, select **Log Search**
+1. In the **OMS workspace** overview, select **Log Search**. OMS workspaces are now referred to as Log Analytics workspaces.  
 1. Under **A few more queries to try**, select the **All collected data** link
 
 You should see several results displayed by the `search *` query. If at first you don't see any results, wait a few minutes, then select the **RUN** button to execute the query again. By default, log entries are displayed in "List" view--select **Table** to see the log entries in a more condensed format. You can then expand a row to see the contents of an individual log entry.
@@ -130,7 +130,8 @@ ContainerInstanceLog_CL
 For more information about querying logs and configuring alerts in Azure Log Analytics, see:
 
 * [Understanding log searches in Log Analytics](../log-analytics/log-analytics-log-search.md)
-* [Unified alerts in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)
+* [Unified alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md)
+
 
 ### Monitor container CPU and memory
 

@@ -1,10 +1,7 @@
 ---
-title: Use Azure Cosmos DB change feed to visualize real-time data analytics | Microsoft Docs
+title: Use Azure Cosmos DB change feed to visualize real-time data analytics
 description: This article describes how change feed can be used by a retail company to understand user patterns, perform real-time data analysis and visualization.
-services: cosmos-db
 author: SnehaGunda
-manager: kfile
-
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
@@ -86,22 +83,21 @@ Create the Azure resources - Azure Cosmos DB, Storage account, Event Hub, Stream
    ```powershell
    .\deploy.ps1
    ```
-5. When prompted, enter your Azure **Subcription ID**, **changefeedlab** for the resource group name, and **run1** for the deployment name. Once the resources begin to deploy, it may take up to 10 minutes for it to complete.
+5. When prompted, enter your Azure **Subscription ID**, **changefeedlab** for the resource group name, and **run1** for the deployment name. Once the resources begin to deploy, it may take up to 10 minutes for it to complete.
 
 ## Create a database and the collection
 
 You will now create a collection to hold e-commerce site events. When a user views an item, adds an item to their cart, or purchases an item, the collection will receive a record that includes the action ("viewed", "added", or "purchased"), the name of the item involved, the price of the item involved, and the ID number of the user cart involved.
 
-1. Go to [Azure Portal](http://portal.azure.com/) and find the **Azure Cosmos DB Account** that’s created by the template deployment.  
+1. Go to [Azure Portal](https://portal.azure.com/) and find the **Azure Cosmos DB Account** that’s created by the template deployment.  
 
 2. From the **Data Explorer** pane, select **New Collection** and fill the form with the following details:  
 
    * For the **Database id** field, select **Create new**, then enter **changefeedlabdatabase**. Leave the **Provision database throughput** box unchecked.  
    * For the **Collection** id field, enter **changefeedlabcollection**.  
-   * For **Storage capacity**, select **Unlimited**.  
    * For the **Partition key** field, enter **/Item**. This is case-sensitive, so make sure you enter it correctly.  
    * For the **Throughput** field, enter **10000**.  
-   * Click the **OK** button.  
+   * Select the **OK** button.  
 
 3. Next create another collection named **leases** for change feed processing. The leases collection coordinates processing the change feed across multiple workers. A separate collection is used to store the leases with one lease per partition.  
 
@@ -111,13 +107,13 @@ You will now create a collection to hold e-commerce site events. When a user vie
    * For the **Collection id** field, enter **leases**.  
    * For **Storage capacity**, select **Fixed**.  
    * Leave the **Throughput** field set to its default value.  
-   * Click the **OK** button.
+   * Select the **OK** button.
 
 ## Get the connection string and keys
 
 ### Get the Azure Cosmos DB connection string
 
-1. Go to [Azure Portal](http://portal.azure.com/) and find the **Azure Cosmos DB Account** that’s created by the template deployment.  
+1. Go to [Azure Portal](https://portal.azure.com/) and find the **Azure Cosmos DB Account** that’s created by the template deployment.  
 
 2. Navigate to the **Keys** pane, copy the PRIMARY CONNECTION STRING and copy it to a notepad or another document that you will have access to throughout the lab. You should label it **Cosmos DB Connection String**. You'll need to copy the string into your code later, so take a note and remember where you are storing it.
 
@@ -177,7 +173,7 @@ To see how change feed processes new actions on an e-commerce site, have to simu
  
 6. Wait for the program to run. The stars mean that data is coming in! Keep the program running - it is important that lots of data is collected.  
 
-7. If you navigate to [Azure Portal](http://portal.azure.com/) , then to the Cosmos DB account within your resource group, then to **Data Explorer**, you will see the randomized data imported in your **changefeedlabcollection** .
+7. If you navigate to [Azure Portal](https://portal.azure.com/) , then to the Cosmos DB account within your resource group, then to **Data Explorer**, you will see the randomized data imported in your **changefeedlabcollection** .
  
    ![Data generated in portal](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -185,7 +181,7 @@ To see how change feed processes new actions on an e-commerce site, have to simu
 
 Azure Stream Analytics is a fully managed cloud service for real-time processing of streaming data. In this lab, you will use stream analytics to process new events from the Event Hub (i.e. when an item is viewed, added to a cart, or purchased), incorporate those events into real-time data analysis, and send them into Power BI for visualization.
 
-1. From the [Azure Portal](http://portal.azure.com/), navigate to your resource group, then to **streamjob1** (the stream analytics job that you created in the prelab).  
+1. From the [Azure Portal](https://portal.azure.com/), navigate to your resource group, then to **streamjob1** (the stream analytics job that you created in the prelab).  
 
 2. Select **Inputs** as demonstrated below.  
 
@@ -204,7 +200,7 @@ Azure Stream Analytics is a fully managed cloud service for real-time processing
    * Leave **Event serialization format** as **JSON**.  
    * Leave **Encoding field** set to **UTF-8**.  
    * Leave **Event compression type** field set to **None**.  
-   * Click the **Save** button.
+   * Select the **Save** button.
 
 5. Navigate back to the stream analytics job page, and select **Outputs**.  
 
@@ -216,10 +212,10 @@ Azure Stream Analytics is a fully managed cloud service for real-time processing
    * Leave the **Group workspace** field set to **Authorize connection to load workspaces**.  
    * In the **Dataset name** field, enter **averagePrice**.  
    * In the **Table name** field, enter **averagePrice**.  
-   * Click the **Authorize** button, then follow the instructions to authorize the connection to Power BI.  
-   * Click the **Save** button.  
+   * Select the **Authorize** button, then follow the instructions to authorize the connection to Power BI.  
+   * Select the **Save** button.  
 
-8. Then go back to **streamjob1** and click **Edit query**.
+8. Then go back to **streamjob1** and select **Edit query**.
 
    ![Edit query](./media/changefeed-ecommerce-solution/edit-query.png)
  
@@ -232,9 +228,9 @@ Azure Stream Analytics is a fully managed cloud service for real-time processing
     FROM input  
     GROUP BY Action, TumblingWindow(second,5) 
    ```
-10. Then click **Save** in the upper left-hand corner.  
+10. Then select **Save** in the upper left-hand corner.  
 
-11.	Now return to **streamjob1** and click the **Start** button at the top of the page. Azure Stream Analytics can take a few minutes to start up, but eventually you will see it change from "Starting" to "Running".
+11.	Now return to **streamjob1** and select the **Start** button at the top of the page. Azure Stream Analytics can take a few minutes to start up, but eventually you will see it change from "Starting" to "Running".
 
 ## Connect to Power BI
 
@@ -246,9 +242,9 @@ Power BI is a suite of business analytics tools to analyze data and share insigh
 
 3. Select **+ Add tile** in the top right-hand corner.  
 
-4. Select **Custom Streaming Data**, then click the **Next** button.  
+4. Select **Custom Streaming Data**, then select the **Next** button.  
  
-5. Select **averagePrice** from **YOUR DATASETS**, then click **Next**.  
+5. Select **averagePrice** from **YOUR DATASETS**, then select **Next**.  
 
 6. In the **Visualization Type** field, choose **Clustered bar chart** from the drop-down menu. Under **Axis**, add action. Skip **Legend** without adding anything. Then, under the next section called **Value**, add **avg**. Select **Next**, then title your chart, and select **Apply**. You should see a new chart on your dashboard!  
 
@@ -258,7 +254,7 @@ Power BI is a suite of business analytics tools to analyze data and share insigh
    b. **Output alias:** top5Output, Dataset name: top5, Table name: top5  
    c. **Output alias:** uniqueVisitorCountOutput, Dataset name: uniqueVisitorCount, Table name: uniqueVisitorCount
 
-   Then click **Edit query** and paste the following queries **above** the one you already wrote.
+   Then select **Edit query** and paste the following queries **above** the one you already wrote.
 
    ```sql
     /*TOP 5*/
@@ -320,13 +316,13 @@ Power BI is a suite of business analytics tools to analyze data and share insigh
 
 You will now observe how you can use your new data analysis tool to connect with a real e-commerce site. In order to build the e-commerce site, use an Azure Cosmos DB database to store the list of product categories (Women's, Men's, Unisex), the product catalog, and a list of the most popular items.
 
-1. Navigate back to the [Azure Portal](http://portal.azure.com/), then to your **Cosmos DB account**, then to **Data Explorer**.  
+1. Navigate back to the [Azure Portal](https://portal.azure.com/), then to your **Cosmos DB account**, then to **Data Explorer**.  
 
    Add two collections under **changefeedlabdatabase** - **products** and **categories** with Fixed storage capacity.
 
-   Add another collection under **changefeedlabdatabase** named **topItems** with **Unlimited** storage capacity. Write **/Item** as the partition key.
+   Add another collection under **changefeedlabdatabase** named **topItems** and **/Item** as the partition key.
 
-2. Click on the **topItems** collection, and under **Scale and Settings** set the **Time to Live** to be **30 seconds** so that topItems updates every 30 seconds.
+2. Select the **topItems** collection, and under **Scale and Settings** set the **Time to Live** to be **30 seconds** so that topItems updates every 30 seconds.
 
    ![Time to live](./media/changefeed-ecommerce-solution/time-to-live.png)
 
@@ -390,7 +386,7 @@ You will now observe how you can use your new data analysis tool to connect with
 
 ## Delete the resources
 
-To delete the resources that you created during this lab, navigate to the resource group on [Azure Portal](http://portal.azure.com/), then select **Delete resource group** from the menu at the top of the page and follow the instructions provided.
+To delete the resources that you created during this lab, navigate to the resource group on [Azure Portal](https://portal.azure.com/), then select **Delete resource group** from the menu at the top of the page and follow the instructions provided.
 
 ## Next steps 
   

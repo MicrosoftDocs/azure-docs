@@ -39,7 +39,7 @@ All risk events that have been detected for a user and didn't get resolved are k
 The user risk policy is an automated response you can configure for a specific user risk level. With a user risk policy, you can block access to your resources or require a password change to get a user account back into a clean state.
 
 
-## How do I access the sign-in risk policy?
+## How do I access the user risk policy?
    
 The sign-in risk policy is in the **Configure** section on the [Azure AD Identity Protection page](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    

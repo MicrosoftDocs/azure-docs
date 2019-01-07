@@ -1,15 +1,16 @@
 ---
-title: Try the Speech service for free
-description: Discover how you can try the Speech service at no cost.
-titleSuffix: "Azure Cognitive Services"
+title: Try Speech Services for free
+titleSuffix: Azure Cognitive Services
+description: Getting started with the Speech service is easy and affordable. A 30-day free trial lets you discover what the service can do and decide whether it's right for your application's needs.
 services: cognitive-services
-author: v-jerkin
-
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: v-jerkin
+ms.author: erhopf
+ms.custom: seodec18
 ---
 
 # Try the Speech service for free
@@ -31,7 +32,7 @@ To sign up for a 30-day free trial:
 1. Select the **Speech APIs** tab.
 
    ![Speech Services tab](media/index/try-speech-api-free-trial1.png)
-   
+
 1. Under **Speech services**, select the **Get API Key** button.
 
    ![API key](media/index/try-speech-api-free-trial2.png)
@@ -63,7 +64,7 @@ After creating your Azure account, follow the steps in the next section to start
 
 To add a Speech service resource (free or paid tier) to your Azure account:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/) using your Microsoft account.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft account.
 
 1. Select **Create a resource** at the top left of the portal.
 

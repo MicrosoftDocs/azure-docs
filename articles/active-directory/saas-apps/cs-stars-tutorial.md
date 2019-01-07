@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.csstars.com/enterprise/`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [CS Stars Client support team](http://www.marshclearsight.com/support/) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [CS Stars Client support team](https://www.marshclearsight.com/support/) to get these values. 
  
 1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -124,7 +124,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/cs-stars-tutorial/tutorial_general_400.png) 
 <CS>
-1. To configure single sign-on on **CS Stars** side, you need to send the downloaded **Metadata XML** to [CS Stars support team](http://www.marshclearsight.com/support/). 
+1. To configure single sign-on on **CS Stars** side, you need to send the downloaded **Metadata XML** to [CS Stars support team](https://www.marshclearsight.com/support/). 
 <CE>
 
 > [!TIP]
@@ -166,7 +166,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in CS Stars.
 
-To get a user created in CS Stars, you need to contact your [CS Stars support team](http://www.marshclearsight.com/support/).
+To get a user created in CS Stars, you need to contact your [CS Stars support team](https://www.marshclearsight.com/support/).
 
 ### Assigning the Azure AD test user
 

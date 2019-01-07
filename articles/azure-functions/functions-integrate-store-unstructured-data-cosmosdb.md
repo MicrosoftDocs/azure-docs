@@ -69,7 +69,7 @@ You must have an Azure Cosmos DB account that uses the SQL API before you create
 
 Replace the existing function code with the following code, in your chosen language:
 
-# [C\#](#tab/csharp)
+# [C#](#tab/csharp)
 
 Replace the existing C# function with the following code:
 
@@ -78,6 +78,7 @@ Replace the existing C# function with the following code:
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 public static IActionResult Run(HttpRequest req, out object taskDocument, ILogger log)
 {
@@ -102,9 +103,10 @@ public static IActionResult Run(HttpRequest req, out object taskDocument, ILogge
         taskDocument = null;
         return (ActionResult)new BadRequestResult();
     }
+}
 ```
 
-# [JavaScript](#tab/nodejs)
+# [JavaScript](#tab/javascript)
 
 Replace the existing JavaScript function with the following code:
 

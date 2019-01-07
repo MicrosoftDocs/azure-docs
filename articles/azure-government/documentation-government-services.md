@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/04/2018
+ms.date: 10/28/2018
 ms.author: gsacavdm
 
 ---
@@ -79,7 +79,7 @@ The **services available in Azure Government** are listed by category, as well a
 | [SQL Data Warehouse](documentation-government-services-database.md#sql-data-warehouse) | |
 | [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database) | |
 | [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db) | |
-| [Azure Redis Cache](documentation-government-services-database.md#azure-redis-cache) | |
+| [Azure Cache for Redis](documentation-government-services-database.md#azure-cache-for-redis) | |
 
 ## Data + Analytics
 | Generally Available | Preview |
@@ -91,7 +91,7 @@ The **services available in Azure Government** are listed by category, as well a
 ## AI + Cognitive Services 
 | Generally Available | Preview |
 | --- | --- |
-| | [Cognitive Services**](documentation-government-services-aiandcognitiveservices.md) |
+| [Cognitive Services](documentation-government-services-aiandcognitiveservices.md) | |
 
 ## Internet of Things
 | Generally Available | Preview |
@@ -119,7 +119,8 @@ The **services available in Azure Government** are listed by category, as well a
 ## Monitoring + Management
 | Generally Available | Preview |
 | --- | --- |
-| [Automation](documentation-government-services-monitoringandmanagement.md#automation)| [Advisor](documentation-government-services-monitoringandmanagement.md#advisor) |
+| [Advisor](documentation-government-services-monitoringandmanagement.md#advisor)| |
+| [Automation](documentation-government-services-monitoringandmanagement.md#automation)| |
 | [Backup](documentation-government-services-backup.md) | |
 | [Policy](documentation-government-services-monitoringandmanagement.md#policy) | |
 | [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) | |

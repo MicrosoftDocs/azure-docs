@@ -103,7 +103,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=data-factory
+    href: https://azure.microsoft.com/resources/samples/?service=data-factory
   - name: Azure PowerShell
     href: samples-powershell.md
 - name: Concepts
@@ -142,12 +142,16 @@
       href: connector-amazon-simple-storage-service.md
     - name: Azure Blob Storage
       href: connector-azure-blob-storage.md
-    - name: Azure Cosmos DB
+    - name: Azure Cosmos DB SQL API
       href: connector-azure-cosmos-db.md
+    - name: Azure Cosmos DB MongDB API
+      href: connector-azure-cosmos-db-mongodb-api.md
     - name: Azure Data Lake Storage Gen1
       href: connector-azure-data-lake-store.md
     - name: Azure Data Lake Storage Gen2
       href: connector-azure-data-lake-storage.md
+    - name: Azure Database for MariaDB
+      href: connector-azure-database-for-mariadb.md
     - name: Azure Database for MySQL
       href: connector-azure-database-for-mysql.md
     - name: Azure Database for PostgreSQL
@@ -158,6 +162,8 @@
       href: connector-azure-search.md
     - name: Azure SQL Database
       href: connector-azure-sql-database.md
+    - name: Azure SQL Database Managed Instance
+      href: connector-azure-sql-database-managed-insance.md
     - name: Azure SQL Data Warehouse
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
@@ -176,18 +182,20 @@
       href: connector-drill.md
     - name: Dynamics 365
       href: connector-dynamics-crm-office-365.md
+    - name: Dynamics AX
+      href: connector-dynamics-ax.md
     - name: Dynamics CRM
       href: connector-dynamics-crm-office-365.md
     - name: File System
       href: connector-file-system.md
     - name: FTP
       href: connector-ftp.md
-    - name: GE Historian
-      href: connector-odbc.md#ge-historian-source
     - name: Google AdWords
       href: connector-google-adwords.md
     - name: Google BigQuery
       href: connector-google-bigquery.md
+    - name: Google Cloud Storage
+      href: connector-google-cloud-storage.md
     - name: Greenplum
       href: connector-greenplum.md
     - name: HBase
@@ -216,6 +224,9 @@
       href: connector-odbc.md#microsoft-access-source
     - name: MongoDB
       href: connector-mongodb.md
+      items:
+      - name: MongoDB (legacy)
+        href: connector-mongodb-legacy.md
     - name: MySQL
       href: connector-mysql.md
     - name: Netezza
@@ -242,8 +253,10 @@
       href: connector-postgresql.md
     - name: Presto
       href: connector-presto.md
-    - name: QuickBooks
+    - name: QuickBooks Online
       href: connector-quickbooks.md
+    - name: REST
+      href: connector-rest.md
     - name: Salesforce
       href: connector-salesforce.md
     - name: Salesforce Service Cloud
@@ -344,6 +357,8 @@
     items:
     - name: Append Variable Activity
       href: control-flow-append-variable-activity.md
+    - name: Azure Function Activity
+      href: control-flow-azure-function-activity.md
     - name: Execute Pipeline Activity
       href: control-flow-execute-pipeline-activity.md
     - name: Filter Activity
@@ -404,6 +419,8 @@
       href: create-self-hosted-integration-runtime.md
     - name: Azure-SSIS integration runtime
       href: create-azure-ssis-integration-runtime.md
+    - name: Shared self-hosted integration runtime
+      href: create-shared-self-hosted-integration-runtime-powershell.md
   - name: Run SSIS packages in Azure
     items:
     - name: Run SSIS packages with Execute SSIS Package activity
@@ -457,7 +474,7 @@
   - name: FAQ
     href: frequently-asked-questions.md
   - name: Roadmap
-    href: https://azure.microsoft.com/en-us/roadmap/?tag=data-factory
+    href: https://azure.microsoft.com/roadmap/?tag=data-factory
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Availability by region

@@ -26,15 +26,15 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_portal.svg
+        src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Azure portal
       href: /azure/dns/dns-getstarted-portal
     - image: 
-        src: https://docs.microsoft.com/en-us/media/logos/logo_powershell.svg
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/dns/dns-getstarted-powershell
     - image: 
-        src: https://docs.microsoft.com/en-us/media/common/cli.svg
+        src: https://docs.microsoft.com/media/common/cli.svg
       text: Azure CLI
       href: /azure/dns/dns-getstarted-cli
 - title: Step-by-Step Tutorials

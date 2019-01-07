@@ -1,19 +1,19 @@
 ---
-title: Upload data for Hadoop jobs in HDInsight
-description: Learn how to upload and access data for Hadoop jobs in HDInsight using the Azure classic CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop.
+title: Upload data for Apache Hadoop jobs in HDInsight
+description: Learn how to upload and access data for Apache Hadoop jobs in HDInsight using the Azure classic CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop.
 keywords: etl hadoop, getting data into hadoop, hadoop load data
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
-ms.author: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 11/06/2018
 ---
-# Upload data for Hadoop jobs in HDInsight
+# Upload data for Apache Hadoop jobs in HDInsight
 
-Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Storage and Azure Data Lake Store. Azure Storage and Data lake Store are designed as an HDFS extension to provide a seamless experience to customers. They enable the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure Storage and Data Lake Store are distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure Storage, see [Use Azure Storage with HDInsight][hdinsight-storage] and [Use Data Lake Store with HDInsight](hdinsight-hadoop-use-data-lake-store.md).
+Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Storage and Azure Data Lake Storage (Gen1 and Gen2). Azure Storage and Data lake Storage Gen1 and Gen2 are designed as HDFS extensions to provide a seamless experience to customers. They enable the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure Storage, Data Lake Storage Gen1 and Gen2 are distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure Storage, see [Use Azure Storage with HDInsight][hdinsight-storage], [Use Data Lake Storage Gen1 with HDInsight](hdinsight-hadoop-use-data-lake-store.md) and [Use Data Lake Storage Gen2 with HDInsight](../storage/data-lake-storage/use-hdi-cluster.md).
 
 ## Prerequisites
 
@@ -23,7 +23,8 @@ Note the following requirements before you begin:
 * Knowledge of the following two articles:
 
     - [Use Azure Storage with HDInsight][hdinsight-storage]
-    - [Use Data Lake Store with HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    - [Use Data Lake Storage Gen1 with HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    - [Use Data Lake Storage Gen2 with HDInsight](../storage/data-lake-storage/use-hdi-cluster.md)   
 
 ## Upload data to Azure Storage
 
@@ -37,7 +38,7 @@ Microsoft provides the following utilities to work with Azure Storage:
 | [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Hadoop command](#commandline) |✔ |✔ |✔ |
 
-> [!NOTE]
+> [!NOTE]  
 > While the Azure Classic CLI, Azure PowerShell, and AzCopy can all be used from outside Azure, the Hadoop command is only available on the HDInsight cluster. And the command only allows loading data from the local file system into Azure Storage.
 >
 >
@@ -88,7 +89,7 @@ The Azure Classic CLI is a cross-platform tool that allows you to manage Azure s
         azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
         ```
     
-> [!NOTE]
+> [!NOTE]  
 > If you always work with the same storage account, you can set the following environment variables instead of specifying the account and key for every command:
 >
 > * **AZURE\_STORAGE\_ACCOUNT**: The storage account name
@@ -164,12 +165,10 @@ or
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-For a list of other Hadoop commands that work with files, see [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+For a list of other Hadoop commands that work with files, see [https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
-> [!WARNING]
-> On HBase clusters, the default block size used when writing data is 256 KB. While this works fine when using HBase APIs or REST APIs, using the `hadoop` or `hdfs dfs` commands to write data larger than ~12 GB results in an error. For more information, see the [storage exception for write on blob](#storageexception) section in this article.
->
->
+> [!WARNING]  
+> On Apache HBase clusters, the default block size used when writing data is 256 KB. While this works fine when using HBase APIs or REST APIs, using the `hadoop` or `hdfs dfs` commands to write data larger than ~12 GB results in an error. For more information, see the [storage exception for write on blob](#storageexception) section in this article.
 
 ### Graphical clients
 There are also several applications that provide a graphical interface for working with Azure Storage. The following table is a list of a few of these applications:
@@ -177,17 +176,17 @@ There are also several applications that provide a graphical interface for worki
 | Client | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Microsoft Visual Studio Tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Azure Storage Explorer](http://storageexplorer.com/) |✔ |✔ |✔ |
-| [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
+| [Azure Storage Explorer](https://storageexplorer.com/) |✔ |✔ |✔ |
+| [Cloud Storage Studio 2](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
-| [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
+| [Azure Explorer](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### Visual Studio Tools for HDInsight
 For more information, see [Navigate the linked resources](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources).
 
 #### <a id="storageexplorer"></a>Azure Storage Explorer
-*Azure Storage Explorer* is a useful tool for inspecting and altering the data in blobs. It is a free, open source tool that can be downloaded from [http://storageexplorer.com/](http://storageexplorer.com/). The source code is available from this link as well.
+*Azure Storage Explorer* is a useful tool for inspecting and altering the data in blobs. It is a free, open source tool that can be downloaded from [https://storageexplorer.com/](https://storageexplorer.com/). The source code is available from this link as well.
 
 Before using the tool, you must know your Azure storage account name and account key. For instructions about getting this information, see the "How to: View, copy, and regenerate storage access keys" section of [Create, manage, or delete a storage account][azure-create-storage-account].
 
@@ -207,7 +206,7 @@ Before using the tool, you must know your Azure storage account name and account
     Once the file has finished uploading, you can use it from jobs on the HDInsight cluster.
 
 ### Mount Azure Storage as Local Drive
-See [Mount Azure Storage as Local Drive](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
+See [Mount Azure Storage as Local Drive](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
 ### Upload using services
 #### Azure Data Factory
@@ -266,7 +265,7 @@ For more information on installing the Azure SDKs, see [Azure downloads](https:/
 hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
 ```
 
-You can also increase the value of `fs.azure.write.request.size` globally by using Ambari. The following steps can be used to change the value in the Ambari Web UI:
+You can also increase the value of `fs.azure.write.request.size` globally by using Apache Ambari. The following steps can be used to change the value in the Ambari Web UI:
 
 1. In your browser, go to the Ambari Web UI for your cluster. This is https://CLUSTERNAME.azurehdinsight.net, where **CLUSTERNAME** is the name of your cluster.
 
@@ -277,18 +276,18 @@ You can also increase the value of `fs.azure.write.request.size` globally by usi
 
 ![Image of changing the value through Ambari Web UI](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
 
-For more information on using Ambari, see [Manage HDInsight clusters using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
+For more information on using Ambari, see [Manage HDInsight clusters using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
 ## Next steps
 Now that you understand how to get data into HDInsight, read the following articles to learn how to perform analysis:
 
 * [Get started with Azure HDInsight][hdinsight-get-started]
-* [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
-* [Use Hive with HDInsight][hdinsight-use-hive]
-* [Use Pig with HDInsight][hdinsight-use-pig]
+* [Submit Apache Hadoop jobs programmatically][hdinsight-submit-jobs]
+* [Use Apache Hive with HDInsight][hdinsight-use-hive]
+* [Use Apache Pig with HDInsight][hdinsight-use-pig]
 
 [azure-management-portal]: https://porta.azure.com
-[azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
+[azure-powershell]: https://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
 [azure-create-storage-account]:../storage/common/storage-create-storage-account.md
@@ -298,6 +297,8 @@ Now that you understand how to get data into HDInsight, read the following artic
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-adls-gen1]: hdinsight-hadoop-use-data-lake-store.md
+[hdinsight-adls-gen2]: ../storage/data-lake-storage/use-hdi-cluster.md
 [hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 
@@ -306,7 +307,7 @@ Now that you understand how to get data into HDInsight, read the following artic
 
 [sqldatabase-create-configure]: ../sql-database-create-configure.md
 
-[apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
+[apache-sqoop-guide]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 

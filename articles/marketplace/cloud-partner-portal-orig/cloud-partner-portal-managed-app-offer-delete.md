@@ -28,7 +28,7 @@ Offer Termination is the process of terminating the service and/or
 licensing agreement between you and your existing customers. Guidance
 and policies related to offer removal and termination are governed by
 [Microsoft Marketplace Publisher
-Agreement](http://go.microsoft.com/fwlink/?LinkID=699560) (see Section
+Agreement](https://go.microsoft.com/fwlink/?LinkID=699560) (see Section
 7) and the [Participation
 Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)
 (see Section 6.2). The different supported

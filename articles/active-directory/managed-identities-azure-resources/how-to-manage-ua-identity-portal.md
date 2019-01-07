@@ -29,11 +29,10 @@ In this article, you learn how to create, list, delete or assign a role to a use
 
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
-- To perform the management operations in this article, your account needs the following role assignments:
-    - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create, read (list), update, and delete a user-assigned managed identity.
-    - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to read (list) the properties of a user-assigned managed identity.
 
 ## Create a user-assigned managed identity
+
+To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to create the user-assigned managed identity.
 2. In the search box, type *Managed Identities*, and under **Services**, click **Managed Identities**.
@@ -48,6 +47,8 @@ In this article, you learn how to create, list, delete or assign a role to a use
 
 ## List user-assigned managed identities
 
+To list/read a user-assigned managed identity, your account needs the [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) or [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to list the user-assigned managed identities.
 2. In the search box, type *Managed Identities*, and under Services, click **Managed Identities**.
 3. A list of the user-assigned managed identities for your subscription is returned.  To see the details of a user-assigned managed identity click its name.
@@ -55,6 +56,8 @@ In this article, you learn how to create, list, delete or assign a role to a use
 ![List user-assigned managed identity](./media/how-to-manage-ua-identity-portal/list-user-assigned-managed-identity-portal.png)
 
 ## Delete a user-assigned managed identity
+
+To delete a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to delete a user-assigned managed identity.
 2. Select the user-assigned managed identity and click **Delete**.
@@ -64,14 +67,16 @@ In this article, you learn how to create, list, delete or assign a role to a use
 
 ## Assign a role to a user-assigned managed identity 
 
+To assign a role to a user-assigned managed identity, your account needs the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role assignment.
+
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to list the user-assigned managed identities.
 2. In the search box, type *Managed Identities*, and under Services, click **Managed Identities**.
 3. A list of the user-assigned managed identities for your subscription is returned.  Select the user-assigned managed identity that you want to assign a role.
-4. Select **Access control (IAM)** and then select **Add**.
+4. Select **Access control (IAM)** and then select **Add role assignment**.
 
    ![User-assigned managed identity start](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
 
-5. In the Add permissions blade, configure the following values and then click **Save**:
+5. In the Add role assignment blade, configure the following values and then click **Save**:
    - **Role** - the role to assign
    - **Assign access to**  - the resource to assign the user-assigned managed identity
    - **Select** - the member to assign access

@@ -15,18 +15,19 @@ ms.author: tulasim
 
 # What is QnA Maker?
 
-QnA Maker is a question and answer knowledge base (KB) service that applies custom machine-learning intelligence to a user's natural language question to determine the best answer.
+QnA Maker is a cloud-based API service that creates a conversational, question and answer layer over your data. 
 
-QnA Maker enables you to power the cloud-based service from your semi-structured content such as Frequently Asked Question (FAQs) documents, URLs, product manuals and custom questions and answers. 
+QnA Maker enables you to create a knowledge-base(KB) from your semi-structured content such as Frequently Asked Question (FAQ) URLs, product manuals, support documents and custom questions and answers. The QnA Maker service answers your users' natural language questions by matching it with the best possible answer from the QnAs in your Knowledge base.
+
 The easy-to-use [web portal](https://qnamaker.ai) enables you to create, manage, train and publish your service without any developer experience. Once the service is published to an endpoint, a client application such as a chat bot can manage the conversation with a user to get questions and respond with the answers. 
 
 ![Overview](../media/qnamaker-overview-learnabout/overview.png)
 
 ## Key QnA Maker processes
 
-A QnA Maker provides two key services for your data:
+QnA Maker provides two key services for your data:
 
-* **Extraction**: Structured question-answer data is extracted from semi-structured [data sources](../Concepts/data-sources-supported.md) like FAQs and product manuals. This extraction can be done as part of the KB [creation](https://aka.ms/qnamaker-docs-createkb) or later, as part of the editing process.
+* **Extraction**: Structured question-answer data is extracted from structured & semi-structured [data sources](../Concepts/data-sources-supported.md) like FAQs and product manuals. This extraction can be done as part of the KB [creation](https://aka.ms/qnamaker-docs-createkb) or later, as part of the editing process.
 
 * **Matching**: Once your knowledge base has been [trained and tested](https://aka.ms/qnamaker-docs-trainkb), you [publish](https://aka.ms/qnamaker-docs-publishkb) it. This enables an endpoint to your QnA Maker knowledge base, which you can then use in your bot or client app. This endpoint accepts a user question and responds with the best answer in the knowledge base, along with a confidence score for the match.
 
@@ -50,11 +51,11 @@ A QnA Maker provides two key services for your data:
 
 ## QnA Maker architecture
 
-QnA Maker consists of the following API services:
+The QnA Maker architecture consists of the following two components:
 
 1. **QnA Maker management services**: The management experience for a QnA Maker knowledge base, which includes the initial creation, updating, training, and publishing. These activities can be done through the [portal](https://qnamaker.ai) or the [management APIs](https://aka.ms/qnamaker-v4-apis). 
 
-2. **QnA Maker prediction service**: This is deployed in your Azure subscription in your specified region. Customer KB content is stored in [Azure Search](https://azure.microsoft.com/services/search/), and the endpoint deployed as an [App service](https://azure.microsoft.com/services/app-service/). You can also choose to deploy an [Application insights](https://azure.microsoft.com/services/application-insights/) resource for analytics.
+2. **QnA Maker data and runtime**: This is deployed in your Azure subscription in your specified region. Your KB content is stored in [Azure Search](https://azure.microsoft.com/services/search/), and the endpoint deployed as an [App service](https://azure.microsoft.com/services/app-service/). You can also choose to deploy an [Application insights](https://azure.microsoft.com/services/application-insights/) resource for analytics.
 
 ![Architecture](../media/qnamaker-overview-learnabout/architecture.png)
 

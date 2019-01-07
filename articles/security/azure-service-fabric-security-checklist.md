@@ -40,7 +40,7 @@ Use the following checklist to help you make sure that you haven’t overlooked 
 |[ServerCertificate](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security)| <ul><li>This certificate is presented to the client when it tries to connect to this cluster. You can use two different server certificates, a primary and a secondary for upgrade.</li></ul>|
 |ClientCertificateThumbprints| <ul><li>This is a set of certificates that you want to install on the authenticated clients. </li></ul>|
 |ClientCertificateCommonNames| <ul><li>Set the common name of the first client certificate for the CertificateCommonName. The CertificateIssuerThumbprint is the thumbprint for the issuer of this certificate. </li></ul>|
-|ReverseProxyCertificate| <ul><li>This is an optional certificate that can be specified if you want to secure your [Reverse Proxy](https://docs.microsoft.com/en-in/azure/service-fabric/service-fabric-reverseproxy). </li></ul>|
+|ReverseProxyCertificate| <ul><li>This is an optional certificate that can be specified if you want to secure your [Reverse Proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). </li></ul>|
 |Key Vault| <ul><li>Used to manage certificates for Service Fabric clusters in Azure.  </li></ul>|
 
 

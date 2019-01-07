@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/31/2018
+ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
@@ -166,6 +166,17 @@ The following table shows the data collection frequency for the types of changes
 | Windows software | 30 minutes |
 | Linux software | 5 minutes |
 
+The following table shows the tracked item limits per machine for Change Tracking.
+
+| **Resource** | **Limit**| **Notes** |
+|---|---|---|
+|File|500||
+|Registry|250||
+|Windows software|250|Does not include software updates|
+|Linux packages|1250||
+|Services|250||
+|Daemon|250||
+
 ### Windows service tracking
 
 The default collection frequency for Windows services is 30 minutes. To configure the frequency go to **Change Tracking**. Under **Edit Settings** on the **Windows Services** tab, there is a slider that allows you to change the collection frequency for Windows services from as quickly as 10 seconds to as long as 30 minutes. Move the slider bar to the frequency you want and it automatically saves it.
@@ -218,6 +229,17 @@ The purpose of monitoring changes to registry keys is to pinpoint extensibility 
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors the list of known or commonly used system DLLs; this system prevents people from exploiting weak application directory permissions by dropping in Trojan horse versions of system DLLs.|
 > |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors the list of packages able to receive event notifications from Winlogon, the interactive logon support model for the Windows operating system.|
+
+## Network requirements
+
+The following addresses are required specifically for Change Tracking. Communication to these addresses is done over port 443.
+
+|Azure Public  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 ## Use Change Tracking
 

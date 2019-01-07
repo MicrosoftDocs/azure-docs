@@ -17,6 +17,9 @@ ms.date: 08/09/2018
 
 SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple SQL databases and SQL Server instances.
 
+> [!IMPORTANT]
+> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
+
 ## Architecture of SQL Data Sync
 
 Data Sync is based around the concept of a Sync Group. A Sync Group is a group of databases that you want to synchronize.
@@ -63,7 +66,7 @@ Data Sync is not the preferred solution for the following scenarios:
 
 ## How does Data Sync work? 
 
--   **Tracking data changes:** Data Sync tracks changes using insert, update, and delete triggers. The changes are recorded in a side table in the user database.
+-   **Tracking data changes:** Data Sync tracks changes using insert, update, and delete triggers. The changes are recorded in a side table in the user database. Note that BULK INSERT does not fire triggers by default. If FIRE_TRIGGERS is not specified, no insert triggers execute. Add the FIRE_TRIGGERS option so Data Sync can track those inserts. 
 
 -   **Synchronizing data:** Data Sync is designed in a Hub and Spoke model. The Hub syncs with each member individually. Changes from the Hub are downloaded to the member and then changes from the member are uploaded to the Hub.
 
@@ -76,6 +79,7 @@ Data Sync is not the preferred solution for the following scenarios:
 ### Set up Data Sync in the Azure portal
 
 -   [Set up Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
 
 ### Set up Data Sync with PowerShell
 
@@ -146,7 +150,7 @@ Data Sync can't sync read-only or system-generated columns. For example:
 | **Dimensions**                                                      | **Limit**              | **Workaround**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Maximum number of sync groups any database can belong to.       | 5                      |                             |
-| Maximum number of endpoints in a single sync group              | 30                     | Create multiple sync groups |
+| Maximum number of endpoints in a single sync group              | 30                     |                             |
 | Maximum number of on-premises endpoints in a single sync group. | 5                      | Create multiple sync groups |
 | Database, table, schema, and column names                       | 50 characters per name |                             |
 | Tables in a sync group                                          | 500                    | Create multiple sync groups |
@@ -154,6 +158,8 @@ Data Sync can't sync read-only or system-generated columns. For example:
 | Data row size on a table                                        | 24 Mb                  |                             |
 | Minimum sync interval                                           | 5 Minutes              |                             |
 |||
+> [!NOTE]
+> There may be up to 30 endpoints in a single sync group if there is only one sync group. If there is more than one sync group, the total number of endpoints across all sync groups cannot exceed 30. If a database belongs to multiple sync groups, it is counted as multiple endpoints, not one.
 
 ## FAQ about SQL Data Sync
 

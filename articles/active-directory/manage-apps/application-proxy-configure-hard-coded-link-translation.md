@@ -93,6 +93,7 @@ To improve performance and security, some links aren't translated:
 
 - Links not inside of code tags. 
 - Links not in HTML or CSS. 
+- Links in URL-encoded format.
 - Internal links opened from other programs. Links sent through email or instant message, or included in other documents, won't be translated. The users need to know to go to the external URL.
 
 If you need to support one of these two scenarios, use the same internal and external URLs instead of link translation.  

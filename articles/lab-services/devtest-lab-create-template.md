@@ -30,7 +30,7 @@ ms.author: spelluru
 
 The following steps walk you through creating a custom image from a VHD file using the Azure portal:
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Select **All services**, and then select **DevTest Labs** from the list.
 

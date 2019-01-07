@@ -1,17 +1,14 @@
 ---
-title: 'Azure Cosmos DB: SQL Node.js API, SDK & resources | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL Node.js API, SDK & resources'
 description: Learn all about the SQL Node.js API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Node.js SDK.
-services: cosmos-db
 author: deborahc
-editor: cgronlun
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
+ms.author: dech
+
 
 ---
 # Azure Cosmos DB Node.js SDK for SQL API: Release notes and resources
@@ -25,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -41,6 +38,26 @@ ms.custom: H1Hack27Feb2017
 | Current supported platform | [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - required for SDK Version 2.0.0 and above.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## Release notes
+
+### <a name="2.0.5"/>2.0.5</a>
+* Adds interface for node Agent type. Typescript users no longer have to install @types/node as a dependency
+* Preferred locations are now properly honored
+* Improvements to contributing developer documentation
+* Various typo fixes
+
+### <a name="2.0.4"/>2.0.4</a>
+* Fixes type definition issue introduced in 2.0.3
+
+### <a name="2.0.3"/>2.0.3</a>
+* Remove `big-integer` dependency
+* Switch to reference directives for AsyncIterable type. Typescript users no longer have to customize their "lib" setting.
+* Typo Fixes
+
+### <a name="2.0.2"/>2.0.2</a>
+* Fix readme links
+
+### <a name="2.0.1"/>2.0.1</a>
+* Fix retry interface implementation
 
 ### <a name="2.0.0"/>2.0.0</a>
 * GA of Version 2.0.0 of the JavaScript SDK
@@ -83,8 +100,8 @@ ms.custom: H1Hack27Feb2017
 ### <a name="1.12.1"/>1.12.1</a>
 * Fixed a bug in executeStoredProcedure where documents involved had special Unicode characters (LS, PS).
 * Fixed a bug in handling documents with Unicode characters in the partition key.
-* Fixed support for creating collections with the name media. Github issue #114.
-* Fixed support for permission authorization token. Github issue #178.
+* Fixed support for creating collections with the name media. GitHub issue #114.
+* Fixed support for permission authorization token. GitHub issue #178.
 
 ### <a name="1.12.0"/>1.12.0</a>
 * Added support for a new [consistency level](consistency-levels.md) called ConsistentPrefix.
@@ -96,8 +113,8 @@ ms.custom: H1Hack27Feb2017
 * Added the option for controlling degree of parallelism for cross partition queries.
 * Added the option for disabling SSL verification when running against Azure Cosmos DB Emulator.
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
-* Fixed the continuation token bug for single partition collection. Github issue #107.
-* Fixed the executeStoredProcedure bug in handling 0 as single param. Github issue #155.
+* Fixed the continuation token bug for single partition collection. GitHub issue #107.
+* Fixed the executeStoredProcedure bug in handling 0 as single param. GitHub issue #155.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * Fixed user-agent header to include the SDK version.
@@ -129,7 +146,7 @@ ms.custom: H1Hack27Feb2017
 * Fixed RangePartitionResolver.resolveForRead bug where it was not returning links due to a bad concat of results.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* Fixed hashParitionResolver resolveForRead(): When no partition key supplied was throwing exception, instead of returning a list of all registered links.
+* Fixed hashPartitionResolver resolveForRead(): When no partition key supplied was throwing exception, instead of returning a list of all registered links.
 
 ### <a name="1.5.4"/>1.5.4</a>
 * Fixes issue [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - Dedicated HTTPS Agent: Avoid modifying the global agent for Azure Cosmos DB purposes. Use a dedicated agent for all of the lib’s requests.

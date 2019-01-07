@@ -19,11 +19,13 @@ ms.author: yijenj
 ---  
 
 # Support for the Marketplace  
-The support options for the Marketplace.  
+Here is a list of support options for the Marketplace.  
+
+Additionally, you can get many of your questions answered in the [Marketplace channel of C+AI Community Forum](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
 
 ## Onboarding
 
-Open a ticket for with Microsoft [marketplace publisher support](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) for all issues with onboarding and getting started.
+Open a ticket for with Microsoft [marketplace publisher support](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) for all issues with onboarding and getting started.
 
 ## Cloud Partner Portal  
 

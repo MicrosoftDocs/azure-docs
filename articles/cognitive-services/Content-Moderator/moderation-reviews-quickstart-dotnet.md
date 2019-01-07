@@ -24,7 +24,7 @@ Generally, content goes through some automated moderation before
 being scheduled for human review. This article only covers how to create
 the review for human moderation. For a more complete scenario, see the 
 [Facebook content moderation](facebook-post-moderation.md) and
-[eCommerce catalog moderation](ecommerce-retail-catalog-moderation.md)
+[Moderate e-commerce product images](ecommerce-retail-catalog-moderation.md)
 tutorials.
 
 This article assumes that you are already familiar with Visual Studio and C#.

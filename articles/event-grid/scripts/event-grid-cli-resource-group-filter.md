@@ -10,7 +10,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2018
+ms.date: 11/02/2018
 ms.author: tomfitz
 ---
 
@@ -22,27 +22,15 @@ This script creates an Event Grid subscription to the events for a resource grou
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Sample script
+The preview sample script requires the Event Grid extension. To install, run `az extension add --name eventgrid`.
 
-```azurecli
-#!/bin/bash
+## Sample script - stable
 
-# Provide an endpoint for handling the events.
-myEndpoint="<endpoint URL>"
+[!code-azurecli[main](../../../cli_scripts/event-grid/filter-events/filter-events.sh "Subscribe to Azure subscription")]
 
-# Select the Azure subscription that contains the resource group.
-az account set --subscription "Contoso Subscription"
+## Sample script - preview extension
 
-# Get the resource ID to filter events
-resourceId=$(az resource show --name demoSecurityGroup --resource-group myResourceGroup --resource-type Microsoft.Network/networkSecurityGroups --query id --output tsv)
-
-# Subscribe to the resource group. Provide the name of the resource group you want to subscribe to.
-az eventgrid event-subscription create \
-  --name demoSubscriptionToResourceGroup \
-  --resource-group myResourceGroup \
-  --endpoint $myEndpoint \
-  --subject-begins-with $resourceId
-```
+[!code-azurecli[main](../../../cli_scripts/event-grid/filter-events-preview/filter-events-preview.sh "Subscribe to Azure subscription")]
 
 ## Script explanation
 
@@ -51,7 +39,7 @@ This script uses the following command to create the event subscription. Each co
 | Command | Notes |
 |---|---|
 | [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Create an Event Grid subscription. |
-
+| [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) - extension version | Create an Event Grid subscription. |
 
 ## Next steps
 

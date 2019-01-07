@@ -3,8 +3,8 @@ title: Use Azure AD authentication to access Azure Media Services API with REST 
 description: Learn how to access Azure Media Services API with Azure Active Directory authentication by using REST.
 services: media-services
 documentationcenter: ''
-author: willzhan
-manager: cfowler
+author: juliako
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/26/2017
+ms.date: 10/22/2018
 ms.author: willzhan;juliako;johndeu
 
 ---
@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - [Create an Azure Media Services account using the Azure portal](media-services-portal-create-account.md).
-- Review the [Accessing Azure Media Services API with AAD authentication overview](media-services-use-aad-auth-to-access-ams-api.md) article.
+- Review the [Accessing Azure Media Services API with Azure AD authentication overview](media-services-use-aad-auth-to-access-ams-api.md) article.
 - Install the [Postman](https://www.getpostman.com/) REST client to execute the REST APIs shown in this article. 
 
     In this tutorial, we are uring **Postman** but any REST tool would be suitable. Other alternatives are: **Visual Studio Code** with the REST plugin or **Telerik Fiddler**. 
@@ -57,7 +57,7 @@ To access Media Services API, you need to collect the following data points.
 
 |Setting|Example|Description|
 |---|-------|-----|
-|Azure Active Directory tenant domain|microsoft.onmicrosoft.com|Azure AD as a Secure Token Service (STS) endpoint is created using the following format: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD issues a JWT in order to access resources (an access token).|
+|Azure Active Directory tenant domain|microsoft.onmicrosoft.com|Azure AD as a Secure Token Service (STS) endpoint is created using the following format: https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD issues a JWT in order to access resources (an access token).|
 |REST API endpoint|https://amshelloworld.restv2.westus.media.azure.net/api/|This is the endpoint against which all Media Services REST API calls in your application are made.|
 |Client ID (Application ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD application (client) ID. The client ID is required to get the access token. |
 |Client Secret|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD application keys (client secret). The client secret is required to get the access token.|
@@ -141,8 +141,8 @@ This section shows how to use **Postman** to execute a REST API that returns a J
     Alternatively, click **Bulk Edit** on the right of the Postman window and paste the following body (replace the client ID and secret values):
 
         grant_type:client_credentials
-        client_id:{Your Client ID that you got from your AAD Application}
-        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        client_id:{Your Client ID that you got from your Azure AD Application}
+        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
         resource:https://rest.media.azure.net
 
 8. Press **Send**.

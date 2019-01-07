@@ -25,7 +25,7 @@ ACS and AKS differ in some key areas that impact migration. You should review an
     * Custom `StorageClass` objects for Azure disks will need to be changed from `unmanaged` to `managed`
     * Any `PersistentVolumes` will need to use `kind: Managed`
 * AKS currently supports only one agent pool
-* Windows Server-based nodes are currently in [private preview](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/)
+* Windows Server-based nodes are currently in [private preview](https://azure.microsoft.com/blog/kubernetes-on-azure/)
 * Check the list of AKS [supported regions](https://docs.microsoft.com/azure/aks/container-service-quotas)
 * AKS is a managed service with a hosted Kubernetes control plane. You may need to modify your applications if you've previously modified the configuration of your ACS masters
 
@@ -49,7 +49,7 @@ Example:
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
 | agentpool1 | 1 | Standard_D2_v2 | Windows |
 
-Because additional virtual machines will be deployed into your subscription during migration, you should verify that your quotas and limits are sufficient for these resources. You can learn more by reviewing [Azure subscription and service limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). To check your current quotas, go to the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal, select your subscription, then select `Usage + quotas`.
+Because additional virtual machines will be deployed into your subscription during migration, you should verify that your quotas and limits are sufficient for these resources. You can learn more by reviewing [Azure subscription and service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits). To check your current quotas, go to the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal, select your subscription, then select `Usage + quotas`.
 
 ### Networking
 
@@ -82,7 +82,7 @@ There are several factors to consider if you're migrating existing Persistent Vo
 2. Snapshot disks
 3. Create new Managed Disks from snapshots
 4. Create Persistent Volumes in AKS
-5. Update Pod specifications to [use existing volumes](https://docs.microsoft.com/en-us/azure/aks/azure-disk-volume) rather than PersistentVolumeClaims (static provisioning)
+5. Update Pod specifications to [use existing volumes](https://docs.microsoft.com/azure/aks/azure-disk-volume) rather than PersistentVolumeClaims (static provisioning)
 6. Deploy application to AKS
 7. Validate
 8. Point traffic to the AKS cluster
@@ -108,7 +108,7 @@ If not, one possible migration approach involves the following steps:
 4. Validate
 5. Point traffic to the AKS cluster
 
-In cases where you'd like to start with an empty share, then make a copy of the source data, you can use the [`az storage file copy`](https://docs.microsoft.com/en-us/cli/azure/storage/file/copy?view=azure-cli-latest) commands to migrate your data.
+In cases where you'd like to start with an empty share, then make a copy of the source data, you can use the [`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) commands to migrate your data.
 
 ### Deployment Strategy
 
@@ -130,7 +130,7 @@ There are also several open-source tools that can help, depending on your needs:
 
 ### 1. Create an AKS cluster
 
-You can follow the docs to [create an AKS cluster](https://docs.microsoft.com/en-us/azure/aks/create-cluster) via the Azure portal, Azure CLI, or Resource Manager template.
+You can follow the docs to [create an AKS cluster](https://docs.microsoft.com/azure/aks/create-cluster) via the Azure portal, Azure CLI, or Resource Manager template.
 
 > You can find sample Azure Resource Manager templates for AKS at the [Azure/AKS](https://github.com/Azure/AKS/tree/master/examples/vnet) repository on GitHub
 

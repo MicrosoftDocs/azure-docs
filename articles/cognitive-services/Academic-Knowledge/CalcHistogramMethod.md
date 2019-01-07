@@ -33,8 +33,10 @@ Name  |Value | Required?  |Description
 **attributes** | Text string | No<br>default: | A comma-delimited list that specifies the attribute values that are included in the response. Attribute names are case-sensitive.
 **count** |Number | No<br>Default: 10 |Number of results to return.
 **offset**  |Number | No<br>Default: 0 |Index of the first result to return.
-<br>
+**timeout**  |Number | No<br>Default: 1000 |Timeout in milliseconds. Only interpretations found before the timeout has elapsed are returned.
+
 ## Response (JSON)
+
 Name | Description
 --------|---------
 **expr**  |The expr parameter from the request.
@@ -49,7 +51,7 @@ Name | Description
 **histograms[x].histogram[y].count**  |Number of matching entities with this attribute value.
 **aborted** | True if the request timed out.
 
- <br>
+
 #### Example:
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4

@@ -2,7 +2,7 @@
 title: External Table binding for Azure Functions (experimental)
 description: Using External Table bindings in Azure Functions
 services: functions
-author: alexkarcher-msft
+author: craigshoemaker
 manager: jeconnoc
 
 ms.assetid:
@@ -10,7 +10,7 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/12/2017
-ms.author: alkarche
+ms.author: cshoe
 
 ---
 # External Table binding for Azure Functions (experimental)
@@ -45,7 +45,7 @@ When assigning a binding you can either create a new API connection or use an ex
 |[Salesforce](https://docs.microsoft.com/azure/connectors/connectors-create-api-salesforce)||x|x
 |[SharePoint](https://docs.microsoft.com/azure/connectors/connectors-create-api-sharepointonline)||x|x
 |[SQL Server](https://docs.microsoft.com/azure/connectors/connectors-create-api-sqlazure)||x|x
-|[Teradata](http://www.teradata.com/products-and-services/azure/products/)||x|x
+|[Teradata](https://www.teradata.com/products-and-services/azure/products/)||x|x
 |UserVoice||x|x
 |Zendesk||x|x
 

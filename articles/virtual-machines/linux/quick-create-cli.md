@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Quickstart: Create a Linux virtual machine with the Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to deploy a Linux virtual machine (VM) in Azure. In this tutorial, we will be installing Ubuntu 160.04 LTS. To show the VM in action, you'll connect to it using SSH and install the NGINX web server.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to deploy a Linux virtual machine (VM) in Azure. In this tutorial, we will be installing Ubuntu 16.04 LTS. To show the VM in action, you'll connect to it using SSH and install the NGINX web server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location eastus
 
 Create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command.
 
-The following example creates a VM named *myVM* and adds a user account named *azureuser*. The `--generate-ssh-keys` parameter us used to automatically generate an SSH key, and put it in the default key location (*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-value` option.
+The following example creates a VM named *myVM* and adds a user account named *azureuser*. The `--generate-ssh-keys` parameter is used to automatically generate an SSH key, and put it in the default key location (*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-value` option.
 
 ```azurecli-interactive
 az vm create \

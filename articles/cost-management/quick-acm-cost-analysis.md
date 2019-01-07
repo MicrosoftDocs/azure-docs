@@ -5,17 +5,17 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/10/2018
+ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
-ms.custom:
+ms.custom: seodec18
 ---
 # Quickstart: Explore and analyze costs with Cost analysis
 
 Before you can properly control and optimize your Azure costs, you need to understand where costs originated within your organization. It's also useful to know how much money your services cost, and in support of what environments and systems. Visibility into the full spectrum of costs is critical to accurately understand organizational spending patterns. Spending patterns can be used to enforce cost control mechanisms, like budgets.
 
-In this quickstart, you use cost analysis to explore and analyze your organizational costs. You can view aggregated costs by organization to understand where costs occur over time and identify spending trends. You can view accumulated costs over time to estimate monthly, quarterly, or even yearly cost trends against a budget. A budget helps to provider adherence to financial constraints. And a budget is used to view daily or monthly costs to isolate spending irregularities. And, you can download the current report's data for further analysis or to use in an external system.
+In this quickstart, you use cost analysis to explore and analyze your organizational costs. You can view aggregated costs by organization to understand where costs occur over time and identify spending trends. You can view accumulated costs over time to estimate monthly, quarterly, or even yearly cost trends against a budget. A budget helps to provide adherence to financial constraints. And a budget is used to view daily or monthly costs to isolate spending irregularities. And, you can download the current report's data for further analysis or to use in an external system.
 
 In this quickstart, you learn how to:
 
@@ -26,33 +26,24 @@ In this quickstart, you learn how to:
 
 ## Prerequisites
 
-Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data.
+Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data. For more information about assigning access to Cost Management data, see [Assign access to data](assign-access-acm-data.md).
 
-- The *billing account* scope is defined at  https://ea.azure.com and requires Enterprise Admin access. No prerequisite EA setting is required. Billing information in cost analysis is consolidated for all subscriptions in the enterprise agreement. Billing account is often referred to as the *Enterprise Agreement* or *Enrollment*.
-
-- The *department* scope is defined at https://ea.azure.com and requires Department Admin access. The **DA view charges**  enabled setting in the EA portal is required. Billing information in cost analysis is consolidated for all subscriptions belonging to the enrollment account that are linked to the department.
-
-- The *enrollment account* scope is defined at https://ea.azure.com and requires Account Owner access. The **AO view charges** enabled setting in the EA portal is required. Billing information in cost analysis is consolidated for all subscriptions belonging to the enrollment account. The enrollment account is often referred to as the *account owner*.
-
-- The *management group* scope is defined at https://portal.azure.com and requires Cost Management Reader (or Reader) access. The **AO view charges** enabled setting in the EA portal is required. Billing information in cost analysis is consolidated for all subscriptions below the management group.
-
-- The *subscription* scope is defined at https://portal.azure.com and requires Cost Management Reader (or Reader) access. The **AO view charges** enabled setting in the EA portal is required. Billing information in cost analysis is consolidated for all resources and resource groups in the subscription.
-
-- The *resource group* scope is defined at https://portal.azure.com and requires Cost Management Reader (or Reader) access. The **AO view charges** enabled setting in the EA portal is required. Billing information in cost analysis is consolidated for all resources in the resource group.
-
-
-
-For more information about configuring **DA view charges** and **AO view charges** settings, see [Enabling access to costs](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
+- Billing account
+- Department
+- Enrollment account
+- Management group
+- Subscription
+- Resource group
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at http://portal.azure.com.
+- Sign in to the Azure portal at https://portal.azure.com.
 
 ## Review costs in cost analysis
 
 To review your costs with cost analysis, in the Azure portal, navigate to **Cost Management + Billing** &gt; **Cost Management** &gt; **Change scope**, choose a scope, and then click **Select**.
 
-The scope that you select is used throughout Cost Management to provide data consolidation and to control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope that others roll-up to and then you filter-down to what you want. This is important to understand because some people should not have access to a parent scope that child scopes roll up to.
+The scope that you select is used throughout Cost Management to provide data consolidation and to control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope that others roll up to and then you filter-down to what you want. This is important to understand because some people shouldn't have access to a parent scope that child scopes roll up to.
 
 Click **Open Cost analysis**.
 
@@ -66,7 +57,7 @@ The initial cost analysis view includes the following areas:
 
 **Pivot (donut) charts** – Provide dynamic pivots, breaking down the total cost by a common set of standard properties. They show the most to least cost accrued for the current month. You can change pivot charts at any time by selecting a different pivot. Costs are categorized by: service (meter category), location (region), and child scope by default. For example, enrollment accounts under billing accounts, resource groups under subscriptions, and resources under resource groups.
 
-![Initial view of cost analysis](./media/quick-acm-cost-analysis/cost-analysis-01.png)
+![Initial view of cost analysis in the Azure portal](./media/quick-acm-cost-analysis/cost-analysis-01.png)
 
 ## Customize cost views
 
@@ -79,27 +70,33 @@ However, there are many cases where you need deeper analysis. Customization star
 
 Cost analysis shows data for the current month by default. Use the date selector to quickly switch to: the last month, this month, this calendar quarter, this calendar year, or a custom date range of your choice. Selecting the last month is the quickest way to analyze your latest Azure invoice and easily reconcile charges. The current quarter and year options help track costs against longer-term budgets. You can also select a different date range. For example, you can select a single day, the last seven days, or anything as far back as a year before the current month.
 
-![Date selector](./media/quick-acm-cost-analysis/date-selector.png)
+![Date selector showing an example selection for this month](./media/quick-acm-cost-analysis/date-selector.png)
 
 Cost analysis shows **accumulated** costs by default. Accumulated costs include all costs for each day plus the previous days, for a constantly growing view of your daily accrued costs. This view is optimized to show how you're trending against a budget for the selected time range.
 
 There's also the **daily** view showing costs for each day. The daily view doesn't show a growth trend. The view is designed to show irregularities as cost spikes or dips from day to day. If you've selected a budget, the daily view also shows an estimate of what your daily budget might look like. When your daily costs are consistently above the estimated daily budget, then you can expect you'll surpass your monthly budget. The estimated daily budget is simply a means to help you visualize your budget at a lower level. When you have fluctuations in daily costs, then the estimated daily budget comparison to your monthly budget is less precise.
 
-![Daily view](./media/quick-acm-cost-analysis/daily-view.png)
+Generally, you can expect to see data or notifications for consumed resources within eight hours.
 
-You can **Group by** to select a group category to change data displayed in the top total area graph. Grouping lets you quickly see how your spending is categorized by resource type. Here's a view of Azure service costs for a view of the last month.
+![Daily view showing example daily costs for the current month](./media/quick-acm-cost-analysis/daily-view.png)
 
-![Grouped daily accumulated view](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
+You can **Group by** to select a group category to change data displayed in the top total area graph. Grouping lets you quickly see how your spending is categorized by common resource and usage properties, like resource group or resource tags. To group by tags, select the tag key you want to group by. You'll see costs broken down by each value for that tag, with an extra segment for resources that don't have that tag applied.
 
-Pivot charts under the top Total view show views for different grouping and filtering categories. When you select any group category, the full set of data for total view is at the bottom of the view. Here's an example for resource groups.
+Most [Azure resources support tagging](../azure-resource-manager/tag-support.md), however some tags aren't available in Cost Management and billing. Additionally, resource group tags aren't supported. Cost Management only supports resource tags from the date the tags are applied directly to the resource.
 
-![Full data for current view](./media/quick-acm-cost-analysis/full-data-set.png)
+Here's a view of Azure service costs for a view of the last month.
 
-The preceding image shows resource group names. Viewing tags for resources aren't available in any of the cost analysis views, filters, or groupings.
+![Grouped daily accumulated view showing example Azure service costs for last month](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-When grouping costs by a specific attribute, the top ten cost contributors are shown from highest to lowest. If there are more than ten groups, the top nine cost contributors are shown as well as an **Others** group, which covers all remaining groups together.
+Pivot charts under the main chart show different groupings to give you a broader picture of your overall costs for the selected time period and filters. Select a property or tag to view aggregated costs by any dimension. The full set of data for total view is at the bottom of the screen by expanding the **Data** drawer or by selecting **Export > Download CSV** at the top of the screen. Here's an example of the data drawer for resource groups.
 
-*Classic* (Azure Service Management or ASM) virtual machines, networking, and storage resources do not share detailed billing data. They are merged as **Classic services** when grouping costs.
+![Full data for current view showing resource group names](./media/quick-acm-cost-analysis/full-data-set.png)
+
+The preceding image shows resource group names. While you can group by tag to view total costs per tag, viewing all tags per resource or resource group isn't available in any of the cost analysis views.
+
+When grouping costs by a specific attribute, the top ten cost contributors are shown from highest to lowest. If there are more than ten groups, the top nine cost contributors are shown. Also shown is as an **Others** group, which covers all remaining groups together. When grouping by tags, you may also see an **Untagged** group for costs that don't have the tag key applied. **Untagged** is always last, even if there are more untagged costs than tagged costs. If there are ten or more tag values, untagged costs will be part of **Others**.
+
+*Classic* (Azure Service Management or ASM) virtual machines, networking, and storage resources don't share detailed billing data. They're merged as **Classic services** when grouping costs.
 
 
 ## Download cost analysis data

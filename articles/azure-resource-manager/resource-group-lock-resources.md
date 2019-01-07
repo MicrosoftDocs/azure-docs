@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
 ---
 
@@ -100,7 +100,7 @@ The following example shows a template that creates an app service plan, a web s
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name sitegroup -Location southcentralus
 New-AzureRmResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
 ```
@@ -117,37 +117,37 @@ You lock deployed resources with Azure PowerShell by using the [New-AzureRmResou
 
 To lock a resource, provide the name of the resource, its resource type, and its resource group name.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 To lock a resource group, provide the name of the resource group.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
 To get information about a lock, use [Get-​Azure​Rm​Resource​Lock](/powershell/module/azurerm.resources/get-azurermresourcelock). To get all the locks in your subscription, use:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceLock
 ```
 
 To get all locks for a resource, use:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 To get all locks for a resource group, use:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
 To delete a lock, use:
 
-```powershell
+```azurepowershell-interactive
 $lockId = (Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
 Remove-AzureRmResourceLock -LockId $lockId
 ```

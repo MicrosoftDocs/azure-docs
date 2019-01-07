@@ -1,17 +1,17 @@
 ---
-title: Support matrix for Hyper-V replication to Azure | Microsoft Docs
-description: Summarizes the supported components and requirements for Hyper-V replication to Azure with Azure Site Recovery
+title: Support matrix for disaster recovery of on-premises Hyper-V VMs to Azure | Microsoft Docs
+description: Summarizes the supported components and requirements for Hyper-V VM disaster recovery to Azure with Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ---
 
 
-# Support matrix for Hyper-V replication to Azure
+# Support matrix for disaster recovery of on-premises Hyper-V VMs to Azure
 
 
 This article summarizes the supported components and settings for disaster recovery of on-premises Hyper-V VMs to Azure by using [Azure Site Recovery](site-recovery-overview.md).
@@ -29,8 +29,8 @@ Hyper-V without Virtual Machine Manager | You can perform disaster recovery to A
 
 **Server** | **Requirements** | **Details**
 --- | --- | ---
-Hyper-V (running without Virtual Machine Manager) | Windows Server 2016 (including server core installation), Windows Server 2012 R2 with latest updates | When you configure a Hyper-V site in Site Recovery, mixing hosts running Windows Server 2016 and 2012 R2 isn't supported.<br/><br/> For VMs located on a host running Windows Server 2016, recovery to an alternate location isn't supported.
-Hyper-V (running with Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | If Virtual Machine Manager is used, Windows Server 2016 hosts should be managed in Virtual Machine Manager 2016.<br/><br/> A Virtual Machine Manager cloud that mixes Hyper-V hosts running on Windows Server 2016 and 2012 R2 isn't currently supported.<br/><br/> Environments that include an upgrade of an existing Virtual Machine Manager 2012 R2 server to 2016 aren't supported.
+Hyper-V (running without Virtual Machine Manager) | Windows Server 2016 (including server core installation), Windows Server 2012 R2 with latest updates | For VMs located on a host running Windows Server 2016, recovery to an alternate location isn't supported.<br/><br/> If you have already configured Windows Server 2012 R2 with/or SCVMM 2012 R2 with Azure Site Recovery and plan to upgrade the OS, please follow the guidance [documentation.](upgrade-2012R2-to-2016.md) 
+Hyper-V (running with Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | If Virtual Machine Manager is used, Windows Server 2016 hosts should be managed in Virtual Machine Manager 2016.<br/><br/>
 
 
 ## Replicated VMs
@@ -166,6 +166,9 @@ VM type | Generation 1<br/><br/> Generation 2--Windows | Generation 2 VMs with a
 --- | --- | ---
 Move vault across resource groups<br/><br/> Within and across subscriptions | No | No
 Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No
+
+> [!NOTE]
+> When replicating Hyper-VMs (managed with/without SCVMM) from on-premises to Azure, you can replicate to only one AD tenant from one specific environment - Hyper-V site or SCVMM as applicable.
 
 
 ## Provider and agent

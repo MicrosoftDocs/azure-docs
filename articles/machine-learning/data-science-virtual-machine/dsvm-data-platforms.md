@@ -1,12 +1,12 @@
 ---
 title: Data platforms for the Data Science Virtual Machine - Azure | Microsoft Docs
-description: Data platforms for the Data Science Virtual Machine.
+description: Learn about the data platforms and tools supported on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
@@ -20,7 +20,7 @@ ms.author: gokuma
 
 ---
 
-# Data platforms
+# Data platforms supported on the Data Science Virtual Machine
 
 The Data Science Virtual Machine (DSVM) allows you to build your analytics against a wide range of data platforms. In addition to interfaces to remote data platforms, the DSVM provides a local instance for rapid development and prototyping. 
 

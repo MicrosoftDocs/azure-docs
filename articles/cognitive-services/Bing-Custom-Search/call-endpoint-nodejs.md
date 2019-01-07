@@ -1,134 +1,76 @@
 ---
-title: "Quickstart: Call endpoint by using C# - Bing Custom Search"
+title: "Quickstart: Call your Bing Custom Search endpoint using Node.js | Microsoft Docs"
 titlesuffix: Azure Cognitive Services
-description: This quickstart shows how to request search results from your custom search instance by using C# to call the Bing Custom Search endpoint. 
+description: Use this quickstart to begin requesting search results from your Bing Custom Search instance using Node.js
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
+ms.author: aahi
 ---
 
-# Quickstart: Call Bing Custom Search endpoint (C#)
+# Quickstart: Call your Bing Custom Search endpoint using Node.js
 
-This quickstart shows how to request search results from your custom search instance using C# to call the Bing Custom Search endpoint. 
+Use this quickstart to begin requesting search results from your Bing Custom Search instance. While this application is written in JavaScript, the Bing Custom Search API is a RESTful web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js).
 
 ## Prerequisites
 
-To complete this quickstart, you need:
+- A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
 
-- A ready-to-use custom search instance. See [Create your first Bing Custom Search instance](quick-start.md).
-- [.Net Core](https://www.microsoft.com/net/download/core) installed.
-- A subscription key. You can get a subscription key when you activate your [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), or you can use a paid subscription key from your Azure dashboard (see [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+- [Node.js](https://www.nodejs.org/)
 
+- The [JavaScript Request Library](https://github.com/request/request)
 
-## Run the code
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
-To run this example, follow these steps:
+## Create and initialize the application
 
-1. Create a folder for your code.  
-  
-2. From a command prompt or terminal, navigate to the folder you just created.  
-  
-3. Run the following commands:
+1. Create a new JavaScript file in your favorite IDE or editor, and add a `require()` statement for the requests library. Create variables for your subscription key, Custom Configuration ID, and a search term. 
+
+    ```javascript
+    var request = require("request");
+    
+    var subscriptionKey = 'YOUR-SUBSCRIPTION-KEY';
+    var customConfigId = 'YOUR-CUSTOM-CONFIG-ID';
+    var searchTerm = 'microsoft';
     ```
-    dotnet new console -o BingCustomSearch
-    cd BingCustomSearch
-    dotnet add package Newtonsoft.Json
-    dotnet restore
-    ```
-  
-4. Copy the following code to Program.cs. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your subscription key and configuration ID.
 
-    ```csharp
-    using System;
-    using System.Net.Http;
-    using System.Web;
-    using Newtonsoft.Json;
-    
-    namespace bing_custom_search_example_dotnet
-    {
-        class Program
-        {
-            static void Main(string[] args)
-            {
-                var subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-                var customConfigId = "YOUR-CUSTOM-CONFIG-ID";
-                var searchTerm = args.Length > 0 ? args[0]: "microsoft";            
-    
-                var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
-                    "q=" + searchTerm +
-                    "&customconfig=" + customConfigId;
-    
-                var client = new HttpClient();
-                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-                var httpResponseMessage = client.GetAsync(url).Result;
-                var responseContent = httpResponseMessage.Content.ReadAsStringAsync().Result;
-                BingCustomSearchResponse response = JsonConvert.DeserializeObject<BingCustomSearchResponse>(responseContent);
-                
-                for(int i = 0; i < response.webPages.value.Length; i++)
-                {                
-                    var webPage = response.webPages.value[i];
-                    
-                    Console.WriteLine("name: " + webPage.name);
-                    Console.WriteLine("url: " + webPage.url);                
-                    Console.WriteLine("displayUrl: " + webPage.displayUrl);
-                    Console.WriteLine("snippet: " + webPage.snippet);
-                    Console.WriteLine("dateLastCrawled: " + webPage.dateLastCrawled);
-                    Console.WriteLine();
-                }            
-            }
-        }
-    
-        public class BingCustomSearchResponse
-        {        
-            public string _type{ get; set; }            
-            public WebPages webPages { get; set; }
-        }
-    
-        public class WebPages
-        {
-            public string webSearchUrl { get; set; }
-            public int totalEstimatedMatches { get; set; }
-            public WebPage[] value { get; set; }        
-        }
-    
-        public class WebPage
-        {
-            public string name { get; set; }
-            public string url { get; set; }
-            public string displayUrl { get; set; }
-            public string snippet { get; set; }
-            public DateTime dateLastCrawled { get; set; }
-            public string cachedPageUrl { get; set; }
-            public OpenGraphImage openGraphImage { get; set; }        
-        }
-        
-        public class OpenGraphImage
-        {
-            public string contentUrl { get; set; }
-            public int width { get; set; }
-            public int height { get; set; }
+## Send and receive a search request 
+
+1. Create a variable to store the information being sent in your request. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's Custom Configuration ID to `customconfig=`. separate the parameters with a `&` character. 
+
+    ```javascript
+    var info = {
+        url: 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 
+            'q=' + searchTerm + "&" +
+            'customconfig=' + customConfigId,
+        headers: {
+            'Ocp-Apim-Subscription-Key' : subscriptionKey
         }
     }
     ```
-6. Build the application using the following command. Note the DLL path referenced by the command output.
 
-    <pre>
-    dotnet build 
-    </pre>
-    
-7. Run the application using the following command replacing **PATH TO OUTPUT** with the DLL path referenced in step 6.
+1. Use the JavaScript Request Library to send a search request to your Bing Custom Search instance and print out information about the results, including its name, url, and the date the webpage was last crawled.
 
-    <pre>    
-    dotnet **PATH TO OUTPUT**
-    </pre>
+    ```javascript
+    request(info, function(error, response, body){
+            var searchResponse = JSON.parse(body);
+            for(var i = 0; i < searchResponse.webPages.value.length; ++i){
+                var webPage = searchResponse.webPages.value[i];
+                console.log('name: ' + webPage.name);
+                console.log('url: ' + webPage.url);
+                console.log('displayUrl: ' + webPage.displayUrl);
+                console.log('snippet: ' + webPage.snippet);
+                console.log('dateLastCrawled: ' + webPage.dateLastCrawled);
+                console.log();
+            }
+    ```
 
 ## Next steps
-- [Configure your hosted UI experience](./hosted-ui.md)
-- [Use decoration markers to highlight text](./hit-highlighting.md)
-- [Page webpages](./page-webpages.md)
+
+> [!div class="nextstepaction"]
+> [Build a Custom Search web app](./tutorials/custom-search-web-page.md)

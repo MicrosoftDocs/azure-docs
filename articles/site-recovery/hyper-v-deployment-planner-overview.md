@@ -1,17 +1,15 @@
 ﻿---
-title: Azure Site Recovery deployment planner for Hyper-V-to-Azure| Microsoft Docs
-description: This is the Azure Site Recovery deployment planner user guide for Hyper-V to Azure scenario.
-services: site-recovery
+title: About the Azure Site Recovery Deployment Planner for disaster recovery of Hyper-V VMs to Azure | Microsoft Docs
+description: Learn about the Azure Site Recovery Deployment Planner Hyper-V disaster recovery to Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
 
 ---
-# Site Recovery Deployment Planner for Hyper-V to Azure
+# About the Azure Site Recovery Deployment Planner for Hyper-V disaster recovery to Azure
 
 This article is the Azure Site Recovery Deployment Planner user guide for Hyper-V-to-Azure production deployments.
 
@@ -112,9 +110,9 @@ The recommended configuration of the VM: 8 vCPUs, 16 GB RAM, 300 GB HDD.
 1.	Extract the .zip folder.
 The folder contains multiple files and subfolders. The executable file is ASRDeploymentPlanner.exe in the parent folder.
 
-Example: Copy the .zip file to E:\ drive and extract it. E:\ASR Deployment Planner_v2.2.zip
+Example: Copy the .zip file to E:\ drive and extract it. E:\ASR Deployment Planner_v2.3.zip
 
-E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### Updating to the latest version of deployment planner
 If you have previous version of the deployment planner, do either of the following:
@@ -129,7 +127,7 @@ If you have previous version of the deployment planner, do either of the followi
   >Each new deployment planner is a cumulative update of the .zip file. You don't need to copy the newest files to the previous  folder. You can create and use a new folder.
 
 ## Version history
-The latest ASR Deployment Planner tool version is 2.2.
+The latest ASR Deployment Planner tool version is 2.3.
 Refer to [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
 
 

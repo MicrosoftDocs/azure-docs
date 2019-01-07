@@ -6,9 +6,20 @@
 # articles/application-insights/  @SergeyKanzhelev
 # articles/cosmos-db/ @mimig1
 
+# All Articles
 articles/ @apex-docs-pr-reviewers
+
+# Cognitive Services
 articles/cognitive-services/ @nitinme @tchristiani @cjgronlund
-articles/ansible/ @TomArcher
-articles/chef/ @TomArcher
-articles/jenkins/ @TomArcher
-articles/terraform/ @TomArcher
+articles/cognitive-services/LUIS/ @cjgronlund @nitinme @diberry
+articles/cognitive-services/Speaker-recognition/ @cjgronlund @nitinme @erhopf
+articles/cognitive-services/Speech-Service/ @cjgronlund @nitinme @erhopf
+articles/cognitive-services/Translator/ @cjgronlund @nitinme @erhopf
+articles/cognitive-services/QnAMaker/ @cjgronlund @nitinme @diberry
+
+# DevOps
+
+articles/ansible/ @TomArcherMsft
+articles/chef/ @TomArcherMsft
+articles/jenkins/ @TomArcherMsft
+articles/terraform/ @TomArcherMsft

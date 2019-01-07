@@ -1,22 +1,21 @@
 ---
-title: Using bulk executor Java library to perform bulk operations in Azure Cosmos DB | Microsoft Docs
-description: Use Azure Cosmos DB’s bulk executor Java library to bulk import and update documents to Azure Cosmos DB containers.
-keywords: Java bulk executor
-services: cosmos-db
+title: Using bulk executor Java library to perform bulk import and update operations in Azure Cosmos DB
+description: Bulk import and update Azure Cosmos DB documents using bulk executor Java library.
 author: tknandu
-manager: kfile
-
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-
+ms.reviewer: sngun
 ---
 
 # Use bulk executor Java library to perform bulk operations on Azure Cosmos DB data
 
 This tutorial provides instructions on using the Azure Cosmos DB’s bulk executor Java library to import, and update Azure Cosmos DB documents. To learn about bulk executor library and how it helps you leverage massive throughput and storage, see [bulk executor Library overview](bulk-executor-overview.md) article. In this tutorial, you build a Java application that generates random documents and they are bulk imported into an Azure Cosmos DB container. After importing, you will bulk update some properties of a document. 
+
+Currently, bulk executor library is supported by Azure Cosmos DB SQL API and Gremlin API accounts only. This article describes how to use bulk executor .Net library with SQL API accounts. To learn about using bulk executor .NET library with Gremlin API, see [perform bulk operations in Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md).
 
 ## Prerequisites
 
@@ -24,12 +23,12 @@ This tutorial provides instructions on using the Azure Cosmos DB’s bulk execut
 
 * You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) with  the `https://localhost:8081` URI. The Primary Key is provided in [Authenticating requests](local-emulator.md#authenticating-requests).  
 
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)  
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)  
   - On Ubuntu, run `apt-get install default-jdk` to install the JDK.  
 
   - Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
 
-* [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a [Maven](http://maven.apache.org/) binary archive  
+* [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a [Maven](https://maven.apache.org/) binary archive  
   
   - On Ubuntu, you can run `apt-get install maven` to install Maven.
 

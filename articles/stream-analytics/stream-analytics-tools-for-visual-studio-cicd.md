@@ -4,11 +4,10 @@ description: This article describes how to use Visual Studio tools for Azure Str
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 9/27/2017
+ms.date: 09/27/2017
 --- 
 # Continuously integrate and develop with Stream Analytics tools
 This article describes how to use to use the Azure Stream Analytics tools for Visual Studio to set up a continuous integration and deployment process.
@@ -74,11 +73,11 @@ localrun -Project [ProjectFullPath]
 
 The *arm* command takes the job template and job template parameter files generated through build as input. Then it combines them into a job definition JSON file that can be used with the Stream Analytics PowerShell API.
 
-```
+```powershell
 arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-OutputFile <asaArmFilePath>]
 ```
 Example:
-```
+```powershell
 ./tools/SA.exe arm -JobTemplate "ProjectA.JobTemplate.json" -JobParameterFile "ProjectA.JobTemplate.parameters.json" -OutputFile "JobDefinition.json" 
 ```
 
