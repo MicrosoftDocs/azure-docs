@@ -12,7 +12,7 @@ ms.author: sogup
 
 # Move Recovery Services vault across Azure Subscriptions and Resource Groups (Limited Public Preview)
 
-This article explains how to move a Recovery Services vault configured for the Azure Backup across Azure subscriptions, or to another resource group in the same subscription. You can use the Azure portal or PowerShell to move a Recovery Services vault.
+This article explains how to move a Recovery Services vault configured for Azure Backup across Azure subscriptions, or to another resource group in the same subscription. You can use the Azure portal or PowerShell to move a Recovery Services vault.
 
 ## Prerequisites for moving a vault
 
@@ -37,22 +37,26 @@ Recovery Services vaults configured to use with **Azure Site Recovery** can’t 
 >
 >
 
-To register the subscription to **Move** your Recovery Services vault, run the following cmdlets from an elevated PowerShell terminal:
+To register the subscription to **Move** your Recovery Services vault, run the following cmdlets from PowerShell terminal:
 
 1. Sign in to your Azure account
+
   ```
   Connect-AzureRmAccount
   ```
+
 2.	Select the subscription that you want to register
-  ```
+
+    ```
     Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-```
+    ```
 3.	Register this subscription
 
   ```
   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
   ```
 
+Wait for 30 minutes for the subscription to be whitelisted before you start with the move operation using the Azure portal or PowerShell.
 
 ## Use Azure portal to move a Recovery Services vault to different resource group
 
@@ -107,6 +111,9 @@ You can move a Recovery Services vault and its associated resources to a differe
 
 5. Select the target subscription form the **Subscription** drop-down list, where you want the vault to be moved.
 6. To add the target resource group, in the **Resource group** drop-down list select an existing resource group or click **create a new group** option.
+
+  ![Add Subscription](./media/backup-azure-move-recovery-services/add-subscription.png)
+
 7. Click **I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs** option to confirm, and then click **OK**.
 
 > [!NOTE]
