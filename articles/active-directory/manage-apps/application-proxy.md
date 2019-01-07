@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 01/07/2019
 ms.author: barbkess
 ms.reviewer: japere
 ---
@@ -23,8 +23,7 @@ Azure AD Application Proxy is:
 
 - **Secure**. On-premises applications can use Azure's authorization controls and security analytics. For example, on-premises applications can use conditional access and two-step verification. Application Proxy doesn't require you to open inbound connections through your firewall.
  
-- **Cost-effective**. On-premises solutions typically require you to set up and maintain demilitarized zones (DMVs), edge servers, or other complex infrastructures. Application Proxy runs in the cloud, which makes it easy to use. You don't need to change the network infrastructure or install a virtual private network (VPN) to use Application Proxy.
-
+- **Cost-effective**. On-premises solutions typically require you to set up and maintain demilitarized zones (DMVs), edge servers, or other complex infrastructures. Application Proxy runs in the cloud, which makes it easy to use. To use Application Proxy, you don't need to change the network infrastructure or install additional appliances in your on-premises environment.
 
 ## What is Application Proxy?
 Application Proxy is a feature of Azure AD that enables users to access on-premises web applications from a remote client. Application Proxy includes both the Application Proxy service which runs in the cloud, and the Application Proxy connector which runs on an on-premises server. Azure AD, the Application Proxy service, and the Application Proxy connector work together to securely pass the user sign-on token from Azure AD to the web application.
@@ -56,11 +55,10 @@ The following diagram shows how Azure AD and Application Proxy work together to 
 | --------- | ----------- |
 | Endpoint  | The endpoint is a URL or an [end-user portal](end-user-experiences.md). Users can reach applications while outside of your network by accessing an external URL. Users within your network can access the application through a URL or an end-user portal. When users go to one of these endpoints, they authenticate in Azure AD and then are routed through the connector to the on-premises application.|
 | Azure AD | Azure AD performs the authentication using the tenant directory stored in the cloud. |
-| Application Proxy service | This Application Proxy service runs in the cloud as part of Azure AD. It passes the sign-on token from the user to the Application Proxy Connector.|
+| Application Proxy service | This Application Proxy service runs in the cloud as part of Azure AD. It passes the sign-on token from the user to the Application Proxy Connector. Application Proxy forwards any accessible headers on the request and sets the headers as per its protocol, to the client IP address. If the incoming request to the proxy already has that header, the client IP address is added to the end of the comma separated list that is the value of the header.|
 | Application Proxy Connector | The connector is a lightweight agent that runs on a Windows Server inside your network. The connector manages communication between the Application Proxy service in the cloud and the on-premises application. The connector only uses outbound connections, so you don't have to open any inbound ports or put anything in the DMZ. The connectors are stateless and pull information from the cloud as necessary. For more information about connectors, like how they load-balance and authenticate, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md).|
 | Active Directory (AD) | Active Directory runs on-premises to perform authentication for domain accounts. When single sign-on is configured, the connector communicates with AD to perform any additional authentication required.
 | On-premises application | Finally, the user is able to access an on-premises application. 
-
 
 ## Next steps
 To start using Application Proxy, see [Tutorial: Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md). 
