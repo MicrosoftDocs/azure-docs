@@ -10,7 +10,7 @@ keywords: azure functions, functions, event processing, webhooks, dynamic comput
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 01/04/2019
+ms.date: 09/24/2018
 ms.author: cshoe
 ---
 
