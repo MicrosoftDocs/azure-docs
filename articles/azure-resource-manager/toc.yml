@@ -238,7 +238,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=azure-resource-manager
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-resource-manager
+    href: https://stackoverflow.com/questions/tagged/azure-resource-manager
   - name: Manage personal data
     href: resource-manager-personal-data.md
   - name: Videos
