@@ -46,11 +46,11 @@
   - name: Find application run-time exceptions
     href: learn/tutorial-runtime-exceptions.md
   - name: Find application performance issues
-    href: ../application-insights/app-insights-tutorial-performance.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-performance.md
   - name: Alert on application health
     href: learn/tutorial-alert.md
   - name: Understand application users
-    href: ../application-insights/app-insights-tutorial-users.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-users.md
   - name: Create custom dashboards
     href: learn/tutorial-app-dashboards.md
 - name: Samples
@@ -160,7 +160,7 @@
     - name: Monitor applications
       items:
       - name: Deep diagnostics for web apps and services
-        href: ../application-insights/app-insights-devops.md?toc=/azure/azure-monitor/toc.json
+        href: app/devops.md
       - name: Monitor performance in web applications
         href: app/web-monitor-performance.md
       - name: Separate development, test, and production
@@ -341,7 +341,7 @@
         - name: Filter telemetry
           href: app/java-filter-telemetry.md
         - name: Micrometer Metrics
-          href: ../application-insights/micrometer-java.md?toc=/azure/azure-monitor/toc.json  
+          href: app/micrometer-java.md   
       - name: Node.js apps
         items:
         - name: Node.js
@@ -906,7 +906,7 @@
     - name: Telemetry correlation
       href: app/correlation.md
     - name: NuGet packages
-      href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
+      href: app/nuget.md 
     - name: Platform support
       href: app/platforms.md
   - name: Application Insights data model
