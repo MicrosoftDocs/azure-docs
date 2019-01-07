@@ -38,7 +38,7 @@ ms.reviewer: avishwan
 3. [Create an Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) or choose a template from GitHub. The Marketplace item uses this template to create a resource.
 
     > [!Note]  
-    > Never hard code any secrets like product keys, password or any customer identifiable information in the Azure Resource Manager template. Template JSON files are accessible without the need for authentication once published in the gallery. Store all secrets in [Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter) and call them from within the template.
+    > Never hard code any secrets like product keys, password or any customer identifiable information in the Azure Resource Manager template. Template JSON files are accessible without the need for authentication once published in the gallery. Store all secrets in [Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) and call them from within the template.
 
 4. To ensure that the resource can be deployed successfully, test the template with the Microsoft Azure Stack APIs.
 5. If your template relies on a virtual machine image, follow the instructions to [add a virtual machine image to Azure Stack](azure-stack-add-vm-image.md).
