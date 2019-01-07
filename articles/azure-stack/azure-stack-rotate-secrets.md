@@ -36,8 +36,8 @@ Infrastructure service certificates for external-facing services that are provid
 - Public Portal
 - Administrator Azure Resource Manager
 - Global Azure Resource Manager
-- Administrator Keyvault
-- Keyvault
+- Administrator KeyVault
+- KeyVault
 - Admin Extension Host
 - ACS (including blob, table, and queue storage)
 - ADFS *
