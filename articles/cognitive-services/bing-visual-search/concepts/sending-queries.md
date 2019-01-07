@@ -17,7 +17,7 @@ ms.author: aahi
 
 This article describes the parameters and attributes of requests sent to the Bing Visual Search API, as well as the response object.
 
-You can get get insights about an image in three ways: 
+You can get insights about an image in three ways: 
 
 - using an insights token that you get from an image in a previous call to one of the [Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) endpoints.
 - Sending the URL of an image.
