@@ -186,7 +186,6 @@ To enable monitoring of your Azure VM in the Azure portal, do the following:
 1. On the **Insights (preview)** page, select **Try now**.
 
     ![Enable Azure Monitor for VMs for a VM](./media/vminsights-onboard/enable-vminsights-vm-portal-01.png)
-
 1. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  
     The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
 
@@ -294,7 +293,9 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     ```
 
 1. Save this file as *installsolutionsforvminsights.json* to a local folder.
+
 1. Edit the values for *WorkspaceName*, *ResourceGroupName*, and *WorkspaceLocation*. The value for *WorkspaceName* is the full resource ID of your Log Analytics workspace, which includes the workspace name. The value for *WorkspaceLocation* is the region the workspace is defined in.
+
 1. You're ready to deploy this template by using the following PowerShell command:
 
     ```powershell
@@ -343,15 +344,22 @@ Standalone policy (not included with the initiative) is described here:
 With this initial release, you can create the policy assignment only in the Azure portal. To understand how to complete these steps, see [Create a policy assignment from the Azure portal](../../governance/policy/assign-policy-portal.md).
 
 1. To launch the Azure Policy service in the Azure portal, select **All services**, and then search for and select **Policy**.
+
 1. In the left pane of the Azure Policy page, select **Assignments**.  
     An assignment is a policy that has been assigned to take place within a specific scope.
+    
 1. At the top of the **Policy - Assignments** page, select **Assign Initiative**.
+
 1. On the **Assign Initiative** page, select the **Scope** by clicking the ellipsis (...), and select a management group or subscription.  
     In our example, a scope limits the policy assignment to a grouping of virtual machines for enforcement.
+    
 1. At the bottom of the **Scope** page, save your changes by selecting **Select**.
+
 1. (Optional) To remove one or more resources from the scope, select **Exclusions**.
+
 1. Select the **Initiative definition** ellipsis (...) to display the list of available definitions, select **[Preview] Enable Azure Monitor for VMs**, and then select **Select**.  
     The **Assignment name** box is automatically populated with the initiative name you selected, but you can change it. You can also add an optional description. The **Assigned by** box is automatically populated based on who is logged in, and this value is optional.
+    
 1. In the **Log Analytics workspace** drop-down list for the supported region, select a workspace.
 
     >[!NOTE]
@@ -359,7 +367,9 @@ With this initial release, you can create the policy assignment only in the Azur
     >To grant access, review [how to manually configure the managed identity](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
     >  
     The **Managed Identity** check box is selected, because the initiative being assigned includes a policy with the *deployIfNotExists* effect.
+    
 1. In the **Manage Identity location** drop-down list, select the appropriate region.
+
 1. Select **Assign**.
 
 #### Review and remediate the compliance results
@@ -554,8 +564,11 @@ Review the requirements and deployment methods for the [Log Analytics Linux and 
 The steps are summarized as follows:
 
 1. Install Log Analytics Agent for Windows or Linux.
+
 1. Download and install the Azure Monitor for VMs Map Dependency agent for [Windows](https://aka.ms/dependencyagentwindows) or [Linux](https://aka.ms/dependencyagentlinux).
+
 1. Enable the collection of performance counters.
+
 1. Deploy Azure Monitor for VMs.
 
 ### Install the Dependency agent on Windows
@@ -685,7 +698,9 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     ```
 
 1. Save this file as *installsolutionsforvminsights.json* to a local folder.
+
 1. Edit the values for *WorkspaceName*, *ResourceGroupName*, and *WorkspaceLocation*. The value for *WorkspaceName* is the full resource ID of your Log Analytics workspace, which includes the workspace name. The value for *WorkspaceLocation* is the region the workspace is defined in.
+
 1. You're ready to deploy this template by using the following PowerShell command:
 
     ```powershell
