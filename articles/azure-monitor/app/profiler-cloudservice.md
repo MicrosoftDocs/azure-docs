@@ -39,7 +39,7 @@ Application Insights Profiler is installed with the Windows Azure Diagnostics (W
 
     1. Locate the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* file for your application role, as shown here:  
 
-       ![Location of the diagnostics config file](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
+       ![Location of the diagnostics config file](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
         If you can't find the file, to learn how to enable the Diagnostics extension in your Azure Cloud Services project, see [Set up diagnostics for Azure Cloud Services and virtual machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
 
