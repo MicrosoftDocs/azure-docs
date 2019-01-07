@@ -74,7 +74,7 @@ Emails about Smart Detections performance anomalies are limited to one email per
 
   * Not yet, but you can:
     * [Set up alerts](../../azure-monitor/app/alerts.md) that tell you when a metric crosses a threshold.
-    * [Export telemetry](../../azure-monitor/app/export-telemetry.md) to a [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) or [to PowerBI](../../application-insights/app-insights-export-power-bi.md), where you can analyze it yourself.
+    * [Export telemetry](../../azure-monitor/app/export-telemetry.md) to a [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) or [to PowerBI](../../azure-monitor/app/export-power-bi.md ), where you can analyze it yourself.
 * *How often is the analysis performed?*
 
   * We run the analysis daily on the telemetry from the previous day (full day in UTC timezone).

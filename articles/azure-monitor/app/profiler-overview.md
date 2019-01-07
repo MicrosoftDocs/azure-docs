@@ -20,18 +20,18 @@ Application Insights Profiler provides performance traces for applications runni
 
 The profiler works with .Net applications deployed on the following Azure services. Specific instructions for enabling the profiler for each service type are in the links below.
 
-* [App Services](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Service Fabric Applications](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Virtual Machines and VM Scalesets](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [App Services](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Cloud Services](profiler-cloudservice.md ?toc=/azure/azure-monitor/toc.json)
+* [Service Fabric Applications](profiler-servicefabric.md ?toc=/azure/azure-monitor/toc.json)
+* [Virtual Machines and VM Scalesets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-If you have enabled Profiler, but aren't seeing traces, check our [Troubleshooting Guide.](app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)
+If you have enabled Profiler, but aren't seeing traces, check our [Troubleshooting Guide.](profiler-troubleshooting.md ?toc=/azure/azure-monitor/toc.json)
 
 Running Profiler on premises isn't officially supported, but we do have some [instructions you can try.](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers)
 
 ## View profiler data
 
-In order for the profiler to upload traces, your application actively handling requests. If you're doing an experiment, you can generate requests to your web app using [Application Insights Performance Testing](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). If you've newly enabled Profiler, you can run a short load test. While the load test is running, press the **Profile Now** button in the [**Profiler Settings page**](app-insights-profiler-settings.md#profiler-settings-page). Once profiler is running, it will profile randomly about once every hour and for a duration of two minutes. If your application is handling a steady stream of requests, Profiler will upload traces every hour.
+In order for the profiler to upload traces, your application actively handling requests. If you're doing an experiment, you can generate requests to your web app using [Application Insights Performance Testing](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). If you've newly enabled Profiler, you can run a short load test. While the load test is running, press the **Profile Now** button in the [**Profiler Settings page**](profiler-settings.md #profiler-settings-page). Once profiler is running, it will profile randomly about once every hour and for a duration of two minutes. If your application is handling a steady stream of requests, Profiler will upload traces every hour.
 
 After your application receives some traffic and the profiler has had time to upload the trances, you should have traces to view. This process can take 5 to 10 minutes. To view traces, go to the **Performance** pane, select **Take Actions** to view profiler traces, and then select the **Profiler Traces** button.
 
@@ -118,11 +118,11 @@ Profiler randomly runs two minutes every hour on each virtual machine that hosts
 
 ## Next Steps
 Enable Application Insights Profiler for your Azure application
-* [App Services](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Service Fabric Applications](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Virtual Machines and VM Scalesets](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [App Services](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Cloud Services](profiler-cloudservice.md ?toc=/azure/azure-monitor/toc.json)
+* [Service Fabric Applications](profiler-servicefabric.md ?toc=/azure/azure-monitor/toc.json)
+* [Virtual Machines and VM Scalesets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
-[performance-blade]: ./media/app-insights-profiler-overview/performance-blade-v2-examples.png
-[trace-explorer]: ./media/app-insights-profiler-overview/trace-explorer.png
+[performance-blade]: ./media/profiler-overview/performance-blade-v2-examples.png
+[trace-explorer]: ./media/profiler-overview/trace-explorer.png

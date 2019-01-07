@@ -25,7 +25,7 @@ The best experience is obtained by installing Application Insights both in your 
 
 1. **Server code:** Install the appropriate module for your [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../application-insights/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md), or [other](../../azure-monitor/app/platforms.md) app.
 
-    * *Don't want to install server code? Just [create an Azure Application Insights resource](../../application-insights/app-insights-create-new-resource.md).*
+    * *Don't want to install server code? Just [create an Azure Application Insights resource](../../azure-monitor/app/create-new-resource.md ).*
 
 2. **Web page code:** Add the following script to your web page before the closing ``</head>``. Replace instrumentation key with the appropriate value for your Application Insights resource:
 
