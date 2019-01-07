@@ -285,16 +285,16 @@ The baseboard management controller (BMC) monitors the physical state of your se
 
     ```PowerShell
     # Interactive Version
-    $PEPip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
+    $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPCred = Get-Credential "<Domain>\CloudAdmin" -Message "PEP Credentials"
-    $NewBMCpwd = Read-Host -Prompt "Enter New BMC password" -AsSecureString
-    $NewBMCuser = Read-Host -Prompt "Enter New BMC user name"
+    $NewBmcPwd = Read-Host -Prompt "Enter New BMC password" -AsSecureString
+    $NewBmcUser = Read-Host -Prompt "Enter New BMC user name"
 
-    $PEPSession = New-PSSession -ComputerName $PEPip -Credential $PEPCred -ConfigurationName "PrivilegedEndpoint"
+    $PEPSession = New-PSSession -ComputerName $PEPIp -Credential $PEPCred -ConfigurationName "PrivilegedEndpoint"
 
     Invoke-Command -Session $PEPSession -ScriptBlock {
         # Parameter BMCPassword is mandatory, while the BMCUser parameter is optional.
-        Set-BmcCredential -BmcPassword $using:NewBMCpwd -BmcUser $using:NewBMCuser
+        Set-BmcCredential -BmcPassword $using:NewBmcPwd -BmcUser $using:NewBmcUser
     }
     Remove-PSSession -Session $PEPSession
     ```
@@ -303,17 +303,17 @@ The baseboard management controller (BMC) monitors the physical state of your se
 
     ```PowerShell
     # Static Version
-    $PEPip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
+    $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"
-    $PEPpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -Force
-    $PEPCred = New-Object System.Management.Automation.PSCredential ($PEPUser, $PEPpwd)
-    $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -Force
-    $NewBMCuser = "<New BMC User name>"
+    $PEPPwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -Force
+    $PEPCred = New-Object System.Management.Automation.PSCredential ($PEPUser, $PEPPwd)
+    $NewBmcPwd = ConvertTo-SecureString "<New BMC Password>" -Force
+    $NewBmcUser = "<New BMC User name>"
 
-    $PEPSession = New-PSSession -ComputerName $PEPip -Credential $PEPCred -ConfigurationName "PrivilegedEndpoint"
+    $PEPSession = New-PSSession -ComputerName $PEPIp -Credential $PEPCred -ConfigurationName "PrivilegedEndpoint"
 
     Invoke-Command -Session $PEPSession -ScriptBlock {
-        Set-BmcCredential -BmcPassword $using:NewBMCpwd -BmcUser $using:NewBMCuser
+        Set-BmcCredential -BmcPassword $using:NewBmcPwd -BmcUser $using:NewBmcUser
     }
     Remove-PSSession -Session $PEPSession
     ```
