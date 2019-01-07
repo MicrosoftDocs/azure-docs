@@ -1,6 +1,6 @@
 ---
 title: Access key rotation for Azure SignalR Service
-description: An overview on why customer needs to routinely rotate the access keys and how to do it with portal GUI and CLI.
+description: An overview on why the customer needs to routinely rotate the access keys and how to do it with the Azure portal GUI and the Azure CLI.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
@@ -9,27 +9,27 @@ ms.author: zhshang
 ---
 # Access key rotation for Azure SignalR Service
 
-Each Azure SignalR Service instance has a pair of access keys: Primary and Secondary keys. They are used to authenticate SignalR clients when making requests to the service. The keys are associated with the instance endpoint url. Keep your keys secure, and rotate them regularly. You are provided two access keys, so you can maintain connections using one key while regenerating the other.
+Each Azure SignalR Service instance has a pair of access keys called Primary and Secondary keys. They're used to authenticate SignalR clients when requests are made to the service. The keys are associated with the instance endpoint url. Keep your keys secure, and rotate them regularly. You're provided with two access keys, so you can maintain connections by using one key while regenerating the other.
 
 ## Why rotate access keys?
 
-For security reason and compliance requirement, developers are recommended to routinely rotate the access keys.
+For security reasons and compliance requirements, routinely rotate your access keys.
 
-## How to regenerate access keys?
+## Regenerate access keys
 
-1. Go to the [Azure portal](https://portal.azure.com/) and sign in with your credentials.
+1. Go to the [Azure portal](https://portal.azure.com/), and sign in with your credentials.
 
-1. Find the **Keys** section from the Azure SignalR Service instance that you want to regenerate the keys.
+1. Find the **Keys** section in the Azure SignalR Service instance with the keys that you want to regenerate.
 
-1. Click **Keys** on the navigation menu.
+1. Select **Keys** on the navigation menu.
 
-1. Click **Regenerate Primary Key** or **Regenerate Secondary Key**.
+1. Select **Regenerate Primary Key** or **Regenerate Secondary Key**.
 
-A new key and corresponding connection string will be created and displayed.
+   A new key and corresponding connection string are created and displayed.
 
- ![Regenerate Keys](media/signalr-key-rotation/regenerate-keys.png)
+   ![Regenerate Keys](media/signalr-key-rotation/regenerate-keys.png)
 
-You can also regenerate keys using [Azure CLI](/cli/azure/ext/signalr/signalr/key?view=azure-cli-latest#ext-signalr-az-signalr-key-renew).
+You also can regenerate keys by using the [Azure CLI](/cli/azure/ext/signalr/signalr/key?view=azure-cli-latest#ext-signalr-az-signalr-key-renew).
 
 ## Update configurations with new connection strings
 
@@ -41,16 +41,16 @@ You can also regenerate keys using [Azure CLI](/cli/azure/ext/signalr/signalr/ke
 
 ## Forced access key regeneration
 
-Azure SignalR Service may enforce a mandatory access key regeneration under certain situation. The service will notify customers via email and portal notification. If you receive this communication or encounter service failure due to access key, rotate the keys by following this guide.
+Azure SignalR Service might enforce a mandatory access key regeneration under certain situations. The service notifies customers via email and portal notification. If you receive this communication or encounter service failure due to an access key, rotate the keys by following the instructions in this guide.
 
 ## Next steps
 
-We recommend rotating the access keys regularly as a good security practice.
+Rotate your access keys regularly as a good security practice.
 
-In this guide you learned about how to regenerate access keys. Continue to the next tutorials about authentication with OAuth or with Azure Functions.
-
-> [!div class="nextstepaction"]
-> [Integrate with ASP.NET Core Identity](./signalr-authenticate-oauth.md)
+In this guide, you learned how to regenerate access keys. Continue to the next tutorials about authentication with OAuth or with Azure Functions.
 
 > [!div class="nextstepaction"]
-> [Build a Serverless Real-time App with Authentication](./signalr-authenticate-azure-functions.md)
+> [Integrate with ASP.NET core identity](./signalr-authenticate-oauth.md)
+
+> [!div class="nextstepaction"]
+> [Build a serverless real-time app with authentication](./signalr-authenticate-azure-functions.md)
