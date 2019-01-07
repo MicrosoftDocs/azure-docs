@@ -115,11 +115,9 @@ Running secret rotation using the instructions below will remediate these alerts
 > [!IMPORTANT]
 > The CertDirectoryMaker script will create a folder structure that will adhere to:
 >
-> .\Certificates\AAD
+> **.\Certificates\AAD** or ***.\Certificates\ADFS*** depending on your Identity Management for Azure Stack
 >
-> .\Certificates\ADFS
->
-> It is of utmost importance that your fileshare ends with **AAD** or **ADFS** otherwise **Start-SecretRotate** will come up with:
+> It is of utmost importance that your fileshare ends with **AAD** or **ADFS** folders and all subdirectories are within this structure; otherwise, **Start-SecretRotate** will come up with:
 > ```PowerShell
 > Cannot bind argument to parameter 'Path' because it is null.
 > + CategoryInfo          : InvalidData: (:) [Test-Certificate], ParameterBindingValidationException
