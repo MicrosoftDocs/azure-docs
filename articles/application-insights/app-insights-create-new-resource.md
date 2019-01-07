@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a new Azure Application Insights resource | Microsoft Docs
 description: Manually set up Application Insights monitoring for a new live application.
 services: application-insights
@@ -21,11 +21,11 @@ Azure Application Insights displays data about your application in a Microsoft A
 After you have created the resource, you get its instrumentation key and use that to configure the SDK in the application. The resource key links the telemetry to the resource.
 
 ## Sign up to Microsoft Azure
-If you haven't got a [Microsoft account, get one now](http://live.com). (If you use services like Outlook.com, OneDrive, Windows Phone, or XBox Live, you already have a Microsoft account.)
+If you haven't got a [Microsoft account, get one now](https://live.com). (If you use services like Outlook.com, OneDrive, Windows Phone, or XBox Live, you already have a Microsoft account.)
 
-You also need a subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your Windows Live ID. You're only charged for what you use. The default basic plan allows for a certain amount of experimental use free of charge.
+You also need a subscription to [Microsoft Azure](https://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your Windows Live ID. You're only charged for what you use. The default basic plan allows for a certain amount of experimental use free of charge.
 
-When you've got access to a subscription, log in to Application Insights at [http://portal.azure.com](https://portal.azure.com), and use your Live ID to login.
+When you've got access to a subscription, log in to Application Insights at [https://portal.azure.com](https://portal.azure.com), and use your Live ID to login.
 
 ## Create an Application Insights resource
 In the [portal.azure.com](https://portal.azure.com), add an Application Insights resource:
@@ -62,18 +62,18 @@ Click the Search tile to see [Diagnostic Search][diagnostic], where the first ev
 If you're expecting more data, click **Refresh** after a few seconds  .
 
 ## Creating a resource automatically
-You can write a [PowerShell script](app-insights-powershell.md) to create a resource automatically.
+You can write a [PowerShell script](../azure-monitor/app/powershell.md) to create a resource automatically.
 
 ## Next steps
-* [Create a dashboard](app-insights-dashboards.md)
-* [Diagnostic Search](app-insights-diagnostic-search.md)
-* [Explore metrics](app-insights-metrics-explorer.md)
-* [Write Analytics queries](app-insights-analytics.md)
+* [Create a dashboard](../azure-monitor/app/app-insights-dashboards.md)
+* [Diagnostic Search](../azure-monitor/app/diagnostic-search.md)
+* [Explore metrics](../azure-monitor/app/metrics-explorer.md)
+* [Write Analytics queries](../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
-[diagnostic]: app-insights-diagnostic-search.md
-[metrics]: app-insights-metrics-explorer.md
+[api]: ../azure-monitor/app/api-custom-events-metrics.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
+[metrics]: ../azure-monitor/app/metrics-explorer.md
 [start]: app-insights-overview.md
 

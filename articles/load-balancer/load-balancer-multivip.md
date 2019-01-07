@@ -1,5 +1,6 @@
 ---
 title: Mutiple VIPs for a cloud service
+titlesuffix: Azure Load Balancer
 description: Overview of multiVIP and how to set multiple VIPs on a cloud service
 services: load-balancer
 documentationcenter: na
@@ -7,6 +8,7 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017

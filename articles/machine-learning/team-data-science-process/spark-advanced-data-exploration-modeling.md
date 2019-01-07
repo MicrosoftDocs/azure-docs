@@ -1,5 +1,5 @@
 ---
-title: Advanced data exploration and modeling with Spark | Microsoft Docs
+title: Advanced data exploration and modeling with Spark - Team Data Science Process
 description: Use HDInsight Spark to do data exploration and train binary classification and regression models using cross-validation and hyperparameter optimization.
 services: machine-learning
 author: marktab
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Advanced data exploration and modeling with Spark
 

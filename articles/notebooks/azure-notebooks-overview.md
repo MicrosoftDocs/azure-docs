@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure Notebooks | Microsoft Docs 
-description: Run Jupyter notebooks in the cloud using the free Azure Notebooks service.
+title: Overview of Azure Notebooks
+description: Run Jupyter notebooks in the cloud using the free Azure Notebooks service, where no setup or configuration is required.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -18,9 +18,9 @@ ms.author: kraigb
 
 # Overview of Azure Notebooks
 
-Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation. [Jupyter](http://jupyter.org/) (formerly IPython) is an open-source project that lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations onto a single, sharable canvas, the *notebook* (image courtesy of jupyter.org):
+Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation. [Jupyter](https://jupyter.org/) (formerly IPython) is an open-source project that lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations onto a single, sharable canvas, the *notebook* (image courtesy of jupyter.org):
 
-[![](http://jupyter.org/assets/jupyterpreview.png "Jupyter notebooks")](http://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![](https://jupyter.org/assets/jupyterpreview.png "Jupyter notebooks")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Because of this powerful combination of code, graphics, and explanatory text, Jupyter has become popular for many uses including data science instruction, data cleaning and transformation, numerical simulation, statistical modeling, and the development of machine learning models.
 
@@ -47,7 +47,7 @@ Because Azure Notebooks is a general code authoring, execution and sharing platf
 In short, Azure Notebooks helps you accomplish your work more efficiently and thus achieve more.
 
 > [!Note]
-> More information on Jupyter itself can be found on [jupyter.org](http://jupyter.org/) and in the [Jupyter documentation](http://jupyter-notebook.readthedocs.io/en/latest/).
+> More information on Jupyter itself can be found on [jupyter.org](https://jupyter.org/) and in the [Jupyter documentation](https://jupyter-notebook.readthedocs.io/en/latest/).
 
 ## Pricing and quotas
 
@@ -62,7 +62,7 @@ For each notebook, you select the kernel (that is, the runtime environment) that
 - Python 2.7 + Anaconda2-5.3.0
 - Python 3.6 + Anaconda3-5.3.0
 - Python 3.5 + Anaconda3-4.2.0 (will be deprecated)
-- R 3.3 + Microsoft R Open 3.3.0
+- R 3.4.1 + Microsoft R Open 3.4.1
 - F# 4.1.9
 
 Azure Notebooks also includes extra packages beyond the base distributions. The Python kernels, for example, include the numpy, pandas, scikit-learn, matplotlib, and bokeh libraries.

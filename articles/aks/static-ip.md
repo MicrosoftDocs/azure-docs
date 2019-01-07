@@ -22,6 +22,8 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 You also need the Azure CLI version 2.0.46 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
+Currently only Basic IP SKU is supported. Work is in progress to support Standard IPs.
+
 ## Create a static IP address
 
 When you create a static public IP address for use with AKS, the IP address resource should be created in the **node** resource group. If you want to separate the resources, see [Use a static IP address outside of the node resource group](#use-a-static-ip-address-outside-of-the-node-resource-group).
@@ -91,7 +93,7 @@ kubectl apply -f load-balancer-service.yaml
 
 ## Use a static IP address outside of the node resource group
 
-With Kubernetes 1.10 or later, you can to use a static IP address that is created outside the node resource group. The service principal used by the AKS cluster must have delegated permissions to the other resource group, as shown in the following example:
+With Kubernetes 1.10 or later, you can use a static IP address that is created outside the node resource group. The service principal used by the AKS cluster must have delegated permissions to the other resource group, as shown in the following example:
 
 ```azurecli
 az role assignment create\

@@ -4,7 +4,7 @@ description: Provides information about the Collector appliance in Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: snehaa
 services: azure-migrate
 ---
@@ -43,7 +43,7 @@ The appliance only collects performance data continuously, it does not detect an
 You deploy the Collector appliance using an OVF template:
 
 - You download the OVF template from an Azure Migrate project in the Azure portal. You import the downloaded file to vCenter Server, to set up the Collector appliance VM.
-- From the OVF, VMware sets up a VM with 4 cores, 8 GB RAM, and one disk of 80 GB. The operating system is Windows Server 2012 R2 (64 bit).
+- From the OVF, VMware sets up a VM with 8 cores, 16 GB RAM, and one disk of 80 GB. The operating system is Windows Server 2016 (64 bit).
 - When you run the Collector, a number of prerequisite checks run to make sure that the Collector can connect to Azure Migrate.
 
 - [Learn more](tutorial-assessment-vmware.md#create-the-collector-vm) about creating the Collector.
@@ -53,6 +53,10 @@ You deploy the Collector appliance using an OVF template:
 
 The Collector must pass a few prerequisite checks to ensure it can connect to the Azure Migrate service over the internet, and upload discovered data.
 
+- **Verify Azure cloud**: The Collector needs to know the Azure cloud to which you are planning to migrate.
+    - Select Azure Government if you are planning to migrate to Azure Government cloud.
+    - Select Azure Global if you are planning to migrate to commercial Azure cloud.
+    - Based on the cloud specified here, the appliance will send discovered metadata to the respective end points.
 - **Check internet connection**: The Collector can connect to the internet directly, or via a proxy.
     - The prerequisite check verifies connectivity to [required and optional URLs](#connect-to-urls).
     - If you have a direct connection to the internet, no specific action is required, other than making sure that the Collector can reach the required URLs.
@@ -102,7 +106,8 @@ The connectivity check is validated by connecting to a list of URLs.
 
 **URL** | **Details**  | **Prerequisite check**
 --- | --- | ---
-*.portal.azure.com | Checks connectivity with the Azure service, and time synchronization. | Access to URL required.<br/><br/> Prerequisites check fails if there's no connectivity.
+*.portal.azure.com | Applicable to Azure Global. Checks connectivity with the Azure service, and time synchronization. | Access to URL required.<br/><br/> Prerequisites check fails if there's no connectivity.
+*.portal.azure.us | Applicable only to Azure Government. Checks connectivity with the Azure service, and time synchronization. | Access to URL required.<br/><br/> Prerequisites check fails if there's no connectivity.
 *.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Used to download the PowerShell vCenter PowerCLI module. | Access to URLs optional.<br/><br/> Prerequisites check won't fail.<br/><br/> Automatic module installation on the Collector VM will fail. You'll need to install the module manually.
 
 

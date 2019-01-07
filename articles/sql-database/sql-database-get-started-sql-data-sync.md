@@ -26,6 +26,9 @@ For complete PowerShell examples that show how to configure SQL Data Sync, see t
 - [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
 - [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
 
+> [!IMPORTANT]
+> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
+
 ## Step 1 - Create sync group
 
 ### Locate the Data Sync settings
@@ -193,7 +196,7 @@ After the new sync group members are created and deployed, Step 3, **Configure s
 
 ### How frequently can Data Sync synchronize my data
 
-The minimum frequency is every five minutes.
+The minimal duration between triggering synchronizations is five minutes.
 
 ### Does SQL Data Sync fully create and provision tables
 

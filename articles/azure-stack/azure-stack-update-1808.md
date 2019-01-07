@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -250,7 +250,6 @@ The following are post-installation known issues for this build version.
 <!-- 2368581 - IS. ASDK --> 
 - An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a **Fabric VM creation error**, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
 
-
 ### Compute
 
 <!-- 3164607 – IS, ASDK -->
@@ -272,6 +271,12 @@ The following are post-installation known issues for this build version.
 <!-- 3179561 - IS --> 
 - Managed Disks usage is reported in hours as described in the [Azure Stack Usage FAQ](azure-stack-usage-related-faq.md#managed-disks). However, Azure Stack billing uses the monthly price instead so you may get incorrectly charged for Managed Disks usage on or before September 27th. We have temporarily suspended charges for Managed Disks after September 27th until the billing issue is addressed. If you have been charged incorrectly for Managed Disks usage, please contact Microsoft Billing Support.
 Usage reports produced from the Azure Stack usage APIs show correct quantities and can be used.
+
+<!-- 3507629 - IS, ASDK --> 
+- Managed Disks creates two new [compute quota types](azure-stack-quota-types.md#compute-quota-types) to limit the maximum capacity of managed disks that can be provisioned. By default, 2048 GiB is allocated for each managed disks quota type. However, you may encounter the following issues:
+
+   - For quotas created before the 1808 update, the Managed Disks quota will show 0 values in the Administrator portal, although 2048 GiB is allocated. You can increase or decrease the value based on your actual needs, and the newly set quota value overrides the 2048 GiB default.
+   - If you update the quota value to 0, it is equivalent to the default value of 2048 GiB. As a workaround, set the quota value to 1.
 
 <!-- 2869209 – IS, ASDK --> 
 - When using the [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), you must use the **-OsUri** parameter as the storage account URI where the disk is uploaded. If you use the local path of the disk, the cmdlet fails with the following error: *Long running operation failed with status ‘Failed’*. 
@@ -306,7 +311,7 @@ Usage reports produced from the Azure Stack usage APIs show correct quantities a
 
    To find the CPU Percentage chart for the VM, go to the **Metrics** blade and show all the supported Windows VM guest metrics.
 
-
+- A Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, please use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
 
 ### Networking  
 
@@ -352,8 +357,10 @@ Usage reports produced from the Azure Stack usage APIs show correct quantities a
 
 
 ## Download the update
-You can download the Azure Stack 1808 update package from [here](https://aka.ms/azurestackupdatedownload).
-  
+
+You can download the Azure Stack 1808 update package from [here](https://aka.ms/azurestackupdatedownload). 
+
+In connected scenarios only, Azure Stack deployments periodically check a secured endpoint and automatically notify you if an update is available for your cloud. For more information, see [managing updates for Azure Stack](azure-stack-updates.md).
 
 ## Next steps
 - To review the servicing policy for Azure Stack integrated systems, and what you must do to keep your system in a supported state, see [Azure Stack servicing policy](azure-stack-servicing-policy.md).  

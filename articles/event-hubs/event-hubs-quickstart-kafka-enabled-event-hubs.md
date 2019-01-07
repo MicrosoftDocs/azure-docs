@@ -1,13 +1,13 @@
 ---
-title: Stream into Azure Event Hubs for Apache Kafka
-description: Stream into Event Hubs using the Kafka protocol and APIs.
+title: Stream into Kafka-enabled event hub - Azure Event Hubs | Microsoft Docs
+description: This article provides informaiton on how to stream into Azure Event Hubs using the Kafka protocol and APIs.
 services: event-hubs
 author: basilhariri
 ms.author: bahariri
 ms.service: event-hubs
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 08/01/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ---
 
 # Stream into Event Hubs for the Apache Kafka

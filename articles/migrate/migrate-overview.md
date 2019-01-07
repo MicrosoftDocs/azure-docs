@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 01/02/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -30,10 +30,15 @@ Azure Migrate helps you to:
 - You can discover up to 1500 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 1500 VMs in a single assessment.
 - If you want to discover a larger environment, you can split the discovery and create multiple projects. [Learn more](how-to-scale-assessment.md). Azure Migrate supports up to 20 projects per subscription.
 - Azure Migrate only supports managed disks for migration assessment.
--  You can only create an Azure Migrate project in the United States geography. However, you can plan a migration to any target Azure location.
-    - Only metadata discovered from the on-premises environment is stored in the migration project region.
-    - Metadata is stored in one of the regions in the selected geography: West Central US/East US.
-    - If you use dependency visualization by creating a new Log Analytics workspace, the workspace is created in the same region as the project.
+-  You can only create an Azure Migrate project in the following geographies. However, this does not restrict your ability to create assessments for other target Azure locations.
+    **Geography** | **Storage location**
+    --- | ---
+    Azure Government | US Gov Virginia
+    Europe | North Europe or West Europe
+    Unites States | East US or West Central US
+
+    The geography associated with the migration project is used to store the metadata discovered from the on-premises environment. Metadata is stored in one of the regions based on the geography specified for the migration project. If you use dependency visualization by creating a new Log Analytics workspace, the workspace is created in the same region as the project.
+- The dependency visualization functionality is not available in Azure Government.
 
 
 ## What do I need to pay for?

@@ -1,6 +1,6 @@
 ---
-title: Glossary for the Language Understanding (LUIS) API Service
-titleSuffix: Azure Cognitive Services
+title: Glossary 
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: The glossary explains terms that you might encounter as you work with the LUIS API Service.
 services: cognitive-services
 author: diberry
@@ -12,7 +12,7 @@ ms.date: 09/10/2018
 ms.author: diberry
 ---
 
-# Glossary
+# Language understanding glossary of common vocabulary and concepts
 The Language Understanding (LUIS) glossary explains terms that you might encounter as you work with the LUIS API Service.
 
 ## <a name="active-version"></a>Active version

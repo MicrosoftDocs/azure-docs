@@ -3,7 +3,7 @@ title: Deploy a VM from your VHDs for the Azure Marketplace | Microsoft Docs
 description: Explains how to register a VM from an Azure-deployed VHD.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: pbutlerm
+author: v-miclar
 manager: Patrick.Butler  
 editor:
 
@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/30/2018
 ms.author: pbutlerm
 ---
 
 # Deploy a VM from your VHDs
 
-This article explains how to register a virtual machine (VM) from an Azure-deployed virtual hard disk (VHD).  It lists the tools required, and how to use them to create a user VM image, then deploy it to Azure using either the [Microsoft Azure portal](https://ms.portal.azure.com/) or PowerShell scripts. 
+This section explains how to deploy a virtual machine (VM) from an Azure-deployed virtual hard disk (VHD).  It lists the tools required, and how to use them to create a user VM image, then deploy it to Azure using PowerShell scripts.
 
 After you have uploaded your virtual hard disks (VHDs)—the generalized operating system VHD and zero or more data disk VHDs—to your Azure storage account, you can register them as a user VM image. Then you can test that image. Because your operating system VHD is generalized, you cannot directly deploy the VM by providing the VHD URL.
 
@@ -29,48 +29,23 @@ To learn more about VM images, see the following blog posts:
 - [VM Image PowerShell 'How To'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 
-## Set up the necessary tools
+## Prerequisite: install the necessary tools
 
 If you have not already done so, install Azure PowerShell and the Azure CLI, using the following instructions:
-
-<!-- TD: Change the following URLs (in this entire topic) to relative paths.-->
 
 - [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 - [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
-## Create a user VM image
+## Deployment steps
 
-Next, you will create an unmanaged image from your generalized VHD.
+You will use the following steps to create and deploy a user VM image:
 
-#### Capture the VM image
+1. Create the user VM image, which entails capturing and generalizing the image. 
+2. Create certificates and store them in a new Azure Key Vault. A certificate is required for establishing a secure WinRM connection to the VM.  An Azure Resource Manager template and an Azure PowerShell script are provided. 
+3. Deploy the VM from a user VM image, using the supplied template and script.
 
-Use the instructions in the following article on capturing the VM that corresponds to your access approach:
-
--  PowerShell: [How to create an unmanaged VM image from an Azure VM](../../../virtual-machines/windows/capture-image-resource.md)
--  Azure CLI: [How to create an image of a virtual machine or VHD](../../../virtual-machines/linux/capture-image.md)
--  API: [Virtual Machines - Capture](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
-
-### Generalize the VM image
-
-Because you have generated the user image from a previously generalized VHD, it should also be generalized.  Again, select the following article that corresponds to your access mechanism.  (You may have already generalized your disk when you captured it.)
-
--  PowerShell: [Generalize the VM](https://docs.microsoft.com/azure/virtual-machines/windows/sa-copy-generalized#generalize-the-vm)
--  Azure CLI: [Step 2: Create VM image](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image#step-2-create-vm-image)
--  API: [Virtual Machines - Generalize](https://docs.microsoft.com/rest/api/compute/virtualmachines/generalize)
-
-
-## Deploy a VM from a user VM image
-
-Next, you will deploy a VM from a user VM image, using either Azure portal or PowerShell.
-
-<!-- TD: Recapture following hilited images and replace with red-box. -->
-
-### Deploy a VM from Azure portal
-
-Use the following process to deploy your user VM from the Azure portal.
-
-1.  Sign into the [Azure portal](https://portal.azure.com).
+After your VM is deployed, you are ready to [certify your VM image](./cpp-certify-vm.md).
 
 2.  Click **New** and search for **Template Deployment**, then select **Build your own template in Editor**.  <br/>
   ![Build VHD deployment template in Azure portal](./media/publishvm_021.png)
@@ -120,4 +95,5 @@ To deploy a large VM from the generalized VM image just created, use the followi
 
 ## Next steps
 
-After your VM is deployed, you are ready to [configure the VM](./cpp-configure-vm.md).
+Next, you will [create a user VM image](cpp-create-user-image.md) for your solution.
+

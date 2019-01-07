@@ -6,15 +6,12 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: ''
-
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-
 ---
 # Office 365 management solution in Azure (Preview)
 
@@ -707,4 +704,4 @@ The following table provides sample log searches for update records collected by
 ## Next steps
 * Use Log Searches in [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) to view detailed update data.
 * [Create your own dashboards](../../azure-monitor/platform/dashboards.md) to display your favorite Office 365 search queries.
-* [Create alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) to be proactively notified of important Office 365 activities.  
+* [Create alerts](../../azure-monitor/platform/alerts-overview.md) to be proactively notified of important Office 365 activities.  

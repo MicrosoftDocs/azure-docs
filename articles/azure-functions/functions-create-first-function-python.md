@@ -17,7 +17,7 @@ manager: jeconnoc
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
-This quickstart article walks you through how to use the Azure CLI to create your first [serverless](https://azure.microsoft.com/overview/serverless-computing/) Python function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md). To learn more about preview considerations for running your function apps on Linux, see [this Functions on Linux article](https://aka.ms/funclinux).
+This quickstart article walks you through how to use the Azure CLI to create your first [serverless](https://azure.com/serverless) Python function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md). To learn more about preview considerations for running your function apps on Linux, see [this Functions on Linux article](https://aka.ms/funclinux).
 
 The following steps are supported on a Mac, Windows, or Linux computer.
 
@@ -181,7 +181,7 @@ Run the following command using a unique function app name in place of the `<app
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --os-type Linux \
---consumption-plan-location westus  --runtime python \
+--consumption-plan-location westeurope  --runtime python \
 --name <app_name> --storage-account  <storage_name>
 ```
 

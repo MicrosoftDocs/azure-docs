@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.author: jgao
 ---

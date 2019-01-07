@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: 
-ms.devlang: pwershell
+ms.devlang: powershell
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
