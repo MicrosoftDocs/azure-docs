@@ -44,7 +44,7 @@ When the recurrence trigger fires each time, Logic Apps creates
 and runs a new instance of your logic app workflow. 
 
 To trigger your logic app immediately and run one time without recurring, 
-see [Run jobs one time only](#run-once) in this topic.
+see [Run jobs one time only](#run-once) later in this topic.
 
 ## Prerequisites
 
