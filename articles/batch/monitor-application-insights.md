@@ -39,12 +39,12 @@ A sample C# solution with code to accompany this article is available on [GitHub
 
 * [Batch account and linked storage account](batch-account-create-portal.md)
 
-* [Application Insights resource](../application-insights/app-insights-create-new-resource.md)
+* [Application Insights resource](../azure-monitor/app/create-new-resource.md )
   
    * Use the Azure portal to create an Application Insights *resource*. Select the *General* **Application type**.
 
    * Copy the [instrumentation 
-key](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) from the portal. It is required later in this article.
+key](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) from the portal. It is required later in this article.
   
   > [!NOTE]
   > You may be [charged](https://azure.microsoft.com/pricing/details/application-insights/) for the data stored in Application Insights. 

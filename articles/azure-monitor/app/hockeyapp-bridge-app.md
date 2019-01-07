@@ -27,7 +27,7 @@ In HockeyApp, open Account Settings, [API Tokens](https://rink.hockeyapp.net/man
 
 ![Get a HockeyApp API token](./media/hockeyapp-bridge-app/01.png)
 
-Open the Microsoft Azure portal and [create an Application Insights resource](../../application-insights/app-insights-create-new-resource.md). Set Application Type to "HockeyApp bridge application":
+Open the Microsoft Azure portal and [create an Application Insights resource](../../azure-monitor/app/create-new-resource.md ). Set Application Type to "HockeyApp bridge application":
 
 ![New Application Insights resource](./media/hockeyapp-bridge-app/02.png)
 

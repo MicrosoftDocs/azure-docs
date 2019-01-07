@@ -17,9 +17,9 @@ ms.author: mbullwin
 
 # Profile web apps running on an Azure virtual machine or virtual machine scale set with Application Insights Profiler
 You can also deploy Application Insights profiler on these services:
-* [Azure App Service](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Service Fabric](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Cloud Services](profiler-cloudservice.md ?toc=/azure/azure-monitor/toc.json)
+* [Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 ## Deploy Profiler on a Virtual Machine or Scale set
 This page will guide you through the steps needed to get Application Insights profiler running on your Azure VM or Azure virtual machine scale set. Application Insights Profiler is installed with the Windows Azure Diagnostics extension for VMs. The extension needs to be configured to run the profiler and the App Insights SDK must be built into your application.
@@ -82,4 +82,4 @@ We have no plans to support Application Insights Profiler for on-premises server
 
 - Generate traffic to your application (for example, launch an [availability test](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
 - See [Profiler traces](https://docs.microsoft.com/azure/application-insights/app-insights-profiler-overview?toc=/azure/azure-monitor/toc.json) in the Azure portal.
-- Get help with troubleshooting profiler issues in [Profiler troubleshooting](app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+- Get help with troubleshooting profiler issues in [Profiler troubleshooting](profiler-troubleshooting.md ?toc=/azure/azure-monitor/toc.json).

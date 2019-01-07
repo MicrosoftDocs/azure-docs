@@ -38,7 +38,7 @@ If you don't have one, create it:
 
 ![Choose New, Developer Services, Application Insights.](./media/javascript/01-create.png)
 
-*Questions already?* [More about creating a resource](../../application-insights/app-insights-create-new-resource.md).
+*Questions already?* [More about creating a resource](../../azure-monitor/app/create-new-resource.md ).
 
 ### Add the SDK script to your app or web pages
 

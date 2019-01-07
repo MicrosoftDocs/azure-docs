@@ -22,7 +22,7 @@
     - name: Mobile application
       href: learn/mobile-center-quickstart.md
     - name: Web application
-      href: ../application-insights/app-insights-website-monitoring.md?toc=/azure/azure-monitor/toc.json
+      href: app/website-monitoring.md 
   - name: Virtual machines
     items:
     - name: Collect - Azure VMs
@@ -270,21 +270,21 @@
         - name: Profiler
           items:
           - name: Overview
-            href: ../application-insights/app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-overview.md 
           - name: Enable Profiler for an App Service
             href: app/profiler.md
           - name: Enable the Profiler for a Cloud Service
-            href: ../application-insights/app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-cloudservice.md 
           - name: Enable Profiler for a Service Fabric Application
-            href: ../application-insights/app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-servicefabric.md 
           - name: Enable Profiler for an Azure VM
-            href: ../application-insights/app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-vm.md
           - name: Profiler Settings
-            href: ../application-insights/app-insights-profiler-settings.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-settings.md 
           - name: Track Requests for Profiling
-            href: ../application-insights/app-insights-profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-trackrequests.md 
           - name: Profiler Troubleshooting
-            href: ../application-insights/app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-troubleshooting.md 
         - name: Diagnostics
           href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: Previews
@@ -296,7 +296,7 @@
         - name: Status Monitor
           href: app/monitor-performance-live-website-now.md
         - name: Windows services
-          href: ../application-insights/app-insights-windows-services.md?toc=/azure/azure-monitor/toc.json
+          href: app/windows-services.md
         - name: Windows desktop
           href: app/windows-desktop.md
         - name: ASP.NET Core
@@ -388,7 +388,7 @@
         - name: Manage smart detection rules
           href: app/proactive-arm-config.md
       - name: Create a resource
-        href: ../application-insights/app-insights-create-new-resource.md?toc=/azure/azure-monitor/toc.json
+        href: app/create-new-resource.md 
       - name: Troubleshoot
         items:
         - name: No data for .NET
@@ -644,7 +644,7 @@
       - name: Export log data
         href: platform/powerbi.md
       - name: Export application data
-        href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
+        href: app/export-power-bi.md 
     - name: Send data to Grafana
       href: platform/grafana-plugin.md
   - name: Analyze data
@@ -930,7 +930,7 @@
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure Functions
-    href: ../application-insights/azure-functions-supported-features.md?toc=/azure/azure-monitor/toc.json
+    href: app/azure-functions-supported-features.md 
   - name: Azure PowerShell
     items:
     - name: Monitor
