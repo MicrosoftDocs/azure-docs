@@ -195,7 +195,7 @@
     - name: Google BigQuery
       href: connector-google-bigquery.md
     - name: Google Cloud Storage
-      href: connector-amazon-simple-storage-service.md#copy-from-google-cloud-storage
+      href: connector-google-cloud-storage.md
     - name: Greenplum
       href: connector-greenplum.md
     - name: HBase

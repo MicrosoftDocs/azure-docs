@@ -187,13 +187,13 @@ For more information about how to override the cloud_RoleName property with tele
 
 If you're having trouble getting Application Map to work as expected, try these steps:
 
-1. Make sure you’re using an officially supported SDK. Unsupported/community SDKs might not support correlation.
+1. Make sure you're using an officially supported SDK. Unsupported/community SDKs might not support correlation.
 
     Refer to this [article](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) for a list of supported SDKs.
 
 2. Upgrade all components to the latest SDK version.
 
-3. If you’re using Azure Functions with C#, upgrade to [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. If you're using Azure Functions with C#, upgrade to [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
 4. Confirm [cloud_RoleName](app-map.md#Set-cloud-RoleName) is correctly configured.
 
