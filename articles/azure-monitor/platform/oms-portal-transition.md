@@ -77,11 +77,11 @@ You are no longer be able to create new workspaces using the OMS portal. Follow 
 Alerts have been [extended into the Azure portal](../../azure-monitor/platform/alerts-extend.md). Once this is complete, management actions on alerts will only be available in Azure portal. Existing alerts will continue to be listed in the OMS portal. If you access alerts programmatically by using the Log Analytics Alert REST API or Log Analytics Alert Resource Template, you'll need to use action groups instead of actions in your API calls, Azure Resource Manager templates, and PowerShell commands.
 
 ### Alert management solution
-As a change from a previous announcement, the [Alert Management solution](../../azure-monitor/platform/alert-management-solution.md) will continue to be available and fully supported in the Azure portal. You can continue to install the solution from Azure Marketplace.
+As a change from a previous announcement, the [Alert management solution](../../azure-monitor/platform/alert-management-solution.md) will continue to be available and fully supported in the Azure portal. You can continue to install the solution from Azure Marketplace.
 
-While the Alert Management solution continues to be available, we encourage you to use [Azure Monitor's unified alerting interface]((../../azure-monitor/platform/alerts-overview.md) to visualize and manage all alerts in Azure. This new experience natively aggregates alerts from multiple sources within Azure including log alerts from Log Analytics. If you are using Azure Monitor’s unified alerting interface, then the Alert Management solution is only required to enable integration of alerts from System Center Operation Manager to Azure. In Azure Monitor’s unified alerting interface, you can see distributions of your alerts, take advantage of automated grouping of related alerts via smart groups, and view alerts across multiple subscriptions while applying rich filters. Future advancements in alert management will primarily be available from this new experience. 
+While the Alert management solution continues to be available, we encourage you to use [Azure Monitor's unified alerting interface]((../../azure-monitor/platform/alerts-overview.md) to visualize and manage all alerts in Azure. This new experience natively aggregates alerts from multiple sources within Azure including log alerts from Log Analytics. If you are using Azure Monitor’s unified alerting interface, then the Alert management solution is only required to enable integration of alerts from System Center Operation Manager to Azure. In Azure Monitor’s unified alerting interface, you can see distributions of your alerts, take advantage of automated grouping of related alerts via smart groups, and view alerts across multiple subscriptions while applying rich filters. Future advancements in alert management will primarily be available from this new experience. 
 
-The data collected by the Alert Management solution (records with a type of Alert) continues to be in Log Analytics as long as the solution is installed for the workspace. 
+The data collected by the Alert management solution (records with a type of Alert) continues to be in Log Analytics as long as the solution is installed for the workspace. 
 
 ## OMS Mobile App
 The OMS mobile app will be sunsetted along with the OMS portal. Instead of the OMS mobile app, to access information about your IT infrastructure, dashboards and saved queries, you can access the Azure portal directly from your browser in your mobile device. To get alerts, you should configure [Azure Action Groups](../../azure-monitor/platform/action-groups.md) to receive notifications in the form of SMS or a voice call
@@ -101,7 +101,7 @@ ApplicationInsights
 | summarize by ApplicationName
 ```
 
-Create a function using union operator with the list of applications, then save the query as function with the alias applicationsScoping.  
+Create a function using union operator with the list of applications, then save the query as function with the alias *applicationsScoping*.  
 
 ```
 union withsource=SourceApp 
@@ -114,18 +114,18 @@ app('Contoso-app5').requests
 ```
 
 >[!NOTE]
->You can modify the listed applications at any time by navigating to Query explorer in the Logs portal and editing the function, or from the SavedSearch PowerShell cmdlet. The withsource= SourceApp command adds a column to the results that designates the application that sent the log. 
+>You can modify the listed applications at any time by navigating to Query explorer in the Logs portal and editing the function, or using the `SavedSearch` PowerShell cmdlet. The `withsource= SourceApp` command adds a column to the results that designates the application that sent the log. 
 >
 >The query uses Application Insights schema, although the query is executed in the workspace since the applicationsScoping function returns the Application Insights data structure. 
 >
->The parse operator is optional in this example – it extracts the application name from SourceApp property. 
+>The parse operator is optional in this example, it extracts the application name from SourceApp property. 
 
 You are now ready to use applicationsScoping function in the cross-resource query. The function alias returns the union of the requests from all the defined applications. The query then filters for failed requests and visualizes the trends by application. ![Cross-query results example](media/oms-portal-transition/app-insights-query-results.png)
 
 ### Query across Application Insights resources and workspace data 
 When you stop the Connector and need to perform queries over a time range that was trimmed by Application Insights data retention (90 days), you need to perform [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md) on the workspace and Application Insights resources for intermediate period. This is until your applications data accumulates per the new Application Insights data retention mentioned above. The query requires some manipulations since the schemas in Application Insights and the workspace are different. See the table later in this section highlighting the schema differences. 
 
-For example, if the connector stopped working on 2018-11-01, when you query logs across Application Insights resources and applications data in the workspace, the query looks like the following:
+For example, if the connector stopped working on 2018-11-01, when you query logs across Application Insights resources and applications data in the workspace, your query would be constructed like the following example:
 
 ```
 applicationsScoping //this brings data from Application Insights resources 
