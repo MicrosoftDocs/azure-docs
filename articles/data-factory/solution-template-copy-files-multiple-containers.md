@@ -24,13 +24,13 @@ If you want to copy files from a single container or bucket, it's more efficient
 This template enumerates the containers from your source storage store, and then copies each of the containers from the source storage store to the destination store. 
 
 The template contains three activities:
-1. A **GetMetadata** activity to scan your source storage store and get the container list.
-2. A **ForEach** activity to get the container list from the **GetMetadata** activity and then iterate over the list and pass each container to the Copy activity.
-3. A **Copy** activity to copy each container from the source storage store to the destination store.
+-   A **GetMetadata** activity to scan your source storage store and get the container list.
+-   A **ForEach** activity to get the container list from the **GetMetadata** activity and then iterate over the list and pass each container to the Copy activity.
+-   A **Copy** activity to copy each container from the source storage store to the destination store.
 
 The template defines two parameters:
-1. The parameter *SourceFilePath* is the path of your data source store, where you can get a list of the containers or buckets. In most cases, the path is the root directory, which contains multiple container folders. The default value of this parameter is `/`.
-2. The parameter *DestinationFilePath* is the path where the files will be copied in your destination store. The default value of this parameter is `/`.
+-   The parameter *SourceFilePath* is the path of your data source store, where you can get a list of the containers or buckets. In most cases, the path is the root directory, which contains multiple container folders. The default value of this parameter is `/`.
+-   The parameter *DestinationFilePath* is the path where the files will be copied in your destination store. The default value of this parameter is `/`.
 
 ## How to use this solution template
 

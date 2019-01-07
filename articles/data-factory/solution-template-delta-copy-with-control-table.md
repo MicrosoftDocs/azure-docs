@@ -27,17 +27,17 @@ If you do have timestamp column in your source database to identify the new or u
 This template always retrieves the old watermark value first, and then compares it with the current watermark value. After that, it only copies the changes from the source database based on the comparison between 2 watermark values.  When complete, it stores the new high-watermark value to an external control table for delta data loading next time.
 
 The template contains four activities:
-1. A **Lookup** activity to retrieve the old high-watermark value stored in an external control table.
-2. A **Lookup** activity to retrieve the current high-watermark value from source database.
-3. A **Copy** activity to copy the changes only from the source database to the destination store. The query used to identify the changes from source database in the copy activity is similar as 'SELECT * FROM Data_Source_Table WHERE TIMESTAMP_Column > “last high-watermark” and TIMESTAMP_Column <= “current high-watermark”'.
-4. A **SqlServerStoredProcedure** activity to write the current high-watermark value to an external control table for delta copy next time.
+-   A **Lookup** activity to retrieve the old high-watermark value stored in an external control table.
+-   A **Lookup** activity to retrieve the current high-watermark value from source database.
+-   A **Copy** activity to copy the changes only from the source database to the destination store. The query used to identify the changes from source database in the copy activity is similar as 'SELECT * FROM Data_Source_Table WHERE TIMESTAMP_Column > “last high-watermark” and TIMESTAMP_Column <= “current high-watermark”'.
+-   A **SqlServerStoredProcedure** activity to write the current high-watermark value to an external control table for delta copy next time.
 
 The template defines five parameters:
-1. The parameter *Data_Source_Table_Name* is the table name from source database where you want to load data from.
-2. The parameter *Data_Source_WaterMarkColumn* is the column name in the source table which can be used to identify the new or updated rows. Normally, the type of this column can be datetime or INT etc.
-3. The parameter *Data_Destination_Folder_Path* or *Data_Destination_Table_Name* is the place where the data is copied into your destination store. 
-4. The parameter *Control_Table_Table_Name* is the name of external control table to store the high-watermark value.
-5. The parameter *Control_Table_Column_Name* is the column name in the external control table to store the high-watermark value.
+-   The parameter *Data_Source_Table_Name* is the table name from source database where you want to load data from.
+-   The parameter *Data_Source_WaterMarkColumn* is the column name in the source table which can be used to identify the new or updated rows. Normally, the type of this column can be datetime or INT etc.
+-   The parameter *Data_Destination_Folder_Path* or *Data_Destination_Table_Name* is the place where the data is copied into your destination store.
+-   The parameter *Control_Table_Table_Name* is the name of external control table to store the high-watermark value.
+-   The parameter *Control_Table_Column_Name* is the column name in the external control table to store the high-watermark value.
 
 ## How to use this solution template
 
