@@ -15,10 +15,10 @@ ms.author: mbullwin
 ---
 # Monitoring usage and performance in Classic Windows Desktop apps
 
-Applications hosted on premises, in Azure, and in other clouds can all take advantage of Application Insights. The only limitation is the need to [allow communication](../../azure-monitor/app/ip-addresses.md) to the Application Insights service. For monitoring Universal Windows Platform (UWP) applications, we recommend [Visual Studio App Center](../../application-insights/app-insights-mobile-center-quickstart.md).
+Applications hosted on premises, in Azure, and in other clouds can all take advantage of Application Insights. The only limitation is the need to [allow communication](../../azure-monitor/app/ip-addresses.md) to the Application Insights service. For monitoring Universal Windows Platform (UWP) applications, we recommend [Visual Studio App Center](../../azure-monitor/learn/mobile-center-quickstart.md).
 
 ## To send telemetry to Application Insights from a Classic Windows application
-1. In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](../../application-insights/app-insights-create-new-resource.md). For application type, choose ASP.NET app.
+1. In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](../../azure-monitor/app/create-new-resource.md ). For application type, choose ASP.NET app.
 2. Take a copy of the Instrumentation Key. Find the key in the Essentials drop-down of the new resource you just created. 
 3. In Visual Studio, edit the NuGet packages of your app project, and add Microsoft.ApplicationInsights.WindowsServer. (Or choose Microsoft.ApplicationInsights if you just want the bare API, without the standard telemetry collection modules.)
 4. Set the instrumentation key either in your code:
