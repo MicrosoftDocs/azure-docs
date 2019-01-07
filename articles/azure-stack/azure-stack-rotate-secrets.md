@@ -115,7 +115,7 @@ Running secret rotation using the instructions below will remediate these alerts
 > [!IMPORTANT]
 > The CertDirectoryMaker script will create a folder structure that will adhere to:
 >
-> **.\Certificates\AAD** or ***.\Certificates\ADFS*** depending on your Identity Management for Azure Stack
+> **.\Certificates\AAD** or ***.\Certificates\ADFS*** depending on your Identity Provider used for Azure Stack
 >
 > It is of utmost importance that your fileshare ends with **AAD** or **ADFS** folders and all subdirectories are within this structure; otherwise, **Start-SecretRotate** will come up with:
 > ```PowerShell
@@ -132,7 +132,47 @@ Running secret rotation using the instructions below will remediate these alerts
 
 To rotate external secrets:
 
-1. Within the newly created **/Certificates** directory created in the Pre-steps, place the new set of replacement external certificates in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
+1. Within the newly created **/Certificates/{IdentityProvider}** directory created in the Pre-steps, place the new set of replacement external certificates in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
+
+    Example of folder structure for AAD Identity Provider:
+    ```PowerShell
+            ├───Certificates
+        │   └───AD
+        │       ├───ACSBlob
+        │       │       <CertName>.pfx
+        │       │
+        │       ├───ACSQueue
+        │       │       <CertName>.pfx
+        │       │
+        │       ├───ACSTable
+        │       │       <CertName>.pfx
+        │       │
+        │       ├───Admin Extension Host
+        │       │       <CertName>.pfx
+        │       │
+        │       ├───Admin Portal
+        │       │       <CertName>.pfx
+        │       │
+        │       ├───ARM Admin
+        │       │       <CertName>.pfx
+        │       │
+        │       ├───ARM Public
+        │       │       <CertName>.pfx
+        │       │
+        │       ├───KeyVault
+        │       │       <CertName>.pfx
+        │       │
+        │       ├───KeyVaultInternal
+        │       │       <CertName>.pfx
+        │       │
+        │       ├───Public Extension Host
+        │       │       <CertName>.pfx
+        │       │
+        │       └───Public Portal
+        │               <CertName>.pfx
+
+    ```
+
 2. Create a PowerShell Session with the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) using the **CloudAdmin** account and store the sessions as a variable. You will use this variable as the parameter in the next step.
 
     > [!IMPORTANT]  
