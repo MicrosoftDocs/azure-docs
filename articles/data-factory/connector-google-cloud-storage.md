@@ -1,6 +1,6 @@
 ---
-title: Copy data from Amazon Simple Storage Service using Azure Data Factory | Microsoft Docs
-description: Learn about how to copy data from Amazon Simple Storage Service (S3) to supported sink data stores by using Azure Data Factory.
+title: Copy data from Google Cloud Storage using Azure Data Factory | Microsoft Docs
+description: Learn about how to copy data from Google Cloud Storage to supported sink data stores by using Azure Data Factory.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -13,61 +13,49 @@ ms.date: 12/20/2018
 ms.author: jingwang
 
 ---
-# Copy data from Amazon Simple Storage Service using Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
-> * [Current version](connector-amazon-simple-storage-service.md)
+# Copy data from Google Cloud Storage using Azure Data Factory
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Amazon S3. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Google Cloud Storage. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
-You can copy data Amazon S3 to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data Google Cloud Storage to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this Amazon S3 connector supports copying files as-is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+Specifically, this Google Cloud Storage connector supports copying files as-is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
->[!TIP]
->You can use this Amazon S3 connector to copy data from **any S3-compatible storage providers** e.g. [Google Cloud Storage](connector-google-cloud-storage.md). Specify the corresponding service URL in the linked service configuration.
+>[!NOTE]
+>Copying data from Google Cloud Storage leverages the [Amazon S3 connector](connector-amazon-simple-storage-service.md) with corresponding custom S3 endpoint, as Google Cloud Storage provides S3-compatible interoperability.
 
 ## Required permissions
 
-To copy data from Amazon S3, make sure you have been granted the following permissions:
+To copy data from Google Cloud Storage, make sure you have been granted the following permissions:
 
-- **For copy activity execution:**: `s3:GetObject` and `s3:GetObjectVersion` for Amazon S3 Object Operations.
-- **For Data Factory GUI authoring**: `s3:ListAllMyBuckets` and `s3:ListBucket`/`s3:GetBucketLocation` for Amazon S3 Bucket Operations permissions are additionally required for operations like test connection and browse/navigate file paths. If you don't want to grant these permission, skip test connection in linked service creation page and speicify the path directly in dataset settings.
-
-For details about the full list of Amazon S3 permissions, see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
+- **For copy activity execution:**: `s3:GetObject` and `s3:GetObjectVersion` for Object Operations.
+- **For Data Factory GUI authoring**: `s3:ListAllMyBuckets` and `s3:ListBucket`/`s3:GetBucketLocation` for Bucket Operations permissions are additionally required for operations like test connection and browse/navigate file paths. If you don't want to grant these permission, skip test connection in linked service creation page and speicify the path directly in dataset settings.
 
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)] 
 
-The following sections provide details about properties that are used to define Data Factory entities specific to Amazon S3.
+The following sections provide details about properties that are used to define Data Factory entities specific to Google Cloud Storage.
 
 ## Linked service properties
 
-The following properties are supported for Amazon S3 linked service:
+The following properties are supported for Google Cloud Storage linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **AmazonS3**. | Yes |
-| accessKeyId | ID of the secret access key. |Yes |
+| accessKeyId | ID of the secret access key. To find the access key and secret, go to **Google Cloud Storage** > **Settings** > **Interoperability**. |Yes |
 | secretAccessKey | The secret access key itself. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| serviceUrl | Specify the custom S3 endpoint if you are copying data from a S3-compatible storage provider other than the official Amazon S3 service. For example, to [copy data from Google Cloud Storage](#copy-from-google-cloud-storage), specify `https://storage.googleapis.com`. | No |
+| serviceUrl | Specify the custom S3 endpoint as **`https://storage.googleapis.com`**. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
-
->[!TIP]
->Specify the custom S3 service URL if you are copying data from a S3-compatible storage other than the official Amazon S3 service.
-
->[!NOTE]
->This connector requires access keys for IAM account to copy data from Amazon S3. [Temporary Security Credential](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) is not supported.
->
 
 Here is an example:
 
 ```json
 {
-    "name": "AmazonS3LinkedService",
+    "name": "GoogleCloudStorageLinkedService",
     "properties": {
         "type": "AmazonS3",
         "typeProperties": {
@@ -75,7 +63,8 @@ Here is an example:
             "secretAccessKey": {
                 "type": "SecureString",
                 "value": "<secret access key>"
-            }
+            },
+            "serviceUrl": "https://storage.googleapis.com"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -87,9 +76,9 @@ Here is an example:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Amazon S3 dataset.
+For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Google Cloud Storage dataset.
 
-To copy data from Amazon S3, set the type property of the dataset to **AmazonS3Object**. The following properties are supported:
+To copy data from Google Cloud Storage, set the type property of the dataset to **AmazonS3Object**. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -110,11 +99,11 @@ To copy data from Amazon S3, set the type property of the dataset to **AmazonS3O
 
 ```json
 {
-    "name": "AmazonS3Dataset",
+    "name": "GoogleCloudStorageDataset",
     "properties": {
         "type": "AmazonS3Object",
         "linkedServiceName": {
-            "referenceName": "<Amazon S3 linked service name>",
+            "referenceName": "<linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -136,42 +125,13 @@ To copy data from Amazon S3, set the type property of the dataset to **AmazonS3O
 }
 ```
 
-**Example: using key and version (optional)**
-
-```json
-{
-    "name": "AmazonS3Dataset",
-    "properties": {
-        "type": "AmazonS3",
-        "linkedServiceName": {
-            "referenceName": "<Amazon S3 linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "bucketName": "testbucket",
-            "key": "testFolder/testfile.csv.gz",
-            "version": "XXXXXXXXXczm0CJajYkHf0_k6LhBmkcL",
-            "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ",",
-                "rowDelimiter": "\n"
-            },
-            "compression": {
-                "type": "GZip",
-                "level": "Optimal"
-            }
-        }
-    }
-}
-```
-
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Amazon S3 source.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Google Cloud Storage source.
 
-### Amazon S3 as source
+### Google Cloud Storage as source
 
-To copy data from Amazon S3, set the source type in the copy activity to **FileSystemSource** (which includes Amazon S3). The following properties are supported in the copy activity **source** section:
+To copy data from Google Cloud Storage, set the source type in the copy activity to **FileSystemSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -183,11 +143,11 @@ To copy data from Amazon S3, set the source type in the copy activity to **FileS
 ```json
 "activities":[
     {
-        "name": "CopyFromAmazonS3",
+        "name": "CopyFromGoogleCloudStorage",
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Amazon S3 input dataset name>",
+                "referenceName": "<input dataset name>",
                 "type": "DatasetReference"
             }
         ],
