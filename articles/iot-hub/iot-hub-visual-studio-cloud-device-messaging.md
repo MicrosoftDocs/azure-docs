@@ -35,7 +35,7 @@ You will learn how to use Cloud Explorer for Visual Studio to monitor device-to-
 
 ## Update Cloud Explorer to latest version
 
-The Cloud Explorer component from Visual Studio Installer only supports monitoring device-to-cloud and cloud-to-device messages. In order to send messages to device or cloud, you need to download and install the latest [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS).
+The Cloud Explorer component from Visual Studio Installer only supports monitoring device-to-cloud and cloud-to-device messages. In order to send messages to device or cloud, you download and install the latest [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS).
 
 ## Sign in to access your IoT Hub
 
@@ -71,7 +71,7 @@ To send a message from your IoT Hub to your device, follow these steps:
 1. Right-click your device and select **Send C2D Message**.
 
     ![Send C2D Message](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message.png)
-    
+
 1. Enter the message in input box.
 1. Results will be shown in the **IoT Hub** output pane.
 
