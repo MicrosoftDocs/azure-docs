@@ -81,7 +81,11 @@ Next, set up and configure Postman to obtain an Azure AD token. Afterwards, make
 
 ## Next steps
 
-To learn about authenticating with the Management APIs, read [Authenticate with APIs](./security-authenticating-apis.md).
+To learn about the Digital Twins management APIs, and how to use them, read [How to use Azure Digital Twins management APIs](how-to-navigate-apis.md).
+
+To learn about authenticating with the Management APIs, read [Authenticate with APIs](./security-authenticating-apis.md). 
+
+
 
 <!-- Images -->
 [1]: media/how-to-configure-postman/implicit-flow.png
