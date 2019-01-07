@@ -15,10 +15,6 @@ ms.component: data-lake-storage-gen2
 
 In this tutorial, you use Azure Databricks to perform an ETL (extract, transform, and load data) operation. You move data from an Azure Storage account with Azure Data Lake Storage Gen2 enabled to Azure SQL Data Warehouse.
 
-The following illustration shows the application flow:
-
-![Azure Databricks with Data Lake Storage Gen2 and SQL Data Warehouse](./media/data-lake-storage-handle-data-using-databricks/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks with Data Lake Storage Gen2 and SQL Data Warehouse")
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
