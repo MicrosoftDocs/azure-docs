@@ -294,7 +294,7 @@ The baseboard management controller (BMC) monitors the physical state of your se
 
     Invoke-Command -Session $PEPSession -ScriptBlock {
         # Parameter BMCPassword is mandatory, while the BMCUser parameter is optional.
-        Set-BmcCredential -BmcPassword $using:NewBMCpwd -bmcuser $using:NewBMCuser
+        Set-BmcCredential -BmcPassword $using:NewBMCpwd -BmcUser $using:NewBMCuser
     }
     Remove-PSSession -Session $PEPSession
     ```
@@ -313,7 +313,7 @@ The baseboard management controller (BMC) monitors the physical state of your se
     $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint"
 
     Invoke-Command -Session $PEPSession -ScriptBlock {
-        Set-BmcCredential -BmcPassword $using:NewBMCpwd -bmcuser $using:NewBMCuser
+        Set-BmcCredential -BmcPassword $using:NewBMCpwd -BmcUser $using:NewBMCuser
     }
     Remove-PSSession -Session $PEPSession
     ```
