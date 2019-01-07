@@ -27,9 +27,7 @@ Component | Details
 **Configuration server** | The configuration server must be able to handle the daily change rate capacity across all workloads running on protected machines. The configuration machine must have sufficient bandwidth to continuously replicate data to Azure Storage.<br /><br /> A best practice is to place the configuration server on the same network and LAN segment as the machines that you want to protect. You can place the configuration server on a different network, but machines that you want to protect should have layer 3 network visibility.<br /><br /> Size recommendations for the configuration server are summarized in the table in the following section.
 **Process server** | The first process server is installed by default on the configuration server. You can deploy additional process servers to scale your environment. <br /><br /> The process server receives replication data from protected machines. The process server optimizes data by using caching, compression, and encryption. Then, the process server sends the data to Azure. The process server machine must have sufficient resources to perform these tasks.<br /><br /> The process server uses a disk-based cache. Use a separate cache disk of 600 GB or more to handle data changes that are stored if a network bottleneck or outage occurs.
 
-## Size recommendations for the configuration server/inbuilt process server
-
-Each configuration server deployed by using an [OVF template](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) has an inbuilt process server. Resources of the configuration server, like CPU, memory, and free space, are used at a different rate when you use an inbuilt process server to protect virtual machines. Requirements vary when you use an inbuilt process server.
+## Size recommendations for the configuration server and inbuilt process server
 
 A configuration server that uses an inbuilt process server to protect the workload can handle up to 200 virtual machines based on the following configurations:
 
@@ -45,18 +43,6 @@ In these configurations:
 
 * Each source machine has three disks of 100 GB each.
 * We used benchmarking storage of eight shared access signature drives of 10 K RPM with RAID 10 for cache disk measurements.
-
-## Size recommendations for the configuration server
-
-If you don't plan to use the configuration server as a process server, apply the following configuration to handle up to 650 virtual machines:
-
-CPU | RAM | OS disk size | Data change rate | Protected machines
---- | --- | --- | --- | ---
-24 vCPUs (2 sockets * 12 cores \@ 2.5 GHz) | 32 GB | 80 GB | Not applicable | Up to 650 VMs
-
-In this configuration, each source machine has three disks of 100 GB each.
-
-Because this configuration doesn't use a process server, the data change rate isn't applicable. To maintain this capacity, you can switch your workload from the inbuilt process server to another scale-out process by following the guidelines described in [Manage process servers](vmware-azure-manage-process-server.md#balance-the-load-on-process-server).
 
 ## Size recommendations for the process server
 

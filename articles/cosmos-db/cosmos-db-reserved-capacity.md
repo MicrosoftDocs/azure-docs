@@ -1,9 +1,7 @@
 ---
 title: Optimize cost of Azure Cosmos DB resources with reserved capacity
 description: Learn how to buy Azure Cosmos DB reserved capacity to save on your compute costs.
-services: cosmos-db
 author: rimman
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/24/2018
