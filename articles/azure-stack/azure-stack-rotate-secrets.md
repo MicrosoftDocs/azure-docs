@@ -220,7 +220,7 @@ The following PowerShell example demonstrates the cmdlets and parameters to run 
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
-$PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint
+$PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
 # Run Secret Rotation
 $CertPassword = ConvertTo-SecureString "CertPasswordHere" -Force
@@ -320,7 +320,7 @@ This command rotates all of the infrastructure secrets exposed to Azure Stack in
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
-$PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint
+$PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
 # Create Credentials for the fileshare
 $CertPassword = ConvertTo-SecureString "CertPasswordHere" -Force
@@ -346,7 +346,7 @@ This command rotates the TLS certificates used for Azure Stack's external networ
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
-$PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint
+$PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
 # Create Credentials for the fileshare
 $CertPassword = ConvertTo-SecureString "CertPasswordHere" -Force
