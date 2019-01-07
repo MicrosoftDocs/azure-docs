@@ -93,13 +93,8 @@ pip install azureml-sdk[explain]
 pip install azureml-sdk[contrib]
 ```
 
-In the Azure Databricks environment, use the following install command instead:
-
-```
-# Install the base SDK and automl components in the Azure Databricks environment.
-# For more information, see https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks.
-pip install azureml-sdk[databricks]
-```
+In the Azure Databricks environment, use the [Databricks installation steps](how-to-configure-environment.md#azure-databricks
+) instead.
 
 
 ## Create a workspace
@@ -139,11 +134,7 @@ pip install azureml-sdk[databricks]
 
 Save the details of your workspace in a configuration file to the current directory. This file is called *aml_config\config.json*.  
 
-This workspace configuration file makes it easy to load the same workspace later. You can load it with other notebooks and scripts in the same directory or a subdirectory. 
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
-
-The `write_config()` API call creates the configuration file in the current directory. The *config.json* file contains the following script:
+The `write_config()` API call creates the configuration file in the current directory. The *config.json* file contains the following:
 
 ```json
 {
@@ -152,6 +143,12 @@ The `write_config()` API call creates the configuration file in the current dire
     "workspace_name": "myworkspace"
 }
 ```
+
+This workspace configuration file makes it easy to load the same workspace later. You can load it with other notebooks and scripts in the same directory or a subdirectory. 
+
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
+
+
 
 ## Use the workspace
 
