@@ -145,7 +145,7 @@ Creates a standard Service Bus namespace of type **Messaging**, and a Service Bu
     ]
 ```
 
-For JSON syntax and properties, see [Microsoft.ServiceBus/namespaces](/azure/templates/microsoft.servicebus/namespaces), [Microsoft.ServiceBus/namespaces/queues](/azure/templates/microsoft.servicebus/namespaces/queues), and [Microsoft.ServiceBus/namespaces/AuthorizationRules](/azure/templates/microsoft.servicebus/namespaces/authorizationrules).
+For JSON syntax and properties, see [namespaces](/azure/templates/microsoft.servicebus/namespaces), [queues](/azure/templates/microsoft.servicebus/namespaces/queues), and [AuthorizationRules](/azure/templates/microsoft.servicebus/namespaces/authorizationrules).
 
 ## Commands to run deployment
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
