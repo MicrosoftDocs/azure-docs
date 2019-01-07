@@ -33523,6 +33523,46 @@
         "redirect_document_id":  true
     },
     {
+      "source_path":  "articles/application-insights/app-insights-dotnetcore-quick-start.md",
+      "redirect_url":  "/azure/azure-monitor/learn/dotnetcore-quick-start",
+      "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-java-quick-start.md",
+        "redirect_url":  "/azure/azure-monitor/learn/java-quick-start",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-mobile-center-quickstart.md",
+        "redirect_url":  "/azure/azure-monitor/learn/mobile-center-quickstart",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-nodejs-quick-start.md",
+        "redirect_url":  "/azure/azure-monitor/learn/nodejs-quick-start",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/quick-monitor-portal.md",
+        "redirect_url":  "/azure/azure-monitor/learn/quick-monitor-portal",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-tutorial-alert.md",
+        "redirect_url":  "/azure/azure-monitor/learn/tutorial-alert",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-tutorial-dashboards.md",
+        "redirect_url":  "/azure/azure-monitor/learn/tutorial-app-dashboards",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-tutorial-runtime-exceptions.md",
+        "redirect_url":  "/azure/azure-monitor/learn/tutorial-runtime-exceptions",
+        "redirect_document_id":  true
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true

@@ -1,4 +1,4 @@
-- name: Azure Machine Learning Documentation
+- name: Azure Machine Learning service Documentation
   href: index.yml
 - name: Overview
   expanded: true

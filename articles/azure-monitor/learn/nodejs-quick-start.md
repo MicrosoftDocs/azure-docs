@@ -38,7 +38,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. Select **Create a resource** > **Monitoring + Management** > **Application Insights**.
 
-   ![Adding Application Insights Resource](./media/app-insights-nodejs-quick-start/001-u.png)
+   ![Adding Application Insights Resource](./media/nodejs-quick-start/001-u.png)
 
    A configuration box appears; use the following table to fill out the input fields.
 
@@ -55,7 +55,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. Select **Overview** > **Essentials** > Copy your application's **Instrumentation Key**.
 
-   ![New App Insights resource form](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
+   ![New App Insights resource form](./media/nodejs-quick-start/instrumentation-key-001.png)
 
 2. Add the Application Insights SDK for Node.js to your application. From your app's root folder run:
 
@@ -79,19 +79,19 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. You can now reopen the Application Insights **Overview** page in the Azure portal, where you retrieved your instrumentation key, to view details about your currently running application.
 
-   ![Application Insights Overview Menu](./media/app-insights-nodejs-quick-start/overview-001.png)
+   ![Application Insights Overview Menu](./media/nodejs-quick-start/overview-001.png)
 
 2. Click **App map** for a visual layout of the dependency relationships between your application components. Each component shows KPIs such as load, performance, failures, and alerts.
 
-   ![Application Map](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![Application Map](./media/nodejs-quick-start/application-map.png)
 
-3. Click on the **App Analytics** icon ![Application Map icon](./media/app-insights-nodejs-quick-start/006.png).  This opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
+3. Click on the **App Analytics** icon ![Application Map icon](./media/nodejs-quick-start/006.png).  This opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
 
-   ![Analytics graph of user requests over a period of time](./media/app-insights-nodejs-quick-start/007-Black.png)
+   ![Analytics graph of user requests over a period of time](./media/nodejs-quick-start/007-Black.png)
 
 4. Return to the **Overview** page and examine the KPI graphs.  This dashboard provides statistics about your application health, including the number of incoming requests, the duration of those requests, and any failures that occur. 
 
-   ![Health Overview timeline graphs](./media/app-insights-nodejs-quick-start/overview-perf.png)
+   ![Health Overview timeline graphs](./media/nodejs-quick-start/overview-perf.png)
 
    To enable the **Page View Load Time** chart to populate with **client-side telemetry** data, add this script to each page that you want to track:
 
@@ -117,9 +117,9 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 5. Click on **Browser** from under the **Investigate** header. Here you find metrics related to the performance of your app's pages. You can click **Add new chart** to create additional custom views or select **Edit** to modify the existing chart types, height, color palette, groupings, and metrics.
 
-   ![Server metrics graph](./media/app-insights-nodejs-quick-start/009-Black.png)
+   ![Server metrics graph](./media/nodejs-quick-start/009-Black.png)
 
-To learn more about monitoring Node.js, check out the [additional App Insights Node.js documentation](../azure-monitor/app/nodejs.md).
+To learn more about monitoring Node.js, check out the [additional App Insights Node.js documentation](../../azure-monitor/app/nodejs.md).
 
 ## Clean up resources
 

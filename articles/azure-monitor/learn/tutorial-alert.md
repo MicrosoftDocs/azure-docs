@@ -29,7 +29,7 @@ To complete this tutorial:
 - Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
 	- ASP.NET and web development
 	- Azure development
-	- Deploy a .NET application to Azure and [enable the Application Insights SDK](../azure-monitor/app/asp-net.md). 
+	- Deploy a .NET application to Azure and [enable the Application Insights SDK](../../azure-monitor/app/asp-net.md). 
 
 
 ## Log in to Azure
@@ -41,24 +41,24 @@ Availability tests in Application Insights allow you to automatically test your 
 1. Select **Application Insights** and then select your subscription.  
 1. Select **Availability** under the **Investigate** menu and then click **Add test**.
  
-	![Add availability test](media/app-insights-tutorial-alert/add-test.png)
+	![Add availability test](media/tutorial-alert/add-test.png)
 
 2. Type in a name for the test and leave the other defaults.  This requests the home page of the application every 5 minutes from 5 different geographic locations. 
 3. Select **Alerts** to open the **Alerts** panel where you can define details for how to respond if the test fails. Type in an email address to send when the alert criteria is met.  You could optionally type in the address of a webhook to call when the alert criteria is met.
 
-	![Create test](media/app-insights-tutorial-alert/create-test.png)
+	![Create test](media/tutorial-alert/create-test.png)
  
 4. Return to the test panel, and after a few minutes you should start seeing results from the availability test.  Click on the test name to view details from each location.  The scatter chart shows the success and duration of each test.
 
-	![Test details](media/app-insights-tutorial-alert/test-details.png)
+	![Test details](media/tutorial-alert/test-details.png)
 
 5.  You can drill down in to the details of any particular test by clicking on its dot in the scatter chart.  The example below shows the details for a failed request.
 
-	![Test result](media/app-insights-tutorial-alert/test-result.png)
+	![Test result](media/tutorial-alert/test-result.png)
   
 6. If the alert criteria is met, a mail similar to the one below is sent to the address that you specified.
 
-	![Alert mail](media/app-insights-tutorial-alert/alert-mail.png)
+	![Alert mail](media/tutorial-alert/alert-mail.png)
 
 
 ## Create an alert from metrics
@@ -67,26 +67,26 @@ In addition to sending alerts from an availability test, you can create an alert
 2. Select **Alerts** from the **Configure** menu.  This opens the Azure Alerts panel.  There may be other alert rules configured here for other services.
 3. Click **Add metric alert**.  This opens the panel to create a new alert rule.
 
-	![Add metric alert](media/app-insights-tutorial-alert/add-metric-alert.png)
+	![Add metric alert](media/tutorial-alert/add-metric-alert.png)
 
 4. Type in a **Name** for the alert rule, and select your application in the dropdown for **Resource**.
 5. Select a **Metric** to sample.  A graph is displayed to indicate the value of this request over the past 24 hours.  This assists you in setting the condition for the metric.
 
-	![Add alert rule](media/app-insights-tutorial-alert/add-alert-01.png)
+	![Add alert rule](media/tutorial-alert/add-alert-01.png)
 
 6. Specify a **Condition** and **Threshold** for the alert. This is the number of times that the metric must be exceeded for an alert to be created. 
 6. Under **Notify via** check the **Email owners, contributors, and readers** box to send a mail to these users when the alert condition is met and add the email address of any additional recipients.  You can also specify a webhook or a logic app here that runs when the condition is met.  These could be used to attempt to mitigate the detected issue or 
 
-	![Add alert rule](media/app-insights-tutorial-alert/add-alert-02.png)
+	![Add alert rule](media/tutorial-alert/add-alert-02.png)
 
 
 ## Proactively send information
 Alerts are created in reaction to a particular set of issues identified in your application, and you typically reserve alerts for critical conditions requiring immediate attention.  You can proactively receive information about your application with a Logic App that runs automatically on a schedule.  For example, you could have a mail sent to administrators daily with summary information that requires further evaluation.
 
-For details on creating a Logic App with Application Insights, see [Automate Application Insights processes by using Logic Apps](../azure-monitor/app/automate-with-logic-apps.md)
+For details on creating a Logic App with Application Insights, see [Automate Application Insights processes by using Logic Apps](../../azure-monitor/app/automate-with-logic-apps.md)
 
 ## Next steps
 Now that you've learned how to alert on issues, advance to the next tutorial to learn how to analyze how users are interacting with your application.
 
 > [!div class="nextstepaction"]
-> [Understand users](app-insights-tutorial-users.md)
+> [Understand users](../../application-insights/app-insights-tutorial-users.md)
