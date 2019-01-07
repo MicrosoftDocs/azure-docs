@@ -47,7 +47,7 @@ The following Linux distributions are officially supported. However, the Linux a
 
 ## Enable Change Tracking and Inventory
 
-To begin tracking changes, you need to enable the Change Tracking and Inventory solution. There are many ways to onboard machines. The following are the recommended and supported ways to onboard the solution. Alternatively you can also use a [runbook](automation-onboard-solutions.md) to onboard machines to the solution.
+To begin tracking changes, you need to enable the Change Tracking and Inventory solution. There are many ways to onboard machines to Change Tracking and Inventory. The following are the recommended and supported ways to onboard the solution.
 
 * [From a virtual machine](automation-onboard-solutions-from-vm.md)
 * [From browsing multiple machines](automation-onboard-solutions-from-browse.md)

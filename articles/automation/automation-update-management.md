@@ -121,12 +121,13 @@ For more information about how solution management packs are updated, see [Conne
 
 ## Enable Update Management
 
-To begin patching systems, you need to enable the Update Management solution. There are many ways to onboard machines. The following are the recommended and supported ways to onboard the solution. Alternatively you can also use a [runbook](automation-onboard-solutions.md) to onboard machines to the solution.
+To begin patching systems, you need to enable the Update Management solution. There are many ways to onboard machines to Update Management. The following are the recommended and supported ways to onboard the solution:
 
 * [From a virtual machine](automation-onboard-solutions-from-vm.md)
 * [From browsing multiple machines](automation-onboard-solutions-from-browse.md)
 * [From your Automation account](automation-onboard-solutions-from-automation-account.md)
-
+* [With an Azure Automation runbook](automation-onboard-solutions.md)
+  
 ### Confirm that non-Azure machines are onboarded
 
 To confirm that directly connected machines are communicating with Log Analytics, after a few minutes, you can run one the following log searches.
