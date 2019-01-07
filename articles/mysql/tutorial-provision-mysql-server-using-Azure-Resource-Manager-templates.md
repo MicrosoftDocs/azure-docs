@@ -16,7 +16,7 @@ The [Azure Database for MySQL REST API](https://docs.microsoft.com/en-us/rest/ap
 
 Azure Resource Manager templates leverage the underlying REST API to declare and program the Azure resources required for deployments at scale, aligning with infrastructure as a code concept. The template parameterizes the Azure resource name, SKU, network, firewall configuration, and settings, allowing it to be created one time and used multiple times.  Azure Resource Manager templates can be easily created using [Azure portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) or [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). They enable application packaging, standardization, and deployment automation, which can be integrated in the DevOps CI/CD pipeline.  For instance, if you are looking to quickly deploy a Web App with Azure Database for MySQL backend, you can perform the end-to-end deployment using this [QuickStart template](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) from the GitHub gallery.
 
-In this tutorial, you use Azure Azure Resource Manager templates and other utilities to learn how to:
+In this tutorial, you use Azure Resource Manager templates and other utilities to learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL server with VNet Service Endpoint using Azure Resource Manager Template
