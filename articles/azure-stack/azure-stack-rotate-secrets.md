@@ -124,7 +124,7 @@ Running secret rotation using the instructions below will remediate these alerts
 > Cannot bind argument to parameter 'Path' because it is null.
 > + CategoryInfo          : InvalidData: (:) [Test-Certificate], ParameterBindingValidationException
 > + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Test-Certificate
-> + PSComputerName        : x.x.x.xxx
+> + PSComputerName        : xxx.xxx.xxx.xxx
 > ```
 >
 > As you can see the error massage would indicate that there is a problem accessing your fileshare but in reality it is the folder structure that is being enforced here.
