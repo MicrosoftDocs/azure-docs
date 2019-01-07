@@ -77,11 +77,11 @@ Some points to consider:
 ## Separate telemetry from different versions
 
 * Multiple roles in an app: Use a single Application Insights resource, and filter on [cloud_Rolename](../../azure-monitor/app/app-map.md).
-* Separating development, test, and release versions: Use different Application Insights resources. Pick up the instrumentation keys from web.config. [Learn more](../../application-insights/app-insights-separate-resources.md)
-* Reporting build versions: Add a property using a telemetry initializer. [Learn more](../../application-insights/app-insights-separate-resources.md)
+* Separating development, test, and release versions: Use different Application Insights resources. Pick up the instrumentation keys from web.config. [Learn more](../../azure-monitor/app/separate-resources.md)
+* Reporting build versions: Add a property using a telemetry initializer. [Learn more](../../azure-monitor/app/separate-resources.md)
 
 ## Monitor backend servers and desktop apps
-[Use the Windows Server SDK module](../../application-insights/app-insights-windows-desktop.md).
+[Use the Windows Server SDK module](../../azure-monitor/app/windows-desktop.md).
 
 ## Visualize data
 #### Dashboard with metrics from multiple apps
