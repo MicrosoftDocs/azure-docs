@@ -67,19 +67,19 @@ To move a recovery services vault and its associated resources to different reso
 
   ![Essentials Information tab](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-4. In the vault overview menu, click **change** next to the **Resource group**, to open the **Move resources** menu.
+3. In the vault overview menu, click **change** next to the **Resource group**, to open the **Move resources** blade.
 
   ![Change Resource Group](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
-5. In the **Move resources** blade, for the selected vault it is recommended to move the optional related resources by selecting the checkbox as shown in the image below.
+4. In the **Move resources** blade, for the selected vault it is recommended to move the optional related resources by selecting the checkbox as shown in the image below.
 
-  ![Move Subscription](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
+  ![Move Subscription](./media/backup-azure-move-recovery-services/move-resource.png)
 
-6. To add the target resource group, in the **Resource group** drop-down list select an existing resource group or click **create a new resource group** option.
+5. To add the target resource group, in the **Resource group** drop-down list select an existing resource group or click **create a new group** option.
 
   ![Create Resource](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
-7. After adding the resource group, confirm **I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs** option and then click **OK** to complete moving the vault.
+6. After adding the resource group, confirm **I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs** option and then click **OK** to complete moving the vault.
 
   ![Confirmation Message](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
@@ -96,18 +96,18 @@ You can move a Recovery Services vault and its associated resources to a differe
     If you do not see the **Essentials** information for your vault, click the drop-down icon. You should now see the Essentials information for your vault.
 
     ![Essentials Information tab](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
-    
-4. In the vault overview menu, click **change** next to **Subscription**, to open the **Move resources** menu.
+
+3. In the vault overview menu, click **change** next to **Subscription**, to open the **Move resources** blade.
 
   ![Change Subscription](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
-5. Select the resources to be moved, here we recommend you to use the **Select All** option to select all the listed optional resources.
+4. Select the resources to be moved, here we recommend you to use the **Select All** option to select all the listed optional resources.
 
-  ![move resource](./media/backup-azure-move-recovery-services/move-resource.png)
+  ![move resource](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
-6. Select the target Subscription form the drop-down list, where you want the vault to be moved.
-7. Select an existing **Resource group** or **create a new group**.
-8. Click **I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs** option to confirm, and then click **OK**.
+5. Select the target subscription form the **Subscription** drop-down list, where you want the vault to be moved.
+6. To add the target resource group, in the **Resource group** drop-down list select an existing resource group or click **create a new group** option.
+7. Click **I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs** option to confirm, and then click **OK**.
 
 > [!NOTE]
 > Cross subscription backup (RS vault and protected VMs are in different subscriptions) is not a supported scenario. Also, storage redundancy option from local redundant storage (LRS) to global redundant storage (GRS) and vice versa cannot be modified during the vault move operation.
