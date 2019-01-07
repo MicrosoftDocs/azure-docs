@@ -153,7 +153,7 @@ The following PowerShell example demonstrates the cmdlets and parameters to run 
 ```PowerShell
 #Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IPofERCSMachine>"}'
-$PEPCreds = Get-Credential 
+$PEPCreds = Get-Credential
 $PEPsession = New-PSSession -computername <IPofERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint
 
 #Run Secret Rotation
