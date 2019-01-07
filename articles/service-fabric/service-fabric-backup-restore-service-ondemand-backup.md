@@ -1,6 +1,6 @@
 ---
 title: On-demand backup in Azure Service Fabric | Microsoft Docs
-description: Use Service Fabric's backup and restore feature to backup your application data on a need basis.
+description: Use the backup and restore feature in Service Fabric to back up your application data on a need basis.
 services: service-fabric
 documentationcenter: .net
 author: aagup
@@ -21,7 +21,7 @@ ms.author: aagup
 
 You can back up data of Reliable Stateful services and Reliable Actors to address disaster or data loss scenarios.
 
-Service Fabric has features for the [periodic backup of data](service-fabric-backuprestoreservice-quickstart-azurecluster.md) and the backup of data on a need basis. On-demand backup is useful because it guards against _data loss_/_data corruption_ because of planned changes in the underlying service or its environment.
+Azure Service Fabric has features for the [periodic backup of data](service-fabric-backuprestoreservice-quickstart-azurecluster.md) and the backup of data on a need basis. On-demand backup is useful because it guards against _data loss_/_data corruption_ because of planned changes in the underlying service or its environment.
 
 The on-demand backup features are helpful for capturing the state of the services before you manually trigger a service or service environment operation. For example, if you make a change in service binaries when  upgrading or downgrading the service. In such a case, on-demand backup can help guard the data against corruption by application code bugs.
 
@@ -86,7 +86,7 @@ $backupResponse
 
 On-demand backup requests can be in the following states:
 
-- **Accepted** - The backup has started on the partition and is in progress.
+- **Accepted**: The backup has started on the partition and is in progress.
   ```
   BackupState             : Accepted
   TimeStampUtc            : 0001-01-01T00:00:00Z
@@ -96,7 +96,7 @@ On-demand backup requests can be in the following states:
   LsnOfLastBackupRecord   : 0
   FailureError            :
   ```
-- **Success**, **Failure**, or **Timeout** - A requested on-demand backup can be completed in any of the following states:
+- **Success**, **Failure**, or **Timeout**: A requested on-demand backup can be completed in any of the following states:
   - **Success** - A _Success_ backup state indicates that the partition state has  backed up successfully. The response provides _BackupEpoch_ and _BackupLSN_ for the partition along with the time in UTC.
     ```
     BackupState             : Success
@@ -107,7 +107,7 @@ On-demand backup requests can be in the following states:
     LsnOfLastBackupRecord   : 36
     FailureError            :
     ```
-  - **Failure** - A _Failure_ backup state indicates that a failure occurred during backup of the partition's state. The cause of the failure is stated in response.
+  - **Failure**: A _Failure_ backup state indicates that a failure occurred during backup of the partition's state. The cause of the failure is stated in response.
     ```
     BackupState             : Failure
     TimeStampUtc            : 0001-01-01T00:00:00Z
@@ -117,7 +117,7 @@ On-demand backup requests can be in the following states:
     LsnOfLastBackupRecord   : 0
     FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
     ```
-  - **Timeout** - A _Timeout_ backup state indicates that the partition state backup couldn't be created in a given amount of time. The default timeout value is 10 minutes. Initiate a new on-demand backup request with greater [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) in this scenario.
+  - **Timeout**: A _Timeout_ backup state indicates that the partition state backup couldn't be created in a given amount of time. The default timeout value is 10 minutes. Initiate a new on-demand backup request with greater [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) in this scenario.
     ```
     BackupState             : Timeout
     TimeStampUtc            : 0001-01-01T00:00:00Z
