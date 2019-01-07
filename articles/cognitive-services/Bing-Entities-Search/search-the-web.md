@@ -20,7 +20,7 @@ The Bing Entity Search API sends a search query to Bing and gets results that in
 |Feature  |Description  |
 |---------|---------|
 |[Real-time search suggestions](define-custom-suggestions.md)     | Provide search suggestions that can be displayed as a dropdown list as your users type.       | 
-
+| Entity detection | |
 ## Workflow
 
 The Bing Entity Search API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. You can use the service using either the REST API, or the SDK.
@@ -35,11 +35,9 @@ To get started quickly with your first request, see [Making Your First Request](
 
 Familiarize yourself with the [Bing Entity Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) reference. The reference contains the headers and query parameters that you use to request search results. It also includes definitions of the response objects. 
 
-To improve your search box user experience, see [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md). As the user enters their query term, you can call this API to get relevant query terms that were used by others.
-
-Be sure to read [Bing Use and Display Requirements](./use-display-requirements.md) so you don't break any of the rules about using the search results.
+Be sure to read [Bing Use and Display Requirements](./use-display-requirements.md) for using search results in your services and applications.
 
 ## See also
 
-* The [Bing Entity Search API v7](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-entities-api-v7-reference) reference section contains definitions and information on the endpoints, headers, API responses, and query parameters that you can use to request image-based search results.
+* The [Bing Entity Search API v7](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-entities-api-v7-reference) reference section.
 * The [Bing Use and Display Requirements](./use-and-display-requirements.md) specify acceptable uses of the content and information gained through the Bing search APIs.

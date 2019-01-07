@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Bing Entity Search API"
-description: Shows how to get started using the Bing Entity Search API.
+title: "Quickstart: Get entities from the web using the Bing Visual Search REST API and C#"
+description: Learn how to find well-known entities and places from the web
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -14,7 +14,7 @@ ms.author: scottwhi
 
 # Quickstart: Making your first Bing Entity Search request
 
-The Bing Entity Search API sends a search query to Bing and gets results that include entities and places. Place results include restaurants, hotel, or other local businesses. For places, the query can specify the name of the local business or it can ask for a list (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is tourist attractions, states, countries, etc. 
+The Bing Entity Search API enables you to send a search query and get results that include entities and places. Place results include restaurants, hotel, or other local businesses. For places, the query can specify the name of the local business or it can ask for a list (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is tourist attractions, states, countries, etc. 
 
 ## First steps
 
