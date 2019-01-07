@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot replication issues for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery | Microsoft Docs
-description: This article provides troubleshooting information for common replication issues during disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery.
+title: Troubleshoot replication issues for disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery | Microsoft Docs
+description: This article provides troubleshooting information for common replication issues during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -11,91 +11,106 @@ ms.author: ramamill
 ---
 # Troubleshoot replication issues for VMware VMs and physical servers
 
-You may receive a specific error message when protecting your VMware virtual machines or physical servers using Azure Site Recovery. This article describes some common issues you might encounter when replicating on-premises VMware VMs and physical servers to Azure using [Azure Site Recovery](site-recovery-overview.md).
-
+You might see a specific error message when you protect your VMware virtual machines or physical servers by using Azure Site Recovery. This article describes some common issues you might encounter when you replicate on-premises VMware VMs and physical servers to Azure by using [Site Recovery](site-recovery-overview.md).
 
 ## Initial replication issues
 
-In many cases, initial replication failures that we encounter at support are due to connectivity issues between source server-to-process server or process server-to-Azure. For most cases, you can troubleshoot these issues by following the steps listed below.
+Initial replication failures often are caused by connectivity issues between the source server and the process server or between the process server and Azure. In most cases, you can troubleshoot these issues by completing the steps in the following sections.
 
-### Verify the source machine
-* From Source Server machine command line, use Telnet to ping the Process Server with https port (default 9443) as shown below to see if there are any network connectivity issues or firewall port blocking issues.
+### Check the source machine
 
-	`telnet <PS IP address> <port>`
-> [!NOTE]
-	> Use Telnet, don’t use PING to test connectivity.  If Telnet is not installed, follow the steps list [here](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx)
+The following list shows ways you can check the source machine:
 
-If unable to connect, allow inbound port 9443 on the Process Server and check if the problem still exits. There has been some cases where process server was behind DMZ, which was causing this problem.
+*  At the command line on the source server, use Telnet to ping the process server via the HTTPS port (the default HTTPS port is 9443) by running the following command. The command checks for network connectivity issues and for issues that block the firewall port.
 
-* Check the status of service `InMage Scout VX Agent – Sentinel/OutpostStart` if it is not running and check if the problem still exists.   
+   `telnet <process server IP address> <port>`
 
-### Verify the process server
+   > [!NOTE]
+   > Use Telnet to test connectivity. Don’t use `ping`. If Telnet isn't installed, complete the steps listed in [Install Telnet Client](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).
 
-* **Check if process server is actively pushing data to Azure**
+   If you can't connect to the process server, allow inbound port 9443 on the process server. For example, you might need to allow inbound port 9443 on the process server if your network has a perimeter network or screened subnet. Then, check to see whether the problem still occurs.
 
-From Process Server machine, open the Task Manager (press Ctrl-Shift-Esc). Go to the Performance tab and click ‘Open Resource Monitor’ link. From Resource Manager, go to Network tab. Check if cbengine.exe in ‘Processes with Network Activity’ is actively sending large volume (in Mbs) of data.
+*  Check the status of the **InMage Scout VX Agent – Sentinel/OutpostStart** service. If the service isn't running, start the service, and then check to see whether the problem still occurs.   
 
-![Enable replication](./media/vmware-azure-troubleshoot-replication/cbengine.png)
+### Check the process server
 
-If not, follow the steps listed below:
+The following list shows ways you can check the process server:
 
-* **Check if Process server is able to connect Azure Blob**: Select and check cbengine.exe to view the ‘TCP Connections’ to see if there is connectivity from Process server to Azure Storage blob URL.
+*  **Check whether the process server is actively pushing data to Azure**.
 
-![Enable replication](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
+   1. On the process server, open Task Manager (press Ctrl+Shift+Esc).
+   2. Select the **Performance** tab, and then select the **Open Resource Monitor** link. 
+   3. On the **Resource Monitor** page, select the **Network** tab. Under **Processes with Network Activity**, check whether **cbengine.exe** is actively sending a large volume of data.
 
-If not then go to Control Panel > Services, check if the following services are up and running:
+        ![Screenshot that shows the volumes under Processes with Network Activity](./media/vmware-azure-troubleshoot-replication/cbengine.png)
 
-     * cxprocessserver
-     * InMage Scout VX Agent – Sentinel/Outpost
-     * Microsoft Azure Recovery Services Agent
-     * Microsoft Azure Site Recovery Service
-     * tmansvc
-     *
-(Re)Start any service, which is not running and check if the problem still exists.
+   If cbengine.exe isn't sending a large volume of data, complete the steps in the following sections.
 
-* **Check if Process server is able to connect to Azure Public IP address using port 443**
+*  **Check whether the process server can connect to Azure Blob storage**.
 
-Open the latest CBEngineCurr.errlog from `%programfiles%\Microsoft Azure Recovery Services Agent\Temp` and search for: 443 and connection attempt failed.
+   Select **cbengine.exe**. Under **TCP Connections**, check to see whether there is connectivity from the process server to the Azure Blog storage URL.
 
-![Enable replication](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+   ![Screenshot that shows connectivity between cbengine.exe and the Azure Blob storage URL](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
 
-If there are issues, then from Process Server command line, use telnet to ping your Azure Public IP address (masked in above image) found in the CBEngineCurr.currLog using port 443.
+   If there's no connectivity from the process server to the Azure Blog storage URL, in Control Panel, select **Services**. Check to see whether the following services are running:
 
-      telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443
-If you are unable to connect, then check if the access issue is due to firewall or Proxy as described in next step.
+   *  cxprocessserver
+   *  InMage Scout VX Agent – Sentinel/Outpost
+   *  Microsoft Azure Recovery Services Agent
+   *  Microsoft Azure Site Recovery Service
+   *  tmansvc
 
+   Start or restart any service that isn't running. Check to see whether the problem still occurs.
 
-* **Check if IP address-based firewall on Process server is not blocking access**: If you are using an IP address-based firewall rules on the server, then download the complete list of Microsoft Azure Datacenter IP Ranges from [here](https://www.microsoft.com/download/details.aspx?id=41653) and add them to your firewall configuration to ensure they allow communication to Azure (and the HTTPS (443) port).  Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
+*  **Check whether the process server can connect to the Azure public IP address by using port 443**.
 
-* **Check if URL-based firewall on Process server is not blocking access**:  If you are using a URL-based firewall rules on the server, ensure the following URLs are added to firewall configuration.
+   In %programfiles%\Microsoft Azure Recovery Services Agent\Temp, open the latest CBEngineCurr.errlog file. In the file, search for **443** or for the string **connection attempt failed**.
+
+   ![Screenshot that shows the error logs in the Temp folder](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+
+   If issues are shown, at the command line in the process server, use Telnet to ping your Azure public IP address (the IP address is masked in the preceding image). You can find your Azure public IP address in the CBEngineCurr.currLog file by using port 443:
+
+   `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
+
+   If you can't connect, check whether the access issue is due to firewall or proxy settings as described in the next step.
+
+*  **Check whether the IP address-based firewall on the process server blocks access**.
+
+   If you use IP address-based firewall rules on the server, download the complete list of [Microsoft Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). Add the IP address ranges to your firewall configuration to ensure that the firewall allows communication to Azure (and to the default HTTPS port, 443). Allow IP address ranges for the Azure region of your subscription and for the Azure West US region (used for access control and identity management).
+
+*  **Check whether a URL-based firewall on the process server blocks access**.
+
+   If you use a URL-based firewall rule on the server, add the URLs listed in the following table to the firewall configuration:
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
-* **Check if Proxy Settings on Process server are not blocking access**.  If you are using a Proxy Server, ensure the proxy server name is resolving by the DNS server.
-To check what you have provided at the time of Configuration Server setup. Go to registry key
+*  **Check whether proxy settings on the process server block access**.
 
-	`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings`
+   If you use a proxy server, ensure that the proxy server name is resolved by the DNS server. To check the value that you provided when you set up the configuration server, go to the registry key **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings**.
 
-Now ensure that the same settings are being used by Azure Site Recovery agent to send data.
-Search Microsoft Azure  Backup
+   Next, ensure that the same settings are used by the Azure Site Recovery agent to send data: 
+      
+   1. Search for **Microsoft Azure Backup**. 
+   2. Open **Microsoft Azure Backup**, and then select **Action** > **Change Properties**. 
+   3. On the **Proxy Configuration** tab, you should see the proxy address. The proxy address should be same as the proxy address that's shown in the registry settings. If not, change it to the same address.
 
-Open it and click on Action > Change Properties. Under Proxy Configuration tab, you should see the proxy address, which should be same as shown by the registry settings. If not, please change it to the same address.
+*  **Check whether the throttle bandwidth is constrained on the process server**.
 
+   Increase the bandwidth, and then check whether the problem still occurs.
 
-* **Check if Throttle bandwidth is not constrained on Process server**:  Increase the bandwidth  and check if the problem still exists.
+## Source machine isn't listed in the Azure portal
 
-## Source machine to be protected through Site Recovery is not listed on Azure portal
+When you try to select the source machine to enable replication by using Site Recovery, the machine might not be available for one of the following reasons:
 
-When trying to choose the source machine to enable replication through Azure Site Recovery, the machine might not available for you to continue because of the following reasons
+*  If two virtual machines under the vCenter have the same instance UUID, the first virtual machine discovered by the configuration server is shown in the Azure portal. To resolve this issue, ensure that no two virtual machines have the same instance UUID.
+*  Ensure that you added the correct vCenter credentials when you set up the configuration server by using the OVF template or unified setup. To verify the credentials that you added during setup, see [Modify credentials for automatic discovery](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
+*  If the permissions provided to access vCenter don't have the required permissions, failure to discover virtual machines might occur. Ensure that the permissions described in [Prepare an account for automatic discovery](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) are added to the vCenter user account.
+*  If the virtual machine is already protected through Site Recovery, the virtual machine isn't available to select for protection in the portal. Ensure that the virtual machine you're looking for in the portal isn't already protected by any other user or under a different subscription.
 
-* If there are two virtual machines under the vCenter with same instance UUID, then the first virtual machine discovered by configuration server are shown on the portal. To resolve, ensure that no two virtual machines have same instance UUID.
-* Ensure that you have added the correct vCenter credentials during the set up of configuration through OVF template or unified set up. To verify the credentials added, refer to the guidelines shared [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
-* If the permissions provided to access vCenter do not have sufficient privileges, it might lead to failure in discovering virtual machines. Ensure the permissions provided [here](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) are added to the vCenter user account.
-* If the virtual machine is already protected through Site Recovery, then it will not be available for protection. Ensure that the virtual machine you are looking for on the portal is not already protected by any other user or under other subscriptions.
+## Protected virtual machines aren't available in the portal
 
-## Protected virtual machines are greyed out in the portal
-
-Virtual machines that are replicated under Site Recovery are greyed out if there duplicate entries in the system. Refer to the guidelines given [here](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) to delete the stale entries and resolve the issue.
+Virtual machines that are replicated under Site Recovery aren't available in the Azure portal if there are duplicate entries in the system. To learn how to delete stale entries and resolve the issue, see [Azure Site Recovery VMware-to-Azure: How to clean up duplicate or stale entries](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
 
 ## Next steps
-If you need more help, then post your query to [Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). We have an active community and one of our engineers will be able to assist you.
+
+If you need more help, post your question in the [Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). We have an active community, and one of our engineers can assist you.

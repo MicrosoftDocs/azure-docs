@@ -53,7 +53,7 @@ These items are implementations of [Application Insights](../../application-insi
 * [Spring](https://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 * [Universal Windows app](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
-* [Windows desktop applications, services, and worker roles](../../application-insights/app-insights-windows-desktop.md)
+* [Windows desktop applications, services, and worker roles](../../azure-monitor/app/windows-desktop.md)
 * [Anything else](#projects)
 
 ## Logging frameworks
