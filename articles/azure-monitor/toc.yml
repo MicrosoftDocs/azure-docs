@@ -261,8 +261,8 @@
       items:
       - name: Azure apps
         items:
-        - name: Azure web apps
-          href: app/azure-web-apps.md
+        - name: Azure app service
+          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
         - name: Azure Cloud Services
           href: app/cloudservices.md
         - name: Add continuous monitoring
