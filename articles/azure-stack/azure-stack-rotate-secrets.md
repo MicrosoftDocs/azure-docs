@@ -129,9 +129,10 @@ Running secret rotation using the instructions below will remediate these alerts
 > More information can be found in the Microsoft AzureStack Readiness Checker - [PublicCertHelper module](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1)
 >
 > It is also important that your fileshare folder structure begins with **Certificates** folder otherwise it will also fail on validation.
-> Fileshare mount should look like **\\\\\<IPAddress>\\\<ShareName>\** and it should contain folder Certificates\AAD or Certificates\ADFS inside.
+> Fileshare mount should look like **\\\\\<IPAddress>\\\<ShareName>\\** and it should contain folder **Certificates\AAD** or **Certificates\ADFS** inside.
+>
 > For example:
-> - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\**
+> - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
 > - CertFolder = **Certificates\AAD**
 > - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
 
@@ -139,7 +140,7 @@ Running secret rotation using the instructions below will remediate these alerts
 
 To rotate external secrets:
 
-1. Within the newly created **\Certificates\{IdentityProvider}** directory created in the Pre-steps, place the new set of replacement external certificates in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
+1. Within the newly created **\Certificates\\{IdentityProvider}** directory created in the Pre-steps, place the new set of replacement external certificates in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 
     Example of folder structure for the AAD Identity Provider:
     ```PowerShell
