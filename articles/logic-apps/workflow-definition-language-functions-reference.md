@@ -127,6 +127,7 @@ and sometimes, dictionaries, you can use these collection functions.
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Check whether a collection is empty. | 
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Return the first item from a collection. | 
 | [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Return a collection that has *only* the common items across the specified collections. | 
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | When inside a repeating action over an array, return the current item in the array during the action's current iteration. | 
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Return a string that has *all* the items from an array, separated by the specified character. | 
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Return the last item from a collection. | 
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. | 

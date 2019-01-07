@@ -68,8 +68,10 @@
       href: how-to-navigate-apis.md
     - name: Common query patterns
       href: how-to-query-common-apis.md
-#- name: Reference
-#  items:
+- name: Reference
+  items:
+  - name: User-defined functions client library
+    href: reference-user-defined-functions-client-library.md
 - name: Related
   items:
   - name: Solutions

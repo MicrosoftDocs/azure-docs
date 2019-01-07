@@ -5,9 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
