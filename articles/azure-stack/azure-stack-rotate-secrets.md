@@ -370,11 +370,11 @@ The baseboard management controller (BMC) monitors the physical state of your se
     ```PowerShell
     # Interactive Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
-    $PEPCred = Get-Credential "<Domain>\CloudAdmin" -Message "PEP Credentials"
+    $PEPCreds = Get-Credential "<Domain>\CloudAdmin" -Message "PEP Credentials"
     $NewBmcPwd = Read-Host -Prompt "Enter New BMC password" -AsSecureString
     $NewBmcUser = Read-Host -Prompt "Enter New BMC user name"
 
-    $PEPSession = New-PSSession -ComputerName $PEPIp -Credential $PEPCred -ConfigurationName "PrivilegedEndpoint"
+    $PEPSession = New-PSSession -ComputerName $PEPIp -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
     Invoke-Command -Session $PEPSession -ScriptBlock {
         # Parameter BmcPassword is mandatory, while the BMCUser parameter is optional.
@@ -390,11 +390,11 @@ The baseboard management controller (BMC) monitors the physical state of your se
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"
     $PEPPwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -Force
-    $PEPCred = New-Object System.Management.Automation.PSCredential ($PEPUser, $PEPPwd)
+    $PEPCreds = New-Object System.Management.Automation.PSCredential ($PEPUser, $PEPPwd)
     $NewBmcPwd = ConvertTo-SecureString "<New BMC Password>" -Force
     $NewBmcUser = "<New BMC User name>"
 
-    $PEPSession = New-PSSession -ComputerName $PEPIp -Credential $PEPCred -ConfigurationName "PrivilegedEndpoint"
+    $PEPSession = New-PSSession -ComputerName $PEPIp -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
     Invoke-Command -Session $PEPSession -ScriptBlock {
         Set-BmcCredential -BmcPassword $using:NewBmcPwd -BmcUser $using:NewBmcUser
