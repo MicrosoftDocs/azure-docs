@@ -8,7 +8,7 @@ ms.author: jamesbak
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.component: data-lake-storage-gen2
-#Customer intent: As a analytics user, I want to perform an ETL operation so that I can work with my data in my preferred environment.
+#Customer intent: As an analytics user, I want to perform an ETL operation so that I can work with my data in my preferred environment.
 ---
 
 # Tutorial: Extract, transform, and load data by using Azure Databricks
@@ -33,8 +33,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To complete this tutorial:
 
-* Create an Azure SQL Data Warehouse, create a server-level firewall rule, and connect to the server as a server admin. Follow the instructions in the [Quickstart: Create an Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) article.
-* Create a database master key for the Azure SQL Data Warehouse. Follow the instructions in the [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key) article.
+* Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. Follow the instructions in the [Quickstart: Create an Azure SQL data warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) article.
+* Create a database master key for the Azure SQL data warehouse. Follow the instructions in the [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key) article.
 * [Create a Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
 * Download (**small_radio_json.json**) from the [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) repo and make note of the path where you save the file.
 * Sign in to the [Azure portal](https://portal.azure.com/).
@@ -83,7 +83,7 @@ To perform the operations in this tutorial, you need a Spark cluster. Use the fo
 
     * Enter a name for the cluster.
     * For this article, create a cluster with the **5.1** runtime.
-    * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. If the cluster isn't being used, provide a duration (in minutes) to terminate the cluster.
+    * Make sure you select the **Terminate after \_\_ minutes of inactivity** check box. If the cluster isn't being used, provide a duration (in minutes) to terminate the cluster.
 
 1. Select **Create cluster**.
 
@@ -145,7 +145,7 @@ azcopy cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.cor
 
 To work with the sample data in Databricks, you need to extract the data from your storage account.
 
-Return to your DataBricks notebook and enter the following code in a new cell in your notebook.
+Return to your Databricks notebook and enter the following code in a new cell in your notebook.
 
 Add the following snippet in an empty code cell. Replace the placeholders shown in brackets with the values that you saved earlier from the storage account.
 
@@ -264,7 +264,7 @@ You receive output as shown in the following snippet.
 
 In this section, you upload the transformed data into Azure SQL Data Warehouse. You use the Azure SQL Data Warehouse connector for Azure Databricks to directly upload a dataframe as a table in a SQL data warehouse.
 
-The SQL Date Warehouse connector uses Azure Blob storage as temporary storage to upload data between Azure Databricks and Azure SQL Data Warehouse. So, you start by providing the configuration to connect to the storage account. You must already have created the account as part of the prerequisites for this article.
+The SQL Data Warehouse connector uses Azure Blob storage as temporary storage to upload data between Azure Databricks and Azure SQL Data Warehouse. So, you start by providing the configuration to connect to the storage account. You must already have created the account as part of the prerequisites for this article.
 
 Provide the configuration to access the Azure Storage account from Azure Databricks.
 
@@ -332,7 +332,7 @@ After you finish the tutorial, you can terminate the cluster. From the Azure Dat
 
 ![Stop a Databricks cluster](./media/data-lake-storage-handle-data-using-databricks/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-If you don't manually terminate the cluster, it automatically stops, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox when you created the cluster. In such a case, the cluster automatically stops if it's been inactive for the specified time.
+If you don't manually terminate the cluster, it automatically stops, provided you selected the **Terminate after \_\_ minutes of inactivity** check box when you created the cluster. In such a case, the cluster automatically stops if it's been inactive for the specified time.
 
 ## Next steps
 
