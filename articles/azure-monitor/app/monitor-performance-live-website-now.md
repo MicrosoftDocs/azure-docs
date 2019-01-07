@@ -19,9 +19,9 @@ You can instrument a live web app with Azure Application Insights, without havin
 
 Status Monitor is used to instrument a .NET application hosted in IIS either on-premises or in a VM.
 
-- If your app is deployed into Azure app services, follow [these instructions](app-insights-azure-web-apps.md).
+- If your app is deployed into Azure app services, follow [these instructions](azure-web-apps.md).
 - If your app is deployed in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel.
-- (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
+- (There are also separate articles about instrumenting [live J2EE web apps](java-live.md) and [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
 
 
 ![Screenshot of App Insights overview graphs containing information on failed requests, server response time, and server requests](./media/monitor-performance-live-website-now/overview-graphs.png)
