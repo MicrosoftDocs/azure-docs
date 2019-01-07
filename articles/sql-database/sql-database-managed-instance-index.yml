@@ -73,7 +73,7 @@ sections:
     - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configure backup retention up to 35 days</a> for Point-in-time restore. Note that Long-term backup retention (up to 10 years) is still not enabled so you can use <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">Copy-only backups</a> as an alternative.
     - html: (Preview) Use <a href="https://aka.ms/managed-instance-failover-groups">Geo-distributed failover groups</a> to keep a copy of the instance in the another region and ensure that your data will be available even in the regional disaster scenario.
     - html: (Preview) <a href="https://aka.ms/managed-instance-tde-byok">Bring your own encryption keys</a> while migrating on-premises databases that already have enabled Transparent Data Encryption (TDE).
-    - html: Managed Instances are protected with <a href="https://docs.microsoft.com//azure/sql-database/sql-database-managed-instance-management-endpoint-verify-built-in-firewall">built-in firewall</a>.
+    - html: Managed Instances are protected with <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-management-endpoint-verify-built-in-firewall">built-in firewall</a>.
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph

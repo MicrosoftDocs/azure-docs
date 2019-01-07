@@ -33398,6 +33398,71 @@
       "redirect_document_id": true
     },
     {
+      "source_path":  "articles/application-insights/app-insights-separate-resources.md",
+      "redirect_url":  "/azure/azure-monitor/app/separate-resources",
+      "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-sharepoint.md",
+        "redirect_url":  "/azure/azure-monitor/app/sharepoint",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-troubleshoot-faq.md",
+        "redirect_url":  "/azure/azure-monitor/app/troubleshoot-faq",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-usage-cohorts.md",
+        "redirect_url":  "/azure/azure-monitor/app/usage-cohorts",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-usage-flows.md",
+        "redirect_url":  "/azure/azure-monitor/app/usage-flows",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/usage-funnels.md",
+        "redirect_url":  "/azure/azure-monitor/app/usage-funnels",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-usage-impact.md",
+        "redirect_url":  "/azure/azure-monitor/app/usage-impact",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-usage-overview.md",
+        "redirect_url":  "/azure/azure-monitor/app/usage-overview",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-usage-retention.md",
+        "redirect_url":  "/azure/azure-monitor/app/usage-retention",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-usage-segmentation.md",
+        "redirect_url":  "/azure/azure-monitor/app/usage-segmentation",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-usage-send-user-context.md",
+        "redirect_url":  "/azure/azure-monitor/app/usage-send-user-context",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-usage-troubleshoot.md",
+        "redirect_url":  "/azure/azure-monitor/app/usage-troubleshoot",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-visual-studio.md",
+        "redirect_url":  "/azure/azure-monitor/app/visual-studio",
+        "redirect_document_id":  true
+    },
+    {
       "source_path": "articles/storage/common/storage-lifecycle-managment-concepts.md",
       "redirect_url": "/azure/storage/common/storage-lifecycle-management-concepts",
       "redirect_document_id": true
@@ -33421,6 +33486,41 @@
       "source_path": "articles/application-insights/app-insights-monitor-multi-role-apps.md",
       "redirect_url": "/azure/azure-monitor/app/app-map",
       "redirect_document_id": false
+    },
+    {
+      "source_path":  "articles/application-insights/app-insights-proactive-diagnostics.md",
+      "redirect_url":  "/azure/azure-monitor/app/proactive-diagnostics",
+      "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-usage-workbooks.md",
+        "redirect_url":  "/azure/azure-monitor/app/usage-workbooks",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-visual-studio-codelens.md",
+        "redirect_url":  "/azure/azure-monitor/app/visual-studio-codelens",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-visual-studio-trends.md",
+        "redirect_url":  "/azure/azure-monitor/app/visual-studio-trends",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-vsts-continuous-monitoring.md",
+        "redirect_url":  "/azure/azure-monitor/app/continuous-monitoring",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-web-monitor-performance.md",
+        "redirect_url":  "/azure/azure-monitor/app/web-monitor-performance",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-windows-desktop.md",
+        "redirect_url":  "/azure/azure-monitor/app/windows-desktop",
+        "redirect_document_id":  true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
