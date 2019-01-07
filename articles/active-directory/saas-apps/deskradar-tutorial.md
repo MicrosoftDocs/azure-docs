@@ -42,7 +42,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * Deskradar supports **SP and IDP** initiated SSO
 
-## Adding Deskradar from the gallery
+## Add Deskradar from the gallery
 
 To configure the integration of Deskradar into Azure AD, you need to add Deskradar from the gallery to your list of managed SaaS apps.
 
@@ -143,7 +143,7 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 	e. From the **Source attribute** list, type the attribute value shown for that row.
 
-	f. Click **Ok**
+	f. Click **Ok**.
 
 	g. Click **Save**.
 
@@ -244,7 +244,8 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 **For using the application in SP initiated mode follow the below steps:**
 
-1. Launch your Deskradar instance by opening URL in your browser: `https://YOURDOMAIN.deskradar.cloud` (replace `YOURDOMAIN` with your Deskradar instance domain). Click **Enterprise Single Sign-On.**
+1. Launch your Deskradar instance by opening URL in your browser: `https://YOURDOMAIN.deskradar.cloud` (replace `YOURDOMAIN` with your Deskradar instance domain). 
+1. Select **Enterprise Single Sign-On.**
 
 	![Deskradar](./media/deskradar-tutorial/16-sso-button.jpg)
 
