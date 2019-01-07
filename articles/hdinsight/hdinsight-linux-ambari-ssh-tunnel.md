@@ -122,10 +122,10 @@ Once the command finishes, traffic sent to port 9876 on the local computer is ro
 
 Once the cluster has been established, use the following steps to verify that you can access service web UIs from the Ambari Web:
 
-1. In your browser, go to http://headnodehost:8080. The `headnodehost` address is sent over the tunnel to the cluster and resolve to the head node that Ambari is running on. When prompted, enter the admin user name (admin) and password for your cluster. You may be prompted a second time by the Ambari web UI. If so, reenter the information.
+1. In your browser, go to http\://headnodehost:8080. The `headnodehost` address is sent over the tunnel to the cluster and resolve to the head node that Ambari is running on. When prompted, enter the admin user name (admin) and password for your cluster. You may be prompted a second time by the Ambari web UI. If so, reenter the information.
 
    > [!NOTE]  
-   > When using the http://headnodehost:8080 address to connect to the cluster, you are connecting through the tunnel. Communication is secured using the SSH tunnel instead of HTTPS. To connect over the internet using HTTPS, use https://clustername.azurehdinsight.net, where **clustername** is the name of the cluster.
+   > When using the http\://headnodehost:8080 address to connect to the cluster, you are connecting through the tunnel. Communication is secured using the SSH tunnel instead of HTTPS. To connect over the internet using HTTPS, use https\://clustername.azurehdinsight.net, where **clustername** is the name of the cluster.
 
 2. From the Ambari Web UI, select HDFS from the list on the left of the page.
 
@@ -145,7 +145,7 @@ Once the cluster has been established, use the following steps to verify that yo
     ![Image of the NameNode UI](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
    > [!NOTE]  
-   > Notice the URL for this page; it should be similar to **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. This URI is using the internal fully qualified domain name (FQDN) of the node, and is only accessible when using an SSH tunnel.
+   > Notice the URL for this page; it should be similar to **http\://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. This URI is using the internal fully qualified domain name (FQDN) of the node, and is only accessible when using an SSH tunnel.
 
 ## Next steps
 

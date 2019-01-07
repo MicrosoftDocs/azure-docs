@@ -87,7 +87,7 @@ To see these events, open [Search](../../azure-monitor/app/diagnostic-search.md)
 ![Drill through](./media/asp-net-exceptions/viewCustomEvents.png)
 
 > [!NOTE]
-> If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. Events that are part of the same operation will be selected or deselected as a group, so that you can navigate between related events. [Learn about sampling.](../../application-insights/app-insights-sampling.md)
+> If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. Events that are part of the same operation will be selected or deselected as a group, so that you can navigate between related events. [Learn about sampling.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -486,4 +486,4 @@ This is different from the 'Exceptions' count calculated by the Application Insi
 ## Next steps
 * [Monitor REST, SQL, and other calls to dependencies](../../azure-monitor/app/asp-net-dependencies.md)
 * [Monitor page load times, browser exceptions, and AJAX calls](../../azure-monitor/app/javascript.md)
-* [Monitor performance counters](../../application-insights/app-insights-performance-counters.md)
+* [Monitor performance counters](../../azure-monitor/app/performance-counters.md)
