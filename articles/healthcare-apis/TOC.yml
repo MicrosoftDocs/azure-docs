@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Microsoft Healthcare APIs?
+  - name: About Microsoft Healthcare APIs
     href: overview.md
 - name: Quickstarts
   expanded: true
