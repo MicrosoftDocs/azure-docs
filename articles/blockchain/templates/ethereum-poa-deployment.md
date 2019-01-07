@@ -959,7 +959,7 @@ $ truffle migrate --network poa
 
 Truffle has a local develop network that is available for debugging
 smart contract. You can find the full tutorial
-[here](http://truffleframework.com/tutorials/debugging-a-smart-contract).
+[here](https://truffleframework.com/tutorials/debugging-a-smart-contract).
 
 ### WebAssembly (WASM) support
 

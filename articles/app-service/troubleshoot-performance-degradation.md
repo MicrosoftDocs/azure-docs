@@ -88,7 +88,7 @@ Each App Service app provides an extensible management end point that allows you
 - Source code editors like [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Management tools for connected resources such as a MySQL database connected to an app.
 
-[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is a performance monitoring site extension that's also available. To use Application Insights, you rebuild your code with an SDK. You can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail. For more information, see [Monitor performance in web applications](../application-insights/app-insights-web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is a performance monitoring site extension that's also available. To use Application Insights, you rebuild your code with an SDK. You can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail. For more information, see [Monitor performance in web applications](../azure-monitor/app/web-monitor-performance.md).
 
 <a name="collect" />
 
@@ -110,7 +110,7 @@ You can enable the Application Insights Profiler to start capturing detailed per
 
 Application Insights Profiler provides statistics on response time for each web call and traces that indicates which line of code caused the slow responses. Sometimes the App Service app is slow because certain code is not written in a performant way. Examples include sequential code that can be run in parallel and undesired database lock contentions. Removing these bottlenecks in the code increases the app's performance, but they are hard to detect without setting up elaborate traces and logs. The traces collected by Application Insights Profiler helps identifying the lines of code that slows down the application and overcome this challenge for App Service apps.
 
- For more information, see [Profiling live apps in Azure App Service with Application Insights](../application-insights/app-insights-profiler.md).
+ For more information, see [Profiling live apps in Azure App Service with Application Insights](../azure-monitor/app/profiler.md).
 
 ##### Use Remote Profiling
 In Azure App Service, web apps, API apps, mobile back ends, and WebJobs can be remotely profiled. Choose this option if you have access to the app resource and you know how to reproduce the issue, or if you know the exact time interval the performance issue happens.
@@ -122,7 +122,7 @@ For more information, see [Remote Profiling support in Azure App Service](https:
 ##### Set up diagnostic traces manually
 If you have access to the web application source code, Application diagnostics enables you to capture information produced by a web application. ASP.NET applications can use the `System.Diagnostics.Trace` class to log information to the application diagnostics log. However, you need to change the code and redeploy your application. This method is recommended if your app is running on a testing environment.
 
-For detailed instructions on how to configure your application for logging, see [Enable diagnostics logging for apps in Azure App Service](web-sites-enable-diagnostic-log.md).
+For detailed instructions on how to configure your application for logging, see [Enable diagnostics logging for apps in Azure App Service](troubleshoot-diagnostic-logs.md).
 
 #### Use the diagnostics tool
 App Service provides an intelligent and interactive experience to help you troubleshoot your app with no configuration required. When you do run into issues with your app, the diagnostics tool will point out what’s wrong to guide you to the right information to more easily and quickly troubleshoot and resolve the issue.

@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 01/02/2019
 ms.author: tomfitz
 
 ---
@@ -49,7 +49,6 @@ The following list provides a general summary of Azure services that can be move
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
 * App Service Certificates - see [App Service Certificate limitations](#app-service-certificate-limitations)
-* Application Insights
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
@@ -80,24 +79,25 @@ The following list provides a general summary of Azure services that can be move
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * Iot Central
 * IoT Hubs
-* Key Vault - see [Key Vault Limitations](#key-vault-limitations)
-* Load Balancers - see [Load Balancer limitations](#lb-limitations)
+* Key Vault - Key Vaults used for disk encryption can't be moved to resource groups in the same subscription or across subscriptions.
+* Load Balancers - Basic SKU Load Balancer can be moved. Standard SKU Load Balancer can't be moved.
 * Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.
 * Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)
 * Managed Identity - user-assigned
 * Media Services
+* Monitor - make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#monitor-limits)
 * Notification Hubs
 * Operational Insights
 * Operations Management
 * Portal dashboards
 * Power BI - both Power BI Embedded and Power BI Workspace Collection
-* Public IP - see [Public IP limitations](#pip-limitations)
+* Public IP - Basic SKU Public IP can be moved. Standard SKU Public IP can't be moved.
 * Recovery Services vault - you must be enrolled in a private preview. See [Recovery Services limitations](#recovery-services-limitations).
 * Azure Cache for Redis - if the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks limitations](#virtual-networks-limitations).
 * Scheduler
-* Search
+* Search - You can't move several Search resources in different regions in one operation. Instead, move them in separate operations.
 * Service Bus
 * Service Fabric
 * Service Fabric Mesh
@@ -123,6 +123,7 @@ The following list provides a general summary of Azure services that can't be mo
 * Application Gateway
 * Azure Database Migration
 * Azure Databricks
+* Azure Firewall
 * Azure Migrate
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
 * Container Instances
@@ -133,11 +134,9 @@ The following list provides a general summary of Azure services that can't be mo
 * Express Route
 * Kubernetes Service
 * Lab Services - move to new resource group in same subscription is enabled, but cross subscription move isn't enabled.
-* Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Managed Applications
 * Microsoft Genomics
 * NetApp
-* Public IP - see [Public IP limitations](#pip-limitations)
 * SAP HANA on Azure
 * Security
 * Site Recovery
@@ -146,23 +145,37 @@ The following list provides a general summary of Azure services that can't be mo
 
 ## Limitations
 
+The section provides descriptions of how to handle complicated scenarios for moving resources. The limitations are:
+
+* [Virtual Machines limitations](#virtual-machines-limitations)
+* [Virtual Networks limitations](#virtual-networks-limitations)
+* [App Service limitations](#app-service-limitations)
+* [App Service Certificate limitations](#app-service-certificate-limitations)
+* [Classic deployment limitations](#classic-deployment-limitations)
+* [Recovery Services limitations](#recovery-services-limitations)
+* [HDInsight limitations](#hdinsight-limitations)
+
 ### Virtual Machines limitations
 
-Managed disks are supported for move as of September 24, 2018. 
+From September 24, 2018, you can move managed disks. This support means you can move virtual machines with the managed disks, managed images, managed snapshots, and availability sets with virtual machines that use managed disks.
 
-This support means you can also move:
-
-* Virtual machines with the managed disks
-* Managed Images
-* Managed Snapshots
-* Availability sets with virtual machines with managed disks
-
-Here are the constraints that aren't yet supported:
+The following scenarios aren't yet supported:
 
 * Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
-* If your virtual machine is configured for backup, see [Recovery Services limitations](#recovery-services-limitations).
 * Virtual Machine Scale Sets with Standard SKU Load Balancer or Standard SKU Public IP can't be moved
 * Virtual machines created from Marketplace resources with plans attached can't be moved across resource groups or subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
+
+To move virtual machines configured with Azure Backup, use the following workaround:
+
+* Find the location of your Virtual Machine.
+* Find a resource group with the following naming pattern: `AzureBackupRG_<location of your VM>_1` for example, AzureBackupRG_westus2_1
+* If in Azure portal, then check "Show hidden types"
+* If in PowerShell, use the `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
+* If in CLI, use the `az resource list -g AzureBackupRG_<location of your VM>_1`
+* Find the resource with type `Microsoft.Compute/restorePointCollections` that has the naming pattern `AzureBackup_<name of your VM that you're trying to move>_###########`
+* Delete this resource. This operation deletes only the instant recovery points, not the backed-up data in the vault.
+* After delete is complete, you'll be able to move your Virtual Machine. You can move the vault and virtual machine to the target subscription. After the move, you can continue backups with no loss in data.
+* For information about moving Recovery Service vaults for backup, see [Recovery Services limitations](#recovery-services-limitations).
 
 ### Virtual Networks limitations
 
@@ -301,8 +314,9 @@ Backup policies defined for the vault are kept after the vault moves. Reporting 
 To move a virtual machine to a new subscription without moving the Recovery Services vault:
 
  1. Temporarily stop backup
- 2. Move the virtual machines to the new subscription
- 3. Reprotect it under a new vault in that subscription
+ 1. [Delete the restore point](#virtual-machines-limitations). This operation deletes only the instant recovery points, not the backed-up data in the vault.
+ 1. Move the virtual machines to the new subscription
+ 1. Reprotect it under a new vault in that subscription
 
 Move isn't enabled for Storage, Network, or Compute resources used to set up disaster recovery with Azure Site Recovery. For example, suppose you have set up replication of your on-premises machines to a storage account (Storage1) and want the protected machine to come up after failover to Azure as a virtual machine (VM1) attached to a virtual network (Network1). You can't move any of these Azure resources - Storage1, VM1, and Network1 - across resource groups within the same subscription or across subscriptions.
 
@@ -311,21 +325,6 @@ Move isn't enabled for Storage, Network, or Compute resources used to set up dis
 You can move HDInsight clusters to a new subscription or resource group. However, you can't move across subscriptions the networking resources linked to the HDInsight cluster (such as the virtual network, NIC, or load balancer). In addition, you can't move to a new resource group a NIC that is attached to a virtual machine for the cluster.
 
 When moving an HDInsight cluster to a new subscription, first move other resources (like the storage account). Then, move the HDInsight cluster by itself.
-
-### Search limitations
-
-You can't move several Search resources in different regions all at once.
-In such a case, you need to move them separately.
-
-### <a name="lb-limitations"></a> Load Balancer limitations
-
-Basic SKU Load Balancer can be moved.
-Standard SKU Load Balancer can't be moved.
-
-### <a name="pip-limitations"></a> Public IP limitations
-
-Basic SKU Public IP can be moved.
-Standard SKU Public IP can't be moved.
 
 ## Checklist before moving resources
 
@@ -391,8 +390,6 @@ There are some important steps to do before moving a resource. By verifying thes
 
 1. The service must enable the ability to move resources. To determine whether the move will succeed, [validate your move request](#validate-move). See the sections below in this article of which [services enable moving resources](#services-that-can-be-moved) and which [services don't enable moving resources](#services-that-cannot-be-moved).
 
-
-
 ## Validate move
 
 The [validate move operation](/rest/api/resources/resources/validatemoveresources) lets you test your move scenario without actually moving the resources. Use this operation to determine if the move will succeed. To run this operation, you need the:
@@ -445,8 +442,6 @@ While the operation is still running, you continue to receive the 202 status cod
 ```json
 {"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
 ```
-
-
 
 ## Move resources
 

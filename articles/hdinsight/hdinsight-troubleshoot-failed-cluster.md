@@ -83,7 +83,7 @@ To open a list of service views, select **Ambari Views** on the Azure portal pag
 
 #### Check for Azure service outages
 
-HDInsight relies on several Azure services. It runs virtual servers on Azure HDInsight, stores data and scripts on Azure Blob storage or Azure DataLake Store, and indexes log files in Azure Table storage. Disruptions to these services, although rare, can cause issues in HDInsight. If you have unexpected slowdowns or failures in your cluster,  check the [Azure Status Dashboard](https://azure.microsoft.com/status/). The status of each service is listed by region. Check your cluster's region and also regions for any related services.
+HDInsight relies on several Azure services. It runs virtual servers on Azure HDInsight, stores data and scripts on Azure Blob storage or Azure Data Lake Storage, and indexes log files in Azure Table storage. Disruptions to these services, although rare, can cause issues in HDInsight. If you have unexpected slowdowns or failures in your cluster,  check the [Azure Status Dashboard](https://azure.microsoft.com/status/). The status of each service is listed by region. Check your cluster's region and also regions for any related services.
 
 #### Check Azure service usage limits
 
