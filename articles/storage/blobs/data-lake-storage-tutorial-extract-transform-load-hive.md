@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/07/2019
 ms.author: jamesbak
-#Customer intent: As a analytics user, I want to perform an ETL operation so that I can work with my data in my preferred environment.
+#Customer intent: As an analytics user, I want to perform an ETL operation so that I can work with my data in my preferred environment.
 ---
 
 # Tutorial: Extract, transform, and load data by using Apache Hive on Azure HDInsight
 
-In this tutorial, you perform an ETL operation: extract, transform, and load data. You take a raw CSV data file, import it into an HDInsight cluster, transform it with Apache Hive, and load it into an Azure SQL database with Apache Sqoop.
+In this tutorial, you perform an ETL operation: extract, transform, and load data. You take a raw CSV data file, import it into an Azure HDInsight cluster, transform it with Apache Hive, and load it into an Azure SQL database with Apache Sqoop.
 
 In this tutorial, you learn how to:
 
@@ -282,7 +282,7 @@ Enter `exit` at the `1>` prompt to exit the tsql utility.
 
 ## Export and load the data
 
-In the previous sections, you copied the transformed data at the location  `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output`. In this section, you use Sqoop to export the data from `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output` to the table you created in Azure SQL database.
+In the previous sections, you copied the transformed data at the location  `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output`. In this section, you use Sqoop to export the data from `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output` to the table you created in the Azure SQL database.
 
 Use the following command to verify that Sqoop can see your SQL database:
 
