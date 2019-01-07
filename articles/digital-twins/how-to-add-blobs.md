@@ -91,9 +91,6 @@ multipartContent.Add(fileContents, "contents");
 var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 ```
 
->[!NOTE]
-> You can also view the [Occupancy Quickstart source code](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/api/update.cs) for more full C# examples.
-
 ## API endpoints
 
 The following sections describe the core blob-related API endpoints and their functionalities.
