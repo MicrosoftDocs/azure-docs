@@ -84,7 +84,7 @@ Alternatively, the resource ID of a VM image in the Credential subscription can 
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-ImageId | String | Resource ID of vm image, requires `Azure.SinglePlacementGroup`
+ImageId | String | Resource ID of vm image
 
 These two variations need a few additional settings to properly configure the CycleCloud OS extension:
 
@@ -158,7 +158,7 @@ elastic resource so additional attributes are available.
 Attribute | String | Definition
 ------ | ----- | ----------
 Azure.AllocationMethod  | String | Set this to `StandAlone` to manage single VMs or leave undefined to use VM ScaleSets
-Azure.SinglePlacementGroup  | Boolean | Use a single placement group for all VMSS, required by `ImageId`
+Azure.SingleScaleset  | Boolean | Use a single VMSS for all nodes, and put all VMs in a single placement group in the VMSS
 InitialCount | Integer | Number of nodes to start when cluster starts.
 MaxCount | Integer | To ensure that the cluster never exceeds 10 nodes you would specify a value of 10. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
 InitialCoreCount | Integer | Number of cores to start when cluster starts.
