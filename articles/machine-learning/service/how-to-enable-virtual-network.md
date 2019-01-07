@@ -1,6 +1,7 @@
 ---
-title: Run experiments and inferencing inside a Virtual Network 
-description: Learn how to run experiments and inferencing inside a Virtual Network 
+title: Run experiments and inferencing inside a Virtual Network
+titleSuffix: Azure Machine Learning service
+description: Learn how to securely run Machine Learning experiments and inferencing inside an Azure Virtual Network.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -46,29 +47,27 @@ To use Machine Learning Compute in a virtual network, use the follow information
 
 ### <a id="mlcports"></a> Required ports
 
-> [!IMPORTANT]
-> Machine Learning Compute currently uses the Azure Batch Service to provision VMs in the specified virtual network. The subnet must allow inbound communication from the Batch service to be able to schedule runs on the Machine Learning Compute nodes and outbound communication to communicate with Azure Storage and other resources. Note that Batch adds NSGs at the level of network interfaces (NICs) attached to VMs. These NSGs automatically configure inbound and outbound rules to allow the following traffic:
->
->- Inbound TCP traffic on ports 29876 and 29877 from Batch service role IP addresses. 
-> 
->- Inbound TCP traffic on port 22 to permit remote access.
-> 
->- Outbound traffic on any port to the virtual network.
->
->- Outbound traffic on any port to the internet.
+Machine Learning Compute currently uses the Azure Batch Service to provision VMs in the specified virtual network. The subnet must allow inbound communication from the Batch service to be able to schedule runs on the Machine Learning Compute nodes and outbound communication to communicate with Azure Storage and other resources. Note that Batch adds NSGs at the level of network interfaces (NICs) attached to VMs. These NSGs automatically configure inbound and outbound rules to allow the following traffic:
 
-> [!IMPORTANT]
->Exercise caution if you modify or add inbound/outbound rules in Batch-configured NSGs. If communication to the compute nodes in the specified subnet is denied by an NSG, then the Machine Learning Compute services sets the state of the compute nodes to unusable.
+- Inbound TCP traffic on ports 29876 and 29877 from Batch service role IP addresses. 
+ 
+- Inbound TCP traffic on port 22 to permit remote access.
+ 
+- Outbound traffic on any port to the virtual network.
 
->Please note that you do not need to specify NSGs at the subnet level because Batch configures its own NSGs as explained above. However, if the specified subnet has associated NSGs and/or a firewall, configure the inbound and outbound security rules as explained above and as shown in the screenshots below:
+- Outbound traffic on any port to the internet.
 
->![How to set up inbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)
+Exercise caution if you modify or add inbound/outbound rules in Batch-configured NSGs. If communication to the compute nodes in the specified subnet is denied by an NSG, then the Machine Learning Compute services sets the state of the compute nodes to unusable.
 
->![How to set up outbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
+You do not need to specify NSGs at the subnet level because Batch configures its own NSGs as explained above. However, if the specified subnet has associated NSGs and/or a firewall, configure the inbound and outbound security rules as explained above and as shown in the screenshots below:
+
+![How to set up inbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)
+
+![How to set up outbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
 
 ### Create Machine Learning Compute in a virtual network
 
-Follow the steps below to create a Machine Learning Compute cluster that is inside a Virtual Network:
+To create a Machine Learning Compute cluster with the **Azure portal**, use the following steps:
 
 1. From the [Azure portal](https://portal.azure.com), select your Azure Machine Learning service workspace.
 
@@ -88,8 +87,43 @@ Follow the steps below to create a Machine Learning Compute cluster that is insi
 
     ![A screenshot showing virtual network settings for machine learning compute](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
 
-You can now train your model on the newly created compute. For more information, see the [Select and use a compute target for training](how-to-set-up-training-targets.md) document.
+You can also create a Machine Learning Compute cluster using the **Azure Machine Learning SDK**. The following code creates a new Machine Learning Compute cluster in the `default` subnet of a virtual network named `mynetwork`:
 
+```python
+from azureml.core.compute import ComputeTarget, AmlCompute
+from azureml.core.compute_target import ComputeTargetException
+
+# The Azure Virtual Network name, subnet, and resource group
+vnet_name = 'mynetwork'
+subnet_name = 'default'
+vnet_resourcegroup_name = 'mygroup'
+
+# Choose a name for your CPU cluster
+cpu_cluster_name = "cpucluster"
+
+# Verify that cluster does not exist already
+try:
+    cpu_cluster = ComputeTarget(workspace=ws, name=cpu_cluster_name)
+    print("Found existing cpucluster")
+except ComputeTargetException:
+    print("Creating new cpucluster")
+    
+    # Specify the configuration for the new cluster
+    compute_config = AmlCompute.provisioning_configuration(vm_size="STANDARD_D2_V2",
+                                                           min_nodes=0,
+                                                           max_nodes=4,
+                                                           vnet_resourcegroup_name = vnet_resourcegroup_name,
+                                                           vnet_name = vnet_name,
+                                                           subnet_name = subnet_name)
+
+    # Create the cluster with the specified name and configuration
+    cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
+    
+    # Wait for the cluster to complete, show the output log
+    cpu_cluster.wait_for_completion(show_output=True)
+```
+
+Once the creation process finishes, you can train your model using the cluster. For more information, see the [Select and use a compute target for training](how-to-set-up-training-targets.md) document.
 
 ## Use a Virtual Machine or HDInsight
 
@@ -167,7 +201,7 @@ To add Azure Kubernetes Service in a Virtual Network to your workspace, use the 
     > [!TIP]
     > If you already have an AKS cluster in a Virtual Network, you can attach it to the workspace. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
 
-You are not ready to do inferencing on an AKS cluster behind a virtual network. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
+You are now ready to do inferencing on an AKS cluster behind a virtual network. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
 
 ## Next steps
 
