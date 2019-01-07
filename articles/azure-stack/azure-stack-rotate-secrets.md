@@ -258,7 +258,12 @@ Remove-PSSession -Session $PEPSession
 
 This command rotates the TLS certificates used for Azure Stack's external network infrastructure endpoints.
 
-**Rotate internal and external infrastructure secrets**
+#### Rotate internal and external infrastructure secrets
+
+> [!IMPORTANT]
+> This command only applies to Azure Stack **pre-1811** as the rotation has been split for internal and external certificates.
+>
+> **You cannot rotate both internal and external certificates any more.**
 
 ```PowerShell
 PS C:\> Invoke-Command -session $PEPSession -ScriptBlock { 
