@@ -64,7 +64,7 @@
     items:
     - name: Set up Postman
       href: how-to-configure-postman.md
-    - name: Navigate Digital Twins APIs
+    - name: Use Digital Twins APIs
       href: how-to-navigate-apis.md
     - name: Common query patterns
       href: how-to-query-common-apis.md

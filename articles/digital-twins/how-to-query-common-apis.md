@@ -6,7 +6,7 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/21/2018
+ms.date: 1/7/2019
 ms.author: dkshir
 ---
 
