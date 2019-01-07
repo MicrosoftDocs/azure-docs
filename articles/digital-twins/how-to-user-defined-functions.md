@@ -76,7 +76,7 @@ After the matchers are created, upload the function snippet with the following a
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
-Use the following JSON body:
+Use the following body:
 
 ```plaintext
 --USER_DEFINED_BOUNDARY
