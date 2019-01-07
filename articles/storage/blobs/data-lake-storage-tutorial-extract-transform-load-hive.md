@@ -43,7 +43,7 @@ This tutorial uses flight data from the Bureau of Transportation Statistics in o
 
 1. Go to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
 
-1. On the page, select the following values:
+2. On the page, select the following values:
 
    | Name | Value |
    | --- | --- |
@@ -51,9 +51,9 @@ This tutorial uses flight data from the Bureau of Transportation Statistics in o
    | **Filter Period** |January |
    | **Fields** |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
 
-1. Clear all other fields.
+3. Clear all other fields.
 
-1. Select **Download**. You get a .zip file with the data fields that you selected.
+4. Select **Download**. You get a .zip file with the data fields that you selected.
 
 ## Extract and upload the data
 
