@@ -306,7 +306,7 @@ The baseboard management controller (BMC) monitors the physical state of your se
     $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"
     $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -Force
-    $PECred = New-Object System.Management.Automation.PSCredential ($PEUser, $PEpwd) 
+    $PECred = New-Object System.Management.Automation.PSCredential ($PEUser, $PEpwd)
     $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -Force
     $NewBMCuser = "<New BMC User name>"
 
