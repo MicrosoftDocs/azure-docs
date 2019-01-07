@@ -398,7 +398,7 @@ gateway uses the "NT SERVICE\PBIEgwService" name for
 its "Log On As" account credentials. By default, 
 the gateway has "Log on as a service" permissions 
 on the computer where you install the gateway. 
-The Windows service account for the gateway differs from 
+The Windows service account for the gateway usually differs from 
 the account you use for connecting to on-premises data sources, 
 and from the work or school account you use for signing in to cloud services.
 
