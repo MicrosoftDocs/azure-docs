@@ -32,11 +32,11 @@ The following list shows the components of the Digital Twins APIs.
 
 * [/propertyKeys](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/PropertyKeys): You can use these APIs to create custom properties for your *spaces*, *devices*, *users*, and *sensors*, as key/value pairs of specific data types called the *PrimitiveDataType*. For example, you can define a property named *BasicTemperatureDeltaProcessingRefreshTime* of type *uint* for your sensors, and then assign a value for this property for each of your sensors. You can also add constraints for these values while creating the property, such as *Min* and *Max* ranges, as well as allowed values as *ValidationData*.
 
-* [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers): These APIs allow you to specify the conditions that you want to evaluate from your incoming device data. See [this article](concepts-user-defined-functions#matchers) for more information. 
+* [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers): These APIs allow you to specify the conditions that you want to evaluate from your incoming device data. See [this article](concepts-user-defined-functions.md#matchers) for more information. 
 
-* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions): These APIs allow you to create, delete or update a custom function that will execute when conditions defined by the *matchers* occur. See [this article](concepts-user-defined-functions#user-defined-functions) for more information about these custom functions, also called the *user defined functions*. 
+* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions): These APIs allow you to create, delete or update a custom function that will execute when conditions defined by the *matchers* occur. See [this article](concepts-user-defined-functions.md#user-defined-functions) for more information about these custom functions, also called the *user defined functions*. 
 
-* [/endpoints](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Endpoints): These APIs allow you to create endpoints so your Digital Twins solution can communicate with other Azure services for data storage and analytics. Read [this article](concepts-events-routing) for more information. 
+* [/endpoints](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Endpoints): These APIs allow you to create endpoints so your Digital Twins solution can communicate with other Azure services for data storage and analytics. Read [this article](concepts-events-routing.md) for more information. 
 
 * [/keyStores](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/KeyStores): These APIs allow you to manage security key stores for your spaces. These stores can hold a collection of security keys, and allow you to easily retrieve the latest valid keys.
 
@@ -44,7 +44,7 @@ The following list shows the components of the Digital Twins APIs.
 
 * [/system](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/System): These APIs allow you to manage system wide settings, such as the default types of spaces and sensors. 
 
-* [/roleAssignments](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/RoleAssignments): These APIs allow you associate roles to entities such as user ID, user defined function ID, etc. Each role assignment includes the ID of the entity to associate, the entity type, the ID of the role to associate, the tenant id, and a path that defines the upper limit of the resource that the entity can access with that association. Read [this article](security-role-based-access-control) for more information.
+* [/roleAssignments](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/RoleAssignments): These APIs allow you associate roles to entities such as user ID, user defined function ID, etc. Each role assignment includes the ID of the entity to associate, the entity type, the ID of the role to associate, the tenant id, and a path that defines the upper limit of the resource that the entity can access with that association. Read [this article](security-role-based-access-control.md) for more information.
 
 
 ## API navigation
