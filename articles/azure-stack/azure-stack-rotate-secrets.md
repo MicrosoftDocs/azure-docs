@@ -151,12 +151,12 @@ To rotate external secrets:
 The following PowerShell example demonstrates the cmdlets and parameters to run in order to rotate your secrets.
 
 ```PowerShell
-#Create a PEP Session
+# Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IPofERCSMachine>"}'
 $PEPCreds = Get-Credential
 $PEPSession = New-PSSession -ComputerName <IPofERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint
 
-#Run Secret Rotation
+ #Run Secret Rotation
 $CertPassword = ConvertTo-SecureString "Certpasswordhere" -Force
 $CertShareCred = Get-Credential 
 $CertSharePath = "<NetworkPathofCertShare>"
