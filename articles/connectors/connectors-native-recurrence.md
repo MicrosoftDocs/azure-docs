@@ -165,8 +165,9 @@ Here is an example [recurrence trigger definition](../logic-apps/logic-apps-work
 **Q:** What if I want to run a logic app immediately and one time only? </br>
 **A:** To trigger your logic app immediately and run one time without recurring, 
 you can use the **Scheduler: Run once jobs** template. After you create 
-a new logic app but before opening the Logic Apps designer, 
-you can select this template from the **Templates** section: 
+a new logic app but before opening the Logic Apps designer, under the 
+**Templates** section, from the **Category** list, select **Schedule**, 
+and then select the template:
 
 ![Select "Scheduler: Run once jobs" template](./media/connectors-native-recurrence/choose-run-once-template.png)
 
