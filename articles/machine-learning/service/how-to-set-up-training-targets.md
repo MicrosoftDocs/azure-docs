@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/07/2018
 ms.custom: seodec18
 ---
 # Set up compute targets for model training
@@ -23,6 +23,8 @@ In this article, you learn how to use various compute targets.  The steps for al
 2. __Attach__ the compute target to your workspace.
 3. __Configure__ the compute target so that it contains the Python environment and package dependencies needed by your script.
 
+>[!NOTE]
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.6.
 
 ## Supported compute targets
 
@@ -46,7 +48,7 @@ Azure Machine Learning service has varying support across different compute targ
 
 When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute targets without having to change your script. 
 
-All you need to do is define the environment for each compute target with a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify that run configuration.  
+All you need to do is define the environment for each compute target with a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify that run configuration. 
 
 Learn more about [submitting experiments](#submit) at the end of this article.
 
@@ -86,7 +88,7 @@ Use the sections below to configure these compute targets:
 
 ### <a id="local"></a>Local computer
 
-1. **Create and attach**: There's no need to create or attach a compute target when you use your local computer as the training environment.  
+1. **Create and attach**: There's no need to create or attach a compute target to use your local computer as the training environment.  
 
 1. **Configure**:  When you use your local computer as a compute target, the training code is run in your [development environment](how-to-configure-environment.md).  If that environment already has the Python packages you need, use the user-managed environment.
 
@@ -242,6 +244,7 @@ You can access the compute targets that are associated with your workspace in th
 After a target is created and attached to your workspace, you will use it in your run configuration with a `ComputeTarget` object: 
 
 ```python
+from azureml.core.compute import ComputeTarget
 myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 ```
 
