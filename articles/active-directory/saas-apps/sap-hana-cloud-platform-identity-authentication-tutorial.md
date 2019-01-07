@@ -116,7 +116,7 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you wish to configure in **IDP** intiated mode perform the following steps:
 
     ![SAP Cloud Platform Identity Authentication Domain and URLs single sign-on information](common/idp-intiated.png)
 
@@ -129,21 +129,21 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 	> [!NOTE]
 	> These values are not real. Update these values with the actual identifier and Reply URL. Contact the [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) to get these values. If you don't understand Identifier value, read the SAP Cloud Platform Identity Authentication documentation about [Tenant SAML 2.0 configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
 
-    c. Click **set additional URLs**.
-
-    d. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `{YOUR BUSINESS APPLICATION URL}`
+5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     ![SAP Cloud Platform Identity Authentication Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+
+	In the **Sign-on URL** text box, type a URL using the following pattern:
+    `{YOUR BUSINESS APPLICATION URL}`
 
 	> [!NOTE]
 	> This value is not real. Update this value with the actual sign-on URL. Please use your specific business application Sign-on URL. Contact the [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) if you have any doubt.
 
-5. SAP Cloud Platform Identity Authentication application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+6. SAP Cloud Platform Identity Authentication application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 
-6. If your SAP application expects an attribute such as **firstName**, add the **firstName** attribute in the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+7. If your SAP application expects an attribute such as **firstName**, add the **firstName** attribute in the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -163,11 +163,11 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 	g. Click **Save**.
 
-7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Metadata XML** from the given options as per your requirement and save it on your computer.
+8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
-8. On the **Set up SAP Cloud Platform Identity Authentication** section, copy the appropriate URL(s) as per your requirement.
+9. On the **Set up SAP Cloud Platform Identity Authentication** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
