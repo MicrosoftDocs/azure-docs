@@ -21,9 +21,9 @@ This FAQ answers common questions about using and purchasing ClearDB MySQL datab
 > For more details and next steps, see [Changes to ClearDB service plans](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
 
 ## What options do I have for MySQL on Azure?
-See [ClearDB](https://w2.cleardb.net/) for the latest information. ClearDB is a MySQL hosting service and manages the MySQL infrastructure for you. When you run your own MySQL cluster or database on an Azure Virtual Machine, you have to set up the MySQL server and keep it updated with patches.
+See [ClearDB](https://w2.cleardb.net/) for the latest information on that service. ClearDB is a MySQL hosting service and manages the MySQL infrastructure for you. 
 
-You have several options for hosting MySQL in Azure:
+You have several other options for hosting MySQL in Azure:
 * [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)
 * [MySQL cluster running on an Azure VM](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
 * [Single instance of MySQL running on an Azure VM](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
