@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 01/07/2019
 ms.author: lahugh
 ms.custom: seodec18
 
@@ -38,6 +38,15 @@ Batch pools in the Virtual Machine configuration support all VM sizes ([Linux](.
 | Basic A-series | Basic_A0 (A0) |
 | A-series | Standard_A0 |
 | B-series | All |
+| DC-series | All | 
+| Extreme memory optimized | All |
+| Hb-series | All | 
+| Hc-series | All |
+| Lsv2-series | All |
+| NVv2-series | All |
+| SAP HANA | All |
+
+Hb-series and Hc-series VMs are not currently supported, but will be supported in the future.
 
 The following VM sizes are supported only for low-priority nodes:
 
@@ -65,6 +74,8 @@ The following VM families can be allocated in Batch pools, but you must request 
 * ND-series
 
 These sizes can only be used in pools in the Virtual Machine configuration.
+
+Additionally, NDv2-series VMs are not supported by default. To use NDv2-series VMs with your Batch account, contact [Azure support](../azure-supportability/how-to-create-azure-support-request.md).
 
 ## Size considerations
 
