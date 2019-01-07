@@ -251,10 +251,11 @@ When secret rotation successfully completes, your console will display **Overall
     > [!Note]
     > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **–Internal** and **-ReRun** parameters.  
 
-    ```PowerShell
-    Start-SecretRotation -Internal -ReRun
-    ```
-    Contact Support if you experience repeated secret rotation failures.
+```PowerShell
+Start-SecretRotation -Internal -ReRun
+```
+
+Contact Support if you experience repeated secret rotation failures.
 
 ## Start-SecretRotation reference
 
