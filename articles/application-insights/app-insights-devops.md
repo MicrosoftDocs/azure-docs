@@ -90,7 +90,7 @@ Real Madrid uses the Power BI module to view their telemetry.
 ![Power BI view of Application Insights telemetry](./media/app-insights-devops/080.png)
 
 ## Smart detection
-[Proactive diagnostics](app-insights-proactive-diagnostics.md) is a recent feature. Without any special configuration by you, Application Insights automatically detects and alerts you about unusual rises in failure rates in your app. It's smart enough to ignore a background of occasional failures, and also rises that are simply proportionate to a rise in requests. So for example, if there's a failure in one of the services you depend on, or if the new build you just deployed isn't working so well, then you'll know about it as soon as you look at your email. (And there are webhooks so that you can trigger other apps.)
+[Proactive diagnostics](../azure-monitor/app/proactive-diagnostics.md) is a recent feature. Without any special configuration by you, Application Insights automatically detects and alerts you about unusual rises in failure rates in your app. It's smart enough to ignore a background of occasional failures, and also rises that are simply proportionate to a rise in requests. So for example, if there's a failure in one of the services you depend on, or if the new build you just deployed isn't working so well, then you'll know about it as soon as you look at your email. (And there are webhooks so that you can trigger other apps.)
 
 Another aspect of this feature performs a daily in-depth analysis of your telemetry, looking for unusual patterns of performance that are hard to discover. For example, it can find slow performance associated with a particular geographical area, or with a particular browser version.
 
@@ -152,7 +152,7 @@ When an alert is raised, Application Insights can automatically create a work it
 ## But what about...?
 * [Privacy and storage](../azure-monitor/app/data-retention-privacy.md) - Your telemetry is kept on Azure secure servers.
 * Performance - the impact is very low. Telemetry is batched.
-* [Pricing](app-insights-pricing.md) - You can get started for free, and that continues while you're in low volume.
+* [Pricing](../azure-monitor/app/pricing.md) - You can get started for free, and that continues while you're in low volume.
 
 
 ## Video
@@ -162,7 +162,7 @@ When an alert is raised, Application Insights can automatically create a work it
 ## Next steps
 Getting started with Application Insights is easy. The main options are:
 
-* Instrument an already-running web app. This gives you all the built-in performance telemetry. It's available for [Java](app-insights-java-live.md) and [IIS servers](app-insights-monitor-performance-live-website-now.md), and also for [Azure App Service](app-insights-overview.md).
-* Instrument your project during development. You can do this for [ASP.NET](../azure-monitor/app/asp-net.md) or [Java](app-insights-java-get-started.md) apps, as well as [Node.js](app-insights-nodejs.md) and a host of [other types](app-insights-platforms.md). 
-* Instrument [any web page](app-insights-javascript.md) by adding a short code snippet.
+* Instrument an already-running web app. This gives you all the built-in performance telemetry. It's available for [Java](../azure-monitor/app/java-live.md) and [IIS servers](../azure-monitor/app/monitor-performance-live-website-now.md), and also for [Azure App Service](app-insights-overview.md).
+* Instrument your project during development. You can do this for [ASP.NET](../azure-monitor/app/asp-net.md) or [Java](../azure-monitor/app/java-get-started.md) apps, as well as [Node.js](../azure-monitor/app/nodejs.md) and a host of [other types](../azure-monitor/app/platforms.md). 
+* Instrument [any web page](../azure-monitor/app/javascript.md) by adding a short code snippet.
 

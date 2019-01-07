@@ -40,7 +40,7 @@ Partial dependency information is collected automatically by the [Application In
 
 | Platform | Install |
 | --- | --- |
-| IIS Server |Either [install Status Monitor on your server](../../application-insights/app-insights-monitor-performance-live-website-now.md) or [Upgrade your application to .NET framework 4.6 or later](https://go.microsoft.com/fwlink/?LinkId=528259) and install the [Application Insights SDK](asp-net.md)  in your app. |
+| IIS Server |Either [install Status Monitor on your server](../../azure-monitor/app/monitor-performance-live-website-now.md) or [Upgrade your application to .NET framework 4.6 or later](https://go.microsoft.com/fwlink/?LinkId=528259) and install the [Application Insights SDK](asp-net.md)  in your app. |
 | Azure Web App |In your web app control panel, [open the Application Insights blade in your web app control panel](../../azure-monitor/app/azure-web-apps.md) and choose Install if prompted. |
 | Azure Cloud Service |[Use startup task](../../azure-monitor/app/cloudservices.md) or [Install .NET framework 4.6+](../../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
@@ -78,7 +78,7 @@ Click through the summary charts or the table items to search raw occurrences of
 >
 
 ## AJAX Calls
-The Browsers blade shows the duration and failure rate of AJAX calls from [JavaScript in your web pages](../../application-insights/app-insights-javascript.md). They are shown as Dependencies.
+The Browsers blade shows the duration and failure rate of AJAX calls from [JavaScript in your web pages](../../azure-monitor/app/javascript.md). They are shown as Dependencies.
 
 ## <a name="diagnosis"></a> Diagnose slow requests
 Each request event is associated with the dependency calls, exceptions and other events that are tracked while your app is processing the request. So if some requests are performing badly, you can find out whether it's due to slow responses from a dependency.
@@ -117,7 +117,7 @@ There seems to be a large gap after the first dependency call, so we should look
 
 ### Profile your live site
 
-No idea where the time goes? The [Application Insights profiler](../../application-insights/app-insights-profiler.md) traces HTTP calls to your live site and shows you which functions in your code took the longest time.
+No idea where the time goes? The [Application Insights profiler](../../azure-monitor/app/profiler.md) traces HTTP calls to your live site and shows you which functions in your code took the longest time.
 
 ## Failed requests
 Failed requests might also be associated with failed calls to dependencies. Again, we can click through to track down the problem.
@@ -203,7 +203,7 @@ Consult the table below and insure you have chosen the correct configuration to 
 
 | Platform | Install |
 | --- | --- |
-| IIS Server |Either [install Status Monitor on your server](../../application-insights/app-insights-monitor-performance-live-website-now.md). Or [Upgrade your application to .NET framework 4.6 or later](https://go.microsoft.com/fwlink/?LinkId=528259) and install the [Application Insights SDK](asp-net.md)  in your app. |
+| IIS Server |Either [install Status Monitor on your server](../../azure-monitor/app/monitor-performance-live-website-now.md). Or [Upgrade your application to .NET framework 4.6 or later](https://go.microsoft.com/fwlink/?LinkId=528259) and install the [Application Insights SDK](asp-net.md)  in your app. |
 | IIS Express |Use IIS Server instead. |
 | Azure Web App |In your web app control panel, [open the Application Insights blade in your web app control panel](../../azure-monitor/app/azure-web-apps.md) and choose Install if prompted. |
 | Azure Cloud Service |[Use startup task](../../azure-monitor/app/cloudservices.md) or [Install .NET framework 4.6+](../../cloud-services/cloud-services-dotnet-install-dotnet.md). |
@@ -214,5 +214,5 @@ Consult the table below and insure you have chosen the correct configuration to 
 
 ## Next steps
 * [Exceptions](../../azure-monitor/app/asp-net-exceptions.md)
-* [User & page data](../../application-insights/app-insights-javascript.md)
-* [Availability](../../application-insights/app-insights-monitor-web-app-availability.md)
+* [User & page data](../../azure-monitor/app/javascript.md)
+* [Availability](../../azure-monitor/app/monitor-web-app-availability.md)

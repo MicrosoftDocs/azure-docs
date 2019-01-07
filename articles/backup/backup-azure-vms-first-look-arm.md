@@ -284,7 +284,7 @@ To run the initial backup job:
   Deployment notifications let you know the backup job has been triggered, and that you can monitor the progress of the job on the Backup jobs page. Depending on the size of your VM, creating the initial backup may take a while.
 
   > [!NOTE]
-  > All the data being backed up by Azure Backup is encrypted at rest through [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
+  > - All the data being backed up by Azure Backup is encrypted at rest through [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
   >
   >
 
@@ -334,4 +334,3 @@ The cost of backing up Azure VMs is based on the number of protected instances. 
 ## Next steps
 
 [Manage](backup-azure-manage-vms.md) your backups.
-

@@ -166,8 +166,6 @@ If you are done streaming events and want to clean up the resources provisioned 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLocatorAssetAndStreamingEndpoint)]
 
-The following code shows how to clean up all of the live events and associated resources. 
-
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupAccount)]   
 
 ## Watch the event

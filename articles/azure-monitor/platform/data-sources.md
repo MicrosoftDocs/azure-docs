@@ -77,7 +77,7 @@ With the Azure Diagnostics extension, it provides a basic level of monitoring by
 Comprehensive monitoring and management of your Windows or Linux virtual machines or physical computer is delivered with the Log Analytics agent. The virtual machine can be running in Azure, another cloud, or on-premises and the agent connects to Azure Monitor either directly or through System Center Operations Manager and allows you to collect data from [data sources](agent-data-sources.md) that you configure or from [monitoring solutions](../insights/solutions.md) that provide additional insights into applications running on the virtual machine.
 
 ### Dependency agent
-[Service Map](../insights/service-map.md) and [Azure Monitor for VMs](../insights/vminsights-overview.md) requires a Dependency Agent on Windows and Linux virtual machines. This integrates with the Log Analytics agent to collects discovered data about processes running on the virtual machine and external process dependencies. It stores this data in Azure Monitor and visualizes the discovered interconnected components.  
+[Service Map](../insights/service-map.md) and [Azure Monitor for VMs](../insights/vminsights-overview.md) requires a Dependency Agent on Windows and Linux virtual machines. This integrates with the Log Analytics agent to collect discovered data about processes running on the virtual machine and external process dependencies. It stores this data in Azure Monitor and visualizes the discovered interconnected components.  
 
 To further understand the differences between the agents and which to use depending on your monitoring requirements, see [monitoring agents overview](agents-overview.md).
 
@@ -93,10 +93,10 @@ When you enable Application Insights for an application by installing an instrum
 You can also use Application Insights to [create a custom metric](../../azure-monitor/app/api-custom-events-metrics.md).  This allows you to define your own logic for calculating a numeric value and then storing that value with other metrics that can be accessed from the Metric Explorer and used for [Autoscale](../../azure-monitor/platform/autoscale-custom-metric.md) and Metric alerts.
 
 ### Dependencies
-In order to monitor different logical operations of an application, you must [collect telemetry across multiple components](../../application-insights/app-insights-transaction-diagnostics.md). Application Insights supports [distributed telemetry correlation](../../azure-monitor/app/correlation.md) which identifies the dependencies between components allowing you to analyze them together.
+In order to monitor different logical operations of an application, you must [collect telemetry across multiple components](../../azure-monitor/app/transaction-diagnostics.md). Application Insights supports [distributed telemetry correlation](../../azure-monitor/app/correlation.md) which identifies the dependencies between components allowing you to analyze them together.
 
 ### Availability tests
-[Availability tests](../../application-insights/app-insights-monitor-web-app-availability.md) in Application Insights allow you to test the availability and responsiveness of your application from different locations on the public Internet. You can do a simple ping test to verify that the application is alive or use Visual Studio to create a web test that simulates a user scenario.  Availability tests don't require any instrumentation in the application.
+[Availability tests](../../azure-monitor/app/monitor-web-app-availability.md) in Application Insights allow you to test the availability and responsiveness of your application from different locations on the public Internet. You can do a simple ping test to verify that the application is alive or use Visual Studio to create a web test that simulates a user scenario.  Availability tests don't require any instrumentation in the application.
 
 ## Custom sources
 In addition to the standard tiers of an application, you may need to monitor other resources that have telemetry that can't be collected with the other data sources. For these resources, you need to write this data using an Azure Monitor API.
