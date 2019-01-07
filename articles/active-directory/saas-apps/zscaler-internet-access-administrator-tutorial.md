@@ -101,6 +101,7 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
     ![Zscaler Internet Access Administrator Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL as per your requirement:
+    
 	| |
 	|--|
 	| `https://admin.zscaler.net` |
@@ -111,6 +112,7 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 	| `https://admin.zscalerbeta.net` |
 
     b. In the **Reply URL** text box, type a URL as per your requirement:
+    
 	| |
 	|--|
 	| `https://admin.zscaler.net/adminsso.do` |
@@ -161,9 +163,9 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 
 ### Configure Zscaler Internet Access Administrator Single Sign-On
 
-9. In a different web browser window, log in to your Zscaler Internet Access Admin UI.
+1. In a different web browser window, log in to your Zscaler Internet Access Admin UI.
 
-10. Go to **Administration > Administrator Management** and perform the following steps and click Save:
+2. Go to **Administration > Administrator Management** and perform the following steps and click Save:
    
 	![Administration](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administration")
 
@@ -173,7 +175,7 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 	
 	c. Optionally, for additional security, add the **Issuer** details to verify the Issuer of the SAML response.
 
-11. On the Admin UI, perform the following steps:
+3. On the Admin UI, perform the following steps:
 
     ![Administration](./media/zscaler-internet-access-administrator-tutorial/ic800207.png)
 
