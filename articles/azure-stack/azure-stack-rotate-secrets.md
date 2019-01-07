@@ -24,21 +24,24 @@ ms.reviewer: ppacent
 
 Azure Stack uses various secrets to maintain secure communication between the Azure Stack infrastructure resources and services.
 
-- **Internal secrets**  
+- **Internal secrets**
+
 All the certificates, passwords, secure strings, and keys used by the Azure Stack infrastructure without intervention of the Azure Stack Operator.
 
-- **External secrets**  
-Infrastructure service certificates for external-facing services that are provided by the Azure Stack Operator. This includes the certificates for the following services: 
-  - Administrator Portal  
-  - Public Portal  
-  - Administrator Azure Resource Manager  
-  - Global Azure Resource Manager  
-  - Administrator Keyvault  
-  - Keyvault  
-  - Admin Extension Host  
-  - ACS (including blob, table, and queue storage)  
-  - ADFS *  
-  - Graph *  
+- **External secrets**
+
+Infrastructure service certificates for external-facing services that are provided by the Azure Stack Operator. This includes the certificates for the following services:
+
+- Administrator Portal
+- Public Portal
+- Administrator Azure Resource Manager
+- Global Azure Resource Manager
+- Administrator Keyvault
+- Keyvault
+- Admin Extension Host
+- ACS (including blob, table, and queue storage)
+- ADFS *
+- Graph *
 
 \* Only applicable if the environment's identity provider is Active Directory Federated Services (AD FS).
 
