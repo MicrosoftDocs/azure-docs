@@ -18,11 +18,9 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 This quickstart is also available as an [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-
 ## Prerequisites
 
-In addition to an Azure subscription, you need the following to complete this quickstart:
+* If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 * [A test cluster and database](create-cluster-database-portal.md)
 
@@ -115,7 +113,7 @@ dataframe_from_result_table(RESPONSE.primary_results[0])
 
 ## Define ingestion mapping
 
-Map incoming CSV data to the column names and data types used when creating the table.
+Map incoming CSV data to the column names and data types used when creating the table. This maps source data fields to destination table columns
 
 ```python
 CREATE_MAPPING_COMMAND = """.create table StormEvents ingestion csv mapping 'StormEvents_CSV_Mapping' '[{"Name":"StartTime","datatype":"datetime","Ordinal":0}, {"Name":"EndTime","datatype":"datetime","Ordinal":1},{"Name":"EpisodeId","datatype":"int","Ordinal":2},{"Name":"EventId","datatype":"int","Ordinal":3},{"Name":"State","datatype":"string","Ordinal":4},{"Name":"EventType","datatype":"string","Ordinal":5},{"Name":"InjuriesDirect","datatype":"int","Ordinal":6},{"Name":"InjuriesIndirect","datatype":"int","Ordinal":7},{"Name":"DeathsDirect","datatype":"int","Ordinal":8},{"Name":"DeathsIndirect","datatype":"int","Ordinal":9},{"Name":"DamageProperty","datatype":"int","Ordinal":10},{"Name":"DamageCrops","datatype":"int","Ordinal":11},{"Name":"Source","datatype":"string","Ordinal":12},{"Name":"BeginLocation","datatype":"string","Ordinal":13},{"Name":"EndLocation","datatype":"string","Ordinal":14},{"Name":"BeginLat","datatype":"real","Ordinal":16},{"Name":"BeginLon","datatype":"real","Ordinal":17},{"Name":"EndLat","datatype":"real","Ordinal":18},{"Name":"EndLon","datatype":"real","Ordinal":19},{"Name":"EpisodeNarrative","datatype":"string","Ordinal":20},{"Name":"EventNarrative","datatype":"string","Ordinal":21},{"Name":"StormSummary","datatype":"dynamic","Ordinal":22}]'"""
@@ -141,7 +139,7 @@ print('Done queuing up ingestion with Azure Data Explorer')
 
 ```
 
-## Validate that data was ingested into the table
+## Query data that was ingested into the table
 
 Wait for five to ten minutes for the queued ingestion to schedule the ingest and load the data into Azure Data Explorer. Then run the following code to get the count of records in the StormEvents table.
 
@@ -181,4 +179,4 @@ If you plan to follow our other quickstarts and tutorials, keep the resources yo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Write queries](write-queries.md)
+> [Query data using Python](python-query-data.md)
