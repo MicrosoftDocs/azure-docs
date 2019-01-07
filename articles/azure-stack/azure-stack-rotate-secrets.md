@@ -154,13 +154,13 @@ The following PowerShell example demonstrates the cmdlets and parameters to run 
 #Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IPofERCSMachine>"}'
 $PEPCreds = Get-Credential
-$PEPsession = New-PSSession -ComputerName <IPofERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint
+$PEPSession = New-PSSession -ComputerName <IPofERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint
 
 #Run Secret Rotation
 $CertPassword = ConvertTo-SecureString "Certpasswordhere" -Force
 $CertShareCred = Get-Credential 
 $CertSharePath = "<NetworkPathofCertShare>"
-Invoke-Command -Session $PEPsession -ScriptBlock {
+Invoke-Command -Session $PEPSession -ScriptBlock {
 Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
 Remove-PSSession -Session $PEPSession
 ```
