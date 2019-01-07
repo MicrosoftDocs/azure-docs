@@ -125,12 +125,7 @@ To use a virtual machine or HDInsight cluster in a Virtual Network with your wor
 
     ![Outbound rules for doing experimentation on VM or HDI inside a virtual network](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
     
-1. Attach the VM or cluster to your Azure Machine Learning service workspace. For more information, see the following Jupyter notebooks:
-
-    * [Train using a remote VM](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb)
-
-    * [Train using an HDI cluster](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb) 
-
+1. Attach the VM or HDInsight cluster to your Azure Machine Learning service workspace. For more information, see the [Set up compute targets for model training](how-to-set-up-training-targets) document.
 
 ## Use Azure Kubernetes Service (AKS)
 
@@ -173,3 +168,9 @@ To add Azure Kubernetes Service in a Virtual Network to your workspace, use the 
     > If you already have an AKS cluster in a Virtual Network, you can attach it to the workspace. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
 
 You are not ready to do inferencing on an AKS cluster behind a virtual network. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
+
+## Next steps
+
+* [Set up training environments](how-to-set-up-training-targets)
+* [Where to deploy models](how-to-deploy-and-where)
+* [Secure deployed models with SSL](how-to-secure-web-service)

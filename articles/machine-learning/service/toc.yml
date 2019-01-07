@@ -138,6 +138,9 @@
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
+  - name: Use with Virtual Networks
+    displayName: vnet
+    href: how-to-enable-virtual-network.md
   - name: Use the Machine Learning CLI
     displayName: cli command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
