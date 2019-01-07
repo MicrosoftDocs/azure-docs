@@ -25,11 +25,11 @@ Final step is to prepare the device to ship. In this step, all the device shares
 
 3. The device status updates to *Ready to ship* and the device is locked once the device preparation is complete.
         
-    ![Prepare to ship 1](media/data-box-prepare-to-ship/prepare-to-ship3.png)
+    ![Prepare to ship 3](media/data-box-prepare-to-ship/prepare-to-ship3.png)
 
-    If you want to copy more data to the device, you can unlock the device, copy more data, and run prepare to ship again. 
+    If you want to copy more data to the device, you can unlock the device, copy more data, and run prepare to ship again.
 
-    If there are errors in this step, you will need to download the error log and resolve the errors. Once the errors are resolved, you will need to run the prepare to ship again.
+    If there are errors in this step, you will need to download the error log and resolve the errors. Once the errors are resolved, run **Prepare to ship**.
 
 4. After the prepare to ship is successfully complete (with no errors), download the list of files (also known as the manifest) copied in this process. You can later use this list to verify the files uploaded to Azure.
         
