@@ -50,7 +50,7 @@ In this phase, a migration of SAP workload onto Azure public cloud is planned. T
 		6.	Other SAP notes for other SAP specific products	 
 	5.	We recommend strict 3-Tier designs for SAP production systems. Combining ASCS + APP servers on the same VM is not recommended.  Using multi-SID cluster configurations for SAP Central Services is supported with Windows as guest OS on Azure. Whereas SAP Central Services multi-SID cluster configurations are not supported with Linux operating systems on Azure. Documentation for the Windows guest OS case can be found in:
 		1.	[SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and shared disk on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
-		2.	[SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share)
+		2.	[SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share)
 	6.	High Availability and disaster recovery architecture
 		1.	Define based on RTO and RPO what the high availability and disaster recovery architecture needs to look like
 		2.	For high availability within the same zone, check what the desired DBMS has to offer in Azure. Most DBMS offer synchronous methods of a synchronous hot standby, which we recommend for production systems.
@@ -187,7 +187,8 @@ This is the phase where you want to collect all the experiences and learnings of
 	3.	Use SAP Migration Monitor implemented into SAP SWPM tool to perform heterogeneous migrations
 	4.	Use the [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) process if you need to combine with an SAP release upgrade. Keep in mind that not all combinations between source and target DBMS are supported. More information can be found in the specific SAP support notes for the different releases of DMO. For example, [Database Migration Option (DMO) of SUM 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872)
 	5.	Test whether data transfer through internet or through ExpressRoute is better in throughput in case you need to move backups or SAP export files. Be aware that for the case of moving data through internet, you might need to change some of your NSG/ASG security rules that you need to have in place for future production systems
-3.	Before moving systems from the old platform into Azure collect resource consumption data, like CPU usage, storage throughput and IOPS data. Especially from the DBMS layer units, but also from the application layer units. Also measure network and storage latency.
+3.	Before moving systems from the old platform into Azure collect resource consumption data, like CPU usage, storage throughput and IOPS data. Especially from the DBMS layer units, but also from the application layer units. Also measure network and storage lat
+4.	ency.
 4.	Validate the resources on SAP support notes, SAP HANA hardware directory, and SAP PAM again to make sure that there were no changes in supported VMs for Azure, supported OS releases in those VMs and supported SAP and DBMS releases 
 4.	Adapt deployment scripts to the latest changes you decided on VM types and Azure functionality
 5.	After deployment of infrastructure and application go through a series of checks in order to validate:
