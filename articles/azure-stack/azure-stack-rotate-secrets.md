@@ -274,7 +274,7 @@ The baseboard management controller (BMC) monitors the physical state of your se
 
 1. Update the BMC on the Azure Stack physical servers by following your OEM instructions. The user account name and password for each BMC in your environment must be the same.
 2. Open a privileged endpoint in Azure Stack sessions. For instructions, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
-3. After your PowerShell prompt has changed to **[IP address or ERCS VM name]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment, run `Set-BmcCredemtial` by running `Invoke-Command`. Pass your privileged endpoint session variable as a parameter. For example:
+3. After your PowerShell prompt has changed to **[IP address or ERCS VM name]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment, run `Set-BmcCredential` by running `Invoke-Command`. Pass your privileged endpoint session variable as a parameter. For example:
 
     ```PowerShell
     # Interactive Version
