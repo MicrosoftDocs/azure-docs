@@ -74,7 +74,6 @@ In this phase a migration of SAP workload onto Azure public cloud is planned. Th
 	2.	[SAP HANA Installation](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.	Define a regular design and deployment review cadence between you as customer, system integrator, Microsoft, and other involved parties
 
-
  
 ## Pilot Phase (Optional)
  
@@ -148,7 +147,6 @@ The pilot can run before or in parallel to project planning and preparation. The
 	1.	In SAP based on SAP tracing and measurements, compare top 10 online reports to current implementation where applicable 
 	2.	In SAP based on SAP tracing and measurements, compare top 10 batch jobs to current implementation where applicable 
 	3.	In SAP based on SAP tracing and measurements, compare data transfers through interfaces into the SAP system. Focus on interfaces where you know that the transfer is now going between different locations, like going from on-premise to Azure 
-
 
 
 ## Non-Production Phase 
@@ -245,12 +243,14 @@ For the Go-Live phase, you need to make sure to follow your playbooks you develo
 6.	Perform VM backups for the SAP application layer VMs once the system is released for production
 7.	For SAP systems that were not part of the current go-live phase, but communicate with the SAP systems that you moved into Azure in this go-live phase, you need to reset the host name buffer in SM51. This step will get rid of the old cached IP addresses associated with the names of the application instances you moved into Azure  
 
+
 ## Post production
 In this phase, it is all about monitoring, operating, and administrating the system. From an SAP point of view, the usual tasks that you were required to perform with your old hosting location apply. Azure specific tasks you want to do are:
 
 1. Analyze Azure invoices for high charging systems
 2. Optimize price/performance efficiency on VM side and storage side
 3. Optimize time systems can be shut down  
+
 
 ## Next Steps
 Consult the documentation:
