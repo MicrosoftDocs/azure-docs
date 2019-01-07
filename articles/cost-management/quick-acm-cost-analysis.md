@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
@@ -80,7 +80,11 @@ Generally, you can expect to see data or notifications for consumed resources wi
 
 ![Daily view showing example daily costs for the current month](./media/quick-acm-cost-analysis/daily-view.png)
 
-You can **Group by** to select a group category to change data displayed in the top total area graph. Grouping lets you quickly see how your spending is categorized by common resource and usage properties, like resource group or resource tags. To group by tags, select the tag key you want to group by and you'll see costs broken down by each value for that tag, with an extra segment for resources which don't have that tag applied. Note Cost Management only supports resource tags from the date the tags are applied directly to the resource. Resource group tags are not supported today. Here's a view of Azure service costs for a view of the last month.
+You can **Group by** to select a group category to change data displayed in the top total area graph. Grouping lets you quickly see how your spending is categorized by common resource and usage properties, like resource group or resource tags. To group by tags, select the tag key you want to group by and you'll see costs broken down by each value for that tag, with an extra segment for resources which don't have that tag applied.
+
+Most [Azure resources support tagging](../azure-resource-manager/tag-support.md), however some tags are not available in Cost Management and billing. Additionally, resource group tags are not supported. Cost Management only supports resource tags from the date the tags are applied directly to the resource.
+
+Here's a view of Azure service costs for a view of the last month.
 
 ![Grouped daily accumulated view showing example Azure service costs for last month](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
