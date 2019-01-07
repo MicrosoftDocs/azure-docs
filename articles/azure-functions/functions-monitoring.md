@@ -409,7 +409,7 @@ Here's a sample JSON representation of `customDimensions` data:
 In C# script functions, you can use the `LogMetric` extension method on `ILogger` to create custom metrics in Application Insights. Here's a sample method call:
 
 ```csharp
-logger.LogMetric("TestMetric", 1234); 
+logger.LogMetric("TestMetric", 1234);
 ```
 
 This code is an alternative to calling `TrackMetric` using [the Application Insights API for .NET](#custom-telemetry-in-c-functions).
@@ -424,10 +424,10 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### Logging custom metrics  
 
-In Azure Functions version 1.x, Node.js functions can use the `context.log.metric` method to create custom metrics in Application Insights. Here's a sample method call:
+When running on [version 1.x](functions-versions.md#creating-1x-apps) of the Functions runtime, Node.js functions can use the `context.log.metric` method to create custom metrics in Application Insights. This method is not currently supported in version 2.x. Here's a sample method call:
 
 ```javascript
-context.log.metric("TestMetric", 1234); 
+context.log.metric("TestMetric", 1234);
 ```
 
 This code is an alternative to calling `trackMetric` using [the Node.js SDK for Application Insights](#custom-telemetry-in-javascript-functions).
