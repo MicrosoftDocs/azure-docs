@@ -173,7 +173,7 @@ For more information on delegation, see the following video:
 [Delegating product subscription]: #delegate-product-subscription
 [request a single-sign-on (SSO) token]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [create a user]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[calling the REST API for subscriptions]: https://docs.microsoft.com/en-us/rest/api/apimanagement/subscription/createorupdate
+[calling the REST API for subscriptions]: https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate
 [Next steps]: #next-steps
 [example code provided below]: #delegate-example-code
 
