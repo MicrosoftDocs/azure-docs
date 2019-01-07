@@ -298,7 +298,7 @@ The **Start-SecretRotation** cmdlet rotates the infrastructure secrets of an Azu
 | CertificatePassword | SecureString | False  | Named  | None  | The password for all certificates provided in the -PfXFilesPath. Required value if PfxFilesPath is provided when both internal and external secrets are rotated. |
 | Internal | String | False | Named | None | Internal flag must be used anytime an Azure Stack operator wishes to rotate internal infrastructure secrets. |
 | PathAccessCredential | PSCredential | False  | Named  | None  | The PowerShell credential for the fileshare of the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets or all secrets.  |
-| Rerun | SwitchParameter | False  | Named  | None  | Rerun must be used anytime secret rotation is reattempted after a failed attempt. |
+| ReRun | SwitchParameter | False  | Named  | None  | ReRun must be used anytime secret rotation is reattempted after a failed attempt. |
 
 ### Examples
 
