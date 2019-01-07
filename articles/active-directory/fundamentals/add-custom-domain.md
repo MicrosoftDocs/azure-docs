@@ -59,7 +59,7 @@ After you create your directory, you can add your custom domain name.
 ## Add your DNS information to the domain registrar
 After you add your custom domain name to Azure AD, you must return to your domain registrar and add the Azure AD DNS information from your copied TXT file. Creating this TXT record for your domain "verifies" ownership of your domain name.
 
--  Go back to your domain registrar, create a new TXT record for your domain based on your copied DNS information, set the **TTL** (time to live) to 60 minutes, and then save the information.
+-  Go back to your domain registrar, create a new TXT record for your domain based on your copied DNS information, set the **TTL** (time to live) to 3600 seconds (60 minutes), and then save the information.
 
     >[!Important]
     >You can register as many domain names as you want. However, each domain gets its own TXT record from Azure AD. Be careful when entering your TXT file information at the domain registrar. If you enter the wrong, or duplicate information by mistake, you'll have to wait until the TTL times out (60 minutes) before you can try again.
