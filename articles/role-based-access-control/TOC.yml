@@ -84,6 +84,12 @@
     href: /cli/azure/role?view=azure-cli-latest
   - name: REST API
     href: /rest/api/authorization/
+  - name: Resource Manager templates
+    items:
+    - name: Role Assignments
+      href: /azure/templates/microsoft.authorization/roleassignments
+    - name: Role Definitions
+      href: /azure/templates/microsoft.authorization/roledefinitions
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
