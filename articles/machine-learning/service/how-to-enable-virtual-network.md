@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ---
 
 # Securely run experiments and inferencing inside an Azure Virtual Network
