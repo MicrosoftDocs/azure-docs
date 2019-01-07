@@ -21,7 +21,7 @@ For scenarios where your logic apps and integration accounts need access to an
 [Azure virtual network](../virtual-network/virtual-networks-overview.md), create an 
 [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). 
 An ISE is a private and isolated environment that uses dedicated storage and other 
-resources kept separate from the public or *global* Logic Apps service. This separation 
+resources kept separate from the public or "global" Logic Apps service. This separation 
 also reduces any impact that other Azure tenants might have on your apps' performance. 
 Your ISE is *injected* into to your Azure virtual network, which then deploys the Logic Apps 
 service into your virtual network. When you create a logic app or integration account, 
@@ -48,6 +48,11 @@ For more information about integration service environments, see
 
 * An Azure subscription. If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+
+  > [!IMPORTANT]
+  > Logic apps, built-in actions, and connectors that run in your ISE use 
+  > a different pricing plan, not the consumption-based pricing plan. 
+  > For more information, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
 * An [Azure virtual network](../virtual-network/virtual-networks-overview.md). 
 If you don't have a virtual network, learn how to 
@@ -137,9 +142,9 @@ and then choose **Review + create**, for example:
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you want to create your environment |
    | **Integration Service Environment Name** | Yes | <*environment-name*> | The name to give your environment | 
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment | 
-   | **Capacity** | Yes | 0, 1, 2, 3 | The number of processing units to use for this ISE resource | 
+   | **Additional capacity** | Yes | 0, 1, 2, 3 | The number of processing units to use for this ISE resource | 
    | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, you can create one here. <p>**Important**: You can *only* perform this injection when you create your ISE. However, before you can create this relationship, make sure you already [set up role-based access control in your virtual network for Azure Logic Apps](#vnet-access). | 
-   | **Subnets** | Yes | <*IP-address-range*> | An ISE requires four *empty* subnets. These subnets are undelegated to any service and are used for creating resources in your environment. You *can't change* these IP ranges after you create your environment. <p><p>To create each subnet, [follow the steps under this table](#create-subnet). Each subnet must meet these criteria: <p>- Uses a name that doesn't start with a number or a hyphen. <br>- Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>- Requires a Class B address space. <br>- Includes a `/27`. For example, each subnet here specifies a 32-bit address range: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, and `10.0.0.96/27`. <br>- Must be empty. |
+   | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating resources in your environment. So, make sure these subnets *aren't delegated* to any service. You *can't change* these subnet addresses after you create your environment. <p><p>To create each subnet, [follow the steps under this table](#create-subnet). Each subnet must meet these criteria: <p>- Must be empty. <br>- Uses a name that doesn't start with a number or a hyphen. <br>- Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) and a Class B address space. <br>- Includes at least a `/27` in the address space so the subnet gets at least 32 addresses. To learn about calculating the number of addresses, see [IPv4 CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks). For example: <p>- `10.0.0.0/24` has 256 addresses because 2<sup>(32-24)</sup> is 2<sup>8</sup> or 256. <br>- `10.0.0.0/27` has 32 addresses because 2<sup>(32-27)</sup> is 2<sup>5</sup> or 32. <br>- `10.0.0.0/28` has only 16 addresses because 2<sup>(32-28)</sup> is 2<sup>4</sup> or 16. |
    |||||
 
    <a name="create-subnet"></a>
