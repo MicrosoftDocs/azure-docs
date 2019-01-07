@@ -223,10 +223,10 @@ $PEPSession = New-PSSession -ComputerName <IPofERCSMachine> -Credential $PEPCred
 
 # Run Secret Rotation
 $CertPassword = ConvertTo-SecureString "CertPasswordHere" -Force
-$CertShareCred = Get-Credential
+$CertShareCreds = Get-Credential
 $CertSharePath = "<NetworkPathofCertShare>"
 Invoke-Command -Session $PEPSession -ScriptBlock {
-    Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword
+    Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCreds -CertificatePassword $using:CertPassword
 }
 Remove-PSSession -Session $PEPSession
 ```
@@ -322,11 +322,11 @@ $PEPSession = New-PSSession -ComputerName <IPofERCSMachine> -Credential $PEPCred
 
 # Create Credentials for the fileshare
 $CertPassword = ConvertTo-SecureString "CertPasswordHere" -Force
-$CertShareCred = Get-Credential
+$CertShareCreds = Get-Credential
 $CertSharePath = "<NetworkPathofCertShare>"
 # Run Secret Rotation
 Invoke-Command -Session $PEPSession -ScriptBlock {  
-    Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword
+    Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCreds -CertificatePassword $using:CertPassword
 }
 Remove-PSSession -Session $PEPSession
 ```
@@ -348,11 +348,11 @@ $PEPSession = New-PSSession -ComputerName <IPofERCSMachine> -Credential $PEPCred
 
 # Create Credentials for the fileshare
 $CertPassword = ConvertTo-SecureString "CertPasswordHere" -Force
-$CertShareCred = Get-Credential
+$CertShareCreds = Get-Credential
 $CertSharePath = "<NetworkPathofCertShare>"
 # Run Secret Rotation
 Invoke-Command -Session $PEPSession -ScriptBlock {
-    Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword
+    Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCreds -CertificatePassword $using:CertPassword
 }
 Remove-PSSession -Session $PEPSession
 ```
