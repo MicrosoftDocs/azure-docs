@@ -212,11 +212,11 @@ You need the server name from your SQL database for this operation. Complete the
 
 1. Go to the [Azure portal](https://portal.azure.com).
 
-1. Select **SQL Databases**.
+2. Select **SQL Databases**.
 
 3. Filter on the name of the database that you choose to use. The server name is listed in the **Server name** column.
 
-1. Filter on the name of the database that you want to use. The server name is listed in the **Server name** column.
+4. Filter on the name of the database that you want to use. The server name is listed in the **Server name** column.
 
     ![Get Azure SQL server details](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Get Azure SQL server details")
 
