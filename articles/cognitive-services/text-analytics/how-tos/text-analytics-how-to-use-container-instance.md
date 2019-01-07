@@ -25,9 +25,11 @@ This procedure requires several tools that must be installed and run locally. Do
 1. Install [Azure cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or use integrated Azure Cloud shell's **Try it** feature next to each code snippet. 
 1. Install [Docker engine](https://www.docker.com/products/docker-engine) and validate that the docker cli works in a terminal.
 1. Install [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe). 
+1. An Azure resource with the support pricing tier. Not all pricing tiers work with this container:
+    * Text Analytics resource with F0 or Standard pricing tiers only.
+    * Azure Cognitive Services resource with the S0 pricing tier.
 
-
-## Running the sample 
+## Running the sample
 
 This procedure loads and runs the Cognitive Services Container sample for language detection. 
 
