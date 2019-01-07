@@ -11,7 +11,7 @@
     href: search-create-service-portal.md
   - name: Portal
     items:
-    - name: Import - Index - Search
+    - name: Import, index, and query using built-in portal tools
       href: search-get-started-portal.md
     - name: Try cognitive search
       href: cognitive-search-quickstart-blob.md
