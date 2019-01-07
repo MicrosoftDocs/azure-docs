@@ -217,7 +217,8 @@ $CertPassword = ConvertTo-SecureString "CertPasswordHere" -Force
 $CertShareCred = Get-Credential
 $CertSharePath = "<NetworkPathofCertShare>"
 Invoke-Command -Session $PEPSession -ScriptBlock {
-Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
+    Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword
+}
 Remove-PSSession -Session $PEPSession
 ```
 
@@ -318,7 +319,6 @@ $CertSharePath = "<NetworkPathofCertShare>"
 Invoke-Command -Session $PEPSession -ScriptBlock {  
     Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword
 }
-
 Remove-PSSession -Session $PEPSession
 ```
 
