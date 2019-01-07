@@ -19,6 +19,9 @@ Key transactions (Max transactions allowed in 10 seconds, per vault per region<s
 |
 
 > [!NOTE]
+> The thresholds above are weighted and enforcement is on their sum. You can do 125 RSA-HSM-4k operations and 0 RSA-HSM-2k, or 124 RSA-HSM-4k and 16 RSA-HSM-2k. Afterward, in the same 10-second interval, any other operation will cause an AKV client exception.
+
+> [!NOTE]
 > If you look at the table below, you see that for software-backed keys we allow 2000 transactions per 10 seconds, and for HSM backed keys we allow 1000 transactions      per 10 seconds. 
   The ratio of software-backed transactions for 3072 keys to 2048 keys is 500/2000 or 0.4. This means that if a customer does 500 3072 key transactions in 10 seconds, they reach their max limit and can't do any other key operations. 
    
