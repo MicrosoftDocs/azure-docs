@@ -286,7 +286,7 @@ The baseboard management controller (BMC) monitors the physical state of your se
     ```PowerShell
     # Interactive Version
     $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
-    $PECred = Get-Credential "<Domain>\CloudAdmin" -Message "PE Credentials" 
+    $PECred = Get-Credential "<Domain>\CloudAdmin" -Message "PE Credentials"
     $NewBMCpwd = Read-Host -Prompt "Enter New BMC password" -AsSecureString
     $NewBMCuser = Read-Host -Prompt "Enter New BMC user name"
 
@@ -308,7 +308,7 @@ The baseboard management controller (BMC) monitors the physical state of your se
     $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -Force
     $PECred = New-Object System.Management.Automation.PSCredential ($PEUser, $PEpwd) 
     $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -Force
-    $NewBMCuser = "<New BMC User name>" 
+    $NewBMCuser = "<New BMC User name>"
 
     $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint"
 
