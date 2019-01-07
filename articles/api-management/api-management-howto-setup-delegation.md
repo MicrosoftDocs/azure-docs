@@ -123,7 +123,7 @@ Then ensure the delegation endpoint performs the following actions:
      > 
    * Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step, otherwise deny the request.
 3. Perform any product subscription processing based on the type of operation requested in **operation** - for example, billing, further questions, etc.
-4. On successfully subscribing the user to the product on your side, subscribe the user to the API Management product by [calling the REST API for product subscription].
+4. On successfully subscribing the user to the product on your side, subscribe the user to the API Management product by [calling the REST API for subscriptions].
 
 ## <a name="delegate-example-code"> </a> Example Code
 These code samples show how to take the *delegation validation key*, which is set in the Delegation screen of the publisher portal, to create a HMAC, which is then used to validate the signature, proving the validity of the passed returnUrl. The same code works for the productId and userId with slight modification.
@@ -173,7 +173,7 @@ For more information on delegation, see the following video:
 [Delegating product subscription]: #delegate-product-subscription
 [request a single-sign-on (SSO) token]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [create a user]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[calling the REST API for product subscription]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
+[calling the REST API for subscriptions]: https://docs.microsoft.com/en-us/rest/api/apimanagement/subscription/createorupdate
 [Next steps]: #next-steps
 [example code provided below]: #delegate-example-code
 
