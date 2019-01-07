@@ -63,9 +63,9 @@ Start training your models and tracking the run histories using the new CLI and 
 
 Your pre-existing data preparation files aren't portable to the latest release because we don't have Machine Learning Workbench anymore. But you can still prepare any size data set for modeling.   
 
-With smaller and larger data sets, you can use the <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning data prep SDK</a> to quickly prepare your data before modeling. 
+With data sets of any size, you can use the [Azure Machine Learning Data Prep SDK](http://aka.ms/data-prep-sdk) to quickly prepare your data prior to modeling by writing Python code. 
 
-You can use this same <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> for larger data sets. Or use Azure Databricks to prepare large data sets. 
+You can follow [this tutorial](tutorial-data-prep.md) to learn more about how to use Azure Machine Learning Data Prep SDK.
 
 ## Will projects persist?
 
@@ -76,7 +76,7 @@ Much of the project content was already on your local machine. So you just need 
 run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 ```
 
-Learn how to [get started in Python with the main SDK](quickstart-get-started.md).
+Learn how to get started in [Python with the main SDK](quickstart-create-workspace-with-python.md) or using [Azure portal](quickstart-get-started.md).
 
 ## What about my registered models and images?
  

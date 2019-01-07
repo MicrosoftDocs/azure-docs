@@ -4,9 +4,9 @@ description: Overview of the Azure Database Migration Service, which provides se
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: 
+manager: craigg
 ms.reviewer: douglasl
-ms.service: database-migration
+ms.service: dms
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/19/2018

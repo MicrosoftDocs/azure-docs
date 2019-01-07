@@ -79,7 +79,7 @@ The v3 API has the following feature gaps with respect to the v2 API. Closing th
     * Overlays
     * Cropping
     * Thumbnail Sprites
-* LiveEvents with transcoding currently do not support Slate insertion mid-stream, custom presets, or ad marker insertion via API call. 
+* LiveEvents with transcoding currently do not support Slate insertion mid-stream and ad marker insertion via API call. 
 
 > [!NOTE]
 > Please bookmark this article and keep checking for updates.
