@@ -68,17 +68,17 @@ The files produced by Event Hubs Capture have the following Avro schema:
 
 ![Avro schema][3]
 
-An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar from Apache or using [Apache Drill][Apache Drill] for a lightweight SQL-driven experience or even [Apache Spark][Apache Spark] to perform complex distributed processing on the ingested data. 
+An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar from Apache. You can also use [Apache Drill][Apache Drill] for a lightweight SQL-driven experience or [Apache Spark][Apache Spark] to perform complex distributed processing on the ingested data. 
 
 ### Use Apache Drill
 
-[Apache Drill][Apache Drill] is a "open-source SQL query engine for Big Data exploration" able to query structured and semi-structured data wherever it is, that can run both as a standalone node or as a huge cluster for great performances.
+[Apache Drill][Apache Drill] is an "open-source SQL query engine for Big Data exploration" that can query structured and semi-structured data wherever it is. The engine can run as a standalone node or as a huge cluster for great performance.
 
-A native support to Azure Blob Store is available, which makes quering data contained into an Avro file really easy, as described in the documentation:
+A native support to Azure Blob storage is available, which makes it easy to query data in an Avro file, as described in the documentation:
 
 [Apache Drill: Azure Blob Storage Plugin][Apache Drill: Azure Blob Storage Plugin]
 
-to query captured files easily a VM with Apache Drill enabled to access Azure Blob Storage can be created in executed via container:
+To easily query captured files, you can create and execute a VM with Apache Drill enabled via a container to access Azure Blob storage:
 
 https://github.com/yorek/apache-drill-azure-blob
 
@@ -88,14 +88,14 @@ A full end-to-end sample is available in the Streaming at Scale repository:
 
 ### Use Apache Spark
 
-[Apache Spark][Apache Spark] is a "is a unified analytics engine for large-scale data processing". It supports different languages, included SQL, and can easily access Azure Blob Store. There are two optios to run Apache Spark in Azure, and both provide easy access to Azure Blob Storage:
+[Apache Spark][Apache Spark] is a "unified analytics engine for large-scale data processing." It supports different languages, including SQL, and can easily access Azure Blob storage. There are two options to run Apache Spark in Azure, and both provide easy access to Azure Blob storage:
 
 - [HDInsight: Address files in Azure storage][HDInsight: Address files in Azure storage]
-- [Azure Databricks: Azure Blob Storage][Azure Databricks: Azure Blob Storage]
+- [Azure Databricks: Azure Blob storage][Azure Databricks: Azure Blob Storage]
 
 ### Use Avro Tools
 
-[Avro Tools][Avro Tools] are available as a jar package. After downloading this jar, you can see the schema of a specific Avro file by running the following command:
+[Avro Tools][Avro Tools] are available as a jar package. After you download the jar file, you can see the schema of a specific Avro file by running the following command:
 
 ```shell
 java -jar avro-tools-1.8.2.jar getschema <name of capture file>
@@ -153,7 +153,7 @@ You can learn more about Event Hubs by visiting the following links:
 [Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
-[HDInsight: Address files in Azure storage]:https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage#address-files-in-azure-storage
+[HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage#address-files-in-azure-storage
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
 [Streaming at Scale: Event Hubs Capture]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture
