@@ -210,9 +210,9 @@ To deploy Azure File Sync, you first place a **Storage Sync Service** resource i
 
    | Value | Description |
    | ----- | ----- |
-   | **Name** | A unique name (per subscription) for the Storage Sync Service.<br><br>In this tutorial we're using _afssyncservice02_. |
-   | **Subscription** | The Azure subscription you're using for this tutorial. |
-   | **Resource group** | The resource group that contains the Storage Sync Service.<br><br>In this tutorial we've been using _afsresgroup101918_. |
+   | **Name** | A unique name (per subscription) for the Storage Sync Service.<br><br>Use _afssyncservice02_ for this tutorial. |
+   | **Subscription** | The Azure subscription you use for this tutorial. |
+   | **Resource group** | The resource group that contains the Storage Sync Service.<br><br>Use _afsresgroup101918_ for this tutorial. |
    | **Location** | East US |
 
 1. When you're finished, select **Create** to deploy the **Storage Sync Service**.
@@ -256,8 +256,8 @@ The Server Registration UI should open automatically after installing the **Azur
    | ----- | ----- |
    | Value | Description |
    | **Azure Subscription** | The subscription that contains the Storage Sync Service for this tutorial. |
-   | **Resource Group** | The resource group that contains the Storage Sync Service. We've used _afsresgroup101918_ throughout this tutorial. |
-   | **Storage Sync Service** | The name of the Storage Sync Service. We've used _afssyncservice02_ throughout this tutorial. |
+   | **Resource Group** | The resource group that contains the Storage Sync Service. Use _afsresgroup101918_ for this tutorial. |
+   | **Storage Sync Service** | The name of the Storage Sync Service. Use _afssyncservice02_ for this tutorial. |
 
 1. Select **Register** to complete the server registration.
 1. As part of the registration process, you're prompted for an additional sign-in. Sign in and select **Next**.
@@ -265,31 +265,30 @@ The Server Registration UI should open automatically after installing the **Azur
 
 ## Create a sync group
 
-\***
+A sync group defines the sync topology for a set of files. A sync group must contain one cloud endpoint, which represents an Azure file share. A sync group also must contain one or more server endpoints. A server endpoint represents a path on a registered server.
 
-A sync group defines the sync topology for a set of files. A sync group must contain one cloud endpoint, which represents an Azure file share and one or more server endpoints. A server endpoint represents a path on a registered server.
-
-1. To create a sync group, in the [Azure portal](https://portal.azure.com/), select **+ Sync group** from the Storage Sync Service you created for this tutorial. We used *afssyncservice02* as the example in this tutorial.
+1. To create a sync group, in the [Azure portal](https://portal.azure.com/), select **+ Sync group** from the Storage Sync Service. Use *afssyncservice02* for this tutorial.
 
    ![Create a new sync group in the Azure portal](media/storage-sync-files-extend-servers/add-sync-group.png)
 
-1. In the pane that opens, enter the following information to create a sync group with a cloud endpoint:
+1. Enter the following information to create a sync group with a cloud endpoint:
 
    | Value | Description |
    | ----- | ----- |
-   | **Sync group name** | This name must be unique within the Storage Sync Service, but can be any name that is logical for you. In this tutorial, we're using *afssyncgroup*.|
+   | **Sync group name** | This name must be unique within the Storage Sync Service, but can be any name that is logical for you. Use *afssyncgroup* for this tutorial.|
    | **Subscription** | The subscription where you deployed the Storage Sync Service for this tutorial. |
-   | **Storage account** |Select **Select storage account**. On the pane that appears, select the storage account that has the Azure file share you created for this tutorial. We used *afsstoracct101918*. |
-   | **Azure file share** | The name of the Azure file share you created for this tutorial. We used *afsfileshare*. |
+   | **Storage account** | Choose **Select storage account**. On the pane that appears, select the storage account that has the Azure file share you created. Use *afsstoracct101918* for this tutorial. |
+   | **Azure file share** | The name of the Azure file share you created. Use *afsfileshare* for this tutorial. |
 
 1. Select **Create**.
 
 If you select your sync group, you can see that you now have one **cloud endpoint**.
 
 ## Add a server endpoint
-A server endpoint represents a specific location on a registered server, such as a folder on a server volume.
 
-1. To add a server endpoint, select the newly created sync group and then select **Add server endpoint**.
+A server endpoint represents a specific location on a registered server. For example, a folder on a server volume. To add a server endpoint:
+
+1. Select the newly created sync group and then select **Add server endpoint**.
 
    ![Add a new server endpoint in the sync group pane](media/storage-sync-files-extend-servers/add-server-endpoint.png)
 
@@ -298,8 +297,8 @@ A server endpoint represents a specific location on a registered server, such as
    | | |
    | ----- | ----- |
    | Value | Description |
-   | **Registered server** | The name of the server you created for this tutorial. We used *afsvm101918* in this tutorial |
-   | **Path** | The Windows Server path to the drive you created for this tutorial. In our example, it is *f:\filestosync*. |
+   | **Registered server** | The name of the server you created. Use *afsvm101918* for this tutorial |
+   | **Path** | The Windows Server path to the drive you created. Use *f:\filestosync* in this tutorial. |
    | **Cloud Tiering** | Leave disabled for this tutorial. |
    | **Volume Free Space** | Leave blank for this tutorial. |
 
@@ -314,7 +313,8 @@ Your files are now in sync across your Azure file share and Windows Server.
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## Next steps
-In this tutorial, you learned the basic steps to extend the storage capacity of a Windows Server using Azure File Sync. Follow this link for a more thorough look at planning for an Azure File Sync deployment.
+
+In this tutorial, you learned the basic steps to extend the storage capacity of a Windows Server using Azure File Sync. For a more thorough look at planning for an Azure File Sync deployment, see:
 
 > [!div class="nextstepaction"]
 > [Plan for Azure File Sync deployment](./storage-sync-files-planning.md)
