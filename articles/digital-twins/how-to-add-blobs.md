@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 Blobs are unstructured representations of common file types, like pictures and logs. Blobs keep track of what kind of data they represent by using a MIME type (for example: "image/jpeg") and metadata (name, description, type, and so on).
 
-Azure Digital Twins supports attaching blobs to devices, spaces, and users. Blobs can represent a profile picture for a user, a device photo, a video, a map, or a log.
+Azure Digital Twins supports attaching blobs to devices, spaces, and users. Blobs can represent a profile picture for a user, a device photo, a video, a map, a firmware zip, JSON data, a log, etc.
 
 [!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
@@ -27,7 +27,7 @@ You can use multipart requests to upload blobs to specific endpoints and their r
 
 ### Blob metadata
 
-In addition to **Content-Type** and **Content-Disposition**, multipart requests must specify the correct JSON body. Which JSON body to submit depends on the kind of HTTP request operation that's being performed.
+In addition to **Content-Type** and **Content-Disposition**, Azure Digital Twins blob multipart requests must specify the correct JSON body. Which JSON body to submit depends on the kind of HTTP request operation that's being performed.
 
 The four main JSON schemas are:
 
@@ -43,12 +43,15 @@ Learn about using the reference documentation by reading [How to use Swagger](./
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-To make a **POST** request that uploads a text file as a blob and associates it with a space:
+To upload a text file as a blob and associate it with a space, make an authenticated HTTP POST request to:
 
 ```plaintext
-POST YOUR_MANAGEMENT_API_URL/spaces/blobs HTTP/1.1
-Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
+YOUR_MANAGEMENT_API_URL/spaces/blobs
+```
 
+With the following body:
+
+```plaintext
 --USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
@@ -91,6 +94,16 @@ multipartContent.Add(fileContents, "contents");
 var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 ```
 
+In both examples:
+
+1. Verify that the headers include: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Verify that the body is multipart:
+
+   - The first part contains the required blob metadata.
+   - The second part contains the text file.
+
+1. Verify that the text file is supplied as `Content-Type: text/plain`.
+
 ## API endpoints
 
 The following sections describe the core blob-related API endpoints and their functionalities.
@@ -101,7 +114,7 @@ You can attach blobs to devices. The following image shows the Swagger reference
 
 ![Device blobs][2]
 
-For example, to update or create a blob and attach the blob to a device, make a **PATCH** request to:
+For example, to update or create a blob and attach the blob to a device, make an authenticated HTTP PATCH request to:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
@@ -127,7 +140,7 @@ You can also attach blobs to spaces. The following image lists all space API end
 
 ![Space blobs][3]
 
-For example, to return a blob attached to a space, make a **GET** request to:
+For example, to return a blob attached to a space, make an authenticated HTTP GET request to:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
@@ -137,7 +150,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-Making a **PATCH** request to the same endpoint enables you to update a metadata description and create a new version of the blob. The HTTP request is made through the **PATCH** method, along with any necessary meta, and multipart form data.
+A PATCH request to the same endpoint updates metadata descriptions and creates new versions of the blob. The HTTP request is made through the PATCH method, along with any necessary meta, and multipart form data.
 
 Successful operations return a **SpaceBlob** object that conforms to the following schema. You can use it to consume returned data.
 
@@ -152,7 +165,7 @@ You can attach blobs to user models (for example, to associate a profile picture
 
 ![User blobs][4]
 
-For example, to fetch a blob attached to a user, make a **GET** request with any required form data to:
+For example, to fetch a blob attached to a user, make an authenticated HTTP GET request with any required form data to:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
