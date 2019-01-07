@@ -1,12 +1,14 @@
 ---
-title: Azure rendering - reference architectures 
+title: Azure rendering reference architectures - Azure Batch
 description: Architectures for using Azure Batch and other Azure services to extend an on-premises render farm by bursting to the cloud 
 services: batch
 author: davefellows
 manager: jeconnoc
-ms.author: danlep
+ms.author: lahugh
 ms.date: 08/13/2018
 ms.topic: conceptual
+ms.custom: seodec18
+
 ---
 
 # Reference architectures for Azure rendering

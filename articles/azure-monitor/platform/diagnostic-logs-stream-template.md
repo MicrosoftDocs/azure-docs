@@ -13,13 +13,13 @@ ms.component: ""
 In this article we show how you can use an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) to configure Diagnostic Settings on a resource when it is created. This enables you to automatically start streaming your Diagnostic Logs and metrics to Event Hubs, archiving them in a Storage Account, or sending them to Log Analytics when a resource is created.
 
 > [!WARNING]
-> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md) 
+> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 
 The method for enabling Diagnostic Logs using a Resource Manager template depends on the resource type.
 
-* **Non-Compute** resources (for example, Network Security Groups, Logic Apps, Automation) use [Diagnostic Settings described in this article](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+* **Non-Compute** resources (for example, Network Security Groups, Logic Apps, Automation) use [Diagnostic Settings described in this article](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings).
 * **Compute** (WAD/LAD-based) resources use the [WAD/LAD configuration file described in this article](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
 In this article we describe how to configure diagnostics using either method.
@@ -110,7 +110,7 @@ For non-Compute resources, you will need to do two things:
     ]
     ```
 
-The properties blob for the Diagnostic Setting follows [the format described in this article](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Adding the `metrics` property will enable you to also send resource metrics to these same outputs, provided that [the resource supports Azure Monitor metrics](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+The properties blob for the Diagnostic Setting follows [the format described in this article](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Adding the `metrics` property will enable you to also send resource metrics to these same outputs, provided that [the resource supports Azure Monitor metrics](../../azure-monitor/platform/metrics-supported.md).
 
 Here is a full example that creates a Logic App and turns on streaming to Event Hubs and storage in a storage account.
 
@@ -260,6 +260,6 @@ To enable diagnostics on a Compute resource, for example a Virtual Machine or Se
 The entire process, including samples, is described [in this document](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Next steps
-* [Read more about Azure Diagnostic Logs](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-* [Stream Azure Diagnostic Logs to Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Read more about Azure Diagnostic Logs](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Stream Azure Diagnostic Logs to Event Hubs](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 

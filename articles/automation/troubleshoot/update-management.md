@@ -158,7 +158,7 @@ You have machines that show as **Not Assessed** under **Compliance**, and you se
 
 #### Cause
 
-Windows update is not configured correctly in the machine.
+Windows Update or WSUS is not configured correctly in the machine. Update Management relies of Windows Update or WSUS to provide the updates that are needed, the status of the patch, and the results of patches deployed. Without this information Update Management can not properly report on the patches that are needed or installed.
 
 #### Resolution
 

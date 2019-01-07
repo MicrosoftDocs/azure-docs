@@ -34,8 +34,8 @@ To complete this tutorial:
 	- ASP.NET and web development
 	- Azure development
 - Download and install the [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
-- Deploy a .NET application to Azure and [enable the Application Insights SDK](app-insights-asp-net.md). 
-- [Send telemetry from your application](app-insights-usage-overview.md#send-telemetry-from-your-app) for adding custom events/page views
+- Deploy a .NET application to Azure and [enable the Application Insights SDK](../azure-monitor/app/asp-net.md). 
+- [Send telemetry from your application](../azure-monitor/app/usage-overview.md#send-telemetry-from-your-app) for adding custom events/page views
 - Send [user context](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) to track what a user does over time and fully utilize the usage features.
 
 ## Log in to Azure
@@ -162,4 +162,4 @@ A **User flow** visualizes how users navigate between the pages and features of 
 Now that you've learned how to analyze your users, advance to the next tutorial to learn how to create custom dashboards that combine this information with other useful data about your application.
 
 > [!div class="nextstepaction"]
-> [Create custom dashboards](app-insights-tutorial-dashboards.md)
+> [Create custom dashboards](../azure-monitor/learn/tutorial-app-dashboards.md)

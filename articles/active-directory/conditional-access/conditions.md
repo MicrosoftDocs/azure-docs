@@ -73,7 +73,7 @@ Select:
 
 - **All cloud apps** to baseline policies to apply to the entire organization. Use this selection for policies that require multifactor authentication when sign-in risk is detected for any cloud app. A policy applied to **All cloud apps** applies to access to all websites and services. This setting isn't limited to the cloud apps that appear on the **Select apps** list. 
 
-- **Select spps** to target specific services by your policy. For example, you can require users to have a [compliant device](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) to access SharePoint Online. This policy is also applied to other services when they access SharePoint content. An example is Microsoft Teams. 
+- **Select apps** to target specific services by your policy. For example, you can require users to have a [compliant device](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) to access SharePoint Online. This policy is also applied to other services when they access SharePoint content. An example is Microsoft Teams. 
 
 You can exclude specific apps from a policy. However, these apps are still subject to the policies applied to the services they access. 
 
@@ -154,7 +154,7 @@ Common use cases for this condition are policies with the following requirements
 
 - **[Require a managed device](require-managed-devices.md)** for mobile and desktop applications that download  data to a device. At the same time, allow browser access from any device. This scenario prevents saving and syncing documents to an unmanaged device. With this method, you can reduce the probability for data loss if the device is lost or stolen.
 
-- **[Require a managed device](require-managed-devices.md)** apps using ActiveSync to access Exchange Online.
+- **[Require a managed device](require-managed-devices.md)** for apps using ActiveSync to access Exchange Online.
 
 - **[Block legacy authentication](block-legacy-authentication.md)** to Azure AD (other clients)
 

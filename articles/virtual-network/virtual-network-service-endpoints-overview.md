@@ -1,13 +1,10 @@
 ---
-title: Azure virtual network service endpoints | Microsoft Docs
+title: Azure virtual network service endpoints
+titlesuffix: Azure Virtual Network
 description: Learn how to enable direct access to Azure resources from a virtual network using service endpoints.
 services: virtual-network
 documentationcenter: na
 author: sumeetmittal
-manager: narayan
-editor: ''
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -39,7 +36,6 @@ This feature is available for the following Azure services and regions:
 
 **Preview**
 
-- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Available in preview in all Azure public cloud regions.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Available in preview.
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
