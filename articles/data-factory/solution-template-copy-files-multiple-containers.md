@@ -29,7 +29,7 @@ The template contains three activities:
 3. A **Copy** activity to copy each container from the source storage store to the destination store.
 
 The template defines two parameters:
-1. The parameter *SourceFilePath* is the path of your data source store, where you can get a list of the containers or buckets. In most cases, the path is the root directory which contains multiple container folders. The default value of this parameter is `/`.
+1. The parameter *SourceFilePath* is the path of your data source store, where you can get a list of the containers or buckets. In most cases, the path is the root directory, which contains multiple container folders. The default value of this parameter is `/`.
 2. The parameter *DestinationFilePath* is the path where the files will be copied in your destination store. The default value of this parameter is `/`.
 
 ## How to use this solution template

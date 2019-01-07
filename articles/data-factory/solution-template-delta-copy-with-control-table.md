@@ -20,11 +20,11 @@ When you want to incrementally load changes (new or updated rows) only from a ta
 
 This template requires the schema of source database MUST containing timestamp column or incrementing key to identify the new or updated rows.
 
-If you do have timestamp column in your source database to identify the new or updated rows, but do not want to create any external control table to achive delta copy, you can go to "copy data tool" to get a pipeline, which use trigger scheduled time as a variable to read the new rows only from source database.
+If you do have timestamp column in your source database to identify the new or updated rows, but do not want to create an external control table to enable delta copy, you can use the Copy Data tool to get a pipeline, which uses a trigger-scheduled time as a variable to read the new rows only from source database.
 
 ## About this solution template
 
-This template always retrieves the old watermark value first, and then comparesit with the current watermark value. After that, it only copies the changes from the source database based on the comparison between 2 watermark values.  When complete, it stores the new high-watermark value to an external control table for delta data loading next time.
+This template always retrieves the old watermark value first, and then compares it with the current watermark value. After that, it only copies the changes from the source database based on the comparison between 2 watermark values.  When complete, it stores the new high-watermark value to an external control table for delta data loading next time.
 
 The template contains four activities:
 1. A **Lookup** activity to retrieve the old high-watermark value stored in an external control table.
@@ -41,7 +41,7 @@ The template defines five parameters:
 
 ## How to use this solution template
 
-1. Explore the source table you want to load, and define the high-watermark column which can be used to slice the new or updated rows. Normally, the type of this column can be datetime or INT etc, and its data keeping increasing when new rows being added.  From the sample source table (table name: data_source_table) below, we can use column *LastModifytime* as the high-watermark column.
+1. Explore the source table you want to load, and define the high-watermark column which can be used to slice the new or updated rows. Normally, the type of this column can be datetime or INT etc., and its data keeping increasing when new rows being added.  From the sample source table (table name: data_source_table) below, we can use column *LastModifytime* as the high-watermark column.
 
 	```sql
 			PersonID	Name	LastModifytime
@@ -99,7 +99,7 @@ The template defines five parameters:
 	
 8. You see the pipeline available in the panel, as shown in the following example:
 
-     ![Review ppipeline](media/solution-template-delta-copy-with-control-tableDeltaCopyfromDB_with_ControlTable8.png)
+     ![Review pipeline](media/solution-template-delta-copy-with-control-tableDeltaCopyfromDB_with_ControlTable8.png)
 
 9. Click Stored Procedure activity, select **Stored procedure name**, click **import parameter** and click **Add dynamic content**.  
 
