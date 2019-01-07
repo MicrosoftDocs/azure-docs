@@ -162,4 +162,4 @@ A **User flow** visualizes how users navigate between the pages and features of 
 Now that you've learned how to analyze your users, advance to the next tutorial to learn how to create custom dashboards that combine this information with other useful data about your application.
 
 > [!div class="nextstepaction"]
-> [Create custom dashboards](app-insights-tutorial-dashboards.md)
+> [Create custom dashboards](../azure-monitor/learn/tutorial-app-dashboards.md)

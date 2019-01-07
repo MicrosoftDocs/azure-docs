@@ -329,9 +329,9 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ### Configure cluster-wide credentials
 
-Starting v6.3, Service Fabric allow user to configure cluster-wide credentials which can be used as default repository credentials by applications.
+Starting with the 6.3 runtime, Service Fabric allows you to configure cluster-wide credentials which can be used as default repository credentials by applications.
 
-You can enable/disable the feature by adding a "UseDefaultRepositoryCredentials" attribute to ContainerHostPolicies in ApplicationManifest.xml with a "true/false" Boolean value.
+You can enable or disable the feature by adding the `UseDefaultRepositoryCredentials` attribute to `ContainerHostPolicies` in ApplicationManifest.xml with a `true` or `false` value.
 
 ```xml
 <ServiceManifestImport>
@@ -345,15 +345,14 @@ You can enable/disable the feature by adding a "UseDefaultRepositoryCredentials"
 </ServiceManifestImport>
 ```
 
-This will tell Service Fabric to use the default repository credentials which you can specify in the ClusterManifest under the Hosting section.  If UseDefaultRepositoryCredentials is set to true, Service Fabric will now read the following values in clustermanifest:
+Service Fabric then uses the default repository credentials which you can specify in the ClusterManifest under the `Hosting` section.  If `UseDefaultRepositoryCredentials` is `true`, Service Fabric reads the following values from the ClusterManifest:
 
 * DefaultContainerRepositoryAccountName (string)
 * DefaultContainerRepositoryPassword (string)
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
-* DefaultContainerRepositoryPasswordType(string) --- Supported from v6.4
+* DefaultContainerRepositoryPasswordType (string) --- Supported starting with the 6.4 runtime
 
-Here is an example of what you can add inside the Hosting section in ClusterManifestTemplate.json. More information about [how to configure cluster setting](service-fabric-cluster-fabric-settings.md) and [
-how to encrypt password](service-fabric-application-secret-management.md)
+Here is an example of what you can add inside the `Hosting` section in the ClusterManifestTemplate.json file. For more information, see [Change Azure Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md) and [Manage Azure Service Fabric application secrets](service-fabric-application-secret-management.md)
 
 ```json
       {
@@ -382,7 +381,6 @@ how to encrypt password](service-fabric-application-secret-management.md)
         ]
       },
 ```
-
 
 ## Configure isolation mode
 Windows supports two isolation modes for containers: process and Hyper-V. With the process isolation mode, all the containers running on the same host machine share the kernel with the host. With the Hyper-V isolation mode, the kernels are isolated between each Hyper-V container and the container host. The isolation mode is specified in the `ContainerHostPolicies` element in the application manifest file. The isolation modes that can be specified are `process`, `hyperv`, and `default`. The default  is process isolation mode on Windows Server hosts. On Windows 10 hosts, only Hyper-V isolation mode is supported, so the container runs in Hyper-V isolation mode regardless of its isolation mode setting. The following snippet shows how the isolation mode is specified in the application manifest file.
