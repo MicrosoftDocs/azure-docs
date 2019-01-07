@@ -12,6 +12,8 @@ ms.author: iainfou
 
 # Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)
 
+When you run modern, microservices-based applications in Kubernetes, you often want to control which components and communicate with each other. For example, you likely don't want to allow traffic to flow directly backend application components. The principle of least privileges should be applied to traffic that can flow between pods in an AKS cluster. In Kubernetes, the *Network Policy* feature lets you define rules for ingress and egress traffic for pods in a cluster.
+
 This article shows you how to use network policies to control the flow of traffic between pods in AKS.
 
 ## Before you begin
@@ -20,9 +22,15 @@ You need the Azure CLI version 2.0.54 or later installed and configured. Run `a
 
 ## Overview of network policy
 
-By default, all pods in an AKS cluster can send and receive traffic without limitations. For improved security, you may want to define rules that control the flow of traffic. Backend applications are often only exposed to required frontend services, or database components are only accessible to the application tiers that connect to them.
+By default, all pods in an AKS cluster can send and receive traffic without limitations. To improve security, you can define rules that control the flow of traffic. For example, backend applications are often only exposed to required frontend services, or database components are only accessible to the application tiers that connect to them.
 
-Network policy is a Kubernetes feature that lets you control the traffic flow between pods. You can choose to allow or deny traffic based on settings such as assigned labels, namespace, or traffic port.
+Network policies are Kubernetes resources that let you control the traffic flow between pods. You can choose to allow or deny traffic based on settings such as assigned labels, namespace, or traffic port. Network policies are defined as a YAML manifests, and can be included as part of a wider manifest that also creates a deployment or service.
+
+To see network policies in action, let's create and then expand on a policy that defines traffic flow as follows:
+
+* Deny all traffic to pod
+* Allow traffic based on pod labels
+* Allow traffic based on namespace
 
 ## Create an AKS cluster and enable network policy
 
@@ -87,19 +95,21 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## Deny all inbound traffic to a pod
 
-First, let's create a namespace called *development* to run our example pods:
+Before you start to define rules for specific network traffic, first create a network policy to deny all traffic. This policy gives you a starting point to then begin to whitelist only the desired traffic. You can also clearly see traffic is dropped when policy is applied.
+
+For our sample application environment and traffic rules, let's first create a namespace called *development* to run our example pods:
 
 ```console
 kubectl create namespace development
 ```
 
-Create an example backend pod that runs NGINX:
+Now create an example backend pod that runs NGINX. This backend pod can be used to simulate a sample backend web-based application. Create this pod in the *development* namespace, and open port *80* to serve web traffic:
 
 ```console
 kubectl run backend --image=nginx --labels app=backend --namespace development --expose --port 80 --generator=run-pod/v1
 ```
 
-Test that you can successfully reach the default NGINX web page, create another container, and attach a terminal session:
+To test that you can successfully reach the default NGINX web page, create another container, and attach a terminal session:
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
@@ -127,7 +137,7 @@ Exit out of the attached terminal session, and the test pod is automatically del
 exit
 ```
 
-Create a file named `backend-policy.yaml` and paste the following YAML manifest. This manifest uses *podSelector* to attach the policy to pods that have the *app: backend* label, such as our sample NGINX pod. Under *ingress*, no rules are defined, which denies all inbound traffic to the pod:
+Now that you've confirmed you can access the basic NGINX web page on the sample backend pod, create a network policy to deny traffic. Create a file named `backend-policy.yaml` and paste the following YAML manifest. This manifest uses *podSelector* to attach the policy to pods that have the *app: backend* label, such as our sample NGINX pod. Under *ingress*, no rules are defined, which denies all inbound traffic to the pod:
 
 ```yaml
 kind: NetworkPolicy
@@ -147,7 +157,7 @@ Apply the network policy using the [kubectl apply][kubectl-apply] command and sp
 kubectl apply -f backend-policy.yaml
 ```
 
-Create another test pod and attach a terminal session:
+Test if you can access the NGINX webpage on the backend pod again. Create another test pod and attach a terminal session:
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
@@ -374,6 +384,7 @@ To learn more about using policies, see [Kubernetes network policies][kubernetes
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 
 <!-- LINKS - internal -->
+[install-azure-cli]: /cli/azure/install-azure-cli
 [use-advanced-networking]: configure-advanced-networking.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [concepts-network]: concepts-network.md
