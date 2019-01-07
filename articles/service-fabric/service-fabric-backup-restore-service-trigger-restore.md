@@ -1,6 +1,6 @@
 ---
-title: Restoring Backup in Azure Service Fabric | Microsoft Docs
-description: Use Service Fabric's periodic backup and restore feature for restoring data from backup of your application data.
+title: Restoring backup in Azure Service Fabric | Microsoft Docs
+description: Use the periodic backup and restore feature in Service Fabric for restoring data from a backup of your application data.
 services: service-fabric
 documentationcenter: .net
 author: aagup
@@ -24,10 +24,10 @@ In Azure Service Fabric, Reliable Stateful services and Reliable Actors can main
 
 For example, you can configure a service to back up its data to protect against the following scenarios:
 
-- Permanent loss of an entire Service Fabric cluster. - **Case of Disaster Recovery**.
-- Permanent loss of a majority of the replicas of a service partition. - **Case of data loss**.
-- Accidental deletion or corruption of the service. For example, an administrator erroneously deletes the service. - **Case of data loss**.
-- Bugs in the service cause data corruption. For example, data corruption may happen when a service code upgrade writes faulty data to a Reliable Collection. In such a case, you may have to restore both the code and the data to an earlier state. - **Case of data corruption**.
+- **Case of disaster recovery**: Permanent loss of an entire Service Fabric cluster.
+- **Case of data loss**: Permanent loss of a majority of the replicas of a service partition.
+- **Case of data loss**: Accidental deletion or corruption of the service. For example, an administrator erroneously deletes the service.
+- **Case of data corruption**: Bugs in the service cause data corruption. For example, data corruption may happen when a service code upgrade writes faulty data to a Reliable Collection. In such a case, you may have to restore both the code and the data to an earlier state.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ A restore can be triggered for any of the following scenarios:
 
 ### Data restore in the case of disaster recovery
 
-If an entire Service Fabric cluster is lost, you can recover the data for the partitions of the Reliable Stateful service and Reliable Actors. The desired backup can be selected from the list when you use [GetBackupAPI with backup storage Details](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). The backup enumeration can be for an application, service, or partition.
+If an entire Service Fabric cluster is lost, you can recover the data for the partitions of the Reliable Stateful service and Reliable Actors. The desired backup can be selected from the list when you use [GetBackupAPI with backup storage details](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). The backup enumeration can be for an application, service, or partition.
 
 For the following example, assume that the lost cluster is the same cluster that's referred to in [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). In this case, `SampleApp` is deployed with backup policy enabled, and the backups are configured to Azure Storage.
 
@@ -155,15 +155,15 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 You can track the progress of a restore with [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress).
 
-### Data restore for _data corruption / data loss_
+### Data restore for _data corruption_/_data loss_
 
-For _data loss_ or _data corruption_, backed up partitions for Reliable Stateful service and Reliable Actors partitions can be restored to any of the chosen backups.
+For _data loss_ or _data corruption_, backed-up partitions for Reliable Stateful service and Reliable Actors partitions can be restored to any of the chosen backups.
 
-The following example is a continuation of [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). In this example, a backup policy is enabled for the partition, and the service is making backups at a desired frequency in an Azure Storage.
+The following example is a continuation of [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). In this example, a backup policy is enabled for the partition, and the service is making backups at a desired frequency in Azure Storage.
 
 Select a backup from the output of  [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). In this scenario, the backup is generated from the same cluster as before.
 
-To trigger the restore, choose a backup from the list. For the current _data loss_ / _data corruption_ select the following backup:
+To trigger the restore, choose a backup from the list. For the current _data loss_/_data corruption_, select the following backup:
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -197,7 +197,7 @@ You can track the restore progress by using [TrackRestoreProgress](service-fabri
 
 ## Track restore progress
 
-A partition of a Reliable Stateful service or Reliable Actor accepts only one restore request at a time. A partition only accepts another request after the current restore request has completed. Multiple restore requests can be triggered on different partitions at the same time.
+A partition of a Reliable Stateful service or Reliable Actor accepts only one restore request at a time. A partition only accepts another request after the current restore request is completed. Multiple restore requests can be triggered on different partitions at the same time.
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4"
@@ -210,14 +210,14 @@ $restoreResponse | Format-List
 
 The restore request progresses in the following order:
 
-1. **Accepted**  - An _Accepted_ restore state indicates that the requested partition has been triggered with correct request parameters.
+1. **Accepted**: An _Accepted_ restore state indicates that the requested partition has been triggered with correct request parameters.
     ```
     RestoreState  : Accepted
     TimeStampUtc  : 0001-01-01T00:00:00Z
     RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
     RestoredLsn   : 3552
     ```
-2. **InProgress** - An _InProgress_ restore state indicates that a restore is occurring in the partition with the backup mentioned in request. The partition reports _dataloss_ state.
+2. **InProgress**: An _InProgress_ restore state indicates that a restore is occurring in the partition with the backup mentioned in request. The partition reports the _dataloss_ state.
     ```
     RestoreState  : RestoreInProgress
     TimeStampUtc  : 0001-01-01T00:00:00Z
@@ -225,8 +225,8 @@ The restore request progresses in the following order:
     RestoredLsn   : 3552
     ```
     
-3. **Success**, **Failure**, or **Timeout** - A requested restore can be completed in any of the following states. Each state has the following significance and response details:
-    - **Success** - A _Success_ restore state indicates a regained  partition state. The partition reports _RestoreEpoch_ and _RestordLSN_ states along with the time in UTC.
+3. **Success**, **Failure**, or **Timeout**: A requested restore can be completed in any of the following states. Each state has the following significance and response details:
+    - **Success**: A _Success_ restore state indicates a regained  partition state. The partition reports _RestoreEpoch_ and _RestordLSN_ states along with the time in UTC.
 
         ```
         RestoreState  : Success
@@ -234,7 +234,7 @@ The restore request progresses in the following order:
         RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
         RestoredLsn   : 3552
         ```        
-    - **Failure** - A _Failure_ restore state indicates the failure of the restore request. The cause of the failure is reported.
+    - **Failure**: A _Failure_ restore state indicates the failure of the restore request. The cause of the failure is reported.
 
         ```
         RestoreState  : Failure
@@ -242,7 +242,7 @@ The restore request progresses in the following order:
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    - **Timeout** - A _Timeout_ restore state indicates that the request has timeout. Create a new restore request with greater [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). The default timeout is 10 minutes. Make sure that the partition isn't in a data loss state before requesting restore again.
+    - **Timeout**: A _Timeout_ restore state indicates that the request has timeout. Create a new restore request with greater [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). The default timeout is 10 minutes. Make sure that the partition isn't in a data loss state before requesting restore again.
      
         ```
         RestoreState  : Timeout
