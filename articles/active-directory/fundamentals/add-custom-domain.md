@@ -94,10 +94,10 @@ After you register your custom domain name, you need to make sure it's valid in 
 
 ## Next steps
 
-- Add another Global administrator to your directory. For more information, see [How to assign roles and administrators](active-directory-users-assign-role-azure-portal.md)
+- Add another Global administrator to your directory. For more information, see [How to assign roles and administrators](active-directory-users-assign-role-azure-portal.md).
 
-- Add users to your domain, see [How to add or delete users](add-users-azure-active-directory.md)
+- Add users to your domain, see [How to add or delete users](add-users-azure-active-directory.md).
 
-- Manage your domain name information in Azure AD. For more information, see [Managing custom domain names](../users-groups-roles/domains-manage.md)
+- Manage your domain name information in Azure AD. For more information, see [Managing custom domain names](../users-groups-roles/domains-manage.md).
 
-- If you have on-premises versions of Windows Server that you want to use alongside Azure Active Directory, see [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md)
+- If you have on-premises versions of Windows Server that you want to use alongside Azure Active Directory, see [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md).
