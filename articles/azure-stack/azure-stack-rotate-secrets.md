@@ -117,7 +117,7 @@ Running secret rotation using the instructions below will remediate these alerts
 >
 > **.\Certificates\AAD** or ***.\Certificates\ADFS*** depending on your Identity Provider used for Azure Stack
 >
-> It is of utmost importance that your fileshare ends with **AAD** or **ADFS** folders and all subdirectories are within this structure; otherwise, **Start-SecretRotate** will come up with:
+> It is of utmost importance that your folder structure ends with **AAD** or **ADFS** folders and all subdirectories are within this structure; otherwise, **Start-SecretRotate** will come up with:
 > ```PowerShell
 > Cannot bind argument to parameter 'Path' because it is null.
 > + CategoryInfo          : InvalidData: (:) [Test-Certificate], ParameterBindingValidationException
@@ -127,16 +127,25 @@ Running secret rotation using the instructions below will remediate these alerts
 >
 > As you can see the error massage would indicate that there is a problem accessing your fileshare but in reality it is the folder structure that is being enforced here.
 > More information can be found in the Microsoft AzureStack Readiness Checker - [PublicCertHelper module](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1)
+>
+> It is also important that your fileshare folder structure begins with **Certificates** folder otherwise it will also fail on validation.
+> Fileshare mount should look like **\\\\\<IPAddress>\\\<ShareName>\** and it should contain folder Certificates\AAD or Certificates\ADFS inside.
+> For example:
+> - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\**
+> - CertFolder = **Certificates\AAD**
+> - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
 
 ## Rotating external secrets
 
 To rotate external secrets:
 
-1. Within the newly created **/Certificates/{IdentityProvider}** directory created in the Pre-steps, place the new set of replacement external certificates in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
+1. Within the newly created **\Certificates\{IdentityProvider}** directory created in the Pre-steps, place the new set of replacement external certificates in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 
     Example of folder structure for the AAD Identity Provider:
     ```PowerShell
-            ├───Certificates
+        <ShareName>
+        |   |
+        |   ├───Certificates
         │   └───AD
         │       ├───ACSBlob
         │       │       <CertName>.pfx
