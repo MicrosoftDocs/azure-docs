@@ -40,7 +40,7 @@ Azure Machine Learning service has varying support across different compute targ
 
 <a id="pipeline-only"></a>__*__ Azure Databricks and Azure Data Lake Analytics can __only__ be used in a pipeline. 
 
- You create compute targets for machine learning pipelines as shown in this article, but you use these computes in pipeline steps instead of the methods listed here.  Also, only some pipeline steps use the run configuration described in this article.  For more information about using compute targets in a pipeline see [Create and run a machine learning pipeline](how-to-create-your-first-pipeline.md).
+>You create compute targets for machine learning pipelines as shown in this article, but you use these computes in pipeline steps instead of the methods listed here.  Also, only some pipeline steps use the run configuration described in this article.  For more information about using compute targets in a pipeline see [Create and run a machine learning pipeline](how-to-create-your-first-pipeline.md).
 
 ## What's a run configuration
 
@@ -197,21 +197,17 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
 
     When you create the cluster, you must specify an SSH user name and password. Take note of these values, as you need them to use HDInsight as a compute target.
     
-    After the cluster is created, it has the FQDN \<clustername>.azurehdinsight.net, where \<clustername> is the name that you provided for the cluster. You need the FQDN address (or the public IP address of the cluster) to use the cluster as a compute target.
+    After the cluster is created, connect to it with the hostname \<clustername>-ssh.azurehdinsight.net, where \<clustername> is the name that you provided for the cluster. 
 
-1. **Attach**: To attach an HDInsight cluster as a compute target, you must provide the FQDN, user name, and password for the HDInsight cluster. The following example uses the SDK to attach a cluster to your workspace. In the example, replace \<fqdn> with the public FQDN of the cluster, or the public IP address. Replace \<username> and \<password> with the SSH user name and password for the cluster.
-
-  To find the FQDN for your cluster, go to the Azure portal and select your HDInsight cluster. Under __Overview__, you can see the FQDN in the __URL__ entry. To get the FQDN, remove the https:\// prefix from the beginning of the entry. 
-    
-  ![Get the FQDN for an HDInsight cluster in the Azure portal](./media/how-to-set-up-training-targets/hdinsight-overview.png)
+1. **Attach**: To attach an HDInsight cluster as a compute target, you must provide the hostname, user name, and password for the HDInsight cluster. The following example uses the SDK to attach a cluster to your workspace. In the example, replace \<clustername> with the name of your cluster. Replace \<username> and \<password> with the SSH user name and password for the cluster.
 
   ```python
-from azureml.core.compute import ComputeTarget, HDInsightCompute
-from azureml.exceptions import ComputeTargetException
+ from azureml.core.compute import ComputeTarget, HDInsightCompute
+ from azureml.exceptions import ComputeTargetException
 
-try:
+ try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
-    attach_config = HDInsightCompute.attach_configuration(address='<fqdn or ipaddress>, 
+    attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azureinsight.net', 
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
@@ -219,10 +215,10 @@ try:
                                        name='myhdi', 
                                        attach_configuration=attach_config)
 
-except ComputeTargetException as e:
+ except ComputeTargetException as e:
     print("Caught = {}".format(e.message))
 
-hdi_compute.wait_for_completion(show_output=True)
+ hdi_compute.wait_for_completion(show_output=True)
   ```
 
   Or you can attach the HDInsight cluster to your workspace [using the Azure portal](#portal-reuse).
