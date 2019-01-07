@@ -9,7 +9,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 01/07/2019
 ms.author: tomfitz
 ---
 
@@ -28,13 +28,13 @@ The request has the following authentication header values:
 
 The auxiliary header can hold up to three auxiliary tokens. 
 
-In the code of your multi-tenant app, get the authentication token for other tenants and store them in the auxiliary headers.
+In the code of your multi-tenant app, get the authentication token for other tenants and store them in the auxiliary headers. All the tokens must be from the same user or application. The user or application must have been invited as a guest to the other tenants.
 
 ## Processing the request
 
 When your app sends a request to Resource Manager, the request is run under the identity from the primary token. The primary token must be valid and unexpired. This token must be from a tenant that can manage the subscription.
 
-When a request is made to a resource in a different tenant, Resource Manager checks the auxiliary tokens to determine if the request can be processed. All auxiliary tokens in the header must be valid and unexpired. If any token is expired, Resource Manager returns a 401 response code. The response includes the client ID and tenant ID from the token that isn't valid. If the auxiliary header contains a valid token for the tenant, the cross tenant request is processed.
+When the request references a resource from different tenant, Resource Manager checks the auxiliary tokens to determine if the request can be processed. All auxiliary tokens in the header must be valid and unexpired. If any token is expired, Resource Manager returns a 401 response code. The response includes the client ID and tenant ID from the token that isn't valid. If the auxiliary header contains a valid token for the tenant, the cross tenant request is processed.
 
 ## Next steps
 * To learn about sending authentication requests with the Azure Resource Manager APIs, see [Use Resource Manager authentication API to access subscriptions](resource-manager-api-authentication.md).
