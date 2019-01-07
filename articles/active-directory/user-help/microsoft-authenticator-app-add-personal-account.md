@@ -63,9 +63,9 @@ You can add your Google account by first turning on two-factor verification and 
 
 ### To add your Google account to the app
 
-1. On your PC, in the **Set up alternative second step** section, choose **Set up** from the **Authenticator app** section.
+1. On the Google page on your PC, go to the **Set up alternative second step** section, choose **Set up** from the **Authenticator app** section.
 
-2. In the **Get codes from the Authenticator app** screen, select either **Android** or **iPhone** based on your phone type, and then select **Next**.
+2. On the **Get codes from the Authenticator app** screen, select either **Android** or **iPhone** based on your phone type, and then select **Next**.
 
     You're given a QR code that you can use to automatically associate your account with the Microsoft Authenticator app. Do not close this window.
 
@@ -104,7 +104,7 @@ You can add your Facebook account by first turning on two-factor verification an
 
 ### To add your Facebook account to the app
 
-1. On your PC, in the **Add a backup** section, choose **Setup** from the **Authentication app** area.
+1. On the Facebook page on your PC, go to the **Add a backup** section, and then choose **Setup** from the **Authentication app** area.
 
     You're given a QR code that you can use to automatically associate your account with the Microsoft Authenticator app. Do not close this window.
 
@@ -126,8 +126,67 @@ You can add your Facebook account by first turning on two-factor verification an
     >[!NOTE]
     >For more information about two-factor verification and your Facebook account, see [What is two-factor authentication and how does it work?](https://www.facebook.com/help/148233965247823).
 
-## Add your Apple account
-Add steps about how to add your apple account.
+## Add your Apple ID
+You can add your Apple ID by first turning on two-factor verification and then by adding the account information to the app.
+
+>[!Note]
+> You might be asked to answer your Apple ID security questions while you're turning on two-factor verification.
+
+### To turn on two-factor verification
+
+1. On your Apple device, follow one of these procedures, based on your operating system version:
+
+    #### iOS 10.3 or later
+
+    1. Go to **Settings**, > [*your_name*] > **Password & Security**.
+
+    2. Select **Turn On Two-Factor Authentication**, and then select **Continue**.
+
+    3. Type and verify the phone number for where you want to receive your sign-in verification codes. You can choose text messages or a phone call.
+
+    4. Select **Next**.
+
+        Apple sends a verification code to your provided phone number.
+    
+    5. Type the provided code to verify your phone number and to finish setting up two-factor verification.
+
+    #### iOS 10.2 or earlier
+    
+    1. Go to **Settings**, > **iCloud**.
+
+    2. Select your Apple ID > **Password and Security**.
+
+    3. Select **Turn On Two-Factor Authentication**, and then select **Continue**.
+
+    4. Type and verify the phone number for where you want to receive your sign-in verification codes. You can choose text messages or a phone call.
+
+    5. Select **Next**.
+
+        Apple sends a verification code to your provided phone number.
+    
+    6. Type the provided code to verify your phone number and to finish setting up two-factor verification.
+
+### To add your Apple ID to the app
+
+1. Get the QR code
+
+2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Other account (Google, Facebook, etc)**.
+
+3. Use your device's camera to scan the QR code from the **Two factor authentication** screen on your PC.
+
+    >[!Note]
+    >If your camera isn't working properly, you can [enter the QR code and URL manually](#add-an-account-to-the-app-manually).
+
+4. Review the **Accounts** screen of the Microsoft Authenticator app on your device, to make sure your account information is right and that there's an associated six-digit verification code.
+
+    For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
+
+5. Select **Next** on the **Two factor authentication** screen on the Apple site from your PC, and then type the 6-digit verification code provided in the app for your Apple ID.
+
+    Your account is verified and you can now use the app to verify your account.
+
+    >[!NOTE]
+    >For more information about two-factor verification and your Apple ID account, see [Set up two-factor authentication for your Apple ID](https://support.apple.com/en-us/HT204915).
 
 ## Add other non-Microsoft personal accounts
 
