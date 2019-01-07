@@ -148,8 +148,8 @@ Audit logs from a Managed Instance can be  sent to Even Hubs or Log Analytics us
 
 9. Create a server audit specification or database audit specification as you would for SQL Server:
 
-   - [Create Server audit specification T-SQL guide](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [Create Database audit specification T-SQL guide](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [Create Server audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [Create Database audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 10. Enable the server audit created in step 7:
  
@@ -181,7 +181,7 @@ To consume audit logs data from Event Hub, you will need to set up a stream to c
 
 If audit logs are written to Log Analytics, they are available in the Log Analytics workspace, where you can run advanced searches on the audit data. As a starting point, navigate to the Log Analytics and under *General* section click *Logs* and enter a simple query, such as: `search "SQLSecurityAuditEvents"` to view the audit logs.  
 
-Log Analytics gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about Log Analytics search language and commands, see [Log Analytics search reference](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/log-query-overview).
+Log Analytics gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about Log Analytics search language and commands, see [Log Analytics search reference](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
 ## Auditing differences between Managed Instance, Azure SQL Database, and SQL Server
 
