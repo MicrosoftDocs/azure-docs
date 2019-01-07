@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 01/08/2019
 ms.author: diberry
 ---
 
@@ -383,7 +383,6 @@ This section uses the kubectl cli to talk with the Azure Kubernetes service.
 
     Because the apiKey and billing endpoint are set as part of the Kubernetes orchestration definition, the website container doesn't need to know about these or pass them as part of the request. 
 
-
     The altered `language.yml` file  is:
 
     ```console
@@ -525,7 +524,11 @@ This section uses the kubectl cli to talk with the Azure Kubernetes service.
 
 1. To see the web frontend app in action, open a web browser to the external IP address of your service.
 
+## Clean up resources
 
+## Related information
+
+## Next steps 
 
 <!--
 ### Configure basic settings
