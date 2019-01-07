@@ -51,26 +51,27 @@ The following list shows the components of the Digital Twins APIs.
 
 The Digital Twins APIs support filtering and navigation throughout your spatial graph using the following parameters:
 
-### **spaceId** 
-The API will filter the results by the given space ID.
-- **useParentSpace**: This boolean flag is applicable to the [/spaces](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces) APIs only, and indicates that the given space ID refers to the parent space instead of the current space. 
+- **spaceId** 
+The API will filter the results by the given space ID. Additionally, the boolean flag **useParentSpace** is applicable to the [/spaces](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces) APIs, which indicates that the given space ID refers to the parent space instead of the current space. 
 
-### **minLevel** and **maxLevel** 
+- **minLevel** and **maxLevel** 
 Root spaces are considered to be at level 1. Spaces with parent space at level *n* are at level *n+1*. With these values set, you can filter the results at specific levels. These are inclusive values when set. Devices, sensors, and other objects are considered to be at the same level as their closest space. To get all objects at a givel level, set both **minLevel** and **maxLevel** to the same value.
 
-### **minRelative** and **maxRelative** 
+- **minRelative** and **maxRelative** 
 When these filters are given, the corresponding level is relative to the level of the given space ID:
-- Relative level *0* is as the same level as the given space ID.
-- Relative level *1* represents spaces at the same level as the children of the given space ID. Relative level *n* represents spaces lower than the specified space by *n* levels.
-- Relative level *-1* represents spaces at the same level as the parent space of the specified space.
+   - Relative level *0* is as the same level as the given space ID.
+   - Relative level *1* represents spaces at the same level as the children of the given space ID. Relative level *n* represents spaces lower than the specified space by *n* levels.
+   - Relative level *-1* represents spaces at the same level as the parent space of the specified space.
 
-### **traverse** 
+- **traverse** 
 Allows to traverse in either direction from a given space ID, as specified by the following values.
-- **None**: This default value filters to the given space ID.
-- **Down**: This filters by the given space ID and its descendants. 
-- **Up**: This filters by the given space ID and its ancestors. 
-- **Span**: This filters a horizontal portion of the spatial graph, at the same level as the given space ID. This needs either the **minRelative** or the **maxRelative** to be set true. 
+   - **None**: This default value filters to the given space ID.
+   - **Down**: This filters by the given space ID and its descendants. 
+   - **Up**: This filters by the given space ID and its ancestors. 
+   - **Span**: This filters a horizontal portion of the spatial graph, at the same level as the given space ID. This needs either the **minRelative** or the **maxRelative** to be set true. 
 
+
+### Examples
 
 The following list shows some examples of navigation through the [/devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices) APIs.
 
@@ -96,6 +97,8 @@ Most of the APIs that return collections, such as a GET call on /spaces, support
 * **$skip** - If you intend to display the entire collection, you should request it as a whole set in a single call, and then perform paging in your application. 
 
 Note that other query options, such as $count, $expand, $search, are not supported.
+
+### Examples
 
 The following list shows some examples of queries using OData’s system query options:
 
