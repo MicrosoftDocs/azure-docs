@@ -35,13 +35,9 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-##  <a name="login"></a>Sign in
-
-[!INCLUDE [Sign in RM](../../includes/vpn-gateway-ps-login-include.md)]
-
 ## <a name="register"></a>Register this feature
 
-Click the **TryIt** to register this feature easily using Azure Cloud Shell.
+Click the **TryIt** to register this feature easily using Azure Cloud Shell. If you would rather run PowerShell locally, make sure you have the latest version and sign in using the `Connect-AzureRmAccount` and `Select-AzureRmSubscription` commands.
 
 >[!NOTE]
 >If you don't register this feature, you will not be able to use it, or to see it in the portal.
@@ -148,7 +144,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 #### OpenVPN
 
 1.	Download and install the OpenVPN client from the official website.
-2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configurations tab in Azure Portal, or New-AzureRmVpnClientConfiguration in PowerShell.
+2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configurations tab in Azure portal, or New-AzureRmVpnClientConfiguration in PowerShell.
 3.	Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in notepad.
 4.	Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See here how to export a certificate to get the encoded public key.
 5.	Fill in the private key section with the P2S client certificate private key in base64. See here how to extract private key.
@@ -167,7 +163,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 #### OpenVPN
 
 1.	Download and install an OpenVPN client, such as TunnelBlik from https://tunnelblick.net/downloads.html 
-2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in Azure Portal, or New-AzureRmVpnClientConfiguration in PowerShell.
+2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in Azure portal, or New-AzureRmVpnClientConfiguration in PowerShell.
 3.	Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in notepad.
 4.	Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See here how to export a certificate to get the encoded public key.
 5.	Fill in the private key section with the P2S client certificate private key in base64. See here how to extract private key.
