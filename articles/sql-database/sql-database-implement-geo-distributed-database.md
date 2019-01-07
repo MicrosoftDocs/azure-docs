@@ -15,7 +15,7 @@ ms.date: 01/03/2018
 ---
 # Tutorial: Implement a geo-distributed database
 
-Configure an Azure SQL database and application for fail over to a remote region and test a failover plan. You learn how to:
+Configure an Azure SQL database and application for failover to a remote region and test a failover plan. You learn how to:
 
 > [!div class="checklist"]
 > - Create a [failover group](sql-database-auto-failover-group.md)
@@ -40,14 +40,18 @@ To complete the tutorial, make sure you've installed the following items:
 - Java and Maven, see [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), highlight **Java** and select your environment, then follow the steps.
 
 > [!IMPORTANT]
-> Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this tutorial. Database-level firewall rules will replicate automatically to the secondary server. For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) and to determine the IP address used for the server-level firewall rule for your computer, see [Create a server-level firewall](sql-database-get-started-portal-firewall.md).  
+> Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this tutorial. Database-level firewall rules will replicate automatically to the secondary server.
+>
+> For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](sql-database-get-started-portal-firewall.md).  
 
 ## Create a failover group
 
-Using Azure PowerShell, create [failover groups](sql-database-auto-failover-group.md) between your existing Azure SQL server and a new Azure SQL server in another region. Then add your sample database to the failover group.
+Using Azure PowerShell, create [failover groups](sql-database-auto-failover-group.md) between an existing Azure SQL server and a new Azure SQL server in another region. Then add the sample database to the failover group.
 
 > [!IMPORTANT]
 > [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
+
+To create a failover group, run the following script:
 
    ```powershell
     # Set variables for your server and database
@@ -83,10 +87,14 @@ Using Azure PowerShell, create [failover groups](sql-database-auto-failover-grou
        -ServerName $myservername `
        -DatabaseName $mydatabasename | `
      Add-AzureRmSqlDatabaseToFailoverGroup `
-       -ResourceGroupName $myresourcegroupname ` `
+       -ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -FailoverGroupName $myfailovergroupname
    ```
+
+Geo-replication settings can also be changed in the Azure portal, by selecting your database, then **Settings** > **Geo-Replication**.
+
+![Geo-replication settings](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
 
 ## Run the sample project
 
@@ -106,7 +114,7 @@ Using Azure PowerShell, create [failover groups](sql-database-auto-failover-grou
 
 1. Using your favorite editor, open the *pom.xml* file in your project folder.
 
-1. Add the Microsoft JDBC Driver for SQL Server dependency by adding the following `dependency` section to the *pom.xml* file. The JDBC dependency must be pasted within the larger `dependencies` section.
+1. Add the Microsoft JDBC Driver for SQL Server dependency by adding the following `dependency` section. The dependency must be pasted within the larger `dependencies` section.
 
    ```xml
    <dependency>
@@ -116,7 +124,7 @@ Using Azure PowerShell, create [failover groups](sql-database-auto-failover-grou
    </dependency>
    ```
 
-1. Specify the Java version by adding the `properties` section to the *pom.xml* file after the `dependencies` section:
+1. Specify the Java version by adding the `properties` section after the `dependencies` section:
 
    ```xml
    <properties>
@@ -125,7 +133,7 @@ Using Azure PowerShell, create [failover groups](sql-database-auto-failover-grou
    </properties>
    ```
 
-1. Support manifest files by adding the `build` section to the pom.xml file after the `properties` section:
+1. Support manifest files by adding the `build` section after the `properties` section:
 
    ```xml
    <build>
@@ -321,7 +329,7 @@ In this tutorial, you configured an Azure SQL database and application for failo
 > - Run a Java application to query an Azure SQL database
 > - Test failover
 
-Advance to the next tutorial on how to migrate SQL Server to Azure SQL Database managed instance using DMS.
+Advance to the next tutorial on how to migrate using DMS.
 
 > [!div class="nextstepaction"]
 > [Migrate SQL Server to Azure SQL database managed instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md)
