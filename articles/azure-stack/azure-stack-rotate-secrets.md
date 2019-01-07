@@ -266,8 +266,10 @@ This command rotates the TLS certificates used for Azure Stack's external networ
 > **You cannot rotate both internal and external certificates any more.**
 
 ```PowerShell
-PS C:\> Invoke-Command -session $PEPSession -ScriptBlock { 
+PS C:\> Invoke-Command -session $PEPSession -ScriptBlock {
+
 Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
+
 Remove-PSSession -Session $PEPSession
 ```
 
