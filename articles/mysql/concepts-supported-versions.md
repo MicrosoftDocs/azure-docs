@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ---
 # Supported Azure Database for MySQL server versions
-Azure Database for MySQL has been developed from [MySQL Community Edition](https://www.mysql.com/products/community/), using the InnoDB engine. 
+Azure Database for MySQL has been developed from [MySQL Community Edition](https://www.mysql.com/products/community/), using the InnoDB engine.
 
-MySQL uses the X.Y.Z versioning scheme where X represents the major version, Y represents the minor version, and Z represents the bug fix release. For more information about the scheme, please see the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
+MySQL uses the X.Y.Z naming scheme. X is the major version, Y is the minor version, and Z is the bug fix release. For more information about the scheme, see the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
 Azure Database for MySQL currently supports the following versions:
 
@@ -32,7 +32,7 @@ Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.7/
 ## Managing updates and upgrades
 The service automatically manages patching for bug fix version updates. For example, 5.7.20 to 5.7.21.  
 
-Currently, minor and major version upgrades are not supported. For example, upgrading from MySQL 5.6 to MySQL 5.7 is not supported. If you would like to upgrade from 5.6 to 5.7, take a [dump and restore](./concepts-migrate-dump-restore.md) it to a server that was created with the new engine version.
+Currently, minor and major version upgrades aren't supported. For example, upgrading from MySQL 5.6 to MySQL 5.7 isn't supported. If you'd like to upgrade from 5.6 to 5.7, take a [dump and restore](./concepts-migrate-dump-restore.md) it to a server that was created with the new engine version.
 
 ## Next steps
 
