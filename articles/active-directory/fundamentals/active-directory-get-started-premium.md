@@ -62,7 +62,7 @@ If you signed up using a new Azure AD license plan, you must activate it for you
    
     ![Sign in](media/active-directory-get-started-premium/MOLSEmail.png)
 
-    - **Sign in.** Choose this link if you have an existing tenant, and then sign in using your existing administrator account. You must be a global administratr on the tenant where the licenses are being activated.
+    - **Sign in.** Choose this link if you have an existing tenant, and then sign in using your existing administrator account. You must be a global administrator on the tenant where the licenses are being activated.
 
     - **Sign up.** Choose this link if you want to open the **Create Account Profile** page and create a new Azure AD tenant for your licensing plan.
 
