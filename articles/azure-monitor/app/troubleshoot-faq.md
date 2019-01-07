@@ -39,7 +39,7 @@ ms.author: mbullwin
 * [App servers running in Docker](../../azure-monitor/app/docker.md)
 * [Single-page web apps](../../azure-monitor/app/javascript.md)
 * [Sharepoint](sharepoint.md)
-* [Windows desktop app](../../application-insights/app-insights-windows-desktop.md)
+* [Windows desktop app](../../azure-monitor/app/windows-desktop.md)
 * [Other platforms](../../azure-monitor/app/platforms.md)
 
 ## Is it free?
@@ -135,7 +135,7 @@ We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](http
 
 You can configure the `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it is moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
-You can [use Power BI](../../application-insights/app-insights-export-power-bi.md) to display your request telemetry on a map.
+You can [use Power BI](../../azure-monitor/app/export-power-bi.md ) to display your request telemetry on a map.
 
 
 ## <a name="data"></a>How long is data retained in the portal? Is it secure?

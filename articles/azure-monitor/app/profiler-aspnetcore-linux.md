@@ -26,7 +26,7 @@ After you complete this walkthrough, your app can collect Profiler traces like t
 ## Prerequisites
 The following instructions apply to all Windows, Linux, and Mac development environments:
 
-* Install the [.NET Core SDK 2.1.2 or later](https://www.microsoft.com/net/download/windows/build).
+* Install the [.NET Core SDK 2.1.2 or later](https://dotnet.microsoft.com/download/archives).
 * Install Git by following the instructions at [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ## Set up the project locally
@@ -131,7 +131,7 @@ You should see output similar to the following example:
 
 ## Add Application Insights to monitor your web apps
 
-1. [Create an Application Insights resource](./../../application-insights/app-insights-create-new-resource.md).
+1. [Create an Application Insights resource](./../../azure-monitor/app/create-new-resource.md ).
 
 2. Copy the **iKey** value of the Application Insights resource and set the following settings in your web apps:
 
