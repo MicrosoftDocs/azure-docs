@@ -287,21 +287,21 @@ combined_df.keep_columns(columns=[
       <th>Min</th>
       <th>Max</th>
       <th>Count</th>
-      <th>Missing count</th>
-      <th>Not missing count</th>
+      <th>Missing Count</th>
+      <th>Not Missing Count</th>
       <th>Percent missing</th>
-      <th>Error count</th>
+      <th>Error Count</th>
       <th>Empty count</th>
-      <th>0.1% quantile</th>
-      <th>1% quantile</th>
-      <th>5% quantile</th>
-      <th>25% quantile</th>
-      <th>50% quantile</th>
-      <th>75% quantile</th>
-      <th>95% quantile</th>
-      <th>99% quantile</th>
-      <th>99.9% quantile</th>
-      <th>Standard deviation</th>
+      <th>0.1% Quantile</th>
+      <th>1% Quantile</th>
+      <th>5% Quantile</th>
+      <th>25% Quantile</th>
+      <th>50% Quantile</th>
+      <th>75% Quantile</th>
+      <th>95% Quantile</th>
+      <th>99% Quantile</th>
+      <th>99.9% Quantile</th>
+      <th>Standard Deviation</th>
       <th>Mean</th>
     </tr>
   </thead>
@@ -439,21 +439,21 @@ tmp_df.keep_columns(columns=[
       <th>Min</th>
       <th>Max</th>
       <th>Count</th>
-      <th>Missing count</th>
-      <th>Not missing count</th>
+      <th>Missing Count</th>
+      <th>Not Missing Count</th>
       <th>Percent missing</th>
-      <th>Error count</th>
+      <th>Error Count</th>
       <th>Empty count</th>
-      <th>0.1% quantile</th>
-      <th>1% quantile</th>
-      <th>5% quantile</th>
-      <th>25% quantile</th>
-      <th>50% quantile</th>
-      <th>75% quantile</th>
-      <th>95% quantile</th>
-      <th>99% quantile</th>
-      <th>99.9% quantile</th>
-      <th>Standard deviation</th>
+      <th>0.1% Quantile</th>
+      <th>1% Quantile</th>
+      <th>5% Quantile</th>
+      <th>25% Quantile</th>
+      <th>50% Quantile</th>
+      <th>75% Quantile</th>
+      <th>95% Quantile</th>
+      <th>99% Quantile</th>
+      <th>99.9% Quantile</th>
+      <th>Standard Deviation</th>
       <th>Mean</th>
     </tr>
   </thead>
@@ -582,21 +582,21 @@ combined_df.keep_columns(columns='store_forward').get_profile()
       <th>Min</th>
       <th>Max</th>
       <th>Count</th>
-      <th>Missing count</th>
-      <th>Not Missing count</th>
+      <th>Missing Count</th>
+      <th>Not Missing Count</th>
       <th>Percent missing</th>
-      <th>Error count</th>
+      <th>Error Count</th>
       <th>Empty count</th>
-      <th>0.1% quantile</th>
-      <th>1% quantile</th>
-      <th>5% quantile</th>
-      <th>25% quantile</th>
-      <th>50% quantile</th>
-      <th>75% quantile</th>
-      <th>95% quantile</th>
-      <th>99% quantile</th>
-      <th>99.9% quantile</th>
-      <th>Standard deviation</th>
+      <th>0.1% Quantile</th>
+      <th>1% Quantile</th>
+      <th>5% Quantile</th>
+      <th>25% Quantile</th>
+      <th>50% Quantile</th>
+      <th>75% Quantile</th>
+      <th>95% Quantile</th>
+      <th>99% Quantile</th>
+      <th>99.9% Quantile</th>
+      <th>Standard Deviation</th>
       <th>Mean</th>
     </tr>
   </thead>
@@ -644,7 +644,7 @@ combined_df = combined_df.replace(columns="distance", find=".00", replace_with=0
 combined_df = combined_df.to_number(["distance"])
 ```
 
-Split the pickup and dropoff datetime values into the respective date and time columns. Use the `split_column_by_example()` function to make the split. The `example` parameter of the `split_column_by_example()` function is optional, and isn't shown in the following snippet. The function automatically determines where to split based on the data.
+Split the pickup and dropoff datetime values into the respective date and time columns. Use the `split_column_by_example()` function to make the split. In this case, the optional example parameter of the `split_column_by_example()` function is omitted. Therefore, the function automatically determines where to split based on the data.
 
 
 ```python
