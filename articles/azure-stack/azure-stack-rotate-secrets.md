@@ -160,7 +160,7 @@ $PEPsession = New-PSSession -computername <IPofERCSMachine> -Credential $PEPCred
 $CertPassword = ConvertTo-SecureString "Certpasswordhere" -Force
 $CertShareCred = Get-Credential 
 $CertSharePath = "<NetworkPathofCertShare>"
-Invoke-Command -Session $PEPsession -ScriptBlock { 
+Invoke-Command -Session $PEPsession -ScriptBlock {
 Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
 Remove-PSSession -Session $PEPSession
 ```
