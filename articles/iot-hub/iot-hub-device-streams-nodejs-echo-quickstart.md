@@ -14,7 +14,7 @@ ms.author: rezas
 
 # Quickstart: Communicate to a device application via IoT Hub device streams (NodeJS)
 
-[!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
+[!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
 [IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, NodeJS SDK only supports device streams on the service side. As a result, this quickstart only covers instructions to run the service-side application. You should run an accompanying device-side application which is available in [C quickstart](./iot-hub-device-streams-c-echo-quickstart.md) or [C# quickstart](./iot-hub-device-streams-csharp-echo-quickstart.md) guides.
 

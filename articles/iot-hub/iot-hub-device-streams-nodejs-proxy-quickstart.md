@@ -15,7 +15,7 @@ ms.author: rezas
 
 # Quickstart: SSH/RDP over IoT Hub device streams (NodeJS)
 
-[!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
+[!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
 [IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart describes execution of a NodeJS proxy application running on the service side to enable SSH and RDP traffic to be sent to the device over a device stream. See [this page](./iot-hub-device-streams-overview.md#local-proxies-sample-for-ssh-or-rdp) for an overview of the setup. Note that during public preview, NodeJS SDK only supports device streams on the service side. As a result, this quickstart only covers instructions to run the service-side proxy. You should run an accompanying device-side proxy which is available in [C quickstart](./iot-hub-device-streams-c-proxy-quickstart.md) or [C# quickstart](./iot-hub-device-streams-csharp-proxy-quickstart.md) guides.
 

@@ -14,7 +14,7 @@ ms.author: rezas
 
 # Quickstart: Communicate to device applications via IoT Hub device streams (C#)
 
-[!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
+[!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
 [IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart involves two C# programs that leverage device streams to send data back and forth (echo).
 

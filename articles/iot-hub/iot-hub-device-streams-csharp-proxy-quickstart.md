@@ -14,7 +14,7 @@ ms.author: rezas
 
 # Quickstart: SSH/RDP over IoT Hub device streams (C#)
 
-[!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
+[!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
 [IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart involves two C# programs that enable SSH and RDP traffic to be sent over a device stream established through IoT Hub. See [this page](./iot-hub-device-streams-overview.md#local-proxies-sample-for-ssh-or-rdp) for an overview of the setup.
 
