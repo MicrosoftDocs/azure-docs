@@ -63,10 +63,10 @@ An example of commands that can be used to mount the data disks and create the n
 
 ### Install Azure PowerShell for use on your local machine (optional): 
 1. Follow the instructions in the links for your operating system, then continue though the rest of the steps below.      
-    - [Install and configure Azure PowerShell for Windows](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0). 
+    - [Install and configure Azure PowerShell for Windows](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0). 
         - Install PowerShellGet, Azure PowerShell, and load the AzureRM module. 
 
-2. Verify the installed versions of the AzureRM module. If needed, [update the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0#update-the-azure-powershell-module).
+2. Verify the installed versions of the AzureRM module. If needed, [update the Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0#update-the-azure-powershell-module).
     -  The AzureRM module version needs to be 6.0.0 or higher.
     - Using the latest AzureRM module version is recommended.
 
