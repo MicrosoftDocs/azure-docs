@@ -11,14 +11,14 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 01/08/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 
 ---
 # Take over an unmanaged directory as administrator in Azure Active Directory
-This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" signup for a service, see [What is self-service signup for Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)
+This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service signup for Azure Active Directory?](directory-self-service-signup.md)
 
 ## Decide how you want to take over an unmanaged directory
 During the process of admin takeover, you can prove ownership as described in [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md). The next sections explain the admin experience in more detail, but here's a summary:
@@ -37,7 +37,7 @@ Some products that include SharePoint and OneDrive, such as Office 365, do not s
 
 3. In the confirmation email from Power BI, select **Yes, that's me**.
 
-4. Sign in to the [Office 365 Admin center](https://portal.office.com/adminportal/Home) with the Power BI user account. You receive a message that instructs you to **Become the Admin** of the domain name that was already verified in the unmanaged tenant. select **Yes, I want to be the admin**.
+4. Sign in to the [Office 365 Admin center](https://portal.office.com/admintakeover) with the Power BI user account. You receive a message that instructs you to **Become the Admin** of the domain name that was already verified in the unmanaged tenant. select **Yes, I want to be the admin**.
   
   ![first screenshot for Become the Admin](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -49,9 +49,9 @@ When the DNS TXT records are verified at your domain name registrar, you can man
 
 When you complete the preceding steps, you are now the global administrator of the Fourth Coffee tenant in Office 365. To integrate the domain name with your other Azure services, you can remove it from Office 365 and add it to a different managed tenant in Azure.
 
-### Adding the domain name to a managed tenant in Azure AD 
+### Adding the domain name to a managed tenant in Azure AD
 
-1. Open the [Office 365 Admin center](https://portal.office.com/adminportal/Home).
+1. Open the [Office 365 Admin center](https://portal.office.com/admintakeover).
 2. Select **Users** tab, and create a new user account with a name like *user@fourthcoffeexyz.onmicrosoft.com* that does not use the custom domain name. 
 3. Ensure that the new user account has global admin privileges for the Azure AD tenant.
 4. Open **Domains** tab in the Office 365 Admin center, select the domain name and select **Remove**. 
