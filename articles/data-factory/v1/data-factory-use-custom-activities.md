@@ -371,7 +371,7 @@ The method returns a dictionary that can be used to chain custom activities toge
     > Set 4.5.2 version of .NET Framework as the target framework for your project: right-click the project, and click **Properties** to set the target framework. Data Factory does not support custom activities compiled against .NET Framework versions later than 4.5.2.
 
 11. Launch **Windows Explorer**, and navigate to **bin\debug** or **bin\release** folder depending on the type of build.
-12. Create a zip file **MyDotNetActivity.zip** that contains all the binaries in the <project folder>\bin\Debug folder. Include the **MyDotNetActivity.pdb** file so that you get additional details such as line number in the source code that caused the issue if there was a failure.
+12. Create a zip file **MyDotNetActivity.zip** that contains all the binaries in the \<project folder\>\bin\Debug folder. Include the **MyDotNetActivity.pdb** file so that you get additional details such as line number in the source code that caused the issue if there was a failure.
 
 	> [!IMPORTANT]
 	> All the files in the zip file for the custom activity must be at the **top level** with no sub folders.
