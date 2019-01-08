@@ -89,7 +89,7 @@ Common use cases to require MFA are access:
 - [From network locations you don't trust](untrusted-networks.md).
 
 
-### Compromised accounts
+### Respond to potentially compromised accounts
 
 With conditional access polices, you can implement automated responses to sign-ins from potentially compromised identities. The probability that an account has been compromised is expressed in form of risk levels. There are two risk levels calculated by identity protection: sign-in risk and user risk. To implement a response to a sign-in risk, you have two options:
 
@@ -101,16 +101,16 @@ Because the sign-in risk condition provides you with more flexibility, use this 
 The user risk level is only available as [user risk policy](../identity-protection/howto-user-risk-policy.md) in identity protection. 
 
 
-### Managed devices
+### Require managed devices
 
 The proliferation of supported devices to access your cloud resources helps to improve the productivity of your users. On the flip side, you probably don't want certain resources in your environment to be accessed by devices with an unknown protection level. For the affected resources, you should require that users can only access them using a managed device. For more information, see [How to require managed devices for cloud app access with conditional access](require-managed-devices.md). 
 
-### Approved client apps
+### Require approved client apps
 
 One of the first decisions you need to make for bring your own devices (BYOD) scenarios, is whether you need to manage the entire device or just the data on it. Your employees use mobile devices for both personal and work tasks. While making sure your employees can be productive, you also want to prevent data loss. With Azure Active Directory (Azure AD) conditional access, you can restrict access to your cloud apps to approved client apps that can protect your corporate data. For more information, see [How to require approved client apps for cloud app access with conditional access](app-based-conditional-access.md).
 
 
-### Legacy authentication
+### Block legacy authentication
 
 Azure AD supports several of the most widely used authentication and authorization protocols including legacy authentication. How can you prevent apps using legacy authentication from accessing your tenant's resources? The recommendation is to just block them with a conditional access policy. If necessary, you allow only certain users and specific network locations to use apps that are based on legacy authentication. For more information, see [How to block legacy authentication to Azure AD with conditional access](block-legacy-authentication.md).
 
