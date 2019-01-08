@@ -38,7 +38,7 @@ ms.author: mbullwin
 * [Cloud Services on Azure](../../azure-monitor/app/cloudservices.md)
 * [App servers running in Docker](../../azure-monitor/app/docker.md)
 * [Single-page web apps](../../azure-monitor/app/javascript.md)
-* [Sharepoint](sharepoint.md)
+* [SharePoint](sharepoint.md)
 * [Windows desktop app](../../azure-monitor/app/windows-desktop.md)
 * [Other platforms](../../azure-monitor/app/platforms.md)
 

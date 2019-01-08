@@ -133,7 +133,7 @@ To configure Azure AD single sign-on with SharePoint on-premises, perform the fo
 	c. Logout URL
 
     > [!NOTE]
-	> Sharepoint On-Premises application uses SAML 1.1 token, so Azure AD expects WS Fed request from SharePoint server and after authentication, it issues the SAML 1.1. token.
+	> SharePoint On-Premises application uses SAML 1.1 token, so Azure AD expects WS Fed request from SharePoint server and after authentication, it issues the SAML 1.1. token.
 
 ### Configure SharePoint on-premises Single Sign-On
 
