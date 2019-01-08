@@ -1,6 +1,6 @@
 ---
-title: URL-based content routing overview
-description: This page provides an overview of the Application Gateway URL-based content routing, UrlPathMap configuration and PathBasedRouting rule .
+title: Azure Application Gateway URL-based content routing overview
+description: This page provides an overview of the Azure Application Gateway URL-based content routing, UrlPathMap configuration and PathBasedRouting rule .
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
