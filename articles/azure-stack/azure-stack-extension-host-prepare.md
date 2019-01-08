@@ -135,7 +135,7 @@ The article, [Azure Stack datacenter integration - Publish endpoints](azure-stac
 
 ### Publish new endpoints
 
-There are two new endpoints required to be published through your firewall. The allocated IPs from the public VIP pool can be retrieved using the following code and This must be run via your Azure Stack [environment's privileged endpoint](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-privileged-endpoint).
+There are two new endpoints required to be published through your firewall. The allocated IPs from the public VIP pool can be retrieved using the following code which must be run via your Azure Stack [environment's privileged endpoint](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-privileged-endpoint).
 
 ```PowerShell
 # Create a PEP Session
