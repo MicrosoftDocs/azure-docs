@@ -1,0 +1,195 @@
+---
+title: Azure IoT Hub device streams quickstart (NodeJS) | Microsoft Docs
+description: In this quickstart, you will run a NodeJS service-side applications that communicates with an IoT device via a device stream.
+author: rezasherafat
+manager: briz
+ms.service: iot-hub
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: quickstart
+ms.custom: mvc
+ms.date: 1/3/2019
+ms.author: rezas
+---
+
+# Quickstart: Communicate to a device application via IoT Hub device streams (NodeJS)
+
+[!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
+
+[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-side application. You should run an accompanying service-side application which is available in [C# quickstart](./iot-hub-device-streams-csharp-echo-quickstart.md) or [NodeJS quickstart](./iot-hub-device-streams-nodejs-echo-quickstart.md) guides.
+
+The device-side C application in this quickstart has the following functionality:
+
+* Establish a device stream to an IoT device.
+
+* Receive data sent from the service-side and echo it back.
+
+The code will demonstrate the initiation process of a device stream, and its use to send and receive data.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
+* Install [Visual Studio 2017](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
+* Install the latest version of [Git](https://git-scm.com/download/).
+
+## Prepare the development environment
+
+For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md). You will prepare a development environment used to clone and build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) from GitHub. The SDK on GitHub includes the sample code used in this quickstart. 
+
+
+1. Download the version 3.11.4 of the [CMake build system](https://cmake.org/download/). Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
+
+    ```PowerShell
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    True
+    ```
+    
+    The following hash values for version 3.11.4 were listed on the CMake site at the time of this writing:
+
+    ```
+    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
+    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
+    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
+    ```
+
+    It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
+
+2. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
+    
+    ```cmd/sh
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    ```
+    The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
+
+
+3. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 
+
+    ```cmd/sh
+    cd azure-iot-sdk-c
+    mkdir cmake
+    cd cmake
+    ```
+
+4. Run the following command that builds a version of the SDK specific to your development client platform. A Visual Studio solution for the simulated device will be generated in the `cmake` directory. 
+
+    ```cmd
+    cmake ..
+    ```
+    
+    If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+
+    Once the build succeeds, the last few output lines will look similar to the following output:
+
+    ```cmd/sh
+    $ cmake ..
+    -- Building for: Visual Studio 15 2017
+    -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
+    -- The C compiler identification is MSVC 19.12.25835.0
+    -- The CXX compiler identification is MSVC 19.12.25835.0
+
+    ...
+
+    -- Configuring done
+    -- Generating done
+    -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
+    ```
+
+
+## Create an IoT hub
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
+
+## Register a device
+
+A device must be registered with your IoT hub before it can connect. In this section, you will use the Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to register a simulated device.
+
+1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
+
+   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+
+   **MyDevice** : This is the name given for the registered device. Use MyDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+
+    ```azurecli-interactive
+    az extension add --name azure-cli-iot-ext
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    ```
+
+2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just    registered:
+
+   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+
+    ```azurecli-interactive
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    ```
+
+    Make a note of the device connection string, which looks like:
+
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
+
+    You use this value later in the quickstart.
+
+
+## Communicate between device and service applications via IoT Hub device streams
+
+### Run the device-side application
+
+To run the device-side application, you need to:
+- Set up your development environment by using the instructions [here](https://github.com/Azure/azure-iot-sdk-c-tcpstreaming/blob/master/iothub_client/readme.md#compiling-the-device-sdk-for-c).
+
+- Provide your device credentials by editing the source file `iothub_client/samples/iothub_client_c2d_streaming_sample/iothub_client_c2d_streaming_sample.c` and provide your device connection string:
+```C
+  /* Paste in the your iothub connection string  */
+  static const char* connectionString = "[device connection string]";
+```
+
+- Compile the code as follows:
+```bash
+  # In Linux
+  # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
+  $ make -j
+
+
+  # In Windows
+  # Go to the cmake folder at the root of repo
+  cmake --build . -- /m /p:Configuration=Release
+```
+
+- Run the compiled program:
+```bash
+  # In Linux
+  # Go to sample's folder
+  cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
+  $ ./iothub_client_c2d_streaming_sample
+
+
+  # In Windows
+  # Go to sample's release folder
+  cmake\iothub_client\samples\iothub_client_c2d_streaming_sample\Release
+  iothub_client_c2d_streaming_sample.exe
+```
+
+### Run the service-side application
+
+As mentioned earlier, IoT Hub C SDK only supports device streams on the device side. For the service-side application, use the accompaying service programs available in [C# quickstart](./iot-hub-device-streams-csharp-echo-quickstart.md) or [NodeJS quickstart](./iot-hub-device-streams-nodejs-echo-quickstart.md) guides.
+
+
+## Clean up resources
+
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams)]
+
+## Next steps
+
+In this quickstart, you have set up an IoT hub, registered a device, sent simulated telemetry to the hub using a C application, and read the telemetry from the hub using the Azure Cloud Shell.
+
+To learn more about developing with the Azure IoT Hub C SDK, continue to the following How-to guide:
+
+> [!div class="nextstepaction"]
+> [QuickStart: SSH/RDP to your IoT devices using device streams (C)](iot-hub-device-streams-c-proxy-quickstart.md)
+> [QuickStart: SSH/RDP to your IoT devices using device streams (C#)](iot-hub-device-streams-csharp-proxy-quickstart.md)
+> [QuickStart: SSH/RDP to your IoT devices using device streams (NodeJS)](iot-hub-device-streams-nodejs-proxy-quickstart.md)
+> [QuickStart: Communicate with IoT devices using device streams (echo) (C#)](iot-hub-device-streams-csharp-echo-quickstart.md)
+> [QuickStart: Communicate with IoT devices using device streams (echo) (NodeJS)](iot-hub-device-streams-nodejs-echo-quickstart.md)

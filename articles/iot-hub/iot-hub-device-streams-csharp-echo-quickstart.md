@@ -39,7 +39,7 @@ Download the sample C# project from https://github.com/Azure-Samples/azure-iot-s
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## Register a device
 
@@ -142,7 +142,7 @@ The traffic being sent over the stream will be tunneled through IoT Hub rather t
 
 ## Clean up resources
 
-[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams)]
 
 ## Next steps
 

@@ -57,7 +57,7 @@ Download the sample C# project from https://github.com/Azure-Samples/azure-iot-s
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## Register a device
 
@@ -153,7 +153,7 @@ Now use your SSH client program and connect to service-local proxy on port `2222
 ssh <username>@localhost -p 2222
 ```
 
-At this point, you will be presented with the SSH login prompt to enter your password.
+At this point, you will be presented with the SSH login prompt to enter your credentials.
 
 <p>
     Console output on the service-side (the service-local proxy listens on port <code>2222</code>):
@@ -226,13 +226,13 @@ Now use your RDP client program and connect to service-local proxy on port `2222
 
 ## Clean up resources
 
-[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams)]
 
 ## Next steps
 
-In this quickstart, you have set up an IoT hub, registered a device, established a device stream between C# applications on the device and service side, and used the stream to send data back and forth between the applications.
+In this quickstart, you have set up an IoT hub, registered a device, deployed a device- and a service-local proxy program to establish a device stream through IoT Hub, and used the proxies to tunnel SSH or RDP traffic.
 
-To learn how to use IoT Hub device streams for an existing client/server application such as SSH or RDP, continue to the next quickstart.
+Use the links below to learn more about device stream:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Communicate with IoT devices using device streams (echo) (C#)](iot-hub-device-streams-csharp-echo-quickstart.md)
