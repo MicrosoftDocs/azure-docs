@@ -53,10 +53,10 @@ When planning your conditional access policies, use this model to draft your req
 
 ## Common access scenarios
 
-When planning your solution, assess, whether you need to create policies for the following access scenarios. 
+When planning your solution, assess whether you need to create policies for the following access scenarios. 
 
 
-### Enforce MFA for your admins
+### Enforce MFA for admins
 
 Users with access to privileged accounts have unrestricted access to your environment. Due to the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification during a sign-in. In Azure Active Directory, you can get a stronger account verification by requiring multi-factor authentication (MFA). For more information, see [Require MFA for admins](baseline-protection.md#require-mfa-for-admins).
 
@@ -102,6 +102,65 @@ Your employees use mobile devices for both personal and work tasks. While making
 ### Block legacy authentication
 
 Azure AD supports several of the most widely used authentication and authorization protocols including legacy authentication. How can you prevent apps using legacy authentication from accessing your tenant's resources? The recommendation is to just block them with a conditional access policy. If necessary, you allow only certain users and specific network locations to use apps that are based on legacy authentication. For more information, see [How to block legacy authentication to Azure AD with conditional access](block-legacy-authentication.md).
+
+
+
+## What you should know
+
+### Respond to detected user and sign-in risks
+
+Sign-in risk: policy in IP, condition in CA
+User risk: policy in IP
+
+What to use when?
+
+
+
+### Require a compliant device or an approved app
+
+Enterprise Mobility + Security offers a comprehensive set of technologies that can help address the challenges and concerns of bring your own device (BYOD) scenarios. The technologies we will cover here include:
+
+* Microsoft Intune for mobile device management (MDM) and Intune App Protection
+* Azure Active Directory (Azure AD) for identity management
+
+One of the first decisions you need to make for bring your own devices (BYOD) scenarios, is whether you need to manage the entire device or just the data on it.
+
+Managing the entire device means that it is under the control of Intune or a third-party mobile device management (MDM) solution. Intune allows for both Mobile Device Management (MDM) and Intune App Protection. It offers extensive protection to the device and the applications running on the device. Some enterprises require their employees to enroll their devices with MDM, but with Intune, this device management is optional, depending on your organization's security and user experience requirements. Employees are often hesitant to enroll a personal device because they fear that IT groups can *control* or *see and delete* personal information when, with Intune, this concern isn't an issue.
+
+The table below outlines some common considerations about BYOD and key features of Intune. It list each feature that addresses the requirement, to help you decide whether to manage BYOD devices with MDM, Intune App Protection, or both. You can learn more in the device management [Planning Guide](https://docs.microsoft.com/intune/planning-guide).
+
+|Consideration |MDM |Intune App Protection |
+|-|-|-|
+|User onboarding experience|User generally needs to **accept that device will be remotely managed by IT** (varies by OS).|User gets **FYI about data protections** upon first launch of a protected app.|
+|Access pin|Admins can create and enforce PINs to sign into the **device**.|Admins can create and enforce PINs to get corporate data in mobile **apps**.|
+|Data encryption|Admins can create and enforce policies for **full device encryption**.|Admins can create and enforce policies for **application data encryption**.|
+|Hardware setup |Admins can create and enforce policies around various hardware components such as camera, cellular radios, Wi-Fi, radios, and so on.|N/A|
+|Wi-Fi, VPN, email, and certificate profiles|Admins can deploy profiles to devices that configure Wi-Fi, VPN, email, and certificates to meet company requirements. Admins can also create and deploy custom profiles.|N/A|
+|App provisioning|Intune can distribute Store apps and line-of-business apps directly to the device. You can tag the apps as *available* (the user must install the app) or as *required* (the app will be installed automatically).|Apps aren't distributed to devices by Intune. The admin creates an app policy to target a set of apps. After the end user downloads the app and logs on with their corporate credentials, the app policy is immediately applied to the app.|
+|App inventory|Can inventory all apps on device.|Cannot inventory apps on device.|
+|Data removal|Remove corporate data and settings with *selective wipe*. Run a complete factory reset if necessary. <br>Learn more about [selective wipe](https://docs.microsoft.com/intune/devices-wipe) and [factory reset](https://docs.microsoft.com/intune/device-factory-reset) for MDM.|Remove corporate data from Intune-managed app with *selective wipe*. [Learn more about selective wipe for app protection.](https://docs.microsoft.com/intune/apps-selective-wipe)|
+|MDM conflict|N/A|Can coexist with any Microsoft or non-Microsoft MDM solution.|
+
+Learn more about [device management and app management lifecycles](https://docs.microsoft.com/intune/introduction-device-app-lifecycles).
+
+Learn more about which apps are protected by [Intune App Management](https://www.microsoft.com/cloud-platform/microsoft-intune-apps)
+
+#### Ways to make sure corporate data isn't leaked
+
+As a complimentary solution to enforcing Conditional Access on devices and applications, you can add additional security controls by creating app protection policies to control which applications can be used to access corporate data.
+
+|Concern|Device Management Mitigations|Intune App Management Mitigations|
+|-|-|-|
+|Lost or stolen device|Remove all device data<br>Require Device PIN|Remove all app data|
+|Compromised device or app|Device encryption|App data encryption|
+|Accidental data sharing or saving to unsecured locations|Restrict device data backups<br>Restrict save-as<br>Disable printing|Restrict cut/copy/paste<br>Restrict save-as|
+
+For both, corporate and personal devices, you should decide whether your users should be able to access your resources from within and outside your organization’s network. You should also decide whether a trusted device is required for an access attempt.
+
+> [!NOTE]
+> To grant access, require devices to be marked compliant or an approved application.
+
+Now that you have seen how you can use Intune and Azure AD to protect corporate data on employee-owned devices, decide if you are going to use Intune as a device management solution with app management, or if you are going to focus solely on app management. With either option, you can use the identity and security features available with Azure AD. Use the Intune [Planning Guide](https://docs.microsoft.com/intune/planning-guide) to map out your Intune specific plan.
 
 
 
