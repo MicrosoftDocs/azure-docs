@@ -54,7 +54,9 @@ You can configure and get information about alert rules using:
 
 9. Fill out the "Add action group" form with a name, short name, subscription, and resource group.
 
-10. Configure an **Email/SMS/Push/Voice** action type. Selecting "Email Azure Resource Manager Role" to select subscription Owners, Contributors, and Readers.
+10. Configure an **Email/SMS/Push/Voice** action type.
+    
+   Choose "Email Azure Resource Manager Role" to select subscription Owners, Contributors, and Readers to receive notifications.
    
    Optionally, provide a valid URI in the **Webhook** field if you want it called when the alert fires.
 
