@@ -15,7 +15,7 @@ ms.date: 01/07/2018
 ms.author: bwren
 ---
 
-# Agent data sources in ALog Analytics
+# Agent data sources in Log Analytics
 The data that Log Analytics collects from agents is defined by the data sources that you configure.  The data from agents is stored as [log data](data-collection.md) with a set of records.  Each data source creates records of a particular type with each type having its own set of properties.
 
 ![Log data collection](media/agent-data-sources/overview.png)
