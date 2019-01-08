@@ -22,11 +22,11 @@ sections:
     items:    
     - image:
         src: https://docs.microsoft.com/media/common/i_quick-start.svg
-      text: Set up Data Box in Azure portal
+      text: Set up Data Box in the Azure portal
       href: /azure/databox/data-box-quickstart-portal
     - image:
         src: https://docs.microsoft.com/media/common/i_quick-start.svg
-      text: Set up Data Box Disk in Azure portal 
+      text: Set up Data Box Disk in the Azure portal 
       href: /azure/databox/data-box-disk-quickstart-portal
     - image:
         src: https://docs.microsoft.com/media/common/i_quick-start.svg
