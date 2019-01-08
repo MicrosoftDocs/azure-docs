@@ -84,16 +84,16 @@ Alternatively, the resource ID of a VM image in the Credential subscription can 
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-ImageId | String | Resource ID of vm image, requires `Azure.SinglePlacementGroup`
+ImageId | String | Resource ID of vm image
 
 These two variations need a few additional settings to properly configure the CycleCloud OS extension:
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-InstallJetpack | Boolean | CycleCloud will install jetpack with os extension.
+InstallJetpack | Boolean | CycleCloud will install jetpack with OS extension.
 AwaitInstallation | Boolean | Once a vm is started, wait for jetpack to report installation details.
 JetpackPlatform | String | Jetpack installer platform to use: centos-7, centos-6, ubuntu-14, ubuntu-16, windows
-ImageOs | String | Either `windows` or `linux` to inform CycleCloud how to structure the os extension.
+ImageOS | String | Either `windows` or `linux` to inform CycleCloud how to structure the OS extension.
 
 ### Alternative Image Sample
 
@@ -115,7 +115,7 @@ Here is a sample template using the three alternate image constructs for the nod
     # Jetpack already installed on image
     InstallJetpack = false
     AwaitInstallation = true
-    ImageOs = linux  
+    ImageOS = linux
 
   [[node marketplace-vm-image]]
     Azure.Publisher = Canonical
@@ -127,7 +127,7 @@ Here is a sample template using the three alternate image constructs for the nod
     InstallJetpack = true
     JetpackPlatform = ubuntu-16.04
     AwaitInstallation = true
-    ImageOs = linux
+    ImageOS = linux
 ```
 
 ## Advanced Networking Attributes
@@ -158,7 +158,7 @@ elastic resource so additional attributes are available.
 Attribute | String | Definition
 ------ | ----- | ----------
 Azure.AllocationMethod  | String | Set this to `StandAlone` to manage single VMs or leave undefined to use VM ScaleSets
-Azure.SinglePlacementGroup  | Boolean | Use a single placement group for all VMSS, required by `ImageId`
+Azure.SingleScaleset  | Boolean | Use a single VMSS for all nodes, and put all VMs in a single placement group in the VMSS
 InitialCount | Integer | Number of nodes to start when cluster starts.
 MaxCount | Integer | To ensure that the cluster never exceeds 10 nodes you would specify a value of 10. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
 InitialCoreCount | Integer | Number of cores to start when cluster starts.

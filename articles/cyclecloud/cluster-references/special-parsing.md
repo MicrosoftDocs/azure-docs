@@ -33,7 +33,7 @@ as seen below.
 ```ini
 MaxCoreCount = ${HyperthreadedCoreCount/2}
 SubnetId = ${ifThenElse($Autoscale, $BurstSubnet, $FixedSubnet)}
-ImageOs = ${imageselect == "windows" ? "windows" : "linux"}
+ImageOS = ${imageselect == "windows" ? "windows" : "linux"}
 ```
 
 Additional available operators:

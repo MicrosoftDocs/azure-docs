@@ -29,7 +29,7 @@ To specify that a cluster node should use an Azure Marketplace image, include th
   Azure.Offer = CentOS-HPC
   Azure.Sku = 7.4
   Azure.ImageVersion = 7.4.20180301
-  Azure.OS = linux
+  ImageOS = linux
 
   InstallJetpack = true
   JetpackPlatform = centos-7
