@@ -20,6 +20,7 @@ ms.author: magoedte
 
 [Nagios](https://www.nagios.org/) and [Zabbix](http://www.zabbix.com/) are open source monitoring tools. You can collect alerts from these tools into Log Analytics in order to analyze them with log data from other sources.  This article describes how to configure the Log Analytics agent for Linux to collect alerts from these systems.
 
+
 > [!NOTE]
 > [Alerts created by Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) are stored separately from log data and not accessible from log queries.
 
