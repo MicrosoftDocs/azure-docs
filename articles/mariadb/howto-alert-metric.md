@@ -44,7 +44,9 @@ You can configure and get information about alert rules using:
    
    ![Select metric](./media/howto-alert-metric/6-configure-signal-logic.png)
 
-7. Configure the alert logic including the threshold (ex. 85 percent), condition (ex. "Greater than"), and period of time the metric rule must be satisfied before the alert triggers (ex. "Over the last 30 minutes"). Select **Done** when complete.
+7. Configure the alert logic including the **Condition** (ex. "Greater than"), **Threshold** (ex. 85 percent), **Time Aggregation**, **Period** of time the metric rule must be satisfied before the alert triggers (ex. "Over the last 30 minutes", and **Frequency**.
+   
+   Select **Done** when complete.
 
    ![Select metric](./media/howto-alert-metric/7-set-threshold-time.png)
 
