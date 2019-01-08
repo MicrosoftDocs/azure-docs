@@ -288,13 +288,20 @@ you can set the IP ranges in that template, for example:
 
 When deploying across various environments, you might want to 
 parameterize specific aspects in your logic app's workflow definition. 
-You can specify parameters in the [Azure Resource Manager deployment template](../azure-resource-manager/resource-group-authoring-templates.md#parameters). 
+You can specify parameters in the 
+[Azure Resource Manager deployment template](../azure-resource-manager/resource-group-authoring-templates.md#parameters). 
+To access a resource's parameter value during runtime, 
+you can use the `@parameters()` expression, which is 
+provided by the [Workflow Definition Language](https://aka.ms/logicappsdocs). 
+
 You might also want to secure specific parameters that you don't 
 want displayed while editing your logic app's workflow. 
 For example, these parameters include the client ID and client secret 
 used when authenticating an HTTP action with [Azure Active Directory](../connectors/connectors-native-http.md#authentication).
 
-For example, if you specify a parameter's type as `securestring`, 
+### Resource deployment template with secrets
+
+If you specify a parameter's type as `securestring`, 
 the parameter isn't returned with the resource definition, 
 and isn't accessible by viewing the resource after deployment.
 However, if you use a parameter in a request's headers or body, 
@@ -304,18 +311,20 @@ Make sure that you set your content access policies accordingly.
 Authorization headers are never visible through inputs or outputs. 
 So if a secret is used there, the secret isn't retrievable.
 
-To access a resource's parameter value during runtime, 
-you can use the `@parameters()` expression, which is 
-provided by the [Workflow Definition Language](https://aka.ms/logicappsdocs). 
-
-### Resource deployment template with secrets
-
 This example shows a Azure Resource Manager deployment template 
-that uses a secure parameter named `armTemplatePasswordParam` at runtime. 
+with more than one runtime parameters that have `securstring` type: 
+
+* `armTemplatePasswordParam`, which is input for the 
+logic app definition's `logicAppWfParam` parameter
+* `logicAppWfParam`, which is input for the HTTP action 
+using basic authentication
+
 In a separate parameters file, you can specify the 
 environment value for the `armTemplatePasswordParam` parameter, 
 or you can retrieve secrets at deployment time by using 
 [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+The inner `parameters` section belongs to your logic app's workflow definition, 
+while the outer `parameters` section belongs to your deployment template.
 
 ```json
 {
@@ -338,9 +347,9 @@ or you can retrieve secrets at deployment time by using
          "defaultValue": "[resourceGroup().location]",
          "allowedValues": [         
             "[resourceGroup().location]",
-            "<region1>",
-            "<region2>",
-            "<region3...>",
+            "eastasia",
+            "southeastasia",
+            "centralus",
             "eastus",
             "eastus2",
             "westus",
