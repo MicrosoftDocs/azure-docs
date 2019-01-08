@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/21/2016
+ms.date: 01/08/2018
 ms.author: mbullwin
 
 ---
@@ -126,9 +126,11 @@ All types of telemetry are accompanied by a context section. Not all of these fi
 | context.device.locale |string |en-GB, de-DE, ... |
 | context.device.network |string | |
 | context.device.oemName |string | |
+| context.device.os |string | |
 | context.device.osVersion |string |Host OS |
 | context.device.roleInstance |string |ID of server host |
 | context.device.roleName |string | |
+| context.device.screenResolution |string | |
 | context.device.type |string |PC, Browser, ... |
 | context.location |object |Derived from clientip. |
 | context.location.city |string |Derived from clientip, if known |
@@ -142,10 +144,13 @@ All types of telemetry are accompanied by a context section. Not all of these fi
 | context.session.id |string |Id of a group of operations from the same source. A period of 30 minutes without an operation signals the end of a session. |
 | context.session.isFirst |boolean | |
 | context.user.accountAcquisitionDate |string | |
+| context.user.accountId |string | |
 | context.user.anonAcquisitionDate |string | |
 | context.user.anonId |string | |
 | context.user.authAcquisitionDate |string |[Authenticated User](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authId |string | |
 | context.user.isAuthenticated |boolean | |
+| context.user.storeRegion |string | |
 | internal.data.documentVersion |string | |
 | internal.data.id |string | Unique id that is assigned when an item is ingested to Application Insights |
 
