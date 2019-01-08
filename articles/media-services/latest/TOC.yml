@@ -12,7 +12,7 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Encode remote file and stream video – REST
+  - name: Encode remote file and stream video - REST
     href: stream-files-tutorial-with-rest.md
   - name: Encode uploaded file and stream video - .NET
     href: stream-files-tutorial-with-api.md
@@ -95,8 +95,10 @@
       href: create-account-cli-how-to.md  
     - name: Access APIs - CLI
       href: access-api-cli-how-to.md
-    - name: Scale Media Reserved Units - CLI
-      href: media-reserved-units-cli-how-to.md      
+    - name: Scale Media Reserved Units 
+      items:
+      - name: With CLI
+        href: media-reserved-units-cli-how-to.md      
   - name: Configure Postman
     href: media-rest-apis-with-postman.md      
   - name: Upload content
