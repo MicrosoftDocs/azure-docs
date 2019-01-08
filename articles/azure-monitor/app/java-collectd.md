@@ -23,7 +23,7 @@ Typically you'll use collectd if you have already [instrumented your Java web se
 ![Sample charts](./media/java-collectd/sample.png)
 
 ## Get your instrumentation key
-In the [Microsoft Azure portal](https://portal.azure.com), open the [Application Insights](../../application-insights/app-insights-overview.md) resource where you want the data to appear. (Or [create a new resource](../../application-insights/app-insights-create-new-resource.md).)
+In the [Microsoft Azure portal](https://portal.azure.com), open the [Application Insights](../../application-insights/app-insights-overview.md) resource where you want the data to appear. (Or [create a new resource](../../azure-monitor/app/create-new-resource.md ).)
 
 Take a copy of the instrumentation key, which identifies the resource.
 
@@ -135,6 +135,6 @@ Workaround: Exclude data collected by the problem Write plugins.
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../application-insights/app-insights-metrics-explorer.md
+[metrics]: ../../azure-monitor/app/metrics-explorer.md
 
 

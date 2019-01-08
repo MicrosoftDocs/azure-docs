@@ -29,7 +29,7 @@ Learn how to use [Apache Spark](https://spark.apache.org/) on HDInsight to analy
 
 The following resources were used in developing and testing this document:
 
-* Application Insights telemetry data was generated using a [Node.js web app configured to use Application Insights](../../application-insights/app-insights-nodejs.md).
+* Application Insights telemetry data was generated using a [Node.js web app configured to use Application Insights](../../azure-monitor/app/nodejs.md).
 
 * A Linux-based Spark on HDInsight cluster version 3.5 was used to analyze the data.
 

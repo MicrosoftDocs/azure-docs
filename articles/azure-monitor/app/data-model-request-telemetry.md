@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ---
@@ -57,9 +57,9 @@ Max length: 1024 characters
 
 ## Success
 
-Indication of successful or unsuccessful call. This field is required. When not set explicitly to `false` - request considered to be successful. Set this value to `false` if operation was interrupted by exception or returned error result code.
+Indication of successful or unsuccessful call. This field is required. When not set explicitly to `false` - a request is considered to be successful. Set this value to `false` if operation was interrupted by exception or returned error result code.
 
-For the web applications, Application Insights define request as failed when the response code is less the `400` or equal to `401`. However there are cases when this default mapping does not match the semantic of the application. Response code `404` may indicate "no records", which can be part of regular flow. It also may indicate a broken link. For the broken links, you can even implement more advanced logic. You can mark broken links as failures only when those links are located on the same site by analyzing url referrer. Or mark them as failures when accessed from the company's mobile application. Similarly `301` and `302` indicates failure when accessed from the client that doesn't support redirect.
+For the web applications, Application Insights define a request as successful when the response code is less than `400` or equal to `401`. However there are cases when this default mapping does not match the semantic of the application. Response code `404` may indicate "no records", which can be part of regular flow. It also may indicate a broken link. For the broken links, you can even implement more advanced logic. You can mark broken links as failures only when those links are located on the same site by analyzing url referrer. Or mark them as failures when accessed from the company's mobile application. Similarly `301` and `302` indicates failure when accessed from the client that doesn't support redirect.
 
 Partially accepted content `206` may indicate a failure of an overall request. For instance, Application Insights endpoint receives a batch of telemetry items as a single request. It returns `206` when some items in the batch were not processed successfully. Increasing rate of `206` indicates a problem that needs to be investigated. Similar logic applies to `207` Multi-Status where the success may be the worst of separate response codes.
 
@@ -78,4 +78,4 @@ You can read more on request result code and status code in the [blog post](http
 - [Write custom request telemetry](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
 - See [data model](data-model.md) for Application Insights types and data model.
 - Learn how to [configure ASP.NET Core](../../azure-monitor/app/asp-net.md) application with Application Insights.
-- Check out [platforms](../../application-insights/app-insights-platforms.md) supported by Application Insights.
+- Check out [platforms](../../azure-monitor/app/platforms.md) supported by Application Insights.

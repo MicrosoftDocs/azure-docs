@@ -19,7 +19,7 @@ ms.author: mbullwin
 In this example, we'll create an adaptor that takes data from Application Insights, renames and processes some of the fields, and pipes it into Power BI.
 
 > [!WARNING]
-> There are much better and easier [recommended ways to display Application Insights data in Power BI](../../application-insights/app-insights-export-power-bi.md). The path illustrated here is just an example to illustrate how to process exported data.
+> There are much better and easier [recommended ways to display Application Insights data in Power BI](../../azure-monitor/app/export-power-bi.md ). The path illustrated here is just an example to illustrate how to process exported data.
 > 
 > 
 
@@ -58,7 +58,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
     ![Choose event types](./media/export-stream-analytics/080.png)
 
-1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../../application-insights/app-insights-metrics-explorer.md) and individual events in [diagnostic search](../../azure-monitor/app/diagnostic-search.md). 
+1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../../azure-monitor/app/metrics-explorer.md) and individual events in [diagnostic search](../../azure-monitor/app/diagnostic-search.md). 
    
     And also, the data will export to your storage. 
 2. Inspect the exported data. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
@@ -192,7 +192,7 @@ Wait until the job is Running.
 
 ## See results in Power BI
 > [!WARNING]
-> There are much better and easier [recommended ways to display Application Insights data in Power BI](../../application-insights/app-insights-export-power-bi.md). The path illustrated here is just an example to illustrate how to process exported data.
+> There are much better and easier [recommended ways to display Application Insights data in Power BI](../../azure-monitor/app/export-power-bi.md ). The path illustrated here is just an example to illustrate how to process exported data.
 > 
 > 
 

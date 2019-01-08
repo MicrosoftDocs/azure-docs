@@ -112,7 +112,7 @@ Application Insights automatically collects the following performance counters:
 * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
 * \Processor(_Total)\% Processor Time
 
-For more information, see [System performance counters in Application Insights](../application-insights/app-insights-performance-counters.md) and [Application Insights for Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters).
+For more information, see [System performance counters in Application Insights](../azure-monitor/app/performance-counters.md) and [Application Insights for Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters).
 
 ### Azure Diagnostics
 
@@ -291,6 +291,6 @@ As previously stated, the performance counters you want to collect are defined i
 ## More information
 
 - [Application Insights for Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters)
-- [System performance counters in Application Insights](../application-insights/app-insights-performance-counters.md)
+- [System performance counters in Application Insights](../azure-monitor/app/performance-counters.md)
 - [Specifying a Counter Path](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
 - [Azure Diagnostics Schema - Performance Counters](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)
