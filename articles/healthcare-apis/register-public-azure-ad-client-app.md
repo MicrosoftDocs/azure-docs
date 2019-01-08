@@ -13,7 +13,7 @@ ms.author: mihansen
 
 In this article, you'll learn how to register a public application in Azure Active Directory. Client application registrations are Azure Active Directory representations of applications that can authenticate and ask for API permissions on behalf of a user. Public clients are applications such as mobile applications and single page javascript applications that cannot keep secrets confidential. The procedure is similar to [registering a confidential client](register-confidential-aad-client-app.md), but since public clients cannot be trusted to hold an application secret, there is no need to add one.
 
-## Open app registrations in Azure portal's Active Directory section
+## App registrations in Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, click **Azure Active Directory**.
 
@@ -40,3 +40,10 @@ Similarly to the [confidential client application](register-confidential-aad-cli
     ![Azure portal. New public API Permissions.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-API-PERMISSIONS.png)
 
 2. Select the scopes that you would like the application to be able to request.
+
+## Next steps
+
+In this article, you've learned how to register a public client application in Azure Active Directory. Next, deploy a FHIR API in Azure.
+ 
+>[!div class="nextstepaction"]
+>[Deploy Open Source FHIR server](fhir-oss-powershell-quickstart.md)

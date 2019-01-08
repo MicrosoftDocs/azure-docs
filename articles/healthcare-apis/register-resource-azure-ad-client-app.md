@@ -13,7 +13,7 @@ ms.author: mihansen
 
 In this article, you'll learn how to register a resource (or API) application in Azure Active Directory. A resource application is an Azure Active Directory representation of the FHIR server API itself and client applications can request access to the resource when authenticating. The resource application is also known as the *audience* in OAuth parlance.
 
-## Open app registrations in Azure portal's Active Directory section
+## App registrations in Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, click **Azure Active Directory**.
 
@@ -25,7 +25,7 @@ In this article, you'll learn how to register a resource (or API) application in
 
 ## Add a new application registration
 
-1. Fill in the details for the new application. There are no specific requirements for the display name, but setting it to the URI of the FHIR server makes it easy to find:
+* Fill in the details for the new application. There are no specific requirements for the display name, but setting it to the URI of the FHIR server makes it easy to find:
 
     ![New application registration](media/how-to-aad/portal-aad-register-new-app-registration-NAME.png)
 
@@ -43,7 +43,7 @@ A resource application has an identifier URI (Application ID URI), which clients
 
 ## Define application roles
 
-The Microsoft Healthcare APIs and the OSS FHIR Server for Azure use [Azure Active Directory application roles](https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles) for role-based access control. To define which roles should be available for your FHIR Server API, open the resource application's [manifest](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-manifest/):
+The Microsoft Healthcare APIs and the OSS FHIR Server for Azure use [Azure Active Directory application roles](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) for role-based access control. To define which roles should be available for your FHIR Server API, open the resource application's [manifest](https://docs.microsoft.com/azure/active-directory/active-directory-application-manifest/):
 
 1. Click **Manifest**:
 
@@ -76,3 +76,10 @@ The Microsoft Healthcare APIs and the OSS FHIR Server for Azure use [Azure Activ
       }
     ],
     ```
+
+## Next steps
+
+In this article, you've learned how to register a resource application in Azure Active Directory. Next, deploy a FHIR API in Azure.
+ 
+>[!div class="nextstepaction"]
+>[Deploy Open Source FHIR server](fhir-oss-powershell-quickstart.md)

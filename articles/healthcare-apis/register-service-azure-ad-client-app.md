@@ -15,7 +15,7 @@ In this article, you'll learn how to register a service client application in Az
 
 Follow the steps below to create a new service client.
 
-## Open app registrations in Azure portal's Active Directory section
+## App registrations in Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, click **Azure Active Directory**.
 
@@ -27,7 +27,7 @@ Follow the steps below to create a new service client.
 
 ## Service client application details
 
-1. The service client needs a display name and you can also provide a reply URL but it will typically not be used.
+* The service client needs a display name and you can also provide a reply URL but it will typically not be used.
 
     ![Azure portal. New Service Client App Registration.](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-NAME.png)
 
@@ -60,3 +60,10 @@ The service client needs a secret (password), which you will used when obtaining
 3. Provide a duration of the secret.
 
 4. Once it has been generated, it will only be displayed once in the portal. Make a note of it and store in a securely.
+
+## Next steps
+
+In this article, you've learned how to register a service client application in Azure Active Directory. Next, deploy a FHIR API in Azure.
+ 
+>[!div class="nextstepaction"]
+>[Deploy Open Source FHIR server](fhir-oss-powershell-quickstart.md)

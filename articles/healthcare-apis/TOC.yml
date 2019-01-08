@@ -22,13 +22,13 @@
   expanded: false
   items:
   - name: Register a resource application
-    href: register-resource-aad-client-app.md
+    href: register-resource-azure-ad-client-app.md
   - name: Register a confidential client application
-    href: register-confidential-aad-client-app.md
+    href: register-confidential-azure-ad-client-app.md
   - name: Register a public client application
-    href: register-public-aad-client-app.md
+    href: register-public-azure-ad-client-app.md
   - name: Register a service client application
-    href: register-service-aad-client-app.md
+    href: register-service-azure-ad-client-app.md
 - name: Resources
   items:
   - name: FAQ

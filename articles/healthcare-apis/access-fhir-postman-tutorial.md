@@ -1,5 +1,5 @@
 ---
-title: Postman FHIR server tutorial - Microsoft Healthcare APIs
+title: Postman FHIR server in Azure tutorial - Microsoft Healthcare APIs
 description: This article describes how to access a FHIR API with Postman.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -19,19 +19,19 @@ A client application would access a FHIR API through a [REST API](https://www.hl
 - A FHIR endpoint in Azure. You can set that up using the Microsoft Healthcare APIs for FHIR. There are quickstarts available for [Azure portal](fhir-oss-portal-quickstart.md), [PowerShell](fhir-oss-powershell-quickstart.md), or [Azure CLI](fhir-oss-cli-quickstart.md).
 - Postman installed. You can get it from [https://www.getpostman.com](https://www.getpostman.com)
 
-## Collect FHIR server and authentication details
+## FHIR server and authentication details
 
 In order to use Postman, you will need to know the following details:
 
 - Your FHIR server URL, for example, `https://MYFHIRSERVICE.azurewebsites.net` or `https://MYACCOUNT.microsofthealthcare-apis.com/fhir`
 - The identity provider `Authority` for your FHIR server, for example, `https://login.microsoftonline.com/{TENANT-ID}`
-- The configured `audience`, which would be set in the [Azure AD resource application registration](register-resource-aad-client-app.md).
-- The `client_id` (or application ID) of the [client application](register-confidential-aad-client-app.md) you will be using to access the FHIR service.
+- The configured `audience`, which would be set in the [Azure AD resource application registration](register-resource-azure-ad-client-app.md).
+- The `client_id` (or application ID) of the [client application](register-confidential-azure-ad-client-app.md) you will be using to access the FHIR service.
 - The `client_secret` (or application secret) of the client application.
 
 Finally, you should check that `https://www.getpostman.com/oauth2/callback` is a registered reply URL for your client application.
 
-## Open Postman and connect to FHIR server
+## Connect to FHIR server
 
 Using Postman, do a `GET` request to `https://fhir-server-url/metadata`:
 
@@ -114,3 +114,10 @@ Hit "Send" and you should see that the patient is successfully created:
 If you repeat the patient search, you should now see the patient record:
 
 ![Patient Created](media/tutorial-postman/postman-patient-found.png)
+
+## Next steps
+
+In this tutorial, you've accessed a FHIR API using postman. Read about the supported API features in Microsoft FHIR server for Azure.
+ 
+>[!div class="nextstepaction"]
+>[Supported FHIR features](fhir-features-supported.md)

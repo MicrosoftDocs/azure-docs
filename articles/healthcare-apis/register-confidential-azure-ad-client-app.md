@@ -15,7 +15,7 @@ In this article, you'll learn how to register a confidential client application 
 
 To register a new confidential application in the portal, follow the steps below.
 
-## Open app registrations in Azure portal's Active Directory section
+## App registrations in Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, click **Azure Active Directory**.
 
@@ -60,3 +60,10 @@ Next add API permissions:
 2. Provide a description and duration of the secret.
 
 3. Once generated, it will be displayed in the portal only once. Make a note of it and store it securely.
+
+## Next steps
+
+In this article, you've learned how to register a confidential client application in Azure Active Directory. Next, deploy a FHIR API in Azure.
+ 
+>[!div class="nextstepaction"]
+>[Deploy Open Source FHIR server](fhir-oss-powershell-quickstart.md)

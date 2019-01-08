@@ -1,5 +1,5 @@
 ---
-title: What are Microsoft Healthcare APIs - Microsoft Healthcare APIs
+title: What are Microsoft Healthcare APIs in Azure - Microsoft Healthcare APIs
 description: This article describes Microsoft Healthcare APIs.
 services: healthcare-apis
 author: hansenms

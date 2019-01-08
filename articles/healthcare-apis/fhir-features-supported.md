@@ -1,5 +1,5 @@
 ---
-title: Supported FHIR features - Microsoft Healthcare APIs 
+title: Supported FHIR features in Azure - Microsoft Healthcare APIs 
 description: This article explains which features of the FHIR specification that are implemented in Microsoft Healthcare APIs
 services: healthcare-apis
 author: hansenms
@@ -13,7 +13,7 @@ ms.author: mihansen
 
 Microsoft Healthcare APIs provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document lists the main features of the FHIR Server.
 
-## FHIR Version
+## FHIR version
 
 Current version: `3.0.1`
 
@@ -105,6 +105,13 @@ Cosmos DB is a globally distributed multi-model (SQL API, MongoDB API, etc.) dat
 
 ## Role based access control
 
-The FHIR Server uses [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) for access control. Specifically, Role Based Access Control (RBAC) is enforced, if the `FhirServer:Security:Enabled` configuration parameter is set to `true`, and all requests (except `/metadata`) to the FHIR Server must have `Authorization` request header set to `Bearer <TOKEN>`. The token must contain one or more roles as defined in the `roles` claim. A request will be allowed if the token contains a role that allows the specified action on the specified resource.
+The FHIR Server uses [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for access control. Specifically, Role Based Access Control (RBAC) is enforced, if the `FhirServer:Security:Enabled` configuration parameter is set to `true`, and all requests (except `/metadata`) to the FHIR Server must have `Authorization` request header set to `Bearer <TOKEN>`. The token must contain one or more roles as defined in the `roles` claim. A request will be allowed if the token contains a role that allows the specified action on the specified resource.
 
 Currently, the allowed actions for a given role are applied *globally* on the API.
+
+## Next steps
+
+In this article, you've read about the supported FHIR features in Microsoft Healthcare APIs. Next deploy an FHIR API in Azure.
+ 
+>[!div class="nextstepaction"]
+>[Deploy Open Source FHIR server](fhir-oss-powershell-quickstart.md)
