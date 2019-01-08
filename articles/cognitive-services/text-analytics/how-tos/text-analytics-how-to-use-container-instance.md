@@ -393,7 +393,11 @@ This section uses the **kubectl** cli to talk with the Azure Kubernetes service.
     aks-nodepool1-13756812-1   Ready     agent     6m        v1.9.11
     ```
 
-1. Modify the `language.yml` orchestration definition file found in the Cognitive Samples Repository folder downloaded in a [previous section](#get-website-docker-image). It is located in the subdirectory `\Kubernetes\language\`. The file has a `service` section and a `deployment` section for the two container types, the `language-frontend` website and the `language` detection container. The language detection deployment section specifies 1 replica. Change this to 
+1. Copy the following file and name it `language.yml`. The file has a `service` section and a `deployment` section for the two container types, the `language-frontend` website container and the `language` detection container. 
+
+    [!code-yml[Kubernetes orchestration file for the Cognitive Services containers sample](~/samples-cogserv-containers/Kubernetes/language/language.yml "Kubernetes orchestration file for the Cognitive Services containers sample")]
+
+1. Change the lines of `language.yml` based on the table below in order to add your own container registry image names, client secret, and text analytics settings.
 
     |Change|Purpose|Value example|
     |--|--|
@@ -404,112 +408,67 @@ This section uses the **kubectl** cli to talk with the Azure Kubernetes service.
     |Line 91, `apiKey` property|Your text analytics resource key|GUID|
     |Line 92, `billing` property|The billing endpoint for your text analytics resource.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
-    Because the apiKey and billing endpoint are set as part of the Kubernetes orchestration definition, the website container doesn't need to know about these or pass them as part of the request. 
+    Because the apiKey and billing endpoint are set as part of the Kubernetes orchestration definition, the website container doesn't need to know about these or pass them as part of the request. The website container refers to the language detection container by its orchestrator name `language`. You see this domain name used in the `Program.cs` of the website [code](https://github.com/Azure-Samples/cognitive-services-containers-samples/blob/master/dotnet/Language/FrontendService/FrontendService/Controllers/LanguageController.cs). 
 
-    The altered `language.yml` file  is:
-
-    ```console
-    # A service which exposes the .net frontend app container through a dependable hostname: http://language-frontend:5000
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: language-frontend
-      labels:
-        run: language-frontend
-    spec:
-      selector:
-        app: language-frontend
-      type: LoadBalancer
-      ports:
-      - name: front
-        port: 80
-        targetPort: 80
-        protocol: TCP
-    ---
-    # A deployment declaratively indicating how many instances of the .net frontend app container we want up
-    apiVersion: apps/v1beta1
-    kind: Deployment
-    metadata:
-      name: language-frontend
-    spec:
-      replicas: 1
-      template:
-        metadata:
-          labels:
-            app: language-frontend
-        spec:
-          containers:
-          - name: language-frontend
-            image: pattiocogservcontainerregistry.azurecr.io/ta-lang-frontend:v1
-            ports:
-            - name: public-port
-              containerPort: 80
-            livenessProbe:
-              httpGet:
-                path: /status
-                port: public-port
-              initialDelaySeconds: 30
-              timeoutSeconds: 1
-              periodSeconds: 10
-          imagePullSecrets:
-            - name: <client-password>
-          automountServiceAccountToken: false
-    ---
-    # A service which exposes the cognitive-service containers through a dependable hostname: http://language:5000
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: language
-      labels:
-        run: language
-    spec:
-      selector:
-        app: language
-      type: LoadBalancer
-      ports:
-      - name: face
-        port: 5000
-        targetPort: 5000
-        protocol: TCP
-    ---
-    # A deployment declaratively indicating how many instances of the cognitive-service container we want up
-    apiVersion: apps/v1beta1
-    kind: Deployment
-    metadata:
-      name: language
-    spec:
-      replicas: 1
-      template:
-        metadata:
-          labels:
-            app: language
-        spec:
-          containers:
-          - name: language
-            image: pattiocogservcontainerregistry.azurecr.io/azure-cognitive-services/language
-            ports:
-            - name: public-port
-              containerPort: 5000
-            livenessProbe:
-              httpGet:
-                path: /status
-                port: public-port
-              initialDelaySeconds: 30
-              timeoutSeconds: 1
-              periodSeconds: 10
-            args:
-                - "eula=accept"
-                - "apikey=<apiKey>" 
-                - "billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0" 
-                - "Logging:Console:LogLevel:Default=Debug"
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
+    using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
+    using Microsoft.Rest;
     
-          imagePullSecrets:
-            - name: <client-password>
+    namespace FrontendService.Controllers
+    {
+        public class MockCredentials : ServiceClientCredentials {}
     
-          automountServiceAccountToken: false
+        [Route("/")]
+        public class LanguageController : Controller
+        {
+            // The hostname and port of the Kubernetes service which exposes the cognitive service container(s)
+            //
+            // Instead of hardcoding the hostname and port, environmental variables can be used to discover this address at runtime: 
+            // https://kubernetes.io/docs/concepts/containers/container-environment-variables/#cluster-information
+            public static string ServiceEndpoint = "http://language:5000";
+    
+            // The Client SDK which can be used to make requests to either your self-hosted cognitive service container or the cloud api.
+            private ITextAnalyticsClient _taClient;
+    
+            public LanguageController()
+            {
+                _taClient = new TextAnalyticsClient(new MockCredentials())
+                {
+                    // Ensure the sdk client makes requests to your cognitive service containers instead of the cloud API
+                    Endpoint = ServiceEndpoint
+                };
+            }
+    
+            /// <summary>
+            /// A simple health endpoint used for availability and readiness monitoring in Kubernetes.
+            /// </summary>
+            /// <returns>Always returns "healthy" if the app is able.</returns>
+            public string Get()
+            {
+                return "healthy";
+            }
+    
+            /// <summary>
+            /// Detects the language of text retrieved from the HTTP route.!--
+            /// Example:  http://<ip>:<port>/Hello World!
+            /// Response: English
+            /// </summary>
+            [HttpGet("{text}")]
+            public async Task<string> DetectLanguage([FromRoute] string text)
+            {
+                var inputs = new List<Input>() { new Input("id", text) };
+                var result = await _taClient.DetectLanguageAsync(new BatchInput(inputs));
+                return result.Documents[0].DetectedLanguages[0].Name;
+            }
+        }
+    }
     ```
-
-1. Load the orchestration definition file for this sample. Make sure the console is in the Cognitive Samples Repository folder downloaded in a [previous section](#get-website-docker-image), in the subdirectory `\Kubernetes\language\`, where the `language.yml` file is located. 
+1. Load the orchestration definition file for this sample from the folder where you created and saved the `language.yml`. 
 
     ```console
     kubectl apply -f language.yml
@@ -518,34 +477,38 @@ This section uses the **kubectl** cli to talk with the Azure Kubernetes service.
     The response is:
 
     ```console
-    deployment "azure-vote-back" created
-    service "azure-vote-back" created
-    deployment "azure-vote-front" created
-    service "azure-vote-front" created
+    service "language-frontend" created
+    deployment.apps "language-frontend" created
+    service "language" created
+    deployment.apps "language" created
     ```
 
-## Test the application
+## Get external IPs of containers
 
-1. For the frontend web application, verify the `language-frontend` service is running and get the external IP address.
+For the two containers, verify the `language-frontend` and `language` services are running and get the external IP address. Run the command twice, replacing `<service-name> in the with each your service names.
 
-    ```console
-    kubectl get service language-frontend --watch
-    ```
-  
-    ```console
-    NAME       TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
-    language   LoadBalancer   10.0.196.26   168.62.220.174   5000:31834/TCP   22m
-    ```
+```console
+kubectl get service <service-name> --watch
+```
 
-    _Initially_ the EXTERNAL-IP for the service is shown as pending. Wait until the IP address is show before testing the service in the browser. 
-  
-    You can get the language detection external IP from the `language` service as well. 
+This is the response for the previous command with the `language` service. Notice that the default port 5000 is available. 
 
-    ```console
-    kubectl get service language --watch
-    ```
+```console
+NAME       TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
+language   LoadBalancer   10.0.196.26   168.62.220.174   5000:31834/TCP   22m
+```
 
-1. To see the web frontend app in action, open a web browser to the external IP address of your service.
+_Initially_ the EXTERNAL-IP for the service is shown as pending. Wait until the IP address is show before testing the service in the browser. 
+
+## Test the language detection container
+
+Open a browser and navigate to the external IP of the `language` container from the previous section: `http://<external-ip>:5000/swagger/index.html`.
+
+![language-detection-container-swagger-documentation](../media/how-tos/container-instance/language-detection-container-swagger-documentation.png)
+
+## Test the client application container
+
+Change the URL in the browser to the external IP of the `language-frontend` container using the following format: `http://<external-ip>/helloworld`. The text, `helloworld`, returns `English`.
 
 ## Clean up resources
 
