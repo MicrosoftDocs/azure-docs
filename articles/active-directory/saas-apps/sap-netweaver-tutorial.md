@@ -265,7 +265,7 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/nameiddetails.png)
 
-	b. screenshot mentioning Required claims from Azure AD.
+	b. Screenshot mentioning Required claims from Azure AD.
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/claimsaad1.png)
 
