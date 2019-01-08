@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Bing Video Search Documentation 
+title: Bing Video Search API Documentation 
 metadata:
-  title: Bing Video Search Documentation - Tutorials, quickstarts, API references | Microsoft Docs
-  description: Learn how to use Bing Video Search API to obtain videos from the Web relevant to user queries. Tutorials show you how to build apps that use the service.
+  title: Bing Video Search API Documentation - Tutorials, quickstarts, API references | Microsoft Docs
+  description: Learn how to use the Bing Video Search API search and find videos from across the Web.
   services: cognitive-services
   author: mikedodaro
   manager: rosh
@@ -15,7 +15,7 @@ metadata:
   ms.date: 11/02/2017
   ms.author: v-gedod
 abstract:
-  description: Bing Video Search API provides an experience similar to Bing Videos, by returning videos that Bing determines are relevant to a query.
+  description: The Bing Video Search API provides an experience similar to Bing.com/videos by returning videos that are relevant to your users' search queries.
 sections:
 - title: 5-Minute Quickstarts
   items:

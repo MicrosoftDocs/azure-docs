@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Bing Video Search API, Java"
+title: "Quickstart: Search for videos using the Bing Video Search REST API and Java"
 titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Video Search API.
+description: Use this quickstart to send video search requests to the Bing Video Search REST API using Java.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -14,15 +14,78 @@ ms.author: aahi
 ---
 # Quickstart: Bing Video Search API with Java
 
-This article shows you how use the Bing Search API, part of Microsoft Cognitive Services on Azure. While this article employs Java, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
-
-The example code is written to run under Java 7 as a console application.
-
-Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) for technical details about the APIs.
+Use this quickstart to make your first call to the Bing Video Search API and view a search result from the JSON response. This simple Java application sends an HTTP video search query to the API, and displays the response. While this application is written in Java, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) with additional error handling, and code annotations.
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You will need the access key provided when you activate your free trial. See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* The [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
+
+* The [Gson library](https://github.com/google/gson)
+
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](cognitive-services-bing-video-search-signup-requirements.md)
+
+
+## Create and initialize a project
+
+1. Create a new Java project in your favorite IDE or editor, and import the following libraries.
+
+    ```java
+    import java.net.*;
+    import java.util.*;
+    import java.io.*;
+    import javax.net.ssl.HttpsURLConnection;
+    import com.google.gson.Gson;
+    import com.google.gson.GsonBuilder;
+    import com.google.gson.JsonObject;
+    import com.google.gson.JsonParser;
+    ```
+
+2. Create a new class named `SearchResults` to store the headers and JSON response from the API.
+
+    ```java
+    // Container class for search results encapsulates relevant headers and JSON data
+    class SearchResults{
+        HashMap<String, String> relevantHeaders;
+        String jsonResponse;
+        SearchResults(HashMap<String, String> headers, String json) {
+            relevantHeaders = headers;
+            jsonResponse = json;
+        }
+    }
+    ```
+
+3. Create a new method named `SearchVideos()` with variables for your API endpoint host and path, your subscription key, and a search term. It will return a `SearchResults` object. 
+
+    ```java
+    public static SearchResults SearchVideos (String searchQuery) throws Exception {
+        static String subscriptionKey = "enter your key here";
+        static String host = "https://api.cognitive.microsoft.com";
+        static String path = "/bing/v7.0/videos/search";
+        static String searchTerm = "kittens";
+    }
+    ```
+
+## Construct and send the search request
+
+1. In `SearchVideos()`, perform the following steps:
+
+    1. construct the URL for your request by combining your API host, path, and encoding your search query. Then use `openConnection()` to create a connection, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+
+        ```java
+            URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
+            HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+            connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+        ```
+
+    2. Get the response from the API by getting the i
+
+    ```java
+
+    // receive JSON body
+            InputStream stream = connection.getInputStream();
+            String response = new Scanner(stream).useDelimiter("\\A").next();
+    ```
+
 
 ## Bing video search
 
