@@ -23,11 +23,11 @@ The Microsoft Authenticator app helps you prove your identity without needing to
 ## Download and install the app
 Install the latest version of the Microsoft Authenticator app, based on your operating system:
 
-- **Google Android.** On your Android device, go to [Google Play to download and install the Microsoft Authenticator app](https://play.google.com/store/apps/details?id=com.azure.authenticator).
+- **Google Android.** On your Android device, go to Google Play to [download and install the Microsoft Authenticator app](https://play.google.com/store/apps/details?id=com.azure.authenticator).
 
-- **Apple iOS.** On your Apple iOS device, go to the [App Store to download and install the Microsoft Authenticator app](https://itunes.apple.com/app/microsoft-authenticator/id983156458).
+- **Apple iOS.** On your Apple iOS device, go to the App Store to [download and install the Microsoft Authenticator app](https://itunes.apple.com/app/microsoft-authenticator/id983156458).
 
-- **Windows Phone.** On your Windows Phone, go to the [Microsoft Store to download and install the Microsoft Authenticator app](https://www.microsoft.com/en-us/p/microsoft-authenticator/9nblgggzmcj6).
+- **Windows Phone.** On your Windows Phone, go to the Microsoft Store to [download and install the Microsoft Authenticator app](https://www.microsoft.com/en-us/p/microsoft-authenticator/9nblgggzmcj6).
 
     >[!Note]
     >You can't use the phone sign-in process on Windows phones. You must use the standard verification process, as described in the [Set up two-step verification](multi-factor-authentication-end-user-first-time.md) article.

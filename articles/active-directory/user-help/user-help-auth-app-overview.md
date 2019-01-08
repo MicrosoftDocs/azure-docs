@@ -16,9 +16,6 @@ ms.author: lizross
 
 # Microsoft Authenticator app overview
 
->[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
-
 The Microsoft Authenticator app works using two-factor verification to help you access your accounts more easily and more securely, especially while viewing sensitive information. Because passwords can be forgotten, stolen, or compromised, two-factor verification is an additional security step that helps protect your account by making it harder for other people to break in.
 
 You can use the Microsoft Authenticator app in multiple ways, including:
@@ -27,8 +24,8 @@ You can use the Microsoft Authenticator app in multiple ways, including:
 
 - Providing sign-in without requiring a password, using your username and your mobile device with your fingerprint, face, or PIN.
 
->[!NOTE]
->If you're having issues signing in to your account, see [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) for help.  Get more info about what to do when you receive the [“That Microsoft account doesn't exist”](https://support.microsoft.com/help/13811) message when you try to sign in to your Microsoft account.
+>[!Important]
+>This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).<br><br>If you're having issues signing in to your account, see [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) for help.  Get more info about what to do when you receive the [“That Microsoft account doesn't exist”](https://support.microsoft.com/help/13811) message when you try to sign in to your Microsoft account.
 
 ## Terminology
 |Term|Description|
