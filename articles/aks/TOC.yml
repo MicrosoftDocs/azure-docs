@@ -170,7 +170,7 @@
   - name: Monitoring and logging
     items:
     - name: Azure Monitor for containers
-      href: ../azure-monitor/insights/container-insights-overview
+      href: ../azure-monitor/insights/container-insights-overview.md
       maintainContext: true
     - name: View the master component logs
       href: view-master-logs.md
