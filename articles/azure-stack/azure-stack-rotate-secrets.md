@@ -223,7 +223,7 @@ $PEPCreds = Get-Credential
 $PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
 # Run Secret Rotation
-$CertPassword = ConvertTo-SecureString "CertPasswordHere" -AsPlainText -Force
+$CertPassword = ConvertTo-SecureString "<CertPasswordHere>" -AsPlainText -Force
 $CertShareCreds = Get-Credential
 $CertSharePath = "<NetworkPathOfCertShare>"
 Invoke-Command -Session $PEPSession -ScriptBlock {
@@ -323,7 +323,7 @@ $PEPCreds = Get-Credential
 $PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
 # Create Credentials for the fileshare
-$CertPassword = ConvertTo-SecureString "CertPasswordHere" -AsPlainText -Force
+$CertPassword = ConvertTo-SecureString "<CertPasswordHere>" -AsPlainText -Force
 $CertShareCreds = Get-Credential
 $CertSharePath = "<NetworkPathOfCertShare>"
 # Run Secret Rotation
@@ -349,7 +349,7 @@ $PEPCreds = Get-Credential
 $PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
 # Create Credentials for the fileshare
-$CertPassword = ConvertTo-SecureString "CertPasswordHere" -AsPlainText -Force
+$CertPassword = ConvertTo-SecureString "<CertPasswordHere>" -AsPlainText -Force
 $CertShareCreds = Get-Credential
 $CertSharePath = "<NetworkPathOfCertShare>"
 # Run Secret Rotation
