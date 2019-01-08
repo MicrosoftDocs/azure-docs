@@ -51,7 +51,7 @@ Before implementing offline DRM for Widevine on Android devices, you should firs
     - [ExoPlayer Developer Guide](https://google.github.io/ExoPlayer/guide.html)
     - [EoPlayer Developer Blog](https://medium.com/google-exoplayer)
 
-## Content protection configuration in Azure Media Services
+## Configure content protection in Azure Media Services
 
 In the [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L189) method, the following necessary steps are present:
 
