@@ -489,7 +489,7 @@ The following section lists steps necessary to create a VM using "VMConfig" file
       Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
       ```
 
-   * **Non-managed and non-encrypted VMs (BEK only)** - For non-managed, encrypted VMs (encrypted using BEK only), you need to restore the secret to the key vault before you can attach disks.
+   * **Non-managed and non-encrypted VMs (BEK only)** - For non-managed, non-encrypted VMs (encrypted using BEK only), you need to restore the secret to the key vault before you can attach disks. For more information, see the article, [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). The following sample shows how to attach OS and data disks for non-encrypted VMs.
 
      ```powershell
     $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -503,7 +503,7 @@ The following section lists steps necessary to create a VM using "VMConfig" file
     $osBlob.ICloudBlob.SetMetadata()
     ```
 
-   * **Non-managed and non-encrypted VMs (BEK and KEK)** - For non-managed, encrypted VMs (encrypted using BEK and KEK), restore the key and secret to the key vault before attaching the disks.
+   * **Non-managed and non-encrypted VMs (BEK and KEK)** - For non-managed, non-encrypted VMs (encrypted using BEK and KEK), restore the key and secret to the key vault before attaching the disks. For more information, see the article, [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). The following sample shows how to attach OS and data disks for non-encrypted VMs.
 
     ```powershell
      $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -536,7 +536,7 @@ The following section lists steps necessary to create a VM using "VMConfig" file
     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
     ```
 
-  * **Managed and non-encrypted VMs (BEK only)** - For managed non-encrypted VMs (encrypted using BEK only), attach the restored managed disks.
+  * **Managed and non-encrypted VMs (BEK only)** - For managed non-encrypted VMs (encrypted using BEK only), attach the restored managed disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
       Use the following command to manually enable encryption for the data disks.
 
@@ -548,7 +548,7 @@ The following section lists steps necessary to create a VM using "VMConfig" file
       Update-AzureRmDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageProfile'.osDisk.name -DiskUpdate $diskupdateconfig
       ```
 
-   * **Managed and non-encrypted VMs (BEK and KEK)** - For managed non-encrypted VMs (encrypted using BEK and KEK), attach the restored managed disks. F
+   * **Managed and non-encrypted VMs (BEK and KEK)** - For managed non-encrypted VMs (encrypted using BEK and KEK), attach the restored managed disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
          Use the following command to manually enable encryption for the data disks.
 
