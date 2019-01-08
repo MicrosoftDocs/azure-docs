@@ -39,7 +39,7 @@ In the logic app resource, your logic app references
 these resources in the `parameters` section.
 
 You can view all these pieces of existing logic apps by using a tool like
-[Azure Resource Explorer](http://resources.azure.com).
+[Azure Resource Explorer](http://resources.azure.com). For JSON syntax and properties, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
 
 To make a template for a logic app to use with resource group deployments,
 you must define the resources and parameterize as needed.
