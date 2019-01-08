@@ -42,8 +42,6 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * Visitly supports **IDP** initiated SSO
 
-* Visitly supports **Automated** user provisioning
-
 ## Adding Visitly from the gallery
 
 To configure the integration of Visitly into Azure AD, you need to add Visitly from the gallery to your list of managed SaaS apps.
