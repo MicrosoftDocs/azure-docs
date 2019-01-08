@@ -20,7 +20,7 @@ This article summarizes how to diagnose user-defined functions. Then, it identif
 
 ## Debug issues
 
-Knowing how to diagnose any issues that arise within your Azure Digital Twins instance will aid you to effectively identify the issue, the cause of the problem, and a solution.
+Knowing how to diagnose any issues that arise within your Azure Digital Twins instance aids you to effectively identify the issue, the cause of the problem, and a solution.
 
 ### Enable log analytics for your instance
 
@@ -31,7 +31,7 @@ Logs and metrics for your Azure Digital Twins instance are exposed through Azure
 
 To configure monitoring and logging for Azure Digital Twins resources, read [How to configure monitoring and logging](./how-to-configure-monitoring.md).
 
-Read the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md) for a comprehensive overview of diagnostic log settings for your Azure Digital Twins instance through the Azure Portal, Azure CLI, or PowerShell.
+Read the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md) for configuring diagnostic log settings in Azure Digital Twins  through the Azure Portal, Azure CLI, or PowerShell.
 
 >[!IMPORTANT]
 > Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
@@ -53,7 +53,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | The Correlation ID that was specified on the event data |
 
-If you log your user-defined function, those logs will appear in your Azure Log Analytics instance with the category `UserDefinedFunction`. To retrieve them, enter the following query condition in Azure Log Analytics:
+If you log your user-defined function, those logs appear in your Azure Log Analytics instance with the category `UserDefinedFunction`. To retrieve them, enter the following query condition in Azure Log Analytics:
 
 ```Kusto
 AzureDiagnostics
@@ -70,7 +70,7 @@ Both diagnosing and identifying common issues are important when troubleshooting
 
 ### Ensure a role assignment was created
 
-Without a role assignment created within Management API, the user-defined function will not have access to perform any actions such as sending notifications, retrieving metadata, and setting computed values within the topology.
+Without a role assignment created within Management API, the user-defined function doesn't have access to perform any actions such as sending notifications, retrieving metadata, and setting computed values within the topology.
 
 Check if a role assignment exists for your user-defined function through your Management API:
 
@@ -84,9 +84,9 @@ GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_U
 
 Learn [How to create a role assignment for your user-defined function](./how-to-user-defined-functions.md), if no role assignments exist.
 
-### Check if the matcher will work for a sensor's telemetry
+### Check if the matcher works for a sensor's telemetry
 
-With the following call against your Azure Digital Twins instances' Management API, you will be able to determine if a given matcher applies for the given sensor.
+With the following call against your Azure Digital Twins instances' Management API, you are able to determine if a given matcher applies for the given sensor.
 
 ```plaintext
 GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
@@ -108,9 +108,8 @@ Response:
 }
 ```
 
-### Check what a sensor will trigger
-
-With the following call against your Azure Digital Twins instances' Management API, you will be able to determine the identifiers of your user-defined functions that will be triggered by the given sensor's incoming telemetry:
+### Check what a sensor triggers
+With the following call against your Azure Digital Twins instances' Management API, you are able to determine the identifiers of your user-defined functions that will be triggered by the given sensor's incoming telemetry:
 
 ```plaintext
 GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
@@ -118,7 +117,7 @@ GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=Use
 
 | Parameter | Replace with |
 | --- | --- |
-| *YOUR_SENSOR_IDENTIFIER* | The ID of the sensor that will be sending telemetry |
+| *YOUR_SENSOR_IDENTIFIER* | The ID of the sensor to send telemetry |
 
 Response:
 
@@ -198,9 +197,9 @@ If you enable diagnostic settings, you might encounter these common exceptions:
 
 1. **Throttling**: if your user-defined function exceeds the execution rate limits outlined in the [Service Limits](./concepts-service-limits.md) article, it will be throttled. Throttling entails no further operations successfully executing until the limits expire.
 
-1. **Data Not Found**: if your user-defined function attempts to access metadata that does not exist, the operation will fail.
+1. **Data Not Found**: if your user-defined function attempts to access metadata that does not exist, the operation fails.
 
-1. **Not Authorized**: if your user-defined function doesn't have a role assignment set or lacks enough permission to access certain metadata from the topology, the operation will fail.
+1. **Not Authorized**: if your user-defined function doesn't have a role assignment set or lacks enough permission to access certain metadata from the topology, the operation fails.
 
 ## Next steps
 
