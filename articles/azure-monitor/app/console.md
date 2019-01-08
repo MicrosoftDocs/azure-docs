@@ -16,7 +16,7 @@ ms.author: mbullwin
 ---
 
 # Application Insights for .NET console applications
-[Application Insights](../../application-insights/app-insights-overview.md) lets you monitor your web application for availability, performance, and usage.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) lets you monitor your web application for availability, performance, and usage.
 
 You need a subscription with [Microsoft Azure](https://azure.com). Sign in with a Microsoft account, which you might have for Windows, Xbox Live, or other Microsoft cloud services. Your team might have an organizational subscription to Azure: ask the owner to add you to it using your Microsoft account.
 

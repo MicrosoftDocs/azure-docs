@@ -23,7 +23,7 @@ The Application Insights Trends tool visualizes how your web application's impor
 
 ## Configure your web app for Application Insights
 
-If you haven't done this already, [configure your web app for Application Insights](../../application-insights/app-insights-overview.md). This allows it to send telemetry to the Application Insights portal. The Trends tool reads the telemetry from there.
+If you haven't done this already, [configure your web app for Application Insights](../../azure-monitor/app/app-insights-overview.md). This allows it to send telemetry to the Application Insights portal. The Trends tool reads the telemetry from there.
 
 Application Insights Trends is available in Visual Studio 2015 Update 3 and later.
 

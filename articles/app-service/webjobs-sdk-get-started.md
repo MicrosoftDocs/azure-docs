@@ -288,7 +288,7 @@ In this section, you build and run the project locally and trigger the function 
 
 ## Add Application Insights logging
 
-When the project runs in Azure, you can't monitor function execution by viewing console output. The monitoring solution we recommend is [Application Insights](../application-insights/app-insights-overview.md). For more information, see [Monitor Azure Functions](../azure-functions/functions-monitoring.md).
+When the project runs in Azure, you can't monitor function execution by viewing console output. The monitoring solution we recommend is [Application Insights](../azure-monitor/app/app-insights-overview.md). For more information, see [Monitor Azure Functions](../azure-functions/functions-monitoring.md).
 
 In this section, you do the following tasks to set up Application Insights logging before you deploy to Azure:
 
