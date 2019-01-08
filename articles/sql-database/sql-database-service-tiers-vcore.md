@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/02/2019
+ms.date: 01/08/2019
 ---
 # vCore service tiers, Azure Hybrid Benefit, and migration
 
@@ -60,6 +60,29 @@ See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked ques
 In the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database using the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to use your on-premises SQL Server licenses to save up to 30% on Azure SQL Database using your on-premises SQL Server licenses with Software Assurance.
 
 ![pricing](./media/sql-database-service-tiers/pricing.png)
+
+With the Azure Hybrid Benefit, you can choose to only pay for the underlying Azure infrastructure using your existing SQL Server license for the SQL database engine itself (called **BasePrice**) or pay for both the underlying infrastructure and the SQL Server license (called **LicenseIncluded**). You can choose or change your licensing model using the Azure portal or using one of the following APIs.
+
+- To set or update the license type using PowerShell:
+
+  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase):
+  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql)
+  - [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
+  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql)
+
+- To set or update the license type using Azure CLI:
+
+  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
+  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
+  - [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
+  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+
+- To set or update the license type using the REST API:
+
+  - [Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
+  - [Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)
+  - [Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
+  - [Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
 ## Migration from DTU model to vCore model
 
