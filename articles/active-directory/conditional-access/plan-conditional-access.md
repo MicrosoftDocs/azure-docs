@@ -48,6 +48,9 @@ When planning your conditional access policies, use this model to track your req
 
 ## Common access scenarios
 
+When planning your solution, assess, whether you need to create policies for the following access scenarios. 
+
+
 ### Enforce MFA for your admins
 
 Users with access to privileged accounts have unrestricted access to your environment. Due to the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification during a sign-in. In Azure Active Directory, you can get a stronger account verification by requiring multi-factor authentication (MFA). For more information, see [Require MFA for admins](baseline-protection.md#require-mfa-for-admins).
@@ -58,7 +61,7 @@ Users with access to privileged accounts have unrestricted access to your enviro
 
 ### Enforce MFA for specific apps
 
-To simplify the sign-in experience of your users, you might want to allow them to sign in to your cloud apps using a user name and a password. However, many environments have at least a few apps for which it is advisable to require a stronger form of account verification. This might be, for example true, for access to your organization's email system or your HR apps. For more information, see [equire MFA for specific apps with Azure Active Directory conditional access](app-based-mfa). 
+To simplify the sign-in experience of your users, you might want to allow them to sign in to your cloud apps using a user name and a password. However, many environments have at least a few apps for which it is advisable to require a stronger form of account verification. This might be, for example true, for access to your organization's email system or your HR apps. For more information, see [equire MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md). 
 
 
 ### Respond to detected sign-in risks
@@ -88,7 +91,7 @@ The proliferation of supported devices to access your cloud resources helps to i
 
 ### Restrict access to cloud apps to approved client apps
 
-Your employees use mobile devices for both personal and work tasks. While making sure your employees can be productive, you also want to prevent data loss. With Azure Active Directory (Azure AD) conditional access, you can restrict access to your cloud apps to approved client apps that can protect your corporate data. For more information, see [How to require approved client apps for cloud app access with conditional access](app-based-conditional-access).
+Your employees use mobile devices for both personal and work tasks. While making sure your employees can be productive, you also want to prevent data loss. With Azure Active Directory (Azure AD) conditional access, you can restrict access to your cloud apps to approved client apps that can protect your corporate data. For more information, see [How to require approved client apps for cloud app access with conditional access](app-based-conditional-access.md).
 
 
 ### Block legacy authentication
@@ -129,7 +132,7 @@ Once you’re ready to create your policy:
 5. Configure the Users, Apps, Conditions, and Controls
 6. Set Enable Policy to on
 
-![Picture 26](Media/azure-ad-ca-deployment-image1.png)
+![Picture 26](media/plan-conditional-access/azure-ad-ca-deployment-image1.png)
 
 ### Phase 2: Test
 
@@ -167,14 +170,14 @@ Use the following options to roll back a Conditional Access policy
 
 1. **Disable the policy** - Disabling a policy makes sure it doesn't apply when a user tries to sign in. You can always come back and enable the policy when you’d like to use it.
 
-![Picture 27](Media/Cazure-ad-ca-deployment-image2.png)
+    ![Picture 27](media/plan-conditional-access/azure-ad-ca-deployment-image2.png)
 
 2. **Exclude a user / group from a policy** - If a user is unable to access the app, you can choose to exclude the user from the policy
 
->[!NOTE]
-> This option should be used sparingly, only in situations where the user is trusted. The user should be added back into the policy or group as soon as possible.
+    >[!NOTE]
+    > This option should be used sparingly, only in situations where the user is trusted. The user should be added back into the policy or group as soon as possible.
 
-![Picture 30](Media/azure-ad-ca-deployment-image3.png)
+    ![Picture 30](media/plan-conditional-access/azure-ad-ca-deployment-image3.png)
 
 3. **Delete the policy** - If the policy is no longer required, delete it.
 
