@@ -198,6 +198,8 @@
     href: /powershell/module/azurerm.devtestlabs/#devtest_labs
   - name: REST API
     href: https://docs.microsoft.com/rest/api/dtl/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.devtestlab/allversions
 - name: Resources
   items:
   - name: Azure Roadmap

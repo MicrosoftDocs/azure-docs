@@ -11,9 +11,9 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 11/15/2018
+ms.date: 01/08/2019
 ms.author: jeffgilb
-ms.reviewer: quying
+ms.reviewer: georgel
 ---
 
 # Update the MySQL resource provider 

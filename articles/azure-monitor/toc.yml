@@ -92,7 +92,7 @@
     - name: Application Insights
       items:
       - name: Overview
-        href: ../application-insights/app-insights-overview.md?toc=/azure/azure-monitor/toc.json
+        href: app/app-insights-overview.md
       - name: DevOps
         href: app/detect-triage-diagnose.md
       - name: Distributed tracing
