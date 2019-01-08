@@ -65,7 +65,7 @@ Wait for 30 minutes for the subscription to be whitelisted before you start with
 To move a recovery services vault and its associated resources to different resource group
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Open the list of **Recovery Services vaults** and select the vault you want to move. When the vault dashboard opens, it appears as shown in the below image.
+2. Open the list of **Recovery Services vaults** and select the vault you want to move. When the vault dashboard opens, it appears as shown in the following image.
 
   ![Open Recover Service Vault](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
@@ -77,7 +77,7 @@ To move a recovery services vault and its associated resources to different reso
 
   ![Change Resource Group](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
-4. In the **Move resources** blade, for the selected vault it is recommended to move the optional related resources by selecting the checkbox as shown in the image below.
+4. In the **Move resources** blade, for the selected vault it is recommended to move the optional related resources by selecting the checkbox as shown in the following image.
 
   ![Move Subscription](./media/backup-azure-move-recovery-services/move-resource.png)
 
@@ -95,7 +95,7 @@ To move a recovery services vault and its associated resources to different reso
 You can move a Recovery Services vault and its associated resources to a different subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Open the list of Recovery Services vaults and select the vault you want to move. When the vault dashboard opens, it appears as shown the below image.
+2. Open the list of Recovery Services vaults and select the vault you want to move. When the vault dashboard opens, it appears as shown the following image.
 
     ![Open Recover Service Vault](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
@@ -111,7 +111,7 @@ You can move a Recovery Services vault and its associated resources to a differe
 
   ![move resource](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
-5. Select the target subscription form the **Subscription** drop-down list, where you want the vault to be moved.
+5. Select the target subscription from the **Subscription** drop-down list, where you want the vault to be moved.
 6. To add the target resource group, in the **Resource group** drop-down list select an existing resource group or click **create a new group** option.
 
   ![Add Subscription](./media/backup-azure-move-recovery-services/add-subscription.png)
