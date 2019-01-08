@@ -372,7 +372,7 @@ In this section, you will turn on real authentication by adding the `Authorize` 
 
 ## Deploy the app to Azure
 
-In this section, you will use the Azure command-line interface (CLI) from the Azure Cloud Shell to create a new [Azure Web App](https://docs.microsoft.com/azure/app-service/) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
+In this section, you will use the Azure command-line interface (CLI) from the Azure Cloud Shell to create a new wev app in [Azure App Service](https://docs.microsoft.com/azure/app-service/) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
 
 The steps in this section use the *signalr* extension for the Azure CLI. Execute the following command to install the *signalr* extension for the Azure CLI:
 
@@ -541,7 +541,7 @@ To deploy your code, execute the following commands in a Git shell.
 
 The last thing you need to do is update the **Homepage URL** and **Authorization callback URL** of the GitHub OAuth app to point to the new hosted app.
 
-1. Open [http://github.com](http://github.com) in a browser and navigate to your account's **Settings** > **Developer settings** > **Oauth Apps**.
+1. Open [https://github.com](https://github.com) in a browser and navigate to your account's **Settings** > **Developer settings** > **Oauth Apps**.
 
 2. Click on your authentication app and update the **Homepage URL** and **Authorization callback URL** as shown below:
 

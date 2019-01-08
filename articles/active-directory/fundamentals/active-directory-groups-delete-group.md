@@ -18,11 +18,11 @@ ms.custom: "it-pro, seodec18"
 # Delete a group using Azure Active Directory
 You can delete an Azure Active Directory (Azure AD) group for any number of reasons, but typically it will be because you:
 
-- Incorrectly set the **Group type** to the wrong option
+- Incorrectly set the **Group type** to the wrong option.
 
-- Created the wrong or a duplicate group by mistake 
+- Created the wrong or a duplicate group by mistake. 
 
-- No longer need the group
+- No longer need the group.
 
 ## To delete a group
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.

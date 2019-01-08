@@ -80,7 +80,7 @@ This guide assumes you have Azure AD Premium P2 licenses, Enterprise Mobility + 
 - Manage the user lifecycle holistically
    - Azure AD has an approach to managing Identity lifecycle
    - Remove manual steps from your employee account lifecycle, to prevent unauthorized access:
-      - Synchronize identities from your source of truth (HR System) to Azure AD. link to supported HR systems)
+      - Synchronize identities from your source of truth (HR System) to Azure AD.
       - [Use Dynamic Groups to automatically assign users to groups based on their attributes from HR (or your source of truth), such as department, title, region, and other attributes.](../users-groups-roles/groups-dynamic-membership.md)
       - [Use group-based access management provisioning to automatically provision users for SaaS applications.](../manage-apps/what-is-access-management.md)
 

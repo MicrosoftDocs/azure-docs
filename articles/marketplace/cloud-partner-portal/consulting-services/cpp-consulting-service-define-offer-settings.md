@@ -39,9 +39,6 @@ This identifier is related to your account. When you are logged in with your org
 
 This string is what will display as the offer name on AppSource or Azure Marketplace. The *name* field is limited to 50 characters.  The reviewer may need to edit your title to allow for appending the offer name with the duration and offer type.
 
->[!Note]
->Important: Only enter the name of the actual service here. Do not include duration and type of service.
-
 The following example by Edgewater Fullscope shows how the offer name is assembled. The offer name appears as:
 
 ![Creating a new consulting service offer](media/cppsampleconsultingoffer.png)

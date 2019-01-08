@@ -6,7 +6,7 @@ services: cognitive-services
 author: tulasim88
 manager: pchoudh
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
@@ -32,7 +32,7 @@ The following table indicates typical confidence associated for a given score.
 
 |Score Value|Score Meaning|Example Query|
 |--|--|--|
-|90 - 100|A near exact match of user query and a KB question|"My changes aren't updated in Knowledge base after publish"|
+|90 - 100|A near exact match of user query and a KB question|"My changes aren't updated in KB after publish"|
 |> 70|High confidence - typically a good answer that completely answers the user's query|"I published my KB but it's not updated"|
 |50 - 70|Medium confidence - typically a fairly good answer that should answer the main intent of the user query|"Should I save my updates before I publish my KB?"|
 |30 - 50|Low confidence - typically a related answer, that partially answers the user's intent|" What does the save and train do?"|
@@ -52,7 +52,7 @@ When choosing your threshold, keep in mind the balance between Accuracy and Cove
 > Newer versions of QnA Maker include improvements to scoring logic, and could affect your threshold. Any time you update the service, make sure to test and tweak the threshold if necessary. You can check your QnA Service version [here](https://www.qnamaker.ai/UserSettings), and see how to get the latest updates [here](../How-To/troubleshooting-runtime.md).
 
 ## Improve confidence scores
-To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response.
+To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response. You can also use [word alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) to add synonyms to keywords in your KB.
 
 
 ## Similar confidence scores

@@ -50,7 +50,7 @@ The instructions tell how to create a WebJobs SDK version 2.x project. The lates
 
 ## Prerequisites
 
-This article assumes you have [an Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) and experience with [apps in Azure App Service](app-service-web-overview.md). To complete the steps in this article:
+This article assumes you have [an Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) and experience with [apps in Azure App Service](overview.md). To complete the steps in this article:
 
 * [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/) with the **Azure development** workload. If you already have Visual Studio but don't have that workload, add the workload by selecting **Tools > Get Tools and Features**.
 * [Create an App Service app](app-service-web-get-started-dotnet-framework.md). If you already have one that you can deploy a WebJob to, you can use that instead of creating a new one.
@@ -300,9 +300,9 @@ In this section, you do the following tasks to set up Application Insights loggi
 
 1. If you don't already have an App Service app that you can use, [create one](app-service-web-get-started-dotnet-framework.md).
 
-1. If you don't already have an Application Insights resource that you can use, [create one](../application-insights/app-insights-create-new-resource.md). Set **Application type** to **General**, and skip the sections that follow **Copy the instrumentation key**.
+1. If you don't already have an Application Insights resource that you can use, [create one](../azure-monitor/app/create-new-resource.md ). Set **Application type** to **General**, and skip the sections that follow **Copy the instrumentation key**.
 
-1. If you already have an Application Insights resource that you want to use, [copy the instrumentation key](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
+1. If you already have an Application Insights resource that you want to use, [copy the instrumentation key](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key).
 
 ### Configure app settings 
 

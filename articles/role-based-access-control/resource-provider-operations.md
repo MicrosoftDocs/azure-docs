@@ -1864,12 +1864,12 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Devices/provisioningServices/certificates/verify/Action | Verify Certificate resource |
 > | Action | Microsoft.Devices/provisioningServices/certificates/Write | Create or Update Certificate |
 > | Action | Microsoft.Devices/provisioningServices/Delete | Delete IotDps resource |
-> | Action | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Gets the diagnostic setting for the resource |
+> | Action | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Gets the diagnostic setting for the resource. Note: you may need `Microsoft.Insights/diagnosticSettings/read` as well  |
 > | Action | Microsoft.Devices/provisioningServices/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Action | Microsoft.Devices/provisioningServices/keys/listkeys/Action | Get IotDps Keys for key name |
 > | Action | Microsoft.Devices/provisioningServices/listkeys/Action | Get all IotDps keys |
-> | Action | Microsoft.Devices/provisioningServices/logDefinitions/read | Gets the available log definitions for the provisioning Service |
-> | Action | Microsoft.Devices/provisioningServices/metricDefinitions/read | Gets the available metrics for the provisioning service |
+> | Action | Microsoft.Devices/provisioningServices/logDefinitions/read | Gets the available log definitions for the provisioning Service. Note: you may need `Microsoft.Insights/logDefinitions/read` as well |
+> | Action | Microsoft.Devices/provisioningServices/metricDefinitions/read | Gets the available metrics for the provisioning service. Note: you may need `Microsoft.Insights/metricDefinitions/read` as well |
 > | Action | Microsoft.Devices/provisioningServices/operationresults/Read | Get DPS Operation Result |
 > | Action | Microsoft.Devices/provisioningServices/Read | Get IotDps resource |
 > | Action | Microsoft.Devices/provisioningServices/skus/Read | Get valid IotDps Skus |

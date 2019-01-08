@@ -1,5 +1,5 @@
 ﻿---
-title: Set up Azure Key Vault with end-to-end key rotation and auditing | Microsoft Docs
+title: Set up Azure Key Vault with end-to-end key rotation and auditing - Azure Key Vault | Microsoft Docs
 description: Use this how-to to help you get set up with key rotation and monitoring key vault logs.
 services: key-vault
 documentationcenter: ''
@@ -11,9 +11,8 @@ ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 01/07/2019
 ms.author: barclayn
 
 ---
@@ -411,7 +410,7 @@ And add a file called project.json with following content:
 
 Upon **Save**, Azure Functions will download the required binaries.
 
-Switch to the **Integrate** tab and give the timer parameter a meaningful name to use within the function. In the preceding code, it expects the timer to be called *myTimer*. Specify a [CRON expression](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) as follows: 0 \* \* \* \* \* for the timer that will cause the function to run once a minute.
+Switch to the **Integrate** tab and give the timer parameter a meaningful name to use within the function. In the preceding code, it expects the timer to be called *myTimer*. Specify a [CRON expression](../app-service/webjobs-create.md#CreateScheduledCRON) as follows: 0 \* \* \* \* \* for the timer that will cause the function to run once a minute.
 
 On the same **Integrate** tab, add an input of the type **Azure Blob Storage**. This will point to the sync.txt file that contains the timestamp of the last event looked at by the function. This will be available within the function by the parameter name. In the preceding code, the Azure Blob Storage input expects the parameter name to be *inputBlob*. Choose the storage account where the sync.txt file will reside (it could be the same or a different storage account). In the path field, provide the path where the file lives in the format {container-name}/path/to/sync.txt.
 

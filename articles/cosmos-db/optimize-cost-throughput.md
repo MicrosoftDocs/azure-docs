@@ -2,7 +2,6 @@
 title: Optimizing throughput cost in Azure Cosmos DB
 description: This article explains how to optimize throughput costs for the data stored in Azure Cosmos DB.
 author: rimman
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
@@ -51,11 +50,11 @@ As shown in the following table, depending on the choice of API, you can provisi
 
 |API|For **shared** throughput, configure |For **dedicated** throughput, configure |
 |----|----|----|
-|Azure Cosmos DB API for SQL|Database|Container|
-|Azure Cosmos DB API for MongoDB|Database|Collection|
-|Azure Cosmos DB API for Cassandra|Keyspace|Table|
-|Azure Cosmos DB API for Gremlin|Database account|Graph|
-|Azure Cosmos DB API for Table|Database account|Table|
+|SQL API|Database|Container|
+|Azure Cosmos DB's API for MongoDB|Database|Collection|
+|Cassandra API|Keyspace|Table|
+|Gremlin API|Database account|Graph|
+|Table API|Database account|Table|
 
 By provisioning throughput at different levels, you can optimize your costs based on the  characteristics of your workload. As mentioned earlier, you can programmatically and at any time increase or decrease your provisioned throughput for either individual container(s) or collectively across a set of containers. By elastically scaling throughput as your workload changes, you only pay for the throughput that you have configured. If your container or a set of containers is distributed across multiple regions, then the throughput you configure on the container or a set of containers is guaranteed to be made available across all regions.
 
