@@ -237,7 +237,23 @@ You can use a custom version of the Azure Machine Learning SDK for Azure Databri
 
 To prepare your Databricks cluster and get sample notebooks:
 
-1. Create a [Databricks cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) with a Databricks runtime version of 4.x (high concurrency preferred) with Python 3. 
+1. Create a [Databricks cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) with the following settings:
+
+    | Setting | Value |
+    |----|---|
+    | Cluster name | yourclustername |
+    | Databricks Runtime | Any non ML runtime (non ML 4.x, 5.x) |
+    | Python version | 3 |
+    | Workers | 2 or higher |
+
+    The following settings are only for using Automated Machine Learning on Databricks.
+    The number of worker nodes in your Databricks cluster determines the max number of concurrent iterations in Automated ML settings.  
+     | Setting | Value |
+    |----|---|
+    | Worker node VM types | Memory optimized VM preferred |
+    | Enable Autoscaling | Uncheck |
+
+    It will take few minutes to create the cluster. Please ensure that the cluster state is running before proceeding further.
 
 1. To install and attach the Azure Machine Learning SDK for Python `azureml-sdk[databricks]` PyPi package to your cluster, [create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library).  
     When you're done, the library is attached as shown in the following image. Be aware of these [common Databricks issues](resource-known-issues.md#databricks).
