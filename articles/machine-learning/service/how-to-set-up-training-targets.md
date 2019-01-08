@@ -48,7 +48,7 @@ Azure Machine Learning service has varying support across different compute targ
 
 When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute targets without having to change your script. 
 
-All you need to do is define the environment for each compute target with a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify that run configuration. 
+All you need to do is define the environment for each compute target with a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify the run configuration for that compute. 
 
 Learn more about [submitting experiments](#submit) at the end of this article.
 
@@ -70,7 +70,7 @@ The following code shows an example for a system-managed environment requiring s
 
 #### User-managed environment
 
-For a user-managed environments, you're responsible for setting up your environment and installing every package your training script on the compute target. If your training environment is already configured (such as on your local machine), you can skip the set up step by setting `user_managed_dependencies` to True. Conda will not check your environment or install anything for you.
+For a user-managed environments, you're responsible for setting up your environment and installing every package your training script needs on the compute target. If your training environment is already configured (such as on your local machine), you can skip the set up step by setting `user_managed_dependencies` to True. Conda will not check your environment or install anything for you.
 
 The following code shows an example of configuring training runs for a user-managed environment:
 
