@@ -4251,7 +4251,7 @@ xml('<value>')
 
 | Parameter | Required | Type | Description | 
 | --------- | -------- | ---- | ----------- | 
-| <*value*> | Yes | String | The string with the JSON object to convert <p>The JSON object must have only one root property. <br>Use the backslash character (\\) as an escape character for the double quotation mark ("). | 
+| <*value*> | Yes | String | The string with the JSON object to convert <p>The JSON object must have only one root property, which can't be an array. <br>Use the backslash character (\\) as an escape character for the double quotation mark ("). | 
 ||||| 
 
 | Return value | Type | Description | 

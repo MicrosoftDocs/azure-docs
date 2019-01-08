@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 12/25/2018
+ms.date: 1/8/2019
 ms.author: douglasl
 ---
 # Enable Azure Active Directory authentication for Azure-SSIS Integration Runtime
@@ -110,10 +110,28 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
 9.  Clear the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
 
     ```sql
+    ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
+    ```
+
+    The command should complete successfully, granting the contained user the ability to create a database (SSISDB).
+
+10.  If your SSISDB was created using SQL authentication and you want to switch to use Azure AD authentication for your Azure-SSIS IR to access it, right-click on **SSISDB** database and select **New query**.
+
+11.  In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
+
+    ```sql
+    CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
+    ```
+
+    The command should complete successfully, creating a contained user to represent the group.
+
+12.  Clear the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
+
+    ```sql
     ALTER ROLE db_owner ADD MEMBER [SSISIrGroup]
     ```
 
-    The command should complete successfully, granting the contained user the ability to create a database.
+    The command should complete successfully, granting the contained user the ability to access SSISDB.
 
 ## Enable Azure AD on Azure SQL Database Managed Instance
 
@@ -123,15 +141,15 @@ Azure SQL Database Managed Instance supports creating a database with the manage
 
 1.   In Azure portal, select **All services** -> **SQL servers** from the left-hand navigation.
 
-1.   Select your Managed Instance to be configured with Azure AD authentication.
+2.   Select your Managed Instance to be configured with Azure AD authentication.
 
-1.   In the **Settings** section of the blade, select **Active Directory admin**.
+3.   In the **Settings** section of the blade, select **Active Directory admin**.
 
-1.   In the command bar, select **Set admin**.
+4.   In the command bar, select **Set admin**.
 
-1.   Select an Azure AD user account to be made administrator of the server, and then select **Select**.
+5.   Select an Azure AD user account to be made administrator of the server, and then select **Select**.
 
-1.   In the command bar, select **Save**.
+6.   In the command bar, select **Save**.
 
 ### Add the managed identity for your ADF as a user in Azure SQL Database Managed Instance
 
@@ -164,7 +182,7 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```
     
-    The command should complete successfully, granting the managed identity for your ADF the ability to create a database.
+    The command should complete successfully, granting the managed identity for your ADF the ability to create a database (SSISDB).
 
 ## Provision Azure-SSIS IR in Azure portal/ADF app
 

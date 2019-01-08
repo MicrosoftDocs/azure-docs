@@ -238,13 +238,17 @@ In your development machine, you can start an IoT Edge simulator instead of inst
 >
 > For modules written in C#, including Azure Functions, this example is based on the debug version of `Dockerfile.amd64.debug`, which includes the .NET Core command-line debugger (VSDBG) in your container image while building it. After you debug your C# modules, we recommend that you directly use the Dockerfile without VSDBG for production-ready IoT Edge modules.
 
-## Debug a module with IoT Edge runtime (Python, C)
+## Debug a module with IoT Edge runtime
 
 In each module folder, there are several Docker files for different container types. Use any of the files that end with the extension **.debug** to build your module for testing.
 
-Currently, debugging support for Python and C modules is available only in Linux amd64 containers.
+When debugging modules with IoT Edge runtime, your modules are running on top of IoT Edge runtime. The IoT Edge device and your VS Code can be in the same machine, or more typically, the are in the different machines (VS Code is in the development machine, and IoT Edge runtime and modules are running in another physical machine). The following steps need to be done for your debugging session in VS Code.
 
-### Build and deploy your module
+- Set up your IoT Edge device, build IoT Edge module(s) with the **.debug** Dockerfile, and deploy to IoT Edge device. 
+- Expose the IP and port of the module for the debugger to attach.
+- Update `launch.json` file so that VS Code can attach to the process in the container in remote machine.
+
+### Build and deploy your module and deploy to IoT Edge device
 
 1. In Visual Studio Code, open the `deployment.debug.template.json` file, which contains the debug version of your module images with the proper `createOptions` values set.
 
@@ -291,7 +295,17 @@ Currently, debugging support for Python and C modules is available only in Linux
 
 You'll see the deployment successfully created with a deployment ID in the integrated terminal.
 
-You can check your container status in the Visual Studio Code Docker view or by running the `docker ps` command in the terminal.
+You can check your container status by running the `docker ps` command in the terminal. If your VS Code and IoT Edge runtime are running on the same machine, you can also check the status in the Visual Studio Code Docker view.
+
+### Expose the IP and port of the module for the debugger to attach
+
+If your modules are running in the same machine as your VS Code. You are using localhost to attach the container and you already have the correct port settings in the **.debug** Dockerfile, module container CreateOptions, and `launch.json`. You can skip this section. If your modules and VS Code are running in separate machines, follow the steps below for each language.
+
+  - **C#, C# Function**: [Configure the SSH channel on your development machine and IoT Edge device](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes), edit `launch.json` file to attach.
+  - **Node.js**: Make sure the module is ready for debuggers to attach, and 9229 port of the debuggee machine is accessible from outside. You can verify this by opening [http://%3cdebuggee-machine-IP%3e:9229/json]http://<debuggee-machine-IP>:9229/json on the debugger machine. This URL should show information about the Node.js to be debugged. And then on debugger machine, open VS Code, edit the `launch.json` file so that address value of the “<module-name> Remote Debug (Node.js)” profile (or “<module-name> Remote Debug (Node.js in Windows Container)” profile if the module is running as a Windows container) is the IP of the debuggee machine.
+  - **Java**: Build an ssh tunnel to the edge device by running `ssh -f <username>@<edgedevicehost> -L 5005:127.0.0.1:5005 -N`, then edit `launch.json` file to attach. You can learn more about the settings [here](https://code.visualstudio.com/docs/java/java-debugging). 
+  - **Python**: In the code `ptvsd.enable_attach(('0.0.0.0', 5678))`, change 0.0.0.0 to the IP address of the IoT Edge device. Build, push and deploy your IoT Edge modules again. In `launch.json` in your development machine, update `"host"` `"localhost"` change `"localhost"` with your remote IoT Edge device's public IP address.
+
 
 ### Debug your module
 
@@ -300,6 +314,9 @@ Visual Studio Code keeps debugging configuration information in a `launch.json` 
 1. In the Visual Studio Code Debug view, select the debug configuration file for your module. The debug option name should be similar to ***&lt;your module name&gt;* Remote Debug**
 
 1. Open the module file for your development language and add a breakpoint:
+   - **C#, C# Function**: Open the file `Program.cs` and add a breakpoint.
+   - **Node.js**: Open the file `app.js` and add a breakpont.
+   - **Java**: Open the file `App.java` and add a breakpoint.
    - **Python**: Open `main.py` and add a breakpoint in the callback method where you added the `ptvsd.break_into_debugger()` line.
    - **C**: Open the file `main.c` and add a breakpoint.
 
