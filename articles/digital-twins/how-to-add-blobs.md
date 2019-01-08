@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 # Add blobs to objects in Azure Digital Twins
 
-Blobs are unstructured representations of common file types, like pictures and logs. Blobs keep track of what kind of data they represent by using a MIME type (for example: "image/jpeg") and metadata (name, description, type, and so on).
+Blobs are unstructured representations of common file types, like pictures and logs. Blobs track what kind of data they represent by using a MIME type (for example: "image/jpeg") and metadata (name, description, type, and so on).
 
 Azure Digital Twins supports attaching blobs to devices, spaces, and users. Blobs can represent a profile picture for a user, a device photo, a video, a map, a firmware zip, JSON data, a log, etc.
 
