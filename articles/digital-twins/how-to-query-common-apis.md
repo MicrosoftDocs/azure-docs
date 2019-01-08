@@ -27,7 +27,7 @@ This section shows sample queries to get more information about your provisioned
     YOUR_MANAGEMENT_API_URL/spaces?$filter=ParentSpaceId eq null
     ```
 
-- Get a space by name and include devices, sensors, computed values and sensor values. 
+- Get a space by name and include devices, sensors, computed values, and sensor values. 
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?name=Focus Room A1&includes=fullpath,devices,sensors,values,sensorsvalues
@@ -39,7 +39,7 @@ This section shows sample queries to get more information about your provisioned
     YOUR_MANAGEMENT_API_URL/spaces?spaceId=YOUR_SPACE_ID&includes=fullpath,devices,sensors,values,sensorsvalues&traverse=Down&minLevel=1&minRelative=true&maxLevel=5&maxRelative=true
     ```
 
-- Get the space with the given ID and include computed values and sensor values.
+- Get the space with the given ID, and include computed and sensor values.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?ids=YOUR_SPACE_ID&includes=Values,sensors,SensorsValues
@@ -88,7 +88,7 @@ This section shows some queries to get more information on roles and their assig
 
 ## Queries for device management
 
-This section shows some examples of how you can use the Management APIs to get specific information about your devices. All API calls need to be be authenticated GET HTTP requests.
+This section shows some examples of how you can use the Management APIs to get specific information about your devices. All API calls need to be authenticated GET HTTP requests.
 
 - Get all devices.
 
@@ -156,7 +156,7 @@ This section shows some examples of how you can use the Management APIs to get s
     YOUR_MANAGEMENT_API_URL/devices?spaceId=YOUR_SPACE_ID&traverse=Down&maxLevel=5
     ```
 
-- Get all devices attached to spaces that are at the same level as the space with id YOUR_SPACE_ID.
+- Get all devices attached to spaces that are at the same level as the space with ID *YOUR_SPACE_ID*.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices?spaceId=YOUR_SPACE_ID&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true

@@ -34,7 +34,7 @@ The following list shows the components of the Digital Twins APIs.
 
 * [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers): These APIs allow you to specify the conditions that you want to evaluate from your incoming device data. See [this article](concepts-user-defined-functions.md#matchers) for more information. 
 
-* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions): These APIs allow you to create, delete or update a custom function that will execute when conditions defined by the *matchers* occur, to process data coming from your setup. See [this article](concepts-user-defined-functions.md#user-defined-functions) for more information about these custom functions, also called the *user defined functions*. 
+* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions): These APIs allow you to create, delete or update a custom function that will execute when conditions defined by the *matchers* occur, to process data coming from your setup. See [this article](concepts-user-defined-functions.md#user-defined-functions) for more information about these custom functions, also called the *user-defined functions*. 
 
 * [/endpoints](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Endpoints): These APIs allow you to create endpoints so your Digital Twins solution can communicate with other Azure services for data storage and analytics. Read [this article](concepts-events-routing.md) for more information. 
 
@@ -42,9 +42,9 @@ The following list shows the components of the Digital Twins APIs.
 
 * [/users](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Users): These APIs allow you to associate users with your spaces, to locate these individuals when required. 
 
-* [/system](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/System): These APIs allow you to manage system wide settings, such as the default types of spaces and sensors. 
+* [/system](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/System): These APIs allow you to manage system-wide settings, such as the default types of spaces and sensors. 
 
-* [/roleAssignments](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/RoleAssignments): These APIs allow you associate roles to entities such as user ID, user defined function ID, etc. Each role assignment includes the ID of the entity to associate, the entity type, the ID of the role to associate, the tenant id, and a path that defines the upper limit of the resource that the entity can access with that association. Read [this article](security-role-based-access-control.md) for more information.
+* [/roleAssignments](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/RoleAssignments): These APIs allow you to associate roles to entities such as user ID, user-defined function ID, etc. Each role assignment includes the ID of the entity to associate, the entity type, the ID of the role to associate, the tenant ID, and a path that defines the upper limit of the resource that the entity can access with that association. Read [this article](security-role-based-access-control.md) for more information.
 
 
 ## API navigation
@@ -55,7 +55,7 @@ The Digital Twins APIs support filtering and navigation throughout your spatial 
 The API will filter the results by the given space ID. Additionally, the boolean flag **useParentSpace** is applicable to the [/spaces](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces) APIs, which indicates that the given space ID refers to the parent space instead of the current space. 
 
 - **minLevel** and **maxLevel**: 
-Root spaces are considered to be at level 1. Spaces with parent space at level *n* are at level *n+1*. With these values set, you can filter the results at specific levels. These are inclusive values when set. Devices, sensors, and other objects are considered to be at the same level as their closest space. To get all objects at a givel level, set both **minLevel** and **maxLevel** to the same value.
+Root spaces are considered to be at level 1. Spaces with parent space at level *n* are at level *n+1*. With these values set, you can filter the results at specific levels. These are inclusive values when set. Devices, sensors, and other objects are considered to be at the same level as their closest space. To get all objects at a given level, set both **minLevel** and **maxLevel** to the same value.
 
 - **minRelative** and **maxRelative**: 
 When these filters are given, the corresponding level is relative to the level of the given space ID:
@@ -64,7 +64,7 @@ When these filters are given, the corresponding level is relative to the level o
    - Relative level *-1* represents spaces at the same level as the parent space of the specified space.
 
 - **traverse**: 
-Allows to traverse in either direction from a given space ID, as specified by the following values.
+Allows you to traverse in either direction from a given space ID, as specified by the following values.
    - **None**: This default value filters to the given space ID.
    - **Down**: This filters by the given space ID and its descendants. 
    - **Up**: This filters by the given space ID and its ancestors. 
