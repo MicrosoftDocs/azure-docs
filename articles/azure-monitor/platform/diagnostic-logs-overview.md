@@ -77,7 +77,7 @@ Collection of diagnostic logs can be enabled [as part of creating a resource in 
 
 You can enable collection of resource diagnostic logs in the Azure portal after a resource has been created either by going to a specific resource or by navigating to Azure Monitor. To enable this via Azure Monitor:
 
-1. In the [Azure portal](http://portal.azure.com), navigate to Azure Monitor and click on **Diagnostic Settings**
+1. In the [Azure portal](https://portal.azure.com), navigate to Azure Monitor and click on **Diagnostic Settings**
 
     ![Monitoring section of Azure Monitor](media/diagnostic-logs-overview/diagnostic-settings-blade.png)
 

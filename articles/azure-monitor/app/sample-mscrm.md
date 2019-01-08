@@ -121,7 +121,7 @@ Click the chart to get more detail:
 [Browse the sample code](https://dynamicsandappinsights.codeplex.com/).
 
 ## Power BI
-You can do even deeper analysis if you [export the data to Microsoft Power BI](../../application-insights/app-insights-export-power-bi.md).
+You can do even deeper analysis if you [export the data to Microsoft Power BI](../../azure-monitor/app/export-power-bi.md ).
 
 ## Sample Microsoft Dynamics CRM Solution
 [Here is the sample solution implemented in Microsoft Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).

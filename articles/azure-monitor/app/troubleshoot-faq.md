@@ -19,7 +19,7 @@ ms.author: mbullwin
 *I'm having trouble setting up my:*
 
 * [.NET app](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
-* [Monitoring an already-running app](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
+* [Monitoring an already-running app](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot)
 * [Azure diagnostics](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Java web app](../../azure-monitor/app/java-troubleshoot.md)
 
@@ -135,7 +135,7 @@ We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](http
 
 You can configure the `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it is moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
-You can [use Power BI](../../application-insights/app-insights-export-power-bi.md) to display your request telemetry on a map.
+You can [use Power BI](../../azure-monitor/app/export-power-bi.md ) to display your request telemetry on a map.
 
 
 ## <a name="data"></a>How long is data retained in the portal? Is it secure?
