@@ -10,7 +10,7 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 01/08/2019
 ms.author: bwren
 ---
 # Data ingestion time in Log Analytics
@@ -40,7 +40,7 @@ Agents and management solutions use different strategies to collect data from a 
 To ensure Log Analytics agent is lightweight, the agent buffers logs and periodically uploads them to Log Analytics. Upload frequency varies between 30 seconds and 2 minutes depending on the type of data. Most data is uploaded in under 1 minute. Network conditions may negatively affect the latency of this data to reach Log Analytics ingestion point.
 
 ### Azure logs and metrics 
-Activity log data will take about 5 minutes to come available in Log Analytics. Data from diagnostic logs and metrics can take 1-5 minutes to become available, depending on the Azure service. It will then take an additional 30-60 seconds for logs and 3 minutes for metrics for data to be sent to Log Analytics ingestion point.
+Activity log data will take about 5 minutes to come available in Log Analytics. Data from diagnostic logs and metrics can take 1-15 minutes to become available for processing, depending on the Azure service. Once it's available, it will then take an additional 30-60 seconds for logs and 3 minutes for metrics for data to be sent to Log Analytics ingestion point.
 
 ### Management solutions collection
 Some solutions do not collect their data from an agent and may use a collection method that introduces additional latency. Some solutions collect data at regular intervals without attempting near-real time collection. Specific examples include the following:
@@ -67,6 +67,101 @@ This process currently takes about 5 minutes when there is low volume of data bu
 
 
 ## Checking ingestion time
+Ingestion time may vary for different resources under different circumstances. You can use log queries to identify specific behavior of your environment.
+
+## Resources that stopped responding 
+In some situations, resources stop sending data. You
+
+ case might be confused with data that arrives in high ingestion time.  To understand if a resource is sending data or not, the most recent record shall be examined. The most recent record can be identified by looking at the standard TimeGenerated field.  
+
+To check the availability of a VMs, it is recommended to use the Heartbeat table since Heartbeat is sent once a minute by the agent 
+
+Use the following query to list the active computers that haven’t reported heartbeat recently: 
+
+``` Kusto
+Heartbeat  
+| where TimeGenerated > ago(1d) //show only VMs that were active in the last day 
+| summarize NoHeartbeatPeriod = now() - max(TimeGenerated) by Computer  
+| top 20 by NoHeartbeatPeriod desc 
+```
+ 
+
+ 
+
+## Ingestion latency delays
+
+It is possible to measure the latency of a specific record and to calculate statistics over time. It is done by comparing the result of the ingestion_time() function with the standard TimeGenerated field: 
+
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+
+ 
+
+This data can be used with various aggregations to find how ingestion latency behaves. It is recommended to examine the 95th percentile of the ingestion time as it provides better insights for large amount of data. 
+
+For example, the following query will show you which computers had the highest ingestion time over the last day: 
+
+Heartbeat 
+
+| where TimeGenerated > ago(8h) 
+
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+
+| summarize percentiles(E2EIngestionLatency,50,95) by Computer 
+
+| top 20 by percentile_E2EIngestionLatency_95 desc  
+
+ 
+
+If you want to drill down on a specific computer ingestion time over a period of time, you can do this also and visualize it on a graph: 
+
+Heartbeat 
+
+| where TimeGenerated > ago(24h) and Computer == "ContosoWeb2-Linux"  
+
+| extend E2EIngestionLatencyMin = todouble(datetime_diff("Second",ingestion_time(),TimeGenerated))/60 
+
+| summarize percentiles(E2EIngestionLatencyMin,50,95) by bin(TimeGenerated,30m) 
+
+| render timechart  
+
+ 
+
+This query will show you the computer ingestion time by the country they are located in (based on their IP address): 
+
+Heartbeat 
+
+| where TimeGenerated > ago(8h) 
+
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+
+| summarize percentiles(E2EIngestionLatency,50,95) by RemoteIPCountry 
+
+ 
+
+Note that different data types originating from the agent might have different ingestion latency time thus the above queries can be examined with other types. 
+
+ 
+
+As ingestion latency varies from one Azure service to the other, if you want to examine the ingestion time of various Azure services that reports logs via the AzureDiagnostics type you can use the following query: 
+
+AzureDiagnostics 
+
+| where TimeGenerated > ago(8h) 
+
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+
+| summarize percentiles(E2EIngestionLatency,50,95) by ResourceProvider
+
+
+
+
+
+
+
+
+
+
+
 You can use the **Heartbeat** table to get an estimate of latency for data from agents. Since Heartbeat is sent once a minute, the difference between the current time and the last heartbeat record will ideally be as close to a minute as possible.
 
 Use the following query to list the computers with the highest latency.
