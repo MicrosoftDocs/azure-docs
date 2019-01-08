@@ -105,7 +105,6 @@ The Azure Monitor for VMs Map feature is based on Service Map, but has the follo
 * You cannot create new Service Map machine groups in the Azure Monitor for VMs Map feature.  
 
 ## Why do my performance charts show dotted lines?
-
 This can occur for a few reasons.  In cases where there is a gap in data collection we depict the lines as dotted.  If you have modified the data sampling frequency for the performance counters enabled (the default setting is to collect data every 60 seconds), you can see dotted lines in the chart if you choose a narrow time range for the chart and your sampling frequency is less than the bucket size used in the chart (for example, the sampling frequency is every 10 minutes and each bucket on the chart is 5 minutes).  Choosing a wider time range to view should cause the chart lines to appear as solid lines rather than dots in this case.
 
 ## Are groups supported with Azure Monitor for VMs?
