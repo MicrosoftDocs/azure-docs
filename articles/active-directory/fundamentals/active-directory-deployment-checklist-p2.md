@@ -1,6 +1,6 @@
 ---
-title: Azure AD deployment checklist 30 days, 90 days, and beyond
-description: Azure Active Directory Premium P2 feature deployment checklist
+title: Azure AD deployment checklist
+description: Azure Active Directory feature deployment checklist
 
 services: active-directory
 ms.service: active-directory
@@ -14,7 +14,7 @@ manager: mtillman
 ms.reviewer:
 
 ---
-# Azure Active Directory Premium P2 licensing feature guide
+# Azure Active Directory feature guide
 
 It can seem daunting to deploy Azure Active Directory (Azure AD) for your organization and keep it secure. This article identifies common tasks that customers find helpful to complete in phases, over the course of 30, 60, 90 days, or more, to enhance their security posture. Even organizations who have already deployed Azure AD can use this guide to ensure they are getting the most out of their investment.
 
