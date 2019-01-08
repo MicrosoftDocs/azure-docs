@@ -29,7 +29,7 @@ Familiarize yourself with
 
 Azure Active Directory conditional access enables you to bring the protection of your cloud apps to a new level. In this new level, how you can access a cloud app is based on a dynamic policy evaluation instead of a static access configuration. With a conditional access policy, you define a response (**do this**) to an access condition (**when this happens**).
 
-![Reason and response](./media/conditions/10.png)
+![Reason and response](./media/plan-conditional-access/10.png)
 
 At a minimum, **when this happens** defines the principal (**who**) that attempts to access a cloud app (**what**). If required, you can also include **how** an access attempt is performed. In conditional access, the elements that define the who, what, and how are known as conditions. For more information, see [What are conditions in Azure Active Directory conditional access?](conditions.md) 
 
@@ -38,7 +38,7 @@ With **then do this**, you define the response of your policy to an access condi
 
 The combination of conditions with your access controls represents a conditional access policy.
 
-![Reason and response](./media/conditions/51.png)
+![Reason and response](./media/plan-conditional-access/51.png)
 
 
 When planning your conditional access policies, use this model to draft your requirements:
