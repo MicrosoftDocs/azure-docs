@@ -13,6 +13,6 @@ ms.component: disks
 
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-part-one.md)]
 
-**Snapshots**: Snapshots of Managed Disks are billed for the capacity used by the snapshots, at the target and at the source, if any. For more information on snapshots, see [Managed Disk Snapshots](managed-disks-overview#managed-disk-snapshots).
+**Snapshots**: Snapshots of Managed Disks are billed for the capacity used by the snapshots, at the target and at the source, if any. For more information on snapshots, see the section on snapshots in the [managed disk overview](managed-disks-overview).
 
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-part-two.md)]
