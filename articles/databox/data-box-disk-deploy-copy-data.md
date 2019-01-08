@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/01/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -161,11 +161,9 @@ For more information on Robocopy command, go to [Robocopy and a few examples](ht
 
 7. Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the log files for troubleshooting. The log files are located as specified in the robobopy command.
  
-
-
 > [!IMPORTANT]
 > - It is your responsibility to ensure that you copy the data to folders that correspond to the appropriate data format. For instance, copy the block blob data to the folder for block blobs. If the data format does not match the appropriate folder (storage type), then at a later step, the data upload to Azure fails.
-> -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md). 
+> -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md).
 > - If data, which is being uploaded by Data Box Disk, is concurrently uploaded by other applications outside of Data Box Disk, then this could result in upload job failures and data corruption.
 
 ### Split and copy data to disks
