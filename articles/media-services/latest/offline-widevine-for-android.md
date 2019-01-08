@@ -17,6 +17,7 @@ ms.date: 12/29/2018
 ms.author: willzhan
 
 ---
+
 # Offline Widevine streaming for Android
 
 In addition to protecting content for online streaming, media content subscription and rental services offer downloadable content that works when you are not connected to the internet. You might need to download content onto your phone or tablet for playback in airplane mode when flying disconnected from the network. Additional scenarios, in which you might want to download content:
@@ -42,7 +43,6 @@ Before implementing offline DRM for Widevine on Android devices, you should firs
 - Become familiar with the concepts introduced for online content protection using Widevine DRM. This is covered in detail in the following documents/samples:
     - [Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
     - [Use DRM dynamic encryption and license delivery service](protect-with-drm.md)
-    - [Use Azure Media Services to deliver PlayReady and/or Widevine licenses with .NET](https://azure.microsoft.com/resources/samples/media-services-dotnet-deliver-playready-widevine-licenses/)
 - Clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git.
 
     You will need to modify the code in [Encrypt with DRM using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) to add Widevine configurations.  
