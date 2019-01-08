@@ -138,7 +138,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The Certificate download link](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
 
-6. Replace **Provider Name** from T01122 to **http://T01122** and click on **Save**.
+6. Replace **Provider Name** from T01122 to `http://T01122` and click on **Save**.
 
 	> [!NOTE]
 	> By default provider name come as <sid><client> format but Azure AD expects name in the format of <protocol>://<name>, recommending to maintain provider name as https://<sid><client> to allow multiple SAP NetWeaver ABAP engines to configure in Azure AD.
