@@ -66,6 +66,9 @@ Health alert severity cannot be modified, they can only be enabled or disabled. 
 ## If I reconfigure the settings of a particular health criteria, can it be scoped to a specific instance?  
 If you modify any setting of a health criterion instance, all health criteria instances of the same type on the Azure VM are modified. For example, if the threshold of the disk free-space health criterion instance that corresponds to logical disk C: is modified, this threshold applies to all other logical disks that are discovered and monitored for the same VM.
 
+## Does the Health feature monitor logical processors or cores?
+Individual processor and logical processor level health criteria aren't available for a Windows VM, only Total CPU utilization is monitored by default.
+
 ## Are all health criteria thresholds configurable?  
 Thresholds for health criteria that target a Windows VM aren’t modifiable, because their health states are set to *running* or *available*. When you query the health state from the [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components), it displays the *comparisonOperator* value of **LessThan** or **GreaterThan** with a *threshold* value of **4** for the service or entity if:
    - DNS Client Service Health – Service isn't running. 
@@ -81,10 +84,6 @@ Thresholds for the following Linux health criteria aren’t modifiable, because 
    - Logical Disk Status – Logical disk isn't online/ available
    - Disk Status – Disk isn't online/ available
    - Network Adapter Status -  Network adapter is disabled
-
-
-## Does the Health feature monitor logical processors or cores?
-Individual processor and logical processor level health criteria aren't available for a Windows VM, only Total CPU utilization is monitored by default.
 
 ## How do I modify alerts that are included with the Health feature?
 Alert rules that are defined for each health criterion aren't displayed in the Azure portal. You can enable or disable a health alert rule only in the [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Also, you can't assign an [Azure Monitor action group](../../azure-monitor/platform/action-groups.md) for health alerts in the Azure portal. You can only use the notification setting API to configure an action group to be triggered whenever a health alert is fired. Currently, you can assign action groups against a VM so that all *health alerts* fired against the VM trigger the same action groups. Unlike traditional Azure alerts, there's no concept of a separate action group for each health alert rule. Additionally, only action groups that are configured to provide email or SMS notifications are supported when health alerts are triggered. 
