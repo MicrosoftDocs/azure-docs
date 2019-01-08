@@ -48,7 +48,7 @@ When planning your conditional access policies, use this model to track your req
 
 ## Common access scenarios
 
-### What if you want to enforce MFA for your admins?
+### Enforce MFA for your admins
 
 Users with access to privileged accounts have unrestricted access to your environment. Due to the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification when they are used to sign-in. In Azure Active Directory, you can get a stronger account verification by requiring multi-factor authentication (MFA). For more information, see [Require MFA for admins](baseline-protection.md#require-mfa-for-admins).
 
@@ -56,11 +56,11 @@ Users with access to privileged accounts have unrestricted access to your enviro
 > At a minimum, require MFA for global admins when accessing your cloud apps.
 
 
-### What if you want to enforce MFA only for specific apps?
+### Enforce MFA only for specific apps
 
 To simplify the sign-in experience of your users, you might want to allow them to sign in to your cloud apps using a user name and a password. However, many environments have at least a few apps for which it is advisable to require a stronger form of account verification, such as multi-factor authentication (MFA). This might be, for example true, for access to your organization's email system or your HR apps. For more information, see [equire MFA for specific apps with Azure Active Directory conditional access](app-based-mfa). 
 
-### What if you want to block access when a session risk is detected?
+### Block access when a session risk is detected
 
 To keep your environment protected, you might want to block suspicious users from signing in. For more information, see [Block access when a session risk is detected with Azure Active Directory conditional access](app-sign-in-risk.md).
 
@@ -68,7 +68,7 @@ To keep your environment protected, you might want to block suspicious users fro
 > As a best practice, apply this policy to all your cloud applications.
 
 
-### What if you want to require a password change for risky users?
+### Require a password change for risky users
 
 Making sure users’ credentials aren't stolen is a top priority. You will need a plan when credentials are compromised. Azure AD identity protection scans the Internet to detect when users’ credentials are leaked. Combining identity protection with Conditional Access enables you to require that all users with compromised credentials have to change their password or aren't allowed to access the application. Forcing the user to change their password, makes sure the leaked password is no longer valid.
 
@@ -87,7 +87,7 @@ Learn More in the user risk security [policy section](https://docs.microsoft.com
 
 
 
-### What if a legitimate user tries to access a cloud app from a network location you don’t trust?
+### Access to cloud apps from a network location you don’t trust
 
 To master the balance between security and productivity, it might be sufficient for you to only require a password for sign-ins from your organization's network. However, for access from an untrusted network location, there is an increased risk that sign-ins are not performed by legitimate users. To address this concern, you can block access from untrusted networks. Alternatively, you can also require multi-factor authentication (MFA) to gain back additional assurance that an attempt was made by the legitimate owner of the account. For more information, see [How to require MFA for access from untrusted networks with conditional access](untrusted-networks.md).
 
@@ -104,27 +104,18 @@ For more information, see [Location conditions in Azure Active Directory Conditi
 
 
 
-
-
-
-
-### What if a legitimate user tries to access a cloud app with a device that isn't managed by your organization?
+### Access a cloud apps with devices that aren't managed by your organization
 
 The proliferation of supported devices to access your cloud resources helps to improve the productivity of your users. On the flip side, you probably don't want certain resources in your environment to be accessed by devices with an unknown protection level. For the affected resources, you should require that users can only access them using a managed device. For more information, see [How to require managed devices for cloud app access with conditional access](require-managed-devices.md). 
 
-### What if you want to allow access only to users using approved client apps?
+### Restrict access to cloud apps to approved client apps
 
 Your employees use mobile devices for both personal and work tasks. While making sure your employees can be productive, you also want to prevent data loss. With Azure Active Directory (Azure AD) conditional access, you can restrict access to your cloud apps to approved client apps that can protect your corporate data. For more information, see [How to require approved client apps for cloud app access with conditional access](app-based-conditional-access).
 
 
-### What if a legitimate user tries to access a cloud app using legacy authentication?
+### Block legacy authentication
 
 Azure AD supports several of the most widely used authentication and authorization protocols including legacy authentication. How can you prevent apps using legacy authentication from accessing your tenant's resources? The recommendation is to just block them with a conditional access policy. If necessary, you allow only certain users and specific network locations to use apps that are based on legacy authentication. For more information, see [How to block legacy authentication to Azure AD with conditional access](block-legacy-authentication.md).
-
-
-
-
-
 
 
 
