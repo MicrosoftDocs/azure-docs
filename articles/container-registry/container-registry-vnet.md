@@ -1,23 +1,24 @@
 ---
-title: Deploy Azure container registry into an Azure virtual network
-description: Deploy an Azure container registry to an Azure virtual network to access by networked Azure servicesk.
+title: Deploy an Azure container registry into a virtual network
+description: Deploy an Azure container registry to an Azure virtual network to restrict access to networked resources.
 services: container-registry
 author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 01/08/2019
 ms.author: danlep
 ---
 
 # Deploy an Azure container registry in an Azure virtual network
 
-[Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking including filtering, routing, and peering for your Azure and on-premises resources. By deploying your private Azure container registry into an Azure virtual network, you can ensure that only resources in the virtual network are able to access the registry.
+[Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) provides secure, private networking including filtering, routing, and peering for your Azure and on-premises resources. By deploying your private Azure container registry into an Azure virtual network, you can ensure that only resources in the virtual network are able to access the registry.
 
-For example, use a virtual network to permit Azure resources such as an [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster or Azure [virtual machine](../virtual-machines/linux/overview.md) configured as a Docker host to securely access the container registry without crossing a network boundary.
+For example, use a virtual network to permit Azure resources such as an [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes) cluster or Azure [virtual machine](https://docs.microsoft.com/azure/virtual-machines/linux/overview) configured as a Docker host to securely access the container registry without crossing a network boundary.
 
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+>
 
 This article shows you how to access a container registry deployed in a virtual network from a virtual machine in the same network.
 
@@ -33,24 +34,24 @@ The following limitations currently apply to the preview:
 
 * Only an Azure virtual machine or Azure AKS cluster can be used as a host to access a container registry in a virtual network. Other Azure services including Azure Container Instances aren't currently supported.
 * You can only use the Azure portal to manage default network access rules for a container registry.
-* IP network rules for access from specific public IP address ranges are not supported.
+* IP network rules for access from specific public IP address ranges are not currently supported.
 
 ## Virtual network configuration overview
 
-The following general steps  configure a container registry to allow access only from a specific virtual network:
+The following general steps configure a container registry to allow access only from a virtual network:
 
-1. Configure the virtual network with a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) for the Azure Container Registry service. 
+1. Configure the virtual network with a [service endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) for the Azure Container Registry service. 
 
    A service endpoint represents a range of IP addresses in Azure regions that make resources for an Azure service available only from a virtual network. This endpoint gives traffic an optimal route to the service over the Azure backbone network. The identities of the virtual network and the subnet are also transmitted with each request.
 
 1. Configure network rules for a specific container registry that allow requests to be received from specific subnets in each virtual network. 
 
 
-   Clients granted access via these network rules must continue to [authenticate to the container registry](container-registry-authentication.md) and be authorized to access the data.
+   Clients granted access via these network rules must continue to [authenticate to the container registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) and be authorized to access the data.
 
 ### Virtual network deployment limitations
 
-* Only a **Premium** container registry can be deployed to a virtual network. For information about registry service tiers, see [Azure Container Registry SKUs](container-registry-skus.md).
+* Only a **Premium** container registry can be deployed to a virtual network. For information about registry service tiers, see [Azure Container Registry SKUs](https://docs.microsoft.com/azure/container-registry/container-registry-skus).
 
 * The container registry and virtual network must be in the same Azure subscription and region.
 
@@ -60,13 +61,13 @@ The following general steps  configure a container registry to allow access only
 
 For this article, you will use a Docker-enabled Ubuntu virtual machine in a virtual network to access an Azure container registry. If you already have an Azure virtual machine, skip this first step to create the virtual machine.
 
-First, create a resource group to contain the virtual machine and virtual network. Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *westcentralus* location:
+First, create a resource group to contain the virtual machine and virtual network. Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *westcentralus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location westcentralus
 ```
 
-Now deploy a default Ubuntu Azure virtual machine  with [az vm create][az-vm-create]. The following example creates a VM named *myDockerVM*:
+Now deploy a default Ubuntu Azure virtual machine with [az vm create][az-vm-create]. The following example creates a VM named *myDockerVM*:
 
 ```azurecli
 az vm create \
@@ -105,11 +106,12 @@ Hello from Docker!
 This message shows that your installation appears to be working correctly.
 [...]
 ```
+
 Exit the SSH connection.
 
 ## Add a service endpoint to the virtual network
 
-When you create a VM, Azure by default creates a virtual network in the same resource group. The name of the virtual network is based on the name of the virtual machine. For example, if you named your virtual machine *myDockerVM*, the virtual network is named *myDockerVMVNET* by default, with a subnet named *myDockerVMSubnet*. Verify this in the Azure portal or by using the [az network vnet list][az-network-vnet-list] command:
+When you create a VM, Azure by default creates a virtual network in the same resource group. The name of the virtual network is based on the name of the virtual machine. For example, if you name your virtual machine *myDockerVM*, the virtual network is named *myDockerVMVNET* by default, with a subnet named *myDockerVMSubnet*. Verify this in the Azure portal or by using the [az network vnet list][az-network-vnet-list] command:
 
 ```azurecli
 az network vnet list --resource-group myResourceGroup --query "[].{Name: name, Subnet: subnets[0].name}"
@@ -178,9 +180,9 @@ docker push mycontainerregistryxxx/aci-helloworld:v1
 
 ### Configure registry authentication
 
-For this example, you configure registry access using [service principal authentication](container-registry-auth-service-principal.md). However, for testing purposes you could also enable the registry's admin account and use those credentials for authentication. 
+For this example, you configure registry access using [service principal authentication](https://docs.microsoft.com/azure/container-registry/container-registry-auth-service-principal). However, for testing purposes you could also enable the registry's admin account and use those credentials for authentication. 
 
-To create a service principal, use the [service-principal-create.sh](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh) script on GitHub. For this example, assign the default `Reader` role to the service principal, to allow pulling images. 
+To create a service principal, use the [service-principal-create.sh](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh) script on GitHub. For this example, assign the `acrpull` role to the service principal, to allow pulling images. 
 
 The script returns values for the service principal application ID and password. Take note of these values for a later step.
 
@@ -198,7 +200,7 @@ By default, an Azure container registry accepts connections from hosts on any ne
 
 ## Verify access to the registry
 
-Now verify that the container registry is accessible from the VM in the virtual network. Make an SSH connection to your VM, and run the following command to login to your registry using your service principal credentials:
+Now verify that the VM in the virtual network can access the container registry. Make an SSH connection to your VM, and run the following command to login to your registry using your service principal credentials:
 
 ```bash
 sudo docker login --username <SP_APP_ID> --password <SP_PASSWD> mycontainerregistryxxx.azurecr.io
@@ -238,9 +240,9 @@ az group delete --name myResourceGroup
 
 Several virtual network resources and features were discussed in this article, though briefly. The Azure Virtual Network documentation covers these topics extensively:
 
-* [Virtual network](../virtual-network/manage-virtual-network.md)
-* [Subnet](../virtual-network/virtual-network-manage-subnet.md)
-* [Service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
+* [Virtual network](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network)
+* [Subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)
+* [Service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
 
 <!-- IMAGES -->
 
@@ -256,16 +258,16 @@ Several virtual network resources and features were discussed in this article, t
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - Internal -->
-[azure-cli]: /cli/azure/install-azure-cli
-[az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-acr-repository-show]: /cli/azure/acr/repository#az-acr-repository-show
-[az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-run]: /cli/azure/acr#az-acr-run
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-vm-create]: /cli/azure/vm#az-vm-create
-[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet/#az-network-vnet-subnet-show
-[az-network-vnet-subnet-update]: /cli/azure/network/vnet/subnet/#az-network-vnet-subnet-update
-[az-network-vnet-list]: /cli/azure/network/vnet/#az-network-vnet-list
+[azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli
+[az-acr-create]: https://docs.microsoft.com/cli/azure/acr#az-acr-create
+[az-acr-show]: https://docs.microsoft.com/cli/azure/acr#az-acr-show
+[az-acr-repository-show]: https://docs.microsoft.com/cli/azure/acr/repository#az-acr-repository-show
+[az-acr-repository-list]: https://docs.microsoft.com/cli/azure/acr/repository#az-acr-repository-list
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az-acr-login
+[az-acr-run]: https://docs.microsoft.com/cli/azure/acr#az-acr-run
+[az-ad-sp-create-for-rbac]: https://docs.microsoft.com/cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-role-assignment-create]: https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create
+[az-vm-create]: https://docs.microsoft.com/cli/azure/vm#az-vm-create
+[az-network-vnet-subnet-show]: https://docs.microsoft.com/cli/azure/network/vnet/subnet/#az-network-vnet-subnet-show
+[az-network-vnet-subnet-update]: https://docs.microsoft.com/cli/azure/network/vnet/subnet/#az-network-vnet-subnet-update
+[az-network-vnet-list]: https://docs.microsoft.com/cli/azure/network/vnet/#az-network-vnet-list
