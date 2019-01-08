@@ -145,15 +145,15 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
  If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](../device-management-hybrid-azuread-joined-devices-setup.md). 
 
 
-## Alternate Login Id support in Hybrid Azure AD join
+## Alternate login ID support in Hybrid Azure AD join
 
-Windows 10 Hybrid Azure AD join provides limited support for [Alternate login Ids](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) based on the type of alternate login id, [authentication method](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), domain type and Windows 10 version. There are two type of alternate login ids that can exist in your environment.
+Windows 10 Hybrid Azure AD join provides limited support for [Alternate login IDs](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) based on the type of alternate login ID, [authentication method](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), domain type and Windows 10 version. There are two type of alternate login IDs that can exist in your environment.
 
- - Routable alternate login id: A routable alternate login id has a valid verified domain, that is registered with a domain registrar. For example, if contoso.com is the primary domain, contoso.org and contoso.co.uk are valid domains that are owned by Contoso and [verified in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+ - Routable alternate login ID: A routable alternate login ID has a valid verified domain, that is registered with a domain registrar. For example, if contoso.com is the primary domain, contoso.org and contoso.co.uk are valid domains that are owned by Contoso and [verified in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
- - Non-routable alternate login id: A non-routable alternate login id does not have a verified domain. It is applicable only within your organization's private network . For example, if contoso.com is the primary domain, contoso.local is not a verifiable domain in the internet but is used within Contoso's network.
+ - Non-routable alternate login ID: A non-routable alternate login ID does not have a verified domain. It is applicable only within your organization's private network . For example, if contoso.com is the primary domain, contoso.local is not a verifiable domain in the internet but is used within Contoso's network.
  
-The table below provides details on support for either of these alternate login ids in Windows 10 Hybrid Azure AD join
+The table below provides details on support for either of these alternate login IDs in Windows 10 Hybrid Azure AD join
 
 |Type of Alternate login id|Domain type|Windows 10 version|Description|
 |-----|-----|-----|-----|
