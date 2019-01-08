@@ -1,5 +1,5 @@
 ---
-title: How to configure hybrid Azure Active Directory joined devices | Microsoft Docs
+title: How to plan hybrid Azure Active Directory join implementation in Azure Active Directory (Azure AD) | Microsoft Docs
 description: Learn how to configure hybrid Azure Active Directory joined devices.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
 
 ---
-# How to plan your hybrid Azure Active Directory join implementation
+# How To: Plan your hybrid Azure Active Directory join implementation
 
 In a similar way to a user, a device is becoming another identity you want to protect and also use to protect your resources at any time and location. You can accomplish this goal by bringing your devices' identities to Azure AD using one of the following methods:
 
