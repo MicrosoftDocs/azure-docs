@@ -23,7 +23,6 @@ The codes provided for your accounts aren't case-sensitive and don't require spa
 >Before you can add your account, you have to download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.
 
 ## Add your work or school account
-If your camera couldn't capture the QR code while you were adding your work or school account to the Microsoft Authenticator app, you can manually add your account.
 
 1. From the **Configure mobile app** screen on your PC, note the **Code** and **Url** information. Keep this screen open so you can see the code and URL.
     
@@ -42,7 +41,6 @@ If your camera couldn't capture the QR code while you were adding your work or s
     The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
 
 ## Add your Google account
-If your camera couldn't capture the QR code while you were adding your Google account to the Microsoft Authenticator app, you can manually add your account.
 
 1. On your PC, select **CAN'T SCAN IT** from the **Set up Authenticator** screen with the QR code.
 
@@ -57,7 +55,6 @@ If your camera couldn't capture the QR code while you were adding your Google ac
     The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
 
 ## Add your Facebook account
-If your camera couldn't capture the QR code while you were adding your Facebook account to the Microsoft Authenticator app, you can manually add your account.
 
 1. On the **Set up via Third Party Authenticator** screen, which includes the QR code, you'll also see a code written out for entry into your app. Keep this screen open so you can see the code.
 

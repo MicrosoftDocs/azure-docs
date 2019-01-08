@@ -32,7 +32,7 @@ We're providing the process here for your personal Microsoft apps, along with yo
 ## Add your personal Microsoft account
 You can add your personal Microsoft account by first turning on two-factor verification, and then by adding the account to the app.
 
-### To turn on two-factor verification
+### Turn on two-factor verification
 
 1. On your PC, go to your [Security basics](https://account.microsoft.com/security) page and sign-in using your personal Microsoft account. For example, alain@outlook.com.
 
@@ -42,7 +42,7 @@ You can add your personal Microsoft account by first turning on two-factor verif
 
 3. Go to the **Two-step verification** section and choose to turn the feature **On**. You can also turn it off here if you no longer want to use it with your personal account.
 
-### To add your Microsoft account to the app
+### Add your Microsoft account to the app
 
 1. Open the Microsoft Authenticator app on your mobile device.
 
@@ -64,13 +64,13 @@ You can add your personal Microsoft account by first turning on two-factor verif
 ## Add your Google account
 You can add your Google account by first turning on two-factor verification and then by adding the account to the app.
 
-### To turn on two-factor verification
+### Turn on two-factor verification
 
 1. On your PC, go to https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome, select **Get Started**, and then verify your identity.
 
 2. Follow the on-screen steps to turn two-step verification on for your personal Google account.
 
-### To add your Google account to the app
+### Add your Google account to the app
 
 1. On the Google page on your PC, go to the **Set up alternative second step** section, choose **Set up** from the **Authenticator app** section.
 
@@ -99,7 +99,7 @@ You can add your Google account by first turning on two-factor verification and 
 ## Add your Facebook account
 You can add your Facebook account by first turning on two-factor verification and then by adding the account to the app.
 
-### To turn on two-factor verification
+### Turn on two-factor verification
 
 1. On your PC, open Facebook, click in the top-right corner, and go to **Settings** > **Security and Login**.
 
@@ -111,7 +111,7 @@ You can add your Facebook account by first turning on two-factor verification an
 
 3. Select **Turn On**.
 
-### To add your Facebook account to the app
+### Add your Facebook account to the app
 
 1. On the Facebook page on your PC, go to the **Add a backup** section, and then choose **Setup** from the **Authentication app** area.
 
@@ -141,11 +141,11 @@ You can add your Apple ID by first turning on two-factor verification and then b
 >[!Note]
 > You might be asked to answer your Apple ID security questions while you're turning on two-factor verification. Additionally, you might see that two-factor verification is already turned on by default for some Apple IDs.
 
-### To turn on two-factor verification
+### Turn on two-factor verification
 
 1. On your Apple device, follow one of these procedures, based on your operating system version:
 
-    #### iOS 10.3 or later
+    **iOS 10.3 or later**
 
     1. Go to **Settings**, > [*your_name*] > **Password & Security**.
 
@@ -159,7 +159,7 @@ You can add your Apple ID by first turning on two-factor verification and then b
     
     5. Type the provided code to verify your phone number and to finish setting up two-factor verification.
 
-    #### iOS 10.2 or earlier
+    **iOS 10.2 or earlier**
     
     1. Go to **Settings**, > **iCloud**.
 
@@ -175,7 +175,7 @@ You can add your Apple ID by first turning on two-factor verification and then b
     
     6. Type the provided code to verify your phone number and to finish setting up two-factor verification.
 
-    #### Mac with OS X El Capitan or later
+    **Mac with OS X El Capitan or later**
 
     1. Go to **Apple** menu > **System Preferences** > **iCloud** > **Account Details**.
 
@@ -183,7 +183,7 @@ You can add your Apple ID by first turning on two-factor verification and then b
 
     3. Click **Turn On Two-Factor Authentication**.
 
-### To add your Apple ID to the app [NEED STEPS]
+### Add your Apple ID to the app [NEED STEPS]
 
 1. Get the QR code
 
