@@ -35,7 +35,7 @@ For building the Android player apps, we outline three options:
 
 The article also answers some common questions related to offline streaming of Widevine protected content.
 
-## Requirements 
+## Prerequisites 
 
 Before implementing offline DRM for Widevine on Android devices, you should first:
 
