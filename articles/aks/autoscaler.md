@@ -378,7 +378,7 @@ Events:  <none>
 The cluster autoscaler status allows you to see the state of the cluster autoscaler on two different levels: cluster-wide and within each node group. Since AKS currently only supports one node pool, these metrics are the same.
 
 * Health indicates the overall health of the nodes. If the cluster autoscaler struggles to create or removes nodes in the cluster, this status will change to "Unhealthy". There's also a breakdown of the status of different nodes:
-    * "Ready" means a node is a ready to have pods scheduled on it.
+    * "Ready" means a node is ready to have pods scheduled on it.
     * "Unready" means a node that broke down after it started.
     * "NotStarted" means a node isn't fully started yet.
     * "LongNotStarted" means a node failed to start within a reasonable limit.
@@ -394,7 +394,7 @@ The cluster autoscaler status allows you to see the state of the cluster autosca
     * A candidate for scale down is a node the cluster autoscaler has determined can be removed without affecting the cluster's ability to handle its workload. 
     * The times provided show the last time the cluster was checked for scale down candidates and its last transition time.
 
-Finally, under Events, you can see up any scale or scale down events, failed or successful, and their times, that the cluster autoscaler has carried out.
+Finally, under Events, you can see any scale up or scale down events, failed or successful, and their times, that the cluster autoscaler has carried out.
 
 ## Next steps
 
