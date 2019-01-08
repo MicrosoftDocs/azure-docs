@@ -12,7 +12,7 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Encode remote file and stream video - REST
+  - name: Encode remote file and stream video – REST
     href: stream-files-tutorial-with-rest.md
   - name: Encode uploaded file and stream video - .NET
     href: stream-files-tutorial-with-api.md
@@ -95,10 +95,8 @@
       href: create-account-cli-how-to.md  
     - name: Access APIs - CLI
       href: access-api-cli-how-to.md
-    - name: Scale Media Reserved Units 
-      items:
-      - name: With CLI
-        href: media-reserved-units-cli-how-to.md      
+    - name: Scale Media Reserved Units - CLI
+      href: media-reserved-units-cli-how-to.md      
   - name: Configure Postman
     href: media-rest-apis-with-postman.md      
   - name: Upload content
@@ -121,20 +119,16 @@
       href: job-state-events-cli-how-to.md 
   - name: Protect content
     items:
-    - name: With AES-128 - .NET
+    - name: AES-128 dynamic encryption - .NET
       href: protect-with-aes128.md    
-    - name: With DRM - .NET
+    - name: DRM dynamic encryption - .NET
       href: protect-with-drm.md
     - name: Offline FairPlay for iOS 
       href: offline-fairplay-for-ios.md
     - name: Offline Widevine for Android
       href: offline-widevine-for-android.md
     - name: Offline PlayReady for Windows 10
-      href: offline-plaready-streaming-for-windows-10.md
-  - name: Configure Postman
-    href: media-rest-apis-with-postman.md
-  - name: Scale Media Reserved Units - CLI
-    href: media-reserved-units-cli-how-to.md
+      href: offline-plaready-streaming-for-windows-10.md     
   - name: Create filters
     items:
     - name: With .NET
