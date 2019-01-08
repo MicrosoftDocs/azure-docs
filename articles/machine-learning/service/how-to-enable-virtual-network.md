@@ -1,7 +1,7 @@
 ---
 title: Run experiments and inferencing inside a Virtual Network
 titleSuffix: Azure Machine Learning service
-description: Learn how to securely run Machine Learning experiments and inferencing inside an Azure Virtual Network.
+description: Learn how to securely run machine learning experiments and inferencing inside an Azure Virtual Network. This article teaches you how to create the compute targets used to train models and perform inferencing inside an Azure Virtual Network. It also covers requirements for secured virtual networks, such as require inbound and outbound ports.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 01/07/2019
+ms.date: 01/08/2019
 ---
 
 # Securely run experiments and inferencing inside an Azure Virtual Network
