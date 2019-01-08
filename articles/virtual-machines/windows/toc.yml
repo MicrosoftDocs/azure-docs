@@ -102,8 +102,6 @@
     - name: Disk Types
       href: disks-types.md
     - name: Performance Checklist
-      href: disks-performance-checklist.md
-    - name: Designing for high performance
       href: premium-storage-performance.md
     - name: Scalability targets for disks
       href: disk-scalability-targets.md

@@ -27,7 +27,7 @@ Refer to the [Azure Disks pricing page](https://azure.microsoft.com/pricing/deta
 
 ## Disk comparison
 
-The following table provides a comparison of Standard HDD, Standard SSD, Premium SSD, and Ultra SSD for managed disks to help you decide what to use. Sizes denoted with an asterisk are currently in preview.
+The following table provides a comparison of Standard HDD, Standard SSD, Premium SSD, and Ultra SSD for managed disks to help you decide what to use.
 
 |   |Azure Ultra SSD (Preview)   |Azure Premium Disk   |Azure Standard SSD   |Azure Standard HDD   |
 |---------|---------|---------|---------|---------|
