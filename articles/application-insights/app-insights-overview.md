@@ -66,7 +66,7 @@ There are plenty of ways to explore your data. Check out these articles:
 | [**Analytics**](../azure-monitor/app/analytics.md)<br/>Answer tough questions about your app's performance and usage by using this powerful query language. |![Analytics sample](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](../azure-monitor/app/visual-studio.md)<br/>See performance data in the code. Go to code from stack traces.|![Visual studio](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Snapshot debugger**](../azure-monitor/app/snapshot-debugger.md)<br/>Debug snapshots sampled from live operations, with parameter values.|![Visual studio](./media/app-insights-overview/snapshot.png) |
-| [**Power BI**](app-insights-export-power-bi.md)<br/>Integrate usage metrics with other business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
+| [**Power BI**](../azure-monitor/app/export-power-bi.md )<br/>Integrate usage metrics with other business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST API**](https://dev.applicationinsights.io/)<br/>Write code to run queries over your metrics and raw data.| ![REST API](./media/app-insights-overview/rest-tn.png) |
 | [**Continuous export**](../azure-monitor/app/export-telemetry.md)<br/>Bulk export of raw data to storage as soon as it arrives. |![Export](./media/app-insights-overview/export-tn.png) |
 
@@ -108,7 +108,7 @@ There are several ways to get started. Begin with whichever works best for you. 
   * [Node.js](../azure-monitor/app/nodejs.md)
   * [Other platforms](../azure-monitor/app/platforms.md)
 * **[Instrument your web pages](../azure-monitor/app/javascript.md)** for page view, AJAX and other client-side telemetry.
-* **[Analyze mobile app usage](app-insights-mobile-center-quickstart.md)** by integrating with Visual Studio App Center.
+* **[Analyze mobile app usage](../azure-monitor/learn/mobile-center-quickstart.md)** by integrating with Visual Studio App Center.
 * **[Availability tests](../azure-monitor/app/monitor-web-app-availability.md)** - ping your website regularly from our servers.
 
 
@@ -142,13 +142,13 @@ Get started at development time with:
 
 <!--Link references-->
 
-[android]: app-insights-mobile-center-quickstart.md
+[android]: ../azure-monitor/learn/mobile-center-quickstart.md
 [azure]: ../insights-perf-analytics.md
 [client]: ../azure-monitor/app/javascript.md
 [desktop]: ../azure-monitor/app/windows-desktop.md
 [detect]: ../azure-monitor/app/detect-triage-diagnose.md
 [greenbrown]: ../azure-monitor/app/asp-net.md
-[ios]: app-insights-mobile-center-quickstart.md
+[ios]: ../azure-monitor/learn/mobile-center-quickstart.md
 [java]: ../azure-monitor/app/java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: ../azure-monitor/app/platforms.md

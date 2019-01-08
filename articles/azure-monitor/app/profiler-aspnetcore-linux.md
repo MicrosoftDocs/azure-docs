@@ -131,7 +131,7 @@ You should see output similar to the following example:
 
 ## Add Application Insights to monitor your web apps
 
-1. [Create an Application Insights resource](./../../application-insights/app-insights-create-new-resource.md).
+1. [Create an Application Insights resource](./../../azure-monitor/app/create-new-resource.md ).
 
 2. Copy the **iKey** value of the Application Insights resource and set the following settings in your web apps:
 

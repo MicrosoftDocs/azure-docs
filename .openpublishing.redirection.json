@@ -33523,6 +33523,106 @@
         "redirect_document_id":  true
     },
     {
+      "source_path":  "articles/application-insights/app-insights-dotnetcore-quick-start.md",
+      "redirect_url":  "/azure/azure-monitor/learn/dotnetcore-quick-start",
+      "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-java-quick-start.md",
+        "redirect_url":  "/azure/azure-monitor/learn/java-quick-start",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-mobile-center-quickstart.md",
+        "redirect_url":  "/azure/azure-monitor/learn/mobile-center-quickstart",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-nodejs-quick-start.md",
+        "redirect_url":  "/azure/azure-monitor/learn/nodejs-quick-start",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/quick-monitor-portal.md",
+        "redirect_url":  "/azure/azure-monitor/learn/quick-monitor-portal",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-tutorial-alert.md",
+        "redirect_url":  "/azure/azure-monitor/learn/tutorial-alert",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-tutorial-dashboards.md",
+        "redirect_url":  "/azure/azure-monitor/learn/tutorial-app-dashboards",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-tutorial-runtime-exceptions.md",
+        "redirect_url":  "/azure/azure-monitor/learn/tutorial-runtime-exceptions",
+        "redirect_document_id":  true
+    },
+    {
+      "source_path":  "articles/application-insights/app-insights-profiler-cloudservice.md",
+      "redirect_url":  "/azure/azure-monitor/app/profiler-cloudservice ",
+      "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-profiler-overview.md",
+        "redirect_url":  "/azure/azure-monitor/app/profiler-overview ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-profiler-servicefabric.md",
+        "redirect_url":  "/azure/azure-monitor/app/profiler-servicefabric ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-profiler-settings.md",
+        "redirect_url":  "/azure/azure-monitor/app/profiler-settings ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-profiler-trackrequests.md",
+        "redirect_url":  "/azure/azure-monitor/app/profiler-trackrequests ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-profiler-troubleshooting.md",
+        "redirect_url":  "/azure/azure-monitor/app/profiler-troubleshooting ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-profiler-vm.md",
+        "redirect_url":  "/azure/azure-monitor/app/profiler-vm",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-website-monitoring.md",
+        "redirect_url":  "/azure/azure-monitor/app/website-monitoring ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/azure-functions-supported-features.md",
+        "redirect_url":  "/azure/azure-monitor/app/azure-functions-supported-features ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-windows-services.md",
+        "redirect_url":  "/azure/azure-monitor/app/windows-services",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-create-new-resource.md",
+        "redirect_url":  "/azure/azure-monitor/app/create-new-resource ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-export-power-bi.md",
+        "redirect_url":  "/azure/azure-monitor/app/export-power-bi ",
+        "redirect_document_id":  true
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true

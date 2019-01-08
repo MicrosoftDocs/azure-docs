@@ -13,9 +13,8 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 1/4/2019
 ms.author: twhitney
-
 ---
 
 # Create your first Service Fabric container application on Linux
@@ -190,8 +189,8 @@ Specify the port mapping in the appropriate format. For this article, you need t
    </ServiceManifestImport>
 ```	
 
-We recommend that you encrypt the repository password, please refer to [
-Manage encrypted secrets in Service Fabric applications](service-fabric-application-secret-management.md)
+We recommend that you encrypt the repository password. Refer to [
+Manage encrypted secrets in Service Fabric applications](service-fabric-application-secret-management.md) for instructions.
 
 ### Configure cluster-wide credentials
 Refer to [documentation here](

@@ -52,12 +52,9 @@
 ## [SAP HANA file level backup](sap-hana-backup-file-level.md)
 ## [SAP HANA storage snapshot backups](sap-hana-backup-storage-snapshots.md)
 # SAP NetWeaver and Business One on Azure Virtual Machines
-## [SAP Business One on Azure Virtual Machines](business-one-azure.md)
-## [SAP IDES on Windows/SQL Server SAP CAL deployment guide](cal-ides-erp6-erp7-sp3-sql.md)
-## [SAP NetWeaver on Azure Linux VMs](suse-quickstart.md)
+## [SAP workload planning and deployment checklist](sap-deployment-checklist.md)
 ## [Plan and implement SAP NetWeaver on Azure](planning-guide.md)
 ## [SAP NetWeaver Deployment guide](deployment-guide.md)
-## [SAP LaMa connector for Azure](lama-installation.md)
 ## DBMS deployment guides for SAP workload
 ### [General Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md)
 ### [SQL Server Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_sqlserver.md)
@@ -69,6 +66,10 @@
 ### [SAP HANA on Azure Availability overview](sap-hana-availability-overview.md)
 ### [SAP HANA on Azure Availability within one Azure region](sap-hana-availability-one-region.md)
 ### [SAP HANA on Azure Availability across Azure regions](sap-hana-availability-across-regions.md)
+## [SAP Business One on Azure Virtual Machines](business-one-azure.md)
+## [SAP IDES on Windows/SQL Server SAP CAL deployment guide](cal-ides-erp6-erp7-sp3-sql.md)
+## [SAP NetWeaver on Azure Linux VMs](suse-quickstart.md)
+## [SAP LaMa connector for Azure](lama-installation.md)
 ## High Availability (HA) on Windows and Linux
 ### [Overview](sap-high-availability-guide-start.md)
 ### High Availability Architecture
