@@ -153,7 +153,8 @@ To optimize the performance, use the following robocopy parameters when copying 
 
 **Each Robocopy session can have a maximum of 7,000 directories and 150 million files.*
 
->[!NOTE] The above parameters are suggested based on the environment used in inhouse testing.
+>[!NOTE] 
+> The above parameters suggested above are based on the environment used in inhouse testing.
 
 
 For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
