@@ -399,14 +399,14 @@ This section uses the **kubectl** cli to talk with the Azure Kubernetes service.
 
 1. Change the lines of `language.yml` based on the table below in order to add your own container registry image names, client secret, and text analytics settings.
 
-    |Change|Purpose|Value example|
+    |Change|Purpose|
     |--|--|
-    |Line 32, `image` property|Image location for the frontend image in your Container Registry|`<container-registry-name>.azurecr.io/language-frontend:v1`|
-    |Line 44, `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|GUID|
-    |Line 78, `image` property|Image location for the language image in your Container Registry|`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
-    |Line 95, `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|GUID|
-    |Line 91, `apiKey` property|Your text analytics resource key|GUID|
-    |Line 92, `billing` property|The billing endpoint for your text analytics resource.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |Line 32<br> `image` property|Image location for the frontend image in your Container Registry<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
+    |Line 44<br> `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|
+    |Line 78<br> `image` property|Image location for the language image in your Container Registry<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
+    |Line 95<br> `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|
+    |Line 91<br> `apiKey` property|Your text analytics resource key|
+    |Line 92<br> `billing` property|The billing endpoint for your text analytics resource.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
     Because the apiKey and billing endpoint are set as part of the Kubernetes orchestration definition, the website container doesn't need to know about these or pass them as part of the request. The website container refers to the language detection container by its orchestrator name `language`. You see this domain name used in the `Program.cs` of the website [code](https://github.com/Azure-Samples/cognitive-services-containers-samples/blob/master/dotnet/Language/FrontendService/FrontendService/Controllers/LanguageController.cs). 
 
