@@ -38,7 +38,7 @@ You can add your personal Microsoft account by first turning on two-factor verif
 
 2. At the bottom of the **Security basics** page, choose the **more security options** link.
 
-    ![Security basics screen with the more security options link highlighted](./media/microsoft-authenticator-app-more-security-options-link/microsoft-authenticator-app-more-security-options-link.png)
+    ![Security basics screen with the more security options link highlighted](./media/microsoft-authenticator-app-add-personal-account/more-security-options-link.png)
 
 3. Go to the **Two-step verification** section and choose to turn the feature **On**. You can also turn it off here if you no longer want to use it with your personal account.
 
@@ -48,7 +48,7 @@ You can add your personal Microsoft account by first turning on two-factor verif
 
 2. Select **Add account** from the **Customize and control** icon in the upper-right.
 
-    ![Accounts screen, with the Customize and control icon highlighted](./media/microsoft-authenticator-app-customize-and-control-icon/microsoft-authenticator-app-customize-and-control-icon.png)
+    ![Accounts screen, with the Customize and control icon highlighted](./media/microsoft-authenticator-app-add-personal-account/customize-and-control-icon.png)
 
 3. In the **Add account** screen, choose **Personal account**.
 
