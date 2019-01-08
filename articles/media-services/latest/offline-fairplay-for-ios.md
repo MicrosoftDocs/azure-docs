@@ -14,7 +14,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/08/2018
 ms.author: willzhan
 
 ---
@@ -54,7 +54,7 @@ Before you implement offline DRM for FairPlay on an iOS 10+ device:
 
     You will need to modify the code in [Encrypt with DRM using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) to add FairPlay configurations.  
 
-## ContentKeyPolicyFairPlayConfiguration
+## Content protection configuration in Azure Media Services
 
 In the [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L189) method, do the following:
 
@@ -115,7 +115,7 @@ FPS offline-mode support is available only on iOS 10 and later. The FPS Server S
 Specifically, FPS Server SDK (version 3.0 or later) contains the following two items related to offline mode:
 
 * Document: "Offline Playback with FairPlay Streaming and HTTP Live Streaming." Apple, September 14, 2016. In FPS Server SDK version 4.0, this document is merged into the main FPS document.
-* Sample code: HLSCatalog sample for FPS offline mode in the \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. 
+* Sample code: HLSCatalog sample (part of the Apple's FPS Server SDK) for FPS offline mode in the \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. 
 In the HLSCatalog sample app, the following code files are used to implement offline-mode features:
 
     - AssetPersistenceManager.swift code file: AssetPersistenceManager is the main class in this sample that demonstrates how to:
