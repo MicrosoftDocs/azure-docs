@@ -145,8 +145,8 @@ To rotate external secrets:
     Example of folder structure for the AAD Identity Provider:
     ```PowerShell
         <ShareName>
-        |   |
-        |   ├───Certificates
+        │   │
+        │   ├───Certificates
         │   └───AAD
         │       ├───ACSBlob
         │       │       <CertName>.pfx
