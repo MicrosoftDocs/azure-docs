@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 01/08/2019
 ---
 
 # Status of migration scenarios supported by the Azure Database Migration Service
