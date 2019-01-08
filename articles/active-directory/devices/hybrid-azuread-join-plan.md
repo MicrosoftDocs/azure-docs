@@ -51,7 +51,6 @@ To plan your hybrid Azure AD implementation, you should familiarize yourself wit
 
  
 
-
 ## Review supported devices 
 
 Hybrid Azure AD join supports a broad range of Windows devices. Because the configuration for devices running older versions of Windows requires additional or different steps, the supported devices are grouped into two categories:
