@@ -31,7 +31,7 @@ The template contains three activities:
 
 The template defines five parameters:
 -   The parameter *Control_Table_Name* is the table name for your external control table. The control table is used to store the partition list for source database.
--   The parameter *Control_Table_Schema_PatitionID* is the column name in your external control table to store each Partition ID. Make sure the Partition ID is unique for each partition in source database.
+-   The parameter *Control_Table_Schema_PartitionID* is the column name in your external control table to store each Partition ID. Make sure the Partition ID is unique for each partition in source database.
 -   The parameter *Control_Table_Schema_SourceTableName* is the column name in your external control table to store each table name from the source database.
 -   The parameter *Control_Table_Schema_FilterQuery* is the column name in your external control table to store the filter query to get the data from each partition in source database. For example, if you partitioned the data by each year, the query stored in each row can be similar as ‘select * from datasource where LastModifytime >= ''2015-01-01 00:00:00'' and LastModifytime <= ''2015-12-31 23:59:59.999'''
 -   The parameter *Data_Destination_Folder_Path* is the folder path where the data is copied into your destination store.  This parameter is only visible when the destination you choose is a file-based storage store.  If you choose SQL Data Warehouse as the destination store, there is no parameter required to be inputted here. But the table names and the schema in SQL data warehouse must be the same as the ones in source database.
@@ -43,13 +43,13 @@ The template defines five parameters:
 	 ```sql
 			Create table ControlTableForTemplate
 			(
-			PatitionID int,
+			PartitionID int,
 			SourceTableName  varchar(255),
 			FilterQuery varchar(255)
 			);
 
 			INSERT INTO ControlTableForTemplate
-			(PatitionID, SourceTableName, FilterQuery)
+			(PartitionID, SourceTableName, FilterQuery)
 			VALUES
 			(1, 'datasource_table','select * from datasource_table where LastModifytime >= ''2015-01-01 00:00:00'' and LastModifytime <= ''2015-12-31 23:59:59.999'''),
 			(2, 'datasource_table','select * from datasource_table where LastModifytime >= ''2016-01-01 00:00:00'' and LastModifytime <= ''2016-12-31 23:59:59.999'''),
