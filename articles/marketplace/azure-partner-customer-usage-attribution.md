@@ -32,10 +32,8 @@ Customer usage attribution is required on all [solution templates](./cloud-partn
 
 ## Use Resource Manager templates
 
-Many partner solutions are deployed on a customer’s subscription by using Resource Manager templates. If you have a Resource Manager template that's available in the Azure Marketplace, on GitHub, or as a Quickstart, the process to modify your template to enable the new tracking method should be straight forward. If you aren't using an Azure Resource Manager template, here are a few links to help you better understand Resource Manager templates and how to create one: 
+Many partner solutions are deployed on a customer’s subscription by using Resource Manager templates. If you have a Resource Manager template that's available in the Azure Marketplace, on GitHub, or as a Quickstart, the process to modify your template to enable the new tracking method should be straight forward. For more information, see [Create and deploy your first Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
 
-*	[Create and deploy your first Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-*	[Create a solution template for Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
 
 ## Add a GUID to your template
 

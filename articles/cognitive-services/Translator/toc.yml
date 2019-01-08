@@ -200,6 +200,8 @@
       href: custom-translator/document-formats-naming-convention.md
     - name: Sentence alignment
       href: custom-translator/sentence-alignment.md
+    - name: Data filtering
+      href: custom-translator/data-filtering.md
     - name: Training and model
       href: custom-translator/training-and-model.md
     - name: BLEU Score

@@ -13,7 +13,7 @@ ms.author: hrasheed
 ---
 # Get started with an Apache HBase example in HDInsight
 
-Learn how to create an [Apache HBase](http://hbase.apache.org/) cluster in HDInsight, create HBase tables, and query tables by using [Apache Hive](https://hive.apache.org/).  For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
+Learn how to create an [Apache HBase](https://hbase.apache.org/) cluster in HDInsight, create HBase tables, and query tables by using [Apache Hive](https://hive.apache.org/).  For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -44,13 +44,13 @@ The following procedure uses an Azure Resource Manager template to create a HBas
      Each cluster has an Azure Storage account dependency. After you delete a cluster, the data retains in the storage account. The cluster default storage account name is the cluster name with "store" appended. It is hardcoded in the template variables section.
 3. Select **I agree to the terms and conditions stated above**, and then click **Purchase**. It takes about 20 minutes to create a cluster.
 
-> [!NOTE]
+> [!NOTE]  
 > After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster picks up the HBase tables you created in the original cluster. To avoid inconsistencies, we recommend that you disable the HBase tables before you delete the cluster.
 > 
 > 
 
 ## Create tables and insert data
-You can use SSH to connect to HBase clusters and then use [Apache HBase Shell](http://hbase.apache.org/0.94/book/shell.html) to create HBase tables, insert data, and query data. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+You can use SSH to connect to HBase clusters and then use [Apache HBase Shell](https://hbase.apache.org/0.94/book/shell.html) to create HBase tables, insert data, and query data. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 For most people, data appears in the tabular format:
 
@@ -103,7 +103,7 @@ In HBase (an implementation of [Cloud BigTable](https://cloud.google.com/bigtabl
 
 **To bulk load data into the contacts HBase table**
 
-HBase includes several methods of loading data into tables.  For more information, see [Bulk loading](http://hbase.apache.org/book.html#arch.bulk.load).
+HBase includes several methods of loading data into tables.  For more information, see [Bulk loading](https://hbase.apache.org/book.html#arch.bulk.load).
 
 A sample data file can be found in a public blob container, *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  The content of the data file is:
 
@@ -120,9 +120,8 @@ A sample data file can be found in a public blob container, *wasb://hbasecontact
 
 You can optionally create a text file and upload the file to your own storage account. For the instructions, see [Upload data for Apache Hadoop jobs in HDInsight][hdinsight-upload-data].
 
-> [!NOTE]
+> [!NOTE]  
 > This procedure uses the Contacts HBase table you have created in the last procedure.
-> 
 
 1. From SSH, run the following command to transform the data file to StoreFiles and store at a relative path specified by Dimporttsv.bulk.output.  If you are in HBase Shell, use the exit command to exit.
 
@@ -218,7 +217,7 @@ The REST API is secured via [basic authentication](https://en.wikipedia.org/wiki
 
 For more information about HBase Rest, see [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest).
 
-> [!NOTE]
+> [!NOTE]  
 > Thrift is not supported by HBase in HDInsight.
 >
 > When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. You must also use the cluster name as part of the Uniform Resource Identifier (URI) used to send the requests to the server:
@@ -259,7 +258,7 @@ To avoid inconsistencies, we recommend that you disable the HBase tables before 
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into issues with creating HDInsight clusters, see [access control requirements](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Next steps
 In this article, you learned how to create an Apache HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how to use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.
@@ -272,9 +271,9 @@ To learn more, see:
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
-[hbase-reference]: http://hbase.apache.org/book.html#importtsv
+[hbase-reference]: https://hbase.apache.org/book.html#importtsv
 [hbase-schema]: http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf
-[hbase-quick-start]: http://hbase.apache.org/book.html#quickstart
+[hbase-quick-start]: https://hbase.apache.org/book.html#quickstart
 
 
 

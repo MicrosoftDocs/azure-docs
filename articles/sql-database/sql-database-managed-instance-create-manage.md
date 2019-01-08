@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/12/2018
+ms.date: 01/03/2019
 ---
 # Managed API reference for Azure SQL Database Managed Instances
 
@@ -31,9 +31,13 @@ To create and manage Azure SQL server, databases, and firewalls with Azure Power
 | Cmdlet | Description |
 | --- | --- |
 |[New-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstance)|Creates an Azure SQL Database Managed Instance |
-|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlInstance)|Returns information about Azure SQL Managed Instance|
-|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRmSqlInstance)|Sets properties for an Azure SQL Database Managed Instance|
-|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRmSqlInstance)|Removes an Azure SQL Managed Database Instance|
+|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstance)|Returns information about Azure SQL Managed Instance|
+|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlinstance)|Sets properties for an Azure SQL Database Managed Instance|
+|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstance)|Removes an Azure SQL Managed Database Instance|
+|[New-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstancedatabase)|Creates an Azure SQL Database Managed Instance database|
+|[Get-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstancedatabase)|Returns information about Azure SQL Managed Instance database|
+|[Remove-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstancedatabase)|Removes an Azure SQL Managed Database Instance database|
+|[Restore-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|Restores an Azure SQL Managed Database Instance database|
 
 ## Azure CLI: Manage logical servers and databases
 
@@ -41,15 +45,19 @@ To create and manage Azure SQL server, databases, and firewalls with [Azure CLI]
 
 > [!TIP]
 > For an Azure CLI quickstart, see [Working with SQL Managed Instance using Azure CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
->
 
 | Cmdlet | Description |
 | --- | --- |
-|[az sql mi create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-mi-create) |Creates a Managed Instance|
-|[az sql mi list](https://docs.microsoft.com/cli/azure/sql/db#az-sql-mi-list)|Lists available Managed Instances|
-|[az sql mi show](/cli/azure/sql/db#az-sql-mi-show)|Get the details for a Managed Instance|
-|[az sql mi update](/cli/azure/sql/db#az-sql-mi-update)|Updates a Managed Instance|
-|[az sql mi delete](/cli/azure/sql/db#az-sql-mi-delete)|Removes a Managed Instance|
+|[az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |Creates a Managed Instance|
+|[az sql mi list](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|Lists available Managed Instances|
+|[az sql mi show](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Get the details for a Managed Instance|
+|[az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Updates a Managed Instance|
+|[az sql mi delete](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Removes a Managed Instance|
+|[az sql midb create](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Creates a managed database|
+|[az sql midb list](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Lists available managed databases|
+|[az sql midb restore](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Restore a managed database|
+|[az sql midb update](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-update)|Updates a managed database|
+|[az sql midb delete](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Removes a managed database|
 
 ## Transact-SQL: Manage logical servers and databases
 

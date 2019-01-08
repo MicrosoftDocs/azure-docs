@@ -34,7 +34,7 @@ The specific areas to understand are:
 The information in this document summarizes the differences between the two services. 
 It supplements the information that's available through the following sources:
 
-* [Azure Government](http://www.azure.com/gov "Azure Government") site 
+* [Azure Government](https://www.azure.com/gov "Azure Government") site 
 * [Microsoft Azure Technical Library](https://msdn.microsoft.com/cloud-app-development-msdn "MSDN") on MSDN
 * [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/ "Microsoft Azure Trust Center")
 * [Azure Documentation Center](https://azure.microsoft.com/documentation/)
@@ -99,7 +99,7 @@ The following table shows the mapping between some Azure services and Azure Gove
 For more information about Azure Government, see the following resources:
 
 * [Sign up for a trial](https://azuregov.microsoft.com/trial/azuregovtrial)
-* [Acquiring and accessing Azure Government](http://azure.com/gov)
+* [Acquiring and accessing Azure Government](https://azure.com/gov)
 * [Ask questions via the azure-gov tag in StackOverflow](https://stackoverflow.com/tags/azure-gov)
 * [Azure Government Overview](documentation-government-welcome.md)
 * [Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/)

@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 
 ---
@@ -22,8 +22,6 @@ This tutorial shows you how to set up disaster recovery of on-premises physical 
 > * Set up the source and target replication environments
 > * Create a replication policy
 > * Enable replication for a server
-
-[review the architecture](concepts-hyper-v-to-azure-architecture.md) for this disaster recovery scenario.
 
 ## Prerequisites
 
