@@ -17,9 +17,12 @@ ms.reviewer: martincoetzer
 # How To: Plan your conditional access deployment in Azure Active Directory
 
 
-## Learn
+Why am I supposed to read this?
 
-Familiarize yourself with 
+
+## Prerequisites
+
+Read the [overview](overview.md). 
 
 
 ## What you should know
