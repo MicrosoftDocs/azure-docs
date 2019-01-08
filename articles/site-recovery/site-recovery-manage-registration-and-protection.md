@@ -1,12 +1,12 @@
 ---
 title: Remove servers and disable protection | Microsoft Docs
 description: This article describes how to unregister servers from a Site Recovery vault, and to disable protection for virtual machines and physical servers.
-author: rayne-wiselman
-manager: carmonm
+author: rajani-janaki-ram
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
-ms.author: raynew
+ms.date: 11/27/2018
+ms.author: rajani-janaki-ram
 
 ---
 
@@ -134,7 +134,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 
 1. In **Protected Items** > **Replicated Items**, right-click the machine > **Disable replication**.
 2. In **Disable replication** page, select one of these options:
-    - **Disable replication and remove (recommended)** - This option remove the replicated item from Azure Site Recovery and the replication for the machine is stopped. Replication configuration on Configuration Server is cleaned up and Site Recovery billing for this protected server is stopped.
+    - **Disable replication and remove (recommended)** - This option remove the replicated item from Azure Site Recovery and the replication for the machine is stopped. Replication configuration on Configuration Server is cleaned up and Site Recovery billing for this protected server is stopped. Note that this option can only be used when Configuration Server is in connected state.
     - **Remove** - This option is  supposed to be used only if the source environment is deleted or not accessible (not connected). This removes the replicated item from Azure Site Recovery (billing is stopped). Replication configuration on the Configuration Server **will not** be cleaned up. 
 
 > [!NOTE]

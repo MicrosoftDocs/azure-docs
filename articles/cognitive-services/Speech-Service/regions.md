@@ -1,5 +1,5 @@
 ---
-title: Speech Service regions
+title: Regions - Speech Services
 titlesuffix: Azure Cognitive Services
 description: Reference for regions of the Speech Service.
 services: cognitive-services
@@ -9,8 +9,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.author: mahilleb
+ms.custom: seodec18
 ---
 
 # Speech Service supported regions
@@ -42,7 +43,7 @@ The Speech SDK is available in these regions for **speech recognition** and **tr
 
 ### Intent recognition
 
-**Intent recognition** for the Speech SDK shares regions support with LUIS. For a complete list of available regions, see [Publishing regions and endpoints - LUIS](https://docs.microsoft.comazure/cognitive-services/luis/luis-reference-regions)
+**Intent recognition** for the Speech SDK shares regions support with LUIS. For a complete list of available regions, see [Publishing regions and endpoints - LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions)
 
 Available regions for **intent recognition** via the Speech SDK are listed on the [Language Understanding service region page](/azure/cognitive-services/luis/luis-reference-regions).
 

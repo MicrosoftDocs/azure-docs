@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 12/28/2018
 ms.author: juliako
 
 ---
@@ -86,7 +86,7 @@ To start using Media Services APIs with .NET, you need to create an **AzureMedia
 
 ### Create a live event
 
-This section shows how to create a **pass-through** type of LiveEvent (LiveEventEncodingType set to None). If you want to create a LiveEvent that is enabled for live encoding set LiveEventEncodingType to Basic. 
+This section shows how to create a **pass-through** type of LiveEvent (LiveEventEncodingType set to None). If you want to create a LiveEvent that is enabled for live encoding set LiveEventEncodingType to Standard. 
 
 Some other things that you might want to specify when creating the live event are:
 
@@ -104,7 +104,7 @@ When creating the event, you can specify to auto start it.
 
 ### Get ingest URLs
 
-Once the channel is created, you can get ingest URLs that you will provide to the live encoder. The encoder uses these URLs to input a live stream.
+Once the LiveEvent is created, you can get ingest URLs that you will provide to the live encoder. The encoder uses these URLs to input a live stream.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetIngestURL)]
 

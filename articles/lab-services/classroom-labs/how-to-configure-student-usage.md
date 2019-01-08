@@ -63,6 +63,7 @@ Select **Users** on the left menu to see the list of users registered with the l
     ![Quota per user](../media/how-to-configure-student-usage/quota-per-user.png)
 
 ## Add users to the lab
+If you have the **Restrict access** enabled, add users (email addresses) to the list.
 
 1. Select **Users** on the left menu.
 2. Select **Add users** on the toolbar. 
@@ -72,6 +73,12 @@ Select **Users** on the left menu to see the list of users registered with the l
 4. Select **Save**. You see the email addresses of users and their statuses (registered or not) in the list. 
 
     ![Users list](../media/how-to-configure-student-usage/users-list-new.png)
+
+### Add users by uploading a CSV file
+You can also add users by uploading a CSV file with email addresses of users.
+
+1. Select **Upload CSV** on the toolbar.
+2. Select the CSV file with user email addresses. All the email addresses should be in one column when you open it with Excel. 
 
 ## Manage user VMs
 Once students register with Azure Lab Services using the registration link you provided to them, you see the VMs assigned to students on the **Virtual machines** tab. 

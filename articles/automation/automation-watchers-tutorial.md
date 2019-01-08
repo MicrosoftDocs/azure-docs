@@ -98,13 +98,13 @@ To test the watcher is working as expected, you need to create a test file.
 
 Remote into the hybrid worker. Open **PowerShell** and create a test file in the folder.
   
-   ```PowerShell-interactive
-   New-Item -Name ExampleFile1.txt
-   ```
+```azurepowerShell-interactive
+New-Item -Name ExampleFile1.txt
+```
 
 The following example shows the expected output.
 
-```
+```output
     Directory: D:\examplefiles
 
 
@@ -124,7 +124,7 @@ Mode                LastWriteTime         Length Name
 
 The expected output when the new file is found can be seen in the following example:
 
-```
+```output
 Message is Process new file...
 
 

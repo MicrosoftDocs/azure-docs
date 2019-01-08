@@ -1,13 +1,13 @@
 ---
-title: How to consume an Azure Machine Learning Web service | Microsoft Docs
-description: Once a machine learning service is deployed, the RESTFul Web service that is made available can be consumed either as real-time request-response service or as a batch execution service.
+title: Consume web service - Azure Machine Learning Studio | Microsoft Docs
+description: Once a machine learning service is deployed from Azure Machine Learning Studio, the RESTFul Web service can be consumed either as real-time request-response service or as a batch execution service.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
-manager: hjerez
-editor: cgronlun
+author: ericlicoding
+ms.custom: seodec18
+ms.author: amlstudiodocs
 
+editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
 ms.component: studio
@@ -16,9 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-
 ---
-# How to consume an Azure Machine Learning Web service
+# How to consume an Azure Machine Learning Studio web service
 
 Once you deploy an Azure Machine Learning predictive model as a Web service, you can use a REST API to send it data and get predictions. You can send the data in real-time or in batch mode.
 
@@ -28,7 +27,7 @@ You can find more information about how to create and deploy a Machine Learning 
 * For details on how to deploy a Web service, see [Deploy a Machine Learning Web service](publish-a-machine-learning-web-service.md).
 * For more information about Machine Learning in general, visit the [Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## Overview
 With the Azure Machine Learning Web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning Web service call returns prediction results to an external application. To make a Machine Learning Web service call, you pass an API key that is created when you deploy a prediction. The Machine Learning Web service is based on REST, a popular architecture choice for web programming projects.

@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -56,9 +56,9 @@ Azure AD B2C interacts with identity providers, customers, other systems, and wi
 
 Azure AD B2C protects from denial-of-service and password attacks against your applications. Azure AD B2C uses detection and mitigation techniques like SYN cookies and rate and connection limits to protect resources against denial-of-service attacks. Mitigation is also included for brute-force password attacks and dictionary password attacks.
 
-#### Built-in policies
+#### User flows
 
-Each request that is sent to Azure AD B2C specifies a policy. A policy controls the behavior of how your application interacts with Azure AD B2C. Built-in policies are predefined for the most common identity tasks, such as sign-up, sign-in, and profile editing.  For instance, a sign-up policy allows you to control behaviors by configuring the following settings:
+Each request that is sent to Azure AD B2C specifies a user flow, which is a policy that controls the behavior of how your application interacts with Azure AD B2C. Predefined user flows for the most common identity tasks, such as sign-up, sign-in, and profile editing, are available in the Azure AD B2C portal.  For instance, a sign-up user flow allows you to control behaviors by configuring the following settings:
 
 - Social accounts that the customer uses to sign up for the application
 - Data collected from the customer such as first name or postal code

@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -55,24 +55,17 @@ When creating a **Package Validation** workflow in the VaaS portal, you will nee
 
 #### Option 1: Generating an account SAS URL
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+1. In the [Azure portal](https://portal.azure.com/), go to your storage account, and navigate to the .zip containing your package
 
-1. Select **Blob** from **Allowed Services options**. Deselect any remaining options.
+2. Select **Generate SAS** from the context menu
 
-1. Select **Container** and **Object** from **Allowed resource types**. Deselect any remaining options.
+3. Select **Read** from **Permissions**
 
-1. Select **Read** and **List** from **Allowed permissions**. Deselect any remaining options.
+4. Set **Start time** to the current time, and **End time** to at least 48 hours from **Start time**. If you will be running other tests with the same package, consider increasing **End time** for the length of your testing. Any tests scheduled through VaaS after **End time** will fail and a new SAS will need to be generated.
 
-1. Set **Start time** to the current time, and **End time** to 1 hour from the current time.
+5. Select **Generate blob SAS token and URL**
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    Here is how the format should appear:
-    `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-1. Modify the generated SAS URL to include the package container, `{containername}`, and the name of your package blob, `{mypackage.zip}`, as follows:
-    `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-    Use this value when starting a new **Package Validation** workflow in the VaaS portal.
+Use **Blob SAS URL** when starting a new **Package Validation** workflow in the VaaS portal.
 
 #### Option 2: Using public read container
 
@@ -97,7 +90,7 @@ When creating a **Package Validation** workflow in the VaaS portal, you will nee
 
 3. Select **Start** on the **Package Validation** tile.
 
-    ![Package Validations workflow tile](media/tile_validation-package.png)
+    ![Package validations workflow tile](media/tile_validation-package.png)
 
 4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 
@@ -117,11 +110,25 @@ When creating a **Package Validation** workflow in the VaaS portal, you will nee
 
 ## Run Package Validation tests
 
-In the **Package validation tests summary** page, you will see a list of the tests required for completing validation. Tests in this workflow run for approximately 24 hours.
+1. In the **Package Validation tests summary** page, you will see a list of the tests required for completing validation. Tests in this workflow run for approximately 24 hours.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+    In the validation workflows, **scheduling** a test uses the workflow-level common parameters that you specified during workflow creation (see [Workflow common parameters for Azure Stack Validation as a Service](azure-stack-vaas-parameters.md)). If any of test parameter values become invalid, you must resupply them as instructed in [Modify workflow parameters](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 
-When all tests have successfully completed, send the name of your VaaS Solution and Package Validation to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) to request package signing.
+    > [!NOTE]
+    > Scheduling a validation test over an existing instance will create a new instance in place of the old instance in the portal. Logs for the old instance will be retained but are not accessible from the portal.  
+    Once a test has completed successfully, the **Schedule** action becomes disabled.
+
+2. Select the agent that will run the test. For information about adding local test execution agents, see [Deploy the local agent](azure-stack-vaas-local-agent.md).
+
+3. For each of the following tests, do step four and five:
+    - OEM Extension Package Verification
+    - Cloud Simulation Engine
+
+4. Select **Schedule** from the context menu to open a prompt for scheduling the test instance.
+
+5. Review the test parameters and then select **Submit** to schedule the test for execution.
+
+When all tests have successfully completed, send the name of your VaaS solution and Package Validation to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) to request package signing.
 
 ## Next steps
 

@@ -64,7 +64,7 @@ Open *MainWindow.xaml.cs* and add the client library namespaces, along with othe
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=1-12)]
 
-Next, insert the following code in the **MainWindow** class. This creates a **FaceClient** instance using the subscription key, which you must enter yourself. You must also set the region string in `faceEndpoint` to the correct region for your subscription.
+Next, insert the following code in the **MainWindow** class. This creates a **FaceClient** instance using the subscription key, which you must enter yourself. You must also set the region string in `faceEndpoint` to the correct region for your subscription (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints).
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=18-46)]
 

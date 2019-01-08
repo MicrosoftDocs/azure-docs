@@ -320,7 +320,7 @@ To use a scale-out file share, your system must meet the following requirements:
 
 > [!IMPORTANT]
 > You cannot rename the SAPMNT file share, which points to \<SAP global host\>. SAP supports only the share name "sapmnt."
-
+>
 > For more information, see [SAP Note 2492395 - Can the share name sapmnt be changed?][2492395]
 
 ### Configure SAP ASCS/SCS instances and a scale-out file share in two clusters

@@ -1,14 +1,14 @@
 ---
-title: Import data into Machine Learning Studio | Microsoft Docs
+title: Import data into Machine Learning Studio - Azure | Microsoft Docs
 description: How to import your data into Azure Machine Learning Studio from various data sources. Learn what data types and data formats are supported.
 keywords: import data,data format,data types,data sources,training data
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
+author: ericlicoding
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: amlstudiodocs
 
+editor: cgronlun
 ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
 ms.service: machine-learning
 ms.component: studio
@@ -17,7 +17,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-
 ---
 # Import your training data into Azure Machine Learning Studio from various data sources
 
@@ -34,10 +33,6 @@ To use your own data in Machine Learning Studio to develop and train a predictiv
 > 
 
 This introductory article also discusses how to get data ready for use in Machine Learning Studio and describes which data formats and data types are supported.
-
-> [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-> 
-> 
 
 ## Get data ready for use in Azure Machine Learning Studio
 Machine Learning Studio is designed to work with rectangular or tabular data, such as text data that's delimited or structured data from a database, though in some circumstances non-rectangular data may be used.

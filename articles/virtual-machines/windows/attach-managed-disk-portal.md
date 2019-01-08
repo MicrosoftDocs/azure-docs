@@ -49,30 +49,6 @@ This article shows you how to attach a new managed data disk to a Windows virtua
 9. A warning appears notifying you that formatting the disks erases all of the data. Select **OK**.
 10. When the formatting is complete, select **OK**.
 
-## Use TRIM with standard storage
-
-If you use standard storage (HDD), you should enable the **TRIM** command. The **TRIM** command discards unused blocks on the disk so that you're billed only for storage that you're actually using. By using **TRIM**, you can save on costs if you create large files and then later delete them. 
-
-To check the **TRIM** setting, open a command prompt on your Windows VM and enter the following command:
-
-```
-fsutil behavior query DisableDeleteNotify
-```
-
-If the command returns 0, **TRIM** is enabled correctly. Otherwise, if it returns 1, run the following command to enable **TRIM**:
-
-```
-fsutil behavior set DisableDeleteNotify 0
-```
-
-After you delete data from your disk, you can ensure the **TRIM** operations flush properly by running defrag with **TRIM**:
-
-```
-defrag.exe <volume:> -l
-```
-
-You can also format the volume to ensure the entire volume is trimmed.
-
 ## Next steps
 
 - You can also [attach a data disk by using PowerShell](attach-disk-ps.md).

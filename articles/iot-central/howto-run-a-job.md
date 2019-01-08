@@ -51,8 +51,13 @@ This section shows you how to create and run a job. Each step goes through an ex
 
 If you would like to stop a job that is currently running, click on the name of the running job that you would like to stop. Choose the **Stop** button on the panel. You’ll see the job status has changed to reflect that the job has been stopped.
 
-> [!NOTE]
-> Once a job has been stopped it cannot be restarted. You must create another job with the desired operations and devices.
+   ![Stop job](./media/howto-run-a-job/stopjob.png)
+
+### Run a stopped job
+
+If you would like to run a job that is currently stopped, click on the name of the stopped job that you would like to run. Choose the **Run** button on the panel. You'll see that the job status has changed to reflect that the job is now running again.
+
+   ![Resumed job](./media/howto-run-a-job/resumejob.png)
 
 ## View the job status
 

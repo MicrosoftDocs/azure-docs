@@ -72,7 +72,7 @@ Details for granting the `AcrImageSigner` role in the Azure portal and the Azure
 
 ### Azure portal
 
-Navigate to your registry in the Azure portal, then select **Access Control (IAM)** > **Add**. Under **Add permissions**, select `AcrImageSigner` under **Role**, then **Select** one or more users or service principals, then **Save**.
+Navigate to your registry in the Azure portal, then select **Access control (IAM)** > **Add role assignment**. Under **Add role assignment**, select `AcrImageSigner` under **Role**, then **Select** one or more users or service principals, then **Save**.
 
 In this example, two entities have been assigned the `AcrImageSigner` role: a service principal named "service-principal," and a user named "Azure User."
 

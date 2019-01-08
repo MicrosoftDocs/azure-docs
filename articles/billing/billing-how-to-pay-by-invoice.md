@@ -4,7 +4,7 @@ description: Describes how to pay for Azure subscriptions by invoice
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: jureid
 editor: ''
 tags: billing
 
@@ -46,6 +46,6 @@ You can change the payment method for your Azure subscription to invoice by subm
 
 If we need to run a credit check because of the amount of credit that you need, we send you a credit check application. After you submit the application, the credit application can take 5-7 days to process.
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

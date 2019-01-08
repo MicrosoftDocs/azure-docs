@@ -1,20 +1,14 @@
 ---
-title: Azure ExpressRoute for Cloud Solution Providers | Microsoft Docs
-description: This article provides information for Cloud Service Providers that want to incorporate Azure services and ExpressRoute into their offerings.
-documentationcenter: na
+title: ExpressRoute for Cloud Solution Providers - Azure | Microsoft Docs
+description: This article provides information for Cloud Solution Providers that want to incorporate Azure services and ExpressRoute into their offerings.
 services: expressroute
 author: richcar
-manager: carmonm
-editor: ''
 
-ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: article
 ms.date: 10/10/2016
 ms.author: richcar
+ms.custom: seodec18
 
 ---
 # ExpressRoute for Cloud Solution Providers (CSP)

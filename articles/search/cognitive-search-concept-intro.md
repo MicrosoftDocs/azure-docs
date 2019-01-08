@@ -1,6 +1,6 @@
 ---
-title: Cognitive search for data extraction, natural language AI processing in Azure Search | Microsoft Docs
-description: Content extraction, natural language processing (NLP) and image processing to create searchable content in Azure Search indexing using cognitive skills and AI algorithms
+title: Cognitive search, data extraction, natural language AI process - Azure Search
+description: Content extraction, natural language processing (NLP) and image processing to create searchable content in Azure Search indexing using cognitive skills and AI algorithms.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -9,8 +9,9 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
+ms.custom: seodec2018
 ---
-# What is cognitive search?
+# What is "cognitive search" in Azure Search?
 
 Cognitive search creates searchable information out of non-searchable content by attaching AI algorithms to an indexing pipeline. AI integration is through *cognitive skills*, enriching source documents en route to a search index. 
 
@@ -25,7 +26,10 @@ The cognitive skills in Azure Search are based on the same AI algorithms used in
 Natural language and image processing is applied during the data ingestion phase, with results becoming part of a document's composition in a searchable index in Azure Search. Data is sourced as an Azure data set and then pushed through an indexing pipeline using whichever [built-in skills](cognitive-search-predefined-skills.md) you need. The architecture is extensible so if the built-in skills are not sufficient, you can create and attach [custom skills](cognitive-search-create-custom-skill-example.md) to integrate custom processing. Examples might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
 
 > [!NOTE]
-> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+> Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost.
+>
+> The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
+. Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).
 
 ## Components of cognitive search
 
@@ -84,8 +88,19 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 
 **Step 1: Create a search service in a region providing the APIs** 
 
++ West Central US
 + South Central US
++ East US
++ East US 2
++ West US 2
++ Canada Central
 + West Europe
++ UK South
++ North Europe
++ Brazil South
++ Southeast Asia
++ Central India
++ Australia East
 
 **Step 2: Hands-on experience to master the workflow**
 

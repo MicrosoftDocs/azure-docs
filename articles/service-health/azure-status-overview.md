@@ -3,7 +3,7 @@ title: Azure status overview | Microsoft Docs
 description: A global view into the health of Azure services. 
 services: Azure status
 documentationcenter: ''
-author: shawntabrizi
+author: stephbaron
 manager: ''
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: shtabriz
+ms.date: 11/16/2018
+ms.author: stbaron
 
 ---
 # Azure status
@@ -35,6 +35,6 @@ There you can see events up to 90 days in the past, including a preliminary root
 ## RSS Feed
 Azure status also provides [an RSS feed](https://azure.microsoft.com/status/feed/) of changes to the health of Azure services that you can subscribe to.
 
-# Next Steps
+## Next Steps
 * Learn how you can get a more personalized view into Azure health with [Service Health](./service-health-overview.md).
 * Learn how you can get a more granular view into the health of your specific Azure resources with [Resource Health](./resource-health-overview.md).

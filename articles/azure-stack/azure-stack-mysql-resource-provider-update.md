@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
 ---
@@ -22,8 +22,8 @@ ms.reviewer: quying
 
 A new SQL resource provider adapter might be released when Azure Stack builds are updated. While the existing adapter continues to work, we recommend updating to the latest build as soon as possible. 
 
->[!IMPORTANT]
->You must install updates in the order they're released. You can't skip versions. Refer to the versions list in [Deploy the resource provider prerequisites](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+> [!IMPORTANT]
+> You must install updates in the order they're released. You can't skip versions. Refer to the versions list in [Deploy the resource provider prerequisites](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 ## Update the MySQL resource provider adapter (integrated systems only)
 
@@ -105,7 +105,7 @@ You can specify these parameters in the command line. If you don't, or if any pa
 | **RetryDuration** | The timeout interval between retries, in seconds. | 120 | 
 | **Uninstall** | Remove the resource provider and all associated resources (see the following notes). | No | 
 | **DebugMode** | Prevents automatic cleanup on failure. | No | 
-| **AcceptLicense** | Skips the prompt to accept the GPL license.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
+| **AcceptLicense** | Skips the prompt to accept the GPL license.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
  
 
 ## Next steps

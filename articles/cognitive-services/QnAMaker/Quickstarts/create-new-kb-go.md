@@ -68,7 +68,7 @@ Add the following functions to make an HTTP POST request to create the knowledge
 
 [!code-go[Add the create_kb method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=85-97 "Add the create_kb method")]
 
-This API call returns a JSON response that includes the operation ID in the header field **Location**. Use the operation ID to determine if the KB is successfully created. 
+This API call returns a JSON response that includes the operation ID. Use the operation ID to determine if the KB is successfully created. 
 
 ```JSON
 {

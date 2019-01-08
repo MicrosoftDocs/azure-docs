@@ -1,12 +1,13 @@
 ---
-title: Azure CLI Script-Create a failover policy for high availability | Microsoft Docs
+title: Azure CLI Script-Create a failover policy for high availability
 description: Azure CLI Script Sample - Create a failover policy for high availability 
 author: markjbrown
-
+ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
+ms.reviewer: sngun
 ---
 
 # Create a failover policy for high availability using the Azure CLI

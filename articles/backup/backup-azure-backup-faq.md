@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 01/08/2019
 ms.author: raynew
 ---
 
@@ -16,10 +16,10 @@ This article answers common questions about the Azure Backup service.
 ## Recovery services vault
 
 ### Is there any limit on the number of vaults that can be created in each Azure subscription?
-Yes. You can create as many as 500 Recovery Services vaults, per supported region of Azure Backup, per subscription. If you need additional vaults, create an additional subscription.
+Yes. You can create up to 500 Recovery Services vaults, per supported region of Azure Backup, per subscription. If you need additional vaults, create an additional subscription.
 
 ### Are there limits on the number of servers/machines that can be registered against each vault?
-You can register upto 1000 Azure Virtual machines per vault. If you are using MAB Agent, you can register upto 50 MAB agents per vault. And you can register 50 MAB servers/DPM servers to a vault.
+You can register up to 1000 Azure Virtual machines per vault. If you are using the Microsoft Azure Backup Agent, you can register upto 50 MAB agents per vault. And you can register 50 MAB servers/DPM servers to a vault.
 
 
 ### If my organization has one vault, how can I isolate data from different servers in the vault when restoring data?
@@ -120,7 +120,7 @@ Windows Storage Server 2012 64 bit | Standard, Workgroup | With the latest servi
 Windows Server 2008 R2 SP1 64 bit | Standard, Enterprise, Datacenter, Foundation | With the latest updates.
 Windows Server 2008 64 bit | Standard, Enterprise, Datacenter | With latest updates.
 
-For Azure VM Linux backups, Azure Backup supports [the list of distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md), except Core OS Linux.  Other bring-your-own Linux distributions might work as long as the VM agent is available on the VM, and support for Python exists.
+For Azure VM Linux backups, Azure Backup supports [the list of distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md), except Core OS Linux and 32-bit operating system. Other bring-your-own Linux distributions might work as long as the VM agent is available on the VM, and support for Python exists.
 
 
 ## Are there size limits for data backup?
@@ -230,8 +230,8 @@ Yes. Data is encrypted on the on-premises  machine using AES256. The data is sen
 ### Is the backup data on Azure encrypted as well?
 
 Yes. The data in Azure is encrypted-at-rest.
-- For on-premises backup, encryption-at-reset is provided using the passphrase you provide when backing up to Azure.
-- For Azure VMs, data is encrypted-at-reset using Storage Service Encryption (SSE).
+- For on-premises backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure.
+- For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE).
 
 Microsoft does not decrypt the backup data at any point.
 

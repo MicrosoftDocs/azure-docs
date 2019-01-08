@@ -1,13 +1,10 @@
 ---
-title: Name resolution for resources in Azure virtual networks | Microsoft Docs
+title: Name resolution for resources in Azure virtual networks
+titlesuffix: Azure Virtual Network
 description: Name resolution scenarios for Azure IaaS, hybrid solutions, between different cloud services, Active Directory, and using your own DNS server.
 services: virtual-network
 documentationcenter: na
 author: subsarma
-manager: vitinnan 
-editor: ''
-
-ms.assetid: 5d73edde-979a-470a-b28c-e103fcf07e3e
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -121,7 +118,7 @@ options timeout:1 attempts:5
 The resolv.conf file is usually auto-generated, and should not be edited. The specific steps for adding the *options* line vary by distribution:
 
 * **Ubuntu** (uses resolvconf):
-  1. Add the *options* line to **/etc/resolveconf/resolv.conf.d/head**.
+  1. Add the *options* line to **/etc/resolvconf/resolv.conf.d/tail**.
   2. Run `resolvconf -u` to update.
 * **SUSE** (uses netconf):
   1. Add *timeout:1 attempts:5* to the **NETCONFIG_DNS_RESOLVER_OPTIONS=""** parameter in **/etc/sysconfig/network/config**. 

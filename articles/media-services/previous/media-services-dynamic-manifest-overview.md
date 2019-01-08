@@ -13,14 +13,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/25/2018
 ms.author: cenkd;juliako
 
 ---
 # Filters and dynamic manifests
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Version 2](media-services-dynamic-manifest-overview.md)
+> * [Version 3](../latest/filters-dynamic-manifest-overview.md)
+
 Starting with 2.17 release, Media Services enables you to define filters for your assets. These filters are server-side rules that will allow your customers to choose to do things like: play back only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is achieved through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
 
-This topic discusses common scenarios in which using filters would be very beneficial to your customers and links to topics that demonstrate how to create filters programmatically.
+This topic discusses common scenarios in which using filters would be beneficial to your customers and links to topics that demonstrate how to create filters programmatically.
 
 ## Overview
 When delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high-quality video to various devices under different network conditions. To achieve this goal do the following:
@@ -69,7 +74,7 @@ There are [scenarios](media-services-dynamic-manifest-overview.md#scenarios) whe
 * Device specific: deliver only the specified renditions and/or specified language tracks that are supported by the device that is used to play back the content ("rendition filtering"). 
 * Reduce the manifest to show a sub-clip of a live event ("sub-clip filtering").
 * Trim the start of a video ("trimming a video").
-* Adjust Presentation Window (DVR) in order to provide a limited length of the DVR window in the player ("adjusting presentation window") .
+* Adjust Presentation Window (DVR) in order to provide a limited length of the DVR window in the player ("adjusting presentation window").
 
 To achieve this flexibility, Media Services offers **Dynamic Manifests** based on pre-defined [filters](media-services-dynamic-manifest-overview.md#filters).  Once you define the filters, your clients could use them to stream a specific rendition or sub-clips of your video. They would specify filter(s) in the streaming URL. Filters could be applied to adaptive bitrate streaming protocols supported by [Dynamic Packaging](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH, and Smooth Streaming. For example:
 
@@ -98,7 +103,7 @@ There are two types of asset filters:
 Global and local filter types have exactly the same properties. The main difference between the two is for which scenarios what type of a filer is more suitable. Global filters are generally suitable for device profiles (rendition filtering) where local filters could be used to trim a specific asset.
 
 ## <a id="scenarios"></a>Common scenarios
-As was mentioned before, when delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high quality video to various devices under different network conditions. In addition, your might have other requirements that involve filtering your assets and using of **Dynamic Manifest**s. The following sections give a short overview of different filtering scenarios.
+As was mentioned before, when delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high-quality video to various devices under different network conditions. In addition, you might have other requirements that involve filtering your assets and using of **Dynamic Manifest**s. The following sections give a short overview of different filtering scenarios.
 
 * Specify only a subset of audio and video renditions that certain devices can handle (instead of all the renditions that are associated with the asset). 
 * Playing back only a section of a video (instead of playing the whole video).

@@ -1,13 +1,15 @@
 ---
 title: Install the Mobility Service manually for disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs
 description: Learn how to install the Mobility Service agent for disaster recovery of VMware VMs and physical servers to Azure using the  Azure Site Recovery service.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/04/2018
-ms.author: raynew
+ms.date: 11/27/2018
+ms.author: ramamill
 ---
+
+
 
 # Install the Mobility service manually on VMware VMs and physical servers
 
@@ -86,7 +88,7 @@ Usage | UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Plat
 Setup logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Mandatory installation parameter. Specifies whether the Mobility service (MS) or master target (MT) should be installed.
 /InstallLocation| Optional parameter. Specifies the Mobility service installation location (any folder).
-/Platform | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for Mware VMs/physical servers; **Azure** for Azure VMs. 
+/Platform | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for VMware VMs/physical servers; **Azure** for Azure VMs. 
 /Silent| Optional. Specifies whether to run the installer in silent mode.
 
 #### Registration settings
@@ -124,7 +126,7 @@ Agent configuration logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfi
 Usage | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
 -r | Mandatory installation parameter. Specifies whether the Mobility service (MS) or master target (MT) should be installed.
 -d | Optional parameter. Specifies the Mobility service installation location: /usr/local/ASR.
--v | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for Mware VMs/physical servers; **Azure** for Azure VMs. 
+-v | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for VMware VMs/physical servers; **Azure** for Azure VMs. 
 -q | Optional. Specifies whether to run the installer in silent mode.
 
 #### Registration settings

@@ -172,15 +172,11 @@ Users in this role can add, remove, and update license assignments on users, gro
   *	Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
   *	Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
+## Role Permissions
 The following tables describe the specific permissions in Azure Active Directory given to each role. Some roles may have additional permissions in Microsoft services outside of Azure Active Directory.
 
 ### Application Administrator
 Can create and manage all aspects of app registrations and enterprise apps.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -221,11 +217,6 @@ Can create and manage all aspects of app registrations and enterprise apps.
 ### Application Developer
 Can create application registrations independent of the ‘Users can register applications’ setting.
 
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/applications/createAsOwner | Create applications in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
@@ -237,12 +228,7 @@ Can create application registrations independent of the ‘Users can register ap
 Can perform common billing related tasks like updating payment information.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -261,12 +247,7 @@ Can perform common billing related tasks like updating payment information.
 Can access and manage Desktop management tools and services including Intune.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -281,11 +262,6 @@ Can access and manage Desktop management tools and services including Intune.
 
 ### Cloud Application Administrator
 Can create and manage all aspects of app registrations and enterprise apps except App Proxy.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -325,11 +301,6 @@ Can create and manage all aspects of app registrations and enterprise apps excep
 ### Cloud Device Administrator
 Full access to manage devices in Azure AD.
 
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/devices/delete | Delete devices in Azure Active Directory. |
@@ -344,12 +315,7 @@ Full access to manage devices in Azure AD.
 Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities.
 
   > [!NOTE]
-  > This role inherits additional permissions from the  role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -409,12 +375,7 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 Can read and manage compliance configuration and reports in Azure AD and Office 365.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -433,11 +394,6 @@ Can read and manage compliance configuration and reports in Azure AD and Office 
 ### Conditional Access Administrator
 Can manage conditional access capabilities.
 
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/policies/conditionalAccess/basic/read | Read policies.conditionalAccess property in Azure Active Directory. |
@@ -452,12 +408,7 @@ Can manage conditional access capabilities.
 Can manage all aspects of the Dynamics 365 product.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -474,12 +425,7 @@ Can manage all aspects of the Dynamics 365 product.
 Can approve Microsoft support requests to access customer organizational data.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -491,11 +437,6 @@ Can approve Microsoft support requests to access customer organizational data.
 ### Device Administrators
 Members of this role are added to the local administrators group on Azure AD-joined devices.
 
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/groupSettings/basic/read | Read basic properties on groupSettings in Azure Active Directory. |
@@ -503,11 +444,6 @@ Members of this role are added to the local administrators group on Azure AD-joi
 
 ### Directory Readers
 Can read basic directory information. For granting access to applications, not intended for users.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the  role.
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -568,11 +504,6 @@ Can read basic directory information. For granting access to applications, not i
 ### Directory Synchronization Accounts
 Only used by Azure AD Connect service.
 
-  > [!NOTE]
-  > This role inherits additional permissions from the  role.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/organization/dirSync/update | Update organization.dirSync property in Azure Active Directory. |
@@ -602,11 +533,6 @@ Only used by Azure AD Connect service.
 ### Directory Writers
 Can read & write basic directory information. For granting access to applications, not intended for users.
 
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/groups/create | Create groups in Azure Active Directory. |
@@ -630,12 +556,7 @@ Can read & write basic directory information. For granting access to application
 Can manage all aspects of the Exchange product.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -657,11 +578,6 @@ Can manage all aspects of the Exchange product.
 ### Guest Inviter
 Can invite guest users independent of the ‘members can invite guests’ setting.
 
-  > [!NOTE]
-  > This role inherits additional permissions from the  role.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/users/appRoleAssignments/read | Read users.appRoleAssignments property in Azure Active Directory. |
@@ -680,11 +596,6 @@ Can invite guest users independent of the ‘members can invite guests’ settin
 ### Helpdesk Administrator
 Can reset passwords for non-administrators and Helpdesk Administrators.
 
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
@@ -699,12 +610,7 @@ Can reset passwords for non-administrators and Helpdesk Administrators.
 Can manage all aspects of the Azure Information Protection product.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -720,12 +626,7 @@ Can manage all aspects of the Azure Information Protection product.
 Can manage all aspects of the Intune product.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -759,11 +660,6 @@ Can manage all aspects of the Intune product.
 ### License Administrator
 Can manage product licenses on users and groups.
 
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
@@ -776,12 +672,7 @@ Can manage product licenses on users and groups.
 Can manage all aspects of the Skype for Business product.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -798,12 +689,7 @@ Can manage all aspects of the Skype for Business product.
 Can read messages and updates for their organization in Office 365 Message Center only. 
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -816,12 +702,7 @@ Can read messages and updates for their organization in Office 365 Message Cente
 Do not use - not intended for general use.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -853,12 +734,7 @@ Do not use - not intended for general use.
 Do not use - not intended for general use.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -893,12 +769,7 @@ Do not use - not intended for general use.
 Can manage all aspects of the Power BI product.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -915,12 +786,7 @@ Can manage all aspects of the Power BI product.
 Can manage role assignments in Azure AD,  and all aspects of Privileged Identity Management.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -933,12 +799,7 @@ Can manage role assignments in Azure AD,  and all aspects of Privileged Identity
 Can read sign-in and audit reports.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -954,12 +815,7 @@ Can read sign-in and audit reports.
 Can read security information and reports,  and manage configuration in Azure AD and Office 365.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -986,12 +842,7 @@ Can read security information and reports,  and manage configuration in Azure AD
 Can read security information and reports in Azure AD and Office 365.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1010,12 +861,7 @@ Can read security information and reports in Azure AD and Office 365.
 Can read service health information and manage support tickets.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1031,12 +877,7 @@ Can read service health information and manage support tickets.
 Can manage all aspects of the SharePoint service.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1059,12 +900,7 @@ Can manage all aspects of the SharePoint service.
 Can manage calling and meetings features within the Microsoft Teams service.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1082,12 +918,7 @@ Can manage calling and meetings features within the Microsoft Teams service.
 Can troubleshoot communications issues within Teams using advanced tools.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1102,12 +933,7 @@ Can troubleshoot communications issues within Teams using advanced tools.
 Can troubleshoot communications issues within Teams using basic tools.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1122,12 +948,7 @@ Can troubleshoot communications issues within Teams using basic tools.
 Can manage the Microsoft Teams service.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1150,11 +971,6 @@ Can manage the Microsoft Teams service.
 
 ### User Account Administrator
 Can manage all aspects of users and groups, including resetting passwords for limited admins.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |

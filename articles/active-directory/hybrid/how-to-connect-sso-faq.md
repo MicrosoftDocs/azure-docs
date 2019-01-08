@@ -29,7 +29,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 
 Seamless SSO is a free feature and you don't need any paid editions of Azure AD to use it.
 
-## Is Seamless SSO available in the [Microsoft Azure Germany cloud](http://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
+## Is Seamless SSO available in the [Microsoft Azure Germany cloud](https://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
 
 No. Seamless SSO is only available in the worldwide instance of Azure AD.
 

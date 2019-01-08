@@ -38,7 +38,7 @@ Invalid NSG configurations are the most common cause of network errors for Azure
 ## Sample NSG
 The following table depicts a sample NSG that would keep your managed domain secure while allowing Microsoft to monitor, manage, and update information.
 
-![sample NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![sample NSG](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 >[!NOTE]
 > Azure AD Domain Services requires unrestricted outbound access from the virtual network. We recommend not to create any additional NSG rule that restricts outbound access for the virtual network.
