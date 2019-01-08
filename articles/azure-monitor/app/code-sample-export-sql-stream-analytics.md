@@ -244,7 +244,7 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 
 
 ## Related articles
-* [Export to PowerBI using Stream Analytics](../../application-insights/app-insights-export-power-bi.md)
+* [Export to PowerBI using Stream Analytics](../../azure-monitor/app/export-power-bi.md )
 * [Detailed data model reference for the property types and values.](../../azure-monitor/app/export-data-model.md)
 * [Continuous Export in Application Insights](../../azure-monitor/app/export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
