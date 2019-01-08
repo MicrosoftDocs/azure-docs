@@ -4,7 +4,7 @@ description: Provides information about the Collector appliance in Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/08/2019
 ms.author: snehaa
 services: azure-migrate
 ---
@@ -58,7 +58,7 @@ The Collector must pass a few prerequisite checks to ensure it can connect to th
     - Select Azure Global if you are planning to migrate to commercial Azure cloud.
     - Based on the cloud specified here, the appliance will send discovered metadata to the respective end points.
 - **Check internet connection**: The Collector can connect to the internet directly, or via a proxy.
-    - The prerequisite check verifies connectivity to [required and optional URLs](#connect-to-urls).
+    - The prerequisite check verifies connectivity to [required and optional URLs](#urls-for-connectivity).
     - If you have a direct connection to the internet, no specific action is required, other than making sure that the Collector can reach the required URLs.
     - If you're connecting via a proxy, note the [requirements below](#connect-via-a-proxy).
 - **Verify time synchronization**: The Collector should synchronized with the internet time server to ensure the requests to the service are authenticated.
@@ -100,7 +100,7 @@ The Collector must pass a few prerequisite checks to ensure it can connect to th
 
 
 
-### Connect to URLs
+### URLs for connectivity
 
 The connectivity check is validated by connecting to a list of URLs.
 
