@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: ravenn
 
@@ -62,7 +62,10 @@ To modify the device administrator role, configure **Additional local administra
 
 ![Additional local administrators](./media/assign-local-admin/10.png)
 
- 
+>[!NOTE]
+> This option requires an Azure AD Premium tenant. 
+
+
 Device administrators are assigned to all Azure AD joined devices. You cannot scope device administrators to a specific set of devices. Updating the device administrator role doesn't necessarily have an immediate impact on the affected users. For the devices, a user is already signed into, the privilege update takes place:
      
 
@@ -87,7 +90,7 @@ Windows Autopilot provides you with an option to prevent primary user performing
 
 In addition to using the Azure AD join process, you can also manually elevate a regular user to become a local administrator on one specific device. This step requires you to already be a member of the local administrators group. 
 
-Starting with the **Windows 10 1709** release, you can do perform this task from **Settings -> Accounts -> Other users** by selecting **Add a work or school user**.
+Starting with the **Windows 10 1709** release, you can do perform this task from **Settings -> Accounts -> Other users**. Select **Add a work or school user**, enter the user's UPN under **User account** and select *Administrator* under **Account type**  
  
 Additionally, you can also add users using the command prompt:
 

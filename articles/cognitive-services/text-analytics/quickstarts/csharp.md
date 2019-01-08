@@ -64,7 +64,7 @@ namespace ConsoleApp1
     {
         /// <summary>
         /// Container for subscription credentials. Make sure to enter your valid key.
-        string subscriptionKey = ""; //Insert your Text Anaytics subscription key
+        static string subscriptionKey = ""; //Insert your Text Anaytics subscription key
         /// </summary>
         class ApiKeyServiceClientCredentials : ServiceClientCredentials
         {
@@ -152,7 +152,7 @@ namespace ConsoleApp1
             // Identify entities
             Console.WriteLine("\n\n===== ENTITIES ======");
 
-            EntitiesBatchResult result4 = client.EntitiesAsync(
+            EntitiesBatchResultV2dot1 result4 = client.EntitiesAsync(
                     new MultiLanguageBatchInput(
                         new List<MultiLanguageInput>()
                         {
@@ -166,7 +166,7 @@ namespace ConsoleApp1
 
                 Console.WriteLine("\t Entities:");
 
-                foreach (EntityRecord entity in document.Entities)
+                foreach (EntityRecordV2dot1 entity in document.Entities)
                 {
                     Console.WriteLine("\t\t" + entity.Name);
                 }

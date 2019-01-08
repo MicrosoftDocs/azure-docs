@@ -651,6 +651,52 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 **Explanation**:
 The [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) clause looks at each device timeline separately using substreams. The output events for each TollID are generated as they are computed, meaning that the events are in order with respect to each TollID instead of being reordered as if all devices were on the same clock.
 
+## Query example: Remove duplicate events in a window
+**Description**: When performing an operation such as calculating averages over events in a given time window, duplicate events should be filtered.
+
+**Input**:  
+
+| DeviceId | Time | Attribute | Value |
+| --- | --- | --- | --- |
+| 1 |2018-07-27T00:00:01.0000000Z |Temperature |50 |
+| 1 |2018-07-27T00:00:01.0000000Z |Temperature |50 |
+| 2 |2018-07-27T00:00:01.0000000Z |Temperature |40 |
+| 1 |2018-07-27T00:00:05.0000000Z |Temperature |60 |
+| 2 |2018-07-27T00:00:05.0000000Z |Temperature |50 |
+| 1 |2018-07-27T00:00:10.0000000Z |Temperature |100 |
+
+**Output**:  
+
+| AverageValue | DeviceId |
+| --- | --- |
+| 70 | 1 |
+|45 | 2 |
+
+**Solution**:
+
+```SQL
+With Temp AS (
+    SELECT
+        COUNT(DISTINCT Time) AS CountTime,
+        Value,
+        DeviceId
+    FROM
+        Input TIMESTAMP BY Time
+    GROUP BY
+        Value,
+        DeviceId,
+        SYSTEM.TIMESTAMP
+)
+
+SELECT
+    AVG(Value) AS AverageValue, DeviceId
+INTO Output
+FROM Temp
+GROUP BY DeviceId,TumblingWindow(minute, 5)
+```
+
+**Explanation**:
+[COUNT(DISTINCT Time)](https://docs.microsoft.com/en-us/stream-analytics-query/count-azure-stream-analytics) returns the number of distinct values in the Time column within a time window. You can then use the output of this step to compute the average per device by discarding duplicates.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
