@@ -154,7 +154,7 @@ To optimize the performance, use the following robocopy parameters when copying 
 **Each Robocopy session can have a maximum of 7,000 directories and 150 million files.*
 
 >[!NOTE] 
-> The above parameters suggested above are based on the environment used in inhouse testing.
+> The parameters suggested above are based on the environment used in inhouse testing.
 
 
 For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
@@ -250,7 +250,7 @@ If you did not use the Split Copy tool to copy data, you will need to validate y
 
     > [!TIP]
     > - Reset the tool beween two runs.
-    > - Use option 1 to validate the files only dealing with large data set containing small files (~ KBs). In these instances, checksum generation may take a very long time and the performance could be very slow.
+    > - Use option 1 if dealing with large data set containing small files (~ KBs). This option only validates the files, as checksum generation may take a very long time and the performance could be very slow.
 
 3. If using multiple disks, run the command for each disk.
 
