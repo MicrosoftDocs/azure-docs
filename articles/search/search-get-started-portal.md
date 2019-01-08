@@ -138,6 +138,8 @@ To clearly understand what you can and cannot edit during index design, take a m
 
 Moving forward, you should now have a search index that's ready to query using the built-in [**Search explorer**](search-explorer.md) query page. It provides a search box so that you can test arbitrary query strings.
 
+**Search explorer** is only equipped to handle [REST API requests](https://docs.microsoft.com/rest/api/searchservice/search-documents), but it accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) operations.
+
 > [!TIP]
 > The following steps are demonstrated at 6m08s into the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
 >
@@ -150,11 +152,9 @@ Moving forward, you should now have a search index that's ready to query using t
 
    ![Index and API commands](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
-3. In the search bar, enter the query strings below and click **Search**.
+3. In the search bar, paste in the query strings below and click **Search**.
 
-    > [!NOTE]
-    > **Search explorer** is only equipped to handle [REST API requests](https://docs.microsoft.com/rest/api/searchservice/search-documents). It accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document](https://docs.microsoft.com/rest/api/searchservice/search-documents) operations.
-    >
+   ![Query string and search button](media/search-get-started-portal/search-explorer-query-string-example.png)
 
 ## Example queries
 
