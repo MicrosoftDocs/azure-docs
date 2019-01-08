@@ -48,7 +48,7 @@ You can configure and get information about alert rules using:
 
    ![Select metric](./media/howto-alert-metric/7-set-threshold-time.png)
 
-8. Within the **Action Groups**, select **Create New** to create a new group to receive notifications on the alert.
+8. Within the **Action Groups** section, select **Create New** to create a new group to receive notifications on the alert.
 
 9. Fill out the "Add action group" form with a name, short name, subscription, and resource group.
 
