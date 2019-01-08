@@ -137,6 +137,8 @@ Exit out of the attached terminal session, and the test pod is automatically del
 exit
 ```
 
+### Create and apply a network policy
+
 Now that you've confirmed you can access the basic NGINX web page on the sample backend pod, create a network policy to deny traffic. Create a file named `backend-policy.yaml` and paste the following YAML manifest. This manifest uses *podSelector* to attach the policy to pods that have the *app: backend* label, such as our sample NGINX pod. Under *ingress*, no rules are defined, which denies all inbound traffic to the pod:
 
 ```yaml
@@ -156,6 +158,8 @@ Apply the network policy using the [kubectl apply][kubectl-apply] command and sp
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
 ```
+
+### Test the network policy
 
 Test if you can access the NGINX webpage on the backend pod again. Create another test pod and attach a terminal session:
 
@@ -291,6 +295,8 @@ Exit out of the attached terminal session:
 exit
 ```
 
+### Update the network policy
+
 Update the network policy ingress to now only allow traffic within the same namespace. Change the ingress rule from using a *podSelector* to using a *namespaceSelector*. Edit the *backend-policy.yaml* manifest file as shown in the following example:
 
 ```yaml
@@ -314,6 +320,8 @@ Apply the updated network policy using the [kubectl apply][kubectl-apply] comman
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
 ```
+
+### Test the updated network policy
 
 Schedule another pod in the *production* namespace and attach a terminal session:
 
