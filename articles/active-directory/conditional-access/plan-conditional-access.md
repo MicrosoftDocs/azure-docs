@@ -22,10 +22,17 @@ ms.reviewer: martincoetzer
 Familiarize yourself with 
 
 
+## What you should know
+
+Conditional access is more a framework than a stand-alone feature. Consequently, some conditional access settings require additional features to be configured. For example, you can configure a policy that responds to a specific [sign-in risk level](../identity-protection/howto-sign-in-risk-policy.md#what-is-the-sign-in-risk-policy). However, a policy that is based on a sign-in risk level requires [Azure Active Directory identity protection](../identity-protection/overview.md) to be enabled. 
+
+If additional features are required, you might also need to get related licenses. For example, while conditional access is Azure AD P1 capability, identity protection requires an Azure AD P2 license.  
+
+There are two types of conditional access policies: custom and baseline. A [baseline policy](baseline-protection.md) is a predefined conditional access policy. The goal of these policies is to ensure that you have at least the baseline level of security enabled. While managing custom conditional access policies requires an Azure AD Premium license, baseline policies are available in all editions of Azure AD. Baseline policies provide only limited customization options. If a scenario requires more flexibility, disable the baseline policy, and implement your requirements in a custom policy. 
 
 
 
-## How to draft conditional access policies
+## Draft policies
 
 Azure Active Directory conditional access enables you to bring the protection of your cloud apps to a new level. In this new level, how you can access a cloud app is based on a dynamic policy evaluation instead of a static access configuration. With a conditional access policy, you define a response (**do this**) to an access condition (**when this happens**).
 
@@ -50,200 +57,170 @@ When planning your conditional access policies, use this model to draft your req
 |An access attempt is made:<br>- To a cloud app*<br>- By users and groups*<br>Using:<br>- Condition 1 (for example, outside Corp network)<br>- Condition 2 (for example, sign-in risk)|Grant access with (AND):<br>- Requirement 1 (for example, MFA)<br>- Requirement 2 (for example, Device compliance)|
 |An access attempt is made:<br>- To a cloud app*<br>- By users and groups*<br>Using:<br>- Condition 1 (for example, outside Corp network)<br>- Condition 2 (for example, sign-in risk)|Grant access with (OR):<br>- Requirement 1 (for example, MFA)<br>- Requirement 2 (for example, Device compliance)|
 
+For more information, see [what's required to make a policy work](best-practices.md#whats-required-to-make-a-policy-work).
 
-## What you should know
+## Plan policies
 
-
-Conditional access is rather a framework as opposed to a stand-alone feature. 
-
-
+When planning your solution, assess whether you need to create policies for the following considerations. 
 
 
+### Block access
+
+The option to block access is very powerful because it:
+
+- Trumps all other assignments for a user
+
+- Has the power to block your entire organization from signing on to your tenant
  
+If you want to block access for all users, you should at least exclude one user from the policy. For more information, see [select users and groups](block-legacy-authentication.md#select-users-and-cloud-apps).  
+    
 
-### Respond to detected user and sign-in risks
+### Require MFA
 
-Sign-in risk: policy in IP, condition in CA
-User risk: policy in IP
+To simplify the sign-in experience of your users, you might want to allow them to sign in to your cloud apps using a user name and a password. However, typically, there are at least some scenarios for which it is advisable to require a stronger form of account verification. With a conditional access policy, you can limit the requirement for MFA to certain scenarios. 
 
-What to use when?
+Common use cases to require MFA are access:
 
-
-
-### Require a compliant device or an approved app
-
-Enterprise Mobility + Security offers a comprehensive set of technologies that can help address the challenges and concerns of bring your own device (BYOD) scenarios. The technologies we will cover here include:
-
-* Microsoft Intune for mobile device management (MDM) and Intune App Protection
-* Azure Active Directory (Azure AD) for identity management
-
-One of the first decisions you need to make for bring your own devices (BYOD) scenarios, is whether you need to manage the entire device or just the data on it.
-
-Managing the entire device means that it is under the control of Intune or a third-party mobile device management (MDM) solution. Intune allows for both Mobile Device Management (MDM) and Intune App Protection. It offers extensive protection to the device and the applications running on the device. Some enterprises require their employees to enroll their devices with MDM, but with Intune, this device management is optional, depending on your organization's security and user experience requirements. Employees are often hesitant to enroll a personal device because they fear that IT groups can *control* or *see and delete* personal information when, with Intune, this concern isn't an issue.
-
-The table below outlines some common considerations about BYOD and key features of Intune. It list each feature that addresses the requirement, to help you decide whether to manage BYOD devices with MDM, Intune App Protection, or both. You can learn more in the device management [Planning Guide](https://docs.microsoft.com/intune/planning-guide).
-
-|Consideration |MDM |Intune App Protection |
-|-|-|-|
-|User onboarding experience|User generally needs to **accept that device will be remotely managed by IT** (varies by OS).|User gets **FYI about data protections** upon first launch of a protected app.|
-|Access pin|Admins can create and enforce PINs to sign into the **device**.|Admins can create and enforce PINs to get corporate data in mobile **apps**.|
-|Data encryption|Admins can create and enforce policies for **full device encryption**.|Admins can create and enforce policies for **application data encryption**.|
-|Hardware setup |Admins can create and enforce policies around various hardware components such as camera, cellular radios, Wi-Fi, radios, and so on.|N/A|
-|Wi-Fi, VPN, email, and certificate profiles|Admins can deploy profiles to devices that configure Wi-Fi, VPN, email, and certificates to meet company requirements. Admins can also create and deploy custom profiles.|N/A|
-|App provisioning|Intune can distribute Store apps and line-of-business apps directly to the device. You can tag the apps as *available* (the user must install the app) or as *required* (the app will be installed automatically).|Apps aren't distributed to devices by Intune. The admin creates an app policy to target a set of apps. After the end user downloads the app and logs on with their corporate credentials, the app policy is immediately applied to the app.|
-|App inventory|Can inventory all apps on device.|Cannot inventory apps on device.|
-|Data removal|Remove corporate data and settings with *selective wipe*. Run a complete factory reset if necessary. <br>Learn more about [selective wipe](https://docs.microsoft.com/intune/devices-wipe) and [factory reset](https://docs.microsoft.com/intune/device-factory-reset) for MDM.|Remove corporate data from Intune-managed app with *selective wipe*. [Learn more about selective wipe for app protection.](https://docs.microsoft.com/intune/apps-selective-wipe)|
-|MDM conflict|N/A|Can coexist with any Microsoft or non-Microsoft MDM solution.|
-
-Learn more about [device management and app management lifecycles](https://docs.microsoft.com/intune/introduction-device-app-lifecycles).
-
-Learn more about which apps are protected by [Intune App Management](https://www.microsoft.com/cloud-platform/microsoft-intune-apps)
-
-#### Ways to make sure corporate data isn't leaked
-
-As a complimentary solution to enforcing Conditional Access on devices and applications, you can add additional security controls by creating app protection policies to control which applications can be used to access corporate data.
-
-|Concern|Device Management Mitigations|Intune App Management Mitigations|
-|-|-|-|
-|Lost or stolen device|Remove all device data<br>Require Device PIN|Remove all app data|
-|Compromised device or app|Device encryption|App data encryption|
-|Accidental data sharing or saving to unsecured locations|Restrict device data backups<br>Restrict save-as<br>Disable printing|Restrict cut/copy/paste<br>Restrict save-as|
-
-For both, corporate and personal devices, you should decide whether your users should be able to access your resources from within and outside your organization’s network. You should also decide whether a trusted device is required for an access attempt.
-
-> [!NOTE]
-> To grant access, require devices to be marked compliant or an approved application.
-
-Now that you have seen how you can use Intune and Azure AD to protect corporate data on employee-owned devices, decide if you are going to use Intune as a device management solution with app management, or if you are going to focus solely on app management. With either option, you can use the identity and security features available with Azure AD. Use the Intune [Planning Guide](https://docs.microsoft.com/intune/planning-guide) to map out your Intune specific plan.
+- [By admins](baseline-protection.md#require-mfa-for-admins)
+- [To specific apps](app-based-mfa.md) 
+- [From network locations you don't trust](untrusted-networks.md).
 
 
+### Compromised accounts
+
+With conditional access polices, you can implement automated responses to sign-ins from potentially compromised identities. The probability that an account has been compromised is expressed in form of risk levels. There are two risk levels calculated by identity protection: sign-in risk and user risk. To implement a response to a sign-in risk, you have two options:
+
+- [The sign-in risk condition](conditions.md#sign-in-risk) in conditional access policy
+- [The sign-in risk policy](../identity-protection/howto-sign-in-risk-policy.md) in identity protection 
+
+Because the sign-in risk condition provides you with more flexibility, use this condition if you need to implement a response to a sign-in risk level. 
+
+The user risk level is only available as [user risk policy](../identity-protection/howto-user-risk-policy.md) in identity protection. 
 
 
-
-
-
-## Common access scenarios
-
-When planning your solution, assess whether you need to create policies for the following access scenarios. 
-
-
-### Enforce MFA for admins
-
-Users with access to privileged accounts have unrestricted access to your environment. Due to the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification during a sign-in. In Azure Active Directory, you can get a stronger account verification by requiring multi-factor authentication (MFA). For more information, see [Require MFA for admins](baseline-protection.md#require-mfa-for-admins).
-
->[!TIP]
-> At a minimum, require MFA for global admins when accessing your cloud apps.
-
-
-### Enforce MFA for specific apps
-
-To simplify the sign-in experience of your users, you might want to allow them to sign in to your cloud apps using a user name and a password. However, many environments have at least a few apps for which it is advisable to require a stronger form of account verification. This might be, for example true, for access to your organization's email system or your HR apps. For more information, see [equire MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md). 
-
-
-### Respond to detected sign-in risks
-
-The sign-in risk level is an indicator for the probability that an account has been compromised. The level is based on the risk events that have been detected during the sign-in of a user. To keep your environment protected, you should configure a policy that responds to detected sign-in risks. For more information, see [Block access when a session risk is detected with Azure Active Directory conditional access](app-sign-in-risk.md).
-
-> [!TIP]
-> As a best practice, apply this policy to all your cloud applications.
-
-
-### Respond to detected user risks
-
-The user risk level is another indicator for the probability that an account has been compromised. The level is based on all active risk events that have been detected for a user. To keep your environment protected, you should configure a policy that responds to detected user risks. For more information, see [How to configure the user risk policy](../identity-protection/howto-user-risk-policy.md).
-
-
-
-### Access to cloud apps from a network location you don’t trust
-
-To master the balance between security and productivity, it might be sufficient for you to only require a password for sign-ins from your organization's network. However, for access from an untrusted network location, there is an increased risk that sign-ins are not performed by legitimate users. To address this concern, you can block access from untrusted networks. Alternatively, you can also require multi-factor authentication (MFA) to gain back additional assurance that an attempt was made by the legitimate owner of the account. For more information, see [How to require MFA for access from untrusted networks with conditional access](untrusted-networks.md).
-
-
-
-
-### Access a cloud apps with devices that aren't managed by your organization
+### Managed devices
 
 The proliferation of supported devices to access your cloud resources helps to improve the productivity of your users. On the flip side, you probably don't want certain resources in your environment to be accessed by devices with an unknown protection level. For the affected resources, you should require that users can only access them using a managed device. For more information, see [How to require managed devices for cloud app access with conditional access](require-managed-devices.md). 
 
-### Restrict access to cloud apps to approved client apps
+### Approved client apps
 
-Your employees use mobile devices for both personal and work tasks. While making sure your employees can be productive, you also want to prevent data loss. With Azure Active Directory (Azure AD) conditional access, you can restrict access to your cloud apps to approved client apps that can protect your corporate data. For more information, see [How to require approved client apps for cloud app access with conditional access](app-based-conditional-access.md).
+One of the first decisions you need to make for bring your own devices (BYOD) scenarios, is whether you need to manage the entire device or just the data on it. Your employees use mobile devices for both personal and work tasks. While making sure your employees can be productive, you also want to prevent data loss. With Azure Active Directory (Azure AD) conditional access, you can restrict access to your cloud apps to approved client apps that can protect your corporate data. For more information, see [How to require approved client apps for cloud app access with conditional access](app-based-conditional-access.md).
 
 
-### Block legacy authentication
+### Legacy authentication
 
 Azure AD supports several of the most widely used authentication and authorization protocols including legacy authentication. How can you prevent apps using legacy authentication from accessing your tenant's resources? The recommendation is to just block them with a conditional access policy. If necessary, you allow only certain users and specific network locations to use apps that are based on legacy authentication. For more information, see [How to block legacy authentication to Azure AD with conditional access](block-legacy-authentication.md).
 
 
+## Test your policy
+
+Before rolling out a policy into production, you should test is to verify that it behaves as expected.
+
+1. Create test users
+
+2. Create a test plan
+
+3. Configure the policy
+
+4. Evaluate a simulated sign-in
+
+5. Test your policy
+
+6. Cleanup
 
 
 
+### Create test users
+
+To test a policy, create a set of users representing users in your environment. 
+(Can we beef this up a bit?)
+
+### Create a test plan
+
+The test plan is important to have a comparison between the expected results and the actual results. You should always have an expectation before testing something. The following table outlines example test cases. Adjust the scenarios and expected results based on how your CA policies are configured.
+
+|Policy |Scenario |Expected Result | Result |
+|---|---|---|---|
+|[Require MFA when not at work](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Authorized user signs into *App* while on a trusted location / work|User isn't prompted to MFA| |
+|[Require MFA when not at work](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Authorized user signs into *App* while not on a trusted location / work|User is prompted to MFA and can sign in successfully| |
+|[Require MFA (for admin)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|Global Admin signs into *App*|Admin is prompted to MFA| |
+|[Risky Sign-Ins](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|User signs into *App* using a [Tor browser](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|Admin is prompted to MFA| |
+|[Device Management](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Authorized user attempts to sign in from an authorized device|Access Granted| |
+|[Device Management](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Authorized user attempts to sign in from an unauthorized device|Access blocked| |
+|[Password Change for risky users](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|Authorized user attempts to sign in with compromised credentials (high risk sign in)|User is prompted to change password or access is blocked based on your policy| |
 
 
-## Implement your solution
+### Configure the policy
 
-The foundation of proper planning is the basis upon which you can deploy an application successfully with Azure Active Directory. It provides intelligent security and integration that simplifies onboarding while reducing the time for successful deployments. This combination makes sure your application is integrated with ease while mitigating down time for your end users.
+To create your policy:
 
-Use the following phases to plan for and deploy your solution in your organization:
+1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator, security administrator, or a conditional access administrator.
 
-* Phase 1: Configuring your solution
-* Phase 2: Testing
-* Phase 3: Rollback Steps
-* Phase 4: Moving to Production
+2. Navigate to [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
 
-### Phase 1: Implementation steps
+3. On the **Azure Active Directory** page, in the **Security** section, click **Conditional Access**.
 
-Use this section to help with your implementation. Based on the policies that you selected in the design section, identify the users, groups, conditions, and controls that apply to each policy.
 
-#### Identify a set of users and groups to validate the implementation
+4. On the **Conditional Access** page, in the toolbar on the top, click **New policy**.
 
->[!TIP]
-> Microsoft recommends starting with a set of pilot users and groups before rolling out a Conditional Access policy to the entire set of users and groups that the policy covers. Define a test users group you can use for the pilot.
+5. Configure the test users, apps, conditions, and controls.
 
-#### Configure your policy
+6. In the **Enable policy** section, click **On**.
 
-Once you’re ready to create your policy:
-
-1. Go to portal.azure.com
-2. Navigate to Azure Active Directory
-3. Click on Conditional Access on the left navigation
-4. Click on New Policy
-5. Configure the Users, Apps, Conditions, and Controls
-6. Set Enable Policy to on
 
 ![Picture 26](media/plan-conditional-access/azure-ad-ca-deployment-image1.png)
 
-### Phase 2: Test
 
-Use the following table to identify test cases that you would like to verify before rolling out your application to the rest of the organization. We’ve created a set of default use cases for you to get started with. Add and remove test cases based on the policies that you would like to implement. Use the [What-if](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-whatif) tool to verify the scenarios below.
+### Evaluate a simulated sign-in
+
+Now that you have configured your conditional access policy, you probably want to know whether it works as expected. As a first step, use the conditional access [what if policy tool](what-if-tool.md) to simulate a sign-in of your test user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report.
 
 >[!NOTE]
-> Make sure to open a new browser session for all tests
->[!TIP]
-> Microsoft recommends using the Whatif tool to verify that policies are working as expected
+> While a simulated run gives you impression of the impact a conditional access policy has, it does not replace an actual test run.
 
-The following table outlines example test cases. Adjust the scenarios and expected results based on how your CA policies are configured.
 
-|Policy |Scenario |Expected Results |
-|-|-|-|
-|[Require MFA when not at work](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Authorized user signs into *App* while on a trusted location / work|User isn't prompted to MFA|
-|[Require MFA when not at work](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Authorized user signs into *App* while not on a trusted location / work|User is prompted to MFA and can sign in successfully|
-|[Require MFA (for admin)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|Global Admin signs into *App*|Admin is prompted to MFA|
-|[Risky Sign-Ins](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|User signs into *App* using a [Tor browser](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|Admin is prompted to MFA|
-|[Device Management](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Authorized user attempts to sign in from an authorized device|Access Granted|
-|[Device Management](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Authorized user attempts to sign in from an unauthorized device|Access blocked|
-|[Password Change for risky users](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|Authorized user attempts to sign in with compromised credentials (high risk sign in)|User is prompted to change password or access is blocked based on your policy|
+### Test your policy
 
-### Phase 3: Move to production
+Run test cases according to your test plan.
 
-1. Provide Internal Change Communication to end users.
-2. Apply a policy to a small set of users and verify it behaves as expected.
-3. When you expand a policy to include more users, continue to exclude one admin from the policy. Excluding one admin will make sure admin account still have access and can update a policy if a change is required.
+== Can we beef this up a bit?
 
->[!TIP]
->Follow the production deployment [best practices](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-best-practices).
 
-### Phase 4: Rollback steps
+
+### Cleanup
+
+The cleanup procedure consists of the following steps:
+
+1. Disable the policy.
+
+2. Remove the assigned users and groups.
+
+3. Delete the test users.  
+
+
+
+
+## Move to production
+
+When you are ready to deploy a new policy into your environment, you should do this in phases:
+
+1. Apply a policy to a small set of users and verify it behaves as expected.
+
+2. When you expand a policy to include more users, continue to exclude all administrators from the policy. This ensures that administrators still have access and can update a policy if a change is required.
+
+3. Apply a policy to all users only if this is really required.
+
+As a best practice, create at least one user account that is:
+
+- Dedicated to policy administration
+
+- Excluded from all your policies
+
+ Provide internal change communication to end users.
+
+
+
+## Rollback steps
 
 Use the following options to roll back a Conditional Access policy
 
