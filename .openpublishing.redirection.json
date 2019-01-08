@@ -33927,11 +33927,6 @@
       "source_path": "articles/media-services/video-indexer/faq.md",
       "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-monitor/insights/vminsights-known-issues.md",
-      "redirect_url": "/azure/azure-monitor/insights/vminsights-release-notes",
-      "redirect_document_id": false
     }
   ]
 }
