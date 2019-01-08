@@ -50,40 +50,28 @@ When planning your conditional access policies, use this model to track your req
 
 ### Enforce MFA for your admins
 
-Users with access to privileged accounts have unrestricted access to your environment. Due to the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification when they are used to sign-in. In Azure Active Directory, you can get a stronger account verification by requiring multi-factor authentication (MFA). For more information, see [Require MFA for admins](baseline-protection.md#require-mfa-for-admins).
+Users with access to privileged accounts have unrestricted access to your environment. Due to the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification during a sign-in. In Azure Active Directory, you can get a stronger account verification by requiring multi-factor authentication (MFA). For more information, see [Require MFA for admins](baseline-protection.md#require-mfa-for-admins).
 
 >[!TIP]
 > At a minimum, require MFA for global admins when accessing your cloud apps.
 
 
-### Enforce MFA only for specific apps
+### Enforce MFA for specific apps
 
-To simplify the sign-in experience of your users, you might want to allow them to sign in to your cloud apps using a user name and a password. However, many environments have at least a few apps for which it is advisable to require a stronger form of account verification, such as multi-factor authentication (MFA). This might be, for example true, for access to your organization's email system or your HR apps. For more information, see [equire MFA for specific apps with Azure Active Directory conditional access](app-based-mfa). 
+To simplify the sign-in experience of your users, you might want to allow them to sign in to your cloud apps using a user name and a password. However, many environments have at least a few apps for which it is advisable to require a stronger form of account verification. This might be, for example true, for access to your organization's email system or your HR apps. For more information, see [equire MFA for specific apps with Azure Active Directory conditional access](app-based-mfa). 
 
-### Block access when a session risk is detected
 
-To keep your environment protected, you might want to block suspicious users from signing in. For more information, see [Block access when a session risk is detected with Azure Active Directory conditional access](app-sign-in-risk.md).
+### Respond to detected sign-in risks
+
+The sign-in risk level is an indicator for the probability that an account has been compromised. The level is based on the risk events that have been detected during the sign-in of a user. To keep your environment protected, you should configure a policy that responds to detected sign-in risks. For more information, see [Block access when a session risk is detected with Azure Active Directory conditional access](app-sign-in-risk.md).
 
 > [!TIP]
 > As a best practice, apply this policy to all your cloud applications.
 
 
-### Require a password change for risky users
+### Respond to detected user risks
 
-Making sure users’ credentials aren't stolen is a top priority. You will need a plan when credentials are compromised. Azure AD identity protection scans the Internet to detect when users’ credentials are leaked. Combining identity protection with Conditional Access enables you to require that all users with compromised credentials have to change their password or aren't allowed to access the application. Forcing the user to change their password, makes sure the leaked password is no longer valid.
-
-|Option 1 – Password Change |Option 2 – Block Access |
-|-|-|
-|When a user attempts to sign into an application with compromised credentials, require that the user MFA into the app and update his or her password|When a user attempts to sign into an application with compromised credentials, block the user from getting access|
-
-> [!NOTE]
-> Enabling this policy requires that you have setup password writeback.
-> [!TIP]
-> Microsoft recommends requiring password change to make sure the password is changed. This policy should be applied across all applications or users and groups in a tenant.
-
-Learn More in the user risk security [policy section](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#users-flagged-for-risk).
-
-
+The user risk level is another indicator for the probability that an account has been compromised. The level is based on all active risk events that have been detected for a user. To keep your environment protected, you should configure a policy that responds to detected user risks. For more information, see [How to configure the user risk policy](../identity-protection/howto-user-risk-policy.md).
 
 
 
@@ -91,16 +79,6 @@ Learn More in the user risk security [policy section](https://docs.microsoft.com
 
 To master the balance between security and productivity, it might be sufficient for you to only require a password for sign-ins from your organization's network. However, for access from an untrusted network location, there is an increased risk that sign-ins are not performed by legitimate users. To address this concern, you can block access from untrusted networks. Alternatively, you can also require multi-factor authentication (MFA) to gain back additional assurance that an attempt was made by the legitimate owner of the account. For more information, see [How to require MFA for access from untrusted networks with conditional access](untrusted-networks.md).
 
-
-#### Backlog
-
-- When defining named locations, make sure that IP ranges you trust are marked as trusted.
-
-- Trusted IP ranges can be split into multiple named locations so that it is easy to manage (for example, office locations).
-
-- These locations represent the public IP ranges for the corporate network.
-
-For more information, see [Location conditions in Azure Active Directory Conditional Access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
 
 
@@ -183,7 +161,7 @@ The following table outlines example test cases. Adjust the scenarios and expect
 >[!TIP]
 >Follow the production deployment [best practices](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-best-practices).
 
-## Phase 4: Rollback steps
+### Phase 4: Rollback steps
 
 Use the following options to roll back a Conditional Access policy
 
