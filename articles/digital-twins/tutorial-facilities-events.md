@@ -157,7 +157,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
 1. In the **Choose an action** window:
 
-   a. Search for or select **Condition > Control** from the **Actions** list. 
+   a. Select **Control > Condition** or search **Condition** from the **Actions** list. 
 
    b. In the first **Choose a value** text box, select **eventType** from the **Dynamic content** list for the **Parse JSON** window.
 
