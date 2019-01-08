@@ -126,7 +126,7 @@ By default, Performance data is based on the last six hours, but you can change 
 
 ![Percentile selection for data filtering](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
-When you mouse over the bar graph under the **Trend** column, each bar shows either CPU or memory usage, depending on which metric is selected, within a sample period of 15 minutes. Once you select the trend chart through a keyboard you can use the Alt+PageUp/Alt+PageDown keys to cycle through each bar individually and get the same details as you would on mouseover.
+When you mouse over the bar graph under the **Trend** column, each bar shows either CPU or memory usage, depending on which metric is selected, within a sample period of 15 minutes. After you select the trend chart through a keyboard, you can use the Alt+PageUp or Alt+PageDown keys to cycle through each bar individually and get the same details as you would on mouseover.
 
 ![Trend bar chart hover example](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
