@@ -195,7 +195,7 @@ The use of third-party Active Directory Group Policy extensions to roll out the 
 
 #### Known browser limitations
 
-Seamless SSO doesn't work in private browsing mode on Firefox and Edge browsers. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protected mode.
+Seamless SSO doesn't work in private browsing mode on Firefox and Microsoft Edge browsers. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protected mode.
 
 ## Step 4: Test the feature
 

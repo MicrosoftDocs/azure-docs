@@ -20,7 +20,7 @@ Problems with [Application Insights Analytics](analytics.md)? Start here. Analyt
 
 ## Limits
 * At present, query results are limited to just over a week of past data.
-* Browsers we test on: latest editions of Chrome, Edge, and Internet Explorer.
+* Browsers we test on: latest editions of Chrome, Microsoft Edge, and Internet Explorer.
 
 ## Known incompatible browser extensions
 * Ghostery
@@ -50,7 +50,7 @@ An authentication related error occurred (during authentication or during access
 2. Did you use a favorite, bookmark or saved link to open the Analytics portal? Are you signed in with different credentials than you used when you saved the link?
 3. Try using an in-private/incognito browser window (after closing all such windows). You'll have to provide your credentials. 
 4. Open another (ordinary) browser window and go to [Azure](https://portal.azure.com). Sign out. Then open your link and sign in with the correct credentials.
-5. Edge and Internet Explorer users can also get this error when trusted zone settings are not supported.
+5. Microsoft Edge and Internet Explorer users can also get this error when trusted zone settings are not supported.
    
     Verify both [Analytics portal](https://portal.azure.com) and [Azure Active Directory portal](https://portal.azure.com) are in the same security zone:
    

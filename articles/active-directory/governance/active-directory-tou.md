@@ -259,7 +259,7 @@ Here is a list of the supported platforms and software.
 > |  | iOS | Android | Windows 10 | Other |
 > | --- | --- | --- | --- | --- |
 > | **Native app** | Yes | Yes | Yes |  |
-> | **Edge** | Yes | Yes | Yes |  |
+> | **Microsoft Edge** | Yes | Yes | Yes |  |
 > | **Internet Explorer** | Yes | Yes | Yes |  |
 > | **Chrome (with extension)** | Yes | Yes | Yes |  |
 

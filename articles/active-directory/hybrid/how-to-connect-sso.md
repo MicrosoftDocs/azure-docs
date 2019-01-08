@@ -54,7 +54,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 - It is a free feature, and you don't need any paid editions of Azure AD to use it.
 - It is supported on web browser-based clients and Office clients that support [modern authentication](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) on platforms and browsers capable of Kerberos authentication:
 
-| OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
+| OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Yes\*|No|Yes|Yes\*\*\*|N/A
 |Windows 8.1|Yes\*|N/A|Yes|Yes\*\*\*|N/A

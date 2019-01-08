@@ -75,7 +75,7 @@ Use password-based single sign-on when:
 Password-based single sign-on is supported for any cloud-based application that has an HTML-based sign-in page. The user can use any of the following browsers:
 
 - Internet Explorer 11 on Windows 7 or later
-- Edge on Windows 10 Anniversary Edition or later 
+- Microsoft Edge on Windows 10 Anniversary Edition or later 
 - Chrome on Windows 7 or later, and on MacOS X or later
 - Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 

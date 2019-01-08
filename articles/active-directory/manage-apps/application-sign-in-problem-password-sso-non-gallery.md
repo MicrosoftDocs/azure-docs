@@ -38,7 +38,7 @@ For password-based SSO, the end user’s browsers can be:
 -   Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 
 >[!NOTE]
->The password-based SSO extension become available for Edge in Windows 10 when browser extensions become supported for Edge.
+>The password-based SSO extension become available for Microsoft Edge in Windows 10 when browser extensions become supported for Microsoft Edge.
 >
 >
 

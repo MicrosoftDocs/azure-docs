@@ -44,11 +44,11 @@ The following settings groups are available for end-users to enable/disable sett
 * Language Preferences: spelling dictionary, system language settings 
 * Ease of Access: narrator, on-screen keyboard, magnifier 
 * Other Windows Settings: see Windows Settings details
-* Edge browser setting: Microsoft Edge favorites, reading list, and other settings
+* Microsoft Edge browser setting: Microsoft Edge favorites, reading list, and other settings
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
-Edge browser setting group (favorites, reading list) syncing can be enabled or disabled by end users through Edge browser Settings menu option.
+Microsoft Edge browser setting group (favorites, reading list) syncing can be enabled or disabled by end users through Microsoft Edge browser Settings menu option.
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
@@ -89,21 +89,21 @@ Settings that don't roam or sync will not belong to a group.
 | **Desktop personalization**: taskbar settings (position, auto-hide, etc.) |sync |X |Theme |
 | **Desktop personalization**: start screen layout |X |backup | |
 | **Devices**: shared printers you've connected to |X |X |other |
-| **Edge browser**: reading list |sync |sync |internal |
-| **Edge browser**: favorites |sync |sync |internal |
-| **Edge browser**: top sites <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
-| **Edge browser**: typed URLs <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
-| **Edge browser**: favorites bar settings <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
-| **Edge browser**: show the home button <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
-| **Edge browser**: block pop-ups <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
-| **Edge browser**: ask me what to do with each download <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
-| **Edge browser**: offer to save passwords <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
-| **Edge browser**: send do not track requests <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
-| **Edge browser**: save form entries <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
-| **Edge browser**: show search and site suggestions as I type <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
-| **Edge browser**: cookies preference <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
-| **Edge browser**: let sites save protected media licenses on my device <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
-| **Edge browser**: screen reader setting <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Microsoft Edge browser**: reading list |sync |sync |internal |
+| **Microsoft Edge browser**: favorites |sync |sync |internal |
+| **Microsoft Edge browser**: top sites <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Microsoft Edge browser**: typed URLs <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Microsoft Edge browser**: favorites bar settings <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Microsoft Edge browser**: show the home button <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Microsoft Edge browser**: block pop-ups <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Microsoft Edge browser**: ask me what to do with each download <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Microsoft Edge browser**: offer to save passwords <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Microsoft Edge browser**: send do not track requests <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Microsoft Edge browser**: save form entries <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Microsoft Edge browser**: show search and site suggestions as I type <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Microsoft Edge browser**: cookies preference <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Microsoft Edge browser**: let sites save protected media licenses on my device <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Microsoft Edge browser**: screen reader setting <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
 | **High Contrast**: On or Off |sync |X |ease of access |
 | **High contrast**: Theme settings |sync |X |ease of access |
 | **Internet Explorer**: open tabs (URL and title) |sync |sync |Internet Explorer |
