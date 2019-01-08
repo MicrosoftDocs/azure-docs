@@ -80,7 +80,7 @@ Thresholds for health criteria that target a Windows VM aren’t modifiable, bec
 Thresholds for the following Linux health criteria aren’t modifiable, because their health state is already set to *true*. The health state displays the *comparisonOperator* with a value **LessThan** and *threshold* value of **1** when queried from the Workload Monitoring API for the entity, depending on its context:
    - Logical Disk Status – Logical disk isn't online/ available
    - Disk Status – Disk isn't online/ available
-   - Network Adapter Status -  Network adapter is disabled  
+   - Network Adapter Status -  Network adapter is disabled
 
 ## Does the Health feature monitor logical processors or cores?
 Individual processor and logical processor level health criteria aren't available for a Windows VM, only Total CPU utilization is monitored by default. 
