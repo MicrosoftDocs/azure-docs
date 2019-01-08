@@ -11,7 +11,7 @@ ms.author: mihansen
 
 # Register a public client application in Azure Active Directory
 
-In this article, you'll learn how to register a public application in Azure Active Directory. Client application registrations are Azure Active Directory representations of applications that can authenticate and ask for API permissions on behalf of a user. Public clients are applications such as mobile applications and single page javascript applications that cannot keep secrets confidential. The procedure is similar to [registering a confidential client](register-confidential-aad-client-app.md), but since public clients cannot be trusted to hold an application secret, there is no need to add one.
+In this article, you'll learn how to register a public application in Azure Active Directory. Client application registrations are Azure Active Directory representations of applications that can authenticate and ask for API permissions on behalf of a user. Public clients are applications such as mobile applications and single page javascript applications that cannot keep secrets confidential. The procedure is similar to [registering a confidential client](register-confidential-azure-ad-client-app.md), but since public clients cannot be trusted to hold an application secret, there is no need to add one.
 
 ## App registrations in Azure portal
 
@@ -33,9 +33,9 @@ In this article, you'll learn how to register a public application in Azure Acti
 
 ## API permissions
 
-Similarly to the [confidential client application](register-confidential-aad-client-app.md), you will need to select which API permissions this application should be able to request on behalf of users:
+Similarly to the [confidential client application](register-confidential-azure-ad-client-app.md), you will need to select which API permissions this application should be able to request on behalf of users:
 
-1. Open the **API permissions** and select your [FHIR API Resource Application Registration](register-resource-aad-client-app.md):
+1. Open the **API permissions** and select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md):
 
     ![Azure portal. New public API Permissions.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-API-PERMISSIONS.png)
 

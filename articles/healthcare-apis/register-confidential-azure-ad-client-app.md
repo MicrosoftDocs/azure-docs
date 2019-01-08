@@ -11,7 +11,7 @@ ms.author: mihansen
 
 # Register a confidential client application in Azure Active Directory
 
-In this article, you'll learn how to register a confidential client application in Azure Active Directory. A client application registration is an Azure Active Directory representation of an application that can be used to authenticate on behalf of a user and request access to [resource applications](register-resource-aad-client-app.md). A confidential client application is an application that can be trusted to hold a secret and present that secret when requesting access tokens. Examples of confidential applications are server-side applications.
+In this article, you'll learn how to register a confidential client application in Azure Active Directory. A client application registration is an Azure Active Directory representation of an application that can be used to authenticate on behalf of a user and request access to [resource applications](register-resource-azure-ad-client-app.md). A confidential client application is an application that can be trusted to hold a secret and present that secret when requesting access tokens. Examples of confidential applications are server-side applications.
 
 To register a new confidential application in the portal, follow the steps below.
 
@@ -37,7 +37,7 @@ To register a new confidential application in the portal, follow the steps below
 
 Next add API permissions:
 
-1. Open the **API permissions** and select your [FHIR API Resource Application Registration](register-resource-aad-client-app.md):
+1. Open the **API permissions** and select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md):
 
     ![Confidential client. API Permissions](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png)
 
