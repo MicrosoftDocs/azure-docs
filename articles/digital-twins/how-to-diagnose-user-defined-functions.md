@@ -204,4 +204,4 @@ If you enable diagnostic settings, you might encounter these common exceptions:
 
 ## Next steps
 
-Learn how to enable [monitoring and logs](../azure-monitor/platform/activity-logs-overview.md) in Azure Digital Twins.
+- Learn how to enable [monitoring and logs](../azure-monitor/platform/activity-logs-overview.md) in Azure Digital Twins.
