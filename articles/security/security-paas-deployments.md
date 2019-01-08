@@ -119,7 +119,7 @@ The following table lists the STRIDE threats and gives some example mitigations 
 
 Following are best practices for using App Service.
 
-**Best practice**: [Authenticate through Azure Active Directory](../app-service/app-service-authentication-overview.md).   
+**Best practice**: [Authenticate through Azure Active Directory](../app-service/overview-authentication-authorization.md).   
 **Detail**: App Service provides an OAuth 2.0 service for your identity provider. OAuth 2.0 focuses on client developer simplicity while providing specific authorization flows for web applications, desktop applications, and mobile phones. Azure AD uses OAuth 2.0 to enable you to authorize access to mobile and web applications.
 
 **Best practice**: Restrict access based on the need to know and least privilege security principles.   

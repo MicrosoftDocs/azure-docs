@@ -300,9 +300,9 @@ In this section, you do the following tasks to set up Application Insights loggi
 
 1. If you don't already have an App Service app that you can use, [create one](app-service-web-get-started-dotnet-framework.md).
 
-1. If you don't already have an Application Insights resource that you can use, [create one](../application-insights/app-insights-create-new-resource.md). Set **Application type** to **General**, and skip the sections that follow **Copy the instrumentation key**.
+1. If you don't already have an Application Insights resource that you can use, [create one](../azure-monitor/app/create-new-resource.md ). Set **Application type** to **General**, and skip the sections that follow **Copy the instrumentation key**.
 
-1. If you already have an Application Insights resource that you want to use, [copy the instrumentation key](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
+1. If you already have an Application Insights resource that you want to use, [copy the instrumentation key](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key).
 
 ### Configure app settings 
 

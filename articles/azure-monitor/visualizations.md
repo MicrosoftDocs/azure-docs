@@ -27,7 +27,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 ### Advantages
 - Deep integration into Azure. Visualizations can be pinned to dashboards from multiple Azure pages including metrics analytics, log analytics, and Application Insights.
 - Supports both metrics and logs.
-- Combine data from multiple sources including output from [Metrics explorer](../azure-monitor/platform/metrics-charts.md), [Log Analytics queries](../azure-monitor/log-query/log-query-overview.md), and [maps](../application-insights/app-insights-app-map.md) and [availability]() in Application Insights.
+- Combine data from multiple sources including output from [Metrics explorer](../azure-monitor/platform/metrics-charts.md), [Log Analytics queries](../azure-monitor/log-query/log-query-overview.md), and [maps](../azure-monitor/app/app-map.md) and [availability]() in Application Insights.
 - Option for personal or shared dashboards. Integrated with Azure [role based authentication (RBAC)](../role-based-access-control/overview.md).
 - Automatic refresh. Metrics refresh depends on time range with minimum of five minutes. Logs refresh at one minute.
 - Parametrized metrics dashboards with timestamp and custom parameters.
@@ -66,7 +66,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 
 
 ## Application Insights Workbooks
-[Workbooks](../application-insights/app-insights-usage-workbooks.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
+[Workbooks](../azure-monitor/app/usage-workbooks.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
 
 ![Workbook](media/visualizations/workbook.png)
 
@@ -135,7 +135,7 @@ You can access data in log and metric data in Azure Monitor through their API us
 - Learn about the [data collected by Azure Monitor](platform/data-collection.md).
 - Learn about [Azure dashboards](../azure-portal/azure-portal-dashboards.md).
 - Learn about [Views in Azure Monitor](platform/view-designer.md).
-- Learn about [Workbooks in Application Insights](../application-insights/app-insights-usage-workbooks.md).
+- Learn about [Workbooks in Application Insights](../azure-monitor/app/usage-workbooks.md).
 - Learn about [import log data into Power BI](../azure-monitor/platform/powerbi.md).
 - Learn about the [Grafana Azure Monitor data source plugin](../azure-monitor/platform/grafana-plugin.md).
 

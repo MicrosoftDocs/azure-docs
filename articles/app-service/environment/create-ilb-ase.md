@@ -74,7 +74,7 @@ To create an ILB ASE:
 
 	* &lt;asename&gt;.p.azurewebsites.net
 
-   There is a feature called custom domain names that allows you to map an existing DNS name to your web app. You can read more about that feature in the [Map an existing DNS name to your web app][customdomain] document. The custom domain name used for apps and the domain name used by your ASE can't overlap. For an ILB ASE with the domain name _contoso.com_, you can't use custom domain names for your apps like:
+   You can [map an existing DNS name to your app][customdomain]. The custom domain name used for apps and the domain name used by your ASE can't overlap. For an ILB ASE with the domain name _contoso.com_, you can't use custom domain names for your apps like:
 
 	* www.contoso.com
 
@@ -84,7 +84,7 @@ To create an ILB ASE:
 
    If you know the custom domain names for your apps, choose a domain for the ILB ASE that won’t have a conflict with those custom domain names. In this example, you can use something like *contoso-internal.com* for the domain of your ASE because that won't conflict with custom domain names that end in *.contoso.com*.
 
-1. Select **OK**, and then select **Create**.
+8. Select **OK**, and then select **Create**.
 
 	![ASE creation][1]
 
@@ -156,23 +156,23 @@ To upload your own certificates and test access:
 
 1. Get the ILB address for your ASE. Select **ASE** > **Properties** > **Virtual IP Address**.
 
-1. Create a web app in your ASE after the ASE is created.
+2. Create an app in your ASE after the ASE is created.
 
-1. Create a VM if you don't have one in that VNet.
+3. Create a VM if you don't have one in that VNet.
 
 	> [!NOTE] 
 	> Don't try to create this VM in the same subnet as the ASE because it will fail or cause problems.
 	>
 
-1. Set the DNS for your ASE domain. You can use a wildcard with your domain in your DNS. To do some simple tests, edit the hosts file on your VM to set the web app name to the VIP IP address:
+4. Set the DNS for your ASE domain. You can use a wildcard with your domain in your DNS. To do some simple tests, edit the hosts file on your VM to set the app name to the VIP IP address:
 
-	a. If your ASE has the domain name _.ilbase.com_ and you create the web app named _mytestapp_, it's addressed at _mytestapp.ilbase.com_. You then set _mytestapp.ilbase.com_ to resolve to the ILB address. (On Windows, the hosts file is at _C:\Windows\System32\drivers\etc\_.)
+	a. If your ASE has the domain name _.ilbase.com_ and you create the app named _mytestapp_, it's addressed at _mytestapp.ilbase.com_. You then set _mytestapp.ilbase.com_ to resolve to the ILB address. (On Windows, the hosts file is at _C:\Windows\System32\drivers\etc\_.)
 
 	b. To test web deployment publishing or access to the advanced console, create a record for _mytestapp.scm.ilbase.com_.
 
-1. Use a browser on that VM and go to https://mytestapp.ilbase.com. (Or go to whatever your web app name is with your domain.)
+5. Use a browser on that VM and go to https://mytestapp.ilbase.com. (Or go to whatever your app name is with your domain.)
 
-1. Use a browser on that VM and go to https://mytestapp.ilbase.com. If you use a self-signed certificate, accept the lack of security.
+6. Use a browser on that VM and go to https://mytestapp.ilbase.com. If you use a self-signed certificate, accept the lack of security.
 
 	The IP address for your ILB is listed under **IP addresses**. This list also has the IP addresses used by the external VIP and for inbound management traffic.
 

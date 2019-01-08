@@ -88,6 +88,8 @@
     items:
     - name: Collect logs using Application Insights
       href: active-directory-b2c-troubleshoot-custom.md
+    - name: Confgure ROPC
+      href: ropc-custom.md
     - name: Configure user input
       href: active-directory-b2c-configure-signup-self-asserted-custom.md
     - name: Create a custom policy
@@ -275,16 +277,6 @@
     href: b2clogin.md
   - name: Use the Azure AD Graph API
     href: active-directory-b2c-devquickstarts-graph-dotnet.md
-  - name: Web apps
-    items:
-    - name: ASP.NET
-      href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
-  - name: Web APIs
-    items:
-    - name: ASP.NET
-      href: active-directory-b2c-devquickstarts-api-dotnet.md
-    - name: Call a .NET Web API
-      href: active-directory-b2c-devquickstarts-web-api-dotnet.md 
   - name: Reference
     items:
     - name: Code samples

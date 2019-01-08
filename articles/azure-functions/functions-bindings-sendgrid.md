@@ -78,13 +78,19 @@ Here's the binding data in the *function.json* file:
 {
     "bindings": [
         {
-            "name": "message",
-            "type": "sendGrid",
-            "direction": "out",
-            "apiKey" : "MySendGridKey",
-            "to": "{ToEmail}",
-            "from": "{FromEmail}",
-            "subject": "SendGrid output bindings"
+          "type": "queueTrigger",
+          "name": "mymsg",
+          "queueName": "myqueue",
+          "connection": "AzureWebJobsStorage",
+          "direction": "in"
+        },
+        {
+          "type": "sendGrid",
+          "name": "$return",
+          "direction": "out",
+          "apiKey": "SendGridAPIKeyAsAppSetting",
+          "from": "{FromEmail}",
+          "to": "{ToEmail}"
         }
     ]
 }
@@ -96,27 +102,28 @@ Here's the C# script code:
 
 ```csharp
 #r "SendGrid"
+
 using System;
 using SendGrid.Helpers.Mail;
-using Microsoft.Extensions.Logging;
+using Microsoft.Azure.WebJobs.Host;
 
-public static void Run(ILogger log, string input, out Mail message)
+public static SendGridMessage Run(Message mymsg, ILogger log)
 {
-     message = new Mail
-    {        
-        Subject = "Azure news"          
-    };
-
-    var personalization = new Personalization();
-    personalization.AddTo(new Email("recipient@contoso.com"));   
-
-    Content content = new Content
+    SendGridMessage message = new SendGridMessage()
     {
-        Type = "text/plain",
-        Value = input
+        Subject = $"{mymsg.Subject}"
     };
-    message.AddContent(content);
-    message.AddPersonalization(personalization);
+    
+    message.AddContent("text/plain", $"{mymsg.Content}");
+
+    return message;
+}
+public class Message
+{
+    public string ToEmail { get; set; }
+    public string FromEmail { get; set; }
+    public string Subject { get; set; }
+    public string Content { get; set; }
 }
 ```
 

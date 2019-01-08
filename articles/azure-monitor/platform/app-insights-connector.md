@@ -137,7 +137,7 @@ To pivot, click the ellipses (**…**) that appears at the end of each line, and
 
 ### Sample-corrected data
 
-Application Insights provides *[sampling correction](../../application-insights/app-insights-sampling.md)* to help reduce telemetry traffic. When you enable sampling on your Application Insights app, you get a reduced number of entries stored both in Application Insights and in Log Analytics. While data consistency is preserved in the **Application Insights Connector** page and perspectives, you should manually correct sampled data for your custom queries.
+Application Insights provides *[sampling correction](../../azure-monitor/app/sampling.md)* to help reduce telemetry traffic. When you enable sampling on your Application Insights app, you get a reduced number of entries stored both in Application Insights and in Log Analytics. While data consistency is preserved in the **Application Insights Connector** page and perspectives, you should manually correct sampled data for your custom queries.
 
 Here is an example of sampling correction in a log search query:
 
@@ -156,8 +156,8 @@ The solution receives the following telemetry types of data from your connected 
 - Availability
 - Exceptions
 - Requests
-- Page views – For your workspace to receive page views, you must configure your apps to collect that information. Fore more information, see [PageViews](../../application-insights/app-insights-api-custom-events-metrics.md#page-views).
-- Custom events – For your workspace to receive custom events, you must configure your apps to collect that information. Fore more information, see [TrackEvent](../../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
+- Page views – For your workspace to receive page views, you must configure your apps to collect that information. Fore more information, see [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
+- Custom events – For your workspace to receive custom events, you must configure your apps to collect that information. Fore more information, see [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 Data is received by Log Analytics from Application Insights as it becomes available.
 

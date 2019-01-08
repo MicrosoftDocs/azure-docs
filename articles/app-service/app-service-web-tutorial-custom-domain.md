@@ -45,7 +45,7 @@ To complete this tutorial:
   For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must be able to configure the DNS settings for the `contoso.com` root domain.
 
   > [!NOTE]
-  > If you don't have an existing domain name, consider [purchasing a domain using the Azure portal](custom-dns-web-site-buydomains-web-app.md). 
+  > If you don't have an existing domain name, consider [purchasing a domain using the Azure portal](manage-custom-dns-buy-domain.md). 
 
 ## Prepare the app
 
@@ -302,7 +302,7 @@ If you receive an HTTP 404 (Not Found) error when browsing to the URL of your cu
 
 ## Migrate an active domain
 
-To migrate a live site and its DNS domain name to App Service with no downtime, see [Migrate an active DNS name to Azure App Service](app-service-custom-domain-name-migrate.md).
+To migrate a live site and its DNS domain name to App Service with no downtime, see [Migrate an active DNS name to Azure App Service](manage-custom-dns-migrate-domain.md).
 
 ## Redirect to a custom directory
 

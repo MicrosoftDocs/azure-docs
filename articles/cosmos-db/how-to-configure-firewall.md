@@ -2,7 +2,6 @@
 title: Configure an IP firewall for your Azure Cosmos DB account
 description: Learn how to configure IP access control policies for firewall support on Azure Cosmos DB database accounts.
 author: kanshiG
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018

@@ -103,7 +103,7 @@ Make a note of the `resourceGroup` value. You need it for the [clean up resource
 
 ## Browse to the app
 
-In a browser, go to the Azure web app URL: `http://<app_name>.azurewebsites.net`.
+In a browser, go to the app URL: `http://<app_name>.azurewebsites.net`.
 
 The page is running as an Azure App Service web app.
 
@@ -129,13 +129,13 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ![Updated sample app home page](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
-## Manage your new Azure web app
+## Manage your new Azure app
 
 Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
 
-From the left menu, click **App Services**, and then click the name of your Azure web app.
+From the left menu, click **App Services**, and then click the name of your Azure app.
 
-![Portal navigation to Azure web app](./media/app-service-web-get-started-html/portal1.png)
+![Portal navigation to Azure app](./media/app-service-web-get-started-html/portal1.png)
 
 You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 

@@ -1,21 +1,19 @@
 ---
 title: Introduction to Azure Cosmos DB
 description: Learn about Azure Cosmos DB. This globally-distributed multi-model database is built for low latency, elastic scalability, high availability, and offers native support for NoSQL data.
-services: cosmos-db
 author: SnehaGunda
-
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 12/18/2018
 ms.author: sngun
-ms.custom: mvc
+
 ---
 
 # Welcome to Azure Cosmos DB
 
 Today’s applications are required to be highly responsive and always online. To achieve low latency and high availability, instances of these applications need to be deployed in datacenters that are close to their users. Applications need to respond in real time to large changes in usage at peak hours, store ever increasing volumes of data, and make this data available to users in milliseconds.
 
-Azure Cosmos DB is Microsoft's globally distributed, multi-model database service. With the click of a button, Azure Cosmos DB enables you to elastically and independently scale throughput and storage across any number of Azure's geographic regions. You can elastically scale throughput and storage, and take advantage of fast, single-digit-millisecond data access using your favorite API among SQL, MongoDB, Apache Cassandra, Tables, or Gremlin. Cosmos DB provides comprehensive [service level agreements](https://aka.ms/acdbsla) (SLAs) for throughput, latency, availability, and consistency guarantees, something no other database service can offer.
+Azure Cosmos DB is Microsoft's globally distributed, multi-model database service. With the click of a button, Azure Cosmos DB enables you to elastically and independently scale throughput and storage across any number of Azure's geographic regions. You can elastically scale throughput and storage, and take advantage of fast, single-digit-millisecond data access using your favorite API among SQL, MongoDB, Cassandra, Tables, or Gremlin. Cosmos DB provides comprehensive [service level agreements](https://aka.ms/acdbsla) (SLAs) for throughput, latency, availability, and consistency guarantees, something no other database service can offer.
 
 You can [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
@@ -78,17 +76,16 @@ Cosmos DB is the first and only service to offer [industry-leading comprehensive
 
 You can run [Spark](spark-connector.md) on data stored in Cosmos DB. This capability allows you to do low-latency, operational analytics at global scale without impacting transactional workloads operating directly against Cosmos DB.
 
-### Native wire-compatible MongoDB, Cassandra, Gremlin, and Azure Table Storage APIs
+### Develop applications for Cosmos DB using popular NoSQL APIs
 
 Cosmos DB offers a choice of APIs to update and query your data stored in your Cosmos database. By default, [you can use SQL](how-to-sql-query.md) to update and query your data in your Cosmos database.
 
-Cosmos DB also implements [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), and [Gremlin](graph-introduction.md) wire protocols directly on the service. This enables you to point Cassandra, MongoDB, or Gremlin client drivers (and tools) directly to your Cosmos database and use Cosmos DB as a fully managed, globally distributed, Cassandra/MongoDB/Gremlin-as-a-service without paying for license, support, or operations cost to the database vendor. Native support for Cassandra/MongoDB/Gremlin/Table storage APIs provides numerous benefits. You can:
+Cosmos DB also implements [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) and [Azure Table Storage](table-introduction.md) wire protocols directly on the service. This enables you to point client drivers (and tools) for the commonly used NoSQL APIs directly to your Cosmos database. By supporting wire protocols of commonly used NoSQL APIs, Cosmos DB allows you to:
 
-* Easily migrate your Cassandra, MongoDB, Gremlin, and Table Storage databases to Cosmos DB. 
-* Preserve large portion of your application logic unchanged to interface with Cassandra, MongoDB, Gremlin, and Table storage interfaces of Cosmos DB.
+* Easily migrate your application to Cosmos DB while preserving significant portions of your application logic.
 * Keep your application portable and continue to remain cloud vendor-agnostic.
-* Get industry leading, financially backed SLAs for your Cassandra/MongoDB/Gremlin database powered by Cosmos DB. 
-* Elastically scale the provisioned throughput and storage for your Cassandra and MongoDB databases based on your need and pay only for the throughput and storage you need. This leads to significant cost savings.
+* Get industry leading, financially backed SLAs for the common NoSQL APIs. 
+* Elastically scale the provisioned throughput and storage for your databases based on your need and pay only for the throughput and storage you need. This leads to significant cost savings.
 
 ## Solutions that benefit from Azure Cosmos DB
 
@@ -101,7 +98,7 @@ Read more about Cosmos DB's [global distribution](distribute-data-globally.md) a
 Get started with Azure Cosmos DB with one of our quickstarts:
 
 * [Get started with Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
-* [Get started with Azure Cosmos DB API for MongoDB](create-mongodb-nodejs.md)
+* [Get started with Azure Cosmos DB's API for MongoDB](create-mongodb-nodejs.md)
 * [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md)
 * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
 * [Get started with Azure Cosmos DB Table API](create-table-dotnet.md)
