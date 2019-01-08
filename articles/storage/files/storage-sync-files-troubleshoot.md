@@ -19,6 +19,8 @@ This article is designed to help you troubleshoot and resolve issues that you mi
 2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 3. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## I'm having an issue with Azure File Sync on my server (sync, cloud tiering, etc.). Should I remove and recreate my server endpoint?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
 
@@ -138,11 +140,13 @@ A server endpoint health status of "No Activity" means the server endpoint has n
 
 A server endpoint may not log sync activity for the following reasons:
 
-- The server has reached the maximum number of concurrent sync sessions. Azure File Sync currently supports 2 active sync sessions per processor or a maximum of 8 active sync sessions per server.
+- The server has an active VSS sync session (SnapshotSync). When a VSS sync session is active for a server endpoint, other server endpoints on the same volume cannot start a start sync session until the VSS sync session completes.
 
-- The server has an active VSS sync session (SnapshotSync). When a VSS sync session is active for a server endpoint, other server endpoints on the server cannot start a start sync session until the VSS sync session completes.
+	To check current sync activity on a server, see [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-To check current sync activity on a server, see [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- The server has reached the maximum number of concurrent sync sessions. 
+	- Agent version 4.x and later: Limit varies based on available system resources.
+	- Agent version 3.x: 2 active sync sessions per processor or a maximum of 8 active sync sessions per server.
 
 > [!Note]  
 > If the server state on the registered servers blade is “Appears Offline,” perform the steps documented in the [Server endpoint has a health status of “No Activity” or “Pending” and the server state on the registered servers blade is “Appears offline”](#server-endpoint-noactivity) section.
@@ -237,13 +241,14 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 **ItemResults log - per-item sync errors**  
 | HRESULT | HRESULT (decimal) | Error string | Issue | Remediation |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80c80065 | -2134376347 | ECS_E_DATA_TRANSFER_BLOCKED | The file has produced persistent errors during sync and so will only be attempted to sync once per day. The underlying error can be found in an earlier event log. | In agents R2 (2.0) and above, the original error rather than this one is surfaced. Upgrade to the latest agent to see the underlying error, or look at earlier event logs to find the cause of the original error. |
-| 0x7b | 123 | ERROR_INVALID_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Azure Files naming guidelines](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) and the list of unsupported characters below. |
-| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Azure Files naming guidelines](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) and the list of unsupported characters below. |
-| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | A file has changed, but the change has not yet been detected by sync. Sync will recover after this change is detected. | No action required. |
-| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles. |
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | A file or directory change can't be synced yet because a dependent folder is not yet synced. This item will sync after the dependent changes are synced. | No action required. |
+| 0x7b | 123 | ERROR_INVALID_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Handling unsupported characters](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) for more information. |
+| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Handling unsupported characters](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) for more information. |
+| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles. |
+| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | A file has changed, but the change has not yet been detected by sync. Sync will recover after this change is detected. | No action required. |
+| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | The file cannot be synced because the Azure file share limit is reached. | To resolve this issue, see [You reached the Azure file share storage limit](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) section in the troubleshooting guide. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | This error can occur if the file is encrypted by an unsupported solution (like NTFS EFS) or the file has a delete pending state. | If the file is encrypted by an unsupported solution, decrypt the file and use a supported encryption solution . For a list of support solutions, see [Encryption solutions](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#encryption-solutions) section in the planning guide. If the file is in a delete pending state, the file will be deleted once all open file handles are closed. |
+| 0x20 | 32 | ERROR_SHARING_VIOLATION | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | A file was changed during sync, so it needs to be synced again. | No action required. |
 
 #### Handling unsupported characters
@@ -463,15 +468,23 @@ By setting this registry value, the Azure File Sync agent will accept any locall
 | **Error string** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Remediation required** | Yes |
 
-This error commonly occurs because the server time is incorrect or the certificate used for authentication is expired. If the server time is correct, perform the following steps to renew the expired certificate:
+This error can be caused by:
 
-1. Open the Certificates MMC snap-in, select Computer Account and navigate to Certificates (Local Computer)\Personal\Certificates.
-2. Check if the client authentication certificate is expired. If the certificate is expired, close the Certificates MMC snap-in and proceeed with the remaining steps. 
-3. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
-4. Run the following PowerShell commands on the server:
+- Server time is incorrect
+- Server endpoint deletion failed
+- Certificate used for authentication is expired. 
+	To check if the certificate is expired, perform the following steps:  
+	1. Open the Certificates MMC snap-in, select Computer Account and navigate to Certificates (Local Computer)\Personal\Certificates.
+	2. Check if the client authentication certificate is expired.
+
+If the server time is correct, perform the following steps to resolve the issue:
+
+1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
+2. Run the following PowerShell commands on the server:
 
     ```PowerShell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+    Login-AzureRmStorageSync -SubscriptionID <guid> -TenantID <guid>
     Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
 
@@ -557,14 +570,14 @@ This error occurs because of an internal problem with the sync database. This er
 
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 1. Navigate to the sync group within the Storage Sync Service.
 2. Select the cloud endpoint within the sync group.
 3. Note the Azure file share name in the opened pane.
 4. Select the linked storage account. If this link fails, the referenced storage account has been removed.
     ![A screenshot showing the cloud endpoint detail pane with a link to the storage account.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 ```PowerShell
 # Variables for you to populate based on your configuration
 $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
@@ -578,20 +591,20 @@ Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
 
 # Log into the Azure account and put the returned account information
 # in a reference variable.
-$acctInfo = Connect-AzureRmAccount
+$acctInfo = Connect-AzAccount
 
 # this variable stores your subscription ID 
 # get the subscription ID by logging onto the Azure portal
 $subID = $acctInfo.Context.Subscription.Id
 
 # this variable holds your Azure Active Directory tenant ID
-# use Login-AzureRMAccount to get the ID from that context
+# use Login-AzAccount to get the ID from that context
 $tenantID = $acctInfo.Context.Tenant.Id
 
 # Check to ensure Azure File Sync is available in the selected Azure
 # region.
 $regions = [System.String[]]@()
-Get-AzureRmLocation | ForEach-Object { 
+Get-AzLocation | ForEach-Object { 
     if ($_.Providers -contains "Microsoft.StorageSync") { 
         $regions += $_.Location 
     } 
@@ -604,7 +617,7 @@ if ($regions -notcontains $region) {
 
 # Check to ensure resource group exists and create it if doesn't
 $resourceGroups = [System.String[]]@()
-Get-AzureRmResourceGroup | ForEach-Object { 
+Get-AzResourceGroup | ForEach-Object { 
     $resourceGroups += $_.ResourceGroupName 
 }
 
@@ -651,7 +664,7 @@ $cloudEndpoint = Get-AzureRmStorageSyncCloudEndpoint `
     -SyncGroupName $syncGroup
 
 # Get reference to storage account
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
     $_.Id -eq $cloudEndpoint.StorageAccountResourceId
 }
 
@@ -662,12 +675,12 @@ if ($storageAccount -eq $null) {
 ---
 
 <a id="troubleshoot-network-rules"></a>**Check to make sure the storage account does not contain any network rules.**  
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 1. Once in the storage account, select **Firewalls and virtual networks** on the left-hand side of the storage account.
 2. Inside the storage account, the **Allow access from all networks** radio button should be selected.
     ![A screenshot showing the storage account firewall and network rules disabled.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 ```PowerShell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
@@ -678,12 +691,12 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 ---
 
 <a id="troubleshoot-azure-file-share"></a>**Ensure the Azure file share exists.**  
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 1. Click **Overview** on the left-hand table of contents to return to the main storage account page.
 2. Select **Files** to view the list of file shares.
 3. Verify the file share referenced by the cloud endpoint appears in the list of file shares (you should have noted this in step 1 above).
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 ```PowerShell
 $fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
@@ -697,7 +710,7 @@ if ($fileShare -eq $null) {
 ---
 
 <a id="troubleshoot-rbac"></a>**Ensure Azure File Sync has access to the storage account.**  
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 1. Click **Access control (IAM)** on the left-hand table of contents.
 1. Click the **Role assignments** tab to the list the users and applications (*service principals*) that have access to your storage account.
 1. Verify **Hybrid File Sync Service** appears in the list with the **Reader and Data Access** role. 
@@ -710,10 +723,10 @@ if ($fileShare -eq $null) {
 	- In the **Role** field, select **Reader and Data Access**.
 	- In the **Select** field, type **Hybrid File Sync Service**, select the role and click **Save**.
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 ```PowerShell    
 $foundSyncPrincipal = $false
-Get-AzureRmRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
+Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
     if ($_.DisplayName -eq "Hybrid File Sync Service") {
         $foundSyncPrincipal = $true
         if ($_.RoleDefinitionName -ne "Reader and Data Access") {

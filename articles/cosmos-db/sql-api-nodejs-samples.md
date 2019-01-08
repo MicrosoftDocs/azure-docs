@@ -1,11 +1,9 @@
 ---
 title: Node.js examples for Azure Cosmos DB
 description: Find Node.js examples on GitHub for common tasks in Azure Cosmos DB, including CRUD operations.
-services: cosmos-db
 author: deborahc
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 09/24/2018
 ms.author: deborahc
@@ -100,5 +98,5 @@ The [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/Server
 | [Create a stored procedure](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ServerSideScripts/JS/upsert.js#L12-L72) |[StoredProcedures.create](https://docs.microsoft.com/javascript/api/%40azure/cosmos/storedprocedures?view=azure-node-latest) |
 | [Execute a stored procedure](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ServerSideScripts/app.js#L44) |[StoredProcedure.execute](https://docs.microsoft.com/javascript/api/%40azure/cosmos/storedprocedure?view=azure-node-latest#execute) |
 
-For more information about server-side programming, see [Azure Cosmos DB server-side programming: Stored procedures, database triggers, and UDFs](programming.md).
+For more information about server-side programming, see [Azure Cosmos DB server-side programming: Stored procedures, database triggers, and UDFs](stored-procedures-triggers-udfs.md).
 

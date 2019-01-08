@@ -13,12 +13,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2018
+ms.date: 12/19/2018
 ms.author: ryanwi
 
 ---
 # Service Fabric application and service manifests
 This article describes how Service Fabric applications and services are defined and versioned using the ApplicationManifest.xml and ServiceManifest.xml files.  For more detailed examples, see [application and service manifest examples](service-fabric-manifest-examples.md).  The XML schema for these manifest files is documented in [ServiceFabricServiceModel.xsd schema documentation](service-fabric-service-model-schema.md).
+
+> [!WARNING]
+> The manifest XML file schema enforces correct ordering of child elements.  As a partial workaround, open "C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd" in Visual Studio while authoring or modifying any of the Service Fabric manifests. This will allow you to check the ordering of child elements and provides intelli-sense.
 
 ## Describe a service in ServiceManifest.xml
 The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. A service manifest can contain multiple code, configuration, and data packages, which can be versioned independently. Here is a service manifest for the ASP.NET Core web front-end service of the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (and here are some [more detailed examples](service-fabric-manifest-examples.md)):

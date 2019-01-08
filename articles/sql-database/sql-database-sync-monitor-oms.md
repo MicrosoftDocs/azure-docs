@@ -19,6 +19,9 @@ To check the SQL Data Sync activity log and detect errors and warnings, you prev
 
 For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md).
 
+> [!IMPORTANT]
+> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
+
 ## Monitoring Dashboard for all your Sync Groups 
 
 You no longer need to look through the logs of each Sync Group individually to look for issues. You can monitor all your Sync Groups from any of your subscriptions in one place by using a custom Log Analytics view. This view surfaces the information that matters to SQL Data Sync customers.

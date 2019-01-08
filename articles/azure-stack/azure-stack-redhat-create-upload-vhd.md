@@ -343,7 +343,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
 
 ## Prepare a Red Hat-based virtual machine from VMware
 
-This section assumes that you have already installed a RHEL virtual machine in VMware. For details about how to install an operating system in VMware, see [VMware Guest Operating System Installation Guide](http://partnerweb.vmware.com/GOSIG/home.html).
+This section assumes that you have already installed a RHEL virtual machine in VMware. For details about how to install an operating system in VMware, see [VMware Guest Operating System Installation Guide](https://partnerweb.vmware.com/GOSIG/home.html).
 
 * When you install the Linux operating system, we recommend that you use standard partitions rather than LVM, which is often the default for many installations. This avoids LVM name conflicts with cloned virtual machine, particularly if an operating system disk ever needs to be attached to another virtual machine for troubleshooting. LVM or RAID can be used on data disks if preferred.
 * Do not configure a swap partition on the operating system disk. You can configure the Linux agent to create a swap file on the temporary resource disk. You can find more information about this in the steps that follow.

@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 10/24/2018
 ---
@@ -27,7 +27,7 @@ The following sections show you how to use the Azure portal to configure the lon
 
 You can configure SQL Database to [retain automated backups](sql-database-long-term-retention.md) for a period longer than the retention period for your service tier. 
 
-1. In the Azure portal, select your SQL server and then click **Manage Backups**. On the **Configure policies** tab, select the checkbox for the database on which you want to set or modify long-term backup retention policies.
+1. In the Azure portal, select your SQL server and then click **Manage Backups**. On the **Configure policies** tab, *select the checkbox for the database on which you want to set or modify long-term backup retention policies*. If the checkbox next to the database is not selected, the changes for the policy will not apply to that database.  
 
    ![manage backups link](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
