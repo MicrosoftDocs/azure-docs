@@ -103,7 +103,7 @@ Azure API Management provides the following types of resources for use in the de
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Are you sure that you want to remove application?|  
 |WebDevelopersAppNotPublished|Not published|  
-|WebDevelopersAppNotSubminted|Not submitted|  
+|WebDevelopersAppNotSubmitted|Not submitted|  
 |WebDevelopersAppTableCategoryHeader|Category|  
 |WebDevelopersAppTableNameHeader|Name|  
 |WebDevelopersAppTableStateHeader|State|  
