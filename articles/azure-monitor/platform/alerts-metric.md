@@ -25,15 +25,15 @@ The following procedure describes how to create a metric alert rule in Azure por
     > [!TIP]
     > Most resource blades also have **Alerts** in their resource menu under **Monitoring**, you could create alerts from there as well.
 
-3. Click **Select target**, in the context pane that loads, select a target resource that you want to modify. Use **Subscription** and **Resource type** drop-downs to find the resource you want to monitor. You can also use the search bar to find your resource.
+3. Click **Select target**, in the context pane that loads, select a target resource that you want to alert on. Use **Subscription** and **Resource type** drop-downs to find the resource you want to monitor. You can also use the search bar to find your resource.
 
 4. If the selected resource has metrics you can create alerts on, **Available signals** on the bottom right will include metrics. You can view the full list of resource types supported for metric alerts in this [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
 
-5. Once you have selected a target resource, click on **Add criteria**
+5. Once you have selected a target resource, click on **Add condition**
 
 6. You will see a list of signals supported for the resource, select the metric you want to create an alert on.
 
-7. Optionally, refine you metric by adjusting **Period** and **Aggregation**. if the metric has dimensions, you will see **Dimensions** table presented. Select one or more values per dimension. The metric alert will run evaluate the condition for all combinations of values selected. [Learn more about how alerting on multi-dimensional metrics works](alerts-metric-overview.md). You can also **Select \*** for any of the dimensions. **Select \*** will dynamically scale the selection to all current and future values for a dimension.
+7. Optionally, refine the metric by adjusting **Period** and **Aggregation**. if the metric has dimensions, you will see **Dimensions** table presented. Select one or more values per dimension. The metric alert will run evaluate the condition for all combinations of values selected. [Learn more about how alerting on multi-dimensional metrics works](alerts-metric-overview.md). You can also **Select \*** for any of the dimensions. **Select \*** will dynamically scale the selection to all current and future values for a dimension.
 
 8. You will see a chart for the metric for the last 6 hours. Define the alert parameters; **Condition Type**, **Frequency**, **Operator** and **Threshold** or **Sensitivity**, this will determine the logic which the metric alert rule will evaluate. [Learn more about dynamic thresholds condition type and sensitivity options](alerts-dynamic-thresholds.md).
 

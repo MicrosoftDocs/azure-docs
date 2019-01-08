@@ -18,7 +18,7 @@ Once an alert rule is created, it will fire only when the monitored metric doesn
 
 ## Why Should I apply dynamic thresholds condition type to my metrics alerts
 
-1. **Scalable Alerting** – Dynamic Thresholds alerts can create custom-tailored thresholds for hundreds of metric series at a time. Yet providing the same ease of defining an alert on a single metric. Using either the UI or the Azure Resource Manager API results in fewer alert rules to manage. The scalable approach is especially useful when dealing with metric dimensions or when applying to multiple resources, like all subscription resources. Which translates to a significant time saving on management and creation of such alerts.
+1. **Scalable Alerting** – Dynamic Thresholds alerts can create custom-tailored thresholds for hundreds of metric series at a time. Yet providing the same ease of defining an alert on a single metric. Using either the UI or the Azure Resource Manager API results in fewer alert rules to manage. The scalable approach is especially useful when dealing with metric dimensions or when applying to multiple resources, like all subscription resources. Which translates to a significant time saving on management and creation of such alerts. [Learn more about how to configure Metric Alerts with dynamic thresholds using templates](alerts-metric-create-templates.md).
 
 1. **Smart Metric Pattern Recognition** – Using our unique ML technology, we’re able to automatically detect metric pattern and adapt to metric changes over time, which may often include seasonality (Hourly / Daily / Weekly). Adapting to the metrics’ behavior over time and alerting based on deviations from its pattern relieves the burden of knowing the “right” threshold for each metric. The ML algorithm used in Dynamic Thresholds is designed to prevent noisy (low precision) or wide (low recall) thresholds that don’t have an expected pattern.
 
@@ -27,6 +27,12 @@ Once an alert rule is created, it will fire only when the monitored metric doesn
 ## How to configure alerts with dynamic thresholds
 
 Alerts with dynamic thresholds can be configured through Metric Alerts in Azure Monitor. [Learn more about how to configure Metric Alerts](alerts-metric.md).
+
+## How are the thresholds calculated
+
+The algorithm reads the historical data of the metric, and tries to model it using a set of algorithms and methods. It detects patterns in the data such as seasonality (Hourly / Daily / Weekly), and is able to handle noisy metrics (such as machine CPU or memory) as well as metrics with low dispersion (such as availability and error rate). 
+
+The thresholds are selected in such a way that a deviation from these thresholds indicates an anomaly in the metric behavior.
 
 ## What does Sensitivity setting in dynamic thresholds mean
 
@@ -60,9 +66,9 @@ To trigger an alert when there was a violation from a Dynamic threshold in 20 mi
 
 **Ignore data before** - Users may also optionally define a start date from which the system should begin calculating the thresholds from. A typical use case may occur when a resource was a running in a testing mode and is now promoted to serve a production workload, and therefore the behavior of any metric during the testing phase should be disregarded.
 
-## If the metric slowly changes over time, will this trigger an alert with dynamic thresholds
+## If the metric slowly changes over time, will it trigger an alert with dynamic thresholds
 
-Probably no. Dynamic thresholds are good for detecting significant deviations rather than slowly evolving issues.
+Probably no. Dynamic Thresholds are good for detecting significant deviations rather than slowly evolving issues.
 
 ## How much data is used to preview the alert threshold? How much data is used for existing alerts
 
