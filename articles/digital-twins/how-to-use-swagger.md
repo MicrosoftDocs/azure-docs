@@ -74,7 +74,7 @@ After you select a specific endpoint, you see **Try it out**.
 
 ![Swagger try][5]
 
-Expand that section to bring up input fields for each required and optional parameter. Enter the values, and select **Execute**.
+Expand that section to bring up input fields for each required and optional parameter. Enter the correct values, and select **Execute**.
 
 ![Swagger tried][6]
 

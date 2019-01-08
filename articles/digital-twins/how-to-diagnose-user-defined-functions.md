@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 # How to debug user-defined functions in Azure Digital Twins
 
-This article summarizes how to diagnose user-defined functions. Then, it identifies some of the most common scenarios likely to be encountered when working with them.
+This article summarizes how to diagnose and debug user-defined functions. Then, it identifies some of the most common scenarios found when debugging them.
 
 >[!TIP]
 > Read [How to configure monitoring and logging](./how-to-configure-monitoring.md) to learn more about setting up debugging tools in Azure Digital Twins using Activity Logs, Diagnostic Logs, and Azure Monitor.
@@ -24,7 +24,7 @@ Knowing how to diagnose any issues that arise within your Azure Digital Twins in
 
 ### Enable log analytics for your instance
 
-Logs and metrics for your Azure Digital Twins instance are exposed through Azure Monitor. The following documentation assumes you have created an [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) workspace through the [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), through [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), or through [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+Logs and metrics for your Azure Digital Twins instance are displayed in Azure Monitor. This documentation assumes you have created an [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) workspace through the [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), through [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), or through [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
 > You may experience a 5 minute delay when sending events to Azure Log Analytics for the first time.
@@ -38,7 +38,7 @@ Read the article [Collect and consume log data from your Azure resources](../azu
 
 ### Trace sensor telemetry
 
-Ensure that diagnostic settings are enabled on your Azure Digital Twins instance, all log categories are selected, and that the logs are being sent to Azure Log Analytics.
+To trace sensor telemetry, verify that diagnostic settings are enabled for your Azure Digital Twins instance. Then, ensure that all desired log categories are selected. Lastly, confirm that the desired logs are being sent to Azure Log Analytics.
 
 To match a sensor telemetry message to its respective logs, you can specify a Correlation ID on the event data being sent. To do so, set the `x-ms-client-request-id` property to a GUID.
 
@@ -53,7 +53,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | The Correlation ID that was specified on the event data |
 
-If enable logging for your user-defined function, those logs appear in your Azure Log Analytics instance with the category `UserDefinedFunction`. To retrieve them, enter the following query condition in Azure Log Analytics:
+If you enable logging for your user-defined function, those logs appear in your Azure Log Analytics instance with the category `UserDefinedFunction`. To retrieve them, enter the following query condition in Azure Log Analytics:
 
 ```Kusto
 AzureDiagnostics
@@ -68,9 +68,9 @@ Both diagnosing and identifying common issues are important when troubleshooting
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-### Ensure a role assignment was created
+### Check if a role assignment was created
 
-Without a role assignment created within Management API, the user-defined function doesn't have access to perform any actions such as sending notifications, retrieving metadata, and setting computed values within the topology.
+Without a role assignment created within the Management API, the user-defined function doesn't have access to perform any actions such as sending notifications, retrieving metadata, and setting computed values within the topology.
 
 Check if a role assignment exists for your user-defined function through your Management API:
 
@@ -151,7 +151,7 @@ Response:
 
 ### Issue with receiving notifications
 
-When not receiving notifications from within the triggered user-defined function, make sure that your topology object type parameter matches the type of the identifier that is being used.
+When you're not receiving notifications from the triggered user-defined function, confirm that your topology object type parameter matches the type of identifier that's being used.
 
 **Incorrect** Example:
 
@@ -196,7 +196,7 @@ function process(telemetry, executionContext) {
 
 If you enable diagnostic settings, you might encounter these common exceptions:
 
-1. **Throttling**: if your user-defined function exceeds the execution rate limits outlined in the [Service Limits](./concepts-service-limits.md) article, it will be throttled. Throttling entails no further operations successfully executing until the limits expire.
+1. **Throttling**: if your user-defined function exceeds the execution rate limits outlined in the [Service Limits](./concepts-service-limits.md) article, it will be throttled. No further operations are successfully executed until the throttling limits expire.
 
 1. **Data Not Found**: if your user-defined function attempts to access metadata that does not exist, the operation fails.
 
