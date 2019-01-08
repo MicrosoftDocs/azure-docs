@@ -160,6 +160,18 @@ We use Custom Fields to define the *EventTime*, *Code*, *Status*, and *Message* 
 
 ![Log query with custom fields](media/data-sources-custom-logs/query-02.png)
 
+## Alternatives to custom logs
+While custom logs are useful if your data fits the requirement for this feature, but there are cases where it can't be used such as the following:
+
+- The data doesn't fit the required format such as having the timestamp in a different format.
+- The log file doesn't adhere to requirements such as file encoding or an unsupported folder structure.
+- The data requires preprocessing or filtering  before collection. 
+
+In the cases where the custom logs feature can't be used, you should collect data from a script using the 
+
+- Use a custom script or other method to write data to [Windows Events](data-sources-windows-events.md) or [Syslog](data-sources-syslog.md) which are collected by Log Analytics. 
+- Send the data directly to Log Analytics using [HTTP Data Collector API](data-collector-api.md). An example using runbooks in Azure Automation is provided in [Collect data in Log Analytics with an Azure Automation runbook](runbook-datacollect.md).
+
 ## Next steps
 * See [Parse text data in Azure Monitor](../log-query/parse-text.md) for methods to parse each imported log entry into multiple properties.
 * Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
