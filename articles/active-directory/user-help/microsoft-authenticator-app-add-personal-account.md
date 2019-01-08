@@ -130,7 +130,7 @@ You can add your Facebook account by first turning on two-factor verification an
 You can add your Apple ID by first turning on two-factor verification and then by adding the account information to the app.
 
 >[!Note]
-> You might be asked to answer your Apple ID security questions while you're turning on two-factor verification.
+> You might be asked to answer your Apple ID security questions while you're turning on two-factor verification. Additionally, you might see that two-factor verification is already turned on by default for some Apple IDs.
 
 ### To turn on two-factor verification
 
@@ -166,7 +166,15 @@ You can add your Apple ID by first turning on two-factor verification and then b
     
     6. Type the provided code to verify your phone number and to finish setting up two-factor verification.
 
-### To add your Apple ID to the app
+    #### Mac with OS X El Capitan or later
+
+    1. Go to **Apple** menu > **System Preferences** > **iCloud** > **Account Details**.
+
+    2. Click **Security**.
+
+    3. Click **Turn On Two-Factor Authentication**.
+
+### To add your Apple ID to the app [NEED STEPS]
 
 1. Get the QR code
 
