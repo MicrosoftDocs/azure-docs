@@ -564,8 +564,8 @@
         items:
         - name: Overview
           href: insights/vminsights-overview.md
-        - name: Release notes
-          href: insights/vminsights-release-notes.md
+        - name: Known issues
+          href: insights/vminsights-known-issues.md
         - name: FAQ
           href: insights/vminsights-faq.md
         - name: Onboard
