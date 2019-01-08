@@ -22,7 +22,7 @@ If your pipeline consists exclusively of [custom skills](cognitive-search-create
 > [!NOTE]
 > As of December 21, 2018, you can associate a Cognitive Services resource with an Azure Search skillset. This allows us to charge for skillset execution. On this date, we also began charging for image extraction as part of the document-cracking stage. Text extraction from documents continues to be offered at no additional cost.
 >
-> The execution of [built-in cognitive skills](cognitive-search-predefined-skills.md) is charged at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/), at the same rate as if you had performed the task independently of Azure Search.. Image extraction pricing is charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+> The execution of [built-in cognitive skills](cognitive-search-predefined-skills.md) is charged at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/), at the same rate as if you had performed the task independently of Azure Search. Image extraction pricing is charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## Use Free resources
