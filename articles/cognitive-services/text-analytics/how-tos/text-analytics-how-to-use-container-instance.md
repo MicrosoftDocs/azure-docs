@@ -504,7 +504,7 @@ _Initially_ the EXTERNAL-IP for the service is shown as pending. Wait until the 
 
 Open a browser and navigate to the external IP of the `language` container from the previous section: `http://<external-ip>:5000/swagger/index.html`.
 
-![language-detection-container-swagger-documentation](../media/how-tos/container-instance/language-detection-container-swagger-documentation.png)
+![View the container's swagger documentation](../media/how-tos/container-instance-sample/language-detection-container-swagger-documentation.png)
 
 ## Test the client application container
 
