@@ -1,6 +1,6 @@
 ---
-title: Overview of solution templates for Azure Data Factory | Microsoft Docs
-description:  Learn how to use a pre-defined solution template to get started quickly with Azure Data Factory.
+title: Overview of templates for Azure Data Factory | Microsoft Docs
+description:  Learn how to use a pre-defined template to get started quickly with Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
