@@ -54,7 +54,7 @@ Before you implement offline DRM for FairPlay on an iOS 10+ device:
 
     You will need to modify the code in [Encrypt with DRM using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) to add FairPlay configurations.  
 
-## Content protection configuration in Azure Media Services
+## Configure content protection in Azure Media Services
 
 In the [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L189) method, do the following:
 
