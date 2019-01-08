@@ -69,7 +69,7 @@ This process currently takes about 5 minutes when there is low volume of data bu
 ## Checking ingestion time
 Ingestion time may vary for different resources under different circumstances. You can use log queries to identify specific behavior of your environment.
 
-## Resources that stopped responding 
+### Resources that stopped responding 
 In some situations, resources stop sending data. You
 
  case might be confused with data that arrives in high ingestion time.  To understand if a resource is sending data or not, the most recent record shall be examined. The most recent record can be identified by looking at the standard TimeGenerated field.  
@@ -88,54 +88,38 @@ Heartbeat
 
  
 
-## Ingestion latency delays
+### Ingestion latency delays
+You can measure the latency of a specific record by comparing the result of the [ingestion_time()](/azure/kusto/query/ingestiontimefunction) function to the _TimeGenerated_ field. This data can be used with various aggregations to find how ingestion latency behaves. Examine some percentile of the ingestion time to get insights for large amount of data. 
 
-It is possible to measure the latency of a specific record and to calculate statistics over time. It is done by comparing the result of the ingestion_time() function with the standard TimeGenerated field: 
+For example, the following query will show you which computers had the highest ingestion time over the current day: 
 
-| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-
- 
-
-This data can be used with various aggregations to find how ingestion latency behaves. It is recommended to examine the 95th percentile of the ingestion time as it provides better insights for large amount of data. 
-
-For example, the following query will show you which computers had the highest ingestion time over the last day: 
-
-Heartbeat 
-
+``` Kusto
+Heartbeat
 | where TimeGenerated > ago(8h) 
-
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-
 | summarize percentiles(E2EIngestionLatency,50,95) by Computer 
-
 | top 20 by percentile_E2EIngestionLatency_95 desc  
-
+```
  
-
 If you want to drill down on a specific computer ingestion time over a period of time, you can do this also and visualize it on a graph: 
 
+``` Kusto
 Heartbeat 
-
 | where TimeGenerated > ago(24h) and Computer == "ContosoWeb2-Linux"  
-
 | extend E2EIngestionLatencyMin = todouble(datetime_diff("Second",ingestion_time(),TimeGenerated))/60 
-
 | summarize percentiles(E2EIngestionLatencyMin,50,95) by bin(TimeGenerated,30m) 
-
 | render timechart  
-
+```
  
 
 This query will show you the computer ingestion time by the country they are located in (based on their IP address): 
 
+``` Kusto
 Heartbeat 
-
 | where TimeGenerated > ago(8h) 
-
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-
 | summarize percentiles(E2EIngestionLatency,50,95) by RemoteIPCountry 
-
+```
  
 
 Note that different data types originating from the agent might have different ingestion latency time thus the above queries can be examined with other types. 
@@ -144,14 +128,12 @@ Note that different data types originating from the agent might have different i
 
 As ingestion latency varies from one Azure service to the other, if you want to examine the ingestion time of various Azure services that reports logs via the AzureDiagnostics type you can use the following query: 
 
+``` Kusto
 AzureDiagnostics 
-
 | where TimeGenerated > ago(8h) 
-
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-
 | summarize percentiles(E2EIngestionLatency,50,95) by ResourceProvider
-
+```
 
 
 
