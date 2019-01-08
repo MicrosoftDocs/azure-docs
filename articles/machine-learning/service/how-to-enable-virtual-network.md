@@ -17,7 +17,7 @@ ms.date: 01/08/2019
 
 In this article, you learn how to run your experiments and inferencing inside a Virtual Network. The Azure Machine Learning service works with Azure Services that can be created in a virtual network. For example, you can use a Data Science VM to train a model and then deploy the model to Azure Kubernetes Service.
 
-A virtual network acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure Virtual Network to your on-premise network. It allows you to securely train your models and access your deployed models for inferencing. For more information about virtual networks, see the [Virtual Networks Overview](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) document.
+A virtual network acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure Virtual Network to your on-premise network. It allows you to securely train your models and access your deployed models for inferencing. For more information about virtual networks, see the [Virtual Networks Overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) document.
 
 ## Storage account for your workspace
 
