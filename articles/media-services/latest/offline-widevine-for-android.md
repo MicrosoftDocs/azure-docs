@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure your account for offline streaming of Widevine protected content - Azure
 description: This topic shows how to configure your Azure Media Services account for offline streaming of Widevine protected content.
 services: media-services
@@ -53,11 +53,38 @@ Before implementing offline DRM for Widevine on Android devices, you should firs
 
 ## Content protection configuration in Azure Media Services
 
-When you configure Widevine protection of an asset in Media Services, you need to create ContentKeyAuthorizationPolicyOption which specified the following three things:
+In the [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L189) method, the following necessary steps are present:
 
-1. DRM system (Widevine)
-2. ContentKeyAuthorizationPolicyRestriction specifying how content key delivery is authorized in license delivery service (Open or token authorization)
-3. DRM (Widevine) license template
+1. Specify how content key delivery is authorized in license delivery service 
+
+    ```csharp
+    ContentKeyPolicySymmetricTokenKey primaryKey = new ContentKeyPolicySymmetricTokenKey(tokenSigningKey);
+    List<ContentKeyPolicyTokenClaim> requiredClaims = new List<ContentKeyPolicyTokenClaim>()
+    {
+        ContentKeyPolicyTokenClaim.ContentKeyIdentifierClaim
+    };
+    List<ContentKeyPolicyRestrictionTokenKey> alternateKeys = null;
+    ContentKeyPolicyTokenRestriction restriction 
+        = new ContentKeyPolicyTokenRestriction(Issuer, Audience, primaryKey, ContentKeyPolicyRestrictionTokenType.Jwt, alternateKeys, requiredClaims);
+    ```
+2. Configure Widevine license template:  
+
+    ```csharp
+    ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
+    ```
+
+3. Create ContentKeyPolicyOptions
+
+    ```csharp
+    options.Add(
+        new ContentKeyPolicyOption()
+        {
+            Configuration = widevineConfig,
+            Restriction = restriction
+        });
+    ```
+
+## Enable offline mode
 
 To enable **offline** mode for Widevine licenses, you need to configure [Widevine license template](widevine-license-template-overview.md). In the **policy_overrides** object, set the **can_persist** property to **true** (default is false), as shown in [ConfigureWidevineLicenseTempate](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L563). 
 
