@@ -136,7 +136,7 @@ Content-Type: application/json
 }
 ```
 
-## Example: Estimate the cost of document cracking and enrichment
+## Example: Estimate costs
 
 To estimate costs associated with cognitive search indexing, start with an idea of what an average document looks like so that you can run some numbers. For example, for estimation purposes, you might approximate:
 
