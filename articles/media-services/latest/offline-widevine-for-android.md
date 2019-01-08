@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/29/2018
+ms.date: 01/08/2018
 ms.author: willzhan
 
 ---
@@ -154,15 +154,13 @@ The above open-source PWA app is authored in Node.js. If you want to host your o
 How can I deliver persistent licenses (offline-enabled) for some clients/users and non-persistent licenses (offline-disabled) for others? Do I have to duplicate the content and use separate content key?
 
 ### Answer
-You do not need to duplicate the content. You can simply use a single copy of the content and a single ContentKeyAuthorizationPolicy, but two separate ContentKeyAuthorizationPolicyOption’s:
+Since Media Services v3 allows an Asset to have multiple StreamingLocators. You can have
 
-1. IContentKeyAuthorizationPolicyOption 1: uses persistent license, and ContentKeyAuthorizationPolicyRestriction 1, which contains a claim such as license_type = “Persistent”
-2. IContentKeyAuthorizationPolicyOption 2: uses non-persistent license, and ContentKeyAuthorizationPolicyRestriction 2, which contains a claim such as license_type = “Nonpersistent”
+1.	One ContentKeyPolicy with license_type = "persistent", ContentKeyPolicyRestriction with claim on "persistent", and its StreamingLocator;
+2.	Another ContentKeyPolicy with license_type="nonpersistent", ContentKeyPolicyRestriction with claim on "nonpersistent", and its StreamingLocator.
+3.	The two StreamingLocators have different ContentKey.
 
-This way, when a license request comes in from the client app, from license request there is no difference. However, for different end user/device, the STS should have the business logic to issue different JWT tokens containing different claims (one of the above two license_type’s). The claims value in the JWT token will be used to decide by license service to issue what type of
-license: persistent or non-persistent.
-
-This means the Secure Token Service (STS) needs to have the business logic and client/device info to add corresponding claim value into a token.
+Depending on business logic of custom STS, different claims are issued in the JWT token. With the token, only the corresponding license can be obtained and only the corresponding URL can be played.
 
 ### Question
 
