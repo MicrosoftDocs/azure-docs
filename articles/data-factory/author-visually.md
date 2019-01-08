@@ -83,7 +83,7 @@ To use a personal Microsoft account for Git integration, you can link your perso
 
 1. Add your personal Microsoft account to your organization's Active Directory as a guest. For more info, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/b2b/add-users-administrator.md).
 
-2. Log in to the Azure Portal with your personal Microsoft account. Then switch to your organization's Active Directory.
+2. Log in to the Azure portal with your personal Microsoft account. Then switch to your organization's Active Directory.
 
 3. Go to the Azure DevOps section, where you now see your personal repo. Select the repo and connect with Active Directory.
 
@@ -138,29 +138,29 @@ After you have merged changes to the collaboration branch (`master` is the defau
 
 ### Advantages of Git integration
 
--   **SourceControl**. As your data factory workloads become crucial, you would want to integrate your factory with GIT to leverage several she source control benefits like:
+-   **Source Control**. As your data factory workloads become crucial, you would want to integrate your factory with Git to leverage several source control benefits like the following:
     -   Ability to track/audit changes.
     -   Ability to revert changes that introduced bugs.
--   **Partial Saves**. As you make a lot of changes in your factory, you will realize that in the regular LIVE mode, you can't save your changes as draft, because you are not ready, or you don’t want to lose your changes in case your machine goes done. With GIT integration, you can continue saving your changes incrementally, and publish to the factory only when you are ready. GIT acts as a staging place for your work, until you have tested your changes to your satisfaction.
--   **Collaboration and Control**. If you have multiple team members participating to the same factory, you may want to let your teammates collaborate with each other via a code review process. You can also setup your factory such that not every contributor to the factory has permission to deploy to the factory. Team members may just be allowed to make changes via GIT, but only certain people in the team are allowed to "Publish" the changes to the factory.
--   **Showing diffs**. In GIT mode, you get to see a nice diff of the payload that’s about to get published to the factory. This shows you all resources/entities that got modified/added/deleted since the last time you published to your factory. Based on this, you can either continue further with publishing, or go back and check your changes, and then come back later.
--   **Better CICD**. If you are using GIT mode, you can configure your release pipeline to trigger automatically as soon as there are any changes made in the dev factory. You also get to customize the properties in your factory that is available as parameters in the ARM template. This can be helpful for you to keep only the required set of properties as parameters, and have everything else as hard coded.
--   **Better Performance**. An average factory loads 10x times faster in GIT mode than in regular LIVE mode, because the resources are downloaded via GIT.
+-   **Partial Saves**. As you make a lot of changes in your factory, you will realize that in the regular LIVE mode, you can't save your changes as draft, because you are not ready, or you don’t want to lose your changes in case your machine goes done. With Git integration, you can continue saving your changes incrementally, and publish to the factory only when you are ready. Git acts as a staging place for your work, until you have tested your changes to your satisfaction.
+-   **Collaboration and Control**. If you have multiple team members participating to the same factory, you may want to let your teammates collaborate with each other via a code review process. You can also set up your factory such that not every contributor to the factory has permission to deploy to the factory. Team members may just be allowed to make changes via Git, but only certain people in the team are allowed to "Publish" the changes to the factory.
+-   **Showing diffs**. In Git mode, you get to see a nice diff of the payload that’s about to get published to the factory. This diff shows you all resources/entities that got modified/added/deleted since the last time you published to your factory. Based on this diff, you can either continue further with publishing, or go back and check your changes, and then come back later.
+-   **Better CI/CD**. If you are using Git mode, you can configure your release pipeline to trigger automatically as soon as there are any changes made in the dev factory. You also get to customize the properties in your factory that are available as parameters in the Resource Manager template. It can be useful to keep only the required set of properties as parameters, and have everything else hard coded.
+-   **Better Performance**. An average factory loads 10x times faster in Git mode than in regular LIVE mode, because the resources are downloaded via Git.
 
 ### Best practices for Git integration
 
 -   **Permissions**. Typically you don’t want all the team members to be having permissions to update the factory.
     -   All team members should have read permissions to the data factory.
     -   Only a select set of people should be allowed to publish to the factory, and for that they need to be part of the "Data Factory contributor" role on the factory.
-    -   One of the good practices of the source control is also to not allow direct check-ins into the collaboration branch. This prevents bugs as every check-in goes through a Pull Request process.
+    -   One of the good practices of the source control is also to not allow direct check-ins into the collaboration branch. This requirement prevents bugs as every check-in goes through a Pull Request process.
 -   **Switching modes**.
-    -    Once you are in GIT mode, we don’t recommend you to switch back and forth into LIVE mode, primarily because any changes that are made in LIVE mode, will not be seen when you switch back to GIT. You should try to make the changes in GIT mode itself and then publish them via the UI.
+    -    Once you are in Git mode, we don’t recommend you to switch back and forth into LIVE mode, primarily because any changes that are made in LIVE mode, will not be seen when you switch back to Git. Try to make the changes in Git mode itself and then publish them via the UI.
     -   Similarly, don’t use any Data factory powershell cmdlets either, as they achieve the same effect by directly applying the provided changes to the live factory.
 -   **Use passwords from Azure Key Vault**.
     -   We strongly recommend using AzureKeyVault to store any connection strings or passwords to DataFactory Linked Services.
-    -   We don’t store any such secret information in GIT (for security reasons), so any changes to Linked Services are right away published to the live factory. This is sometimes not desired, as the changes may not have gotten tested, which defeats the purpose of GIT.
+    -   We don’t store any such secret information in Git (for security reasons), so any changes to Linked Services are right away published to the live factory. This immediate publishing is sometimes not desired, as the changes may not have gotten tested, which defeats the purpose of Git.
     -   As a result, all such secrets must be fetched from Linked Services that use Azure Key Vault based.
-    -   Some of the other benefits of using Key Vault, is that it makes CICD easier, by not making you provide these secrets during ARM template deployment.
+    -   Some of the other benefits of using Key Vault, is that it makes CICD easier, by not making you provide these secrets during Resource Manager template deployment.
 
 ## Author with GitHub integration
 
