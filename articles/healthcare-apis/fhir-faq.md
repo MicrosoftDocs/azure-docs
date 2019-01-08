@@ -23,9 +23,9 @@ We currently support Microsoft Azure Active Directory as the identity provider.
 
 Currently we support version 3.0.1. See [Supported Features](fhir-features-supported.md) for details.
 
-## Compare OSS FHIR Server and Microsoft Healthcare APIs
+## OSS and Microsoft Healthcare APIs
 
-What is the difference between the Microsoft FHIR server for Azure and Microsoft Healthcare APIs for FHIR? The Microsoft Healthcare APIs for FHIR is a hosted and managed version of the OSS Microsoft FHIR Server for Azure. In the managed service, Microsoft provides all maintenance, updates, etc. When running the OSS FHIR Server for Azure, you have direct access to the underlying services, but you are also responsible for maintaining and updating the server.
+What is the difference between the Open Source Microsoft FHIR server for Azure and Microsoft Healthcare APIs for FHIR? The Microsoft Healthcare APIs for FHIR is a hosted and managed version of the OSS Microsoft FHIR Server for Azure. In the managed service, Microsoft provides all maintenance, updates, etc. When running the OSS FHIR Server for Azure, you have direct access to the underlying services, but you are also responsible for maintaining and updating the server.
 
 ## Next steps
 
