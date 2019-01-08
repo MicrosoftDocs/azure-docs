@@ -267,7 +267,7 @@ Rotates the secrets of an Azure Stack System. Only executed against the Azure St
 #### For external secret rotation
 
 ```PowerShell
-Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential] <PSCredential> [-CertificatePassword <SecureString>]  
+Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
 ```
 
 #### For internal secret rotation
