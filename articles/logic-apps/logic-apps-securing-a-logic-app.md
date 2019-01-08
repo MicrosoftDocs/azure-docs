@@ -9,7 +9,7 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 01/08/2019
 ---
 
 # Secure access in Azure Logic Apps
@@ -34,7 +34,7 @@ your logic app. All requests received by a logic app are
 encrypted and secured with Secure Sockets Layer (SSL) protocol. 
 Here are different ways you can secure access to this trigger type:
 
-* [Shared Access Signature](#sas)
+* [Generate shared access signatures](#sas)
 * [Restrict incoming IP addresses](#restrict-incoming-IP)
 * [Add Azure Active Directory, OAuth, or other security](#add-authentication)
 
