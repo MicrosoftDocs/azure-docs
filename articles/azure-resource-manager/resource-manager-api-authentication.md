@@ -154,7 +154,7 @@ The following example shows a request for code grant token with password credent
 
 When working with certificate credentials, create a JSON Web Token (JWT) and sign (RSA SHA256) using the private key of your application's certificate credential. Building this token is shown in the [client credential flow](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#second-case-access-token-request-with a-certificate).  For reference, see the [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) to sign Client Assertion JWT tokens.
 
-See the [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) for details on client authentication.
+See the [Open ID Connect spec](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) for details on client authentication.
 
 The following example shows a request for code grant token with certificate credential:
 
