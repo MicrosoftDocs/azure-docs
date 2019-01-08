@@ -31,14 +31,19 @@ This procedure requires several tools that must be installed and run locally. Do
 
 ## Running the sample
 
-This procedure loads and runs the Cognitive Services Container sample for language detection. 
+This procedure loads and runs the Cognitive Services Container sample for language detection. The sample has two containers, one for the client application and one for the cognitive services container. Both these images need to be pushed to your own Azure Container Registry. Once they are on your own Azure Container Registry, create an Azure Kubernetes service to access these images and run the containers. Once the containers are running, use the **kubectl** cli to watch the containers performance. Access the client application with an HTTP request and see the results. 
 
-* The sample has two container images, one for the website with its own API. This website is equivalent to your own client-side application that makes requests of the language detection endpoint. The second image is the language detection image returning the detected language of text. 
-* Both these images need to be pushed to your own Azure Container Registry.
-* Once they are on your own Azure Container Registry, create an Azure Kubernetes service to access these images and run the containers.
-* Once the containers are running, use the kubectl cli to watch the containers performance.
-* Access the website (client-application) with an HTTP request and see the results. 
+## The sample containers
 
+The sample has two container images, one for the website with its own API. The second image is the language detection image returning the detected language of text. Both containers will be accessible from an external IP when you are done. 
+
+### The website container
+
+This website is equivalent to your own client-side application that makes requests of the language detection endpoint. The website's HTTP URL is `http://<external-IP>/`, using the unstated but default port 80. When the procedure is finished, you get the detected language of a string of characters by accessing the website container in a browser with `http://<external-IP>/<text-to-analyze>`. An example of this URL is `http://132.12.23.255/helloworld!`. The result in the browser is `English`.
+
+### The language detection container
+
+The language detection container, in this specific procedure, is accessible to any external request. The container hasn't been changed in any way so the standard Cognitive Services container-specific APIs are available. For this container, that is a POST request. It is different than using the REST-based Azure APIs in that you don't need to pass any authentication information such as the Azure resource key. As with all Cognitive Services containers, you can learn more about the container from its hosted Swagger information, `http://<external-IP>:5000//swagger/index.html`. Port 5000 is the default port used with the Cognitive Services containers. 
 
 ## Set up the Azure cli 
 
@@ -162,11 +167,15 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     docker tag language-frontend:latest pattiocogservcontainerregistry.azurecr.io/language-frontend:v1
     ```
 
-1. Push the image to the Azure Container registry. 
+    If you run the `docker images` command again, there is a new image named `pattiocogservcontainerregistry.azurecr.io/language-frontend`. 
+
+1. Push the image to the Azure Container registry. The version is known as `latest` on the local machine but will be known as `v1` on your container registry. This may take a few minutes. 
 
     ```console
     docker push pattiocogservcontainerregistry.azurecr.io/language-frontend:v1
     ```
+
+    If you get an `unauthorized: authentication required` error, login with the `az acr login --name pattiocogservcontainerregistry` command. 
 
 1. Verify the image is in your Container registry. On the Azure portal, on your Container registry, verify the repositories list has this new repository named **language-frontend**. 
 
