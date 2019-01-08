@@ -113,6 +113,8 @@
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html
   - name: REST
     href: /rest/api/dns/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.network/dns-allversions
 - name: Related
   items:
   - name: Application Gateway
