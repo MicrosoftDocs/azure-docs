@@ -68,4 +68,4 @@ ms.reviewer:
 
 ## Next steps
 
-[Create an offer](azure-stack-create-offer.md)
+* [Create an offer](azure-stack-create-offer.md)
