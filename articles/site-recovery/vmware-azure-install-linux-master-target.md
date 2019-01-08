@@ -179,7 +179,7 @@ Azure Site Recovery master target server requires a specific version of the Ubun
 #### Download and install additional packages
 
 > [!NOTE]
-> Make sure that you have Internet connectivity to download and install additional packages. If you don't have Internet connectivity, you need to manually find these RPM packages and install them.
+> Make sure that you have Internet connectivity to download and install additional packages. If you don't have Internet connectivity, you need to manually find these Deb packages and install them.
 
  `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
 
