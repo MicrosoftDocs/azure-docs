@@ -4,31 +4,33 @@
   items:
     - name: What is the Bing News Search API?
       href: search-the-web.md
-- name: REST API Quickstarts
-  expanded: true
+- name: Quickstarts
   items:
-  - name: Using C#
-    href: csharp.md
-  - name: Using Java
-    href: java.md
-  - name: Using Node.js
-    href: nodejs.md
-  - name: Using PHP
-    href: php.md
-  - name: Using Python
-    href: python.md
-  - name: Using Ruby
-    href: ruby.md
-- name: SDK Quickstarts
-  items:
-  - name: Using C#
-    href: news-search-sdk-quickstart.md
-  - name: Using Node.js
-    href: news-search-sdk-node-quickstart.md
-  - name: Using Python
-    href: news-sdk-python-quickstart.md
-  - name: Using Java
-    href: news-sdk-java-quickstart.md
+  - name: REST API
+    expanded: true
+    items:
+    - name: Using C#
+      href: csharp.md
+    - name: Using Java
+      href: java.md
+    - name: Using Node.js
+      href: nodejs.md
+    - name: Using PHP
+      href: php.md
+    - name: Using Python
+      href: python.md
+    - name: Using Ruby
+      href: ruby.md
+  - name: SDK
+    items:
+    - name: Using C#
+      href: news-search-sdk-quickstart.md
+    - name: Using Node.js
+      href: news-search-sdk-node-quickstart.md
+    - name: Using Python
+      href: news-sdk-python-quickstart.md
+    - name: Using Java
+      href: news-sdk-java-quickstart.md
 - name: Tutorials
   items:
   - name: Create a single-page web app
