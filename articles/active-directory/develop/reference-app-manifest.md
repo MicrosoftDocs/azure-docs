@@ -43,7 +43,6 @@ To configure the application manifest:
 > If you can't see the **Example value** column after the **Description**, maximize your browser window and scroll/swipe until you see the **Example value** column.
 
 >[!div class="mx-tdBreakAll"]
->[!div class="mx-tdCol2BreakAll"]
 >| Key  | Value type | Description  | Example value |
 >|---------|---------|---------|---------|
 >| `accessTokenAcceptedVersion` | Nullable Int32 | Specifies the accepted access token version for the current API resource. Possible values are 1, 2, null. Defaults to null which will be treated as 2. | `2` |
