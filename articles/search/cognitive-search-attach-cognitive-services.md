@@ -13,18 +13,16 @@ ms.custom: seodec2018
 ---
 # Associate a Cognitive Services resource with a skillset in Azure Search 
 
-The AI algorithms driving [cognitive search](cognitive-search-concept-intro.md) pipelines for indexing unstructured data are based on [**Cognitive Services resources**](https://azure.microsoft.com/services/cognitive-services/). Resources like [**Computer Vision**](https://azure.microsoft.com/services/cognitive-services/computer-vision/) provide image analysis and optical character recognition (OCR) processing used for extracting text and structure out of image files, while [**Text Analytics**](https://azure.microsoft.com/services/cognitive-services/text-analytics/) provides natural language processing such as entity recognition, sentiment analysis, and key phrase extraction, to name a few.
+The AI algorithms driving [cognitive search](cognitive-search-concept-intro.md) pipelines for processing unstructured data are based on [**Cognitive Services resources**](https://azure.microsoft.com/services/cognitive-services/). Resources like [**Computer Vision**](https://azure.microsoft.com/services/cognitive-services/computer-vision/) provide image analysis and optical character recognition (OCR) extracting text and structure out of image files, while [**Text Analytics**](https://azure.microsoft.com/services/cognitive-services/text-analytics/) provides natural language processing such as entity recognition and key phrase extraction, to name a few.
 
-You can use the limited free resource to power cognitive skills, or you can attach a billable resource for larger and more frequent workloads. In this article, you learn how to associate a Cognitive Services resource with your cognitive skillset to enrich data during indexing.
+You can enrich a limited number of documents for free, or you can attach a billable Cognitive Services resource for larger and more frequent workloads. In this article, you learn how to associate a Cognitive Services resource with your cognitive skillset to enrich data during indexing.
 
-The Cognitive Services resource that you select will back the [built-in cognitive skills](cognitive-search-predefined-skills.md) used in Azure Search indexing. This resource will also be used for billing purposes: a skill used during indexing is billed against your Cognitive Services resource, at the same rate as if you had performed the task independently of Azure Search. For more information about rates, see [Cognitive Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
-
-If you are developing a [custom skill](cognitive-search-create-custom-skill-example.md), you do not need to attach a Cognitive Services resource.
+If your pipeline consists exclusively of [custom skills](cognitive-search-create-custom-skill-example.md), you do not need to attach a Cognitive Services resource.
 
 > [!NOTE]
 > As of December 21, 2018, you can associate a Cognitive Services resource with an Azure Search skillset. This allows us to charge for skillset execution. On this date, we also began charging for image extraction as part of the document-cracking stage. Text extraction from documents continues to be offered at no additional cost.
 >
-> The execution of built-in skills is charged at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+> The execution of [built-in cognitive skills](cognitive-search-predefined-skills.md) is charged at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/), at the same rate as if you had performed the task independently of Azure Search.. Image extraction pricing is charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## Use Free resources
