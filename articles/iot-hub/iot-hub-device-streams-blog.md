@@ -5,7 +5,7 @@ In today's security-first digital age, ensuring secure connectivity to IoT devic
 Azure IoT Hub device streams is a new PaaS service that addresses these needs by providing a foundation for secure end-to-end connectivity to IoT devices. Customers, application developers and third-party platform providers can leverage device streams to communicate securely with IoT devices that reside behind firewalls or are deployed inside of private networks. Furthermore, built-in compatibility with the TCP/IP stack makes device streams applicable to a wide range of applications involving both custom proprietary protocols as well standards-based protocols such as remote shell, web, file transfer and video streaming, among others.
 
 At its core, an IoT Hub device stream is a data transfer tunnel that provides connectivity between two TCP/IP-enabled endpoints: one side of the tunnel is an IoT device and the other side is a customer endpoint that intends to communicate with the device (the latter is referred here as service endpoint). We have seen many setups where direct connectivity to a device is prohibited based on the organization's security policies and connectivity restrictions placed on its networks. These restrictions, while justified, frequently impact various legitimate scenarios that require connectivity to an IoT device. Examples of these scenarios include:
-- An operator wishes to login to a device for inspection or maintenance. This commonly involves logging to the device using Secure Shell (SSH) for Linux and Remote Desktop Protocol (RDP) for windows. The device or network firewall configuration often block the operator's workstation from reaching the device.
+- An operator wishes to login to a device for inspection or maintenance. This commonly involves logging to the device using Secure Shell (SSH) for Linux and Remote Desktop Protocol (RDP) for windows. The device or network firewall configurations often block the operator's workstation from reaching the device.
 - An operator needs to remotely access device's diagnostics portal for troubleshooting. Diagnostic portals are commonly in the form of a web server hosted on the device. A device's private IP or its firewall configuration may similarly block the user from interacting with the device's web server.
 - An application developer needs to remotely retrieve logs and other runtime diagnostics information from a device's file system. Protocols commonly used for this purpose may include File Transfer Protocol (FTP) or Secure Copy (SCP), among others. Again, the firewall configurations typically restrict these types of traffic.
 
@@ -43,9 +43,9 @@ We are excited about the possibilities that can be enabled to communicate with I
 - [Device streams documentation page](./iot-hub-device-streams-overview.md)
 - [Device streams tutorials page](./iot-hub-device-streams-tutorial.md)
 - [IoT Show recording on Channel 9](https://channel9.msdn.com/)
-- [QuickStart: Communicate with IoT devices using device streams (echo) (C#)](iot-hub-device-streams-csharp-echo-quickstart.md)
-- [QuickStart: Communicate with IoT devices using device streams (echo) (NodeJS)](iot-hub-device-streams-nodejs-echo-quickstart.md)
-- [QuickStart: Communicate with IoT devices using device streams (echo) (C)](iot-hub-device-streams-c-echo-quickstart.md)
-- [QuickStart: SSH/RDP to your IoT devices using device streams (C#)](iot-hub-device-streams-nodejs-csharp-quickstart.md)
-- [QuickStart: SSH/RDP to your IoT devices using device streams (NodeJS)](iot-hub-device-streams-nodejs-proxy-quickstart.md)
-- [QuickStart: SSH/RDP to your IoT devices using device streams (C)](iot-hub-device-streams-c-proxy-quickstart.md)
+- [Quickstart: Communicate with IoT devices using device streams (echo) (C#)](iot-hub-device-streams-csharp-echo-quickstart.md)
+- [Quickstart: Communicate with IoT devices using device streams (echo) (NodeJS)](iot-hub-device-streams-nodejs-echo-quickstart.md)
+- [Quickstart: Communicate with IoT devices using device streams (echo) (C)](iot-hub-device-streams-c-echo-quickstart.md)
+- [Quickstart: SSH/RDP to your IoT devices using device streams (C#)](iot-hub-device-streams-nodejs-csharp-quickstart.md)
+- [Quickstart: SSH/RDP to your IoT devices using device streams (NodeJS)](iot-hub-device-streams-nodejs-proxy-quickstart.md)
+- [Quickstart: SSH/RDP to your IoT devices using device streams (C)](iot-hub-device-streams-c-proxy-quickstart.md)
