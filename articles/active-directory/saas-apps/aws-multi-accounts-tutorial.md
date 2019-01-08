@@ -60,9 +60,6 @@ To test the steps in this tutorial, you should follow these recommendations:
 - Do not use your production environment, unless it is necessary.
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
-> [!Note]
-> If you want to integrate multiple AWS accounts to one Azure account for Single Sign on, please refer [this](https://docs.microsoft.com/azure/active-directory/active-directory-saas-aws-multi-accounts-tutorial) article.
-
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
@@ -106,7 +103,8 @@ In Amazon Web Services (AWS), assign the value of the **user name** in Azure AD 
 To configure and test Azure AD single sign-on with Amazon Web Services (AWS), you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+2. **[Configure Amazon Web Services (AWS) Single Sign-On](#configure-amazon-web-services-aws-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -164,21 +162,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The Certificate download link](common/metadataxml.png)
 
-8. In a different browser window, sign-on to your Amazon Web Services (AWS) company site as administrator.
+### Configure Amazon Web Services (AWS) Single Sign-On
 
-9. Click **AWS Home**.
+1. In a different browser window, sign-on to your Amazon Web Services (AWS) company site as administrator.
+
+2. Click **AWS Home**.
 
     ![Configure Single Sign-On home][11]
 
-10. Click **Identity and Access Management**.
+3. Click **Identity and Access Management**.
 
     ![Configure Single Sign-On Identity][12]
 
-11. Click **Identity Providers**, and then click **Create Provider**.
+4. Click **Identity Providers**, and then click **Create Provider**.
 
     ![Configure Single Sign-On Provider][13]
 
-12. On the **Configure Provider** dialog page, perform the following steps:
+5. On the **Configure Provider** dialog page, perform the following steps:
 
     ![Configure Single Sign-On dialog][14]
 
@@ -190,15 +190,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Click **Next Step**.
 
-13. On the **Verify Provider Information** dialog page, click **Create**.
+6. On the **Verify Provider Information** dialog page, click **Create**.
 
     ![Configure Single Sign-On Verify][15]
 
-14. Click **Roles**, and then click **Create role**.
+7. Click **Roles**, and then click **Create role**.
 
     ![Configure Single Sign-On Roles][16]
 
-15. On the **Create role** page, perform the following steps:  
+8. On the **Create role** page, perform the following steps:  
 
     ![Configure Single Sign-On Trust][19]
 
@@ -210,11 +210,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
   
     d. Click **Next: Permissions**.
 
-16. On the **Attach Permissions Policies** dialog, please attach appropriate policy as per your organisation. Click **Next: Review**.  
+9. On the **Attach Permissions Policies** dialog, please attach appropriate policy as per your organisation. Click **Next: Review**.  
 
     ![Configure Single Sign-On Policy][33]
 
-17. On the **Review** dialog, perform the following steps:
+10. On the **Review** dialog, perform the following steps:
 
     ![Configure Single Sign-On Review][34]
 
@@ -226,23 +226,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     d. Create as many roles as needed and map them to the Identity Provider.
 
-18. Sign out from current AWS account and login with other account where you want to configure single sign on with Azure AD.
+11. Sign out from current AWS account and login with other account where you want to configure single sign on with Azure AD.
 
-19. Perform step-9 to step-17 to create multiple roles that you want to setup for this account. If you have more than two accounts, please perform the same steps for all the accounts to create roles for them.
+12. Perform step-9 to step-17 to create multiple roles that you want to setup for this account. If you have more than two accounts, please perform the same steps for all the accounts to create roles for them.
 
-20. Once all the roles are created in the accounts, they show up in the **Roles** list for those accounts.
+13. Once all the roles are created in the accounts, they show up in the **Roles** list for those accounts.
 
 	![Roles setup](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_listofroles.png)
 
-21. We need to capture all the Role ARN and Trusted Entities for all the roles across all the accounts, which we need to map manually with Azure AD application. 
+14. We need to capture all the Role ARN and Trusted Entities for all the roles across all the accounts, which we need to map manually with Azure AD application. 
 
-22. Click on the roles to copy **Role ARN** and **Trusted Entities** values. You need these values for all the roles that you need to create in Azure AD.
+15. Click on the roles to copy **Role ARN** and **Trusted Entities** values. You need these values for all the roles that you need to create in Azure AD.
 
 	![Roles setup](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_role_summary.png)
 
-23. Perform the above step for all the roles in all the accounts and store all of them in format **Role ARN,Trusted entities** in a notepad.
+16. Perform the above step for all the roles in all the accounts and store all of them in format **Role ARN,Trusted entities** in a notepad.
 
-24. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window.
+17. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window.
 
 	a. Sign in to the Graph Explorer site using the Global Admin/Co-admin credentials for your tenant.
 
@@ -325,18 +325,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Graph explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
-25. After the Service Principal is patched with more roles, you can assign Users/Groups to the respective roles. This can be done by going to portal and navigating to the Amazon Web Services application. Click on the **Users and Groups** tab on the top. 
+18. After the Service Principal is patched with more roles, you can assign Users/Groups to the respective roles. This can be done by going to portal and navigating to the Amazon Web Services application. Click on the **Users and Groups** tab on the top. 
 
-26. We recommend you to create new groups for every AWS role so that you can assign that particular role in that group. Note that this is one to one mapping for one group to one role. You can then add the members who belong to that group.
+19. We recommend you to create new groups for every AWS role so that you can assign that particular role in that group. Note that this is one to one mapping for one group to one role. You can then add the members who belong to that group.
 
-27. Once the Groups are created, select the group and assign to the application.
+20. Once the Groups are created, select the group and assign to the application.
 
 	![Configure Single Sign-On Add](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
 
 > [!Note]
 > Nested groups are not supported when assigning groups.
 
-28. To assign the role to the group, select the role and click on **Assign** button in the bottom of the page.
+21. To assign the role to the group, select the role and click on **Assign** button in the bottom of the page.
 
 	![Configure Single Sign-On Add](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
 
