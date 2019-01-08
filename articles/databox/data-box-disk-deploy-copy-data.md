@@ -143,7 +143,21 @@ Perform the following steps to connect and copy data from your computer to the D
     C:\Users>
     ```
  
-    
+
+
+To optimize the performance, use the following robocopy parameters when copying the data.
+
+|    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
+|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
+|    Data Box Disk        |    4 Robocopy sessions* <br> 16 threads per sessions    |    2 Robocopy sessions* <br> 16 threads per sessions    |    2 Robocopy sessions* <br> 16 threads per sessions    |  |
+
+**Each Robocopy session can have a maximum of 7,000 directories and 150 million files.*
+
+>[!NOTE] The above parameters are suggested based on the environment used in inhouse testing.
+
+
+For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
+
 7. Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the log files for troubleshooting. The log files are located as specified in the robobopy command.
  
 
@@ -156,6 +170,9 @@ Perform the following steps to connect and copy data from your computer to the D
 ### Split and copy data to disks
 
 This optional procedure may be used when you are using multiple disks and have a large dataset that needs to be split and copied across all the disks. The Data Box Split Copy tool helps split and copy the data on a Windows computer.
+
+>[!IMPORTANT]
+> Data Box Split Copy tool also validates your data. If you use Data Box Split Copy tool to copy data, you can skip the [validation step](#validate-data).
 
 1. On your Windows computer, ensure that you have the Data Box Split Copy tool downloaded and extracted in a local folder. This tool was downloaded when you downloaded the Data Box Disk toolset for Windows.
 2. Open File Explorer. Make a note of the data source drive and drive letters assigned to Data Box Disk. 
@@ -171,26 +188,26 @@ This optional procedure may be used when you are using multiple disks and have a
 
          ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
-4. Go to the folder where the software is extracted. Locate the SampleConfig.json file in that folder. This is a read-only file that you can modify and save.
+4. Go to the folder where the software is extracted. Locate the `SampleConfig.json` file in that folder. This is a read-only file that you can modify and save.
 
    ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
-5. Modify the SampleConfig.json file.
+5. Modify the `SampleConfig.json` file.
  
     - Provide a job name. This creates a folder in the Data Box Disk and eventually becomes the container in the Azure storage account associated with these disks. The job name must follow the Azure container naming conventions. 
-    - Supply a source path making note of the path format in the SampleConfigFile.json. 
+    - Supply a source path making note of the path format in the `SampleConfigFile.json`. 
     - Enter the drive letters corresponding to the target disks. The data is taken from the source path and copied across multiple disks.
-    - Provide a path for the log files. By default, it is sent to the current directory where the .exe is located.
+    - Provide a path for the log files. By default, it is sent to the current directory where the `.exe` is located.
 
      ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
-6. To validate the file format, go to JSONlint. Save the file as ConfigFile.json. 
+6. To validate the file format, go to `JSONlint`. Save the file as `ConfigFile.json`. 
 
      ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Open a Command Prompt window. 
 
-8. Run the DataBoxDiskSplitCopy.exe. Type
+8. Run the `DataBoxDiskSplitCopy.exe`. Type
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
@@ -209,7 +226,7 @@ This optional procedure may be used when you are using multiple disks and have a
     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-10.png)
     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-11.png)
 	 
-    If you examine the contents of n: drive further, you will see that two sub-folders are created corresponding to block blob and page blob format data.
+    If you examine the contents of `n:` drive further, you will see that two sub-folders are created corresponding to block blob and page blob format data.
     
      ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
@@ -217,15 +234,14 @@ This optional procedure may be used when you are using multiple disks and have a
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+After the data copy is complete, you can proceed to validate your data. If you used the Split Copy tool, skip the validation (Split Copy tool validates as well) and advance to the next tutorial.
 
-After the data copy is complete, next step is to validate data. 
 
+## Validate data
 
-## Validate data 
+If you did not use the Split Copy tool to copy data, you will need to validate your data. To verify the data, perform the following steps.
 
-To verify the data, perform the following steps.
-
-1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *DataBoxDiskImport* folder of your drive. 
+1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *DataBoxDiskImport* folder of your drive.
     
     ![Data Box Disk validation tool output](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -251,4 +267,3 @@ Advance to the next tutorial to learn how to return the Data Box Disk and verify
 
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box back to Microsoft](./data-box-disk-deploy-picked-up.md)
-

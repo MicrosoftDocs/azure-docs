@@ -24,7 +24,25 @@ This tutorial describes how you can order an Azure Data Box Disk. In this tutori
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+## Prerequisites
 
+Before you deploy, complete the following configuration prerequisites for Data Box service and Data Box Disk.
+
+### For service
+
+Before you begin, make sure that:
+- You have your Microsoft Azure storage account with access credentials.
+- Make sure that the subscription you use for Data Box service is one of the following types:
+    - Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
+    - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+- Ensure that you have owner or contributor access to the subscription to create a Data Box order.
+
+### For device
+
+Before you begin, make sure that:
+- You have a client computer available from which you can copy the data. Your client computer must:
+    - Run a [Supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+    - Have other [required software](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installed if it is a Windows client.  
 
 ## Order Data Box Disk
 
@@ -95,8 +113,6 @@ When the disk preparation is complete, the portal shows the order in **Processed
 
 Microsoft then prepares and dispatches your disks via a regional carrier. You receive a tracking number once the disks are shipped. The portal shows the order in **Dispatched** state.
 
-
-
 ## Cancel the order
 
 To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar. 
@@ -105,7 +121,7 @@ You can only cancel when the disks are ordered and the order is being processed 
 
 ![Cancel order](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
-To delete a canceled order, go to **Overview** and click **Delete** from the command bar. 
+To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
 
 
 ## Next steps
