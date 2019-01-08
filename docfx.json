@@ -148,9 +148,9 @@
     },
     "fileMetadata": {
 	  "feedback_system": {
-+        "articles/virtual-machines/windows/classic/**/*": "None",
-+        "articles/virtual-machines/linux/classic/**/*": "None"
-+      },
+       "articles/virtual-machines/windows/classic/**/*": "None",
+        "articles/virtual-machines/linux/classic/**/*": "None"
+      },
       "feedback_product_url": {
         "articles/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/active-directory-b2c/**/*.md": "https://feedback.azure.com/forums/169401-azure-active-directory",
