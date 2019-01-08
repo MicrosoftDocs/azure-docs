@@ -20,6 +20,15 @@ You can add your personal Microsoft and non-Microsoft accounts, such as for Outl
 >[!Important]
 >Before you can add your account, you have to download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.
 
+## Add personal accounts
+Generally, for all of your personal accounts, you'll need to:
+
+1. Turn on two-factor verification within your personal app account, either on your device or your PC.
+
+2. Add the account to the Microsoft Authenticator app.
+
+We're providing the process here for your personal Microsoft apps, your Facebook, Google, and Apple accounts, but this process is the same for any other app, such as Instagram, Adobe, and so on.
+
 ## Add your personal Microsoft account
 You can add your personal Microsoft account by first turning on two-factor verification, and then by adding the account to the app.
 
@@ -195,10 +204,6 @@ You can add your Apple ID by first turning on two-factor verification and then b
 
     >[!NOTE]
     >For more information about two-factor verification and your Apple ID account, see [Set up two-factor authentication for your Apple ID](https://support.apple.com/en-us/HT204915).
-
-## Add other non-Microsoft personal accounts
-
-Add steps here for how to add other accounts, like Instagram, Adobe, and so on.
 
 ## Next steps
 
