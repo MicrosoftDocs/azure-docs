@@ -25,6 +25,9 @@ Azure Cosmos DB supports Hash index and Range index for every path that can be c
 
 - **Hash index** supports efficient equality and JOIN queries. For most use cases, Hash indexes don't need a higher precision than the default value of 3 bytes. The data type can be String or Number.
 
+  > [!NOTE]
+  > We are in the process of rolling out a new index layout for all new collections automatically on Cosmos DB. This index layout no longer supports the Hash index kind. Collection CRUD requests would silently ignore the Hash index kind if specified in the indexing policy. The collection response would always contain only the Range index kind.
+  
 - **Range index** supports efficient equality queries, range queries (using >, <, >=, <=, !=), and ORDER BY queries. ORDER By queries by default also require maximum index precision (-1). The data type can be String or Number.
 
 - **Spatial index** supports efficient spatial (within and distance) queries. The data type can be Point, Polygon, or LineString. Azure Cosmos DB also supports the spatial index kind for every path that can be specified for the Point, Polygon, or LineString data types. The value at the specified path must be a valid GeoJSON fragment like {"type": "Point", "coordinates": [0.0, 10.0]}. Azure Cosmos DB supports automatic indexing of Point, Polygon, and LineString data types.
@@ -54,6 +57,9 @@ Here are examples of queries that Hash, Range, and Spatial indexes can be used t
 - Spatial indexes always use the default index precision for all types (Point, LineString, and Polygon). The default index precision for spatial indexes can't be overridden.
 
 Azure Cosmos DB returns an error when a query uses ORDER BY but doesn't have a Range index against the queried path with the maximum precision.
+
+  > [!NOTE]
+  > We are in the process of rolling out a new index layout for all new collections automatically on Cosmos DB. This index layout no longer supports specifying a custom index precision other than the maximum (-1). Paths are always indexed with the maximum precision in this layout. Therefore collection CRUD requests would silently ignore specified Precision values in the indexing policy. The collection response would always contain only the maximum precision (-1).  
 
 ## Next steps
 
