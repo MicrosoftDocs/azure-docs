@@ -43,7 +43,7 @@ Many customers start with the free service. This version is limited to three ind
 
 Sections on the service dashboard show how many indexes, indexers, and data sources you already have. 
 
-![Lists of indexes, indexers, and datasources][media/search-get-started-portal/tiles-indexers-datasources2.png]
+![Lists of indexes, indexers, and datasources](media/search-get-started-portal/tiles-indexers-datasources2.png)
 
 ## <a name="create-index"></a> Create an index and load data
 
