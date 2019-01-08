@@ -22,7 +22,7 @@ You need a subscription with [Microsoft Azure](https://azure.com). Sign in with 
 
 ## Getting started
 
-* In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](../../application-insights/app-insights-create-new-resource.md). For application type, choose **General**.
+* In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](../../azure-monitor/app/create-new-resource.md ). For application type, choose **General**.
 * Take a copy of the Instrumentation Key. Find the key in the **Essentials** drop-down of the new resource you created. 
 * Install latest [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) package.
 * Set the instrumentation key in your code before tracking any telemetry (or set APPINSIGHTS_INSTRUMENTATIONKEY environment variable). After that, you should be able to manually track telemetry and see it on the Azure portal

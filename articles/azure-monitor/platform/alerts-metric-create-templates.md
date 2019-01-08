@@ -32,7 +32,7 @@ Save the json below as simplemetricalert.json for the purpose of this walk throu
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -188,7 +188,7 @@ Save the json below as simplemetricalert.parameters.json and modify it as requir
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -263,7 +263,7 @@ Save the json below as advancedmetricalert.json for the purpose of this walk thr
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -381,7 +381,7 @@ Save and modify the json below as advancedmetricalert.parameters.json for the pu
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -491,7 +491,7 @@ Save the json below as all-vms-in-resource-group.json for the purpose of this wa
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -707,7 +707,7 @@ Save and modify the json below as all-vms-in-resource-group.parameters.json for 
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -786,7 +786,7 @@ Save the json below as all-vms-in-subscription.json for the purpose of this walk
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1002,7 +1002,7 @@ Save and modify the json below as all-vms-in-subscription.parameters.json for th
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1078,7 +1078,7 @@ Save the json below as list-of-vms.json for the purpose of this walk-through.
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1294,7 +1294,7 @@ Save and modify the json below as list-of-vms.parameters.json for the purpose of
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1368,3 +1368,4 @@ az group deployment create \
 ## Next steps
 * Read more about [alerts in Azure](alerts-overview.md)
 * Learn how to [create an action group with Resource Manager templates](action-groups-create-resource-manager-template.md)
+* For the JSON syntax and properties, see [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) template reference.

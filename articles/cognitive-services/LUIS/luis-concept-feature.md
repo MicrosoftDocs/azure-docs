@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/02/2019
 ms.author: diberry
 ---
 # Phrase list features in your LUIS app
@@ -23,6 +23,10 @@ A phrase list includes a group of values (words or phrases) that belong to the s
 
 A phrase list adds to the vocabulary of the app domain as a second signal to LUIS about those words.
 
+## Phrase lists help all models
+
+Phrase lists are not linked to a specific intent or entity but are added as a boost to all the models. Its purpose is to improve intent detection and entity classification.
+
 ## How to use phrase lists
 In the Human Resource app's [simple entity tutorial](luis-quickstart-primary-and-secondary-data.md), the app uses a **Job** phrase list of job types such as programmer, roofer, and secretary. If you label one of these values as a machine-learned entity, LUIS learns to recognize the others. 
 
@@ -34,6 +38,7 @@ A phrase list may be interchangeable or non-interchangeable. An *interchangeable
 |Non-interchangeable|App vocabulary, specific to your app, more so than generally other words in that language.|
 
 Phrase lists not only help with entity detection but also intent classification where non-interchangeable makes sense like adding out of vocabulary words that are not known in the English language.
+
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

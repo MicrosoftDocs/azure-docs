@@ -130,7 +130,7 @@ Application Insights SDK starting version `2.4.0-beta1` uses DiagnosticsSource a
 
 <a name="java-correlation"></a>
 ## Telemetry correlation in the Java SDK
-The [Application Insights Java SDK](../../application-insights/app-insights-java-get-started.md) supports automatic correlation of telemetry beginning with version `2.0.0`. It automatically populates `operation_id` for all telemetry (traces, exceptions, custom events, etc.) issued within the scope of a request. It also takes care of propagating the correlation headers (described above) for service to service calls via HTTP if the [Java SDK agent](../../application-insights/app-insights-java-agent.md) is configured. Note: only calls made via Apache HTTP Client are supported for the correlation feature. If you're using Spring Rest Template or Feign, both can be used with Apache HTTP Client under the hood.
+The [Application Insights Java SDK](../../azure-monitor/app/java-get-started.md) supports automatic correlation of telemetry beginning with version `2.0.0`. It automatically populates `operation_id` for all telemetry (traces, exceptions, custom events, etc.) issued within the scope of a request. It also takes care of propagating the correlation headers (described above) for service to service calls via HTTP if the [Java SDK agent](../../azure-monitor/app/java-agent.md) is configured. Note: only calls made via Apache HTTP Client are supported for the correlation feature. If you're using Spring Rest Template or Feign, both can be used with Apache HTTP Client under the hood.
 
 Currently, automatic context propagation across messaging technologies (for example, Kafka, RabbitMQ, Azure Service Bus) isn't supported. It's possible, however to manually code such scenarios by using the `trackDependency` and `trackRequest` APIs, whereby a dependency telemetry represents a message being enqueued by a producer and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
 
@@ -162,7 +162,7 @@ telemetryClient.getContext().getCloud().setRole("My Component Name");
 
 - [Write custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md)
 - [Learn more about](../../azure-monitor/app/app-map.md#set-cloudrolename) setting cloud_RoleName for other SDKs.
-- Onboard all components of your micro service on Application Insights. Check out [supported platforms](../../application-insights/app-insights-platforms.md).
+- Onboard all components of your micro service on Application Insights. Check out [supported platforms](../../azure-monitor/app/platforms.md).
 - See [data model](../../azure-monitor/app/data-model.md) for Application Insights types and data model.
 - Learn how to [extend and filter telemetry](../../azure-monitor/app/api-filtering-sampling.md).
 - [Application Insights config reference](configuration-with-applicationinsights-config.md)

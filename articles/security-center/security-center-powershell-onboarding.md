@@ -52,8 +52,8 @@ These steps should be performed before you run the Security Center cmdlets:
 
 1.	Register your subscriptions to the Security Center Resource Provider:
 
-        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
-        Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.Security' 
+        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+        Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security' 
 
 2.	Optional: Set the coverage level (pricing tier) of the subscriptions (If not defined, the pricing tier is set to Free):
 

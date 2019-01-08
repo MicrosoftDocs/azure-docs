@@ -120,7 +120,7 @@ PagerDuty, the leading incident management solution, has provided first-class su
 [Go to the documentation.][pagerduty-doc]
 
 ## QRadar
-The Microsoft Azure DSM and Microsoft Azure Event Hub Protocol are available for download from [the IBM support website](http://www.ibm.com/support). You can [learn more about the integration with Azure here][qradar-doc].
+The Microsoft Azure DSM and Microsoft Azure Event Hub Protocol are available for download from [the IBM support website](https://www.ibm.com/support). You can [learn more about the integration with Azure here][qradar-doc].
 
 ## ScienceLogic
 ScienceLogic delivers the next generation IT service assurance platform for managing any technology, anywhere. ScienceLogic delivers the scale, security, automation, and resiliency necessary to simplify the tasks of managing IT resources, services, and applications. The ScienceLogic platform uses Azure APIs to interface with Microsoft Azure. ScienceLogic gives you real-time visibility into your Azure services and resources. So you know when something’s not working and you can fix it faster. You can also manage Azure alongside your other clouds and data center systems and services.
@@ -224,8 +224,8 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric introduction."
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
-[cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix introduction."
-[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog documentation."
+[cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "CloudMonix introduction."
+[datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Datadog documentation."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace documentation."
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastic documentation."
 [grafana-doc]: ./grafana-plugin.md "Azure Monitor Grafana integration."

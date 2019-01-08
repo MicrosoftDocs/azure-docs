@@ -59,15 +59,43 @@ You can configure Capture at the event hub creation time using the [Azure portal
 - [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md)
 - [Create an Event Hubs namespace with an event hub and enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
+
 ## Exploring the captured files and working with Avro
 
 Event Hubs Capture creates files in Avro format, as specified on the configured time window. You can view these files in any tool such as [Azure Storage Explorer][Azure Storage Explorer]. You can download the files locally to work on them.
 
 The files produced by Event Hubs Capture have the following Avro schema:
 
-![Acro schema][3]
+![Avro schema][3]
 
-An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar from Apache. After downloading this jar, you can see the schema of a specific Avro file by running the following command:
+An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar from Apache. You can also use [Apache Drill][Apache Drill] for a lightweight SQL-driven experience or [Apache Spark][Apache Spark] to perform complex distributed processing on the ingested data. 
+
+### Use Apache Drill
+
+[Apache Drill][Apache Drill] is an "open-source SQL query engine for Big Data exploration" that can query structured and semi-structured data wherever it is. The engine can run as a standalone node or as a huge cluster for great performance.
+
+A native support to Azure Blob storage is available, which makes it easy to query data in an Avro file, as described in the documentation:
+
+[Apache Drill: Azure Blob Storage Plugin][Apache Drill: Azure Blob Storage Plugin]
+
+To easily query captured files, you can create and execute a VM with Apache Drill enabled via a container to access Azure Blob storage:
+
+https://github.com/yorek/apache-drill-azure-blob
+
+A full end-to-end sample is available in the Streaming at Scale repository:
+
+[Streaming at Scale: Event Hubs Capture]
+
+### Use Apache Spark
+
+[Apache Spark][Apache Spark] is a "unified analytics engine for large-scale data processing." It supports different languages, including SQL, and can easily access Azure Blob storage. There are two options to run Apache Spark in Azure, and both provide easy access to Azure Blob storage:
+
+- [HDInsight: Address files in Azure storage][HDInsight: Address files in Azure storage]
+- [Azure Databricks: Azure Blob storage][Azure Databricks: Azure Blob Storage]
+
+### Use Avro Tools
+
+[Avro Tools][Avro Tools] are available as a jar package. After you download the jar file, you can see the schema of a specific Avro file by running the following command:
 
 ```shell
 java -jar avro-tools-1.8.2.jar getschema <name of capture file>
@@ -103,8 +131,8 @@ Apache Avro has complete Getting Started guides for [Java][Java] and [Python][Py
 Event Hubs Capture is metered similarly to throughput units: as an hourly charge. The charge is directly proportional to the number of throughput units purchased for the namespace. As throughput units are increased and decreased, Event Hubs Capture meters increase and decrease to provide matching performance. The meters occur in tandem. For pricing details, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
 ## Integration with Event Grid 
-You can create an Azure Event Grid subscription with an Event Hubs namespace as its source. The following tutorial shows you how to create an Event Grid subscription with an event hub as a source and an Azure Functions app as a sink: [Process and migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions](store-captured-data-data-warehouse.md).
 
+You can create an Azure Event Grid subscription with an Event Hubs namespace as its source. The following tutorial shows you how to create an Event Grid subscription with an event hub as a source and an Azure Functions app as a sink: [Process and migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions](store-captured-data-data-warehouse.md).
 
 ## Next steps
 
@@ -116,6 +144,8 @@ You can learn more about Event Hubs by visiting the following links:
 * [Event Hubs overview][Event Hubs overview]
 
 [Apache Avro]: http://avro.apache.org/
+[Apache Drill]: https://drill.apache.org/
+[Apache Spark]: https://spark.apache.org/
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
@@ -123,3 +153,7 @@ You can learn more about Event Hubs by visiting the following links:
 [Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage#address-files-in-azure-storage
+[Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
+[Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
+[Streaming at Scale: Event Hubs Capture]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture

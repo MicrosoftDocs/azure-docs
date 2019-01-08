@@ -13,12 +13,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2018
+ms.date: 01/01/2019
 ms.author: ryanwi
 
 ---
 # Change cluster from certificate thumbprint to common name
 No two certificates can have the same thumbprint, which makes cluster certificate rollover or management difficult. Multiple certificates, however, can have the same common name or subject.  Switching a deployed cluster from using certificate thumbprints to using certificate common names makes certificate management much simpler. This article describes how to update a running Service Fabric cluster to use the certificate common name instead of the certificate thumbprint.
+
+>[!NOTE]
+> If you have two thumbprint's declared in your template, you need to perform two deployments.  The first deployment is done before following the steps in this article.  The first deployment sets your **thumbprint** property in the template to the certificate being used and removes the **thumbprintSecondary** property.  For the second deployment, follow the steps in this article.
  
 ## Get a certificate
 First, get a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority).  The common name of the certificate should be the host name of the cluster.  For example, "myclustername.southcentralus.cloudapp.azure.com".  

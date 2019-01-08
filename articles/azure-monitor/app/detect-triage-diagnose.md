@@ -42,7 +42,7 @@ Let's focus on the feedback part of the cycle:
 ![Detect-Triage-Diagnose](./media/detect-triage-diagnose/01-pipe1.png)
 
 ## Detect poor availability
-Marcela Markova is a senior developer on the OBS team, and takes the lead on monitoring online performance. She sets up several [availability tests](../../application-insights/app-insights-monitor-web-app-availability.md):
+Marcela Markova is a senior developer on the OBS team, and takes the lead on monitoring online performance. She sets up several [availability tests](../../azure-monitor/app/monitor-web-app-availability.md):
 
 * A single-URL test for the main landing page for the app, http://fabrikambank.com/onlinebanking/. She sets criteria of HTTP code 200 and text 'Welcome!'. If this test fails, there's something seriously wrong with the network or the servers, or maybe a deployment issue. (Or someone has changed the Welcome! message on the page without letting her know.)
 * A deeper multi-step test, which logs in and gets a current account listing, checking a few key details on each page. This test verifies that the link to the accounts database is working. She uses a fictitious customer id: a few of them are maintained for test purposes.
@@ -56,7 +56,7 @@ Failures show up as red dots on the web test chart:
 But more importantly, an alert about any failure is emailed to the development team. In that way, they know about it before nearly all the customers.
 
 ## Monitor Performance
-On the overview page in Application Insights, there's a chart that shows a variety of [key metrics](../../application-insights/app-insights-web-monitor-performance.md).
+On the overview page in Application Insights, there's a chart that shows a variety of [key metrics](../../azure-monitor/app/web-monitor-performance.md).
 
 ![Screenshot of overview performance KPI graphs](./media/detect-triage-diagnose/overview-graphs.png)
 
@@ -73,7 +73,7 @@ There seems to be no sign of resource limitation there, so maybe the bumps in th
 ## Set alerts to meet goals
 Nevertheless, she'd like to keep an eye on the response times. If they go too high, she wants to know about it immediately.
 
-So she sets an [alert](../../application-insights/app-insights-metrics-explorer.md), for response times greater than a typical threshold. This gives her confidence that she'll know about it if response times are slow.
+So she sets an [alert](../../azure-monitor/app/metrics-explorer.md), for response times greater than a typical threshold. This gives her confidence that she'll know about it if response times are slow.
 
 ![Add alert blade](./media/detect-triage-diagnose/07-alerts.png)
 
@@ -147,7 +147,7 @@ Exceptions and events show up in the [Diagnostic Search](diagnostic-search.md) b
 
 
 ## Monitor proactively
-Marcela doesn't just sit around waiting for alerts. Soon after every redeployment, she takes a look at [response times](../../application-insights/app-insights-web-monitor-performance.md) - both the overall figure and the table of slowest requests, as well as exception counts.  
+Marcela doesn't just sit around waiting for alerts. Soon after every redeployment, she takes a look at [response times](../../azure-monitor/app/web-monitor-performance.md) - both the overall figure and the table of slowest requests, as well as exception counts.  
 
 ![Response time graph and grid of server response times.](./media/detect-triage-diagnose/response-time.png)
 
@@ -180,7 +180,7 @@ Diagnosis isn't quite the same as debugging. Before you start tracing through th
 
 Some slow dependency issues are geolocation problems. Fabrikam Bank uses Azure virtual machines, and discovered that they had inadvertently located their web server and account server in different countries. A dramatic improvement was brought about by migrating one of them.
 
-**What did we do?** If the issue doesn't appear to be in a dependency, and if it wasn't always there, it's probably caused by a recent change. The historical perspective provided by the metric and event charts makes it easy to correlate any sudden changes with deployments. That narrows down the search for the problem. To identify which lines in the application code slowed down the performance, enable Application Insights Profiler. Please refer to [Profiling live Azure web apps with Application Insights](./../../application-insights/app-insights-profiler.md). After the Profiler is enabled, you will see a trace similar to the following. In this example, it's easily noticeable that the method *GetStorageTableData* caused the problem.  
+**What did we do?** If the issue doesn't appear to be in a dependency, and if it wasn't always there, it's probably caused by a recent change. The historical perspective provided by the metric and event charts makes it easy to correlate any sudden changes with deployments. That narrows down the search for the problem. To identify which lines in the application code slowed down the performance, enable Application Insights Profiler. Please refer to [Profiling live Azure web apps with Application Insights](./../../azure-monitor/app/profiler.md). After the Profiler is enabled, you will see a trace similar to the following. In this example, it's easily noticeable that the method *GetStorageTableData* caused the problem.  
 
 ![App Insights Profiler Trace](./media/detect-triage-diagnose/AppInsightsProfiler.png)
 
@@ -211,7 +211,7 @@ Whatever the reasons, the data helps the team work out what users are doing. Mor
 
 The team is getting used to having information about user activity. Nowadays, whenever they design a new feature, they work out how they will get feedback about its usage. They design tracking calls into the feature from the start. They use the feedback to improve the feature in each development cycle.
 
-[Read more about tracking usage](../../application-insights/app-insights-usage-overview.md).
+[Read more about tracking usage](../../azure-monitor/app/usage-overview.md).
 
 ## Apply the DevOps cycle
 So that's how one team use Application Insights not just to fix individual issues, but to improve their development lifecycle. I hope it has given you some ideas about how Application Insights can help you with application performance management in your own applications.
@@ -224,8 +224,8 @@ So that's how one team use Application Insights not just to fix individual issue
 You can get started in several ways, depending on the characteristics of your application. Pick what suits you best:
 
 * [ASP.NET web application](../../azure-monitor/app/asp-net.md)
-* [Java web application](../../application-insights/app-insights-java-get-started.md)
-* [Node.js web application](../../application-insights/app-insights-nodejs.md)
-* Already deployed apps, hosted on [IIS](../../application-insights/app-insights-monitor-web-app-availability.md), [J2EE](../../application-insights/app-insights-java-live.md), or [Azure](../../application-insights/app-insights-overview.md).
-* [Web pages](../../application-insights/app-insights-javascript.md) - Single Page App or ordinary web page - use this on its own or in addition to any of the server options.
-* [Availability tests](../../application-insights/app-insights-monitor-web-app-availability.md) to test your app from the public internet.
+* [Java web application](../../azure-monitor/app/java-get-started.md)
+* [Node.js web application](../../azure-monitor/app/nodejs.md)
+* Already deployed apps, hosted on [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md), or [Azure](../../application-insights/app-insights-overview.md).
+* [Web pages](../../azure-monitor/app/javascript.md) - Single Page App or ordinary web page - use this on its own or in addition to any of the server options.
+* [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md) to test your app from the public internet.

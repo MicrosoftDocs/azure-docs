@@ -11,9 +11,8 @@ ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 01/07/2019
 ms.author: bryanla
 
 ---

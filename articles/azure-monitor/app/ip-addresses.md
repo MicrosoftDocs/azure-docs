@@ -49,7 +49,7 @@ Status Monitor Configuration - needed only when making changes.
 | Installation |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (NuGet Downloads) | |`443` |
 
 ## Availability tests
-This is the list of addresses from which [availability web tests](../../application-insights/app-insights-monitor-web-app-availability.md) are run. If you want to run web tests on your app, but your web server is restricted to serving specific clients, then you will have to permit incoming traffic from our availability test servers.
+This is the list of addresses from which [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md) are run. If you want to run web tests on your app, but your web server is restricted to serving specific clients, then you will have to permit incoming traffic from our availability test servers.
 
 Open ports 80 (http) and 443 (https) for incoming traffic from these addresses (IP addresses are grouped by location):
 
