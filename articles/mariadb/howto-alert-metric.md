@@ -25,7 +25,7 @@ You can configure and get information about alert rules using:
 * [Command-line interface (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-## Create an alert rule on a metric from the Azure portal
+## Create an alert rule on a metric
 1. In the [Azure portal](https://portal.azure.com/), select the Azure Database for MariaDB server you want to monitor.
 
 2. Under the **Monitoring** section of the sidebar, select **Alerts** as shown:
