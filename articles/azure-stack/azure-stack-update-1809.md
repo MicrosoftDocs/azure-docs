@@ -46,6 +46,8 @@ This update includes the following improvements for Azure Stack:
 
 - You can now [move the registration resource](azure-stack-registration.md#move-a-registration-resource) on Azure between resource groups without having to re-register. Cloud Solution Providers (CSPs) can also move the registration resource between subscriptions, as long as both the new and old subscriptions are mapped to the same CSP partner ID. This does not impact the existing customer tenant mappings. 
 
+- Added support for assigning multiple IP addresses per network interface.  For more details see [Assign multiple IP addresses to virtual machines using PowerShell](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
+
 ### Fixed issues
 
 <!-- TBD - IS ASDK -->

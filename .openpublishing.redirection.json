@@ -33563,6 +33563,91 @@
         "redirect_document_id":  true
     },
     {
+      "source_path":  "articles/application-insights/app-insights-profiler-cloudservice.md",
+      "redirect_url":  "/azure/azure-monitor/app/profiler-cloudservice ",
+      "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-profiler-overview.md",
+        "redirect_url":  "/azure/azure-monitor/app/profiler-overview ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-profiler-servicefabric.md",
+        "redirect_url":  "/azure/azure-monitor/app/profiler-servicefabric ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-profiler-settings.md",
+        "redirect_url":  "/azure/azure-monitor/app/profiler-settings ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-profiler-trackrequests.md",
+        "redirect_url":  "/azure/azure-monitor/app/profiler-trackrequests ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-profiler-troubleshooting.md",
+        "redirect_url":  "/azure/azure-monitor/app/profiler-troubleshooting ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-profiler-vm.md",
+        "redirect_url":  "/azure/azure-monitor/app/profiler-vm",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-website-monitoring.md",
+        "redirect_url":  "/azure/azure-monitor/app/website-monitoring ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/azure-functions-supported-features.md",
+        "redirect_url":  "/azure/azure-monitor/app/azure-functions-supported-features ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-windows-services.md",
+        "redirect_url":  "/azure/azure-monitor/app/windows-services",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-create-new-resource.md",
+        "redirect_url":  "/azure/azure-monitor/app/create-new-resource ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-export-power-bi.md",
+        "redirect_url":  "/azure/azure-monitor/app/export-power-bi ",
+        "redirect_document_id":  true
+    },
+    {
+      "source_path":  "articles/application-insights/app-insights-devops.md",
+      "redirect_url":  "/azure/azure-monitor/app/devops",
+      "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-tutorial-performance.md",
+        "redirect_url":  "/azure/azure-monitor/learn/tutorial-performance",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-tutorial-users.md",
+        "redirect_url":  "/azure/azure-monitor/learn/tutorial-users",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-nuget.md",
+        "redirect_url":  "/azure/azure-monitor/app/nuget ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/micrometer-java.md",
+        "redirect_url":  "/azure/azure-monitor/app/micrometer-java ",
+        "redirect_document_id":  true
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true

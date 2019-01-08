@@ -18,7 +18,7 @@ ms.author: mbullwin
 ## <a id="troubleshooting"></a>General Troubleshooting
 
 ### Profiles are only uploaded if there are requests to your application while the profiler is running
-Application Insights Profiler collects profiler data for two minutes each hour, or when the [**Profile Now**](app-insights-profiler-settings.md?toc=/azure/azure-monitor/toc.json) button is pressed on the **Configure Application Insights Profiler** page. But the profiling data is only uploaded when it can be attached to a request that happened while the profiler was running. 
+Application Insights Profiler collects profiler data for two minutes each hour, or when the [**Profile Now**](profiler-settings.md ?toc=/azure/azure-monitor/toc.json) button is pressed on the **Configure Application Insights Profiler** page. But the profiling data is only uploaded when it can be attached to a request that happened while the profiler was running. 
 
 The profiler writes trace messages and custom events to your application insights resource. You can use those events to see how the profiler is running. If you think the profiler should be running and capturing traces but you aren't seeing them in the Performance page, you can check how the profiler is running:
 
@@ -125,9 +125,9 @@ Check that the ikey on the profiler command line is correct.
 Third, using the path found in the config.json file above, check the profiler log file. It will show debug information indicating the settings the profiler is using and status and error messages from the profiler. If the profiler is running while your application is receiving requests, you'll see this message: Activity detected from iKey. When the trace is being uploaded, you'll see this message: Start to upload trace. 
 
 
-[profiler-search-telemetry]:./media/app-insights-profiler-troubleshooting/Profiler-Search-Telemetry.png
-[profiler-webjob]:./media/app-insights-profiler-troubleshooting/Profiler-webjob.png
-[profiler-webjob-log]:./media/app-insights-profiler-troubleshooting/Profiler-webjob-log.png
+[profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
+[profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
+[profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
 
 
 

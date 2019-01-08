@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/08/2019
 ms.author: raynew
 ---
 
@@ -25,7 +25,7 @@ Here's how Azure Backup completes a  backup for Azure VMs.
     - The extension is installed during the first VM backup.
     - To install the extension, the VM must be running.
     - If the VM is not running, the Backup service takes a snapshot of the underlying storage (since no application writes occur while the VM is stopped).
-4. The backup extension takes a storage-level, app-consistent snapshot.
+4. The backup extension takes a storage-level, crash consistent/file-consistent snapshot.
 5. After the snapshot is taken the data is transferred to the vault. To maximize efficiency, the service identifies and transfers only the blocks of data that have changed since the previous backup (the delta).
 5. When the data transfer is complete, the snapshot is removed and a recovery point is created.
 

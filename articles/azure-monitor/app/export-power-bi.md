@@ -16,12 +16,12 @@ ms.author: mbullwin
 ---
 
 # Feed Power BI from Application Insights
-[Power BI](https://www.powerbi.com/) is a suite of business tools that helps you analyze data and share insights. Rich dashboards are available on every device. You can combine data from many sources, including Analytics queries from [Azure Application Insights](app-insights-overview.md).
+[Power BI](https://www.powerbi.com/) is a suite of business tools that helps you analyze data and share insights. Rich dashboards are available on every device. You can combine data from many sources, including Analytics queries from [Azure Application Insights](../../application-insights/app-insights-overview.md).
 
 There are three methods of exporting Application Insights data to Power BI:
 
 * [**Export Analytics queries**](#export-analytics-queries). This is the preferred method. Write any query you want and export it to Power BI. You can place this query on a dashboard, along with any other data.
-* [**Continuous export and Azure Stream Analytics**](../azure-monitor/app/export-stream-analytics.md). This method is useful if you want to store your data for long periods of time. If you don't have an extended data retention requirement, use the export analytics query method. Continuous export and Stream Analytics involves more work to set up and additional storage overhead.
+* [**Continuous export and Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). This method is useful if you want to store your data for long periods of time. If you don't have an extended data retention requirement, use the export analytics query method. Continuous export and Stream Analytics involves more work to set up and additional storage overhead.
 * [**Power BI adapter**](#power-pi-adapter). The set of charts is predefined, but you can add your own queries from any other sources.
 
 > [!NOTE]
@@ -36,51 +36,51 @@ To import your Application Insights query, you use the desktop version of Power 
 Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### Export an Analytics query
-1. [Open Analytics and write your query](../azure-monitor/log-query/get-started-portal.md).
+1. [Open Analytics and write your query](../../azure-monitor/log-query/get-started-portal.md).
 2. Test and refine the query until you're happy with the results. Make sure that the query runs correctly in Analytics before you export it.
 3. On the **Export** menu, choose **Power BI (M)**. Save the text file.
    
-    ![Screenshot of Analytics, with Export menu highlighted](./media/app-insights-export-power-bi/analytics-export-power-bi.png)
+    ![Screenshot of Analytics, with Export menu highlighted](./media/export-power-bi/analytics-export-power-bi.png)
 4. In Power BI Desktop, select **Get Data** > **Blank Query**. Then, in the query editor, under **View**, select **Advanced Editor**.
 
     Paste the exported M Language script into the Advanced Editor.
 
-    ![Screenshot of Power BI Desktop, with Advanced Editor highlighted](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
+    ![Screenshot of Power BI Desktop, with Advanced Editor highlighted](./media/export-power-bi/power-bi-import-analytics-query.png)
 
 5. To allow Power BI to access Azure, you might have to provide credentials. Use **Organizational account** to sign in with your Microsoft account.
    
-    ![Screenshot of Power BI Query Settings dialog box](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
+    ![Screenshot of Power BI Query Settings dialog box](./media/export-power-bi/power-bi-import-sign-in.png)
 
     If you need to verify the credentials, use the **Data Source Settings** menu command in the query editor. Be sure to specify the credentials you use for Azure, which might be different from your credentials for Power BI.
 6. Choose a visualization for your query, and select the fields for x-axis, y-axis, and segmenting dimension.
    
-    ![Screenshot of Power BI Desktop visualization options](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
+    ![Screenshot of Power BI Desktop visualization options](./media/export-power-bi/power-bi-analytics-visualize.png)
 7. Publish your report to your Power BI cloud workspace. From there, you can embed a synchronized version into other web pages.
    
-    ![Screenshot of Power BI Desktop, with Publish button highlighted](./media/app-insights-export-power-bi/publish-power-bi.png)
+    ![Screenshot of Power BI Desktop, with Publish button highlighted](./media/export-power-bi/publish-power-bi.png)
 8. Refresh the report manually at intervals, or set up a scheduled refresh on the options page.
 
 ### Export a Funnel
-1. [Make your Funnel](../azure-monitor/app/usage-funnels.md).
+1. [Make your Funnel](../../azure-monitor/app/usage-funnels.md).
 2. Select **Power BI**.
 
-   ![Screenshot of Power BI button](./media/app-insights-export-power-bi/button.png)
+   ![Screenshot of Power BI button](./media/export-power-bi/button.png)
 
 3. In Power BI Desktop, select **Get Data** > **Blank Query**. Then, in the query editor, under **View**, select **Advanced Editor**.
 
-   ![Screenshot of Power BI Desktop, with Blank Query button highlighted](./media/app-insights-export-power-bi/blankquery.png)
+   ![Screenshot of Power BI Desktop, with Blank Query button highlighted](./media/export-power-bi/blankquery.png)
 
    Paste the exported M Language script into the Advanced Editor. 
 
-   ![Screenshot of Power BI Desktop, with Advanced Editor highlighted](./media/app-insights-export-power-bi/advancedquery.png)
+   ![Screenshot of Power BI Desktop, with Advanced Editor highlighted](./media/export-power-bi/advancedquery.png)
 
 4. Select items from the query, and choose a Funnel visualization.
 
-   ![Screenshot of Power BI Desktop visualization options](./media/app-insights-export-power-bi/selectsequence.png)
+   ![Screenshot of Power BI Desktop visualization options](./media/export-power-bi/selectsequence.png)
 
 5. Change the title to make it meaningful, and publish your report to your Power BI cloud workspace. 
 
-   ![Screenshot of Power BI Desktop, with title change highlighted](./media/app-insights-export-power-bi/changetitle.png)
+   ![Screenshot of Power BI Desktop, with title change highlighted](./media/export-power-bi/changetitle.png)
 
 ## Troubleshooting
 
@@ -115,33 +115,33 @@ If reducing the dataset coming from the Analytics query doesn't meet your requir
  ```
 
 ## About sampling
-Depending on the amount of data sent by your application, you might want to use the adaptive sampling feature, which sends only a percentage of your telemetry. The same is true if you have manually set sampling either in the SDK or on ingestion. [Learn more about sampling](../azure-monitor/app/sampling.md).
+Depending on the amount of data sent by your application, you might want to use the adaptive sampling feature, which sends only a percentage of your telemetry. The same is true if you have manually set sampling either in the SDK or on ingestion. [Learn more about sampling](../../azure-monitor/app/sampling.md).
 
 ## Power BI adapter (deprecated)
 This method creates a complete dashboard of telemetry for you. The initial dataset is predefined, but you can add more data to it.
 
 ### Get the adapter
 1. Sign in to [Power BI](https://app.powerbi.com/).
-2. Open **Get Data** ![Screenshot of GetData Icon in lower left corner](./media/app-insights-export-power-bi/001.png), **Services**.
+2. Open **Get Data** ![Screenshot of GetData Icon in lower left corner](./media/export-power-bi/001.png), **Services**.
 
-    ![Screenshots of Get from Application Insights data source](./media/app-insights-export-power-bi/002.png)
+    ![Screenshots of Get from Application Insights data source](./media/export-power-bi/002.png)
 
 3. Select **Get it now** under Application Insights.
 
-   ![Screenshots of Get from Application Insights data source](./media/app-insights-export-power-bi/003.png)
+   ![Screenshots of Get from Application Insights data source](./media/export-power-bi/003.png)
 4. Provide the details of your Application Insights resource, and then **Sign-in**.
 
-    ![Screenshot of Get from Application Insights data source](./media/app-insights-export-power-bi/005.png)
+    ![Screenshot of Get from Application Insights data source](./media/export-power-bi/005.png)
 
      This information can be found in the Application Insights Overview pane:
 
-     ![Screenshot of Get from Application Insights data source](./media/app-insights-export-power-bi/004.png)
+     ![Screenshot of Get from Application Insights data source](./media/export-power-bi/004.png)
 
 5. Open the newly created Application Insights Power BI App.
 
 6. Wait a minute or two for the data to be imported.
 
-    ![Screenshot of Power BI adapter](./media/app-insights-export-power-bi/010.png)
+    ![Screenshot of Power BI adapter](./media/export-power-bi/010.png)
 
 You can edit the dashboard, combining the Application Insights charts with those of other sources, and with Analytics queries. You can get more charts in the visualization gallery, and each chart has parameters you can set.
 
@@ -149,5 +149,5 @@ After the initial import, the dashboard and the reports continue to update daily
 
 ## Next steps
 * [Power BI - Learn](https://www.powerbi.com/learning/)
-* [Analytics tutorial](../azure-monitor/log-query/get-started-portal.md)
+* [Analytics tutorial](../../azure-monitor/log-query/get-started-portal.md)
 

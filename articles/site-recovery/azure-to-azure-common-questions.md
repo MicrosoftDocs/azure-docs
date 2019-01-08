@@ -57,7 +57,7 @@ No, Site Recovery does not require internet connectivity but access to Site Reco
 ## Replication Policy
 
 ### What is a Replication policy?
-It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery creates a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
+It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery creates a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency. [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings) how to configure replication policy]
 
 ### What is crash consistent recovery point?
 Crash consistent recovery point represents the on-disk data as if the VM crashed or the power cord was pulled from the server at the time snapshot was taken. It doesn’t include anything that was in memory when the snapshot was taken. Today, most applications can recover well from crash consistent snapshots. A crash-consistent recovery point is usually enough for no database operating systems and applications like file servers, DHCP servers, print servers, and so on.
@@ -91,6 +91,24 @@ In case of Initial replication the first recovery point, which gets generated wi
 
 ### Does increasing recovery points retention windows increases the storage cost?
 Yes, If you increase the retention period from 24 hours to 72 hours then Site Recovery will save the recovery points for addition 48 hours which will incurred you storage charges. For example if a single recovery point has delta changes of 10 GB and per GB cost is $0.16 per month, then it would be $1.6 * 48 additional charges per month.
+
+## Multi-VM Consistency 
+
+### What is Multi- VM consistency?
+It means making sure that the recovery point is consistent across all the replicated virtual machines.
+Site Recovery provides an option of "Multi-VM consistency" which when selected  creates a replication group to replicate all the machines together that are part of the group.
+All the virtual machines will have shared crash consistent and app-consistent recovery points when failed over.
+Go through the tutorial to [enable "Multi-VM" consistency](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
+
+### Can I failover single virtual machine within a "Multi-VM" consistency replication group?
+By selecting "Multi-VM consistency" option you are stating that the application has a dependency on all the virtual machines within a group. Hence, single virtual machine failover is not allowed. 
+
+### How many virtual machines can I replicate as a part of "Multi-VM" consistency replication group?
+You can replicate 16 virtual machine together in a replication group.
+
+### When should I enable Multi-VM consistency ?
+Enabling multi-VM consistency can impact a workload performance( as it is CPU intensive) and should only be used if machines are running the same workload and you need consistency across multiple machines. For example if you have 2 sql servers and 2 web servers in an application then you should have "Multi-VM" consistency for the sql servers only.
+
 
 ## Failover
 
