@@ -3,7 +3,7 @@ title: Create, change, or delete an Azure route table using Ansible
 description: Learn how to use Ansible to create, change or delete a route table using Ansible
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, networking, route, route table
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: yuwzho, kyliel
 ms.topic: tutorial

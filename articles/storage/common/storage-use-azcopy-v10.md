@@ -1,6 +1,6 @@
 ---
 title: Copy or move data to Azure Storage with AzCopy v10 (Preview) | Microsoft Docs
-description: Use the AzCopy v10 (Preview) utility to move or copy data to or from blob, table, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
+description: Use the AzCopy v10 (Preview) utility to move or copy data to or from blob, data lake, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
 author: artemuwka
 ms.service: storage
@@ -48,18 +48,24 @@ AzCopy v10 does not require an installation. Open a preferred command-line appli
 ## Authentication Options
 
 AzCopy v10 allows you to use the following options when authenticating with Azure Storage:
-- Azure Active Directory. Use ```.\azcopy login``` to sign in using Azure Active Directory.  The user should have ["Storage Blob Data Contributor" role assigned](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) to write to Blob storage using Azure Active Directory authentication.
-- SAS token that needs to be appended to the Blob path. You can generate SAS token using Azure Portal, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStorageblobsastoken), or other tools of your choice. For more information, see [examples](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+- **Azure Active Directory [Supported on Blob and ADLS Gen2]**. Use ```.\azcopy login``` to sign in using Azure Active Directory.  The user should have ["Storage Blob Data Contributor" role assigned](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) to write to Blob storage using Azure Active Directory authentication.
+- **SAS tokens [Supported on Blob and File service]**. Append the SAS token to the blob path on the command line to use it. You can generate SAS token using Azure Portal, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStorageblobsastoken), or other tools of your choice. For more information, see [examples](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 ## Getting started
 
-AzCopy v10 has a simple self-documented syntax. The general syntax looks as follows:
+AzCopy v10 has a simple self-documented syntax. The general syntax looks as follows when logged into the Azure Active Directory:
 
 ```azcopy
 .\azcopy <command> <arguments> --<flag-name>=<flag-value>
-# Example:
+# Examples if you have logged into the Azure Active Directory:
 .\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/containersastoken" --recursive=true
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container" --recursive=true
+.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile"
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/container"
+
+# Examples if you are using SAS tokens to authenticate:
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?sastoken" --recursive=true
+.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?sastoken"
 ```
 
 Here's how you can get a list of available commands:
@@ -78,15 +84,27 @@ To see the help page and examples for a specific command run the command below:
 .\azcopy cp -h
 ```
 
-## Create a file system (Azure Data Lake Storage Gen2 only)
+## Create a Blob container or File share 
 
-If you've enabled hierarchical namespaces on your blob storage account, you can use the following command to create a new file system so that you can upload an download files to it.
+**Create a Blob container**
 
 ```azcopy
-.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name" --recursive=true
+.\azcopy make "https://account.blob.core.windows.net/container-name"
 ```
 
-The ``account`` portion of this string is the name of your storage account. The ``top-level-resource-name`` portion of this string is the name of the file system that you want to create.
+**Create a File share**
+
+```azcopy
+.\azcopy make "https://account.file.core.windows.net/share-name"
+```
+
+**Create a Blob container using ADLS Gen2**
+
+If you've enabled hierarchical namespaces on your blob storage account, you can use the following command to create a new file system (Blob container) so that you can upload files to it.
+
+```azcopy
+.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name"
+```
 
 ## Copy data to Azure Storage
 
@@ -96,37 +114,22 @@ Use the copy command to transfer data from the source to the destination. The so
 - Azure File/Directory/File Share URI
 - Azure Data Lake Storage Gen2 Filesystem/Directory/File URI
 
-> [!NOTE]
-> At this time AzCopy v10 supports copying only block blobs between two storage accounts.
-
 ```azcopy
 .\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
 # Using alias instead
 .\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
 ```
 
-The following command uploads all files under the folder C:\local\path recursively to the container "mycontainer1":
+The following command uploads all files under the folder `C:\local\path` recursively to the container `mycontainer1` creating `path` directory in the container:
 
 ```azcopy
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
 ```
 
-If you've enabled hierarchical namespaces on your blob storage account, you can use the following command to upload files to your file system:
-
-```azcopy
-.\azcopy cp "C:\local\path" "https://myaccount.dfs.core.windows.net/myfolder<sastoken>" --recursive=true
-```
-
-The following command uploads all files under the folder C:\local\path (without recursing into the subdirectories) to the container "mycontainer1":
+The following command uploads all files under the folder `C:\local\path` (without recursing into the subdirectories) to the container `mycontainer1`:
 
 ```azcopy
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
-```
-
-If you've enabled hierarchical namespaces on your blob storage account, you can use the following command:
-
-```azcopy
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/myfolder<sastoken>"
 ```
 
 To get more examples, use the following command:
@@ -137,23 +140,21 @@ To get more examples, use the following command:
 
 ## Copy data between two storage accounts
 
-Copying data between two storage accounts uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API and does not utilize the client machine's network bandwidth. Data is copied between two Azure Storage servers directly while AzCopy simply orchestrates the copy operation. 
+Copying data between two storage accounts uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API and does not utilize the client machine's network bandwidth. Data is copied between two Azure Storage servers directly while AzCopy simply orchestrates the copy operation. This option currently is only available for Blob storage.
 
 To copy the data between two storage accounts, use the following command:
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
 
-To work with blob storage accounts that have hierarchical namespaces enabled, replace the string ``blob.core.windows.net`` with ``dfs.core.windows.net`` in these examples.
-
 > [!NOTE]
 > The command will enumerate all blob containers and copy them to the destination account. At this time AzCopy v10 supports copying only block blobs between two storage accounts. All other storage account objects (append blobs, page blobs, files, tables and queues) will be skipped.
 
 ## Copy a VHD image to a storage account
 
-AzCopy v10 by default uploads data into block blobs. However, if a source file has vhd extension, AzCopy v10 will by default upload it to a page blob. This behavior isn't configurable.
+AzCopy v10 by default uploads data into block blobs. However, if a source file has vhd extension, AzCopy v10 will by default upload it to a page blob. This behavior currently isn't configurable.
 
-## Sync: incremental copy and delete
+## Sync: incremental copy and delete (Blob storage only)
 
 > [!NOTE]
 > Sync command synchronizes contents from source to destination and this includes DELETION of destination files if those do not exist in the source. Make sure you use the destination you intend to synchronize.
@@ -171,9 +172,7 @@ In the same way you can sync a Blob container down to a local file system:
 .\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
 ```
 
-The command allows you to incrementally sync the source to the destination based on last modified timestamps. If you add or delete a file in the source, AzCopy v10 will do the same in the destination.
-
-[!NOTE] To work with blob storage accounts that have hierarchical namespaces enabled, replace the string ``blob.core.windows.net`` with ``dfs.core.windows.net`` in these examples.
+The command allows you to incrementally sync the source to the destination based on last modified timestamps. If you add or delete a file in the source, AzCopy v10 will do the same in the destination. Before deletion, AzCopy will prompt to confirm the deletion of the files.
 
 ## Advanced configuration
 
@@ -240,6 +239,10 @@ You can resume a failed/cancelled job using its identifier along with the SAS to
 ```azcopy
 .\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
 ```
+
+### Change the default log level
+
+By default AzCopy log level is set to INFO. If you would like to reduce the log verbosity to save disk space, overwrite the setting using ``--log-level`` option. Available log levels are: DEBUG, INFO, WARNING, ERROR, PANIC, and FATAL
 
 ## Next steps
 

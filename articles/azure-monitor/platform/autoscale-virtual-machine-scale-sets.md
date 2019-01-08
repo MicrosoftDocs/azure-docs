@@ -243,3 +243,5 @@ Use these links to learn more about autoscaling.
 [Manage Autoscale using CLI](cli-samples.md#autoscale)
 
 [Configure Webhook & Email Notifications for Autoscale](autoscale-webhook-email.md)
+
+[Microsoft.Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings) template reference

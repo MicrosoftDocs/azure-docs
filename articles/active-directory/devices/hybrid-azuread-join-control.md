@@ -1,6 +1,6 @@
 ---
 title: Control the hybrid Azure AD join of your devices | Microsoft Docs
-description: Learn how to configure hybrid Azure Active Directory joined devices.
+description: Learn how to control the hybrid Azure AD join of your devices in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi

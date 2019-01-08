@@ -1,9 +1,7 @@
 ---
 title: Scaling throughput in Azure Cosmos DB 
 description: This article describes how Azure Cosmos DB scales throughput elastically
-services: cosmos-db
-author: dharmas
-
+author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/15/2018
@@ -16,7 +14,7 @@ ms.reviewer: sngun
 
 In Azure Cosmos DB, provisioned throughput is represented as request units/second (RU/s, plural: RUs). RUs measure the cost of both read and write operations against your Cosmos container as shown in the following image:
 
-![Request Units](./media/scale-throughput/figure1.png)
+![Request Units](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 
 You can provision RUs on a Cosmos container or a Cosmos database. RUs provisioned on a container are exclusively available for operations performed on that container. RUs provisioned on a database are shared among all the containers within that database (except for any containers with exclusively assigned RUs).
 
