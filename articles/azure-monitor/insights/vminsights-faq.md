@@ -66,8 +66,8 @@ Health alert severity cannot be modified, they can only be enabled or disabled. 
 ## If I reconfigure the settings of a particular health criteria, can it be scoped to a specific instance?  
 If you modify any setting of a health criterion instance, all health criteria instances of the same type on the Azure VM are modified. For example, if the threshold of the disk free-space health criterion instance that corresponds to logical disk C: is modified, this threshold applies to all other logical disks that are discovered and monitored for the same VM.
 
-## Does the Health feature monitor logical processors or cores?
-Individual processor and logical processor level health criteria aren't available for a Windows VM, only Total CPU utilization is monitored by default.
+## Does the Health feature monitor logical processors and cores?
+No, individual processor and logical processor level health criteria is not included for a Windows, only Total CPU utilization is monitored by default to effectively evaluate CPU pressure based on the total number of logical CPUs available to the Azure VM. 
 
 ## Are all health criteria thresholds configurable?  
 Thresholds for health criteria that target a Windows VM aren’t modifiable, because their health states are set to *running* or *available*. When you query the health state from the [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components), it displays the *comparisonOperator* value of **LessThan** or **GreaterThan** with a *threshold* value of **4** for the service or entity if:
