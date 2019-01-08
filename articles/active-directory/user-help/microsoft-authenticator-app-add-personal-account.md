@@ -78,7 +78,7 @@ You can add your Google account by first turning on two-factor verification and 
 
     You're given a QR code that you can use to automatically associate your account with the Microsoft Authenticator app. Do not close this window.
 
-3. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Other account (Google, Facebook, etc)**.
+3. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Other account (Google, Facebook, etc.)**.
 
 4. Use your device's camera to scan the QR code from the **Set up Authenticator** screen on your PC.
 
@@ -91,7 +91,7 @@ You can add your Google account by first turning on two-factor verification and 
 
 6. Select **Next** on the **Set up Authenticator** screen on your PC, type the 6-digit verification code provided in the app for your Google account, and then select **Verify**.
 
-7. Your account is verified and you can select **Done** to close the **Set up Authenticator** screen.
+7. Your account is verified, and you can select **Done** to close the **Set up Authenticator** screen.
 
     >[!NOTE]
     >For more information about two-factor verification and your Google account, see [Turn on 2-Step Verification](https://support.google.com/accounts/answer/185839) and [Learn more about 2-Step Verification](https://www.google.com/landing/2step/help.html).
@@ -117,7 +117,7 @@ You can add your Facebook account by first turning on two-factor verification an
 
     You're given a QR code that you can use to automatically associate your account with the Microsoft Authenticator app. Do not close this window.
 
-2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Other account (Google, Facebook, etc)**.
+2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Other account (Google, Facebook, etc.)**.
 
 3. Use your device's camera to scan the QR code from the **Two factor authentication** screen on your PC.
 
@@ -130,7 +130,7 @@ You can add your Facebook account by first turning on two-factor verification an
 
 5. Select **Next** on the **Two factor authentication** screen on your PC, and then type the 6-digit verification code provided in the app for your Facebook account.
 
-    Your account is verified and you can now use the app to verify your account.
+    Your account is verified, and you can now use the app to verify your account.
 
     >[!NOTE]
     >For more information about two-factor verification and your Facebook account, see [What is two-factor authentication and how does it work?](https://www.facebook.com/help/148233965247823).
@@ -145,7 +145,7 @@ You can add your Apple ID by first turning on two-factor verification and then b
 
 1. On your Apple device, follow one of these procedures, based on your operating system version:
 
-    **iOS 10.3 or later**
+#### iOS 10.3 or later
 
     1. Go to **Settings**, > [*your_name*] > **Password & Security**.
 
@@ -159,7 +159,7 @@ You can add your Apple ID by first turning on two-factor verification and then b
     
     5. Type the provided code to verify your phone number and to finish setting up two-factor verification.
 
-    **iOS 10.2 or earlier**
+#### iOS 10.2 or earlier
     
     1. Go to **Settings**, > **iCloud**.
 
@@ -175,7 +175,7 @@ You can add your Apple ID by first turning on two-factor verification and then b
     
     6. Type the provided code to verify your phone number and to finish setting up two-factor verification.
 
-    **Mac with OS X El Capitan or later**
+#### Mac with OS X El Capitan or later
 
     1. Go to **Apple** menu > **System Preferences** > **iCloud** > **Account Details**.
 
@@ -187,7 +187,7 @@ You can add your Apple ID by first turning on two-factor verification and then b
 
 1. Get the QR code
 
-2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Other account (Google, Facebook, etc)**.
+2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Other account (Google, Facebook, etc.)**.
 
 3. Use your device's camera to scan the QR code from the **Two factor authentication** screen on your PC.
 
@@ -200,7 +200,7 @@ You can add your Apple ID by first turning on two-factor verification and then b
 
 5. Select **Next** on the **Two factor authentication** screen on the Apple site from your PC, and then type the 6-digit verification code provided in the app for your Apple ID.
 
-    Your account is verified and you can now use the app to verify your account.
+    Your account is verified, and you can now use the app to verify your account.
 
     >[!NOTE]
     >For more information about two-factor verification and your Apple ID account, see [Set up two-factor authentication for your Apple ID](https://support.apple.com/en-us/HT204915).

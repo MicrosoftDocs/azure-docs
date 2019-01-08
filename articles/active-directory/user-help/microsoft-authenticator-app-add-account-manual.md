@@ -74,6 +74,3 @@ The codes provided for your accounts aren't case-sensitive and don't require spa
 - After you add your accounts to the app, you can sign in using the Authenticator app on your device. For more information, see [Sign in using the app](microsoft-authenticator-app-phone-signin-faq.md).
 
 - For devices running iOS, you can also back up your account credentials and related app settings, such as the order of your accounts, to the cloud. For more information, see [Backup and recover with Microsoft Authenticator app](microsoft-authenticator-app-backup-and-recovery.md).
-
-
-If your camera isn't working properly, you can [enter the QR code and URL manually](#add-an-account-to-the-app-manually).
