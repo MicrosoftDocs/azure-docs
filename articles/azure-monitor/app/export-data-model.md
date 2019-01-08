@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 ---
 # Application Insights Export Data Model
-This table lists the properties of telemetry sent from the [Application Insights](../../application-insights/app-insights-overview.md) SDKs to the portal.
+This table lists the properties of telemetry sent from the [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDKs to the portal.
 You'll see these properties in data output from [Continuous Export](export-telemetry.md).
 They also appear in property filters in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md) and [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md).
 
@@ -343,6 +343,6 @@ Instead of pre-aggregating metrics, you can use [sampling](../../azure-monitor/a
 Except where otherwise noted, durations are represented in tenths of a microsecond, so that 10000000.0 means 1 second.
 
 ## See also
-* [Application Insights](../../application-insights/app-insights-overview.md)
+* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 * [Continuous Export](export-telemetry.md)
 * [Code samples](export-telemetry.md#code-samples)
