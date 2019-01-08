@@ -86,7 +86,7 @@ Learn [How to create a role assignment for your user-defined function](./how-to-
 
 ### Check if the matcher works for a sensor's telemetry
 
-With the following call against your Azure Digital Twins instances' Management API, you are able to determine if a given matcher applies for the given sensor.
+With the following call against your Azure Digital Twins instances' Management API, you're able to determine if a given matcher applies for the given sensor.
 
 ```plaintext
 GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
@@ -110,7 +110,7 @@ Response:
 
 ### Check what a sensor triggers
 
-With the following call against the Azure Digital Twins Management APIs, you're able to determine the identifiers of your user-defined functions  triggered by the given sensor's incoming telemetry:
+With the following call against the Azure Digital Twins Management APIs, you're able to determine the identifiers of your user-defined functions triggered by the given sensor's incoming telemetry:
 
 ```plaintext
 GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
