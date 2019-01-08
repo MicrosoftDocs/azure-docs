@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 11/7/2018
+ms.date: 01/09/2019
 ms.author: shlo
 
 ---
@@ -73,11 +73,11 @@ A configuration pane appears. For details about the configuration settings, see 
 
 ![Configure the code repository settings for UX authoring](media/author-visually/configure-repo-2.png)
 
-## Use a different Azure Active Directory tenant
+### Use a different Azure Active Directory tenant
 
 You can create an Azure Repos Git repo in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using.
 
-## Use your personal Microsoft account
+### Use your personal Microsoft account
 
 To use a personal Microsoft account for Git integration, you can link your personal Azure Repo to your organization's Active Directory.
 
@@ -91,7 +91,7 @@ After these configuration steps, your personal repo is available when you set up
 
 For more info about connecting Azure Repos to your organization's Active Directory, see [Connect your Azure DevOps organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
-## Switch to a different Git repo
+### Switch to a different Git repo
 
 To switch to a different Git repo, locate the icon in the upper right corner of the Data Factory overview page, as shown in the following screenshot. If you can’t see the icon, clear your local browser cache. Select the icon to remove the association with the current repo.
 
@@ -99,7 +99,7 @@ After you remove the association with the current repo, you can configure your G
 
 ![Remove the association with the current Git repo](media/author-visually/remove-repo.png)
 
-## Use version control
+### Use version control
 Version control systems (also known as _source control_) let developers collaborate on code and track changes that are made to the code base. Source control is an essential tool for multi-developer projects.
 
 Each Azure Repos Git repository that's associated with a data factory has a collaboration branch. (`master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** and do development in the feature branches.
@@ -110,7 +110,7 @@ When you are ready with the feature development in your feature branch, you can 
 
 ![Create a new pull request](media/author-visually/create-pull-request.png)
 
-## Configure publishing settings
+### Configure publishing settings
 
 To configure the publish branch - that is, the branch where Resource Manager templates are saved - add a `publish_config.json` file to the root folder in the collaboration branch. Data Factory reads this file, looks for the field `publishBranch`, and creates a new branch (if it doesn't already exist) with the value provided. Then it saves all Resource Manager templates to the specified location. For example:
 
@@ -128,13 +128,39 @@ When you specify a new publish branch, Data Factory doesn't delete the previous 
 
 Data Factory only reads the `publish_config.json` file when it loads the factory. If you already have the factory loaded in the portal, refresh the browser to make your changes take effect.
 
-## Publish code changes
+### Publish code changes
 After you have merged changes to the collaboration branch (`master` is the default), select **Publish** to manually publish your code changes in the master branch to the Data Factory service.
 
 ![Publish changes to the Data Factory service](media/author-visually/publish-changes.png)
 
 > [!IMPORTANT]
 > The master branch is not representative of what's deployed in the Data Factory service. The master branch *must* be published manually to the Data Factory service.
+
+### Advantages of Git integration
+
+-   **SourceControl**. As your data factory workloads become crucial, you would want to integrate your factory with GIT to leverage several she source control benefits like:
+    -   Ability to track/audit changes.
+    -   Ability to revert changes that introduced bugs.
+-   **Partial Saves**. As you make a lot of changes in your factory, you will realize that in the regular LIVE mode, you can't save your changes as draft, because you are not ready, or you don’t want to lose your changes in case your machine goes done. With GIT integration, you can continue saving your changes incrementally, and publish to the factory only when you are ready. GIT acts as a staging place for your work, until you have tested your changes to your satisfaction.
+-   **Collaboration and Control**. If you have multiple team members participating to the same factory, you may want to let your teammates collaborate with each other via a code review process. You can also setup your factory such that not every contributor to the factory has permission to deploy to the factory. Team members may just be allowed to make changes via GIT, but only certain people in the team are allowed to "Publish" the changes to the factory.
+-   **Showing diffs**. In GIT mode, you get to see a nice diff of the payload that’s about to get published to the factory. This shows you all resources/entities that got modified/added/deleted since the last time you published to your factory. Based on this, you can either continue further with publishing, or go back and check your changes, and then come back later.
+-   **Better CICD**. If you are using GIT mode, you can configure your release pipeline to trigger automatically as soon as there are any changes made in the dev factory. You also get to customize the properties in your factory that is available as parameters in the ARM template. This can be helpful for you to keep only the required set of properties as parameters, and have everything else as hard coded.
+-   **Better Performance**. An average factory loads 10x times faster in GIT mode than in regular LIVE mode, because the resources are downloaded via GIT.
+
+### Best practices for Git integration
+
+-   **Permissions**. Typically you don’t want all the team members to be having permissions to update the factory.
+    -   All team members should have read permissions to the data factory.
+    -   Only a select set of people should be allowed to publish to the factory, and for that they need to be part of the "Data Factory contributor" role on the factory.
+    -   One of the good practices of the source control is also to not allow direct check-ins into the collaboration branch. This prevents bugs as every check-in goes through a Pull Request process.
+-   **Switching modes**.
+    -    Once you are in GIT mode, we don’t recommend you to switch back and forth into LIVE mode, primarily because any changes that are made in LIVE mode, will not be seen when you switch back to GIT. You should try to make the changes in GIT mode itself and then publish them via the UI.
+    -   Similarly, don’t use any Data factory powershell cmdlets either, as they achieve the same effect by directly applying the provided changes to the live factory.
+-   **Use passwords from Azure Key Vault**.
+    -   We strongly recommend using AzureKeyVault to store any connection strings or passwords to DataFactory Linked Services.
+    -   We don’t store any such secret information in GIT (for security reasons), so any changes to Linked Services are right away published to the live factory. This is sometimes not desired, as the changes may not have gotten tested, which defeats the purpose of GIT.
+    -   As a result, all such secrets must be fetched from Linked Services that use Azure Key Vault based.
+    -   Some of the other benefits of using Key Vault, is that it makes CICD easier, by not making you provide these secrets during ARM template deployment.
 
 ## Author with GitHub integration
 
