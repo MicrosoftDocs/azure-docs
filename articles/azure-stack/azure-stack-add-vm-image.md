@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 11/05/2018
+ms.date: 1/07/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
 
@@ -45,7 +45,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
    * Make a note of the blob storage URI where you upload the image. The blob storage URI has the following format:
   *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd.
 
-   * To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded. Select **Blob**, and then select **Access Policy**. Optionally, you can instead generate a shared access signature for the container, and include it as part of the blob URI. This step makes sure the blob is available to be used for adding this as an image. If the blob is not anonymously accessible, the VM image will be created to in a failed state.
+   * To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded. Select **Blob**, and then select **Access Policy**. Optionally, you can generate a shared access signature for the container, and include it as part of the blob URI. This step makes sure the blob is available to be used for adding this as an image. If the blob is not anonymously accessible, the VM image will be created to in a failed state.
 
    ![Go to storage account blobs](./media/azure-stack-add-vm-image/image1.png)
 
