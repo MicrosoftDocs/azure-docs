@@ -246,16 +246,39 @@ To prepare your Databricks cluster and get sample notebooks:
     | Python version | 3 |
     | Workers | 2 or higher |
 
-    The following settings are only for using Automated Machine Learning on Databricks.
-    The number of worker nodes in your Databricks cluster determines the max number of concurrent iterations in Automated ML settings.  
-     | Setting | Value |
+    These settings are only for using Automated Machine Learning on Databricks
+    
+    |   Setting | Value |
     |----|---|
     | Worker node VM types | Memory optimized VM preferred |
     | Enable Autoscaling | Uncheck |
+    
+    The number of worker nodes in your Databricks cluster determines the max number of concurrent iterations in Automated ML settings.  
 
-    It will take few minutes to create the cluster. Please ensure that the cluster state is running before proceeding further.
+    It will take few minutes to create the cluster. Wait until the cluster state is running before proceeding further.
 
-1. To install and attach the Azure Machine Learning SDK for Python `azureml-sdk[databricks]` PyPi package to your cluster, [create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library).  
+1. Install and attach the Azure Machine Learning SDK for Python `azureml-sdk[databricks]` PyPi package to your cluster.  [Create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) with these settings:
+    
+    * To install Azure ML SDK without Automated ML capability:
+        | Setting | Value |
+        |----|---|
+        |Source | Upload Python Egg or PyPI
+        |PyPi Name | azureml-sdk[databricks]
+
+    * To install Azure ML with Automated ML SDKL
+        | Setting | Value |
+        |----|---|
+        |Source | Upload Python Egg or PyPI
+        |PyPi Name | azureml-sdk[automl_databricks]
+
+    * Do not select **Attach automatically to all clusters**
+
+    * Select  **Attach** next to your cluster name
+
+    * Ensure that there are no errors until status changes to **Attached**. It may take a couple of minutes.
+
+    If you have an old SDK version, deselect it from cluster’s installed libs and move to trash. Install the new SDK version and restart the cluster. If there is an issue after this, detach and reattach your cluster.
+
     When you're done, the library is attached as shown in the following image. Be aware of these [common Databricks issues](resource-known-issues.md#databricks).
 
    ![SDK installed on Databricks ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
