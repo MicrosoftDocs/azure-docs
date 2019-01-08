@@ -140,14 +140,14 @@ Running secret rotation using the instructions below will remediate these alerts
 
 To rotate external secrets:
 
-1. Within the newly created **\Certificates\\{IdentityProvider}** directory created in the Pre-steps, place the new set of replacement external certificates in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
+1. Within the newly created **\Certificates\\\<IdentityProvider>** directory created in the Pre-steps, place the new set of replacement external certificates in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 
     Example of folder structure for the AAD Identity Provider:
     ```PowerShell
         <ShareName>
         |   |
         |   ├───Certificates
-        │   └───AD
+        │   └───AAD
         │       ├───ACSBlob
         │       │       <CertName>.pfx
         │       │
