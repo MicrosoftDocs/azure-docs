@@ -57,7 +57,7 @@ No, Site Recovery does not require internet connectivity but access to Site Reco
 ## Replication Policy
 
 ### What is a Replication policy?
-It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery creates a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
+It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery creates a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency. [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings) how to configure replication policy]
 
 ### What is crash consistent recovery point?
 Crash consistent recovery point represents the on-disk data as if the VM crashed or the power cord was pulled from the server at the time snapshot was taken. It doesn’t include anything that was in memory when the snapshot was taken. Today, most applications can recover well from crash consistent snapshots. A crash-consistent recovery point is usually enough for no database operating systems and applications like file servers, DHCP servers, print servers, and so on.
