@@ -43,8 +43,6 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 * ARES for Enterprise supports **SP** initiated SSO
 
 * ARES for Enterprise supports **Just In Time** user provisioning
- 
-* ARES for Enterprise supports **Automated** user provisioning
 
 ## Adding ARES for Enterprise from the gallery
 
