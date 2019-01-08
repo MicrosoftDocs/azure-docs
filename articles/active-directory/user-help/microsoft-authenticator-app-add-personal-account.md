@@ -27,7 +27,7 @@ Generally, for all of your personal accounts, you'll need to:
 
 2. Add the account to the Microsoft Authenticator app.
 
-We're providing the process here for your personal Microsoft apps, your Facebook, Google, and Apple accounts, but this process is the same for any other app, such as Instagram, Adobe, and so on.
+We're providing the process here for your personal Microsoft apps, along with your Facebook, Google, and Apple accounts, but this process is the same for any other app, such as Instagram, Adobe, and so on.
 
 ## Add your personal Microsoft account
 You can add your personal Microsoft account by first turning on two-factor verification, and then by adding the account to the app.
