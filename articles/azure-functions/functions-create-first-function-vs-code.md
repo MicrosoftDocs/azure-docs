@@ -23,7 +23,7 @@ In this article, you learn how to use the [Azure Functions extension for Visual 
 
 ![Azure Functions code in a Visual Studio project](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-The extension currently supports C#, JavaScript, and Java functions. The steps in this article may vary depending on your choice of language for your Azure Functions project. The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
+The extension currently fully supports C#, JavaScript, and Java functions, with Python support currently in Preview. The steps in this article may vary depending on your choice of language for your Azure Functions project. The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
 
 ## Prerequisites
 
@@ -89,7 +89,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     ![Function localhost response in the browser](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
 
-1. To stop debugging, press Shift + F1.
+1. To stop debugging, press Shift + F5.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 

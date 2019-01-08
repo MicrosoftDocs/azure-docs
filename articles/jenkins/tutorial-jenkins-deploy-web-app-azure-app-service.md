@@ -3,7 +3,7 @@ title: Tutorial - Deploy from GitHub to Azure App Service with Jenkins
 description: Set up Jenkins for continuous integration (CI) from GitHub and continuous deployment (CD) to Azure App Service for Java web apps
 services: jenkins
 ms.service: jenkins
-author: tomarcher
+author: tomarchermsft
 ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
@@ -113,7 +113,7 @@ in Jenkins.
 > However, if your GitHub account uses two-factor authentication, 
 > create your token in GitHub and set up Jenkins to use that token instead. 
 > For more information, see the 
-> [Jenkins GitHub plug-in](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) documentation.
+> [Jenkins GitHub plug-in](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin) documentation.
 
 1. From the **Manage Jenkins** page, 
 select **Configure System**. 

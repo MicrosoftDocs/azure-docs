@@ -1,9 +1,7 @@
 ---
 title: Provision container throughput in Azure Cosmos DB
 description: Learn how to provision throughput at the container level in Azure Cosmos DB
-services: cosmos-db
 author: markjbrown
-
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
@@ -43,7 +41,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-If you are provisioning throughput for MongoDB API account, use '/myShardKey' for the partition key path and when provisioning throughput for Cassandra API account, use '/myPrimaryKey' for the partition key path.
+If you are provisioning throughput for a Cosmos account configured with Azure Cosmos DB's API for MongoDB, use '/myShardKey' for the partition key path and when provisioning throughput for a Cosmos account configured for Cassandra API, use '/myPrimaryKey' for the partition key path.
 
 ## Provision throughput using .NET SDK
 

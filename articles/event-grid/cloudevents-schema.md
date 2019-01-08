@@ -17,7 +17,7 @@ In addition to its [default event schema](event-schema.md), Azure Event Grid nat
 
 CloudEvents simplifies interoperability by providing a common event schema for publishing, and consuming cloud based events. This schema allows for uniform tooling, standard ways of routing & handling events, and universal ways of deserializing the outer event schema. With a common schema, you can more easily integrate work across platforms.
 
-CloudEvents is being build by several [collaborators](https://github.com/cloudevents/spec/blob/master/community/contributors.md), including Microsoft, through the [Cloud Native Compute Foundation](https://www.cncf.io/). It's currently available as version 0.1.
+CloudEvents is being built by several [collaborators](https://github.com/cloudevents/spec/blob/master/community/contributors.md), including Microsoft, through the [Cloud Native Compute Foundation](https://www.cncf.io/). It's currently available as version 0.1.
 
 This article describes how to use the CloudEvents schema with Event Grid.
 
