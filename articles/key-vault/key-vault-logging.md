@@ -11,9 +11,8 @@ ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
 
 ---
@@ -109,7 +108,7 @@ To enable logging for Key Vault, we'll use the Set-AzureRmDiagnosticSetting cmdl
 Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 ```
 
-The output for this includes:
+The output will look like this:
 
     StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
     ServiceBusRuleId   :
@@ -152,7 +151,7 @@ To list all the blobs in this container, type:
 Get-AzureStorageBlob -Container $container -Context $sa.Context
 ```
 
-The output will look something similar to this:
+The output will look similar to this:
 
 **Container Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
@@ -226,6 +225,7 @@ Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
 
 will return a log entry similar to the one shown below:
 
+```json
     {
         "records":
         [
@@ -246,6 +246,7 @@ will return a log entry similar to the one shown below:
             }
         ]
     }
+```
 
 The following table lists the field names and descriptions.
 

@@ -46,7 +46,7 @@ This article has the release notes for Azure Stack Validation as a Service.
 
 - VaaS prerequisites and VHD updates
 
-    `Install-VaaSPrerequisites` now requires cloud admin credentials to address an issue during package validation. The documentation at [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) has been updated with the following:
+    `Install-VaaSPrerequisites` now requires cloud admin credentials to address an issue during Solution Validation. The documentation at [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) has been updated with the following:
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -73,7 +73,7 @@ This article has the release notes for Azure Stack Validation as a Service.
 
   - Package signing notifications
 
-    When an OEM customization package is submitted as part of the Package Validation workflow, the package format will be validated to ensure that it follows the published specification. If the package does not comply, the run will fail. E-mail notifications will be sent to the email address of the registered Azure Active Directory contact for the tenant.
+    When an OEM customization package is submitted as part of the Solution Validation workflow, the package format will be validated to ensure that it follows the published specification. If the package does not comply, the run will fail. E-mail notifications will be sent to the email address of the registered Azure Active Directory contact for the tenant.
 
   - Interactive test category
 

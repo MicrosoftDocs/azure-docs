@@ -21,6 +21,8 @@
   items:
   - name: Evaluate Azure Stack
     href: azure-stack-deploy-overview.md
+  - name: Use the administration portal
+    href: azure-stack-manage-portals.md
 - name: Tutorials
   items:
   - name: Offer Virtual Machines
@@ -126,8 +128,6 @@
       href: azure-stack-registration.md
     - name: Region management
       href: azure-stack-region-management.md
-    - name: Using the administrator portal
-      href: azure-stack-manage-portals.md
     - name: Connect to Azure
       items:
       - name: Connect using VPN

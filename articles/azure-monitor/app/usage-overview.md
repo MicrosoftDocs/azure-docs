@@ -25,7 +25,7 @@ The best experience is obtained by installing Application Insights both in your 
 
 1. **Server code:** Install the appropriate module for your [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../application-insights/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md), or [other](../../azure-monitor/app/platforms.md) app.
 
-    * *Don't want to install server code? Just [create an Azure Application Insights resource](../../application-insights/app-insights-create-new-resource.md).*
+    * *Don't want to install server code? Just [create an Azure Application Insights resource](../../azure-monitor/app/create-new-resource.md ).*
 
 2. **Web page code:** Add the following script to your web page before the closing ``</head>``. Replace instrumentation key with the appropriate value for your Application Insights resource:
 
@@ -42,7 +42,7 @@ The best experience is obtained by installing Application Insights both in your 
     ```
     To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK API reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md).
 
-3. **Mobile app code:** Use the App Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](../../application-insights/app-insights-mobile-center-quickstart.md).
+3. **Mobile app code:** Use the App Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](../../azure-monitor/learn/mobile-center-quickstart.md).
 
 4. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview blade in Application Insights.
 
