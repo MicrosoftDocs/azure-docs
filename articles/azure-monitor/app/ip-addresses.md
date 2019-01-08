@@ -17,7 +17,7 @@ ms.author: mbullwin
 The [Azure Application Insights](../../application-insights/app-insights-overview.md) service uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
 
 > [!NOTE]
-> Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights firewall exceptions represent outgoing traffic with the exception of availability monitoring and webhooks which require incoming traffic exceptions.
+> Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhooks which require inbound firewall rules.
 > 
 > 
 
