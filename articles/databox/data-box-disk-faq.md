@@ -84,10 +84,10 @@ A.  Microsoft provides a shipping label with the Data Box Disks in the shipping 
 ## Migrate data
 
 ### Q. What is the maximum data size that can be used with Data Box Disks?  
-A.  Data Box Disks solution can have up to 5 disks with a maximum usable capacity of 35 TB. The disks themselves are 8 TB (usable 7 TB). 
+A.  Data Box Disks solution can have up to 5 disks with a maximum usable capacity of 35 TB. The disks themselves are 8 TB (usable 7 TB).
 
 ### Q. What are the maximum block blob and page blob sizes supported by Data Box Disks? 
-A.  The maximum sizes are governed by Azure Storage limits. The maximum block blob is roughly 4.768 TiB and the maximum page blob size is 8 TiB. For more information, go to [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md). 
+A.  The maximum sizes are governed by Azure Storage limits. The maximum block blob is roughly 4.768 TiB and the maximum page blob size is 8 TiB. For more information, go to [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md).
 
 ### Q. What is the data transfer speed for Data Box Disks?
 A. When tested with disks connected via USB 3.0, the disk performance was up to 430 MB/s. The actual numbers vary depending upon the file size used. For smaller files, you may see lower performance.
@@ -96,7 +96,7 @@ A. When tested with disks connected via USB 3.0, the disk performance was up to 
 A.  Data Box Disks are encrypted using BitLocker AES-128 bit encryption and the passkey is only available in the Azure portal. Log into the Azure portal using your account credentials to get the passkey. Supply this passkey when you run the Data Box Disk unlock tool.
 
 ### Q. How do I copy the data to the Data Box Disks? 
-A.  Use an SMB copy tool such as Robocopy, Diskboss or even Windows File Explorer drag-and-drop to copy data onto disks. 
+A.  Use an SMB copy tool such as Robocopy, Diskboss or even Windows File Explorer drag-and-drop to copy data onto disks.
 
 ### Q. Are there any tips to speed up the data copy?
 A.  To speed up the copy process:
@@ -114,9 +114,19 @@ A.  To speed up the copy process:
 - Mount it to a VM.
 - Copy files to the VM’s disk.
 
-
 ### Q. Can I use multiple storage accounts with Data Box Disks?
 A.  No. Only one storage account, general or classic, is currently supported with Data Box Disks. Both hot and cool blob are supported. Currently, only the storage accounts in US, West Europe, and North Europe in the Azure public cloud are supported.
+
+### Q. What is the toolset available for my data with Data Box Disks?
+A. The toolset available with the Data Box Disk contains three tools:
+ - **Data Box Disk Unlock tool**: As the name suggests, this tool unlocks the encrypted disks that are shipped from Microsoft. To unlock the disks using the tool, you need to provide a passkey available in the Data Box Disk order in the Azure portal. 
+ - **Data Box Disk Validation tool**: This tool allows you to validate the size, format, and blob names as per the Azure naming convnetions. It also generates checksums for the copied data which are then used to verify the data uploaded to Azure.
+ - **Data Box Disk Split Copy tool**: Use this tool when you are using multiple disks and have a large dataset that needs to be split and copied across all the disks. This tool is currently available for Windows.
+
+The toolset is available both for Windows and Linux. You can download the toolset here:
+ - [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin) 
+ - [Download Data Box Disk toolset for Linux](https://aka.ms/databoxdisktoolslinux)
+
 
 ## Verify and upload
 
@@ -124,7 +134,7 @@ A.  No. Only one storage account, general or classic, is currently supported wit
 A.  Once the order status for Data Copy shows as complete, you should be able to access your data right away.
 
 ### Q. Where is my data located in Azure after the upload?
-A.  When you copy the data under *BlockBlob* and *PageBlob* folders on your disk, a container is created in the Azure storage account for each subfolder under the *BlockBlob* and *PageBlob* folder. If you copied the files under *BlockBlob* and *PageBlob* folders directly, then these are in a default container *$root* under the Azure Storage account. 
+A.  When you copy the data under *BlockBlob* and *PageBlob* folders on your disk, a container is created in the Azure storage account for each subfolder under the *BlockBlob* and *PageBlob* folder. If you copied the files under *BlockBlob* and *PageBlob* folders directly, then these are in a default container *$root* under the Azure Storage account.
 
 ### Q. I just noticed that I did not follow the Azure naming requirements for my containers. Will my data fail to upload to Azure?
 A. If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages and so on), the upload will fail. For more information, go to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions).
@@ -143,8 +153,6 @@ A. Yes. If you decide to validate your data (we recommend you do!), you need to 
 
 ### Q. I used all my disks to transfer data and need to order more disks. Is there a way to quickly place the order?
 A. You can clone your previous order. Cloning creates the same order as before and allow you to edit order details only without the need to type in address, contact, and notification details. 
-
-
 
 ## Next steps
 
