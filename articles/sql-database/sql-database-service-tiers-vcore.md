@@ -61,7 +61,7 @@ In the vCore-based purchasing model, you can exchange your existing licenses for
 
 ![pricing](./media/sql-database-service-tiers/pricing.png)
 
-With the Azure Hybrid Benefit, you can choose to only pay for the underlying Azure infrastructure using your existing SQL Server license for the SQL database engine itself (called **BasePrice**) or pay for both the underlying infrastructure and the SQL Server license (called **LicenseIncluded**). You can choose or change your licensing model using the Azure portal or using one of the following APIs.
+With the Azure Hybrid Benefit, you can choose to only pay for the underlying Azure infrastructure using your existing SQL Server license for the SQL database engine itself (**BasePrice**) or pay for both the underlying infrastructure and the SQL Server license (**LicenseIncluded**). You can choose or change your licensing model using the Azure portal or using one of the following APIs.
 
 - To set or update the license type using PowerShell:
 
