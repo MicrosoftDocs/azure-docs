@@ -7,7 +7,7 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want a low-impact introduction to index design.
@@ -120,9 +120,13 @@ It can take a few minutes for the portal to update the page, but you should see 
 
 ## View the index
 
-The **Indexes** list shows existing indexes, including the *realestate-us-sample* index that you just created in the wizard.
+The main service page provides links to the resources created in your Azure Search service.  To view the index you just created, click **Indexes** from the list of links. 
 
-From this list, you can view the index schema and optionally add new fields, but you cannot change existing fields. Existing fields have a physical representation in Azure Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
+   ![Indexes list on the service dashboard](media/search-get-started-portal/indexes-list.png)
+
+From this list, you can click on the *realestate-us-sample* index that you just created, view the index schema. and optionally add new fields. 
+
+The **Fields** tab shows the index schema. Scroll to the bottom of the list to enter a new field. In most cases, you cannot change existing fields. Existing fields have a physical representation in Azure Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
 
    ![sample index definition](media/search-get-started-portal/sample-index-def.png)
 
