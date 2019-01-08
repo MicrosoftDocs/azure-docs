@@ -80,7 +80,7 @@ Ensuring that your development and operations have access to the same telemetry 
 ## Continuously optimize
  Monitoring is one of the fundamental aspects of the popular Build-Measure-Learn philosophy, which recommends continuously tracking your KPIs and user behavior metrics and then striving to optimize them through planning iterations. Azure Monitor helps you collect metrics and logs relevant to your business and to add new data points in the next deployment as required.
 
-- Use tools in Application Insights to [track end-user behavior and engagement](../application-insights/app-insights-tutorial-users.md).
+- Use tools in Application Insights to [track end-user behavior and engagement](../azure-monitor/learn/tutorial-users.md).
 - Use [Impact Analysis](../azure-monitor/app/usage-impact.md) to help you prioritize which areas to focus on to drive to important KPIs.
 
 
