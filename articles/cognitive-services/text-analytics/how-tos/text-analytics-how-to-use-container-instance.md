@@ -175,7 +175,20 @@ In order to deploy the container to the Azure Kubernetes service, the container 
     docker push pattiocogservcontainerregistry.azurecr.io/language-frontend:v1
     ```
 
-    If you get an `unauthorized: authentication required` error, login with the `az acr login --name pattiocogservcontainerregistry` command. 
+    If you get an `unauthorized: authentication required` error, login with the `az acr login --name <your-container-registry-name>` command. 
+
+    When the process is done, the results should be similar to:
+
+    ```console
+    The push refers to repository [pattiocogservcontainerregistry.azurecr.io/language-frontend]
+    82ff52ee6c73: Pushed
+    07599c047227: Pushed
+    816caf41a9a1: Pushed
+    2924be3aed17: Pushed
+    45b83a23806f: Pushed
+    ef68f6734aa4: Pushed
+    v1: digest: sha256:31930445deee181605c0cde53dab5a104528dc1ff57e5b3b34324f0d8a0eb286 size: 1580
+    ```
 
 1. Verify the image is in your Container registry. On the Azure portal, on your Container registry, verify the repositories list has this new repository named **language-frontend**. 
 
@@ -187,7 +200,7 @@ In order to deploy the container to the Azure Kubernetes service, the container 
 
 ## Get language detection docker image 
 
-1. Pull the latest version of the docker image to the local machine. 
+1. Pull the latest version of the docker image to the local machine. This may take a few minutes. If there is a newer version of this container, change the value from `1.1.006770001-amd64-preview` to the newer version. 
 
     ```console
     docker pull mcr.microsoft.com/azure-cognitive-services/language:1.1.006770001-amd64-preview
@@ -215,7 +228,7 @@ In order to deploy the container to the Azure Kubernetes service, the container 
 
     No results are returned.
 
-1. Push the image to the Azure Container registry. 
+1. Push the image to the Azure Container registry. This may take a few minutes. 
 
     ```console
     docker push pattiocogservcontainerregistry.azurecr.io/language:1.1.006770001-amd64-preview
@@ -277,12 +290,12 @@ The following steps are needed to get the required information to connect your C
     ```JSON
     {
       "canDelegate": null,
-      "id": "/subscriptions/333d9379-a62c-4b5d-84ab-52f2b0fc40ac/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/diberrycontainerregistry001/providers/Microsoft.Authorization/roleAssignments/d85b34d4-b46e-4239-8eab-a10d7bdb95b0",
+      "id": "/subscriptions/333d9379-a62c-4b5d-84ab-52f2b0fc40ac/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattiocontainerregistry001/providers/Microsoft.Authorization/roleAssignments/d85b34d4-b46e-4239-8eab-a10d7bdb95b0",
       "name": "d85b34d4-b46e-4239-8eab-a10d7bdb95b0",
       "principalId": "b183584b-cec4-4307-8dbc-3fa833b3e394",
       "resourceGroup": "cogserv-container-rg",
       "roleDefinitionId": "/subscriptions/333d9379-a62c-4b5d-84ab-52f2b0fc40ac/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-      "scope": "/subscriptions/333d9379-a62c-4b5d-84ab-52f2b0fc40ac/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/diberrycontainerregistry001",
+      "scope": "/subscriptions/333d9379-a62c-4b5d-84ab-52f2b0fc40ac/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattiocontainerregistry001",
       "type": "Microsoft.Authorization/roleAssignments"
     }
     ```
@@ -364,9 +377,9 @@ The following steps are needed to get the required information to connect your C
 
 ## Load the orchestration definition into the Kubernetes service
 
-This section uses the kubectl cli to talk with the Azure Kubernetes service. 
+This section uses the **kubectl** cli to talk with the Azure Kubernetes service. 
 
-1. Before loading the orchestration definition, check the kubectl has access to the nodes.
+1. Before loading the orchestration definition, check kubectl has access to the nodes.
 
     ```console
     kubectl get nodes
@@ -384,13 +397,12 @@ This section uses the kubectl cli to talk with the Azure Kubernetes service.
 
     |Change|Purpose|Value example|
     |--|--|
-    |Line 32, `image` property|Image location for the frontend image in your Container Registry|<container-registry-name>.azurecr.io/language:latest|
+    |Line 32, `image` property|Image location for the frontend image in your Container Registry|`<container-registry-name>.azurecr.io/language-frontend:v1`|
     |Line 44, `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|GUID|
-    |Line 78, `image` property|Image location for the language image in your Container Registry||
+    |Line 78, `image` property|Image location for the language image in your Container Registry|`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |Line 95, `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|GUID|
     |Line 91, `apiKey` property|Your text analytics resource key|GUID|
     |Line 92, `billing` property|The billing endpoint for your text analytics resource.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
-    |Line 70, `replicas` property|Change the value from 1 to 2 so that the website can request across two load-balanced containers.|2|
 
     Because the apiKey and billing endpoint are set as part of the Kubernetes orchestration definition, the website container doesn't need to know about these or pass them as part of the request. 
 
@@ -428,7 +440,7 @@ This section uses the kubectl cli to talk with the Azure Kubernetes service.
         spec:
           containers:
           - name: language-frontend
-            image: diberrycogservcontainerregistry.azurecr.io/ta-lang-frontend:v1
+            image: pattiocogservcontainerregistry.azurecr.io/ta-lang-frontend:v1
             ports:
             - name: public-port
               containerPort: 80
@@ -474,7 +486,7 @@ This section uses the kubectl cli to talk with the Azure Kubernetes service.
         spec:
           containers:
           - name: language
-            image: diberrycogservcontainerregistry.azurecr.io/azure-cognitive-services/language
+            image: pattiocogservcontainerregistry.azurecr.io/azure-cognitive-services/language
             ports:
             - name: public-port
               containerPort: 5000
