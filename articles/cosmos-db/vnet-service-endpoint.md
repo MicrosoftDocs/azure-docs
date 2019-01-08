@@ -2,11 +2,11 @@
 title: Secure access to an Azure Cosmos DB account by using Azure Virtual Network service endpoint 
 description: This document describes about virtual network and subnet access control for an Azure Cosmos account.
 author: kanshiG
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
+ms.reviewer: sngun
 
 ---
 

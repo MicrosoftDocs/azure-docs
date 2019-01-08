@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 ---
 # Set up Application Insights: Dependency tracking
-A *dependency* is an external component that is called by your app. It's typically a service called using HTTP, or a database, or a file system. [Application Insights](../../application-insights/app-insights-overview.md) measures how long your application waits for dependencies and how often a dependency call fails. You can investigate specific calls, and relate them to requests and exceptions.
+A *dependency* is an external component that is called by your app. It's typically a service called using HTTP, or a database, or a file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) measures how long your application waits for dependencies and how often a dependency call fails. You can investigate specific calls, and relate them to requests and exceptions.
 
 The out-of-the-box dependency monitor currently reports calls to these  types of dependencies:
 
@@ -117,7 +117,7 @@ There seems to be a large gap after the first dependency call, so we should look
 
 ### Profile your live site
 
-No idea where the time goes? The [Application Insights profiler](../../application-insights/app-insights-profiler.md) traces HTTP calls to your live site and shows you which functions in your code took the longest time.
+No idea where the time goes? The [Application Insights profiler](../../azure-monitor/app/profiler.md) traces HTTP calls to your live site and shows you which functions in your code took the longest time.
 
 ## Failed requests
 Failed requests might also be associated with failed calls to dependencies. Again, we can click through to track down the problem.

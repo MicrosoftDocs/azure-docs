@@ -161,7 +161,7 @@ This is enabled by default. If your app sends a lot of telemetry, this processor
 
 The parameter provides the target that the algorithm tries to achieve. Each instance of the SDK works independently, so if your server is a cluster of several machines, the actual volume of telemetry will be multiplied accordingly.
 
-[Learn more about sampling](../../application-insights/app-insights-sampling.md).
+[Learn more about sampling](../../azure-monitor/app/sampling.md).
 
 #### Fixed-rate sampling telemetry processor (from 2.0.0-beta1)
 There is also a standard [sampling telemetry processor](../../azure-monitor/app/api-filtering-sampling.md) (from 2.0.1):
@@ -389,6 +389,6 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationI
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: ../../azure-monitor/app/asp-net-exceptions.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
-[new]: ../../application-insights/app-insights-create-new-resource.md
+[new]: ../../azure-monitor/app/create-new-resource.md 
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md

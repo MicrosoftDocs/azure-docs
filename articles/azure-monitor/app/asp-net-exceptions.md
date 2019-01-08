@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 ---
 # Diagnose exceptions in your web apps with Application Insights
-Exceptions in your live web app are reported by [Application Insights](../../application-insights/app-insights-overview.md). You can correlate failed requests with exceptions and other events at both the client and server, so that you can quickly diagnose the causes.
+Exceptions in your live web app are reported by [Application Insights](../../azure-monitor/app/app-insights-overview.md). You can correlate failed requests with exceptions and other events at both the client and server, so that you can quickly diagnose the causes.
 
 ## Set up exception reporting
 * To have exceptions reported from your server app:
@@ -87,7 +87,7 @@ To see these events, open [Search](../../azure-monitor/app/diagnostic-search.md)
 ![Drill through](./media/asp-net-exceptions/viewCustomEvents.png)
 
 > [!NOTE]
-> If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. Events that are part of the same operation will be selected or deselected as a group, so that you can navigate between related events. [Learn about sampling.](../../application-insights/app-insights-sampling.md)
+> If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. Events that are part of the same operation will be selected or deselected as a group, so that you can navigate between related events. [Learn about sampling.](../../azure-monitor/app/sampling.md)
 >
 >
 

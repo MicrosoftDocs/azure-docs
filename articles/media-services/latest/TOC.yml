@@ -10,6 +10,7 @@
   - name: Stream video files with .NET
     href: stream-files-dotnet-quickstart.md
 - name: Tutorials
+  expanded: true
   items:
   - name: Encode remote file and stream video – REST
     href: stream-files-tutorial-with-rest.md
@@ -84,6 +85,8 @@
       href: live-event-states-billing.md
     - name: Latency
       href: live-event-latency.md
+  - name: Azure Media Player
+    href: use-azure-media-player.md
 - name: How-to guides
   items:
   - name: Get started
@@ -116,10 +119,16 @@
       href: job-state-events-cli-how-to.md 
   - name: Protect content
     items:
-    - name: With AES-128 - .NET
+    - name: AES-128 dynamic encryption - .NET
       href: protect-with-aes128.md    
-    - name: With DRM - .NET
+    - name: DRM dynamic encryption - .NET
       href: protect-with-drm.md
+    - name: Offline FairPlay for iOS 
+      href: offline-fairplay-for-ios.md
+    - name: Offline Widevine for Android
+      href: offline-widevine-for-android.md
+    - name: Offline PlayReady for Windows 10
+      href: offline-plaready-streaming-for-windows-10.md     
   - name: Create filters
     items:
     - name: With .NET
