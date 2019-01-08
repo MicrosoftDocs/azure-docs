@@ -1,6 +1,6 @@
 ---
-title: Overview of solution templates for Azure Data Factory | Microsoft Docs
-description:  Learn how to use a pre-defined solution template to get started quickly with Azure Data Factory.
+title: Overview of templates for Azure Data Factory | Microsoft Docs
+description:  Learn how to use a pre-defined template to get started quickly with Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -36,15 +36,15 @@ You can get started creating a Data Factory pipeline from a template in the foll
 
 ### Out of the box Data Factory templates
 
-These predefined templates provided by Microsoft include but are not limited to the following items:
+Data Factory uses Azure Resource Manager templates for saving data factory pipeline templates. You can see all the Resource Manager templates, along with the manifest file used for out of the box Data Factory templates, in the [official Azure Data Factory Github repo](https://github.com/Azure/Azure-DataFactory/tree/master/templates). The predefined templates provided by Microsoft include but are not limited to the following items:
 
 -   Copy templates:
 
-    -   Bulk copy from Database
+    -   [Bulk copy from Database](solution-template-bulk-copy-with-control-table.md)
 
-    -   Copy multiple file containers between file-based stores
+    -   [Copy multiple file containers between file-based stores](solution-template-copy-files-multiple-containers.md)
 
-    -   Delta copy from Database
+    -   [Delta copy from Database](solution-template-delta-copy-with-control-table.md)
 
     -   Copy from \<source\> to \<destination\>
 
@@ -68,7 +68,7 @@ These predefined templates provided by Microsoft include but are not limited to 
 
 -   Transform templates
 
-    -   ETL with Azure Databricks
+    -   [ETL with Azure Databricks](solution-template-databricks-notebook.md)
 
 ### My Templates
 
