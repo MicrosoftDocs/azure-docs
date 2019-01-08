@@ -216,7 +216,7 @@ A. The free plan sets a daily cap of 500 MB per workspace. The standard and prem
 
 The Log Analytics agent was designed to ensure it has a small footprint. The data volume varies based on the solutions you enable. You can find detailed information on the data volume and see the breakdown by solution in the [Usage](../../azure-monitor/platform/data-usage.md) page.
 
-For more information, you can read a [customer blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) showing their results after evaluating the resource utilization (footprint) of the OMS agent.
+For more information, you can read a [customer blog](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) showing their results after evaluating the resource utilization (footprint) of the OMS agent.
 
 ### Q. How much network bandwidth is used by the Microsoft Management Agent (MMA) when sending data to Log Analytics?
 
