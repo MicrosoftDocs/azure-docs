@@ -82,7 +82,7 @@ To create a database query, query the `MSTable` object. The following query gets
 
 ```objc
 [table readWithCompletion:^(MSQueryResult *result, NSError *error) {
-        if(error) { // error is nil if no error occured
+        if(error) { // error is nil if no error occurred
                 NSLog(@"ERROR %@", error);
         } else {
                 for(NSDictionary *item in result.items) { // items is NSArray of records that match query

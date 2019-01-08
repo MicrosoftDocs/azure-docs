@@ -257,7 +257,7 @@ catch
 {
 
     $ErrorMessage = $_.Exception.Message
-    "Error occured while fetching/parsing Extend summary: $ErrorMessage"
+    "Error occurred while fetching/parsing Extend summary: $ErrorMessage"
     exit 
 }
 
