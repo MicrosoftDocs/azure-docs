@@ -82,8 +82,9 @@ Thresholds for the following Linux health criteria aren’t modifiable, because 
    - Disk Status – Disk isn't online/ available
    - Network Adapter Status -  Network adapter is disabled
 
+
 ## Does the Health feature monitor logical processors or cores?
-Individual processor and logical processor level health criteria aren't available for a Windows VM, only Total CPU utilization is monitored by default. 
+Individual processor and logical processor level health criteria aren't available for a Windows VM, only Total CPU utilization is monitored by default.
 
 ## How do I modify alerts that are included with the Health feature?
 Alert rules that are defined for each health criterion aren't displayed in the Azure portal. You can enable or disable a health alert rule only in the [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Also, you can't assign an [Azure Monitor action group](../../azure-monitor/platform/action-groups.md) for health alerts in the Azure portal. You can only use the notification setting API to configure an action group to be triggered whenever a health alert is fired. Currently, you can assign action groups against a VM so that all *health alerts* fired against the VM trigger the same action groups. Unlike traditional Azure alerts, there's no concept of a separate action group for each health alert rule. Additionally, only action groups that are configured to provide email or SMS notifications are supported when health alerts are triggered. 
