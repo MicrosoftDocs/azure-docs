@@ -31,7 +31,7 @@ Logs and metrics for your Azure Digital Twins instance are exposed through Azure
 
 To configure monitoring and logging for Azure Digital Twins resources, read [How to configure monitoring and logging](./how-to-configure-monitoring.md).
 
-Read the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md) for configuring diagnostic log settings in Azure Digital Twins  through the Azure Portal, Azure CLI, or PowerShell.
+Read the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md) for configuring diagnostic log settings in Azure Digital Twins through the Azure Portal, Azure CLI, or PowerShell.
 
 >[!IMPORTANT]
 > Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
@@ -53,7 +53,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | The Correlation ID that was specified on the event data |
 
-If you log your user-defined function, those logs appear in your Azure Log Analytics instance with the category `UserDefinedFunction`. To retrieve them, enter the following query condition in Azure Log Analytics:
+If enable logging for your user-defined function, those logs appear in your Azure Log Analytics instance with the category `UserDefinedFunction`. To retrieve them, enter the following query condition in Azure Log Analytics:
 
 ```Kusto
 AzureDiagnostics
@@ -64,7 +64,7 @@ For more information about powerful query operations, read [Getting started with
 
 ## Identify common issues
 
-Both diagnosing and identifying common issues are important when troubleshooting your solution. Several issues that are commonly encountered when developing user-defined functions are summarized below.
+Both diagnosing and identifying common issues are important when troubleshooting your solution. Several issues that are commonly encountered when developing user-defined functions are summarized in the following subsections.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
@@ -109,7 +109,8 @@ Response:
 ```
 
 ### Check what a sensor triggers
-With the following call against your Azure Digital Twins instances' Management API, you are able to determine the identifiers of your user-defined functions that will be triggered by the given sensor's incoming telemetry:
+
+With the following call against the Azure Digital Twins Management APIs, you're able to determine the identifiers of your user-defined functions  triggered by the given sensor's incoming telemetry:
 
 ```plaintext
 GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
