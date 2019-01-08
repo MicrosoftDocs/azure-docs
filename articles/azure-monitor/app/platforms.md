@@ -34,7 +34,7 @@ These items are implementations of [Application Insights](../../application-insi
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET - for apps that are already live](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
-* [Android](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
+* [Android](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
@@ -42,7 +42,7 @@ These items are implementations of [Application Insights](../../application-insi
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](../../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
-* [iOS](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
+* [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center)
 * [J2EE](../../azure-monitor/app/java-get-started.md)
@@ -51,7 +51,7 @@ These items are implementations of [Application Insights](../../application-insi
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [SAFE Stack](https://safe-stack.github.io/docs/template-azure-ai/)
 * [Spring](https://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
-* [Universal Windows app](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
+* [Universal Windows app](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
 * [Windows desktop applications, services, and worker roles](../../azure-monitor/app/windows-desktop.md)
 * [Anything else](#projects)
@@ -77,7 +77,7 @@ These items are implementations of [Application Insights](../../application-insi
 ## Export and Data Analysis
 * [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
-* [Stream Analytics](../../application-insights/app-insights-export-power-bi.md)
+* [Stream Analytics](../../azure-monitor/app/export-power-bi.md )
 
 ## <a name="projects"></a> Build your own SDK
 If there isn't yet an SDK for your language or platform, perhaps you'd like to build one? Take a look at the code of the existing SDKs listed in the [Application Insights SDK project on GitHub](https://github.com/Microsoft/AppInsights-Home).

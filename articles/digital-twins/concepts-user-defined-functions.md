@@ -98,6 +98,15 @@ User-defined functions can be written in JavaScript. Helper methods interact wit
 
 For more information, see [How to use user-defined functions](./how-to-user-defined-functions.md).
 
+
+#### Examples
+
+The [GitHub repo for the Digital Twins C# sample](https://github.com/Azure-Samples/digital-twins-samples-csharp/) contains a few examples of the user-defined functions:
+- [This function](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) looks for carbon dioxide, motion, and temperature values to determine whether a room is available with these values in range. The [tutorials for Digital Twins](tutorial-facilities-udf.md) explore this function in more details. 
+- [This function](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) looks for data from multiple motion sensors, and determines that the space is available if none of them detect any motion. You can easily replace the user-defined function used in either the [quickstart](quickstart-view-occupancy-dotnet.md), or the [tutorials](tutorial-facilities-setup.md), by making the changes mentioned in the comments section of the file. 
+
+
+
 ### Role assignment
 
 A user-defined function's actions are subject to Azure Digital Twins [role-based access control](./security-role-based-access-control.md) to secure data within the service. Role assignments define which user-defined functions have the proper permissions to interact with the spatial graph and its entities. For example, a user-defined function might have the ability and permission to *CREATE*, *READ*, *UPDATE*, or *DELETE* graph data under a given space. A user-defined function's level of access is checked when the user-defined function asks the graph for data or attempts an action. For more information, see [Role-based access control](./security-create-manage-role-assignments.md).
