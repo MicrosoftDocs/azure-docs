@@ -113,7 +113,7 @@ Create the availability group listener and configure the Internal Load Balancer 
  - Creates the AG listener with the given IP address and name.
 
 To configure the ILB and create the AG listener, do the following:
-1. Navigate to the [Configure ILB and create listener for an existing Always On availability group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) Quickstart template and select **Deploy to Azure** to launch the Quickstart template within the Azure portal.
+1. Navigate to the [Configure ILB and create listener for an existing Always On availability group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) quickstart template and select **Deploy to Azure** to launch the quickstart template within the Azure portal.
 1. Fill out the required fields to configure the ILB, and create the availability group listener. The optional fields can be left blank. 
 
     The following table shows the values necessary for the template: 
@@ -133,11 +133,11 @@ To configure the ILB and create the AG listener, do the following:
    | **Probe Port** | The probe port that you want the ILB to use. The template uses 59999 by default but this value can be changed. |
    | &nbsp; | &nbsp; |
 
-1. If you agree to the terms and conditions, select the checkbox next to **I Agree to the terms and conditions stated above** and select **Purchase** to finalize the Quickstart template deployment. 
+1. If you agree to the terms and conditions, select the checkbox next to **I Agree to the terms and conditions stated above** and select **Purchase** to finalize the quickstart template deployment. 
 1. To monitor your deployment, either select the deployment from the **Notifications** bell icon in your top navigation banner or navigate to your **Resource Group** in the Azure portal, select **Deployments** in the **Settings** field, and choose the 'Microsoft.Template' deployment. 
 
   >[!NOTE]
-  >If your deployment fails half way through, you will need to manually [remove the newly created listener](#remove-availability-group-listener) using PowerShell before redeploying the Azure Quickstart Template. 
+  >If your deployment fails half way through, you will need to manually [remove the newly created listener](#remove-availability-group-listener) using PowerShell before redeploying the **101-sql-vm-aglistener-setup** quickstart template. 
 
 ## Remove availability group listener
 If you later need to remove the availability group listener configured by the template, you must go through the SQL VM resource provider. Since the listener is registered through the SQL VM resource provider, just deleting it via SQL Server Management Studio is insufficient. It actually should be deleted through the SQL VM resource provider using PowerShell. Doing so removes the AG listener metadata from the SQL VM resource provider, and physically delete the listener from the availability group. 
@@ -154,10 +154,10 @@ Remove-AzureRmResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGrou
 This section discusses some known issues and their possible resolution. 
 
 ### Availability group listener for availability group '<AG-Name>' already exists
-The selected availability group used in the AG listener Azure Quickstart Template already contains a listener, either physically within the availability group, or as metadata within the SQL VM resource provider.  Remove the listener using [PowerShell](#remove-availability-group-listener) before redeploying the AG listener Quickstart template. 
+The selected availability group used in the AG listener Azure Quickstart Template already contains a listener, either physically within the availability group, or as metadata within the SQL VM resource provider.  Remove the listener using [PowerShell](#remove-availability-group-listener) before redeploying the **101-sql-vm-aglistener-setup** quickstart template. 
 
 ### Connection only works from primary replica
-This behavior is likely from a failed AG listener Quickstart template deployment leaving the ILB configuration in an inconsistent state. Verify that the backend pool lists the availability set, and that rules exist for the health probe and for the load-balancing rules. If anything is missing, then the ILB configuration is an inconsistent state. 
+This behavior is likely from a failed **101-sql-vm-aglistener-setup** quickstart template deployment leaving the ILB configuration in an inconsistent state. Verify that the backend pool lists the availability set, and that rules exist for the health probe and for the load-balancing rules. If anything is missing, then the ILB configuration is an inconsistent state. 
 
 To resolve this behavior, remove the listener using [PowerShell](#remove-availability-group-listener), delete the Internal Load Balancer via the Azure portal, and start again at [Step 3](#step-3---manually-create-the-internal-load-balanced-ilb). 
 
