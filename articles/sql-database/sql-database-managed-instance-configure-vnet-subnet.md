@@ -47,7 +47,7 @@ Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepar
 The script prepares the subnet in three steps:
 
 1. Validate: It validates the selected virtual network and subnet for Managed Instance networking requirements.
-2. Confirm: It shows the user a set of changes that need to be made to prepare the subnet for Managed Instance deployment, and it asks for consent.
+2. Confirm: It shows the user a set of changes that need to be made to prepare the subnet for Managed Instance deployment. It also asks for consent.
 3. Prepare: It properly configures the virtual network and subnet.
 
 ## Next steps
