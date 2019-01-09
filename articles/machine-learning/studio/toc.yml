@@ -223,6 +223,8 @@
     href: https://msdn.microsoft.com/library/azure/dn905974.aspx
   - name: REST management APIs
     href: /rest/api/machinelearning
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.machinelearning/allversions
   - name: Web service error codes
     href: web-service-error-codes.md
 - name: Resources
