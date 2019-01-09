@@ -42,7 +42,7 @@ A. If you have 40 - 500 TB of data that you want to transfer to Azure, you would
 A. Data Box is available at a nominal charge for 10 days. When you select the product model while creating an order in the Azure portal, the charges for the device are displayed. Shipping is also free, however, the charges for Azure storage apply. For more information, go to [Azure Data Box pricing](https://azure.microsoft.com/pricing/details/storage/databox/). 
 
 ### Q. What is the maximum amount of data I can transfer with Data Box in one instance?
-A. Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can transfer upto 80 TB of data with Data Box. To transfer more data, you need to order more devices.
+A. Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can transfer up to 80 TB of data with Data Box. To transfer more data, you need to order more devices.
 
 ### Q. How can I check if Data Box is available in my region? 
 A.  For information on which countries the Data Box is available, go to [region availability](data-box-overview.md#region-availability).  
@@ -124,7 +124,7 @@ A. You can go to your Data Box order in the Azure portal and go to **Overview**.
 ## Migrate data
 
 ### Q. What is the maximum data size that can be used with Data Box?  
-A.  Data Box has a usable storage capacity of 80 TB. You can use a single Data Box device for data that ranges in size from 40 TB - 80 TB. For larger data sizes upto 500 TB, you can order multiple Data Box devices. For data sizes exceeding 500 TB, sign up for Data Box Heavy.  
+A.  Data Box has a usable storage capacity of 80 TB. You can use a single Data Box device for data that ranges in size from 40 TB - 80 TB. For larger data sizes up to 500 TB, you can order multiple Data Box devices. For data sizes exceeding 500 TB, sign up for Data Box Heavy.  
 
 ### Q. What are the maximum block blob and page blob sizes supported by Data Box? 
 A.  The maximum sizes are governed by Azure Storage limits. The maximum block blob is roughly 4.768 TiB and the maximum page blob size is 8 TiB. For more information, go to [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md). 

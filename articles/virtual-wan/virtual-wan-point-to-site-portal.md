@@ -112,7 +112,7 @@ A P2S configuration defines the parameters for connecting remote clients.
 4. Check **Include point-to-site gateway**.
 5. Pick the **Gateway scale units** and the **Point-to-site configuration** along with an **Address pool** for the clients.
 6. Click **Confirm**. 
-7. The operation can take upto 30 minutes to complete.
+7. The operation can take up to 30 minutes to complete.
 
 ## <a name="vnet"></a>6. Connect your VNet to a hub
 
