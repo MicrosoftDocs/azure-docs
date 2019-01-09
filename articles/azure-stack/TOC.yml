@@ -261,6 +261,8 @@
         items:
         - name: SQL resource provider 1.1.30.0 release notes
           href: azure-stack-sql-resource-provider-11300.md 
+        - name: SQL resource provider 1.1.33.0 release notes
+          href: azure-stack-sql-resource-provider-11330.md   
   - name: Offer MySQL as PaaS
     href: azure-stack-mysql-resource-provider.md
     items:
@@ -280,6 +282,8 @@
       items:
       - name: MySQL resource provider 1.1.30.0 release notes
         href: azure-stack-mysql-resource-provider-11300.md
+      - name: MySQL resource provider 1.1.33.0 release notes
+        href: azure-stack-mysql-resource-provider-11330.md
   - name: Offer App Service as PaaS
     href: azure-stack-app-service-overview.md
     items:
