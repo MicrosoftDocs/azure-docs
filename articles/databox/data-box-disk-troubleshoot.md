@@ -84,6 +84,51 @@ Activity logs are retained for 90 days. You can query for any range of dates, as
 |[Info] Destination file or directory name exceeds the NTFS length limit. |This message is reported when the destination file was renamed because of long file path.<br> Modify the disposition option in `config.json` file to control this behavior.|
 |[Error] Exception thrown: Bad JSON escape sequence. |This message is reported when the config.json has format that is not valid. <br> Validate your `config.json` using [JSONlint](https://jsonlint.com/) before you save the file.|
 
+## Deployment issues for Linux
+
+### Drive getting mounted as readonly
+ 
+This could be due to an unclean file system. 
+
+- Remounting a drive as read does not work with Data Box Disks. This scenario is not supported with drives decrypted by dislocker. 
+- Remounting as read-write will not work. You may have successfully remounted the device using the following command: 
+
+    `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
+
+   In this case, though the remounting was successful, the data will not persist.
+
+If you see the above error, you could try one of the following resolutions:
+
+- Install [`ntfsfix`](https://linux.die.net/man/8/ntfsfix) (available in `ntfsprogs` package) and run it against the relevant partition.
+
+- If you have access to a Windows system
+
+    - Load the drive into the Windows system.
+    - Open a command prompt with administrative privileges. Run `chkdsk` on the volume.
+    - Safely remove the volume and try again.
+ 
+### Error with persisting data after copy
+ 
+If you see that your drive does not have data after it was unmounted (though data was copied to it), then it is possible that you remounted a drive as read-write after the drive was mounted as read-only. If that is the case, see above.
+
+If that was not the case, collect logs from your system and contact Microsoft Support.
+
+## Deployment issues for Windows
+
+### Could not unlock drive from BitLocker
+ 
+You have used the password in the BitLocker dialog. This would not work. To unlock the Data Box Disks, you need to use the Data Box Disk Unlock tool and provide the password from the Azure portal.
+ 
+### Could not unlock or verify some volumes. Contact Microsoft Support.
+ 
+If you see the following error in the error log and are not able to unlock or verify some volumes:
+
+`Exception System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Management.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.`
+ 
+This indicates that you are likely missing the appropriate version of Windows PowerShell on your Windows client. You can install[Windows PowerShell v5.0](https://www.microsoft.com/download/details.aspx?id=54616) and then try the operation again. 
+ 
+If you are still not able to unlock the volumes, contanct Microsoft Support.
+
 
 
 ## Next steps
