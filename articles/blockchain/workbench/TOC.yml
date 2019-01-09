@@ -22,6 +22,8 @@
     href: manage-users.md
   - name: Use blockchain app
     href: use.md
+  - name: Versioning apps
+    href: version-app.md
   - name: Use Workbench API
     href: use-api.md
   - name: Troubleshoot apps

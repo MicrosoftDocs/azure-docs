@@ -1,6 +1,6 @@
 ---
-title: Collect Nagios and Zabbix alerts in Azure Monitor | Microsoft Docs
-description: Nagios and Zabbix are open source monitoring tools. You can collect alerts from these tools into Azure Monitor in order to analyze them along with alerts from other sources.  This article describes how to configure the Log Analytics agent for Linux to collect alerts from these systems.
+title: Collect Nagios and Zabbix alerts in Log Analytics | Microsoft Docs
+description: Nagios and Zabbix are open source monitoring tools. You can collect alerts from these tools into Log Analytics in order to analyze them along with alerts from other sources.  This article describes how to configure the Log Analytics agent for Linux to collect alerts from these systems.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -18,7 +18,8 @@ ms.author: magoedte
 # Collect alerts from Nagios and Zabbix in Azure Monitor from Log Analytics agent for Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-[Nagios](https://www.nagios.org/) and [Zabbix](http://www.zabbix.com/) are open source monitoring tools. You can collect alerts from these tools into Azure Monitor in order to analyze them with log data from other sources.  This article describes how to configure the Log Analytics agent for Linux to collect alerts from these systems.
+[Nagios](https://www.nagios.org/) and [Zabbix](http://www.zabbix.com/) are open source monitoring tools. You can collect alerts from these tools into Log Analytics in order to analyze them with log data from other sources.  This article describes how to configure the Log Analytics agent for Linux to collect alerts from these systems.
+
 
 > [!NOTE]
 > [Alerts created by Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) are stored separately from log data and not accessible from log queries.
@@ -78,7 +79,7 @@ To collect alerts on the Nagios server, perform the following steps.
 
 
 ## Alert records
-You can retrieve alert records from Nagios and Zabbix using [log queries](../log-query/log-query-overview.md) in Azure Monitor.
+You can retrieve alert records from Nagios and Zabbix using [log queries](../log-query/log-query-overview.md) in Log Analytics.
 
 ### Nagios Alert records
 

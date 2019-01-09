@@ -11,15 +11,14 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
+ms.date: 01/03/2019
 ---
 # Azure SQL Database and SQL Data Warehouse firewall rules
 
 Microsoft Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) provide a relational database service for Azure and other Internet-based applications. To help protect your data, firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to databases based on the originating IP address of each request.
 
 > [!NOTE]
-> This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. 
-
+> This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
 > [!IMPORTANT]
 > This article does *not* apply to **Azure SQL Database Managed Instance**. Please see the following article on [connecting to a Managed Instance](sql-database-managed-instance-connect-app.md) for more information about the networking configuration needed.
 
@@ -52,9 +51,9 @@ Connection attempts from the Internet and Azure must first pass through the fire
 
 Microsoft recommends using database-level firewall rules whenever possible to enhance security and to make your database more portable. Use server-level firewall rules for administrators and when you have many databases that have the same access requirements and you don't want to spend time configuring each database individually.
 
-> [!Important]
+> [!IMPORTANT]
 > Windows Azure SQL Database supports a maximum of 128 firewall rules.
-> [!Note]
+> [!NOTE]
 > For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md).
 
 ### Connecting from the Internet

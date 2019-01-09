@@ -120,7 +120,7 @@ In this step, you create and populate a simple table in Apache HBase that you ca
 1. Connect to the head node of your Spark cluster using SSH.
 2. Start the spark shell, specifying the Spark HBase Connector package:
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
 
 3. Keep this Spark Shell instance open and continue to the next step.
 

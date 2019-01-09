@@ -4,7 +4,7 @@ description: Tutorial illustrating how to create a Kubernetes Cluster with Azure
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, virtual machine, azure, kubernetes
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial

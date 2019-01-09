@@ -17,10 +17,10 @@ ms.author: mbullwin
 ---
 # Annotations on metric charts in Application Insights
 
-Annotations on [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md) charts show where you deployed a new build, or other significant event. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Azure DevOps Services build system](https://docs.microsoft.com/azure/devops/pipelines/tasks/). You can also create annotations to flag any event you like by [creating them from PowerShell](#create-annotations-from-powershell).
+Annotations on [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) charts show where you deployed a new build, or other significant event. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Azure DevOps Services build system](https://docs.microsoft.com/azure/devops/pipelines/tasks/). You can also create annotations to flag any event you like by [creating them from PowerShell](#create-annotations-from-powershell).
 
 > [!NOTE]
-> This article reflects the deprecated **classic metrics experience**. Annotations are only currently available in the classic experience and in **[workbooks](../../application-insights/app-insights-usage-workbooks.md)**. To learn more about the currrent metrics experience, you can consult [this article](../../azure-monitor/platform/metrics-charts.md).
+> This article reflects the deprecated **classic metrics experience**. Annotations are only currently available in the classic experience and in **[workbooks](../../azure-monitor/app/usage-workbooks.md)**. To learn more about the currrent metrics experience, you can consult [this article](../../azure-monitor/platform/metrics-charts.md).
 
 ![Example of annotations with visible correlation with server response time](./media/annotations/00.png)
 
@@ -42,7 +42,7 @@ You only need to do this once for your Azure DevOps Services organization. Relea
 
 You need to get a separate API key for each Azure DevOps Services release template.
 
-1. Sign in to the [Microsoft Azure Portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. (Or [create one now](../../application-insights/app-insights-overview.md), if you haven't done so yet.)
+1. Sign in to the [Microsoft Azure Portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. (Or [create one now](../../azure-monitor/app/app-insights-overview.md), if you haven't done so yet.)
 2. Open **API Access**,  **Application Insights Id**.
    
     ![In portal.azure.com, open your Application Insights resource and choose Settings. Open API Access. Copy the Application ID](./media/annotations/20.png)
@@ -103,4 +103,4 @@ It's easy to modify the script, for example to create annotations for the past.
 ## Next steps
 
 * [Create work items](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automation with PowerShell](../../application-insights/app-insights-powershell.md)
+* [Automation with PowerShell](../../azure-monitor/app/powershell.md)

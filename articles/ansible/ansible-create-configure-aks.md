@@ -3,7 +3,7 @@ title: Create and configure Azure Kubernetes Service clusters in Azure using Ans
 description: Learn how to use Ansible to create and manage an Azure Kubernetes Service cluster in Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, Kubernetes
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial

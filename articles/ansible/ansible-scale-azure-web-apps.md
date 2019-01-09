@@ -3,9 +3,9 @@ title: Scale Azure App Service web apps by using Ansible
 description: Learn how to use Ansible to create a web app with Java 8 and the Tomcat container runtime in App Service on Linux
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, scale, Java
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
-ms.author: kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
 ---

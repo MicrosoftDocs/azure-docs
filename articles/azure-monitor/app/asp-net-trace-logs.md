@@ -156,7 +156,7 @@ You can, for example:
 * Save the configuration of this page as a Favorite
 
 > [!NOTE]
-> **Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](../../application-insights/app-insights-sampling.md)
+> **Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -167,7 +167,7 @@ You can, for example:
 
 ## Troubleshooting
 ### How do I do this for Java?
-Use the [Java log adapters](../../application-insights/app-insights-java-trace-logs.md).
+Use the [Java log adapters](../../azure-monitor/app/java-trace-logs.md).
 
 ### There's no Application Insights option on the project context menu
 * Check that Application Insights tools are installed on this development machine. In Visual Studio menu Tools, Extensions and Updates, look for Application Insights Tools. If it isn't in the Installed tab, open the Online tab and install it.
@@ -190,7 +190,7 @@ It can sometimes take a while for all the events and requests to get through the
 Several factors impact the amount of data retained. See the [limits](../../azure-monitor/app/api-custom-events-metrics.md#limits) section of the customer event metrics page for more information. 
 
 ### I'm not seeing some of the log entries that I expect
-If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](../../application-insights/app-insights-sampling.md)
+If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](../../azure-monitor/app/sampling.md)
 
 ## <a name="add"></a>Next steps
 * [Set up availability and responsiveness tests][availability]
@@ -198,9 +198,9 @@ If your application sends a lot of data and you are using the Application Insigh
 
 <!--Link references-->
 
-[availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
+[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
-[start]: ../../application-insights/app-insights-overview.md
+[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[start]: ../../azure-monitor/app/app-insights-overview.md

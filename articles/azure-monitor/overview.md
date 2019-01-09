@@ -53,7 +53,7 @@ As soon as you create an Azure subscription and start adding resources such as v
 
 Extend the data you're collecting into the actual operation of the resources by [enabling diagnostics](../azure-monitor/platform/diagnostic-logs-overview.md) and [adding an agent](platform/agent-windows.md) to compute resources. This will collect telemetry for the internal operation of the resource and allow you to configure different [data sources](platform/agent-data-sources.md) to collect logs and metrics from Windows and Linux guest operating system. 
 
-[Add an instrumentation package to your application](../azure-monitor/app/azure-web-apps.md),  to enable Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](../application-insights/app-insights-monitor-web-app-availability.md) to simulate user traffic.
+[Add an instrumentation package to your application](../azure-monitor/app/azure-web-apps.md),  to enable Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](../azure-monitor/app/monitor-web-app-availability.md) to simulate user traffic.
 
 ### Custom sources
 Azure Monitor can collect log data from any REST client using the [Data Collector API](../azure-monitor/platform/data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
@@ -61,10 +61,10 @@ Azure Monitor can collect log data from any REST client using the [Data Collecto
 
 
 ## Insights
-Monitoring data is only useful if it can increase your visibility into the operation of your computing environment. Azure Monitor includes several features and tools that provide valuable insights into your applications and other resources that they depend on. [Monitoring solutions](insights/solutions.md) and features such as [Application Insights](../application-insights/app-insights-overview.md) and Container Insights provide deep insights into different aspects of your application and specific Azure services. 
+Monitoring data is only useful if it can increase your visibility into the operation of your computing environment. Azure Monitor includes several features and tools that provide valuable insights into your applications and other resources that they depend on. [Monitoring solutions](insights/solutions.md) and features such as [Application Insights](../azure-monitor/app/app-insights-overview.md) and Container Insights provide deep insights into different aspects of your application and specific Azure services. 
 
 ### Application Insights
-[Application Insights](../application-insights/app-insights-overview.md) monitors the availability, performance, and usage of your web applications whether they're hosted in the cloud or on-premises. It leverages the powerful data analysis platform in Azure Monitor to provide you with deep insights into your application's operations and diagnose errors without waiting for a user to report them. Application Insights includes connection points to a variety of development tools and integrates with Visual Studio to support your DevOps processes.
+[Application Insights](../azure-monitor/app/app-insights-overview.md) monitors the availability, performance, and usage of your web applications whether they're hosted in the cloud or on-premises. It leverages the powerful data analysis platform in Azure Monitor to provide you with deep insights into your application's operations and diagnose errors without waiting for a user to report them. Application Insights includes connection points to a variety of development tools and integrates with Visual Studio to support your DevOps processes.
 
 ![App Insights](media/overview/app-insights.png)
 
