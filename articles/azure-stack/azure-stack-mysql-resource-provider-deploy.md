@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 01/08/2019
+ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: georgel
 ---
@@ -40,7 +40,7 @@ There are several prerequisites that need to be in place before you can deploy t
 
   |Minimum Azure Stack version|MySQL RP version|
   |-----|-----|
-  |Version 1811 (1.1811.0.101)|[MySQL RP version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
+  |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
   |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
   |Version 1804 (1.0.180513.1)|[MySQL RP version 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
   |     |     |
