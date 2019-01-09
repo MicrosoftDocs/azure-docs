@@ -41,7 +41,7 @@ The following steps describe the process required to create a virtual machine by
 2. Update the azuredeploy.parameters.json file.
 3. Deploy the template.
 
-> ![NOTE]  
+> [!NOTE]  
 > You can use these steps from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
 
 ## Create a Key Vault secret
@@ -123,10 +123,9 @@ New-AzureRmResourceGroupDeployment `
 
 When the template is deployed successfully, it results in the following output:
 
-![Deployment output](media/azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
+![Deployment output](media/azure-stack-key-vault-deploy-vm-with-secret/deployment-output.png)
 
 ## Next steps
 
-[Deploy a sample app with Key Vault](azure-stack-kv-sample-app.md)
-
-[Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
+* [Deploy a sample app with Key Vault](azure-stack-key-vault-sample-app.md)
+* [Deploy a VM with a Key Vault certificate](azure-stack-key-vault-push-secret-into-vm.md)

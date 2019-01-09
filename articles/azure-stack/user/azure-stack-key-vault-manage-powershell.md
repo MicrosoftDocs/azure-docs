@@ -49,7 +49,7 @@ Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 
 If your subscription is enabled for vault operations, the output shows **RegistrationState** is **Registered** for all resource types of a key vault.
 
-![Key vault registration state](media/azure-stack-kv-manage-powershell/image1.png)
+![Key vault registration state](media/azure-stack-key-vault-manage-powershell/image1.png)
 
 If vault operations are not enabled, run the following command to register the Key Vault service in your subscription:
 
@@ -61,7 +61,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 If the registration is successful, the following output is returned:
 
-![Register](media/azure-stack-kv-manage-powershell/image2.png)
+![Register](media/azure-stack-key-vault-manage-powershell/image2.png)
 
 When you invoke the Key Vault commands, you might receive an error, such as "The subscription is not registered to use namespace 'Microsoft.KeyVault'." If you get an error, confirm that you have [enabled the Key Vault resource provider](#enable-your-tenant-subscription-for-vault-operations) by following the instructions that were given previously.
 
@@ -75,7 +75,7 @@ New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
 
 **Output**
 
-![New resource group](media/azure-stack-kv-manage-powershell/image3.png)
+![New resource group](media/azure-stack-key-vault-manage-powershell/image3.png)
 
 Now, use the **New-AzureRMKeyVault** cmdlet to create a key vault in the resource group that you created previously. This command reads three mandatory parameters: resource group name, key vault name, and geographic location.
 
@@ -87,13 +87,13 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 **Output**
 
-![New key vault](media/azure-stack-kv-manage-powershell/image4.png)
+![New key vault](media/azure-stack-key-vault-manage-powershell/image4.png)
 
 The output of this command shows the properties of the key vault that you created. When an application accesses this vault, it must use the `Vault URI` property, which is `https://vault01.vault.local.azurestack.external` in this example.
 
 ### Active Directory Federation Services (AD FS) deployment
 
-In an AD FS deployment, you might get this warning: "Access policy is not set. No user or application has access permission to use this vault." To resolve this issue, set an access policy for the vault by using the [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) cmdlet:
+In an AD FS deployment, you might get this warning: "Access policy is not set. No user or application has access permission to use this vault." To resolve this issue, set an access policy for the vault by using the [Set-AzureRmKeyVaultAccessPolicy](azure-stack-key-vault-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) cmdlet:
 
 ```PowerShell
 # Obtain the security identifier(SID) of the active directory user
@@ -120,7 +120,7 @@ The `Destination` parameter is used to specify that the key is software protecte
 
 **Output**
 
-![New key](media/azure-stack-kv-manage-powershell/image5.png)
+![New key](media/azure-stack-key-vault-manage-powershell/image5.png)
 
 You can now reference the newly created key by using its URI. If you create or import a key that has same name as an existing key, the original key is updated with the values specified in the new key. You can access the previous version by using the version-specific URI of the key. For example:
 
@@ -146,7 +146,7 @@ Set-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01" -SecretValue $secr
 
 **Output**
 
-![Create a secret](media/azure-stack-kv-manage-powershell/image6.png)
+![Create a secret](media/azure-stack-key-vault-manage-powershell/image6.png)
 
 ### Get a secret
 
@@ -174,5 +174,5 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalNa
 
 ## Next steps
 
-* [Deploy a VM with a password stored in Key Vault](azure-stack-kv-deploy-vm-with-secret.md)
-* [Deploy a VM with a certificate stored in Key Vault](azure-stack-kv-push-secret-into-vm.md)
+* [Deploy a VM with a password stored in Key Vault](azure-stack-key-vault-deploy-vm-with-secret.md)
+* [Deploy a VM with a certificate stored in Key Vault](azure-stack-key-vault-push-secret-into-vm.md)
