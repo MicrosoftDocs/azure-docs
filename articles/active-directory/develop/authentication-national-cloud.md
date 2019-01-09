@@ -29,7 +29,7 @@ Including global cloud​, Azure Active Directory is deployed in the followi
 - Azure Germany
 - Azure China 21Vianet
 
-National clouds are unique and different environment than Azure global. Therefore, it is important to be aware of some key differences while developing your application for these environments. Some of the key differences in application development are around application registration and acquiring token.
+National clouds are unique and different environment than Azure global. Therefore, it is important to be aware of some key differences while developing your application for these environments such as registering applications, acquiring tokens and configuring endpoints.
 
 ## App registration endpoints
 
