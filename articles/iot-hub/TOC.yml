@@ -1,4 +1,4 @@
-- name: Azure IoT Fundamentals
+﻿- name: Azure IoT Fundamentals
   href: /azure/iot-fundamentals
 - name: IoT Hub Documentation
   href: index.yml
@@ -32,6 +32,19 @@
     href: quickstart-control-device-python.md
   - name: Control a device (Android)
     href: quickstart-control-device-android.md
+  - name: Communicate using device streams (C#)
+    href: (iot-hub-device-streams-csharp-echo-quickstart.md
+  - name: Communicate using device streams (NodeJS)
+    href: iot-hub-device-streams-nodejs-echo-quickstart.md
+  - name: Communicate using device streams (C)
+    href: iot-hub-device-streams-c-echo-quickstart.md
+  - name: SSH/RDP using device streams (C#)
+    href: iot-hub-device-streams-csharp-proxy-quickstart.md
+  - name: SSH/RDP using device streams (NodeJS)
+    href: iot-hub-device-streams-nodejs-proxy-quickstart.md
+  - name: SSH/RDP using device streams (C)
+    href: iot-hub-device-streams-c-proxy-quickstart.md
+
 - name: Tutorials
   items:
   - name: Routing messages
@@ -46,6 +59,8 @@
     href: tutorial-firmware-update.md
   - name: Test device connectivity
     href: tutorial-connectivity.md
+  - name: Device streams
+    href: iot-hub-device-streams-tutorial.md
 - name: Concepts
   items:
   - name: Overview of device management

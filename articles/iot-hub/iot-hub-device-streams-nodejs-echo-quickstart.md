@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-To run the service-side application in this quick start you need Node.js v4.x.x or later on your development machine (note that version 10 or later is not yet supported).
+To run the service-side application in this quickstart you need Node.js v4.x.x or later on your development machine (note that version 10 or later is not yet supported).
 
 You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
 
@@ -84,7 +84,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ### Run the device-side application
 
-As mentioned earlier, IoT Hub NodeJS SDK only supports device streams on the service side. For device-side application, use the accompaying device programs available in [C quickstart](./iot-hub-device-streams-c-echo-quickstart.md) or [C# quickstart](./iot-hub-device-streams-csharp-echo-quickstart.md) guides. Ensure the device-side application is running before proceeding to the next step.
+As mentioned earlier, IoT Hub NodeJS SDK only supports device streams on the service side. For device-side application, use the accompanying device programs available in [C quickstart](./iot-hub-device-streams-c-echo-quickstart.md) or [C# quickstart](./iot-hub-device-streams-csharp-echo-quickstart.md) guides. Ensure the device-side application is running before proceeding to the next step.
 
 ### Run the service-side application
 
@@ -112,7 +112,7 @@ After the connection is established, you can type in the service application con
 
 ## Clean up resources
 
-[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams)]
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
 ## Next steps
 

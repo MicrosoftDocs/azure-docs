@@ -24,12 +24,12 @@ Two sides of each stream (on the device and service side) use the IoT Hub SDK to
 - The NodeJS and C# SDK support device streams on the service side.
 
 ## Cloud-to-Device Streams
-A Cloud-to-Device (C2D) stream is initiated when the service requests to connect to a device. For example, application scenarios including SSH and RDP follow this pattern which is initiated when a user intends to remotely connect to a device using an SSH or RDP client program.
+A Cloud-to-Device (C2D) stream is initiated when the service requests to connect to a device. For example, application scenarios including SSH and RDP follow this pattern, which is initiated when a user intends to remotely connect to a device using an SSH or RDP client program.
 
 The C2D stream creation process involves a negotiation between the device, service, IoT hub's main and streaming endpoints. While IoT hub's main endpoint orchestrates the creation of a device stream, the streaming endpoint handles the traffic that flows between the service and device.
 
 ### C2D device stream creation flow
-Programmatic creation of a C2D stream using the SDK involves the following steps which is also depicted in the figure below:
+Programmatic creation of a C2D stream using the SDK involves the following steps, which are also depicted in the figure below:
 1. The device program registers a callback in advance to be notified of when a new C2D stream is initiated to the device. This step typically takes place when the device boots up and connects to IoT Hub.
 2. The service-side program initiates a C2D stream when needed by providing the device ID (_not_ the IP address) and the same stream name expected by the device (registered in step 1).
 3. Under the hood IoT hub notifies the device-side program via the callback registered in step 1 for the corresponding stream name. The device may accept or reject the stream initiation request. This logic can be specific to your application scenario. If the stream request is rejected by the device, the service is notified of the rejection accordingly; otherwise, the steps below follow.
@@ -44,11 +44,11 @@ Programmatic creation of a C2D stream using the SDK involves the following steps
 In the handshake workflow above:
 - The handshake process must complete within 60 seconds, otherwise the handshake would fail with a timeout and the service will be notified accordingly.
 - After the stream creation flow above completes, the streaming endpoint will act as a proxy and will transfer traffic between the service and the device over their respective TCP connections.
-- Device and service both need outbound connectivity to IoT Hub's main endpoint as well as the streaming endpoint over port 443. The URL of these endpoints are available on Overview tab on the IoT Hub's portal.
+- Device and service both need outbound connectivity to IoT Hub's main endpoint as well as the streaming endpoint over port 443. The URL of these endpoints is available on Overview tab on the IoT Hub's portal.
 - The reliability and ordering guarantees of an established stream is on par with TCP.
 
 ### Termination flow
-An established stream terminates when either of the TCP connections to the gateway are disconnected (by the service or device). This can take place voluntarily by closing the WebSocket on either the device or service programs, or involuntarily in case of a network connectivity timeout or process failure. Upon termination of either device's or service's connection to the streaming endpoint, the remaining TCP connection will also be (forcefully) terminated and the service and device are responsible to re-create the stream, if needed.
+An established stream terminates when either of the TCP connections to the gateway are disconnected (by the service or device). This can take place voluntarily by closing the WebSocket on either the device or service programs, or involuntarily in case of a network connectivity timeout or process failure. Upon termination of either device or service's connection to the streaming endpoint, the remaining TCP connection will also be (forcefully) terminated and the service and device are responsible to re-create the stream, if needed.
 
 ## IoT Hub Device Stream Samples
 In our SDK's, we have included two sample programs to demonstrate the use of C2D streams by applications.
@@ -62,8 +62,8 @@ The echo sample demonstrates programmatic use of C2D stream to send/receive byte
 | NodeJS | [Link](iot-hub-device-streams-nodejs-echo-quickstart.md) | -                                                        |
 | C      | -                                                        | [Link](iot-hub-device-streams-c-echo-quickstart.md)      |
 
-### Local Proxies Sample (for SSH or RDP)
-The local proxies sample demonstrate a way to enable tunneling of an existing application's traffic that involves communication between a client and a server program. This set up works for protocols like SSH and RDP, where the service-side acts as a client (running SSH or RDP client programs), and the device-side acts as the server (running SSH daemon or RDP server programs). In this section, we describe the setup for SSH only (RDP simply uses a different port and is covered in a similar manner).
+### Local Proxy Sample (for SSH or RDP)
+The local proxy sample demonstrates a way to enable tunneling of an existing application's traffic that involves communication between a client and a server program. This set up works for protocols like SSH and RDP, where the service-side acts as a client (running SSH or RDP client programs), and the device-side acts as the server (running SSH daemon or RDP server programs). In this section, we describe the setup for SSH only (RDP simply uses a different port and is covered in a similar manner).
 
 The figure below illustrates the setup of the device- and service-local proxies needed to establish SSH session to an IoT device (the arrows indicate the direction in which connections are established between endpoints):
 
