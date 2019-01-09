@@ -7,7 +7,7 @@ ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: mathoma
+author: MashaMSFT
 ms.author:  mathoma
 ms.reviewer: carlrab
 manager: craigg
@@ -43,7 +43,7 @@ The **Subscriber** is an instance or server that is receiving the changes made o
 | **Push Subscriber**| Yes | Yes|
 | &nbsp; | &nbsp; | &nbsp; |
 
-There are different [types of replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017)
+There are different [types of replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
 
 
 | Replication | Logical Server | Managed Instance |
@@ -85,7 +85,7 @@ Publisher and distributor are configured on two Managed Instances. In this confi
 - Both Managed Instances are on the same vNet.
 - Both Managed Instances are in the same location. 
 
-### Publisher and distributor on-premises with a subscriber on a Managed Instance or logical server 
+### Publisher and distributor on-premises with a subscriber on a Managed Instance or Logical Server 
 
 ![Azure SQL DB as subscriber](media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
  
