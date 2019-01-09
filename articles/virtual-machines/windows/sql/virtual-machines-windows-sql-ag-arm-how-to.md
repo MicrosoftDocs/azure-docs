@@ -19,9 +19,12 @@ ms.reviewer: jroth
 ---
 # Create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM with Azure Quickstart Template
 This article describes how to use the Azure Quickstart Templates to partially automate the deployment of an Always On availability group configuration for SQL Server Virtual Machines in Azure. There are two Azure Quickstart Templates that are used in this process. 
- 
-  - [101-sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup): Used to create the Windows Failover Cluster and join the SQL Server VMs.
-  - [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup): Used to create the listener for the availability group and configure the Internal Load Balancer.
+
+   | Template | Description |
+   | --- | --- |
+   | [101-sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Creates the Windows Failover Cluster and joins the SQL Server VMs to it. |
+   | [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Creates the availability group listener and configures the Internal Load Balancer. |
+   | &nbsp; | &nbsp; |
 
 Other parts of the availability group configuration must be done manually, such as creating the availability group, and creating the Internal Load Balancer. This article provides the sequence of automated and manual steps.
 
@@ -97,6 +100,7 @@ The Always On availability group (AG) listener requires an internal Azure Load B
    | **Subscription** |If you have multiple subscriptions, this field might appear. Select the subscription that you want to associate with this resource. It is normally the same subscription as all the resources for the availability group. |
    | **Resource group** |Select the resource group that the SQL Server instances are in. |
    | **Location** |Select the Azure location that the SQL Server instances are in. |
+   | &nbsp; | &nbsp; |
 
 6. Select **Create**. 
 
