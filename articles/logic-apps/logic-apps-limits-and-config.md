@@ -273,19 +273,24 @@ Here are the limits that apply to B2B protocols:
 
 <a name="configuration"></a>
 
-## Configuration: IP addresses
+## Firewall configuration: IP addresses
 
-All logic apps in a region use the same IP address ranges. 
-To support the calls your logic apps directly make with 
+All logic apps in the same region use the same IP address ranges. 
+To support the calls that your logic apps directly make with 
 [HTTP](../connectors/connectors-native-http.md), 
 [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), 
-and other HTTP requests, set up your firewalls with all the 
+and other HTTP requests, set up your firewalls with *all* the 
 [inbound](#inbound) *and* [outbound](#outbound) IP addresses 
-specified in this section, based on the regions where your logic apps exist.
+used by the Logic Apps service, based on the regions where your 
+logic apps exist. These addresses appear under the **Inbound** 
+and **Outbound** headings in this section, and are sorted by region.
 
 To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, 
-set up your firewall with all the [outbound](#outbound) IP addresses specified 
-in this section, based on the regions where your logic apps exist. 
+set up your firewall with *all* the [outbound](#outbound) IP addresses 
+used by these connectors, based on the regions where your logic apps exist. 
+These addresses appear under the **Outbound** heading in this section, 
+and are sorted by region. 
+
 For [Azure Government](/azure-government/documentation-government-welcome) 
 and [Azure China 21Vianet](/azure/china/china-welcome), 
 reserved IP addresses for connectors aren't currently available.
