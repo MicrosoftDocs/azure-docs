@@ -1,5 +1,5 @@
 ---
-title: Azure Stack store service principal credentials on Key Vault | Microsoft Docs
+title: Azure Stack store service principal credentials in Key Vault | Microsoft Docs
 description: Learn how Key Vault stores service principal credentials on Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -17,17 +17,18 @@ ms.author: sethm
 
 ---
 
-# Store service principal credentials on Key Vault
+# Store service principal credentials in Key Vault
 
-Developing applications on Azure Stack typically requires creating a service principal and using those credentials to authenticate before deploying. However, it's common to misplace the stored credentials for the service principal. This article describes how to create a service principal and store the values in Azure Key Vault for later retrieval.
+Developing applications on Azure Stack typically requires creating a service principal and using those credentials to authenticate before deploying. However, often the stored credentials for the service principal are misplaced. This article describes how to create a service principal and store the values in Azure Key Vault for later retrieval.
+
+For more information about Key Vault, see [this article](azure-stack-kv-intro.md).
 
 ## Prerequisites
 
 - A subscription to an offer that includes the Azure Key Vault service.
 - PowerShell is configured for use with Azure Stack.
-- For more information about Key Vault, see [this article](azure-stack-kv-intro.md).
 
-## Key Vault
+## Key Vault in Azure Stack
 
 Key Vault in Azure Stack helps to safeguard cryptographic keys and secrets that cloud applications and services use. By using Key Vault, you can encrypt keys and secrets.
 
@@ -95,5 +96,6 @@ After the secret is successfully created, the service principal information will
 
 ## Next steps
 
+- [Use service principals](azure-stack-create-service-principals.md)
 - [Manage Key Vault in Azure Stack by the portal](azure-stack-kv-manage-portal.md)  
 - [Manage Key Vault in Azure Stack by using PowerShell](azure-stack-kv-manage-powershell.md)
