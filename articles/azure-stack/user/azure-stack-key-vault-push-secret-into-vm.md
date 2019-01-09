@@ -171,7 +171,7 @@ New-AzureRmResourceGroupDeployment `
 
 When the template is deployed successfully, it results in the following output:
 
-![Template deployment results](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
+![Template deployment results](media/azure-stack-key-vault-push-secret-into-vm/deployment-output.png)
 
 Azure Stack pushes the certificate to the virtual machine during deployment. The certificate location depends on the VM's operating system:
 
@@ -190,5 +190,5 @@ Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Vers
 
 ## Next steps
 
-* [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
-* [Allow an application to access Key Vault](azure-stack-kv-sample-app.md)
+* [Deploy a VM with a Key Vault password](azure-stack-key-vault-deploy-vm-with-secret.md)
+* [Allow an application to access Key Vault](azure-stack-key-vault-sample-app.md)

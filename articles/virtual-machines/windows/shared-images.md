@@ -1,29 +1,29 @@
 ---
-title: Create shared VM images with the Azure CLI | Microsoft Docs
-description: In this article, you learn how to use the Azure CLI to create a shared image of a VM in Azure.
-services: virtual-machines-linux
+title: Create shared VM images with Azure PowerShell | Microsoft Docs
+description: Learn how to use Azure PowerShell to create a shared virtual machine image in Azure
+services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: axayjo
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/19/2018
-ms.author: akjosh; cynthn
+ms.date: 12/11/2018
+ms.author: cynthn
 ms.custom: 
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 
-# Preview: Create a shared image gallery with the Azure CLI
+# Preview: Create a shared image gallery with Azure PowerShell 
 
-A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
+A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
 
 The Shared Image Gallery lets you share your custom VM images with others in your organization, within or across regions, within an AAD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group shared images. 
 
@@ -39,26 +39,43 @@ The Shared Image Gallery feature has multiple resource types. We will be using o
 | **Image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
 
 
+## Before you begin
 
-[!INCLUDE [virtual-machines-common-shared-images-cli](../../../includes/virtual-machines-common-shared-images-cli.md)]
+To complete the example in this article, you must have an existing managed image. You can follow [Tutorial: Create a custom image of an Azure VM with Azure PowerShell](tutorial-custom-images.md) to create one if needed. When working through this article, replace the resource group and VM names where needed.
 
-## Create a VM
+[!INCLUDE [virtual-machines-common-shared-images-ps](../../../includes/virtual-machines-common-shared-images-powershell.md)]
+ 
+## Create VMs from an image
 
-Create a VM from the image version using [az vm create](/cli/azure/vm#az-vm-create).
+Once the image version is complte, you can create one or more new VMs. Using the simplified parameter set for the [New-AzureRMVM]() cmdlet, you just need to provide image ID of the image version. 
 
-```azurecli-interactive 
-az vm create\
-   -g myGalleryRG \
-   -n myVM \
-   --image "/subscriptions/<subscription-ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0" \
-   --generate-ssh-keys
+This example creates a VM named *myVMfromImage*, in the *myResourceGroup* in the *East US* datacenter.
+
+```azurepowershell-interactive
+New-AzureRmVm `
+   -ResourceGroupName "myResourceGroup" `
+   -Name "myVMfromImage" `
+   -Image $imageVersion.Id `
+   -Location "South Central US" `
+   -VirtualNetworkName "myImageVnet" `
+   -SubnetName "myImageSubnet" `
+   -SecurityGroupName "myImageNSG" `
+   -PublicIpAddressName "myImagePIP" `
+   -OpenPorts 3389
 ```
 
-[!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
+[!INCLUDE [virtual-machines-common-gallery-list-ps](../../../includes/virtual-machines-common-gallery-list-ps.md)]
 
+## Clean up resources
 
+When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet to remove the resource group, VM, and all related resources:
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myGalleryRG
+```
 
 ## Next steps
+
 You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
 
 - [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-create/)
@@ -67,3 +84,4 @@ You can also create Shared Image Gallery resource using templates. There are sev
 - [Create a VM from Image Version](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 For more information about Shared Image Galleries, see the [Overview](shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](troubleshooting-shared-images.md).
+
