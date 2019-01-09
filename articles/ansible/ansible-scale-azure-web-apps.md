@@ -34,7 +34,7 @@ You can scale up by changing the pricing tier of the App Service plan that your 
     location: eastus
 
   tasks:
-  - name: Get facts of existing App serivce plan
+  - name: Get facts of existing App service plan
     azure_rm_appserviceplan_facts:
       resource_group: "{{ resource_group }}"
       name: "{{ plan_name }}"
@@ -75,7 +75,7 @@ PLAY [localhost] **************************************************************
 TASK [Gathering Facts] ********************************************************
 ok: [localhost]
 
-TASK [Get facts of existing App serivce plan] **********************************************************
+TASK [Get facts of existing App service plan] **********************************************************
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 ok: [localhost]
