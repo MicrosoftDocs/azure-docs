@@ -348,7 +348,7 @@ In this example the policy routes the request to a service fabric backend, using
 ```
 
 ### Using Liquid templates with set body
-The `set-body` policy can be configured to use the [Liquid](https://shopify.github.io/liquid/basics/introduction/) templating language to transfom the body of a request or response. This can be very effective if you need to completely reshape the format of your message.
+The `set-body` policy can be configured to use the [Liquid](https://shopify.github.io/liquid/basics/introduction/) templating language to transform the body of a request or response. This can be very effective if you need to completely reshape the format of your message.
 
 > [!IMPORTANT]
 > The implementation of Liquid used in the `set-body` policy is configured in 'C# mode'. This is particularly important when doing things such as filtering. As an example, using a date filter requires the use of Pascal casing and C# date formatting e.g.:

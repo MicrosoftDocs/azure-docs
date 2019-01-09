@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Monitor for VMs Preview | Microsoft Docs
+title: Deploy Azure Monitor for VMs (preview) | Microsoft Docs
 description: This article describes how you deploy and configure Azure Monitor for VMs so you can start understanding how your distributed application is performing and what health issues have been identified.
 services: azure-monitor
 documentationcenter: ''
@@ -15,8 +15,8 @@ ms.date: 12/07/2018
 ms.author: magoedte
 ---
 
-# Deploy Azure Monitor for VMs Preview
-This article describes how to set up Azure Monitor for VMs. The service monitors the operating system health of your Azure virtual machines (VMs) and virtual machine scale sets, and the virtual machines in your environment. This monitoring includes the discovery and mapping of application dependencies that might be hosted on them.
+# Deploy Azure Monitor for VMs (preview)
+This article describes how to set up Azure Monitor for VMs. The service monitors the operating system health of your Azure virtual machines (VMs) and virtual machine scale sets, and the virtual machines in your environment. This monitoring includes the discovery and mapping of application dependencies that might be hosted on them. 
 
 You enable Azure Monitor for VMs by using one of the following methods:
 
