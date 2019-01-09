@@ -5,24 +5,21 @@ services: databox
 author: alkohli
 
 ms.service: databox
-ms.topic: overview
-ms.date: 10/09/2018
+ms.subservice: disk
+ms.topic: article
+ms.date: 01/09/2019
 ms.author: alkohli
 ---
-# Troubleshoot issues in Azure Data Box Disk (Preview)
+# Troubleshoot issues in Azure Data Box Disk
 
-This article applies to Microsoft Azure Data Box running Preview release. This article describes some of the complex workflows and management tasks that can be performed on the Data Box and Data Box Disk. 
+This article applies to Microsoft Azure Data Box Disk and describes the workflows used to troubleshoot any issues you see when you deploy this solution. 
 
-You can manage the Data Box Disk via the Azure portal. This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage devices, and track the status of the order as it proceeds to completion.
-
-This article includes the following tutorials:
+This article includes the following sections:
 
 - Download diagnostic logs
 - Query activity logs
-
-
-> [!IMPORTANT]
-> Data Box is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
+- Data Box Disk Unlock tool errors
+- Data Box Disk Split Copy tool errors
 
 ## Download diagnostic logs
 
