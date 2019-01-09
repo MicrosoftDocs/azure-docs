@@ -34,4 +34,4 @@ Install the latest version of the Microsoft Authenticator app, based on your ope
 
 ## Next steps
 
-- After you download and install the app, you must add your various accounts. For more information, see [Add your accounts](microsoft-authenticator-app-add-accounts-overview.md)
+- After you download and install the app, you must add your various accounts. For more information, see [Add your accounts](microsoft-authenticator-app-add-accounts-overview.md).
