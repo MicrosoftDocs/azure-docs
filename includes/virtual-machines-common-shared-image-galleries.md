@@ -5,15 +5,12 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 12/13/2018
+ ms.date: 01/09/2018
  ms.author: akjosh; cynthn
  ms.custom: include file
 ---
 
-Shared Image Gallery is a service that helps you build structure and organization around your custom VM images. Shared Image Gallery provides three main value propositions:
-- Simple management
-- Scale your custom images
-- Share your images - share your images to different users, service principals, or AD groups within your organization as well as different regions using the multi-region replication
+Shared Image Gallery is a service that helps you build structure and organization around your custom managed VM images. Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
 
 A managed image is a copy of either a full VM (including any attached data disks) or just the OS disk, depending on how you create the image. When you create a VM  from the image, a copy of the VHDs in the image are used to create the disks for the new VM. The managed image remains in storage and can be used over and over again to create new VMs.
 
@@ -39,21 +36,16 @@ Regional support for shared image galleries is in limited preview, but will expa
 
 | Create Gallery In  | Replicate Version To |
 |--------------------|----------------------|
-| West Central US    |South Central US|
-| East US 2          |East US|
-| South Central US   |East US 2|
-| Southeast Asia     |West US|
-| West Europe        |West US 2|
-| West US            |Central US|
-| East US            |North Central US|
-| Canada Central     |Canada Central|
-|                    |Canada East|
-|                    |North Europe|
-|                    |West Europe|
-|                    |South India|
-|                    |Southeast Asia|
-|                    |Australia Central &#42;|
-|                    |Australia Central 2 &#42;|
+| West Central US    |All public regions &#42;|
+| East US 2          ||
+| South Central US   ||
+| Southeast Asia     ||
+| West Europe        ||
+| West US            ||
+| East US            ||
+| Canada Central     ||
+|                    ||
+
 
 
 &#42; To replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://www.microsoft.com/en-au/central-regions-eligibility/
@@ -66,6 +58,7 @@ Shared Image Gallery allows you to specify the number of replicas you want Azure
 
 ## Replication
 Shared Image Gallery also allows you to replicate your images to other Azure regions automatically. Each Shared Image version can be replicated to different regions depending on what makes sense for your organization. One example is to always replicate the latest image in multi-regions while all older versions are only available in 1 region. This can help save on storage costs for Shared Image versions. 
+
 The regions a Shared Image version is replicated to can be updated after creation time. The time it takes to replicate to different regions depends on the amount of data being copied and the number of regions the version is replicated to. This can take a few hours in some cases. While the replication is happening, you can view the status of replication per region. Once the image replication is complete in a region, you can then deploy a VM or VMSS using that image version in the region.
 
 ![Graphic showing how you can replicate images](./media/shared-image-galleries/replication.png)
