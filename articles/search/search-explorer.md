@@ -46,25 +46,66 @@ Tips for searching in **Search explorer**:
 
 The following examples assume the built-in realestate sample index. For more information on creating this index, see [Quickstart: Import, index, and query in Azure portal](search-get-started-portal.md).
 
-1. Execute an empty search by clicking **Search** with no terms provided. Equivalent syntax for an empty search is `*` or `search=*`.
+### Example 1 - empty search
 
-   Empty search is useful as first query because it returns entire documents so that you can review the composition. On an empty search, there is no search rank and documents are returned in arbitrary order (`"@search.score": 1` for all documents). By default, 50 documents are returned in a search request. 
+Execute an empty search by clicking **Search** with no terms provided. Empty search is useful as first query because it returns entire documents so that you can review the composition. On an empty search, there is no search rank and documents are returned in arbitrary order (`"@search.score": 1` for all documents). By default, 50 documents are returned in a search request.
 
-1. Free-form queries with operators are useful for simulating user-defined queries sent from a custom app to Azure Search. When you provide query terms or expressions, search rank comes into play. An example might be `"Seattle apartment "Lake Washington" miele OR thermador appliance"`. You can use Ctrl-F to search within results.
+Equivalent syntax for an empty search is `*` or `search=*`.
+
+   ```Input
+   search=*
+   ```
+
+   **Results**
+   
+   ![Empty query example](./media/search-explorer/search-explorer-example-empty.png "Unqualified or empty query example")
+
+### Example 2 - free text search
+
+Free-form queries with or without operators are useful for simulating user-defined queries sent from a custom app to Azure Search. When you provide query terms or expressions, search rank comes into play. 
+
+An example might be `"Seattle apartment "Lake Washington" miele OR thermador appliance"`. You can use Ctrl-F to search within results.
+
+   ```Input
+   Seattle apartment "Lake Washington" miele OR thermador appliance
+   ```
+
+   **Results**
 
    ![Free text query example](./media/search-explorer/search-explorer-example-freetext.png "Free text query example")
 
-1. Add `$count=true` to get the number of matches found in an index. On an empty search, count is the total number of documents in the index.
+### Example 3 - count of matching documents 
+
+Add **$count** to get the number of matches found in an index. On an unqualified search, count is the total number of documents in the index.
+
+   ```Input
+   $count=true
+   ```
+   **Results**
 
    ![Count of documents example](./media/search-explorer/search-explorer-example-count.png "Count of matching documents in index")
 
-1. Add `$select=listingId,beds,baths,description,street,city,price` to limit results to selected fields for more readable output in **Search explorer**. To keep the search strings and `$count=true`, prefix the arguments with `&`. 
+### Example 4 - restrict fields in search results
 
-   A complete string would be `search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true`
+Add **$select** to limit results to the explicitly named fields for more readable output in **Search explorer**. To keep the search strings and `$count=true`, prefix the arguments with `&`. 
+
+   ```Input
+   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true
+   ```
+
+   **Results**
 
    ![Limit fields example](./media/search-explorer/search-explorer-example-selectfield.png "Restrict fields in search results")
 
-1. Append `&$top=100,&$skip=50` to increase results to 100 documents (maximum is 1000), skipping the first 50 documents. Recall that you need to provide search criteria, such as a query term or expression, to get ranked results. Notice that search scores decrease the farther you reach into search results.
+### Example 5 - return next batch of results
+
+Append **$top=100,&$skip=50** to increase results to 100 documents (default is 50, maximum is 1000), skipping the first 50 documents. Recall that you need to provide search criteria, such as a query term or expression, to get ranked results. Notice that search scores decrease the deeper you reach into search results.
+
+   ```Input
+   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100,&$skip=50
+   ```
+
+   **Results**
 
    ![Batch search results](./media/search-explorer/search-explorer-example-topskip.png "Return next batch of search results")
 
