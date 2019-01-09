@@ -157,6 +157,8 @@
       href: https://aka.ms/ams-v3-nodejs-ref
     - name: Go
       href: https://aka.ms/ams-v3-go-ref
+    - name: Resource Manager template
+      href: /azure/templates/microsoft.media/allversions
   - name: Event Grid schemas
     href: media-services-event-schemas.md
   - name: DRM licenses
