@@ -118,9 +118,9 @@ Blob Storage lifecycle management (Preview) offers a rich, rule-based policy tha
 ### Blob-level tiering billing
 
 When a blob is moved to a cooler tier (Hot->Cool, Hot->Archive, or Cool->Archive), the operation is billed as a write operation to the destination tier, where the write operation (per 10,000) and data write (per GB) charges of the destination tier apply. 
-When a blob is moved to a warmer tier (Archive->Cool, Archive->Hot, or Cool->Hot), the operation is billed as a read from the source tier, where the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply.
+When a blob is moved to a warmer tier (Archive->Cool, Archive->Hot, or Cool->Hot), the operation is billed as a read from the source tier, where the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply. The following table summarizes how tier changes are billed.
 
-| | **Write Charge** | **Read Charge** 
+| | **Write Charges (Operation + Access)** | **Read Charges (Operation + Access)** 
 | ---- | ----- | ----- |
 | **SetBlobTier Direction** | Hot->Cool, Hot->Archive, Cool->Archive | Archive->Cool, Archive->Hot, Cool->Hot
 
@@ -236,7 +236,7 @@ Each blob is always billed according to the tier indicated by the blob's **Acces
 
 **How do I determine if I will incur an early deletion charge when deleting or moving a blob out of the Cool or Archive tier?**
 
-Any blob that is deleted or moved out of the Cool (GPv2 accounts only) or Archive tier before 30 days and 180 days respectively will incur a prorated early deletion charge. You can determine how long a blob has been in the Cool or Archive tier by checking the **Access Tier Change Time** blob property, which provides a stamp of the last tier change. For more infromation, see [Cool and Archive early deletion](#cool-and-archive-early-deletion).
+Any blob that is deleted or moved out of the Cool (GPv2 accounts only) or Archive tier before 30 days and 180 days respectively will incur a prorated early deletion charge. You can determine how long a blob has been in the Cool or Archive tier by checking the **Access Tier Change Time** blob property, which provides a stamp of the last tier change. For more information, see [Cool and Archive early deletion](#cool-and-archive-early-deletion).
 
 **Which Azure tools and SDKs support blob-level tiering and Archive storage?**
 
