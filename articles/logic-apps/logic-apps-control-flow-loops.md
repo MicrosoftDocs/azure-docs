@@ -56,8 +56,11 @@ Here are some considerations when you use "Foreach" loops:
 not in parallel. To run operations in parallel for items 
 in a nested loop, create and [call a child logic app](../logic-apps/logic-apps-http-endpoint.md).
 
-* To get predictable results from operations on 
-variables in loops, run those loops sequentially.
+* To get predictable results from operations on variables during each loop iteration, 
+run those loops sequentially. For example, when a concurrently running loop ends, 
+the increment, decrement, and append to variable operations return predictable results. 
+However, during each iteration in the concurrently running loop, these operations might 
+return unpredictable results. 
 
 * Actions in a "Foreach" loop use the 
 [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
