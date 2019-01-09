@@ -15,11 +15,11 @@ ms.reviewer: yossiy
 ms.author: mbullwin
 ---
 # Smart Detection - Failure Anomalies
-[Application Insights](../../application-insights/app-insights-overview.md) automatically notifies you in near real time if your web app experiences an abnormal rise in the rate of failed requests. It detects an unusual rise in the rate of HTTP requests or dependency calls that are reported as failed. For requests, failed requests are usually those with response codes of 400 or higher. To help you triage and diagnose the problem, an analysis of the characteristics of the failures and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up nor configuration, as it uses machine learning algorithms to predict the normal failure rate.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) automatically notifies you in near real time if your web app experiences an abnormal rise in the rate of failed requests. It detects an unusual rise in the rate of HTTP requests or dependency calls that are reported as failed. For requests, failed requests are usually those with response codes of 400 or higher. To help you triage and diagnose the problem, an analysis of the characteristics of the failures and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up nor configuration, as it uses machine learning algorithms to predict the normal failure rate.
 
 This feature works for Java and ASP.NET web apps, hosted in the cloud or on your own servers. It also works for any app that generates request or dependency telemetry - for example, if you have a worker role that calls [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) or [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
-After setting up [Application Insights for your project](../../application-insights/app-insights-overview.md), and provided your app generates a certain minimum amount of telemetry, Smart Detection of failure anomalies takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
+After setting up [Application Insights for your project](../../azure-monitor/app/app-insights-overview.md), and provided your app generates a certain minimum amount of telemetry, Smart Detection of failure anomalies takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
 
 Here's a sample alert.
 

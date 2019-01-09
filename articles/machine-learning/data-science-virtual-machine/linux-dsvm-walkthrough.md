@@ -97,7 +97,7 @@ The *spam* column was read as an integer, but it's actually a categorical variab
 
     data$spam <- as.factor(data$spam)
 
-To do some exploratory analysis, use the [ggplot2](http://ggplot2.org/) package, a popular graphing library for R that is already installed on the VM. Note, from the summary data displayed earlier, that we have summary statistics on the frequency of the exclamation mark character. Let's plot those frequencies here with the following commands:
+To do some exploratory analysis, use the [ggplot2](https://ggplot2.tidyverse.org/) package, a popular graphing library for R that is already installed on the VM. Note, from the summary data displayed earlier, that we have summary statistics on the frequency of the exclamation mark character. Let's plot those frequencies here with the following commands:
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
