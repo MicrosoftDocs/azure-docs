@@ -106,7 +106,7 @@ The Always On availability group (AG) listener requires an internal Azure Load B
 
 ## Step 4 - Create the AG listener and configure the ILB with the quickstart template
 
-Create the availability group listener and configure the Internal Load Balancer (ILB) automatically with the **101-sql-vm-aglistener-setup**  quickstart template as it provisions the Microsoft.SqlVirtualMachine/Sql Virtual Machine Groups/Availability Group Listener resource. The quickstart template, via the SQL VM resource provider, does the following actions:
+Create the availability group listener and configure the Internal Load Balancer (ILB) automatically with the **101-sql-vm-aglistener-setup**  quickstart template as it provisions the Microsoft.SqlVirtualMachine/Sql Virtual Machine Groups/Availability Group Listener resource. The  **101-sql-vm-aglistener-setup** quickstart template, via the SQL VM resource provider, does the following actions:
 
  - Configures the network settings for the cluster and ILB. 
  - Configures the ILB backend pool, health probe, and load-balancing rules.
@@ -128,7 +128,7 @@ To configure the ILB and create the AG listener, do the following:
    | **Listener** | The DNS name you would like to assign to the listener. By default, this template specifies the name 'aglistener' but it can be changed. |
    | **Listener Port** | The port you want the listener to  use. Typically, this port should be the default port of 1433, and as such, this is the port number specified by this template. However, if your default port has been changed, then the listener port should use that value instead. | 
    | **Existing Vnet** | The name of the vNet where your SQL Server VMs, and ILB reside. |
-   | **Existing Subnet** | The *name* of the internal subnet of your SQL Server VMs (ex: default). This value can be determined by navigating to your **Resource Group**, selecting your **vNet**, selecting **Subnets**, under the **Settings** pane and copying the value under **Name**. |
+   | **Existing Subnet** | The *name* of the internal subnet of your SQL Server VMs (ex: default). This value can be determined by navigating to your **Resource Group**, selecting your **vNet**, selecting **Subnets** under the **Settings** pane, and copying the value under **Name**. |
    | **Existing Internal Load Balancer** | The name of the ILB that you created in Step 3. |
    | **Probe Port** | The probe port that you want the ILB to use. The template uses 59999 by default but this value can be changed. |
    | &nbsp; | &nbsp; |
@@ -153,7 +153,7 @@ Remove-AzureRmResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGrou
 ## Known issues and errors
 This section discusses some known issues and their possible resolution. 
 
-### Availability group listener for availability group '<AG-Name>' already exists
+### Availability group listener for availability group '\<AG-Name>' already exists
 The selected availability group used in the AG listener Azure Quickstart Template already contains a listener, either physically within the availability group, or as metadata within the SQL VM resource provider.  Remove the listener using [PowerShell](#remove-availability-group-listener) before redeploying the **101-sql-vm-aglistener-setup** quickstart template. 
 
 ### Connection only works from primary replica
@@ -162,7 +162,7 @@ This behavior is likely from a failed **101-sql-vm-aglistener-setup** template d
 To resolve this behavior, remove the listener using [PowerShell](#remove-availability-group-listener), delete the Internal Load Balancer via the Azure portal, and start again at [Step 3](#step-3---manually-create-the-internal-load-balanced-ilb). 
 
 ### BadRequest - Only SQL virtual machine list can be updated
-This error may occur  when deploying the AG listener template if the listener was deleted via SQL Server Management Studio (SSMS), but was not deleted from the SQL VM resource provider. Deleting the listener via SSMS does not remove the metadata of the listener from the SQL VM resource provider; the listener must be deleted from the resource provider using [PowerShell](#remove-availability-group-listener). 
+This error may occur when deploying the **101-sql-vm-aglistener-setup** template if the listener was deleted via SQL Server Management Studio (SSMS), but was not deleted from the SQL VM resource provider. Deleting the listener via SSMS does not remove the metadata of the listener from the SQL VM resource provider; the listener must be deleted from the resource provider using [PowerShell](#remove-availability-group-listener). 
 
 
 ## Next steps
