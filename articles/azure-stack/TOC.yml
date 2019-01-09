@@ -74,6 +74,8 @@
       items:    
       - name: Choose an identity provider
         href: azure-stack-integrate-identity.md
+      - name: Create service account
+        href: azure-stack-service-account.md
       - name: Validate Azure identity
         href: azure-stack-validate-identity.md
       - name: Validate ADFS integration
