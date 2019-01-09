@@ -3,7 +3,7 @@ title: Azure N-series GPU driver setup for Linux | Microsoft Docs
 description: How to set up NVIDIA GPU drivers for N-series VMs running Linux in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 01/09/2019
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -94,7 +94,7 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### CentOS or Red Hat Enterprise Linux 7.3 or 7.4
+### CentOS or Red Hat Enterprise Linux
 
 1. Update the kernel (recommended). If you choose not to update the kernel, ensure that the versions of `kernel-devel` and `dkms` are appropriate for your kernel.
 
