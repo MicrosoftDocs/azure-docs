@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure StorSimple Data Manager overview | Microsoft Docs
-description: Provides an overview of the StorSimple Data Manager serivce
+description: Provides an overview of the StorSimple Data Manager service
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
