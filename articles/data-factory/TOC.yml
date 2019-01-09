@@ -461,6 +461,8 @@
     href: /powershell/module/azurerm.datafactoryv2/
   - name: REST API
     href: /rest/api/datafactory
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.datafactory/allversions
   - name: Python
     href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Resources
