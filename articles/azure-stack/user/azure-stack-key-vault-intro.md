@@ -71,6 +71,6 @@ The following scenarios describe how Key Vault can help meet the needs of develo
 
 ## Next steps
 
-* [Manage Key Vault in Azure Stack by the portal](azure-stack-kv-manage-portal.md)  
-* [Manage Key Vault in Azure Stack by using PowerShell](azure-stack-kv-manage-powershell.md)
+* [Manage Key Vault in Azure Stack by the portal](azure-stack-key-vault-manage-portal.md)  
+* [Manage Key Vault in Azure Stack by using PowerShell](azure-stack-key-vault-manage-powershell.md)
 
