@@ -22,7 +22,7 @@ The Azure Function activity allows you to run [Azure Functions](../azure-functio
 
 ## Azure Function linked service
 
-The return type of the Azure function has to be a valid JObject. Anything else fails and raises the generic user error *Error calling endpoint*.
+The return type of the Azure function has to be a valid JObject. (Keep in mind that [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) is *not* a JObject.) Anything else fails and raises the generic user error *Error calling endpoint*.
 
 | **Property** | **Description** | **Required** |
 | --- | --- | --- |
