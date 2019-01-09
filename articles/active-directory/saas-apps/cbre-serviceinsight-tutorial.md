@@ -1,29 +1,29 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Pluralsight | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Pluralsight.
+title: 'Tutorial: Azure Active Directory integration with CBRE ServiceInsight | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and CBRE ServiceInsight.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 
-ms.assetid: 4c3f07d2-4e1f-4ea3-9025-c663f1f2b7b4
+ms.assetid: 31d7cedf-2b70-4fa4-9b05-80066d2e8bfd
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/26/2018
+ms.date: 01/04/2019
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Pluralsight
+# Tutorial: Azure Active Directory integration with CBRE ServiceInsight
 
-In this tutorial, you learn how to integrate Pluralsight with Azure Active Directory (Azure AD).
-Integrating Pluralsight with Azure AD provides you with the following benefits:
+In this tutorial, you learn how to integrate CBRE ServiceInsight with Azure Active Directory (Azure AD).
+Integrating CBRE ServiceInsight with Azure AD provides you with the following benefits:
 
-* You can control in Azure AD who has access to Pluralsight.
-* You can enable your users to be automatically signed-in to Pluralsight (Single Sign-On) with their Azure AD accounts.
+* You can control in Azure AD who has access to CBRE ServiceInsight.
+* You can enable your users to be automatically signed-in to CBRE ServiceInsight (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -31,22 +31,23 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To configure Azure AD integration with Pluralsight, you need the following items:
+To configure Azure AD integration with CBRE ServiceInsight, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Pluralsight single sign-on enabled subscription
+* CBRE ServiceInsight single sign-on enabled subscription
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Pluralsight supports **SP** initiated SSO
+* CBRE ServiceInsight supports **SP** initiated SSO
+* CBRE ServiceInsight supports **Just In Time** user provisioning
 
-## Adding Pluralsight from the gallery
+## Adding CBRE ServiceInsight from the gallery
 
-To configure the integration of Pluralsight into Azure AD, you need to add Pluralsight from the gallery to your list of managed SaaS apps.
+To configure the integration of CBRE ServiceInsight into Azure AD, you need to add CBRE ServiceInsight from the gallery to your list of managed SaaS apps.
 
-**To add Pluralsight from the gallery, perform the following steps:**
+**To add CBRE ServiceInsight from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
@@ -60,31 +61,31 @@ To configure the integration of Pluralsight into Azure AD, you need to add Plura
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Pluralsight**, select **Pluralsight** from result panel then click **Add** button to add the application.
+4. In the search box, type **CBRE ServiceInsight**, select **CBRE ServiceInsight** from result panel then click **Add** button to add the application.
 
-	 ![Pluralsight in the results list](common/search-new-app.png)
+	 ![CBRE ServiceInsight in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Pluralsight based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Pluralsight needs to be established.
+In this section, you configure and test Azure AD single sign-on with CBRE ServiceInsight based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in CBRE ServiceInsight needs to be established.
 
-To configure and test Azure AD single sign-on with Pluralsight, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with CBRE ServiceInsight, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Pluralsight Single Sign-On](#configure-pluralsight-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure CBRE ServiceInsight Single Sign-On](#configure-cbre-serviceinsight-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Pluralsight test user](#create-pluralsight-test-user)** - to have a counterpart of Britta Simon in Pluralsight that is linked to the Azure AD representation of user.
+5. **[Create CBRE ServiceInsight test user](#create-cbre-serviceinsight-test-user)** - to have a counterpart of Britta Simon in CBRE ServiceInsight that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
-To configure Azure AD single sign-on with Pluralsight, perform the following steps:
+To configure Azure AD single sign-on with CBRE ServiceInsight, perform the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Pluralsight** application integration page, select **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **CBRE ServiceInsight** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on link](common/select-sso.png)
 
@@ -98,34 +99,24 @@ To configure Azure AD single sign-on with Pluralsight, perform the following ste
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![Pluralsight Domain and URLs single sign-on information](common/sp-identifier-reply.png)
+    ![CBRE ServiceInsight Domain and URLs single sign-on information](common/sp-signonurl.png)
 
-    a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<instancename>.pluralsight.com/sso/<companyname>`
-
-    b. In the **Identifier** box, type a URL:
-    `www.pluralsight.com`
-
-    c. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<instancename>.pluralsight.com/sp/ACS.saml2`
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://adfs4.mainstreamsasp.com/adfs/ls/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Reply URL. Contact [Pluralsight Client support team](mailto:support@pluralsight.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [CBRE ServiceInsight Client support team](mailto:SISupport@cbre.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Pluralsight application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+5. CBRE ServiceInsight application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 
-	>[!NOTE]
-    >You can also add the **"Unique ID"** attribute with the appropriate value like EmployeeID or something else which suits for your organization. Also note that this is not the required attribute; however, you can add it to  identify the unique user.
-
 6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
-    
-	| Name | Source Attribute|
-	| --------------- | --------- |
-	| First Name  | user.givenname  |
-	| Last Name  | user.surname  |
-	| Email  | user.mail  |
+
+	| Name |  Source Attribute|
+	| ------------ | --------- |
+	| SSOCallerPhone | user.telephonenumber |
+	| | |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -145,15 +136,15 @@ To configure Azure AD single sign-on with Pluralsight, perform the following ste
 
 	g. Click **Save**.
 
-7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+7. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+	![The Certificate download link](common/copy-metadataurl.png)
 
-### Configure Pluralsight Single Sign-On
+### Configure CBRE ServiceInsight Single Sign-On
 
-To configure single sign-on on **Pluralsight** side, you need to send the downloaded **Federation Metadata XML** from Azure portal to [Pluralsight support team](mailto:support@pluralsight.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **CBRE ServiceInsight** side, you need to send the **App Federation Metadata Url** to [CBRE ServiceInsight support team](mailto:SISupport@cbre.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create an Azure AD test user 
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -180,15 +171,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Pluralsight.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to CBRE ServiceInsight.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Pluralsight**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **CBRE ServiceInsight**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, type and select **Pluralsight**.
+2. In the applications list, select **CBRE ServiceInsight**.
 
-	![The Pluralsight link in the Applications list](common/all-applications.png)
+	![The CBRE ServiceInsight link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -204,15 +195,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
-### Create Pluralsight test user
+### Create CBRE ServiceInsight test user
 
-The objective of this section is to create a user called Britta Simon in Pluralsight. Please work with [Pluralsight Client support team](mailto:support@pluralsight.com) to add the users in the Pluralsight account.  Users must be created and activated before you use single sign-on.
+In this section, a user called Britta Simon is created in CBRE ServiceInsight. CBRE ServiceInsight supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in CBRE ServiceInsight, a new one is created when you attempt to access CBRE ServiceInsight.
 
-### Test single sign-on 
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Pluralsight tile in the Access Panel, you should be automatically signed in to the Pluralsight for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the CBRE ServiceInsight tile in the Access Panel, you should be automatically signed in to the CBRE ServiceInsight for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional Resources
 
@@ -221,4 +212,3 @@ When you click the Pluralsight tile in the Access Panel, you should be automatic
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
