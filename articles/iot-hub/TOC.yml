@@ -349,6 +349,8 @@
     href: https://docs.microsoft.com/rest/api/iothub/iothubresource
   - name: REST (Certificates)
     href: https://docs.microsoft.com/rest/api/iothub/certificates
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.devices/iothub-allversions
 - name: Related
   items:
   - name: Solutions
