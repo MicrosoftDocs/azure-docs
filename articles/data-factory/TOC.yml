@@ -195,7 +195,7 @@
     - name: Google BigQuery
       href: connector-google-bigquery.md
     - name: Google Cloud Storage
-      href: connector-amazon-simple-storage-service.md#copy-from-google-cloud-storage
+      href: connector-google-cloud-storage.md
     - name: Greenplum
       href: connector-greenplum.md
     - name: HBase
@@ -461,6 +461,8 @@
     href: /powershell/module/azurerm.datafactoryv2/
   - name: REST API
     href: /rest/api/datafactory
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.datafactory/allversions
   - name: Python
     href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Resources

@@ -121,12 +121,12 @@ Click the chart to get more detail:
 [Browse the sample code](https://dynamicsandappinsights.codeplex.com/).
 
 ## Power BI
-You can do even deeper analysis if you [export the data to Microsoft Power BI](../../application-insights/app-insights-export-power-bi.md).
+You can do even deeper analysis if you [export the data to Microsoft Power BI](../../azure-monitor/app/export-power-bi.md ).
 
 ## Sample Microsoft Dynamics CRM Solution
 [Here is the sample solution implemented in Microsoft Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).
 
 ## Learn more
-* [What is Application Insights?](../../application-insights/app-insights-overview.md)
+* [What is Application Insights?](../../azure-monitor/app/app-insights-overview.md)
 * [Application Insights for web pages](../../azure-monitor/app/javascript.md)
-* [More samples and walkthroughs](../../application-insights/app-insights-overview.md)
+* [More samples and walkthroughs](../../azure-monitor/app/app-insights-overview.md)
