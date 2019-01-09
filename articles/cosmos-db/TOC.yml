@@ -296,6 +296,8 @@
           href: /rest/api/cosmos-db/
         - name: REST Resource Provider
           href: /rest/api/cosmos-db-resource-provider/
+        - name: Resource Manager template
+          href: /azure/templates/microsoft.documentdb/databaseaccounts
     - name: Azure Cosmos DB's API for MongoDB
       items: 
       - name: Introduction
