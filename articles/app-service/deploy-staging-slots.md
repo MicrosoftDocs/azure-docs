@@ -81,6 +81,7 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Public certificates
 * WebJobs content
 * Hybrid connections
+* IP Restrictions
 
 **Settings that aren't swapped**:
 
