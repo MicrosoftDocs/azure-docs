@@ -20,7 +20,7 @@ ms.date: 01/09/2019
 You can use the Delete Activity in Azure Data Factory to delete files or folders from on-premise storage stores or cloud storage stores. Use this activity to clean up or archive files when they are no longer needed.
 
 > [!WARNING]
-> Deleted files or folders cannot be restored. Be cautious when using the delete activity to delete files or folders.
+> Deleted files or folders cannot be restored. Be cautious when using the Delete activity to delete files or folders.
 
 ## Best practices
 
@@ -30,7 +30,7 @@ Here are some recommendations for using the Delete activity:
 
 -   Make sure that Data Factory has write permissions to delete folders or files from the storage store.
 
--   Make sure you are not deleting files which are being written at the same time. 
+-   Make sure you are not deleting files that are being written at the same time. 
 
 -   If you want to delete files or folder from an on-premise system, make sure you are using a self-hosted integration runtime with a version greater than 3.13.
 
@@ -80,15 +80,15 @@ Here are some recommendations for using the Delete activity:
 | dataset | Provides the dataset reference to determine which files or folder to be deleted | Yes |
 | recursive | Indicates whether the files are deleted recursively from the subfolders or only from the specified folder.  | No. The default is `false`. |
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently for deleting folder or files.   |  No. The default is `1`. |
-| enablelogging | Indicates whether you need to record the folder or file names which have been deleted. If true, you need to further provide a storage account to save the log file, so that you can track the behaviors of delete activity by reading the log file. | No |
-| logStorageSettings | Only applicable when enablelogging = true.<br/><br/>A group of storage properties that can be specified where you want to save the log file containing the folder or file names which have been deleted by delete activity. | No |
-| linkedServiceName | Only applicable when enablelogging = true.<br/><br/>The linked service of [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) to store the log file that contains the folder or file names which have been deleted by delete activity. | No |
+| enablelogging | Indicates whether you need to record the folder or file names that have been deleted. If true, you need to further provide a storage account to save the log file, so that you can track the behaviors of the Delete activity by reading the log file. | No |
+| logStorageSettings | Only applicable when enablelogging = true.<br/><br/>A group of storage properties that can be specified where you want to save the log file containing the folder or file names that have been deleted by the Delete activity. | No |
+| linkedServiceName | Only applicable when enablelogging = true.<br/><br/>The linked service of [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) to store the log file that contains the folder or file names that have been deleted by the Delete activity. | No |
 | path | Only applicable when enablelogging = true.<br/><br/>The path to save the log file in your storage account. If you do not provide a path, the service creates a container for you. | No |
 
 ## Monitoring
 
 There are two places where you can see and monitor the results of the Delete activity: 
--   Ffrom the output of the Delete activity.
+-   From the output of the Delete activity.
 -   From the log file.
 
 ### Sample output of the Delete activity
@@ -126,15 +126,15 @@ There are two places where you can see and monitor the results of the Delete act
 }
 ```
 
-## Example of using delete activity
+## Example of using the Delete activity
 
-The folder structure in the storage is as following:
+The store has the following folder structure:
 
 Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt
 
-Now you are using delete activity to delete folder or files by the combination of different property value from the dataset and the delete activity:
+Now you are using the Delete activity to delete folder or files by the combination of different property value from the dataset and the Delete activity:
 
-| folderPath (from dataset) | fileName (from dataset) | recursive (from delete activity) | Output |
+| folderPath (from dataset) | fileName (from dataset) | recursive (from the Delete activity) | Output |
 |:--- |:--- |:--- |:--- |
 | Root/ Folder_A_2 | NULL | False | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt |
 | Root/ Folder_A_2 | NULL | True | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv |
@@ -263,7 +263,7 @@ You can create a pipeline to periodically clean up the time partitioned folder o
 }
 ```
 
-### Clean up the expired files which were last modified before 2018.1.1
+### Clean up the expired files that were last modified before 2018.1.1
 
 You can create a pipeline to clean up the old or expired files by leveraging file attribute filter: “LastModified” in dataset.  
 
@@ -327,10 +327,10 @@ You can create a pipeline to clean up the old or expired files by leveraging fil
 
 ### Move files by chaining the Copy activity and the Delete activity
 
-You can move a file by using a copy activity to copy a file and then a delete activity to delete a file in a pipeline.  When you want to move multiple files, you can use the GetMetadata activity + Filter activity + Foreach activity + Copy activity + Delete activity as in the following sample:
+You can move a file by using a copy activity to copy a file and then a the Delete activity to delete a file in a pipeline.  When you want to move multiple files, you can use the GetMetadata activity + Filter activity + Foreach activity + Copy activity + Delete activity as in the following sample:
 
 > [!NOTE]
-> If you want to move the entire folder by defining a dataset containing a folder path only, and then using a copy activity and a delete activity to reference to the same dataset representing a folder, you need to be very careful. It is because you have to make sure that there will NOT be new files arriving into the folder between copying operation and deleting operation.  If there are new files arriving at the folder at the moment when your copy activity just completed the copy job but the delete activity has not been stared, it is possible that delete activity will delete this new arriving file which has NOT been copied to the destination yet by deleting the entire folder. 
+> If you want to move the entire folder by defining a dataset containing a folder path only, and then using a copy activity and a the Delete activity to reference to the same dataset representing a folder, you need to be very careful. It is because you have to make sure that there will NOT be new files arriving into the folder between copying operation and deleting operation.  If there are new files arriving at the folder at the moment when your copy activity just completed the copy job but the Delete activity has not been stared, it is possible that the Delete activity will delete this new arriving file which has NOT been copied to the destination yet by deleting the entire folder. 
 
 #### Sample pipeline
 
@@ -508,7 +508,7 @@ Dataset used by GetMetadata activity to enumerate the file list.
 }
 ```
 
-Dataset for data source used by copy activity and delete activity.
+Dataset for data source used by copy activity and the Delete activity.
 
 ```json
 {
