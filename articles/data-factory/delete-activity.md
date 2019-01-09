@@ -45,8 +45,8 @@ Here are some recommendations for using the Delete activity:
 ### File system data stores
 
 [File System](connector-file-system.md)
-[FTP](data-factory/connector-ftp.md)
-[HDFS](data-factory/connector-hdfs.md)
+[FTP](connector-ftp.md)
+[HDFS](connector-hdfs.md)
 
 ## Syntax
 
