@@ -26,7 +26,7 @@ This article summarizes the known differences between [Azure Stack Managed Disks
 Managed Disks simplifies disk management for IaaS VMs by managing the [storage accounts](../azure-stack-manage-storage-accounts.md) associated with the VM disks.
 
 > [!Note]  
-> Managed Disks on Azure Stack is available from release 1808.
+> Managed Disks on Azure Stack is available from 1808 update. It is enabled by default when creating virtual machines using the Azure Stack portal from 1811 update.
   
 
 ## Cheat sheet: Managed disk differences
@@ -64,7 +64,7 @@ Azure Stack Managed Disks supports the following API versions:
 
 ## Known Issues
 
-After applying the [1811 update](../azure-stack-update-1811.md), you might encounter the following issues when deploying VMs with Managed Disks:
+After applying the updates after 1808, you might encounter the following issues when deploying VMs with Managed Disks:
 
 - If the subscription was created before the 1808 update, deploying a VM with Managed Disks might fail with an internal error message. To resolve the error, follow these steps for each subscription:
    1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
