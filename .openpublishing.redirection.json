@@ -34053,6 +34053,9 @@
       "redirect_url": "/azure/application-insights/app-insights-pricing",
       "redirect_document_id": false
     },
+	{ "source_path": "articles/virtual-machines/workloads/sap/dbms-guide.md", 
+	"redirect_url": "/azure/virtual-machines/workloads/sap/dbms_guide_general", 
+	"redirect_document_id": true },
     {
       "source_path": "articles/media-services/video-indexer/faq.md",
       "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
