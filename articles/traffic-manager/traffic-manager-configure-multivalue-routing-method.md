@@ -43,9 +43,9 @@ Create a Traffic Manager profile that directs user traffic by sending them to th
     | Subscription            | Select your subscription.                          |
     | Resource group          | Select *myResourceGroupTM1*. |
     | Location                | This setting refers to the location of the resource group, and has no impact on the Traffic Manager profile that will be deployed globally.                              |
-    
+   |        |           | 
   
-    ![Create a Traffic Manager profile](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+  ![Create a Traffic Manager profile](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## Add Traffic Manager endpoints
 
