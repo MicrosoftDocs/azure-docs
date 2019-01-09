@@ -17,7 +17,7 @@ ms.date: 1/9/2019
 
 Azure SQL Database is a *Database-as-a-Service* that lets you run and scale highly available SQL Server databases in the cloud. This quickstart shows you how to get started by creating and then querying an Azure SQL database using the Azure portal. 
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 
 For all steps in this quickstart, sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -33,7 +33,7 @@ To create a SQL database containing the AdventureWorksLT sample data:
    
 1. In the **Create SQL Database** form, type or select the following values: 
    
-   - **Database name**: Type *mySampleDatabase*.
+   - **Database name**: Enter *mySampleDatabase*.
    - **Subscription**: Drop down and select the correct subscription, if it doesn't appear.
    - **Resource group**: Select **Create new**, type *myResourceGroup*, and select **OK**. 
    - **Select source**: Drop down and select **Sample (AdventureWorksLT)**.
@@ -47,9 +47,9 @@ To create a SQL database containing the AdventureWorksLT sample data:
    
 1. In the **New server** form, type or select the following values: 
    
-   - **Server name**: Type *mysqlserver*.
+   - **Server name**: Enter *mysqlserver*.
    - **Server admin login**: Type *azureuser*. 
-   - **Password**: Type *Azure1234567*. 
+   - **Password**: Enter *Azure1234567*. 
    - **Confirm Password**: Retype the password.
    - **Location**: Drop down and select any valid location.  
    
@@ -88,7 +88,7 @@ Now that you've created an Azure SQL database, use the built-in query tool in th
    
    ![Sign in to Query editor](./media/sql-database-get-started-portal/query-editor-login.png)
    
-1. Type your login information, and select **OK**.
+1. Enter your login information, and select **OK**.
    
 1. Enter the following query in the **Query editor** pane.
    
@@ -113,7 +113,7 @@ When you're finished using these resources, you can delete them as follows:
 
 1. From the left menu in the Azure portal, select **Resource groups**, and then select **myResourceGroup**.
 1. On your resource group page, select **Delete resource group**. 
-1. Type *myResourceGroup* in the field, and then select **Delete**.
+1. Enter *myResourceGroup* in the field, and then select **Delete**.
 
 ## Next steps
 
