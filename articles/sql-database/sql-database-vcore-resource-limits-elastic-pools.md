@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/08/2019
+ms.date: 01/09/2019
 ---
 # Azure SQL Database vCore-based purchasing model limits for elastic pools
 

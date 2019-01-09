@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 01/08/2019
+ms.date: 01/09/2019
 ---
 # Azure SQL Database vCore-based purchasing model limits for a single database
 
@@ -235,7 +235,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
-|Memory (GB)|11|22|44|88|132|176|220|440|
+|Memory (GB)|10.2|20.4|40.8|81.6|122.4|163.2|204|408|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
