@@ -239,6 +239,8 @@
     href: /rest/api/backup/
   - name: REST - Recovery Services vault
     href: /rest/api/recoveryservices/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Resources
   items:
   - name: Azure Roadmap
