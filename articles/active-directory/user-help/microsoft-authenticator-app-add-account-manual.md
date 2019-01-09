@@ -20,7 +20,7 @@ If your camera is unable to capture the QR code, you can manually add your accou
 The codes provided for your accounts aren't case-sensitive and don't require spaces when added into the Microsoft Authenticator app.
 
 >[!Important]
->Before you can add your account, you have to download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.
+>Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.
 
 ## Add your work or school account
 
@@ -50,24 +50,21 @@ The codes provided for your accounts aren't case-sensitive and don't require spa
 
 3. Enter an **Account name** (for example, Google) and type the **Secret key** from Step 1, and then select **Finish**.
 
-4. On the **Set up Authenticator** screen on your PC, type the 6-digit verification code provided in the app for your Google account, and then select **Verify**.
+4. On the **Set up Authenticator** screen on your PC, type the six-digit verification code provided in the app for your Google account, and then select **Verify**.
 
     The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
 
 ## Add your Facebook account
 
-1. On the **Set up via Third Party Authenticator** screen, which includes the QR code, you'll also see a code written out for entry into your app. Keep this screen open so you can see the code.
+1. On the **Set up via Third Party Authenticator** screen, which includes the QR code, and a code written out for entry into your app. Keep this screen open so you can see the code.
 
 2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, select **Other account (Google, Facebook, etc.)**, and then select **OR ENTER CODE MANUALLY** at the bottom of the screen.
 
 3. Enter an **Account name** (for example, Facebook) and type the **Secret key** from Step 1, and then select **Finish**.
 
-4. On the **Two-Factor Authenticator** screen on your PC, type the 6-digit verification code provided in the app for your Facebook account, and then select **Verify**.
+4. On the **Two-Factor Authenticator** screen on your PC, type the six-digit verification code provided in the app for your Facebook account, and then select **Verify**.
 
     The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
-
-## Add your Apple ID
-[STEPS]
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 01/09/2019
 ms.author: lizross
 ms.reviewer: librown
 ---
@@ -18,7 +18,7 @@ ms.reviewer: librown
 You can add your work or school account, given to you by your organization, to the Microsoft Authenticator app for two-factor verification.
 
 >[!Important]
->Before you can add your account, you have to download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.
+>Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.
 
 ## Add your work or school account
 

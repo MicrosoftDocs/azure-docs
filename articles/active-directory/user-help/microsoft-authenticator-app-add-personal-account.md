@@ -9,34 +9,34 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 01/09/2019
 ms.author: lizross
 ms.reviewer: librown
 ---
 
 # Add your personal accounts
-You can add your personal Microsoft and non-Microsoft accounts, such as for Outlook.com, Xbox LIVE, Google, Facebook, and more to the Microsoft Authenticator app for two-factor verification.
+You can add your personal Microsoft and non-Microsoft accounts, such as for Outlook.com, Xbox LIVE, Google, Facebook, GitHub, and more to the Microsoft Authenticator app for two-factor verification.
 
 >[!Important]
->Before you can add your account, you have to download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.
+>Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.
 
 ## Add personal accounts
-Generally, for all of your personal accounts, you'll need to:
+Generally, for all your personal accounts, you'll need to:
 
 1. Turn on two-factor verification within your personal app account, either on your device or your PC.
 
 2. Add the account to the Microsoft Authenticator app.
 
-We're providing the process here for your personal Microsoft apps, along with your Facebook, Google, and Apple accounts, but this process is the same for any other app, such as Instagram, Adobe, and so on.
+We're providing the process here for your personal Microsoft apps, along with your Facebook, Google, and GitHub accounts, but this process is the same for any other app, such as Instagram, Adobe, and so on.
 
 ## Add your personal Microsoft account
 You can add your personal Microsoft account by first turning on two-factor verification, and then by adding the account to the app.
 
 ### Turn on two-factor verification
 
-1. On your PC, go to your [Security basics](https://account.microsoft.com/security) page and sign-in using your personal Microsoft account. For example, alain@outlook.com.
+1. On your PC, go to your [Security basics](https://account.microsoft.com/security) screen and sign-in using your personal Microsoft account. For example, alain@outlook.com.
 
-2. At the bottom of the **Security basics** page, choose the **more security options** link.
+2. At the bottom of the **Security basics** screen, choose the **more security options** link.
 
     ![Security basics screen with the more security options link highlighted](./media/microsoft-authenticator-app-add-personal-account/more-security-options-link.png)
 
@@ -46,7 +46,7 @@ You can add your personal Microsoft account by first turning on two-factor verif
 
 1. Open the Microsoft Authenticator app on your mobile device.
 
-2. Select **Add account** from the **Customize and control** icon in the upper-right.
+2. Select **Add account** from the **Customize and control** icon in the upper right.
 
     ![Accounts screen, with the Customize and control icon highlighted](./media/microsoft-authenticator-app-add-personal-account/customize-and-control-icon.png)
 
@@ -55,30 +55,30 @@ You can add your personal Microsoft account by first turning on two-factor verif
 4. Sign in to your personal account, using the appropriate email address (such as alain@outlook.com), and then choose **Next**.
 
     >[!Note]
-    >If you don't have a personal Microsoft account, you have the ability to create one here.
+    >If you don't have a personal Microsoft account, you can to create one here.
 
 5. Enter your password, and then choose **Sign in**.
 
     Your personal account is added to the Microsoft Authenticator app.
 
 ## Add your Google account
-You can add your Google account by first turning on two-factor verification and then by adding the account to the app.
+You can add your Google account by turning on two-factor verification and then adding the account to the app.
 
 ### Turn on two-factor verification
 
 1. On your PC, go to https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome, select **Get Started**, and then verify your identity.
 
-2. Follow the on-screen steps to turn two-step verification on for your personal Google account.
+2. Follow the on-screen steps to turn on two-step verification for your personal Google account.
 
 ### Add your Google account to the app
 
-1. On the Google page on your PC, go to the **Set up alternative second step** section, choose **Set up** from the **Authenticator app** section.
+1. On the Google screen on your PC, go to the **Set up alternative second step** section, choose **Set up** from the **Authenticator app** section.
 
 2. On the **Get codes from the Authenticator app** screen, select either **Android** or **iPhone** based on your phone type, and then select **Next**.
 
     You're given a QR code that you can use to automatically associate your account with the Microsoft Authenticator app. Do not close this window.
 
-3. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Other account (Google, Facebook, etc.)**.
+3. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper right, and then select **Other account (Google, Facebook, etc.)**.
 
 4. Use your device's camera to scan the QR code from the **Set up Authenticator** screen on your PC.
 
@@ -89,7 +89,7 @@ You can add your Google account by first turning on two-factor verification and 
 
     For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
 
-6. Select **Next** on the **Set up Authenticator** screen on your PC, type the 6-digit verification code provided in the app for your Google account, and then select **Verify**.
+6. Select **Next** on the **Set up Authenticator** screen on your PC, type the six-digit verification code provided in the app for your Google account, and then select **Verify**.
 
 7. Your account is verified, and you can select **Done** to close the **Set up Authenticator** screen.
 
@@ -97,27 +97,27 @@ You can add your Google account by first turning on two-factor verification and 
     >For more information about two-factor verification and your Google account, see [Turn on 2-Step Verification](https://support.google.com/accounts/answer/185839) and [Learn more about 2-Step Verification](https://www.google.com/landing/2step/help.html).
 
 ## Add your Facebook account
-You can add your Facebook account by first turning on two-factor verification and then by adding the account to the app.
+You can add your Facebook account by turning on two-factor verification and then adding the account to the app.
 
 ### Turn on two-factor verification
 
-1. On your PC, open Facebook, click in the top-right corner, and go to **Settings** > **Security and Login**.
+1. On your PC, open a Facebook screen, select the drop-down menu in the top-right corner, and then go to **Settings** > **Security and Login**.
 
-    The **Security and Login** page appears.
+    The **Security and Login** screen appears.
 
 2. Go down to the **Use two-factor authentication** option in the **Two-Factor Authentication** section, and then select **Edit**.
 
-    The **Two-Factor Authentication** page appears.
+    The **Two-Factor Authentication** screen appears.
 
 3. Select **Turn On**.
 
 ### Add your Facebook account to the app
 
-1. On the Facebook page on your PC, go to the **Add a backup** section, and then choose **Setup** from the **Authentication app** area.
+1. On the Facebook screen on your PC, go to the **Add a backup** section, and then choose **Setup** from the **Authentication app** area.
 
     You're given a QR code that you can use to automatically associate your account with the Microsoft Authenticator app. Do not close this window.
 
-2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Other account (Google, Facebook, etc.)**.
+2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper right, and then select **Other account (Google, Facebook, etc.)**.
 
 3. Use your device's camera to scan the QR code from the **Two factor authentication** screen on your PC.
 
@@ -128,82 +128,46 @@ You can add your Facebook account by first turning on two-factor verification an
 
     For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
 
-5. Select **Next** on the **Two factor authentication** screen on your PC, and then type the 6-digit verification code provided in the app for your Facebook account.
+5. Select **Next** on the **Two factor authentication** screen on your PC, and then type the six-digit verification code provided in the app for your Facebook account.
 
     Your account is verified, and you can now use the app to verify your account.
 
     >[!NOTE]
     >For more information about two-factor verification and your Facebook account, see [What is two-factor authentication and how does it work?](https://www.facebook.com/help/148233965247823).
 
-## Add your Apple ID
-You can add your Apple ID by first turning on two-factor verification and then by adding the account information to the app.
-
->[!Note]
-> You might be asked to answer your Apple ID security questions while you're turning on two-factor verification. Additionally, you might see that two-factor verification is already turned on by default for some Apple IDs.
+## Add your GitHub account
+You can add your GitHub account by first turning on two-factor verification and then by adding the account information to the app.
 
 ### Turn on two-factor verification
 
-1. On your Apple device, follow one of these procedures, based on your operating system version:
+1. On your PC, open a GitHub webpage, select your image from top-right corner, and then select **Settings**.
 
-#### iOS 10.3 or later
+    The **Two-factor authentication** screen appears.
 
-    1. Go to **Settings**, > [*your_name*] > **Password & Security**.
+2. Select **Security** from the **Personal settings** sidebar, and then select **Enable two-factor authentication** from the **Two-factor authentication** area.
 
-    2. Select **Turn On Two-Factor Authentication**, and then select **Continue**.
+### Add your GitHub account to the app
 
-    3. Type and verify the phone number for where you want to receive your sign-in verification codes. You can choose text messages or a phone call.
+1. On the **Two-factor authentication** screen on your PC, select **Set up using an app**.
 
-    4. Select **Next**.
+2. Save your recovery codes so you can get back into your account if you lose access, and then select **Next**. 
 
-        Apple sends a verification code to your provided phone number.
-    
-    5. Type the provided code to verify your phone number and to finish setting up two-factor verification.
+    You can save your codes by downloading them to your device, by printing a hard copy, or by copying them into a password manager tool.
 
-#### iOS 10.2 or earlier
-    
-    1. Go to **Settings**, > **iCloud**.
+3. On the **Two-factor authentication** screen, select **Set up using an app**.
 
-    2. Select your Apple ID > **Password and Security**.
+    The screen changes to show you a QR code. Do not close this screen.
 
-    3. Select **Turn On Two-Factor Authentication**, and then select **Continue**.
+4. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper right, select **Other account (Google, Facebook, etc.)**, and then select **enter this text code** from the text at the top of the screen.
 
-    4. Type and verify the phone number for where you want to receive your sign-in verification codes. You can choose text messages or a phone call.
+    The Microsoft Authenticator app is unable to scan the QR code, so you must manually enter the code.
 
-    5. Select **Next**.
+5. Enter an **Account name** (for example, GitHub) and type the **Secret key** from Step 4, and then select **Finish**.
 
-        Apple sends a verification code to your provided phone number.
-    
-    6. Type the provided code to verify your phone number and to finish setting up two-factor verification.
+4. On the **Two-factor authenticator** screen on your PC, type the six-digit verification code provided in the app for your GitHub account, and then select **Enable**.
 
-#### Mac with OS X El Capitan or later
+    The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
 
-    1. Go to **Apple** menu > **System Preferences** > **iCloud** > **Account Details**.
-
-    2. Click **Security**.
-
-    3. Click **Turn On Two-Factor Authentication**.
-
-### Add your Apple ID to the app [NEED STEPS]
-
-1. Get the QR code
-
-2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Other account (Google, Facebook, etc.)**.
-
-3. Use your device's camera to scan the QR code from the **Two factor authentication** screen on your PC.
-
-    >[!Note]
-    >If your camera isn't working properly, you can [enter the QR code and URL manually](#add-an-account-to-the-app-manually).
-
-4. Review the **Accounts** screen of the Microsoft Authenticator app on your device, to make sure your account information is right and that there's an associated six-digit verification code.
-
-    For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
-
-5. Select **Next** on the **Two factor authentication** screen on the Apple site from your PC, and then type the 6-digit verification code provided in the app for your Apple ID.
-
-    Your account is verified, and you can now use the app to verify your account.
-
-    >[!NOTE]
-    >For more information about two-factor verification and your Apple ID account, see [Set up two-factor authentication for your Apple ID](https://support.apple.com/en-us/HT204915).
 
 ## Next steps
 
