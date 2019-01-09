@@ -123,7 +123,7 @@ In general, you can manipulate data tracking, routing, and retrieval using one o
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [Cross-platform Command Line Interface(CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
  - [REST API](https://docs.microsoft.com/rest/api/monitor)
- - [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
+ - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 ## Next steps
 

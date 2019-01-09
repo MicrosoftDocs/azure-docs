@@ -4,7 +4,7 @@ description: Learn how you can use a partitioned graph in Azure Cosmos DB. This 
 author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
+ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18

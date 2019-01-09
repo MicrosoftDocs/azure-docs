@@ -169,7 +169,7 @@ To see the deployment operations, use the following steps:
       "correlationId":"d5062e45-6e9f-4fd3-a0a0-6b2c56b15757",
       ...
       "error":{
-        "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see http://aka.ms/arm-debug for usage details.",
+        "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.",
         "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
       }  
     }

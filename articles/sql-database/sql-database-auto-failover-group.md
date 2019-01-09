@@ -9,13 +9,13 @@ ms.devlang:
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
+ms.date: 01/03/2019
 ---
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
 
-Auto-failover groups is a SQL Database feature that allows you to manage replication and failover of a group of databases on a logical server or all databases in a Managed Instance to another region (currently in public preview for Managed Instance). It uses the same underlying technology as [active geo-replication](sql-database-active-geo-replication.md). You can initiate failover manually or you can delegate it to the SQL Database service based on a user-defined policy using a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
+Auto-failover groups is a SQL Database feature that allows you to manage replication and failover of a group of databases on a logical server or all databases in a Managed Instance to another region (currently in public preview for Managed Instance). It uses the same underlying technology as [active geo-replication](sql-database-active-geo-replication.md). You can initiate failover manually or you can delegate it to the SQL Database service based on a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
 
 > [!NOTE]
 > When working with single or pooled databases on a logical server and you want multiple secondaries in the same or different regions, use [active geo-replication](sql-database-active-geo-replication.md).
@@ -169,7 +169,7 @@ If your application uses Managed Instance as the data tier, follow these general
 
   When a new instance is created, a unique id is automatically generated as the DNS Zone and included in the instance DNS name. A multi-domain (SAN) certificate for this instance is provisioned with the SAN field in the form of `zone_id.database.windows.net`. This certificate can be used to authenticate the client connections to an  instance in the same DNS zone. To ensure non-interrupted connectivity to the primary instance after failover both the primary and secondary instances must be in the same DNS zone. When your application is ready for production deployment, create a secondary instance in a different region and make sure it shares the DNS zone with the primary instance. This is done by specifying a `DNS Zone Partner` optional parameter using the Azure portal, PowerShell, or the REST API.
 
-  For more information about creating the secondary instance in the same DNS zone as the primary instance, see [Managing failover groups with Managed Instances (preview)](#managing-failover-groups-with-managed-instances-preview).
+  For more information about creating the secondary instance in the same DNS zone as the primary instance, see [Managing failover groups with Managed Instances (preview)](#powershell-managing-failover-groups-with-managed-instances-preview).
 
 - **Enable replication traffic between two instances**
 
@@ -197,7 +197,7 @@ If your application uses Managed Instance as the data tier, follow these general
 
 - **Be prepared for perf degradation**
 
-  SQL failover decision is independent from the rest of the application or other services used. The application may be “mixed” with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow these [network security guidelines](#Failover groups-and-network-security).
+  SQL failover decision is independent from the rest of the application or other services used. The application may be “mixed” with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow these [network security guidelines](#failover-groups-and-network-security).
 
 - **Prepare for data loss**
 
@@ -343,7 +343,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 | API | Description |
 | --- | --- |
 | [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Creates or updates a failover group |
-| [Delete Failover Group](https://docs.microsoft.com/rest/api/instancefailovergroups/delete) | Removes the failover group from the server |
+| [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Removes the failover group from the server |
 | [Failover (Planned)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Fails over from the current primary server to this server. |
 | [Force Failover Allow Data Loss](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |ails over from the current primary server to this server. This operation might result in data loss. |
 | [Get Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Gets a failover group. |

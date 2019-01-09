@@ -19,7 +19,7 @@ ms.custom: seodec18
 ---
 # Local Git Deployment to Azure App Service
 
-This how-to guide shows you how to deploy your code to [Azure App Service](app-service-web-overview.md) from a Git repository on your local computer.
+This how-to guide shows you how to deploy your code to [Azure App Service](overview.md) from a Git repository on your local computer.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

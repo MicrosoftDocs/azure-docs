@@ -24,7 +24,7 @@ business processes, and [workflows](#logic-app-concepts)
 when you need to integrate apps, data, systems, 
 and services across enterprises or organizations. 
 Logic Apps simplifies how you design and build scalable 
-solutions for app integration, data integration, system integration, 
+solutions for app [integration](https://azure.microsoft.com/product-categories/integration/), data integration, system integration, 
 enterprise application integration (EAI), and business-to-business (B2B) communication, 
 whether in the cloud, on premises, or both.
 

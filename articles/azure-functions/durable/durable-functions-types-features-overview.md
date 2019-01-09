@@ -32,7 +32,7 @@ More information and examples can be found in the [Durable Functions binding art
 
 ### Orchestrator functions
 
-Orchestrator functions are the heart of a durable function.  Orchestrator functions describe the way and order actions are executed.  Orchestrator functions describe the orchestration in code (C# or JavaScript) as shown in the [durable functions overview](durable-functions-overview.md).  An orchestration can have many different types of actions, like [activity functions](#activity-functions), [sub-orchestrations](#sub-orchestrations), [waiting for external events](#external-events), and [timers](#durable-timers).  
+Orchestrator functions are the heart of a durable function.  Orchestrator functions describe the way and order actions are executed.  Orchestrator functions describe the orchestration in code (C# or JavaScript) as shown in the [Durable Functions patterns and technical concepts](durable-functions-concepts.md).  An orchestration can have many different types of actions, like [activity Functions](#activity-functions), [sub-orchestrations](#sub-orchestrations), [waiting for external events](#external-events), and [timers](#durable-timers).  
 
 An orchestrator function must be triggered by an [orchestration trigger](durable-functions-bindings.md#orchestration-triggers).
 

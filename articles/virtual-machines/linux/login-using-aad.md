@@ -146,7 +146,7 @@ Close the browser window, return to the SSH prompt, and press the **Enter** key.
 
 ## Sudo and AAD login
 
-The first time that you run sudo, you will be asked to authenticate a second time. If you don't want to have to authenticate again to run sudo, you can edit your sudoers file `/aad/etc/sudoers.d/aad_admins` and replace this line:
+The first time that you run sudo, you will be asked to authenticate a second time. If you don't want to have to authenticate again to run sudo, you can edit your sudoers file `/etc/sudoers.d/aad_admins` and replace this line:
 
 ```bash
 %aad_admins ALL=(ALL) ALL
