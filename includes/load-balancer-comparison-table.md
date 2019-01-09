@@ -5,7 +5,7 @@
  author: KumudD
  ms.service: load-balancer
  ms.topic: include
- ms.date: 12/11/2018
+ ms.date: 01/09/2018
  ms.author: kumud
  ms.custom: include file
 ---
@@ -25,6 +25,6 @@
 |  [TCP Reset on Idle](../articles/load-balancer/load-balancer-tcp-reset.md) | Enable TCP Reset (TCP RST) on Idle Timeout on any rule | Not available |
 | [Multiple frontends](../articles/load-balancer/load-balancer-multivip-overview.md) | Inbound and [outbound](../articles/load-balancer/load-balancer-outbound-connections.md) | Inbound only |
 | Management Operations | Most operations < 30 seconds | 60-90+ seconds typical. |
-| SLA | 99.99% for data path with two healthy virtual machines. | [Implicit in VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/). | 
+| SLA | 99.99% for data path with two healthy virtual machines. | Not applicable. | 
 | Pricing | Charged based on number of rules, data processed inbound and outbound associated with resource.  | No charge |
 |  |  |  |
