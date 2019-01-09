@@ -313,7 +313,7 @@ In this example the policy routes the request to a service fabric backend, using
 </set-body>
 ```
 
-#### Example accessing the body as a JObject. Note that since we are not reserving the original request body, accesing it later in the pipeline will result in an exception.
+#### Example accessing the body as a JObject. Note that since we are not reserving the original request body, accessing it later in the pipeline will result in an exception.
 
 ```xml
 <set-body> 

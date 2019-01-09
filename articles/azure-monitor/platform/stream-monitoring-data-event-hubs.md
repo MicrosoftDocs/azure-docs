@@ -20,7 +20,7 @@ Azure Monitor provides a single pipeline for getting access to all of the monito
 Within your Azure environment, there are several 'tiers' of monitoring data, and the method of accessing data from each tier varies slightly. Typically, these tiers can be described as:
 
 - **Application monitoring data:** Data about the performance and functionality of the code you have written and are running on Azure. Examples of application monitoring data include performance traces, application logs, and user telemetry. Application monitoring data is usually collected in one of the following ways:
-  - By instrumenting your code with an SDK such as the [Application Insights SDK](../../application-insights/app-insights-overview.md).
+  - By instrumenting your code with an SDK such as the [Application Insights SDK](../../azure-monitor/app/app-insights-overview.md).
   - By running a monitoring agent that listens for new application logs on the machine running your application, such as the [Windows Azure Diagnostic Agent](./../../azure-monitor/platform/diagnostics-extension-overview.md) or [Linux Azure Diagnostic Agent](../../virtual-machines/extensions/diagnostics-linux.md).
 - **Guest OS monitoring data:** Data about the operating system on which your application is running. Examples of guest OS monitoring data would be Linux syslog or Windows system events. To collect this type of data, you need to install an agent such as the [Windows Azure Diagnostic Agent](./../../azure-monitor/platform/diagnostics-extension-overview.md) or [Linux Azure Diagnostic Agent](../../virtual-machines/extensions/diagnostics-linux.md).
 - **Azure resource monitoring data:** Data about the operation of an Azure resource. For some Azure resource types, such as virtual machines, there is a guest OS and application(s) to monitor inside of that Azure service. For other Azure resources, such as Network Security Groups, the resource monitoring data is the highest tier of data available (since there is no guest OS or application running in those resources). This data can be collected using [resource diagnostic settings](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings).
@@ -92,7 +92,7 @@ The [Windows Azure Diagnostic agent](./../../azure-monitor/platform/diagnostics-
 
 ## Application monitoring data
 
-Application monitoring data requires that your code is instrumented with an SDK, so there isn't a general-purpose solution to routing application monitoring data to an event hub in Azure. However, [Azure Application Insights](../../application-insights/app-insights-overview.md) is one service that can be used to collect Azure application-level data. If you are using Application Insights, you can stream monitoring data to an event hub by doing the following:
+Application monitoring data requires that your code is instrumented with an SDK, so there isn't a general-purpose solution to routing application monitoring data to an event hub in Azure. However, [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) is one service that can be used to collect Azure application-level data. If you are using Application Insights, you can stream monitoring data to an event hub by doing the following:
 
 1. [Set up continuous export](../../azure-monitor/app/export-telemetry.md) of the Application Insights data to a storage account.
 
