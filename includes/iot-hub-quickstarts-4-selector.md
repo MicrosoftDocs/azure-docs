@@ -13,4 +13,4 @@
 > [!div class="op_single_selector"]
 > * [C#](../articles/iot-hub/iot-hub-device-streams-csharp-proxy-quickstart.md)
 > * [C](../articles/iot-hub/iot-hub-device-streams-c-proxy-quickstart.md)
-> * [Node.js](../articles/iot-hub/iot-hub-device-streams-node-proxy-quickstart.md)
+> * [Node.js](../articles/iot-hub/iot-hub-device-streams-nodejs-proxy-quickstart.md)
