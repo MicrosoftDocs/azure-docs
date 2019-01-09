@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
-ms.date: 01/07/2018
+ms.date: 01/07/2019
 ms.custom: seodec18
 ---
 # Set up compute targets for model training
@@ -44,7 +44,7 @@ Azure Machine Learning service has varying support across different compute targ
 
 >You create compute targets for machine learning pipelines as shown in this article, but you use these computes in pipeline steps instead of the methods listed here.  Also, only some pipeline steps use the run configuration described in this article.  For more information about using compute targets in a pipeline see [Create and run a machine learning pipeline](how-to-create-your-first-pipeline.md).
 
-## What's a run configuration
+## What's a run configuration?
 
 When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute targets without having to change your script. 
 
@@ -262,7 +262,7 @@ To see the compute targets for your workspace, use the following steps:
 
 Follow the previous steps to view the list of compute targets. Then use these steps to create a compute target: 
 
-1. Select the Plus sign (+) to add a compute target.
+1. Select the plus sign (+) to add a compute target.
 
     ![Add a compute target](./media/how-to-set-up-training-targets/add-compute-target.png) 
 
@@ -294,7 +294,7 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
 Follow the steps described earlier to view the list of compute targets. Then use these steps to reuse a compute target: 
 
-1. Select the Plus sign (+) to add a compute target. 
+1. Select the plus sign (+) to add a compute target. 
 1. Enter a name for the compute target. 
 1. Select the type of compute to attach for __Training__:
 
