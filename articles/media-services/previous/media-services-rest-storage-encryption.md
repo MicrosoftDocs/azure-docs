@@ -4,7 +4,7 @@ description: Learn how to encrypt your content with storage encryption using AMS
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: a0a79f3d-76a1-4994-9202-59b91a2230e0
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/18/2018
 ms.author: juliako
 
 ---
@@ -35,6 +35,18 @@ This article gives an overview of AMS storage encryption and shows you how to up
 If you want to deliver a storage encrypted asset, you must configure the asset’s delivery policy. Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy. For more information, see [Configuring Asset Delivery Policies](media-services-rest-configure-asset-delivery-policy.md).
 
 When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md). 
+
+### Storage side encryption
+
+|Encryption option|Description|Media Services v2|Media Services v3|
+|---|---|---|---|
+|Media Services Storage Encryption|AES-256 encryption, key managed by Media Services|Supported<sup>(1)</sup>|Not supported<sup>(2)</sup>|
+|[Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Server-side encryption offered by Azure Storage, key managed by Azure or by customer|Supported|Supported|
+|[Storage Client-Side Encryption](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Client-side encryption offered by Azure storage, key managed by customer in Key Vault|Not supported|Not supported|
+
+<sup>1</sup> While Media Services does support handling of content in the clear/without any form of encryption, doing so is not recommended.
+
+<sup>2</sup> In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your Assets were created with Media Services v2. Meaning v3 works with existing storage encrypted assets but will not allow creation of new ones.
 
 ## Connect to Media Services
 
@@ -95,12 +107,12 @@ The following are general steps for generating content keys that you associate w
 
     Request body property    | Description
     ---|---
-    Id | The ContentKey Id is generated using the following format, “nb:kid:UUID:<NEW GUID>”.
+    Id | The ContentKey ID is generated using the following format, “nb:kid:UUID:<NEW GUID>”.
     ContentKeyType | The content key type is an integer that defines the key. For storage encryption format, the value is 1.
     EncryptedContentKey | We create a new content key value that is a 256-bit (32 bytes) value. The key is encrypted using the storage encryption X.509 certificate that we retrieve from Microsoft Azure Media Services by executing an HTTP GET request for the GetProtectionKeyId and GetProtectionKey Methods. As an example, see the following .NET code: the  **EncryptSymmetricKeyData** method defined [here](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-    ProtectionKeyId | This is the protection key id for the storage encryption X.509 certificate that was used to encrypt our content key.
+    ProtectionKeyId | This is the protection key ID for the storage encryption X.509 certificate that was used to encrypt our content key.
     ProtectionKeyType | This is the encryption type for the protection key that was used to encrypt the content key. This value is StorageEncryption(1) for our example.
-    Checksum |The MD5 calculated checksum for the content key. It is computed by encrypting the content Id with the content key. The example code demonstrates how to calculate the checksum.
+    Checksum |The MD5 calculated checksum for the content key. It is computed by encrypting the content ID with the content key. The example code demonstrates how to calculate the checksum.
 
 
 ### Retrieve the ProtectionKeyId
@@ -113,7 +125,7 @@ Request:
     Accept: application/json
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: media.windows.net
 
@@ -144,7 +156,7 @@ Request:
     Accept: application/json
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
@@ -173,7 +185,7 @@ After you have retrieved the X.509 certificate and used its public key to encryp
 
 One of the values that you must set when create the content key is the type. When using storage encryption, the value should be set to '1'. 
 
-The following example shows how to create a **ContentKey** with a **ContentKeyType** set for storage encryption ("1") and the **ProtectionKeyType** set to "0" to indicate that the protection key Id is the X.509 certificate thumbprint.  
+The following example shows how to create a **ContentKey** with a **ContentKeyType** set for storage encryption ("1") and the **ProtectionKeyType** set to "0" to indicate that the protection key ID is the X.509 certificate thumbprint.  
 
 Request
 
@@ -184,7 +196,7 @@ Request
     Accept: application/json
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: media.windows.net
     {
@@ -233,7 +245,7 @@ The following example shows how to create an asset.
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: media.windows.net
 
@@ -280,7 +292,7 @@ Request:
     Accept: application/json
     Accept-Charset: UTF-8
     Content-Type: application/json
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: media.windows.net
 
@@ -305,7 +317,7 @@ After you upload your digital media file into a blob container, you will use the
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: media.windows.net
     Content-Length: 164

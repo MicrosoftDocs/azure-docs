@@ -5,12 +5,12 @@
  author: jonbeck7
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 05/22/2018
+ ms.date: 07/06/2018
  ms.author: azcspmt;jonbeck;cynthn
  ms.custom: include file
 ---
 
-Azure H-series virtual machines are the latest in high performance computing VMs aimed at high end computational needs, like molecular modeling, and computational fluid dynamics. These 8 and 16 vCPU VMs are built on the Intel Haswell E5-2667 V3 processor technology featuring DDR4 memory and SSD-based temporary storage. 
+Azure H-series virtual machines are the latest in high performance computing VMs aimed at handling workloads like batch processing, analytics, molecular modeling, and fluid dynamics. These 8 and 16 vCPU VMs are built on the Intel Haswell E5-2667 V3 processor technology featuring DDR4 memory and SSD-based temporary storage. 
 
 In addition to the substantial CPU power, the H-series offers diverse options for low latency RDMA networking using FDR InfiniBand and several memory configurations to support memory intensive computational requirements.
 
@@ -19,6 +19,10 @@ In addition to the substantial CPU power, the H-series offers diverse options fo
 ## H-series
 
 ACU: 290-300
+
+Premium Storage:  Not Supported
+
+Premium Storage Caching:  Not Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max disk throughput: IOPS | Max NICs |
 | --- | --- | --- | --- | --- | --- | --- |

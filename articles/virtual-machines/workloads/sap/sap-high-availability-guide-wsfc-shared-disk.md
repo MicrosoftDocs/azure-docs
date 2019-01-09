@@ -180,10 +180,10 @@ ms.custom: H1Hack27Feb2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
+# Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure
+
 > ![Windows][Logo_Windows] Windows
 >
-
-# Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure
 
 Windows Server failover clustering is the foundation of a high-availability SAP ASCS/SCS installation and DBMS in Windows.
 

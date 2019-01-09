@@ -13,6 +13,8 @@ ms.author: panosper
 
 # Custom Speech Service meters and quotas
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 With cloud-based Custom Speech Service, you can customize speech models for speech-to-text transcription.
 
 To begin using the Custom Speech Service, go to the [Custom Speech Service portal](https://cris.ai).

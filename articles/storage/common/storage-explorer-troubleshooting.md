@@ -1,20 +1,13 @@
-﻿---
+---
 title: Azure Storage Explorer troubleshooting guide | Microsoft Docs
 description: Overview of the two debugging feature of Azure
 services: virtual-machines
-documentationcenter: ''
 author: Deland-Han
-manager: cshepard
-editor: ''
-
-ms.assetid:
 ms.service: virtual-machines
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 06/15/2018
 ms.author: delhan
+ms.component: common
 ---
 
 # Azure Storage Explorer troubleshooting guide
@@ -27,7 +20,7 @@ This guide summarizes solutions for common issues seen in Storage Explorer.
 
 Certificate errors are caused by one of the two following situations:
 
-1. The app is connected through a “transparent proxy”, which means a server (such as your company server) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
+1. The app is connected through a "transparent proxy", which means a server (such as your company server) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
 2. You are running an application that is injecting a self-signed SSL certificate into the HTTPS messages that you receive. Examples of applications that do inject certificates includes anti-virus and network traffic inspection software.
 
 When Storage Explorer sees a self signed or untrusted certificate, it can no longer know whether the received HTTPS message has been altered. If you have a copy of the self-signed certificate, you can instruct Storage Explorer trust it by doing the following steps:
@@ -56,17 +49,38 @@ If you cannot find any self-signed certificates using the preceding steps, conta
 
 ## Sign-in issues
 
-If you are unable to sign in, try the following troubleshooting methods:
+### Reauthentication loop or UPN change
+If you are in a reauthentication loop, or have changed the UPN of one of your accounts, try the following:
+1. Remove all accounts and then close Storage Explorer
+2. Delete the .IdentityService folder from your machine. On Windows, the folder is located at `C:\users\<username>\AppData\Local`. For Mac and Linux, you can find the folder at the root of your user directory.
+3. If you are on Mac or Linux, you will also need to delete the Microsoft.Developer.IdentityService entry from your OS' keystore. On Mac, the keystore is the "Gnome Keychain" application. For Linux, the application is usually called "Keyring", but the name may be different depending on your distribution.
 
-* If you are on macOS and the sign-in window never appears over the "Waiting for authentication..." dialog, then try [these steps](#Resetting-the-Mac-Keychain)
+### Conditional Access
+Conditional access is not supported when Storage Explorer is being used on Windows 10, Linux, or macOS. This is due to a limitation in the AAD Library used by Storage Explorer.
+
+## Mac Keychain errors
+The macOS Keychain can sometimes get into a state that causes issues for Storage Explorer's authentication library. To get the keychain out of this state try the following steps:
+1. Close Storage Explorer.
+2. Open keychain (**cmd+space**, type in keychain, hit enter).
+3. Select the "login" keychain.
+4. Click the padlock icon to lock the keychain (the padlock will animate to a locked position when complete, it may take a few seconds depending on what apps you have open).
+
+    ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+
+5. Launch Storage Explorer.
+6. A pop-up should appear saying something like "Service hub wants to access the keychain". When it does, enter your Mac admin account password and click **Always Allow** (or **Allow** if **Always Allow** is not available).
+7. Try to sign in.
+
+### General sign-in troubleshooting steps
+* If you are on macOS and the sign-in window never appears over the "Waiting for authentication..." dialog, then try [these steps](#mac-keychain-errors)
 * Restart Storage Explorer
 * If the authentication window is blank, wait at least one minute before closing the authentication dialog box.
-* Ensure that your proxy and certificate settings are properly configured for both your machine and Storage Explorer
-* If you are on Windows and have access to Visual Studio 2017 on the same machine and login, try signing in to Visual Studio 2017
+* Ensure that your proxy and certificate settings are properly configured for both your machine and Storage Explorer.
+* If you are on Windows and have access to Visual Studio 2017 on the same machine and login, try signing in to Visual Studio 2017. After a successful sign-in to Visual Studio 2017, you should be able to open Storage Explorer and see your account in the account panel.
 
 If none of these methods work [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## Unable to retrieve subscriptions
+### Missing subscriptions and broken tenants
 
 If you are unable to retrieve your subscriptions after you successfully sign in, try the following troubleshooting methods:
 
@@ -74,7 +88,7 @@ If you are unable to retrieve your subscriptions after you successfully sign in,
 * Make sure that you have signed in using the correct Azure environment (Azure, Azure China, Azure Germany, Azure US Government, or Custom Environment).
 * If you are behind a proxy, make sure that you have configured the Storage Explorer proxy properly.
 * Try removing and readding the account.
-* Watch the developer tools console (Help > Toggle Developer Tools) while Storage Explorer is loading subscriptions. Look for error messages (red text), or any message containing the text "Could not load subscriptions for tenant." If you see any concerning messages, [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* If there is a "More information" link, look and see what error messages are being reported for the tenants that are failing. If you are not sure what to do with the error messages you see, then feel free to [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## Cannot remove attached account or storage resource
 
@@ -96,6 +110,8 @@ First, make sure that the following information you entered are all correct:
 
 * The proxy URL and port number
 * Username and password if required by the proxy
+
+Note that Storage Explorer does not support .pac file for configuring proxy settings.
 
 ### Common solutions
 
@@ -128,6 +144,12 @@ If your proxy settings are correct, you may have to contact your proxy server ad
 
 If you are connected to Azure through a proxy, verify that your proxy settings are correct. If you were granted access to a resource from the owner of the subscription or account, verify that you have read or list permissions for that resource.
 
+## Connection String Does Not Have Complete Configuration Settings
+
+If you receive this error message, it is possible that you do not have the needed permissions to obtain the keys for your Storage account. To confirm if this is the case, go to the portal and locate your Storage account. You can quickly do this by right clicking on the node for your Storage account and clicking "Open in Portal". Once you do, go to the "Access Keys" blade. If you do not have permissions to view keys then you will see a page with the message "You do not have access". To workaround this issue, you can either obtain the account key from someone else and attach with name and key, or you can ask someone for a SAS to the Storage account and use it to attach the Storage account.
+
+If you do see the account keys, then please file an issue on GitHub so we can help you resolve the issue.
+
 ## Issues with SAS URL
 If you're connecting to a service using a SAS URL and experiencing this error:
 
@@ -142,7 +164,7 @@ If you accidentally attached using an invalid SAS URL and are unable to detach, 
 4.	The value of the key should be a JSON array. Find the object associated with the bad URI and remove it.
 5.	Press Ctrl+R to reload Storage Explorer.
 
-## Linux Dependencies
+## Linux dependencies
 
 For Linux distros other than Ubuntu 16.04, you may need to manually install some dependencies. In general, the following packages are required:
 * [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
@@ -151,19 +173,6 @@ For Linux distros other than Ubuntu 16.04, you may need to manually install some
 * Up-to-date GCC
 
 Depending on your distro, there may be other packages you need to install. The Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distros.
-
-## Resetting the Mac Keychain
-The macOS Keychain can sometimes get into a state that causes issues for Storage Explorer's authentication library. To get the keychain out of this state try the following steps:
-1. Close Storage Explorer.
-2. Open keychain (**cmd+space**, type in keychain, hit enter).
-3. Select the "login" keychain.
-4. Click the padlock icon to lock the keychain (the padlock will animate to a locked position when complete, it may take a few seconds depending on what apps you have open).
-
-    ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
-
-5. Launch Storage Explorer.
-6. A pop up should appear saying something like "Service hub wants to access the keychain", enter your Mac admin account password and click **Always Allow** (or **Allow** if **Always Allow** is not available).
-7. Try to sign in.
 
 ## Next steps
 

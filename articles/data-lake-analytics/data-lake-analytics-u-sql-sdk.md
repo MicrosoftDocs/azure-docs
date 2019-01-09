@@ -5,8 +5,8 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
 ms.author: yanacai
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ---
@@ -32,7 +32,7 @@ The Data Lake U-SQL SDK requires the following dependencies:
 
     ![Data Lake Tools for Visual Studio local-run Windows 10 SDK](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Install [Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs). You can find the prepackaged Visual C++ and Windows SDK files at
+    - Install [Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs). You can find the prepackaged Visual C++ and Windows SDK files at
 	C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. In this case, the U-SQL local compiler cannot find the dependencies automatically. You need to specify the CppSDK path for it. You can either copy the files to another location or use it as is.
 
 ## Understand basic concepts

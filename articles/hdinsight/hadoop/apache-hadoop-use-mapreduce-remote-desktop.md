@@ -1,28 +1,23 @@
 ---
-title: MapReduce and Remote Desktop with Hadoop in HDInsight - Azure | Microsoft Docs
-description: Learn how to use Remote Desktop to connect to Hadoop on HDInsight and run MapReduce jobs.
+title: MapReduce and Remote Desktop with Apache Hadoop in HDInsight - Azure 
+description: Learn how to use Remote Desktop to connect to Apache Hadoop on HDInsight and run MapReduce jobs.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: 9d3a7b34-7def-4c2e-bb6c-52682d30dee8
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: larryfr
+ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---
-# Use MapReduce in Hadoop on HDInsight with Remote Desktop
+# Use MapReduce in Apache Hadoop on HDInsight with Remote Desktop
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-In this article, you will learn how to connect to a Hadoop on HDInsight cluster by using Remote Desktop and then run MapReduce jobs by using the Hadoop command.
+In this article, you will learn how to connect to an Apache Hadoop on HDInsight cluster by using Remote Desktop and then run MapReduce jobs by using the Hadoop command.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Remote Desktop is only available on Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > For HDInsight 3.4 or greater, see [Use MapReduce with SSH](apache-hadoop-use-mapreduce-ssh.md) for information on connecting to the HDInsight cluster and running MapReduce jobs.
@@ -41,7 +36,7 @@ When you are connected to the desktop for the HDInsight cluster, use the followi
 
 1. From the HDInsight desktop, start the **Hadoop Command Line**. This opens a new command prompt in the **c:\apps\dist\hadoop-&lt;version number>** directory.
 
-   > [!NOTE]
+   > [!NOTE]  
    > The version number changes as Hadoop is updated. The **HADOOP_HOME** environment variable can be used to find the path. For example, `cd %HADOOP_HOME%` changes directories to the Hadoop directory, without requiring you to know the version number.
    >
    >
@@ -75,7 +70,7 @@ When you are connected to the desktop for the HDInsight cluster, use the followi
 
         hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-    This displays a list of the words that are contained in the **wasb://example/data/gutenberg/davinci.txt** file, along with the number of times each word occured. The following is an example of the data that will be contained in the file:
+    This displays a list of the words that are contained in the **wasb://example/data/gutenberg/davinci.txt** file, along with the number of times each word occurred. The following is an example of the data that will be contained in the file:
 
         wreathed        3
         wreathing       1
@@ -95,5 +90,5 @@ For general information about MapReduce jobs in HDInsight:
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)

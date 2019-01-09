@@ -1,9 +1,9 @@
 ---
-title: Choose VM sizes for Azure Batch pools | Microsoft Docs
+title: Choose VM sizes for pools - Azure Batch | Microsoft Docs
 description: How to choose from the available VM sizes for compute nodes in Azure Batch pools
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
@@ -13,8 +13,9 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
-ms.author: danlep
+ms.date: 11/07/2018
+ms.author: lahugh
+ms.custom: seodec18
 
 ---
 # Choose a VM size for compute nodes in an Azure Batch pool
@@ -37,9 +38,15 @@ Batch pools in the Virtual Machine configuration support all VM sizes ([Linux](.
 | Basic A-series | Basic_A0 (A0) |
 | A-series | Standard_A0 |
 | B-series | All |
-| Fsv2-series<sup>*</sup> | All |
 
-<sup>*</sup>Sizes in this series are on the roadmap for future support.
+The following VM sizes are supported only for low-priority nodes:
+
+| Family  | Supported sizes  |
+|---------|---------|
+| M-series | Standard_M64ms |
+| M-series | Standard_M128s |
+
+Other VM sizes in the M-series family are currently unsupported.
 
 ### Pools in Cloud Service configuration
 
@@ -51,6 +58,7 @@ Batch pools in the Cloud Service configuration support all [VM sizes for Cloud S
 | Av2-series | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
 ## Restricted VM families
+
 The following VM families can be allocated in Batch pools, but you must request a specific quota increase (see [this article](batch-quota-limit.md#increase-a-quota)):
 * NCv2-series
 * NCv3-series

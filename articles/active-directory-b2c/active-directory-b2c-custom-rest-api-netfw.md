@@ -7,7 +7,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
@@ -256,40 +256,40 @@ Locate the `<ClaimsProviders>` node, and then add the following XML snippet unde
 
 ```xml
 <ClaimsProvider>
-    <DisplayName>REST APIs</DisplayName>
-    <TechnicalProfiles>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
     
     <!-- Custom Restful service -->
     <TechnicalProfile Id="REST-API-SignUp">
-        <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
-        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-        <Metadata>
+      <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
         <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/signup</Item>
         <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
-        </Metadata>
-        <InputClaims>
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
         <InputClaim ClaimTypeReferenceId="email" />
         <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
         <InputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
-        </InputClaims>
-        <OutputClaims>
+      </InputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
     </TechnicalProfile>
 
-<!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
+    <!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-        <OutputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <ValidationTechnicalProfiles>
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
         <ValidationTechnicalProfile ReferenceId="REST-API-SignUp" />
-        </ValidationTechnicalProfiles>
+      </ValidationTechnicalProfiles>
     </TechnicalProfile>
-
-    </TechnicalProfiles>
+  </TechnicalProfiles>
 </ClaimsProvider>
 ```
 
@@ -362,7 +362,7 @@ After you add the new claim, the relying party code looks like this:
   "exp": 1507125903,
   "nbf": 1507122303,
   "ver": "1.0",
-  "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
   "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
   "acr": "b2c_1a_signup_signin",
   "nonce": "defaultNonce",

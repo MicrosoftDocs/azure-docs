@@ -124,8 +124,6 @@ The following example deploys two storage accounts - one in the resource group s
 
 If you set `resourceGroup` to the name of a resource group that does not exist, the deployment fails.
 
-To deploy the example template, use Azure PowerShell 4.0.0 or later, or Azure CLI 2.0.0 or later.
-
 ## Use the resourceGroup() and subscription() functions
 
 For cross resource group deployments, the [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) and [subscription()](resource-group-template-functions-resource.md#subscription) functions resolve differently based on how you specify the nested template. 

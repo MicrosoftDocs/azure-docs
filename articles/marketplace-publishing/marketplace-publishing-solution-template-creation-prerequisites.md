@@ -3,8 +3,8 @@ title: Technical prerequisites for creating a solution template for the Marketpl
 description: Understand the requirements for creating a solution template to deploy and sell on the Azure Marketplace
 services: marketplace-publishing
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: v-miclar
+manager: hascipio
 editor: ''
 
 ms.assetid: bbcc12dd-1c2f-4ce6-830c-f0e06524aa38
@@ -14,14 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
-ms.author: mbaldwin
+ms.author: hascipio; v-divte
+
+ROBOTS: NOINDEX
 
 ---
+
 # Technical prerequisites for creating a solution template for the Azure Marketplace
 Read the process thoroughly before beginning and understand where and why each step is performed. As much as possible, you should prepare your company information and other data, download necessary tools, and/or create technical components before beginning the offer creation process.  
 
 ## Developing building blocks
-You must decide on the building blocks of your solution before you proceed with your solution template on the Publishing Portal. Below are some links to the documents that can help you in the process:
+Decide on the building blocks of your solution before you proceed with your solution template on the Publishing Portal. Below are some links to the documents that can help you in the process:
 
 1. [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
 2. Azure Quickstart templates:

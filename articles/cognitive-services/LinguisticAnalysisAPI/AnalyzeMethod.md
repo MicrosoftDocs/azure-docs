@@ -1,17 +1,22 @@
 ---
-title: Analyze method in the Linguistic Analysis API | Microsoft Docs
+title: Analyze method - Linguistic Analysis API
+titlesuffix: Azure Cognitive Services
 description: How to use the Analyze method in Linguistic Analysis API to analyze certain natural-language inputs.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
+ROBOTS: NOINDEX
 ---
 
 # Analyze Method
+
+> [!IMPORTANT]
+> The Linguistic Analysis preview was decommissioned on August 9, 2018. We recommend using [Azure Machine Learning text analytics modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) for text processing and analysis.
 
 The **analyze** REST API is used to analyze a given natural language input.
 That might involve just finding the [sentences and tokens](Sentences-and-Tokens.md) within that input, finding the [part-of-speech tags](POS-tagging.md), or finding the [constitutency tree](Constituency-Parsing.md).
@@ -34,8 +39,8 @@ Name | Type | Required | Description
 **analyzerIds** | list of strings | Yes | List of GUIDs of analyzers to apply. See the Analyzers documentation for more information.
 **text**        | string | Yes | Raw input to be analyzed. This might be a short string such as a word or phrase, a full sentence, or a full paragraph or discourse.
 
-<br>
 ## Response (JSON)
+
 An array of analysis outputs, one for each attribute specified in the request.
 
 The results look as follows:
@@ -133,8 +138,6 @@ To find the token corresponding to each POS tag, you'll want to ask for a tokeni
 The result is a list of strings, one parse tree for each sentence found in the input.
 The parse trees are represented in a parenthesized form.
 
-<br>
-
 ## Example
 
 `POST /analyze`
@@ -146,7 +149,7 @@ Request Body: JSON payload
   "analyzerIds": [
     "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04",
     "22A6B758-420F-4745-8A3C-46835A67C0D2" ],
-  "text": "Hi, Tom! How are you today?" 
+  "text": "Hi, Tom! How are you today?"
 }
 ```
 
@@ -154,13 +157,12 @@ Response: JSON
 ```json
 [
   {
-    "analyzerId": "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04", 
+    "analyzerId": "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04",
     "result": [ ["NNP",",","NNP","."], ["WRB","VBP","PRP","NN","."] ]
   },
   {
-    "analyzerId": "22A6B758-420F-4745-8A3C-46835A67C0D2", 
+    "analyzerId": "22A6B758-420F-4745-8A3C-46835A67C0D2",
     "result":["(TOP (S (NNP Hi) (, ,) (NNP Tom) (. !)))","(TOP (SBARQ (WHADVP (WRB How)) (SQ (VP (VBP are)) (NP (PRP you)) (NN today) (. ?))))"]
   }
 ]
 ```
-

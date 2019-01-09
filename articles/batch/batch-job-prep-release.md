@@ -3,7 +3,7 @@ title: Create tasks to prepare jobs and complete jobs on compute nodes - Azure B
 description: Use job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
+ms.author: lahugh
+ms.custom: seodec18
 
 ---
 # Run job preparation and job release tasks on Batch compute nodes
@@ -114,7 +114,7 @@ await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ## Code sample on GitHub
 To see job preparation and release tasks in action, check out the [JobPrepRelease][job_prep_release_sample] sample project on GitHub. This console application does the following:
 
-1. Creates a pool with two "small" nodes.
+1. Creates a pool with two nodes.
 2. Creates a job with job preparation, release, and standard tasks.
 3. Runs the job preparation task, which first writes the node ID to a text file in a node's "shared" directory.
 4. Runs a task on each node that writes its task ID to the same text file.
@@ -127,7 +127,7 @@ Output from the sample application is similar to the following:
 
 ```
 Attempting to create pool: JobPrepReleaseSamplePool
-Created pool JobPrepReleaseSamplePool with 2 small nodes
+Created pool JobPrepReleaseSamplePool with 2 nodes
 Checking for existing job JobPrepReleaseSampleJob...
 Job JobPrepReleaseSampleJob not found, creating...
 Submitting tasks and awaiting completion...
@@ -191,9 +191,9 @@ This MSDN forum post provides an overview of several methods of preparing your n
 
 Written by one of the Azure Batch team members, it discusses several techniques that you can use to deploy applications and data to compute nodes.
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[api_rest]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [portal]: https://portal.azure.com
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease

@@ -3,8 +3,8 @@ title: Override HTTP behavior using the Azure CDN rules engine | Microsoft Docs
 description: The rules engine allows you to customize how HTTP requests are handled by Azure CDN, such as blocking the delivery of certain types of content, define a caching policy, and modify HTTP headers.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
-ms.author: mazha
+ms.date: 06/11/2018
+ms.author: magattus
 
 ---
 # Override HTTP behavior using the Azure CDN rules engine
@@ -43,9 +43,10 @@ To access the rules engine, you must first select **Manage** from the top of the
 ## Tutorial
 1. From the **CDN profile** page, select **Manage**.
    
-    ![CDN profile manage button](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![CDN profile Manage button](./media/cdn-rules-engine/cdn-manage-btn.png)
    
     The CDN management portal opens.
+
 2. Select the **HTTP Large** tab, then select **Rules Engine**.
    
     The options for a new rule are displayed.
@@ -55,7 +56,9 @@ To access the rules engine, you must first select **Manage** from the top of the
    > [!IMPORTANT]
    > The order in which multiple rules are listed affects how they are handled. A subsequent rule may override the actions specified by a previous rule.
    > 
+
 3. Enter a name in the **Name / Description** textbox.
+
 4. Identify the type of requests the rule applies to. Use the default match condition, **Always**. 
    
    ![CDN rule match condition](./media/cdn-rules-engine/cdn-request-type.png)
@@ -68,7 +71,8 @@ To access the rules engine, you must first select **Manage** from the top of the
    > For a detailed list of match conditions, see [Rules engine match conditions](cdn-rules-engine-reference-match-conditions.md).
    > 
    > 
-1. To add a new feature, select the **+** button next to **Features**.  In the dropdown on the left, select **Force Internal Max-Age**.  In the textbox that appears, enter **300**. Do not change the remaining default values.
+
+5. To add a new feature, select the **+** button next to **Features**.  In the dropdown on the left, select **Force Internal Max-Age**.  In the textbox that appears, enter **300**. Do not change the remaining default values.
    
    ![CDN rule feature](./media/cdn-rules-engine/cdn-new-feature.png)
    
@@ -80,10 +84,11 @@ To access the rules engine, you must first select **Manage** from the top of the
    > For a detailed list of features, see [Rules engine features](cdn-rules-engine-reference-features.md).
    > 
    > 
-1. Click the **Add** button to save the new rule.  The new rule is now awaiting approval. After it has been approved, the status changes from **Pending XML** to **Active XML**.
+
+6. Select **Add** to save the new rule.  The new rule is now awaiting approval. After it has been approved, the status changes from **Pending XML** to **Active XML**.
    
    > [!IMPORTANT]
-   > Rules changes can take up to 90 minutes to propagate through the CDN.
+   > Rules changes can take up to 10 minutes to propagate through Azure CDN.
    > 
    > 
 

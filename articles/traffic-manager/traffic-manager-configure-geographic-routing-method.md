@@ -4,10 +4,6 @@ description: This article explains how to configure the geographic traffic routi
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-
-ms.assetid:
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article

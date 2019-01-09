@@ -118,7 +118,7 @@ The following were issues discovered in many of the larger migrations. This is n
     - Network Security Groups
     - Route Tables
 
-    You can check your current Azure Resource Manager quotas using the following commands with the latest version of Azure CLI 2.0.
+    You can check your current Azure Resource Manager quotas using the following commands with the latest version of Azure CLI.
 
     **Compute** *(Cores, Avaiability Sets)*
 

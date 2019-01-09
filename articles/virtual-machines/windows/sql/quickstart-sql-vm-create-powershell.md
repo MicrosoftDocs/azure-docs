@@ -78,7 +78,7 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
 
    # Create a virtual network
    $Vnet = New-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $Location `
-      -Name VnetName -AddressPrefix 192.168.0.0/16 -Subnet $SubnetConfig
+      -Name $VnetName -AddressPrefix 192.168.0.0/16 -Subnet $SubnetConfig
 
    # Create a public IP address and specify a DNS name
    $Pip = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $Location `

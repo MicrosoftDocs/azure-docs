@@ -13,13 +13,15 @@ ms.author: panosper
 
 # Tutorial: Create a custom language model
 
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 In this tutorial, you create a custom language model for text queries or utterances you expect users to say or type in an application. You can then use this custom language model in conjunction with existing state-of-the-art speech models from Microsoft to add voice interaction to your application.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Prepare the data
-> * Import the acoustic data set
-> * Create the custom acoustic model
+> * Import the language data set
+> * Create the custom language model
 
 If you don't have a Cognitive Services account, create a [free account](https://cris.ai) before you begin.
 

@@ -1,18 +1,11 @@
 ---
-title: 'Lambda architecture with Azure Cosmos DB and HDInsight (Apache Spark) | Microsoft Docs'
+title: Lambda architecture with Azure Cosmos DB and HDInsight (Apache Spark)
 description: This article describes how to implement a lambda architecture using Azure Cosmos DB, HDInsight, and Spark
-keywords: lambda-architecture
-services: cosmos-db
-author: dennyglee
-manager: kfile
-editor: ''
-
 ms.service: cosmos-db
-ms.devlang: na
+author: tknandu
+ms.author: ramkris
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: denlee
-
 ---
 # Azure Cosmos DB: Implement a lambda architecture on the Azure platform 
 
@@ -26,11 +19,6 @@ To implement a lambda architecture on Azure, you can combine the following techn
 
 This article describes the fundamentals of a lambda architecture based on the original multi-layer design and the benefits of a "rearchitected" lambda architecture that simplifies operations.  
 
-For an overview of the lambda architecture and the resources available in the lambda architecture sample, watch the following video:
-
-> [!VIDEO https:///channel9.msdn.com/Events/Connect/2017/T135/player]
->
-
 ## What is a lambda architecture?
 A lambda architecture is a generic, scalable, and fault-tolerant data processing architecture to address batch and speed latency scenarios as described by [Nathan Marz](https://twitter.com/nathanmarz).
 
@@ -38,7 +26,7 @@ A lambda architecture is a generic, scalable, and fault-tolerant data processing
 
 Source: http://lambda-architecture.net/
 
-The basic principles of a lambda architecture are described in the preceding diagram as per [https://lambda-architecture.net](http://lambda-architecture.net/).
+The basic principles of a lambda architecture are described in the preceding diagram as per [http://lambda-architecture.net](http://lambda-architecture.net/).
 
  1. All **data** is pushed into *both* the *batch layer* and *speed layer*.
  2. The **batch layer** has a master dataset (immutable, append-only set of raw data) and pre-computes the batch views.
@@ -202,7 +190,7 @@ This last statement now has saved your Spark DataFrame into a new Azure Cosmos D
  
 #### Resources
 
-For complete code samples, see [azure-cosmosdb-spark/lambda/samples](vhttps://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda) including:
+For complete code samples, see [azure-cosmosdb-spark/lambda/samples](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda) including:
 * Lambda Architecture Rearchitected - Batch Layer [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb)
 * Lambda Architecture Rearchitected - Batch to Serving Layer [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb)
 
@@ -282,4 +270,4 @@ If you haven't already, download the Spark to Azure Cosmos DB connector from the
 * [Change feed demos](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)
 * [Stream processing changes using Azure Cosmos DB Change Feed and Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
 
-You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Apache Spark on Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) article.
+You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Apache Spark on Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) article.

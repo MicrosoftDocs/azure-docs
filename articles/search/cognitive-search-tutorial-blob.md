@@ -1,14 +1,16 @@
 ---
-title: 'Tutorial: Call cognitive search APIs in Azure Search | Microsoft Docs'
-description: Example of data extraction, natural language, and image AI processing in Azure Search indexing for data extraction and transformation. 
+title: 'Tutorial for calling cognitive search APIs - Azure Search'
+description: In this tutorial, step through an example of data extraction, natural language, and image AI processing in Azure Search indexing for data extraction and transformation. 
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 07/11/2018
 ms.author: luisca
+ms.custom: seodec2018
+#Customer intent: As a developer, I want an introduction to the core APIs.
 ---
 
 # Tutorial: Learn how to call cognitive search APIs (Preview)
@@ -18,8 +20,8 @@ In this tutorial, you learn the mechanics of programming data enrichment in Azur
 In this tutorial, you make REST API calls to perform following tasks:
 
 > [!div class="checklist"]
-> * Create an indexing pipeline that enriches source data in route to an index
-> * Use built-in skills on sample data: entity recognition, language detection, text manipulation, key phrase extraction
+> * Create an indexing pipeline that enriches sample data in route to an index
+> * Apply built-in skills: entity recognition, language detection, text manipulation, key phrase extraction
 > * Learn how to chain skills together by mapping inputs to outputs in a skillset
 > * Execute requests and review results
 > * Reset the index and indexers for further development
@@ -27,6 +29,12 @@ In this tutorial, you make REST API calls to perform following tasks:
 Output is a full text searchable index on Azure Search. You can enhance the index with other standard capabilities, such as [synonyms](search-synonyms.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyzers](search-analyzers.md), and [filters](search-filters.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+> [!NOTE]
+> Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost.
+>
+> The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
+. Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).
 
 ## Prerequisites
 
@@ -44,22 +52,23 @@ First, sign up for the Azure Search service.
 
 1. Click **Create a resource**, search for Azure Search, and click **Create**. See [Create an Azure Search service in the portal](search-create-service-portal.md) if you are setting up a search service for the first time.
 
-  ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Create Azure Search service in the portal")
+  ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Create Azure Search service in the portal")
 
 1. For Resource group, create a resource group to contain all the resources you create in this tutorial. This makes it easier to clean up the resources after you have finished the tutorial.
 
-1. For Location, choose either **South Central US** or **West Europe**. Currently, the preview is available only in these regions.
+1. For Location, choose one of the [supported regions](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob#supported-regions) for Cognitive Search.
 
 1. For Pricing tier, you can create a **Free** service to complete tutorials and quickstarts. For deeper investigation using your own data, create a [paid service](https://azure.microsoft.com/pricing/details/search/) such as **Basic** or **Standard**. 
 
   A Free service is limited to 3 indexes, 16 MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
 
-  > [!NOTE]
-  > Cognitive Search is in public preview. Skillset execution is currently available in all tiers, including free. At a later time, the pricing for this capability will be announced.
+  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Service definition page in the portal")
+  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Service definition page in the portal")
 
+ 
 1. Pin the service to the dashboard for fast access to service information.
 
-  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service.png "Service definition page in the portal")
+  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Service definition page in the portal")
 
 1. After the service is created, collect the following information: **URL** from the Overview page, and **api-key** (either primary or secondary) from the Keys page.
 
@@ -67,15 +76,15 @@ First, sign up for the Azure Search service.
 
 ### Set up Azure Blob service and load sample data
 
-The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](search-indexer-overview.md). For this exercise, we use blob storage to showcase multiple content types.
+The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](search-indexer-overview.md). Please note that Azure Table Storage is not supported for cognitive search. For this exercise, we use blob storage to showcase multiple content types.
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Sample data consists of a small file set of different types. 
 
-1. Sign up for Azure Blob storage, create a storage account, log in to Storage Explorer, and create a container named `basicdemo`. See [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) for instructions on all the steps.
+1. Sign up for Azure Blob storage, create a storage account, sign in to Storage Explorer, and create a container named `basicdemo`. See [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) for instructions on all the steps.
 
 1. Using the Azure Storage Explorer, in the `basicdemo` container you created, click **Upload** to upload the sample files.
 
-1. After sample files are loaded, get the container name and a connection string for your Blob storage. You could do that by navigating to you storage account in the Azure portal. On **Access keys**, and then copy the **Connection String**  field.
+1. After sample files are loaded, get the container name and a connection string for your Blob storage. You could do that by navigating to your storage account in the Azure portal. On **Access keys**, and then copy the **Connection String**  field.
 
   The connection string should be a URL similar to the following example:
 
@@ -407,7 +416,7 @@ Content-Type: application/json
 
 The response tells you whether the indexer is running. After indexing is finished, use another HTTP GET to the STATUS endpoint (as above) to see reports of any errors and warnings that occurred during enrichment.  
 
-Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files). You can review the status reponse for verbose information about warnings emitted during indexing.
+Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files). You can review the status response for verbose information about warnings emitted during indexing.
  
 ## Verify content
 
@@ -515,7 +524,7 @@ To reindex your documents with the new definitions:
 2. Modify a skillset and index definition.
 3. Recreate an index and indexer on the service to run the pipeline. 
 
-You can use the portal to delete indexes and indexers. Skillsets can only be deleted through an HTTP command, should you decide to delete it.
+You can use the portal to delete indexes, indexers, and Skillsets.
 
 ```http
 DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview

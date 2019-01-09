@@ -1,140 +1,209 @@
 ---
-title: Azure Batch Transcription API | Azure Microsoft Docs
-description: Samples
+title: How to use Batch Transcription - Speech Services
+titlesuffix: Azure Cognitive Services
+description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
-
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: Speech to Text
-ms.topic: article
-ms.date: 04/26/2018
+ms.component: speech-service
+ms.topic: conceptual
+ms.date: 12/06/2018
 ms.author: panosper
+ms.custom: seodec18
 ---
 
-# Batch Transcription
-Batch transcription is ideal for use cases with large amounts of audio where the developer wishes to point to audio files and get back transcriptions in asynchronous mode.
+# Why use Batch transcription?
 
-## Batch transcription API
-The Batch transcription API makes the above scenario possible. It offers asynchronous speech to text transcription along with some interesting out of the box features.
+Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
 
-> [!NOTE]
-> The Batch transcription API is idea for Call Centers which typically accummulate thousands of hours of audio in a daily basis
+>[!NOTE]
+> A standard subscription (S0) for Speech Services is required to use batch transcription. Free subscription keys (F0) will not work. For additional information, see [pricing and limits](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
 
-### Supported Formats
-The Batch transcription API aims to become the de-facto for all offline call center related scenarios and offer support for all related formats. Currently supported formats:
+## The Batch Transcription API
 
-Name| Channel  |
-----|----------|
-mp3 |   Mono   |   
-mp3 |  Stereo  | 
-wav |   Mono   |
-wav |  Stereo  |
+The Batch Transcription API offers asynchronous speech-to-text transcription, along with additional features. It is a REST API that exposes methods for:
 
-In addition, the Batch transcription API is capable of doing channel splitting (L/R) should the audio be recorded in Stereo. Stereo files result in two JSON files, each corresponding to the transcript of either channel with clearly indicated timestamps per channel per utterance. This feature enables the developer to create an ordered final transcript clearly demonstrating which party said what and at what time internal. The following JSON sample represents the output of a channel.
-
-    ```
-       {
-        "recordingsUrl": "https://mystorage.blob.core.windows.net/cris-e2e-datasets/TranscriptionsDataset/small_sentence.wav?st=2018-04-19T15:56:00Z&se=2040-04-21T15:56:00Z&sp=rl&sv=2017-04-17&sr=b&sig=DtvXbMYquDWQ2OkhAenGuyZI%2BYgaa3cyvdQoHKIBGdQ%3D",
-        "resultsUrls": {
-            "channel_0": "https://mystorage.blob.core.windows.net/bestor-87a0286f-304c-4636-b6bd-b3a96166df28/TranscriptionData/24265e4c-e459-4384-b572-5e3e7795221f?sv=2017-04-17&sr=b&sig=IY2qd%2Fkgtz2PwRe2C88BphH4Hv%2F1VCb1UVJ33xsw%2BEY%3D&se=2018-04-23T14:48:24Z&sp=r"
-        },
-        "statusMessage": "None.",
-        "id": "0bb95356-ff06-469d-acc7-81f9144a269a",
-        "createdDateTime": "2018-04-20T14:11:57.167",
-        "lastActionDateTime": "2018-04-20T14:12:54.643",
-        "status": "Succeeded",
-        "locale": "en-US"
-    },
-    ```
+1. Creating batch processing requests
+1. Query Status
+1. Downloading transcriptions
 
 > [!NOTE]
-> The OfflBatch transcriptionine API is calling is using a REST service for requesting transcriptions their status and accociated results. It is based on .NET and does not have any external dependencies. The next section describes how it is used
+> The Batch Transcription API is ideal for call centers, which typically accumulate thousands of hours of audio. The API is guided by a "fire and forget" philosophy, which makes it easy to transcribe large volumes of audio recordings.
+
+### Supported formats
+
+The Batch Transcription API supports the following formats:
+
+| Format | Codec | Bitrate | Sample Rate |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16-bit | 8 or 16 kHz, mono, stereo |
+| MP3 | PCM | 16-bit | 8 or 16 kHz, mono, stereo |
+| OGG | OPUS | 16-bit | 8 or 16 kHz, mono, stereo |
+
+> [!NOTE]
+> The Batch Transcription API requires an S0 key (paying tier). It does not work with a free (f0) key.
+
+For stereo audio streams, the Batch transcription API splits the left and right channel during the transcription. The two JSON files with the result are each created from a single channel. The timestamps per utterance enable the developer to create an ordered final transcript. The following JSON sample shows the output of a channel, includuing properties for setting up the profanity filter and the punctuation model.
+
+```json
+{
+  "recordingsUrl": "https://contoso.com/mystoragelocation",
+  "models": [],
+  "locale": "en-US",
+  "name": "Transcription using locale en-US",
+  "description": "An optional description of the transcription.",
+  "properties": {
+    "ProfanityFilterMode": "Masked",
+    "PunctuationMode": "DictatedAndAutomatic"
+  },
+```
+
+> [!NOTE]
+> The Batch Transcription API uses a REST service for requesting transcriptions, their status, and associated results. You can use the API from any language. The next section describes how the API is used.
+
+### Query parameters
+
+These parameters may be included in the query string of the REST request.
+
+| Parameter | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| `ProfanityFilterMode` | Specifies how to handle profanity in recognition results. Accepted values are `none` which disables profanity filtering, `masked` which replaces profanity with asterisks, `removed` which removes all profanity from the result, or `tags` which adds "profanity" tags. The default setting is `masked`. | Optional |
+| `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `none` which disables punctuation, `dictated` which implies explicit punctuation, `automatic` which lets the decoder deal with punctuation, or `dictatedandautomatic` which implies dictated punctuation marks or automatic. | Optional |
+
 
 ## Authorization token
-Authentication for the Batch transcription API is carried out as follows. As with all features of the Unified Speech Service the users need to obtain a subscription key from the [Azure Portal](https://portal.azure.com). In addition, one is required to generate an API key from the Speech Portal. Api key generation is carried out as follows.
 
-1. Log in to https://customspeech.ai
-2. Click on Subscriptions.
-3. click on the option Generate API Key
-4. Copy paste that key in the client code as shown on line 5 of the earlier code sample
+As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](get-started.md). If you plan to get transcriptions from our baseline models, creating a key is all you need to do.
 
-    ![The Upload View](media/stt/Subscriptions.jpg)
+If you plan to customize and use a custom model, add the subscription key to the custom speech portal by doing the following:
 
+1. Sign in to [Custom Speech](https://customspeech.ai).
 
-## Sample Code
-Making use of the API is fairly straight forward. The Sample code below can be customized with a subscription key and an API key.
+2. At the top right, select **Subscriptions**.
 
-```cs
-   static async Task TranscribeAsync()
-        { 
-            // Creating an Batch transcription API Client
-            var client = await CrisClient.CreateApiV1ClientAsync(
-                "<your msa>", // MSA email
-                "<your api key>", // API key
-                "stt.speech.microsoft.com",
-                443).ConfigureAwait(false);
-            
-            var newLocation = 
-                await client.PostTranscriptionAsync(
-                    "<selected locale i.e. en-us>", // Locale 
-                    "<your subscrpition key>", // Subscription Key
-                new Uri("<SAS URI to your file>")).ConfigureAwait(false);
+3. Select **Connect existing subscription**.
 
-            var transcription = await client.GetTranscriptionAsync(newLocation).ConfigureAwait(false);
+4. In the pop-up window, add the subscription key and an alias.
 
-            while (true)
-            {
-                transcription = await client.GetTranscriptionAsync(transcription.Id).ConfigureAwait(false);
+    ![The Add Subscription window](media/stt/Subscriptions.jpg)
 
-                if (transcription.Status == "Failed" || transcription.Status == "Succeeded")
-                {
-                    Console.WriteLine("Transcription complete!");
-
-                    if (transcription.Status == "Succeeded")
-                    {
-                        var resultsUri = transcription.ResultsUrls["channel_0"];
-
-                        WebClient webClient = new WebClient();
-
-                        var filename = Path.GetTempFileName();
-                        webClient.DownloadFile(resultsUri, filename);
-
-                        var results = File.ReadAllText(filename);
-                        Console.WriteLine(results);
-                    }
-
-                    await client.DeleteTranscriptionAsync(transcription.Id).ConfigureAwait(false);
-
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Transcription status: " + transcription.Status);
-                }
-
-                await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
-            }
-
-            Console.ReadLine();
-        }
-```
-Notice the Async set up for posting audio and receiving transcription status. The Client created is a NET Http client. There is PostTranscriptions method for sending the audio file details and a GetTranscriptions method. PostTranscriptions returns a handle GetTranscriptions method is using to create a handle via which one can obtain status.
-
-Also notice that the current sample code does not specify any custom models. The service will use the baseline models for transcribing the file(s). If the user wishes to specify the models, one can pass on the same method the modelIDs for the acoustic and the language model. 
-
-If one does not wish to use baseline, one must pass model Ids for both acoustic and language models.
-
-### Supported Storage
-
-Currently the only storage supported is Azure blob.
-
-## Downloading the sample
-
-The sample from this article can be downloaded [here](https://aka.ms/csspeech/winsample).
+5. Copy and paste that key in the client code in the following sample.
 
 > [!NOTE]
-> Typically an audio transcription requires a time span equal to the duration of the audio file plus a 2-3 minute overhead.
+> If you plan to use a custom model, you will need the ID of that model too. This ID is not the endpoint ID that you find on the Endpoint Details view. It is the model ID that you can retrieve when you select the details of that model.
+
+## Sample code
+
+Customize the following sample code with a subscription key and an API key. This action allows you to get a bearer token.
+
+```cs
+     public static CrisClient CreateApiV2Client(string key, string hostName, int port)
+
+        {
+            var client = new HttpClient();
+            client.Timeout = TimeSpan.FromMinutes(25);
+            client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+
+            return new CrisClient(client);
+        }
+```
+
+After you get the token, specify the SAS URI that points to the audio file that requires transcription. The rest of the code iterates through the status and displays the results. At first, you set up the key, region, models to use, and the SA, as shown in the following code snippet. Next, you instantiate the client and the POST request.
+
+```cs
+            private const string SubscriptionKey = "<your Speech subscription key>";
+            private const string HostName = "westus.cris.ai";
+            private const int Port = 443;
+
+            // SAS URI
+            private const string RecordingsBlobUri = "SAS URI pointing to the file in Azure Blob Storage";
+
+            // adapted model Ids
+            private static Guid AdaptedAcousticId = new Guid("guid of the acoustic adaptation model");
+            private static Guid AdaptedLanguageId = new Guid("guid of the language model");
+
+            // Creating a Batch Transcription API Client
+            var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
+
+            var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
+```
+
+Now that you've made the request, you can query and download the transcription results, as shown in the following code snippet:
+
+```cs
+
+            // get all transcriptions for the user
+            transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
+
+            // for each transcription in the list we check the status
+            foreach (var transcription in transcriptions)
+            {
+                switch(transcription.Status)
+                {
+                    case "Failed":
+                    case "Succeeded":
+
+                            // we check to see if it was one of the transcriptions we created from this client.
+                        if (!createdTranscriptions.Contains(transcription.Id))
+                        {
+                            // not created from here, continue
+                            continue;
+                        }
+
+                        completed++;
+
+                        // if the transcription was successful, check the results
+                        if (transcription.Status == "Succeeded")
+                        {
+                            var resultsUri = transcription.ResultsUrls["channel_0"];
+                            WebClient webClient = new WebClient();
+                            var filename = Path.GetTempFileName();
+                            webClient.DownloadFile(resultsUri, filename);
+                            var results = File.ReadAllText(filename);
+                            Console.WriteLine("Transcription succeeded. Results: ");
+                            Console.WriteLine(results);
+                        }
+
+                    break;
+                    case "Running":
+                    running++;
+                     break;
+                    case "NotStarted":
+                    notStarted++;
+                    break;
+
+                    }
+                }
+            }
+        }
+```
+
+For full details about the preceding calls, see our [swagger document](https://westus.cris.ai/swagger/ui/index). For the full sample shown here, go to [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+
+> [!NOTE]
+> In the preceding code, the subscription key is from the Speech resource that you create in the Azure portal. Keys that you get from the Custom Speech Service resource do not work.
+
+Take note of the asynchronous setup for posting audio and receiving transcription status. The client that you create is a .NET HTTP client. There's a `PostTranscriptions` method for sending the audio file details and a `GetTranscriptions` method for receiving the results. `PostTranscriptions` returns a handle, and `GetTranscriptions` uses it to create a handle to get the transcription status.
+
+The current sample code doesn't specify a custom model. The service uses the baseline models for transcribing the file or files. To specify the models, you can pass on the same method as the model IDs for the acoustic and the language model.
+
+If you don't want to use the baseline, pass model IDs for both acoustic and language models.
+
+> [!NOTE]
+> For baseline transcriptions, you don't have to declare the endpoints of the baseline models. If you want to use custom models, you provide their endpoints IDs as the [Sample](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). If you want to use an acoustic baseline with a baseline language model, you have to declare only the custom model's endpoint ID. Microsoft detects the partner baseline model&mdash;whether acoustic or language&mdash;and uses it to fulfill the transcription request.
+
+### Supported storage
+
+Currently, the only storage supported is Azure Blob storage.
+
+## Download the sample
+
+You can find the sample in this article on [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+
+> [!NOTE]
+> An audio transcription ordinarily requires a time span equal to the duration of the audio file, plus a two- to three-minute overhead.
 
 ## Next steps
 

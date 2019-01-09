@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
@@ -18,14 +18,11 @@ ms.author: jingwang
 ---
 # Copy data from Amazon Redshift using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-amazon-redshift-connector.md)
-> * [Version 2 - Preview](connector-amazon-redshift.md)
+> * [Version 1](v1/data-factory-amazon-redshift-connector.md)
+> * [Current version](connector-amazon-redshift.md)
 
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an Amazon Redshift. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Amazon Redshift connnector in V1](v1/data-factory-amazon-redshift-connector.md).
 
 ## Supported capabilities
 
@@ -157,7 +154,7 @@ Learn more on how to use UNLOAD to copy data from Amazon Redshift efficiently fr
 
 For this sample use case, copy activity unloads data from Amazon Redshift to Amazon S3 as configured in "redshiftUnloadSettings", and then copy data from Amazon S3 to Azure Blob as specified in "stagingSettings", lastly use PolyBase to load data into SQL Data Warehouse. All the interim format is handled by copy activity properly.
 
-![Redshift to SQL DW copy workflow](media\copy-data-from-amazon-redshift\redshift-to-sql-dw-copy-workflow.png)
+![Redshift to SQL DW copy workflow](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 "activities":[
@@ -197,7 +194,7 @@ For this sample use case, copy activity unloads data from Amazon Redshift to Ama
                 "linkedServiceName": "AzureStorageLinkedService",
                 "path": "adfstagingcopydata"
             },
-            "cloudDataMovementUnits": 32
+            "dataIntegrationUnits": 32
         }
     }
 ]

@@ -1,13 +1,13 @@
 ---
-title: Use the Azure Machine Learning Web Services portal | Microsoft Docs
-description: Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services
+title: Use the Azure Machine Learning Studio Web Services portal | Microsoft Docs
+description: You can manage your Machine Learning New and Classic Web services using the Microsoft Azure Machine Learning Web Services portal. Since Classic Web services and New Web services are based on different underlying technologies, you have slightly different management capabilities for each of them.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
-manager: hjerez
-editor: cgronlun
+author: ericlicoding
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.author: amlstudiodocs
 
+editor: cgronlun
 ms.assetid: b62cf2ca-dd2a-4a83-bb54-469f948fb026
 ms.service: machine-learning
 ms.component: studio
@@ -16,9 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-
 ---
-# Manage a Web service using the Azure Machine Learning Web Services portal
+# Manage a web service using the Azure Machine Learning Studio Web Services portal
 You can manage your Machine Learning New and Classic Web services using the Microsoft Azure Machine Learning Web Services portal. Since Classic Web services and New Web services are based on different underlying technologies, you have slightly different management capabilities for each of them.
 
 In the Machine Learning Web Services portal you can:
@@ -29,7 +28,7 @@ In the Machine Learning Web Services portal you can:
 * Create, delete, or update billing plans (New only).
 * Add and delete endpoints (Classic only)
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## Permissions to manage New Resources Manager based web services
 
@@ -41,7 +40,7 @@ If the user does not have the correct permissions to access resources in the Azu
 
 For more information on creating a workspace, see [Create and share an Azure Machine Learning workspace](create-workspace.md).
 
-For more information on setting access permissions, see [View access assignments for users and groups in the Azure portal - Public preview](../../role-based-access-control/role-assignments-users.md).
+For more information on setting access permissions, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 
 ## Manage New Web services

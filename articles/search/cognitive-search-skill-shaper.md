@@ -1,10 +1,9 @@
 ---
-title: Shaper cognitive search skill (Azure Search) | Microsoft Docs
+title: Shaper cognitive search skill - Azure Search
 description: Extract metadata and structured information from unstructured data and shape it as a complex type in an Azure Search enrichment pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
-
 
 ms.service: search
 ms.devlang: NA
@@ -12,6 +11,7 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 
 #	Shaper cognitive skill
@@ -23,7 +23,6 @@ The Shaper skill allows you to essentially create a structure, define the name o
 By default, this technique supports objects that are one level deep. For more complex objects, you can chain several Shaper steps.
 
 In the response, the output name is always "output". Internally, the pipeline can map a different name, such as "analyzedText" in the examples below to "output", but the Shaper skill itself returns "output" in the response. This might be important if you are debugging enriched documents and notice the naming discrepancy, or if you build a custom skill and are structuring the response yourself.
-
 
 ## @odata.type  
 Microsoft.Skills.Util.ShaperSkill

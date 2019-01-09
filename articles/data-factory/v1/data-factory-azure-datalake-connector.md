@@ -1,5 +1,5 @@
 ---
-title: Copy data to and from Azure Data Lake Store | Microsoft Docs
+title: Copy data to and from Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Learn how to copy data to and from Data Lake Store by using Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -11,22 +11,22 @@ ms.assetid: 25b1ff3c-b2fd-48e5-b759-bb2112122e30
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 
 robots: noindex
 ---
-# Copy data to and from Data Lake Store by using Data Factory
+# Copy data to and from Data Lake Storage Gen1 by using Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-azure-datalake-connector.md)
-> * [Version 2 - Preview](../connector-azure-data-lake-store.md)
+> * [Version 1](data-factory-azure-datalake-connector.md)
+> * [Version 2 (current version)](../connector-azure-data-lake-store.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Azure Data Lake Store connector in V2](../connector-azure-data-lake-store.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Azure Data Lake Storage Gen1 connector in V2](../connector-azure-data-lake-store.md).
 
-This article explains how to use Copy Activity in Azure Data Factory to move data to and from Azure Data Lake Store. It builds on the [Data movement activities](data-factory-data-movement-activities.md) article, an overview of data movement with Copy Activity.
+This article explains how to use Copy Activity in Azure Data Factory to move data to and from Azure Data Lake Storage Gen1 (previously known as Azure Data Lake Store). It builds on the [Data movement activities](data-factory-data-movement-activities.md) article, an overview of data movement with Copy Activity.
 
 ## Supported scenarios
 You can copy data **from Azure Data Lake Store** to the following data stores:
@@ -204,14 +204,14 @@ For details about the Data Factory classes used in the code, see the [AzureDataL
 
 1. Make sure the `subscriptionId` and `resourceGroupName` you specify in the linked service `typeProperties` are indeed the ones that your data lake account belongs to.
 
-2. Make sure you grant at least "**Reader**" role to the user or service principal on the data lake account. Here is how to make it:
+2. Make sure you grant at least **Reader** role to the user or service principal on the data lake account. Here is how to make it:
 
     1. Go to Azure Portal -> your Data Lake Store account
-    2. Click "Access Control (IAM)" on the blade of the Data Lake Store
-    3. Click "Add" in the blade of "Access Control (IAM)"
-    4. Set "Role" as "Reader", and select the user or the service principal you use for copy to grant access
+    2. Click **Access control (IAM)** on the blade of the Data Lake Store
+    3. Click **Add role assignment**
+    4. Set **Role** as **Reader**, and select the user or the service principal you use for copy to grant access
 
-3. If you don't want to grant "Reader" role to the user or service principal, alernative is to [explicitly specify an execution location](data-factory-data-movement-activities.md#global) in copy activitywith the location of your Data Lake Store. Example:
+3. If you don't want to grant **Reader** role to the user or service principal, alternative is to [explicitly specify an execution location](data-factory-data-movement-activities.md#global) in copy activitywith the location of your Data Lake Store. Example:
 
     ```json
     {

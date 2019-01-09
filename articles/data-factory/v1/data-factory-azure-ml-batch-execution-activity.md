@@ -11,7 +11,7 @@ ms.assetid: 4fad8445-4e96-4ce0-aa23-9b88e5ec1965
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
@@ -34,7 +34,7 @@ robots: noindex
 
 ## Introduction
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [transform data using machine learning in Data Factory version 2](../transform-data-using-machine-learning.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [transform data using machine learning in Data Factory](../transform-data-using-machine-learning.md).
 
 
 ### Azure Machine Learning
@@ -602,7 +602,7 @@ If you want to continue using the AzureMLBatchScoring activity, continue reading
 ```
 
 ### Web Service Parameters
-To specify values for Web service parameters, add a **typeProperties** section to the **AzureMLBatchScoringActivty** section in the pipeline JSON as shown in the following example:
+To specify values for Web service parameters, add a **typeProperties** section to the **AzureMLBatchScoringActivity** section in the pipeline JSON as shown in the following example:
 
 ```JSON
 "typeProperties": {

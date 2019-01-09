@@ -1,3 +1,10 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+---
 ### Prerequisites
 * A Twilio account
 * A verified Twilio phone number that can receive SMS
@@ -16,7 +23,7 @@ Here are the steps to authorize your Logic app to connect to your Twilio account
    ![](./media/connectors-create-api-twilio/twilio-0.png)
 2. If you haven't created any connections to Twilio before, you'll get prompted to provide your Twilio credentials. These credentials will be used to authorize your Logic app to connect to, and access your Twilio account's data:  
    ![](./media/connectors-create-api-twilio/twilio-1.png)  
-3. You'll need the **Twilio account id** and **Twilio access token**  from the dashboard in Twilio, so log in to your Twilio account now to grab these two pieces of information:  
+3. You'll need the **Twilio account id** and **Twilio access token**  from the dashboard in Twilio, so sign in to your Twilio account now to grab these two pieces of information:  
    ![](./media/connectors-create-api-twilio/twilio-2.png)  
 4. Twilio and Logic apps use different names to identify these two pieces of infomation. Here is how you must map them to the Logic apps dialog: 
    ![](./media/connectors-create-api-twilio/twilio-3.png)  

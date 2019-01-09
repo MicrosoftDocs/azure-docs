@@ -1,23 +1,28 @@
 ---
-title: Image Analysis cognitive search skill (Azure Search) | Microsoft Docs
+title: Image Analysis cognitive search skill - Azure Search
 description: Extract semantic text through image analysis using the ImageAnalysis cognitive skill in an Azure Search enrichment pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
 
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 #	Image Analysis cognitive skill
 
 The **Image Analysis** skill extracts a rich set of visual features based on the image content. For example, you can generate a caption from an image, generate tags, or identify celebrities and landmarks.
+
+> [!NOTE]
+> Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost.
+>
+> The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
+. Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).
+
 
 ## @odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 
@@ -42,10 +47,10 @@ Parameters are case-sensitive.
 
 
 ##	Sample definition
-
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+    "context": "/document/normalized_images/*",
     "visualFeatures": [
         "Tags",
         "Faces",
@@ -102,8 +107,16 @@ Parameters are case-sensitive.
     "values": [
         {
             "recordId": "1",
-            "data": {
-                "url": "https://storagesample.blob.core.windows.net/sample-container/image.jpg"
+            "data": {                
+                "image":  {
+                               "data": "BASE64 ENCODED STRING OF A JPEG IMAGE",
+                               "width": 500,
+                               "height": 300,
+                               "originalWidth": 5000,  
+                               "originalHeight": 3000,
+                               "rotationFromOriginal": 90,
+                               "contentOffset": 500  
+                           }
             }
         }
     ]
@@ -131,7 +144,7 @@ Parameters are case-sensitive.
                             "celebrities": [
                                 {
                                     "name": "Satya Nadella",
-                                    "faceRectangle": {
+                                    "faceBoundingBox": {
                                         "left": 597,
                                         "top": 162,
                                         "width": 248,
@@ -198,7 +211,7 @@ Parameters are case-sensitive.
                     {
                         "age": 44,
                         "gender": "Male",
-                    "faceRectangle": {
+                    "faceBoundingBox": {
                             "left": 593,
                             "top": 160,
                             "width": 250,
@@ -214,7 +227,7 @@ Parameters are case-sensitive.
                         "Black"
                     ],
                     "accentColor": "873B59",
-                    "isBWImg": false
+                    "isBwImg": false
                     },
                 "imageType": {
                     "clipArtType": 0,

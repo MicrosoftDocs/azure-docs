@@ -3,7 +3,7 @@ title: Tutorial - Create and manage Azure virtual networks for Windows VMs | Mic
 description: In this tutorial, you learn how to use Azure PowerShell to create and manage Azure virtual networks for Windows virtual machines
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn about Azure virtual networks so that I can securely deploy Windows virtual machines and restrict traffic between them.
@@ -47,7 +47,7 @@ While completing this tutorial, you can see these resources created:
 - *myVNet* - The virtual network that the VMs use to communicate with each other and the internet.
 - *myFrontendSubnet* - The subnet in *myVNet* used by the front-end resources.
 - *myPublicIPAddress* - The public IP address used to access *myFrontendVM* from the internet.
-- *myFrontentNic* - The network interface used by *myFrontendVM* to communicate with *myBackendVM*.
+- *myFrontendNic* - The network interface used by *myFrontendVM* to communicate with *myBackendVM*.
 - *myFrontendVM* - The VM used to communicate between the internet and *myBackendVM*.
 - *myBackendNSG* - The network security group that controls communication between the *myFrontendVM* and *myBackendVM*.
 - *myBackendSubnet* - The subnet associated with *myBackendNSG* and used by the back-end resources.

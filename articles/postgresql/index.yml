@@ -5,15 +5,12 @@ metadata:
   document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
   title: Azure PostgreSQL Documentation - Tutorials, API Reference
   description: Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the open source PostgreSQL database engine.
-  services: postgresql
-  author: czeumault
-  manager: carolz
+  
+  author: rachel-msft
+  ms.author: raagyema
   ms.service: postgresql
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/23/2017
-  ms.author: carolz
+  ms.date: 11/30/2018
 abstract:
   description: Azure Database for PostgreSQL is a relational database service based on the open source Postgres database engine.  It is a fully managed database as a service offering capable of handling mission-critical workloads with predictable performance, security, high availability, and dynamic scalability.  Develop applications with Azure Database for PostgreSQL leveraging the open source tools and platform of your choice.  Learn how to use Azure Database for PostgreSQL with our quickstarts, tutorials, and samples.
 sections:
@@ -40,7 +37,20 @@ sections:
     style: ordered
     items:
     - html: Design a Database&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Build a Web App using Python and the CLI</a>
+    - html: <a href="/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Build a Web App using Python and the CLI</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Create an Azure Database for PostgreSQL server
+      href: /learn/modules/create-azure-db-for-postgresql-server/
+      image: 
+        src: /learn/achievements/create-azure-db-for-postgresql-server.svg
+        href: /learn/modules/create-azure-db-for-postgresql-server/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure">More interactive learning...</a>
 - title: Samples
   items:
   - type: paragraph

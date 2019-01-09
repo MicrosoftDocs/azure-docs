@@ -3,7 +3,7 @@ title: Install the Chef client from the Azure portal
 description: Learn how to deploy and configure your Chef client from the Azure portal
 keywords: azure, chef, devops, client, install, portal
 ms.service: virtual-machines-linux
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
@@ -16,13 +16,13 @@ When creating or modifying a Linux or Windows virtual machine from the Azure por
 ## Prerequisites
 - **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-- **Chef**: If you don't have an active Chef account, sign up for a [free trial of Hosted Chef](https://manage.chef.io/signup). To follow along with the instructions in this article, you'll need the following values from your Chef account: 
+- **Chef**: If you don't have an active Chef account, sign up for a [free trial of Hosted Chef](https://manage.chef.io/signup). To follow along with the instructions in this article, you need the following values from your Chef account: 
     - organization_validation key
     - rb
     - run_list
 
 ## Install the Chef extension on a new Linux virtual machine
-In this section, you'll first use the Azure portal to create a Linux machine. During the process, you'll also see how to install the Chef extension on the new virtual machine.
+In this section, you first use the Azure portal to create a Linux machine. During the process, you also see how to install the Chef extension on the new virtual machine.
 
 1. Browse to the [Azure portal](http://portal.azure.com).
 
@@ -48,7 +48,7 @@ In this section, you'll first use the Azure portal to create a Linux machine. Du
 
     - **Name** - Enter a name for the new virtual machine.
     - **VM disk type** - Specify either **SSD** or **HDD** for the storage disk type. For more information about virtual machine disk types on Azure, see the article     [High-performance Premium Storage and managed disks for VMs](/azure/virtual-machines/windows/premium-storage).
-    - **User name** - Enter a user name that is granted administrator privileges on the virtual machine.
+    - **User name** - Enter a user name granted administrator privileges on the virtual machine.
     - **Authentication type** - Select **Password**. You can also select **SSH public key**, and supply an SSH public key value. For purposes of this demo (and in the screenshots), **Password** is selected.
     - **Password** and **Confirm password** - Enter a password for the user.
     - **Log in with Azure Active Directory** - Select **Disabled**.
@@ -60,7 +60,7 @@ In this section, you'll first use the Azure portal to create a Linux machine. Du
 
 1. On the **Choose a size** tab, select the size for the virtual machine, and then select **Select**.
 
-1. On the **Settings** tab, most of the values will be populated for you based on the values you selected in the previous tabs. Select **Extensions**.
+1. On the **Settings** tab, most of the values are populated for you based on the values you selected in the previous tabs. Select **Extensions**.
 
     ![Extensions are added to virtual machines via the Settings tab](./media/chef-extension-portal/add-vm-select-extensions.png)
 
@@ -76,25 +76,25 @@ In this section, you'll first use the Azure portal to create a Linux machine. Du
 
 1. On the **Install extension** tab, specify the following values, and then select **OK**.
 
-    - **Chef Server URL** - Enter the Chef Server URL that includes the organization name. I used *https://api.chef.io/organization/hessco* for the demo.
+    - **Chef Server URL** - Enter the Chef Server URL that includes the organization name, for example, *https://api.chef.io/organization/hessco*.
     - **Chef Node Name** - Enter the Chef Node name. This can be any value.
-    - **Run List** - Enter the Chef run list that is added to the machine. This can be blank.
-    - **Validation Client Name** - Enter the Chef Validation Client Name. I used *tarcher-validator* for the demo.
+    - **Run List** - Enter the Chef run list that is added to the machine. This can be left blank.
+    - **Validation Client Name** - Enter the Chef Validation Client Name. for example, *tarcher-validator*.
     - **Validation Key** - Select a file containing the validation key used when bootstrapping your machines. 
-    - **Client Configuration File** - Select a configuration file for chef-client. This can be blank.
-    - **Chef Client version** - Enter the version of the chef client to install. A blank value will cause the latest version to be installed. This can be blank.
-    - **SSL Verification Mode** - Select either **None** or **Peer**. I selected *None* for the demo.
-    - **Chef Environment** - Enter the Chef environment this node should be a member of. This can be blank.
-    - **Encrypted Databag Secret** - Select a file containing the secret for the Encrypted Databag this machine should have access to. This can be blank.
-    - **Chef Server SSL Certificate** - Select the SSL Certificate assigned to your Chef Server. This can be blank.
+    - **Client Configuration File** - Select a configuration file for chef-client. This can be left blank.
+    - **Chef Client version** - Enter the version of the chef client to install. This can be left blank. A blank value results in the latest version being installed. 
+    - **SSL Verification Mode** - Select either **None** or **Peer**. *None* was selected for the demo.
+    - **Chef Environment** - Enter the Chef environment this node should be a member of. This can be left blank.
+    - **Encrypted Databag Secret** - Select a file containing the secret for the Encrypted Databag this machine should have access to. This can be left blank.
+    - **Chef Server SSL Certificate** - Select the SSL Certificate assigned to your Chef Server. This can be left blank.
 
     ![Installing the Chef Server on a Linux virtual machine](./media/chef-extension-portal/install-extension.png)
 
-1. When returned to the **Extensions** tab, select **OK**.
+1. When returning to the **Extensions** tab, select **OK**.
 
-1. When returned to the **Settings** tab, select **OK**.
+1. When returning to the **Settings** tab, select **OK**.
 
-1. When returned to the **Create** tab (that represents a summary of the options you selected and entered), verify the information as well as the **Terms of use**, and select **Create**.
+1. When returning to the **Create** tab (this represents a summary of the options you selected and entered), verify the information as well as the **Terms of use**, and select **Create**.
 
 When the process of creating and deploying the virtual machine with the Chef Extension is complete, a notification indicates the success or failure of the operation. In addition, the resource page for the new virtual machine automatically opens in the Azure portal once it's been created.
 

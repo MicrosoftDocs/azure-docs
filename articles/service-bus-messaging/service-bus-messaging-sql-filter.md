@@ -3,7 +3,7 @@ title: Azure Service Bus SQLFilter syntax reference | Microsoft Docs
 description: Details about SQLFilter grammar.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2018
-ms.author: sethm
+ms.date: 09/05/2018
+ms.author: spelluru
 
 ---
 
@@ -279,5 +279,5 @@ Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sq
 ## Next steps
 
 - [SQLFilter class (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
-- [SQLFilter class (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.filters.sqlfilter)
+- [SQLFilter class (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
 - [SQLRuleAction class](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)

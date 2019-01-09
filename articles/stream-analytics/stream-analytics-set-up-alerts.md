@@ -4,13 +4,13 @@ description: This article describes how to use the Azure portal to set up monito
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/26/2017
+ms.date: 12/07/2018
+ms.custom: seodec18 
 ---
-# Tutorial: Set up alerts for Azure Stream Analytics jobs
+# Set up alerts for Azure Stream Analytics jobs
 You can set up alerts to trigger an alert when a metric reaches a condition that you specify. For example, you might set up an alert for a condition like the following:
 
 `If there are zero input events in the last 5 minutes, send email notification to sa-admin@example.com`
@@ -24,7 +24,7 @@ Rules can be set up on metrics through the portal, or can be configured [program
 
 3. In the **Metric** blade, click the **Add alert** command.
 
-      ![Azure portal setup](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
+      ![Azure portal Stream Analytics alerts setup](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
 
 4. Enter a name and a description.
 

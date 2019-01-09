@@ -65,6 +65,8 @@
     href: dsvm-samples-and-walkthroughs.md
 - name: Resources
   items:
+  - name: R developer's guide 
+    href: ../r-developers-guide.md
   - name: Blog
     href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
   - name: MSDN forum

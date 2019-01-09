@@ -1,15 +1,17 @@
 ---
 title: Disaster Recovery for SaaS apps using Azure SQL Database Geo Replication | Microsoft Docs
 description: "Learn how to use Azure SQL Database geo-replicas to recover a multi-tenant SaaS app in the event of an outage"
-keywords: sql database tutorial
 services: sql-database
-author: AyoOlubeko
-manager: craigg
 ms.service: sql-database
-ms.custom: saas apps
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/09/2018
+author: AyoOlubeko
 ms.author: ayolubek
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/09/2018
 ---
 # Disaster recovery for a multi-tenant SaaS application using database geo-replication
 
@@ -45,9 +47,9 @@ A DR plan based on geo-replication comprises three distinct parts:
 All parts have to be considered carefully, especially if operating at scale. Overall, the plan must accomplish several goals:
 
 * Setup
-	* Establish and maintain a mirror-image environment in the recovery region. Creating the elastic pools and replicating any standalone databases in this recovery environment reserves capacity in the recovery region. Maintaining this environment includes replicating new tenant databases as they are provisioned.  
+	* Establish and maintain a mirror-image environment in the recovery region. Creating the elastic pools and replicating any single databases in this recovery environment reserves capacity in the recovery region. Maintaining this environment includes replicating new tenant databases as they are provisioned.  
 * Recovery
-	* Where a scaled-down recovery environment is used to minimize day-to-day costs, pools and standalone databases must be scaled up to acquire full operational capacity in the recovery region
+	* Where a scaled-down recovery environment is used to minimize day-to-day costs, pools and single databases must be scaled up to acquire full operational capacity in the recovery region
  	* Enable new tenant provisioning in the recovery region as soon as possible  
  	* Be optimized for restoring tenants in priority order
  	* Be optimized for getting tenants online as fast as possible by doing steps in parallel where practical
@@ -152,7 +154,7 @@ The recovery script performs the following tasks:
 
 1. Marks all existing tenants in the recovery catalog as offline to prevent access to tenant databases before they are failed over.
 
-1. Updates the configuration of all elastic pools and replicated standalone databases in the recovery region to mirror their configuration in the original region. (This task is only needed if pools or replicated databases in the recovery environment are scaled down during normal operations to reduce costs).
+1. Updates the configuration of all elastic pools and replicated single databases in the recovery region to mirror their configuration in the original region. (This task is only needed if pools or replicated databases in the recovery environment are scaled down during normal operations to reduce costs).
 
 1. Enables the Traffic Manager endpoint for the web app in the recovery region. Enabling this endpoint allows the application to provision new tenants. At this stage, existing tenants are still offline.
 

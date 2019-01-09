@@ -1,12 +1,9 @@
 ---
-title: OCR cognitive search skill (Azure Search) | Microsoft Docs
-description: Extract text from image files in an Azure Search enrichment pipeline.
+title: OCR cognitive search skill - Azure Search
+description: Extract text from image files using optical character recognition (OCR) in an Azure Search enrichment pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -14,6 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 # OCR cognitive skill
 
@@ -25,6 +23,15 @@ The **OCR** skill extracts text from image files. Supported file formats include
 + .BMP
 + .GIF
 
+> [!NOTE]
+> Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost.
+>
+> The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
+. Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).
+>
+>  The OCR skill maps to the following cognitive services functionality:
+>  When textExtractionAlgorithm is set to "handwritten", the ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) functionality is used.
+>  When textExtractionAlgorithm is set to "printed", the ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) functionality is used for languages other than English. For English, the new ["Recognize Text"](../cognitive-services/computer-vision/concept-recognizing-text.md) functionality for printed text is used.
 
 ## Skill parameters
 
@@ -33,7 +40,7 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | detectOrientation	| Enables autodetection of image orientation. <br/> Valid values: true / false.|
-|defaultLanguageCode |	Language code of the input text. Supported languages include: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`.  If the language code is unspecified or null, the language is autodetected.|
+|defaultLanguageCode | <p>	Language code of the input text. Supported languages include: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>cs (Czech) <br/>da (Danish) <br/>nl (Dutch) <br/>en (English) <br/>fi (Finnish)  <br/>fr (French) <br/>  de (German) <br/>el (Greek) <br/> hu (Hungarian) <br/> it (Italian) <br/>  ja (Japanese) <br/> ko (Korean) <br/> nb (Norwegian) <br/>   pl (Polish) <br/> pt (Portuguese) <br/>  ru (Russian) <br/>  es (Spanish) <br/>  sv (Swedish) <br/>  tr (Turkish) <br/> ar (Arabic) <br/> ro (Romanian) <br/> sr-Cyrl (SerbianCyrillic) <br/> sr-Latn (SerbianLatin) <br/>  sk (Slovak). <br/>  unk (Unknown) <br/><br/> If the language code is unspecified or null, the language will be set to English. If the language is explicitly set to "unk", the language will be auto-detected. </p> |
 | textExtractionAlgorithm | "printed" or "handwritten". The "handwritten" text recognition OCR algorithm is currently in preview and only supported in English. |
 
 ## Skill inputs
@@ -171,7 +178,7 @@ The following example skillset creates a *merged_text* field to contain the text
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetname" : "merged_text"
+          "name": "mergedText", "targetName" : "merged_text"
         }
       ]
     }

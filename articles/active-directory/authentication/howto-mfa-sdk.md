@@ -5,13 +5,13 @@ description: This article shows you how to download and use the Azure MFA SDK to
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 11/29/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
+ms.reviewer: michmcla
 
 ---
 # Building Multi-Factor Authentication into Custom Apps (SDK)
@@ -73,7 +73,7 @@ The following is web client code for a demo page.
 
     <!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml">
+    <html xmlns="https://www.w3.org/1999/xhtml">
     <head runat="server">
     <title>Multi-Factor Authentication Demo</title>
     </head>

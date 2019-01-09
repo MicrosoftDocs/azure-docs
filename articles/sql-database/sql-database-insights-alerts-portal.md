@@ -1,15 +1,17 @@
 ---
 title: Use Azure portal to create SQL Database alerts | Microsoft Docs
 description: Use the Azure portal to create SQL Database alerts, which can trigger notifications or automation when the conditions you specify are met.
-author: aamalvea
-manager: craigg
 services: sql-database
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.subservice: monitor
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: aamalvea
 ms.author: aamalvea
-
+ms.reviewer: jrasnik, carlrab
+manager: craigg
+ms.date: 11/02/2018
 ---
 # Use Azure portal to create alerts for Azure SQL Database and Data Warehouse
 
@@ -30,25 +32,21 @@ You can configure an alert to do the following when it triggers:
 You can configure and get information about alert rules using
 
 * [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [command-line interface (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [command-line interface (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## Create an alert rule on a metric with the Azure portal
 1. In the [portal](https://portal.azure.com/), locate the resource you are interested in monitoring and select it.
-2. This step is different for SQL DB and elastic pools versus SQL DW: 
-
-   - **SQL DB & Elastic Pools ONLY**: Select **Alerts** or **Alert rules** under the MONITORING section. The text and icon may vary slightly for different resources.  
+2. Select **Alerts (Classic)** under the MONITORING section. The text and icon may vary slightly for different resources.  
    
-     ![Monitoring](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
+     ![Monitoring](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **SQL DW ONLY**: Select **Monitoring** under the COMMON TASKS section. Click the **DWU Usage** graph.
+   - **SQL DW ONLY**: Click the **DWU Usage** graph. Select **View classic alerts**
 
-     ![COMMON TASKS](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButtonDW.png)
-
-3. Select the **Add alert** command and fill in the fields.
+3. Select the **Add metric alert (classic)** button and fill in the fields.
    
-    ![Add Alert](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
+    ![Add Alert](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. **Name** your alert rule, and choose a **Description**, which also shows in notification emails.
 5. Select the **Metric** you want to monitor, then choose a **Condition** and **Threshold** value for the metric. Also choose the **Period** of time that the metric rule must be satisfied before the alert triggers. So for example, if you use the period "PT5M" and your alert looks for CPU above 80%, the alert triggers when the **average** CPU has been above 80% for 5 minutes. Once the first trigger occurs, it again triggers when the average CPU is below 80% over 5 minutes. The CPU measurement occurs every 1 minute. Consult the table below for supported time windows and the aggregation type that each alert uses- not all alerts use the average value.   
 6. Check **Email owners...** if you want administrators and co-administrators to be emailed when the alert fires.
@@ -103,7 +101,7 @@ Once you have created an alert, you can select it and:
 | SQL data warehouse | connection_successful | Successful Connections | Total | 10 minutes |
 | SQL data warehouse | connection_failed | Failed Connections | Total | 10 minutes |
 | SQL data warehouse | blocked_by_firewall | Blocked by Firewall | Total | 10 minutes |
-| SQL data warehouse | service_level_objective | Service level objective of the database | Total | 10 minutes |
+| SQL data warehouse | service_level_objective | Service tier of the database | Total | 10 minutes |
 | SQL data warehouse | dwu_limit | dwu limit | Maximum | 10 minutes |
 | SQL data warehouse | dwu_consumption_percent | DWU percentage | Average | 10 minutes |
 | SQL data warehouse | dwu_used | DWU used | Average | 10 minutes |
@@ -112,6 +110,6 @@ Once you have created an alert, you can select it and:
 
 ## Next steps
 * [Get an overview of Azure monitoring](../monitoring-and-diagnostics/monitoring-overview.md) including the types of information you can collect and monitor.
-* Learn more about [configuring webhooks in alerts](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
-* Get an [overview of diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) and collect detailed high-frequency metrics on your service.
+* Learn more about [configuring webhooks in alerts](../azure-monitor/platform/alerts-webhooks.md).
+* Get an [overview of diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md) and collect detailed high-frequency metrics on your service.
 * Get an [overview of metrics collection](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.

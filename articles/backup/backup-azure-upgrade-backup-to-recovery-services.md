@@ -2,7 +2,7 @@
 title: Upgrade a Backup vault to a Recovery Services vault
 description: Instructions and support information to upgrade your Azure Backup vault to a Recovery Services vault.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
@@ -74,7 +74,7 @@ The PowerShell script prompts you to enter your credentials. Enter your credenti
 ### Pre-requisites checking
 Once you have entered your Azure credentials, Azure checks that your environment meets the following prerequisites:
 
-- **Minimum agent version** - Upgrading Backup vaults to Recovery Services vaults requires the MARS agent to be at least version 2.0.9083.0. If you have items registered to a Backup vault with an agent earlier than 2.0.9083.0, the prerequisite check fails. If the prerequisite check fails, update the agent and try to upgrade the vault again. You can download the latest version of the agent from [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Minimum agent version** - Upgrading Backup vaults to Recovery Services vaults requires the MARS agent to be at least version 2.0.9083.0. If you have items registered to a Backup vault with an agent earlier than 2.0.9083.0, the prerequisite check fails. If the prerequisite check fails, update the agent and try to upgrade the vault again. You can download the latest version of the agent from [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **On-going configuration jobs**: If someone is configuring job for a Backup vault set to be upgraded, or registering an item, the prerequisite check fails. Complete the configuration, or finish registering the item, and then start the vault upgrade process.
 - **Storage-based billing model**: Recovery Services vaults support the Instance-based billing model. If you run the vault upgrade on a Backup vault that uses the Storage-based billing model, you are prompted to upgrade your billing model along with the vault. Otherwise, you can update your billing model first, and then run the vault upgrade.
 - Identify a Resource Group for the Recovery Services vault. To take advantage of the Resource Manager deployment features, you must put a Recovery Services vault in a Resource Group. If you don't know which Resource Group to use, provide a name and the upgrade process creates the Resource Group for you. The upgrade process also associates the vault with the new Resource Group.

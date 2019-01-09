@@ -11,7 +11,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: barbkess
 ms.reviewer: harshja
@@ -177,6 +177,6 @@ There are two methods you can use to register the connector:
 ## Next steps 
 * [Publish applications using your own domain name](application-proxy-configure-custom-domain.md)
 * [Enable single-sign on](application-proxy-configure-single-sign-on-with-kcd.md)
-* [Troubleshoot issues you're having with Application Proxy](../active-directory-application-proxy-troubleshoot.md)
+* [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)
 
 

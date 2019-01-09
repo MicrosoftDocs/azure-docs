@@ -1,17 +1,13 @@
 ---
-title: Get started with Azure Table storage and Azure Cosmos DB Table API using .NET | Microsoft Docs
+title: Get started with Azure Table storage and Azure Cosmos DB Table API using .NET
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
-services: cosmos-db
-author: SnehaGunda
-manager: kfile
-
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-ms.date: 03/14/2018
-ms.author: sngun
-
+ms.date: 08/17/2018
 ---
 # Get started with Azure Table storage and the Azure Cosmos DB Table API using .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -32,10 +28,10 @@ This sample shows you how to use the [Microsoft Azure CosmosDB Table Library for
 You need the following to complete this sample successfully:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure Storage Common Library for .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). This is a required preview package that is supported in production environments. 
-* [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)
+* [Azure Storage Common Library for .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). - A required preview package that is supported in production environments. 
+* [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) - This library is currently available for .NET Standard only, it's not yet available for .NET Core.
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-* [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Azure storage account](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -46,17 +42,14 @@ For additional examples using Table storage, see [Getting Started with Azure Tab
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### Create an Azure storage account
-The easiest way to create your first Azure storage account is by using the [Azure portal](https://portal.azure.com). To learn more, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* The easiest way to create your first Azure storage account is by using the [Azure portal](https://portal.azure.com). To learn more, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
 
-You can also create an Azure storage account by using [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md), or the [Storage Resource Provider Client Library for .NET](/dotnet/api/microsoft.azure.management.storage).
+* You can also create an Azure storage account by using [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md), or the [Storage Resource Provider Client Library for .NET](/dotnet/api/microsoft.azure.management.storage).
 
-If you prefer not to create a storage account at this time, you can also use the Azure storage emulator to run and test your code in a local environment. For more information, see [Use the Azure Storage Emulator for Development and Testing](../storage/common/storage-use-emulator.md).
+* If you prefer not to create a storage account at this time, you can also use the Azure storage emulator to run and test your code in a local environment. For more information, see [Use the Azure Storage Emulator for Development and Testing](../storage/common/storage-use-emulator.md).
 
 ### Create an Azure Cosmos DB Table API account
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
-
-## Set up your development environment
-Next, set up your development environment in Visual Studio so you're ready to try the code examples in this guide.
 
 ### Create a Windows console application project
 In Visual Studio, create a new Windows console application. The following steps show you how to create a console application in Visual Studio 2017. The steps are similar in other versions of Visual Studio.
@@ -71,27 +64,29 @@ All code examples in this sample can be added to the `Main()` method of your con
 
 You can use the Azure CosmosDB Table Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
-### Use NuGet to install the required packages
+### Install the required NuGet packages
 There are three recommended packages you need to reference in your project to complete this sample:
 
-* [Azure Storage Common Library for .NET (preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
-* [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). This package provides programmatic access to data resources in your Azure Table storage account or Azure Cosmos DB Table API account.
+* [Azure Storage Common Library for .NET (preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). - Use a version which is less than or equal to 9.0.0.1 (<= 9.0.0.1).
+
+* [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). This package provides programmatic access to data resources in your Azure Table storage account or Azure Cosmos DB Table API account. This library is currently available for .NET Standard only, it's not yet available for .NET Core.
+
 * [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): This package provides a class for parsing a connection string in a configuration file, regardless of where your application is running.
 
-You can use NuGet to obtain both packages. Follow these steps:
+To obtain the NuGet packages, follow these steps:
 
 1. Right-click your project in **Solution Explorer**, and choose **Manage NuGet Packages**.
-2. Search online for "Microsoft.Azure.Storage.Common", and select **Install** to install the Azure Storage Common Library for .NET (Preview) and its dependencies. Ensure the **Include prerelease** box is checked as this is a preview package.
+2. Search online for "Microsoft.Azure.Storage.Common", choose version <= 9.0.0.1 and select **Install** to install the Azure Storage Common Library for .NET (Preview) and its dependencies. Ensure the **Include prerelease** box is checked as this is a preview package.
 3. Search online for "Microsoft.Azure.CosmosDB.Table", and select **Install** to install the Microsoft Azure CosmosDB Table Library.
 4. Search online for "WindowsAzure.ConfigurationManager", and select **Install** to install the Microsoft Azure Configuration Manager Library.
 
 > [!NOTE]
-> The ODataLib dependencies in the Storage Common Library for .NET are resolved by the ODataLib packages available on NuGet, not from WCF Data Services. The ODataLib libraries can be downloaded directly, or referenced by your code project through NuGet. The specific ODataLib packages used by the Storage Client Library are [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/), and [Spatial](http://nuget.org/packages/System.Spatial/). While these libraries are used by the Azure Table storage classes, they are required dependencies for programming with the Storage Common Library.
+> The ODataLib dependencies in the Storage Common Library for .NET are resolved by the ODataLib packages available on NuGet, not from WCF Data Services. The ODataLib libraries can be downloaded directly, or referenced by your code project through NuGet. The specific ODataLib packages used by the Storage Client Library are [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/), and [Spatial](https://nuget.org/packages/System.Spatial/). While these libraries are used by the Azure Table storage classes, they are required dependencies for programming with the Storage Common Library.
 > 
 > 
 
 > [!TIP]
-> Developers already familiar with Azure Table storage may have used the [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) package in the past. It is recommended that all new table applications use the [Azure Storage Common Library](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) and the [Azure Cosmos DB Table Library](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), however the WindowsAzure.Storage package is still supported. If you use the WindowsAzure.Storage library, include Microsoft.WindowsAzure.Storage.Table in your using statements.
+> Developers already familiar with Azure Table storage may have used the [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) package in the past. It is recommended that all new table applications use the [Azure Storage Common Library](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common) and the [Azure Cosmos DB Table Library](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), however the WindowsAzure.Storage package is still supported. If you use the WindowsAzure.Storage library, include Microsoft.WindowsAzure.Storage.Table in your using statements.
 >
 >
 
@@ -102,7 +97,7 @@ You have three environment options for running the examples in this guide:
 * You can run your code against an Azure Cosmos DB account in the cloud.
 * You can run your code against the Azure storage emulator. The storage emulator is a local environment that emulates an Azure Storage account in the cloud. The emulator is a free option for testing and debugging your code while your application is under development. The emulator uses a well-known account and key. For more information, see [Use the Azure storage emulator for development and testing](../storage/common/storage-use-emulator.md).
 
-If you are targeting a storage account in the cloud, copy the primary access key for your storage account from the Azure portal. For more information, see [View and copy storage access keys](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+If you are targeting a storage account in the cloud, copy the primary access key for your storage account from the Azure portal. For more information, see [Storage account access keys](../storage/common/storage-account-manage.md#access-keys).
 
 > [!NOTE]
 > You can target the storage emulator to avoid incurring any costs associated with Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this sample will be negligible.
@@ -118,7 +113,6 @@ For more information about connection strings, see [Configure a connection strin
 
 > [!NOTE]
 > Your account key is similar to the root password for your storage account. Always be careful to protect your storage account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your key by using the Azure portal if you believe it may have been compromised.
-> 
 > 
 
 To configure your connection string, open the `app.config` file from Solution Explorer in Visual Studio. Add the contents of the `<appSettings>` element shown below. Replace `account-name` with the name of your account, and `account-key` with your account access key:
@@ -452,7 +446,7 @@ table.Execute(insertOrReplaceOperation);
 ```
 
 ## Query a subset of entity properties
-A table query can retrieve just a few properties from an entity instead of all the entity properties. This technique, called projection, reduces bandwidth and can improve query performance, especially for large entities. The query in the following code returns only the email addresses of entities in the table. This is done by using a query of [DynamicTableEntity][dotnet_DynamicTableEntity] and also [EntityResolver][dotnet_EntityResolver]. You can learn more about projection in the [Introducing Upsert and Query Projection blog post][blog_post_upsert]. Projection is not supported by the storage emulator, so this code runs only when you're using an account in the Table service.
+A table query can retrieve just a few properties from an entity instead of all the entity properties. This technique, called projection, reduces bandwidth and can improve query performance, especially for large entities. The query in the following code returns only the email addresses of entities in the table. This is done by using a query of [DynamicTableEntity][dotnet_DynamicTableEntity] and also [EntityResolver][dotnet_EntityResolver]. Projection is not supported by the storage emulator, so this code runs only when you're using an account in the Table service.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -567,17 +561,14 @@ Now that you've learned the basics of Table storage, follow these links to learn
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * See more Table storage samples in [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
 * View the Table service reference documentation for complete details about available APIs:
-* [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-* [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
+* [Storage Client Library for .NET reference](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+* [REST API reference](https://msdn.microsoft.com/library/azure/dd179355)
 * Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * View more feature guides to learn about additional options for storing data in Azure.
 * [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) to store unstructured data.
 * [Connect to SQL Database by using .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) to store relational data.
 
 [Download and install the Azure SDK for .NET]: /develop/net/
-[Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
-
-[blog_post_upsert]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
 [dotnet_api_ref]: https://msdn.microsoft.com/library/azure/mt347887.aspx
 [dotnet_CloudTableClient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtableclient.aspx

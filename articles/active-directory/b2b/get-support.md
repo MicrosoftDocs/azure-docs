@@ -6,11 +6,11 @@ description: What is the support experience for Azure Active Directory B2B colla
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: reference
 ms.date: 05/26/2017
 
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
 

@@ -53,7 +53,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs">Azure PowerShell</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.notificationhubs/?view=azurermps-6.8.1">Azure PowerShell</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
     - title: REST

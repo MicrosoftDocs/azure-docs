@@ -1,25 +1,19 @@
 ---
-title: Azure PowerShell Script-Create an Azure Cosmos DB MongoDB API account | Microsoft Docs
-description: Azure PowerShell Script Sample - Create an Azure Cosmos DB MongoDB API account
-services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
-
+title: Azure PowerShell Script-Create an Azure Cosmos DB API account for MongoDB
+description: Azure PowerShell Script Sample - Create an Azure Cosmos DB API account for MongoDB
 ms.service: cosmos-db
-ms.custom: mvc
-ms.devlang: PowerShell
-ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
-ms.date: 05/29/2018
+author: SnehaGunda
 ms.author: sngun
+ms.devlang: PowerShell
+ms.subservice: cosmosdb-mongo
+ms.topic: sample
+ms.date: 05/29/2018
+ms.reviewer: sngun
 ---
 
-# Azure Cosmos DB: Create a MongoDB API account using PowerShell
+# Create an Azure Cosmos DB account with Azure Cosmos DB's API for MongoDB using PowerShell
 
-This sample PowerShell script creates an Azure Cosmos DB MongoDB API account. 
+This sample PowerShell script creates a Cosmos account with Azure Cosmos DB's API for MongoDB. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -41,9 +35,9 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Creates a logical server that hosts a database or elastic pool. |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
 ## Next steps

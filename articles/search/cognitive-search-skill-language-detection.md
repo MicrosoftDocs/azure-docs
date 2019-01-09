@@ -1,10 +1,9 @@
 ---
-title: Language detection cognitive search skill (Azure Search) | Microsoft Docs
+title: Language detection cognitive search skill - Azure Search
 description: Evaluates unstructured text, and for each record, returns a language identifier with a score indicating the strength of the analysis in an Azure Search enrichment pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
-
 
 ms.service: search
 ms.devlang: NA
@@ -12,12 +11,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 #	Language detection cognitive skill
 
 For up to 120 languages, the **Language Detection** skill detects the language of input text and reports a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the analysis.
 
-This capability is especially useful when you need to provide the language of the text as input to other skills (for example, the [Sentiment Snalysis skill](cognitive-search-skill-sentiment.md) or [Text Split skill](cognitive-search-skill-textsplit.md)).
+This capability is especially useful when you need to provide the language of the text as input to other skills (for example, the [Sentiment Analysis skill](cognitive-search-skill-sentiment.md) or [Text Split skill](cognitive-search-skill-textsplit.md)).
+
+> [!NOTE]
+> Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost.
+>
+> The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
+. Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).
 
 ## @odata.type  
 Microsoft.Skills.Text.LanguageDetectionSkill

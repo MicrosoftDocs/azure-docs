@@ -4,16 +4,13 @@ description: Describes the structure and properties of Azure Resource Manager te
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-
 ms.assetid: 19694cb4-d9ed-499a-a2cc-bcfc4922d7f5
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 12/18/2018
 ms.author: tomfitz
 
 ---
@@ -21,15 +18,16 @@ ms.author: tomfitz
 This article describes the structure of an Azure Resource Manager template. It presents the different sections of a template and the properties that are available in those sections. The template consists of JSON and expressions that you can use to construct values for your deployment. For a step-by-step tutorial on creating a template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).
 
 ## Template format
+
 In its simplest structure, a template has the following elements:
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "",
     "parameters": {  },
     "variables": {  },
-    "functions": {  },
+    "functions": [  ],
     "resources": [  ],
     "outputs": {  }
 }
@@ -37,7 +35,7 @@ In its simplest structure, a template has the following elements:
 
 | Element name | Required | Description |
 |:--- |:--- |:--- |
-| $schema |Yes |Location of the JSON schema file that describes the version of the template language. Use the URL shown in the preceding example. |
+| $schema |Yes |Location of the JSON schema file that describes the version of the template language.<br><br> For resource group deployments, use `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`.<br><br>For subscription deployments, use `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Yes |Version of the template (such as 1.0.0.0). You can provide any value for this element. Use this value to document significant changes in your template. When deploying resources using the template, this value can be used to make sure that the right template is being used. |
 | parameters |No |Values that are provided when deployment is executed to customize resource deployment. |
 | variables |No |Values that are used as JSON fragments in the template to simplify template language expressions. |
@@ -49,7 +47,7 @@ Each element has properties you can set. The following example shows the full sy
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "",
     "parameters": {  
         "<parameter-name>" : {
@@ -210,6 +208,8 @@ Within your template, you can create your own functions. These functions are ava
 When defining a user function, there are some restrictions:
 
 * The function can't access variables.
+* The function can't access template parameters. That is, the [parameters function](resource-group-template-functions-deployment.md#parameters) is restricted to function parameters.
+* The function can't call other user-defined functions.
 * The function can't use the [reference function](resource-group-template-functions-resource.md#reference).
 * Parameters for the function can't have default values.
 
@@ -273,7 +273,7 @@ In the resources section, you define the resources that are deployed or updated.
 ],
 ```
 
-For more information, see [Resources section of Azure Resource Manager templates](resource-manager-templates-resources.md).
+To conditionally include or exclude a resource during deployment, use the [Condition element](resource-manager-templates-resources.md#condition). For more information about the resources section, see [Resources section of Azure Resource Manager templates](resource-manager-templates-resources.md).
 
 ## Outputs
 In the Outputs section, you specify values that are returned from deployment. For example, you could return the URI to access a deployed resource.
@@ -303,8 +303,11 @@ You're also limited to:
 
 You can exceed some template limits by using a nested template. For more information, see [Using linked templates when deploying Azure resources](resource-group-linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](resource-manager-objects-as-parameters.md).
 
+[!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
+
 ## Next steps
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
 * For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md).
-* To combine multiple templates during deployment, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
-* You may need to use resources that exist within a different resource group. This scenario is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](resource-group-template-functions-resource.md#resourceid).
+* To combine several templates during deployment, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
+* For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md).
+* For recommendations on creating Resource Manager templates that you can use across global Azure, Azure sovereign clouds, and Azure Stack, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).

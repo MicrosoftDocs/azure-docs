@@ -3,7 +3,7 @@
 title: Connect to Oracle Database - Azure Logic Apps | Microsoft Docs
 description: Insert and manage records with Oracle Database REST APIs and Azure Logic Apps 
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 03/29/2017
 ms.topic: article
@@ -125,7 +125,7 @@ View any triggers and actions defined in the swagger, and also see any limits in
 
 The [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) is a great place to ask questions, answer questions, and see what other Logic Apps users are doing. 
 
-You can help improve Logic Apps and connectors by voting and submitting your ideas at [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
+You can help improve Logic Apps and connectors by voting and submitting your ideas at [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 
 
 ## Next steps

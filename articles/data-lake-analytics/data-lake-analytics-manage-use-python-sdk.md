@@ -5,11 +5,11 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: matt1883
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
-ms.date: 06/18/2017
+ms.date: 06/08/2018
 ---
 # Manage Azure Data Lake Analytics using Python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -20,7 +20,7 @@ This article describes how to manage Azure Data Lake Analytics accounts, data so
 
 * Use a 64-bit version of Python.
 * You can use the standard Python distribution found at **[Python.org downloads](https://www.python.org/downloads/)**. 
-* Many developers find it convenient to use the **[Anaconda Python distribution](https://www.continuum.io/downloads)**.  
+* Many developers find it convenient to use the **[Anaconda Python distribution](https://www.anaconda.com/download/)**.  
 * This article was written using Python version 3.6 from the standard Python distribution
 
 ## Install Azure Python SDK
@@ -28,9 +28,9 @@ This article describes how to manage Azure Data Lake Analytics accounts, data so
 Install the following modules:
 
 * The **azure-mgmt-resource** module includes other Azure modules for Active Directory, etc.
-* The **azure-mgmt-datalake-store** module includes the Azure Data Lake Store account management operations.
 * The **azure-datalake-store** module includes the Azure Data Lake Store filesystem operations. 
-* The **azure-datalake-analytics** module includes the Azure Data Lake Analytics operations. 
+* The **azure-mgmt-datalake-store** module includes the Azure Data Lake Store account management operations.
+* The **azure-mgmt-datalake-analytics** module includes the Azure Data Lake Analytics operations. 
 
 First, ensure you have the latest `pip` by running the following command:
 

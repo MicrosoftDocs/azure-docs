@@ -1,5 +1,5 @@
 ---
-title: File share for Azure DC/OS cluster
+title: (DEPRECATED) File share for Azure DC/OS cluster
 description: Create and mount a file share to a DC/OS cluster in Azure Container Service
 services: container-service
 author: julienstroheker
@@ -12,7 +12,9 @@ ms.author: juliens
 ms.custom: mvc
 ---
 
-# Create and mount a file share to a DC/OS cluster
+# (DEPRECATED) Create and mount a file share to a DC/OS cluster
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 This tutorial details how to create a file share in Azure and mount it on each agent and master of the DC/OS cluster. Setting up a file share makes it easier to share files across your cluster such as configuration, access, logs, and more. The following tasks are completed in this tutorial:
 
@@ -23,7 +25,7 @@ This tutorial details how to create a file share in Azure and mount it on each a
 
 You need an ACS DC/OS cluster to complete the steps in this tutorial. If needed, [this script sample](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) can create one for you.
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

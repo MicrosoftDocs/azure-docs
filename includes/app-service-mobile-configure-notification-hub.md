@@ -1,3 +1,10 @@
+---
+author: conceptdev
+ms.author: crdun
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+---
 The Mobile Apps feature of Azure App Service uses [Azure Notification Hubs] to send pushes, so you will be configuring a notification hub for your mobile app.
 
 1. In the [Azure portal], go to **App Services**, and then select your app back end. Under **Settings**, select **Push**.

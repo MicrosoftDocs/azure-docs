@@ -3,7 +3,7 @@ title: Integrate Azure DNS with your Azure resources | Microsoft Docs
 description: Learn how to use Azure DNS along to provide DNS for your Azure resources.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 
 ms.service: dns
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/19/2018
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Use Azure DNS to provide custom domain settings for an Azure service
@@ -112,7 +112,7 @@ Once the process is complete, run **nslookup** to validate name resolution is wo
 
 To learn more about mapping a custom domain to App Service, visit [Map an existing custom DNS name to Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
 
-If you need to purchase a custom domain, visit [Buy a custom domain name for Azure Web Apps](../app-service/custom-dns-web-site-buydomains-web-app.md) to learn more about App Service domains.
+If you need to purchase a custom domain, visit [Buy a custom domain name for Azure Web Apps](../app-service/manage-custom-dns-buy-domain.md) to learn more about App Service domains.
 
 ## Blob storage
 

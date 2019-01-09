@@ -1,22 +1,21 @@
 ---
-title: Using BulkExecutor .NET library to perform bulk operations in Azure Cosmos DB | Microsoft Docs
-description: Use Azure Cosmos DB’s BulkExecutor .NET library to bulk import and update documents to Azure Cosmos DB collections.
-keywords: .Net bulk executor
-services: cosmos-db
+title: Using bulk executor .NET library to perform bulk import and update operations in Azure Cosmos DB
+description: Bulk import and update Azure Cosmos DB documents using bulk executor .NET library.
 author: tknandu
-manager: kfile
-
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-
+ms.reviewer: sngun
 ---
 
-# Using BulkExecutor .NET library to perform bulk operations in Azure Cosmos DB
+# Use bulk executor .NET library to perform bulk operations in Azure Cosmos DB
 
-This tutorial provides instructions on using the Azure Cosmos DB’s BulkExecutor .NET library to import and update documents to Azure Cosmos DB collections. To learn about BulkExecutor library and how it helps you leverage massive throughput and storage, see [BulkExecutor Library overview](bulk-executor-overview.md) article. This tutorial will walk you through a sample .NET application that bulk imports randomly generated documents into an Azure Cosmos DB collection. After importing, it shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields.
+This tutorial provides instructions on using the Azure Cosmos DB’s bulk executor .NET library to import and update documents to Azure Cosmos DB container. To learn about bulk executor library and how it helps you leverage massive throughput and storage, see [bulk executor library overview](bulk-executor-overview.md) article. In this tutorial, you will see a sample .NET application that bulk imports randomly generated documents into an Azure Cosmos DB container. After importing, it shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields. 
+
+Currently, bulk executor library is supported by Azure Cosmos DB SQL API and Gremlin API accounts only. This article describes how to use bulk executor .NET library with SQL API accounts. To learn about using bulk executor .NET library with Gremlin API, see [perform bulk operations in Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md). 
 
 ## Prerequisites
 
@@ -36,13 +35,13 @@ Now let's switch to working with code by downloading some sample .NET applicatio
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-The cloned repository contains two samples “BulkImportSample” and “BulkUpdateSample.” You can open either of the sample applications, update the connection strings in App.config file with your Azure Cosmos DB account’s connection strings, build the solution, and run it. 
+The cloned repository contains two samples "BulkImportSample" and "BulkUpdateSample." You can open either of the sample applications, update the connection strings in App.config file with your Azure Cosmos DB account’s connection strings, build the solution, and run it. 
 
-The “BulkImportSample” application generates random documents and bulk imports them to Azure Cosmos DB. The “BulkUpdateSample” application bulk updates the imported documents by specifying patches as operations to perform on specific document fields. In the next sections, you will review the code in each of these sample apps.
+The "BulkImportSample" application generates random documents and bulk imports them to Azure Cosmos DB. The "BulkUpdateSample" application bulk updates the imported documents by specifying patches as operations to perform on specific document fields. In the next sections, you will review the code in each of these sample apps.
 
 ## Bulk import data to Azure Cosmos DB
 
-1. Navigate to the “BulkImportSample” folder and open the “BulkImportSample.sln” file.  
+1. Navigate to the "BulkImportSample" folder and open the "BulkImportSample.sln" file.  
 
 2. The Azure Cosmos DB’s connection strings are retrieved from the App.config file as shown in the following code:  
 
@@ -118,7 +117,7 @@ The “BulkImportSample” application generates random documents and bulk impor
 
 You can update existing documents by using the BulkUpdateAsync API. In this example, you will set the Name field to a new value and remove the Description field from the existing documents. For the full set of supported field update operations, refer to [API documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet). 
 
-1. Navigate to the “BulkUpdateSample” folder and open the “BulkUpdateSample.sln” file.  
+1. Navigate to the "BulkUpdateSample" folder and open the "BulkUpdateSample.sln" file.  
 
 2. Define the update items along with corresponding field update operations. In this example, you will use SetUpdateOperation to update the Name field and UnsetUpdateOperation to remove the Description field from all the documents. You can also perform other operations like increment a document field by a specific value, push specific values into an array field, or remove a specific value from an array field. To learn about different methods provided by the bulk update API, refer to the [API documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
@@ -165,15 +164,15 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
 	
 ## Performance tips 
 
-Consider the following points for better performance when using BulkExecutor library:
+Consider the following points for better performance when using bulk executor library:
 
 * For best performance, run your application from an Azure virtual machine that is in the same region as your Cosmos DB account write region.  
 
-* It is recommended to instantiate a single BulkExecutor object for the whole application within a single virtual machine corresponding to a specific Cosmos DB collection.  
+* It is recommended to instantiate a single BulkExecutor object for the whole application within a single virtual machine corresponding to a specific Cosmos DB container.  
 
-* Since a single bulk operation API execution consumes a large chunk of the client machine's CPU and network IO. This happens by spawning multiple tasks internally, avoid spawning multiple concurrent tasks within your application process each executing bulk operation API calls. If a single bulk operation API call running on a single virtual machine is unable to consume your entire collection's throughput (if your collection's throughput > 1 million RU/s), it's preferable to create separate virtual machines to concurrently execute bulk operation API calls.  
+* Since a single bulk operation API execution consumes a large chunk of the client machine's CPU and network IO. This happens by spawning multiple tasks internally, avoid spawning multiple concurrent tasks within your application process each executing bulk operation API calls. If a single bulk operation API call running on a single virtual machine is unable to consume your entire container's throughput (if your container's throughput > 1 million RU/s), it's preferable to create separate virtual machines to concurrently execute bulk operation API calls.  
 
-* Ensure InitializeAsync() is invoked after instantiating a BulkExecutor object to fetch the target Cosmos DB collection partition map.  
+* Ensure InitializeAsync() is invoked after instantiating a BulkExecutor object to fetch the target Cosmos DB container partition map.  
 
 * In your application's App.Config, ensure **gcServer** is enabled for better performance
   ```xml  
@@ -195,4 +194,4 @@ Consider the following points for better performance when using BulkExecutor lib
 ```
 
 ## Next steps
-* To learn about Nuget package details and release notes of BulkExecutor .Net library, see[BulkExecutor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
+* To learn about Nuget package details and release notes of bulk executor .Net library, see[bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 

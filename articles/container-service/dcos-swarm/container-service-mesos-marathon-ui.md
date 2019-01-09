@@ -1,18 +1,20 @@
 ---
-title: Manage Azure DC/OS cluster with Marathon UI
+title: (DEPRECATED) Manage Azure DC/OS cluster with Marathon UI
 description: Deploy containers to an Azure Container Service cluster service by using the Marathon web UI.
 services: container-service
-author: dlepow
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: danlep
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Manage an Azure Container Service DC/OS cluster through the Marathon web UI
+# (DEPRECATED) Manage an Azure Container Service DC/OS cluster through the Marathon web UI
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of DC/OS, there is a framework that manages scheduling and executing compute workloads.
 

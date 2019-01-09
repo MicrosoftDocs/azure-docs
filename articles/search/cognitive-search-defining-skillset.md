@@ -1,13 +1,15 @@
 ---
-title: Create a skillset in a cognitive search pipeline (Azure Search) | Microsoft Docs
+title: Create a skillset in a cognitive search pipeline - Azure Search
 description: Define data extraction, natural language processing, or image analysis steps to enrich and extract structured information from your data for use in Azure Search.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 
 # How to create a skillset in an enrichment pipeline
@@ -23,7 +25,7 @@ Key points to remember:
 
 + You can only have one skillset per indexer.
 + A skillset must have at least one skill.
-+ You can create multiple skills of the same type (for example, variants of an image analysis skill) but each skill can only be used once within the same skillset.
++ You can create multiple skills of the same type (for example, variants of an image analysis skill).
 
 ## Begin with the end in mind
 
@@ -101,11 +103,11 @@ Content-Type: application/json
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -205,11 +207,11 @@ Recall the structure of the custom Bing entity search enricher:
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       }
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -223,9 +225,9 @@ Recall the structure of the custom Bing entity search enricher:
 
 This definition is a custom skill that calls a web API as part of the enrichment process. For each organization identified by named entity recognition, this skill calls a web API to find the description of that organization. The orchestration of when to call the web API and how to flow the information received is handled internally by the enrichment engine. However, the initialization necessary for calling this custom API must be provided in the JSON (such as uri, httpHeaders, and the inputs expected). For guidance in creating a custom web API for the enrichment pipeline, see [How to define a custom interface](cognitive-search-custom-skill-interface.md).
 
-Notice that the "context" field is set to ```"/document/content/organizations/*"``` with an asterisk, meaning the enrichment step is called *for each* organization under ```"/document/content/organizations"```. 
+Notice that the "context" field is set to ```"/document/organizations/*"``` with an asterisk, meaning the enrichment step is called *for each* organization under ```"/document/organizations"```. 
 
-Output, in this case a company description, is generated for each organization identified. When referring to the description in a downstream step (for example, in key phrase extraction), you would use the path ```"/document/content/organizations/*/description"``` to do so. 
+Output, in this case a company description, is generated for each organization identified. When referring to the description in a downstream step (for example, in key phrase extraction), you would use the path ```"/document/organizations/*/description"``` to do so. 
 
 ## Enrichments create structure out of unstructured information
 

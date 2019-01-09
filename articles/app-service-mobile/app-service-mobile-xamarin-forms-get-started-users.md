@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 09/24/2018
 ms.author: panarasi
 
 ---
@@ -194,6 +194,12 @@ This section shows how to implement the **IAuthenticate** interface in the Andro
 
     This code ensures the authenticator is initialized before the app loads.
 8. Rebuild the app, run it, then sign in with the authentication provider you chose and verify you are able to access data as an authenticated user.
+
+### Troubleshooting
+
+**The application crashed with `Java.Lang.NoSuchMethodError: No static method startActivity`**
+
+In some cases, conflicts in the support packages displayed as just a warning in the Visual studio, but the application crashes with this exception at runtime. In this case you need to make sure that all the support packages referenced in your project have the same version. The [Azure Mobile Apps NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) has `Xamarin.Android.Support.CustomTabs` dependency for Android platform, so if your project uses newer support packages you need to install this package with required version directly to avoid conflicts.
 
 ## Add authentication to the iOS app
 This section shows how to implement the **IAuthenticate** interface in the iOS app project. Skip this section if you are not supporting iOS devices.

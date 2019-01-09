@@ -11,7 +11,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
@@ -72,7 +72,7 @@ The Active Directory configuration varies, depending on whether your Application
 Sharepointserviceaccount can be the SPS machine account or a service account under which the SPS app pool is running.
 
 ## Configure single sign-on 
-1. Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.
+1. Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.
 2. After your application appears in the list of enterprise applications, select it and click **Single sign-on**.
 3. Set the single sign-on mode to **Integrated Windows Authentication**.  
 4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/www.contoso.com. This SPN needs to be in the list of services to which the connector can present delegated credentials. 
@@ -132,14 +132,14 @@ If delegated login identity is used, the value might not be unique across all th
    * On-premises SAM account name (depends on the domain controller configuration)
 
 ### Troubleshooting SSO for different identities
-If there is an error in the SSO process, it appears in the connector machine event log as explained in [Troubleshooting](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
+If there is an error in the SSO process, it appears in the connector machine event log as explained in [Troubleshooting](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 But, in some cases, the request is successfully sent to the backend application while this application replies in various other HTTP responses. Troubleshooting these cases should start by examining event number 24029 on the connector machine in the Application Proxy session event log. The user identity that was used for delegation appears in the “user” field within the event details. To turn on session log, select **Show analytic and debug logs** in the event viewer view menu.
 
 ## Next steps
 
-* [How to configure an Application Proxy application to use Kerberos Constrained Delegation](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [Troubleshoot issues you're having with Application Proxy](../active-directory-application-proxy-troubleshoot.md)
+* [How to configure an Application Proxy application to use Kerberos Constrained Delegation](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+* [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)
 
 
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+For the latest news and updates, check out the [Application Proxy blog](https://blogs.technet.com/b/applicationproxyblog/)
 

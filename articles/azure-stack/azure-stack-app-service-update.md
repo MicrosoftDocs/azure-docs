@@ -1,4 +1,3 @@
-
 ---
 title: 'Update Azure App Service on Azure Stack | Microsoft Docs'
 description: Detailed guidance for updating Azure App Service on Azure Stack
@@ -8,13 +7,12 @@ author: apwestgarth
 manager: stefsch
 editor: ''
 
-ms.assetid:
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 11/13/2018
 ms.author: anwestg
 
 ---
@@ -22,17 +20,15 @@ ms.author: anwestg
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-> [!IMPORTANT]
-> Apply the 1804 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.2.
+> [!IMPORTANT]  
+> Apply the 1809 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.4.
 >
 >
 
 By following the instructions in this article, you can upgrade the [App Service resource provider](azure-stack-app-service-overview.md) deployed in an Azure Stack environment that is connected to the Internet.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Prior to running the upgrade, make sure that you have already completed the [deployment of the Azure App Service on Azure Stack Resource Provider](azure-stack-app-service-deploy.md)
->
->
 
 ## Run the App Service resource provider installer
 
@@ -52,7 +48,7 @@ During this process, the upgrade will:
 
 To upgrade your deployment of App Service on Azure Stack, follow these steps:
 
-1. Download the [App Service Installer](https://aka.ms/appsvcupdate2installer)
+1. Download the [App Service Installer](https://aka.ms/appsvcupdate4installer)
 
 2. Run appservice.exe as an administrator
 
@@ -64,7 +60,7 @@ To upgrade your deployment of App Service on Azure Stack, follow these steps:
 
 5. Review and accept the third-party license terms and then click **Next**.
 
-6. Make sure that the Azure Stack Azure Resource Manager endpoint and Active Directory Tenant information is correct. If you used the default settings during Azure Stack Development Kit deployment, you can accept the default values here. However, if you customized the options when you deployed Azure Stack, you must edit the values in this window to reflect that. For example, if you use the domain suffix *mycloud.com*, your Azure Stack Azure Resource Manager endpoint must change to *management.region.mycloud.com*. After you confirm your information, click **Next**.
+6. Make sure that the Azure Stack Azure Resource Manager endpoint and Active Directory Tenant information is correct. If you used the default settings during Azure Stack Development Kit deployment, you can accept the default values here. However, if you customized the options when you deployed Azure Stack, you must edit the values in this window. For example, if you use the domain suffix *mycloud.com*, your Azure Stack Azure Resource Manager endpoint must change to *management.region.mycloud.com*. After you confirm your information, click **Next**.
 
     ![Azure Stack Cloud Information][2]
 
@@ -75,7 +71,7 @@ To upgrade your deployment of App Service on Azure Stack, follow these steps:
         * If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, *cloudadmin@azurestack.local*. Enter your password, and click **Sign In**.
    2. In the **Azure Stack Subscriptions** box, select the **Default Provider Subscription**.
    3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
-   4. If an existing App Service deployment is discovered, then the resource group and storage account will be populated and greyed out.
+   4. If an existing App Service deployment is detected, then the resource group and storage account will be populated and greyed out.
    5. Click **Next** to review the upgrade summary.
 
     ![App Service Installation Detected][3]

@@ -3,7 +3,7 @@
 title: Connect to Azure Event Hubs - Azure Logic Apps | Microsoft Docs
 description: Manage and monitor events with Azure Event Hubs and Azure Logic Apps 
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 05/21/2018
 ms.topic: article
@@ -227,7 +227,7 @@ see the [connector's reference page](/connectors/eventhubs/).
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

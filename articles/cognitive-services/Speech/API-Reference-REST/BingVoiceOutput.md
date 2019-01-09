@@ -1,5 +1,6 @@
 ---
 title: Text to Speech API of Microsoft Speech Service | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Use the text to speech API to provide real-time text-to-speech conversion in a variety of voices and languages
 services: cognitive-services
 author: priyaravi20
@@ -7,10 +8,12 @@ manager: yanbo
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 09/18/2018
 ms.author: priyar
 ---
 # Bing text to speech API
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 ## <a name="Introduction"></a>Introduction
 
@@ -228,11 +231,10 @@ hr-HR | Male | "Microsoft Server Speech Text to Speech Voice (hr-HR, Matej)"
 hu-HU | Male | "Microsoft Server Speech Text to Speech Voice (hu-HU, Szabolcs)"
 id-ID | Male | "Microsoft Server Speech Text to Speech Voice (id-ID, Andika)"
 it-IT | Male | "Microsoft Server Speech Text to Speech Voice (it-IT, Cosimo, Apollo)"
+it-IT | Female | "Microsoft Server Speech Text to Speech Voice (it-IT, LuciaRUS)"
 ja-JP | Female | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ayumi, Apollo)"
 ja-JP | Male | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ichiro, Apollo)"
 ja-JP | Female | "Microsoft Server Speech Text to Speech Voice (ja-JP, HarukaRUS)"
-ja-JP | Female | "Microsoft Server Speech Text to Speech Voice (ja-JP, LuciaRUS)"
-ja-JP | Male | "Microsoft Server Speech Text to Speech Voice (ja-JP, EkaterinaRUS)"
 ko-KR | Female | "Microsoft Server Speech Text to Speech Voice (ko-KR, HeamiRUS)"
 ms-MY | Male | "Microsoft Server Speech Text to Speech Voice (ms-MY, Rizwan)"
 nb-NO | Female | "Microsoft Server Speech Text to Speech Voice (nb-NO, HuldaRUS)"
@@ -244,6 +246,7 @@ pt-PT | Female | "Microsoft Server Speech Text to Speech Voice (pt-PT, HeliaRUS)
 ro-RO | Male | "Microsoft Server Speech Text to Speech Voice (ro-RO, Andrei)"
 ru-RU | Female | "Microsoft Server Speech Text to Speech Voice (ru-RU, Irina, Apollo)"
 ru-RU | Male | "Microsoft Server Speech Text to Speech Voice (ru-RU, Pavel, Apollo)"
+ru-RU | Female | "Microsoft Server Speech Text to Speech Voice (ru-RU, EkaterinaRUS)"
 sk-SK | Male | "Microsoft Server Speech Text to Speech Voice (sk-SK, Filip)"
 sl-SI | Male | "Microsoft Server Speech Text to Speech Voice (sl-SI, Lado)"
 sv-SE | Female | "Microsoft Server Speech Text to Speech Voice (sv-SE, HedvigRUS)"

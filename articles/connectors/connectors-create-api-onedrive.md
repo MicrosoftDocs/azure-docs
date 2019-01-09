@@ -3,7 +3,7 @@
 title: Connect to OneDrive - Azure Logic Apps | Microsoft Docs
 description: Upload and manage files with OneDrive REST APIs and Azure Logic Apps 
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 10/18/2016
 ms.topic: article

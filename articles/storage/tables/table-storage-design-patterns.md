@@ -2,18 +2,12 @@
 title: Azure storage table design patterns | Microsoft Docs
 description: Use patterns for Azure table service solutions.
 services: storage
-documentationcenter: na
 author: MarkMcGeeAtAquent
-manager: kfile
-
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
+ms.component: tables
 ---
 # Table design patterns
 This article describes some patterns appropriate for use with Table service solutions. Also, you will see how you can practically address some of the issues and trade-offs discussed in other Table storage design articles. The following diagram summarizes the relationships between the different patterns:  
@@ -50,7 +44,7 @@ If you query for a range of employee entities, you can specify a range sorted in
 * To find all the employees in the Sales department with an email address starting with the letter 'a' use:
   $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-  Note that the filter syntax used in the examples above is from the Table service REST API, for more information see [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  Note that the filter syntax used in the examples above is from the Table service REST API, for more information see [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 ### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
@@ -108,7 +102,7 @@ If you query for a range of employee entities, you can specify a range sorted in
 * To find all the employees in the Sales department with an email address that starts with 'a' sorted in email address order use:
   $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-Note that the filter syntax used in the examples above is from the Table service REST API, for more information see [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Note that the filter syntax used in the examples above is from the Table service REST API, for more information see [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 ### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
@@ -141,7 +135,7 @@ Enable eventually consistent behavior across partition boundaries or storage sys
 ### Context and problem
 EGTs enable atomic transactions across multiple entities that share the same partition key. For performance and scalability reasons, you might decide to store entities that have consistency requirements in separate partitions or in a separate storage system: in such a scenario, you cannot use EGTs to maintain consistency. For example, you might have a requirement to maintain eventual consistency between:  
 
-* Entities stored in two different partitions in the same table, in different tables, in in different storage accounts.  
+* Entities stored in two different partitions in the same table, in different tables, or in different storage accounts.  
 * An entity stored in the Table service and a blob stored in the Blob service.  
 * An entity stored in the Table service and a file in a file system.  
 * An entity store in the Table service yet indexed using the Azure Search service.  
@@ -621,7 +615,7 @@ An optimal query returns an individual entity based on a **PartitionKey** value 
 
 You should always fully test the performance of your application in such scenarios.  
 
-A query against the table service may return a maximum of 1,000 entities at one time and may execute for a maximum of five seconds. If the result set contains more than 1,000 entities, if the query did not complete within five seconds, or if the query crosses the partition boundary, the Table service returns a continuation token to enable the client application to request the next set of entities. For more information about how continuation tokens work, see [Query Timeout and Pagination](http://msdn.microsoft.com/library/azure/dd135718.aspx).  
+A query against the table service may return a maximum of 1,000 entities at one time and may execute for a maximum of five seconds. If the result set contains more than 1,000 entities, if the query did not complete within five seconds, or if the query crosses the partition boundary, the Table service returns a continuation token to enable the client application to request the next set of entities. For more information about how continuation tokens work, see [Query Timeout and Pagination](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
 
 If you are using the Storage Client Library, it can automatically handle continuation tokens for you as it returns entities from the Table service. The following C# code sample using the Storage Client Library automatically handles continuation tokens if the table service returns them in a response:  
 
@@ -1021,7 +1015,7 @@ employeeTable.Execute(TableOperation.Merge(department));
 ```
 
 ## Controlling access with Shared Access Signatures
-You can use Shared Access Signature (SAS) tokens to enable client applications to modify (and query) table entities directly without the need to authenticate directly with the table service. Typically, there are three main benefits to using SAS in your application:  
+You can use Shared Access Signature (SAS) tokens to enable client applications to modify (and query) table entities without the need to include your storage account key in your code. Typically, there are three main benefits to using SAS in your application:  
 
 * You do not need to distribute your storage account key to an insecure platform (such as a mobile device) in order to allow that device to access and modify entities in the Table service.  
 * You can offload some of the work that web and worker roles perform in managing your entities to client devices such as end-user computers and mobile devices.  

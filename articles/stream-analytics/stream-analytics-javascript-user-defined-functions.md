@@ -3,24 +3,24 @@ title: "Tutorial: Azure Stream Analytics JavaScript user-defined functions | Mic
 description: In this tutorial, you perform advanced query mechanics with JavaScript user-defined functions
 keywords: javascript, user defined functions, udf
 services: stream-analytics
-author: SnehaGunda
+author: rodrigoamicrosoft
 manager: kfile
 
 ms.assetid:
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
-ms.author: sngun
+ms.author: rodrigoa
 
 #Customer intent: "As an IT admin/developer I want to run JavaScript user-defined functions within Stream Analytics jobs."
 
 ---
 
 # Tutorial: Azure Stream Analytics JavaScript user-defined functions
-
+ 
 Azure Stream Analytics supports user-defined functions written in JavaScript. With the rich set of **String**, **RegExp**, **Math**, **Array**, and **Date** methods that JavaScript provides, complex data transformations with Stream Analytics jobs become easier to create.
 
 In this tutorial, you learn how to:
@@ -57,9 +57,9 @@ To create a simple JavaScript user-defined function under an existing Stream Ana
 4.	On the **New Function** blade, for **Function Type**, select **JavaScript**. A default function template appears in the editor.
 5.	For the **UDF alias**, enter **hex2Int**, and change the function implementation as follows:
 
-    ```
+    ```javascript
     // Convert Hex value to integer.
-    function main(hexValue) {
+    function hex2Int(hexValue) {
         return parseInt(hexValue, 16);
     }
     ```
@@ -72,7 +72,7 @@ To create a simple JavaScript user-defined function under an existing Stream Ana
 1. In the query editor, under **JOB TOPOLOGY**, select **Query**.
 2.	Edit your query, and then call the user-defined function, like this:
 
-    ```
+    ```SQL
     SELECT
         time,
         UDF.hex2Int(offset) AS IntOffset
@@ -128,14 +128,14 @@ If you have a follow-up processing step that uses a Stream Analytics job output 
 
 **JavaScript user-defined function definition:**
 
-```
+```javascript
 function main(x) {
 return JSON.stringify(x);
 }
 ```
 
 **Sample query:**
-```
+```SQL
 SELECT
     DataString,
     DataValue,

@@ -19,7 +19,7 @@ A NuGet feed provides a convenient way to include package sources in a project. 
 ## Set up a NuGet feed
 
 To set up a NuGet feed:
-1. Add a [package reference](https://docs.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files) in the `*.csproj` file under the `PackageReference` node.
+1. Add a [package reference](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) in the `*.csproj` file under the `PackageReference` node.
 
    ```xml
    <ItemGroup>
@@ -29,7 +29,7 @@ To set up a NuGet feed:
    </ItemGroup>
    ```
 
-2. Create a [NuGet.Config](https://docs.microsoft.com/en-us/nuget/reference/nuget-config-file) file in the project folder.
+2. Create a [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) file in the project folder.
      * Use the `packageSources` section to reference your NuGet feed location. Important: The NuGet feed must be publicly accessible.
      * Use the `packageSourceCredentials` section to configure username and password credentials. 
 

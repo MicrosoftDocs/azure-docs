@@ -7,14 +7,19 @@ ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
+
+ROBOTS: NOINDEX
 ---
 
 # Scaling the cluster to manage web service throughput
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 ## Why scale the cluster?
 
@@ -56,7 +61,7 @@ This will take a few minutes to complete. For more information on scaling the nu
 
 ### Scaling the number of Kubernetes pod replicas in a cluster
  
-You can scale the number of pod replicas assigned to the cluster using the Azure Machine Learning CLI or the [Kubernetes dashboard] (https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
+You can scale the number of pod replicas assigned to the cluster using the Azure Machine Learning CLI or the [Kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
 
 For more information on Kubernetes replica pods, see the [Kubernetes Pods](https://kubernetes.io/docs/concepts/workloads/pods/pod/) documentation.
 

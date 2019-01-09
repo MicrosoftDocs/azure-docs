@@ -3,14 +3,14 @@ title: 'Tutorial: Encrypt and decrypt blobs in Azure Storage using Azure Key Vau
 description: How to encrypt and decrypt a blob using client-side encryption for Microsoft Azure Storage with Azure Key Vault.
 services: storage
 author: tamram
-manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: adhurwit
-
+ms.author: tamram
+ms.component: blobs
 ---
+
 # Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault
 ## Introduction
 This tutorial covers how to make use of client-side storage encryption with Azure Key Vault. It walks you through how to encrypt and decrypt a blob in a console application using these technologies.
@@ -57,9 +57,7 @@ Add necessary nuget packages in the Package Manager Console.
 
 ```
 Install-Package WindowsAzure.Storage
-
-// This is the latest stable release for ADAL.
-Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
 Install-Package Microsoft.Azure.KeyVault
 Install-Package Microsoft.Azure.KeyVault.Extensions
@@ -223,4 +221,4 @@ For more information about using Microsoft Azure Storage with C#, see [Microsoft
 
 For more information about the Blob REST API, see [Blob Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
+For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/).

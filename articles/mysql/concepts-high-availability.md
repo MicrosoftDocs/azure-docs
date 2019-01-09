@@ -1,13 +1,10 @@
 ---
 title: High availability concepts in Azure Database for MySQL
 description: This topic provides information of high availability when using Azure Database for MySQL
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
-ms.service: mysql-database
-ms.topic: article
+ms.service: mysql
+ms.topic: conceptual
 ms.date: 02/28/2018
 ---
 # High availability concepts in Azure Database for MySQL
@@ -30,3 +27,4 @@ During the scale operation, an interruption to the database connections occurs. 
 
 ## Next steps
 - For an overview of the service, see [Azure Database for MySQL Overview](overview.md)
+- For an overview on retry logic, see [Handling of transient connectivity errors for Azure Database for MySQL](concepts-connectivity.md)

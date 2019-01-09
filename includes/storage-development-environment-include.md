@@ -1,3 +1,15 @@
+---
+title: "include file"
+description: "include file"
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: "include"
+ms.date: 09/15/2018
+ms.author: tamram
+ms.custom: "include file"
+---
+
 ## Set up your development environment
 Next, set up your development environment in Visual Studio so you're ready to try the code examples in this guide.
 
@@ -41,7 +53,7 @@ You have two environment options for running the examples in this guide:
 * You can run your code against an Azure Storage account in the cloud. 
 * You can run your code against the Azure storage emulator. The storage emulator is a local environment that emulates an Azure Storage account in the cloud. The emulator is a free option for testing and debugging your code while your application is under development. The emulator uses a well-known account and key. For more information, see [Use the Azure storage emulator for development and testing](../articles/storage/common/storage-use-emulator.md).
 
-If you are targeting a storage account in the cloud, copy the primary access key for your storage account from the Azure portal. For more information, see [View and copy storage access keys](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+If you are targeting a storage account in the cloud, copy the primary access key for your storage account from the Azure portal. For more information, see [Access keys](../articles/storage/common/storage-account-manage.md#access-keys).
 
 > [!NOTE]
 > You can target the storage emulator to avoid incurring any costs associated with Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.

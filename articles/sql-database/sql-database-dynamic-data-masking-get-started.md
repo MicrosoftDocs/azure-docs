@@ -2,14 +2,16 @@
 title: Azure SQL Database dynamic data masking | Microsoft docs
 description: SQL Database dynamic data masking limits sensitive data exposure by masking it to non-privileged users
 services: sql-database
-author: ronitr
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: 
+ms.devlang:
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: ronitr
 ms.author: ronitr
-
+ms.reviewer: vanto
+manager: craigg
+ms.date: 12/16/2018
 ---
 # SQL Database dynamic data masking
 
@@ -23,7 +25,7 @@ For example, a service representative at a call center may identify callers by s
 You set up a dynamic data masking policy in the Azure portal by selecting the dynamic data masking operation in your SQL Database configuration blade or settings blade.
 
 ### Dynamic data masking permissions
-Dynamic data masking can be configured by the Azure Database admin, server admin, or security officer roles.
+Dynamic data masking can be configured by the Azure Database admin, server admin, or [SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) roles.
 
 ### Dynamic data masking policy
 * **SQL users excluded from masking** - A set of SQL users or AAD identities that get unmasked data in the SQL query results. Users with administrator privileges are always excluded from masking, and see the original data without any mask.
@@ -44,8 +46,8 @@ Dynamic data masking can be configured by the Azure Database admin, server admin
 The DDM recommendations engine, flags certain fields from your database as potentially sensitive fields, which may be good candidates for masking. In the Dynamic Data Masking blade in the portal, you will see the recommended columns for your database. All you need to do is click **Add Mask** for one or more columns and then **Save** to apply a mask for these fields.
 
 ## Set up dynamic data masking for your database using Powershell cmdlets
-See [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx).
+See [Azure SQL Database Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.sql).
 
 ## Set up dynamic data masking for your database using REST API
-See [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/dn505719.aspx).
+See [Operations for Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx).
 

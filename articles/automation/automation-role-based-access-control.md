@@ -72,12 +72,21 @@ An Automation Operator is able to create and manage jobs, and read runbook names
 |**Actions**  |**Description**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|Read authorization.|
+|Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Read Hybrid Runbook Worker Resources.|
 |Microsoft.Automation/automationAccounts/jobs/read|List jobs of the runbook.|
 |Microsoft.Automation/automationAccounts/jobs/resume/action|Resume a job that is paused.|
 |Microsoft.Automation/automationAccounts/jobs/stop/action|Cancel a job in progress.|
 |Microsoft.Automation/automationAccounts/jobs/streams/read|Read the Job Streams and Output.|
+|Microsoft.Automation/automationAccounts/jobs/output/read|Get the Output of a job.|
 |Microsoft.Automation/automationAccounts/jobs/suspend/action|Pause a job in progress.|
 |Microsoft.Automation/automationAccounts/jobs/write|Create jobs.|
+|Microsoft.Automation/automationAccounts/jobSchedules/read|Get an Azure Automation job schedule.|
+|Microsoft.Automation/automationAccounts/jobSchedules/write|Create an Azure Automation job schedule.|
+|Microsoft.Automation/automationAccounts/linkedWorkspace/read|Get the workspace linked to the automation account.|
+|Microsoft.Automation/automationAccounts/read|Get an Azure Automation account.|
+|Microsoft.Automation/automationAccounts/runbooks/read|Get an Azure Automation runbook.|
+|Microsoft.Automation/automationAccounts/schedules/read|Get an Azure Automation schedule asset.|
+|Microsoft.Automation/automationAccounts/schedules/write|Create or update an Azure Automation schedule asset.|
 |Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments.         |
 |Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
@@ -259,12 +268,13 @@ The following section shows you how to configure RBAC on your Automation Account
 
 1. Log in to the [Azure portal](https://portal.azure.com/) and open your Automation account from the Automation Accounts page.
 2. Click on the **Access control (IAM)** control at the top left corner. This opens the **Access control (IAM)** page where you can add new users, groups, and applications to manage your Automation account and view existing roles that can be configured for the Automation account.
+3. Click the **Role assignments** tab.
 
    ![Access button](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### Add a new user and assign a role
 
-1. From the **Access control (IAM)** page, click **+ Add** to open the **Add permissions** page where you can add a user, group, or application, and assign a role to them.
+1. From the **Access control (IAM)** page, click **+ Add role assignment** to open the **Add role assignment** page where you can add a user, group, or application, and assign a role to them.
 
 2. Select a role from the list of available roles. You can choose any of the available built-in roles that an Automation account supports or any custom role you may have defined.
 

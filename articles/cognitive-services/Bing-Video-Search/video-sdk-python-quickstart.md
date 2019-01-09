@@ -1,17 +1,18 @@
 ---
-title: Video Search SDK Python quickstart | Microsoft Docs
+title: "Quickstart: Video Search SDK, Python"
+titleSuffix: Azure Cognitive Services
 description: Setup for Video Search SDK console application.
-titleSuffix: Azure Video Search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
-ms.author: v-gedod
+ms.author: rosh
 ---
-# Video Search SDK Python quickstart
+# Quickstart: Bing Video Search SDK with Python
 
 The Bing Image Search SDK contains the functionality of the REST API for web queries and parsing results.
 
@@ -19,6 +20,8 @@ The [source code for Python Bing Video Search SDK samples](https://github.com/Az
 
 
 ## Application dependencies
+Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
 If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.
 
 The general recommendation for Python development is to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html). 

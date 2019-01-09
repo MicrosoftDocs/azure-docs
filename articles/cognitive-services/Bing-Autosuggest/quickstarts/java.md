@@ -1,23 +1,24 @@
 ---
-title: Quickstart for Bing Autosuggest API with Java | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Autosuggest API in Azure Cognitive Services.
+title: "Quickstart: Bing Autosuggest API, Java"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Bing Autosuggest API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
 ---
 # Quickstart for Bing Autosuggest API with Java
-<a name="HOLTop"></a>
 
 This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with Java. The Bing Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
 
 ## Prerequisites
 
-You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
+You will need [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Autosuggest API v7**. The [free trial](https://azure.microsoft.com/try/cognitive-services/#search) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 

@@ -206,16 +206,16 @@ To stop the emulators, execute this command:
 
 ## Publish your application
 
-To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/servicemanagement/azure/import-azurepublishsettingsfile) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](https://docs.microsoft.com/powershell/module/servicemanagement/azure/publish-azureserviceproject) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## Next steps
 
 For more information, see the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
-[install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[service definition (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
-[service configuration (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
-[iis.net]: http://www.iis.net/
-[sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
-[sqlsrv drivers]: http://php.net/sqlsrv
-[sqlncli.msi x64 installer]: http://go.microsoft.com/fwlink/?LinkID=239648
+[install ps and emulators]: https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
+[service definition (.csdef)]: https://msdn.microsoft.com/library/windowsazure/ee758711.aspx
+[service configuration (.cscfg)]: https://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[iis.net]: https://www.iis.net/
+[sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
+[sqlsrv drivers]: https://php.net/sqlsrv
+[sqlncli.msi x64 installer]: https://go.microsoft.com/fwlink/?LinkID=239648

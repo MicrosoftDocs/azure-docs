@@ -1,20 +1,20 @@
 ---
-title: Add pattern templates in LUIS apps | Microsoft Docs
-titleSuffix: Azure
+title: Patterns add accuracy
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Learn how to add pattern templates in Language Understanding (LUIS) applications to improve prediction accuracy.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
-
+author: diberry
+manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.technology: luis
-ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-geberr;
+ms.component: language-understanding
+ms.topic: conceptual
+ms.date: 09/06/2018
+ms.author: diberry
 ---
 
 # How to add Patterns to improve prediction accuracy
-After a LUIS app receives endpoint utterances, use Patterns to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use [entities](luis-concept-entity-types.md) and their roles to extract data using specific pattern syntax. 
+After a LUIS app receives endpoint utterances, use the [concept](luis-concept-patterns.md) of Patterns to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use [entities](luis-concept-entity-types.md) and their roles to extract data using specific pattern syntax. 
 
 ## Add template utterance to create pattern
 1. Open your app by selecting its name on **My Apps** page, and then select **Patterns** in the left panel, under **Improve app performance**.
@@ -53,7 +53,7 @@ Searching allows you to find patterns that contain some given text.
 <!-- TBD: should I be able to click on the magnifying glass again to close the search box? It doesn't reset the list. -->
 
 ## Edit a pattern
-1. To edit a pattern, select the three dots (...) icon at the right end of the line for that pattern, then select **Edit**. 
+1. To edit a pattern, select the ellipsis (***...***) button at the right end of the line for that pattern, then select **Edit**. 
 
     ![Screenshot of Edit menu item in pattern row](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
 
@@ -75,7 +75,7 @@ To reassign several patterns to a different intent, select the checkbox to the l
 
 ## Delete a single pattern
 
-1. To delete a pattern, select the three dots (...) icon at the right end of the line for that pattern, then select **Delete**. 
+1. To delete a pattern, select the ellipsis (***...***) button at the right end of the line for that pattern, then select **Delete**. 
 
     ![Screenshot of Delete utterance](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
 
@@ -91,7 +91,7 @@ To reassign several patterns to a different intent, select the checkbox to the l
 
 2. The **Delete patterns** confirmation dialog appears. Select **Ok** to finish the deletion.
 
-    ![Screenshot of deleting several patterns](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
+    ![Screenshot of deleting several patterns confirmation box](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
 
 ## Filter pattern list by entity
 
@@ -112,25 +112,25 @@ After the filter is applied, the intent name appears below the tool bar.
 ## Remove entity or intent filter
 When the pattern list is filtered, the entity or intent name appears below the toolbar. To remove the filter, select the name.
 
-![Screenshot of filtered patterns by entity](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
+![Screenshot of removing entity from filter](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
 
 The filter is removed and all patterns display. 
 
 ## Add pattern from existing utterance on intent or entity page
 You can create a pattern from an existing utterance on either the **Intent** or **Entity** page. All utterances on any intent or entity page are displayed in a list with the right column providing access to utterance-level options such as **Edit**, **Delete**, and **Add as pattern**.
 
-1. On the selected row of the utterance, select the three dots (...) to the right of the utterance, and select **Add as pattern**.
+1. On the selected row of the utterance, select the ellipsis (***...***) button to the right of the utterance, and select **Add as pattern**.
 
-    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Screenshot of utterances table with Add pattern highlighted in options menu")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
+    [![Screenshot of utterances table with Add pattern highlighted in options menu](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Screenshot of utterances table with Add pattern highlighted in options menu")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
 2. Modify the pattern according to the [syntax rules](luis-concept-patterns.md#pattern-syntax). If the utterance you selected is labeled with entities, those entities are already in the pattern with the correct syntax.
 
     ![Screenshot of filtered patterns by entity](./media/luis-how-to-model-intent-pattern/confirm-patterns-modal.png)
 
 ## Train your app after changing model with patterns
-After you add, edit, remove, or reassign a pattern, [train](luis-how-to-train.md) and [publish](PublishApp.md) your app for your changes to affect endpoint queries. 
+After you add, edit, remove, or reassign a pattern, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries. 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn how to train your app](luis-how-to-train.md)
+* Learn how to [build a pattern](luis-tutorial-pattern.md) with a pattern.any and roles.
+* Learn how to [train](luis-how-to-train.md) your app.

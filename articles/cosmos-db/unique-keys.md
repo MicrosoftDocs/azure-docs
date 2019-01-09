@@ -1,148 +1,49 @@
 ---
-title: Unique keys in Azure Cosmos DB | Microsoft Docs
-description: Learn how to use unique keys in your Azure Cosmos DB database.
-services: cosmos-db
-keywords: unique key constraint, violation of unique key constraint
-author: rafats
-manager: kfile
-editor: monicar
-
+title: Use unique keys in Azure Cosmos DB
+description: Learn how to use unique keys in your Azure Cosmos DB database
+author: aliuy
+ms.author: andrl
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/21/2018
-ms.author: rafats
-
+ms.date: 10/30/2018
+ms.reviewer: sngun
 ---
 
 # Unique keys in Azure Cosmos DB
 
-Unique keys provide developers with the ability to add a layer of data integrity to their database. By creating a unique key policy when a container is created, you ensure the uniqueness of one or more values per [partition key](partition-data.md). Once a container has been created with a unique key policy, it prevents the creation of any new or updated items with values that duplicate values specified by the unique key constraint.   
+Unique keys provide you with the ability to add a layer of data integrity to a Cosmos container. You create a unique key policy when creating a Cosmos container. With unique keys, you ensure the uniqueness of one or more values within a logical partition (you can guarantee uniqueness per [partition key](partition-data.md)). Once you create a container with a unique key policy, it prevents creating any new (or updated) duplicate items within a logical partition, as specified by the unique key constraint. The partition key combined with the unique key guarantees uniqueness of an item within the scope of the container.
 
-> [!NOTE]
-> Unique keys are supported by the latest versions of the [.NET](sql-api-sdk-dotnet.md) and [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDKs, and the [MongoDB API](mongodb-feature-support.md#unique-indexes). The Table API and Graph API do not support unique keys at this time. 
-> 
->
+For example, consider a Cosmos container with email address as unique key constraint and `CompanyID` as the partition key. By configuring the user's email address a unique key, you ensure each item has a unique email address within a given `CompanyID`. Two items can't be created with duplicate email addresses and with the same partition key value.  
 
-## Use case
+If you want to provide users the ability to create multiple items with the same email address, but not the same first name, last name and email address, you could add additional paths to the unique key policy. Instead of creating a unique key based on the email address, you can also create a unique key with a combination of the first name, last name, and email address (a composite unique key). In this case, each unique combination of the three values within a given `CompanyID` is allowed. For example, the container can contain items with the following values where each item is honoring the unique key constraint.
 
-As an example, let's look at how a user database associated with a [social application](use-cases.md#web-and-mobile-applications) could benefit from having a unique key policy on email addresses. By making the user's email address a unique key, you ensure each record has a unique email address, and no new records can be created with duplicate email addresses. 
+|CompanyID|First name|Last name|Email address|
+|---|---|---|---|
+|Contoso|Gaby|Duperre|gaby@contoso.com |
+|Contoso|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Ivan|Duperre|gaby@fabrikam.com|
+|Fabrkam|   |Duperre|gaby@fabraikam.com|
+|Fabrkam|   |   |gaby@fabraikam.com|
 
-If you did want users to be able to create multiple records with the same email address, but not the same first name, last name, and email address, you could add other paths to the unique key policy. So instead of creating a unique key simply based on an email address, you can create a unique key that's a combination of the first name, last name, and email. In this case, each unique combination of the three paths is allowed, so the database could contain items that have the following path values. Each of these records would pass the unique key policy.  
+If you attempt to insert another item with the combinations listed in the above table, you will receive an error indicating that the unique key constraint was not met. You will receive either "Resource with specified ID or name already exists" or "Resource with specified ID, name, or unique index already exists" as a return message.  
 
-**Allowed values for unique key of firstName, lastName, and email**
+## Defining a unique key
 
-|First name|Last name|Email address|
-|---|---|---|
-|Gaby|Duperre|gaby@contoso.com |
-|Gaby|Duperre|gaby@fabrikam.com|
-|Ivan|Duperre|gaby@fabrikam.com|
-|    |Duperre|gaby@fabrikam.com|
-|    |       |gaby@fabraikam.com|
+You can define unique keys only when creating a Cosmos container. A unique key is scoped to a logical partition. In the previous example, if you partition the container based on the zipcode, you will end up having duplicated items in each logical partition. Consider the following properties when creating unique keys:
 
-If you attempted to insert another record with any of the combinations listed in the table above, you would receive an error indicating that the unique key constraint was not met. The error Azure Cosmos DB returns is "Resource with specified id or name already exists." or "Resource with specified id, name, or unique index already exists." 
+* You cannot update an existing container to use a different unique key. In other words, once a container is created with a unique key policy, the policy cannot be changed.
 
-## Using unique keys
+* If you want to set unique key for an existing container, you have to create a new container with the unique key constraint and use the appropriate data migration tool to move the data from existing container to the new container. For SQL containers, use the [Data Migration Tool](import-data.md) to move data. For MongoDB containers, use [mongoimport.exe or mongorestore.exe](mongodb-migrate.md) to move data.
 
-Unique keys must be defined when the container is created, and the unique key is scoped to the partition key. To build on the earlier example, if you partition based on zip code, you could have the records from the table duplicated in each partition.
+* A unique key policy can have a maximum of 16 path values (for example: /firstName, /lastName, /address/zipCode). Each unique key policy can have a maximum of 10 unique key constraints or combinations and the combined paths for each unique index constraint should not exceed 60 bytes. In the previous example, first name, last name, and email address together are just one constraint, and it uses three out of the 16 possible paths.
 
-Existing containers cannot be updated to use unique keys.
+* When a container has a unique key policy, request unit (RU) charges to create, update, and delete an item are slightly higher.
 
-Once a container is created with a unique key policy, the policy cannot be changed unless you recreate the container. If you have existing data that you'd like to implement unique keys on, create the new container, and then use the appropriate data migration tool to move the data to the new container. For SQL containers, use the [Data Migration Tool](import-data.md). For MongoDB containers, use [mongoimport.exe or mongorestore.exe](mongodb-migrate.md).
+* Sparse unique keys are not supported. If some unique path values are missing, they are treated as null values, which take part in the uniqueness constraint. Hence, there can only be a single item with null value to satisfy this constraint.
 
-A maximum of 16 path values (for example /firstName, /lastName, /address/zipCode, etc.) can be included in each unique key. 
-
-Each unique key policy can have a maximum of 10 unique key constraints or combinations and the combined paths for all unique index properties should not exceed 60 characters. So the earlier example that uses first name, last name, and email address is just one constraint, and it uses three of the 16 possible paths available. 
-
-Request unit charges for creating, updating, and deleting an item are slightly higher when there is a unique key policy on the container. 
-
-Sparse unique keys are not supported. If values for some unique paths are missing, they are treated as a special null value, which takes part in the uniqueness constraint.
-
-## SQL API sample
-
-The following code sample shows how to create a new SQL container with two unique key constraints. The first constraint is the firstName, lastName, email constraint described in the earlier example. The second constraint is the users address/zipCode. A sample JSON file that uses the paths in this unique key policy follows the code example. 
-
-```csharp
-// Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,
-// and /email, and another for /address/zipCode.
-private static async Task CreateCollectionIfNotExistsAsync(string dataBase, string collection)
-{
-    try
-    {
-        await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(dataBase, collection));
-    }
-    catch (DocumentClientException e)
-    {
-        if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-        {
-            DocumentCollection myCollection = new DocumentCollection();
-            myCollection.Id = collection;
-            myCollection.PartitionKey.Paths.Add("/pk");
-            myCollection.UniqueKeyPolicy = new UniqueKeyPolicy
-            {
-                UniqueKeys =
-                new Collection<UniqueKey>
-                {
-                    new UniqueKey { Paths = new Collection<string> { "/firstName" , "/lastName" , "/email" } },
-                    new UniqueKey { Paths = new Collection<string> { "/address/zipCode" } }
-                }
-            };
-            await client.CreateDocumentCollectionAsync(
-                UriFactory.CreateDatabaseUri(dataBase),
-                myCollection,
-                new RequestOptions { OfferThroughput = 2500 });
-        }
-        else
-        {
-            throw;
-        }
-    }
-```
-
-Sample JSON document.
-
-```json
-{
-    "id": "1",
-    "pk": "1234",
-    "firstName": "Gaby",
-    "lastName": "Duperre",
-    "email": "gaby@contoso.com",
-    "address": [
-        {            
-            "line1": "100 Some Street",
-            "line2": "Unit 1",
-            "city": "Seattle",
-            "state": "WA",
-            "zipCode": 98012
-        }
-    ],
-}
-```
-## MongoDB API sample
-
-The following command sample shows how to create a unique index on the firstName, lastName, and email fields of the users collection for the MongoDB API. This ensures the uniqueness for a combination of all three fields across all documents in the collection. For MongoDB API collections, the unique index is created after the collection is created, but before populating the collection.
-
-```
-db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
-```
-## Configure unique keys by using Azure portal
-
-In the sections above you'll find code samples that will show how you can define unique key constraints when a collection is created using the SQL API or MongoDB API. But it's also possible to define unique keys when you create a collection via the web UI in the Azure Portal. 
-
-- Navigate to the **Data Explorer** in your Cosmos DB account
-- Click **New Collection**
-- In the section **Unique keys** you can add the desired unique key constraints by clicking **Add unique key**
-
-![Define Unique Keys in the Data Explorer](./media/unique-keys/unique-keys-azure-portal.png)
-
-- If you'd like to create a unique key constraint on the lastName path, you add `/lastName`.
-- If you'd like to create a unique key constraint for the lastName firstName combination, you add `/lastName,/firstName`
-
-When done click **OK** to create the collection.
+* Unique key names are case-sensitive. For example, consider a container with the unique key constraint set to /address/zipcode. If your data has a field named ZipCode, Cosmos DB inserts "null" as the unique key because "zipcode" is not same as "ZipCode". Due to this case sensitivity, all other records with ZipCode can't be inserted because the duplicate "null" will violate the unique key constraint.
 
 ## Next steps
 
-In this article, you learned how to create unique keys for items in a database. If you are creating a container for the first time, review [Partitioning data in Azure Cosmos DB](partition-data.md) as unique keys and partition keys rely on each other. 
-
-
+* Learn more about [logical partitions](partition-data.md)

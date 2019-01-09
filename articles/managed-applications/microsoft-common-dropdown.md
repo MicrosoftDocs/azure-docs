@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
 
 ---
@@ -28,8 +28,8 @@ A selection control with a dropdown list.
 {
   "name": "element1",
   "type": "Microsoft.Common.DropDown",
-  "label": "Some drop down",
-  "defaultValue": "my value",
+  "label": "Example drop down",
+  "defaultValue": "Value two",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
@@ -41,21 +41,23 @@ A selection control with a dropdown list.
         "label": "Value two",
         "value": "two"
       }
-    ]
+    ],
+    "required": true
   },
   "visible": true
 }
 ```
 
 ## Remarks
+
 - The label for `constraints.allowedValues` is the display text for an item, and its value is the output value of the element when selected.
 - If specified, the default value must be a label present in `constraints.allowedValues`. If not specified, the first item in `constraints.allowedValues` is selected. The default value is **null**.
-- `constraints.allowedValues` must contain at least one item.
-- This element doesn't support the `constraints.required` property. To emulate this behavior, add an item with a label and value of `""` (empty string) to `constraints.allowedValues`.
+- `constraints.allowedValues` must have at least one item.
+- To emulate a value not being required, add an item with a label and value of `""` (empty string) to `constraints.allowedValues`.
 
 ## Sample output
 ```json
-"Bar"
+"two"
 ```
 
 ## Next steps

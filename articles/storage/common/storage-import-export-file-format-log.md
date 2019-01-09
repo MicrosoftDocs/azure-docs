@@ -1,22 +1,13 @@
 ---
-
 title: Azure Import/Export log file format | Microsoft Docs
 description: Learn about the format of the log files created when steps are executed for an Import/Export service job.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-
-ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
-ms.workload: storage 
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-
+ms.component: common
 ---
 # Azure Import/Export service log file format
 When the Microsoft Azure Import/Export service performs an action on a drive as part of an import job or an export job, logs are written to block blobs in the storage account associated with that job.  
@@ -145,7 +136,7 @@ The following table describes the elements of the log file.
 |`Properties/Path/@Hash`|Attribute, String|Base16-encoded MD5 hash of the properties file.|  
 |`Blob/Status`|String|Status of processing the blob.|  
   
-# Drive status codes  
+## Drive status codes  
 The following table lists the status codes for processing a drive.  
   
 |Status code|Description|  

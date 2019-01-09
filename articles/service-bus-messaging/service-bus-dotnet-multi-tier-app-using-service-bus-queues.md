@@ -3,14 +3,14 @@ title: .NET multi-tier application using Azure Service Bus | Microsoft Docs
 description: A .NET tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/05/2018
-ms.author: sethm
+ms.date: 09/05/2018
+ms.author: spelluru
 
 ---
 
@@ -433,7 +433,6 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 ## Next steps
 To learn more about Service Bus, see the following resources:  
 
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * [Get started using Service Bus queues][sbacomqhowto]
 * [Service Bus service page][sbacom]  
 

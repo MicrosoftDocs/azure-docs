@@ -1,1 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 64 64" width="100%" height="100%"  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:drawsvg="http://www.drawsvg.org" preserveAspectRatio="xMidYMid meet" ><rect id="svgEditorBackground" x="0" y="0" width="64" height="64" style="fill: none; stroke: none;"/><defs><style>.cls-1{fill:#05930c;}.cls-2,.cls-3{fill:#fff;}.cls-2{opacity:0.1;}</style></defs><title>logo_Csharp</title><circle class="cls-1" cx="32.000002382587454" cy="32.00000289618636" r="32" style="fill:blue;"/><path class="cls-2" d="M9.82,9A32,32,0,1,0,55,54.18Z"/><path class="cls-3" d="M30.43,43.55a14.78,14.78,0,0,1-7,1.48,11.23,11.23,0,0,1-8.61-3.46,12.78,12.78,0,0,1-3.23-9.09,13.39,13.39,0,0,1,3.64-9.77A12.35,12.35,0,0,1,24.49,19a14.8,14.8,0,0,1,5.94,1v3.15a12,12,0,0,0-6-1.51,9.17,9.17,0,0,0-7,2.9,10.93,10.93,0,0,0-2.7,7.75,10.4,10.4,0,0,0,2.52,7.34,8.58,8.58,0,0,0,6.62,2.73,12.42,12.42,0,0,0,6.57-1.69Z"/><switch xmlns:drawsvg="http://www.drawsvg.org" drawsvg:ctype="text-multi-lang" style="fill:black;font-family:Arial;font-size:20px;" allowReorder="yes" id="e5_switch" transform="matrix(1 0 0 1 29.676 39.4011)"><text systemLanguage="en" drawsvg:ctype="text-multi-lang" xml:lang="en" x="0" y="0" id="e4_texte" style="fill:white;">++</text></switch></svg>
+<svg id="Logos" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #00599c;
+      }
+
+      .cls-2 {
+        fill: #004482;
+      }
+
+      .cls-3 {
+        fill: #659ad2;
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>logo_Cplusplus</title>
+  <path class="cls-1" d="M59.29,47.75A5,5,0,0,0,60,45.37V18.63a5,5,0,0,0-.71-2.39L56,16,31,30l-2,7L56.2,49.92Z"/>
+  <path class="cls-2" d="M34.42,62.93,57.58,49.57a5,5,0,0,0,1.71-1.81L32,32,4.71,47.75a5,5,0,0,0,1.71,1.81L29.58,62.93A5.38,5.38,0,0,0,34.42,62.93Z"/>
+  <path class="cls-3" d="M59.29,16.25a5,5,0,0,0-1.71-1.81L34.42,1.07a5.38,5.38,0,0,0-4.85,0L6.42,14.43A5.38,5.38,0,0,0,4,18.63V45.37a5,5,0,0,0,.71,2.39L32,32Z"/>
+  <path class="cls-4" d="M32,50.67a18.67,18.67,0,1,1,16.17-28l-8.08,4.67a9.33,9.33,0,1,0,0,9.33l8.08,4.67A18.73,18.73,0,0,1,32,50.67Z"/>
+  <polygon class="cls-4" points="50.5 30.93 48 30.93 48 28.43 46 28.43 46 30.93 43.5 30.93 43.5 32.93 46 32.93 46 35.43 48 35.43 48 32.93 50.5 32.93 50.5 30.93"/>
+  <polygon class="cls-4" points="58.5 30.93 56 30.93 56 28.43 54 28.43 54 30.93 51.5 30.93 51.5 32.93 54 32.93 54 35.43 56 35.43 56 32.93 58.5 32.93 58.5 30.93"/>
+</svg>

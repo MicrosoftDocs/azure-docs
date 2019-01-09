@@ -298,8 +298,7 @@ Add resource STONITH. Create the file and add the text as following.
 # vi crm-sbd.txt
 # enter the following to crm-sbd.txt
 primitive stonith-sbd stonith:external/sbd \
-params pcmk_delay_max="15" \
-op monitor interval="15" timeout="15"
+params pcmk_delay_max="15"
 ```
 Add the configuration to the cluster.
 ```
@@ -542,6 +541,6 @@ After the preceding fix, node2 should get added to the cluster
 You can find more information on SUSE HA setup in the following articles: 
 
 - [SAP HANA SR Performance Optimized Scenario](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )
-- [Storage-based fencing](https://www.suse.com/documentation/sle-ha-2/book_sleha/data/sec_ha_storage_protect_fencing.html)
+- [Storage-based fencing](https://www.suse.com/documentation/sle_ha/book_sleha/data/sec_ha_storage_protect_fencing.html)
 - [Blog - Using Pacemaker Cluster for SAP HANA- Part 1](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/)
 - [Blog - Using Pacemaker Cluster for SAP HANA- Part 2](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/)

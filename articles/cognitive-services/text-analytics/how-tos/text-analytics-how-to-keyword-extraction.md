@@ -6,18 +6,21 @@ author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 3/07/2018
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
 ---
 
-# How to extract key phrases in Text Analytics
+# Example: How to extract key phrases in Text Analytics
 
 The [Key Phrase Extraction API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) evaluates unstructured text, and for each JSON document, returns a list of key phrases. 
 
 This capability is useful if you need to quickly identify the main points in a collection of documents. For example, given input text "The food was delicious and there were wonderful staff", the service returns the main talking points: "food" and "wonderful staff".
 
 Currently, Key Phrase Extraction supports English, German, Spanish, and Japanese. Other languages are in preview. For more information, see [Supported languages](../text-analytics-supported-languages.md).
+
+> [!TIP]
+> Text Analytics also provides a Linux-based Docker container image for key phrase extraction, so you can [install and run the Text Analytics container](text-analytics-how-to-install-containers.md) close to your data.
 
 ## Preparation
 
@@ -65,7 +68,7 @@ Details on request definition can be found in [How to call the Text Analytics AP
 
 + Create a **POST** request. Review the API documentation for this request: [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
-+ Set the HTTP endpoint for key phrase extraction. It must include the `/keyphrases` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
++ Set the HTTP endpoint for key phrase extraction, using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). It must include the `/keyPhrases` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 
 + Set a request header to include the access key for Text Analytics operations. For more information, see [How to find endpoints and access keys](text-analytics-how-to-access-key.md).
 

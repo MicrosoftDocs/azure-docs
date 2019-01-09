@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2017
-ms.author: sethm
+ms.date: 09/21/2018
+ms.author: spelluru
 
 ---
 
@@ -63,5 +63,4 @@ To learn more about Service Bus authentication, see the following topics:
 
 * [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md)
 * [Service Bus authentication with Shared Access Signatures](service-bus-sas.md)
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 

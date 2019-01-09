@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 10/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 
@@ -23,15 +23,15 @@ ms.reviewer: thoroet
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-You can use the Azure Stack Application Programming Interface (API) to automate operations such as syndicating marketplace items.
+You can use the Application Programming Interface (API) to automate operations such as adding a VM to your Azure Stack cloud.
 
-The API requires your client to authenticate against the Microsoft Azure login endpoint. The endpoint returns a token to use in the header of every request sent to the Azure Stack API. Microsoft Azure uses Oauth 2.0.
+The API requires your client to authenticate to the Microsoft Azure sign-in endpoint. The endpoint returns a token to use in the header of every request sent to the Azure Stack API. Microsoft Azure uses Oauth 2.0.
 
 This article provides examples that use the **cURL** utility to create Azure Stack requests. The application, cURL, is a command-line tool with a library for transferring data. These examples walk through the process of retrieving a token to access the Azure Stack API. Most programming languages provide Oauth 2.0 libraries, which have robust token management and handle tasks such refreshing the token.
 
 Review the entire process of using the Azure Stack REST API with a generic REST client, such as **cURL**, to help you understand the underlying requests, and shows what you can expect to receive in a response payload.
 
-This article doesn't explore all the options available for retrieving tokens such as interactive login or creating dedicated App IDs. To get information about these topics, see [Azure REST API Reference](https://docs.microsoft.com/rest/api/).
+This article doesn't explore all the options available for retrieving tokens such as interactive sign-in or creating dedicated App IDs. To get information about these topics, see [Azure REST API Reference](https://docs.microsoft.com/rest/api/).
 
 ## Get a token from Azure
 

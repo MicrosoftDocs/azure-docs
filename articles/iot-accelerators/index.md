@@ -1,104 +1,149 @@
 ---
-title: Azure IoT solution accelerators Documentation - Tutorials, API Reference | Microsoft Docs
-description: Documentation for Azure IoT solution accelerators includes Getting started guides, How-to articles, Tutorials, and API Reference.
-author: dominicbetts
-manager: timlt
-ms.service: iot-accelerators
+title: Azure IoT Solution Accelerators Documentation | Microsoft Docs
+description: Learn how to use the IoT solution accelerators. These articles show you how to use the solution accelerators to kick-start your implementation of common IoT scenarios such as remote monitoring, industrial IoT, predictive maintenance, and device simulation.
 services: iot-accelerators
+author: dominicbetts
+manager: philmea
+layout: LandingPage
+ms.assetid:	
+ms.service: iot-accelerators
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: landing-page
-ms.date: 11/27/2017
+ms.date: 12/17/2018
 ms.author: dobett
 ---
-
 # IoT solution accelerators documentation
 
-Get started quickly with the IoT solution accelerators to build your IoT solutions. Add new devices—and connect existing ones—using device SDKs for multiple platforms, including Linux, Windows, and real-time operating systems. Easily scale from just a few sensors to millions of simultaneously connected devices and rely on the global availability of Azure&mdash;no matter how large or small your project.
+Learn how to use the IoT solution accelerators. These articles show you how to use the solution accelerators to kick-start your implementation of common IoT scenarios such as remote monitoring, industrial IoT, predictive maintenance, and device simulation.
 
-<h2>Explore</h2>
-<ul class="panelContent cardsW">
+<ul class="panelContent cardsK">
     <li>
+        <a href="/azure/iot-accelerators/about-iot-accelerators">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/accelerators.svg" alt="" />
+                        </div>
+                    </div>
                     <div class="cardText">
-                        <p>Learn about the solution accelerators, key scenarios, and how to get started</p>
-                        <ul>
-                            <li><a href="/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators">Solution accelerators overview</a></li>
-                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy">Deploy a solution accelerator</a></li>
-                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-explore">Out of the box solution capabilities</a></li>
-                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">Monitoring capabilities</a></li>
-                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">Rules management capabilities</a></li>
-                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage">Device management capabilities</a></li>
-                        </ul>
+                        <h3>Learn about the Azure IoT solution accelerators</h3>
                     </div>
                 </div>
             </div>
         </div>
+        </a>
     </li>
-</ul> 
-
----
-
-<h2>Connect</h2>
-<ul class="panelContent cardsW">
     <li>
+        <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-sample-walkthrough">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/remotemonitoring.jpg" alt="" />
+                        </div>
+                    </div>
                     <div class="cardText">
-                        <p>Learn how to connect your devices to a solution accelerator</p>
-                        <ul>
-                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-schema">Device model overview</a></li>
-                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-behavior">Customize your simulated devices</a></li>
-                            <li><a href="/azure/iot-accelerators/iot-accelerators-connecting-devices-node">Connect physical devices</a></li>
-                        </ul>
+                        <h3>Remote Monitoring solution accelerator overview</h3>
                     </div>
                 </div>
             </div>
         </div>
+        </a>
     </li>
-</ul>
-
----
-
-<h2>Customize</h2>
-<ul class="panelContent cardsW">
     <li>
+        <a href="/azure/iot-accelerators/iot-accelerators-connected-factory-features">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/connectedfactory.jpg" alt="" />
+                        </div>
+                    </div>
                     <div class="cardText">
-                        <p>Learn how to customise a solution accelerator</p>
-                        <ul>
-                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local">Run a solution locally</a></li>
-                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-customize#presentation-and-visualization">Customize the UX</a></li>
-                        </ul>
+                        <h3>Connected Factory solution accelerator overview</h3>
                     </div>
                 </div>
             </div>
         </div>
+        </a>
     </li>
-</ul> 
-
----
-
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
     <li>
+        <a href="/azure/iot-accelerators/iot-accelerators-device-simulation-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/devicesimulation.png" alt="" />
+                        </div>
+                    </div>
                     <div class="cardText">
-                        <h3>Resources</h3>
-                        <p><a href="/azure/iot-accelerators/iot-security-architecture">Security architecture</a></p>
-                        <p><a href="/azure/iot-accelerators/iot-security-best-practices">Security best practices</a></p>
-                        <p><a href="/azure/iot-accelerators/iot-accelerators-security-deployment">Secure your IoT deployment</a></p>
-                        <p><a href="/azure/iot-accelerators/securing-iot-ground-up">Security from the ground up</a></p>
-                   </div>
+                        <h3>Device Simulation solution accelerator overview</h3>
+                    </div>
                 </div>
             </div>
         </div>
+        </a>
     </li>
-</ul>
+    <li>
+        <a href="/azure/iot-accelerators/iot-accelerators-predictive-walkthrough">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/predictivemaintenance.jpg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Predictive Maintenance solution accelerator overview</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/iot-accelerators/iot-accelerators-architecture-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/referencearchitecture.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure IoT reference architecture introduction</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li></ul>
 
+---
 
+<h2>5-Minute Quickstarts</h2>
+
+<h3>Get started with the IoT solution accelerators:</h3>
+
+* [Try a cloud-based remote monitoring solution](quickstart-remote-monitoring-deploy.md)
+* [Try a cloud-based connected factory solution](quickstart-connected-factory-deploy.md)
+* [Try a cloud-based device simulation solution](quickstart-device-simulation-deploy.md)
+* [Try a cloud-based predictive maintenance solution](quickstart-predictive-maintenance-deploy.md)
+
+<h2>Step-by-Step Tutorials</h2>
+
+<h3>Learn about the IoT solution accelerators and the key scenarios they implements:</h3>
+
+1. [Monitor your IoT devices](iot-accelerators-remote-monitoring-monitor.md)
+1. [Detect issues with devices connected to your monitoring solution](iot-accelerators-remote-monitoring-automate.md)
+1. [Configure and manage devices connected to your monitoring solution](iot-accelerators-remote-monitoring-manage.md)
+1. [Conduct a root cause analysis on an alert](iot-accelerators-remote-monitoring-root-cause-analysis.md)
+1. [Use alerts and fix device issues](iot-accelerators-remote-monitoring-maintain.md)

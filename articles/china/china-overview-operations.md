@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 07/31/2018
 ms.author: v-wimarc
 
 ---
@@ -31,12 +31,12 @@ Compared with other foreign public cloud service providers in China, Azure provi
 [21Vianet Group, Inc.](http://www.ch.21vianet.com/) is a leading Chinese carrier-neutral Internet datacenter services provider and one of the largest providers in China. They provide hosting and related services, managed network services, and cloud computing infrastructure services, and can help improve the reliability, security, and speed of Internet connections through its infrastructure.
 
 ## Operations
-According to the China [Telecommunication Regulation](http://www.miit.gov.cn/n11293472/n11293877/n11301753/n11496139/11537485.html), providers of cloud services—infrastructure as a service (IaaS) and platform as a service (PaaS)—must have value-added telecom permits. Only locally registered companies with less than 50 percent foreign investment qualify for these permits. To comply with this regulation, the Azure service in China is operated by 21Vianet, based on the technologies licensed from Microsoft.  
+According to the China [Telecommunication Regulation](http://www.miit.gov.cn/n1146295/n1146557/n1146619/c4860613/content.html), providers of cloud services—infrastructure as a service (IaaS) and platform as a service (PaaS)—must have value-added telecom permits. Only locally registered companies with less than 50 percent foreign investment qualify for these permits. To comply with this regulation, the Azure service in China is operated by 21Vianet, based on the technologies licensed from Microsoft.  
 
 Microsoft Azure operated by 21Vianet (Azure China 21Vianet) is a physically separated instance of cloud services located in mainland China, independently operated and transacted by Shanghai Blue Cloud Technology Co., Ltd. ("21Vianet"), a wholly owned subsidiary of Beijing 21Vianet Broadband Data Center Co., Ltd. The services are based on the same Azure, Office 365, and Power BI technologies that make up the Microsoft global cloud service with comparable service levels. Agreements and contracts, where applicable, are signed between customers and 21Vianet, given that 21Vianet is the official legal entity for Microsoft Azure.
 
 ## Service availability
-Azure services in China are a standalone instance, separate from global Azure, in accordance with government regulations. As a result, the [service availability](/azure/china/china-get-started-service-availability) differs from global Azure, but not the quality of available services. See the most current list of [available services](https://www.azure.cn/home/features/what-is-azure/) (in Chinese).
+Azure services in China are a standalone instance, separate from global Azure, in accordance with government regulations. As a result, the [service availability](https://www.azure.cn/home/features/products-by-region) differs from global Azure, but not the quality of available services. See the most current list of [available services](https://www.azure.cn/home/features/what-is-azure/) (in Chinese).
 
 As new Azure services become available in China, they may be launched first as Public Preview, then as General Availability (GA).
 
@@ -45,7 +45,7 @@ A service is typically introduced in public preview for one to six months, witho
 Occasionally, services are made available in private preview and limited availability, but this is rare.
 
 **Learn more:**
-- [Azure service availability in China](/azure/china/china-get-started-service-availability)
+- [Azure service availability in China](https://www.azure.cn/home/features/products-by-region)
 - [All available Azure services](https://www.azure.cn/home/features/what-is-azure/) (in Chinese)
 
 ## Service levels
@@ -67,6 +67,6 @@ Unlike global Azure, which has multiple purchasing channels, in China, there are
 Both plans must be paid up front before using the service. For planning purposes, we recommended estimating the required costs. For more information, see the [service price list](https://www.azure.cn/pricing/overview/) (in Chinese, or see the [English translation](https://translate.google.com.hk/translate?hl=zh-CN&sl=zh-CN&tl=en&u=https%3A%2F%2Fwww.azure.cn%2Fpricing%2Foverview%2F)). 
 
 ## Next steps
-- [Azure service availability in China](/azure/china/china-get-started-service-availability)
+- [Azure service availability in China](https://www.azure.cn/home/features/products-by-region)
 - [All available Azure services](https://www.azure.cn/home/features/what-is-azure/) (in Chinese)
 - [Service price list](https://www.azure.cn/pricing/overview/) (in Chinese, or see the [English translation](https://translate.google.com.hk/translate?hl=zh-CN&sl=zh-CN&tl=en&u=https%3A%2F%2Fwww.azure.cn%2Fpricing%2Foverview%2F))

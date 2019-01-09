@@ -82,6 +82,14 @@ If your Data Manager region is different from your job definition region, it is 
 
 The StorSimple Data Manager does not collect or display any personal information. For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
 
+## Known Limitations
+
+The service currently has the following limitations:
+- The StorSimple Data Manager currently does not work with volumes that are bitlocker encrypted. You will see job failures if you try to run the service with an encrypted drive.
+- Some metadata of files (including ACLs) will not be retained in the transformed data.
+- This service works only with NTFS volumes.
+- File path lengths need to be less than 256 characters else the job will fail.
+
 ## Next steps
 
 [Use StorSimple Data Manager UI to transform your data](storsimple-data-manager-ui.md).

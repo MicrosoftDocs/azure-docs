@@ -1,27 +1,24 @@
 ---
-title: Python Flask web application tutorial for Azure Cosmos DB | Microsoft Docs
+title: Python Flask web application tutorial for Azure Cosmos DB
 description: Review a database tutorial on using Azure Cosmos DB to store and access data from a Python Flask web application hosted on Azure. Find application development solutions.
-keywords: Application development, python flask, python web application, python web development
-services: cosmos-db
 author: SnehaGunda
-manager: kfile
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.custom: H1Hack27Feb2017
+
 
 ---
 # Build a Python Flask web application using Azure Cosmos DB
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.js](sql-api-nodejs-application.md)
 > * [Java](sql-api-java-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
-> 
+> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 This tutorial shows you how to use Azure Cosmos DB to store and access data from a Python Flask web application hosted on Azure App Service. This tutorial presumes that you have some prior experience using Python and Azure websites.
@@ -133,7 +130,7 @@ Now let's create your voting application by adding new files and updating others
 2. Add the following code to the forms.py file, and then save the file.
 
 ```python
-from flask.ext.wtf import Form
+from flask_wtf import Form
 from wtforms import RadioField
 
 class VoteForm(Form):
@@ -437,4 +434,4 @@ To add additional functionality to your web application, review the APIs availab
 
 For more information about Azure, Visual Studio, and Python, see the [Python Developer Center](https://azure.microsoft.com/develop/python/). 
 
-For additional Python Flask tutorials, see [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). 
+For additional Python Flask tutorials, see [The Flask Mega-Tutorial, Part I: Hello, World!](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). 

@@ -3,7 +3,7 @@ title: Monitor your devices in Azure IoT Central | Microsoft Docs
 description: As an operator, use your Azure IoT Central application to monitor your devices.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 04/16/2018
+ms.date: 10/12/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-# Use Azure IoT Central to monitor your devices
+# Tutorial: Use Azure IoT Central to monitor your devices
 
 This tutorial shows you, as an operator, how to use your Microsoft Azure IoT Central application to monitor your devices and change settings.
 
@@ -46,21 +46,21 @@ The **Device** page for the **Connected Air Conditioner-1** simulated device you
 
 As an operator, you can view information about the device on the **Measurements**, **Settings**, **Properties**, **Rules**, and **Dashboard** pages. The builder customized the **Dashboard** to display important information about a connected air conditioner device.
 
-* Choose the **Dashboard** view to see information about the device:
+Choose the **Dashboard** view to see information about the device.
 
-    ![Device dashboard](media/tutorial-monitor-devices/initial_screen.png)
+![Device dashboard](media/tutorial-monitor-devices/initial_screen.png)
 
-    The chart on the dashboard shows a plot of the device temperature. You can also see the current target temperature for the device in the **Set target temperature** tile. You decide that the target temperature is too high.
+The chart on the dashboard shows a plot of the device temperature. You can also see the current target temperature for the device in the **Set target temperature** tile. You decide that the target temperature is too high.
 
 ## Remediate an issue
 
 To change the target temperature of the device, use the **Settings** page:
 
-1. Choose **Settings**. Change **Set Temperature** to 100. Choose **Update** to send the new target temperature to the device. When the device acknowledges the settings change, the status of the setting value changes to **synced**:
+1. Choose **Settings**. Change **Set Temperature** to 75. Choose **Update** to send the new target temperature to the device. When the device acknowledges the settings change, the status of the setting value changes to **synced**:
 
     ![Update settings](media/tutorial-monitor-devices/change_settings.png)
 
-1. Choose **Dashboard** and verify the new setting value:
+2. Choose **Dashboard** and verify the new setting value:
 
     ![Updated device dashboard](media/tutorial-monitor-devices/new_settings.png)
 
@@ -73,4 +73,4 @@ In this tutorial, you learned how to:
 > * Investigate an issue
 > * Remediate an issue
 
-Now that you have monitored your device the suggested next step is to [Add a device](tutorial-add-device.md).
+Now that you know now to monitor your device, the suggested next step is to [Add a device](tutorial-add-device.md).

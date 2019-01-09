@@ -3,24 +3,19 @@ title: Overview of the Azure Event Hubs .NET Standard APIs | Microsoft Docs
 description: .NET Standard API overview
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
 
-ms.assetid: a173f8e4-556c-42b8-b856-838189f7e636
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
+ms.date: 08/13/2018
+ms.author: shvija
 
 ---
 
 # Event Hubs .NET Standard API overview
 
-This article summarizes some of the key Event Hubs .NET Standard client APIs. There are currently two .NET Standard client libraries:
+This article summarizes some of the key Azure Event Hubs [.NET Standard client APIs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). There are currently two .NET Standard client libraries for Event Hubs:
 
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): Provides all basic runtime operations.
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): Adds additional functionality that enables keeping track of processed events, and is the easiest way to read from an event hub.
@@ -34,13 +29,13 @@ This article summarizes some of the key Event Hubs .NET Standard client APIs. Th
 An [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) object is created from a connection string. The simplest way to instantiate a new client is shown in the following example:
 
 ```csharp
-var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hubs connection string}");
+var eventHubClient = EventHubClient.CreateFromConnectionString("Event Hubs connection string");
 ```
 
 To programmatically edit the connection string, you can use the [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) class, and pass the connection string as a parameter to [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
 
 ```csharp
-var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hubs connection string}")
+var connectionStringBuilder = new EventHubsConnectionStringBuilder("Event Hubs connection string")
 {
     EntityPath = EhEntityPath
 };
@@ -121,7 +116,7 @@ if (ehEvents != null)
 
 ## Event Processor Host APIs
 
-These APIs provide resiliency to worker processes that may become unavailable, by distributing partitions across available workers.
+These APIs provide resiliency to worker processes that may become unavailable, by distributing partitions across available workers:
 
 ```csharp
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
@@ -146,7 +141,7 @@ await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 await eventProcessorHost.UnregisterEventProcessorAsync();
 ```
 
-The following is a sample implementation of the [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor).
+The following is a sample implementation of the [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) interface:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -183,6 +178,7 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## Next steps
+
 To learn more about Event Hubs scenarios, visit these links:
 
 * [What is Azure Event Hubs?](event-hubs-what-is-event-hubs.md)

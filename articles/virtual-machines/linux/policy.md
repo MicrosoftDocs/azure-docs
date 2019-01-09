@@ -85,7 +85,7 @@ Use a wild card to modify the preceding policy to allow any Ubuntu LTS image:
 }
 ```
 
-For information about policy fields, see [Policy aliases](../../azure-policy/policy-definition.md#aliases).
+For information about policy fields, see [Policy aliases](../../governance/policy/concepts/definition-structure.md#aliases).
 
 ## Managed disks
 

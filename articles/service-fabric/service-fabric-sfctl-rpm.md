@@ -13,7 +13,7 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 12/06/2018
 ms.author: bikang
 
 ---
@@ -95,6 +95,7 @@ This API supports the Service Fabric platform; it is not meant to be used direct
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
 | --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
+
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.

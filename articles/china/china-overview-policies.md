@@ -40,10 +40,10 @@ Sharing an ICP license is against Chinese laws and regulations. Providers that v
 
 The application requirements and review process vary by [province](https://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/special-request.pdf). For example, in Shanghai and Chongqing the process takes about three days. In Ganshu and Yunnan, the process takes three weeks. We recommend planning two months ahead because the ICP license process typically takes at least 20 business days after submitting your application documents.
 
-The review application and results are posted on the [21Vianet application website](http://icp.cloud.21vianet.com/), and 21Vianet notifies you of the result by email or phone. The following example outlines the steps in the process for a business registered in Shanghai City.
+The review application and results are posted on the [21Vianet application website](https://icp.cloud.21vianet.com/), and 21Vianet notifies you of the result by email or phone. The following example outlines the steps in the process for a business registered in Shanghai City.
 
 ### Apply for ICP
-1.	Register a new account using your email address to sign in to the [application website](http://icp.cloud.21vianet.com/). 
+1.	Register a new account using your email address to sign in to the [application website](https://icp.cloud.21vianet.com/). 
 2.	Follow the instructions to fill in the required information for ICP filing, including details about your website and ICP.
 3.	Upload soft copies of the required materials as color scans or photos.
 4.	Within two working days, the first review feedback will be sent to you. If the application passes this first review, you will receive an email request for an onsite interview in the 21Vianet office in either Beijing or Shanghai:
@@ -74,7 +74,7 @@ Within 30 days of receiving your ICP license, you must also apply for filing at 
 
 ## Next steps
 - [ICP numbers](https://en.wikipedia.org/wiki/ICP_license)
-- [Application website](http://icp.cloud.21vianet.com/)
+- [Application website](https://icp.cloud.21vianet.com/)
 - [Registration portal](http://www.beian.gov.cn/portal/index)
 - [Required materials](https://www.azure.cn/support/announcement/public-security-registration/process/)
 

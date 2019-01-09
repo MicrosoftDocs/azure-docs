@@ -1,5 +1,5 @@
 ---
-title: Geo Distributed Scale with App Service Environments
+title: Geo Distributed Scale with App Service Environments - Azure
 description: Learn how to horizontally scale apps using geo-distribution with Traffic Manager and App Service Environments.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
+ms.custom: seodec18
 
 ---
 # Geo Distributed Scale with App Service Environments
@@ -91,7 +92,7 @@ In this example the custom domain is *www.scalableasedemo.com*, and each applica
 
 ![Custom Domain][CustomDomain] 
 
-For a recap of of registering a custom domain with Azure App Service apps, see the following article on [registering custom domains][RegisterCustomDomain].
+For a recap of registering a custom domain with Azure App Service apps, see the following article on [registering custom domains][RegisterCustomDomain].
 
 ## Trying out the Distributed Topology
 The end result of the Traffic Manager and DNS configuration is that requests for *www.scalableasedemo.com* will flow through the following sequence:

@@ -3,7 +3,7 @@ title: Azure CLI Script Sample - Scale an ACS Cluster | Microsoft Docs
 description: Azure CLI Script Sample - Scale an ACS Cluster
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 tags: acs, azure-container-service
@@ -16,10 +16,12 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: nepeters
+ms.author: iainfou
 ---
 
-# Scale an Azure Container Service Cluster
+# (DEPRECATED) Scale an Azure Container Service Cluster
+
+[!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
 This sample scales and Azure Container Service. 
 
@@ -47,7 +49,7 @@ This script uses the following commands to create the deployment. Each item in t
 
 | Command | Notes |
 |---|---|
-| [az acs scale](/cli/azure/acs#az_acs_scale) | Scale an ACS cluster. |
+| [az acs scale](/cli/azure/acs#az-acs-scale) | Scale an ACS cluster. |
 
 ## Next steps
 

@@ -36,8 +36,6 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-You’ve created an empty web app in a Linux container, with git deployment enabled.
-
 > [!NOTE]
 > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Save this URL as you need it later.
 >

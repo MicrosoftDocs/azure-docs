@@ -5,13 +5,13 @@ description: Get started with Azure MFA Server when you upgrade from the older p
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 06/06/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
+ms.reviewer: michmcla
 
 ---
 # Upgrade the PhoneFactor Agent to Azure Multi-Factor Authentication Server
@@ -63,11 +63,8 @@ The installation path is picked up from the registry from the previous PhoneFact
 
   3. Go to the User Portal install location (for example, C:\inetpub\wwwroot\MultiFactorAuth) and edit the web.config file. Copy the values in the appSettings and applicationSettings sections from your original web.config file that was backed up before the upgrade into the new web.config file. If the new default virtual directory name was kept when installing the Web Service SDK, change the URL in the applicationSettings section to point to the correct location. If any other defaults were changed in the previous web.config file, apply those same changes to the new web.config file.
 
-  4. To install the Mobile App Web Service on the web server, open a command prompt as an administrator and run the MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi.
-
-    The default virtual directory name is now **MultiFactorAuthMobileAppWebService** instead of **PhoneFactorPhoneAppWebService**. If you want to use the previous name, you must change the name of the virtual directory during installation. You may want to choose a shorter name to make it easy for end users to type in on their mobile devices. Otherwise, if you allow the install to use the new default name, you should click the Mobile App icon in the Multi-Factor Authentication Server and update the Mobile App Web Service URL.
-
-  5. Go to the Mobile App Web Service install location (for example, C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) and edit the web.config file. Copy the values in the appSettings and applicationSettings sections from your original web.config file that was backed up before the upgrade into the new web.config file. If the new default virtual directory name was kept when installing the Web Service SDK, change the URL in the applicationSettings section to point to the correct location. If any other defaults were changed in the previous web.config file, apply those same changes to the new web.config file.
+> [!NOTE]
+> When upgrading from a version of Azure MFA Server older than 8.0 to 8.0+ that the mobile app web service can be uninstalled after the upgrade
 
 ## Next steps
 

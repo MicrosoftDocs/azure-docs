@@ -1,12 +1,14 @@
 ---
-title: Evaluate method in the Academic Knowledge API | Microsoft Docs
-description: Use the Evaluate method to return a set of academic entities based on a query expression in Microsoft Cognitive Services.
+title: Evaluate method - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Use the Evaluate method to return a set of academic entities based on a query expression.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ---

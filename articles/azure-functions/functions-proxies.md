@@ -2,17 +2,13 @@
 title: Work with proxies in Azure Functions | Microsoft Docs
 description: Overview of how to use Azure Functions Proxies
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
 ms.assetid: 
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 
@@ -47,13 +43,13 @@ With Azure Functions Proxies, you can modify requests to and responses from the 
 
 By default, the back-end request is initialized as a copy of the original request. In addition to setting the back-end URL, you can make changes to the HTTP method, headers, and query string parameters. The modified values can reference [application settings] and [parameters from the original client request].
 
-Back-end requests can be modified in the portal by expading the *request override* section of the proxy detail page. 
+Back-end requests can be modified in the portal by expanding the *request override* section of the proxy detail page. 
 
 ### <a name="modify-response"></a>Modify the response
 
 By default, the client response is initialized as a copy of the back-end response. You can make changes to the response's status code, reason phrase, headers, and body. The modified values can reference [application settings], [parameters from the original client request], and [parameters from the back-end response].
 
-Back-end requests can be modified in the portal by expading the *response override* section of the proxy detail page. 
+Back-end requests can be modified in the portal by expanding the *response override* section of the proxy detail page. 
 
 ## <a name="using-variables"></a>Use variables
 
@@ -149,7 +145,7 @@ Each proxy has a friendly name, such as *proxy1* in the preceding example. The c
 > [!NOTE] 
 > The *route* property in Azure Functions Proxies does not honor the *routePrefix* property of the Function App host configuration. If you want to include a prefix such as `/api`, it must be included in the *route* property.
 
-### <a name="disableProxies"></a>Disable individual proxies
+### <a name="disableProxies"></a> Disable individual proxies
 
 You can disable individual proxies by adding `"disabled": true` to the proxy in the `proxies.json` file. This will cause any requests meeting the matchCondidtion to return 404.
 ```json
@@ -161,11 +157,28 @@ You can disable individual proxies by adding `"disabled": true` to the proxy in 
             "matchCondition": {
                 "route": "/example"
             },
-            "backendUri": "www.example.com"
+            "backendUri": "https://<AnotherApp>.azurewebsites.net/api/<FunctionName>"
         }
     }
 }
 ```
+
+### <a name="applicationSettings"></a> Application Settings
+
+The proxy behavior can be controlled by several app settings. They are all outlined in the [Functions App Settings reference](./functions-app-settings.md)
+
+* [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azurefunctionproxydisablelocalcall)
+* [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azurefunctionproxybackendurldecodeslashes)
+
+### <a name="reservedChars"></a> Reserved Characters (string formatting)
+
+Proxies read all strings out of a JSON file, using \ as an escape symbol. Proxies also interpret curly braces. See a full set of examples below.
+
+|Character|Escaped Character|Example|
+|-|-|-|
+|{ or }|{{ or }}|`{{ example }}` --> `{ example }`
+| \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
+|"|\\\"| `\"example\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>Define a requestOverrides object
 

@@ -58,6 +58,19 @@ sections:
     - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitor changes to VMs with logic apps</a>
     - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Resize uploaded images</a>
     - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Integrating Azure Automation with Event Grid</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title:  Choose a messaging model in Azure to loosely connect your services
+      href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+      image: 
+        src: /learn/achievements/choose-a-messaging-model-in-azure-to-connect-your-services.svg
+        href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-event-grid">More interactive learning...</a>
 - title: Reference
   items:
   - type: list

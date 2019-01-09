@@ -1,5 +1,5 @@
 ---
-title: Deploy and upgrade Azure microservices locally | Microsoft Docs
+title: Deploy and upgrade Azure Service Fabric services locally | Microsoft Docs
 description: Learn how to set up a local Service Fabric cluster, deploy an existing application to it, and then upgrade that application.
 services: service-fabric
 documentationcenter: .net
@@ -67,7 +67,7 @@ In this tutorial, you use an existing sample application (called WordCount) so t
     mkdir c:\ServiceFabric\
     cd c:\ServiceFabric\
     ```
-4. [Download the WordCount application](http://aka.ms/servicefabric-wordcountapp) to the location you created.  Note: the Microsoft Edge browser saves the file with a *.zip* extension.  Change the file extension to *.sfpkg*.
+4. [Download the WordCount application](https://aka.ms/servicefabric-wordcountapp) to the location you created.  Note: the Microsoft Edge browser saves the file with a *.zip* extension.  Change the file extension to *.sfpkg*.
 5. Connect to the local cluster:
    
     ```powershell
@@ -135,7 +135,7 @@ Service Fabric provides no-downtime upgrades by monitoring the health of the app
 
 The new version of the application now counts only words that begin with a vowel. As the upgrade rolls out, we see two changes in the application's behavior. First, the rate at which the count grows should slow, since fewer words are being counted. Second, since the first partition has two vowels (A and E) and all other partitions contain only one each, its count should eventually start to outpace the others.
 
-1. [Download the WordCount version 2 package](http://aka.ms/servicefabric-wordcountappv2) to the same location where you downloaded the version 1 package.
+1. [Download the WordCount version 2 package](https://aka.ms/servicefabric-wordcountappv2) to the same location where you downloaded the version 1 package.
 2. Return to your PowerShell window and use the SDK's upgrade command to register the new version in the cluster. Then begin upgrading the fabric:/WordCount application.
    
     ```powershell

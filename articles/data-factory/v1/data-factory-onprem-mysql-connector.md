@@ -11,7 +11,7 @@ ms.assetid: 452f4fce-9eb5-40a0-92f8-1e98691bea4c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
@@ -20,11 +20,11 @@ robots: noindex
 ---
 # Move data From MySQL using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-onprem-mysql-connector.md)
-> * [Version 2 - Preview](../connector-mysql.md)
+> * [Version 1](data-factory-onprem-mysql-connector.md)
+> * [Version 2 (current version)](../connector-mysql.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [MySQL connector in V2](../connector-mysql.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [MySQL connector in V2](../connector-mysql.md).
 
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises MySQL database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.

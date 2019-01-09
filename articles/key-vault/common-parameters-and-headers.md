@@ -3,7 +3,7 @@ title: Common parameters and headers
 description: The parameters and headers common to all operations that you might do related to Key Vault resources.
 services: key-vault
 documentationcenter:
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 
@@ -11,10 +11,9 @@ ms.assetid: a715d13ca9-d6e8-4e54-ac5e-0ed9400fb15b15d13ca9-d6e8-4e54-ac5e-0ed940
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2018
-ms.author: alleonar
+ms.topic: conceptual
+ms.date: 01/07/2019
+ms.author: bryanla
 
 ---
 

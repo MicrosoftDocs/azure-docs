@@ -4,8 +4,6 @@ description: Use Azure Resource Manager and Resource Manager REST API to deploy 
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
 ms.assetid: 1d8fbd4c-78b0-425b-ba76-f2b7fd260b45
 ms.service: azure-resource-manager
@@ -13,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 10/26/2018
 ms.author: tomfitz
 
 ---
@@ -29,17 +27,19 @@ This article explains how to use the Resource Manager REST API with Resource Man
 > 
 > 
 
-Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
-
-[!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
+You can either include your template in the request body or link to a file. When using a file, it can be a local file or an external file that is available through a URI. When your template is in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
 
 ## Deploy with the REST API
 1. Set [common parameters and headers](/rest/api/azure/), including authentication tokens.
 
-2. If you do not have an existing resource group, create a resource group. Provide your subscription ID, the name of the new resource group, and location that you need for your solution. For more information, see [Create a resource group](/rest/api/resources/resourcegroups/createorupdate).
+1. If you don't have an existing resource group, create a resource group. Provide your subscription ID, the name of the new resource group, and location that you need for your solution. For more information, see [Create a resource group](/rest/api/resources/resourcegroups/createorupdate).
 
   ```HTTP
-  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
+  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
+  ```
+
+  With a request body like:
+  ```json
   {
     "location": "West US",
     "tags": {
@@ -48,12 +48,17 @@ Your template can be either a local file or an external file that is available t
   }
   ```
 
-3. Validate your deployment before executing it by running the [Validate a template deployment](/rest/api/resources/deployments/validate) operation. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
+1. Validate your deployment before executing it by running the [Validate a template deployment](/rest/api/resources/deployments/validate) operation. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
 
-4. Create a deployment. Provide your subscription ID, the name of the resource group, the name of the deployment, and a link to your template. For information about the template file, see [Parameter file](#parameter-file). For more information about the REST API to create a resource group, see [Create a template deployment](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_CreateOrUpdate). Notice the **mode** is set to **Incremental**. To run a complete deployment, set **mode** to **Complete**. Be careful when using the complete mode as you can inadvertently delete resources that are not in your template.
+1. Create a deployment. Provide your subscription ID, the name of the resource group, the name of the deployment, and a link to your template. For information about the template file, see [Parameter file](#parameter-file). For more information about the REST API to create a resource group, see [Create a template deployment](/rest/api/resources/deployments/createorupdate). Notice the **mode** is set to **Incremental**. To run a complete deployment, set **mode** to **Complete**. Be careful when using the complete mode as you can inadvertently delete resources that aren't in your template.
 
   ```HTTP
-  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
+  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+  ```
+
+  With a request body like:
+
+   ```json
   {
     "properties": {
       "templateLink": {
@@ -71,7 +76,7 @@ Your template can be either a local file or an external file that is available t
 
     If you want to log response content, request content, or both, include **debugSetting** in the request.
 
-  ```HTTP
+  ```json
   "debugSetting": {
     "detailLevel": "requestContent, responseContent"
   }
@@ -79,10 +84,73 @@ Your template can be either a local file or an external file that is available t
 
     You can set up your storage account to use a shared access signature (SAS) token. For more information, see [Delegating Access with a Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
+1. Instead of linking to files for the template and parameters, you can include them in the request body.
+
+  ```json
+  {
+	  "properties": {
+      "mode": "Incremental",
+      "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+          "storageAccountType": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+              "Standard_LRS",
+              "Standard_GRS",
+              "Standard_ZRS",
+              "Premium_LRS"
+            ],
+            "metadata": {
+              "description": "Storage Account type"
+            }
+          },
+          "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+              "description": "Location for all resources."
+            }
+          }
+        },
+        "variables": {
+          "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
+        },
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageAccountName')]",
+            "apiVersion": "2018-02-01",
+            "location": "[parameters('location')]",
+            "sku": {
+              "name": "[parameters('storageAccountType')]"
+            },
+            "kind": "StorageV2",
+            "properties": {}
+          }
+        ],
+        "outputs": {
+          "storageAccountName": {
+            "type": "string",
+            "value": "[variables('storageAccountName')]"
+          }
+        }
+      },
+      "parameters": {
+        "location": {
+          "value": "eastus2"
+        }
+      }
+    }
+  }
+  ```
+
 5. Get the status of the template deployment. For more information, see [Get information about a template deployment](/rest/api/resources/deployments/get).
 
   ```HTTP
-  GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
+  GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
   ```
 
 ## Redeploy when deployment fails
@@ -91,7 +159,7 @@ For deployments that fail, you can specify that an earlier deployment from your 
 
 To redeploy the last successful deployment if the current deployment fails, use:
 
-```HTTP
+```json
 "onErrorDeployment": {
   "type": "LastSuccessful",
 },
@@ -99,7 +167,7 @@ To redeploy the last successful deployment if the current deployment fails, use:
 
 To redeploy a specific deployment if the current deployment fails, use:
 
-```HTTP
+```json
 "onErrorDeployment": {
   "type": "SpecificDeployment",
   "deploymentName": "<deploymentname>"
@@ -143,9 +211,9 @@ The size of the parameter file can't be more than 64 KB.
 If you need to provide a sensitive value for a parameter (such as a password), add that value to a key vault. Retrieve the key vault during deployment as shown in the previous example. For more information, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md). 
 
 ## Next steps
+* To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
 * To learn about handling asynchronous REST operations, see [Track asynchronous Azure operations](resource-manager-async-operations.md).
 * For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
-* For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

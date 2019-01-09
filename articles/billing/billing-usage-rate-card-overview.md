@@ -1,10 +1,10 @@
 ﻿---
-title: Azure Billing APIs | Microsoft Docs
+title: Get Azure usage with Azure Billing APIs | Microsoft Docs
 description: Learn about Azure Billing Usage and RateCard APIs, which are used to provide insights into Azure resource consumption and trends.
 services: ''
 documentationcenter: ''
 author: tonguyen
-manager: tonguyen
+manager: mumami
 editor: ''
 tags: billing
 
@@ -15,8 +15,8 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 5/10/2018
-ms.author: mobandyo
-
+ms.author: erikre
+ms.custom: seodec18
 ---
 
 # Use Azure Billing APIs to programmatically get insight into your Azure usage

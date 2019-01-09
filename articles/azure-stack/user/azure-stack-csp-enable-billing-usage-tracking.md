@@ -3,7 +3,7 @@ title: Enable a Cloud Service Provider to manage your Azure Stack subscription |
 description: Enable the service provider to access a subscription in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -12,8 +12,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: alfredop
 
 ---

@@ -11,7 +11,7 @@ ms.assetid: 10ca7d9a-7715-4446-bf59-2d2876584550
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
@@ -20,11 +20,11 @@ robots: noindex
 ---
 # Move data From MongoDB using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-on-premises-mongodb-connector.md)
-> * [Version 2 - Preview](../connector-mongodb.md)
+> * [Version 1](data-factory-on-premises-mongodb-connector.md)
+> * [Version 2 (current version)](../connector-mongodb.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [MongoDB connector in V2](../connector-mongodb.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [MongoDB connector in V2](../connector-mongodb.md).
 
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises MongoDB database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.

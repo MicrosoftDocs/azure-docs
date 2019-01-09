@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Log Integration FAQ | Microsoft Docs
 description: This article answers questions about Azure Log Integration.
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
 
@@ -23,11 +23,11 @@ ms.custom: azlog
 This article answers frequently asked questions (FAQ) about Azure Log Integration.
 
 >[!IMPORTANT]
-> The Azure Log integration feature will be deprecated by 06/01/2019.  AzLog downloads will be disabled by Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/preview/?cdn=disable) 
+> The Azure Log integration feature will be deprecated by 06/01/2019. AzLog downloads will be disabled by Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Azure Log Integration is a Windows operating system service that you can use to integrate raw logs from your Azure resources into your on-premises security information and event management (SIEM) systems. This integration provides a unified dashboard for all your assets, on-premises or in the cloud. You can then aggregate, correlate, analyze, and alert for security events associated with your applications.
 
-The preferred method for integrating Azure logs is by using your SIEM vendor’s Azure Monitor connector and following these [instructions](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesn’t provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
+The preferred method for integrating Azure logs is by using your SIEM vendor's Azure Monitor connector and following these [instructions](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesn't provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
 
 ## Is the Azure Log Integration software free?
 

@@ -2,14 +2,14 @@
 title: Quickstart - Use Azure CLI and Java to send and receive messages from Azure Service Bus | Microsoft Docs
 description: In this quickstart, you learn to send and receive Azure Service Bus messages using Azure CLI and a sample Java application
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/22/2018
-ms.author: sethm
+ms.date: 09/22/2018
+ms.author: spelluru
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 
 ---
@@ -55,7 +55,7 @@ az servicebus queue create --resource-group myResourceGroup \
 # Get the connection string for the namespace
 connectionString=$(az servicebus namespace authorization-rule keys list \
    --resource-group myResourceGroup \
-   --namespace-name  $namespaceName \
+   --namespace-name $namespaceName \
    --name RootManageSharedAccessKey \
    --query primaryConnectionString --output tsv)
 ```
@@ -64,7 +64,7 @@ After the last command runs, copy and paste the connection string, and the queue
 
 ## Send and receive messages
 
-After you've created the namespace and queue, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java).
+After you've created the namespace and queue, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 1. Make sure that Cloud Shell is open and displaying the Bash prompt.
 
@@ -106,7 +106,7 @@ az group delete --resource-group myResourceGroup
 
 ## Understand the sample code
 
-This section contains more details about key sections of the sample code. You can browse the code, located in the GitHub repository [here](https://github.com/Azure/azure-service-bus/blob/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java).
+This section contains more details about key sections of the sample code. You can browse the code, located in the GitHub repository [here](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 ### Get connection string and queue
 
@@ -268,5 +268,5 @@ In this article, you created a Service Bus namespace and other resources require
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
-[Install Azure CLI 2.0]: /cli/azure/install-azure-cli
+[Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

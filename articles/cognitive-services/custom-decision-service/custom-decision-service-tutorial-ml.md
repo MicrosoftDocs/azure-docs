@@ -1,16 +1,19 @@
 ---
-title: Machine Learning - Azure Cognitive Services | Microsoft Docs
-description: A tutorial for machine learning in Azure Custom Decision Service, a cloud-based API for contextual decision-making.
+title: "Tutorial: Featurization and feature specification - Custom Decision Service"
+titlesuffix: Azure Cognitive Services
+description: A tutorial for machine learning featurization and feature specification in Custom Decision Service.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh
+ms.author: slivkins
 ---
 
-# Machine learning
+# Tutorial: Featurization and feature specification
 
 This tutorial addresses the advanced machine learning functionality in Custom Decision Service. The tutorial consists of two parts: [featurization](#featurization-concepts-and-implementation) and [feature specification](#feature-specification-format-and-apis). Featurization refers to representing your data as "features" for machine learning. Feature specification covers the JSON format and the ancillary APIs for specifying features.
 

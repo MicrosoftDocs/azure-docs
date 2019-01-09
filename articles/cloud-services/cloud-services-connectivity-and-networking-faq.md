@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 08/23/2018
 ms.author: genli
 
 ---
@@ -39,7 +39,7 @@ To test connectivity, we recommend that you do a port ping. While Ping.exe uses 
 For more information, see [Use port pings instead of ICMP to test Azure VM connectivity](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/).
 
 ## How do I prevent receiving thousands of hits from unknown IP addresses that might indicate a malicious attack to the cloud service?
-Azure implements a multilayer network security to protect its platform services against distributed denial-of-service (DDoS) attacks. The Azure DDoS defense system is part of Azure's continuous monitoring process, which is continually improved through penetration testing. This DDoS defense system is designed to withstand not only attacks from the outside but also from other Azure tenants. For more information, see [Azure network security](http://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf).
+Azure implements a multilayer network security to protect its platform services against distributed denial-of-service (DDoS) attacks. The Azure DDoS defense system is part of Azure's continuous monitoring process, which is continually improved through penetration testing. This DDoS defense system is designed to withstand not only attacks from the outside but also from other Azure tenants. For more information, see [Azure network security](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf).
 
 You also can create a startup task to selectively block some specific IP addresses. For more information, see [Block a specific IP address](cloud-services-startup-tasks-common.md#block-a-specific-ip-address).
 
@@ -106,3 +106,19 @@ This file contains the IP address ranges (including compute, SQL, and storage ra
 ## How can I use Azure Resource Manager virtual networks with cloud services? 
 
 Cloud services can't be placed in Azure Resource Manager virtual networks. Resource Manager virtual networks and classic deployment virtual networks can be connected through peering. For more information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
+
+
+## How can I get the list of public IPs used by my Cloud Services?
+
+You can use following PS script to get the list of public IPs for Cloud Services under your subscription
+
+    $services = Get-AzureService  | Group-Object -Property ServiceName
+
+    foreach ($service in $services) 
+    {
+        "Cloud Service '$($service.Name)'"
+
+        $deployment = Get-AzureDeployment -ServiceName $service.Name 
+        "VIP - " +  $deployment.VirtualIPs[0].Address
+        "================================="
+    }

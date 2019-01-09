@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 IoT devices often connect to the cloud using a SIM card that allows them to send data streams from anywhere. The Azure IoT Remote Monitoring solution allows the integration of IoT Managed Connectivity data, so that operators can also track the health of the device through the data provided by the IoT SIM.
 
-Remote Monitoring provides out of the box integration with Telefónica IoT Connectivity, allowing customers using its IoT Connectivity Platform synchronize their device SIMs connectivity data to their solutions. This solution can be extended to support other IoT Connectivity providers through GitHub [repository](http://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
+Remote Monitoring provides out of the box integration with Telefónica IoT Connectivity, allowing customers using its IoT Connectivity Platform synchronize their device SIMs connectivity data to their solutions. This solution can be extended to support other IoT Connectivity providers through GitHub [repository](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
 
 In this tutorial, you learn how to:
 
@@ -28,9 +28,9 @@ In this tutorial, you learn how to:
 
 This additional Remote Monitoring feature is currently in preview. To sync your connectivity data into Azure Remote Monitoring Solution, follow these steps:
 
-1. Fill a request at [Telefónica's site](https://iot.Telefónica.com/contact), select the option **Azure Remote Monitoring**, including your contact data.
+1. Fill a request at [Telefónica's site](https://iot.telefonica.com/contact), select the option **Azure Remote Monitoring**, including your contact data.
 2. Telefónica activates your account.
-3. If you are not a Telefónica client yet and you want to enjoy this or other IoT Connectivity Cloud Ready services, visit [Telefónica's site](https://iot.Telefónica.com/contact) and select the option **Connectivity**.
+3. If you are not a Telefónica client yet and you want to enjoy this or other IoT Connectivity Cloud Ready services, visit [Telefónica's site](https://iot.telefonica.com/) and select the option **Connectivity**.
 
 ### Telefónica SIM setup
 Telefónica SIM & Azure Twin device ID association is based on Telefónica IoT SIM "alias" property. 
@@ -62,7 +62,7 @@ The following connectivity parameters are published:
 
 Now that you have an overview of how to integrate SIM Data into Azure IoT Remote Monitoring, here are suggested next steps for solutions accelerators:
 
-* [Operate the Azure IoT Remote Monitoring solution](iot-accelerators-remote-monitoring-explore.md)
+* [Operate the Azure IoT Remote Monitoring solution](quickstart-remote-monitoring-deploy.md)
 * [Perform advanced monitoring](iot-accelerators-remote-monitoring-monitor.md)
 * [Manage your devices](iot-accelerators-remote-monitoring-manage.md)
 * [Troubleshoot device issues](iot-accelerators-remote-monitoring-maintain.md)

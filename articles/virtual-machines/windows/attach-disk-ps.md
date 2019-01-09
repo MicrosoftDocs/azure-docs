@@ -1,6 +1,6 @@
 ﻿---
-title: Attach a data disk to a Windows VM in Azure using PowerShell | Microsoft Docs
-description: How to attach new or existing data disk to a Windows VM using PowerShell with the Resource Manager deployment model.
+title: Attach a data disk to a Windows VM in Azure by using PowerShell | Microsoft Docs
+description: How to attach a new or existing data disk to a Windows VM using PowerShell with the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,21 +14,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 10/16/2018
 ms.author: cynthn
 
 ---
-# Attach a data disk to a Windows VM using PowerShell
+# Attach a data disk to a Windows VM with PowerShell
 
-This article shows you how to attach both new and existing disks to a Windows virtual machine using PowerShell. 
+This article shows you how to attach both new and existing disks to a Windows virtual machine by using PowerShell. 
 
-Before you do this, review these tips:
-* The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* To use Premium storage, you'll need a Premium Storage enabled VM size like the DS-series or GS-series virtual machine. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+First, review these tips:
+* The size of the virtual machine controls how many data disks you can attach. For more information, see [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* To use Premium storage, you'll need a Premium Storage-enabled VM type like the DS-series or GS-series virtual machine. For more information, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 6.0.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+To install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 6.0.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you'll also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 
 ## Add an empty data disk to a virtual machine
@@ -76,7 +76,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 ### Initialize the disk
 
-After you add an empty disk, you need to initialize it. To initialize the disk, you can log in to a VM and use disk management. If you enabled WinRM and a certificate on the VM when you created it, you can use remote PowerShell to initialize the disk. You can also use a custom script extension: 
+After you add an empty disk, you'll need to initialize it. To initialize the disk, you can sign in to a VM and use disk management. If you enabled [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) and a certificate on the VM when you created it, you can use remote PowerShell to initialize the disk. You can also use a custom script extension: 
 
 ```azurepowershell-interactive
     $location = "location-name"
@@ -85,7 +85,7 @@ After you add an empty disk, you need to initialize it. To initialize the disk, 
     Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
 		
-The script file can contain something like this code to initialize the disks:
+The script file can contain code to initialize the disks, for example:
 
 ```azurepowershell-interactive
     $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number

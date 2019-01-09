@@ -1,27 +1,27 @@
 ---
 title: Security endpoints in IoT Device Provisioning Service | Microsoft Docs
-description: Concepts - how to control access to IoT Device Provisioning Service for back-end apps. Includes information about security tokens.
-author: dsk-2015
+description: Concepts - how to control access to IoT Device Provisioning Service for backend apps. Includes information about security tokens.
+author: wesmc7777
 manager: timlt
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: dkshir
+ms.author: wesmc
 ---
 
 # Control access to Azure IoT Hub Device Provisioning Service
 
-This article describes the options for securing your IoT device provisioning service. The provisioning service uses *permissions* to grant access to each endpoint. Permissions limit the access to a service instance based on functionality.
+This article describes the options for securing your IoT Device Provisioning service. The provisioning service uses *permissions* to grant access to each endpoint. Permissions limit the access to a service instance based on functionality.
 
 This article describes:
 
-* The different permissions that you can grant to a back-end app to access your provisioning service.
+* The different permissions that you can grant to a backend app to access your provisioning service.
 * The authentication process and the tokens it uses to verify permissions.
 
 ### When to use
 
-You must have appropriate permissions to access any of the provisioning service endpoints. For example, a back-end app must include a token containing security credentials along with every message it sends to the service.
+You must have appropriate permissions to access any of the provisioning service endpoints. For example, a backend app must include a token containing security credentials along with every message it sends to the service.
 
 ## Access control and permissions
 
@@ -29,7 +29,7 @@ You can grant [permissions](#device-provisioning-service-permissions) in the fol
 
 * **Shared access authorization policies**. Shared access policies can grant any combination of [permissions](#device-provisioning-service-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [Device Provisioning Service REST APIs][lnk-resource-provider-apis]. A newly created provisioning service has the following default policy:
 
-  * **provisioningserviceowner**: Policy with all permissions.
+* **provisioningserviceowner**: Policy with all permissions.
 
 > [!NOTE]
 > See [permissions](#device-provisioning-service-permissions) for detailed information.
@@ -46,12 +46,16 @@ For more information about how to construct and use security tokens, see the nex
 HTTP is the only supported protocol, and it implements authentication by including a valid token in the **Authorization** request header.
 
 #### Example
-`SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`
+```csharp
+SharedAccessSignature sr = 
+   mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`\
+```
 
 > [!NOTE]
 > The [Azure IoT Device Provisioning Service SDKs][lnk-sdks] automatically generate tokens when connecting to the service.
 
 ## Security tokens
+
 The Device Provisioning Service uses security tokens to authenticate services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT Device Provisioning Service SDKs][lnk-sdks] automatically generate tokens without requiring any special configuration. Some scenarios do require you to generate and use security tokens directly. Such scenarios include the direct use of the HTTP surface.
 
 ### Security token structure
@@ -126,7 +130,6 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 > [!NOTE]
 > Since the time validity of the token is validated on IoT Device Provisioning Service machines, the drift on the clock of the machine that generates the token must be minimal.
 
-
 ### Use security tokens from service components
 
 Service components can only generate security tokens using shared access policies granting the appropriate permissions as explained previously.
@@ -145,9 +148,9 @@ As an example, a service generated using a pre-created shared access policy call
 * resource URI: `{mydps}.azure-devices-provisioning.net`,
 * signing key: one of the keys of the `enrollmentread` policy,
 * policy name: `enrollmentread`,
-* any expiration time.
+* any expiration time.backn
 
-![Create a shared access policy for your DPS instance in the portal][img-add-shared-access-policy]
+![Create a shared access policy for your Device Provisioning service instance in the portal][img-add-shared-access-policy]
 
 ```nodejs
 var endpoint ="mydps.azure-devices-provisioning.net";
@@ -165,17 +168,17 @@ The result, which would grant access to read all enrollment records, would be:
 
 The following reference topics provide you with more information about controlling access to your IoT Device Provisioning Service.
 
-## Device Provisioning Service permissions
+### Device Provisioning Service permissions
 
 The following table lists the permissions you can use to control access to your IoT Device Provisioning Service.
 
 | Permission | Notes |
 | --- | --- |
-| **ServiceConfig** |Grants access to change the service configurations. <br/>This permission is used by back-end cloud services. |
-| **EnrollmentRead** |Grants read access to the device enrollments and enrollment groups. <br/>This permission is used by back-end cloud services. |
-| **EnrollmentWrite** |Grants write access to the device enrollments and enrollment groups. <br/>This permission is used by back-end cloud services. |
-| **RegistrationStatusRead** |Grants read access to the device registration status. <br/>This permission is used by back-end cloud services. |
-| **RegistrationStatusWrite**  |Grants delete access to the device registration status. <br/>This permission is used by back-end cloud services. |
+| **ServiceConfig** |Grants access to change the service configurations. <br/>This permission is used by backend cloud services. |
+| **EnrollmentRead** |Grants read access to the device enrollments and enrollment groups. <br/>This permission is used by backend cloud services. |
+| **EnrollmentWrite** |Grants write access to the device enrollments and enrollment groups. <br/>This permission is used by backend cloud services. |
+| **RegistrationStatusRead** |Grants read access to the device registration status. <br/>This permission is used by backend cloud services. |
+| **RegistrationStatusWrite**  |Grants delete access to the device registration status. <br/>This permission is used by backend cloud services. |
 
 <!-- links and images -->
 

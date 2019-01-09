@@ -3,12 +3,11 @@ title: Deciding when to use Azure Blobs, Azure Files, or Azure Disks
 description: Learn about the different ways to store and access data in Azure to help you decide which technology to use.
 services: storage
 author: tamram
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 11/28/2018
 ms.author: tamram
+ms.component: common
 ---
 
 # Deciding when to use Azure Blobs, Azure Files, or Azure Disks
@@ -22,7 +21,7 @@ The following table compares Files, Blobs, and Disks, and shows example scenario
 | Feature | Description | When to use |
 |--------------|-------------|-------------|
 | **Azure Files** | Provides an SMB interface, client libraries, and a [REST interface](/rest/api/storageservices/file-service-rest-api) that allows access from anywhere to stored files. | You want to "lift and shift" an application to the cloud which already uses the native file system APIs to share data between it and other applications running in Azure.<br/><br/>You want to store development and debugging tools that need to be accessed from many virtual machines. |
-| **Azure Blobs** | Provides client libraries and a [REST interface](/rest/api/storageservices/blob-service-rest-api) that allows unstructured data to  be stored and accessed at a massive scale in block blobs. | You want your application to support streaming and random access scenarios.<br/><br/>You want to be able to access application data from anywhere. |
+| **Azure Blobs** | Provides client libraries and a [REST interface](/rest/api/storageservices/blob-service-rest-api) that allows unstructured data to be stored and accessed at a massive scale in block blobs.<br/><br/>Also supports [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) for enterprise big data analytics solutions. | You want your application to support streaming and random access scenarios.<br/><br/>You want to be able to access application data from anywhere.<br/><br/>You want to build an enterprise data lake on Azure and perform big data analytics. |
 | **Azure Disks** | Provides client libraries and a [REST interface](/rest/api/compute/manageddisks/disks/disks-rest-api) that allows data to be persistently stored and accessed from an attached virtual hard disk. | You want to lift and shift applications that use native file system APIs to read and write data to persistent disks.<br/><br/>You want to store data that is not required to be accessed from outside the virtual machine to which the disk is attached. |
 
 ## Comparison: Files and Blobs
@@ -38,7 +37,7 @@ The following table compares Azure Files with Azure Blobs.
 |Endpoints|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Directories|Flat namespace|True directory objects|  
 |Case sensitivity of names|Case sensitive|Case insensitive, but case preserving|  
-|Capacity|Up to 500 TiB containers|5 TiB file shares|  
+|Capacity|Up to 2 PiB Account Limit |5 TiB file shares|  
 |Throughput|Up to 60 MiB/s per block blob|Up to 60 MiB/s per share|  
 |Object Size|Up to about 4.75 TiB per block blob|Up to 1 TiB per file|  
 |Billed capacity|Based on bytes written|Based on file size|  
@@ -54,14 +53,14 @@ The following table compares Azure Files with Azure Disks.
 |-|-|-|  
 |**Attribute**|**Azure Disks**|**Azure Files**|  
 |Scope|Exclusive to a single virtual machine|Shared access across multiple virtual machines|  
-|Snapshots and Copy|Yes|No|  
+|Snapshots and Copy|Yes|Yes|  
 |Configuration|Connected at startup of the virtual machine|Connected after the virtual machine has started|  
 |Authentication|Built-in|Set up with net use|  
 |Cleanup|Automatic|Manual|  
 |Access using REST|Files within the VHD cannot be accessed|Files stored in a share can be accessed|  
 |Max Size|4 TiB disk|5 TiB File Share and 1 TiB file within share|  
-|Max 8KB IOps|500 IOps|1000 IOps|  
-|Throughput|Up to 60 MiB/s per Disk|Up to 60 MiB/s per File Share|  
+|Max IOps|500 IOps|1000 IOps|  
+|Throughput|Up to 60 MiB/s per Disk|Target is 60 MiB/s per File Share (can get higher for higher IO sizes)|  
 
 ## Next steps
 

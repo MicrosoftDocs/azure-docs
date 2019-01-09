@@ -11,7 +11,7 @@ ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
@@ -20,11 +20,11 @@ robots: noindex
 ---
 # Move data From Amazon Redshift using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-amazon-redshift-connector.md)
-> * [Version 2 - Preview](../connector-amazon-redshift.md)
+> * [Version 1](data-factory-amazon-redshift-connector.md)
+> * [Version 2 (current version)](../connector-amazon-redshift.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Amazon Redshift connector in V2](../connector-amazon-redshift.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Amazon Redshift connector in V2](../connector-amazon-redshift.md).
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from Amazon Redshift. The article builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity. 
 
@@ -106,7 +106,7 @@ This example copies data from Amazon Redshift to Azure SQL Data Warehouse. The e
 
 For this sample use case, Copy Activity first unloads the data from Amazon Redshift to Amazon S3 as configured in the  **redshiftUnloadSettings** option. Next, the data is copied from Amazon S3 to Azure Blob storage as specified in the **stagingSettings** option. Finally, PolyBase loads the data into SQL Data Warehouse. All of the interim formats are handled by Copy Activity.
 
-![Copy workflow from Amazon Redshift to SQL Data Warehouse](media\data-factory-amazon-redshift-connector\redshift-to-sql-dw-copy-workflow.png)
+![Copy workflow from Amazon Redshift to SQL Data Warehouse](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 {

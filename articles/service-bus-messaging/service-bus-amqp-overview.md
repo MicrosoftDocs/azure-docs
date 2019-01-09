@@ -3,7 +3,7 @@ title: Overview of AMQP 1.0 in Azure Service Bus | Microsoft Docs
 description: Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 in Azure.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/30/2018
-ms.author: sethm
+ms.date: 09/26/2018
+ms.author: spelluru
 
 ---
 # AMQP 1.0 support in Service Bus

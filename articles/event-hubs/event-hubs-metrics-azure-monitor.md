@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs metrics in Azure Monitor (preview) | Microsoft Docs
-description: Use Azure Monitoring to monitor Event Hubs
+title: Metrics in Azure Monitor (preview) - Azure Event Hubs | Microsoft Docs
+description: This article provides information on how to use Azure Monitoring to monitor Azure Event Hubs
 services: event-hubs
 documentationcenter: .NET
 author: ShubhaVijayasarathy
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2018
-ms.author: sethm
+ms.custom: seodec18
+ms.date: 12/06/2018
+ms.author: shvija
 
 ---
 # Azure Event Hubs metrics in Azure Monitor (preview)
@@ -25,21 +26,21 @@ Azure Monitor provides unified user interfaces for monitoring across various Azu
 
 ## Access metrics
 
-Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Operation Management Suite and Event Hubs. For more information, see [Azure Monitor metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Operation Management Suite and Event Hubs. For more information, see [Monitoring data collected by Azure Monitor](../azure-monitor/platform/data-collection.md).
 
-Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) in Azure Monitor.
+Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) in Azure Monitor.
 
 ## Access metrics in the portal
 
 You can monitor metrics over time in the [Azure portal](https://portal.azure.com). The following example shows how to view successful requests and incoming requests at the account level:
 
-![][1]
+![View successful metrics][1]
 
 You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics (Peview)**. To display metrics filtered to the scope of the event hub, select the event hub and then click **Metrics (preview)**.
 
 For metrics supporting dimensions, you must filter with the desired dimension value as shown in the following example:
 
-![][2]
+![Filter with dimension value][2]
 
 ## Billing
 
@@ -62,7 +63,6 @@ Counts the number of data and management operations requests.
 | Successful Requests (preview)   | The number of successful requests made to the Azure Event Hubs service over a specified period. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName |
 | Server Errors (preview) | The number of requests not processed due to an error in the Azure Event Hubs service over a specified period. <br/><br/>Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName |
 |User Errors (preview)|The number of requests not processed due to user errors over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|Throttled Requests (preview)|The number of requests that were throttled because the throughput unit usage was exceeded.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 |Quota Exceeded Errors (preview)|The number of requests exceeded the available quota. See [this article](event-hubs-quotas.md) for more information about Event Hubs quotas.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 
 ## Throughput metrics
