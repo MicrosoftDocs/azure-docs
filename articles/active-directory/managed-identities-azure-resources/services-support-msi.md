@@ -22,16 +22,20 @@ Managed identities for Azure resources provide Azure services with an automatica
 
 The following Azure services support managed identities for Azure resources:
 
-### Global Azure Regions
+### Azure Virtual Machines
 
-|Service| Managed identity type | Status | Configure |
+|Managed identity type |  All Generally Available Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
-| Azure Virtual Machines | System Assigned<br><br>User assigned | Available<br><br>Preview |  [Azure portal](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Azure CLI](qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager templates](qs-configure-template-windows-vm.md)<br>[REST](qs-configure-rest-vm.md) | 
-|Azure Virtual Machine Scale Sets |System Assigned<br><br>User assigned | Available<br><br>Preview | [Azure portal](qs-configure-portal-windows-vmss.md)<br>[PowerShell](qs-configure-powershell-windows-vmss.md)<br>[Azure CLI](qs-configure-cli-windows-vmss.md)<br>[Azure Resource Manager templates](qs-configure-template-windows-vmss.md)<br>[REST](qs-configure-rest-vmss.md) |
-Azure App Service |  System Assigned<br><br>User assigned |Available<br><br>Preview | [Azure portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)<br>[Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)<br>[Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)<br>[Azure Resource Manager template](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template) |
-Azure Functions | System Assigned<br><br>User assigned | Available<br><br>Preview | [Azure portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)<br>[Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)<br>[Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)<br>[Azure Resource Manager template](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template) |
-Azure Logic Apps | System Assigned<br><br>User assigned |  Available<br><br>Not available | [Azure portal](/azure/logic-apps/create-managed-service-identity#azure-portal)<br>[Azure Resource Manager template](/azure/app-service/overview-managed-identity#deployment-template) | 
-Azure Data Factory V2 | System Assigned<br><br>User assigned | Available<br><br>Not available | [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk)
+| System assigned | Available | Preview | Preview | Preview | Preview |
+| User assigned | Preview | Preview | Preview | Preview | Preview
+
+Refer to the following list to configure managed identity for Azure Virtual Machines (in regions where available):
+
+- [Azure portal](qs-configure-portal-windows-vm.md)
+- [PowerShell](qs-configure-powershell-windows-vm.md)
+- [Azure CLI](qs-configure-cli-windows-vm.md)
+- [Azure Resource Manager templates](qs-configure-template-windows-vm.md)
+- [REST](qs-configure-rest-vm.md)
 
 ### Azure Virtual Machine Scale Sets
 
@@ -48,23 +52,33 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 - [Azure Resource Manager templates](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
- 
-
-The following resources are available for configuring managed identity for Azure Virtual Machine Scale Sets 
-
 ### Azure App Service
 
 |Managed identity type |  Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
 | System assigned | Available | Available | Available | Available |
-| User assigned | Preview | Not available | Not available | Not available 
+| User assigned | Preview | Not available | Not available | Not available
+
+Refer to the following list to configure managed identity for Azure App Service (in regions where available):
+
+- [Azure portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
+- [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
+- [Azure Resource Manager template](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### Azure Functions
 
 Managed identity type |  Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
 | System assigned | Available | Available | Available | Available |
-| User assigned | Preview | Not available | Not available | Not available 
+| User assigned | Preview | Not available | Not available | Not available
+
+Refer to the following list to configure managed identity for Azure Functions (in regions where available):
+
+- [Azure portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
+- [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
+- [Azure Resource Manager template](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### Azure Logic Apps
 
@@ -73,12 +87,24 @@ Managed identity type |  Global Azure Regions | Azure Government|Azure Germany|A
 | System assigned | Available | Available | Available | Available |
 | User assigned | Not available | Not available | Not available | Not available
 
+Refer to the following list to configure managed identity for Azure Logic Apss (in regions where available):
+
+- [Azure portal](/azure/logic-apps/create-managed-service-identity#azure-portal)
+- [Azure Resource Manager template](/azure/app-service/overview-managed-identity#deployment-template)
+
 ### Azure Data Factory V2
 
 Managed identity type |  Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
 | System assigned | Available | Not available | Not available | Not available |
 | User assigned | Not available | Not available | Not available | Not available
+
+Refer to the following list to configure managed identity for Azure Data Factory V2 (in regions where available):
+
+- [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)
+- [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)
+- [REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)
+- [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk)
 
 ### Azure API Management
 
@@ -87,12 +113,22 @@ Managed identity type |  Global Azure Regions | Azure Government|Azure Germany|A
 | System assigned | Available | Available | Not available | Not available |
 | User assigned | Not available | Not available | Not available | Not available
 
+Refer to the following list to configure managed identity for Azure API Management (in regions where available):
+
+- [Azure Resource Manager template](/azure/api-management/api-management-howto-use-managed-service-identity)
+
 ### Azure Container Instances
 
 Managed identity type |  Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
 | System assigned | Linux: Preview<br>Windows: Not available | Not available | Not available | Not available |
 | User assigned | Linux: Preview<br>Windows: Not available | Not available | Not available | Not available
+
+Refer to the following list to configure managed identity for Azure Container Instances (in regions where available):
+
+- [Azure CLI](~/articles/container-instances/container-instances-managed-identity.md)
+- [Azure Resource Manager template](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
+- [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
 
 ## Azure services that support Azure AD authentication
