@@ -29,7 +29,7 @@ Including global cloud​, Azure Active Directory is deployed in the followi
 - Azure Germany
 - Azure China 21Vianet
 
-National clouds are unique and different environment than Azure global. Therefore, it is important to be aware of some key differences while developing your application for these environments such as registering applications, acquiring tokens and configuring endpoints.
+National clouds are unique and different environment than Azure global. Therefore, it is important to be aware of some key differences while developing your application for these environments such as registering applications, acquiring tokens, and configuring endpoints.
 
 ## App registration endpoints
 
@@ -42,7 +42,7 @@ The following table lists the base URLs for the Azure Active Directory (Azure AD
 | Azure AD for US Government |https://portal.azure.us
 |Azure AD Germany |https://portal.microsoftazure.de
 |Azure AD China operated by 21Vianet |https://portal.azure.cn
-|Azure AD (global service)|https://portal.azure.com
+|Azure AD (global service)|https://portal.azure.com 
 
 ## Azure AD authentication endpoints
 
