@@ -34,7 +34,7 @@ See the following sections to learn how a resource can validate and use the clai
 
 ## Sample tokens
 
-v1.0 and v2.0 tokens look very similar and contain many of the same claims. An example of each is provided here.
+v1.0 and v2.0 tokens look similar and contain many of the same claims. An example of each is provided here.
 
 ### v1.0
 
@@ -75,7 +75,7 @@ Claims are present only if a value exists to fill it. Thus, your app should not 
 | `nonce` | String | A unique identifier used to protect against token replay attacks. Your resource can record this value to protect against replays. |
 | `alg` | String | Indicates the algorithm that was used to sign the token, for example, "RS256" |
 | `kid` | String | Specifies the thumbprint for the public key that's used to sign this token. Emitted in both v1.0 and v2.0 access tokens. |
-| `x5t` | String | Functions the same (in use and value) as `kid`. This is a legacy claim emitted only in v1.0 access tokens for compatibility purposes. |
+| `x5t` | String | Functions the same (in use and value) as `kid`. `x5t` is a legacy claim emitted only in v1.0 access tokens for compatibility purposes. |
 
 ### Payload claims
 
@@ -117,7 +117,7 @@ The following claims will be included in v1.0 tokens if applicable, but are not 
 | Claim | Format | Description |
 |-----|--------|-------------|
 | `ipaddr`| String | The IP address the user authenticated from. |
-| `onprem_sid`| String, in [SID format](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | In cases where the user has an on-premises authentication, this claim provides their SID. This can be used for authorization in legacy applications. |
+| `onprem_sid`| String, in [SID format](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | In cases where the user has an on-premises authentication, this claim provides their SID. You can use `onprem_sid` for authorization in legacy applications. |
 | `pwd_exp`| int, a UNIX timestamp | Indicates when the user's password expires. |
 | `pwd_url`| String | A URL where users can be sent to reset their password. |
 | `in_corp`|boolean | Signals if the client is logging in from the corporate network. If they are not, the claim is not included. |
@@ -196,7 +196,7 @@ Your application's business logic will dictate this step, some common authorizat
 * Validate the authentication status of the calling client using `appidacr` - it should not be 0 if public clients are not allowed to call your API.
 * Check against a list of past `nonce` claims to verify the token is not being replayed.
 * Check that the `tid` matches a tenant that is allowed to call your API.
-* Use the `acr` claim to verify the user has performed MFA. Note that this should be enforced using [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+* Use the `acr` claim to verify the user has performed MFA. This should be enforced using [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * If you've requested the `roles` or `groups` claims in the access token, verify that the user is in the group allowed to perform this action.
   * For tokens retrieved using the implicit flow, you'll likely need to query the [Microsoft Graph](https://developer.microsoft.com/graph/) for this data, as it's often too large to fit in the token. 
 
@@ -221,7 +221,7 @@ Refresh tokens can be invalidated or revoked at any time, for a variety of reaso
 
 ### Revocation
 
-|   | Password based cookie | Password based token | Non-password based cookie | Non-password based token | Confidential client token| 
+|   | Password-based cookie | Password-based token | Non-password-based cookie | Non-password-based token | Confidential client token| 
 |---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
 | Password expires | Stays alive| Stays alive | Stays alive | Stays alive | Stays alive |
 | Password changed by user | Revoked | Revoked | Stays alive | Stays alive | Stays alive |

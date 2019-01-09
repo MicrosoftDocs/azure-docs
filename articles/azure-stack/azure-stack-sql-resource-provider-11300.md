@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 1/09/2019
 ms.author: jeffgilb
 ms.reviewer: georgel
 ---
@@ -77,7 +77,10 @@ This version of the Azure Stack SQL resource provider includes the following imp
     ```powershell
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
+- **SQL resource provider fails to add SQL Server Always On listener**. When using the listener IP address of the SQL Server Always On Listener, the SQL resource provider VM cannot resolve the listener’s host name.
 
+    **Workaround**: Ensure that DNS works correctly to resolve the listener IP to listener host name.
+    
 ### Known issues for Cloud Admins operating Azure Stack
 Refer to the documentation in the [Azure Stack Release Notes](azure-stack-servicing-policy.md).
 

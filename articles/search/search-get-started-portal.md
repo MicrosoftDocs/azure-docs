@@ -7,7 +7,7 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want a low-impact introduction to index design.
@@ -43,7 +43,7 @@ Many customers start with the free service. This version is limited to three ind
 
 Sections on the service dashboard show how many indexes, indexers, and data sources you already have. 
 
-![Lists of indexes, indexers, and datasources][media/search-get-started-portal/tiles-indexers-datasources2.png]
+![Lists of indexes, indexers, and datasources](media/search-get-started-portal/tiles-indexers-datasources2.png)
 
 ## <a name="create-index"></a> Create an index and load data
 
@@ -120,9 +120,13 @@ It can take a few minutes for the portal to update the page, but you should see 
 
 ## View the index
 
-The **Indexes** list shows existing indexes, including the *realestate-us-sample* index that you just created in the wizard.
+The main service page provides links to the resources created in your Azure Search service.  To view the index you just created, click **Indexes** from the list of links. 
 
-From this list, you can view the index schema and optionally add new fields, but you cannot change existing fields. Existing fields have a physical representation in Azure Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
+   ![Indexes list on the service dashboard](media/search-get-started-portal/indexes-list.png)
+
+From this list, you can click on the *realestate-us-sample* index that you just created, view the index schema. and optionally add new fields. 
+
+The **Fields** tab shows the index schema. Scroll to the bottom of the list to enter a new field. In most cases, you cannot change existing fields. Existing fields have a physical representation in Azure Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
 
    ![sample index definition](media/search-get-started-portal/sample-index-def.png)
 
@@ -133,6 +137,8 @@ To clearly understand what you can and cannot edit during index design, take a m
 ## <a name="query-index"></a> Query using Search explorer
 
 Moving forward, you should now have a search index that's ready to query using the built-in [**Search explorer**](search-explorer.md) query page. It provides a search box so that you can test arbitrary query strings.
+
+**Search explorer** is only equipped to handle [REST API requests](https://docs.microsoft.com/rest/api/searchservice/search-documents), but it accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) operations.
 
 > [!TIP]
 > The following steps are demonstrated at 6m08s into the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
@@ -146,11 +152,9 @@ Moving forward, you should now have a search index that's ready to query using t
 
    ![Index and API commands](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
-3. In the search bar, enter the query strings below and click **Search**.
+3. In the search bar, paste in the query strings below and click **Search**.
 
-    > [!NOTE]
-    > **Search explorer** is only equipped to handle [REST API requests](https://docs.microsoft.com/rest/api/searchservice/search-documents). It accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document](https://docs.microsoft.com/rest/api/searchservice/search-documents) operations.
-    >
+   ![Query string and search button](media/search-get-started-portal/search-explorer-query-string-example.png)
 
 ## Example queries
 

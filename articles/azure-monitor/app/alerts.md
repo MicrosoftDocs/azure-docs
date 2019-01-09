@@ -105,5 +105,5 @@ Don't forget that [proactive failure rate diagnostics](../../azure-monitor/app/p
 [client]: ../../azure-monitor/app/javascript.md
 [platforms]: ../../azure-monitor/app/platforms.md
 [roles]: ../../azure-monitor/app/resources-roles-access-control.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

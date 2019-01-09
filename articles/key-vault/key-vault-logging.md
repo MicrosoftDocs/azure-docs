@@ -34,7 +34,7 @@ Use this tutorial to help you get started with Azure Key Vault logging, to creat
 > [!NOTE]
 > This tutorial does not include instructions for how to create key vaults, keys, or secrets. For this information, see [Get started with Azure Key Vault](key-vault-get-started.md). Or, for Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli2.md).
 >
-> Currently, you cannot configure Azure Key Vault in the Azure portal. Instead, use these Azure PowerShell instructions.
+> This article provides Azure PowerShell instructions for updating the diagnostic logging. However, the same can be enabled by using Azure Monitor in the Azure portal in the **Diagnostic logs** section. 
 >
 >
 
