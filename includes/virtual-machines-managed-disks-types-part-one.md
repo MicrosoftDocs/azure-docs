@@ -20,6 +20,18 @@ Azure Managed Disks currently offers four disk types, three which are generally 
 |Standard SSD     |Web servers, lightly used enterprise applications and Dev/Test         |
 |Standard HDD     |Backup, Non-critical, Infrequent access         |
 
+## Disk comparison
+
+The following table provides a comparison of Standard HDD, Standard SSD, Premium SSD, and Ultra SSD for managed disks to help you decide what to use.
+
+|   |Azure Ultra SSD (Preview)   |Azure Premium Disk   |Azure Standard SSD   |Azure Standard HDD   |
+|---------|---------|---------|---------|---------|
+|Disk Type   |SSD   |SSD   |SSD   |HDD   |
+|Scenario   |IO-intensive workloads such as SAP HANA, top tier databases (e.g. SQL, Oracle), and other transaction-heavy workloads.   |Production and performance sensitive workloads   |Web servers, lightly used enterprise applications and Dev/Test   |Backup, Non-critical, Infrequent access   |
+|Disk size   |65,536 GiB (Preview)   |4,095 GiB (GA), 32,767 GiB (Preview)    |4,095 (GA) GiB, 32,767 GiB (Preview)   |4,095 GiB (GA), 32,767 GiB (Preview)   |
+|Max Throughput   |2,000 MiB/s (Preview)   |250 (GA) MiB/s, 750 MiB/s (Preview)   |60 MiB/s (GA), 500 MiB/s (Preview)   |60 Mib/s (GA), 500 MiB/s (Preview)   |
+|Max IOPS   |160,000 (Preview)   |7500 (GA), 20,000 (Preview)   |500 (GA), 2,000 (Preview)   |500 (GA), 2,000 (Preview)   |
+
 ## Ultra SSD (Preview)
 
 Azure Ultra SSD (preview) delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Sine additional benefits of Ultra SSD include the ability to dynamically change the performance of the disk, along with your workloads, without the need to restart your virtual machines. Ultra SSD is suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
