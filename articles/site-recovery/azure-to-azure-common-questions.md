@@ -102,22 +102,22 @@ The first recovery point that's generated has the complete copy. Any successive 
 ### Does increasing the retention period of recovery points increase the storage cost?
 Yes. If you increase the retention period from 24 hours to 72 hours, Site Recovery will save the recovery points for an additional 48 hours. The added time will incur storage charges. For example, if a single recovery point has delta changes of 10 GB and the per-GB cost is $0.16 per month, the additional charges would be $1.6 * 48 per month.
 
-## Multi-VM Consistency 
+## Multi-VM consistency 
 
-### What is Multi- VM consistency?
+### What is Multi-VM consistency?
 It means making sure that the recovery point is consistent across all the replicated virtual machines.
-Site Recovery provides an option of "Multi-VM consistency" which when selected  creates a replication group to replicate all the machines together that are part of the group.
-All the virtual machines will have shared crash consistent and app-consistent recovery points when failed over.
-Go through the tutorial to [enable "Multi-VM" consistency](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
+Site Recovery provides an option of "Multi-VM consistency," which, when you select it, creates a replication group to replicate all the machines together that are part of the group.
+All the virtual machines will have shared crash-consistent and app-consistent recovery points when they're failed over.
+Go through the tutorial to [enable Multi-VM consistency](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
 
-### Can I failover single virtual machine within a "Multi-VM" consistency replication group?
-By selecting "Multi-VM consistency" option you are stating that the application has a dependency on all the virtual machines within a group. Hence, single virtual machine failover is not allowed. 
+### Can I failover single virtual machine within a Multi-VM consistency replication group?
+By selecting the "Multi-VM consistency" option, you are stating that the application has a dependency on all the virtual machines within a group. Hence, single virtual machine failover is not allowed. 
 
-### How many virtual machines can I replicate as a part of "Multi-VM" consistency replication group?
-You can replicate 16 virtual machine together in a replication group.
+### How many virtual machines can I replicate as a part of a Multi-VM consistency replication group?
+You can replicate 16 virtual machines together in a replication group.
 
 ### When should I enable Multi-VM consistency ?
-Enabling multi-VM consistency can impact a workload performance( as it is CPU intensive) and should only be used if machines are running the same workload and you need consistency across multiple machines. For example if you have 2 sql servers and 2 web servers in an application then you should have "Multi-VM" consistency for the sql servers only.
+Because it is CPU intensive, enabling Multi-VM consistency can affect workload performance. It should be used only if machines are running the same workload and you need consistency across multiple machines. For example, if you have two SQL Server instances and two web servers in an application, you should have "Multi-VM consistency for the SQL Server instances only.
 
 
 ## Failover
@@ -128,7 +128,7 @@ Failover isn't automatic. You start failovers with a single click in the portal,
 
 ### Can I retain a public IP address after failover?
 
-The public IP address of the production application *cannot be retained on failover*. Workloads brought up as part of the failover process must be assigned an Azure public IP resource available in the target region. You can do this step manually or automate it through a recovery plan. To assign a public IP address by using a recovery plan, see [Set up public IP addresses after failover](https://docs.microsoft.com/azure/site-recovery/concepts-public-ip-address-with-site-recovery#public-ip-address-assignment-using-recovery-plan).  
+The public IP address of the production application *cannot be retained on failover*. Workloads brought up as part of the failover process must be assigned an Azure public IP resource that's available in the target region. You can do this step manually or automate it through a recovery plan. To assign a public IP address by using a recovery plan, see [Set up public IP addresses after failover](https://docs.microsoft.com/azure/site-recovery/concepts-public-ip-address-with-site-recovery#public-ip-address-assignment-using-recovery-plan).  
 
 ### Can I retain a private IP address during failover?
 Yes, you can retain a private IP address. By default, when you enable DR for Azure VMs, Site Recovery creates target resources based on source resource settings. For Azure VMs configured with static IP addresses, Site Recovery tries to provision the same IP address for the target VM, if it's not in use. To retain private IP address under different conditions, see [Retain IP addresses during failover](site-recovery-retain-ip-azure-vm-failover.md).
@@ -180,14 +180,14 @@ Yes, you can integrate Azure Automation runbooks into your recovery plan. [Learn
 No. When you [fail over](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) Azure VMs from one region to another, the VMs start up in the DR region in an unprotected state. To fail back the VMs to the primary region, you need to [reprotect](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) the VMs in the secondary region.
 
 ### At the time of reprotection, does Site Recovery replicate complete data from the secondary region to the primary region?
-It depends on the situation. For example, if the source region VM exists, then only changes between the source disk and the target disk are synchronized. Site Recovery computes the differentials by comparing the disks, and then it transfers the data. This process usually takes a few hours. For more information about what happens during reprotection, see [Reprotect failed over Azure VMs to the primary region]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
+It depends on the situation. For example, if the source region VM exists, only changes between the source disk and the target disk are synchronized. Site Recovery computes the differentials by comparing the disks, and then it transfers the data. This process usually takes a few hours. For more information about what happens during reprotection, see [Reprotect failed over Azure VMs to the primary region]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
 
 ### How much time does it take to fail back?
 After reprotection, the amount of time for failback is usually similar to the time for failover from the primary region to a secondary region. 
 
 ## Security
 ### Is replication data sent to the Site Recovery service?
-No, Site Recovery doesn't intercept replicated data, and doesn't have any information about what's running on your virtual machines. Only the metadata needed to orchestrate replication and failover is sent to the Site Recovery service.  
+No, Site Recovery doesn't intercept replicated data, and it doesn't have any information about what's running on your virtual machines. Only the metadata needed to orchestrate replication and failover is sent to the Site Recovery service.  
 Site Recovery is ISO 27001:2013, 27018, HIPAA, DPA certified, and is in the process of SOC2 and FedRAMP JAB assessments.
 
 ### Does Site Recovery encrypt replication?
