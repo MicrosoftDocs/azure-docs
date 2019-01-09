@@ -525,7 +525,7 @@ table.DeleteIfExists();
 ```
 
 ## Retrieve entities in pages asynchronously
-If you are reading a large number of entities, and you want to process/display entities as they are retrieved rather than waiting for them all to return, you can retrieve entities by using a segmented query. This example shows how to return results in pages by using the Async-Await pattern so that execution is not blocked while you're waiting for a large set of results to return. For more details on using the Async-Await pattern in .NET, see [Asynchronous programming with Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
+If you are reading a large number of entities, and you want to process/display entities as they are retrieved rather than waiting for them all to return, you can retrieve entities by using a segmented query. This example shows how to return results in pages by using the Async-Await pattern so that execution is not blocked while you're waiting for a large set of results to return. For more details on using the Async-Await pattern in .NET, see [Asynchronous programming with Async and Await (C# and Visual Basic)](/previous-versions/hh191443(v=vs.140)).
 
 ```csharp
 // Initialize a default TableQuery to retrieve all the entities in the table.
@@ -558,7 +558,7 @@ Now that you've learned the basics of Table storage, follow these links to learn
 * See more Table storage samples in [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
 * View the Table service reference documentation for complete details about available APIs:
 * [Storage Client Library for .NET reference](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-* [REST API reference](https://msdn.microsoft.com/library/azure/dd179355)
+* [REST API reference](/rest/api/storageservices/)
 * Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * View more feature guides to learn about additional options for storing data in Azure.
 * [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) to store unstructured data.

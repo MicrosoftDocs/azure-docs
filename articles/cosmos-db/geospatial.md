@@ -137,7 +137,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-If you don't have the latitude and longitude information, but have the physical addresses or location name like city or country, you can look up the actual coordinates by using a geocoding service like Bing Maps REST Services. Learn more about Bing Maps geocoding [here](https://msdn.microsoft.com/library/ff701713.aspx).
+If you don't have the latitude and longitude information, but have the physical addresses or location name like city or country, you can look up the actual coordinates by using a geocoding service like Bing Maps REST Services. Learn more about Bing Maps geocoding [here](/bingmaps/rest-services/).
 
 ## Querying spatial types
 Now that we've taken a look at how to insert geospatial data, let's take a look at how to query this data using Azure Cosmos DB using SQL and LINQ.
@@ -167,7 +167,7 @@ Spatial functions can be used to perform proximity queries against spatial data.
       "id": "WakefieldFamily"
     }]
 
-If you include spatial indexing in your indexing policy, then "distance queries" will be served efficiently through the index. For more information on spatial indexing, see the section below. If you don't have a spatial index for the specified paths, you can still perform spatial queries by specifying `x-ms-documentdb-query-enable-scan` request header with the value set to "true". In .NET, this can be done by passing the optional **FeedOptions** argument to queries with [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) set to true. 
+If you include spatial indexing in your indexing policy, then "distance queries" will be served efficiently through the index. For more information on spatial indexing, see the section below. If you don't have a spatial index for the specified paths, you can still perform spatial queries by specifying `x-ms-documentdb-query-enable-scan` request header with the value set to "true". In .NET, this can be done by passing the optional **FeedOptions** argument to queries with [EnableScanInQuery](/dotnet/api/microsoft.azure.documents.client.feedoptions.enablescaninquery#overloads) set to true. 
 
 ST_WITHIN can be used to check if a point lies within a Polygon. Commonly Polygons are used to represent boundaries like zip codes, state boundaries, or natural formations. Again if you include spatial indexing in your indexing policy, then "within" queries will be served efficiently through the index. 
 

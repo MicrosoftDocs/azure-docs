@@ -31,4 +31,4 @@ You can use Table storage to store flexible datasets like user data for web appl
 
     * [Storage Client Library for .NET reference](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
-    * [REST API reference](https://msdn.microsoft.com/library/azure/dd179355)
+    * [REST API reference](/rest/api/storageservices/)

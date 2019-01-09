@@ -2260,7 +2260,7 @@ The following example shows how to use the queryDocuments in the JavaScript serv
 5. ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [https://json.org/](https://json.org/)
 7. Javascript Specification [https://www.ecma-international.org/publications/standards/Ecma-262.htm](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8. LINQ [https://msdn.microsoft.com/library/bb308959.aspx](https://msdn.microsoft.com/library/bb308959.aspx) 
+8. LINQ [/previous-versions/dotnet/articles/bb308959(v=msdn.10)](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
 9. Query evaluation techniques for large databases [https://dl.acm.org/citation.cfm?id=152611](https://dl.acm.org/citation.cfm?id=152611)
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.

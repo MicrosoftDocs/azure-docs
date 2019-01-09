@@ -117,7 +117,7 @@ Congratulations! You've deployed Azure Cosmos DB, App Service web app and a samp
 
 * To learn more about Azure Cosmos DB, click [here](https://azure.microsoft.com/services/cosmos-db/).
 * To learn more about Azure App Service Web apps, click [here](https://go.microsoft.com/fwlink/?LinkId=325362).
-* To learn more about Azure Resource Manager templates, click [here](https://msdn.microsoft.com/library/azure/dn790549.aspx).
+* To learn more about Azure Resource Manager templates, click [here](/rest/api/resources/deployments).
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](https://go.microsoft.com/fwlink/?LinkId=529714)

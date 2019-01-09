@@ -479,7 +479,7 @@ There is one last thing for us to do, and that is to add the ability to edit **I
             return View(item);
         }
    
-    The first method handles the Http GET that happens when the user clicks on the **Edit** link from the **Index** view. This method fetches a [**Document**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) from Azure Cosmos DB and passes it to the **Edit** view.
+    The first method handles the Http GET that happens when the user clicks on the **Edit** link from the **Index** view. This method fetches a [**Document**](/dotnet/api/microsoft.azure.documents.document) from Azure Cosmos DB and passes it to the **Edit** view.
    
     The **Edit** view will then do an Http POST to the **IndexController**. 
    
@@ -535,7 +535,7 @@ In a few seconds, Visual Studio will finish publishing your web application and 
 ## <a name="_Toc395637775"></a>Next steps
 Congratulations! You just built your first ASP.NET MVC web application using Azure Cosmos DB and published it to Azure. The source code for the complete application, including the detail and delete functionality that were not included in this tutorial can be downloaded or cloned from [GitHub][GitHub]. So if you're interested in adding that to your app, grab the code and add it to this app.
 
-To add additional functionality to your application, review the APIs available in the [Azure Cosmos DB .NET Library](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) and feel free to contribute to the Azure Cosmos DB .NET Library on [GitHub][GitHub]. 
+To add additional functionality to your application, review the APIs available in the [Azure Cosmos DB .NET Library](/dotnet/api/overview/azure/cosmosdb) and feel free to contribute to the Azure Cosmos DB .NET Library on [GitHub][GitHub]. 
 
 [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
