@@ -44,9 +44,9 @@ The following figure illustrates the option. As shown, you can interconnect the 
 
 This option has the following drawbacks:
 
-- You are forcing inter-regional Azure communication for the deployment over suboptimal route.
-- You are denying the benefit of the high availability of Microsoft backbone network for the inter-regional communication.
-- You are taking the full routing responsibility for the inter-regional communication.
+- You're forcing inter-regional Azure communication for the deployment over suboptimal route.
+- You're denying the benefit of the high availability of Microsoft backbone network for the inter-regional communication.
+- You're taking the full routing responsibility for the inter-regional communication.
 
 ### Option 2: ExpressRoute cross connectivity and interconnecting on-premises networks
 
@@ -61,7 +61,7 @@ As shown in the above figure, you can additionally establish connectivity betwee
 
 The interconnection between the two on-premises networks is still needed for the on-premises networks to communicate with each other.
 
-This option allows inter-regional Azure communication for the private deployment ride over the Microsoft backbone and the communication between the on-premises network over the external network. However, the main drawback of the solution is that you need to establish multiple cross regional connectivities, which complicates maintenance and troubleshooting. Also, the option doesn't let you take advantage of high-available Microsoft global backbone for communicating between the two on-premises networks.
+This option allows inter-regional Azure communication for the private deployment ride over the Microsoft backbone and the communication between the on-premises network over the external network. However, the main drawback of the solution is that you need to establish multiple cross regional connectivities, which complicate maintenance and troubleshooting. Also, the option doesn't let you take advantage of high-available Microsoft global backbone for communicating between the two on-premises networks.
 
 ### Option 3: VNet-peering and interconnecting on-premises networks
 
@@ -69,7 +69,7 @@ The following figure illustrates the option. The option uses VNet-peering for th
 
 [![6]][6]
 
-The option provides optimal route for inter-region VNet communication. However, falls short if Fabrikam and/or Contoso has more complex Azure deployment such as hub-spoke model. Also, like previous two options, the option doesn't let you take advantage of high-available Microsoft global backbone for communicating between the two on-premises networks.
+The option provides optimal route for inter-region VNet communication. However, falls short if either Fabrikam or Contoso has more complex Azure deployment such as hub-spoke model. Also, like previous two options, the option doesn't let you take advantage of high-available Microsoft global backbone for communicating between the two on-premises networks.
 
 ## Global Reach
 
