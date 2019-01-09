@@ -16,7 +16,7 @@ ms.date: 11/02/2018
 # Create alerts for Azure SQL Database and Data Warehouse using Azure portal
 
 ## Overview
-This article shows you how to set up Azure SQL Database and Data Warehouse alerts using the Azure portal. Alerts can send you an email or call a web hook when some metric (for example database size or CPU usage) reaches the treshhold. This article also provides best practices for setting alert periods.    
+This article shows you how to set up Azure SQL Database and Data Warehouse alerts using the Azure portal. Alerts can send you an email or call a web hook when some metric (for example database size or CPU usage) reaches the threshold. This article also provides best practices for setting alert periods.    
 
 > [!IMPORTANT] This feature is not yet available in Managed Instance. As an alternative, you can use SQL Agent to send email alerts for some metrics based on [Dynamic Management Views](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
