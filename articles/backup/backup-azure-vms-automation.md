@@ -475,7 +475,7 @@ The following section lists steps necessary to create a VM using "VMConfig" file
       $osBlob.ICloudBlob.SetMetadata()
       ```
 
-   * **Non-managed and encrypted VMs without AD (BEK only)** - For non-managed, encrypted VMs (encrypted using BEK only), if source **keyVault/secret are not available** restore the secrets to keyVault using the procedure in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS blob (this step is not required for data blob). The $dekurl can be fetched from the restored keyVault. Note that the below script needs to be executed only when the source keyVault/secret is not available.
+   * **Non-managed and encrypted VMs without Azure AD (BEK only)** - For non-managed, encrypted VMs (encrypted using BEK only), if source **keyVault/secret are not available** restore the secrets to keyVault using the procedure in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS blob (this step is not required for data blob). The $dekurl can be fetched from the restored keyVault. Note that the below script needs to be executed only when the source keyVault/secret is not available.
 
        ```powershell
        $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -496,7 +496,7 @@ The following section lists steps necessary to create a VM using "VMConfig" file
         }
       ```
 
-   * **Non-managed and encrypted VMs without AD (BEK and KEK)** - For non-managed, encrypted VMs (encrypted using BEK & KEK), if source keyVault/key/secret are not available restore the key & secrets to keyVault using the procedure in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS blob (this step is not required for data blob). The $dekurl & $kekurl can be fetched from the restored keyVault. Note that the below script needs to be executed only when the source keyVault/key/secret is not available.
+   * **Non-managed and encrypted VMs without Azure AD (BEK and KEK)** - For non-managed, encrypted VMs (encrypted using BEK & KEK), if source keyVault/key/secret are not available restore the key & secrets to keyVault using the procedure in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS blob (this step is not required for data blob). The $dekurl & $kekurl can be fetched from the restored keyVault. Note that the below script needs to be executed only when the source keyVault/key/secret is not available.
 
       ```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -524,9 +524,9 @@ The following section lists steps necessary to create a VM using "VMConfig" file
 
   * **Managed and encrypted VMs with Azure AD (BEK only)** - For managed encrypted VMs (encrypted using BEK only), attach the restored managed disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-    * **Managed and encrypted VMs with Azure AD (BEK and KEK)** - For managed encrypted VMs (encrypted using BEK and KEK), attach the restored managed disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+  * **Managed and encrypted VMs with Azure AD (BEK and KEK)** - For managed encrypted VMs (encrypted using BEK and KEK), attach the restored managed disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-    * **Managed and encrypted VMs without Azure AD (BEK only)** -For managed, encrypted VMs without AD (encrypted using BEK only), if source **keyVault/secret are not available** restore the secrets to keyVault using the procedure in the [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md).Then execute the following scripts to set encryption details on the restored OS disk (this step is not required for data disk). The $dekurl can be fetched from the restored keyVault. Note that the below script needs to be executed only when the source keyVault/secret is not available.  
+  * **Managed and encrypted VMs without Azure AD (BEK only)** -For managed, encrypted VMs without AD (encrypted using BEK only), if source **keyVault/secret are not available** restore the secrets to keyVault using the procedure in the [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md).Then execute the following scripts to set encryption details on the restored OS disk (this step is not required for data disk). The $dekurl can be fetched from the restored keyVault. Note that the below script needs to be executed only when the source keyVault/secret is not available.  
 
       ```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -538,7 +538,7 @@ The following section lists steps necessary to create a VM using "VMConfig" file
 
     After the secrets are available and the encryption details are set on the OS disk, to attach the restored managed disks, see the article [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-    * **Managed and encrypted VMs without Azure AD (BEK and KEK)** - For managed, encrypted VMs without AD(encrypted using BEK & KEK),if source **keyVault/key/secret are not available** restore the key & secrets to keyVault using the procedure in in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS disk (this step is not required for data disk). The $dekurl & $kekurl can be fetched from the restored keyVault. Note that the below script needs to be executed only when the source keyVault/key/secret is not available.
+  * **Managed and encrypted VMs without Azure AD (BEK and KEK)** - For managed, encrypted VMs without AD(encrypted using BEK & KEK),if source **keyVault/key/secret are not available** restore the key & secrets to keyVault using the procedure in in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS disk (this step is not required for data disk). The $dekurl & $kekurl can be fetched from the restored keyVault. Note that the below script needs to be executed only when the source keyVault/key/secret is not available.
 
     ```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -569,7 +569,9 @@ The following section lists steps necessary to create a VM using "VMConfig" file
     ```powershell  
     New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
-7. **Push ADE extension to the VM with Azure AD** - Use the following command to manually enable encryption for the data disks  
+7. **Push ADE extension**
+
+  * **To the VM with Azure AD** - Use the following command to manually enable encryption for the data disks  
 
     For **BEK only**
 
@@ -582,7 +584,8 @@ The following section lists steps necessary to create a VM using "VMConfig" file
       ```powershell  
       Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
       ```
-      * **Push ADE extension to the VM without Azure AD** - Use the following command to manually enable encryption for the data disks. Note that If on running this command it asks for AADClientID, probably you need to update your Azure PowerShell.
+
+  * **To the VM without Azure AD** - Use the following command to manually enable encryption for the data disks. Note that If on running this command it asks for AADClientID, probably you need to update your Azure PowerShell.
 
       For **BEK only**
 
