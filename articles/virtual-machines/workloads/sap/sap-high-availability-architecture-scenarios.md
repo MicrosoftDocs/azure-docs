@@ -286,7 +286,7 @@ An availability set is used for achieving high availability of:
 
 
 ### Azure Availability Zones
-Azure is in process of introducing a concepts of [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) throughout different [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/). In Azure regions where Availability Zones are offered, the Azure regions have multiple data centers, which are independent in supply of power source, cooling, and network. Reason for offering different zones within a single Azure region is to enable you to deploy applications across two or three Availability Zones offered. Assuming that issues in power sources and/or network would affect one Availability Zone infrastructure only, your application deployment within an Azure region is still fully functional. Eventually with some reduced capacity since some VMs in one zone might be lost. But VMs in the other two zones are still up and running. The Azure regions that offer zones are listed in [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Azure is in process of rolling out a concepts of [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) throughout different [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/). In Azure regions where Availability Zones are offered, the Azure regions have multiple data centers, which are independent in supply of power source, cooling, and network. Reason for offering different zones within a single Azure region is to enable you to deploy applications across two or three Availability Zones offered. Assuming that issues in power sources and/or network would affect one Availability Zone infrastructure only, your application deployment within an Azure region is still fully functional. Eventually with some reduced capacity since some VMs in one zone might be lost. But VMs in the other two zones are still up and running. The Azure regions that offer zones are listed in [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 Using Availability Zones, there are some things to consider. The considerations list like:
 
@@ -315,13 +315,13 @@ Because Azure Storage keeps three images of the data by default, the use of RAID
 For more information, see [Azure Storage replication][azure-storage-redundancy].
 
 ### Azure Managed Disks
-Managed Disks is a new resource type in Azure Resource Manager that can be used instead of virtual hard disks (VHDs) that are stored in Azure storage accounts. Managed disks automatically align with the availability set of the virtual machine they are attached to. They increase the availability of your virtual machine and the services that are running on it.
+Managed Disks is a resource type in Azure Resource Manager that is recommended to be used instead of virtual hard disks (VHDs) that are stored in Azure storage accounts. Managed disks automatically align with an Azure availability set of the virtual machine they are attached to. They increase the availability of your virtual machine and the services that are running on it.
 
 For more information, see  [Azure Managed Disks overview][azure-storage-managed-disks-overview].
 
 We recommend that you use managed disks because they simplify the deployment and management of your virtual machines.
 
-SAP currently supports only premium managed disks. For more information, see SAP note [1928533].
+
 
 ## Utilizing Azure infrastructure high availability to achieve *higher availability* of SAP applications
 
@@ -393,6 +393,9 @@ You can use a WSFC solution to protect the SAP ASCS/SCS instance. The solution h
 > ![Linux][Logo_Linux] Linux
 >
 For more information about clustering the SAP ASCS/SCS instance by using the SLES cluster framework, see [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications][sap-suse-ascs-ha].
+
+For more information about clustering the SAP ASCS/SCS instance by using the Red Hat cluster framework, see [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
+
 
 ### SAP NetWeaver multi-SID configuration for a clustered SAP ASCS/SCS instance
 
