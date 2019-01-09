@@ -226,7 +226,7 @@
       - name: CLI
         href: shared-images-cli.md
       - name: PowerShell
-        href: shared-images-ps.md
+        href: shared-images-powershell.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Vertical scaling in a scale set

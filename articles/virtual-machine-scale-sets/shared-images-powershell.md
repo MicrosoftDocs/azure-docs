@@ -47,7 +47,7 @@ The steps below detail how to take an existing VM and turn it into a reusable cu
 To complete the example in this article, you must have an existing managed image. You can follow [Tutorial: Create and use a custom image for virtual machine scale sets with Azure PowerShell](tutorial-use-custom-image-powershell.md) to create one if needed. When working through the article, replace the resource group and VM names where needed.
 
 
-[!INCLUDE [virtual-machines-common-shared-images-ps](../../includes/virtual-machines-common-shared-images-ps.md)]
+[!INCLUDE [virtual-machines-common-shared-images-ps](../../includes/virtual-machines-common-shared-images-powershell.md)]
 
 ## Create a scale set from the shared image version
 

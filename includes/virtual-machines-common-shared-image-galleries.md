@@ -87,8 +87,8 @@ The following SDKs support creating Shared Image Galleries:
 - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
 - [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
-- [Python](https://docs.microsoft.com/en-us/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Go](https://docs.microsoft.com/en-us/go/azure/)
+- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Go](https://docs.microsoft.com/go/azure/)
 
 ## Templates
 
