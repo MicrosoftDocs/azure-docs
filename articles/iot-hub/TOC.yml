@@ -33,7 +33,7 @@
   - name: Control a device (Android)
     href: quickstart-control-device-android.md
   - name: Communicate using device streams (C#)
-    href: (iot-hub-device-streams-csharp-echo-quickstart.md
+    href: iot-hub-device-streams-csharp-echo-quickstart.md
   - name: Communicate using device streams (NodeJS)
     href: iot-hub-device-streams-nodejs-echo-quickstart.md
   - name: Communicate using device streams (C)
