@@ -35,7 +35,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. In the search box above the list of Azure Marketplace resources, search for and select **Windows Server 2016 Datacenter**, then choose **Create**.
 
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type the *myResourceGroup* for the name. 
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name. 
 
 	![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
 
