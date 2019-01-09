@@ -3,15 +3,9 @@ title: Quickstart - Direct web traffic with Azure Application Gateway - Azure Po
 description: Learn how use Azure PowerShell to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-
 ms.service: application-gateway
-ms.devlang: azurepowershell
 ms.topic: quickstart
-ms.workload: infrastructure-services
-ms.date: 12/26/2018
+ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -39,9 +33,9 @@ In Azure, you allocate related resources to a resource group. Create a resource 
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
-## Create network resources 
+## Create network resources
 
-Create a virtual network so that the application gateway can communicate with other resources. Two subnets are created in this example: one for the application gateway and the other for the backend servers. 
+Create a virtual network so that the application gateway can communicate with other resources. Two subnets are created in this example: one for the application gateway and the other for the backend servers. The application gateway subnet can contain only application gateways. No other resources are allowed.
 
 1. Create the subnet configurations by calling [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig).
 2. Create the virtual network with the subnet configurations by calling [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork).

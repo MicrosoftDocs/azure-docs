@@ -103,7 +103,7 @@ Azure API Management provides the following types of resources for use in the de
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Are you sure that you want to remove application?|  
 |WebDevelopersAppNotPublished|Not published|  
-|WebDevelopersAppNotSubminted|Not submitted|  
+|WebDevelopersAppNotSubmitted|Not submitted|  
 |WebDevelopersAppTableCategoryHeader|Category|  
 |WebDevelopersAppTableNameHeader|Name|  
 |WebDevelopersAppTableStateHeader|State|  
@@ -282,7 +282,7 @@ Azure API Management provides the following types of resources for use in the de
 |OAuth2SendingMethod_QueryParam|Query parameter|  
 |OAuth2AuthorizationServerGeneralException|An error has occurred while authorizing access via {0}|  
 |OAuth2AuthorizationServerCommunicationException|An HTTP connection to authorization server could not be established or it has been unexpectedly closed.|  
-|WebDocumentationOAuth2GeneralErrorMessage|Unexpected error occured.|  
+|WebDocumentationOAuth2GeneralErrorMessage|Unexpected error occurred.|  
 |AuthorizationServerCommunicationException|Authorization server communication exception has happened. Please contact administrator.|  
 |TextblockSubscriptionKeyHeaderDescription|Subscription key which provides access to this API. Found in your <a href='/developer'\>Profile</a\>.|  
 |TextblockOAuthHeaderDescription|OAuth 2.0 access token obtained from <i\>{0}</i\>. Supported grant types: <i\>{1}</i\>.|  

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Get alternate translations, Python - Translator Text API"
+title: "Quickstart: Look up words with bilingual dictionary, Python - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to find alternate translations and usage examples for a specified text using Python and the Translator Text REST API.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 10/21/2018
 ms.author: erhopf
 ---
 
-# Quickstart: Use the Translator Text API to get alternate translations using Python
+# Quickstart: Look up words with bilingual dictionary using Python
 
 In this quickstart, you'll learn how to find alternate translations and usage examples for a specified text using Python and the Translator Text REST API.
 
