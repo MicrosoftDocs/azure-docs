@@ -83,7 +83,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
-|Memory (GB)|11|22|33|44|55|66|77|
+|Memory (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|512|756|756|1536|1536|1536|
@@ -107,7 +107,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
-|Memory (GB)|88|99|110|132|176|220|440|
+|Memory (GB)|81.6|91.8|102|122.4|163.2|204|408|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|2048|2048|3072|3072|4096|4096|4096|
@@ -132,7 +132,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W generation|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
-|Memory (GB)|7|14|21|28|35|42|
+|Memory (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Columnstore support|N/A|N/A|N/A|N/A|N/A|N/A|
 |In-memory OLTP storage (GB)|1|2|3|4|5|6|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
@@ -156,7 +156,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W generation|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
-|Memory (GB)|49|56|63|70|112|168|
+|Memory (GB)|81.6|91.8|102|122.4|163.2|204|408|
 |Columnstore support|N/A|N/A|N/A|N/A|N/A|N/A|
 |In-memory OLTP storage (GB)|7|8|9.5|11|20|36|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
