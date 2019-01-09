@@ -25,7 +25,7 @@ This article helps you create and manage routing configuration for an ExpressRou
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
 
-You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [ExpressRoute routing domains and peerings](expressroute-circuit-peerings.md).
+You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [About peerings](expressroute-circuit-peerings.md).
 
 ## Configuration prerequisites
 
