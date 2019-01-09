@@ -288,12 +288,12 @@ if ($storageAccount -eq $null) {
 
 # Get or create an Azure file share within the desired storage account
 $fileShareName = "<my-file-share>"
-$fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
+$fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $fileShareName -and $_.IsSnapshot -eq $false
 }
 
 if ($fileShare -eq $null) {
-    $fileShare = New-AzStorageShare -Context $storageAccount.Context -Name $fileShareName
+    $fileShare = New-AzureStorageShare -Context $storageAccount.Context -Name $fileShareName
 }
 
 # Create the cloud endpoint

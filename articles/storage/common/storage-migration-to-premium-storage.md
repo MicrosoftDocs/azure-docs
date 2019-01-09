@@ -190,9 +190,9 @@ You can also copy the VHD file using the PowerShell cmdlet Start-AzStorageBlobCo
 ```powershell
 $sourceBlobUri = <source-vhd-uri>
 
-$sourceContext = New-AzStorageContext  –StorageAccountName <source-account> -StorageAccountKey <source-account-key>
+$sourceContext = New-AzureStorageContext  –StorageAccountName <source-account> -StorageAccountKey <source-account-key>
 
-$destinationContext = New-AzStorageContext  –StorageAccountName <dest-account> -StorageAccountKey <dest-account-key>
+$destinationContext = New-AzureStorageContext  –StorageAccountName <dest-account> -StorageAccountKey <dest-account-key>
 
 Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer <dest-container> -DestBlob <dest-disk-name> -DestContext $destinationContext
 ```
@@ -202,9 +202,9 @@ Example:
 ```powershell
 C:\PS> $sourceBlobUri = "https://sourceaccount.blob.core.windows.net/vhds/myvhd.vhd"
 
-C:\PS> $sourceContext = New-AzStorageContext  –StorageAccountName "sourceaccount" -StorageAccountKey "J4zUI9T5b8gvHohkiRg"
+C:\PS> $sourceContext = New-AzureStorageContext  –StorageAccountName "sourceaccount" -StorageAccountKey "J4zUI9T5b8gvHohkiRg"
 
-C:\PS> $destinationContext = New-AzStorageContext  –StorageAccountName "destaccount" -StorageAccountKey "XZTmqSGKUYFSh7zB5"
+C:\PS> $destinationContext = New-AzureStorageContext  –StorageAccountName "destaccount" -StorageAccountKey "XZTmqSGKUYFSh7zB5"
 
 C:\PS> Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer "vhds" -DestBlob "myvhd.vhd" -DestContext $destinationContext
 ```
@@ -608,14 +608,14 @@ The automation script is provided below. Replace text with your information and 
     # Get source storage account information, not considering the data disks and os disks are in different accounts
     $sourceStorageAccountName = $sourceOSDisk.MediaLink.Host -split "\." | select -First 1
     $sourceStorageKey = (Get-AzStorageKey -StorageAccountName $sourceStorageAccountName).Primary
-    $sourceContext = New-AzStorageContext –StorageAccountName $sourceStorageAccountName -StorageAccountKey $sourceStorageKey
+    $sourceContext = New-AzureStorageContext –StorageAccountName $sourceStorageAccountName -StorageAccountKey $sourceStorageKey
 
     # Create destination context
     $destStorageKey = (Get-AzStorageKey -StorageAccountName $DestStorageAccount).Primary
-    $destContext = New-AzStorageContext –StorageAccountName $DestStorageAccount -StorageAccountKey $destStorageKey
+    $destContext = New-AzureStorageContext –StorageAccountName $DestStorageAccount -StorageAccountKey $destStorageKey
 
     # Create a container of vhds if it doesn't exist
-    if ((Get-AzStorageContainer -Context $destContext -Name vhds -ErrorAction SilentlyContinue) -eq $null)
+    if ((Get-AzureStorageContainer -Context $destContext -Name vhds -ErrorAction SilentlyContinue) -eq $null)
     {
         Write-Host "`n[WORKITEM] - Creating a container vhds in the destination storage account." -ForegroundColor Yellow
         New-AzStorageContainer -Context $destContext -Name vhds
@@ -631,7 +631,7 @@ The automation script is provided below. Replace text with your information and 
         # from the same vhd blob.
         $ContinueAnswer = Read-Host "`n`t[Warning] You chose to copy data disks only. Moving VM requires removing the original VM (the disks and backing vhd files will NOT be deleted) so that the new VM can boot from the same vhd. This is an irreversible action. Do you wish to proceed right now? (Y/N)"
         If ($ContinueAnswer -ne "Y") { Write-Host "`n Exiting." -ForegroundColor Red;Exit }
-        $destOSVHD = Get-AzStorageBlob -Blob $sourceOSVHD -Container vhds -Context $sourceContext
+        $destOSVHD = Get-AzureStorageBlob -Blob $sourceOSVHD -Container vhds -Context $sourceContext
         Write-Host "`n[WORKITEM] - Removing the original VM (the vhd files are NOT deleted)." -ForegroundColor Yellow
         Remove-AzureVM -Name $SourceVMName -ServiceName $SourceServiceName
 
@@ -680,7 +680,7 @@ The automation script is provided below. Replace text with your information and 
                 Continue
             }
             $blobName = $disk.MediaLink.Segments[2]
-            $copyState = Get-AzStorageBlobCopyState -Blob $blobName -Container vhds -Context $destContext
+            $copyState = Get-AzureStorageBlobCopyState -Blob $blobName -Container vhds -Context $destContext
             if ($copyState.Status -eq "Success")
             {
                 Write-Host "`n[Status] - Success for disk copy $($disk.DiskName) at $($copyState.CompletionTime)" -ForegroundColor Green

@@ -232,26 +232,26 @@ $accountObject = Get-AzStorageAccount -ResourceGroupName $ResourceGroup `
 New-AzStorageContainer -StorageAccount $accountObject -Name $container2
 
 # Get a container
-Get-AzStorageContainer -ResourceGroupName $ResourceGroup `
+Get-AzureStorageContainer -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container
 
 # Get a container with an account object
-$containerObject = Get-AzStorageContainer -StorageAccount $accountObject -Name $container
+$containerObject = Get-AzureStorageContainer -StorageAccount $accountObject -Name $container
 
 # List containers
-Get-AzStorageContainer -ResourceGroupName $ResourceGroup `
+Get-AzureStorageContainer -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount
 
 # Remove a container (add -Force to dismiss the prompt)
-Remove-AzStorageContainer -ResourceGroupName $ResourceGroup `
+Remove-AzureStorageContainer -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container2
 
 # Remove a container with an account object
-Remove-AzStorageContainer -StorageAccount $accountObject -Name $container2
+Remove-AzureStorageContainer -StorageAccount $accountObject -Name $container2
 
 # Remove a container with a container object
-$containerObject2 = Get-AzStorageContainer -StorageAccount $accountObject -Name $container2
-Remove-AzStorageContainer -InputObject $containerObject2
+$containerObject2 = Get-AzureStorageContainer -StorageAccount $accountObject -Name $container2
+Remove-AzureStorageContainer -InputObject $containerObject2
 ```
 
 Set and clear legal holds:
@@ -268,14 +268,14 @@ Add-AzStorageContainerLegalHold -StorageAccount $accountObject -Name $container 
 Add-AzStorageContainerLegalHold -Container $containerObject -Tag <tag4>,<tag5>,...
 
 # Clear a legal hold
-Remove-AzStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
+Remove-AzureStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
 	-StorageAccountName $StorageAccount -Name $container -Tag <tag2>
 
 # with an account object
-Remove-AzStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>,<tag5>
+Remove-AzureStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>,<tag5>
 
 # with a container object
-Remove-AzStorageContainerLegalHold -Container $containerObject -Tag <tag4>
+Remove-AzureStorageContainerLegalHold -Container $containerObject -Tag <tag4>
 ```
 
 Create or update immutability policies:
@@ -299,21 +299,21 @@ Set-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -Immutabili
 Retrieve immutability policies:
 ```powershell
 # Get an immutability policy
-Get-AzStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
+Get-AzureStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
 	-StorageAccountName $StorageAccount -ContainerName $container
 
 # with an account object
-Get-AzStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+Get-AzureStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
 	-ContainerName $container
 
 # with a container object
-Get-AzStorageContainerImmutabilityPolicy -Container $containerObject
+Get-AzureStorageContainerImmutabilityPolicy -Container $containerObject
 ```
 
 Lock immutability policies (add -Force to dismiss the prompt):
 ```powershell
 # with an immutability policy object
-$policy = Get-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Get-AzureStorageContainerImmutabilityPolicy -ResourceGroupName `
 	$ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 $policy = Lock-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -force
 
@@ -335,7 +335,7 @@ Extend immutability policies:
 ```powershell
 
 # with an immutability policy object
-$policy = Get-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Get-AzureStorageContainerImmutabilityPolicy -ResourceGroupName `
 	$ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 
 $policy = Set-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
@@ -359,21 +359,21 @@ $policy = Set-AzStorageContainerImmutabilityPolicy -Container `
 Remove an immutability policy (add -Force to dismiss the prompt):
 ```powershell
 # with an immutability policy object
-$policy = Get-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Get-AzureStorageContainerImmutabilityPolicy -ResourceGroupName `
 	$ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
-Remove-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+Remove-AzureStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 # with an account name or container name
-Remove-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
+Remove-AzureStorageContainerImmutabilityPolicy -ResourceGroupName `
 	$ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
 	-Etag $policy.Etag
 
 # with an account object
-Remove-AzStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+Remove-AzureStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
 	-ContainerName $container -Etag $policy.Etag
 
 # with a container object
-Remove-AzStorageContainerImmutabilityPolicy -Container $containerObject `
+Remove-AzureStorageContainerImmutabilityPolicy -Container $containerObject `
 	-Etag $policy.Etag
 
 ```

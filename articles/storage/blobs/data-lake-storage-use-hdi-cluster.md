@@ -125,7 +125,7 @@ New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
 
 # Create default blob containers
 $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
-$destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 New-AzStorageContainer -Name $containerName -Context $destContext
 ```
 

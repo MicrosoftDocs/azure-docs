@@ -45,8 +45,8 @@ This script uses the following commands to delete containers based on container 
 | Command | Notes |
 |---|---|
 | [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Gets a specified Storage account or all of the Storage accounts in a resource group or the subscription. |
-| [Get-AzStorageContainer](/powershell/module/azure.storage/get-AzStoragecontainer) | Lists the storage containers associated with a storage account. |
-| [Remove-AzStorageContainer](/powershell/module/azure.storage/remove-AzStoragecontainer) | Removes the specified storage container. |
+| [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | Lists the storage containers associated with a storage account. |
+| [Remove-AzureStorageContainer](/powershell/module/azure.storage/Remove-AzureStorageContainer) | Removes the specified storage container. |
 
 ## Next steps
 

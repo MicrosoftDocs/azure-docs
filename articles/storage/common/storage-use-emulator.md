@@ -93,7 +93,7 @@ You can also generate a SAS token by using Azure PowerShell. The following examp
 2. Open Azure PowerShell and run the following commands, replacing `CONTAINER_NAME` with a name of your choosing:
 
 ```powershell
-$context = New-AzStorageContext -Local
+$context = New-AzureStorageContext -Local
 
 New-AzStorageContainer CONTAINER_NAME -Permission Off -Context $context
 

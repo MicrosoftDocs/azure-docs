@@ -58,7 +58,7 @@ $prefix = "foo"
 # Connect to Azure Storage
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup -Name $storageAccountName
 $ctx = $storageAccount.Context
-$listOfContainers = Get-AzStorageContainer -Context $ctx -Prefix $prefix
+$listOfContainers = Get-AzureStorageContainer -Context $ctx -Prefix $prefix
 $listOfContainers
 ```
 
