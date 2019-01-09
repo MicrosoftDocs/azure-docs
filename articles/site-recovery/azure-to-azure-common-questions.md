@@ -117,7 +117,7 @@ By selecting the "Multi-VM consistency" option, you are stating that the applica
 You can replicate 16 virtual machines together in a replication group.
 
 ### When should I enable Multi-VM consistency ?
-Because it is CPU intensive, enabling Multi-VM consistency can affect workload performance. It should be used only if machines are running the same workload and you need consistency across multiple machines. For example, if you have two SQL Server instances and two web servers in an application, you should have "Multi-VM consistency for the SQL Server instances only.
+Because it is CPU intensive, enabling Multi-VM consistency can affect workload performance. It should be used only if machines are running the same workload and you need consistency across multiple machines. For example, if you have two SQL Server instances and two web servers in an application, you should have Multi-VM consistency for the SQL Server instances only.
 
 
 ## Failover
