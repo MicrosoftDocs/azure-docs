@@ -1,6 +1,6 @@
 ---
-title: How to create a service account for Azure Stack registration
-description: How to create a service account role to avoid using global administrator for registration.
+title: How to create a registration role for Azure Stack
+description: How to create a custom role to avoid using global administrator for registration.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -17,7 +17,7 @@ ms.author: patricka
 ms.reviewer: rtiberiu
 
 ---
-# Create a service account for Azure Stack registration
+# Create a registration role for Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
@@ -26,9 +26,14 @@ For scenarios where you don’t want to give Global Administrator permissions in
 > [!WARNING]
 > This is not a security posture feature. Use it in scenarios where you want constraints to prevent accidental changes to the Azure Subscription. When a user is delegated rights to this custom role, the user has rights to edit permissions and elevate rights. Only assign users you trust to the custom role.
 
+When registering Azure Stack, the registration account requires permission to register applications in your Azure Active Directory tenant. The permission for non-administrators is a global setting for all users in the tenant. To view or change the setting see [create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+
+> [!IMPORTANT]
+> The *user can register applications* must be set to **Yes** for you to enable a user account to register Azure Stack. If the app registrations setting is set to **No**, You won't be able to use a user account and must use a [global administrator](../users-groups-roles/directory-assign-admin-roles.md) account to register Azure Stack.
+
 ## Create a customer role using PowerShell
 
-To simplify defining the custom role, use the following JSON template. The template creates a custom role that allows the required read and write access for Azure Stack registration.
+To create a custom role, you must have the `Microsoft.Authorization/roleDefinitions/write` permission on all `AssignableScopes`, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator). Use the following JSON template to simplify defining the custom role. The template creates a custom role that allows the required read and write access for Azure Stack registration.
 
 1. Create a new JSON file. For example,  `C:\CustomRoles\registrationrole.json`
 2. Add the following JSON to the file. Replace <SubscriptionID> with your Azure subscription ID.
