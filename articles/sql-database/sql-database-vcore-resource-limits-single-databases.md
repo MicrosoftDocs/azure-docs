@@ -28,7 +28,7 @@ You can set the service tier, compute size, and storage amount for a single data
 
 ### General Purpose service tier: Generation 4 compute platform (part 1)
 
-|Compute size|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_5|GP_Gen4_5|GP_Gen4_6
+|Compute size|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W generation|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
