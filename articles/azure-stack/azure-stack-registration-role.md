@@ -28,14 +28,13 @@ For scenarios where you don’t want to give Global Administrator permissions in
 
 When registering Azure Stack, the registration account requires permission to register applications in your Azure Active Directory tenant. The permission for non-administrators is a global setting for all users in the tenant. To view or change the setting see [create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
-> [!IMPORTANT]
-> The *user can register applications* must be set to **Yes** for you to enable a user account to register Azure Stack. If the app registrations setting is set to **No**, You won't be able to use a user account and must use a [global administrator](../users-groups-roles/directory-assign-admin-roles.md) account to register Azure Stack.
+The *user can register applications* must be set to **Yes** for you to enable a user account to register Azure Stack. If the app registrations setting is set to **No**, you can't use a user account and must use a global administrator account to register Azure Stack.
 
 ## Create a customer role using PowerShell
 
-To create a custom role, you must have the `Microsoft.Authorization/roleDefinitions/write` permission on all `AssignableScopes`, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator). Use the following JSON template to simplify defining the custom role. The template creates a custom role that allows the required read and write access for Azure Stack registration.
+To create a custom role, you must have the `Microsoft.Authorization/roleDefinitions/write` permission on all `AssignableScopes`, such as [Owner](../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator). Use the following JSON template to simplify defining the custom role. The template creates a custom role that allows the required read and write access for Azure Stack registration.
 
-1. Create a new JSON file. For example,  `C:\CustomRoles\registrationrole.json`
+1. Create a JSON file. For example,  `C:\CustomRoles\registrationrole.json`
 2. Add the following JSON to the file. Replace <SubscriptionID> with your Azure subscription ID.
 
     ```json
