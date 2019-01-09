@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2018
+ms.date: 01/09/2018
 ms.author: magoedte
 
 ---
@@ -47,7 +47,7 @@ When onboarding an Azure VM from the Azure portal, the following steps occur:
 * The Azure Monitor for VMs Map Dependency agent is installed on Azure VMs using an extension, if determined it is required.  
 * Azure Monitor components supporting the Health feature are configured, if needed, and the VM is configured to report health data.
 
-During the onboard process, we check for status on each of the above to return a notification status to you in the portal.  Configuration of the workspace and the agent installation typically takes 5 to 10 minutes.  Viewing monitoring and health data in the portal take an additional 5 to 10 minutes.  
+During the onboard process, we check for status on each of the above to return a notification status to you in the portal. Configuration of the workspace and the agent installation typically takes 5 to 10 minutes. Viewing monitoring and health data in the portal take an additional 5 to 10 minutes.  
 
 If you have initiated onboarding and see messages indicating the VM needs to be onboarded,  allow for up to 30 minutes for the VM to complete the process. 
 
