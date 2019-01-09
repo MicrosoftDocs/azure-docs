@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: georgel
 ---
@@ -35,7 +35,7 @@ There are several prerequisites that need to be in place before you can deploy t
 
   |Minimum Azure Stack version|SQL RP version|
   |-----|-----|
-  |Version 1811 (1.1811.0.101)|[SQL RP version 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
+  |Version 1808 (1.1808.0.97)|[SQL RP version 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
   |Version 1808 (1.1808.0.97)|[SQL RP version 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
   |Version 1804 (1.0.180513.1)|[SQL RP version 1.1.24.0](https://aka.ms/azurestacksqlrp11240)
   |     |     |
