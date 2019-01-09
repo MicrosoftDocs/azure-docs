@@ -20,33 +20,33 @@ In our terminology, a _service_ is an entity that authenticates using IoT Hub's 
     <img style="margin:auto;display:block;background-color:white;width:50%" src="./media/iot-hub-device-streams-tutorial/iot-hub-device-streams.svg">
 </p>
 
-The device and service programs can interact using a variety of standards-based or properietary protocols. As such, device streams treat application traffic simply as an opague bytes stream passing through. This makes device streams application and protocol agnostic and hence allow this feature to act as a building block for end-to-end connectivity between device and service applications.
+The device and service programs can interact using a variety of standards-based or proprietary protocols. As such, device streams treat application traffic simply as an opaque bytes stream passing through. This makes device streams application and protocol agnostic and hence allows this feature to act as a building block for end-to-end connectivity between device and service applications.
 
 
 ## Overview
 Establishing a device stream involves an initiation handshake that takes place between the device, service, and IoT Hub. As part of the handshake, both device and service authenticate with IoT Hub and each create a WebSocket client through which they exchange application data.
 
-The data sent over the WebSocket clients on each side will be tunneled transparently through IoT hub while maintaining reliability and ordering gaurantees that are on par with TCP.
+The data sent over the WebSocket clients on each side will be tunneled transparently through IoT hub while maintaining reliability and ordering guarantees that are on par with TCP.
 
 
 
 ## Device Streams Initiation Handshake
 The device streams initiation handshake can be thought of as a control-plane operation to be contrasted with the actual exchange of data between the device and service as a data-plane operation. As part of the handshake, device and service each receive a temporary authentication token and the URI of a _device streaming endpoint_ to connect to for sending and receiving data. The authentication token is valid for 60 seconds and device and service must use it prior to expiry to create and authenticate a WebSocket client with the streaming endpoint.
 
-The details of the steps involved in this process is depicted in the figure below:
+The details of the steps involved in this process are depicted in the figure below:
 <p>
     <img style="margin:auto;display:block;background-color:white;width:50%" src="./media/iot-hub-device-streams-tutorial/iot-hub-device-streams-handshake.svg">
 </p>
 
-1. Device connects to IoT Hub and authenticates using its device credentials (this step usually takes place when the device first comes online). The device also registers a callback to be notified when new streams are initiated towards it from the service-side. The callback is registered for a specific stream name which the device expects to be receiving in the future.
+1. Device connects to IoT Hub and authenticates using its device credentials (this step usually takes place when the device first comes online). The device also registers a callback to be notified when new streams are initiated towards it from the service-side. The callback is registered for a specific stream name, which the device expects to be receiving in the future.
 
 2. The service authenticates with IoT Hub using valid _service connect_ credentials and initiates a stream by providing the target device ID and the stream name - the latter must match the name used by the device in step 1.
 
 3. IoT hub notifies the device's program via invoking the callback registered in step 1 for the corresponding stream name. The URI of the streaming endpoint and the authentication token will also be passed to the device via this callback. At this point, the device has an option to accept or reject the stream initiation request. The following steps assume that the device has accepted the stream request.
 
-4. The device uses the authentication token received in step 3 to authenticate with the streaming endpoint using a WebSocket client. Once established, the device uses the WebSocket client to send and recevieve data to the service. This data is tunneled through the streaming endpoint.
+4. The device uses the authentication token received in step 3 to authenticate with the streaming endpoint using a WebSocket client. Once established, the device uses the WebSocket client to send and receive data to the service. This data is tunneled through the streaming endpoint.
 
-5. The service will also be given the URI of the streaming endpoint and the authentication token which it uses to create a WebSocket client. Once the WebSocket client is established, the service can use the WebSocket client to send and recevieve data to the device. This data is similartly tunneled through the streaming endpoint.
+5. The service will also be given the URI of the streaming endpoint and the authentication token, which it uses to create a WebSocket client. Once the WebSocket client is established, the service can use the WebSocket client to send and receive data to the device. This data is similarly tunneled through the streaming endpoint.
 
 
 ## Connectivity Requirements
@@ -80,11 +80,11 @@ Details: [TODO]
 ## Next Steps
 
 Use the resources below to learn how to use IoT Hub device streams programmatically:
-- [QuickStart: Sample echo programs using device streams in C#](./iot-hub-device-streams-csharp-echo-quickstart.md)
-- [QuickStart: Sample echo program using device streams in C](./iot-hub-device-streams-c-echo-quickstart.md)
-- [QuickStart: Sample echo program using device streams in NodeJS](./iot-hub-device-streams-nodejs-echo-quickstart.md)
+- [Quickstart: Sample echo programs using device streams in C#](./iot-hub-device-streams-csharp-echo-quickstart.md)
+- [Quickstart: Sample echo program using device streams in C](./iot-hub-device-streams-c-echo-quickstart.md)
+- [Quickstart: Sample echo program using device streams in NodeJS](./iot-hub-device-streams-nodejs-echo-quickstart.md)
 
 Use the resources below to learn how to use IoT Hub device streams in an existing application:
-- [QuickStart: Sample proxy programs using device streams in C#](./iot-hub-device-streams-csharp-proxy-quickstart.md)
-- [QuickStart: Sample proxy program using device streams in C](./iot-hub-device-streams-c-proxy-quickstart.md)
-- [QuickStart: Sample proxy program using device streams in NodeJS](./iot-hub-device-streams-nodejs-proxy-quickstart.md)
+- [Quickstart: Sample proxy programs using device streams in C#](./iot-hub-device-streams-csharp-proxy-quickstart.md)
+- [Quickstart: Sample proxy program using device streams in C](./iot-hub-device-streams-c-proxy-quickstart.md)
+- [Quickstart: Sample proxy program using device streams in NodeJS](./iot-hub-device-streams-nodejs-proxy-quickstart.md)
