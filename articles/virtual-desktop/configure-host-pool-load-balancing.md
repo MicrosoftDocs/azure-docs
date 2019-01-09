@@ -11,7 +11,10 @@ ms.author: helohr
 ---
 # Configure the Windows Virtual Desktop load-balancing method
 
-Configuring the load balancing method for a host pool allows you to adjust the Windows Virtual Desktop environment to better suit your needs. This does not apply to a persistent desktop host pool since users always have a 1:1 mapping to a session host within the host pool.
+Configuring the load balancing method for a host pool allows you to adjust the Windows Virtual Desktop environment to better suit your needs.
+
+>[!NOTE]
+> This does not apply to a persistent desktop host pool since users always have a 1:1 mapping to a session host within the host pool.
 
 ## Configure breadth-first load balancing
 
