@@ -991,7 +991,7 @@ If you're using Git integration with your data factory, and you have a CI/CD pip
 
 -   **Git Integration**. You are only required to configure your Development data factory with Git integration. Changes to Test and Production are deployed via CI/CD, and they don't need to have Git integration.
 
--   **Data Factory CI/CD script**. Before the Resource Manager deployment step in CI/CD, you must take care of things like stopping the triggers, and different kind of factory cleanup. We recommend using this script as it takes care of all these things. Run this script once before the deployment, and once after, using appropriate flags.
+-   **Data Factory CI/CD script**. Before the Resource Manager deployment step in CI/CD, you must take care of things like stopping the triggers, and different kind of factory cleanup. We recommend using [this script](#sample-script-to-stop-and-restart-triggers-and-clean-up) as it takes care of all these things. Run the script once before the deployment, and once after, using appropriate flags.
 
 -   **Integration Runtimes and sharing**. Integration Runtimes are one of the infrastructural components in your data factory, which undergo changes less often, and are similar across all stages in your CI/CD. As a result, Data Factory expects you to have the same name and same type of Integration Runtimes across all stages of CI/CD. If you are looking to share Integration Runtimes across all stages - for instance, the Self-hosted Integration Runtimes - one way to share is by hosting the Self-hosted IR in a ternary factory, just for containing the shared Integration Runtimes. Then you can use them in Dev/Test/Prod as a Linked IR type.
 
