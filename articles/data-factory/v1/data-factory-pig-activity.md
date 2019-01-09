@@ -216,6 +216,7 @@ To use parameterized Pig script, do the following:
     PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);
     Store PigSampleOut into '$Output' USING PigStorage (','); 
     ```
+
 ## See Also
 * [Hive Activity](data-factory-hive-activity.md)
 * [MapReduce Activity](data-factory-map-reduce.md)
