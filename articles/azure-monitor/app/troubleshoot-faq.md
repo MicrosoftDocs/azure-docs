@@ -19,7 +19,7 @@ ms.author: mbullwin
 *I'm having trouble setting up my:*
 
 * [.NET app](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
-* [Monitoring an already-running app](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
+* [Monitoring an already-running app](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot)
 * [Azure diagnostics](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Java web app](../../azure-monitor/app/java-troubleshoot.md)
 
@@ -295,5 +295,5 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 
 [data]: ../../azure-monitor/app/data-retention-privacy.md
 [platforms]: ../../azure-monitor/app/platforms.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

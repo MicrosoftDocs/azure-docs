@@ -33623,6 +33623,36 @@
         "redirect_document_id":  true
     },
     {
+      "source_path":  "articles/application-insights/app-insights-devops.md",
+      "redirect_url":  "/azure/azure-monitor/app/devops",
+      "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-tutorial-performance.md",
+        "redirect_url":  "/azure/azure-monitor/learn/tutorial-performance",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-tutorial-users.md",
+        "redirect_url":  "/azure/azure-monitor/learn/tutorial-users",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/app-insights-nuget.md",
+        "redirect_url":  "/azure/azure-monitor/app/nuget ",
+        "redirect_document_id":  true
+    },
+    {
+        "source_path":  "articles/application-insights/micrometer-java.md",
+        "redirect_url":  "/azure/azure-monitor/app/micrometer-java ",
+        "redirect_document_id":  true
+    },
+    {
+      "source_path":  "articles/application-insights/app-insights-overview.md",
+      "redirect_url":  "/azure/azure-monitor/app/app-insights-overview",
+      "redirect_document_id":  true
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true

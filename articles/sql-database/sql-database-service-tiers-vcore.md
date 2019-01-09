@@ -61,6 +61,10 @@ In the vCore-based purchasing model, you can exchange your existing licenses for
 
 ![pricing](./media/sql-database-service-tiers/pricing.png)
 
+If you want to use your existing on-premises SQL Server licenses, you can pay just the base price for the underlying Azure infrastructure (for example Azure VM where the database is running) while the SQL Server Database engine license will not be included in your bill. In some period, you can use your on-premises license both for SQL Server and Azure SQL Database. Otherwise, the license cost for SQL Server database engine will be included in the price of your database or instance. If you are using PowerShell or Azure CLI to create or update your database or instance, there are two pricing options that you can choose:
+- **BasePrice** means that you have a valid SQL Server license that you want to use as part of [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) and that you want to pay only the base infrastructure cost.
+- **LicenseIncluded** means that you either don't have on-premises SQL Server license, or you don't want to use your on-premises license for database or Managed Instance. In this case, SQL Server license will be included in your bill. 
+
 ## Migration from DTU model to vCore model
 
 ### Migration of a database
