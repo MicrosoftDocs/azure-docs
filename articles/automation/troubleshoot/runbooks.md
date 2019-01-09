@@ -227,6 +227,8 @@ This error can be caused by the following reasons:
 
 3. Module Incompatible. This error can occur if module dependencies aren't correct and if they aren't, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
 
+4. Attempting to call a an executable or subprocess in a runbook that runs in an Azure Sandbox. This scenario is not supported.
+
 #### Resolution
 
 Any of the following solutions fix the problem:
@@ -236,6 +238,8 @@ Any of the following solutions fix the problem:
 * Update your Azure modules by following the steps [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).  
 
 * Another solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers aren't limited by the memory and network limits that Azure sandboxes are.
+
+* If you need to call a process (such as .exe or subprocess.call) in a runbook, you'll need to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook fails because of deserialized object
 

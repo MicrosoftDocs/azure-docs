@@ -26,6 +26,31 @@ The following diagram shows the lifecycle of a runbook job for [PowerShell runbo
 
 Your jobs have access to your Azure resources by making a connection to your Azure subscription. They only have access to resources in your data center if those resources are accessible from the public cloud.
 
+## Runbook behavior
+
+Runbooks execute based on the logic that is defined inside them. If a runbook is interrupted, the runbook restarts at the beginning. This behavior requires runbooks to be written in a way where they support being restarted in case of transient issues.
+
+If your script creates resources, you should check to see if the resource already exists before attempting to create it again. A basic example is shown in the following example.
+
+```powershell
+$vmName = "WindowsVM1"
+$resourceGroupName = "myResourceGroup"
+$myCred = Get-AutomationPSCredential "MyCredential"
+$vmExists = Get-AzureRmResource -Name $vmName -ResourceGroupName $resourceGroupName
+
+if(!$vmExists)
+    {
+    Write-Output "VM $vmName does not exists, creating"
+    New-AzureRmVM -Name $vmName -ResourceGroupName $resourceGroupName -Credential $myCred
+    }
+else
+    {
+    Write-Output "VM $vmName already exists, skipping"
+    }
+```
+
+When authoring runbooks, actions should be authored in a way that the runbook is restartable. A way to do this is by keeping track of the progress of the runbook using an external source such as storage accounts, a database, or shared files. By tracking the state externally you can create logic in your runbook to first check the state of the last action the runbook took and based off the results either skip or continue specific tasks in the runbook.
+
 ## Job statuses
 
 The following table describes the different statuses that are possible for a job. PowerShell has two types of errors, terminating and non-terminating errors. Terminating errors set the runbook status to **Failed** if they occur. Non-terminating errors allow the script to continue even after they occur. An example of a non-terminating error is using the `Get-ChildItem` cmdlet with a path that doesn't exist. PowerShell sees that the path doesn't exist, throws an error, and continues to the next folder. This error wouldn't set the runbook status to **Failed** and could be marked as **Completed**. To force a runbook to stop on a non-terminating error, you can use `-ErrorAction Stop` on the cmdlet.
