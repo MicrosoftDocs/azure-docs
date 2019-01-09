@@ -120,7 +120,7 @@ If you see that your drive does not have data after it was unmounted (though dat
  
 If that is the case, see the resolution for [drives getting mounted as read-only](#issue-drive-getting-mounted-as-read-only).
 
-If that was not the case, [download diagnostics logs](#download-diagnostic-logs) from your system and [contact Microsoft Support](data-box-disk-contact-microsoft-support).
+If that was not the case, [download diagnostics logs](#download-diagnostic-logs) from your system and [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## Deployment issues for Windows
 
@@ -150,7 +150,7 @@ This indicates that you are likely missing the appropriate version of Windows Po
 
 You can install [Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) and retry the operation.
  
-If you are still not able to unlock the volumes, [contact Microsoft Support](data-box-disk-contact-microsoft-support).
+If you are still not able to unlock the volumes, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## Next steps
 
