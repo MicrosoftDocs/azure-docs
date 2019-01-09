@@ -83,6 +83,8 @@ Activity logs are retained for 90 days. You can query for any range of dates, as
 
 ## Deployment issues for Linux
 
+This section details some of the top issues faced during deployment of Data Box Disk when using a Linux client for data copy.
+
 ### Issue: Drive getting mounted as read-only
  
 **Cause** 
@@ -122,6 +124,8 @@ If that was not the case, [download diagnostics logs](#download-diagnostic-logs)
 
 ## Deployment issues for Windows
 
+This section details some of the top issues faced during deployment of Data Box Disk when using a Linux client for data copy
+
 ### Issue: Could not unlock drive from BitLocker
  
 **Cause** 
@@ -144,7 +148,7 @@ This indicates that you are likely missing the appropriate version of Windows Po
 
 **Resolution**
 
-You can install[Windows PowerShell v5.0](https://www.microsoft.com/download/details.aspx?id=54616) and then try the operation again.
+You can install [Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) and retry the operation.
  
 If you are still not able to unlock the volumes, [contact Microsoft Support](data-box-disk-contact-microsoft-support).
 
