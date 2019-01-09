@@ -48,9 +48,9 @@ You will see output similar to the following example (showing an NVIDIA Tesla K8
 
 Then run installation commands specific for your distribution.
 
-### Ubuntu 16.04 LTS
+### Ubuntu 
 
-1. Download and install the CUDA drivers.
+1. Download and install the CUDA drivers from the NVIDIA website. For example, for Ubuntu 16.04 LTS:
   ```bash
   CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
@@ -171,7 +171,7 @@ Deploy RDMA-capable N-series VMs from one of the images in the Azure Marketplace
 
 To install NVIDIA GRID drivers on NV or NVv2-series VMs, make an SSH connection to each VM and follow the steps for your Linux distribution. 
 
-### Ubuntu 16.04 LTS
+### Ubuntu 
 
 1. Run the `lspci` command. Verify that the NVIDIA M60 card or cards are visible as PCI devices.
 

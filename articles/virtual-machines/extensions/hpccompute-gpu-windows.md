@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/5/2018
+ms.date: 01/09/2019
 ms.author: roiyz
 
 ---
@@ -33,7 +33,7 @@ This extension supports the following OSs:
 
 | Distribution | Version |
 |---|---|
-| Windows 10 | Core |
+| Windows 10 (up to version 1803)| Core |
 | Windows Server 2016 | Core |
 | Windows Server 2012R2 | Core |
 
