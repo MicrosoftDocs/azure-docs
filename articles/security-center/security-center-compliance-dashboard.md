@@ -39,8 +39,7 @@ walks you through how to upgrade to Standard.
 
 ##  Assess your regulatory compliance
 
-Security Center continuously assesses the configuration of your resources to identify security issues and vulnerabilities. These assessments are presented as recommendations, which focus on improving your security hygiene. In the Regulatory compliance dashboard, the relevant Security Center assessments and recommendations are presented in the context of a particular compliance standard, mapped specifically to the associated controls within that standard. You can thus view your compliance posture with respect to the standard based on
-the status of these assessments.
+Security Center continuously assesses the configuration of your resources to identify security issues and vulnerabilities. These assessments are presented as recommendations, which focus on improving your security hygiene. In the Regulatory compliance dashboard, you can view a set of compliance standards with all their requirements, where supported requirements are mapped to applicable security assessments. This enables you to  view your compliance posture with respect to the standard, based on the status of these assessments.
 
 The regulatory compliance dashboard view can help focus your attention on the gaps in compliance with a standard or regulation that is important to you. This focused view also enables you to continuously monitor your compliance score over time within dynamic cloud and hybrid environments.
 
