@@ -50,7 +50,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     ```csharp
     var key = "YOUR-ACCESS-KEY";
     var searchTerm = "Quantum Computing";
-    var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials(key));
+    var client = new NewsSearchClient(new ApiKeyServiceClientCredentials(key));
     ```
 
 ## Send a request, and parse the result
@@ -65,7 +65,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     ```csharp
     if (newsResults.Value.Count > 0)
     {
-        var firstNewsResult = newsResults.Value.First();
+        var firstNewsResult = newsResults.Value[0];
     
         Console.WriteLine($"TotalEstimatedMatches value: {newsResults.TotalEstimatedMatches}");
         Console.WriteLine($"News result count: {newsResults.Value.Count}");
@@ -73,7 +73,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
         Console.WriteLine($"First news url: {firstNewsResult.Url}");
         Console.WriteLine($"First news description: {firstNewsResult.Description}");
         Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
-        Console.WriteLine($"First news provider: {firstNewsResult.Provider.First().Name}");
+        Console.WriteLine($"First news provider: {firstNewsResult.Provider[0].Name}");
     }
     
     else

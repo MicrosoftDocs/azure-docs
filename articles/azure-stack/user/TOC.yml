@@ -181,7 +181,7 @@
         href: azure-stack-develop-templates.md
       - name: Check templates
         href: azure-stack-validate-templates.md
-      - name: Deploy with the Portal
+      - name: Deploy with the portal
         href: azure-stack-deploy-template-portal.md
       - name: Deploy with PowerShell
         href: azure-stack-deploy-template-powershell.md

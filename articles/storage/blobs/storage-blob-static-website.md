@@ -93,10 +93,10 @@ Query for the web endpoint URL:
 az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
 ```
 
-Upload objects to the *$web* container from a source directory:
+Upload objects to the *$web* container from a source directory. Be sure to properly escape the reference to the *$web* container in the command. For example, if you are using Azure CLI from CloudShell in the Azure portal, escape the *$web* container as shown:
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d `$web --account-name <ACCOUNT_NAME>
 ```
 
 ## Deployment
