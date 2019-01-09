@@ -43,12 +43,12 @@ category | This property is always **ServiceHealth**.
 resourceId | The Resource ID of the impacted resource.
 Properties.title | The localized title for this communication. English is the default.
 Properties.communication | The localized details of the communication with HTML markup. English is the default.
-Properties.incidentType | One of the following values: **ActionRequired**, **Information**, **Incident**, **Maintenance**, or **Security**.
+Properties.incidentType | One of the following values: **ActionRequired**, **Informational**, **Incident**, **Maintenance**, or **Security**.
 Properties.trackingId | The incident with which this event is associated. Use this to correlate the events related to an incident.
 Properties.impactedServices | An escaped JSON blob that describes the services and regions impacted by the incident. The property includes a list of services, each of which has a **ServiceName**, and a list of impacted regions, each of which has a **RegionName**.
 Properties.defaultLanguageTitle | The communication in English.
 Properties.defaultLanguageContent | The communication in English as either HTML markup or plain text.
-Properties.stage | The possible values for **Incident**, and **Security** are **Active,** **Resolved** or **RCA**. For **ActionRequired** or **Information** the only value is **Active.** For **Maintenance** they are: **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved**, or **Complete**.
+Properties.stage | The possible values for **Incident**, and **Security** are **Active,** **Resolved** or **RCA**. For **ActionRequired** or **Informational** the only value is **Active.** For **Maintenance** they are: **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved**, or **Complete**.
 Properties.communicationId | The communication with which this event is associated.
 
 ### Details on service health level information
@@ -67,7 +67,7 @@ Properties.communicationId | The communication with which this event is associat
             <dd>standard planned maintenance</dd>
         </dl>
     </li>
-    <li><b>Information</b> (properties.incidentType == Information)
+    <li><b>Information</b> (properties.incidentType == Informational)
         <dl>
             <dt>Informational</dt>
             <dd>Administrator may be required to prevent impact to existing services</dd>
