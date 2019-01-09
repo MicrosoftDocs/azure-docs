@@ -391,4 +391,4 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationI
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [new]: ../../azure-monitor/app/create-new-resource.md 
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
