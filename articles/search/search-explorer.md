@@ -76,7 +76,7 @@ An example might be `"Seattle apartment "Lake Washington" miele OR thermador app
 
 ### Example 3 - count of matching documents 
 
-Add **$count** to get the number of matches found in an index. On an unqualified search, count is the total number of documents in the index.
+Add **$count** to get the number of matches found in an index. On an empty search, count is the total number of documents in the index. On a qualified search, its the number of documents matching the query input.
 
    ```Input
    $count=true
