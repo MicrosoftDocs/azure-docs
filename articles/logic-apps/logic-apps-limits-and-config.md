@@ -130,9 +130,9 @@ for help with your requirements.
 
 | Name | Limit | Notes |
 |------|-------|-------|
-| FTP | 50 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
-| SFTP | 50 MB | To work around this limit, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) or see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
-| SFTP-SSH | 1 GB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| FTP | 50 MB | To exceed this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| SFTP | 50 MB | To exceed this limit, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) or see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| SFTP-SSH | 1 GB | To exceed this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
 |||| 
 
 <a name="request-limits"></a>
