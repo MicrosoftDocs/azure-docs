@@ -246,7 +246,7 @@ To prepare your Databricks cluster and get sample notebooks:
     | Python version | 3 |
     | Workers | 2 or higher |
 
-    These settings are only for using Automated Machine Learning on Databricks
+    Use these settings are only if you will be using Automated Machine Learning on Databricks:
     
     |   Setting | Value |
     |----|---|
@@ -265,7 +265,7 @@ To prepare your Databricks cluster and get sample notebooks:
         |Source | Upload Python Egg or PyPI
         |PyPi Name | azureml-sdk[databricks]
 
-    * To install Azure ML with Automated ML SDKL
+    * To install Azure ML with Automated ML SDKL:
         | Setting | Value |
         |----|---|
         |Source | Upload Python Egg or PyPI
@@ -295,7 +295,6 @@ To prepare your Databricks cluster and get sample notebooks:
 
    >[!Warning]
    > Many sample notebooks are available for use with Azure Machine Learning service. Only [these sample notebooks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) work with Azure Databricks.
-   > 
 
 1.  [Import this archive file](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) into your Databricks cluster and start exploring as described on the [Machine Learning Notebooks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) page.
 
