@@ -39,9 +39,9 @@ To create your first project, select **New Project**. The **Create new project**
 
 Enter a name and a description for the project. Then select a Resource Group. If your signed-in account is associated with an Azure account, the Resource Group dropdown will display all of your Azure Resource Groups that include a Custom Vision Service Resource. In either case, you can also select __limited trial__ from this dropdown.
 
-Select __Classification__ under __Project Types__. Then, under __Classification Types__, choose either **Multilabel** or **Multiclass**, depending on your use case. Multilabel classification applies any number of different tags to an image, while multiclass classification sorts images into single categories. You will be able to change the classification type later if you wish.
+Select __Classification__ under __Project Types__. Then, under __Classification Types__, choose either **Multilabel** or **Multiclass**, depending on your use case. Multilabel classification applies any number of your tags to an image (zero or more), while multiclass classification sorts images into single categories (every image you submit will be sorted into the most likely tag). You will be able to change the classification type later if you wish.
 
-Next, select one of the available optimization domains. Each domain optimizes the classifier for specific types of images, as described in the following table. You will be able to change the domain later if you wish.
+Next, select one of the available domains. Each domain optimizes the classifier for specific types of images, as described in the following table. You will be able to change the domain later if you wish.
 
 |Domain|Purpose|
 |---|---|
@@ -56,7 +56,7 @@ Finally, select __Create project__.
 
 ## Choose training images
 
-As a minimum, we recommend you use at least 30 images per tag in the initial training set. Remember to include as many images for the "Negative" label (does not match any existing tags). You'll also want to collect a few extra images with which to test your model once it is trained.
+As a minimum, we recommend you use at least 30 images per tag in the initial training set. You'll also want to collect a few extra images with which to test your model once it is trained.
 
 In order to train your model effectively, you'll want to use images with visual variety. Choose images with different camera angles, lighting, background, types, styles, groups, sizes, and so on.
 
@@ -77,7 +77,7 @@ Select __Done__ once the images have been uploaded.
 
 ![The progress bar shows all tasks completed.](./media/getting-started-build-a-classifier/add-images04.png)
 
-To upload another set of images, return to the top of this section and repeat the steps. Remember to add your no-tag images and apply the "Negative" label to them.
+To upload another set of images, return to the top of this section and repeat the steps. At some point in your project, you may need to add "negative" images to help make your classifier more accurate. Negative images are those which do not match any of the other tags. When you upload these images, apply the special "Negative" label to them.
 
 ## Train the classifier
 
@@ -91,18 +91,18 @@ The training process should only take a few minutes. During this time, informati
 
 ## Evaluate the classifier
 
-After training has completed, the model evaluates its performance. The Custom Vision Service uses the images that you submitted for training to calculate precision and recall, using a process called [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)). Precision and recall are two different measurements of the effectiveness of a classifier:
+After training has completed, the model's performance is estimated and displayed. The Custom Vision Service uses the images that you submitted for training to calculate precision and recall, using a process called [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)). Precision and recall are two different measurements of the effectiveness of a classifier:
 
 - **Precision** indicates the fraction of identified classifications that were correct. For example, if the model identified 100 images as dogs, and 99 of them were actually of dogs, then the precision would be 99%.
-- **Recall** indicates the fraction of actual classifications that were correctly identified. For example, if there were 100 images of dogs, and the model identified 99 as dogs, the recall would be 99%.
+- **Recall** indicates the fraction of actual classifications that were correctly identified. For example, if there were 100 images of dogs, and the model identified 80 as dogs, the recall would be 80%.
 
 ![The training results show the overall precision and recall, and the precision and recall for each tag in the classifier.](./media/getting-started-build-a-classifier/train03.png)
 
 ### Probability Threshold
 
-Note the **Probability Threshold** slider on the left pane of the **Performance** tab. This indicates what level of confidence should be considered a "real guess" by the model. 
+Note the **Probability Threshold** slider on the left pane of the **Performance** tab. This is the threshold for a predicted probability to be considered "correct" when computing precision and recall.
 
-Training with a high probability threshold tends to create a model with high precision at the expense of recall; training with a low probability threshold does the opposite. With this in mind, you should set the probability threshold according to the specific needs of your project. Later, on the client side, you should use the same probability threshold value as a filter when receiving prediction results from the model.
+Executing prediction calls with a high probability threshold tends to return results with high precision at the expense of recall; doing prediction with a low probability threshold does the opposite. With this in mind, you should set the probability threshold according to the specific needs of your project. Later, on the client side, you should use the same probability threshold value as a filter when receiving prediction results from the model.
 
 ## Manage training iterations
 
