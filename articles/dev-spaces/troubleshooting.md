@@ -254,6 +254,28 @@ Someone with Owner or Contributor access to the Azure subscription can run the f
 az provider register --namespace Microsoft.DevSpaces
 ```
 
+## Dev Spaces times out at "Waiting for container image build..." step with AKS virtual nodes
+
+### Reason
+This occurs when you attempt to run a service using Dev Spaces on an AKS cluster that has the [virtual nodes feature](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal) enabled, and you configure the service to run on a virtual node. Dev Spaces does not currently support building or debugging services on virtual nodes.
+
+If you run `azds up` with the `-verbose` switch, or enable verbose logging in Visual Studio, you'll see additional detail:
+
+```cmd
+Installed chart in 2s
+Waiting for container image build...
+pods/mywebapi-76cf5f69bb-lgprv: Scheduled: Successfully assigned default/mywebapi-76cf5f69bb-lgprv to **virtual-node-aci-linux**
+Streaming build container logs for service 'mywebapi' failed with: Timed out after 601.3037572 seconds trying to start build logs streaming operation. 10m 1s
+Container image build failed
+```
+
+This shows that the service's pod was assigned to `virtual-node-aci-linux`, which is a virtual node.
+
+### Try:
+Update the Helm chart for the service to remove any `nodeSelector` and/or `tolerations` values that allow the service to run on a virtual node. These values are typically defined in the chart's `values.yaml` file.
+
+You can still use an AKS cluster that has the virtual nodes feature enabled, as long as the service you wish to build/debug via Dev Spaces runs on a VM node. This is the default configuration.
+
 ## "Error: could not find a ready tiller pod" when launching Dev Spaces
 
 ### Reason
