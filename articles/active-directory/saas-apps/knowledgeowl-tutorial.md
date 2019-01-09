@@ -183,7 +183,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![KnowledgeOwl Configuration](./media/knowledgeowl-tutorial/configure1.png)
 
-1. Scroll down up to the **SAML SSO Integration** and perform the following steps:
+1. Scroll to **SAML SSO Integration** and perform the following steps:
 	
 	![KnowledgeOwl Configuration](./media/knowledgeowl-tutorial/configure2.png)
 
