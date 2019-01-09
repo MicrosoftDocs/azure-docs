@@ -20,10 +20,10 @@ Azure Active Directory (Azure AD) has an Application Proxy service that enables 
 This tutorial:
 
 > [!div class="checklist"]
-> * Opens ports for outbound traffic and allows access to specific URLs
-> * Installs the connector on your Windows server, and registers it with Application Proxy
-> * Verifies the connector installed and registered correctly
-> * Adds an on-premises application to your Azure AD tenant
+> * Opens ports for outbound traffic and allows access to specific URLs.
+> * Installs the connector on your Windows server, and registers it with Application Proxy.
+> * Verifies the connector installed and registered correctly.
+> * Adds an on-premises application to your Azure AD tenant.
 > * Verifies a test user can sign on to the application by using an Azure AD account.
 
 ## Before you begin

@@ -122,7 +122,7 @@ If you want to change the hardcoded **AZ3166** to a customized device ID in the 
 If you encounter problems, refer to [the IoT developer kit FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) or reach out to us using the following channels:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## Next steps
 
