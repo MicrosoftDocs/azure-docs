@@ -4,7 +4,7 @@ description: Deploy your first Node.js Hello World in Azure App Service on Linux
 services: app-service\web
 documentationcenter: ''
 author: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/07/2017
+ms.date: 11/20/2018
 ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
@@ -33,22 +33,6 @@ You'll complete this quickstart in Cloud Shell, but you can also run these comma
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-## Install web app extension for Cloud Shell
-
-To complete this quickstart, you will need to add the [az web app extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add). If the extension is already installed, you should update it to the latest version. To update the web app extension, type `az extension update -n webapp`.
-
-To install the webapp extension, run the following command:
-
-```bash
-az extension add -n webapp
-```
-
-When the extension has been installed, the Cloud Shell shows information to the following example:
-
-```bash
-The installed extension 'webapp' is in preview.
-```
 
 ## Download the sample
 

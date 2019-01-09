@@ -145,7 +145,7 @@ The following section in an Ansible playbook installs the JRE (Java Runtime Envi
 You can save the preceding sample Ansible playbook as `vmss-setup-deploy.yml`, or [download the entire sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
 
 To use the ssh connection type with passwords, you must install the sshpass program. 
-  - For Ubunto 16.04, run the command `apt-get install sshpass`.
+  - For Ubuntu 16.04, run the command `apt-get install sshpass`.
   - For CentOS 7.4, run the command `yum install sshpass`.
 
 You may see an error like **Using an SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this. Add this host's fingerprint to your known_hosts file to manage this host.** If you see this error, you can disable host key checking by adding the following line to either the `/etc/ansible/ansible.cfg` file or the `~/.ansible.cfg` file:
