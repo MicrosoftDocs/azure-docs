@@ -11,7 +11,7 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/21/2018
+ms.date: 1/9/2019
 ---
 # Quickstart: Create an Azure SQL database in the Azure portal
 
@@ -29,21 +29,21 @@ To create a SQL database containing the AdventureWorksLT sample data:
 
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
    
-1. Select **Databases**, and then select **SQL Database**.
+1. Select **Databases** and then select **SQL Database**.
    
-1. In the **SQL Database** form, type or select the following values: 
+1. In the **Create SQL Database** form, type or select the following values: 
    
    - **Database name**: Type *mySampleDatabase*.
-   - **Subscription**: Drop down and select the correct subscription, if it doesn't appear.  
+   - **Subscription**: Drop down and select the correct subscription, if it doesn't appear.
    - **Resource group**: Select **Create new**, type *myResourceGroup*, and select **OK**. 
-   - **Select source**: Drop down and select **Sample (AdventureWorksLT)**. 
-   
-   >[!IMPORTANT]
-   >Make sure to select the **Sample (AdventureWorksLT)** data so you can follow this and other Azure SQL Database quickstarts that use this data. 
-   
+   - **Select source**: Drop down and select **Sample (AdventureWorksLT)**.
+    
+    >[!IMPORTANT]
+    >Make sure to select the **Sample (AdventureWorksLT)** data so you can follow this and other Azure SQL Database quickstarts that use this data.
+  
    ![Create Azure SQL database](./media/sql-database-get-started-portal/create-database-1.png)
    
-1. Select **Server**, and then select **Create a new server**. 
+1. Under **Server**, select **Create new**. 
    
 1. In the **New server** form, type or select the following values: 
    
@@ -54,11 +54,11 @@ To create a SQL database containing the AdventureWorksLT sample data:
    - **Location**: Drop down and select any valid location.  
    
    >[!IMPORTANT]
-   >Remember or record the server admin login and password so you can log in to the server and databases for this and other quickstarts. If you forget your login or password, you can get the login name or reset the password on the **SQL server** page. To open the **SQL server** page, select the server name on the database **Overview** page after database creation.
+   >Remember to record the server admin login and password so you can log in to the server and databases for this and other quickstarts. If you forget your login or password, you can get the login name or reset the password on the **SQL server** page. To open the **SQL server** page, select the server name on the database **Overview** page after database creation.
    
-1. Select **Select**.
-   
-   ![Create server](./media/sql-database-get-started-portal/create-database-server.png)
+    ![Create server](./media/sql-database-get-started-portal/create-database-server.png)
+
+1. Choose **Select**.
    
 1. On the **SQL Database** form, select **Pricing tier**. Explore the amount of DTUs and storage available for each service tier.
    
@@ -86,7 +86,7 @@ Now that you've created an Azure SQL database, use the built-in query tool in th
 
 1. On the **SQL Database** page for your database, select **Query editor (preview)** in the left menu. 
    
-   ![Log in to Query editor](./media/sql-database-get-started-portal/query-editor-login.png)
+   ![Sign in to Query editor](./media/sql-database-get-started-portal/query-editor-login.png)
    
 1. Type your login information, and select **OK**.
    
@@ -107,7 +107,7 @@ Now that you've created an Azure SQL database, use the built-in query tool in th
 
 ## Clean up resources
 
-Keep this resource group, SQL server, and SQL database if you want to go to [Next steps](#next-steps) and learn how to connect and query your database using a number of different methods. 
+Keep this resource group, SQL server, and SQL database if you want to go to the [Next steps](#next-steps). The next steps show you how to connect and query your database using different methods. 
 
 When you're finished using these resources, you can delete them as follows:
 
@@ -117,8 +117,8 @@ When you're finished using these resources, you can delete them as follows:
 
 ## Next steps
 
-- You must create a server-level firewall rule to connect to your Azure SQL database from on-premises or remote tools. For more information, see [Create a server-level firewall rule](sql-database-get-started-portal-firewall.md).
-- After you create a server-level firewall rule, you can [connect and query](sql-database-connect-query.md) your database using several different tools and languages. 
+- Create a server-level firewall rule to connect to your Azure SQL database from on-premises or remote tools. For more information, see [Create a server-level firewall rule](sql-database-get-started-portal-firewall.md).
+- After you create a server-level firewall rule, [connect and query](sql-database-connect-query.md) your database using several different tools and languages. 
   - [Connect and query using SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - To create Azure SQL databases using Azure CLI, see [Azure CLI samples](sql-database-cli-samples.md).
