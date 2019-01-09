@@ -546,7 +546,7 @@ Restify and Express provide deep customization for a REST API server, but we use
 
 
 var server = restify.createServer({
-    name: "Microsoft Azure Active Directroy TODO Server",
+    name: "Microsoft Azure Active Directory TODO Server",
     version: "2.0.1"
 });
 

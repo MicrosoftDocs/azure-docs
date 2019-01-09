@@ -57,7 +57,7 @@ Azure Backup can back up VMs with up to 16 disks. Support for 16 disks is provid
 Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD managed disks provide a new type of durable storage for Azure VMs. Support for SSD managed disks is provided in the [latest version](backup-upgrade-to-vm-backup-stack-v2.md) of the Azure VM Backup stack V2.
 
 ### Can we back up a VM with a Write Accelerator (WA)-enabled disk?
-Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup service can exclude the WA-enabled disk from backup. Disk exclusion for VMs with WA-enabled disks is supported only for subscriptions upgraded to Azure VM Backup stack V2. To upgrade to the Azure VM Backup stack V2, see this [article](backup-upgrade-to-vm-backup-stack-v2.md). This feature is currently available in Japan East, North Europe, South East Asia, East US, West US2, West Europe, and East US2.
+Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup service can exclude the WA-enabled disk from backup. Disk exclusion for VMs with WA-enabled disks is supported only for subscriptions upgraded to Azure VM Backup stack V2. To upgrade to Azure VM Backup stack V2, see this [article](backup-upgrade-to-vm-backup-stack-v2.md). This feature is currently available in Japan East, North Europe, South East Asia, East US, West US2, West Europe, and East US2.
 
 
 ### I have a VM with Write Accelerator (WA) disks and SAP HANA installed. How do I back up?

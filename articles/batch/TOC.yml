@@ -172,6 +172,8 @@
       href: /rest/api/batchservice
     - name: Batch Management
       href: /rest/api/batchmanagement/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.batch/allversions
   - name: Batch Analytics
     href: batch-analytics.md
     items:

@@ -368,4 +368,4 @@ What's the difference between telemetry processors and telemetry initializers?
 ## <a name="next"></a>Next steps
 * [Search events and logs](../../azure-monitor/app/diagnostic-search.md)
 * [Sampling](../../azure-monitor/app/sampling.md)
-* [Troubleshooting](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md)

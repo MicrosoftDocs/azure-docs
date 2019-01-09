@@ -36,6 +36,8 @@ To learn about Azure Resource Manager templates in general, see [Authoring Azure
 
 The following section provides the complete Resource Manager template for defining Data Factory entities so that you can quickly run through the tutorial and test the template. To understand how each Data Factory entity is defined, see [Data Factory entities in the template](#data-factory-entities-in-the-template) section.
 
+To learn about the JSON syntax and properties for Data Factory resources in a template, see [Microsoft.DataFactory resource types](/azure/templates/microsoft.datafactory/allversions).
+
 ## Data Factory JSON 
 Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder with the following content:
 

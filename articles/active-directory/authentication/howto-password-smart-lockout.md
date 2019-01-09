@@ -67,6 +67,14 @@ To check or modify the smart lockout values for your organization, use the follo
 > If the first sign-in after a lockout also fails, the account locks out again. If an account locks repeatedly, the lockout duration increases.
 
 ![Customize the Azure AD smart lockout policy in the Azure portal](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
+
+## How to determine if the Smartlockout feature is working or not
+
+When the smartlockout threshold is triggered, you will get the following message while the account is locked:
+
+**Your account is temporarily locked to prevent unauthorized use. Try again later, and if you still have trouble, contact your admin.**
+
+
 ## Next steps
 
 [Find out how to ban bad passwords in your organization using Azure AD.](howto-password-ban-bad.md)

@@ -15,7 +15,7 @@ ms.author: mbullwin
 ---
 # Metric telemetry: Application Insights data model
 
-There are two types of metric telemetry supported by [Application Insights](../../application-insights/app-insights-overview.md): single measurement and pre-aggregated metric. Single measurement is just a name and value. Pre-aggregated metric specifies minimum and maximum value of the metric in the aggregation interval and standard deviation of it.
+There are two types of metric telemetry supported by [Application Insights](../../azure-monitor/app/app-insights-overview.md): single measurement and pre-aggregated metric. Single measurement is just a name and value. Pre-aggregated metric specifies minimum and maximum value of the metric in the aggregation interval and standard deviation of it.
 
 Pre-aggregated metric telemetry assumes that aggregation period was one minute.
 

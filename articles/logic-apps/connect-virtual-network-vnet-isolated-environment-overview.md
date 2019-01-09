@@ -42,7 +42,7 @@ compares differences between an ISE and the global Logic Apps service.
 ## Isolated versus global
 
 When you create an integrated service environment (ISE) in Azure, 
-you select an Azure virtual network where your *inject* environment. 
+you select the Azure virtual network where you want to *inject* your ISE. 
 Azure deploys a private instance of the Logic Apps service into your 
 virtual network. This action creates an isolated environment where you 
 can create and run your logic apps on dedicated resources. When you 
