@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Bing Video Search API, Node.js"
+title: "Quickstart: Search for videos using the Bing Video Search REST API and Node.js"
 titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Video Search API.
+description: Use this quickstart to send video search requests to the Bing Video Search REST API using JavaScript.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -9,89 +9,89 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 1/09/2019
 ms.author: aahi
 ---
-# Quickstart: Bing Video Search API with Node.js
+# Quickstart: Search for videos using the Bing Video Search REST API and Node.js
 
-This article shows you how use the Bing Video Search API, part of Microsoft Cognitive Services on Azure. While this article employs Node.js, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
-
-The example is written in JavaScript and runs under Node.js 6.
-
-Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) for technical details about the APIs.
+Use this quickstart to make your first call to the Bing Video Search API and view a search result from the JSON response. This simple JavaScript application sends an HTTP video search query to the API, and displays the response. While this application is written in JavaScript and uses Node.js, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) with additional error handling, and code annotations.
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You will need the access key provided when you activate your free trial.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* [Node.js](https://nodejs.org/en/download/)
 
-## Bing video search
+* The Request module for JavaScript
+    * You can install this module using `npm install request`
 
-The [Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) returns video results from the Bing search engine.
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](cognitive-services-bing-video-search-signup-requirements.md)
 
-1. Create a new Node.js project in your favorite IDE or editor.
-2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. Run the program.
+## Initialize the application
 
-```javascript
-'use strict';
+1. Create a new JavaScript file in your favorite IDE or editor. Set the strictness and add the following requirement:
 
-let https = require('https');
+    ```javascript
+    'use strict';
+    let https = require('https');
+    ```
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+2. Create variables for your API endpoint, subscription key, and your search term.
 
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'enter key here';
+    ```javascript
+    let subscriptionKey = 'enter key here';
+    let host = 'api.cognitive.microsoft.com';
+    let path = '/bing/v7.0/videos/search';
+    let term = 'kittens';
+    ```
 
-// Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-// search APIs.  In the future, regional endpoints may be available.  If you
-// encounter unexpected authorization errors, double-check this host against
-// the endpoint for your Bing Search instance in your Azure dashboard.
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/videos/search';
+## Create a response handler
 
-let term = 'kittens';
+1. Create a function called `response_handler` to take a JSON response from the API. Create a variable for the response body. Store the response when a `data` flag is received, using `response.on()`. Within it, perform the following step:
 
-let response_handler = function (response) {
-    let body = '';
-    response.on('data', function (d) {
-        body += d;
-    });
+    ```javascript
+        let response_handler = function (response) {
+        let body = '';
+        response.on('data', function (d) {
+            body += d;
+        });
+    };
+    ```
+    
+    2. When `end` is signaled, use a function in `response.on()` to store the bing-related headers. Then parse the JSON using `JSON.parse()`, convert it to a string with `JSON.stringify`, and print it.
+
+
+    ```javascript
     response.on('end', function () {
-        console.log('\nRelevant Headers:\n');
         for (var header in response.headers)
             // header keys are lower-cased by Node.js
             if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
                  console.log(header + ": " + response.headers[header]);
         body = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log('\nJSON Response:\n');
+        //JSON Response body
         console.log(body);
     });
-    response.on('error', function (e) {
-        console.log('Error: ' + e.message);
-    });
-};
+    ```
 
-let bing_video_search = function (search) {
-  console.log('Searching videos for: ' + term);
-  let request_params = {
-		method : 'GET',
-		hostname : host,
-		path : path + '?q=' + encodeURIComponent(search),
-		headers : {
-			'Ocp-Apim-Subscription-Key' : subscriptionKey,
-		}
-	};
+# Create and send the search request
 
-	let req = https.request(request_params, response_handler);
-	req.end();
-}
-bing_video_search(term);
-```
+1. Create a function called `bing_video_search()`. Add the parameters for your request including your host name, and headers. Encode your search term and append it to your path parameter with the `?q=` parameter. Then send the request with `req.end()`.
 
-**Response**
+    ```javascript
+    let bing_video_search = function (search_term) {
+      console.log('Searching videos for: ' + term);
+      let request_params = {
+    		method : 'GET',
+    		hostname : host,
+    		path : path + '?q=' + encodeURIComponent(search_term),
+    		headers : {
+    			'Ocp-Apim-Subscription-Key' : subscriptionKey,
+    		}
+    	};
+    	let req = https.request(request_params, response_handler);
+    	req.end();
+    }
+    ```
+
+## JSON Response
 
 A successful response is returned in JSON, as shown in the following example: 
 
