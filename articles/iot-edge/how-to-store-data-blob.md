@@ -81,7 +81,7 @@ The Azure Marketplace provides IoT Edge modules that can be deployed directly to
       >[!IMPORTANT]
       >Azure IoT Edge is case-sensitive when you make calls to modules, and the Storage SDK defaults to lowercase. To ensure that your connections to the Azure Blob Storage on IoT Edge module aren't interrupted, give it a lowercase name. 
 
-   2. The default **Container Create Options** the port bindings that your container needs, but you also need to add your storage account information and a bind for the storage directory on your device. Overwrite the JSON in the portal with the the JSON below:
+   2. The default **Container Create Options** the port bindings that your container needs, but you also need to add your storage account information and a bind for the storage directory on your device. Overwrite the JSON in the portal with the JSON below:
     
       ```json
       {
@@ -116,7 +116,7 @@ The Azure Marketplace provides IoT Edge modules that can be deployed directly to
    4. Select **Save**.
 
 4. Select **Next** to continue to the next step of the wizard.
-5. In the **Specify Routes** step of the wizard, selet **Next**.
+5. In the **Specify Routes** step of the wizard, select **Next**.
 6. In the **Review Deployment** step of the wizard, select **Submit**.
 7. After you submit the deployment, you return to the **IoT Edge** page of your IoT hub. Select the IoT Edge device that you targeted with the deployment to open its details. 
 8. In the device details, verify that the blob storage module is listed as both **Specified in deployment** and **Reported by device**. It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status. 

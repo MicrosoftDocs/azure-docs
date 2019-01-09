@@ -21,6 +21,8 @@
   items:
   - name: Evaluate Azure Stack
     href: azure-stack-deploy-overview.md
+  - name: Use the administration portal
+    href: azure-stack-manage-portals.md
 - name: Tutorials
   items:
   - name: Offer Virtual Machines
@@ -126,8 +128,6 @@
       href: azure-stack-registration.md
     - name: Region management
       href: azure-stack-region-management.md
-    - name: Using the administrator portal
-      href: azure-stack-manage-portals.md
     - name: Connect to Azure
       items:
       - name: Connect using VPN
@@ -261,6 +261,8 @@
         items:
         - name: SQL resource provider 1.1.30.0 release notes
           href: azure-stack-sql-resource-provider-11300.md 
+        - name: SQL resource provider 1.1.33.0 release notes
+          href: azure-stack-sql-resource-provider-11330.md   
   - name: Offer MySQL as PaaS
     href: azure-stack-mysql-resource-provider.md
     items:
@@ -280,6 +282,8 @@
       items:
       - name: MySQL resource provider 1.1.30.0 release notes
         href: azure-stack-mysql-resource-provider-11300.md
+      - name: MySQL resource provider 1.1.33.0 release notes
+        href: azure-stack-mysql-resource-provider-11330.md
   - name: Offer App Service as PaaS
     href: azure-stack-app-service-overview.md
     items:
@@ -397,6 +401,6 @@
   - name: Pricing information
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-stack
+    href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Training and certification
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert

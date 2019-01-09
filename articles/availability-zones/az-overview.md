@@ -56,7 +56,7 @@ The Azure services that support Availability Zones are:
 - Zone-redundant storage
 - SQL Database
 - Event Hubs
-- Service Bus
+- Service Bus (Premium Tier Only)
 - VPN Gateway
 - ExpressRoute
 - Application Gateway (preview)

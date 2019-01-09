@@ -328,7 +328,7 @@ You can find the updated list of SAP MaxDB documentation in the following SAP No
 
 ### SAP MaxDB Configuration Guidelines for SAP Installations in Azure VMs
 #### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Storage configuration
-Azure storage best practices for SAP MaxDB follow the general recommendations mentioned in chapter [Structure of an RDBMS Deployment][dbms-guide-2].
+Azure storage best practices for SAP MaxDB follow the general recommendations mentioned in chapter [Storage structure of a VM for RDBMS Deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]
 > Like other databases, SAP MaxDB also has data and log files. However, in SAP MaxDB terminology the correct term is "volume" (not "file"). For example, there are SAP MaxDB data volumes and log volumes. Do not confuse these with OS disk volumes. 
@@ -457,7 +457,7 @@ Here you have two options:
    If a backend SAP system is configured to access SAP Content Server, that SAP system is a client. As both SAP system and SAP Content Server are deployed in the same Azure region, in the same Azure datacenter, they are physically close to each other. Therefore, there is no need to have a dedicated SAP Cache Server. SAP UI clients (SAP GUI or web browser) access the SAP system directly, and the SAP system retrieves documents from the SAP Content Server.
 2. **Client is an on-premises web browser**
    The SAP Content Server can be configured to be accessed directly by the web browser. In this case, a web browser running on-premises is a client of the SAP Content Server. On-premises datacenter and Azure datacenter are placed in different physical locations (ideally close to each other). Your on-premises datacenter is connected to Azure via Azure Site-to-Site VPN or ExpressRoute. Although both options offer secure VPN network connection to Azure, site-to-site network connection does not offer a network bandwidth and latency SLA between the on-premises datacenter and the Azure datacenter. To speed up access to documents, you can do one of the following:
-   1. Install SAP Cache Server on-premises, close to the on-premises web browser (option on [this][dbms-guide-900-sap-cache-server-on-premises] Figure)
+   1. Install SAP Cache Server on-premises, close to the on-premises web browser (option in figure below)
    2. Configure Azure ExpressRoute, which offers a high-speed and low-latency dedicated network connection between on-premises datacenter and Azure datacenter.
 
 ![Option to install SAP Cache Server on-premises](./media/dbms_maxdb_deployment_guide/900-sap-cache-server-on-premises.png)
