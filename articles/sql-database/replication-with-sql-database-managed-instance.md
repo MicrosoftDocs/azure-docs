@@ -193,4 +193,5 @@ The following features are not supported:
 
 ## See Also
 
+- [Transactional replication](sql-database-managed-instance-transactional-replication.md)
 - [What is a Managed Instance?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
