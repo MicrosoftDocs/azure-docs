@@ -2619,9 +2619,10 @@ Here is an example that limits concurrent runs to 10 instances:
 1. In the trigger's upper-right corner, 
 choose the ellipses (...) button, and then choose **Settings**.
 
-2. Under **Concurrency Control**, set **Override Default** to **On**. 
+2. Under **Concurrency Control**, set **Limit** to **On**. 
 
 3. Drag the **Degree of Parallelism** slider to the value you want. 
+To run your logic app sequentially, drag the slider value to **1**.
 
 <a name="change-for-each-concurrency"></a>
 
@@ -2669,9 +2670,10 @@ Here is an example that limits concurrent runs to 10 iterations:
 1. In the **For each** action, from the upper-right corner, 
 choose the ellipses (...) button, and then choose **Settings**.
 
-2. Under **Concurrency Control**, set **Override Default** to **On**. 
+2. Under **Concurrency Control**, set **Concurrency Control** to **On**. 
 
 3. Drag the **Degree of Parallelism** slider to the value you want. 
+To run your logic app sequentially, drag the slider value to **1**.
 
 <a name="change-waiting-runs"></a>
 
@@ -2767,7 +2769,7 @@ Set the `operationOptions` property to `SingleInstance`:
 1. In the trigger's upper-right corner, 
 choose the ellipses (...) button, and then choose **Settings**.
 
-2. Under **Concurrency Control**, set **Override Default** to **On**. 
+2. Under **Concurrency Control**, set **Limit** to **On**. 
 
 3. Drag the **Degree of Parallelism** slider to the number `1`. 
 
@@ -2827,7 +2829,7 @@ Set the `operationOptions` property to `Sequential`:
 1. In the **For each** action's upper-right corner, 
 choose the ellipses (...) button, and then choose **Settings**.
 
-2. Under **Concurrency Control**, set **Override Default** to **On**. 
+2. Under **Concurrency Control**, set **Concurrency Control** to **On**. 
 
 3. Drag the **Degree of Parallelism** slider to the number `1`. 
 
