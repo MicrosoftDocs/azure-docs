@@ -16,7 +16,7 @@ ms.author: lagayhar
 
 ---
 # Monitor availability and responsiveness of any web site
-After you've deployed your web app or web site to any server, you can set up tests to monitor its availability and responsiveness. [Azure Application Insights](../../application-insights/app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It alerts you if your application doesn't respond, or responds slowly.
+After you've deployed your web app or web site to any server, you can set up tests to monitor its availability and responsiveness. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It alerts you if your application doesn't respond, or responds slowly.
 
 You can set up availability tests for any HTTP or HTTPS endpoint that is accessible from the public internet. You don't have to add anything to the web site you're testing. It doesn't even have to be your site: you could test a REST API service on which you depend.
 
@@ -185,9 +185,9 @@ From an availability test result, you can see the transaction details across all
 * Log an issue or work item in Git or Azure Boards to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
-Learn more about the end to end transaction diagnostics experience [here](../../application-insights/app-insights-transaction-diagnostics.md).
+Learn more about the end to end transaction diagnostics experience [here](../../azure-monitor/app/transaction-diagnostics.md).
 
-Click on the exception row to see the details of the server side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](../../application-insights/app-insights-snapshot-debugger.md) for richer code level diagnostics.
+Click on the exception row to see the details of the server side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](../../azure-monitor/app/snapshot-debugger.md) for richer code level diagnostics.
 
 ![Server side diagnostics](./media/monitor-web-app-availability/open-instance-4.png)
 
@@ -280,11 +280,11 @@ When the test is complete, you are shown response times and success rates.
 ![Performance test results](./media/monitor-web-app-availability/12performance-test.png)
 
 > [!TIP]
-> To observe the effects of a performance test, use [Live Stream](../../application-insights/app-insights-live-stream.md) and [Profiler](../../application-insights/app-insights-profiler.md).
+> To observe the effects of a performance test, use [Live Stream](../../azure-monitor/app/live-stream.md) and [Profiler](../../azure-monitor/app/profiler.md).
 >
 
 ## Automation
-* [Use PowerShell scripts to set up an availability test](../../application-insights/app-insights-powershell.md#add-an-availability-test) automatically.
+* [Use PowerShell scripts to set up an availability test](../../azure-monitor/app/powershell.md#add-an-availability-test) automatically.
 * Set up a [webhook](../../azure-monitor/platform/alerts-webhooks.md) that is called when an alert is raised.
 
 ## <a name="qna"></a> FAQ
@@ -317,7 +317,7 @@ When the test is complete, you are shown response times and success rates.
     
 * *I don't see any related server side telemetry to diagnose test failures?*
     
-    If you have Application Insights set up for your server-side application, that may be because [sampling](../../application-insights/app-insights-sampling.md) is in operation. Select a different availability result.
+    If you have Application Insights set up for your server-side application, that may be because [sampling](../../azure-monitor/app/sampling.md) is in operation. Select a different availability result.
 
 * *Can I call code from my web test?*
 
@@ -366,5 +366,5 @@ When the test is complete, you are shown response times and success rates.
 
 [azure-availability]: ../../insights-create-web-tests.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
-[start]: ../../application-insights/app-insights-overview.md
+[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[start]: ../../azure-monitor/app/app-insights-overview.md

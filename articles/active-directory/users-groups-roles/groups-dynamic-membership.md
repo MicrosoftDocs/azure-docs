@@ -359,7 +359,7 @@ The following device attributes can be used.
  systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | (device.systemLabels -contains “M365Managed”)
 
 > [!Note]  
-> For the deviceOwnership when creating Dynamic Groups for devices you need to set the value equal to "Company". On Intune the device ownership is represented instead as Corporate. Refer to [OwnerTypes](https://docs.microsoft.com/en-us/intune/reports-ref-devices#ownertypes) for more details. 
+> For the deviceOwnership when creating Dynamic Groups for devices you need to set the value equal to "Company". On Intune the device ownership is represented instead as Corporate. Refer to [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) for more details. 
 
 ## Next steps
 

@@ -5,7 +5,7 @@
  author: kgremban
  ms.service: iot-edge
  ms.topic: include
- ms.date: 12/31/2018
+ ms.date: 01/04/2019
  ms.author: kgremban
  ms.custom: include file
 ---
@@ -16,13 +16,13 @@ One of the key capabilities of Azure IoT Edge is being able to deploy modules to
 
    ![Simulated Temperature Sensor in Azure portal search](./media/iot-edge-deploy-module/search-for-temperature-sensor.png)
 
-2. Choose an IoT Edge device to receive this module. In the **Target Devices for IoT Edge Module**, provide the following information:
+2. Choose an IoT Edge device to receive this module. On the **Target Devices for IoT Edge Module** page, provide the following information:
 
    1. **Subscription**: select the subscription that contains the IoT hub you're using.
 
    2. **IoT Hub**: select the name of the IoT hub you're using.
 
-   3. **IoT Edge Device Name**: if you used the suggested device name earlier in this quickstart, enter **myEdgeDevice**. Or, select **Find Device** to choose from a list of devices in your IoT hub. 
+   3. **IoT Edge Device Name**: if you used the suggested device name earlier in this quickstart, enter **myEdgeDevice**. Or, select **Find Device** to choose from a list of IoT Edge devices in your IoT hub. 
    
    4. Select **Create**.
 

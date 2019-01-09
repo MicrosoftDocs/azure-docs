@@ -6,7 +6,7 @@ metadata:
   description: Learn how to use Ansible to automate cloud provisioning, configuration management, and application deployments.
   ms.service: ansible
   keywords: ansible, azure, devops, tutorials, samples, reference
-  author: tomarcher
+  author: tomarchermsft
   manager: jeconnoc
   ms.author: tarcher
   ms.topic: landing-page

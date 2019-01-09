@@ -526,7 +526,7 @@ The transcript is published as an AMS asset. To scan the transcript for objectio
     	}
     	catch
     	{   //TODO:  Logging
-        	Console.WriteLine("Exception occured while generating index for video.");
+        	Console.WriteLine("Exception occurred while generating index for video.");
         	throw;
     	}
 	}

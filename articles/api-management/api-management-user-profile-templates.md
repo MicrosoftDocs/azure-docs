@@ -447,7 +447,7 @@ Azure API Management provides you the ability to customize the content of develo
           <strong>  
             {% case app.state %}  
             {% when ApplicationStateModel.Registered %}  
-            {% localized "ApplicationListStrings|WebDevelopersAppNotSubminted" %}  
+            {% localized "ApplicationListStrings|WebDevelopersAppNotSubmitted" %}  
   
             {% when ApplicationStateModel.Unpublished %}  
             {% localized "ApplicationListStrings|WebDevelopersAppNotPublished" %}  

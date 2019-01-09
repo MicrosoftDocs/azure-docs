@@ -32,9 +32,9 @@ When you run the [Application Insights image](https://hub.docker.com/r/microsoft
 
 ## Set up your Application Insights resource
 
-1. Sign into [Microsoft Azure portal](https://azure.com) and open the Application Insights resource for your app; or [create a new one](../../application-insights/app-insights-create-new-resource.md). 
+1. Sign into [Microsoft Azure portal](https://azure.com) and open the Application Insights resource for your app; or [create a new one](../../azure-monitor/app/create-new-resource.md ). 
    
-    *Which resource should I use?* If the apps that you are running on your host were developed by someone else, then you need to [create a new Application Insights resource](../../application-insights/app-insights-create-new-resource.md). This is where you view and analyze the telemetry. (Select 'General' for the app type.)
+    *Which resource should I use?* If the apps that you are running on your host were developed by someone else, then you need to [create a new Application Insights resource](../../azure-monitor/app/create-new-resource.md ). This is where you view and analyze the telemetry. (Select 'General' for the app type.)
    
     But if you're the developer of the apps, then we hope you [added Application Insights SDK](../../azure-monitor/app/java-live.md) to each of them. If they're all really components of a single business application, then you might configure all of them to send telemetry to one resource, and you'll use that same resource to display the Docker lifecycle and performance data. 
    
@@ -106,5 +106,5 @@ Learn how for: [Java web apps](../../azure-monitor/app/java-get-started.md), [Wi
 ## Next steps
 
 * [Application Insights for Java](../../azure-monitor/app/java-get-started.md)
-* [Application Insights for Node.js](../../application-insights/app-insights-nodejs.md)
+* [Application Insights for Node.js](../../azure-monitor/app/nodejs.md)
 * [Application Insights for ASP.NET](../../azure-monitor/app/asp-net.md)

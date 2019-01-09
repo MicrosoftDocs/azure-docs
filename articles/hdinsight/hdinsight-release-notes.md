@@ -2,15 +2,13 @@
 title: Release notes for Azure HDInsight 
 description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive and more.
 services: hdinsight
-ms.reviewer: jasonh
 author: hrasheed-msft
-
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/01/2018
-ms.author: hrasheed
-
+ms.date: 01/02/2019
 ---
 # Release notes for Azure HDInsight
 
@@ -1304,6 +1302,17 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 |**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Option for disabling scheduler |**Component Affected:** Zeppelin-Server<br /><br />**Previous Behavior:** In previous releases of Zeppelin, there was no option for disabling scheduler.<br /><br />**New Behavior:** By default, users will no longer see scheduler, as it is disabled by default.<br /><br />**Workaround/Expected Customer Action:** If you want to enable scheduler, you will need to add azeppelin.notebook.cron.enable with value of true under custom zeppelin site in Zeppelin settings from Ambari.|
 
 ## Known issues
+
+-   **HDInsight integration with ADLS Gen 2** 
+   There are two issues on HDInsight ESP clusters using Azure Data Lake Storage Gen 2 with user directories and permissions:
+   
+   1. Home directories for users are not getting created on Head Node 1. As a workaround, create the directories manually and change ownership to the respective user’s UPN.
+   
+   2. Permissions on /hdp directory is currently not set to 751. This needs to be set to 
+      ```bash
+      chmod 751 /hdp 
+      chmod –R 755 /hdp/apps
+      ```
 
 -   **Spark 2.3**
 

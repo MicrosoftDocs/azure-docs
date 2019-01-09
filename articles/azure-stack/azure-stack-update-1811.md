@@ -333,7 +333,7 @@ The following are post-installation known issues for this build version.
 
 - The **New-AzureRmIpSecPolicy** PowerShell cmdlet does not support setting **DHGroup24** for the `DHGroup` parameter.
 
-### Infrastructure Backup
+### Infrastructure backup
 
 <!--scheduler config lost, bug 3615401, new issue in 1811,  hectorl-->
 <!-- TSG: https://www.csssupportwiki.com/index.php/Azure_Stack/KI/Backup_scheduler_configuration_lost --> 

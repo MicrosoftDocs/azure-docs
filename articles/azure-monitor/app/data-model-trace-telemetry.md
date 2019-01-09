@@ -15,7 +15,7 @@ ms.author: mbullwin
 ---
 # Trace telemetry: Application Insights data model
 
-Trace telemetry (in [Application Insights](../../application-insights/app-insights-overview.md)) represents `printf` style trace statements that are text-searched. `Log4Net`, `NLog`, and other text-based log file entries are translated into instances of this type. The trace does not have measurements as an extensibility.
+Trace telemetry (in [Application Insights](../../azure-monitor/app/app-insights-overview.md)) represents `printf` style trace statements that are text-searched. `Log4Net`, `NLog`, and other text-based log file entries are translated into instances of this type. The trace does not have measurements as an extensibility.
 
 ## Message
 
@@ -37,4 +37,4 @@ Trace severity level. Value can be `Verbose`, `Information`, `Warning`, `Error`,
 - [Explore Java trace logs in Application Insights](../../azure-monitor/app/java-trace-logs.md).
 - See [data model](data-model.md) for Application Insights types and data model.
 - [Write custom trace telemetry](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)
-- Check out [platforms](../../application-insights/app-insights-platforms.md) supported by Application Insights.
+- Check out [platforms](../../azure-monitor/app/platforms.md) supported by Application Insights.

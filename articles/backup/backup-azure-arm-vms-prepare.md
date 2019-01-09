@@ -221,7 +221,7 @@ After your vault is created, it appears in the list of Recovery Services vaults.
 
 ## Set up storage replication
 
-By default, your vault has [geo-redundant storage (GRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs). We recommend GRS for your primary backup, but you can use[locally-redundant storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for a cheaper option.
+By default, your vault has [geo-redundant storage (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). We recommend GRS for your primary backup, but you can use[locally-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for a cheaper option. 
 
 Modify storage replication as follows:
 

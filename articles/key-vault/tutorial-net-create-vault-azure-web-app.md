@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use Azure Key Vault with an Azure web app in .NET | Microsoft Docs
+title: Tutorial - Use Azure Key Vault with an Azure web app in .NET - Azure Key Vault | Microsoft Docs
 description: Tutorial - Configure an ASP.NET core application to read a secret from Key vault
 services: key-vault
 documentationcenter: 
@@ -10,7 +10,7 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
@@ -252,4 +252,4 @@ Now, you've now successfully created a web app in .NET that stores and fetches i
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Azure Key Vault Developer's Guide](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-developers-guide)
+>[Azure Key Vault Developer's Guide](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)

@@ -180,6 +180,9 @@ Create a different local account before using Azure Active Directory Join to com
 
 - [Troubleshooting autoregistration of domain joined computers to Azure AD for Windows down-level clients](troubleshoot-hybrid-join-windows-legacy.md)
  
+**Q: Why do I see a duplicate Azure AD registered record for my Windows 10 hybrid Azure AD joined device in the Azure AD devices list?**
+
+**A:** When your users add their account to apps on a domain joined device, they could be prompted to "Add account to Windows?". Clicking "Yes" on the prompt would lead to the device to be registered with Azure AD and the trust type marked as Azure AD registered. Once you enable Hybrid Azure AD join in your organization, the device will also get hybrid Azure AD joined. As a result, there will be two device states showing up for the same device. However, hybrid Azure AD join takes precedence over Azure AD registered state. So your device will be considered hybrid Azure AD join for any authentication and Conditional Access evaluation. So, you can safely delete the Azure AD registered device record from the Azure AD portal. Please review [this section](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know) in the Hybrid Azure AD join article to understand how to avoid or cleanup this dual state on the Windows 10 machine. 
 
 ---
 
