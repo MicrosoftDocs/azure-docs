@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 12/21/2018
+ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -48,7 +48,7 @@ For Azure to communicate between the resources that you create, it needs a virtu
 
     - **Address space**: Enter *10.0.0.0/16* for the virtual network address space.
 
-    - **Subnet name**: Enter *myAGSubnet* for the subnet name.
+    - **Subnet name**: Enter *myAGSubnet* for the subnet name.<br>The application gateway subnet can contain only application gateways. No other resources are allowed.
 
     - **Subnet address range**: Enter *10.0.0.0/24* for the subnet address range.
 

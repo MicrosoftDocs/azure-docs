@@ -153,7 +153,7 @@ Recovery plans in Site Recovery orchestrate failover recovery of VMs. It helps m
 
 ### How does sequencing is achieved in a Recovery Plan?
 
-In Recovery Plan, you can create multiple groups to achieve sequencing. Every group failover at a time, which means VMs that are part of same group will failover together followed by another group. Check how to [model application using the recovery plan.](https://review.docs.microsoft.com/azure/site-recovery/recovery-plan-overview?branch=pr-en-us-61681#model-apps) 
+In Recovery Plan, you can create multiple groups to achieve sequencing. Every group failover at a time, which means VMs that are part of same group will failover together followed by another group. Check how to [model application using the recovery plan.](recovery-plan-overview.md#model-apps). 
 
 ### How can I find the RTO of a recovery plan?
 To check the RTO of a Recovery plan, test failover the Recovery plan and go to the Site Recovery Jobs.
