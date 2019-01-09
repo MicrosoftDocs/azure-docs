@@ -26,14 +26,15 @@ For scenarios where you don’t want to give Global Administrator permissions in
 > [!WARNING]
 > This is not a security posture feature. Use it in scenarios where you want constraints to prevent accidental changes to the Azure Subscription. When a user is delegated rights to this custom role, the user has rights to edit permissions and elevate rights. Only assign users you trust to the custom role.
 
-When registering Azure Stack, the registration account requires permissions on the Azure Subscription as well as Azure Active Directory permissions:
-1. The applications need to be registed in your Azure Active Directory tenant. The permission for non-administrators is a global setting for all users in the tenant. To view or change the setting see [create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+When registering Azure Stack, the registration account requires the following Azure Active Directory permissions and Azure Subscription permissions:
 
-> The *user can register applications* must be set to **Yes** for you to enable a user account to register Azure Stack. If the app registrations setting is set to **No**, you can't use a user account and must use a global administrator account to register Azure Stack.
+1. **Application registration permissions in your Azure Active Directory tenant:** Administrators have application registration permissions. The permission for users is a global setting for all users in the tenant. To view or change the setting see [create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
-2. Sufficient permissions on the Azure Subscription - which can be achieved with the custom role described below
+    The *user can register applications* setting must be set to **Yes** for you to enable a user account to register Azure Stack. If the app registrations setting is set to **No**, you can't use a user account and must use a global administrator account to register Azure Stack.
 
-## Create a customer role using PowerShell
+2. **A set of sufficient Azure Subscription permissions:** Administrators have sufficient permissions. For user accounts, you can assign the permission set by assigning a custom role as outlined in the following sections.
+
+## Create a custom role using PowerShell
 
 To create a custom role, you must have the `Microsoft.Authorization/roleDefinitions/write` permission on all `AssignableScopes`, such as [Owner](../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator). Use the following JSON template to simplify defining the custom role. The template creates a custom role that allows the required read and write access for Azure Stack registration.
 
@@ -64,7 +65,7 @@ To create a custom role, you must have the `Microsoft.Authorization/roleDefiniti
     }
     ```
 
-3. In PowerShell, connect to Azure to use Azure Resource Manager. When prompted, authenticate using an account with sufficient permissions such as [Owner](../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) .
+3. In PowerShell, connect to Azure to use Azure Resource Manager. When prompted, authenticate using an account with sufficient permissions such as [Owner](../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator).
 
     ```azurepowershell
     Connect-AzureRmAccount
