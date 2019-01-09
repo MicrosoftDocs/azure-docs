@@ -21,7 +21,7 @@ A virtual network acts as a security boundary, isolating your Azure resources fr
 
 ## Storage account for your workspace
 
-When you create an Azure Machine Learning service workspace, it requires an Azure Storage account. Do not create this storage account within a virtual network.
+When you create an Azure Machine Learning service workspace, it requires an Azure Storage account. Make sure that the firewall and virtual network settings for the storage account is configured to allow access from __All networks__. For more information, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 ## Use Machine Learning Compute
 
