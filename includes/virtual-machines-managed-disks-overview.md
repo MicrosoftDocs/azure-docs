@@ -12,7 +12,7 @@
 
 ## Benefits of managed disks
 
-Let's take a look at some of the benefits you gain by using managed disks. The following Channel 9 video is a good introduction: [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
+Let's look at some of the benefits you gain by using managed disks. The following Channel 9 video is a good introduction: [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 <br/>
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency/player]
 
@@ -36,30 +36,30 @@ To protect against regional disasters, [Azure Backup](../articles/backup/backup-
 
 ### Data Disks
 
-A data disk is a Managed Disk that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Each data disk has a maximum capacity of 4,095 GiB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
+A data disk is a managed disk that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Each data disk has a maximum capacity of 4,095 GiB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
 ### OS Disks
 
-Every virtual machine has one attached operating system disk. That OS disk has a pre-installed OS which was selected when the VM was created.
+Every virtual machine has one attached operating system disk. That OS disk has a pre-installed OS, which was selected when the VM was created.
 
 This disk has a maximum capacity of 2,048 GiB.
 
 ### Temporary disk
 
-Every VM contains a temporary disk, which is not a Managed Disk. The temporary disk provides short-term storage for applications and processes and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) or when you [redeploy a VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). During a standard reboot of the VM, the data on the temporary drive should persist. However, there are cases where the data may not persist, such as moving to a new host. Accordingly, any data on the temp drive should not be data that is critical to the system.
+Every VM contains a temporary disk, which is not a managed disk. The temporary disk provides short-term storage for applications and processes and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) or when you [redeploy a VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). During a standard reboot of the VM, the data on the temporary drive should persist. However, there are cases where the data may not persist, such as moving to a new host. Therefore, any data on the temp drive should not be data that is critical to the system.
 
-### Managed disk snapshots
+### managed disk snapshots
 
-A managed disk snapshot is a read-only full copy of a managed disk that is stored as a standard managed disk by default. With snapshots, you can back up your managed disks at any point in time. These snapshots exist independent of the source disk and can be used to create new Managed Disks. They are billed based on the used size. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GiB and actual used data size of 10 GiB, snapshot will be billed only for the used data size of 10 GiB.  
+A managed disk snapshot is a read-only full copy of a managed disk that is stored as a standard managed disk by default. With snapshots, you can back up your managed disks at any point in time. These snapshots exist independent of the source disk and can be used to create new Managed Disks. They are billed based on the used size. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GiB and actual used data size of 10 GiB, that snapshot is billed only for the used data size of 10 GiB.  
 
 To learn more about how to create snapshots with Managed Disks, see the following resources:
 
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Create copy of VHD stored as a managed disk using Snapshots in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Create copy of VHD stored as a managed disk using Snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### Images
 
-Managed Disks also support creating a managed custom image. You can create an image from your custom VHD in a storage account or directly from a generalized (sys-prepped) VM. This process captures a single image which contains all managed disks associated with a VM, including both the OS and data disks. This managed custom image enables creating hundreds of VMs using your custom image without the need to copy or manage any storage accounts.
+Managed Disks also support creating a managed custom image. You can create an image from your custom VHD in a storage account or directly from a generalized (sys-prepped) VM. This process captures a single image, which contains all managed disks associated with a VM, including both the OS and data disks. This managed custom image enables creating hundreds of VMs using your custom image without the need to copy or manage any storage accounts.
 
 For information on creating images, see the following articles:
 
@@ -68,7 +68,7 @@ For information on creating images, see the following articles:
 
 #### Images versus snapshots
 
-You often see the word "image" used with VMs, and now you see "snapshots" as well. It's important to understand the difference between these terms. With Managed Disks, you can take an image of a generalized VM that has been deallocated. This image will include all of the disks attached to the VM. You can use this image to create a new VM, and it will include all of the disks.
+You often see the word "image" used with VMs, and now you see "snapshots" as well. It's important to understand the difference between these terms. With Managed Disks, you can take an image of a generalized VM that has been deallocated. This image includes all of the disks attached to the VM. You can use this image to create a VM, and it includes all of the disks.
 
 A snapshot is a copy of a disk at the point in time it is taken. It only applies to one disk. If you have a VM that only has one disk (the OS), you can take a snapshot or an image of it and create a VM from either the snapshot or the image.
 
@@ -76,11 +76,11 @@ What if a VM has five disks and they are striped? You could take a snapshot of e
 
 ### What is managed about Managed Disks?
 
-Disks in Azure are virtual hard disks (VHDs) stored as page blobs, which are a random IO storage object in Azure. We call a Managed Disk ‘managed’ because it provides an abstraction over page blobs, blob containers, and Azure storage accounts – you simply provision a Managed Disk, and don’t have to worry about the rest.
+Disks in Azure are virtual hard disks (VHDs) stored as page blobs, which are a random IO storage object in Azure. We call a managed disk ‘managed’ because it provides an abstraction over page blobs, blob containers, and Azure storage accounts – you simply provision a managed disk, and don’t have to worry about the rest.
 
 ## Next steps
 
-For more information about Managed Disks, please refer to the following articles.
+For more information about Managed Disks, please refer to the following articles:
 
 ### Get started with Managed Disks
 

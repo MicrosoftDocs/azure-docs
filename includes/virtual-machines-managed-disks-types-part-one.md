@@ -11,11 +11,11 @@
 ---
 # Disk types
 
-Azure Managed Disks currently offers four disk types, three which are generally available and one currently in preview. These four disk types each have their own appropriate target customer scenarios, they are as follows:
+Azure managed disks currently offers four disk types, three of which are generally available and one that is currently in preview. These four disk types each have their own appropriate target customer scenarios, they are as follows:
 
 |Disk Type  |Scenario  |
 |---------|---------|
-|Ultra SSD (Preview)     |IO-intensive workloads such as SAP HANA, top tier databases (e.g. SQL, Oracle), and other transaction-heavy workloads.         |
+|Ultra SSD (Preview)     |IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.         |
 |Premium SSD     |Production and performance sensitive workloads         |
 |Standard SSD     |Web servers, lightly used enterprise applications and Dev/Test         |
 |Standard HDD     |Backup, Non-critical, Infrequent access         |
@@ -27,7 +27,7 @@ The following table provides a comparison of Standard HDD, Standard SSD, Premium
 |   |Azure Ultra SSD (Preview)   |Azure Premium Disk   |Azure Standard SSD   |Azure Standard HDD   |
 |---------|---------|---------|---------|---------|
 |Disk Type   |SSD   |SSD   |SSD   |HDD   |
-|Scenario   |IO-intensive workloads such as SAP HANA, top tier databases (e.g. SQL, Oracle), and other transaction-heavy workloads.   |Production and performance sensitive workloads   |Web servers, lightly used enterprise applications and Dev/Test   |Backup, Non-critical, Infrequent access   |
+|Scenario   |IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.   |Production and performance sensitive workloads   |Web servers, lightly used enterprise applications and Dev/Test   |Backup, Non-critical, Infrequent access   |
 |Disk size   |65,536 GiB (Preview)   |4,095 GiB (GA), 32,767 GiB (Preview)    |4,095 (GA) GiB, 32,767 GiB (Preview)   |4,095 GiB (GA), 32,767 GiB (Preview)   |
 |Max Throughput   |2,000 MiB/s (Preview)   |250 (GA) MiB/s, 750 MiB/s (Preview)   |60 MiB/s (GA), 500 MiB/s (Preview)   |60 Mib/s (GA), 500 MiB/s (Preview)   |
 |Max IOPS   |160,000 (Preview)   |7500 (GA), 20,000 (Preview)   |500 (GA), 2,000 (Preview)   |500 (GA), 2,000 (Preview)   |
@@ -38,7 +38,7 @@ Azure Ultra SSD (preview) delivers high throughput, high IOPS, and consistent lo
 
 ### Performance
 
-When you provision an Ultra SSD, you will have the option to independently configure the capacity and the performance of the disk. Ultra SSDs come in several fixed sizes, ranging from 4 GiB up to 64 TiB, and feature a flexible performance configuration model that allows you to independently configure IOPS and throughput. Ultra SSDs can only be leveraged as data disks. We recommend using Premium SSDs as OS disks.
+When you provision an Ultra SSD, you have the option to independently configure the capacity and the performance of the disk. Ultra SSDs come in several fixed sizes, ranging from 4 GiB up to 64 TiB, and feature a flexible performance configuration model that allows you to independently configure IOPS and throughput. Ultra SSDs can only be used as data disks. We recommend using Premium SSDs as OS disks.
 
 Some key capabilities of Ultra SSD are:
 
@@ -90,7 +90,7 @@ Sizes marked with an asterisk are currently in preview.
 
 ## Standard SSD
 
-Azure Standard Solid State Drives (SSD) Managed Disks are a cost-effective storage option optimized for workloads that need consistent performance at lower IOPS levels. Standard SSD offers a good entry level experience for those who wish to move to the cloud, especially if you experience issues with the variance of workloads running on your HDD solutions on premises. Standard SSDs deliver better availability, consistency, reliability, and latency compared to HDD Disks. Standard SSDs are suitable for Web servers, low IOPS application servers, lightly used enterprise applications, and Dev/Test workloads.
+Azure Standard Solid State Drives (SSD) managed disks are a cost-effective storage option optimized for workloads that need consistent performance at lower IOPS levels. Standard SSD offers a good entry level experience for those who wish to move to the cloud, especially if you experience issues with the variance of workloads running on your HDD solutions on premises. Standard SSDs deliver better availability, consistency, reliability, and latency compared to HDD Disks. Standard SSDs are suitable for Web servers, low IOPS application servers, lightly used enterprise applications, and Dev/Test workloads.
 
 ### Disk size
 
@@ -118,14 +118,14 @@ Sizes marked with an asterisk are currently in preview.
 
 ## Billing
 
-When using Managed Disks, the following billing considerations apply:
+When using managed disks, the following billing considerations apply:
 
 - Disk Type
-- Managed Disk Size
+- managed disk Size
 - Snapshots
 - Outbound data transfers
 - Number of Transactions
 
-**Managed Disk Size**: Managed disks are billed on the provisioned size. Azure maps the provisioned size (rounded up) to the nearest offered disk size. For details of the disk sizes offered, see the tables above. Each disk maps to a supported provisioned disk size offering and is billed accordingly. For example, if you provisioned a 200 GiB Standard SSD, it will map to the disk size offer of E15 (256 GiB). Billing for any provisioned disk is prorated hourly by using the monthly price for the Premium Storage offer. For example, if you provisioned an E10 disk and deleted it after 20 hours, you're billed for the E10 offering prorated to 20 hours. This is regardless of the amount of actual data written to the disk.
+**managed disk Size**: managed disks are billed on the provisioned size. Azure maps the provisioned size (rounded up) to the nearest offered disk size. For details of the disk sizes offered, see the tables above. Each disk maps to a supported provisioned disk size offering and is billed accordingly. For example, if you provisioned a 200 GiB Standard SSD, it maps to the disk size offer of E15 (256 GiB). Billing for any provisioned disk is prorated hourly by using the monthly price for the Premium Storage offer. For example, if you provisioned an E10 disk and deleted it after 20 hours, you're billed for the E10 offering prorated to 20 hours. This is regardless of the amount of actual data written to the disk.
 
-**Snapshots**: Snapshots are billed based on the size used. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GiB and actual used data size of 10 GiB, the snapshot will be billed only for the used data size of 10 GiB.
+**Snapshots**: Snapshots are billed based on the size used. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GiB and actual used data size of 10 GiB, the snapshot is billed only for the used data size of 10 GiB.
