@@ -20,6 +20,8 @@ Transactional Replication is a feature of Azure SQL Database, Managed Instance a
 ## Overview 
 The key components in transactional replication are shown in the following picture:  
 
+![replication with SQL Database](media/replication-to-sql-database/replication-to-sql-database.png)
+
 
 The **Publisher** is an instance or server that publishes changes made on some tables (articles) by sending the updates to the Distributor. Publishing to an Azure SQL Database from an on-premises SQL Server is supported on the following versions of SQL Server:
     - SQL Server 2019 (preview)
@@ -70,15 +72,22 @@ In general, the publisher and the distributor must be either in the cloud or on-
 
 ### Publisher with local Distributor on a Managed Instance
 
+![Single instance as Publisher and Distributor ](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
+
 Publisher and distributor are configured within a single Managed Instance. 
 
 ### Publisher with remote distributor on a Managed Instance
 
+![Separate instances for Publisher and Distributor](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
+
 Publisher and distributor are configured on two Managed Instances. In this configuration
+
 - Both Managed Instances are on the same vNet.
 - Both Managed Instances are in the same location. 
 
 ### Publisher and distributor on-premises with a subscriber on a Managed Instance or logical server 
+
+![Azure SQL DB as subscriber](media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
  
 In this configuration, an Azure SQL Database (Managed Instance or Logical Server) is a subscriber. This configuration supports migration from on-premises to Azure. If a subscriber is on Logical Server it must be in push mode.  
 
