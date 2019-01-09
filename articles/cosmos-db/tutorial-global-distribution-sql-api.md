@@ -87,7 +87,7 @@ The current write and read endpoints are available in DocumentClient.getWriteEnd
 
 Below is a code example for NodeJS/Javascript. Python and Java will follow the same pattern.
 
-```java
+```JavaScript
 // Creating a ConnectionPolicy object
 var connectionPolicy = new DocumentBase.ConnectionPolicy();
 
