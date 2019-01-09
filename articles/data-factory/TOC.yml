@@ -411,6 +411,8 @@
       href: monitor-integration-runtime.md#azure-ssis-integration-runtime
     - name: Reconfigure Azure-SSIS integration runtime
       href: manage-azure-ssis-integration-runtime.md
+    - name: Copy or clone a data factory
+      href: copy-clone-data-factory.md
   - name: Create integration runtime
     items:
     - name: Azure integration runtime
