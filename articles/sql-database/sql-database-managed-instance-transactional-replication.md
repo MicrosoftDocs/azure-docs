@@ -99,6 +99,8 @@ In this configuration, an Azure SQL Database (Managed Instance or Logical Server
 
 ## See Also  
 
+- [Replication to SQL Database](replication-to-sql-database.md)
+- [Replication to Managed Instance](replication-with-sql-database-managed-instance.md)
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [Types of Replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
