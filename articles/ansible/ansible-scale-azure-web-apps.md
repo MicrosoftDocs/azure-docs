@@ -68,7 +68,7 @@ To run the playbook,  use the **ansible-playbook** command as follows:
 ansible-playbook webapp_scaleup.yml
 ```
 
-After running the playbook, output similiar to the following example shows that the App service plan has been successfully updated to S2 with three workers:
+After running the playbook, output similar to the following example shows that the App service plan has been successfully updated to S2 with three workers:
 ```Output
 PLAY [localhost] **************************************************************
 
