@@ -70,7 +70,7 @@ When you are connected to the desktop for the HDInsight cluster, use the followi
 
         hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-    This displays a list of the words that are contained in the **wasb://example/data/gutenberg/davinci.txt** file, along with the number of times each word occured. The following is an example of the data that will be contained in the file:
+    This displays a list of the words that are contained in the **wasb://example/data/gutenberg/davinci.txt** file, along with the number of times each word occurred. The following is an example of the data that will be contained in the file:
 
         wreathed        3
         wreathing       1

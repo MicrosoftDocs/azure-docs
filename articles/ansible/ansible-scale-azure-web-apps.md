@@ -5,7 +5,7 @@ ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, scale, Java
 author: tomarchermsft
 manager: jeconnoc
-ms.author: kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
 ---
