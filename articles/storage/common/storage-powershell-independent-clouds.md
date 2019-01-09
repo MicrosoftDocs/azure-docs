@@ -32,10 +32,10 @@ The examples require Azure PowerShell module Az version 0.7 or later. In a Power
 
 ## Log in to Azure
 
-Run the [Get-AzureEnvironment](/powershell/module/servicemanagement/azure/get-azureenvironment) cmdlet to see the available Azure environments:
+Run the [Get-AzureRmEnvironment](/powershell/module/azurerm.profile/get-azurermenvironment) cmdlet to see the available Azure environments:
    
 ```powershell
-Get-AzureEnvironment
+Get-AzEnvironment
 ```
 
 Sign in to your account that has access to the cloud to which you want to connect and set the environment. This example shows how to sign into an account that uses the Azure Government Cloud.   
@@ -64,14 +64,14 @@ The following table shows the locations returned for the German cloud.
 
 The endpoint suffix for each of these environments is different from the Azure Public endpoint. For example, the blob endpoint suffix for Azure Public is **blob.core.windows.net**. For the Government Cloud, the blob endpoint suffix is **blob.core.usgovcloudapi.net**. 
 
-### Get endpoint using Get-AzureEnvironment 
+### Get endpoint using Get-AzEnvironment 
 
-Retrieve the endpoint suffix using [Get-AzureEnvironment](/powershell/module/servicemanagement/azure/get-azureenvironment). The endpoint is the *StorageEndpointSuffix* property of the environment. The following code snippets show how to do this. All of these commands return something like "core.cloudapp.net" or "core.cloudapi.de", etc. Append this to the storage service to access that service. For example, "queue.core.cloudapi.de" will access the queue service in German Cloud.
+Retrieve the endpoint suffix using [Get-AzureRmEnvironment](/powershell/module/azurerm.profile/get-azurermenvironment). The endpoint is the *StorageEndpointSuffix* property of the environment. The following code snippets show how to do this. All of these commands return something like "core.cloudapp.net" or "core.cloudapi.de", etc. Append this to the storage service to access that service. For example, "queue.core.cloudapi.de" will access the queue service in German Cloud.
 
 This code snippet retrieves all of the environments and the endpoint suffix for each one.
 
 ```powershell
-Get-AzureEnvironment | select Name, StorageEndpointSuffix 
+Get-AzEnvironment | select Name, StorageEndpointSuffix 
 ```
 
 This command returns the following results.
@@ -83,10 +83,10 @@ This command returns the following results.
 | AzureGermanCloud | core.cloudapi.de|
 | AzureUSGovernment | core.usgovcloudapi.net |
 
-To retrieve all of the properties for the specified environment, call **Get-AzureEnvironment** and specify the cloud name. This code snippet returns a list of properties; look for **StorageEndpointSuffix** in the list. The following example is for the German Cloud.
+To retrieve all of the properties for the specified environment, call **Get-AzEnvironment** and specify the cloud name. This code snippet returns a list of properties; look for **StorageEndpointSuffix** in the list. The following example is for the German Cloud.
 
 ```powershell
-Get-AzureEnvironment -Name AzureGermanCloud 
+Get-AzEnvironment -Name AzureGermanCloud 
 ```
 
 The results are similar to the following:
@@ -108,7 +108,7 @@ The results are similar to the following:
 To retrieve just the storage endpoint suffix property, retrieve the specific cloud and ask for just that one property.
 
 ```powershell
-$environment = Get-AzureEnvironment -Name AzureGermanCloud
+$environment = Get-AzEnvironment -Name AzureGermanCloud
 Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix 
 ```
 

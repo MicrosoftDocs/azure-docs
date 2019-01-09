@@ -80,14 +80,14 @@ To use Azure PowerShell to sign in with an Azure AD identity:
    Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
    ```
 1. Close and reopen the PowerShell window.
-1. Call the [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) cmdlet to create a context, and include the `-UseConnectedAccount` parameter. 
+1. Call the [New-AzStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) cmdlet to create a context, and include the `-UseConnectedAccount` parameter. 
 1. To call a cmdlet with an Azure AD identity, pass the newly created context to the cmdlet.
 
 The following example shows how to list the blobs in a container from Azure PowerShell using an Azure AD identity. Be sure to replace the placeholder account and container names with your own values: 
 
 ```powershell
-$ctx = New-AzureStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
-Get-AzureStorageBlob -Container sample-container -Context $ctx 
+$ctx = New-AzStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
+Get-AzStorageBlob -Container sample-container -Context $ctx 
 ```
 
 ## Next steps
