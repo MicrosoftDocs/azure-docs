@@ -18,7 +18,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a new account
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **Create a resource** in the upper-left corner of the Azure portal.
 
