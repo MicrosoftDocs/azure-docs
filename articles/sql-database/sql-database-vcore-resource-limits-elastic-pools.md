@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/18/2018
+ms.date: 01/08/2019
 ---
 # Azure SQL Database vCore-based purchasing model limits for elastic pools
 
@@ -188,7 +188,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |TempDB size (GB)|64|128|192|256|320|384|384|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
-|Target IOPS (64 KB)|10000|20000|30000|40000|50000|60000|70000|
+|Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|35000|
 |Max concurrent workers (requests)|210|420|630|840|1050|1260|1470|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
 |Max number DBs per pool|Only single DBs are supported for this compute size|50|100|100|100|100|100|
@@ -204,7 +204,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
-|Memory (GB)|88|99|110|132|176|220|440|
+|Memory (GB)|81.6|91.8|102|122.4|163.2|204|408|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|15.768|18.139|20.51|25.252|37.936|52.22|131.64|
 |Max data size (GB)|3072|3072|3072|4096|4096|4096|4096|

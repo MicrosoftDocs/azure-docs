@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 12/18/2018
+ms.date: 01/08/2019
 ---
 # Azure SQL Database vCore-based purchasing model limits for a single database
 
@@ -76,7 +76,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
-|Memory (GB)|11|22|33|44|55|66|77|
+|Memory (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|1024|1024|1024|1536|1536|1536|1536|
@@ -98,7 +98,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
-|Memory (GB)|88|99|110|132|176|220|440|
+|Memory (GB)|81.6|91.8|102|122.4|163.2|204|408|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|3072|3072|3072|4096|4096|4096|4096|
@@ -174,7 +174,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |TempDB size (GB)|64|128|192|256|320|384|384|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
-|Target IOPS (64 KB)|10000|20000|30000|40000|50000|60000|70000|
+|Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|35000|
 |Max concurrent workers (requests)|200|400|600|800|1000|1200|1400|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
 |Number of replicas|4|4|4|4|4|4|4|
