@@ -144,7 +144,7 @@ When you are finished, select **Create** to deploy the Storage Sync Service.
 Before interacting with the Azure File Sync management cmdlets, you will need to import a DLL and create an Azure File Sync management context. This is required because the Azure File Sync management cmdlets are not yet part of the Azure PowerShell modules.
 
 > [!Note]  
-> The StorageSync.Management.PowerShell.Cmdlets.dll package, which contains the Azure File Sync management cmdlets, (intentionally) contains a cmdlet with an unapproved verb (`Login`). The name `Login-AzStorageSync` was chosen to match the `Login-AzAccount` cmdlet alias in the Azure PowerShell module. This error message (and cmdlet) will be removed the Azure File Sync agent is added to the Azure PowerShell module.
+> The StorageSync.Management.PowerShell.Cmdlets.dll package, which contains the Azure File Sync management cmdlets, (intentionally) contains a cmdlet with an unapproved verb (`Login`). The name `Login-AzureStorageSync` was chosen to match the `Login-AzAccount` cmdlet alias in the Azure PowerShell module. This error message (and cmdlet) will be removed the Azure File Sync agent is added to the Azure PowerShell module.
 
 ```PowerShell
 $acctInfo = Login-AzAccount
