@@ -164,11 +164,12 @@ loops or variables inside loops where you expect predictable results.
 
    ![On "Foreach" loop, choose "..." > "Settings"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. Turn on the **Concurrency Control** setting. 
+1. Under **Concurrency Control**, turn the 
+**Concurrency Control** setting to **On**. 
 Move the **Degree of Parallelism** slider to **1**, 
 and choose **Done**.
 
-   ![Turn on "Concurrency Control" setting](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
+   ![Turn on concurrency control](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
 If you're working with your logic app's JSON definition, 
 you can use the `Sequential` option by adding the 
