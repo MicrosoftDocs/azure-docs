@@ -24,7 +24,7 @@ The following Azure services support managed identities for Azure resources:
 
 ### Azure Virtual Machines
 
-|Managed identity type |  All Generally Available Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
+|Managed identity type |  All Generally Available<br>Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
 | System assigned | Available | Preview | Preview | Preview | Preview |
 | User assigned | Preview | Preview | Preview | Preview | Preview
@@ -39,7 +39,7 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 
 ### Azure Virtual Machine Scale Sets
 
-|Managed identity type |  Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
+|Managed identity type |  All Generally Available<br>Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
 | System assigned | Available | Preview | Preview | Preview |
 | User assigned | Preview | Preview | Preview | Preview
@@ -54,7 +54,7 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 
 ### Azure App Service
 
-|Managed identity type |  Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
+|Managed identity type |  All Generally Available<br>Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
 | System assigned | Available | Available | Available | Available |
 | User assigned | Preview | Not available | Not available | Not available
@@ -68,7 +68,7 @@ Refer to the following list to configure managed identity for Azure App Service 
 
 ### Azure Functions
 
-Managed identity type |  Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
+Managed identity type |  All Generally Available<br>Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
 | System assigned | Available | Available | Available | Available |
 | User assigned | Preview | Not available | Not available | Not available
@@ -82,19 +82,19 @@ Refer to the following list to configure managed identity for Azure Functions (i
 
 ### Azure Logic Apps
 
-Managed identity type |  Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
+Managed identity type |  All Generally Available<br>Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
 | System assigned | Available | Available | Available | Available |
 | User assigned | Not available | Not available | Not available | Not available
 
-Refer to the following list to configure managed identity for Azure Logic Apss (in regions where available):
+Refer to the following list to configure managed identity for Azure Logic Apps (in regions where available):
 
 - [Azure portal](/azure/logic-apps/create-managed-service-identity#azure-portal)
 - [Azure Resource Manager template](/azure/app-service/overview-managed-identity#deployment-template)
 
 ### Azure Data Factory V2
 
-Managed identity type |  Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
+Managed identity type |  All Generally Available<br>Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
 | System assigned | Available | Not available | Not available | Not available |
 | User assigned | Not available | Not available | Not available | Not available
@@ -108,7 +108,7 @@ Refer to the following list to configure managed identity for Azure Data Factory
 
 ### Azure API Management
 
-Managed identity type |  Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
+Managed identity type |  All Generally Available<br>Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
 | System assigned | Available | Available | Not available | Not available |
 | User assigned | Not available | Not available | Not available | Not available
@@ -119,7 +119,7 @@ Refer to the following list to configure managed identity for Azure API Manageme
 
 ### Azure Container Instances
 
-Managed identity type |  Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
+Managed identity type |  All Generally Available<br>Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
 | System assigned | Linux: Preview<br>Windows: Not available | Not available | Not available | Not available |
 | User assigned | Linux: Preview<br>Windows: Not available | Not available | Not available | Not available
