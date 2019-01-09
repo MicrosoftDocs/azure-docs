@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 01/09/2019
 ms.author: lizross
 ms.reviewer: librown
 ---
@@ -24,13 +24,13 @@ The codes provided for your accounts aren't case-sensitive and don't require spa
 
 ## Add your work or school account
 
-1. From the **Configure mobile app** screen on your PC, note the **Code** and **Url** information. Keep this screen open so you can see the code and URL.
+1. On your PC, note the **Code** and **Url** information on the **Configure mobile app** page. Keep this page open so you can see the code and URL.
     
     ![Screen that provides the QR code](./media/microsoft-authenticator-app-add-account-manual/auth-app-barcode.png)
 
 2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Work or school account**.
 
-3. Select **OR ENTER CODE MANUALLY** at the bottom of the screen.
+3. Select **OR ENTER CODE MANUALLY** at the bottom of the page.
 
     ![Screen for scanning a QR code](./media/microsoft-authenticator-app-add-account-manual/auth-app-manual-code.png)
    
@@ -42,29 +42,57 @@ The codes provided for your accounts aren't case-sensitive and don't require spa
 
 ## Add your Google account
 
-1. On your PC, select **CAN'T SCAN IT** from the **Set up Authenticator** screen with the QR code.
+1. On your PC, select **CAN'T SCAN IT** from the **Set up Authenticator** page with the QR code.
 
-    The **Can't scan barcode** screen appears with the secret code. Keep this screen open so you can see the secret code.
+    The **Can't scan barcode** page appears with the secret code. Keep this page open so you can see the secret code.
 
-2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, select **Other account (Google, Facebook, etc.)**, and then select **OR ENTER CODE MANUALLY** at the bottom of the screen.
+2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, select **Other account (Google, Facebook, etc.)**, and then select **OR ENTER CODE MANUALLY** at the bottom of the page.
 
 3. Enter an **Account name** (for example, Google) and type the **Secret key** from Step 1, and then select **Finish**.
 
-4. On the **Set up Authenticator** screen on your PC, type the six-digit verification code provided in the app for your Google account, and then select **Verify**.
+4. On the **Set up Authenticator** page on your PC, type the six-digit verification code provided in the app for your Google account, and then select **Verify**.
 
     The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
+
+    >[!NOTE]
+    >For more information about two-factor verification and your Google account, see [Turn on 2-Step Verification](https://support.google.com/accounts/answer/185839) and [Learn more about 2-Step Verification](https://www.google.com/landing/2step/help.html).
 
 ## Add your Facebook account
 
-1. On the **Set up via Third Party Authenticator** screen, which includes the QR code, and a code written out for entry into your app. Keep this screen open so you can see the code.
+1. On the **Set up via Third Party Authenticator** page, which includes the QR code, and a code written out for entry into your app. Keep this page open so you can see the code.
 
-2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, select **Other account (Google, Facebook, etc.)**, and then select **OR ENTER CODE MANUALLY** at the bottom of the screen.
+2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, select **Other account (Google, Facebook, etc.)**, and then select **OR ENTER CODE MANUALLY** at the bottom of the page.
 
 3. Enter an **Account name** (for example, Facebook) and type the **Secret key** from Step 1, and then select **Finish**.
 
-4. On the **Two-Factor Authenticator** screen on your PC, type the six-digit verification code provided in the app for your Facebook account, and then select **Verify**.
+4. On the **Two-Factor Authenticator** page on your PC, type the six-digit verification code provided in the app for your Facebook account, and then select **Verify**.
 
     The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
+
+    >[!NOTE]
+    >For more information about two-factor verification and your Facebook account, see [What is two-factor authentication and how does it work?](https://www.facebook.com/help/148233965247823).
+
+## Add your Amazon account
+You can add your Amazon account by turning on two-factor verification and then adding the account to the app.
+
+1. On your PC, select **Can't scan the barcode** from the **Choose how you'll receive codes** page with the QR code.
+
+    The **Can't scan the barcode** message appears with the secret code. Keep this message open so you can see the secret code.
+
+2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, select **Other account (Google, Facebook, etc.)**, and then select **OR ENTER CODE MANUALLY** at the bottom of the page.
+
+3. Enter an **Account name** (for example, Amazon) and type the **Secret key** from Step 1, and then select **Finish**.
+
+4. Complete the rest of the sign up process, including adding a backup verification method such as a text message, and then select **Send code**.
+
+5. On the **Add a backup verification method** page on your PC, type the six-digit verification code provided by your backup verification method for your Amazon account, and then select **Verify code and continue**.
+
+6. On the Almost done page, decide whether to make your PC a trusted device, and then select **Got it. Turn on Two-Step Verification**.
+
+    The **Advanced Security Settings** page appears, showing your updated two-factor verification details.
+
+    >[!NOTE]
+    >For more information about two-factor verification and your Amazon account, see [About Two-Step Verification](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) and [Signing in with Two-Step Verification](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).    
 
 ## Next steps
 

@@ -27,18 +27,18 @@ Generally, for all your personal accounts, you'll need to:
 
 2. Add the account to the Microsoft Authenticator app.
 
-We're providing the process here for your personal Microsoft apps, along with your Facebook, Google, and GitHub accounts, but this process is the same for any other app, such as Instagram, Adobe, and so on.
+We're providing the process here for your personal Microsoft apps, along with your Facebook, Google, GitHub, and Amazon accounts, but this process is the same for any other app, such as Instagram, Adobe, and so on.
 
 ## Add your personal Microsoft account
 You can add your personal Microsoft account by first turning on two-factor verification, and then by adding the account to the app.
 
 ### Turn on two-factor verification
 
-1. On your PC, go to your [Security basics](https://account.microsoft.com/security) screen and sign-in using your personal Microsoft account. For example, alain@outlook.com.
+1. On your PC, go to your [Security basics](https://account.microsoft.com/security) page and sign-in using your personal Microsoft account. For example, alain@outlook.com.
 
-2. At the bottom of the **Security basics** screen, choose the **more security options** link.
+2. At the bottom of the **Security basics** page, choose the **more security options** link.
 
-    ![Security basics screen with the more security options link highlighted](./media/microsoft-authenticator-app-add-personal-account/more-security-options-link.png)
+    ![Security basics page with the more security options link highlighted](./media/microsoft-authenticator-app-add-personal-account/more-security-options-link.png)
 
 3. Go to the **Two-step verification** section and choose to turn the feature **On**. You can also turn it off here if you no longer want to use it with your personal account.
 
@@ -48,9 +48,9 @@ You can add your personal Microsoft account by first turning on two-factor verif
 
 2. Select **Add account** from the **Customize and control** icon in the upper right.
 
-    ![Accounts screen, with the Customize and control icon highlighted](./media/microsoft-authenticator-app-add-personal-account/customize-and-control-icon.png)
+    ![Accounts page, with the Customize and control icon highlighted](./media/microsoft-authenticator-app-add-personal-account/customize-and-control-icon.png)
 
-3. In the **Add account** screen, choose **Personal account**.
+3. In the **Add account** page, choose **Personal account**.
 
 4. Sign in to your personal account, using the appropriate email address (such as alain@outlook.com), and then choose **Next**.
 
@@ -68,30 +68,30 @@ You can add your Google account by turning on two-factor verification and then a
 
 1. On your PC, go to https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome, select **Get Started**, and then verify your identity.
 
-2. Follow the on-screen steps to turn on two-step verification for your personal Google account.
+2. Follow the on-page steps to turn on two-step verification for your personal Google account.
 
 ### Add your Google account to the app
 
-1. On the Google screen on your PC, go to the **Set up alternative second step** section, choose **Set up** from the **Authenticator app** section.
+1. On the Google page on your PC, go to the **Set up alternative second step** section, choose **Set up** from the **Authenticator app** section.
 
-2. On the **Get codes from the Authenticator app** screen, select either **Android** or **iPhone** based on your phone type, and then select **Next**.
+2. On the **Get codes from the Authenticator app** page, select either **Android** or **iPhone** based on your phone type, and then select **Next**.
 
     You're given a QR code that you can use to automatically associate your account with the Microsoft Authenticator app. Do not close this window.
 
 3. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper right, and then select **Other account (Google, Facebook, etc.)**.
 
-4. Use your device's camera to scan the QR code from the **Set up Authenticator** screen on your PC.
+4. Use your device's camera to scan the QR code from the **Set up Authenticator** page on your PC.
 
     >[!Note]
     >If your camera isn't working properly, you can [enter the QR code and URL manually](#add-an-account-to-the-app-manually).
 
-5. Review the **Accounts** screen of the Microsoft Authenticator app on your device, to make sure your account information is right and that there's an associated six-digit verification code.
+5. Review the **Accounts** page of the Microsoft Authenticator app on your device, to make sure your account information is right and that there's an associated six-digit verification code.
 
     For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
 
-6. Select **Next** on the **Set up Authenticator** screen on your PC, type the six-digit verification code provided in the app for your Google account, and then select **Verify**.
+6. Select **Next** on the **Set up Authenticator** page on your PC, type the six-digit verification code provided in the app for your Google account, and then select **Verify**.
 
-7. Your account is verified, and you can select **Done** to close the **Set up Authenticator** screen.
+7. Your account is verified, and you can select **Done** to close the **Set up Authenticator** page.
 
     >[!NOTE]
     >For more information about two-factor verification and your Google account, see [Turn on 2-Step Verification](https://support.google.com/accounts/answer/185839) and [Learn more about 2-Step Verification](https://www.google.com/landing/2step/help.html).
@@ -101,34 +101,34 @@ You can add your Facebook account by turning on two-factor verification and then
 
 ### Turn on two-factor verification
 
-1. On your PC, open a Facebook screen, select the drop-down menu in the top-right corner, and then go to **Settings** > **Security and Login**.
+1. On your PC, open Facebook, select the drop-down menu in the top-right corner, and then go to **Settings** > **Security and Login**.
 
-    The **Security and Login** screen appears.
+    The **Security and Login** page appears.
 
 2. Go down to the **Use two-factor authentication** option in the **Two-Factor Authentication** section, and then select **Edit**.
 
-    The **Two-Factor Authentication** screen appears.
+    The **Two-Factor Authentication** page appears.
 
 3. Select **Turn On**.
 
 ### Add your Facebook account to the app
 
-1. On the Facebook screen on your PC, go to the **Add a backup** section, and then choose **Setup** from the **Authentication app** area.
+1. On the Facebook page on your PC, go to the **Add a backup** section, and then choose **Setup** from the **Authentication app** area.
 
     You're given a QR code that you can use to automatically associate your account with the Microsoft Authenticator app. Do not close this window.
 
 2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper right, and then select **Other account (Google, Facebook, etc.)**.
 
-3. Use your device's camera to scan the QR code from the **Two factor authentication** screen on your PC.
+3. Use your device's camera to scan the QR code from the **Two factor authentication** page on your PC.
 
     >[!Note]
     >If your camera isn't working properly, you can [enter the QR code and URL manually](#add-an-account-to-the-app-manually).
 
-4. Review the **Accounts** screen of the Microsoft Authenticator app on your device, to make sure your account information is right and that there's an associated six-digit verification code.
+4. Review the **Accounts** page of the Microsoft Authenticator app on your device, to make sure your account information is right and that there's an associated six-digit verification code.
 
     For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
 
-5. Select **Next** on the **Two factor authentication** screen on your PC, and then type the six-digit verification code provided in the app for your Facebook account.
+5. Select **Next** on the **Two factor authentication** page on your PC, and then type the six-digit verification code provided in the app for your Facebook account.
 
     Your account is verified, and you can now use the app to verify your account.
 
@@ -140,33 +140,77 @@ You can add your GitHub account by first turning on two-factor verification and 
 
 ### Turn on two-factor verification
 
-1. On your PC, open a GitHub webpage, select your image from top-right corner, and then select **Settings**.
+1. On your PC, open GitHub, select your image from top-right corner, and then select **Settings**.
 
-    The **Two-factor authentication** screen appears.
+    The **Two-factor authentication** page appears.
 
 2. Select **Security** from the **Personal settings** sidebar, and then select **Enable two-factor authentication** from the **Two-factor authentication** area.
 
 ### Add your GitHub account to the app
 
-1. On the **Two-factor authentication** screen on your PC, select **Set up using an app**.
+1. On the **Two-factor authentication** page on your PC, select **Set up using an app**.
 
 2. Save your recovery codes so you can get back into your account if you lose access, and then select **Next**. 
 
     You can save your codes by downloading them to your device, by printing a hard copy, or by copying them into a password manager tool.
 
-3. On the **Two-factor authentication** screen, select **Set up using an app**.
+3. On the **Two-factor authentication** page, select **Set up using an app**.
 
-    The screen changes to show you a QR code. Do not close this screen.
+    The page changes to show you a QR code. Do not close this page.
 
-4. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper right, select **Other account (Google, Facebook, etc.)**, and then select **enter this text code** from the text at the top of the screen.
+4. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper right, select **Other account (Google, Facebook, etc.)**, and then select **enter this text code** from the text at the top of the page.
 
     The Microsoft Authenticator app is unable to scan the QR code, so you must manually enter the code.
 
 5. Enter an **Account name** (for example, GitHub) and type the **Secret key** from Step 4, and then select **Finish**.
 
-4. On the **Two-factor authenticator** screen on your PC, type the six-digit verification code provided in the app for your GitHub account, and then select **Enable**.
+4. On the **Two-factor authenticator** page on your PC, type the six-digit verification code provided in the app for your GitHub account, and then select **Enable**.
 
-    The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
+    The **Accounts** page of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
+
+    >[!NOTE]
+    >For more information about two-factor verification and your GitHub account, see [About two-factor authentication](https://help.github.com/articles/about-two-factor-authentication/).
+
+## Add your Amazon account
+You can add your Amazon account by turning on two-factor verification and then adding the account to the app.
+
+### Turn on two-factor verification
+
+1. On your PC, open Amazon, select the **Account & Lists** drop-down menu, and then select **Your Account**.
+
+2. Select **Login & security**, sign in to your Amazon account, and then select **Edit** in the **Advanced Security Settings** area.
+
+    The **Advanced Security Settings** page appears.
+
+3. Select **Get Started**.
+
+4. Select **Authenticator App** from the **Choose how you'll receive codes** page.
+
+    The page changes to show you a QR code. Do not close this page.
+
+5. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper right, and then select **Other account (Google, Facebook, etc.)**.
+
+6. Use your device's camera to scan the QR code from the **Choose how you'll receive codes** page on your PC.
+
+    >[!Note]
+    >If your camera isn't working properly, you can [enter the QR code and URL manually](#add-an-account-to-the-app-manually).
+
+5. Review the **Accounts** page of the Microsoft Authenticator app on your device, to make sure your account information is right and that there's an associated six-digit verification code.
+
+    For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
+
+6. On the **Choose how you'll receive codes** page on your PC, type the six-digit verification code provided in the app for your Amazon account, and then select **Verify code and continue**.
+
+7. Complete the rest of the sign up process, including adding a backup verification method such as a text message, and then select **Send code**.
+
+8. On the **Add a backup verification method** page on your PC, type the six-digit verification code provided by your backup verification method for your Amazon account, and then select **Verify code and continue**.
+
+9. On the Almost done page, decide whether to make your PC a trusted device, and then select **Got it. Turn on Two-Step Verification**.
+
+    The **Advanced Security Settings** page appears, showing your updated two-factor verification details.
+
+    >[!NOTE]
+    >For more information about two-factor verification and your Amazon account, see [About Two-Step Verification](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) and [Signing in with Two-Step Verification](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).
 
 
 ## Next steps
