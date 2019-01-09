@@ -38,15 +38,15 @@ Here are some recommendations for using the Delete activity:
 
 ### Azure data stores
 
-[Azure Blob storage](../articles/data-factory/connector-azure-blob-storage.md)
-[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md)
-|[Azure Data Lake Storage Gen2 (Preview)](../articles/data-factory/connector-azure-data-lake-storage.md)
+[Azure Blob storage](connector-azure-blob-storage.md)
+[Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
+|[Azure Data Lake Storage Gen2 (Preview)](connector-azure-data-lake-storage.md)
 
 ### File system data stores
 
-[File System](../articles/data-factory/connector-file-system.md)
-[FTP](../articles/data-factory/connector-ftp.md)
-[HDFS](../articles/data-factory/connector-hdfs.md)
+[File System](connector-file-system.md)
+[FTP](data-factory/connector-ftp.md)
+[HDFS](data-factory/connector-hdfs.md)
 
 ## Syntax
 
