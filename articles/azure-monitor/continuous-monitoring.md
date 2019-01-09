@@ -29,7 +29,7 @@ In order to gain observability across your entire environment, you need to enabl
 - [Azure DevOps Projects](../devops-project/overview.md) give you a simplified experience with your existing code and Git repository, or choose from one of the sample applications to create a Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.
 - [Continuous monitoring in your DevOps release pipeline](../azure-monitor/app/continuous-monitoring.md) allows you to gate or rollback your deployment based on monitoring data.
 - [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md)  allows you to instrument a live .NET app on Windows with Azure Application Insights, without having to modify or redeploy your code.
-- If you have access to the code for your application, then enable full monitoring with [Application Insights](../application-insights/app-insights-overview.md) by installing the Azure Monitor Application Insights SDK for [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java](../azure-monitor/learn/java-quick-start.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md), or [any other programming languages](../azure-monitor/app/platforms.md). This allows you to specify custom events, metrics, or page views that are relevant to your application and your business.
+- If you have access to the code for your application, then enable full monitoring with [Application Insights](../azure-monitor/app/app-insights-overview.md) by installing the Azure Monitor Application Insights SDK for [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java](../azure-monitor/learn/java-quick-start.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md), or [any other programming languages](../azure-monitor/app/platforms.md). This allows you to specify custom events, metrics, or page views that are relevant to your application and your business.
 
 
 
@@ -80,7 +80,7 @@ Ensuring that your development and operations have access to the same telemetry 
 ## Continuously optimize
  Monitoring is one of the fundamental aspects of the popular Build-Measure-Learn philosophy, which recommends continuously tracking your KPIs and user behavior metrics and then striving to optimize them through planning iterations. Azure Monitor helps you collect metrics and logs relevant to your business and to add new data points in the next deployment as required.
 
-- Use tools in Application Insights to [track end-user behavior and engagement](../application-insights/app-insights-tutorial-users.md).
+- Use tools in Application Insights to [track end-user behavior and engagement](../azure-monitor/learn/tutorial-users.md).
 - Use [Impact Analysis](../azure-monitor/app/usage-impact.md) to help you prioritize which areas to focus on to drive to important KPIs.
 
 
