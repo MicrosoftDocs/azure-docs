@@ -123,10 +123,9 @@ New-AzureRmResourceGroupDeployment `
 
 When the template is deployed successfully, it results in the following output:
 
-![Deployment output](media/azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
+![Deployment output](media/azure-stack-key-vault-deploy-vm-with-secret/deployment-output.png)
 
 ## Next steps
 
-[Deploy a sample app with Key Vault](azure-stack-kv-sample-app.md)
-
-[Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
+* [Deploy a sample app with Key Vault](azure-stack-key-vault-sample-app.md)
+* [Deploy a VM with a Key Vault certificate](azure-stack-key-vault-push-secret-into-vm.md)

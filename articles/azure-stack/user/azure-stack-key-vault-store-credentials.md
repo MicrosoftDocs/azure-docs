@@ -21,7 +21,7 @@ ms.author: sethm
 
 Developing applications on Azure Stack typically requires creating a service principal and using those credentials to authenticate before deploying. However, often the stored credentials for the service principal are misplaced. This article describes how to create a service principal and store the values in Azure Key Vault for later retrieval.
 
-For more information about Key Vault, see [this article](azure-stack-kv-intro.md).
+For more information about Key Vault, see [this article](azure-stack-key-vault-intro.md).
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ To create a key vault, follow these steps:
 
 2. From the dashboard, select **+ Create a resource**, then **Security + Identity**, then select **Key Vault.**
 
-   ![Create key vault](media/azure-stack-kv-store-credentials/create-kv.png)
+   ![Create key vault](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
 
 3. In the **Create Key Vault** pane, assign a **Name** for your vault. Vault names can contain only alphanumeric characters and the hyphen (-) character. They should not start with a number.
 
@@ -97,5 +97,5 @@ After the secret is successfully created, the service principal information will
 ## Next steps
 
 - [Use service principals](azure-stack-create-service-principals.md)
-- [Manage Key Vault in Azure Stack by the portal](azure-stack-kv-manage-portal.md)  
-- [Manage Key Vault in Azure Stack by using PowerShell](azure-stack-kv-manage-powershell.md)
+- [Manage Key Vault in Azure Stack by the portal](azure-stack-key-vault-manage-portal.md)  
+- [Manage Key Vault in Azure Stack by using PowerShell](azure-stack-key-vault-manage-powershell.md)
