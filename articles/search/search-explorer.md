@@ -48,7 +48,7 @@ The following examples assume the built-in realestate sample index. For more inf
 
 ### Example 1 - empty search
 
-For a first search, execute an empty search by clicking **Search** with no terms provided. Empty search is useful as first query because it returns entire documents so that you can review the composition. On an empty search, there is no search rank and documents are returned in arbitrary order (`"@search.score": 1` for all documents). By default, 50 documents are returned in a search request.
+For a first look at your content, execute an empty search by clicking **Search** with no terms provided. An empty search is useful as a first query because it returns entire documents so that you can review document composition. On an empty search, there is no search rank and documents are returned in arbitrary order (`"@search.score": 1` for all documents). By default, 50 documents are returned in a search request.
 
 Equivalent syntax for an empty search is `*` or `search=*`.
 
