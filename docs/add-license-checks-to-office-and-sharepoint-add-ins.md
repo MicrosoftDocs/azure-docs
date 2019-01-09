@@ -49,7 +49,31 @@ The Office application calling that URL would add the following query string to 
 
 The query string parameter _et_ specifies a base-64 and URL-encoded version of the add-in license token.
 
-For Outlook add-ins, the *et* query parameter string is only URL-encoded, and **not** base-64 encoded.
+For Outlook add-ins, the *et* query parameter string is only URL-encoded, and **not** base-64 encoded. Also note that you have to remove all the new lines of the token before encoding it. For example, the following token:
+
+```XML
+<r>
+  <t 
+    aid="WA907006056" 
+    pid="{4FB601F2-5469-4542-B9FC-B96345DC8B39}" 
+    cid="32F3E7FC559F4F49" 
+    did="{0672BAE9-B41B-48FE-87F1-7F4D3DD3F3B1}" 
+    ts="30" 
+    et="Trial" 
+    ad="2012-01-12T21:58:13Z" 
+    ed="2019-06-30T21:58:13Z" 
+    sd="2012-01-12T00:00:00Z"
+    test="true" 
+    te="2019-06-30T02:49:34Z" />
+  <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d>
+</r>
+```
+
+Has to be converted into this:
+
+```
+<r> <t aid="WA907006056" pid="{4FB601F2-5469-4542-B9FC-B96345DC8B39}" cid="32F3E7FC559F4F49" did="{0672BAE9-B41B-48FE-87F1-7F4D3DD3F3B1}" ts="30" et="Trial" ad="2012-01-12T21:58:13Z" ed="2019-06-30T21:58:13Z" sd="2012-01-12T00:00:00Z" test="true" te="2019-06-30T02:49:34Z" /> <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d> </r>
+```
 
 For example, the source location modified to include a test token for an Outlook add-in would look like this: 
 
