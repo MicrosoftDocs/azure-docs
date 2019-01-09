@@ -81,7 +81,7 @@ You can rewrite the value in the headers to:
 
 ## Server variables
 
-Server variables store useful information on a Web server. These variables provide information about the server, the connection with the client, and the current request on the connection, such as the client’s IP address or Web browser type. They change dynamically, such as when a new page is loaded or a form is posted.  Using these variables users can set request headers as well as response headers. 
+Server variables store useful information on a web server. These variables provide information about the server, the connection with the client, and the current request on the connection, such as the client’s IP address or web browser type. They change dynamically, such as when a new page is loaded or a form is posted.  Using these variables users can set request headers as well as response headers. 
 
 This capability supports rewriting headers to the following server variables:
 
