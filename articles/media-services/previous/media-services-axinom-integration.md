@@ -44,7 +44,7 @@ For configuring dynamic protection and key delivery policy, please see Mingfei�
 
 You can configure dynamic CENC protection with multi-DRM for DASH streaming having both of the following:
 
-1. PlayReady protection for MS Edge and IE11, that could have a token authorization restriction. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS), such as Azure Active Directory;
+1. PlayReady protection for Microsoft Edge and IE11, that could have a token authorization restriction. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS), such as Azure Active Directory;
 2. Widevine protection for Chrome, it can require token authentication with token issued by another STS. 
 
 See [JWT Token Generation](media-services-axinom-integration.md#jwt-token-generation) section for why Azure Active Directory cannot be used as an STS for Axinom’s Widevine license server.
@@ -55,7 +55,7 @@ See [JWT Token Generation](media-services-axinom-integration.md#jwt-token-genera
 
 ## Azure Media Player Preparation
 AMP v1.4.0 supports playback of AMS content that is dynamically packaged with both PlayReady and Widevine DRM.
-If Widevine license server does not require token authentication, there is nothing additional you need to do to test a DASH content protected by Widevine. For an example, the AMP team provides a simple [sample](https://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevineFairPlay_notoken.html), where you can see it working in Edge and IE11 with PlayReady and Chrome with Widevine.
+If Widevine license server does not require token authentication, there is nothing additional you need to do to test a DASH content protected by Widevine. For an example, the AMP team provides a simple [sample](https://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevineFairPlay_notoken.html), where you can see it working in Microsoft Edge and IE11 with PlayReady and Chrome with Widevine.
 The Widevine license server provided by Axinom requires JWT token authentication. The JWT token needs to be submitted with license request through an HTTP header “X-AxDRM-Message”. For this purpose, you need to add the following javascript in the web page hosting AMP before setting the source:
 
     <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>

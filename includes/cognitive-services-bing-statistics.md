@@ -80,7 +80,7 @@ The following are the possible metrics. Each metric notes endpoint restrictions.
 
 - **Response Code Distribution**: The HTTP status codes of all calls during the reporting period.
 
-- **Call Origin Distribution**: The types of browsers used by the users. For example, Edge, Chrome, Safari, and FireFox. Calls made from outside a browser, such as bots, Postman, or using curl from a console app, are grouped under Libraries. The origin is determined using the request's User-Agent header value. If the request doesn't include the User-Agent header, Bing tries to derive the origin from other signals.  
+- **Call Origin Distribution**: The types of browsers used by the users. For example, Microsoft Edge, Chrome, Safari, and FireFox. Calls made from outside a browser, such as bots, Postman, or using curl from a console app, are grouped under Libraries. The origin is determined using the request's User-Agent header value. If the request doesn't include the User-Agent header, Bing tries to derive the origin from other signals.  
 
 - **Safe Search Distribution**: The distribution of safe search values. For example, off, moderate, or strict. The `safeSearch` query parameter contains the value, if specified. Otherwise, Bing defaults the value to moderate.  
 

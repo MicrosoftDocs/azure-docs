@@ -267,7 +267,7 @@ namespace DynamicEncryptionWithDRM
             }
 
             // You can use the http://amsplayer.azurewebsites.net/azuremediaplayer.html player to test streams.
-            // Note that DASH works on Internet Explorer 11 (via PlayReady), Edge (via PlayReady), and Chrome (via Widevine).
+            // Note that DASH works on Internet Explorer 11 (via PlayReady), Microsoft Edge (via PlayReady), and Chrome (via Widevine).
 
             string url = GetStreamingOriginLocator(encodedAsset);
             Console.WriteLine("Encrypted DASH URL: {0}/manifest(format=mpd-time-csf)", url);

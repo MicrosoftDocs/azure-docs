@@ -22,7 +22,7 @@ This tutorial is part two of a series of Storage tutorials. It extends the [prev
 
 You use the Azure CLI and the Azure portal to add the resizing functionality to an existing image upload app.
 
-![Published web app in Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Published web app in Microsoft Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 In this tutorial, you learn how to:
 
@@ -178,7 +178,7 @@ Click the **Upload photos** region to select and upload a file. You can also dra
 
 Notice that after the uploaded image disappears, a copy of the uploaded image is displayed in the **Generated thumbnails** carousel. This image was resized by the function, added to the *thumbnails* container, and downloaded by the web client.
 
-![Published web app in Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![Published web app in Microsoft Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
 ## Next steps
 

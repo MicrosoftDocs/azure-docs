@@ -56,7 +56,7 @@ To successfully complete your "content protection" system/application design, yo
 
     For testing AES or CENC (Widevine and/or PlayReady) encrypted content, you can use [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Make sure you click on "Advanced options" and check your encryption options.
 
-    If you want to test FairPlay encrypted content, use [this test player](https://aka.ms/amtest). The player supports Widevine, PlayReady, and FairPlay DRMs as well as AES-128 clear key encryption. You need to choose the right browser to test different DRMs: Chrome/Opera/Firefox for Widevine, MS Edge/IE11 for PlayReady, Safari on macOS for FairPlay.
+    If you want to test FairPlay encrypted content, use [this test player](https://aka.ms/amtest). The player supports Widevine, PlayReady, and FairPlay DRMs as well as AES-128 clear key encryption. You need to choose the right browser to test different DRMs: Chrome/Opera/Firefox for Widevine, Microsoft Edge/IE11 for PlayReady, Safari on macOS for FairPlay.
 
 3. Secure Token Service (STS), which issues JSON Web Token (JWT) as access token for backend resource access. You can use the AMS license delivery services as the backend resource. An STS has to define the following:
 

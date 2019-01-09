@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 
 Sign in to the [Azure portal](https://portal.azure.com/) by using the credentials for the Azure subscription you use. 
 
-The portal's workspace dashboard is supported on Edge, Chrome, and Firefox browsers only.
+The portal's workspace dashboard is supported on Microsoft Edge, Chrome, and Firefox browsers only.
 
    ![Azure portal](./media/aml-create-in-portal/portal-dashboard.png)
 
