@@ -44,7 +44,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Target IOPS (64 KB)|500|1000|1500|2000|2500|3000|
-|Max concurrent workers (requests)|210|420|630|840|1050|1260|
+|Max concurrent workers per pool (requests) * |210|420|630|840|1050|1260|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
 |Max number DBs per pool|100|200|300|500|500|500|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
@@ -52,6 +52,8 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+\* For the max current workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md)
 
 ### General Purpose service tier: Generation 4 compute platform (part 2)
 
@@ -68,7 +70,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Target IOPS (64 KB)|3500|4000|4500|5000|7000|7000|
-|Max concurrent workers (requests)|1470|1680|1890|2100|3360|5040|
+|Max concurrent workers per pool (requests) *|1470|1680|1890|2100|3360|5040|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
 |Max number DBs per pool|200|500|500|500|500|500|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
@@ -76,6 +78,8 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+\* For the max current workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md)
 
 ### General Purpose service tier: Generation 5 compute platform (part 1)
 
@@ -92,7 +96,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Target IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
-|Max concurrent workers (requests)|210|420|630|840|1050|1260|1470|
+|Max concurrent workers per pool (requests) *|210|420|630|840|1050|1260|1470|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
 |Max number DBs per pool|200|500|500|500|500|500|500|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
@@ -100,6 +104,8 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+\* For the max current workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md)
 
 ### General Purpose service tier: Generation 5 compute platform (part 2)
 
@@ -116,13 +122,15 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Target IOPS (64 KB)|4000|4500|5000|6000|7000|7000|7000|
-|Max concurrent workers (requests)|1680|1890|2100|2520|33600|4200|8400|
+|Max concurrent workers per pool (requests) *|1680|1890|2100|2520|33600|4200|8400|
 |Max number DBs per pool|500|500|500|500|500|500|500|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |Number of replicas|1|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+\* For the max current workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md)
 
 ## Business Critical service tier: Storage sizes and compute sizes
 
@@ -141,7 +149,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |TempDB size (GB)|32|64|96|128|160|192|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|
-|Max concurrent workers (requests)|210|420|630|840|1050|1260|
+|Max concurrent workers per pool (requests) *|210|420|630|840|1050|1260|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
 |Max number DBs per pool|Only single DBs are supported for this compute size|50|100|100|100|100|
 |Min/max elastic pool vCore choices per database|N/A|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
@@ -149,6 +157,8 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+\* For the max current workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md)
 
 ### Business Critical service tier: Generation 4 compute platform (part 2)
 
@@ -165,7 +175,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |TempDB size (GB)|224|256|288|320|384|384|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Target IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
-|Max concurrent workers (requests)|1470|1680|1890|2100|3360|5040|
+|Max concurrent workers per pool (requests) *|1470|1680|1890|2100|3360|5040|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
 |Max number DBs per pool|100|100|100|100|100|100|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
@@ -173,6 +183,8 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+\* For the max current workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md)
 
 #### Business Critical service tier: Generation 5 compute platform (part 1)
 
@@ -189,7 +201,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|35000|
-|Max concurrent workers (requests)|210|420|630|840|1050|1260|1470|
+|Max concurrent workers per pool (requests) *|210|420|630|840|1050|1260|1470|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
 |Max number DBs per pool|Only single DBs are supported for this compute size|50|100|100|100|100|100|
 |Min/max elastic pool vCore choices per database|N/A|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
@@ -197,6 +209,8 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+\* For the max current workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md)
 
 #### Business Critical service tier: Generation 5 compute platform (part 2)
 
@@ -213,7 +227,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Target IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Max concurrent workers (requests)|1680|1890|2100|2520|3360|4200|8400|
+|Max concurrent workers per pool (requests) *|1680|1890|2100|2520|3360|4200|8400|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
 |Max number DBs per pool|100|100|100|100|100|100|100|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
@@ -221,6 +235,8 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+\* For the max current workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md)
 
 If all vCores of an elastic pool are busy, then each database in the pool receives an equal amount of compute resources to process queries. The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the vCore min per database is set to a non-zero value.
 
