@@ -26,7 +26,7 @@ This article shows you how to query an existing Azure Search index using **Searc
 
    ![Select the index to query](./media/search-explorer/search-explorer-changeindex-se2.png "Select the index")
 
-4. Set the API version. By default, the current generally available API version is selected, but you can choose a preview or older API if the syntax you want to use is version-specific.
+4. Optionally, set the API version. By default, the current generally available API version is selected, but you can choose a preview or older API if the syntax you want to use is version-specific.
 
 5. Once the index and API version is selected, enter search terms or fully qualified query expressions in the search bar and click **Search** to execute.
 
@@ -36,7 +36,7 @@ Tips for searching in **Search explorer**:
 
 + Results are returned as verbose JSON documents so that you can view document construction and content, in entirety. You can use query expressions, shown in the examples, to limit which fields are returned.
 
-+ Documents are composed of all fields marked as **Retrievable** in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** list.
++ Documents are composed of all fields marked as **Retrievable** in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** list on the search overview page.
 
 + Free-form queries, similar to what you might enter in a commercial web browser, are useful for testing an end-user experience. For example, assuming the built-in realestate sample index, you could enter "Seattle apartments lake washington", and then you can use Ctrl-F to find terms within the search results. 
 
@@ -48,7 +48,7 @@ The following examples assume the built-in realestate sample index. For more inf
 
 ### Example 1 - empty search
 
-Execute an empty search by clicking **Search** with no terms provided. Empty search is useful as first query because it returns entire documents so that you can review the composition. On an empty search, there is no search rank and documents are returned in arbitrary order (`"@search.score": 1` for all documents). By default, 50 documents are returned in a search request.
+For a first search, execute an empty search by clicking **Search** with no terms provided. Empty search is useful as first query because it returns entire documents so that you can review the composition. On an empty search, there is no search rank and documents are returned in arbitrary order (`"@search.score": 1` for all documents). By default, 50 documents are returned in a search request.
 
 Equivalent syntax for an empty search is `*` or `search=*`.
 
@@ -62,9 +62,7 @@ Equivalent syntax for an empty search is `*` or `search=*`.
 
 ### Example 2 - free text search
 
-Free-form queries with or without operators are useful for simulating user-defined queries sent from a custom app to Azure Search. When you provide query terms or expressions, search rank comes into play. 
-
-An example might be `"Seattle apartment "Lake Washington" miele OR thermador appliance"`. You can use Ctrl-F to search within results.
+Free-form queries, with or without operators, are useful for simulating user-defined queries sent from a custom app to Azure Search. Notice that when you provide query terms or expressions, search rank comes into play. The following example illustrates a free text search.
 
    ```Input
    Seattle apartment "Lake Washington" miele OR thermador appliance
@@ -72,13 +70,15 @@ An example might be `"Seattle apartment "Lake Washington" miele OR thermador app
 
    **Results**
 
+   You can use Ctrl-F to search within results for specific terms of interest.
+
    ![Free text query example](./media/search-explorer/search-explorer-example-freetext.png "Free text query example")
 
 ### Example 3 - count of matching documents 
 
-Add **$count** to get the number of matches found in an index. On an empty search, count is the total number of documents in the index. On a qualified search, its the number of documents matching the query input.
+Add **$count** to get the number of matches found in an index. On an empty search, count is the total number of documents in the index. On a qualified search, it's the number of documents matching the query input.
 
-   ```Input
+   ```Input1
    $count=true
    ```
    **Results**
@@ -87,7 +87,7 @@ Add **$count** to get the number of matches found in an index. On an empty searc
 
 ### Example 4 - restrict fields in search results
 
-Add **$select** to limit results to the explicitly named fields for more readable output in **Search explorer**. To keep the search strings and `$count=true`, prefix the arguments with `&`. 
+Add **$select** to limit results to the explicitly named fields for more readable output in **Search explorer**. To keep the search string and **$count=true**, prefix arguments with **&**. 
 
    ```Input
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true
@@ -99,7 +99,7 @@ Add **$select** to limit results to the explicitly named fields for more readabl
 
 ### Example 5 - return next batch of results
 
-Append **$top=100,&$skip=50** to increase results to 100 documents (default is 50, maximum is 1000), skipping the first 50 documents. Recall that you need to provide search criteria, such as a query term or expression, to get ranked results. Notice that search scores decrease the deeper you reach into search results.
+Azure Search returns the top 50 matches based on the search rank. To get the next set of matching documents, append **$top=100,&$skip=50** to increase the result set to 100 documents (default is 50, maximum is 1000), skipping the first 50 documents. Recall that you need to provide search criteria, such as a query term or expression, to get ranked results. Notice that search scores decrease the deeper you reach into search results.
 
    ```Input
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100,&$skip=50
@@ -121,7 +121,6 @@ Add **$orderby** to sort results by another field besides search score. An examp
 
    ![Orderby expression](./media/search-explorer/search-explorer-example-ordery.png "Change the sort order")
 
-
 Both **$filter** and **$orderby** expressions are OData constructions. For more information, see [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 ## Next steps
@@ -130,5 +129,5 @@ The following resources provide additional query syntax information and examples
 
  + [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
  + [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
- + [Lucene query examples](search-query-lucene-examples) 
+ + [Lucene query examples](search-query-lucene-examples.md) 
  + [OData Filter expression syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) 
