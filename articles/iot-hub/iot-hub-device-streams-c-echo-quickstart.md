@@ -152,7 +152,7 @@ To run the device-side application, you need to:
   # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
   $ make -j
 
-
+  
   # In Windows
   # Go to the cmake folder at the root of repo
   cmake --build . -- /m /p:Configuration=Release
