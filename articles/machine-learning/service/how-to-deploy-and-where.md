@@ -17,6 +17,9 @@ ms.custom: seodec18
 
 The Azure Machine Learning service provides several ways you can deploy your trained model using the SDK. In this document, learn how to deploy your model as a web service in the Azure cloud, or to IoT edge devices.
 
+> [!IMPORTANT]
+> Cross-origin resource sharing (CORS) is not currently supported when deploying a model as a web service.
+
 You can deploy models to the following compute targets:
 
 | Compute target | Deployment type | Description |
@@ -97,17 +100,92 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                  )
 ```
 
-This configuration uses a `score.py` file to pass requests to the model. This file contains two functions:
+The important parameters in this example are the `execution_script`, `runtime`, and `conda_file`.
+
+* The `execution_script` parameter specifies a Python script that is used to receive requests submitted to the service. In this example, the script is contained in the `score.py` file. For more information, see the [Execution script](#script) section. 
+
+* The `runtime` parameter indicates that the image uses Python. The other option is `spark-py`, which uses Python with Apache Spark.
+
+* The `conda_file` parameter is used to provide a conda environment file. This file defines the conda environment for the deployed model. For more information on creating this file, see [Create an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file).
+
+    For more information, see the reference documentation for [ContainerImage class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)
+
+### <a id="script"></a> Execution script
+
+The execution script receives data submitted to a deployed image, and passes it to the model. It then takes the response returned by the model and returns that to the client. The script is specific to your model; it must understand the data that the model expects and returns. The script usually contains two functions that load and run the model:
 
 * `init()`: Typically this function loads the model into a global object. This function is run only once when the Docker container is started. 
 
-* `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization, but other formats are supported.
+* `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization. You can also work with raw binary data. You can transform the data before sending to the model, or before returning to the client. 
 
-For an example `score.py` file, see the [image classification tutorial](tutorial-deploy-models-with-aml.md#make-script). For an example that uses an ONNX model, see the [ONNX and Azure Machine Learning](how-to-build-deploy-onnx.md) document.
+#### Working with JSON data
 
-The `conda_file` parameter is used to provide a conda environment file. This file defines the conda environment for the deployed model. For more information on creating this file, see [Create an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file).
+The following is an example script that accepts and returns JSON data. The `run` function transforms the data from JSON into a format that the model expects, and then transforms the response to JSON before returning it:
 
-For more information, see the reference documentation for [ContainerImage class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)
+```python
+# import things required by this script
+import json
+import numpy as np
+import os
+import pickle
+from sklearn.externals import joblib
+from sklearn.linear_model import LogisticRegression
+
+from azureml.core.model import Model
+
+# load the model
+def init():
+    global model
+    # retrieve the path to the model file using the model name
+    model_path = Model.get_model_path('sklearn_mnist')
+    model = joblib.load(model_path)
+
+# Passes data to the model and returns the prediction
+def run(raw_data):
+    data = np.array(json.loads(raw_data)['data'])
+    # make prediction
+    y_hat = model.predict(data)
+    return json.dumps(y_hat.tolist())
+```
+
+#### Working with Binary data
+
+If your model accepts __binary data__, use `AMLRequest`, `AMLResponse`, and `rawhttp`. The following is an example of a script that accepts binary data and returns the reversed bytes for POST requests. For GET requests, it returns the full URL in the response body:
+
+```python
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+# Accept and return binary data
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    # handle GET requests
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    # handle POST requests
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> The `azureml.contrib` namespace changes frequently, as we work to improve the service. As such, anything in this namespace should be considered as a preview, and not fully supported by Microsoft.
+>
+> If you need to test this on your local development environment, you can install the components in the `contrib` namespace by using the following command: 
+> ```shell
+> pip install azureml-contrib-services
+> ```
 
 ## <a id="createimage"></a> Create the image
 
