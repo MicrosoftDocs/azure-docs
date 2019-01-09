@@ -88,7 +88,7 @@ Because Fabrikam Inc. and Contoso Ltd. on boarded Azure as separate companies, t
 
 To create an authorization for Contoso's ExpressRoute circuit, first login into Contoso's Azure account, and select the appropriate subscription (if there are multiple subscriptions). The PowerShell commands for these steps are:
 
-	``` powershell
+	```powershell
 	Connect-AzureRmAccount
 	Get-AzureRmSubscription
 	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
@@ -96,7 +96,7 @@ To create an authorization for Contoso's ExpressRoute circuit, first login into 
 
 The steps for creating an ExpressRoute circuit authorization are listed below:
 
-	``` powershell
+	```powershell
 	$ckt_2 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
 	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $ckt_2 -Name "Name_for_auth_key"
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt_2
@@ -110,7 +110,7 @@ With the peering ID and the authorization key, you can create the Global Reach u
 
 Global Reach creates a redundant set of point-to-point connections across the two MSEE pairs. For the two point-to-point connections, you need to specify a /29 address prefix (for the running example let's use 192.168.11.64/29). Use the following commands to create the Global Reach connection:
 
-	``` powershell
+	```powershell
 	$ckt_1 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 	Add-AzureRmExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix "__.__.__.__/29" -AuthorizationKey "########-####-####-####-############"
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt_1
@@ -132,7 +132,7 @@ In the above tables, we can see all the expected destination 'NETWORK' prefixes 
 
 The previous screen clips show 'Get route table' blade that can be accessed in the Azure web portal under 'Private peering' of an ExpressRoute circuit. You can also list an ExpressRoute route table using the following PowerShell Command:
 
-	``` powershell
+	```powershell
 	Get-AzExpressRouteCircuitRouteTable -DevicePath 'primary' -ExpressRouteCircuitName "Your_circuit_name" -PeeringType AzurePrivatePeering -ResourceGroupName "Your_resource_group"
 	```
 
@@ -211,6 +211,7 @@ The following two pings verify data plane connectivity to the Contoso Azure VNet
 
 The following ping verifies data plane connectivity to the Contoso Azure VNet from the Fabrikam Azure VNet.
 
+	```cmd
 	C:\Users\PathLabUser>ping 10.17.11.4
 	
 	Pinging 10.17.11.4 with 32 bytes of data:
@@ -223,6 +224,7 @@ The following ping verifies data plane connectivity to the Contoso Azure VNet fr
 	    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
 	Approximate round trip times in milli-seconds:
 	    Minimum = 76ms, Maximum = 78ms, Average = 77ms
+	```
 
 ## Next Steps
 
