@@ -20,13 +20,13 @@ To learn about what ExpressRoute Global Reach is, see [ExpressRoute Global Reach
 
 ##Application Scenario
 
-Fabrikam Inc. has a big physical presence and Azure deployment in East US. Fabrikam has back-end connectivity between its on-premises and Azure deployments via ExpressRoute. Contoso Ltd. has a presence and Azure deployment in West US. Contoso has back-end connectivity between its on-premises and Azure deployments via ExpressRoute.  
+Fabrikam Inc. has a large physical presence and Azure deployment in East US. Fabrikam has back-end connectivity between its on-premises and Azure deployments via ExpressRoute. Contoso Ltd. has a presence and Azure deployment in West US. Contoso has back-end connectivity between its on-premises and Azure deployments via ExpressRoute.  
 
 Fabrikam Inc. acquires Contoso Ltd. Following the merger, Fabrikam wants to interconnect the networks. The following figure illustrates the scenario:
 
  [![1]][1]
 
-The dashed arrows in the middle of the above figure indicates the required network inter-connections. The following table shows the route table of the primary private peering of the ExpressRoute of Contoso Ltd. prior to the merger.
+The dashed arrows in the middle of the above figure indicate the required network inter-connections. The following table shows the route table of the primary private peering of the ExpressRoute of Contoso Ltd. prior to the merger.
 
 [![2]][2]
 
@@ -38,13 +38,13 @@ The following table shows the route table of the primary private peering of the 
 
 ### Option 1: Interconnecting on-premises networks
 
-The following figure illustrates the option. As shown you can interconnect the two on-premises network using site-to-site VPN or other broadband connection options and manage all the routing between the two entities. 
+The following figure illustrates the option. As shown, you can interconnect the two on-premises network using site-to-site VPN or other broadband connection options and manage all the routing between the two entities. 
 
 [![4]][4]
 
 This option has the following drawbacks:
 
-- You are forcing inter-regional Azure communication for the deployment over sub-optimal route.
+- You are forcing inter-regional Azure communication for the deployment over suboptimal route.
 - You are denying the benefit of the high availability of Microsoft backbone network for the inter-regional communication.
 - You are taking the full routing responsibility for the inter-regional communication.
 
@@ -54,22 +54,22 @@ The following figure illustrates the option.
 
 [![5]][5]
 
-As shown in the above figure, you can additionally establish connectivity between the ExpressRoute circuits to the cross regional VNets. The cross regional connectivity between VNet to the ExpressRoute circuits would enable the following:
+As shown in the above figure, you can additionally establish connectivity between the ExpressRoute circuits to the cross regional VNets. The cross regional connectivity between VNet to the ExpressRoute circuits would enable the following communications:
 
 - US West/US East VNets to communicate respectively with Fabrikam/Contoso on-premises networks.
 - US West VNet to communicate with US East VNet.
 
-The interconnection between the two on-premises network is still needed for the on-premises networks to communicate with each other.
+The interconnection between the two on-premises networks is still needed for the on-premises networks to communicate with each other.
 
-This option allows inter-regional Azure communication for the private deployment ride over the Microsoft backbone and the communication between the on-premises network over the external network. However, the main drawback of the solution is that you need to establish multiple cross regional connectivity, which complicates maintenance and troubleshooting. Also, the option doesn't let you take advantage of high-available Microsoft global backbone for communicating between the two on-premises network.
+This option allows inter-regional Azure communication for the private deployment ride over the Microsoft backbone and the communication between the on-premises network over the external network. However, the main drawback of the solution is that you need to establish multiple cross regional connectivities, which complicates maintenance and troubleshooting. Also, the option doesn't let you take advantage of high-available Microsoft global backbone for communicating between the two on-premises networks.
 
 ### Option 3: VNet-peering and interconnecting on-premises networks
 
-The following figure illustrates the option. The option uses VNet-peering for the inter-regional VNet communication. The option, as illustrated, is in-complete as it doesn't address cross-regional VNet to on-premises communication (indicated via the two dotted-arrow lines in the middle). You need to leverage on-premises to on-premises connection (as in Option 1) or Expressroute cross connectivity (as in Option 2) for the cross-regional to on-premises communication.
+The following figure illustrates the option. The option uses VNet-peering for the inter-regional VNet communication. The option, as illustrated, is in-complete as it doesn't address cross-regional VNet to on-premises communication (indicated via the two dotted-arrow lines in the middle). Use on-premises to on-premises connection (as in Option 1) or ExpressRoute cross connectivity (as in Option 2) for the cross-regional to on-premises communication.
 
 [![6]][6]
 
-The option provides optimal route for inter-region VNet communication. However, falls short if Fabrikam and/or Contoso has more complex Azure deployment such as hub-spoke model. Also, like previous two options, the option doesn't let you take advantage of high-available Microsoft global backbone for communicating between the two on-premises network.
+The option provides optimal route for inter-region VNet communication. However, falls short if Fabrikam and/or Contoso has more complex Azure deployment such as hub-spoke model. Also, like previous two options, the option doesn't let you take advantage of high-available Microsoft global backbone for communicating between the two on-premises networks.
 
 ## Global Reach
 
@@ -102,9 +102,9 @@ The 'Set-AzureRmExpressRouteCircuit' will list the ExpressRouteCircuit. Note dow
 
 [![8]][8]
 
-With the peering ID and the authorization key, you can create the Global Reach under the Fabrikam's ExpressRoute circuit. Login to the Fabrikam's Azure account. If there are more than one subscription, select the right subscription.
+With the peering ID and the authorization key, you can create the Global Reach under the Fabrikam's ExpressRoute circuit. Login to the Fabrikam's Azure account. If there is more than one subscription, select the right subscription.
 
-Global Reach creates a redundant set of point-to-point connectivity across the two MSEE pair. For the two point-to-point connections you need to specify a /29 address prefix (for the running example let's use 192.168.11.64/29). Use the following commands to create the Global Reach connection:
+Global Reach creates a redundant set of point-to-point connectivity across the two MSEE pair. For the two point-to-point connections, you need to specify a /29 address prefix (for the running example let's use 192.168.11.64/29). Use the following commands to create the Global Reach connection:
 
 	$ckt_1 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 	Add-AzureRmExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix "__.__.__.__/29" -AuthorizationKey "########-####-####-####-############"
