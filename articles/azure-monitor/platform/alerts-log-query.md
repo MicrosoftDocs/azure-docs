@@ -13,7 +13,7 @@ ms.component: alerts
 This article provides recommendations on writing efficient queries for [log alerts in Azure Monitor](alerts-unified-log.md). Since alert rules must run these queries at regular intervals, you should ensure that they are written to minimize overhead and latency.
 
 ## Types of log queries
-[Queries in Log Analytics](../log-query/log-query-overview.md) start with either a table or a [search](/azure/kusto/query/searchoperator) command. The [union](/azure/kusto/query/unionoperator) command with `union *` operates similar to `search`.
+[Queries in Log Analytics](../log-query/log-query-overview.md) start with either a table or a [search](/azure/kusto/query/searchoperator) operator. The [union](/azure/kusto/query/unionoperator) command with `union *` operates similar to `search`.
 
 For example the following query is scoped to the _SecurityEvent_ table and searches for specific event ID. This is the only table included in the query.
 
@@ -126,7 +126,7 @@ Perf
 | count 
 ``` 
 
-### Example 4
+### Example 3
 You want to create a log alert rule using the following query which uses joins the results of two search commands:
 
 ```Kusto
