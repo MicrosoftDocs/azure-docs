@@ -12,7 +12,10 @@ ms.author: adgera
 
 # How to configure Postman for Azure Digital Twins
 
-This article shows how to configure the Postman REST client to interact with and test the Azure Digital Twins Management APIs. It also shows how to configure an Azure Active Directory application to use the OAuth 2.0 implicit grant flow, as well as how to configure the Postman REST client to make token-bearing HTTP requests to your Management APIs.
+This article describes how to configure the Postman REST client to interact with and test the Azure Digital Twins Management APIs. Specifically, it describes:
+
+* how to configure an Azure Active Directory application to use the OAuth 2.0 implicit grant flow.
+* how to configure the Postman REST client to make token-bearing HTTP requests to your Management APIs.
 
 ## Postman summary
 

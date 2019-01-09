@@ -134,7 +134,7 @@ Azure Migrate collector downloads PowerCLI and installs it on the appliance. Fai
 2. Go to the directory C:\ProgramFiles\ProfilerService\VMWare\Scripts\
 3. Run the script InstallPowerCLI.ps1
 
-### Error UnhandledException Internal error occured: System.IO.FileNotFoundException
+### Error UnhandledException Internal error occurred: System.IO.FileNotFoundException
 
 This issue could occur due to an issue with VMware PowerCLI installation. Follow the below steps to resolve the issue:
 
