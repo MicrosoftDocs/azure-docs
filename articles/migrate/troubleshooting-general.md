@@ -243,14 +243,14 @@ To collect Event Tracing for Windows, do the following:
 2. Press F12 to start the Developer Tools. If needed, clear the setting **Clear entries on navigation**.
 3. Click the **Network** tab, and start capturing network traffic:
  - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being capture. If it doesn't appear, click the black circle to start
- - In Edge/IE, recording should start automatically. If it doesn't, click the green play button.
+ - In Microsoft Edge/IE, recording should start automatically. If it doesn't, click the green play button.
 4. Try to reproduce the error.
 5. After you've encountered the error while recording, stop recording, and save a copy of the recorded activity:
  - In Chrome, right-click and click **Save as HAR with content**. This zips and exports the logs as a .har file.
- - In Edge/IE, click the **Export captured traffic** icon. This zips and exports the log.
+ - In Microsoft Edge/IE, click the **Export captured traffic** icon. This zips and exports the log.
 6. Navigate to the **Console** tab to check for any warnings or errors. To save the console log:
  - In Chrome, right-click anywhere in the console log. Select **Save as**, to export and zip the log.
- - In Edge/IE, right-click on the errors and select **Copy all**.
+ - In Microsoft Edge/IE, right-click on the errors and select **Copy all**.
 7. Close Developer Tools.
 
 ## Collector error codes and recommended actions
