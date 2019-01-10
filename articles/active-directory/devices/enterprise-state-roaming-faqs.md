@@ -28,7 +28,7 @@ the PC settings that are built into the Windows operating system. Generally, the
 
 * *Theme*, which includes features such as desktop theme and taskbar settings.
 * *Internet Explorer settings*, including recently opened tabs and favorites.
-* *Edge browser settings*, such as favorites and reading list.
+* *Microsoft Edge browser settings*, such as favorites and reading list.
 * *Passwords*, including Internet passwords, Wi-Fi profiles, and others.
 * *Language preferences*, which includes settings for keyboard layouts, system language, date and time, and more.
 * *Ease of access features*, such as high-contrast theme, Narrator, and Magnifier.

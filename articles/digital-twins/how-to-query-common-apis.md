@@ -21,7 +21,7 @@ This article shows query patterns to help you execute common scenarios for your 
 
 This section shows sample queries to get more information about your provisioned spaces. Make authenticated GET HTTP requests with the sample queries, replacing the placeholders with values from your setup. 
 
-- Get root nodes.
+- Get spaces which are root nodes.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?$filter=ParentSpaceId eq null
@@ -33,7 +33,7 @@ This section shows sample queries to get more information about your provisioned
     YOUR_MANAGEMENT_API_URL/spaces?name=Focus Room A1&includes=fullpath,devices,sensors,values,sensorsvalues
     ```
 
-- Get spaces whose parent is the given space ID, and include dependencies. 
+- Get spaces and their device/sensor information, whose parent is the given space ID, and which are at levels two to five [relative to the given space](how-to-navigate-apis.md#api-navigation). 
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?spaceId=YOUR_SPACE_ID&includes=fullpath,devices,sensors,values,sensorsvalues&traverse=Down&minLevel=1&minRelative=true&maxLevel=5&maxRelative=true
@@ -86,7 +86,7 @@ This section shows some queries to get more information on roles and their assig
     YOUR_MANAGEMENT_API_URL/roleassignments?path=/A_SPATIAL_PATH
     ```
 
-## Queries for device management
+## Queries for devices
 
 This section shows some examples of how you can use the Management APIs to get specific information about your devices. All API calls need to be authenticated GET HTTP requests.
 
@@ -162,7 +162,7 @@ This section shows some examples of how you can use the Management APIs to get s
     YOUR_MANAGEMENT_API_URL/devices?spaceId=YOUR_SPACE_ID&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true
     ```
 
-- Get the IoT hub connection string for a particular device.
+- Get the IoT Hub device connection string for your device.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_ID?includes=ConnectionString
