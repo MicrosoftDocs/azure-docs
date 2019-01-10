@@ -27,9 +27,9 @@ For instructions on how to set policies using PowerShell, see [Quickstart: Creat
 ## What are security policies?
 A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Azure Policy, you can define policies for your Azure subscriptions and tailor them to your type of workload or the sensitivity of your data. For example, applications that use regulated data, such as personally identifiable information, might require a higher level of security than other workloads. To set a policy across subscriptions or on Management groups, set them in [Azure Policy](../azure-policy/azure-policy-introduction.md).
 
-
-
 Your security policies drive the security recommendations you get in Azure Security Center. You can monitor compliance with them to help you identify potential vulnerabilities and mitigate threats. For more information about how to determine the option that is appropriate for you, see the list of [built-in security policies](security-center-policy-definitions.md).
+
+When you enable Security Center, the security policy built-in to Security Center is reflected in Azure Policy under the *ASC default initiative*. The *ASC default initiative* is automatically assigned to all Security Center registered subscriptions (Free or Standard tiers). The ASC default initiative contains only Audit definitions. This change will not affect your resources or environment other than its presence in Azure Policy. 
 
 
 ### Management groups
