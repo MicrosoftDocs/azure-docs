@@ -209,14 +209,6 @@ To get started with this sample, follow these steps:
 
 When you're ready to integrate, **simply reference the VideoFrameAnalyzer library from your own projects.** 
 
-
-
-## Developer Code of Conduct
-
-As with all the Cognitive Services, Developers developing with our APIs and samples are required to follow the "[Developer Code of Conduct for Microsoft Cognitive Services](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)." 
-
-The image, voice, video or text understanding capabilities of VideoFrameAnalyzer uses Microsoft Cognitive Services. Microsoft will receive the images, audio, video, and other data that you upload (via this app) and may use them for service improvement purposes. We ask for your help in protecting the people whose data your app sends to Microsoft Cognitive Services. 
-
 ## Summary
 
 In this guide, you learned how to run near-real-time analysis on live video streams using the Face, Computer Vision, and Emotion APIs, and how you can use our sample code to get started.  You can get started building your app with free API keys at the [Microsoft Cognitive Services sign-up page](https://azure.microsoft.com/try/cognitive-services/). 
