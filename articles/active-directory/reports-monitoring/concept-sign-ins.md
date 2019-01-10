@@ -50,7 +50,7 @@ The user sign-ins report provides answers to the following questions:
 * How many users have signed in over a week?
 * What’s the status of these sign-ins?
 
-You can access the sign-ins report by selecting **Sign-ins** in the **Activity** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com).
+You can access the sign-ins report by selecting **Sign-ins** in the **Activity** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Note that it may take upto two hours for some sign-in records to show up in the portal.
 
 ![Sign-in activity](./media/concept-sign-ins/61.png "Sign-in activity")
 
