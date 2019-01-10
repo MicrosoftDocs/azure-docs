@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 012/5/2018
+ms.date: 1/10/2019
 ms.author: victorh
 ---
 
@@ -65,7 +65,7 @@ Azure DNS is subject to the following limitations:
 * If you specify a registration virtual network, the DNS records for the VMs from that virtual network that are registered to the private zone are not viewable or retrievable from the Azure Powershell and Azure CLI APIs. The VM records are indeed registered and will resolve successfully.
 * Reverse DNS works only for private IP space in the registration virtual network.
 * Reverse DNS for a private IP that isn't registered in the private zone (for example, a private IP for a virtual machine in a virtual network that is linked as a resolution virtual network to a private zone) returns *internal.cloudapp.net* as the DNS suffix. However, this suffix isn't resolvable.
-* The virtual network needs to be empty (that is, no VM records exist) when it initially (that is, for the first time) links to a private zone as a registration or resolution virtual network. However, the virtual network can then be non-empty for future linking as a registration or resolution virtual network, to other private zones.
+* The virtual network must be completely empty the first time you link it to a private zone as a registration or resolution virtual network. However, the virtual network can then be non-empty for future linking as a registration or resolution virtual network, to other private zones.
 * At this time, conditional forwarding is not supported (for example, for enabling resolution between Azure and OnPrem networks). For information about how customers can realize this scenario via other mechanisms, see [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 For common questions and answers about private zones in Azure DNS, including specific DNS registration and resolution behavior you can expect for certain kinds of operations, see [FAQ](./dns-faq.md#private-dns).  
