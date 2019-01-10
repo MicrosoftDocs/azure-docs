@@ -73,7 +73,7 @@ $ctx = $storageAccount.Context
 
 ## Create a queue
 
-The following example first establishes a connection to Azure Storage using the storage account context, which includes the storage account name and its access key. Next, it calls [New-AzStorageQueue](/powershell/module/azure.storage/new-AzStoragequeue) cmdlet to create a queue named 'queuename'.
+The following example first establishes a connection to Azure Storage using the storage account context, which includes the storage account name and its access key. Next, it calls [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) cmdlet to create a queue named 'queuename'.
 
 ```powershell
 $queueName = "howtoqueue"
@@ -84,7 +84,7 @@ For information on naming conventions for Azure Queue Service, see [Naming Queue
 
 ## Retrieve a queue
 
-You can query and retrieve a specific queue or a list of all the queues in a Storage account. The following examples demonstrate how to retrieve all queues in the storage account, and a specific queue; both commands use the [Get-AzStorageQueue](/powershell/module/azure.storage/get-AzStoragequeue) cmdlet.
+You can query and retrieve a specific queue or a list of all the queues in a Storage account. The following examples demonstrate how to retrieve all queues in the storage account, and a specific queue; both commands use the [Get-AzStorageQueue](/powershell/module/az.storage/Get-AzStorageQueue) cmdlet.
 
 ```powershell
 # Retrieve a specific queue

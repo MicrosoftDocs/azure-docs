@@ -1,6 +1,6 @@
 ---
 title: Python developer reference for Azure Functions 
-description: Understand how to develop functions with Pythong
+description: Understand how to develop functions with Python
 services: functions
 documentationcenter: na
 author: ggailey777
