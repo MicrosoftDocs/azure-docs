@@ -71,11 +71,11 @@ search_url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
 
 These descriptions can then be rendered as a table with the search keyword highlighted in **bold**.
 
-    ```python
-    from IPython.display import HTML
-    rows = "\n".join(["<tr><td>{0}</td></tr>".format(desc) for desc in descriptions])
-    HTML("<table>"+rows+"</table>")
-    ```
+```python
+from IPython.display import HTML
+rows = "\n".join(["<tr><td>{0}</td></tr>".format(desc) for desc in descriptions])
+HTML("<table>"+rows+"</table>")
+```
 
 ## Next steps
 
