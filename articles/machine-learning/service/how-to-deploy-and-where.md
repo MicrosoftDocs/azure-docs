@@ -381,6 +381,10 @@ from azureml.core.webservice import Webservice
 service_name = 'aci-mnist-3'
 # Retrieve existing service
 service = Webservice(name = service_name, workspace = ws)
+
+# point to a different image
+new-image = Image(workspace = ws, id="myimage2:1")
+
 # Update the image used by the service
 service.update(image = new-image)
 print(service.state)
