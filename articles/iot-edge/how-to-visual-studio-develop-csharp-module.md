@@ -6,7 +6,7 @@ author: shizn
 manager: philmea
 
 ms.author: xshi
-ms.date: 12/21/2018
+ms.date: 01/04/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
@@ -32,7 +32,7 @@ Because this article uses Visual Studio 2017 as the main development tool, insta
 
 After your Visual Studio 2017 is ready, you also need the following tools and components:
 
-- Download and install [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) from the Visual Studio marketplace to create an IoT Edge project in Visual Studio 2017.
+- Download and install [Azure IoT Edge extension (Preview)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) from the Visual Studio marketplace to create an IoT Edge project in Visual Studio 2017.
 
 - Download and install [Docker Community Edition](https://docs.docker.com/install/) on your development machine to build and run your module images. You'll need to set Docker CE to run in either Linux container mode or Windows container mode.
 

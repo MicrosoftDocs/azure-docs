@@ -15,7 +15,7 @@ ms.author: lagayhar
 ---
 # Telemetry correlation in Application Insights
 
-In the world of micro services, every logical operation requires work done in various components of the service. Each of these components can be separately monitored by [Application Insights](../../application-insights/app-insights-overview.md). The web app component communicates with authentication provider component to validate user credentials, and with the API component to get data for visualization. The API component in its turn can query data from other services and use cache-provider components and notify the billing component about this call. Application Insights supports distributed telemetry correlation. It allows you to detect which component is responsible for failures or performance degradation.
+In the world of micro services, every logical operation requires work done in various components of the service. Each of these components can be separately monitored by [Application Insights](../../azure-monitor/app/app-insights-overview.md). The web app component communicates with authentication provider component to validate user credentials, and with the API component to get data for visualization. The API component in its turn can query data from other services and use cache-provider components and notify the billing component about this call. Application Insights supports distributed telemetry correlation. It allows you to detect which component is responsible for failures or performance degradation.
 
 This article explains the data model used by Application Insights to correlate telemetry sent by multiple components. It covers the context propagation techniques and protocols. It also covers the implementation of the correlation concepts on different languages and platforms.
 
@@ -162,7 +162,7 @@ telemetryClient.getContext().getCloud().setRole("My Component Name");
 
 - [Write custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md)
 - [Learn more about](../../azure-monitor/app/app-map.md#set-cloudrolename) setting cloud_RoleName for other SDKs.
-- Onboard all components of your micro service on Application Insights. Check out [supported platforms](../../application-insights/app-insights-platforms.md).
+- Onboard all components of your micro service on Application Insights. Check out [supported platforms](../../azure-monitor/app/platforms.md).
 - See [data model](../../azure-monitor/app/data-model.md) for Application Insights types and data model.
 - Learn how to [extend and filter telemetry](../../azure-monitor/app/api-filtering-sampling.md).
 - [Application Insights config reference](configuration-with-applicationinsights-config.md)

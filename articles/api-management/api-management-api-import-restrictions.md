@@ -43,6 +43,7 @@ WSDL files are used to generate SOAP Pass-through APIs or serve as the backend o
 * **WCF wsHttpBinding** - SOAP services created with Windows Communication Foundation should use basicHttpBinding - wsHttpBinding is not supported.
 * **MTOM** - Services using MTOM <em>may</em> work. Official support is not offered at this time.
 * **Recursion** - Types that are defined recursively (for example, refer to an array of themselves) are not supported by APIM.
+* **Multiple Namespaces** - Multiple namespaces can be used in a schema, but only the target namespace can be used to define message parts. Namespaces other than the target which are used to define other input or output elements are not preserved. Although such a WSDL document can be imported, on export all message parts will have the target namespace of the WSDL.
 
 ## <a name="wadl"> </a>WADL
 Currently, there are no known WADL import issues.

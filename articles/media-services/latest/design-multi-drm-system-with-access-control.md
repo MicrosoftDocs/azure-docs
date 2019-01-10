@@ -47,7 +47,7 @@ The following table summarizes native DRM support on different platforms and EME
 | **Client platform** | **Native DRM** | **EME** |
 | --- | --- | --- | --- |
 | **Smart TVs, STBs** | PlayReady, Widevine, and/or other | Embedded browser/EME for PlayReady and/or Widevine|
-| **Windows 10** | PlayReady | MS Edge/IE11 for PlayReady|
+| **Windows 10** | PlayReady | Microsoft Edge/IE11 for PlayReady|
 | **Android devices (phone, tablet, TV)** |Widevine |Chrome for Widevine |
 | **iOS** | FairPlay | Safari for FairPlay (since iOS 11.2) |
 | **macOS** | FairPlay | Safari for FairPlay (since Safari 9+ on Mac OS X 10.11+ El Capitan)|

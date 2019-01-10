@@ -36,9 +36,9 @@ This option instruments your app at runtime, giving you all the telemetry that y
 
 If this option is all you need, you're done. 
 
-Your next steps are [viewing metrics from your app](../../application-insights/app-insights-metrics-explorer.md), [querying your data with Analytics](../../azure-monitor/app/analytics.md), and maybe setting up a [dashboard](../../azure-monitor/app/app-insights-dashboards.md). 
+Your next steps are [viewing metrics from your app](../../azure-monitor/app/metrics-explorer.md), [querying your data with Analytics](../../azure-monitor/app/analytics.md), and maybe setting up a [dashboard](../../azure-monitor/app/app-insights-dashboards.md). 
 
-To monitor performance in the browser, you might also want to set up [availability tests](../../application-insights/app-insights-monitor-web-app-availability.md) and [add code to your webpages](../../application-insights/app-insights-javascript.md).
+To monitor performance in the browser, you might also want to set up [availability tests](../../azure-monitor/app/monitor-web-app-availability.md) and [add code to your webpages](../../azure-monitor/app/javascript.md).
 
 The next sections discuss the following additional options:
 
@@ -72,7 +72,8 @@ To avoid this situation, create separate resources for each build configuration 
 To send the telemetry to the appropriate resources, you can set up the Application Insights SDK so that it picks up a different instrumentation key, depending on the build configuration. 
 
 ## Create an Application Insights resource for each role
-If you've decided to create a separate resource for each role, and perhaps a separate set for each build configuration, it's easiest to create them all in the Application Insights portal. If you create resources a lot, you can [automate the process](../../application-insights/app-insights-powershell.md).
+
+If you've decided to create a separate resource for each role, and perhaps a separate set for each build configuration, it's easiest to create them all in the Application Insights portal. If you create resources a lot, you can [automate the process](../../azure-monitor/app/powershell.md).
 
 1. In the [Azure portal][portal], select **New** > **Developer Services** > **Application Insights**.  
 
@@ -135,7 +136,7 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
 1. Run your app, and sign in to Azure. 
 
 1. Open the Application Insights resources that you created.  
-    Individual data points are displayed in [Search](../../azure-monitor/app/diagnostic-search.md), and aggregated data is displayed in [Metric Explorer](../../application-insights/app-insights-metrics-explorer.md). 
+    Individual data points are displayed in [Search](../../azure-monitor/app/diagnostic-search.md), and aggregated data is displayed in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md). 
 
 1. Add more telemetry (see the next sections) and then publish your app to get live diagnostics and usage feedback. 
 
@@ -152,7 +153,7 @@ You can find the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring
 * Windows event logs are shown as traces and custom events.
 * Application logs, ETW logs, and any diagnostics infrastructure logs appear as traces.
 
-To view performance counters and counts of events, open [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md) and add the following chart:
+To view performance counters and counts of events, open [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) and add the following chart:
 
 ![Azure Diagnostics data](./media/cloudservices/23-wad.png)
 
@@ -227,7 +228,7 @@ For an overall picture of your system, you can display the key monitoring charts
 
 If your system uses other Azure services, such as Stream Analytics, include their monitoring charts as well. 
 
-If you have a client mobile app, use [App Center](../../application-insights/app-insights-mobile-center-quickstart.md). Create queries in [Analytics](../../azure-monitor/app/analytics.md) to display the event counts, and pin them to the dashboard.
+If you have a client mobile app, use [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Create queries in [Analytics](../../azure-monitor/app/analytics.md) to display the event counts, and pin them to the dashboard.
 
 ## Example
 [The example](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitors a service that has a web role and two worker roles.
@@ -241,17 +242,17 @@ Did you build for .NET 4.6? .NET 4.6 is not automatically supported in Azure clo
 
 ## Next steps
 * [Configure sending Azure Diagnostics to Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Automatically create Application Insights resources](../../application-insights/app-insights-powershell.md)
-* [Automate Azure Diagnostics](../../application-insights/app-insights-powershell-azure-diagnostics.md)
+* [Automatically create Application Insights resources](../../azure-monitor/app/powershell.md)
+* [Automate Azure Diagnostics](../../azure-monitor/app/powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[azure]: ../../application-insights/app-insights-overview.md
+[azure]: ../../azure-monitor/app/app-insights-overview.md
 [client]: ../../azure-monitor/app/javascript.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
+[qna]: ../../azure-monitor/app/troubleshoot-faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../application-insights/app-insights-overview.md 
+[start]: ../../azure-monitor/app/app-insights-overview.md 

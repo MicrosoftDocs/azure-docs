@@ -173,7 +173,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 
 ### Add the redirection configuration
 
-You can cconfigure redirection for the listener using [Add-AzureRmApplicationGatewayRedirectConfiguration](/powershell/module/azurerm.network/add-azurermapplicationgatewayredirectconfiguration). 
+You can configure redirection for the listener using [Add-AzureRmApplicationGatewayRedirectConfiguration](/powershell/module/azurerm.network/add-azurermapplicationgatewayredirectconfiguration). 
 
 ```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `

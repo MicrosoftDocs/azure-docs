@@ -1,7 +1,7 @@
 ﻿---
-title: Create a public Standard Load Balancer Standard with zonal frontend IP - Azure PowerShell
+title: Create a Load Balancer with zonal frontend - Azure PowerShell
 titlesuffix: Azure Load Balancer
-description: Learn how to create public Load Balancer Standard with a zonal Public IP address frontend using Azure PowerShell 
+description: Learn how to create Standard Load Balancer with a zonal frontend using Azure PowerShell 
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,9 +15,9 @@ ms.date: 03/26/2018
 ms.author: kumud
 ---
 
-#  Create a public Load Balancer Standard with zonal frontend using Azure PowerShell
+#  Create a Standard Load Balancer with zonal frontend using Azure PowerShell
 
-This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zonal frontend using a Public IP Standard address. To understand how availability zones work with Standard Load Balancer, see [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md). 
+This article steps through creating a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zonal frontend using a Public IP Standard address. To understand how availability zones work with Standard Load Balancer, see [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -81,7 +81,7 @@ $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http
 ```
 
 ## Create a load balancer
-Create a Load Balancer Standard using the following command:
+Create a Standard Load Balancer using the following command:
 
 ```powershell
 $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroupZLB -Name 'MyLoadBalancer' -Location westeurope `

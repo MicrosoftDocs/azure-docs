@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 01/03/2019
 ms.author: cynthn
 
 ---
@@ -257,7 +257,7 @@ Most resources depend on other resources to work correctly. Virtual machines mus
 ],
 ```
 
-Resource Manager deploys in parallel any resources that are not dependent on another resource being deployed. Be careful when setting dependencies because you can inadvertently slow your deployment by specifying unnecessary dependencies. Dependencies can chain through multiple resources. For example, the network interface depends on the public IP address and virtual network resources.
+Resource Manager deploys in parallel any resources that aren't dependent on another resource being deployed. Be careful when setting dependencies because you can inadvertently slow your deployment by specifying unnecessary dependencies. Dependencies can chain through multiple resources. For example, the network interface depends on the public IP address and virtual network resources.
 
 How do you know if a dependency is required? Look at the values you set in the template. If an element in the virtual machine resource definition points to another resource that is deployed in the same template, you need a dependency. For example, your example virtual machine defines a network profile:
 
@@ -270,7 +270,7 @@ How do you know if a dependency is required? Look at the values you set in the t
 },
 ```
 
-To set this property, the network interface must exist. Therefore, you need a dependency. You also need to set a dependency when one resource (a child) is defined within another resource (a parent). For example, the diagnostic settings and custom script extensions are both defined as child resources of the virtual machine. They cannot be created until the virtual machine exists. Therefore, both resources are marked as dependent on the virtual machine.
+To set this property, the network interface must exist. Therefore, you need a dependency. You also need to set a dependency when one resource (a child) is defined within another resource (a parent). For example, the diagnostic settings and custom script extensions are both defined as child resources of the virtual machine. They can't be created until the virtual machine exists. Therefore, both resources are marked as dependent on the virtual machine.
 
 ## Profiles
 
@@ -284,7 +284,7 @@ Several profile elements are used when defining a virtual machine resource. Some
 
 ## Disks and images
    
-In Azure, vhd files can represent [disks or images](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it is referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it is referred to as an image.   
+In Azure, vhd files can represent [disks or images](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it's referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it's referred to as an image.   
     
 ### Create new virtual machines and new disks from a platform image
 
@@ -371,7 +371,7 @@ You can optionally add data disks to the VMs. The [number of disks](sizes.md) de
 
 ## Extensions
 
-Although [extensions](extensions-features.md) are a separate resource, they are closely tied to VMs. Extensions can be added as a child resource of the VM or as a separate resource. The example shows the [Diagnostics Extension](extensions-diagnostics-template.md) being added to the VMs:
+Although [extensions](extensions-features.md) are a separate resource, they're closely tied to VMs. Extensions can be added as a child resource of the VM or as a separate resource. The example shows the [Diagnostics Extension](extensions-diagnostics-template.md) being added to the VMs:
 
 ```
 { 
@@ -433,7 +433,7 @@ There are many extensions that you can install on a VM, but the most useful is p
 }
 ```
 
-The start.ps1 script can accomplish many configuration tasks. For example, the data disks that are added to the VMs in the example are not initialized; you can use a custom script to initialize them. If you have multiple startup tasks to do, you can use the start.ps1 file to call other PowerShell scripts in Azure storage. The example uses PowerShell, but you can use any scripting method that is available on the operating system that you are using.
+The start.ps1 script can accomplish many configuration tasks. For example, the data disks that are added to the VMs in the example aren't initialized; you can use a custom script to initialize them. If you have multiple startup tasks to do, you can use the start.ps1 file to call other PowerShell scripts in Azure storage. The example uses PowerShell, but you can use any scripting method that is available on the operating system that you're using.
 
 You can see the status of the installed extensions from the Extensions settings in the portal:
 
@@ -445,14 +445,15 @@ You can also get extension information by using the **Get-AzureRmVMExtension** P
 
 When you deploy a template, Azure tracks the resources that you deployed as a group and automatically assigns a name to this deployed group. The name of the deployment is the same as the name of the template.
 
-If you are curious about the status of resources in the deployment, you can use the Resource Group blade in the Azure portal:
+If you're curious about the status of resources in the deployment, view the resource group in the Azure portal:
 
 ![Get deployment information](./media/template-description/virtual-machines-deployment-info.png)
     
-It’s not a problem to use the same template to create resources or to update existing resources. When you use commands to deploy templates, you have the opportunity to say which [mode](../../resource-group-template-deploy.md) you want to use. The mode can be set to either **Complete** or **Incremental**. The default is to do incremental updates. Be careful when using the **Complete** mode because you may accidentally delete resources. When you set the mode to **Complete**, Resource Manager deletes any resources in the resource group that are not in the template.
+It’s not a problem to use the same template to create resources or to update existing resources. When you use commands to deploy templates, you have the opportunity to say which [mode](../../resource-group-template-deploy.md) you want to use. The mode can be set to either **Complete** or **Incremental**. The default is to do incremental updates. Be careful when using the **Complete** mode because you may accidentally delete resources. When you set the mode to **Complete**, Resource Manager deletes any resources in the resource group that aren't in the template.
 
 ## Next Steps
 
 - Create your own template using [Authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md).
 - Deploy the template that you created using [Create a Windows virtual machine with a Resource Manager template](ps-template.md).
 - Learn how to manage the VMs that you created by reviewing [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- For the JSON syntax and properties of resource types in templates, see [Azure Resource Manager template reference](/azure/templates/).

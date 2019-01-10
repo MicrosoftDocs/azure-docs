@@ -11,13 +11,15 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 10/15/2018
+ms.date: 01/04/2019
 ms.author: tomfitz
 ms.custom: mvc
 ---
 # Azure Resource Manager templates for App Service
 
 The following table includes links to Azure Resource Manager templates for Azure App Service. For recommendations about avoiding common errors when you're creating app templates, see [Guidance on deploying apps with Azure Resource Manager templates](deploy-resource-manager-template.md).
+
+To learn about the JSON syntax and properties for App Services resources, see [Microsoft.Web resource types](/azure/templates/microsoft.web/allversions).
 
 | | |
 |-|-|
