@@ -50,6 +50,24 @@ sections:
         - href: /azure/iot-hub/quickstart-control-device-java
         - href: /azure/iot-hub/quickstart-control-device-python
         - href: /azure/iot-hub/quickstart-control-device-android
+      - title: Echo data over device streams
+        values: 
+        - href: /azure/iot-hub/iot-hub-device-streams-nodejs-echo-quickstart
+        - href: /azure/iot-hub/iot-hub-device-streams-csharp-echo-quickstart
+        - href: 
+        - href: 
+        - href: 
+        - href: /azure/iot-hub/iot-hub-device-streams-c-echo-quickstart
+        - href: 
+      - title: SSH/RDP over device streams
+        values: 
+        - href: /azure/iot-hub/iot-hub-device-streams-nodejs-proxy-quickstart
+        - href: /azure/iot-hub/iot-hub-device-streams-csharp-proxy-quickstart
+        - href: 
+        - href: 
+        - href: 
+        - href: /azure/iot-hub/iot-hub-device-streams-c-proxy-quickstart
+        - href: 
 - title: Step-by-Step Tutorials
   items:
   - type: list
@@ -59,6 +77,7 @@ sections:
     - html: <a href="/azure/iot-hub/tutorial-device-twins">Configure your devices from a back-end service</a>
     - html: <a href="/azure/iot-hub/tutorial-firmware-update">Implement a device firmware update process</a>
     - html: <a href="/azure/iot-hub/tutorial-connectivity">Use a simulated device to test connectivity with your IoT hub</a>
+    - html: <a href="/azure/iot-hub/iot-hub-device-streams-tutorial">Using IoT Hub device streams</a>
 - title: Reference
   items:
   - type: list

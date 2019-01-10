@@ -59,7 +59,7 @@
     href: tutorial-firmware-update.md
   - name: Test device connectivity
     href: tutorial-connectivity.md
-  - name: Device streams
+  - name: Device streams (preview)
     href: iot-hub-device-streams-tutorial.md
 - name: Concepts
   items:
@@ -79,6 +79,8 @@
     href: iot-hub-configuration-best-practices.md
   - name: Azure IoT SDKs platform support
     href: iot-hub-device-sdk-platform-support.md
+  - name: Azure IoT Hub device streams (preview)
+    href: iot-hub-device-streams-overview.md
   - name: Developer guide
     href: iot-hub-devguide.md
     items:

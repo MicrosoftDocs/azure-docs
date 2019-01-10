@@ -62,21 +62,6 @@ az iot hub show --name <YourIoTHubName>
 ```
 
 
-## Troubleshooting
-
-## Diagnostic Logs
-Use Azure log analytics and Azure monitor for troubleshooting.
-Details: [TODO]
-
-### Error Codes
-
-
-### Common Problems
-* Ensure outbound firewall port is open to your IoT Hub's main and streaming endpoint.
-* During preview, ensure your IoT Hub is in a supported region.
-
-
-
 ## Next Steps
 
 Use the resources below to learn how to use IoT Hub device streams programmatically:
