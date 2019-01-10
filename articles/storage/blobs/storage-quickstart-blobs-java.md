@@ -92,7 +92,7 @@ Next, we walk through the sample code so that you can understand how it works.
 
 The first thing to do is create the references to the objects used to access and manage Blob storage. These objects build on each other -- each is used by the next one in the list.
 
-* Create an instance of the [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage._storage_account) object pointing to the storage account.
+* Create an instance of the [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage.storageaccount) object pointing to the storage account.
 
     The **CloudStorageAccount** object is a representation of your storage account and it allows you to set and access storage account properties programmatically. Using the **CloudStorageAccount** object you can create an instance of the **CloudBlobClient**, which is necessary to access the blob service.
 
