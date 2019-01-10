@@ -182,7 +182,7 @@ sections:
           - href: sample-v1-code.md#server-or-daemon-application-to-web-api
         - title: v2.0
           values:
-          - href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
+          - href: quickstart-v2-netcore-daemon.md
 
   - title: Step-by-step tutorials
     items:
