@@ -15,6 +15,10 @@ Host pools are a collection of one or more identical virtual machines within Win
 
 Follow this section's instructions to create a host pool for a Windows Virtual Desktop tenant with an Azure Resource Manager (ARM) template provided by Microsoft. This article will tell you how to create a host pool in Windows Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to the AD domain, and register the VMs with Windows Virtual Desktop.
 
+## Prerequisites
+
+In order to follow this article's instructions, you must have a Windows 10 multi-session image. You can either copy an existing VM image from the Azure Gallery to your storage account, or create your own custom VM image.
+
 ## Create a VM image
 
 See Copy Windows 10 Enterprise multi-session images to your storage account to use a Windows 10 Enterprise multi-session image or see Create a VM image for automated deployment to create your own custom image.
