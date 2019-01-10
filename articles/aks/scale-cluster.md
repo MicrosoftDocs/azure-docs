@@ -12,7 +12,7 @@ ms.author: iainfoulds
 
 # Scale the node count in an Azure Kubernetes Service (AKS) cluster
 
-If the resource needs your applications change, you can manually scale an AKS cluster to a different number of nodes. When you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications. When you scale up, the `az` command waits until nodes are marked `Ready` by the Kubernetes cluster.
+If the resource needs of your applications change, you can manually scale an AKS cluster to run a different number of nodes. When you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications. When you scale up, the `az` command waits until nodes are marked `Ready` by the Kubernetes cluster.
 
 ## Scale the cluster nodes
 
@@ -20,6 +20,24 @@ First, get the *name* of your nodepool using the [az aks show][az-aks-show] comm
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
+```
+
+The following example output shows that the *name* is *nodepool1*:
+
+```console
+$ az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
+
+[
+  {
+    "count": 1,
+    "maxPods": 110,
+    "name": "nodepool1",
+    "osDiskSizeGb": 30,
+    "osType": "Linux",
+    "storageProfile": "ManagedDisks",
+    "vmSize": "Standard_DS2_v2"
+  }
+]
 ```
 
 Use the `az aks scale` command to scale the cluster nodes. The following example scales a cluster named *myAKSCluster* to a single node. Provide your own *--nodepool-name* from the previous command, such as *nodepool1*:
