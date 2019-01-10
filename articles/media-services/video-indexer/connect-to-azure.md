@@ -95,7 +95,7 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
 If the connection to Azure failed, you can attempt to troubleshoot the problem by connecting manually.
 
 > [!NOTE]
-> It is highly recommend to create the Video Indexer account in the same region as the Media Services account to which you are planning to connect.
+> It is highly recommended to create the Video Indexer account in the same region as the Media Services account to which you are planning to connect.
 
 ### Create and configure a Media Services account
 
