@@ -40,7 +40,7 @@ This topic gives you an overview of the sign-ins report.
 * In addition, any user (non-admins) can access their own sign-ins 
 
 ### What Azure AD license do you need to access sign-in activity?
-* Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition.
+* Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. Note that if you did not have any activities data prior to the upgrade, it will take a couple of days for the data to show up in the reports after you upgrade to a premium license.
 
 ## Sign-ins report
 
