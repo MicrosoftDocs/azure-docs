@@ -79,7 +79,7 @@
     - name: Multi-factor auth
       href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Auditing
-      href: sql-data-warehouse-auditing-overview.md
+      href: ../sql-database/sql-database-auditing.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Column-level security
       href: column-level-security.md
     - name: Row-level security

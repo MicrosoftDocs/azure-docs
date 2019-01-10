@@ -6,7 +6,7 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/01/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: "mvc, seodec18"
@@ -43,13 +43,13 @@ Development resources:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [C# for Visual Studio Code (powered by OmniSharp) extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
-* [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download). 
 * [Docker CE](https://docs.docker.com/install/). 
 
 ## Create a container registry
 
-In this tutorial, you use the Azure IoT Edge extension for Visual Studio Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
+In this tutorial, you use the Azure IoT Tools for Visual Studio Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
 
 You can use any Docker-compatible registry to hold your container images. Two popular Docker registry services are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry. 
 
@@ -78,7 +78,7 @@ If you don't already have a container registry, follow these steps to create a n
 
 To send data into a database, you need a module that can structure the data properly and then stores it in a table. 
 
-The following steps show you how to create an IoT Edge function using Visual Studio Code and the Azure IoT Edge extension.
+The following steps show you how to create an IoT Edge function using Visual Studio Code and the Azure IoT Tools.
 
 1. Open Visual Studio Code.
 
@@ -337,7 +337,7 @@ You can set modules on a device through the IoT Hub, but you can also access you
 
 If the deployment is successful, a confirmation message is printed in the VS Code output. 
 
-Refresh the status of your device in the Azure IoT Hub Devices section of VS Code. The new modules are listed, and will start to report as running over the next few minutes as the containers are installed and started. You can also check to see that all the modules are up and running on your device. On your IoT Edge device, run the following command to see the status of the modules. 
+Refresh the status of your device in the Azure IoT Hub Devices section of VS Code. The new modules are listed and will start to report as running over the next few minutes as the containers are installed and started. You can also check to see that all the modules are up and running on your device. On your IoT Edge device, run the following command to see the status of the modules. 
 
    ```cmd/sh
    iotedge list
@@ -347,7 +347,7 @@ Refresh the status of your device in the Azure IoT Hub Devices section of VS Cod
 
 When you apply the deployment manifest to your device, you get three modules running. The tempSensor module generates simulated environment data. The sqlFunction module takes the data and formats it for a database. This section guides you through setting up the SQL database to store the temperature data. 
 
-Run the following commands on your IoT Edge device. These commands connect to the **sql** module running on your device and creates a database and table to hold the temperature data being sent to it. 
+Run the following commands on your IoT Edge device. These commands connect to the **sql** module running on your device and create a database and table to hold the temperature data being sent to it. 
 
 1. In a command-line tool on your IoT Edge device, connect to your database. 
    * Windows container:

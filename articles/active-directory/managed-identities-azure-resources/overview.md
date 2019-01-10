@@ -119,8 +119,8 @@ Learn how to use a managed identity with a Linux VM:
 
 Learn how to use a managed identity with other Azure services:
 
-* [Azure App Service](/azure/app-service/app-service-managed-service-identity)
-* [Azure Functions](/azure/app-service/app-service-managed-service-identity)
+* [Azure App Service](/azure/app-service/overview-managed-identity)
+* [Azure Functions](/azure/app-service/overview-managed-identity)
 * [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
 * [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)

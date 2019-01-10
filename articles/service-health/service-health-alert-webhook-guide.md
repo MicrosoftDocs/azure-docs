@@ -116,5 +116,5 @@ This shows that there are problems with "Alerts & Metrics" in both Australia Eas
 
 ## Next steps
 - Review the [activity log alert webhook schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Learn about [service health notifications](../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Learn about [service health notifications](../azure-monitor/platform/service-notifications.md).
 - Learn more about [action groups](../azure-monitor/platform/action-groups.md).

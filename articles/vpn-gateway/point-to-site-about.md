@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 12/14/2018
 ms.author: cherylmc
 
 ---
@@ -89,6 +89,8 @@ A P2S configuration requires quite a few specific steps. The following articles 
 * [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 
 * [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
+
+* [Configure OpenVPN](vpn-gateway-howto-openvpn.md)
 
 ## <a name="faqcert"></a>FAQ for native Azure certificate authentication
 

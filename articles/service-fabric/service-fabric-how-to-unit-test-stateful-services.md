@@ -1,6 +1,6 @@
 ---
 title: Develop unit tests for stateful services in Azure Service Fabric | Microsoft Docs
-description: Learn how to develop unit tests for  Service Fabric Stateful Services.
+description: Learn how to develop unit tests for Service Fabric Stateful Services.
 services: service-fabric
 documentationcenter: .net
 author: charleszipp
@@ -31,7 +31,7 @@ This article assumes that [Unit testing stateful services in Service Fabric](ser
 As of version 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) provides an API for mocking both the orchestration of the replicas and the state management. This will be used in the examples.
 
 [Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
-[Github](https://github.com/loekd/ServiceFabric.Mocks)
+[GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
 *ServiceFabric.Mocks is not owned or maintained by Microsoft. However, this is currently the Microsoft recommended library for unit testing stateful services.*
 
@@ -88,7 +88,7 @@ replicaSet.PromoteNewReplicaToPrimaryAsync(4);
 
 //promote the first idle secondary to an active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync();
-//promote idle secodary with replica id 4 to active secondary 
+//promote idle secodary with replica id 4 to active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync(4);
 
 //add a new replica with randomly assigned replica id and promote it to primary

@@ -16,7 +16,7 @@ ms.author: hrasheed
 
 HDInsight provides a configuration method called **script actions** that invokes custom scripts to customize the cluster. These scripts are used to install additional components and change configuration settings. Script actions can be used during or after cluster creation.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The ability to use script actions on an already running cluster is only available for Linux-based HDInsight clusters.
 >
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -49,12 +49,12 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. T
 
 * Must be stored on a URI that is accessible from the HDInsight cluster. The following are possible storage locations:
 
-    * An **Azure Data Lake Store** account that is accessible by the HDInsight cluster. For information on using Azure Data Lake Store with HDInsight, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+    * An **Azure Data Lake Storage** account that is accessible by the HDInsight cluster. For information on using Azure Data Lake Storage with HDInsight, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-        When using a script stored in Data Lake Store, the URI format is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+        When using a script stored in Data Lake Storage, the URI format is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
-        > [!NOTE]
-        > The service principal HDInsight uses to access Data Lake Store must have read access to the script.
+        > [!NOTE]  
+        > The service principal HDInsight uses to access Data Lake Storage must have read access to the script.
 
     * A blob in an **Azure Storage account** that is either the primary or additional storage account for the HDInsight cluster. HDInsight is granted access to both of these types of storage accounts during cluster creation.
 
@@ -62,7 +62,7 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. T
 
         For example URIs, see the [Example script action scripts](#example-script-action-scripts) section.
 
-        > [!WARNING]
+        > [!WARNING]  
         > HDInsight only supports Blob in Azure Storage accounts with standard performance tier. 
 
 * Can be restricted to **run on only certain node types**, for example head nodes or worker nodes.
@@ -71,12 +71,12 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. T
 
     **Persisted** scripts are used to customize new worker nodes added to the cluster through scaling operations. A persisted script might also apply changes to another node type, such as a head node, when scaling operations occur.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Persisted script actions must have a unique name.
 
     **Ad hoc** scripts are not persisted. They are not applied to worker nodes added to the cluster after the script has ran. You can subsequently promote an ad hoc script to a persisted script, or demote a persisted script to an ad hoc script.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Script actions used during cluster creation are automatically persisted.
   >
   > Scripts that fail are not persisted, even if you specifically indicate that they should be.
@@ -89,7 +89,7 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. T
 
 The cluster keeps a history of all scripts that have been ran. The history is useful when you need to find the ID of a script for promotion or demotion operations.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > There is no automatic way to undo the changes made by a script action. Either manually reverse the changes or provide a script that reverses them.
 
 ### Script action in the cluster creation process
@@ -106,13 +106,13 @@ The following diagram illustrates when script action is executed during the crea
 
 The script runs while HDInsight is being configured. The script runs in parallel on all the specified nodes in the cluster, and runs with root privileges on the nodes.
 
-> [!NOTE]
+> [!NOTE]  
 > You can perform operations like stopping and starting services, including Apache Hadoop-related services. If you stop services, you must ensure that the Ambari service and other Hadoop-related services running before the script completes. These services are required to successfully determine the health and state of the cluster while it is being created.
 
 
 During cluster creation, you can use multiple script actions at once. These scripts are invoked in the order in which they were specified.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Script actions must complete within 60 minutes, or timeout. During cluster provisioning, the script runs concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
 >
 > To minimize the time it takes to run the script, avoid tasks such as downloading and compiling applications from source. Pre-compile applications and store the binary in Azure Storage.
@@ -122,7 +122,7 @@ During cluster creation, you can use multiple script actions at once. These scri
 
 A failure in a script ran on an already running cluster does not automatically cause the cluster to change to a failed state. Once a script completes, the cluster should return to a "running" state.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Even if the cluster has a 'running' state, the failed script may have broken things. For example, a script could delete files needed by the cluster.
 >
 > Scripts actions run with root privileges. Make sure that you understand what a script does before applying it to your cluster.
@@ -134,7 +134,7 @@ When applying a script to a cluster, the cluster state changes from **Running** 
     EndTime           : 8/14/2017 7:41:05 PM
     Status            : Succeeded
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > If you have changed the cluster user (admin) password after the cluster was created, script actions ran against this cluster may fail. If you have any persisted script actions that target worker nodes, these scripts may fail when you scale the cluster.
 
 ## Example script action scripts
@@ -238,16 +238,17 @@ In this section, learn how to apply script actions to a running cluster.
 
 ### Apply a script action to a running cluster from the Azure portal
 
-1. From the [Azure portal](https://portal.azure.com), select your HDInsight cluster.
+From the [Azure portal](https://portal.azure.com):
 
-2. From the HDInsight cluster overview, select the **Script Actions** tile.
+1. From the left menu, select **All services**.
 
-    ![Script actions tile](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
+1. Under **ANALYTICS**, select **HDInsight clusters**.
 
-   > [!NOTE]
-   > You can also select **All settings** and then select **Script Actions** from the Settings section.
+1. Select your cluster from the list, which will open the default view.
 
-3. From the top of the script actions section, select **Submit new**.
+1. From the default view, under **Settings**, select **Script actions**.
+
+1. From the top of the **Script actions** page, select **+ Submit new**.
 
     ![Add a script to a running cluster](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
 
@@ -338,14 +339,15 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [https:/
 
 ### Using the Azure portal
 
-1. From the [Azure portal](https://portal.azure.com), select your HDInsight cluster.
+1. Log in to  the [Azure portal](https://portal.azure.com).
 
-2. From the HDInsight cluster overview, select the **Script Actions** tile.
+1. From the left menu, select **All services**.
 
-    ![Script actions tile](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
+1. Under **ANALYTICS**, select **HDInsight clusters**.
 
-   > [!NOTE]
-   > You can also select **All settings** and then select **Script Actions** from the Settings section.
+1. Select your cluster from the list, which will open the default view.
+
+1. From the default view, under **Settings**, select **Script actions**.
 
 4. A history of scripts for this cluster is displayed on the script actions section. This information includes a list of persisted scripts. In the screenshot below, you can see that the Solr script has been ran on this cluster. The screenshot does not show any persisted scripts.
 
@@ -368,7 +370,7 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [https:/
 | Set-AzureRmHDInsightPersistedScriptAction |Promotes an ad hoc script action to a persisted script action |
 | Remove-AzureRmHDInsightPersistedScriptAction |Demotes a persisted script action to an ad hoc action |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Using `Remove-AzureRmHDInsightPersistedScriptAction` does not undo the actions performed by a script. This cmdlet only removes the persisted flag.
 
 The following example script demonstrates using the cmdlets to promote, then demote a script.
@@ -386,14 +388,14 @@ The following example script demonstrates using the cmdlets to promote, then dem
 | `azure hdinsight script action persisted set <clustername> <scriptexecutionid>` |Promotes an ad hoc script action to a persisted script action |
 | `azure hdinsight script-action persisted delete <clustername> <scriptname>` |Demotes a persisted script action to an ad hoc action |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Using `azure hdinsight script-action persisted delete` does not undo the actions performed by a script. This cmdlet only removes the persisted flag.
 
 ### Using the HDInsight .NET SDK
 
 For an example of using the .NET SDK to retrieve script history from a cluster, promote or demote scripts, see [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
-> [!NOTE]
+> [!NOTE]  
 > This example also demonstrates how to install an HDInsight application using the .NET SDK.
 
 ## Support for open-source software used on HDInsight clusters
@@ -405,10 +407,10 @@ There are two types of open-source components that are available in the HDInsigh
 * **Built-in components** - These components are pre-installed on HDInsight clusters and provide core functionality of the cluster. For example, [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager, the Hive query language ([HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)), and the [Apache Mahout](https://mahout.apache.org/) library belong to this category. A full list of cluster components is available in [What's new in the Hadoop cluster versions provided by HDInsight](hdinsight-component-versioning.md).
 * **Custom components** - You, as a user of the cluster, can install or use in your workload any component available in the community or created by you.
 
-> [!WARNING]
+> [!WARNING]  
 > Components provided with the HDInsight cluster are fully supported. Microsoft Support helps to isolate and resolve issues related to these components.
 >
-> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. Microsoft support may be able to resolve the issue OR they may ask you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
+> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. Microsoft support may be able to resolve the issue OR they may ask you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Also Apache projects have project sites on [https://apache.org](https://apache.org), for example: [Hadoop](https://hadoop.apache.org/).
 
 The HDInsight service provides several ways to use custom components. The same level of support applies, regardless of how a component is used or installed on the cluster. The following list describes the most common ways that custom components can be used on HDInsight clusters:
 
@@ -471,7 +473,7 @@ If cluster creation fails due to a script error, the logs are kept in the cluste
 
 ### Ambari watchdog
 
-> [!WARNING]
+> [!WARNING]  
 > Do not change the password for the Ambari Watchdog (hdinsightwatchdog) on your Linux-based HDInsight cluster. Changing the password for this account breaks the ability to run new script actions on the HDInsight cluster.
 
 ### Can't import name BlobService

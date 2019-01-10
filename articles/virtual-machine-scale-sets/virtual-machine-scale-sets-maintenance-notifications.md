@@ -29,7 +29,7 @@ Azure periodically performs updates to improve the reliability, performance, and
 
 Planned maintenance that requires a reboot is scheduled in waves. Each wave has different scope (regions):
 
-- A wave starts with a notification to customers. By default, notification is sent to the subscription owner and co-owners. You can add recipients and messaging options like email, SMS, and webhooks to the notifications by using Azure [Activity Log alerts](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
+- A wave starts with a notification to customers. By default, notification is sent to the subscription owner and co-owners. You can add recipients and messaging options like email, SMS, and webhooks to the notifications by using Azure [Activity Log alerts](../azure-monitor/platform/activity-logs-overview.md).  
 - With notification, a *self-service window* is made available. During this window, you can find which of your VMs are included in the wave. You can proactively start maintenance according to your own scheduling needs.
 - After the self-service window, a *scheduled maintenance window* begins. At some point during this window, Azure schedules and applies the required maintenance to your VM. 
 
@@ -92,7 +92,7 @@ The **Self-service maintenance** column now appears in the list of virtual machi
 
 ## Notification and alerts in the portal
 
-Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add recipients and channels to this communication by creating Activity Log alerts. For more information, see [Monitor subscription activity with the Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add recipients and channels to this communication by creating Activity Log alerts. For more information, see [Monitor subscription activity with the Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the left menu, select **Monitor**. 

@@ -1,5 +1,5 @@
 ---
-title: Batch rendering applications
+title: Rendering applications - Azure Batch
 description: Pre-installed Batch rendering applications
 services: batch
 author: laurenhughes

@@ -3,13 +3,12 @@ title: Read Cassandra API table data using Spark
 titleSufix: Azure Cosmos DB
 description: This article describes how to read data from Cassandra API tables in Azure Cosmos DB.
 author: kanshiG
-
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: govindk
 ms.custom: seodec18
 ---
 

@@ -41,9 +41,11 @@ The following table has approximate data transfer duration based on the data vol
 |1 PB|6 years|3 years|97 days|10 days|
 |2 PB|12 years|5 years|194 days|19 days|
 
-Tools native to Azure, like DistCp, Azure Data Factory, and AzureCp, can be used to transfer data over the network. The third-party tool WANDisco can also be used for the same purpose. Kafka Mirrormaker and Sqoop can be used for ongoing data transfer from on-premises to Azure storage systems.
+Tools native to Azure, like Apache Hadoop  DistCp, Azure Data Factory, and AzureCp, can be used to transfer data over the network. The third-party tool WANDisco can also be used for the same purpose. Apache Kafka Mirrormaker and Apache Sqoop can be used for ongoing data transfer from on-premises to Azure storage systems.
 
-## Performance considerations with Apache DistCp
+
+## Performance considerations when using Apache Hadoop DistCp
+
 
 DistCp is an Apache project that uses a MapReduce Map job to transfer data, handle errors, and recover from those errors. It assigns a list of source files to each Map task. The Map task then copies all of its assigned files to the destination. There are several techniques can improve the performance of DistCp.
 
@@ -80,7 +82,7 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 ## Metadata migration
 
-### Hive
+### Apache Hive
 
 The hive metastore can be migrated either by using the scripts or by using the DB Replication.
 
@@ -100,7 +102,7 @@ The hive metastore can be migrated either by using the scripts or by using the D
 ./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 ```
 
-### Ranger
+### Apache Ranger
 
 - Export on-premises Ranger policies to xml files.
 - Transform on-prem specific HDFS-based paths to WASB/ADLS using a tool like XSLT.

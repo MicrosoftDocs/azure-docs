@@ -5,6 +5,7 @@
   - name: About Key Vault
     href: key-vault-overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Set and retrieve a secret - CLI
     href: quick-create-cli.md

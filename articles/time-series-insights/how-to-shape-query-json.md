@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights JSON - Best practices for shaping JSON in Azure Time Series Insights queries | Microsoft Docs
+title: 'Best practices for shaping JSON in Azure Time Series Insights queries | Microsoft Docs'
 description: Learn how to improve your Azure Time Series Insights query efficiency.
 services: time-series-insights
 author: ashannon7
@@ -197,4 +197,4 @@ If you have a property with a large number of possible values, it's best to send
 
 ## Next steps
 
-To put these guidelines into practice, see [Azure Time Series Insights query syntax](/rest/api/time-series-insights/time-series-insights-reference-query-syntax) to learn more about the query syntax for the TSI data access REST API.
+To put these guidelines into practice, see [Azure Time Series Insights query syntax](/rest/api/time-series-insights/ga-query-syntax) to learn more about the query syntax for the TSI data access REST API.

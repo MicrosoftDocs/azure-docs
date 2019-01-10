@@ -151,6 +151,9 @@ Content-Length: 145
 
 Here is the orchestration as a single C# file in a Visual Studio project:
 
+> [!NOTE]
+> You will need to install the `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget package to run the sample code below.
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 
 ## Next steps

@@ -19,13 +19,17 @@ Each request to an Azure Cognitive Service must include an authentication header
 * [Authenticate with a multi-service subscription key](#authenticate-with-a-multi-service-subscription-key)
 * [Authenticate with a token](#authenticate-with-an-authentication-token)
 
+## Prerequisites
+
+Before you make a request, you need an Azure account and an Azure Cognitive Services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create a Cognitive Services account for Azure](cognitive-services-apis-create-account.md).
+
 ## Authentication headers
 
 Let's quickly review the authentication headers available for use with Azure Cognitive Services.
 
 | Header | Description |
 |--------|-------------|
-| Ocp-Apim-Subscription-Key | Use this header to authenticate with a subscription key for a specific service or a multi-service subscription key. If using a multi-service subscription key, the region for your subscription must be provided as the `Ocp-Apim-Subscription-Region` header. |
+| Ocp-Apim-Subscription-Key | Use this header to authenticate with a subscription key for a specific service or a multi-service subscription key. |
 | Ocp-Apim-Subscription-Region | This header is only required when using a multi-service subscription key with the [Translator Text API](./Translator/reference/v3-0-reference.md). Use this header to specify the subscription region. |
 | Authorization | Use this header if you are using an authentication token. The steps to perform a token exchange are detailed in the following sections. The value provided follows this format: `Bearer <TOKEN>`. |
 

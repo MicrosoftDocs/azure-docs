@@ -70,12 +70,12 @@ Once you log in, you should see a dashboard like the one in the following image 
 
 ![Management Dashboard][ManagementDashboard]
 
-Clicking on the **Services** tab lets you configure your WAF for services it is protecting. For more details on configuring your Barracuda WAF, see [their documentation](https://techlib.barracuda.com/waf/getstarted1). In the following example, an Azure Web App serving traffic on HTTP and HTTPS has been configured.
+Clicking on the **Services** tab lets you configure your WAF for services it is protecting. For more details on configuring your Barracuda WAF, see [their documentation](https://techlib.barracuda.com/waf/getstarted1). In the following example, an App Service app serving traffic on HTTP and HTTPS has been configured.
 
 ![Management Add Services][ManagementAddServices]
 
 > [!NOTE]
-> Depending on how your applications are configured and what features are being used in your App Service Environment, you need to forward traffic for TCP ports other than 80 and 443, for example, if you have IP SSL setup for a Web App. For a list of network ports used in App Service Environments, see [Control Inbound Traffic documentation's](app-service-app-service-environment-control-inbound-traffic.md) Network Ports section.
+> Depending on how your applications are configured and what features are being used in your App Service Environment, you need to forward traffic for TCP ports other than 80 and 443, for example, if you have IP SSL setup for an App Service app. For a list of network ports used in App Service Environments, see [Control Inbound Traffic documentation's](app-service-app-service-environment-control-inbound-traffic.md) Network Ports section.
 > 
 > 
 

@@ -107,14 +107,11 @@ The instructions above started the generic empty bot.  To run a tutorial or demo
   npm run demo-password
   npm run demo-pizza
   npm run demo-storage
-  npm run demo-vrapp
   ```
 
 4. If you're not already, switch to the Conversation Learner web UI in Chrome by loading http://localhost:5050/home. 
 
-5. Click on "Import tutorials" (only needs to be done once).  This will take about a minute and will copy the Conversation Learner models for all the tutorials into your Conversation Learner account.
-
-6. Click on the demo model in the Conversation Learner UI that corresponds to the demo you started.
+5. Click on "Import tutorials" and select the demo model in the Conversation Learner UI that corresponds to the demo you started.
 
 Source files for the demos are in `cl-bot-01/src/demos`
 
@@ -176,4 +173,4 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Hello world](./tutorials/1-hello-world.md)
+> [Hello world](./tutorials/01-hello-world.md)

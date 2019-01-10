@@ -11,7 +11,7 @@ ms.author: wolfma
 | West US | https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
 | West US2 | https://westus2.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
 | East US | https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
-| East US2 | https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
+| East US2 | https://eastus2.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
 | East Asia | https://eastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
 | South East Asia | https://southeastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
 | North Europe | https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |

@@ -1,5 +1,5 @@
 ---
-title: Detect anomalies at the edge in an Azure solution tutorial | Microsoft Docs
+title: Detect anomalies at the edge in a solution tutorial - Azure | Microsoft Docs
 description: In this tutorial you learn how to monitor your IoT Edge devices using the Remote Monitoring solution accelerator.
 author: dominicbetts
 manager: timlt

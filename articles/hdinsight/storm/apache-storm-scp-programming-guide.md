@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 05/16/2016
 ---
 # SCP programming guide
-SCP is a platform to build real time, reliable, consistent, and high-performance data processing application. It is built on top of [Apache Storm](http://storm.incubator.apache.org/) -- a stream processing system designed by the OSS communities. Storm is designed by Nathan Marz and was open sourced by Twitter. It leverages [Apache ZooKeeper](http://zookeeper.apache.org/), another Apache project to enable highly reliable distributed coordination and state management. 
+SCP is a platform to build real time, reliable, consistent, and high-performance data processing application. It is built on top of [Apache Storm](https://storm.incubator.apache.org/) -- a stream processing system designed by the OSS communities. Storm is designed by Nathan Marz and was open sourced by Twitter. It leverages [Apache ZooKeeper](https://zookeeper.apache.org/), another Apache project to enable highly reliable distributed coordination and state management. 
 
 Not only the SCP project ported Storm on Windows but also the project added extensions and customization for the Windows ecosystem. The extensions include .NET developer experience, and libraries, the customization includes Windows-based deployment. 
 
@@ -340,7 +340,7 @@ Generally speaking, the SCP plugins may run in two modes here:
         }
 
 ## Topology Specification Language
-SCP Topology Specification is a domain-specific language for describing and configuring SCP topologies. It is based on Storm’s Clojure DSL (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) and is extended by SCP.
+SCP Topology Specification is a domain-specific language for describing and configuring SCP topologies. It is based on Storm’s Clojure DSL (<https://storm.incubator.apache.org/documentation/Clojure-DSL.html>) and is extended by SCP.
 
 Topology specifications can be submitted directly to storm cluster for execution via the ***runspec*** command.
 

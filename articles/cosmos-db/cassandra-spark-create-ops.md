@@ -1,15 +1,13 @@
 ---
 title: Create/Insert data into Azure Cosmos DB Cassandra API from Spark
 description: This article details how to insert sample data into Azure Cosmos DB Cassandra API tables
-services: cosmos-db
-author: anagha-microsoft
-
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
 
 ---
 

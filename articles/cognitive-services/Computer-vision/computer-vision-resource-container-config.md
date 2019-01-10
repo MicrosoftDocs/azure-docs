@@ -1,19 +1,19 @@
 ---
-title: Configure containers
-titlesuffix: Computer Vision - Azure Cognitive Services
-description: Configuration settings for containers in Computer Vision.
+title: Configure containers - Computer Vision
+titlesuffix: Azure Cognitive Services
+description: Configure various settings for Recognize Text containers in Computer Vision.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
+ms.custom: seodec18
 ---
 
-# Configure containers
+# Configure Recognize Text containers
 
 Computer Vision provides the Recognize Text container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 
@@ -36,7 +36,7 @@ Environment variable values override command-line argument values, which in turn
 
 ### Configuration settings as environment variables
 
-You can use the [ASP.NET Core environment variable syntax](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) to specify configuration settings.
+You can use the [ASP.NET Core environment variable syntax](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider) to specify configuration settings.
 
 The container reads user environment variables when the container is instantiated. If an environment variable exists, the value of the environment variable overrides the default value for the specified configuration setting. The benefit of using environment variables is that multiple configuration settings can be set before instantiating containers, and multiple containers can automatically use the same set of configuration settings.
 
@@ -128,7 +128,7 @@ The `Logging` configuration settings manage ASP.NET Core logging support for you
   | `Format` | String | The output format for log files.<br/> **Note:** This value must be set to `json` to enable the logging provider. If this value is specified without also specifying an output mount while instantiating a container, an error occurs. |
   | `MaxFileSize` | Integer | The maximum size, in megabytes (MB), of a log file. When the size of the current log file meets or exceeds this value, a new log file is started by the logging provider. If -1 is specified, the size of the log file is limited only by the maximum file size, if any, for the output mount. The default value is 1. |
 
-For more information about configuring ASP.NET Core logging support, see [Settings file configuration](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
+For more information about configuring ASP.NET Core logging support, see [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration).
 
 ## Mounts configuration settings
 

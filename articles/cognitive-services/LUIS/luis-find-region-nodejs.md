@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
 ---
-# Find endpoint region with Node.js
+# Programmatically find endpoint region with Node.js
 If you have the LUIS app ID and the LUIS subscription ID, you can find which region to use for endpoint queries.
 
 > [!NOTE] 
-> The complete Node.js solution is available from the [**LUIS-Samples** GitHub repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/).
+> The complete Node.js solution is available from the [**Azure-Samples** GitHub repository](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/find-region/nodejs/).
 
 ## LUIS endpoint query strategy
 Each LUIS endpoint query requires:

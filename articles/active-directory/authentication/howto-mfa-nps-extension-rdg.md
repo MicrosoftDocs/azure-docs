@@ -23,7 +23,7 @@ The Network Policy Server (NPS) extension for Azure allows customers to safeguar
 This article provides step-by-step instructions for integrating the NPS infrastructure with Azure MFA using the NPS extension for Azure. This enables secure verification for users attempting to sign in to a Remote Desktop Gateway.
 
 > [!NOTE]
-> This article should not be used with MFA Server deployments only Azure MFA (Cloud-based).
+> This article should not be used with MFA Server deployments and should only be used with Azure MFA (Cloud-based) deployments.
 
 The Network Policy and Access Services (NPS) gives organizations the ability to do the following:
 
@@ -159,7 +159,7 @@ To use the script, provide the extension with your Azure AD Admin credentials an
 
 1. Open an administrative Windows PowerShell prompt.
 1. At the PowerShell prompt, type `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`, and press **ENTER**.
-1. Type `.\AzureMfsNpsExtnConfigSetup.ps1`, and press **ENTER**. The script checks to see if the Azure Active Directory PowerShell module is installed. If not installed, the script installs the module for you.
+1. Type `.\AzureMfaNpsExtnConfigSetup.ps1`, and press **ENTER**. The script checks to see if the Azure Active Directory PowerShell module is installed. If not installed, the script installs the module for you.
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   

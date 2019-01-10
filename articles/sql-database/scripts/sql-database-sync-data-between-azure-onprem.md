@@ -24,6 +24,9 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-database-sync-data.md).
 
+> [!IMPORTANT]
+> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
+
 ## Sample script
 
 ```powershell-interactive

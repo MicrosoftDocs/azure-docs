@@ -51,7 +51,7 @@ The key attributes of an alert rule are:
 
 ## What you can alert on
 
-You can alert on metrics and logs as described in [monitoring data sources](../../monitoring-and-diagnostics/monitoring-data-sources.md). These include but are not limited to:
+You can alert on metrics and logs as described in [monitoring data sources](../../azure-monitor/platform/data-sources-reference.md). These include but are not limited to:
 - Metric values
 - Log search queries
 - Activity Log events
@@ -126,7 +126,7 @@ Previously, Azure Monitor, Application Insights, Log Analytics, and Service Heal
 | **Monitor source** | **Signal type**  | **Description** | 
 |-------------|----------------|-------------|
 | Service health | Activity log  | Not supported. See [Create activity log alerts on service notifications](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Web availability tests | Not supported. See [Web test alerts](../../application-insights/app-insights-monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
+| Application Insights | Web availability tests | Not supported. See [Web test alerts](../../azure-monitor/app/monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
 
 
 ## All alerts page 

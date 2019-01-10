@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 12/14/2018
 
 ms.author: mimart
 author: msmimart
@@ -51,6 +51,12 @@ After any guest user signs in to access resources in a partner organization for 
 ![Screenshot showing user settings in Access Panel](media/redemption-experience/ConsentScreen.png) 
 
 For information about how you as a tenant administrator can link to your organization's privacy statement, see [How-to: Add your organization's privacy info in Azure Active Directory](https://aka.ms/adprivacystatement).
+
+## Terms of use
+
+You can present terms of use to the guest user during the initial redemption process by using the Azure AD Terms of use feature. In Azure Active Directory, you can access this feature under **Manage** > **Organizational relationships** > **Terms of use** or under **Security** > **Conditional Access** > **Terms of use**. For details, see [Azure AD Terms of use feature](../governance/active-directory-tou.md).
+
+![Screenshot showing new terms of use](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 
 ## Next steps
 
