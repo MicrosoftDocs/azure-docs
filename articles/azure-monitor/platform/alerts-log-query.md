@@ -1,6 +1,7 @@
 ---
 title: Log alert queries in Azure Monitor | Microsoft Docs
-description: Use the Azure Monitor to author, view and manage log alert rules in Azure.
+description: Provides recommendations on writing efficient queries for log alerts in Azure Monitor updatesa
+and a process for converting existing queries.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
