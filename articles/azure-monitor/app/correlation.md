@@ -110,6 +110,7 @@ Incoming:
 ```
 
 **Spring Boot apps** add the following properties:
+
 `azure.application-insights.web.enable-W3C=true`
 `azure.application-insights.web.enable-W3C-backcompat-mode=true`
 
@@ -118,7 +119,6 @@ Outgoing:
 Add the following to AI-Agent.xml:
 
 ```xml
-
 <Instrumentation>
         <BuiltIn enabled="true">
             <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
