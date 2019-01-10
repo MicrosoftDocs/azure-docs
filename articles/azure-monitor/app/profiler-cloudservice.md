@@ -16,7 +16,7 @@ ms.author: mbullwin
 # Profile live Azure cloud services with Application Insights
 
 You can also deploy Application Insights Profiler on these services:
-* [Azure App Service](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric applications](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure virtual machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
@@ -25,7 +25,7 @@ Application Insights Profiler is installed with the Azure Diagnostics extension.
 ## Enable Profiler for your Azure cloud service
 1. Check to make sure that you're using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later. It's sufficient to confirm that the *ServiceConfiguration.\*.cscfg* files have an `osFamily` value of "5" or later.
 
-1. Add [Application Insights SDK to cloud service](../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
+1. Add [Application Insights SDK to cloud service](profiler-cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
 1. Track requests with Application Insights:
 
@@ -37,7 +37,7 @@ Application Insights Profiler is installed with the Azure Diagnostics extension.
 
     a. Locate the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* file for your application role, as shown here:  
 
-      ![Location of the diagnostics config file](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
+      ![Location of the diagnostics config file](./media/cloudservice-solutionexplorer.png)  
 
       If you can't find the file, see [Set up diagnostics for Azure cloud services and virtual machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
 
