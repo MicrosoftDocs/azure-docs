@@ -45,6 +45,7 @@ The _dev_ space will always contain the latest state of the repository, a baseli
 
 ## Creating the build definition
 First click on your profile photo in the upper-right of the Azure DevOps site, open the preview features pane, and disable the _New YAML pipeline creation experience_:
+
 ![Opening preview features pane](../media/common/preview-feature-open.png)
 
 ![New YAML pipeline creation experience option](../media/common/yaml-pipeline-preview-feature.png)
@@ -68,6 +69,7 @@ To create a Pipeline from this file:
 1. Select **Save & queue**
 
 You now have a CI solution that will automatically build *mywebapi* and *webfrontend* for any update pushed to the _azds_updates_ branch of your GitHub fork. You can verify the Docker images have been pushed by navigating to the Azure Portal, selecting your Azure Container Registry, and browsing the _Repositories_ tab:
+
 ![Azure Container Registry repositories](../media/common/ci-cd-images-verify.png)
 
 ## Creating the release definition
@@ -83,9 +85,11 @@ You now have a CI solution that will automatically build *mywebapi* and *webfron
 1. Set the **Source alias** to `drop`. The predefined release tasks use this alias so this must be set.
 1. Click **Add**.
 1. Now click the lightning bolt icon on the newly created `drop` artifact source, as shown below:
+
     ![Release artifact continuous deployment setup](../media/common/release-artifact-cd-setup.png)
 1. Enable the **Continuous deployment trigger**
 1. Now go to the Tasks pane. The _dev_ stage should be selected, and you should be presented with 3 red dropdown controls like below:
+
     ![Release definition setup](../media/common/release-setup-tasks.png)
 1. Specify the Azure subscription, resource group, and cluster you're using with Azure Dev Spaces.
 1. There should be only 1 more section showing red at this point; the **Agent job** section. Go there and specify **Hosted Ubuntu 1604** as the agent pool for this stage.
@@ -111,6 +115,7 @@ azds list-uris
 
 ## Deploying to Production
 Click **Edit** on your release definition and notice there is a _prod_ stage defined:
+
 ![Production stage](../media/common/prod-env.png)
 
 To manually promote a particular release to _prod_ using the CI/CD system we've set up during this tutorial:
@@ -132,6 +137,7 @@ azds list-uris
 Although Dev Spaces instrumentation has been designed _not_ to get in the way of normal operation of your application, we recommend running your production workloads in a non-Dev Spaces-enabled Kubernetes namespace. This means you should either create your production namespace using the `kubectl` CLI, or allow your CI/CD system to create it during the first Helm deployment. Note that "selecting" or otherwise creating a space using Dev Spaces tooling will add Dev Spaces instrumentation to that namespace.
 
 Here is an example namespace structure that supports feature development, the 'dev' environment, _and_ production, all in a single Kubernetes cluster:
+
 ![Example namespace structure](../media/common/cicd-namespaces.png)
 
 > [!Tip]
