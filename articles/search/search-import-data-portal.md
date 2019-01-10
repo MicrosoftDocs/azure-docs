@@ -23,6 +23,8 @@ The wizard can't connect to a predefined index, but you can modify the generated
 
 If you are new to Azure Search, step through the [Quickstart: Import, index, and query using portal tools](search-get-started-portal.md) to test-drive importing and indexing using the built-in realestate sample data set.
 
+   ![Import data wizard in portal](./media/search-import-data-portal/import-data-wizard-startup "Import data wizard for Azure Search")
+
 > [!NOTE]
 > You can launch the **Import data** wizard from other Azure services, including Azure Cosmos DB, Azure SQL Database, and Azure Blob storage. Look for **Add Azure Search** in the left-navigation pane on the service overview page.
 
