@@ -40,7 +40,7 @@ This identifier is related to your account. After you sign in with your organiza
 
 This string displays as the offer name on AppSource or in the Azure Marketplace. The **Name** box is limited to 50 characters. The reviewer might need to edit your title to append the duration and offer type to your offer name.
 
-The following example by Edgewater Fullscope shows how the offer name is assembled. 
+The following example shows how the offer name is assembled. 
 
 ![Create a new consulting service offer](media/cppsampleconsultingoffer.png)
 
