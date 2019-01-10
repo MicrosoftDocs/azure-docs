@@ -16,12 +16,12 @@ ms.author: rezas
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. See [this page](./iot-hub-device-streams-overview.md#local-proxies-sample-for-ssh-or-rdp) for an overview of the setup.
+[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. See [this page](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) for an overview of the setup.
 
 We describe the setup for tunneling SSH traffic (using port `22`) through device streams. The setup for RDP traffic is similar and requires changing the port to `3389`. Since device streams are application and protocol agnostic, the present quickstart can be modified (by changing the communication ports) to accommodate other types of application traffic.
 
 ### How it works?
-Figure below illustrates the setup of how the deivce- and service-local proxy programs in this sample will enable end-to-end connectivity between SSH client and SSH daemon processes. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-local proxy application. You should run an accompanying service-side proxy application which is available in [C# quickstart](./iot-hub-device-streams-csharp-proxy-quickstart.md) or [NodeJS quickstart](./iot-hub-device-streams-nodejs-proxy-quickstart.md) guides.
+Figure below illustrates the setup of how the deivce- and service-local proxy programs will enable end-to-end connectivity between SSH client and SSH daemon processes. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-local proxy application. You should run an accompanying service-side proxy application which is available in [C# quickstart](./iot-hub-device-streams-csharp-proxy-quickstart.md) or [NodeJS quickstart](./iot-hub-device-streams-nodejs-proxy-quickstart.md) guides.
 
 <p>
     <img style="margin:auto;display:block;background-color:white;width:50%;" 
