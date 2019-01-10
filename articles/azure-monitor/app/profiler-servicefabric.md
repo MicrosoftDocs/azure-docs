@@ -16,7 +16,7 @@ ms.author: mbullwin
 # Profile live Azure Service Fabric applications with Application Insights
 
 You can also deploy Application Insights Profiler on these services:
-* [Azure App Service](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
