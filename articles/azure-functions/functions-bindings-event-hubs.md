@@ -655,7 +655,7 @@ public String sendTime(
  }
  ```
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@EventHubOutput` annotation on parameters whose value would be poublished to Event Hub.  The parameter should be of type `OutputBinding<T>` , where T is a POJO or any native Java type.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@EventHubOutput` annotation on parameters whose value would be published to Event Hub.  The parameter should be of type `OutputBinding<T>` , where T is a POJO or any native Java type.
 
 ## Output - attributes
 

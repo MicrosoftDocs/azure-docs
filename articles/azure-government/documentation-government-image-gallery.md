@@ -669,7 +669,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | paloaltonetworks | vmseries1 | bundle1 |
 | paloaltonetworks | vmseries1 | bundle2 |
 | paloaltonetworks | vmseries1 | byol |
-| panzura-file-system | azura-freedom-filer-v7110 | fd-vm-azure-byol |
+| panzura-file-system | panzura-freedom-filer-v7110 | fd-vm-azure-byol |
 | panzura-file-system | panzura-cloud-filer | fd-vm-azure-byol |
 | panzura-file-system | panzura-freedom-filer-7140-13222 | fd-vm-azure-byol |
 | panzura-file-system | panzura-freedom-filer-716-13549 | fd-vm-azure-byol |
