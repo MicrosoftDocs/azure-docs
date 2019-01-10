@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.

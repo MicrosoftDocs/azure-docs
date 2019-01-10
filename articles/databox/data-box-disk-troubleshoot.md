@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/10/2019
 ms.author: alkohli
 ---
 # Troubleshoot issues in Azure Data Box Disk
@@ -81,7 +81,76 @@ Activity logs are retained for 90 days. You can query for any range of dates, as
 |[Info] Destination file or directory name exceeds the NTFS length limit. |This message is reported when the destination file was renamed because of long file path.<br> Modify the disposition option in `config.json` file to control this behavior.|
 |[Error] Exception thrown: Bad JSON escape sequence. |This message is reported when the config.json has format that is not valid. <br> Validate your `config.json` using [JSONlint](https://jsonlint.com/) before you save the file.|
 
+## Deployment issues for Linux
 
+This section details some of the top issues faced during deployment of Data Box Disk when using a Linux client for data copy.
+
+### Issue: Drive getting mounted as read-only
+ 
+**Cause** 
+
+This could be due to an unclean file system. 
+
+- Remounting a drive as read does not work with Data Box Disks. This scenario is not supported with drives decrypted by dislocker. 
+- Remounting as read-write will not work. You may have successfully remounted the device using the following command: 
+
+    `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
+
+   Though the remounting was successful, the data will not persist.
+
+**Resolution**
+
+If you see the above error, you could try one of the following resolutions:
+
+- Install [`ntfsfix`](https://linux.die.net/man/8/ntfsfix) (available in `ntfsprogs` package) and run it against the relevant partition.
+
+- If you have access to a Windows system
+
+    - Load the drive into the Windows system.
+    - Open a command prompt with administrative privileges. Run `chkdsk` on the volume.
+    - Safely remove the volume and try again.
+ 
+### Issue: Error with data not persisting after copy
+ 
+**Cause** 
+
+If you see that your drive does not have data after it was unmounted (though data was copied to it), then it is possible that you remounted a drive as read-write after the drive was mounted as read-only.
+
+**Resolution**
+ 
+If that is the case, see the resolution for [drives getting mounted as read-only](#issue-drive-getting-mounted-as-read-only).
+
+If that was not the case, [download diagnostics logs](#download-diagnostic-logs) from your system and [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
+
+## Deployment issues for Windows
+
+This section details some of the top issues faced during deployment of Data Box Disk when using a Windows client for data copy
+
+### Issue: Could not unlock drive from BitLocker
+ 
+**Cause** 
+
+You have used the password in the BitLocker dialog and trying to unlock the disk via the BitLocker unlock drives dialog. This would not work. 
+
+**Resolution**
+
+To unlock the Data Box Disks, you need to use the Data Box Disk Unlock tool and provide the password from the Azure portal. For more information, go to [Tutorial: Unpack, connect, and unlock Azure Data Box Disk](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
+ 
+### Issue: Could not unlock or verify some volumes. Contact Microsoft Support.
+ 
+**Cause** 
+
+You may see the following error in the error log and are not able to unlock or verify some volumes.
+
+`Exception System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Management.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.`
+ 
+This indicates that you are likely missing the appropriate version of Windows PowerShell on your Windows client.
+
+**Resolution**
+
+You can install [Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) and retry the operation.
+ 
+If you are still not able to unlock the volumes, [download diagnostics logs](#download-diagnostic-logs) from your system and [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## Next steps
 

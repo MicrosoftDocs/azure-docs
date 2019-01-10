@@ -145,13 +145,13 @@
       href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
     - name: Synonyms
       href: search-synonyms.md
-  - name: Index data
+  - name: Load and refresh data
     items:
-    - name: Load data
+    - name: Data import overview
       href: search-what-is-data-import.md
     - name: Rebuild an index
       href: search-howto-reindex.md
-    - name: Import wizard (portal)
+    - name: Import data (portal)
       href: search-import-data-portal.md
     - name: Index large data sets
       href: search-howto-large-index.md
@@ -237,6 +237,8 @@
     href: /rest/api/searchmanagement
   - name: REST (Preview)
     href: search-api-preview.md
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.search/searchservices
   - name: Predefined skills (Preview) 
     href: cognitive-search-predefined-skills.md
     items:

@@ -107,6 +107,8 @@
     href: /powershell/module/azurerm.notificationhubs
   - name: REST API
     href: /rest/api/notificationhubs
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.notificationhubs/allversions
 - name: Resources
   items:
   - name: FAQ

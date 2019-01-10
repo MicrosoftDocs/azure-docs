@@ -121,8 +121,8 @@
         href: backup-azure-vms-encryption.md
       - name: Enable VM backup during VM creation
         href: backup-during-vm-creation.md
-      - name: Upgrade to VM backup stack V2
-        href: backup-upgrade-to-vm-backup-stack-v2.md
+      - name: Instant Restore capability
+        href: backup-instant-restore-capability.md
     - name: Manage and monitor VMs
       items:
       - name: Manage Azure VM backups in Azure portal
@@ -239,6 +239,8 @@
     href: /rest/api/backup/
   - name: REST - Recovery Services vault
     href: /rest/api/recoveryservices/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Resources
   items:
   - name: Azure Roadmap

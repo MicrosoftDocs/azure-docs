@@ -1,7 +1,7 @@
 ﻿---
-title: Create a Standard Load Balancer with zone-redundant frontend using Azure PowerShell
+title: Create a Load Balancer with zone-redundant frontend - Azure PowerShell
 titlesuffix: Azure Load Balancer
-description: Learn how to create public Load Balancer Standard with a zone-redundant Public IP address frontend using PowerShell 
+description: Learn how to create public Standard Load Balancer with a zone-redundant Public IP address frontend using PowerShell 
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,9 +15,9 @@ ms.date: 03/23/2018
 ms.author: kumud
 ---
 
-#  Create a Standard Balancer with zone-redundant frontend using Azure PowerShell
+#  Create a Standard Load Balancer with zone-redundant frontend using Azure PowerShell
 
-This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zone-redundant frontend using a Public IP Standard address.
+This article steps through creating a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zone-redundant frontend using a Public IP Standard address.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -81,7 +81,7 @@ $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http
 ```
 
 ## Create a load balancer
-Create a Load Balancer Standard using the following command:
+Create a Standard Load Balancer using the following command:
 
 ```powershell
 $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBalancer' -Location westeurope `

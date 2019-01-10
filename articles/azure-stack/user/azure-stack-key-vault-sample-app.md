@@ -135,7 +135,7 @@ Write-Host
 
 The following image shows the output from the script used to create the key vault:
 
-![Key vault with access keys](media/azure-stack-kv-sample-app/settingsoutput.png)
+![Key vault with access keys](media/azure-stack-key-vault-sample-app/settingsoutput.png)
 
 Make a note of the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** values returned by the previous script. You use these values to run the HelloKeyVault application.
 
@@ -155,7 +155,7 @@ In Visual Studio:
 * Open the HelloKeyVault\App.config file and find the &lt;**appSettings**&gt; element.
 * Update the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** keys with the values returned by those used to create the key vault. By default, the App.config file has a placeholder for `AuthCertThumbprint`. Replace this placeholder with `AuthClientSecret`.
 
-  ![App settings](media/azure-stack-kv-sample-app/appconfig.png)
+  ![App settings](media/azure-stack-key-vault-sample-app/appconfig.png)
 
 * Rebuild the solution.
 
@@ -170,5 +170,5 @@ You can use the HelloKeyVault sample to:
 
 ## Next steps
 
-- [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
-- [Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
+- [Deploy a VM with a Key Vault password](azure-stack-key-vault-deploy-vm-with-secret.md)
+- [Deploy a VM with a Key Vault certificate](azure-stack-key-vault-push-secret-into-vm.md)

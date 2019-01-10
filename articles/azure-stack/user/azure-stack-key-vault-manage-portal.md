@@ -32,7 +32,7 @@ You must subscribe to an offer that includes the Azure Key Vault service.
 
 2. From the dashboard, select **+ Create a resource**, then **Security + Identity**, then **Key Vault**.
 
-    ![Key Vault screen](media/azure-stack-kv-manage-portal/image1.png)
+    ![Key Vault screen](media/azure-stack-key-vault-manage-portal/image1.png)
 
 3. In the **Create Key Vault** pane, assign a **Name** for your vault. Vault names can contain only alphanumeric characters and the hyphen (-) character. They should not start with a number.
 
@@ -70,7 +70,7 @@ After you create a vault, use the following procedure to create and manage keys 
 
 After the key is successfully created, you can select it under **Keys** and view or modify its properties. The properties section contains the **Key Identifier**, which is a Uniform Resource Identifier (URI) that external applications use to access this key. To limit operations on this key, configure the settings under **Permitted operations**.
 
-![URI key](media/azure-stack-kv-manage-portal/image4.png)
+![URI key](media/azure-stack-key-vault-manage-portal/image4.png)
 
 ### Create a secret
 
@@ -90,9 +90,9 @@ After the key is successfully created, you can select it under **Keys** and view
 
 After the secret is successfully created, you can select it under **Secrets** and view or modify its properties. The **Secret Identifier** is a URI that external applications can use to access this secret.
 
-![URI secret](media/azure-stack-kv-manage-portal/image5.png)
+![URI secret](media/azure-stack-key-vault-manage-portal/image5.png)
 
 ## Next steps
 
-* [Deploy a VM by retrieving the password stored in Key Vault](azure-stack-kv-deploy-vm-with-secret.md)
-* [Deploy a VM with certificate stored in Key Vault](azure-stack-kv-push-secret-into-vm.md)
+* [Deploy a VM by retrieving the password stored in Key Vault](azure-stack-key-vault-deploy-vm-with-secret.md)
+* [Deploy a VM with certificate stored in Key Vault](azure-stack-key-vault-push-secret-into-vm.md)
