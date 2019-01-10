@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 01/10/2019
 ms.author: magoedte
 ---
 
@@ -20,7 +20,7 @@ ms.author: magoedte
 ![Application Insights symbol](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> With the support of [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md), the Application Insights connector management solution is no longer required and will be deprecated. Starting July, you will not be able to link new Application Insights resources to Log Analytics workspaces. Existing links and dashboards will continue to function until November 2018. For more information, see [OMS portal moving to Azure](../../azure-monitor/platform/oms-portal-transition.md).
+> With the support of [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md) and [viewing multiple Azure Monitor Application Insights resources](../log-query/unify-app-resource-data.md), the Application Insights connector management solution will not be required. The Application Insights Connector will be deprecated and removed from Azure Marketplace along with OMS portal deprecation officially retiring on January 15, 2019 for Azure commercial cloud and for Azure US Government cloud, it will be officially retired on March 30, 2019. Existing connections will continue to work until June 30, 2019. With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. This will be supported using the REST API that will be made available in January, 2019 and a notification will be posted on [Azure updates](https://azure.microsoft.com/updates/). For more information, see [OMS portal moving to Azure](../../azure-monitor/platform/oms-portal-transition.md).
 
 The Applications Insights Connector solution helps you diagnose performance issues and understand what users do with your app when it is monitored with [Application Insights](../../azure-monitor/app/app-insights-overview.md). Views of the same application telemetry that developers see in Application Insights are available in Log Analytics. However, when you integrate your Application Insights apps with Log Analytics, visibility of your applications is increased by having operation and application data in one place. Having the same views helps you to collaborate with your app developers. The common views can help reduce the time to detect and resolve both application and platform issues.
 
