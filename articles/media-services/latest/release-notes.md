@@ -9,13 +9,13 @@ manager: femila
 editor: ''
 
 ms.service: media-services
-ms.workload: 
+ms.workload: na
 ms.topic: article
 ms.date: 11/21/2018
 ms.author: juliako
 ---
 
-# Azure Media Services v3 release notes 
+# Azure Media Services v3 release notes
 
 To stay up-to-date with the most recent developments, this article provides you with information about:
 
@@ -23,7 +23,6 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
-* Plans for changes
 
 ## Known issues
 
