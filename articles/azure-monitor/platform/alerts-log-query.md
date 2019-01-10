@@ -61,6 +61,34 @@ The following examples include log queries that use `search` and `union` and pro
 You want to create a log alert rule using the following query which retrieves performance information: 
 
 ``` Kusto
+search * | where Type == 'Perf' and CounterName == '% Free Space' 
+| where CounterValue < 30 
+| summarize count()
+```
+  
+
+To modify the query, start by using the following query to identify the table that the properties belong to:
+
+``` Kusto
+search * | where CounterName == '% Free Space'
+| summarize by $table
+```
+ 
+
+The result of this query would show that the _ObjectName_ and _CounterName_ property came from the _Perf_ table. You can use this result to create the following query which you would use for the alert rule:
+
+``` Kusto
+Perf 
+| where CounterName == '% Free Space' 
+| where CounterValue < 30 
+| summarize count()
+```
+
+
+### Example 2
+You want to create a log alert rule using the following query which retrieves performance information: 
+
+``` Kusto
 search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"  
 | summarize Avg_Memory_Usage =avg(CounterValue) by Computer 
 | where Avg_Memory_Usage between(90 .. 95)  
@@ -87,7 +115,7 @@ Perf
 ```
  
 
-### Example 2
+### Example 3
 
 You want to create a log alert rule using the following query which uses both _search_ and _union_ to retrieve performance information: 
 
@@ -126,7 +154,7 @@ Perf
 | count 
 ``` 
 
-### Example 3
+### Example 4
 You want to create a log alert rule using the following query which uses joins the results of two search commands:
 
 ```Kusto
@@ -177,3 +205,5 @@ on Hour
 ```
 
 ## Next steps
+- Learn about [log alerts](alerts-log.md) in Azure Monitor.
+- Learn about [log queries](../log-query/log-query-overview.md).
