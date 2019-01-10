@@ -14,9 +14,9 @@ ms.date: 03/26/2018
 ms.author: kumud
 ---
 
-#  Create a public Load Balancer Standard with zonal frontend using Azure CLI
+#  Create a Standard Load Balancer with zonal frontend using Azure CLI
 
-This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zonal frontend. Having a zonal frontend means that any inbound or outbound flow is served by a single zone in a region. You can create a load balancer with a zonal frontend by using a zonal Standard Public IP address in its frontend configuration. To understand how availability zones work with Standard Load Balancer, see [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md). 
+This article steps through creating a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zonal frontend. Having a zonal frontend means that any inbound or outbound flow is served by a single zone in a region. You can create a load balancer with a zonal frontend by using a zonal Standard Public IP address in its frontend configuration. To understand how availability zones work with Standard Load Balancer, see [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -46,7 +46,7 @@ az network public-ip create --resource-group myResourceGroupZLB --name myPublicI
 
 ## Create a load balancer
 
-Create a Public Load Balancer Standard with the Standard Public IP that you created in the preceding step using the following command:
+Create a Public Standard Load Balancer with the Standard Public IP that you created in the preceding step using the following command:
 
 ```azurecli-interactive
 az network lb create --resource-group myResourceGroupZLB --name myLoadBalancer --public-ip-address myPublicIPZonal --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool --sku Standard
