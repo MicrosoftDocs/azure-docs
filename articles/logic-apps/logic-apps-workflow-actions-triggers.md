@@ -2901,6 +2901,11 @@ Here are the kinds of authentication you can set up:
 * [Client certificate authentication](#client-certificate-authentication)
 * [Azure Active Directory (Azure AD) OAuth authentication](#azure-active-directory-oauth-authentication)
 
+> [!IMPORTANT]
+> Make sure you protect any sensitive information 
+> that your logic app workflow definition handles. 
+> Use secured parameters and encode data as necessary. 
+
 <a name="basic-authentication"></a>
 
 ### Basic authentication
@@ -2911,7 +2916,7 @@ include an `authentication` JSON object that has these properties:
 | Property | Required | Value | Description | 
 |----------|----------|-------|-------------| 
 | **type** | Yes | "Basic" | The authentication type to use, which is "Basic" here | 
-| **username** | Yes | "@parameters('userNameParam')" | A parameter that passes the user name to authenticate for accessing the target service endpoint |
+| **username** | Yes | "@parameters('userNameParam')" | A parameter that accepts the user name to authenticate for accessing the target service endpoint |
 | **password** | Yes | "@parameters('passwordParam')" | A parameter that passes the password to authenticate for accessing the target service endpoint |
 ||||| 
 
@@ -2946,8 +2951,8 @@ include an `authentication` JSON object that has these properties:
 | Property | Required | Value | Description | 
 |----------|----------|-------|-------------| 
 | **type** | Yes | "ClientCertificate" | The authentication type to use for Secure Sockets Layer (SSL) client certificates | 
-| **pfx** | Yes | <*base64-encoded-pfx-file*> | The base64-encoded content from a Personal Information Exchange (PFX) file |
-| **password** | Yes | "@parameters('passwordParam')" | A parameter with the password for accessing the PFX file |
+| **pfx** | Yes | "@parameters('pfxParam') | A parameter that accepts the base64-encoded content from a Personal Information Exchange (PFX) file |
+| **password** | Yes | "@parameters('passwordParam')" | A parameter that accepts the password for accessing the PFX file |
 ||||| 
 
 For example, here's the format for the `authentication` 
@@ -2957,7 +2962,7 @@ see [Secure sensitive information](#secure-info).
 
 ```javascript
 "authentication": {
-   "password": "@parameters('passwordParam')",
+   "password": "@parameters('pfxParam')",
    "pfx": "aGVsbG8g...d29ybGQ=",
    "type": "ClientCertificate"
 }
@@ -2977,10 +2982,10 @@ include an `authentication` JSON object that has these properties:
 | **tenant** | Yes | <*tenant-ID*> | The tenant ID for the Azure AD tenant | 
 | **audience** | Yes | <*resource-to-authorize*> | The resource that you want authorization to use, for example, `https://management.core.windows.net/` | 
 | **clientId** | Yes | <*client-ID*> | The client ID for the app requesting authorization | 
-| **credentialType** | Yes | "Secret" or "Certificate" | The credential type the client uses for requesting authorization. This property and value don't appear in your underlying definition, but determines the required parameters for the credential type. | 
-| **password** | Yes, only for "Certificate" credential type | "@parameters('passwordParam')" | A parameter with the password for accessing the PFX file | 
-| **pfx** | Yes, only for "Certificate" credential type | <*base64-encoded-pfx-file*> | The base64-encoded content from a Personal Information Exchange (PFX) file |
-| **secret** | Yes, only for "Secret" credential type | <*secret-for-authentication*> | The base64-encoded secret that the client uses for requesting authorization |
+| **credentialType** | Yes | "Certificate" or "Secret" | The credential type the client uses for requesting authorization. This property and value don't appear in your underlying definition, but determines the required parameters for the credential type. | 
+| **pfx** | Yes, only for "Certificate" credential type | "@parameters('pfxParam') | A parameter that accepts the base64-encoded content from a Personal Information Exchange (PFX) file | 
+| **password** | Yes, only for "Certificate" credential type | "@parameters('passwordParam')" | A parameter that accepts the password for accessing the PFX file | 
+| **secret** | Yes, only for "Secret" credential type | "@parameters('secretParam')" | A parameter that accepts the client secret for requesting authorization |
 ||||| 
 
 For example, here's the format for the `authentication` object when 
