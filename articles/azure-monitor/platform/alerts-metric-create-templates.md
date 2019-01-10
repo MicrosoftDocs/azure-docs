@@ -16,19 +16,17 @@ This article shows how you can use an [Azure Resource Manager template](../../az
 > [!IMPORTANT]
 > Resource Manager template specified for metric alert will not work for resource type: Microsoft.OperationalInsights/workspaces; as support for metrics from Log Analytics is in preview. Users interested in using the preview functionality with resource template, can contact [Azure Alerts Feedback](mailto:azurealertsfeedback@microsoft.com)
 
-
 The basic steps are as follows:
 
 1. Use one of the templates below as a JSON file that describes how to create the alert.
 2. Edit and use the corresponding parameters file as a JSON to customize the alert
 3. Deploy the template using [any deployment method](../../azure-resource-manager/resource-group-template-deploy.md).
 
-
-## Resource Manager template for a simple static metric alert
+## Template for a simple static threshold metric alert
 
 To create an alert using a Resource Manager template, you create a resource of type `Microsoft.Insights/metricAlerts` and fill in all related properties. Below is a sample template that creates a metric alert rule.
 
-Save the json below as simplestaticmetricalert.json for the purpose of this walk through.
+Save the json below as simplestaticmetricalert.json for the purpose of this walkthrough.
 
 ```json
 {
@@ -255,11 +253,11 @@ az group deployment create \
 >
 > While the metric alert could be created in a different resource group to the target resource, we recommend using the same resource group as your target resource.
 
-## Resource Manager template for a simple dynamic thresholds metric alert
+## Template for a simple Dynamic Thresholds metric alert
 
 To create an alert using a Resource Manager template, you create a resource of type `Microsoft.Insights/metricAlerts` and fill in all related properties. Below is a sample template that creates a metric alert rule.
 
-Save the json below as simpledynamicmetricalert.json for the purpose of this walk through.
+Save the json below as simpledynamicmetricalert.json for the purpose of this walkthrough.
 
 ```json
 {
@@ -336,7 +334,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
                 "Low"
             ],
             "metadata": {
-                "description": "Tunes how 'noisy' the Dynamic Threshold alerts will be: 'High' will result in more alerts while 'Low' will result in fewer alerts."
+                "description": "Tunes how 'noisy' the Dynamic Thresholds alerts will be: 'High' will result in more alerts while 'Low' will result in fewer alerts."
             }
         },
         "numberOfEvaluationPeriods": {
@@ -513,11 +511,11 @@ az group deployment create \
 >
 > While the metric alert could be created in a different resource group to the target resource, we recommend using the same resource group as your target resource.
 
-## Resource Manager template for a more advanced static metric alert
+## Template for a more advanced static threshold metric alert
 
-Newer static metric alerts support alerting on multi-dimensional metrics as well as supporting multiple criteria. You can use the following template to create a more advanced metric alert on dimensional metrics and specify multiple criteria.
+Newer metric alerts support alerting on multi-dimensional metrics as well as supporting multiple criteria. You can use the following template to create a more advanced metric alert on dimensional metrics and specify multiple criteria.
 
-Save the json below as advancedstaticmetricalert.json for the purpose of this walk through.
+Save the json below as advancedstaticmetricalert.json for the purpose of this walkthrough.
 
 ```json
 {
@@ -635,7 +633,7 @@ Save the json below as advancedstaticmetricalert.json for the purpose of this wa
 
 You can use the above template along with the parameter file provided below. 
 
-Save and modify the json below as advancedstaticmetricalert.parameters.json for the purpose of this walk through.
+Save and modify the json below as advancedstaticmetricalert.parameters.json for the purpose of this walkthrough.
 
 ```json
 {
@@ -731,13 +729,13 @@ az group deployment create \
 >
 > While the metric alert could be created in a different resource group to the target resource, we recommend using the same resource group as your target resource.
 
-## Resource Manager template for a more advanced dynamic thresholds metric alert
+## Template for a more advanced Dynamic Thresholds metric alert
 
-You can use the following template to create a more advanced dynamic thresholds metric alert on dimensional metrics. multiple criteria are not currently supported.
+You can use the following template to create a more advanced Dynamic Thresholds metric alert on dimensional metrics. multiple criteria are not currently supported.
 
 Dynamic Thresholds alerts can create custom-tailored thresholds for hundreds of metric series (even different types) at a time, which results in fewer alert rules to manage.
 
-Save the json below as advanceddynamicmetricalert.json for the purpose of this walk through.
+Save the json below as advanceddynamicmetricalert.json for the purpose of this walkthrough.
 
 ```json
 {
@@ -847,7 +845,7 @@ Save the json below as advanceddynamicmetricalert.json for the purpose of this w
 
 You can use the above template along with the parameter file provided below. 
 
-Save and modify the json below as advanceddynamicmetricalert.parameters.json for the purpose of this walk through.
+Save and modify the json below as advanceddynamicmetricalert.parameters.json for the purpose of this walkthrough.
 
 ```json
 {
@@ -932,9 +930,9 @@ az group deployment create \
 >
 > While the metric alert could be created in a different resource group to the target resource, we recommend using the same resource group as your target resource.
 
-## Resource Manager template for metric alert that monitors multiple resources
+## Template for metric alert that monitors multiple resources
 
-The previous sections described sample Azure Resource Manager templates to create metric alerts that monitor a single resource. Azure Monitor now supports monitoring multiple resources with a single metric alert rule. This preview feature is currently available only via Azure Resource Manager templates and REST API and is only supported for virtual Machines. Portal support for creating and editing such rules is coming soon.
+The previous sections described sample Azure Resource Manager templates to create metric alerts that monitor a single resource. Azure Monitor now supports monitoring multiple resources with a single metric alert rule. This preview feature is currently available only via Azure Resource Manager templates and REST API and is only supported for virtual Machines.
 
 Dynamic Thresholds alerts can also help create custom-tailored thresholds for hundreds of metric series (even different types) at a time, which results in fewer alert rules to manage.
 
@@ -944,9 +942,9 @@ This section will describe Azure Resource Manager templates for three scenarios 
 - Monitoring all virtual machines (in one Azure region) in a subscription
 - Monitoring a list of virtual machines (in one Azure region) in  a subscription.
 
-### Static Alert on All virtual machines in one or more resource groups
+### Static threshold alert on all virtual machines in one or more resource groups
 
-This template will create a static metric alert rule that monitors Percentage CPU for all virtual machines (in one Azure region) in one or more resource groups.
+This template will create a static threshold metric alert rule that monitors Percentage CPU for all virtual machines (in one Azure region) in one or more resource groups.
 
 Save the json below as all-vms-in-resource-group-static.json for the purpose of this walk-through.
 
@@ -1164,7 +1162,7 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
 ```
 
 You can use the above template with the parameter file below.
-Save and modify the json below as all-vms-in-resource-group-static.parameters.json for the purpose of this walk through.
+Save and modify the json below as all-vms-in-resource-group-static.parameters.json for the purpose of this walkthrough.
 
 ```json
 {
@@ -1239,9 +1237,9 @@ az group deployment create \
     --parameters @all-vms-in-resource-group-static.parameters.json
 ```
 
-### Dynamic Alert on All virtual machines in one or more resource groups
+### Dynamic Thresholds alert on all virtual machines in one or more resource groups
 
-This template will create a dynamic metric alert rule that monitors Percentage CPU for all virtual machines (in one Azure region) in one or more resource groups.
+This template will create a Dynamic Thresholds metric alert rule that monitors Percentage CPU for all virtual machines (in one Azure region) in one or more resource groups.
 
 Save the json below as all-vms-in-resource-group-dynamic.json for the purpose of this walk-through.
 
@@ -1381,7 +1379,7 @@ Save the json below as all-vms-in-resource-group-dynamic.json for the purpose of
                 "Low"
             ],
             "metadata": {
-                "description": "Tunes how 'noisy' the Dynamic Threshold alerts will be: 'High' will result in more alerts while 'Low' will result in fewer alerts."
+                "description": "Tunes how 'noisy' the Dynamic Thresholds alerts will be: 'High' will result in more alerts while 'Low' will result in fewer alerts."
             }
         },
         "numberOfEvaluationPeriods": {
@@ -1480,7 +1478,7 @@ Save the json below as all-vms-in-resource-group-dynamic.json for the purpose of
 ```
 
 You can use the above template with the parameter file below.
-Save and modify the json below as all-vms-in-resource-group-dynamic.parameters.json for the purpose of this walk through.
+Save and modify the json below as all-vms-in-resource-group-dynamic.parameters.json for the purpose of this walkthrough.
 
 ```json
 {
@@ -1561,9 +1559,9 @@ az group deployment create \
     --parameters @all-vms-in-resource-group-dynamic.parameters.json
 ```
 
-### Static Alert on All virtual machines in a subscription
+### Static threshold alert on all virtual machines in a subscription
 
-This template will create a static metric alert rule that monitors Percentage CPU for all virtual machines (in one Azure region) in a subscription.
+This template will create a static threshold metric alert rule that monitors Percentage CPU for all virtual machines (in one Azure region) in a subscription.
 
 Save the json below as all-vms-in-subscription-static.json for the purpose of this walk-through.
 
@@ -1781,7 +1779,7 @@ Save the json below as all-vms-in-subscription-static.json for the purpose of th
 ```
 
 You can use the above template with the parameter file below.
-Save and modify the json below as all-vms-in-subscription-static.parameters.json for the purpose of this walk through.
+Save and modify the json below as all-vms-in-subscription-static.parameters.json for the purpose of this walkthrough.
 
 ```json
 {
@@ -1853,9 +1851,9 @@ az group deployment create \
     --parameters @all-vms-in-subscription.parameters-static.json
 ```
 
-### Dynamic Alert on All virtual machines in a subscription
+### Dynamic Thresholds alert on all virtual machines in a subscription
 
-This template will create a dynamic metric alert rule that monitors Percentage CPU for all virtual machines (in one Azure region) in a subscription.
+This template will create a Dynamic Thresholds metric alert rule that monitors Percentage CPU for all virtual machines (in one Azure region) in a subscription.
 
 Save the json below as all-vms-in-subscription-dynamic.json for the purpose of this walk-through.
 
@@ -1995,7 +1993,7 @@ Save the json below as all-vms-in-subscription-dynamic.json for the purpose of t
                 "Low"
             ],
             "metadata": {
-                "description": "Tunes how 'noisy' the Dynamic Threshold alerts will be: 'High' will result in more alerts while 'Low' will result in fewer alerts."
+                "description": "Tunes how 'noisy' the Dynamic Thresholds alerts will be: 'High' will result in more alerts while 'Low' will result in fewer alerts."
             }
         },
         "numberOfEvaluationPeriods": {
@@ -2094,7 +2092,7 @@ Save the json below as all-vms-in-subscription-dynamic.json for the purpose of t
 ```
 
 You can use the above template with the parameter file below.
-Save and modify the json below as all-vms-in-subscription-dynamic.parameters.json for the purpose of this walk through.
+Save and modify the json below as all-vms-in-subscription-dynamic.parameters.json for the purpose of this walkthrough.
 
 ```json
 {
@@ -2172,9 +2170,9 @@ az group deployment create \
     --parameters @all-vms-in-subscription-dynamic.parameter-dynamics.json
 ```
 
-### Static Alert on A list of virtual machines
+### Static threshold alert on a list of virtual machines
 
-This template will create a static metric alert rule that monitors Percentage CPU for a list of virtual machines (in one Azure region) in a subscription.
+This template will create a static threshold metric alert rule that monitors Percentage CPU for a list of virtual machines (in one Azure region) in a subscription.
 
 Save the json below as list-of-vms-static.json for the purpose of this walk-through.
 
@@ -2392,7 +2390,7 @@ Save the json below as list-of-vms-static.json for the purpose of this walk-thro
 ```
 
 You can use the above template with the parameter file below.
-Save and modify the json below as list-of-vms-static.parameters.json for the purpose of this walk through.
+Save and modify the json below as list-of-vms-static.parameters.json for the purpose of this walkthrough.
 
 ```json
 {
@@ -2467,9 +2465,9 @@ az group deployment create \
     --parameters @list-of-vms-static.parameters.json
 ```
 
-### Dynamic Alert on A list of virtual machines
+### Dynamic Thresholds alert on a list of virtual machines
 
-This template will create a dynamic metric alert rule that monitors Percentage CPU for a list of virtual machines (in one Azure region) in a subscription.
+This template will create a Dynamic Thresholds metric alert rule that monitors Percentage CPU for a list of virtual machines (in one Azure region) in a subscription.
 
 Save the json below as list-of-vms-dynamic.json for the purpose of this walk-through.
 
@@ -2609,7 +2607,7 @@ Save the json below as list-of-vms-dynamic.json for the purpose of this walk-thr
                 "Low"
             ],
             "metadata": {
-                "description": "Tunes how 'noisy' the Dynamic Threshold alerts will be: 'High' will result in more alerts while 'Low' will result in fewer alerts."
+                "description": "Tunes how 'noisy' the Dynamic Thresholds alerts will be: 'High' will result in more alerts while 'Low' will result in fewer alerts."
             }
         },
         "numberOfEvaluationPeriods": {
@@ -2708,7 +2706,7 @@ Save the json below as list-of-vms-dynamic.json for the purpose of this walk-thr
 ```
 
 You can use the above template with the parameter file below.
-Save and modify the json below as list-of-vms-dynamic.parameters.json for the purpose of this walk through.
+Save and modify the json below as list-of-vms-dynamic.parameters.json for the purpose of this walkthrough.
 
 ```json
 {
