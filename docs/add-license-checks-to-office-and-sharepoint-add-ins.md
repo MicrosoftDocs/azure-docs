@@ -77,7 +77,7 @@ Has to be converted into this:
 
 For example, the source location modified to include a test token for an Outlook add-in would look like this: 
 
-  `https://myApp/index.htm?et=%3Cr%20v%3D%221%22%3E%3Ct%20aid%3D%22WA104108294%22%20pid%3D%22463eafac-c123-45fe-bd21-b1b120b4c12b%22%20cid%3D%223BEC2F1C0124D801%22%20did%3D%22CONTOSO.COM%22%20ts%3D%221%22%20et%3D%22Paid%22%20ad%3D%222013-08-29T21%3A38%3A14Z%22%20sd%3D%222013-09-17%22%20te%3D%222013-12-23T09%3A10%3A42Z%22%20test%3D%221%22%20ss%3D%220%22%20%2F%3E%3Cd%3E7uM9j2%2FYZJeZrrm2TLjXufQlwkAXkq2RqjowBP9fAjo%3D%3C%2Fd%3E%3C%2Fr%3E`
+  `https://myApp/index.htm?et=%3Cr%3E%20%3Ct%20aid%3D%22WA907006056%22%20pid%3D%22%7B4FB601F2-5469-4542-B9FC-B96345DC8B39%7D%22%20cid%3D%2232F3E7FC559F4F49%22%20did%3D%22%7B0672BAE9-B41B-48FE-87F1-7F4D3DD3F3B1%7D%22%20ts%3D%2230%22%20et%3D%22Trial%22%20ad%3D%222012-01-12T21%3A58%3A13Z%22%20ed%3D%222019-06-30T21%3A58%3A13Z%22%20sd%3D%222012-01-12T00%3A00%3A00Z%22%20test%3D%22true%22%20te%3D%222019-06-30T02%3A49%3A34Z%22%20%2F%3E%20%3Cd%3EVNNAnf36IrkyUVZlihQJNdUUZl%2FYFEfJOeldWBtd3IM%3D%3C%2Fd%3E%20%3C%2Fr%3E`
 
 > [!IMPORTANT]
 > For security reasons, if you are licensing your Office Add-in, we strongly recommended that you specify an HTTP Secure ( `https://`) URL for your add-in home page.
