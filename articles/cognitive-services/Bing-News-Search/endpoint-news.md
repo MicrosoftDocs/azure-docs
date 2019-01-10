@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: conceptual
-ms.date: 11/28/2017
+ms.date: 1/10/2019
 ms.author: v-gedod
 ---
 

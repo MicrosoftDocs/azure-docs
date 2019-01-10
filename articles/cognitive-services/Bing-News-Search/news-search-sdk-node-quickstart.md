@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 02/12/2018
+ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
 ---

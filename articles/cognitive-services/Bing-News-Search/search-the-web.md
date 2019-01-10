@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: overview
-ms.date: 06/21/2016
+ms.date: 01/10/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ---
