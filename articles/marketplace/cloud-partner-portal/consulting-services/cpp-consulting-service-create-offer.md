@@ -35,7 +35,7 @@ To create a new offer, follow these steps.
 
 ## Next steps
 
-The **New Offer** page for the consulting service offer type provides a set of tabs and form fields that you use to create a new offer. The following articles explain how to use the tab to define the offer settings and storefront details for your new offer.
+The **New Offer** page for the consulting service offer type provides a set of tabs and form fields that you use to create a new offer. The following articles explain how to use the tab to define the offer settings and storefront details for your new offer:
 
 -	[Define offer settings](./cpp-consulting-service-define-offer-settings.md)
 -	[Enter storefront details, and whether to publish in the Azure Marketplace or on AppSource](./cpp-consulting-service-storefront-details.md)
