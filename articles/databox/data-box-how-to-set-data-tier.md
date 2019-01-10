@@ -78,6 +78,7 @@ Following steps describe how you can set the blob tier to Archive using an Azure
     ```
 
     A sample output is shown below:
+
     ```
     Windows PowerShell
     Copyright (C) Microsoft Corporation. All rights reserved.
@@ -93,8 +94,6 @@ Following steps describe how you can set the blob tier to Archive using an Azure
     SubscriptionId   : subscription-id
     TenantId         : tenant-id
     Environment      : AzureCloud
-
-
 
     PS C:\WINDOWS\system32> $StorageAccountName = "mygpv2storacct"
     PS C:\WINDOWS\system32> $StorageAccountKey = "mystorageacctkey"
