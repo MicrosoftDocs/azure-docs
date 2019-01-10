@@ -15,8 +15,8 @@ ms.author: adgera
 This article describes how to configure the Postman REST client to interact with and test the Azure Digital Twins Management APIs. Specifically, it describes:
 
 * How to configure an Azure Active Directory application to use the OAuth 2.0 implicit grant flow.
-* How to configure the Postman REST client to make token-bearing HTTP requests to your Management APIs.
-* How to configure the Postman REST client to make multipart POST requests to you Management APIs.
+* How to use the Postman REST client to make token-bearing HTTP requests to your Management APIs.
+* How to use Postman to make multipart POST requests to you Management APIs.
 
 ## Postman summary
 
@@ -44,7 +44,7 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
 
 1. Copy and keep the **Application ID** of your Azure Active Directory app. It's used below.
 
-## Obtain an OAuth 2.0 token using Postman
+## Obtain an OAuth 2.0 token
 
 Next, set up and configure Postman to obtain an Azure Active Directory token. Afterwards, make an authenticated HTTP request to Azure Digital Twins using the acquired token:
 
@@ -85,7 +85,7 @@ Next, set up and configure Postman to obtain an Azure Active Directory token. Af
 
 <div id="multi"></div>
 
-## Make a multipart POST request with Postman
+## Make a multipart POST request
 
 After completing the previous steps, configure Postman to make an authenticated HTTP multipart POST request:
 
@@ -109,6 +109,8 @@ After completing the previous steps, configure Postman to make an authenticated 
 ## Next steps
 
 - To learn about the Digital Twins management APIs, and how to use them, read [How to use Azure Digital Twins management APIs](how-to-navigate-apis.md).
+
+- Use multipart requests to [add blobs to Azure Digital Twins' entities](./how-to-add-blobs.md).
 
 - To learn about authenticating with the Management APIs, read [Authenticate with APIs](./security-authenticating-apis.md).
 
