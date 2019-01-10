@@ -1,6 +1,6 @@
 ---
 title: Use Azure Data Box to send data to - hot, cold, archive - block blob tier | Microsoft Docs in data 
-description: Describes how to use the Azure Data Box to send data to an appropriate block blob storage tier such as hot, cold, or archive
+description: Describes how to use Azure Data Box to send data to an appropriate block blob storage tier such as hot, cold, or archive
 services: databox
 author: alkohli
 
@@ -35,7 +35,7 @@ The default blob tier is specified when the storage account is created in the Az
 
 The tiers cannot be specified if you are trying to create a new account when ordering a Data Box. After the account is created, you can modify the account in portal to set the default access tier.
 
-Alternatively, you create a storage account first with the specified access tier attribute. When creating the Data Box order, select the existing storage account. For more information on how to set the default blob tier during storage account creation, go to [Create a storage account in Azure portal](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal).
+Alternatively, you create a storage account first with the specified access tier attribute. When creating the Data Box order, select the existing storage account. For more information on how to set the default blob tier during storage account creation, go to [Create a storage account in Azure portal](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal).
 
 ## Move data to a non-default tier
 
