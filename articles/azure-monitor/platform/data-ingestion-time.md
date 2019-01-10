@@ -113,7 +113,7 @@ AzureDiagnostics
 | summarize percentiles(E2EIngestionLatency,50,95) by ResourceProvider
 ```
 
-### Resources that stopped responding 
+### Resources that stop responding 
 You could mistake high ingestion time with a case where a resource stops sending data. To understand if a resource is sending data or not, look at its most recent record which can be identified by the standard _TimeGenerated_ field.  
 
 Use the _Heartbeat_ table to check the availability of a VM, since a heartbeat is sent once a minute by the agent. Use the following query to list the active computers that haven’t reported heartbeat recently: 
@@ -123,7 +123,7 @@ Heartbeat
 | where TimeGenerated > ago(1d) //show only VMs that were active in the last day 
 | summarize NoHeartbeatPeriod = now() - max(TimeGenerated) by Computer  
 | top 20 by NoHeartbeatPeriod desc 
-
+```
 
 ## Next steps
 * Read the [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) for Log Analytics.
