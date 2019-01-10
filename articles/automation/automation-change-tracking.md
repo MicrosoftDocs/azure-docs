@@ -45,7 +45,7 @@ The following Linux distributions are officially supported. However, the Linux a
 * Debian GNU/Linux 8 and 9
 * Ubuntu Linux 14.04 LTS and 16.04 LTS
 
-## Enable Change Tracking and Inventory
+## <a name="enable-change-tracking"></a>Enable Change Tracking and Inventory
 
 To begin tracking changes, you need to enable the Change Tracking and Inventory solution. There are many ways to onboard machines to Change Tracking and Inventory. The following are the recommended and supported ways to onboard the solution.
 
