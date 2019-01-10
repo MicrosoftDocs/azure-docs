@@ -20,10 +20,10 @@ Azure Application Insights Profiler provides performance traces for applications
 
 Profiler works with .NET applications that are deployed on the following Azure services. Specific instructions for enabling Profiler for each service type are in the links below.
 
-* [Azure App Service](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Virtual Machines and virtual machine scale sets](rofiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Virtual Machines and virtual machine scale sets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 If you've enabled Profiler but aren't seeing traces, check our [Troubleshooting guide](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
@@ -31,7 +31,7 @@ Although we don't officially support running Profiler on-premises, you can try t
 
 ## View Profiler data
 
-For Profiler to upload traces, your application must be actively handling requests. If you're doing an experiment, you can generate requests to your web app by using [Application Insights performance testing](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). If you've newly enabled Profiler, you can run a short load test. While the load test is running, select the **Profile Now** button on the [**Profiler Settings** page](profiler-settings.md#profiler-settings-page). When Profiler is running, it profiles randomly about once per hour and for a duration of two minutes. If your application is handling a steady stream of requests, Profiler uploads traces every hour.
+For Profiler to upload traces, your application must be actively handling requests. If you're doing an experiment, you can generate requests to your web app by using [Application Insights performance testing](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). If you've newly enabled Profiler, you can run a short load test. While the load test is running, select the **Profile Now** button on the [**Profiler Settings** pane](profiler-settings.md#profiler-settings-pane). When Profiler is running, it profiles randomly about once per hour and for a duration of two minutes. If your application is handling a steady stream of requests, Profiler uploads traces every hour.
 
 After your application receives some traffic and Profiler has had time to upload the traces, you should have traces to view. This process can take 5 to 10 minutes. To view traces, in the **Performance** pane, select **Take Actions**, and then select the **Profiler Traces** button.
 
@@ -118,7 +118,7 @@ Profiler randomly runs two minutes every hour on each virtual machine that hosts
 
 ## Next steps
 Enable Application Insights Profiler for your Azure application. Also see:
-* [App Services](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+* [App Services](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtual Machines and virtual machine scale sets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
