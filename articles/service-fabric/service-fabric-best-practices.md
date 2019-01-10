@@ -125,6 +125,46 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 -- XML manifest for run as 
 ### Windows Defender 
 -- Windows defender for VMSS extension, and whitelist properties
+By default, Windows Defender AV is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but is not required.
+"
+Ref:
+https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016
+
+Referencing two documents following:
+https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-standalone-deployment-preparation#environment-setup
+https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/iaas-antimalware-windows
+
+"
+Protection may be deployed based on the needs of application workloads, with either basic secure-by-default or advanced custom configuration, including antimalware monitoring.
+"
+https://docs.microsoft.com/azure/security/azure-security-antimalware
+
+```json
+ {
+    "name": "[concat('VMIaaSAntimalware','_vmNodeType0Name')]",
+    "properties": {
+        "publisher": "Microsoft.Azure.Security",
+        "type": "IaaSAntimalware",
+        "typeHandlerVersion": "1.5",
+        "settings": {
+            "AntimalwareEnabled": "true",
+            "Exclusions": {
+                "Paths": "D:\\SvcFab;D:\\SvcFab\\Log;C:\\Program Files\\Microsoft Service Fabric",
+                "Processes": "Fabric.exe;FabricHost.exe;FabricInstallerService.exe;FabricSetup.exe;FabricDeployer.exe;ImageBuilder.exe;FabricGateway.exe;FabricDCA.exe;FabricFAS.exe;FabricUOS.exe;FabricRM.exe;FileStoreService.exe"
+            },
+            "RealtimeProtectionEnabled": "true",
+            "ScheduledScanSettings": {
+                "isEnabled": "true",
+                "scanType": "Quick",
+                "day": "7",
+                "time": "120"
+            }
+        },
+        "protectedSettings": null
+    }
+}
+```
+
 ## Networking
 For more information about networking
 ### Network Security Group (NSG)
