@@ -58,9 +58,9 @@ For more information, see [Quickstart: Use the Validation as a Service portal to
 
 | Validation workflow | Required tests |
 |----|------------|
-| [New Solution Validation](azure-stack-vaas-validate-solution-new.md) | Cloud Simulation Engine<br>Compute SDK Operational Suite<br>Disk Identification Test<br>KeyVault Extension SDK Operational Suite<br>KeyVault SDK Operational Suite<br>Network SDK Operational Suite<br>Storage Account SDK Operational Suite<br> |
-| [New Solution Validation](azure-stack-vaas-validate-oem-package.md) | OEM Extension Package Verification<br>Cloud Simulation Engine |
-| [Monthly Update Validation](azure-stack-vaas-validate-microsoft-updates.md) | Monthly AzureStack Update Verification<br>Cloud Simulation Engine<br> |
+| [New solution validation](azure-stack-vaas-validate-solution-new.md) | Cloud Simulation Engine<br>Compute SDK Operational Suite<br>Disk Identification Test<br>KeyVault Extension SDK Operational Suite<br>KeyVault SDK Operational Suite<br>Network SDK Operational Suite<br>Storage Account SDK Operational Suite<br> |
+| [OEM package validation](azure-stack-vaas-validate-oem-package.md) | OEM Extension Package Verification<br>Cloud Simulation Engine |
+| [Monthly update validation](azure-stack-vaas-validate-microsoft-updates.md) | Monthly AzureStack Update Verification<br>Cloud Simulation Engine<br> |
 
 ## Next steps
 
