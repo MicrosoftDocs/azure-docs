@@ -1,5 +1,5 @@
 ---
-title: Create a Standard Load Balancer with zone-redundant frontend using Azure portal
+title: Create a Load Balancer with zone-redundant frontend - Azure portal
 titlesuffix: Azure Load Balancer
 description: Learn how to create a public Standard Load Balancer with zone-redundant Public IP address frontend with the Azure portal
 services: load-balancer
@@ -15,7 +15,7 @@ ms.date: 03/22/2018
 ms.author: kumud
 ---
 
-#  Create a public Standard Load Balancer with zone-redundant frontend using Azure portal
+#  Create a Standard Load Balancer with zone-redundant frontend using Azure portal
 
 This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zone-redundant frontend using a Public IP Standard address. A single frontend IP address on a Standard Load Balancer is zone-redundant by default.
 
