@@ -39,7 +39,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
    On this screen, you can take the defaults and just click **Review + create** at the bottom. 
 
-   **Pricing and scale tier**: Ensure you select one of the standard (S1, S2, S3) or the Free (F1) tier. This choice can also be guided by the size of your fleet and the non-streaming workloads you expect in your hub (e.g., telmetry messages). For example, the free tier is intended for testing and evaluation. It allows 500 devices to be connected to the IoT hub and up to 8,000 messages per day. Each Azure subscription can create one IoT Hub in the free tier. 
+   **Pricing and scale tier**: Ensure you select one of the standard (S1, S2, S3) or the Free (F1) tier. This choice can also be guided by the size of your fleet and the non-streaming workloads you expect in your hub (e.g., telemetry messages). For example, the free tier is intended for testing and evaluation. It allows 500 devices to be connected to the IoT hub and up to 8,000 messages per day. Each Azure subscription can create one IoT Hub in the free tier. 
 
    **IoT Hub units**: This choice depends on non-streaming workload you expect in your hub - you can select 1 for now.
 

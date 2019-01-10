@@ -34,17 +34,16 @@
     href: quickstart-control-device-android.md
   - name: Communicate using device streams (C#)
     href: iot-hub-device-streams-csharp-echo-quickstart.md
-  - name: Communicate using device streams (NodeJS)
+  - name: Communicate using device streams (Node.js)
     href: iot-hub-device-streams-nodejs-echo-quickstart.md
   - name: Communicate using device streams (C)
     href: iot-hub-device-streams-c-echo-quickstart.md
   - name: SSH/RDP using device streams (C#)
     href: iot-hub-device-streams-csharp-proxy-quickstart.md
-  - name: SSH/RDP using device streams (NodeJS)
+  - name: SSH/RDP using device streams (Node.js)
     href: iot-hub-device-streams-nodejs-proxy-quickstart.md
   - name: SSH/RDP using device streams (C)
     href: iot-hub-device-streams-c-proxy-quickstart.md
-
 - name: Tutorials
   items:
   - name: Routing messages
@@ -59,7 +58,7 @@
     href: tutorial-firmware-update.md
   - name: Test device connectivity
     href: tutorial-connectivity.md
-  - name: Device streams (preview)
+  - name: Using device streams (preview)
     href: iot-hub-device-streams-tutorial.md
 - name: Concepts
   items:
@@ -79,7 +78,7 @@
     href: iot-hub-configuration-best-practices.md
   - name: Azure IoT SDKs platform support
     href: iot-hub-device-sdk-platform-support.md
-  - name: Azure IoT Hub device streams (preview)
+  - name: Overview of IoT Hub device streams (preview)
     href: iot-hub-device-streams-overview.md
   - name: Developer guide
     href: iot-hub-devguide.md

@@ -64,12 +64,8 @@ az iot hub show --name <YourIoTHubName>
 
 ## Next Steps
 
-Use the resources below to learn how to use IoT Hub device streams programmatically:
-- [Quickstart: Sample echo programs using device streams in C#](./iot-hub-device-streams-csharp-echo-quickstart.md)
-- [Quickstart: Sample echo program using device streams in C](./iot-hub-device-streams-c-echo-quickstart.md)
-- [Quickstart: Sample echo program using device streams in NodeJS](./iot-hub-device-streams-nodejs-echo-quickstart.md)
+Use the links below to learn more about device streams:
 
-Use the resources below to learn how to use IoT Hub device streams in an existing application:
-- [Quickstart: Sample proxy programs using device streams in C#](./iot-hub-device-streams-csharp-proxy-quickstart.md)
-- [Quickstart: Sample proxy program using device streams in C](./iot-hub-device-streams-c-proxy-quickstart.md)
-- [Quickstart: Sample proxy program using device streams in NodeJS](./iot-hub-device-streams-nodejs-proxy-quickstart.md)
+> [!div class="nextstepaction"]
+> [Device streams overview](./iot-hub-device-streams-overview.md)
+> [Try device streams quickstarts](./iot-hub-device-streams-tutorial.md)

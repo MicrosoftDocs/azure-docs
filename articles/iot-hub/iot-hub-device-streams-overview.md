@@ -111,3 +111,11 @@ Use the links below for instructions on how to run the local proxy programs in y
 | C#     | [Link](iot-hub-device-streams-csharp-proxy-quickstart.md) | [Link](iot-hub-device-streams-csharp-proxy-quickstart.md) |
 | NodeJS | [Link](iot-hub-device-streams-nodejs-proxy-quickstart.md) | -                                                         |
 | C      | -                                                         | [Link](iot-hub-device-streams-c-proxy-quickstart.md)      |
+
+# Next steps
+
+Use the links below to learn more about device streams:
+
+> [!div class="nextstepaction"]
+> [Device streams tutorial](./iot-hub-device-streams-tutorial.md)
+> [Try device streams quickstarts](./iot-hub-device-streams-tutorial.md)
