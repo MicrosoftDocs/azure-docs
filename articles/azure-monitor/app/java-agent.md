@@ -108,7 +108,7 @@ Add the following to AI-Agent.xml:
 
 Ideally this would be the case when all your services have been updated to newer version of SDKs supporting W3C protocol. It is highly recommended to move to newer version of SDKs with W3C support as soon as possible.
 
-Make sure that both [incoming](application-insights-correlation.md#W3C-Distributed-Tracing) and outgoing (agent) configurations are exactly same, or else it's very likely that correlation won't work properly.
+Make sure that **both [incoming](correlation.md#W3C-Distributed-Tracing) and outgoing (agent) configurations** are exactly same.
 
 ## View the data
 In the Application Insights resource, aggregated remote dependency and method execution times appears [under the Performance tile][metrics].
