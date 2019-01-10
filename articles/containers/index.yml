@@ -54,17 +54,15 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to deploy, manage, and update container apps in Azure Kubernetes Service (AKS)
+    text: Learn how to deploy, manage, and update container apps using Azure services
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Create container images from an application</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Upload container images to the Azure Container Registry</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Deploy an AKS cluster</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Run your container images in Kubernetes</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-scale">Scale an application and Kubernetes infrastructure</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Update an application running in Kubernetes</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Monitor Kubernetes with Log Analytics</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Build and deploy a container to Azure Kubernetes Service</a>
+    - html: <a href="/azure/service-fabric/service-fabric-host-app-in-a-container">Build and deploy a .NET container app to Azure Service Fabric</a>
+    - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Create a multi-container app in Web App for Containers</a>
+    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Build and deploy container images with Azure Container Registry Tasks</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Build and deploy a container to Azure Container Instances</a>
 - title: Build your skills with Microsoft Learn
   items:
   - type: list
