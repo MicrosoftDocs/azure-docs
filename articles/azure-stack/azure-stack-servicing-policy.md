@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 01/22/2019
 ms.author: sethm
 ms.reviewer: harik
 
@@ -46,10 +46,11 @@ Microsoft expects to release software update packages on a monthly cadence. Howe
 
 Find documentation on how to plan for and manage updates, and how to determine your current version in [Manage updates overview](azure-stack-updates.md). 
 
-For information about a specific update, including how to download it, see the release notes for that update: 
+For information about a specific update, including how to download it, see the release notes for that update:
+- [Azure Stack 1901 update](azure-stack-update-1901.md)
+- [Azure Stack 1811 update](azure-stack-update-1811.md)
 - [Azure Stack 1809 update](azure-stack-update-1809.md)
 - [Azure Stack 1808 update](azure-stack-update-1808.md)
-- [Azure Stack 1807 update](azure-stack-update-1807.md)
 
 ## Hotfixes
 Occasionally, Microsoft provides hotfixes for Azure Stack that address a specific issue that is often preventative or time-sensitive.  Each hotfix is released with a corresponding Microsoft Knowledge Base article that details the issue, cause, and resolution. 
