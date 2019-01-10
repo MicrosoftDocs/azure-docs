@@ -14,8 +14,9 @@ ms.author: adgera
 
 This article describes how to configure the Postman REST client to interact with and test the Azure Digital Twins Management APIs. Specifically, it describes:
 
-* how to configure an Azure Active Directory application to use the OAuth 2.0 implicit grant flow.
-* how to configure the Postman REST client to make token-bearing HTTP requests to your Management APIs.
+* How to configure an Azure Active Directory application to use the OAuth 2.0 implicit grant flow.
+* How to configure the Postman REST client to make token-bearing HTTP requests to your Management APIs.
+* How to configure the Postman REST client to make multipart POST requests to you Management APIs.
 
 ## Postman summary
 
@@ -43,7 +44,7 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
 
 1. Copy and keep the **Application ID** of your Azure Active Directory app. It's used below.
 
-### Configure the Postman client
+## Obtain an OAuth 2.0 token using Postman
 
 Next, set up and configure Postman to obtain an Azure Active Directory token. Afterwards, make an authenticated HTTP request to Azure Digital Twins using the acquired token:
 
@@ -82,15 +83,36 @@ Next, set up and configure Postman to obtain an Azure Active Directory token. Af
   
 1. Scroll down, and select **Use Token**.
 
+## Make a multipart POST request with Postman
+
+After completing the previous steps, configure Postman to make an authenticated HTTP multipart POST request:
+
+1. Under the **Header** tab, add an HTTP request header key **Content-Type** with value `multipart/mixed`.
+
+   ![Content type multipart/mixed][4]
+
+1. Serialize non-text data into files. JSON data would be saved as a JSON file.
+1. Under the **Body** tab, add each file by assigning a ket name, selecting `file` or `text`.
+1. Then, select the file through the **Choose File** button.
+
+   ![Postman client example][5]
+
+   >[!NOTE]
+   > * The Postman client does not require that multipart chunks have a manually assigned **Content-Type** or **Content-Disposition**.
+   > * You do not need to add those for each attached piece of data.
+   > * You must select `multipart/mixed` or another appropriate  **Content-Type** for the entire request.
+
+1. Lastly, click **Send** to submit your multipart HTTP POST request.
+
 ## Next steps
 
 - To learn about the Digital Twins management APIs, and how to use them, read [How to use Azure Digital Twins management APIs](how-to-navigate-apis.md).
 
-- To learn about authenticating with the Management APIs, read [Authenticate with APIs](./security-authenticating-apis.md). 
-
-
+- To learn about authenticating with the Management APIs, read [Authenticate with APIs](./security-authenticating-apis.md).
 
 <!-- Images -->
 [1]: media/how-to-configure-postman/implicit-flow.png
 [2]: media/how-to-configure-postman/reply-url.png
 [3]: media/how-to-configure-postman/postman-oauth-token.png
+[4]: media/how-to-configure-postman/content-type.png
+[5]: media/how-to-configure-postman/form-body.png
