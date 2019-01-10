@@ -2,7 +2,7 @@
 title: Scale an Azure Kubernetes Service (AKS) cluster
 description: Learn how to scale the number of nodes in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
-author: iainfou
+author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
@@ -12,7 +12,7 @@ ms.author: iainfoulds
 
 # Scale the node count in an Azure Kubernetes Service (AKS) cluster
 
-If your application demands change, you can manually scale an AKS cluster to a different number of nodes. When you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications. When you scale up, the `az` command waits until nodes are marked `Ready` by the Kubernetes cluster.
+If the resource needs your applications change, you can manually scale an AKS cluster to a different number of nodes. When you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications. When you scale up, the `az` command waits until nodes are marked `Ready` by the Kubernetes cluster.
 
 ## Scale the cluster nodes
 
