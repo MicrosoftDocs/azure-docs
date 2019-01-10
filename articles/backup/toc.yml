@@ -121,7 +121,7 @@
         href: backup-azure-vms-encryption.md
       - name: Enable VM backup during VM creation
         href: backup-during-vm-creation.md
-      - name: Instant Restore Capability
+      - name: Instant Restore capability
         href: backup-instant-restore-capability.md
     - name: Manage and monitor VMs
       items:

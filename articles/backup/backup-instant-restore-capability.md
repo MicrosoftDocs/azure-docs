@@ -14,10 +14,10 @@ ms.author: trinadhk
 # Get improved backup and restore performance with Azure Backup Instant Restore capability
 
 > [!NOTE]
-> Based on the feedback received from users that the **VM backup stack V2** is confusing with Azure stack, we have renamed it to **Instant Restore** to provide an upgraded and better experience.
+> Based on the feedback received from users that the **VM backup stack V2** is confusing with Azure stack, we have renamed it to **Instant Restore** thus providing an upgraded and better experience.
 
 > [!IMPORTANT]
-> After receiving positive response from all our users already experiencing the upgraded performance, we have decided to upgrade all our users to instant restore feature. To upgrade, there is no action required from your end. **Starting February 2019**, we will start rolling out this feature region by region.
+> After receiving positive response from our users already experiencing the upgraded performance, we have decided to upgrade all our users to instant restore feature. To upgrade, there is no action required from your end. **Starting February 2019**, we will start rolling out this feature region by region.
 >
 >
 
@@ -35,13 +35,13 @@ The new model for Instant Restore provides the following feature enhancements:
 Currently, the backup job consists of two phases:
 
 1.	Taking a VM snapshot.
-2.	Transferring a VM snapshot to the Azure Recover Services vault.
+2.	Transferring a VM snapshot to the Azure Recovery Services vault.
 
 A recovery point is considered created only after phases 1 and 2 are completed. As a part of this upgrade, a recovery point is created as soon as the snapshot is finished and this recovery point of snapshot type can be used to perform a restore using the same restore flow. You can identify this recovery point in the Azure portal by using “snapshot” as the recovery point type, and after the snapshot is transferred to the vault, the recovery point type changes to “snapshot and vault.”
 
 ![Backup job in VM backup stack Resource Manager deployment model--storage and vault](./media/backup-azure-vms/instant-rp-flow.png)
 
-By default, snapshots are retained for two days. This feature allows restores operation from these snapshots there by cutting down the restore times. It reduces the time that is required to transform and copy data back from the vault to the user's storage account for unmanaged disk scenarios while for managed disk users, it creates managed disks out of the Recover Services data.
+By default, snapshots are retained for two days. This feature allows restores operation from these snapshots there by cutting down the restore times. It reduces the time that is required to transform and copy data back from the vault to the user's storage account for unmanaged disk scenarios while for managed disk users, it creates managed disks out of the Recovery Services data.
 
 ## Feature considerations
 
@@ -66,7 +66,7 @@ If you use the Azure portal, you see a notification on the vault dashboard. This
 
 ![Backup job in VM backup stack Resource Manager deployment model--support notification](./media/backup-azure-vms/instant-rp-banner.png)
 
-To open a screen for upgrading to the new stack, select the banner.
+To open a screen for upgrading to Instant Restore, select the banner.
 
 ![Backup job in VM backup stack Resource Manager deployment model--upgrade](./media/backup-azure-vms/instant-rp.png)
 
@@ -74,7 +74,7 @@ To open a screen for upgrading to the new stack, select the banner.
 
 ### Configure snapshot retention using Azure portal
 
-For the upgrade users, in the Azure portal you can see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You can change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
+For the upgraded users, in the Azure portal you can see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You can change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
 
 
 ![Backup job in Instant Restore deployment](./media/backup-azure-vms/instant-rp-banner1.png)
