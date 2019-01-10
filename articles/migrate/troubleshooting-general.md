@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/10/2019
 ms.author: raynew
 ---
 
@@ -23,6 +23,18 @@ The continuous discovery appliance only collects performance data continuously, 
    ![Stop discovery](./media/troubleshooting-general/stop-discovery.png)
 
 - Deletion of VMs: Due to the way the appliance is designed, deletion of VMs is not reflected even if you stop and start the discovery. This is because data from subsequent discoveries are appended to older discoveries and not overridden. In this case, you can simply ignore the VM in the portal, by removing it from your group and recalculating the assessment.
+
+### Deletion of Azure Migrate projects and associated Log Analytics workspace
+
+When you delete an Azure Migrate project, it deletes the migration project along with all the groups and assessments. However, if you have attached a Log Analytics workspace to the project, it does not automatically delete the Log Analytics workspace. This is because the same Log Analytics workspace might be used for multiple use cases. If you would like to delete the Log Analytics workspace as well, you need to do it manually.
+
+1. Browse to the Log Analytics workspace attached to the project.
+   a. If you have not deleted the migration project yet, you can find the link to the workspace from the project overview page in the Essentials section.
+   
+   ![LA Workspace](./media/troubleshooting-general/LA-workspace.png)
+
+   b. If you already deleted the migration project,  click **Resource Groups** in the left pane in Azure portal and go to the Resource Group in which the workspace was created and then browse to it.
+2. Follow the instructions [in this article](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete the workspace.
 
 ### Migration project creation failed with error *Requests must contain user identity headers*
 
@@ -78,7 +90,7 @@ You can go to the **Essentials** section in the **Overview** page of the project
 
    ![Project location](./media/troubleshooting-general/geography-location.png)
 
-## Collector errors
+## Collector issues
 
 ### Deployment of Azure Migrate Collector failed with the error: The provided manifest file is invalid: Invalid OVF manifest entry.
 
@@ -154,6 +166,17 @@ If the issue still happens in the latest version, it could be because the collec
 2. If step 1 fails, try to connect to the vCenter server over IP address.
 3. Identify the correct port number to connect to the vCenter.
 4. Finally check if the vCenter server is up and running.
+
+### Antivirus exclusions
+
+To harden the Azure Migrate appliance, you need to exclude the following folders in the appliance from antivirus scanning:
+
+- Folder that has the binaries for Azure Migrate Service. Exclude all sub-folders.
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate Web Applciation. Exclude all sub-folders.
+  %SystemDrive%\inetpub\wwwroot
+- Local Cache for Database and log files. Azure migrate service needs RW access to this folder.
+  %SystemDrive%\Profiler
 
 ## Dependency visualization issues
 
@@ -243,14 +266,14 @@ To collect Event Tracing for Windows, do the following:
 2. Press F12 to start the Developer Tools. If needed, clear the setting **Clear entries on navigation**.
 3. Click the **Network** tab, and start capturing network traffic:
  - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being capture. If it doesn't appear, click the black circle to start
- - In Edge/IE, recording should start automatically. If it doesn't, click the green play button.
+ - In Microsoft Edge/IE, recording should start automatically. If it doesn't, click the green play button.
 4. Try to reproduce the error.
 5. After you've encountered the error while recording, stop recording, and save a copy of the recorded activity:
  - In Chrome, right-click and click **Save as HAR with content**. This zips and exports the logs as a .har file.
- - In Edge/IE, click the **Export captured traffic** icon. This zips and exports the log.
+ - In Microsoft Edge/IE, click the **Export captured traffic** icon. This zips and exports the log.
 6. Navigate to the **Console** tab to check for any warnings or errors. To save the console log:
  - In Chrome, right-click anywhere in the console log. Select **Save as**, to export and zip the log.
- - In Edge/IE, right-click on the errors and select **Copy all**.
+ - In Microsoft Edge/IE, right-click on the errors and select **Copy all**.
 7. Close Developer Tools.
 
 ## Collector error codes and recommended actions

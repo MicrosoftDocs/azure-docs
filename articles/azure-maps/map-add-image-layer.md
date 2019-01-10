@@ -26,7 +26,7 @@ This article shows you how you can overlay an image to fixed set of coordinates 
 
 ## Add an image layer
 
-This sample shows how to overlay an image of a [map of Newark New Jersey from 1922]((https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg)) on the map.
+This sample shows how to overlay an image of a [map of Newark New Jersey from 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) on the map.
 
 <br/>
 

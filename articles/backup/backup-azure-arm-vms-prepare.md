@@ -279,5 +279,5 @@ After enabling backup:
 
 ## Next steps
 
-- Troubleshoot any issues that occur with the [Azure VM agents](/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) or [Azure VM backup](backup-azure-vms-troubleshoot.md).
+- Troubleshoot any issues that occur with the [Azure VM agents](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) or [Azure VM backup](backup-azure-vms-troubleshoot.md).
 - [Back up Azure VMs](backup-azure-vms-first-look-arm.md)
