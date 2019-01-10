@@ -164,7 +164,7 @@ In this section, you create two notebooks in Databricks workspace with the follo
 
 ## Send tweets to Event Hubs
 
-In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholders with values for your Event Hubs namesapce and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Event Hubs in real time.
+In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholders with values for your Event Hubs namespace and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Event Hubs in real time.
 
 ```scala
     import java.util._
