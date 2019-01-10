@@ -14,7 +14,7 @@ ms.date: 03/26/2018
 ms.author: kumud
 ---
 
-#  Create a public Standard Load Balancer with zonal frontend using Azure CLI
+#  Create a Standard Load Balancer with zonal frontend using Azure CLI
 
 This article steps through creating a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zonal frontend. Having a zonal frontend means that any inbound or outbound flow is served by a single zone in a region. You can create a load balancer with a zonal frontend by using a zonal Standard Public IP address in its frontend configuration. To understand how availability zones work with Standard Load Balancer, see [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md). 
 

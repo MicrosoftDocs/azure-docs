@@ -15,7 +15,7 @@ ms.date: 03/26/2018
 ms.author: kumud
 ---
 
-#  Create a public Standard Load Balancer with zonal frontend using Azure PowerShell
+#  Create a Standard Load Balancer with zonal frontend using Azure PowerShell
 
 This article steps through creating a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zonal frontend using a Public IP Standard address. To understand how availability zones work with Standard Load Balancer, see [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md). 
 

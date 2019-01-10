@@ -15,7 +15,7 @@ ms.date: 03/23/2018
 ms.author: kumud
 ---
 
-#  Create a Standard Balancer with zone-redundant frontend using Azure PowerShell
+#  Create a Standard Load Balancer with zone-redundant frontend using Azure PowerShell
 
 This article steps through creating a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zone-redundant frontend using a Public IP Standard address.
 
