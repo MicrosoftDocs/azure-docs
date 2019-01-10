@@ -52,7 +52,7 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 2. On **Create storage account**, enter a name for the account. For these tutorials, we're using **contosovmsacct1910171607**. The name you select must be unique within Azure and be between 3 and 24 characters, with numbers and lowercase letters only.
 3. In **Deployment model**, select **Resource Manager**.
 4. In **Account kind**, select **Storage (general purpose v1)**. Don't select blob storage.
-5. In **Replication**, select the default **Read-access geo-redundant storage** for storage redundancy. We're leaving **Secure transfer required** as **Disabled**.
+5. In **Replication**, select **Local redundant storage**. We're leaving **Secure transfer required** as **Disabled**.
 6. In **Performance**, select **Standard** and in **Access tier** choose the default option of **Hot**.
 7. In **Subscription**, select the subscription in which you want to create the new storage account.
 8. In **Resource group**, enter a new resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed. For these tutorials, we're using **ContosoRG**.
