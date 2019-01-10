@@ -3,7 +3,7 @@ title: Azure Service Fabric Application and Cluster Best Practices | Microsoft D
 description: Best practices for managing Service Fabric clusters and applications.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: peter
 manager: timlt
 editor: ''
 
