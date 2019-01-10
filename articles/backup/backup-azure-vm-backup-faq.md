@@ -51,14 +51,13 @@ If you lock the resource group, Azure Backup service can't delete the older rest
 No. The date and time on your local computer is local with current daylight savings applied. The time set for scheduled backups might differ from the local time due to DST.
 
 ### How many data disks can I attach to a VM backed up by Azure Backup?
-Azure Backup can back up VMs with up to 16 disks. Support for 16 disks is provided in the [latest version](backup-upgrade-to-vm-backup-stack-v2.md) of the Azure VM Backup stack V2.
+Azure Backup can back up VMs with up to 16 disks. Support for 16 disks is provided in the [Instant Restore](backup-instant-restore-capability.md).
 
 ### Does Azure backup support standard SSD managed disk?
-Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD managed disks provide a new type of durable storage for Azure VMs. Support for SSD managed disks is provided in the [latest version](backup-upgrade-to-vm-backup-stack-v2.md) of the Azure VM Backup stack V2.
+Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD managed disks provide a new type of durable storage for Azure VMs. Support for SSD managed disks is provided in the [Instant Restore](backup-instant-restore-capability.md).
 
 ### Can we back up a VM with a Write Accelerator (WA)-enabled disk?
-Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup service can exclude the WA-enabled disk from backup. Disk exclusion for VMs with WA-enabled disks is supported only for subscriptions upgraded to Azure VM Backup stack V2. To upgrade to Azure VM Backup stack V2, see this [article](backup-upgrade-to-vm-backup-stack-v2.md). This feature is currently available in Japan East, North Europe, South East Asia, East US, West US2, West Europe, and East US2.
-
+Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup service can exclude the WA-enabled disk from backup. Disk exclusion for VMs with WA-enabled disks is supported only for subscriptions upgraded to Instant Restore.
 
 ### I have a VM with Write Accelerator (WA) disks and SAP HANA installed. How do I back up?
 Azure Backup can't back up the WA-enabled disk but can exclude it from backup. However, the backup won't provide database consistency because information on the WA-enabled disk isn't backed up. You can back up disks with this configuration if you want operating system disk backup, and backup of disks that aren't WA-enabled.
@@ -98,7 +97,7 @@ Yes. Even if you delete the VM, you can go to corresponding backup item in the v
 For Managed Disk Azure VM, restoring to the availability sets is enabled by providing an option in template while restoring as managed Disks. This template has the input parameter called **Availability sets**.
 
 ### How do we get faster restore performances?
-For faster restore performance, we recommend you to move to VM backup stack V2 and use [Instant RP feature](backup-upgrade-to-vm-backup-stack-v2.md).
+For faster restore performance, we are moving to [Instant Restore](backup-instant-restore-capability.md) capability.
 
 ## Manage VM backups
 

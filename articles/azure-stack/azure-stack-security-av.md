@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 01/8/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 

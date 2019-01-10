@@ -293,7 +293,6 @@ Use this option when your federation wasn't initially configured by using Azure 
 
    > [!NOTE]
    > Domain Administrator account credentials are required to enable seamless SSO. The process completes the following actions, which require these elevated permissions. The Domain Administrator account credentials aren't stored in Azure AD Connect or Azure AD. They're used only to enable the feature and then discarded after successful completion.
-   >
    > 1. A computer account named AZUREADSSOACC (which represents Azure AD) is created in your on-premises Active Directory instance.
    > 2. The computer account's Kerberos decryption key is shared securely with Azure AD.
    > 3. Two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.

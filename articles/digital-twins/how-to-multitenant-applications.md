@@ -36,7 +36,7 @@ In this scenario, consider a developer building an Azure Digital Twins solution 
 The problem:
 
 - When **CUSTOMER** logs into **DEVELOPER**'s application, the app can't acquire tokens for **CUSTOMER**'s users to authenticate with the Azure Digital Twins Management APIs.
-- An exception will be issued in Azure Active Directory indicating that Azure Digital Twins isn't recognized within **CUSTOMER**'s directory.
+- An exception is issued in Azure Active Directory indicating that Azure Digital Twins isn't recognized within **CUSTOMER**'s directory.
 
 ## Problem solution
 

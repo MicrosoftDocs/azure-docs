@@ -23,7 +23,9 @@ The following list shows ways you can check the source machine:
 
 *  At the command line on the source server, use Telnet to ping the process server via the HTTPS port (the default HTTPS port is 9443) by running the following command. The command checks for network connectivity issues and for issues that block the firewall port.
 
+
    `telnet <process server IP address> <port>`
+
 
    > [!NOTE]
    > Use Telnet to test connectivity. Don’t use `ping`. If Telnet isn't installed, complete the steps listed in [Install Telnet Client](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).
