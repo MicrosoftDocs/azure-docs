@@ -143,7 +143,7 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
    > [!TIP]
    > It takes several minutes to create the VM.
 
-## Install the SQL Iaas Agent
+## Install the SQL IaaS Agent
 
 To get portal integration and SQL VM features, you must install the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To install the agent on the new VM, run the following command after it is created.
 
