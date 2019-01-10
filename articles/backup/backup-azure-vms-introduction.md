@@ -127,11 +127,10 @@ A restore operation consists of two main tasks: copying data back from the vault
 
 We suggest following these practices while configuring VM backups:
 
-- Upgrade vaults to Instant RP. Review these [benefits](backup-upgrade-to-vm-backup-stack-v2.md), [considerations](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), and then proceed to upgrade by following these [instructions](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
 - Consider modifying the default provided policy time (for ex. If your default policy time is 12:00AM consider incrementing it by minutes) when the data snapshots are taken to ensure resources are optimally used.
 - For Premium VM backup on non-Instant RP feature allocates ~50% of the total storage account space. Backup service requires this space to copy the snapshot to same storage account and for transferring it to the vault.
 - For restoring VMs from a single vault, it is highly recommended to use different [v2 storage accounts](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) to ensure the target storage account doesn’t get throttled. For example, each VM must have different storage account (If 10 VMs are restored, then consider using 10 different storage accounts).
-- The restores from Tier-1 storage layer (snapshot) will be completed in minutes (since it is the same storage account) against the Tier-2 storage layer (vault) which can take hours. We recommend you to use [Instant RP](backup-upgrade-to-vm-backup-stack-v2.md) feature for faster restores for case where data is available in Tier-1 (if the data has to be restored from vault then it will take time).
+- The restores from Tier-1 storage layer (snapshot) will be completed in minutes (since it is the same storage account) against the Tier-2 storage layer (vault) which can take hours. We recommend you to use [Instant Restore](backup-instant-restore-capability.md) feature for faster restores for case where data is available in Tier-1 (if the data has to be restored from vault then it will take time).
 - The limit on number of disks per storage account is relative to how heavy the disks are being accessed by applications running on IaaS VM. Verify if multiple disks are hosted on a single storage account. As a general practice, if 5 to 10 disks or more are present on single storage account, balance the load by moving some disks to separate storage accounts.
 
 ## Backup costs
