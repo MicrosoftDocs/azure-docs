@@ -90,14 +90,14 @@ These are some steps that you can perform to confirm that your installation was 
 - Confirm that the applicationInsights.config file is present in the target app directory and contains your ikey.
 
 - If you suspect that data is missing you can run a simple query in [Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry.
-
 ```Kusto
 union * | summarize count() by cloud_RoleName, cloud_RoleInstance
 ```
 
 - If you need to confirm that Application Insights is successfully attached you can run [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle) in a command window to confirm that applicationinsights.dll has been loaded by IIS.
-
-`handle.exe /p w3wp.exe`
+```cmd
+handle.exe /p w3wp.exe
+```
 
 
 ### Can't connect? No telemetry?
@@ -107,17 +107,17 @@ union * | summarize count() by cloud_RoleName, cloud_RoleInstance
 ### Unable to login
 
 * If Status Monitor cannot login, do a command line install instead. Status Monitor attempts to login to collect your ikey, but you can provide this manually using the command: 
-```
+```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll
 Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
 ```
 
 ### Could not load file or assembly 'System.Diagnostics.DiagnosticSource'
 
-You may get this error after enabling Applicatio Insights. This is because the installer replaces this dll in your bin directory.
+You may get this error after enabling Application Insights. This is because the installer replaces this dll in your bin directory.
 To fix update your web.config:
 
-```
+```xml
 <dependentAssembly>
     <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51"/>
     <bindingRedirect oldVersion="0.0.0.0-4.*.*.*" newVersion="4.0.2.1"/>
