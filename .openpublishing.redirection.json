@@ -33484,6 +33484,11 @@
       "redirect_url": "/azure/azure-monitor/app/asp-net-trace-logs",
       "redirect_document_id": true
     },
+	{
+      "source_path": "articles/application-insights/app-insights-live-stream.md",
+      "redirect_url": "/azure/azure-monitor/app/live-stream",
+      "redirect_document_id": true
+    },
     {
       "source_path": "articles/application-insights/app-insights-asp-net-troubleshoot-no-data.md",
       "redirect_url": "/azure/azure-monitor/app/asp-net-troubleshoot-no-data",
