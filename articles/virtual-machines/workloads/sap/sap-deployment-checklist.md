@@ -81,7 +81,7 @@ The pilot can run before or in parallel to project planning and preparation. The
 
 1.	Optimize data transfer into Azure. Highly dependent on customer cases transfer through [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) from on-premise was fastest if the Express Circuit had enough bandwidth. With other customers, going through internet figured out to be faster
 2.	In case of an SAP heterogeneous platform migration, that involves an export and import of the database data, test, and optimize export and import phases. For large migrations involving SQL Server as the destination platform, recommendations can be found [here](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). You can take the approach of Migration Monitor/SWPM in case you don't need a combined release upgrade or [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) process when you combine the migration with an SAP release upgrade and fulfill certain source and target DBMS platform combinations as documented, for example, in [Database Migration Option (DMO) of SUM 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872). 
-	1.  Export Export, Export file upload to Azure and Import performance.  Maximize overlap between export and import
+	1.  Export to source, Export file upload to Azure and Import performance.  Maximize overlap between export and import
 	2.  Evaluate volume of database between target and destination platform in order to reflect in the infrastructure sizing	
 	3.  Validate and optimize timing 
 3.	Technical Validation 
