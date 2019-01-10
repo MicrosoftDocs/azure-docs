@@ -8,9 +8,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: sample
-ms.date: 01/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.custom: seodec18
+
 ---
 # Content Moderator .NET SDK samples
 

@@ -8,9 +8,9 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 01/07/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.custom: seodec18
+
 ---
 
 # Define, test, and use workflows

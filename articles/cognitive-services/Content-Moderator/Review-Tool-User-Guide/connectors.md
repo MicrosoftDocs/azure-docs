@@ -8,9 +8,9 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.custom: seodec18
+
 ---
 
 # Connect to other cognitive services

@@ -5,12 +5,12 @@ description: How machines and humans together provide the best results for conte
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-ms.date: 03/16/2018
+ms.date: 01/10/2019
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.custom: seodec18
+
 ---
 
 # Learn about the Review tool

@@ -11,7 +11,7 @@ ms.component: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.custom: seodec18
+
 ---
 
 # Content Moderator API reference
