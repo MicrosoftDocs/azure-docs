@@ -17,8 +17,8 @@ ms.author: mbullwin
 
 You can also deploy Application Insights Profiler on these services:
 * [Azure App Service](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Virtual Machines](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Virtual Machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 ## Set up the environment deployment definition
 
@@ -58,6 +58,6 @@ To set up your environment, take the following actions:
 
 ## Next steps
 
-* Generate traffic to your application (for example, launch an [availability test](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
-* See [Profiler traces](https://docs.microsoft.com/azure/application-insights/app-insights-profiler-overview?toc=/azure/azure-monitor/toc.json) in the Azure portal.
-* For help with troubleshooting Profiler issues, see [Profiler troubleshooting](app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+* Generate traffic to your application (for example, launch an [availability test](https://docs.microsoft.com/azure/application-insights/monitor-web-app-availability)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
+* See [Profiler traces](https://docs.microsoft.com/azure/application-insights/profiler-overview?toc=/azure/azure-monitor/toc.json) in the Azure portal.
+* For help with troubleshooting Profiler issues, see [Profiler troubleshooting](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
