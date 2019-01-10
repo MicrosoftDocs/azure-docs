@@ -172,7 +172,7 @@ Tabular models at all compatibility levels support row-level security. Row-level
 
 Tabular models at the 1400 compatibility level support object-level security, which includes table-level security and column-level security. Object level security is set in the JSON-based metadata in the Model.bim file by using TMSL, or TOM. To learn more, see [Object-level security](https://docs.microsoft.com/sql/analysis-services/tabular-models/object-level-security).
 
-### Automation through service principles
+### Automation through service principals
 
 Service principals are an Azure Active Directory application resource you create within your tenant to perform unattended resource and service level operations. Service principals are used with Azure Automation, PowerShell unattended mode, custom client applications, and web apps to automate common tasks like data refresh, scale up/down, and pause/resume. Permissions are assigned to service principals through role membership. To learn more, see [Automation with service principals](analysis-services-service-principal.md).
 
