@@ -29,7 +29,15 @@ For more information about [Azure Security Best Practices](https://docs.microsof
 > [!NOTE]
 > Azure KeyVault and compute resources must be co-located in the same region.  
 
--- Portal Blade Common Name Cert Generation
+The following is the Portal Blade where you can provide the credentials for a KeyVault integrated CA to provsion your custom domain certificate:
+
+-- TODO: Add Portal Blade Common Name Cert Generation
+
+Portal Blade for Keyvault certificates:
+```bash
+https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.KeyVault/vaults/<YOUR VAULT>/certificates
+```
+
 #### Reliably Deploy KeyVault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets
 Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) is how you reliably deploy KeyVault certificates to your Service Fabric Cluster's Virtual Machine Scale Sets, and the following is the Resource Manager template properties that you will declare: 
 ```json
