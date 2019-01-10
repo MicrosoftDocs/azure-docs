@@ -65,7 +65,7 @@ First we'll need to deploy a baseline of our services. This deployment will repr
 1. Execute `azds list-uris` to see the public endpoint for _webfrontend_
 
 > [!TIP]
-> We've written a how-to guide so you can deploy a fully automated CI/CD system on Azure DevOps which will automatically keep your baseline up-to-date based on what's been checked-in. You can follow that guide by going [here](how-to/setup-cicd.md).
+> We've written a how-to guide so you can deploy a fully automated CI/CD system on Azure DevOps which will automatically keep your baseline up-to-date based on what's been checked-in. You can follow that guide by going [here](../articles/dev-spaces/how-to/setup-cicd.md).
 
 At this point your baseline should be running. Run the `azds list-up` command, and you'll see output similar to the following:
 
