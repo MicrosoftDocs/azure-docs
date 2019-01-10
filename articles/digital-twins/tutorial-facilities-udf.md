@@ -200,7 +200,7 @@ In this section, you'll use the project named *device-connectivity* in the sampl
     dotnet restore
     ```
 
-1. Open the **appsettings.json** file in your editor, and edit the following values:
+1. Open the [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) file in your editor, and edit the following values:
 
    a. **DeviceConnectionString**: Assign the value of `ConnectionString` in the output window from the previous section. Copy this string completely, within the quotes, so the simulator can connect properly with the IoT hub.
 
