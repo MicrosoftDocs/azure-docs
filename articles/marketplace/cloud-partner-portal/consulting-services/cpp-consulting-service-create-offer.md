@@ -27,7 +27,7 @@ Define your packaged consulting service offering. Focus on fixed scope, fixed du
 
 ## Create a new offer
 
-To create a new offer, complete the following steps.
+To create a new offer, follow these steps.
 1. On the main menu of the Cloud Partner Portal, select **New offer**.
 1. On the **New offer** menu, select **Consulting service**.
 

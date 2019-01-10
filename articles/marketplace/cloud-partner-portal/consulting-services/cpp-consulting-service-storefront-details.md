@@ -74,7 +74,7 @@ The offer summary is a brief description of your offer that appears just below t
 
 ### Offer description
 
-Enter the description of the consulting service offer in the **Offer description** box. A good offer description covers exact details of what the engagement looks like and the end deliverable to the customer. It should clearly help the customer understand what they get. Also include how your offering relates to the Microsoft product for which you're offering consulting services.
+Enter the description of the consulting service offer in the **Offer description** box. A good offer description covers exact details of what the engagement looks like and the end deliverable to the customer. It should clearly help the customer understand what they get. Include how your offering relates to the Microsoft product for which you're offering consulting services.
 
 Don't include your email address or phone number in your offer description. A **Contact Me** button is included with your offer to upload leads to the lead management target that you identify for your offer.
 
@@ -119,7 +119,7 @@ By the end of the workshop, the client can define a
 high-level plan and an implementation roadmap for data and analytics
 solutions in the Microsoft cloud.
 
-The following sample Markdown file is for an offer that follows the previous format:
+The following sample Markdown file is for the previous offer:
 
     This 3-day workshop is for technical and business leaders and is held on-site at the client’s facility.
 
@@ -242,16 +242,16 @@ for YouTube or Vimeo.
 **Documents (limited to three)**
 
 Upload the marketing brochure that describes your consulting service
-offer in detail. Alternatively, you also can upload a company overview,
+offer in detail. You also can upload a company overview,
 fact sheets, or case studies. Make sure that your documents use the current
 names of featured products and don't feature Microsoft competing products.
 
 **Screenshots (limited to five)**
 
-Upload up to five images that provide more information about the offer,
-offer deliverables, or your company. Examples are a snippet of your
+Upload up to five images that provide more information about your offer,
+its deliverables, or your company. A snippet of your
 marketing brochure, a relevant slide from a presentation, or an image
-that shows company momentum or expertise.
+that shows company momentum or expertise are some examples.
 
 ## Next steps
 

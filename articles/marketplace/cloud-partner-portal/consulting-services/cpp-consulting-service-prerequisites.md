@@ -19,7 +19,7 @@ ms.author: pbutlerm
 
 # Consulting service prerequisites
 
-To submit consulting service offers for any of the following products, fulfill one or more of the corresponding requirements.
+To submit consulting service offers for any of the following products, fulfill one or more of the corresponding requirements:
 
 * **Dynamics 365 for Customer Engagement**: Partners must have a Silver or Gold certification for the [Cloud Customer Relationship Management competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency). 
 * **Dynamics 365 for Finance & Operations**: Partners must have a Silver or Gold certification for the [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency). Partners also must have a minimum revenue of $25,000 in Cloud Operations in the trailing 12 months.
@@ -31,4 +31,4 @@ To submit consulting service offers for any of the following products, fulfill o
 
 ## Next steps
 
-If the preceding requirements are met, you're ready to [create a consulting services offer](./cpp-consulting-service-create-offer.md).
+If you met the preceding requirements, you're ready to [create a consulting services offer](./cpp-consulting-service-create-offer.md).

@@ -19,11 +19,11 @@ ms.author: pbutlerm
 
 # Azure and Dynamics 365 consulting service offer
 
-This section explains how to publish a consulting service offer to either the Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> or <a href="https://appsource.microsoft.com">AppSource</a>. Solutions based on Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>, and <a href="https://powerapps.microsoft.com">PowerApps</a> are eligible to be listed on AppSource. Other offers based on other Microsoft <a href="https://azure.microsoft.com/services">Azure services</a> are eligible for listing in the Azure Marketplace.
+This article explains how to publish a consulting service offer to either the Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> or <a href="https://appsource.microsoft.com">AppSource</a>. Solutions based on Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>, and <a href="https://powerapps.microsoft.com">PowerApps</a> can be listed on AppSource. Other offers based on other Microsoft <a href="https://azure.microsoft.com/services">Azure services</a> can be listed in the Azure Marketplace.
 
 ## Publishing benefits
 
-Publishing to either of the Microsoft marketplaces has substantial benefits:
+Publishing to either of the Microsoft marketplaces has the following benefits:
 
 - Promote your company by leveraging the Microsoft brand.
 - Potentially reach more than 100 million Office 365 and Dynamics 365 users on AppSource, and reach more than 200,000 organizations through the Azure Marketplace.

@@ -65,7 +65,7 @@ The following list provides several well-named offer names:
 -   Cloud Analytics: 3-Day Workshop
 -   Power BI Training: 3-Day Workshop
 -   Sales Management Solution: 1-Week Implementation
--   CRM QuickStart: 1-Day Workshop
+-   CRM Quickstart: 1-Day Workshop
 -   Dynamics 365 for Sales: 2-Day Assessment
 
 After you fill out the **Offer Settings** tab, save your submission. The offer name now appears above the editor, and you can find it in **All Offers**.
