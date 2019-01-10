@@ -2886,7 +2886,7 @@ This setting puts your logic app into "high throughput" mode.
 
 <a name="connector-authentication"></a>
 
-## Authenticate triggers or actions
+## Authenticate HTTP triggers and actions
 
 HTTP endpoints support different kinds of authentication. 
 You can set up authentication for these HTTP triggers and actions:
@@ -2905,6 +2905,11 @@ Here are the kinds of authentication you can set up:
 > Make sure you protect any sensitive information 
 > that your logic app workflow definition handles. 
 > Use secured parameters and encode data as necessary. 
+> To access a resource's parameter value during runtime, 
+> you can use the `@parameters('parameterName')` expression, which is 
+> provided by the [Workflow Definition Language](https://aka.ms/logicappsdocs). 
+> For more information about using and securing parameters, 
+> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
 <a name="basic-authentication"></a>
 
@@ -2916,16 +2921,14 @@ include an `authentication` JSON object that has these properties:
 | Property | Required | Value | Description | 
 |----------|----------|-------|-------------| 
 | **type** | Yes | "Basic" | The authentication type to use, which is "Basic" here | 
-| **username** | Yes | "@parameters('userNameParam')" | A parameter that accepts the user name to authenticate for accessing the target service endpoint |
-| **password** | Yes | "@parameters('passwordParam')" | A parameter that passes the password to authenticate for accessing the target service endpoint |
+| **username** | Yes | "@parameters('userNameParam')" | A parameter that accepts the user name for authenticating access to the target service endpoint |
+| **password** | Yes | "@parameters('passwordParam')" | A parameter that accepts the password for authenticating access to the target service endpoint |
 ||||| 
 
 For example, here's the format for the `authentication` 
-object in your trigger or action definition. 
-For more information about securing parameters, 
-see [Secure sensitive information](#secure-info). 
+object in your trigger or action definition. This example 
 
-```javascript
+```json
 "HTTP": {
    "type": "Http",
    "inputs": {
@@ -2941,6 +2944,13 @@ see [Secure sensitive information](#secure-info).
 }
 ```
 
+> [!IMPORTANT]
+> Make sure you protect any sensitive information 
+> that your logic app workflow definition handles. 
+> Use secured parameters and encode data as necessary. 
+> For more information about securing parameters, 
+> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
+
 <a name="client-certificate-authentication"></a>
 
 ### Client Certificate authentication
@@ -2950,7 +2960,7 @@ include an `authentication` JSON object that has these properties:
 
 | Property | Required | Value | Description | 
 |----------|----------|-------|-------------| 
-| **type** | Yes | "ClientCertificate" | The authentication type to use for Secure Sockets Layer (SSL) client certificates | 
+| **type** | Yes | "ClientCertificate" | The authentication type to use for Secure Sockets Layer (SSL) client certificates. While self-signed certificates are supported, self-signed certificates for SSL aren't supported. | 
 | **pfx** | Yes | "@parameters('pfxParam') | A parameter that accepts the base64-encoded content from a Personal Information Exchange (PFX) file |
 | **password** | Yes | "@parameters('passwordParam')" | A parameter that accepts the password for accessing the PFX file |
 ||||| 
@@ -2958,13 +2968,22 @@ include an `authentication` JSON object that has these properties:
 For example, here's the format for the `authentication` 
 object in your trigger or action definition. 
 For more information about securing parameters, 
-see [Secure sensitive information](#secure-info). 
+For more information about securing parameters, 
+see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
-```javascript
-"authentication": {
-   "password": "@parameters('pfxParam')",
-   "pfx": "aGVsbG8g...d29ybGQ=",
-   "type": "ClientCertificate"
+```json
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "ClientCertificate",
+         "pfx": "@parameters('pfxParam')",
+         "password": "@parameters('passwordParam')"
+      }
+   },
+   "runAfter": {}
 }
 ```
 
@@ -2980,7 +2999,7 @@ include an `authentication` JSON object that has these properties:
 | **type** | Yes | `ActiveDirectoryOAuth` | The authentication type to use, which is "ActiveDirectoryOAuth" for Azure AD OAuth | 
 | **authority** | No | <*URL-for-authority-token-issuer*> | The URL for the authority that provides the authentication token |  
 | **tenant** | Yes | <*tenant-ID*> | The tenant ID for the Azure AD tenant | 
-| **audience** | Yes | <*resource-to-authorize*> | The resource that you want authorization to use, for example, `https://management.core.windows.net/` | 
+| **audience** | Yes | <*resource-to-authorize*> | The resource that you want to use for authorization, for example, `https://management.core.windows.net/` | 
 | **clientId** | Yes | <*client-ID*> | The client ID for the app requesting authorization | 
 | **credentialType** | Yes | "Certificate" or "Secret" | The credential type the client uses for requesting authorization. This property and value don't appear in your underlying definition, but determines the required parameters for the credential type. | 
 | **pfx** | Yes, only for "Certificate" credential type | "@parameters('pfxParam') | A parameter that accepts the base64-encoded content from a Personal Information Exchange (PFX) file | 
@@ -2991,78 +3010,25 @@ include an `authentication` JSON object that has these properties:
 For example, here's the format for the `authentication` object when 
 your trigger or action definition uses the "Secret" credential type:
 For more information about securing parameters, 
-see [Secure sensitive information](#secure-info). 
+see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
-```javascript
-"authentication": {
-   "audience": "https://management.core.windows.net/",
-   "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
-   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-   "type": "ActiveDirectoryOAuth"
-}
-```
-
-<a name="secure-info"></a>
-
-## Secure sensitive information
-
-To protect sensitive information that you use for authentication, 
-such as usernames and passwords, in your trigger and action definitions, 
-you can use parameters and the `@parameters()` expression so that this 
-information isn't visible after you save your logic app. 
-
-For example, suppose you're using "Basic" authentication 
-in your trigger or action definition. Here is an example 
-`authentication` object that specifies a username and password:
-
-```javascript
+```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "GET",
       "uri": "http://www.microsoft.com",
       "authentication": {
-         "type": "Basic",
-         "username": "@parameters('userNameParam')",
-         "password": "@parameters('passwordParam')"
-      }
-  },
-  "runAfter": {}
+         "type": "ActiveDirectoryOAuth",
+         "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+         "audience": "https://management.core.windows.net/",
+         "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+         "secret": "@parameters('secretParam')"
+     }
+   },
+   "runAfter": {}
 }
 ```
-
-In the `parameters` section for your logic app definition, 
-define the parameters you used in your trigger or action definition:
-
-```javascript
-"definition": {
-   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-   "actions": {
-      "HTTP": {
-      }
-   },
-   "parameters": {
-      "passwordParam": {
-         "type": "securestring"
-      },
-      "userNameParam": {
-         "type": "securestring"
-      }
-   },
-   "triggers": {
-      "HTTP": {
-      }
-   },
-   "contentVersion": "1.0.0.0",
-   "outputs": {}
-},
-```
-
-If you're creating or using an Azure Resource Manager deployment template, 
-you also have to include an outer `parameters` section for your template definition. 
-For more information about securing parameters, see 
-[Secure access to your logic apps](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). 
 
 ## Next steps
 
