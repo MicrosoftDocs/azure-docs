@@ -97,7 +97,7 @@ This update includes the following new features and improvements for Azure Stack
 <!-- 3083238 IS -->
 - Security enhancements in this update result in an increase in the backup size of the directory service role. For updated sizing guidance for the external storage location, see the [infrastructure backup documentation](azure-stack-backup-reference.md#storage-location-sizing). This change results in a longer time to complete the backup due to the larger size data transfer. This change impacts integrated systems. 
 
-## Common Vulnerabilities and Exposures
+## Common vulnerabilities and exposures
 
 This update installs the following security updates:  
 
@@ -127,7 +127,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 - During installation of the 1901 update, ensure that all instances of the administrator portal are closed during this time. The user portal can remain open, but the admin portal must be closed.
 
-- When running [Test-AzureStack](azure-stack-diagnostic-test.md), if either the **AzsInfraRoleSummary** or the **AzsPortalApiSummary** test fails, you are prompted to run **Test-AzureStack** with the `-Repair` flag.  If you run this command, it fails with the following error message:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  This issue will be fixed in a future release.
+- When running [Test-AzureStack](azure-stack-diagnostic-test.md), if either the **AzsInfraRoleSummary** or the **AzsPortalApiSummary** test fails, you are prompted to run **Test-AzureStack** with the `-Repair` flag.  If you run this command, it fails with the following error message:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`
 
 - During installation of the 1901 update, the Azure Stack use portal is unavailable while the extension host is being configured. The configuration of the extension host can take up to 5 hours. During that time, you can check the status of an update, or resume a failed update installation using [Azure Stack Administrator PowerShell or the privileged endpoint](azure-stack-monitor-update.md). 
 
