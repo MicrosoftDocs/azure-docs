@@ -54,7 +54,7 @@ To copy data using data copy service, you need to create a job. Follow these ste
     
     |Field                          |Value    |
     |-------------------------------|---------|
-    |Job name                       |A unique name fewer than 230 characters for the job. These characters aren't allowed in the job name - `<`, `>`, `|`, `?`, `*`,`\"`, `:`, `/`, and `\\`.         |
+    |Job name                       |A unique name fewer than 230 characters for the job. These characters aren't allowed in the job name - `<`, `>`, `|`, `?`, `*`,`\`, `:`, `/`, and `\\`.         |
     |Source location                |Provide the SMB path to the data source in the format: `\\<ServerIPAddress>\<ShareName>` or `\\<ServerName>\<ShareName>`.        |
     |Username                       |Username to access the data source.        |
     |Password                       |Password to access the data source.           |
@@ -97,12 +97,17 @@ To copy data using data copy service, you need to create a job. Follow these ste
     - You can restart a job if it has failed abruptly due to a transient error such as a network glitch. You can't restart a job if it has reached a terminal state such as completed successfully or completed with errors. The failures could be due to file naming or file size issues. These errors are logged but the job can't be restarted once it has completed.
 
         ![Restart a failed job](media/data-box-deploy-copy-data-via-copy-service/restart-failed-job.png)
+
+        If you experience a failure and the job can't be restarted, download the error logs and look at the failure in the log files. After you have corrected the issue, you can create a new job to copy the files. You can also [copy the files over SMB](data-box-deploy-copy-data.md).
     
     - In this release, you can't delete a job.
     
     - You can create unlimited jobs but run a maximum of 10 jobs in parallel at any given time.
+    - If the file optimization is on, the small files are packed at ingest to improve the copy performance. In these instances, you will see a packed file (GUID as name) as shown in the following screenshot.
 
-6. While the job is in progress, on the **Copy data** page: 
+        ![Example of a packed file](media/data-box-deploy-copy-data-via-copy-service/packed-file-on-ingest.png)
+
+6. While the job is in progress, on the **Copy data** page:
 
     - In the **Status** column, you can view the status of the copy job. The status can be:
         - **Running**
