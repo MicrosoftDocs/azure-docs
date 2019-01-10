@@ -19,7 +19,7 @@ ms.custom: mvc
 ms.reviewer: misainat
 
 ---
-# Quickstart: evaluate the Azure Stack Development Kit
+# Evaluate Azure Stack Development Kit
 
 The [Azure Stack Development Kit (ASDK)](./asdk/asdk-what-is.md) is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get started with the ASDK, you need to prepare the host computer hardware and then run some scripts (installation takes several hours). After that, you can sign in to the administrator or user portals to start using Azure Stack.
 
