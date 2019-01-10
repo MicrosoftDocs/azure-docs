@@ -23,15 +23,15 @@ Use this quickstart to begin searching for news with the Bing News Search SDK fo
 
 It is recommended to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html) for your python development. You can install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). You must install a virtualenv for Python 2.7. You can create a virtual environment with:
 
-    ```console
-    python -m venv mytestenv
-    ```
+```console
+python -m venv mytestenv
+```
 
 You can install the Bing News Search SDK dependencies with this command:
     
-    ```console
-    python -m pip install azure-cognitiveservices-search-newssearch
-    ```
+```console
+python -m pip install azure-cognitiveservices-search-newssearch
+```
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
