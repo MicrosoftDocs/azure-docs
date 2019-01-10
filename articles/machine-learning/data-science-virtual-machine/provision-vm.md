@@ -19,6 +19,7 @@ ms.author: gokuma
 
 ---
 # Provision the Windows Data Science Virtual Machine on Azure
+
 The Microsoft Data Science Virtual Machine (DSVM) is a Windows Azure virtual machine (VM) image. It's preinstalled and configured with several tools that are used for data analytics and machine learning. The following tools are included:
 
 * [Azure Machine Learning service](../service/index.yml) Python SDK.
