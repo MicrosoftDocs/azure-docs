@@ -82,7 +82,7 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc  
 ```
  
-If you want to drill down on a specific computer ingestion time over a period of time, use the following query which also visualizes the data in a graph: 
+If you want to drill down on the ingestion time for a specific computer over a period of time, use the following query which also visualizes the data in a graph: 
 
 ``` Kusto
 Heartbeat 
@@ -92,7 +92,7 @@ Heartbeat
 | render timechart  
 ```
  
-The following query will show you the computer ingestion time by the country they are located in,based on their IP address: 
+Use the following query to show computer ingestion time by the country they are located in which is based on their IP address: 
 
 ``` Kusto
 Heartbeat 
@@ -101,10 +101,7 @@ Heartbeat
 | summarize percentiles(E2EIngestionLatency,50,95) by RemoteIPCountry 
 ```
  
-Different data types originating from the agent might have different ingestion latency time, so the previous queries could be used with other types. 
-
-
-You can use the following query to examine the ingestion time of various Azure services: 
+Different data types originating from the agent might have different ingestion latency time, so the previous queries could be used with other types. Use the following query to examine the ingestion time of various Azure services: 
 
 ``` Kusto
 AzureDiagnostics 
@@ -114,7 +111,7 @@ AzureDiagnostics
 ```
 
 ### Resources that stop responding 
-You could mistake high ingestion time with a case where a resource stops sending data. To understand if a resource is sending data or not, look at its most recent record which can be identified by the standard _TimeGenerated_ field.  
+In some cases, a resource could stop sending data. To understand if a resource is sending data or not, look at its most recent record which can be identified by the standard _TimeGenerated_ field.  
 
 Use the _Heartbeat_ table to check the availability of a VM, since a heartbeat is sent once a minute by the agent. Use the following query to list the active computers that haven’t reported heartbeat recently: 
 
