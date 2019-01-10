@@ -51,33 +51,30 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
 
 Use the variables from the last step to format a search URL for the API request. Then send the request.
 
-    ```ruby
-    uri = URI(uri + path + "?q=" + URI.escape(term))
-    
-    request = Net::HTTP::Get.new(uri)
-    request['Ocp-Apim-Subscription-Key'] = accessKey
-    
-    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-        http.request(request)
-    end
-    ```
+```ruby
+uri = URI(uri + path + "?q=" + URI.escape(term))
+request = Net::HTTP::Get.new(uri)
+request['Ocp-Apim-Subscription-Key'] = accessKey
+response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+   http.request(request)
+end
+```
 
 ## Process and print the JSON response
 
 After the response is received, you can parse the JSON, and print both the response body, and its headers:
 
-    ```ruby
-    puts "\nRelevant Headers:\n\n"
-    response.each_header do |key, value|
-       # header names are coerced to lowercase
-       if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
-          puts key + ": " + value
-       end
-    end
-
-    puts "\nJSON Response:\n\n"
-    puts JSON::pretty_generate(JSON(response.body))
-    ```
+```ruby
+puts "\nRelevant Headers:\n\n"
+response.each_header do |key, value|
+   # header names are coerced to lowercase
+   if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
+      puts key + ": " + value
+   end
+end
+puts "\nJSON Response:\n\n"
+puts JSON::pretty_generate(JSON(response.body))
+```
 
 ## JSON Response
 

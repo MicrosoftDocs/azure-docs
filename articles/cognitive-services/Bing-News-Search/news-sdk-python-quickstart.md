@@ -21,13 +21,17 @@ Use this quickstart to begin searching for news with the Bing News Search SDK fo
 
 * [Python](https://www.python.org/) 2.x or 3.x
 
-It is recommended to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html) for your python development. You can install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). You must install a virtualenv for Python 2.7. You can create a virtual envirement with:
+It is recommended to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html) for your python development. You can install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). You must install a virtualenv for Python 2.7. You can create a virtual environment with:
 
-    `python -m venv mytestenv`
+    ```console
+    python -m venv mytestenv
+    ```
 
 You can install the Bing News Search SDK dependencies with this command:
     
-    `python -m pip install azure-cognitiveservices-search-newssearch`
+    ```console
+    python -m pip install azure-cognitiveservices-search-newssearch
+    ```
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
@@ -60,19 +64,19 @@ You can install the Bing News Search SDK dependencies with this command:
 
 If any search results are found, print the first webpage result:
 
-    ```python
-    if news_result.value:
-        first_news_result = news_result.value[0]
-        print("Total estimated matches value: {}".format(news_result.total_estimated_matches))
-        print("News result count: {}".format(len(news_result.value)))
-        print("First news name: {}".format(first_news_result.name))
-        print("First news url: {}".format(first_news_result.url))
-        print("First news description: {}".format(first_news_result.description))
-        print("First published time: {}".format(first_news_result.date_published))
-        print("First news provider: {}".format(first_news_result.provider[0].name))
-    else:
-        print("Didn't see any news result data..")
-    ```
+```python
+if news_result.value:
+    first_news_result = news_result.value[0]
+    print("Total estimated matches value: {}".format(news_result.total_estimated_matches))
+    print("News result count: {}".format(len(news_result.value)))
+    print("First news name: {}".format(first_news_result.name))
+    print("First news url: {}".format(first_news_result.url))
+    print("First news description: {}".format(first_news_result.description))
+    print("First published time: {}".format(first_news_result.date_published))
+    print("First news provider: {}".format(first_news_result.provider[0].name))
+else:
+    print("Didn't see any news result data..")
+```
 
 ## Next steps
 

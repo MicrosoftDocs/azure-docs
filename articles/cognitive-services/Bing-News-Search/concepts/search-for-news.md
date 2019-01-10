@@ -47,7 +47,7 @@ To get news from a specific domain, use the [site:](https://msdn.microsoft.com/l
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-The following shows the response to the previous query. You must display each news article in the order provided in the response. If the article has clustered articles, you should indicate that related articles exist and display them if the user requests to see them.
+The following shows the response to the previous query. As part of the [Use and display requirements](../useanddisplayrequirements.md) for the Bing search APIs, you must display each news article in the order provided in the response. If the article has clustered articles, you should indicate that related articles exist and display them upon request.
 
 ```json
 {
