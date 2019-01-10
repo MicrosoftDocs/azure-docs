@@ -17,6 +17,13 @@ ms.custom: seodec18
 
 In this article, learn about the Azure Machine Learning service releases. 
 
+### Azure Machine Learning Data Prep SDK v1.0.6
+
++ **SDK reference docs**: https://aka.ms/data-prep-sdk
+
++ **Bug fixes**
+  + Fixed bug with reading from public readable Azure Blob containers on Spark
+
 ## 2018-12-20: 
 
 ### Azure Machine Learning SDK for Python v1.0.6

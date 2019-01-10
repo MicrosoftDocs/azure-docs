@@ -5,7 +5,7 @@ author: dkamstra
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/12/2017
+ms.date: 4/12/2018
 ms.author: dukek
 ms.component: logs
 ---
@@ -52,48 +52,27 @@ Properties.stage | The possible values for **Incident**, and **Security** are **
 Properties.communicationId | The communication with which this event is associated.
 
 ### Details on service health level information
-  <ul>
-    <li><b>Action Required</b> (properties.incidentType == ActionRequired)
-        <dl>
-            <dt>Informational</dt>
-            <dd>Administrator action required to prevent impact to existing services</dd>
-        </dl>
-    </li>
-    <li><b>Maintenance</b> (properties.incidentType == Maintenance)
-        <dl>
-            <dt>Warning</dt>
-            <dd>emergency maintenance<dd>
-            <dt>Informational</dt>
-            <dd>standard planned maintenance</dd>
-        </dl>
-    </li>
-    <li><b>Information</b> (properties.incidentType == Informational)
-        <dl>
-            <dt>Informational</dt>
-            <dd>Administrator may be required to prevent impact to existing services</dd>
-        </dl>
-    </li>
-    <li><b>Security</b> (properties.incidentType == Security)
-        <dl>
-            <dt>Error</dt>
-            <dd>Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.</dd>
-            <dt>Warning</dt>
-            <dd>Issues accessing specific services and/or specific regions are impacting a subset of customers.</dd>
-            <dt>Informational</dt>
-            <dd>Issues impacting management operations and/or latency, not impacting service availability.</dd>
-        </dl>
-    </li>
-    <li><b>Service Issues</b> (properties.incidentType == Incident)
-        <dl>
-            <dt>Error</dt>
-            <dd>Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.</dd>
-            <dt>Warning</dt>
-            <dd>Issues accessing specific services and/or specific regions are impacting a subset of customers.</dd>
-            <dt>Informational</dt>
-            <dd>Issues impacting management operations and/or latency, not impacting service availability.</dd>
-        </dl>
-    </li>
-  </ul>
+
+**Action Required** (properties.incidentType == ActionRequired)
+    - Informational - Administrator action required to prevent impact to existing services
+    
+**Maintenance** (properties.incidentType == Maintenance)
+    - Warning - emergency maintenance
+    - Informational - standard planned maintenance
+
+**Information** (properties.incidentType == Information)
+    - Informational - Administrator may be required to prevent impact to existing services
+
+**Security** (properties.incidentType == Security)
+    - Error - Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.
+    - Warning - Issues accessing specific services and/or specific regions are impacting a subset of customers.
+    - Informational - Issues impacting management operations and/or latency, not impacting service availability.
+
+**Service Issues** (properties.incidentType == Incident)
+    - Error - Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.
+    - Warning - Issues accessing specific services and/or specific regions are impacting a subset of customers.
+    - Informational - Issues impacting management operations and/or latency, not impacting service availability.
+
 
 ## View your service health notifications in the Azure portal
 1.	In the [Azure portal](https://portal.azure.com), select **Monitor**.
