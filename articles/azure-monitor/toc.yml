@@ -711,7 +711,7 @@
         items:
         - name: Application data
           href: app/analytics.md
-        - name: Unify Application data resources
+        - name: Unify application data resources
           href: log-query/unify-app-resource-data.md
         - name: Standard properties
           href: platform/log-standard-properties.md
