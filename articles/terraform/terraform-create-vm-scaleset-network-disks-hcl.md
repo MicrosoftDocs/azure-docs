@@ -4,8 +4,7 @@ description: Tutorial about using Terraform to configure and version an Azure vi
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, virtual machine, Azure, scale set, network, storage, modules
-author: tomarcher
-manager: jeconnoc
+author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018

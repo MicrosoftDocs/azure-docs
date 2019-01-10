@@ -1,14 +1,10 @@
 ---
-title: Create, change, or delete an Azure network security group | Microsoft Docs
+title: Create, change, or delete an Azure network security group
+titlesuffix: Azure Virtual Network
 description: Learn how to create, change, or delete a network security group.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article

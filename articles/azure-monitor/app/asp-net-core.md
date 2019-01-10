@@ -57,7 +57,7 @@ To test this functionality:
    ![Screenshot of Visual Studio Application Insights Search](./media/asp-net-core/006-search.png)
 
 > [!NOTE]
-> To learn more about how Visual Studio lights up features like [Application Insights Search](../../application-insights/app-insights-visual-studio.md) and [CodeLens](../../application-insights/app-insights-visual-studio-codelens.md) locally before you add Application Insights to your ASP.NET Core project, see [Application Insights Search continued](#application-insights-search-continued).
+> To learn more about how Visual Studio lights up features like [Application Insights Search](../../azure-monitor/app/visual-studio.md) and [CodeLens](../../azure-monitor/app/visual-studio-codelens.md) locally before you add Application Insights to your ASP.NET Core project, see [Application Insights Search continued](#application-insights-search-continued).
 
 ## Add Application Insights Telemetry
 
@@ -399,7 +399,7 @@ The issue with using either of these methods is that they don't disable only App
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
 ## Next steps
-* [Explore User Flows](../../application-insights/app-insights-usage-flows.md) to understand how users navigate through your app.
+* [Explore User Flows](../../azure-monitor/app/usage-flows.md) to understand how users navigate through your app.
 * [Configure snapshot collection](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications) to see the state of source code and variables at the moment an exception is thrown.
 * [Use the API](../../azure-monitor/app/api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
-* Use [availability tests](../../application-insights/app-insights-monitor-web-app-availability.md) to check your app constantly from around the world.
+* Use [availability tests](../../azure-monitor/app/monitor-web-app-availability.md) to check your app constantly from around the world.

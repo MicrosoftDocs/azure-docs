@@ -286,6 +286,8 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ## Next steps
 At this point, you have a secure cluster running in Azure. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).
 
+For the JSON syntax and properties to use a template, see [Microsoft.ServiceFabric/clusters template reference](/azure/templates/microsoft.servicefabric/clusters).
+
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest

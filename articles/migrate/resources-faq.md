@@ -4,7 +4,7 @@ description: Addresses frequently asked questions about Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: snehaa
 ---
 
@@ -43,12 +43,13 @@ Azure Migrate is a migration planning tool and Azure Site Recovery Deployment Pl
 
 ### Which Azure geographies are supported by Azure Migrate?
 
-Azure Migrate currently supports United States and Azure Government as the project geographies. Even though you can only create migration projects in these geographies, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project geography is only used to store the discovered metadata.
+Azure Migrate currently supports Europe, United States and Azure Government as the project geographies. Even though you can only create migration projects in these geographies, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project geography is only used to store the discovered metadata.
 
 **Geography** | **Metadata storage location**
 --- | ---
-Unites States | West Central US or East US
 Azure Government | US Gov Virginia
+Europe | North Europe or West Europe
+Unites States | East US of West Central US
 
 ### How does the on-premises site connect to Azure Migrate?
 

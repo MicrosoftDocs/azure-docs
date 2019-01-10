@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/14/2018
+ms.date: 12/21/2018
 ms.author: sethm
 ms.reviewer: thoroet
 ---
@@ -98,7 +98,7 @@ Run the following PowerShell script to install these modules on your development
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
     ```
 
-    Execute the following and specify the module version you to load.
+    To make use of the additional storage features (mentioned in the connected section), download and install the following packages as well.
 
     ```PowerShell
     # Install the Azure.Storage module version 4.5.0
@@ -106,6 +106,9 @@ Run the following PowerShell script to install these modules on your development
 
     # Install the AzureRm.Storage module version 5.0.4
     Install-Module -Name AzureRM.Storage -RequiredVersion 5.0.4 -Force -AllowClobber
+
+    # Remove incompatible storage module installed by AzureRM.Storage
+    Uninstall-Module Azure.Storage -RequiredVersion 4.6.1 -Force
 
     # Load the modules explicitly specifying the versions
     Import-Module -Name Azure.Storage -RequiredVersion 4.5.0
@@ -127,13 +130,14 @@ Run the following PowerShell script to install these modules on your development
 
     Install-Module -Name AzureStack -RequiredVersion 1.5.0
     ```
-  - Azure Stack 1807 or earlier.
 
-    ```PowerShell
-    Install-Module -Name AzureRm.BootStrapper
-    Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.4.0
-    ```
+- Azure Stack 1807 or earlier.
+
+  ```PowerShell
+  Install-Module -Name AzureRm.BootStrapper
+  Use-AzureRmProfile -Profile 2017-03-09-profile -Force
+  Install-Module -Name AzureStack -RequiredVersion 1.4.0
+  ```
 
 Confirm the installation by running the following command:
 
@@ -161,7 +165,7 @@ Sign in to a computer with Internet connectivity and use the following scripts t
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
     ```
 
-    To make use of the additional storage features(mentioned in the connected section), download and install the following packages as well.
+    To make use of the additional storage features (mentioned in the connected section), download and install the following packages as well.
 
     ```PowerShell
     $Path = "<Path that is used to save the packages>"

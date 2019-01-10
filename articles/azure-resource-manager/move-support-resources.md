@@ -453,7 +453,7 @@ After finding the resource provider and resource type, use the tables in this ar
 | ------------- | -------------- | ------------ |
 | applicationgateways | No | No |
 | applicationsecuritygroups	| Yes | Yes |
-| azurefirewalls | Yes | Yes |
+| azurefirewalls | No | No |
 | connections | Yes | Yes |
 | ddosprotectionplans | No | No |
 | dnszones | Yes | Yes |

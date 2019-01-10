@@ -2,7 +2,6 @@
 title: Learn how to configure and manage Time to Live in Azure Cosmos DB
 description: Learn how to configure and manage time to live in Azure Cosmos DB
 author: markjbrown
-
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/14/2018

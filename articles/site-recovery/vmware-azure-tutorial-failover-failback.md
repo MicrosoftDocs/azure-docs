@@ -4,8 +4,9 @@ description: Learn how to fail over VMware VMs and physical servers to Azure, an
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
 ---

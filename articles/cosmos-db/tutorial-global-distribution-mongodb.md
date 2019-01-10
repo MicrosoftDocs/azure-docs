@@ -1,32 +1,29 @@
 ---
-title: Global distribution tutorial in Azure Cosmos DB for MongoDB API
-description: Learn how to set up Azure Cosmos DB global distribution using the Azure Cosmos DB for MongoDB API.
-services: cosmos-db
-keywords: global distribution, MongoDB
-author: SnehaGunda
-
+title: Global distribution tutorial using Azure Cosmos DB's API for MongoDB
+description: Learn how to set up global distribution using Azure Cosmos DB's API for MongoDB.
+author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: sngun
-ms.custom: mvc
+ms.date: 12/26/2018
+ms.author: rimman
+ms.reviewer: sngun
 
 ---
-# Set up Azure Cosmos DB global distribution using the Azure Cosmos DB for MongoDB API
+# Set up global distributed database using Azure Cosmos DB's API for MongoDB
 
-In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the Azure Cosmos DB for MongoDB API.
+In this article, we show how to use the Azure portal to setup a global distributed database and connect to it using Azure Cosmos DB's API for MongoDB.
 
 This article covers the following tasks: 
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the [Azure Cosmos DB for MongoDB API](mongodb-introduction.md)
+> * Configure global distribution using the [Azure Cosmos DB's API for MongoDB](mongodb-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 ## Verifying your regional setup 
-The simplest way of double checking your global configuration within API for MongoDB is to run the *isMaster()* command from the Mongo Shell.
+A simple way to check your global configuration with Cosmos DB's API for MongoDB is to run the *isMaster()* command from the Mongo Shell.
 
 From your Mongo Shell:
 
@@ -62,7 +59,7 @@ Example results:
 
 ## Connecting to a preferred region 
 
-The Azure Cosmos DB for MongoDB API enables you to specify your collection's read preference for a globally distributed database. For both low latency reads and global high availability, we recommend setting your collection's read preference to *nearest*. A read preference of *nearest* is configured to read from the closest region.
+The Azure Cosmos DB's API for MongoDB enables you to specify your collection's read preference for a globally distributed database. For both low latency reads and global high availability, we recommend setting your collection's read preference to *nearest*. A read preference of *nearest* is configured to read from the closest region.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
@@ -92,9 +89,9 @@ In this tutorial, you've done the following:
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the SQL APIs
+> * Configure global distribution using the Cosmos DB's API for MongoDB
 
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 
 > [!div class="nextstepaction"]
-> [Develop locally with the emulator](local-emulator.md)
+> [Develop locally with the Azure Cosmos DB emulator](local-emulator.md)

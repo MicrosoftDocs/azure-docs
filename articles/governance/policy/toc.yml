@@ -283,6 +283,14 @@
       href: /rest/api/policy-insights/remediations
     - name: Guest Configuration (preview)
       href: /rest/api/guestconfiguration/
+  - name: Resource Manager templates
+    items:
+    - name: Assignments
+      href: /azure/templates/microsoft.authorization/policyassignments
+    - name: Policy Definitions
+      href: /azure/templates/microsoft.authorization/policydefinitions
+    - name: Initiatives Definitions
+      href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Resources
   items:
   - name: GitHub - Azure Policy samples

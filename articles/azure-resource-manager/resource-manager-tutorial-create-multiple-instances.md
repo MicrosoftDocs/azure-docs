@@ -118,14 +118,14 @@ Refer to the [Deploy the template](./resource-manager-quickstart-create-template
 
 To list all three storage accounts, omit the --name parameter:
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"

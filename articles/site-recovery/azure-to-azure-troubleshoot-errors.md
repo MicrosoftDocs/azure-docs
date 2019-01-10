@@ -274,5 +274,13 @@ To enable replication on the VM, the provisioning state should be **Succeeded**.
 You can open 'Services' console and ensure the 'COM+ System Application' and 'Volume Shadow Copy' are not set to 'Disabled' for 'Startup Type'.
   ![com-error](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
+## Unsupported Managed Disk Size (error code 150172)
+
+
+**Error code** | **Possible causes** | **Recommendations**
+--- | --- | ---
+150172<br></br>**Message**: Protection couldn't be enabled for the virtual machine as it has (DiskName) with size (DiskSize) that is lesser than the minimum supported size 10 GB. | - The disk is less than supported size of 1024 MB| Ensure that the disk sizes are within the supported size range and retry the operation. 
+
+
 ## Next steps
 [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)

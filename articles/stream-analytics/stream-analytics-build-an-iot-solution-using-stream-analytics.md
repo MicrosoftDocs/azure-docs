@@ -181,7 +181,7 @@ Follow these steps to start the streaming job:
 ## Review the CosmosDB output data
 1. Locate the resource group that contains the TollApp resources.
 
-2. Select the Azure Cosmos DB Account with the name pattern **tollapp<random>-cosmos**.
+2. Select the Azure Cosmos DB Account with the name pattern **tollapp\<random\>-cosmos**.
 
 3. Select the **Data Explorer** heading to open the Data Explorer page.
 

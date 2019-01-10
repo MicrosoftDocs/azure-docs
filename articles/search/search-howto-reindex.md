@@ -57,19 +57,27 @@ For more information about indexers, see [Indexer overview](search-indexer-overv
 
 Plan on frequent, full rebuilds during active development, when index schemas are in a state of flux. For applications already in production, we recommend creating a new index that runs side by side an existing index to avoid query downtime.
 
-If you have stringent SLA requirements, you might consider provisioning a new service specifically for this work, with development and indexing occurring in full isolation from a production index. When development is complete, you would either modify application code to redirect queries to the new endpoint and index, or you would run finished code to create and load an index on the Azure Search service. There is currently no mechanism for moving a ready-to-use index to another service.
+If you have stringent SLA requirements, you might consider provisioning a new service specifically for this work, with development and indexing occurring in full isolation from a production index. A separate service runs on its own hardware, eliminating any possibility of resource contention. When development is complete, you would either leave the new index in place, redirecting queries to the new endpoint and index, or you would run finished code to publish a revised index on your original Azure Search service. There is currently no mechanism for moving a ready-to-use index to another service.
 
 Read-write permissions at the service-level are required for index updates. Programmatically, you can call [Update Index REST API](https://docs.microsoft.com/rest/api/searchservice/update-index) or .NET APIs for a full rebuild. The request is identical to [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), but has a different context.
 
 1. If you are reusing the index name, [drop the existing index](https://docs.microsoft.com/rest/api/searchservice/delete-index). Any queries targeting that index are immediately dropped. Deleting an index is irreversible, destroying physical storage for the fields collection and other constructs. Make sure you are clear on the implications of deleting an index before you drop it. 
+
 2. Provide an index schema with the changed or modified field definitions. Schema requirements are documented in [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+
 3. Provide an [admin key](https://docs.microsoft.com/azure/search/search-security-api-keys) on the request.
+
 4. Send an [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) command to rebuild the physical expression of the index on Azure Search. The request body contains the index schema, as well as constructs for scoring profiles, analyzers, suggesters, and CORS options.
+
 5. [Load the index with documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) from an external source. You can also use this API if you are refreshing an existing, unchanged index schema with updated documents.
 
 When you create the index, physical storage is allocated for each field in the index schema, with an inverted index created for each searchable field. Fields are that not searchable can be used in filters or expressions, but do not have inverted indexes and are not full-text searchable. On an index rebuild, these inverted indexes are deleted and recreated based on the index schema you provide.
 
 When you load the index, each field's inverted index is populated with all of the unique, tokenized words from each document, with a map to corresponding document IDs. For example, when indexing a hotels data set, an inverted index created for a City field might contain terms for Seattle, Portland, and so forth. Documents that include Seattle or Portland in the City field would have their document ID listed alongside the term. On any [Add, Update or Delete](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) operation, the terms and document ID list are updated accordingly.
+
+## View updates
+
+You can begin querying an index as soon as the first document is loaded. If you know a document's ID, the [Lookup Document REST API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) returns the specific document. For broader testing, you should wait until the index is fully loaded, and then use queries to verify the context you expect to see.
 
 ## See also
 

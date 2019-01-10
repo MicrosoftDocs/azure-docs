@@ -120,11 +120,11 @@ Visual Studio Application Insights provides tools for filtering and searching lo
 1. Add the Application Insights SDK to your project in Visual Studio.
    * In Solution Explorer, right-click your project and choose Add Application Insights. The interface guides you through steps that include creating an Application Insights resource. [Learn more](../azure-monitor/app/asp-net.md)
 2. Add the Trace Listener package to your project.
-   * Right-click your project and choose Manage NuGet Packages. Select `Microsoft.ApplicationInsights.TraceListener` [Learn more](../application-insights/app-insights-asp-net-trace-logs.md)
+   * Right-click your project and choose Manage NuGet Packages. Select `Microsoft.ApplicationInsights.TraceListener` [Learn more](../azure-monitor/app/asp-net-trace-logs.md)
 3. Upload your project and run it to generate log data.
-4. In the [Azure portal](https://portal.azure.com/), browse to your new Application Insights resource, and open **Search**. You should see your log data, along with request, usage, and other telemetry. Some telemetry might take a few minutes to arrive: click Refresh. [Learn more](../application-insights/app-insights-diagnostic-search.md)
+4. In the [Azure portal](https://portal.azure.com/), browse to your new Application Insights resource, and open **Search**. You should see your log data, along with request, usage, and other telemetry. Some telemetry might take a few minutes to arrive: click Refresh. [Learn more](../azure-monitor/app/diagnostic-search.md)
 
-[Learn more about performance tracking with Application Insights](../application-insights/app-insights-azure-web-apps.md)
+[Learn more about performance tracking with Application Insights](../azure-monitor/app/azure-web-apps.md)
 
 ## <a name="streamlogs"></a> How to: Stream logs
 While developing an application, it is often useful to see logging information in near-real time. You can stream logging information to your development environment using Azure CLI.
