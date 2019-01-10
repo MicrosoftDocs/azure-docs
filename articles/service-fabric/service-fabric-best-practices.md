@@ -75,9 +75,39 @@ Your Service Fabric cluster will use your valid trusted installed certificate, t
 
 Given you can not provision certificates for Microsoft domains, such as *\<YOUR SUBDOMAIN\>.cloudapp.azure.com or \<YOUR SUBDOMAIN\>.trafficmanager.net, from KeyVault integrated 3rd Party Certificate Authorities; you must provision and configure [Azure DNS to host your domain](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). After delegating your domains name servers to your Azure DNS zone name servers, you will need to add the following 2 Records Set to you DNS Zone:'A' record for domain APEX that is NOT a "Alias record set" to all IP Addresses your custom domain will resolve, and a 'C' record for Microsoft Subdomain you provisioned  that is NOT a "Alias record set" (E.G. Use your Traffic Manager or Load Balancer's DNS name).
 
+You should also update your Service Fabric Cluster "managementEndpoint" Resource Manager template property to your custom domain, so that portal can display the correct url to connnect to your Service Fabric Explorer User Interface, and the follow is the snippet of the property you will update to your custom domain:
+```json
+ "managementEndpoint": "[concat('https://<YOUR CUSTOM DOMAIN>:',parameters('nt0fabricHttpGatewayPort'))]",
+```
 ### Encrypting Secret Values 
--- PowerShell way
--- OpenSSL way
+To [set up an encryption certificate and encrypt secrets on Windows clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-windows):
+
+Generate a self signed certificate for encrypting your secret using the following:
+```powershell
+New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'
+```
+Use the Reliably Deploy KeyVault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets instructions in this document to deploy/install your certificate.
+
+Encrypt your secret using the following, and update your Service Fabric Application Manifest with the encrypted value:
+``` powershell
+Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
+```
+To [set up an encryption certificate and encrypt secrets on Linux clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-linux):
+
+Generate a self signed certificate for encrypting your secrets using the following:
+```bash
+user@linux:~$ openssl req -newkey rsa:2048 -nodes -keyout TestCert.prv -x509 -days 365 -out TestCert.pem
+user@linux:~$ cat TestCert.prv >> TestCert.pem
+```
+Use the Reliably Deploy KeyVault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets instructions in this document to deploy/install your certificate.
+
+Encrypt your secret using the following, and update your Service Fabric Application Manifest with the encrypted value:
+```bash
+user@linux:$ echo "Hello World!" > plaintext.txt
+user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt -o plaintext_UTF-16.txt
+user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform der TestCert.pem | base64 > encrypted.txt
+```
+
 ### Azure Active Directory (AAD) for client identity
 -- ARM properties for enabling AAD
 ### Compute Managed Service Identity (MSI)
