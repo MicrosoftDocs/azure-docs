@@ -169,7 +169,7 @@ sections:
           - href: quickstart-v2-windows-desktop.md
           - href:
     - type: paragraph
-      text: <b>Service-to-service</b>
+      text: <b>Service-to-service and daemon apps</b>
     - type: table
       style: dataMatrix
       columns:
