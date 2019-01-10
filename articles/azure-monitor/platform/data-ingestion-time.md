@@ -69,25 +69,6 @@ This process currently takes about 5 minutes when there is low volume of data bu
 ## Checking ingestion time
 Ingestion time may vary for different resources under different circumstances. You can use log queries to identify specific behavior of your environment.
 
-### Resources that stopped responding 
-In some situations, resources stop sending data. You
-
- case might be confused with data that arrives in high ingestion time.  To understand if a resource is sending data or not, the most recent record shall be examined. The most recent record can be identified by looking at the standard TimeGenerated field.  
-
-To check the availability of a VMs, it is recommended to use the Heartbeat table since Heartbeat is sent once a minute by the agent 
-
-Use the following query to list the active computers that haven’t reported heartbeat recently: 
-
-``` Kusto
-Heartbeat  
-| where TimeGenerated > ago(1d) //show only VMs that were active in the last day 
-| summarize NoHeartbeatPeriod = now() - max(TimeGenerated) by Computer  
-| top 20 by NoHeartbeatPeriod desc 
-```
- 
-
- 
-
 ### Ingestion latency delays
 You can measure the latency of a specific record by comparing the result of the [ingestion_time()](/azure/kusto/query/ingestiontimefunction) function to the _TimeGenerated_ field. This data can be used with various aggregations to find how ingestion latency behaves. Examine some percentile of the ingestion time to get insights for large amount of data. 
 
@@ -101,7 +82,7 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc  
 ```
  
-If you want to drill down on a specific computer ingestion time over a period of time, you can do this also and visualize it on a graph: 
+If you want to drill down on a specific computer ingestion time over a period of time, use the following query which also visualizes the data in a graph: 
 
 ``` Kusto
 Heartbeat 
@@ -111,8 +92,7 @@ Heartbeat
 | render timechart  
 ```
  
-
-This query will show you the computer ingestion time by the country they are located in (based on their IP address): 
+The following query will show you the computer ingestion time by the country they are located in,based on their IP address: 
 
 ``` Kusto
 Heartbeat 
@@ -121,12 +101,10 @@ Heartbeat
 | summarize percentiles(E2EIngestionLatency,50,95) by RemoteIPCountry 
 ```
  
+Different data types originating from the agent might have different ingestion latency time, so the previous queries could be used with other types. 
 
-Note that different data types originating from the agent might have different ingestion latency time thus the above queries can be examined with other types. 
 
- 
-
-As ingestion latency varies from one Azure service to the other, if you want to examine the ingestion time of various Azure services that reports logs via the AzureDiagnostics type you can use the following query: 
+You can use the following query to examine the ingestion time of various Azure services: 
 
 ``` Kusto
 AzureDiagnostics 
@@ -135,30 +113,16 @@ AzureDiagnostics
 | summarize percentiles(E2EIngestionLatency,50,95) by ResourceProvider
 ```
 
+### Resources that stopped responding 
+You could mistake high ingestion time with a case where a resource stops sending data. To understand if a resource is sending data or not, look at its most recent record which can be identified by the standard _TimeGenerated_ field.  
 
+Use the _Heartbeat_ table to check the availability of a VM, since a heartbeat is sent once a minute by the agent. Use the following query to list the active computers that haven’t reported heartbeat recently: 
 
-
-
-
-
-
-
-
-You can use the **Heartbeat** table to get an estimate of latency for data from agents. Since Heartbeat is sent once a minute, the difference between the current time and the last heartbeat record will ideally be as close to a minute as possible.
-
-Use the following query to list the computers with the highest latency.
-
-    Heartbeat 
-    | summarize IngestionTime = now() - max(TimeGenerated) by Computer 
-    | top 50 by IngestionTime asc
-
- 
-Use the following query in large environments summarize the latency for different percentages of total computers.
-
-    Heartbeat 
-    | summarize IngestionTime = now() - max(TimeGenerated) by Computer 
-    | summarize percentiles(IngestionTime, 50,95,99)
-
+``` Kusto
+Heartbeat  
+| where TimeGenerated > ago(1d) //show only VMs that were active in the last day 
+| summarize NoHeartbeatPeriod = now() - max(TimeGenerated) by Computer  
+| top 20 by NoHeartbeatPeriod desc 
 
 
 ## Next steps
