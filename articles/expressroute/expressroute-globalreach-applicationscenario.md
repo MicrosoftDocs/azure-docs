@@ -69,7 +69,7 @@ The following figure illustrates this option. The option uses VNet-peering for t
 
 [![6]][6]
 
-This option does provide optimal routing for inter-regional VNet communication. However, it falls short if either Fabrikam or Contoso has a more complex Azure deployment such as a hub-spoke model. Also, like the previous two options, this option doesn't let you take advantage of the high-available Microsoft global backbone for communicating between the two on-premises networks.
+This option does provide optimal routing for inter-regional VNet communication. However, it falls short if either Fabrikam or Contoso has a more complex Azure deployment such as a hub-spoke VNet model. Also, like the previous two options, this option doesn't let you take advantage of the high-available Microsoft global backbone for communicating between the two on-premises networks.
 
 ## Global Reach
 
@@ -141,7 +141,7 @@ To see the route table of the secondary MSEE, substitute 'primary' with the keyw
 Let's also verify the data plane connectivity by pinging different destination from different networks. The following three pings verify data plane connectivity to the Contoso on-premises network, Contoso Azure VNet, and Fabrikam Azure VNet from Fabrikam on-premises network.
 
 
-	C:\Users\PathLabUser>ping 10.1.11.10
+	C:\Users\FabrikamUser>ping 10.1.11.10
 	
 	Pinging 10.1.11.10 with 32 bytes of data:
 	Reply from 10.1.11.10: bytes=32 time=69ms TTL=122
@@ -154,7 +154,7 @@ Let's also verify the data plane connectivity by pinging different destination f
 	Approximate round trip times in milli-seconds:
 	    Minimum = 69ms, Maximum = 69ms, Average = 69ms
 	
-	C:\Users\PathLabUser>ping 10.17.11.4
+	C:\Users\FabrikamUser>ping 10.17.11.4
 	
 	Pinging 10.17.11.4 with 32 bytes of data:
 	Reply from 10.17.11.4: bytes=32 time=82ms TTL=124
@@ -167,7 +167,7 @@ Let's also verify the data plane connectivity by pinging different destination f
 	Approximate round trip times in milli-seconds:
 	    Minimum = 76ms, Maximum = 82ms, Average = 78ms
 	
-	C:\Users\PathLabUser>ping 10.10.11.4
+	C:\Users\FabrikamUser>ping 10.10.11.4
 	
 	Pinging 10.10.11.4 with 32 bytes of data:
 	Reply from 10.10.11.4: bytes=32 time=3ms TTL=125
@@ -183,7 +183,7 @@ Let's also verify the data plane connectivity by pinging different destination f
 
 The following two pings verify data plane connectivity to the Contoso Azure VNet and Fabrikam Azure VNet from Contoso on-premises network.
 
-	C:\Users\PathLabUser>ping 10.17.11.4
+	C:\Users\ContosoUser>ping 10.17.11.4
 	
 	Pinging 10.17.11.4 with 32 bytes of data:
 	Reply from 10.17.11.4: bytes=32 time=6ms TTL=125
@@ -196,7 +196,7 @@ The following two pings verify data plane connectivity to the Contoso Azure VNet
 	Approximate round trip times in milli-seconds:
 	    Minimum = 5ms, Maximum = 6ms, Average = 5ms
 	
-	C:\Users\PathLabUser>ping 10.10.11.4
+	C:\Users\ContosoUser>ping 10.10.11.4
 	
 	Pinging 10.10.11.4 with 32 bytes of data:
 	Reply from 10.10.11.4: bytes=32 time=73ms TTL=124
@@ -211,8 +211,7 @@ The following two pings verify data plane connectivity to the Contoso Azure VNet
 
 The following ping verifies data plane connectivity to the Contoso Azure VNet from the Fabrikam Azure VNet.
 
-	```cmd
-	C:\Users\PathLabUser>ping 10.17.11.4
+	C:\Users\FabrikamUser>ping 10.17.11.4
 	
 	Pinging 10.17.11.4 with 32 bytes of data:
 	Reply from 10.17.11.4: bytes=32 time=77ms TTL=125
@@ -224,7 +223,6 @@ The following ping verifies data plane connectivity to the Contoso Azure VNet fr
 	    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
 	Approximate round trip times in milli-seconds:
 	    Minimum = 76ms, Maximum = 78ms, Average = 77ms
-	```
 
 ## Next Steps
 
