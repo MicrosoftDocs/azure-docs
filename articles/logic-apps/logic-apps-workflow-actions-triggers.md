@@ -2905,9 +2905,6 @@ Here are the kinds of authentication you can set up:
 > Make sure you protect any sensitive information 
 > that your logic app workflow definition handles. 
 > Use secured parameters and encode data as necessary. 
-> To access a resource's parameter value during runtime, 
-> you can use the `@parameters('parameterName')` expression, which is 
-> provided by the [Workflow Definition Language](https://aka.ms/logicappsdocs). 
 > For more information about using and securing parameters, 
 > see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
@@ -2916,7 +2913,10 @@ Here are the kinds of authentication you can set up:
 ### Basic authentication
 
 For this authentication type, your trigger or action definition can 
-include an `authentication` JSON object that has these properties:
+include an `authentication` JSON object, which has the properties 
+specified by the following table. To access parameter values at runtime, 
+you can use the `@parameters('parameterName')` expression, which is 
+provided by the [Workflow Definition Language](https://aka.ms/logicappsdocs). 
 
 | Property | Required | Value | Description | 
 |----------|----------|-------|-------------| 
@@ -2925,8 +2925,10 @@ include an `authentication` JSON object that has these properties:
 | **password** | Yes | "@parameters('passwordParam')" | A parameter that accepts the password for authenticating access to the target service endpoint |
 ||||| 
 
-For example, here's the format for the `authentication` 
-object in your trigger or action definition. This example 
+In this example HTTP action definition, the `authentication` 
+section specifies `Basic` authentication. For more 
+information about using and securing parameters, see 
+[Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 ```json
 "HTTP": {
@@ -2956,7 +2958,10 @@ object in your trigger or action definition. This example
 ### Client Certificate authentication
 
 For this authentication type, your trigger or action definition can 
-include an `authentication` JSON object that has these properties:
+include an `authentication` JSON object, which has the properties 
+specified by the following table. To access parameter values at runtime, 
+you can use the `@parameters('parameterName')` expression, which is 
+provided by the [Workflow Definition Language](https://aka.ms/logicappsdocs). 
 
 | Property | Required | Value | Description | 
 |----------|----------|-------|-------------| 
@@ -2965,11 +2970,10 @@ include an `authentication` JSON object that has these properties:
 | **password** | Yes | "@parameters('passwordParam')" | A parameter that accepts the password for accessing the PFX file |
 ||||| 
 
-For example, here's the format for the `authentication` 
-object in your trigger or action definition. 
-For more information about securing parameters, 
-For more information about securing parameters, 
-see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
+In this example HTTP action definition, the `authentication` 
+section specifies `ClientCertificate` authentication. 
+For more information about using and securing parameters, see 
+[Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 ```json
 "HTTP": {
@@ -2987,12 +2991,22 @@ see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#sec
 }
 ```
 
+> [!IMPORTANT]
+> Make sure you protect any sensitive information 
+> that your logic app workflow definition handles. 
+> Use secured parameters and encode data as necessary. 
+> For more information about securing parameters, 
+> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
+
 <a name="azure-active-directory-oauth-authentication"></a>
 
 ### Azure Active Directory (AD) OAuth authentication
 
 For this authentication type, your trigger or action definition can 
-include an `authentication` JSON object that has these properties:
+include an `authentication` JSON object, which has the properties 
+specified by the following table. To access parameter values at runtime, 
+you can use the `@parameters('parameterName')` expression, which is 
+provided by the [Workflow Definition Language](https://aka.ms/logicappsdocs). 
 
 | Property | Required | Value | Description | 
 |----------|----------|-------|-------------| 
@@ -3007,10 +3021,10 @@ include an `authentication` JSON object that has these properties:
 | **secret** | Yes, only for "Secret" credential type | "@parameters('secretParam')" | A parameter that accepts the client secret for requesting authorization |
 ||||| 
 
-For example, here's the format for the `authentication` object when 
-your trigger or action definition uses the "Secret" credential type:
-For more information about securing parameters, 
-see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
+In this example HTTP action definition, the `authentication` section specifies 
+`ActiveDirectoryOAuth` authentication and the "Secret" credential type. 
+For more information about using and securing parameters, see 
+[Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 ```json
 "HTTP": {
@@ -3029,6 +3043,13 @@ see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#sec
    "runAfter": {}
 }
 ```
+
+> [!IMPORTANT]
+> Make sure you protect any sensitive information 
+> that your logic app workflow definition handles. 
+> Use secured parameters and encode data as necessary. 
+> For more information about securing parameters, 
+> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
 ## Next steps
 
