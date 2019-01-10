@@ -20,7 +20,8 @@ ms.author: pepogors
 ### Link to a production ready ARM Template!!!
 
 ## Azure Service Fabric Application and Cluster Best Practices
-To manage Azure Service Fabric applications and clusters successfully, there are some non-default operations that we highly recommend you preform, to optimize for the reliability of your production environment.  
+To manage Azure Service Fabric applications and clusters successfully, there are conditional operations that we highly recommend you preform, to optimize for the reliability of your production environment.
+
 ## Security 
 For more information about [Azure Security Best Practices](https://docs.microsoft.com/en-us/azure/security/) please check out [Azure Service Fabric security best practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)
 ### KeyVault
@@ -28,9 +29,34 @@ For more information about [Azure Security Best Practices](https://docs.microsof
 > [!NOTE]
 > Azure KeyVault and compute resources must be co-located in the same region.  
 -- Portal Blade Common Name Cert Generation
--- Deploy Certificate URL for VMSS Resource
+#### Reliably Deploy KeyVault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets
+[Microsoft.Compute/virtualMachineScaleSet.properties.virtualMachineProfile.osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) is how you reliably deploy KeyVault certificates to your Service Fabric Cluster's Virtual Machine Scale Sets, and the following is the Resource Manager template properties that you will use: 
+```json
+"secrets": [
+   {
+       "sourceVault": {
+           "id": "[parameters('sourceVaultValue')]"
+       },
+       "vaultCertificates": [
+          {
+              "certificateStore": "[parameters('certificateStoreValue')]",
+              "certificateUrl": "[parameters('certificateUrlValue')]"
+          }
+       ]
+   }
+]
+```
 ### CommonName Certificates
--- How to SF extension ACKL 
+#### ACL Certificate to your Service Fabric Cluster
+[Virtual Machine Scale Set extensions](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) publisher   Microsoft.Azure.ServiceFabric is how your ACL certificates to your Service Fabric Cluster, and the following is the Resource Manager template properties that you will use:
+```json
+"certificate": {
+   "commonNames": [
+       "[parameters('certificateCommonName')]"
+   ],
+   "x509StoreName": "[parameters('certificateStoreValue')]"
+}
+```
 -- SF Cluster Resource Common Name properties
 -- Provide context around bringing your own custom domain
 ### Encrypting Secret Values 
