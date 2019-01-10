@@ -86,7 +86,7 @@ See the [ExpressRoute FAQ][ExR-FAQ] to:
 [VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
 [VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
 [Configuration]: connectivty-interoperability-configuration.md
-[Control-Analysis]connectivty-interoperability-control-plane.md
+[Control-Analysis]: connectivty-interoperability-control-plane.md
 [Data-Analysis]: connectivty-interoperability-data-plane.md
 [ExR-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
 [S2S-Over-ExR]: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
