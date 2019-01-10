@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: pim
 ms.topic: overview
-ms.date: 12/19/2018
+ms.date: 01/09/2019
 ms.author: rolyon
 ms.custom: pim 
 ---
@@ -20,7 +20,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) is a serv
 
 ## Why should I use PIM?
 
-Organizations want to minimize the number of people who have access to secure information or resources, because that reduces the chance of a malicious actor getting that access, or an authorized user inadvertently impacting a sensitive resource. However, users still need to carry out privileged operations in Azure AD, Azure, Office 365, or SaaS apps. Organizations can give users privileged access to Azure resources and Azure AD. There is a need for oversight for what those users are doing with their administrator privileges. PIM helps to mitigate the risk of excessive, unnecessary, or misused access rights.
+Organizations want to minimize the number of people who have access to secure information or resources, because that reduces the chance of a malicious actor getting that access, or an authorized user inadvertently impacting a sensitive resource. However, users still need to carry out privileged operations in Azure AD, Azure, Office 365, or SaaS apps. Organizations can give users just-in-time (JIT) privileged access to Azure resources and Azure AD. There is a need for oversight for what those users are doing with their administrator privileges. PIM helps to mitigate the risk of excessive, unnecessary, or misused access rights.
 
 ## What can I do with PIM?
 
