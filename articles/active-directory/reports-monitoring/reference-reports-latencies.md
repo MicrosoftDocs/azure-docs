@@ -42,6 +42,10 @@ The following table lists the latency information for activity reports.
 | Audit logs | 2 mins  | 5 mins  |
 | Sign-ins | 2 mins  | 5 mins |
 
+### How soon can I see activities data after getting a premium license?
+
+If you already have activities data with your free license, then you can see it immediately on upgrade. If you don’t have any data, then it will take one or two days for the data to show up in the reports after you upgrade to a premium license.
+
 ## Security reports
 
 There are two types of security reports:
