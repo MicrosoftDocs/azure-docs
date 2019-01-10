@@ -117,17 +117,17 @@ If any of the preceding values aren't set, install the latest site extension by 
     ![Check for extension update][check-for-extension-update]
 
 ## Next steps
-[Enable Profiler and view traces](app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json)
+[Enable Profiler and view traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
-[profiler-on-demand]: ./media/app-insights-profiler-settings/Profiler-on-demand.png
-[configure-profiler-entry]: ./media/app-insights-profiler-settings/configure-profiler-entry.png
-[create-performance-test]: ./media/app-insights-profiler-settings/new-performance-test.png
-[configure-performance-test]: ./media/app-insights-profiler-settings/configure-performance-test.png
-[load-test-queued]: ./media/app-insights-profiler-settings/load-test-queued.png
-[load-test-in-progress]: ./media/app-insights-profiler-settings/load-test-inprogress.png
-[enable-app-insights]: ./media/app-insights-profiler-settings/enable-app-insights-blade-01.png
-[update-site-extension]: ./media/app-insights-profiler-settings/update-site-extension-01.png
-[change-and-save-appinsights]: ./media/app-insights-profiler-settings/change-and-save-appinsights-01.png
-[app-settings-for-profiler]: ./media/app-insights-profiler-settings/appsettings-for-profiler-01.png
-[check-for-extension-update]: ./media/app-insights-profiler-settings/check-extension-update-01.png
-[profiler-timeout]: ./media/app-insights-profiler-settings/profiler-timeout.png
+[profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
+[configure-profiler-entry]: ./media/profiler-settings/configure-profiler-entry.png
+[create-performance-test]: ./media/profiler-settings/new-performance-test.png
+[configure-performance-test]: ./media/profiler-settings/configure-performance-test.png
+[load-test-queued]: ./media/profiler-settings/load-test-queued.png
+[load-test-in-progress]: ./media/profiler-settings/load-test-inprogress.png
+[enable-app-insights]: ./media/profiler-settings/enable-app-insights-blade-01.png
+[update-site-extension]: ./media/profiler-settings/update-site-extension-01.png
+[change-and-save-appinsights]: ./media/profiler-settings/change-and-save-appinsights-01.png
+[app-settings-for-profiler]: ./media/profiler-settings/appsettings-for-profiler-01.png
+[check-for-extension-update]: ./media/profiler-settings/check-extension-update-01.png
+[profiler-timeout]: ./media/profiler-settings/profiler-timeout.png
