@@ -138,11 +138,13 @@
       - name: Performance and scalability checklist
         href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Data and metadata management
+      items:
       - name: Access tiers
         href: storage-blob-storage-tiers.md
       - name: Managing the Azure Blob Storage Lifecycle
         href: storage-lifecycle-management-concepts.md
     - name: Data integration
+      items:
       - name: Reacting to events
         href: storage-blob-event-overview.md
     - name: Concurrency
