@@ -119,7 +119,7 @@ For more information about how solution management packs are updated, see [Conne
 > [!NOTE]
 > For systems with the Operations Manger Agent, to be able to be fully managed by Update Management, the agent needs to be updated to the Microsoft Monitoring Agent. To learn how to update the agent, see [How to upgrade an Operations Manager agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
 
-## <a name="enable-update-management"></a>Enable Update Management
+## <a name="onboard"></a>Enable Update Management
 
 To begin patching systems, you need to enable the Update Management solution. There are many ways to onboard machines to Update Management. The following are the recommended and supported ways to onboard the solution:
 
