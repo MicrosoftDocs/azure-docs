@@ -605,20 +605,19 @@ The following section lists steps necessary to create a VM using "VMConfig" file
 
   * **For VM without Azure AAD** - Use the following command to manually enable encryption for the data disks.
 
-  > [!NOTE]
-  > If incase during the command execution it asks for AADClientID, then you need to update your Azure PowerShell.
+    If incase during the command execution it asks for AADClientID, then you need to update your Azure PowerShell.
 
-      **BEK only**
+    **BEK only**
 
-        ```powershell  
-        Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
-        ```
+      ```powershell  
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
+      ```
 
       **BEK and KEK**
 
-        ```powershell  
-        Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
-        ```
+      ```powershell  
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
+      ```
 
 ## Restore files from an Azure VM backup
 
