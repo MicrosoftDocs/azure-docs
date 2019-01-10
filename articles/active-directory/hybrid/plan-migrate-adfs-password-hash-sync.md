@@ -393,7 +393,7 @@ When your tenant used federated identity, users were redirected from the Azure A
 2. Go to the Office 365 sign-in page ([http://portal.office.com](http://portal.office.com/)).
 3. Enter a user UPN, and then select **Next**. Make sure you enter the UPN of a hybrid user that was synced from your on-premises Active Directory instance, and who previously used federated authentication. A page on which you enter the username and password appears:
 
-   ![Screenshot that shows the sign-in page in which you enter a username](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image18.pn)
+   ![Screenshot that shows the sign-in page in which you enter a username](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image18.png)
 
    ![Screenshot that shows the sign-in page in which you enter a password](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image19.png)
 
