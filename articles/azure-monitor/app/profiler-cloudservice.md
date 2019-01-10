@@ -17,8 +17,8 @@ ms.author: mbullwin
 
 You can also deploy Application Insights Profiler on these services:
 * [Azure App Service](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Service Fabric Applications](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Virtual Machines](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Service Fabric applications](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
+* [Azure virtual machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler is installed with the Azure Diagnostics extension. You just need to configure Azure Diagnostics to install Profiler and send profiles to your Application Insights resource.
 
@@ -31,7 +31,7 @@ Application Insights Profiler is installed with the Azure Diagnostics extension.
 
     * For ASP.NET web roles, Application Insights can track the requests automatically.
 
-    * For worker roles, [add code to track requests](app-insights-profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json).
+    * For worker roles, [add code to track requests](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json).
 
 1. Configure the Azure Diagnostics extension to enable Profiler by doing the following:
 
@@ -68,6 +68,6 @@ Application Insights Profiler is installed with the Azure Diagnostics extension.
  
 ## Next steps
 
-* Generate traffic to your application (for example, launch an [availability test](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
-* See [Profiler traces](https://docs.microsoft.com/azure/application-insights/app-insights-profiler-overview?toc=/azure/azure-monitor/toc.json) in the Azure portal.
-* To troubleshoot Profiler issues, see [Profiler troubleshooting](app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+* Generate traffic to your application (for example, launch an [availability test](https://docs.microsoft.com/azure/application-insights/monitor-web-app-availability)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
+* See [Profiler traces](https://docs.microsoft.com/azure/application-insights/profiler-overview?toc=/azure/azure-monitor/toc.json) in the Azure portal.
+* To troubleshoot Profiler issues, see [Profiler troubleshooting](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
