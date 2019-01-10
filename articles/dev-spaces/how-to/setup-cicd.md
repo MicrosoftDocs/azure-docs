@@ -48,6 +48,8 @@ First click on your profile photo in the upper-right of the Azure DevOps site, o
 
 ![Opening preview features pane](../media/common/preview-feature-open.png)
 
+The option to disable:
+
 ![New YAML pipeline creation experience option](../media/common/yaml-pipeline-preview-feature.png)
 
 > [!Note]
