@@ -72,7 +72,7 @@ In addition to the system-provided dead-lettering features, applications can use
 
 Messages will be sent to the transfer dead-letter queue under the following conditions:
 
-- A message passes through more than 3 queues or topics that are [chained together](service-bus-auto-forwarding.md).
+- A message passes through more than 4 queues or topics that are [chained together](service-bus-auto-forwarding.md).
 - The destination queue or topic is disabled or deleted.
 - The destination queue or topic exceeds the maximum entity size.
 

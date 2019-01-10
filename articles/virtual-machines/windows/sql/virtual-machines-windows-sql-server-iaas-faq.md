@@ -107,7 +107,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Is it possible to register self-deployed SQL Server VMs with the SQL VM resource provider?**
 
-   Yes. If you deployed SQL Server from your own media, you can register your SQL VM with the resource provider to get the manageability benefits provided by the SQL IaaS extension. However, you are unable to convert a self-deployed SQL VM to PAYG. 
+   Yes. If you deployed SQL Server from your own media, and installed the SQL IaaS extension you can register your SQL Server VM with the resource provider to get the manageability benefits provided by the SQL IaaS extension. However, you are unable to convert a self-deployed SQL VM to pay-as-you-go.  
 
 ## Administration
 

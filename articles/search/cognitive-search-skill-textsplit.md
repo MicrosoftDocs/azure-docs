@@ -1,5 +1,5 @@
 ---
-title: Text split cognitive search skill (Azure Search) | Microsoft Docs
+title: Text split cognitive search skill - Azure Search
 description: Break text into chunks or pages of text based on length in an Azure Search enrichment pipeline. 
 services: search
 manager: pablocas
@@ -11,6 +11,7 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 #	Text split cognitive skill
 
@@ -26,7 +27,7 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | textSplitMode      | Either "pages" or "sentences" | 
-| maximumPageLength	| If textSplitMode is set to "pages", this refers to the maximum page length as measured by `String.Length`. The minimum value is 100. | 
+| maximumPageLength	| If textSplitMode is set to "pages", this refers to the maximum page length as measured by `String.Length`. The minimum value is 100.  If the textSplitMode is set to "pages", the algorithm will try to split the text into chunks that are at most "maximumPageLenth" in size. In this case, the algorithm will do its best to break the sentence on a sentence boundary, so the size of the chunk may be slightly less than "maximumPageLength". | 
 | defaultLanguageCode	| (optional) One of the following language codes: `da, de, en, es, fi, fr, it, ko, pt`. Default is English (en). Few things to consider:<ul><li>If you pass a languagecode-countrycode format, only the languagecode part of the format is used.</li><li>If the language is not in the previous list, the split skill breaks the text at character boundaries.</li><li>Providing a language code is useful to avoid cutting a word in half for non-space languages such as Chinese, Japanese, and Korean.</li></ul>  |
 
 

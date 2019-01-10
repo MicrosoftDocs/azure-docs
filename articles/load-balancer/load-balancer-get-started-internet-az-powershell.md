@@ -1,5 +1,5 @@
 ﻿---
-title: Create a Standard Load Balancer with zone-redundant frontend using Azure PowerShell
+title: Create a Load Balancer with zone-redundant frontend - Azure PowerShell
 titlesuffix: Azure Load Balancer
 description: Learn how to create public Load Balancer Standard with a zone-redundant Public IP address frontend using PowerShell 
 services: load-balancer

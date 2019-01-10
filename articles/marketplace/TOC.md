@@ -1,16 +1,18 @@
 # [Azure Marketplace and AppSource documentation](index.md)
-## [Rating and review policies](./rating-review-policies.md)   
+
 ## [Azure Marketplace and AppSource overview and benefits](./marketplace-publishers-guide.md)  
 
 ### [Become a publisher on the marketplace](./become-publisher.md)  
 #### [Create a Microsoft account](./guidelines.md)
 #### [Register in Dev Center](./register-dev-center.md) 
 #### [Azure partner customer usage attribution](./azure-partner-customer-usage-attribution.md)
-#### [Lead management for cloud marketplace](./lead-management-for-cloud-marketplace.md)
 
-### [Storefronts](./comparing-appsource-azure-marketplace.md)  
+### [One marketplace, two storefronts](./comparing-appsource-azure-marketplace.md)  
 
-### [Determine the publishing option for your solution](./determine-your-listing-type.md)  
+### [Publishing options and considerations](./determine-your-listing-type.md)
+#### [Lead management](./lead-management-for-cloud-marketplace.md)
+#### [Transacting in Azure Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md)
+#### [Private Offers](./private-offers.md)
 
 ### [Publishing guide by offer type](./publisher-guide-by-offer-type.md)
 #### [Virtual Machines](./marketplace-virtual-machines.md)
@@ -26,8 +28,7 @@
 ### [Grow your business through marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Preferred solutions](./preferred-solutions.md) 
 #### [Marketplace content validation](./marketplace-criteria-content-validation.md)
-#### [Private Offers](./private-offers.md)
-#### [Marketplace ‎commercial transaction capabilities and considerations](./marketplace-commercial-transaction-capabilities-and-considerations.md)
+#### [Rating and review policies](./rating-review-policies.md)   
 
 ### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)  
 
@@ -82,21 +83,6 @@
 ### [Publish VM offer](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
 ### [Update existing offer](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
 
-<!-- Following legacy VM section was replaced.  -->
-<!-- 
-## Virtual machines
-### [Dev center account registration](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
-### [Author virtual machine offer](./cloud-partner-portal-orig/cloud-partner-portal-publish-virtual-machine.md)
-### [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
-### [SEO guidance](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
-### [Make offer live](./cloud-partner-portal-orig/cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md)
-### [Update existing offer](./cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer.md)
-### [Delete offer](./cloud-partner-portal-orig/cloud-partner-portal-delete-an-offer.md)
-### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
-### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
--->
-<!-- new section for Azure apps -->
-
 ## [Azure application offer](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 ### [Prerequisites](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
 ### [Create Azure application offer](./cloud-partner-portal/azure-applications/cpp-create-offer.md)
@@ -105,7 +91,7 @@
 #### [Test Drive tab](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
 #### [Marketplace tab](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
 #### [Support tab](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
-<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 ### [Publish Azure application offer](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 ### [Update existing offer](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
@@ -121,7 +107,7 @@
    Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  
 -->
 
-<!-- new for SaaS 12/05/2018 -->
+<!-- new for SaaS 12/24/2018 -->
 ## [SaaS application offer](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
 ### [Prerequisites](./cloud-partner-portal/saas-app/cpp-prerequisites.md)
 ### [Create SaaS application offer](./cloud-partner-portal/saas-app/cpp-create-offer.md)
@@ -135,6 +121,7 @@
 ### [Publish offer](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
 ### [Update existing offer](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
 ### [SaaS APIs](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+### [SaaS self-test client](./cloud-partner-portal/saas-app/cpp-selftest-client.md)
 
 <!-- Legacy SaaS Offer replaced
 ## [SaaS application offer](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
@@ -176,12 +163,26 @@
 
 <!-- ## [Cortana Intelligence](./cloud-partner-portal-orig/cloud-partner-portal-publish-cortana-intelligence-app.md)  -->
 
+## [Dynamics 365 for Customer Engagement offer](./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md)
+### [Prerequisites](./cloud-partner-portal/dyn365ce/cpp-prerequisites.md)
+### [Create IoT Edge module offer](./cloud-partner-portal/dyn365ce/cpp-create-offer.md)
+#### [Offer Settings tab](./cloud-partner-portal/dyn365ce/cpp-offer-settings-tab.md)
+#### [Technical Info tab](./cloud-partner-portal/dyn365ce/cpp-technical-info-tab.md)
+#### [Test Drive tab](./cloud-partner-portal/dyn365ce/cpp-testdrive-tab.md)
+#### [Storefront Details tab](./cloud-partner-portal/dyn365ce/cpp-storefront-details-tab.md)
+#### [Contacts tab](./cloud-partner-portal/dyn365ce/cpp-contacts-tab.md)
+### [Create Customer Engagement technical assets](./cloud-partner-portal/dyn365ce/cpp-create-technical-assets.md)
+### [Publish Customer Engagement offer](./cloud-partner-portal/dyn365ce/cpp-publish-offer.md)
+
+<!-- Following legacy IoT section was replaced.  -->
+<!-- 
 ## [Dynamics 365 for Customer Engagement offer](./cloud-partner-portal-orig/cpp-customer-engagement-offer.md)
 ### [Create solution](./cloud-partner-portal-orig/dynamics-365-solution-preparation.md)
 ### [Create package](./cloud-partner-portal-orig/appSource-package-preparation.md)
 ### [Generate SAS key](./cloud-partner-portal-orig/store-your-appSource-package-to-azure-storage-and-generate-sas-key.md)
 ### [Create offer](./cloud-partner-portal-orig/setup-your-application-in-the-publishing-portal.md)
 ### [Publish offer](./cloud-partner-portal-orig/request-to-publish-the-app.md)
+-->
 
 ## [Dynamics 365 for Business Central offer](./cloud-partner-portal-orig/cpp-business-central-offer.md)
 ### [Publish overview](./cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md)
@@ -200,10 +201,15 @@
 ### [BPM and methodologies](./cloud-partner-portal-orig/bpm-and-methodologies.md)
 ### [Help wiki](./cloud-partner-portal-orig/help-wiki.md)
 
+<!--
 ## [Consulting services](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
-## [Manage publisher profile](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
-## [Manage users](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
-## [GDPR compliance](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
+-->
+## [Consulting services](./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md)
+### [Prerequisites](./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md)
+### [Create a consulting service offer](./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md)
+#### [Offer settings tab](./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md)
+#### [Storefront details tab](./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md)
+### [Publish consulting service offer](./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md) 
 
 ## Test Drive
 ### [What is Test Drive?](./cloud-partner-portal-orig/what-is-test-drive.md)

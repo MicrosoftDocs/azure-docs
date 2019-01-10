@@ -16,11 +16,9 @@ ms.date: 9/11/2018
 ms.author: dekapur
 
 ---
-
-<a id="preparemachines"></a>
-
 # Plan and prepare your Service Fabric Standalone cluster deployment
-Perform the following steps before you create your cluster.
+
+<a id="preparemachines"></a>Perform the following steps before you create your cluster.
 
 ## Plan your cluster infrastructure
 You are about to create a Service Fabric cluster on machines you "own", so you can decide what kinds of failures you want the cluster to survive. For example, do you need separate power lines or Internet connections supplied to these machines? In addition, consider the physical security of these machines. Where are the machines located and who needs access to them? After you make these decisions, you can logically map the machines to various fault domains (see next step). The infrastructure planning for production clusters is more involved than for test clusters.

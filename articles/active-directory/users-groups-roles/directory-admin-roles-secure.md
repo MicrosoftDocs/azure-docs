@@ -207,7 +207,7 @@ Microsoft accounts from other programs, such as Xbox, Live, and Outlook should n
 
 #### Monitor Azure activity
 
-The Azure Activity Log provides a history of subscription-level events in Azure. It offers information about who created, updated, and deleted what resources, and when these events occurred. For more information, see [Audit and receive notifications about important actions in your Azure subscription](../../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md).
+The Azure Activity Log provides a history of subscription-level events in Azure. It offers information about who created, updated, and deleted what resources, and when these events occurred. For more information, see [Audit and receive notifications about important actions in your Azure subscription](../../azure-monitor/platform/quick-audit-notify-action-subscription.md).
 
 
 ### Additional steps for organizations managing access to other cloud apps via Azure AD 

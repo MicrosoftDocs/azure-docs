@@ -37,7 +37,7 @@ We set up an ADF pipeline that composes two data migration activities. Together 
 * copy data from the Azure Blob Storage account to an Azure SQL Database.
 
 > [!NOTE]
-> The steps shown here have been adapted from the more detailed tutorial provided by the ADF team: [Copy data from an on-premises SQL Server database to Azure Blob storage](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal/) References to the relevant sections of that topic are provided when appropriate.
+> The steps shown here have been adapted from the more detailed tutorial provided by the ADF team: [Copy data from an on-premises SQL Server database to Azure Blob storage](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) References to the relevant sections of that topic are provided when appropriate.
 >
 >
 
@@ -65,7 +65,7 @@ The instructions for creating a new Azure Data Factory and a resource group in t
 ## Install and configure Azure Data Factory Integration Runtime 
 The Integration Runtime is a customer managed data integration infrastructure used by Azure Data Factory to provide data integration capabilities across different network environments. This runtime was formerly called "Data Management Gateway". 
 
-To set up, [follow the instrutions for creating a pipeline](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+To set up, [follow the instrutions for creating a pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>Create linked services to connect to the data resources
 A linked service defines the information needed for Azure Data Factory to connect to a data resource. We have three resources in this scenario for which linked services are needed:

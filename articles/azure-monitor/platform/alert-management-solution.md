@@ -19,12 +19,12 @@ ms.author: bwren
 
 ![Alert Management icon](media/alert-management-solution/icon.png)
 
-The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those sources [created by Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) or [imported from Nagios or Zabbix](../../azure-monitor/learn/quick-collect-linux-computer.md). The solution also imports alerts from any [connected System Center Operations Manager management groups](../../azure-monitor/platform/om-agents.md).
+The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those sources [created by Log Analytics](../../azure-monitor/platform/alerts-overview.md) or [imported from Nagios or Zabbix](../../azure-monitor/learn/quick-collect-linux-computer.md). The solution also imports alerts from any [connected System Center Operations Manager management groups](../../azure-monitor/platform/om-agents.md).
 
 ## Prerequisites
 The solution works with any records in the Log Analytics repository with a type of **Alert**, so you must perform whatever configuration is required to collect these records.
 
-- For Log Analytics alerts, [create alert rules](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) to create alert records directly in the repository.
+- For Log Analytics alerts, [create alert rules](../../azure-monitor/platform/alerts-overview.md) to create alert records directly in the repository.
 - For Nagios and Zabbix alerts, [configure those servers](../../azure-monitor/learn/quick-collect-linux-computer.md) to send alerts to Log Analytics.
 - For System Center Operations Manager alerts, [connect your Operations Manager management group to your Log Analytics workspace](../../azure-monitor/platform/om-agents.md).  Any alerts created in System Center Operations Manager are imported into Log Analytics.  
 
@@ -116,4 +116,4 @@ The following table provides sample log searches for alert records collected by 
 
 
 ## Next steps
-* Learn about [Alerts in Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) for details on generating alerts from Log Analytics.
+* Learn about [Alerts in Log Analytics](../../azure-monitor/platform/alerts-overview.md) for details on generating alerts from Log Analytics.

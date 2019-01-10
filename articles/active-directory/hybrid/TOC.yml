@@ -133,6 +133,12 @@
       href: plan-connect-userprincipalname.md
     - name: Special considerations for instances
       href: reference-connect-instances.md
+    - name: Migration
+      items:
+          - name: Migrate from federation to PHS
+            href: plan-migrate-adfs-password-hash-sync.md
+          - name: Migrate from federation to PTA
+            href: plan-migrate-adfs-pass-through-authentication.md
     - name: Hybrid Identity Design Considerations
       items:
           - name: Hybrid Identity Design Considerations Overview

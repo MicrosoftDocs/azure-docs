@@ -95,7 +95,7 @@ While you can use any of the above options, you can also install the environment
    >[!NOTE]
    >You can use an existing conda as long as it is version 4.4.10 or later. Use `conda -V` to display the version. You can update a conda version with the command: `conda update conda`. There's no need to install mini-conda specifically.
 
-1. Download the sample notebooks from [Github](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
+1. Download the sample notebooks from [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
 ) as a zip and extract the contents to a local directory. The Automated machine learning notebooks are in the `how-to-use-azureml/automated-machine-learning` folder.
 
 1. Set up a new Conda environment. 
@@ -113,9 +113,10 @@ While you can use any of the above options, you can also install the environment
       + Configures the widget
       + Starts a jupyter notebook
       
-      The script takes the conda environment name as an optional parameter. The default conda environment name is `azure_automl`. The exact command depends on the operating system. 
+   >[!NOTE]
+   > The script takes the conda environment name as an optional parameter. The default conda environment name is `azure_automl`. The exact command depends on the operating system. This is useful if you are creating a new environment or upgrading to a new version. For example you can use 'automl_setup.cmd azure_automl_sandbox' to create an evironment name azure_automl_sandbox. 
       
-      Once the script has completed, you will see a Jupyter notebook home page in your browser.
+1. Once the script has completed, you will see a Jupyter notebook home page in your browser.
 
 1. Navigate to the path where you saved the notebooks. 
 

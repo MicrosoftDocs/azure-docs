@@ -1,9 +1,9 @@
 ---
-title: Deploy Azure Digital Twins | Microsoft Docs
+title: 'Tutorial: Deploy Azure Digital Twins | Microsoft Docs'
 description: Learn how to deploy your instance of Azure Digital Twins and configure your spatial resources by using the steps in this tutorial.
 services: digital-twins
 author: dsk-2015
-
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
 ms.date: 10/15/2018

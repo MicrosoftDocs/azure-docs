@@ -1,6 +1,7 @@
 ---
-title: Create a public Load Balancer Standard with zonal frontend using Azure CLI | Microsoft Docs
-description: Learn how to create a public Load Balancer Standard with zonal frontend using Azure CLI
+title: Create a Load Balancer with zonal frontend - Azure CLI
+titlesuffix: Azure Load Balancer
+description: Learn how to create a Standard Load Balancer with zonal frontend using Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD

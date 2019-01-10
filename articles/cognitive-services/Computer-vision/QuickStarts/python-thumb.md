@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Generate a thumbnail - REST, Python - Computer Vision"
+title: "Quickstart: Generate a thumbnail - REST, Python"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you generate a thumbnail from an image using the Computer Vision API with Python.
 services: cognitive-services
@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
 # Quickstart: Generate a thumbnail using the REST API and Python in Computer Vision
 

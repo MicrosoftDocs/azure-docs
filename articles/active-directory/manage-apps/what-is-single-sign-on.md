@@ -63,7 +63,7 @@ To configure an application for SAML-based single sign-on, see [Configure SAML-b
 For more information about how the SAML protocol works, see [Single sign-on SAML protocol](../develop/single-sign-on-saml-protocol.md).
 
 ## Password-based SSO
-With password-based sign-on, the application authenticates to the application with a username and password. End-users sign in to the application the first time they access it. After the first sign-on, Azure Active Directory supplies the username and password to the application. 
+With password-based sign-on, end-users sign in to the application with a username and password the first time they access it. After the first sign-on, Azure Active Directory supplies the username and password to the application. 
 
 Password-based single sign-on uses the existing authentication process provided by the application. When you enable password single sign-on for an application, Azure AD collects and securely stores user names and passwords for the application. User credentials are stored in an encrypted state in the directory. 
 
@@ -75,7 +75,7 @@ Use password-based single sign-on when:
 Password-based single sign-on is supported for any cloud-based application that has an HTML-based sign-in page. The user can use any of the following browsers:
 
 - Internet Explorer 11 on Windows 7 or later
-- Edge on Windows 10 Anniversary Edition or later 
+- Microsoft Edge on Windows 10 Anniversary Edition or later 
 - Chrome on Windows 7 or later, and on MacOS X or later
 - Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 

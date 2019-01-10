@@ -1,5 +1,5 @@
 ---
-title: Azure App Service Environment management addresses
+title: App Service Environment management addresses - Azure
 description: Lists the management addresses used to command an App Service Environment 
 services: app-service
 documentationcenter: na
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: ccompy
+ms.custom: seodec18
 ---
 # App Service Environment management addresses
 

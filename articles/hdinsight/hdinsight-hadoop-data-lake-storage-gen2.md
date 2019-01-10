@@ -39,7 +39,7 @@ Apache Hadoop applications natively expect to read and write data from local dis
 
 Previously, the Hadoop filesystem driver would convert all filesystem operations to Azure Storage REST API calls on the client side and then invoke the REST API. This client-side conversion, however, resulted in multiple REST API calls for a single filesystem operation like a file rename. ABFS has moved some of the Hadoop filesystem logic from the client-side to the server-side and the ADLS Gen2 API now runs in parallel with the Blob API. This migration improves performance because now common Hadoop filesystem operations can be executed with one REST API call.
 
-For more information, see [The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Hadoop](../storage/data-lake-storage/abfs-driver.md).
+For more information, see [The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Apache Hadoop](../storage/data-lake-storage/abfs-driver.md).
 
 ### ADLS Gen 2 URI scheme
 
@@ -62,7 +62,7 @@ abfss://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapr
 abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
 ```
 
-> [!Note]
+> [!NOTE]  
 > The file name is `hadoop-examples.jar` in HDInsight versions 2.1 and 1.6 clusters. When working with files outside of HDInsight, most utilities do not recognize the ABFS format and instead expect a basic path format, such as `example/jars/hadoop-mapreduce-examples.jar`.
 
 For more information, see [Use the Azure Data Lake Storage Gen2 URI](../storage/data-lake-storage/introduction-abfs-uri.md).

@@ -1,5 +1,5 @@
 ---
-title: Image Analysis cognitive search skill (Azure Search) | Microsoft Docs
+title: Image Analysis cognitive search skill - Azure Search
 description: Extract semantic text through image analysis using the ImageAnalysis cognitive skill in an Azure Search enrichment pipeline.
 services: search
 manager: pablocas
@@ -11,6 +11,7 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 #	Image Analysis cognitive skill
 

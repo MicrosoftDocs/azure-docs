@@ -25,7 +25,7 @@ ms.date: 03/20/2017
 
 &nbsp; 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## Goal
 Our project started with two goals in mind: 

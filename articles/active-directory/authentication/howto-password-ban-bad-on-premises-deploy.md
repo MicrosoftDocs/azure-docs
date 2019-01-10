@@ -84,6 +84,9 @@ There are two required installers for Azure AD password protection that can be d
    * The software installation does not require a reboot. The software installation may be automated using standard MSI procedures, for example:
    `msiexec.exe /i AzureADPasswordProtectionProxy.msi /quiet /qn`
 
+      > [!NOTE]
+      > The Windows Firewall service must be running before installing the AzureADPasswordProtectionProxy.msi MSI package or else an installation error will occur. If the Windows Firewall is configured to not run, the workaround is to temporarily enable and start the Windows Firewall service during the installation process. The proxy software has no specific dependency on the Windows Firewall software after installation. If you are using a third-party firewall, it must still be configured to satisfy the deployment requirements (allow inbound access to port 135 and the proxy RPC server port whether dynamic or static). [See deployment requirements](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements)
+
 3. Open a PowerShell window as an Administrator.
    * The Azure AD password protection Proxy software includes a new PowerShell module named AzureADPasswordProtection. The following steps are based on running various cmdlets from this PowerShell module, and assume that you have opened a new PowerShell window and have imported the new module as follows:
       * `Import-Module AzureADPasswordProtection`

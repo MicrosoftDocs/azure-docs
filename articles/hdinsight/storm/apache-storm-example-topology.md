@@ -12,11 +12,11 @@ ms.date: 05/30/2018
 ---
 # Example Apache Storm topologies and components for Apache Storm on HDInsight
 
-The following is a list of examples created and maintained by Microsoft for use with [Apache Storm](http://storm.apache.org/) on HDInsight. These examples cover a variety of topics, from creating basic C# and Java topologies to working with Azure services such as Event Hubs, Cosmos DB, SQL Database, [Apache HBase](http://hbase.apache.org/) on HDInsight, and Azure Storage. Some examples also demonstrate how to work with non-Azure, or even non-Microsoft technologies, such as SignalR and Socket.IO.
+The following is a list of examples created and maintained by Microsoft for use with [Apache Storm](https://storm.apache.org/) on HDInsight. These examples cover a variety of topics, from creating basic C# and Java topologies to working with Azure services such as Event Hubs, Cosmos DB, SQL Database, [Apache HBase](https://hbase.apache.org/) on HDInsight, and Azure Storage. Some examples also demonstrate how to work with non-Azure, or even non-Microsoft technologies, such as SignalR and Socket.IO.
 
 | Description | Demonstrates | Language/Framework |
 |:--- |:--- |:--- |
-| [Write to Azure Data Lake Store from Apache Storm](apache-storm-write-data-lake-store.md) |Writing to Azure Data Lake Store |Java |
+| [Write to Azure Data Lake Storage from Apache Storm](apache-storm-write-data-lake-store.md) |Writing to Azure Data Lake Storage |Java |
 | [Event Hub Spout and Bolt source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |Source for the Event Hub Spout and Bolt |Java |
 | [Develop Java-based topologies for Apache Storm on HDInsight][5797064f] |Maven |Java |
 | [Develop C# topologies for Apache Storm on HDInsight using Visual Studio][16fce2d1] |HDInsight Tools for Visual Studio |C#, Java |
@@ -29,7 +29,7 @@ The following is a list of examples created and maintained by Microsoft for use 
 | [Use Python with Apache Storm on HDInsight](apache-storm-develop-python-topology.md) |Python components with a Flux topology |Python |
 | [Use Apache Kafka with Apache Storm on HDInsight](../hdinsight-apache-storm-with-kafka.md) | Apache Storm reading and writing to Apache Kafka | Java |
 
-> [!WARNING]
+> [!WARNING]  
 > The C# examples in this list were originally created and tested with Windows-based HDInsight, and may not work correctly with Linux-based HDInsight clusters. Linux-based clusters use Mono to run .NET code, and may have compatibility problems with the frameworks and packages used in the example.
 >
 > Linux is the only operating system used on HDInsight version 3.4 or later.

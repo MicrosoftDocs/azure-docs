@@ -22,7 +22,7 @@ ms.author: pbutlerm
 <table> <tr> <td>This section explains how to publish a consulting service to either the Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> or the <a href="https://appsource.microsoft.com">AppSource Marketplace</a>. Solutions based upon Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>, and <a href="https://powerapps.microsoft.com">PowerApps</a> are eligible to be listed on AppSource. Other offers based upon other Microsoft <a href="https://azure.microsoft.com/services">Azure services</a> are eligible for listing on Azure Marketplace. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
 
 
-# Publishing benefits
+## Publishing benefits
 
 Publishing to either of the Microsoft marketplaces has substantial benefits:
 
@@ -32,8 +32,7 @@ Publishing to either of the Microsoft marketplaces has substantial benefits:
 - Get your services promoted by the Microsoft field and telesales teams.
 
 
-Define your Consulting Services Offer
--------------------------------------
+## Define your Consulting Services Offer
 
 Define your packaged consulting service offering. Focus on fixed scope,
 fixed duration, estimated, fixed price (or free), and primarily
@@ -41,8 +40,7 @@ pre-sales-oriented offerings for a single customer. Select repeatable
 packaged engagements that have been popular and effective at driving new
 business for you.
 
-Publish a Consulting Service Offer
-----------------------------------
+## Publish a Consulting Service Offer
 
 The following sections describe the process of publishing your
 Consulting Services offer

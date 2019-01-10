@@ -3,17 +3,16 @@ title: Create a Service Principal for Azure Stack | Microsoft Docs
 description: Describes how to create a service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: azure-resource-manager
 documentationcenter: na
-author: sethmanheim
+author: mattbriggs
 manager: femila
 
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6 
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
-ms.author: sethm
+ms.date: 12/12/2018
+ms.author: mabrigg
 ms.reviewer: thoroet
 
 ---
@@ -48,7 +47,7 @@ The way you configured Active Directory for Azure Stack determines how you creat
 
 The steps for assigning a service principal to a role the same for Azure AD and AD FS. After you create the service principal, you can [delegate permissions](azure-stack-create-service-principals.md#assign-role-to-service-principal) by assigning it to a role.
 
-## Create a service principal for Azure AD
+## Create service principal for Azure AD
 
 If your Azure Stack uses Azure AD as the identity store, you can create a service principal using the same steps as in Azure, using the Azure portal.
 
@@ -91,7 +90,7 @@ If you deployed Azure Stack using AD FS as the identity store, you can use Power
 * Assign service principal to a role.
 * Sign in using the service principal's identity.
 
-For details on how to create the service principal, see [Create service principal for AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
+For details on how to create the service principal, see [Create service principal for AD FS](../azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 ## Assign the service principal to a role
 
@@ -110,9 +109,7 @@ Use the following steps as a guide for assigning a role to a service principal.
 
 3. Select **Access Control (IAM)** for the subscription.
 
-     ![Select Access control](./media/azure-stack-create-service-principal/image17.png)
-
-4. Select **Add**.
+4. Select **Add role assignment**.
 
 5. Select the role you wish to assign to the application.
 

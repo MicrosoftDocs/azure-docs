@@ -1,5 +1,5 @@
 ---
-title: Metrics, alerts, and diagnostic logs for Azure Batch | Microsoft Docs
+title: Metrics, alerts, and diagnostic logs - Azure Batch | Microsoft Docs
 description: Record and analyze diagnostic log events for Azure Batch account resources like pools and tasks.
 services: batch
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: danlep
-ms.custom: 
+ms.custom: seodec18
 
 ---
 # Batch metrics, alerts, and logs for diagnostic evaluation and monitoring
 
  
-This article explains how to monitor a Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../azure-monitor/platform/data-collection.md#metrics) and [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) so you receive notifications when a metric reaches a specified value. 
+This article explains how to monitor a Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../azure-monitor/platform/data-collection.md#metrics) and [diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../azure-monitor/platform/alerts-overview.md) so you receive notifications when a metric reaches a specified value. 
 
 ## Batch metrics
 
 Metrics are Azure telemetry data (also called performance counters) emitted by your Azure resources which are consumed by the Azure Monitor service. Example metrics in a Batch account include: Pool Create Events, Low-Priority Node Count, and Task Complete Events. 
 
-See the [list of supported Batch metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
+See the [list of supported Batch metrics](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
 Metrics are:
 
@@ -67,7 +67,7 @@ To configure a metric alert in the portal:
 2. Under **Monitoring**, click **Alert rules** > **Add metric alert**.
 3. Select a metric, an alert condition (such as when a metric exceeds a particular value during a period), and one or more notifications.
 
-You can also configure a near real-time alert using the [REST API](https://docs.microsoft.com/rest/api/monitor/). For more information, see [Alerts Overview](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+You can also configure a near real-time alert using the [REST API](https://docs.microsoft.com/rest/api/monitor/). For more information, see [Alerts Overview](../azure-monitor/platform/alerts-overview.md)
 
 ## Batch diagnostics
 
@@ -105,7 +105,7 @@ Other optional destinations for diagnostic logs:
 
     ![Batch diagnostics](media/batch-diagnostics/diagnostics-portal.png)
 
-Other options to enable log collection include: use Azure Monitor in the portal to configure diagnostic settings, use a [Resource Manager template](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md), or use Azure PowerShell or the Azure CLI. see [Collect and consume log data from your Azure resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
+Other options to enable log collection include: use Azure Monitor in the portal to configure diagnostic settings, use a [Resource Manager template](../azure-monitor/platform/diagnostic-logs-stream-template.md), or use Azure PowerShell or the Azure CLI. see [Collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs).
 
 
 ### Access diagnostics logs in storage
@@ -129,7 +129,7 @@ BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 Each PT1H.json blob file contains JSON-formatted events that occurred within the hour specified in the blob URL (for example, h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since diagnostic log events are broken into individual blobs per hour. (All times are in UTC.)
 
 
-For more information about the schema of diagnostic logs in the storage account, see [Archive Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+For more information about the schema of diagnostic logs in the storage account, see [Archive Azure Diagnostic Logs](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
 
 To access the logs in your storage account programmatically, use the Storage APIs. 
 

@@ -19,6 +19,9 @@ This article describes how to troubleshoot known issues with Azure SQL Data Sync
 
 For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md).
 
+> [!IMPORTANT]
+> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
+
 ## Sync issues
 
 - [Sync fails in the portal UI for on-premises databases that are associated with the client agent](#sync-fails)

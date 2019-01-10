@@ -1,13 +1,10 @@
 ---
 title: Minimal-downtime migration to Azure Database for PostgreSQL
 description: This article describes how to perform a minimal-downtime migration of a PostgreSQL database to Azure Database for PostgreSQL by using the Azure Database Migration Service.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/07/2018
 ---
 

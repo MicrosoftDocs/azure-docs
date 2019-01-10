@@ -25,7 +25,7 @@ This cURL-based quickstart walks you through getting an answer from your knowled
 
 When you are ready to generate an answer to a question from your knowledge base, [publish](../How-to/publish-knowledge-base.md) your knowledge base.
 
-## Use endpoint with cURL
+## Use production endpoint with cURL
 
 When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **CURL** tab shows the settings required to generate an answer from the command-line tool, [CURL](https://www.getpostman.com).
 
@@ -61,6 +61,12 @@ To generate an answer with CURL, complete the following steps:
       ]
     }
     ```
+
+## Use staging endpoint with cURL
+
+If you want to get an answer from the staging endpoint, use the querystring boolean parameter `isTest` with the value of `true`.
+
+`isTest=true`
 
 ## Next steps
 

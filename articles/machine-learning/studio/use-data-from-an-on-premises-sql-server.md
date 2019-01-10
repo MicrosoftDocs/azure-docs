@@ -36,7 +36,7 @@ experiments, *etc.*.
 
 <!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## Install the Data Factory Self-hosted Integration Runtime
 To access an on-premises SQL Server database in Azure Machine Learning, you need

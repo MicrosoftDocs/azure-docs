@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 12/17/2018
 
 ms.custom: seodec18
 
@@ -19,7 +19,8 @@ You can enable many disk-encryption scenarios, and the steps may vary according 
 Take a [snapshot](../virtual-machines/windows/snapshot-copy-managed-disk.md) and/or back up  before disks are encrypted. Backups ensure that a recovery option is possible if an unexpected failure occurs during encryption. VMs with managed disks require a backup before encryption occurs. Once a backup is made, you can use the Set-AzureRmVMDiskEncryptionExtension cmdlet to encrypt managed disks by specifying the -skipVmBackup parameter. For more information about how to back up and restore encrypted VMs, see the [Azure Backup](../backup/backup-azure-vms-encryption.md) article. 
 
 >[!WARNING]
-> Azure Disk Encryption needs the Key Vault and the VMs to be co-located in the same region. Create and use a Key Vault that is in the same region as the VM to be encrypted. 
+> - If you have previously used [Azure Disk Encryption with Azure AD app](azure-security-disk-encryption-prerequisites-aad.md) to encrypt this VM, you will have to continue use this option to encrypt your VM. You can’t use [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) on this encrypted VM as this isn’t a supported scenario, meaning switching away from AAD application for this encrypted VM isn’t supported yet. 
+> - Azure Disk Encryption needs the Key Vault and the VMs to be co-located in the same region. Create and use a Key Vault that is in the same region as the VM to be encrypted. 
 
 
 ## <a name="bkmk_RunningWinVM"></a> Enable encryption on existing or running IaaS Windows VMs
@@ -138,6 +139,7 @@ The following table lists the Resource Manager template parameters for existing 
 | location | Location for all resources. |
 
 ## Encrypt virtual machine scale sets
+
 [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md) let you create and manage a group of identical, load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Use the CLI or Azure PowerShell to encrypt virtual machine scale sets.
 
 
@@ -237,7 +239,20 @@ Use the [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryptio
      az vmss encryption disable --resource-group "MySecureRG" --name "MySecureVmss"
     ```
 
-## <a name="bkmk_VHDpre"> </a>New IaaS VMs created from customer-encrypted VHD and encryption keys
+### Azure Resource Manager templates for Windows virtual machine scale sets
+
+To encrypt or decrypt Windows virtual machine scale sets, use the Azure Resource Manager templates and instructions below:
+
+- [Enable encryption on a Windows virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+- [Deploy a VM scale set of Windows VMs with a jumpbox and enable encryption on the Windows VM scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+- [Disable encryption on a Windows VM scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+
+     1. Click **Deploy to Azure**.
+     2. Fill in the required fields then agree to the terms and conditions.
+     3. Click **Purchase** to deploy the template.
+
+## <a name="bkmk_VHDpre"> </a> New IaaS VMs created from customer-encrypted VHD and encryption keys
+
 In this scenario, you can enable encrypting by using  PowerShell cmdlets or CLI commands. 
 
 Use the instructions in the appendix for preparing pre-encrypted images that can be used in Azure. After the image is created, you can use the steps in the next section to create an encrypted Azure VM.

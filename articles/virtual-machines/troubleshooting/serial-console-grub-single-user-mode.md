@@ -24,10 +24,10 @@ Single user mode is a minimal environment with minimal functionality. It can be 
 
 Single user mode is also useful in situations where your VM may only be configured to accept SSH keys to log in. In this case, you may be able to use single user mode to create an account with password authentication.
 
-To enter single user mode, you will need to enter GRUB when your VM is booting up, and modify the boot configuration in GRUB. This may be done with the VM serial console. 
+To enter single user mode, you will need to enter GRUB when your VM is booting up, and modify the boot configuration in GRUB. This may be done with the VM serial console.
 
 ## General GRUB access
-To access GRUB, you will need to reboot your VM while keeping the serial console blade open. Some distros will require keyboard input to show GRUB, while others will automatically show GRUB for a few seconds and allow user keyboard input to cancel the timeout. 
+To access GRUB, you will need to reboot your VM while keeping the serial console blade open. Some distros will require keyboard input to show GRUB, while others will automatically show GRUB for a few seconds and allow user keyboard input to cancel the timeout.
 
 You will want to ensure that GRUB is enabled on your VM in order to be able to access single user mode. Depending on your distro, there may be some setup work to ensure that GRUB is enabled. Distro-specific information is available below and at [this link](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
 
@@ -59,11 +59,11 @@ Single-user mode in RHEL requires the root user to be enabled, which is disabled
 
 1. Log in to the Red Hat system via SSH
 1. Switch to root
-1. Enable password for root user 
+1. Enable password for root user
     * `passwd root` (set a strong root password)
 1. Ensure root user can only log in via ttyS0
     * `edit /etc/ssh/sshd_config` and ensure PermitRootLogIn is set to no
-    * `edit /etc/securetty file` to only allow log in via ttyS0 
+    * `edit /etc/securetty file` to only allow log in via ttyS0
 
 Now if the system boots into single user mode you can log in via root password.
 
@@ -79,7 +79,7 @@ If you have set up GRUB and root access with the instructions above, then you ca
 1. Add the following to the end of the line: `systemd.unit=rescue.target`
     * This will boot you into single user mode. If you want to use emergency mode, add `systemd.unit=emergency.target` to the end of the line instead of `systemd.unit=rescue.target`
 1. Press Ctrl + X to exit and reboot with the applied settings
-1. You will be prompted for the administrator password before being able to enter single user mode - this is the same password you created in the instructions above    
+1. You will be prompted for the administrator password before being able to enter single user mode - this is the same password you created in the instructions above
 
     ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
@@ -100,11 +100,11 @@ If you did not go through the steps above to enable the root user, you can still
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
-> Note: Running through the instructions above will drop you into emergency shell, so you can also perform tasks such as editing `fstab`. However, the generally accepted suggestion is to reset your root password and use that to enter single user mode. 
+> Note: Running through the instructions above will drop you into emergency shell, so you can also perform tasks such as editing `fstab`. However, the generally accepted suggestion is to reset your root password and use that to enter single user mode.
 
 
 ## Access for CentOS
-Much like Red Hat Enterprise Linux, single user mode in CentOS requires GRUB and the root user to be enabled. 
+Much like Red Hat Enterprise Linux, single user mode in CentOS requires GRUB and the root user to be enabled.
 
 ### GRUB access in CentOS
 CentOS comes with GRUB enabled out of the box. To enter GRUB, reboot your VM with `sudo reboot` and press any key. You will see the GRUB screen show up.
@@ -112,8 +112,8 @@ CentOS comes with GRUB enabled out of the box. To enter GRUB, reboot your VM wit
 ### Single user mode in CentOS
 Follow the instructions for RHEL above to enable single user mode in CentOS.
 
-## Access for Ubuntu 
-Ubuntu images do not require a root password. If the system boots into single user mode, you can use it without additional credentials. 
+## Access for Ubuntu
+Ubuntu images do not require a root password. If the system boots into single user mode, you can use it without additional credentials.
 
 ### GRUB access in Ubuntu
 To access GRUB, press and hold 'Esc' while the VM is booting up.
@@ -133,8 +133,17 @@ Ubuntu will drop you into single user mode automatically if it cannot boot norma
 1. Add `single` after `ro`, ensuring there is a space before and after `single`
 1. Press Ctrl + X to reboot with these settings and enter single user mode
 
+### Using GRUB to invoke bash in Ubuntu
+There may be situations (such as a forgotten root password) where you may still be unable to access single user mode in your Ubuntu VM after trying the instructions above. You can also tell the kernel to run /bin/bash as init, rather than the system init, which will give you a bash shell and allow for system maintenance. Use the following instructions:
+
+1. From GRUB, press 'e' to edit your boot entry (the Ubuntu entry)
+1. Look for the line that starts with `linux`, then look for `ro`
+1. Replace `ro` with `rw init=/bin/bash`
+    - This will mount your filesystem as read-write and use /bin/bash as the init process
+1. Press Ctrl + X to reboot with these settings
+
 ## Access for CoreOS
-Single user mode in CoreOS requires GRUB to be enabled. 
+Single user mode in CoreOS requires GRUB to be enabled.
 
 ### GRUB access in CoreOS
 To access GRUB, press any key when your VM is booting up.
@@ -147,13 +156,13 @@ CoreOS will drop you into single user mode automatically if it cannot boot norma
 1. Press Ctrl + X to reboot with these settings and enter single user mode
 
 ## Access for SUSE SLES
-Newer images of SLES 12 SP3+ allow access via the serial console in case the system boots into emergency mode. 
+Newer images of SLES 12 SP3+ allow access via the serial console in case the system boots into emergency mode.
 
 ### GRUB access in SUSE SLES
 GRUB access in SLES requires bootloader configuration via YaST. To do this, follow these instructions:
 
-1. ssh into your SLES VM and run `sudo yast bootloader`. Use the `tab` key, `enter` key, and arrow keys to navigate through the menu. 
-1. Navigate to `Kernel Parameters`, and check `Use serial console`. 
+1. ssh into your SLES VM and run `sudo yast bootloader`. Use the `tab` key, `enter` key, and arrow keys to navigate through the menu.
+1. Navigate to `Kernel Parameters`, and check `Use serial console`.
 1. Add `serial --unit=0 --speed=9600 --parity=no` to the Console arguments
 
 1. Press F10 to save your settings and exit
@@ -172,7 +181,7 @@ You will be automatically dropped into emergency shell if SLES cannot boot norma
 > Note that you will be dropped into emergency shell with a _read-only_ filesystem. If you want to make any edits to any files, you will need to remount the filesystem with read-write permissions. To do this, enter `mount -o remount,rw /` into the shell
 
 ## Access for Oracle Linux
-Much like Red Hat Enterprise Linux, single user mode in Oracle Linux requires GRUB and the root user to be enabled. 
+Much like Red Hat Enterprise Linux, single user mode in Oracle Linux requires GRUB and the root user to be enabled.
 
 ### GRUB access in Oracle Linux
 Oracle Linux comes with GRUB enabled out of the box. To enter GRUB, reboot your VM with `sudo reboot` and press 'Esc'. You will see the GRUB screen show up.

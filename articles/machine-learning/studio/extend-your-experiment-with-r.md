@@ -52,7 +52,7 @@ You can import packages that are not already installed by using the following co
 
 where the `my_favorite_package.zip` file contains your package.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 
 <!-- Module References -->

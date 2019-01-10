@@ -1,5 +1,5 @@
 ---
-title: Create a policy assignment to identify non-compliant resources in Azure
+title: Create a policy to identify non-compliant resources
 description: This article walks you through the steps to create a policy definition to identify non-compliant resources.
 services: azure-policy
 author: DCtheGeek
@@ -7,10 +7,10 @@ ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
-ms.custom: mvc
 manager: carmonm
+ms.custom: seodec18
 ---
-# Create a policy assignment to identify non-compliant resources in your Azure environment
+# Create a policy assignment to identify non-compliant resources
 
 The first step in understanding compliance in Azure is to identify the status of your resources.
 This quickstart steps you through the process of creating a policy assignment to identify virtual

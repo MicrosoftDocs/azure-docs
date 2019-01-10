@@ -24,7 +24,7 @@ This article explains the potential reasons why either of the following two fail
 * the [Train Model][train-model] module produces an error 
 * the [Score Model][score-model] module produces incorrect results 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## Train Model Module produces an error
 

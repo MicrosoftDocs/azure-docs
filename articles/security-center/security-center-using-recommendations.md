@@ -26,7 +26,7 @@ You can reduce the chances of a significant security event by configuring a secu
 >
 
 ## Managing security recommendations
-A security policy defines the set of controls that are recommended for resources within the specified subscription or resource group. In Security Center, you define policies according to your company's security requirements. To learn more, see [Set security policies in Security Center](security-center-azure-policy.md).
+A security policy defines the set of controls that are recommended for resources within the specified subscription or resource group. In Security Center, you define policies according to your company's security requirements. To learn more, see [Set security policies in Security Center](tutorial-security-policy.md).
 
 Security policies for resource groups are inherited from the subscription level.
 

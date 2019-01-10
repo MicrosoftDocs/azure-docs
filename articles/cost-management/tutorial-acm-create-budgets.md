@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -15,6 +15,8 @@ ms.custom: seodec18
 # Tutorial: Create and manage Azure budgets
 
 Budgets in Cost Management help you plan for and drive organizational accountability. With budgets, you can account for the Azure services you consume or subscribe to during a specific period. They help you inform others about their spending to proactively manage costs, and to monitor how spending progresses over time. When the budget thresholds you've created are exceeded, only notifications are triggered. None of your resources are affected and your consumption isn't stopped. You can use budgets to compare and track spending as you analyze costs.
+
+Monthly budgets are evaluated against spending every four hours. However, data and notifications for consumed resources are available within eight hours.  
 
 Budgets reset automatically at the end of a period (monthly, quarterly, or annually) for the same budget amount when you select an expiration date in the future. Because they reset with the same budget amount, you need to create separate budgets when budgeted currency amounts differ for future periods.
 
@@ -44,9 +46,7 @@ For more information about assigning permission to Cost Management data, see [As
 
 ## Create a budget in the Azure portal
 
-You can create an Azure subscription budget for a monthly, quarterly, or annual period. Your navigational content in the Azure portal determines whether you create a budget for a subscription or for a resource group.
-
-In the Azure portal, navigate to **Cost Management + Billing** &gt; **Subscriptions** &gt; Select a subscription &gt; **Budgets**. In this example, the budget that you create is for the subscription that you selected.
+You can create an Azure subscription budget for a monthly, quarterly, or annual period. Your navigational content in the Azure portal determines whether you create a budget for a subscription or for a resource group. For example, in the Azure portal, navigate to **Subscriptions** &gt; select a subscription &gt; **Budgets**. In this example, the budget that you create is for the subscription that you selected. If you want to create a budget for a resource group, navigate to **Resource groups** > select a resource group > **Budgets**.
 
 After you create budgets, they show a simple view of your current spending against them.
 

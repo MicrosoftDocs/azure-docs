@@ -1,5 +1,5 @@
 ---
-title: Understand how Azure Policy performs audits inside a virtual machine
+title: Understand how to perform audits inside a virtual machine
 description: Learn how Azure Policy uses Guest Configuration to audit settings inside an Azure virtual machine. 
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,7 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
+ms.custom: seodec18
 ---
 # Understand Azure Policy's Guest Configuration
 

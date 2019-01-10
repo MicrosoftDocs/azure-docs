@@ -233,7 +233,7 @@ For an example of using two cluster types within an Azure virtual network, see [
 
 ## Troubleshoot access control issues
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](../../hdinsight/hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into issues with creating HDInsight clusters, see [access control requirements](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Next steps
 

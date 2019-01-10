@@ -224,7 +224,7 @@ Standard Load Balancer is a charged product based on number of load-balancing ru
 - Learn about [Health Probes](load-balancer-custom-probe-overview.md).
 - Learn more about [Availability Zones](../availability-zones/az-overview.md).
 - Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
-- Learn about [supported multi-dimensional metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) for diagnostics  in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+- Learn about [supported multi-dimensional metrics](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) for diagnostics  in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 - Learn about using [Load Balancer for outbound connections](load-balancer-outbound-connections.md).
 - Learn about [Outbound Rules](load-balancer-outbound-rules-overview.md).
 - Learn about [TCP Reset on Idle](load-balancer-tcp-reset.md).

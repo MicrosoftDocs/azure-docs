@@ -6,16 +6,16 @@ documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
 editor: ''
-keywords: 
+keywords:
 
-ms.assetid: 
+ms.assetid:
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: anuragm
-ms.custom: 
+ms.custom:
 ---
 
 # Troubleshoot Back up SQL Server on Azure
@@ -74,13 +74,13 @@ The following tables are organized by error code.
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 | Cannot take backup as transaction log for the data source is full. | The database transactional log space is full. | To fix this issue, refer to the [SQL documentation](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| This SQL database does not support the requested backup type. | Always On AG secondary replicas don't support full and differential backups. | <ul><li>If you triggered an ad-hoc backup, trigger the backups on the primary node.</li><li>If the backup was scheduled by policy, make sure the primary node is registered. To register the node, [follow the steps to discover a SQL Server database](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> | 
+| This SQL database does not support the requested backup type. | Always On AG secondary replicas don't support full and differential backups. | <ul><li>If you triggered an ad-hoc backup, trigger the backups on the primary node.</li><li>If the backup was scheduled by policy, make sure the primary node is registered. To register the node, [follow the steps to discover a SQL Server database](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
 
 ## Restore failures
 
 The following error codes are shown when restore jobs fail.
 
-### UserErrorCannotRestoreExistingDBWithoutForceOverwrite 
+### UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
@@ -103,7 +103,7 @@ The following error codes are shown when restore jobs fail.
 
 The following error codes are for registration failures.
 
-### FabricSvcBackupPreferenceCheckFailedUserError 
+### FabricSvcBackupPreferenceCheckFailedUserError
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
@@ -120,6 +120,16 @@ The following error codes are for registration failures.
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 | Azure Backup service uses Azure VM guest agent for doing backup but guest agent is not available on the target server. | Guest agent is not enabled or is unhealthy | [Install the VM guest agent](../virtual-machines/extensions/agent-windows.md) manually. |
+
+## Configure Backup failures
+
+The following error codes are for configure backup failures.
+
+### AutoProtectionCancelledOrNotValid
+
+| Error message | Possible causes | Recommended action |
+|---|---|---|
+| Auto-protection Intent was either removed or is no more valid. | When you enable auto-protection on a SQL instance, **Configure Backup** jobs run for all the databases in that instance. If you disable auto-protection while the jobs are running, then the **In-Progress** jobs are canceled with this error code. | Enable auto-protection once again to protect all the remaining databases. |
 
 ## Next steps
 

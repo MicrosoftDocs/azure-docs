@@ -3,8 +3,6 @@ title: Overview of the Azure Database for MariaDB relational database service
 description: Overview of the Azure Database for MariaDB relational database service.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc

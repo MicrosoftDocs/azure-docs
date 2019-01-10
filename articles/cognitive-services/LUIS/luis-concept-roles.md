@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/17/2018
 ms.author: diberry
 ---
 # Entity roles in patterns are contextual subtypes
@@ -39,6 +39,16 @@ The entity and role are surrounded in parentheses, `{}`. The entity and the role
 
 
 [!INCLUDE [H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
+
+## Example role for Entities
+
+A role is just a contextually learned placement of an entity within an utterance. It is most effective when the utterance has more than one of that entity type. The easiest example for any entity type is to distinguish between a to and from location. The location can be represented in a lot of different entity types. 
+
+An example use case is transferring an employee from one department to another where each department is an item in a list. For example: 
+
+`Move [PersonName] from [Department:from] to [Department:to]`. 
+
+In the returned prediction, both department entities will be returned in the JSON response and each will include the role name. 
 
 ## Roles with prebuilt entities
 
