@@ -28,7 +28,7 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
 
 ## Prerequisites
 
-1. To access sign-in data, make sure you have an Azure Active Directory tenant with a premium (P1/P2) license. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. 
+1. To access sign-in data, make sure you have an Azure Active Directory tenant with a premium (P1/P2) license. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. Note that if you did not have any activities data prior to the upgrade, it will take a couple of days for the data to show up in the reports after you upgrade to a premium license. 
 
 2. Create or switch to a user account in the **global administrator**, **security administrator**, **security reader** or **report reader** role for the tenant. 
 
