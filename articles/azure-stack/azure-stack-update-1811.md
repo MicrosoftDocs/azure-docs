@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -79,7 +79,7 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
     then resume the update.
     Exception: The Certificate path does not exist: [certificate path here]` 
  
-    Once you have properly imported the mandatory extension host certificates, you can resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
+    Once you have properly imported the mandatory extension host certificates, you can resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to schedule a maintenance window during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
 
     During the installation of this update, the Azure Stack user portal is unavailable while the extension host is being configured. The configuration of the extension host can take up to 5 hours. During that time, you can check the status of an update, or resume a failed update installation using [Azure Stack Administrator PowerShell or the privileged endpoint](azure-stack-monitor-update.md).
 
@@ -251,6 +251,12 @@ The following are post-installation known issues for this build version.
 ### Compute
 
 - When creating a new Windows Virtual Machine (VM), the **Settings** blade requires that you select a public inbound port in order to proceed. In 1811, this setting is required, but has no effect. This is because the feature depends on Azure Firewall, which is not implemented in Azure Stack. You can select **No Public Inbound Ports**, or any of the other options to proceed with VM creation. The setting will have no effect.
+
+- When creating a new Windows Virtual Machine (VM), the following error may be displayed:
+
+   `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
+
+   The error occurs if you enable boot diagnostics on a VM but delete your boot diagnostics storage account. To work around this issue, recreate the storage account with the same name as you used previously.
 
 <!-- 3235634 – IS, ASDK -->
 - To deploy VMs with sizes containing a **v2** suffix; for example, **Standard_A2_v2**, specify the suffix as **Standard_A2_v2** (lowercase v). Do not use **Standard_A2_V2** (uppercase V). This works in global Azure and is an inconsistency on Azure Stack.

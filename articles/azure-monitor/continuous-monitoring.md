@@ -42,7 +42,7 @@ Applications are only as reliable as their underlying infrastructure. Having mon
 - Add [monitoring solutions](insights/solutions-inventory.md) for different applications and services in your environment.
 
 
-[Infrastructure as code](/devops/learn/what-is-infrastructure-as-code) is the management of infrastructure in a descriptive model, using the same versioning as DevOps teams use for source code. It adds reliability and scalability to your environment and allows you to leverage similar processes that used to manage your applications.
+[Infrastructure as code](/azure/devops/learn/what-is-infrastructure-as-code) is the management of infrastructure in a descriptive model, using the same versioning as DevOps teams use for source code. It adds reliability and scalability to your environment and allows you to leverage similar processes that used to manage your applications.
 
 -  Use [Resource Manager templates](platform/template-workspace-configuration.md) to enable monitoring and configure alerts over a large set of resources.
 - Use [Azure Policy](../governance/policy/overview.md) to enforce different rules over your resources. This ensures that those resources stay compliant with your corporate standards and service level agreements. 
@@ -58,7 +58,7 @@ Continuous Integration / Continuous Deployment allows you to automatically integ
 
 
 - Use [Azure Pipelines](/azure/devops/pipelines) to implement Continuous Deployment and automate your entire process from code commit to production based on your CI/CD tests.
-- Use [Quality Gates](/devops/pipelines/release/approvals/gates) to integrate monitoring into your pre-deployment or post-deployment. This ensures that you are meeting the key health/performance metrics (KPIs) as your applications move from dev to production and any differences in the infrastructure environment or scale is not negatively impacting your KPIs.
+- Use [Quality Gates](/azure/devops/pipelines/release/approvals/gates) to integrate monitoring into your pre-deployment or post-deployment. This ensures that you are meeting the key health/performance metrics (KPIs) as your applications move from dev to production and any differences in the infrastructure environment or scale is not negatively impacting your KPIs.
 - [Maintain separate monitoring instances](../azure-monitor/app/separate-resources.md) between your different deployment environments such as Dev, Test, Canary, and Prod. This ensures that collected data is relevant across the associated applications and infrastructure. If you need to correlate data across environments, you can use [multi-resource charts in Metrics Explorer](../azure-monitor/platform/metrics-charts.md) or create [cross-resource queries in Log Analytics](log-query/cross-workspace-query.md).
 
 

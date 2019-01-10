@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -107,7 +107,11 @@ The following table describes the connected sources that this solution supports:
 
 ### Collection frequency
 
-A scan runs twice a day for each managed Windows computer. Every 15 minutes, the Windows API is called to query for the last update time to determine whether the status has changed. If the status changed, a compliance scan starts. A scan runs every 3 hours for each managed Linux computer.
+After a computer completes a scan for update compliance, the agent forwards the information in bulk to Azure Log Analytics. On a Windows computer, the compliance scan is run every 12 hours by default.
+
+In addition to the scan schedule, the scan for update compliance is initiated within 15 minutes of the MMA being restarted, before update installation, and after update installation.
+
+For a Linux computer, the compliance scan is performed every 3 hours by default. If the MMA agent is restarted, a compliance scan is initiated within 15 minutes.
 
 It can take between 30 minutes and 6 hours for the dashboard to display updated data from managed computers.
 

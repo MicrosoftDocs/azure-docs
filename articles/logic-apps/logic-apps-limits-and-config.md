@@ -345,7 +345,7 @@ based on where your logic apps exist:
 
 To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, 
 set up your firewall configurations so they include all the outbound IP addresses specified 
-for the regions where your logic apps exist. For [Azure Government](/azure-government/documentation-government-welcome) 
+for the regions where your logic apps exist. For [Azure Government](../azure-government/documentation-government-welcome.md) 
 and [Azure China 21Vianet](/azure/china/china-welcome), reserved IP addresses for connectors 
 aren't currently available.
 
