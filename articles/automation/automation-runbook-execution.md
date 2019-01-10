@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/30/2018
+ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -49,7 +49,9 @@ else
     }
 ```
 
-When authoring runbooks, actions should be authored in a way that the runbook is restartable. A way to do this is by keeping track of the progress of the runbook using an external source such as storage accounts, a database, or shared files. By tracking the state externally you can create logic in your runbook to first check the state of the last action the runbook took and based off the results either skip or continue specific tasks in the runbook.
+Careful consideration should be taken into account when authoring runbooks. As mentioned earlier, runbooks need to be authored in a way that they are robust and can handle transient errors that may cause the runbook to restart or fail. It is a good practice to author runbooks to be modular in nature. This makes it easier to create the logic in the runbook to be restartable. Tracking progress in a runbook is a good way to ensure that the logic in a runbook is executed correctly in case of issues. Some possible ways to keep track of the progress of the runbook is by using an external source such as storage accounts, a database, or shared files. By tracking the state externally you can create logic in your runbook to first check the state of the last action the runbook took and based off the results either skip or continue specific tasks in the runbook.
+
+Runbooks ran in Azure sandboxes do not support calling processes (such as an .exe or subprocess.call). This is due to the fact that Azure sandboxes are   For scenarios where you require 3rd party software or calling of sub processes, it is recommended you execute the runbook on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
 
 ## Job statuses
 

@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Azure Automation runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/10/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -227,7 +227,7 @@ This error can be caused by the following reasons:
 
 3. Module Incompatible. This error can occur if module dependencies aren't correct and if they aren't, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
 
-4. Attempting to call a an executable or subprocess in a runbook that runs in an Azure Sandbox. This scenario is not supported.
+4. Your runbook attempted to call a an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
 
 #### Resolution
 
