@@ -33,7 +33,7 @@ In this tutorial, you learn how to generate a script to download all the sign-in
 
 You need
 
-* An Azure Active Directory tenant with a premium (P1/P2) license. 
+* An Azure Active Directory tenant with a premium (P1/P2) license. Note that if you did not have any activities data prior to the upgrade, it will take a couple of days for the data to show up in the reports after you upgrade to a premium license. 
 * A user, who is in the **global administrator**, **security administrator**, **security reader** or **report reader** role for the tenant. In addition, any user can access their own sign-ins. 
 * If you want to run the downloaded script on your Windows 10 machine, [set up the AzureRM module and set execution policy](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 
