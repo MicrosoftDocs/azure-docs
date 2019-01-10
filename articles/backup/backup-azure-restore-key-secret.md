@@ -10,6 +10,7 @@ ms.date: 08/28/2017
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
 ---
+
 # Restore Key Vault key and secret for encrypted VMs using Azure Backup
 This article talks about using Azure VM Backup to perform restore of encrypted Azure VMs, if your key and secret do not exist in the key vault. These steps can also be used if you want to maintain a separate copy of key (Key Encryption Key) and secret (BitLocker Encryption Key) for the restored VM.
 
@@ -22,8 +23,8 @@ This article talks about using Azure VM Backup to perform restore of encrypted A
 
 > [!NOTE]
 > Once disk has been restored for the encrypted VM, ensure that:
-> 1. $details is populated with restore disk job details, as mentioned in [PowerShell steps in Restore the Disks section](backup-azure-vms-automation.md#restore-an-azure-vm)
-> 2. VM should be created from restored disks only **after key and secret is restored to key vault**.
+> * $details is populated with restore disk job details, as mentioned in [PowerShell steps in Restore the Disks section](backup-azure-vms-automation.md#restore-an-azure-vm)
+> * VM should be created from restored disks only **after key and secret is restored to key vault**.
 >
 >
 
@@ -87,8 +88,8 @@ PS C:\> Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputF
   ```
 
 > [!NOTE]
-> 1. Value for $secretname can be obtained by referring to the output of $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl and using text after secrets/ e.g. output secret URL is https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 and secret name is B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
-> 2. Value of the tag DiskEncryptionKeyFileName is same as secret name.
+> * Value for $secretname can be obtained by referring to the output of $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl and using text after secrets/ e.g. output secret URL is https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 and secret name is B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> * Value of the tag DiskEncryptionKeyFileName is same as secret name.
 >
 >
 
@@ -118,9 +119,9 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 ```
 
 > [!NOTE]
-> 1. Value for $secretname can be obtained by referring to the output of $rp1.KeyAndSecretDetails.SecretUrl and using text after secrets/ e.g. output secret URL is https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 and secret name is B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
-> 2. Value of the tag DiskEncryptionKeyFileName is same as secret name.
-> 3. Value for DiskEncryptionKeyEncryptionKeyURL can be obtained from key vault after restoring the keys back and using [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) cmdlet
+> * Value for $secretname can be obtained by referring to the output of $rp1.KeyAndSecretDetails.SecretUrl and using text after secrets/ e.g. output secret URL is https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 and secret name is B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> * Value of the tag DiskEncryptionKeyFileName is same as secret name.
+> * Value for DiskEncryptionKeyEncryptionKeyURL can be obtained from key vault after restoring the keys back and using [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) cmdlet
 >
 >
 

@@ -124,7 +124,7 @@ Run the following commands from a shell:
     az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
     ```
 
-## Verify if upgrade is successfull
+## Verify that the upgrade is successful
 
 ### PowerShell
 From an elevated PowerShell terminal, run the following cmdlet:
