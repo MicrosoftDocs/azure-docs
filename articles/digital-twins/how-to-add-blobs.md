@@ -87,6 +87,7 @@ var metadataContent = new StringContent(JsonConvert.SerializeObject(metaData), E
 metadataContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
 multipartContent.Add(metadataContent, "metadata");
 
+//MY_BLOB.txt is the String representation of your text file
 var fileContents = new StringContent("MY_BLOB.txt");
 fileContents.Headers.ContentType = MediaTypeHeaderValue.Parse("text/plain");
 multipartContent.Add(fileContents, "contents");
