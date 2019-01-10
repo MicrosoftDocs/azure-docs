@@ -17,7 +17,16 @@ ms.custom: seodec18
 
 In this article, learn about the Azure Machine Learning service releases. 
 
-## 2018-12-20: 
+## 2019-01-09
+
+### Azure Machine Learning Data Prep SDK v1.0.6
+
++ **SDK reference docs**: https://aka.ms/data-prep-sdk
+
++ **Bug fixes**
+  + Fixed bug with reading from public readable Azure Blob containers on Spark
+
+## 2018-12-20 
 
 ### Azure Machine Learning SDK for Python v1.0.6
 
@@ -266,88 +275,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 A new, refreshed release of Azure Machine Learning: Read more about this release: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
-## Older notes: Sept 2017 - Jun 2018
-### 2018-05 (Sprint 5)
-
-With this release of Azure Machine Learning, you can:
-+ Featurize images with a quantized version of ResNet 50, train a classifier based on those features, and [deploy that model to an FPGA on Azure](../service/how-to-deploy-fpga-web-service.md) for ultra-low latency inferencing.
-
-+ Quickly build and deploy highly accurate machine learning and deep learning models using [custom Azure Machine Learning Packages](../desktop-workbench/reference-python-package-overview.md)
-
-### 2018-03 (Sprint 4)
-**Version number**: 0.1.1801.24353  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Many of the following updates are made as direct results of your feedback. Keep them coming!
-
-**Notable New Features and Changes**
-
-- Support for running your scripts on remote Ubuntu VMs natively on your own environment in addition to remote-docker based execution.
-- New environment experience in Workbench App allows you to create compute targets and run configurations in addition to our CLI-based experience.
-![Environments Tab](media/azure-machine-learning-release-notes/environment-page.png)
-- Customizable Run History reports
-![Image of new Run History Reports](media/azure-machine-learning-release-notes/new-run-history-reports.png)
-
-**Detailed Updates**
-
-Following is a list of detailed updates in each component area of Azure Machine Learning in this sprint.
-
-#### Workbench UI
-- Customizable Run History reports
-  - Improved chart configuration for Run History reports
-    - The used entry points can be changed
-    - Top-level filters can be added and modified
-    ![Add Filters](media/azure-machine-learning-release-notes/add-filters.jpg)
-    - Charts and stats can be added or modified (and drag-and-drop rearranged).
-    ![Creating new Charts](media/azure-machine-learning-release-notes/configure-charts.png)
-
-  - CRUD for Run History reports
-  - Moved all existing run history list view configuration files to server-side report, which acts like pipelines on runs from the selected entry points.
-
-- Environments Tab
-  - Easily add new compute target and run configuration files to your project
-  ![New Compute Target](media/azure-machine-learning-release-notes/add-new-environments.png)
-  - Manage and update your configuration files using a simple, form-based UX
-  - New button for preparing your environments for execution
-
-- Performance improvements to the list of files in the sidebar
-
-#### Data preparation 
-- Azure Machine Learning Workbench now allows you to be able to search for a column by using a known column's name.
-
-
-#### Experimentation
-- Azure Machine Learning Workbench now supports running your scripts natively on your own python or pyspark environment. For this capability, user creates and manages their own environment on the remote VM and use Azure Machine Learning Workbench to run their scripts on that target. See [Configuring Azure Machine Learning Experimentation Service](../desktop-workbench/experimentation-service-configuration.md) 
-
-#### Model Management
-- Support for Customizing the Deployed Containers: enables customizing the container image by allowing installation of external libraries using apt-get, etc. It is no longer limited to pip-installable libraries. See the [documentation](../desktop-workbench/model-management-custom-container.md) for more info.
-  - Use the `--docker-file myDockerStepsFilename` flag and file name with the manifest, image, or service creation commands.
-  - The base image is Ubuntu, and cannot be modified.
-  - Example command: 
-  
-    ```shell
-    $ az ml image create -n myimage -m mymodel.pkl -f score.py --docker-file mydockerstepsfile
-    ```
-
-### 2018-01 (Sprint 3) 
-**Version number**: 0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-The following are the updates and improvements in this sprint. Many of these updates are made as direct result of user feedback. 
-
-### 2017-12 (Sprint 2)
-**Version number**: 0.1.1711.15263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-This release is the third update of Azure Machine Learning. This update includes improvements in the workbench app, the Command-line Interface (CLI), and the back-end services. Thank you very much for sending the smiles and frowns. Many of the following updates are made as direct results of your feedback. 
-
-### 2017-11 (Sprint 1) 
-**Version number**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-In this release, we've made improvements around security, stability, and maintainability in the workbench app, the CLI, and the back-end services layer. 
-
-### 2017-10 (Sprint 0) 
-**Version number**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-This release is the first update of Azure Machine Learning Workbench following our initial public preview at the Microsoft Ignite 2017 conference. The main updates in this release are reliability and stabilization fixes. 
 
 ## Next steps
 
-Read the overview for [Azure Machine Learning](../service/overview-what-is-azure-ml.md).
+Read the overview for [Azure Machine Learning service](../service/overview-what-is-azure-ml.md).

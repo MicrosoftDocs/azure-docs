@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/24/2016
+ms.date: 01/10/2019
 ms.author: mbullwin
 ---
 # Monitor dependencies, caught exceptions and method execution times in Java web apps
@@ -83,6 +83,32 @@ Set the content of the xml file. Edit the following example to include or omit t
 You have to enable reports exception and method timing for individual methods.
 
 By default, `reportExecutionTime` is true and `reportCaughtExceptions` is false.
+
+### Spring Boot Agent additional config
+
+`java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
+
+> [!NOTE]
+> AI-Agent.xml and the agent jar file should be in the same folder. They are often placed together in the `/resources` folder of the project. 
+
+#### Enable W3C distributed tracing
+
+Add the following to AI-Agent.xml:
+
+```xml
+<Instrumentation>
+        <BuiltIn enabled="true">
+            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+        </BuiltIn>
+    </Instrumentation>
+```
+
+> [!NOTE]
+> Backward compatibility mode is enabled by default and the enableW3CBackCompat parameter is optional and should be used only when you want to turn it off. 
+
+Ideally this would be the case when all your services have been updated to newer version of SDKs supporting W3C protocol. It is highly recommended to move to newer version of SDKs with W3C support as soon as possible.
+
+Make sure that **both [incoming](correlation.md#w3c-distributed-tracing) and outgoing (agent) configurations** are exactly same.
 
 ## View the data
 In the Application Insights resource, aggregated remote dependency and method execution times appears [under the Performance tile][metrics].

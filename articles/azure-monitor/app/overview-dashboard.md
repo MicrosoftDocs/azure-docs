@@ -57,7 +57,7 @@ To navigate back to the overview experience just select:
 
 ## Next steps
 
-- [Funnels](../../application-insights/usage-funnels.md)
-- [Retention](../../application-insights/app-insights-usage-retention.md)
-- [User Flows](../../application-insights/app-insights-usage-flows.md)
+- [Funnels](../../azure-monitor/app/usage-funnels.md)
+- [Retention](../../azure-monitor/app/usage-retention.md)
+- [User Flows](../../azure-monitor/app/usage-flows.md)
 - [Dashboards](../../azure-monitor/app/app-insights-dashboards.md)
