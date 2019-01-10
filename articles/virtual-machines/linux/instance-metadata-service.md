@@ -301,10 +301,10 @@ subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
 tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) for your Virtual Machine  | 2017-08-01
 resourceGroupName | [Resource group](../../azure-resource-manager/resource-group-overview.md) for your Virtual Machine | 2017-08-01
 placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
-plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in its a Azure Marketplace Image, contains name, product and publisher | 2017-04-02
+plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in it's an Azure Marketplace Image, contains name, product and publisher | 2017-04-02
 publicKeys | Collection of Public Keys[https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] assigned to the VM and paths | 2017-04-02
 vmScaleSetName | [Virtual Machine ScaleSet Name](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) of your virtual machine scale set | 2017-12-01
-zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01 
+zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
 ipv4/privateIpAddress | Local IPv4 address of the VM | 2017-04-02
 ipv4/publicIpAddress | Public IPv4 address of the VM | 2017-04-02
 subnet/address | Subnet address of the VM | 2017-04-02
@@ -317,7 +317,7 @@ attested | See [Attested Data](#attested-data) | 2018-10-01
 
 ## Attested Data
 
-Instance Metadata responds at http endpoint on 169.254.169.254. Part of the scenario served by Instance Metadata Service is to provide guarantees that the data responded is coming from Azure. To that affect we sign part of this information so that marketplace images can be sure that its their image running on Azure.
+Instance Metadata responds at http endpoint on 169.254.169.254. Part of the scenario served by Instance Metadata Service is to provide guarantees that the data responded is coming from Azure. We sign part of this information so that marketplace images can be sure that it's their image running on Azure.
 
 ### Example Attested Data
 
@@ -331,7 +331,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 ```
 
 Api-version is a mandatory field and the version supported for attested data is 2018-10-01.
-Nonce is an optional 10 digit string provided.
+Nonce is an optional 10-digit string provided.
  **Response**
 > [!NOTE]
 > The response is a JSON string. The following example response is pretty-printed for readability.
@@ -362,7 +362,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/met
 ```
 
 Api-version is a mandatory field and the version supported for attested data is 2018-10-01.
-Nonce is an optional 10 digit string provided.
+Nonce is an optional 10-digit string provided.
 
  **Response**
 > [!NOTE]
@@ -398,7 +398,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 
 For certain scenarios, placement of different data replicas is of prime importance. For example, [HDFS replica placement](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)
 or container placement via an [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) may you require to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
-You can also leverage [Availability Zones](../../availability-zones/az-overview.md) for the instances to make these decisions.
+You can also use [Availability Zones](../../availability-zones/az-overview.md) for the instances to make these decisions.
 You can query this data directly via the Instance Metadata Service.
 
 **Request**
@@ -448,7 +448,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ### Getting Azure Environment where the VM is running
 
-Azure has various sovereign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Sometimes you need the Azure Environment to make some runtime decisions. The following sample will show you how you can achieve this.
+Azure has various sovereign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Sometimes you need the Azure Environment to make some runtime decisions. The following sample shows you how you can achieve this behavior.
 
 **Request**
 
@@ -477,7 +477,7 @@ Azure has various sovereign clouds like [Azure Government](https://azure.microso
 
 ### Validating that the VM is running in Azure
 
- Marketplace vendors want to enure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise then they should have the ability to detect that. By calling into Instance Metadata Service Marketplace vendors can get signed data that guarantees response only from Azure.
+ Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise, then they should have a way to detect that. By calling into Instance Metadata Service, Marketplace vendors can get signed data that guarantees response only from Azure.
  **Request**
  > [!NOTE]
 > Requires jq to be installed.
@@ -519,14 +519,14 @@ Verification successful
 Data | Description
 -----|------------
 nonce | User supplied optional string with the request. If no nonce was supplied in the request, the current UTC timestamp is returned
-plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in its a Azure Marketplace Image, contains name, product and publisher
+plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in it's an Azure Marketplace Image, contains name, product and publisher
 timestamp/createdOn | The timestamp at which the first signed document was created
 timestamp/expiresOn | The timestamp at which the signed document expires
 vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM
 
 #### Verifying the signature
 
-Once you get the signature above you can verify that the signature is from Microsoft. Also you can verify the intermediate certificate and the certificate chain.
+Once you get the signature above, you can verify that the signature is from Microsoft. Also you can verify the intermediate certificate and the certificate chain.
 
 > [!NOTE]
 > The certificate for Public cloud and sovereign cloud will be different.
@@ -588,8 +588,8 @@ Puppet | https://github.com/keirans/azuremetadata
 8. How do I get support for the service?
    * To get support for the service, create a support issue in Azure portal for the VM where you are not able to get metadata response after long retries.
 9. I get request timed out for my call to the service?
-   * Metadata calls must be made from the primary IP address assigned to the network card of the VM , in addition in case you have changed your routes there must be a route for 169.254.0.0/16 address out of your network card.
-10. I updated my tags in Virtual Machine Scale set but they dont appear in the instances unlike VMs?
+   * Metadata calls must be made from the primary IP address assigned to the network card of the VM, in addition in case you have changed your routes there must be a route for 169.254.0.0/16 address out of your network card.
+10. I updated my tags in virtual machine scale set but they don't appear in the instances unlike VMs?
    * Currently for ScaleSets tags only show to the VM on a reboot/reimage/or a disk change to the instance.
 
    ![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)
