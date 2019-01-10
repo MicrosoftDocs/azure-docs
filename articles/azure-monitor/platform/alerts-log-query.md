@@ -10,18 +10,18 @@ ms.author: bwren
 ms.component: alerts
 ---
 # Log alert queries in Azure Monitor
-This article provides recommendations on writing efficient queries for [log alerts in Azure Monitor](alerts-unified-log.md). Since alert rules must run these queries at regular intervals, you should ensure that they are written to minimize overhead and latency.
+[Alert rules based on Azure Monitor logs](alerts-unified-log.md) run at regular intervals, so you should ensure that they are written to minimize overhead and latency. This article provides recommendations on writing efficient queries for log alerts and a process for converting existing queries. 
 
 ## Types of log queries
-[Queries in Log Analytics](../log-query/log-query-overview.md) start with either a table or a [search](/azure/kusto/query/searchoperator) operator. The [union](/azure/kusto/query/unionoperator) command with `union *` operates similar to `search`.
+[Queries in Log Analytics](../log-query/log-query-overview.md) start with either a table or a [search](/azure/kusto/query/searchoperator) or [union](/azure/kusto/query/unionoperator) operator.
 
-For example the following query is scoped to the _SecurityEvent_ table and searches for specific event ID. This is the only table included in the query.
+For example the following query is scoped to the _SecurityEvent_ table and searches for specific event ID. This is the only table that the query must process.
 
 ``` Kusto
 SecurityEvent | where EventID == 4624 
 ```
 
-Queries that start with [search](/azure/kusto/query/searchoperator) or [union](/azure/kusto/query/unionoperator) allow you to search across multiple multiple columns in a table or even multiple tables. The following examples show multiple methods for searching the term _Memory_:
+Queries that start with `search` or `union` allow you to search across multiple multiple columns in a table or even multiple tables. The following examples show multiple methods for searching the term _Memory_:
 
 ```Kusto
 search "Memory"
@@ -36,15 +36,12 @@ union * | where ObjectName == "Memory"
 ```
  
 
-Although [search](/azure/kusto/query/searchoperator) and [union](/azure/kusto/query/unionoperator) operators are useful during data exploration and for searching terms over the entire data model, they are less efficient than using a table since they must scan across multiple columns and tables. Since queries in alert rules are run at regular intervals, this can result in excessive overhead adding latency to the alert.
+Although `search` and `union` are useful during data exploration, searching terms over the entire data model, they are less efficient than using a table since they must scan across multiple tables. Since queries in alert rules are run at regular intervals, this can result in excessive overhead adding latency to the alert. Because of this overhead, queries for log alert rules in Azure should always start with a table to define a clear scope, which improves both query performance and the relevance of the results.
 
-Because of this overhead, queries for log alert rules in Azure should always start with a table to define a clear scope, which improves both query performance and the relevance of the results.
+## Unsupported queries
+Starting January 11,2019, creating or modifying log alert rules that use `search`, or `union` operators will not be supported the in Azure portal. Using these operators in an alert rule will return an error message. Existing alert rules and alert rules created and edited with the Log Analytics API are not affected by this change. You should still consider changing any alert rules that use these types of queries though to improve their efficiency.  
 
-Starting ______,2019, creating or modifying log alert rules that use `search`, or `union` operators will not be supported the in Azure portal. Using the operators in an alert rule will return an error message like _alert incompatible command like 'search', 'union *' used._. 
-
-Existing alert rules and alert rules created and edited with the Log Analytics API are not affected by this change. You should still consider changing any alert rules that use these types of queries though to improve their efficiency.  
-
-Log alert rules using [cross-resource queries](../log-query/cross-workspace-query.md) are not affected by this change since cross-resource queries use `union`, which limits the query scope to specific resources. This is not equivalent of `union *`.  The following example would be valid in a log alert rule:
+Log alert rules using [cross-resource queries](../log-query/cross-workspace-query.md) are not affected by this change since cross-resource queries use `union`, which limits the query scope to specific resources. This is not equivalent of `union *` which cannot be used.  The following example would be valid in a log alert rule:
 
 ```Kusto
 union 
@@ -58,7 +55,7 @@ workspace('Contoso-workspace1').Perf
 The following examples include log queries that use `search` and `union` and provide steps you can use to modify these queries for use with alert rules.
 
 ### Example 1
-You want to create a log alert rule using the following query which retrieves performance information: 
+You want to create a log alert rule using the following query which retrieves performance information using `search`: 
 
 ``` Kusto
 search * | where Type == 'Perf' and CounterName == '% Free Space' 
@@ -67,7 +64,7 @@ search * | where Type == 'Perf' and CounterName == '% Free Space'
 ```
   
 
-To modify the query, start by using the following query to identify the table that the properties belong to:
+To modify this query, start by using the following query to identify the table that the properties belong to:
 
 ``` Kusto
 search * | where CounterName == '% Free Space'
@@ -75,7 +72,9 @@ search * | where CounterName == '% Free Space'
 ```
  
 
-The result of this query would show that the _ObjectName_ and _CounterName_ property came from the _Perf_ table. You can use this result to create the following query which you would use for the alert rule:
+The result of this query would show that the _CounterName_ property came from the _Perf_ table. 
+
+You can use this result to create the following query which you would use for the alert rule:
 
 ``` Kusto
 Perf 
@@ -86,7 +85,7 @@ Perf
 
 
 ### Example 2
-You want to create a log alert rule using the following query which retrieves performance information: 
+You want to create a log alert rule using the following query which retrieves performance information using `search`: 
 
 ``` Kusto
 search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"  
@@ -96,7 +95,7 @@ search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"
 ```
   
 
-To modify the query, start by using the following query to identify the table that the properties belong to:
+To modify this query, start by using the following query to identify the table that the properties belong to:
 
 ``` Kusto
 search ObjectName=="Memory" and CounterName=="% Committed Bytes In Use" 
@@ -104,7 +103,9 @@ search ObjectName=="Memory" and CounterName=="% Committed Bytes In Use"
 ```
  
 
-The result of this query would show that the _ObjectName_ and _CounterName_ property came from the _Perf_ table. You can use this result to create the following query which you would use for the alert rule:
+The result of this query would show that the _ObjectName_ and _CounterName_ property came from the _Perf_ table. 
+
+You can use this result to create the following query which you would use for the alert rule:
 
 ``` Kusto
 Perf 
@@ -117,7 +118,7 @@ Perf
 
 ### Example 3
 
-You want to create a log alert rule using the following query which uses both _search_ and _union_ to retrieve performance information: 
+You want to create a log alert rule using the following query which uses both `search` and `union` to retrieve performance information: 
 
 ``` Kusto
 search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceName == "_Total")  
@@ -126,14 +127,16 @@ search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceN
 ```
  
 
-To modify the query, start by using the following query to identify the table that the properties in the first part of the query belong to: 
+To modify this query, start by using the following query to identify the table that the properties in the first part of the query belong to: 
 
 ``` Kusto
 search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceName == "_Total")  
 | summarize by $table 
 ```
 
-The result of this query would show that all these properties came from the _Perf_ table. Now use `union` with `withsource` command to identify which  source table has contributed each row.
+The result of this query would show that all these properties came from the _Perf_ table. 
+
+Now use `union` with `withsource` command to identify which  source table has contributed each row.
 
 ``` Kusto
 union withsource=table * | where CounterName == "% Processor Utility" 
@@ -141,7 +144,9 @@ union withsource=table * | where CounterName == "% Processor Utility"
 ```
  
 
-The result of this query would show that these properties also came from the _Perf_ table. You can use these results to create the following query which you would use for the alert rule: 
+The result of this query would show that these properties also came from the _Perf_ table. 
+
+You can use these results to create the following query which you would use for the alert rule: 
 
 ``` Kusto
 Perf 
@@ -155,7 +160,7 @@ Perf
 ``` 
 
 ### Example 4
-You want to create a log alert rule using the following query which uses joins the results of two search commands:
+You want to create a log alert rule using the following query which joins the results of two `search` queries:
 
 ```Kusto
 search Type == 'SecurityEvent' and EventID == '4625' 
@@ -178,7 +183,9 @@ search Type == 'SecurityEvent' and EventID == '4625'
 ```
  
 
-The result indicates that the properties in the left side of the join belong to _SecurityEvent_ table. Now use the following query to identify the table that contains the properties in the right side of the join: 
+The result indicates that the properties in the left side of the join belong to _SecurityEvent_ table. 
+
+Now use the following query to identify the table that contains the properties in the right side of the join: 
 
  
 ``` Kusto
@@ -187,7 +194,9 @@ search in (Heartbeat) OSType == 'Windows'
 ```
 
  
-The result indicates that the properties in the right side of the join belong to Heartbeat table. You can use these results to create the following query which you would use for the alert rule: 
+The result indicates that the properties in the right side of the join belong to Heartbeat table. 
+
+You can use these results to create the following query which you would use for the alert rule: 
 
 
 ``` Kusto
