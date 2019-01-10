@@ -31,6 +31,8 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
     npm install async azure-iot-device azure-iot-device-mqtt --save
     ```
 
+1. In the `remotemonitoring` folder, create a file called **remote_monitoring.js**. Open this file in a text editor.
+
 1. In the **remote_monitoring.js** file, add the following `require` statements:
 
     ```nodejs
