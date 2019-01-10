@@ -83,6 +83,8 @@ Next, set up and configure Postman to obtain an Azure Active Directory token. Af
   
 1. Scroll down, and select **Use Token**.
 
+<div id="multi"></div>
+
 ## Make a multipart POST request with Postman
 
 After completing the previous steps, configure Postman to make an authenticated HTTP multipart POST request:
@@ -92,7 +94,7 @@ After completing the previous steps, configure Postman to make an authenticated 
    ![Content type multipart/mixed][4]
 
 1. Serialize non-text data into files. JSON data would be saved as a JSON file.
-1. Under the **Body** tab, add each file by assigning a ket name, selecting `file` or `text`.
+1. Under the **Body** tab, add each file by assigning a **key** name, selecting `file` or `text`.
 1. Then, select the file through the **Choose File** button.
 
    ![Postman client example][5]
