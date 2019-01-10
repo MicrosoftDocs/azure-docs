@@ -34,9 +34,11 @@ You can use standard [Event Hubs integration and SDKs](iot-hub-devguide-messages
 
 ### Azure Blob Storage
 
-IoT Hub only supports writing data to Azure Blob Storage in the [Apache Avro](http://avro.apache.org/) format. IoT Hub batches messages and writes data to a blob whenever the batch reaches a certain size or a certain amount of time has elapsed.
+IoT Hub supports writing data to Azure Blob Storage in the [Apache Avro](http://avro.apache.org/) as well as JSON format. The default is AVRO. You can select the encoding format using the [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), the Azure Portal or through [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#required-parameters) and Powershell. Note that the encoding format can be set when the blob storage endpoint is configured. The format cannot be edited for an existing endpoint. The following diagram shows how to select the encoding format in the Azure Portal.
 
-IoT Hub defaults to the following file naming convention:
+![Blob storage endpoint encoding](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
+
+IoT Hub batches messages and writes data to a blob whenever the batch reaches a certain size or a certain amount of time has elapsed. IoT Hub defaults to the following file naming convention:
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
