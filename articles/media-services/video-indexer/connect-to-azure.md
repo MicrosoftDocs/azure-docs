@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/10/2019
 ms.author: juliako
 ---
 
@@ -93,6 +93,9 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
 ## Connect to Azure manually (advanced option)
 
 If the connection to Azure failed, you can attempt to troubleshoot the problem by connecting manually.
+
+> [!NOTE]
+> It is highly recommend to create the Video Indexer account in the same region as the Media Services account to which you are planning to connect.
 
 ### Create and configure a Media Services account
 
