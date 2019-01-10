@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 # Configure Application Insights Profiler
 
-## The Profiler settings pane
+## Profiler settings pane
 
 To open the Azure Application Insights Profiler settings pane, go to the Application Insights Performance pane, and then select the **Profiler** button.
 
