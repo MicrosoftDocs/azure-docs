@@ -199,6 +199,8 @@ A common error is to not include the correct header information:
 
 - To learn more about Swagger reference documentation for Azure Digital Twins, read [Use Azure Digital Twins Swagger](how-to-use-swagger.md).
 
+- To use Postman to upload blobs, read [How to configure Postman](./how-to-configure-postman.md).
+
 <!-- Images -->
 [1]: media/how-to-add-blobs/blob-models.PNG
 [2]: media/how-to-add-blobs/blobs-device-api.PNG

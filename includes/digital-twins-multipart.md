@@ -5,7 +5,7 @@
  author: kingdomofends
  ms.service: digital-twins
  ms.topic: include
- ms.date: 01/02/2019
+ ms.date: 01/10/2019
  ms.author: adgera
  ms.custom: include file
 ---
@@ -24,7 +24,7 @@
 Multipart requests can be made programmatically (through C#), through a REST client, or tool such as [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#multi). REST client tools may have varying levels of support for complex multipart requests. Verify which tool is best suited for your needs.
 
 > [!IMPORTANT]
-> Multipart requests made to the Azure Digital Twins Management APIs also typically have two parts:
+> Multipart requests made to the Azure Digital Twins Management APIs typically have two parts:
 > * Blob metadata (such as an associated MIME type) that's declared by **Content-Type** and **Content-Disposition**
 > * Blob contents which include the unstructured contents of a file to be uploaded
 >

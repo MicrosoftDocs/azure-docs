@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/10/2019
 ms.author: adgera
 ---
 
@@ -16,7 +16,7 @@ This article describes how to configure the Postman REST client to interact with
 
 * How to configure an Azure Active Directory application to use the OAuth 2.0 implicit grant flow.
 * How to use the Postman REST client to make token-bearing HTTP requests to your Management APIs.
-* How to use Postman to make multipart POST requests to you Management APIs.
+* How to use Postman to make multipart POST requests to your Management APIs.
 
 ## Postman summary
 
@@ -42,7 +42,7 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
 
       ![Azure Active Directory Reply URL][2]
 
-1. Copy and keep the **Application ID** of your Azure Active Directory app. It's used below.
+1. Copy and keep the **Application ID** of your Azure Active Directory app. It's used in the steps that follow.
 
 ## Obtain an OAuth 2.0 token
 
@@ -65,7 +65,7 @@ Next, set up and configure Postman to obtain an Azure Active Directory token. Af
     |---------|---------|
     | Grant Type | `Implicit` |
     | Callback URL | `https://www.getpostman.com/oauth2/callback` |
-    | Auth URL | Use the **Authorization URL** from step 2 above |
+    | Auth URL | Use the **Authorization URL** from step 2 |
     | Client ID | Use the **Application ID** for the Azure Active Directory app that was created or repurposed from the previous section |
     | Scope | Leave blank |
     | State | Leave blank |
@@ -101,7 +101,7 @@ After completing the previous steps, configure Postman to make an authenticated 
 
    >[!NOTE]
    > * The Postman client does not require that multipart chunks have a manually assigned **Content-Type** or **Content-Disposition**.
-   > * You do not need to add those for each attached piece of data.
+   > * You do not need to specify those headers for each part.
    > * You must select `multipart/mixed` or another appropriate  **Content-Type** for the entire request.
 
 1. Lastly, click **Send** to submit your multipart HTTP POST request.
