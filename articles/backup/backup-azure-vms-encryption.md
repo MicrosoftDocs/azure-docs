@@ -122,7 +122,7 @@ Use the following steps to provide relevant permissions to Backup to access the 
 After permissions are successfully provided, you can proceed with enabling backup for encrypted VMs.
 
 ## Restore an encrypted VM
-Azure Backup now supports restore of [Azure encrypted VM without Azure AD](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad).<br>
+Azure Backup now supports restore of [Azure encrypted VM without Azure AD](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad) in addition to the previous offering of restore support to Azure encrypted VM with Azure AD.<br>
 
 To restore an encrypted VM, first restore disks by following the steps in the "Restore backed-up disks" section in [Choose a VM restore configuration](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). After that, you can use one of the following options:
 
