@@ -12,7 +12,9 @@ ms.custom: seodec2018
 ---
 # How to use Search explorer to query indexes in Azure Search 
 
-This article shows you how to query an existing Azure Search index using **Search explorer** in the Azure portal. You can use Search explorer to submit simple or full Lucene query strings to any existing index in your service. For help getting started, see [Start Search explorer](#start-search-explorer).
+This article shows you how to query an existing Azure Search index using **Search explorer** in the Azure portal. You can use Search explorer to submit simple or full Lucene query strings to any existing index in your service. 
+
+For help getting started, see [Start Search explorer](#start-search-explorer).
 
 ## Basic search strings
 
@@ -97,7 +99,7 @@ Both **$filter** and **$orderby** expressions are OData constructions. For more 
 
 <a name="start-search-explorer"></a>
 
-## Start Search explorer
+## How to start Search explorer
 
 1. In the [Azure portal](https://portal.azure.com), open the search service page from the dashboard or [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list.
 
