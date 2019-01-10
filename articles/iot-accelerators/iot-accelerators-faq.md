@@ -1,5 +1,5 @@
 ---
-title: Azure IoT solution accelerators FAQ | Microsoft Docs
+title: IoT solution accelerators FAQ - Azure | Microsoft Docs
 description: Frequently asked questions for IoT solution accelerators
 author: dominicbetts
 manager: timlt
@@ -49,7 +49,7 @@ See the support article [Changing Service Administrator and Co-Administrator whe
 
 Look at the following diagram for guidance:
 
-![](media/iot-accelerators-faq/flowchart.png)
+![Permissions flowchart](media/iot-accelerators-faq/flowchart.png)
 
 > [!NOTE]
 > If you continue to see the error after validating you are a global administrator of the Azure AD tenant and a co-administrator of the subscription, have your account administrator remove the user and reassign necessary permissions in this order. First, add the user as a global administrator and then add user as a co-administrator of the Azure subscription. If issues persist, contact [Help & Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

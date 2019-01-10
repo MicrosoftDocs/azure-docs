@@ -4,7 +4,6 @@ description: Use the Microsoft Azure Backup agent to back up Windows files and f
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keywords: backup vault; back up a Windows server; backup windows;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
@@ -177,6 +176,8 @@ If your machine/proxy has limited internet access, ensure that firewall settings
 The backup policy is the schedule when recovery points are taken, and the length of time the recovery points are retained. Use the Microsoft Azure Backup agent to create the backup policy for files and folders.
 
 ### To create a backup schedule
+
+Set the backup schedule on the machine you want to back up. Note that the time set for the backup might differ from the local computer time because Azure Backup doesn't take daylight savings time (DST) into account. 
 1. Open the Microsoft Azure Backup agent. You can find it by searching your machine for **Microsoft Azure Backup**.
 
     ![Launch the Azure Backup agent](./media/backup-configure-vault/snap-in-search.png)

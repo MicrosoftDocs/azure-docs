@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Back up a web app | Microsoft Docs
-description: Azure CLI Script Sample - Back up a web app
+title: Azure CLI Script Sample - Back up an app | Microsoft Docs
+description: Azure CLI Script Sample - Back up an app
 services: app-service\web
 documentationcenter: 
 author: msangapu
@@ -18,9 +18,9 @@ ms.custom: mvc
 ms.custom: seodec18
 ---
 
-# Back up a web app using CLI
+# Back up an app using CLI
 
-This sample script creates a web app in App Service with its related resources, and then creates a one-time backup for it. 
+This sample script creates an app in App Service with its related resources, and then creates a one-time backup for it. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,7 +30,7 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/backup-onetime/backup-onetime.sh?highlight=3-7 "Back up a web app")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/backup-onetime/backup-onetime.sh?highlight=3-7 "Back up an app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -45,9 +45,9 @@ This script uses the following commands. Each command in the table links to comm
 | [`az storage container create`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) | Creates an Azure storage container. |
 | [`az storage container generate-sas`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-generate-sas) | Generates an SAS token for an Azure storage container.  |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Creates an App Service plan. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an Azure web app. |
-| [`az webapp config backup create`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-create) | Creates a backup for a web app. |
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Gets a list of backups for a web app. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an App Service app. |
+| [`az webapp config backup create`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-create) | Creates a backup for an App Service app. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Gets a list of backups for an App Service app. |
 
 ## Next steps
 

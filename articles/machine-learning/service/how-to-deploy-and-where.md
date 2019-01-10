@@ -271,7 +271,7 @@ You must create an IoT hub and register a device or reuse one you have with [thi
 ssh <yourusername>@<yourdeviceip>
 sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
 sudo chmod +x createNregister
-sudo ./createNregister <The Azure subscriptionID you wnat to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
+sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
 ```
 
 Save the resulting connection string after "cs":"{copy this string}".
@@ -381,6 +381,10 @@ from azureml.core.webservice import Webservice
 service_name = 'aci-mnist-3'
 # Retrieve existing service
 service = Webservice(name = service_name, workspace = ws)
+
+# point to a different image
+new-image = Image(workspace = ws, id="myimage2:1")
+
 # Update the image used by the service
 service.update(image = new-image)
 print(service.state)

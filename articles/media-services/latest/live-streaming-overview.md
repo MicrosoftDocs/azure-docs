@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/26/2018
 ms.author: juliako
 
 ---
@@ -30,7 +30,7 @@ This article gives a detailed overview, guidance, and includes diagrams of the m
 
 To deliver on-demand or live streams with Media Services, you need to have at least one [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). When your Media Services account is created a **default** StreamingEndpoint is added to your account in the **Stopped** state. You need to start the StreamingEndpoint from which you want to stream your content to your viewers. You can use the default **StreamingEndpoint**, or create another customized **StreamingEndpoint** with your desired configuration and CDN settings. You may decide to enable multiple StreamingEndpoints, each one targeting a different CDN, and providing a unique hostname for delivery of content. 
 
-In Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. When you create a LiveEvent, an input endpoint is created that you can use to send a live signal from a remote encoder. The remote live encoder sends the contribution feed to that input endpoint using either the [RTMP](https://www.adobe.com/devnet/rtmp.html) or [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmented-MP4) protocol.  
+In Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. When you create a LiveEvent, an input endpoint is created that you can use to send a live signal from a remote encoder. The remote live encoder sends the contribution feed to that input endpoint using either the [RTMP](https://www.adobe.com/devnet/rtmp.html) or [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmented-MP4) protocol. For the Smooth Streaming ingest protocol,  the supported URL schemes are `http://` or `https://`. For the RTMP ingest protocol, the supported URL schemes are `rtmp://` or `rtmps://`. For more information, see [Recommended live streaming encoders](recommended-on-premises-live-encoders.md).
 
 Once the **LiveEvent** starts receiving the contribution feed, you can use its preview endpoint (preview URL to preview and validate that you are receiving the live stream before further publishing. After you have checked that the preview stream is good, you can use the LiveEvent to make the live stream available for delivery through one or more (pre-created) **StreamingEndpoints**. To accomplish this, you create a new [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) on the **LiveEvent**. 
 
@@ -40,7 +40,7 @@ With Media Services you can take advantage of **Dynamic Packaging**, which allow
 
 Media Services enables you to deliver your content encrypted dynamically (**Dynamic Encryption**) with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM licenses to authorized clients. For more information on how to encrypt your content with Media Services, see [Protecting content overview](content-protection-overview.md)
 
-If desired, you can also apply Dynamic Filtering, which can be used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. 
+If desired, you can also apply Dynamic Filtering, which can be used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. For more information, see [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
 
 ### New capabilities for live streaming in v3
 
@@ -53,7 +53,7 @@ With the v3 APIs of Media Services, you benefit from the following new features:
 
 ## LiveEvent types
 
-A  [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: pass-through and live encoding. 
+A [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: pass-through and live encoding. 
 
 ### Pass-through
 
@@ -73,7 +73,7 @@ See a live example in [MediaV3LiveApp](https://github.com/Azure-Samples/media-se
 
 ![live encoding](./media/live-streaming/live-encoding.png)
 
-When using live encoding with Media Services, you would configure your on-premises live encoder to send a single bitrate video as the contribution feed to the LiveEvent (using RTMP or Fragmented-Mp4 protocol). The LiveEvent encodes that incoming single bitrate stream to a [multiple bitrate video stream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), makes it available for delivery to play back devices via protocols like MPEG-DASH, HLS, and Smooth Streaming. When creating this type of LiveEvent, specify the encoding type as **Basic** (LiveEventEncodingType.Basic).
+When using live encoding with Media Services, you would configure your on-premises live encoder to send a single bitrate video as the contribution feed to the LiveEvent (using RTMP or Fragmented-Mp4 protocol). The LiveEvent encodes that incoming single bitrate stream to a [multiple bitrate video stream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), makes it available for delivery to play back devices via protocols like MPEG-DASH, HLS, and Smooth Streaming. When creating this type of LiveEvent, specify the encoding type as **Standard** (LiveEventEncodingType.Standard).
 
 You can send the contribution feed at up to 1080p resolution at a frame rate of 30 frames/second, with H.264/AVC video codec and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. See the [LiveEvent types comparison and limitations](live-event-types-comparison.md) article for more details.
 

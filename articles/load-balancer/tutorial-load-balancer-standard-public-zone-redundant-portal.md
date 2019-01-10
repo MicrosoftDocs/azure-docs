@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 # Tutorial: Load balance VMs across availability zones with a Standard Load Balancer using the Azure portal
 
-Load balancing provides a higher level of availability by spreading incoming requests across multiple virtual machines. This tutorial steps through creating a public Load Balancer Standard that load balances VMs across availability zones. This helps to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy. You learn how to:
+Load balancing provides a higher level of availability by spreading incoming requests across multiple virtual machines. This tutorial steps through creating a public Standard Load Balancer that load balances VMs across availability zones. This helps to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy. You learn how to:
 
 > [!div class="checklist"]
 > * Create a Standard Load Balancer

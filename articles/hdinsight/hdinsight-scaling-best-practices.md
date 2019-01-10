@@ -152,7 +152,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![Safe mode off](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]  
-> The `-D` switch is necessary because the default file system in HDInsight is either Azure Storage or Azure Data Lake Store. `-D` specifies that the commands execute against the local HDFS file system.
+> The `-D` switch is necessary because the default file system in HDInsight is either Azure Storage or Azure Data Lake Storage. `-D` specifies that the commands execute against the local HDFS file system.
 
 Next, you can view a report that shows the details of the HDFS state:
 

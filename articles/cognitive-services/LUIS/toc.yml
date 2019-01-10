@@ -39,35 +39,33 @@
   items:
   - name: Build app
     items:
-    - name: 1. Determine user intentions
+    - name: Determine user intentions
       href: luis-quickstart-intents-only.md
-    - name: 2. Identify common intents
+    - name: Identify common user data with prebuilt models
       href: luis-tutorial-prebuilt-intents-entities.md
-    - name: 3. Extract well-formatted data
-      href: luis-quickstart-intents-regex-entity.md
-    - name: 4. Extract exact text matches
-      href: luis-quickstart-intent-and-list-entity.md
-    - name: 5. Extract contextually-related data
-      href: luis-quickstart-intent-and-hier-entity.md
-    - name: 6. Group and extract related data
-      href: luis-tutorial-composite-entity.md
-    - name: 7. Extract names
-      href: luis-quickstart-primary-and-secondary-data.md
-    - name: 8. Extract key phrases
-      href: luis-quickstart-intent-and-key-phrase.md
-    - name: 9. Extract sentiment
+    - name: Get sentiment from user utterances
       href: luis-quickstart-intent-and-sentiment-analysis.md
+    - name: Get well-formatted data with regular expressions
+      href: luis-quickstart-intents-regex-entity.md
+    - name: Get exact text matches with lists
+      href: luis-quickstart-intent-and-list-entity.md
+    - name: Get contextually-related data with hierarchical entities
+      href: luis-quickstart-intent-and-hier-entity.md
+    - name: Group and extract related data with composite entities
+      href: luis-tutorial-composite-entity.md
+    - name: Get names with simple entities
+      href: luis-quickstart-primary-and-secondary-data.md
   - name: Improve app
     items:
-    - name: 1. Fix unsure predictions
+    - name: Fix unsure predictions
       href: luis-tutorial-review-endpoint-utterances.md
-    - name: 2. Batch test datasets
+    - name: Batch test datasets
       href: luis-tutorial-batch-testing.md
-    - name: 3. Add common utterance formats
+    - name: Add common utterance formats
       href: luis-tutorial-pattern.md
-    - name: 4. Extract contextually-related patterns
+    - name: Extract contextually-related patterns
       href: luis-tutorial-pattern-roles.md
-    - name: 5. Extract free-form data
+    - name: Extract free-form data
       href: luis-tutorial-pattern-any.md
   - name: Use bot
     items:
@@ -78,7 +76,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://github.com/Microsoft/LUIS-Samples
+    href: https://github.com/Azure-Samples/cognitive-services-language-understanding
 - name: Concepts
   items:
   - name: Best practices

@@ -12,15 +12,15 @@ ms.date: 12/07/2018
 ms.author: azfuncdf
 ---
 
-# Diagnostics in Durable Functions (Azure Functions)
+# Diagnostics in Durable Functions in Azure
 
 There are several options for diagnosing issues with [Durable Functions](durable-functions-overview.md). Some of these options are the same for regular functions and some of them are unique to Durable Functions.
 
 ## Application Insights
 
-[Application Insights](../../application-insights/app-insights-overview.md) is the recommended way to do diagnostics and monitoring in Azure Functions. The same applies to Durable Functions. For an overview of how to leverage Application Insights in your function app, see [Monitor Azure Functions](../functions-monitoring.md).
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) is the recommended way to do diagnostics and monitoring in Azure Functions. The same applies to Durable Functions. For an overview of how to leverage Application Insights in your function app, see [Monitor Azure Functions](../functions-monitoring.md).
 
-The Azure Functions Durable Extension also emits *tracking events* that allow you to trace the end-to-end execution of an orchestration. These can be found and queried using the [Application Insights Analytics](../../application-insights/app-insights-analytics.md) tool in the Azure portal.
+The Azure Functions Durable Extension also emits *tracking events* that allow you to trace the end-to-end execution of an orchestration. These can be found and queried using the [Application Insights Analytics](../../azure-monitor/app/analytics.md) tool in the Azure portal.
 
 ### Tracking data
 

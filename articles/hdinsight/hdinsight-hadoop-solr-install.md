@@ -34,7 +34,7 @@ The sample script used in this topic creates a Windows-based Solr cluster with a
 * [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions.md).
 
 ## What is Solr?
-<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> is an enterprise search platform that enables powerful full-text search on data. While Hadoop enables storing and managing vast amounts of data, Apache Solr provides the search capabilities to quickly retrieve the data.
+<a href="https://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> is an enterprise search platform that enables powerful full-text search on data. While Hadoop enables storing and managing vast amounts of data, Apache Solr provides the search capabilities to quickly retrieve the data.
 
 ## Install Solr using portal
 1. Start creating a cluster by using the **CUSTOM CREATE** option, as described at [Create Apache Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).

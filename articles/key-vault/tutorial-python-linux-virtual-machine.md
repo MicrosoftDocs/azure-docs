@@ -19,7 +19,7 @@ ms.custom: mvc
 
 Azure Key Vault helps you to protect secrets such as API Keys, Database Connection strings needed to access your applications, services, and IT resources.
 
-In this tutorial, you follow the necessary steps for getting an Azure web application to read information from Azure Key Vault by using managed identities for Azure resources. This tutorial is based on [Azure Web Apps](../app-service/app-service-web-overview.md). In the following you learn how to:
+In this tutorial, you follow the necessary steps for getting an Azure web application to read information from Azure Key Vault by using managed identities for Azure resources. In the following you learn how to:
 
 > [!div class="checklist"]
 > * Create a key vault.
@@ -158,7 +158,7 @@ You can follow this [tutorial](https://docs.microsoft.com/azure/virtual-machines
 ## Create and run Sample Python App
 
 The below is just an example file named "Sample.py". 
-It uses [requests](http://docs.python-requests.org/master/) library to make HTTP GET calls.
+It uses [requests](https://pypi.org/project/requests/2.7.0/) library to make HTTP GET calls.
 
 ## Edit Sample.py
 After creating Sample.py open the file and copy the below code

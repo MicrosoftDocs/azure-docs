@@ -1,6 +1,6 @@
 ---
 title: Index definition and concepts - Azure Search
-description: Introduction to index concepts in Azure Search and how indexes are used.
+description: Introduction to index terms and concepts in Azure Search, including physical structre of an inverted index.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst

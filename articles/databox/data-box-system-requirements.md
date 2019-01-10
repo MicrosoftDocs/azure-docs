@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/27/2018
 ms.author: alkohli
 ---
 # Azure Data Box system requirements
@@ -50,6 +50,9 @@ Here is a list of the supported storage types for the Data Box device.
 | Classic | Standard |
 | General purpose  |Standard; both V1 and V2 are supported. |
 | Blob |Both hot and cool are supported. |
+
+>[!NOTE]
+> Azure Data Lake Storage Gen 2 accounts are not supported.
 
 
 ### Supported storage types

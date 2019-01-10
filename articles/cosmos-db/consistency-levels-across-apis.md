@@ -1,13 +1,12 @@
 ---
 title: Consistency levels and Azure Cosmos DB APIs
 description: Understanding the consistency levels across APIs in Azure Cosmos DB.
-keywords: consistency, azure cosmos db, azure, models, mongodb, cassandra, graph, table, Microsoft azure
-services: cosmos-db
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
+ms.reviewer: sngun
 ---
 
 # Consistency levels and Azure Cosmos DB APIs
@@ -45,5 +44,5 @@ The following table shows the "read concerns" mapping between MongoDB 3.4 and th
 Read more about consistency levels and compatibility between Azure Cosmos DB APIs with the open-source APIs. See the following articles:
 
 * [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
-* [MongoDB features supported by the Azure Cosmos DB API for MongoDB](mongodb-feature-support.md)
+* [MongoDB features supported by the Azure Cosmos DB's API for MongoDB](mongodb-feature-support.md)
 * [Apache Cassandra features supported by the Azure Cosmos DB Cassandra API](cassandra-support.md)

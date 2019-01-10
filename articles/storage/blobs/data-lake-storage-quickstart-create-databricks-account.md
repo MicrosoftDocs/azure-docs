@@ -132,7 +132,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
     ```scala    
     spark.conf.set("fs.azure.account.key.<account-name>.dfs.core.windows.net", "<account-key>")
 
-    dbutils.fs.ls("abfs://<file-system-name>@<account-name>.dfs.core.windows.net/")
+    dbutils.fs.ls("abfss://<file-system-name>@<account-name>.dfs.core.windows.net/")
     ```
 
 5. Enter the code into the first cell, and press **SHIFT + ENTER** to run it.

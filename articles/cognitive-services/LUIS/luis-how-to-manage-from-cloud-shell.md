@@ -1,7 +1,7 @@
 ---
 title: Usage data - Cloud Shell
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Learn how to get usage information in Azure Cloud Shell for LUIS.
+description: Learn how to get endpoint hit count usage information in Azure Cloud Shell for LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,16 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.author: diberry
 ---
 
 # Usage data for LUIS service from Azure Cloud Shell
+
+Learn how to get endpoint hit count usage information in Azure Cloud Shell for LUIS.
+
 The Azure portal allows you to use PowerShell cmdlets to work with LUIS resources. 
 
 These cmdlets allow you to [create](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) a LUIS subscription, get information about the subscription, including [usage](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0), and [remove](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0) the subscription. 
 
 ## Cloud shell storage account and authentication
+
 In order to use PowerShell in the Azure portal [cloud shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell), you need to have an Azure storage account. If you don't have a [storage account](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage), you will be prompted to create one. The storage account allows you to save PowerShell scripts in the cloud shell.  
 
 You also need to authenticate to Azure in the cloud shell to access any resources. 
@@ -26,6 +30,7 @@ You also need to authenticate to Azure in the cloud shell to access any resource
 Once you have a storage account and are authenticated, you can run PowerShell cmdlets.
 
 ## Open Cloud Shell
+
 When you use the Azure portal cloud shell, you are always on the most current PowerShell version. 
 
 Use the **Launch Cloud Shell**  button to open the Cloud Shell or open a browser with [https://shell.azure.com](https://shell.azure.com). Select Power Shell as the environment. If you don't have an Azure Storage account, you will need to create one. 

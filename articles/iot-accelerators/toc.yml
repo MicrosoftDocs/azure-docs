@@ -249,7 +249,7 @@
     - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
     - name: IoT Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks  azure-iot-service-sdks
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Maps
       href: /azure/azure-maps 
     - name: Time Series Insights
