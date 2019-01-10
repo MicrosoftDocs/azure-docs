@@ -70,9 +70,6 @@ After you do this, your apps will no longer be able to reach on premises. To sol
 
 ## Configure your ASE with Service Endpoints ##
 
- > [!NOTE]
-   > Service endpoints with SQL does not work with ASE in the US Government regions.  The following information is only valid in the Azure public regions.  
-
 To route all outbound traffic from your ASE, except that which goes to Azure SQL and Azure Storage, perform the following steps:
 
 1. Create a route table and assign it to your ASE subnet. Find the addresses that match your region here [App Service Environment management addresses][management]. Create routes for those addresses with a next hop of internet. This is needed because the App Service Environment inbound management traffic must reply from the same address it was sent to.   
