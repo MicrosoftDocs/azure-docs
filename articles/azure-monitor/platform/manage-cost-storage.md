@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/10/2018
 ms.author: magoedte
 ms.component: 
 ---
@@ -100,14 +100,16 @@ Customers with an Enterprise Agreement signed prior to July 1, 2018 or who alrea
 
 ## Changing pricing tier
 
-If your Log Analytics workspace has access to legacy pricing tiers, to change pricing tiers:
+If your Log Analytics workspace has access to legacy pricing tiers, to change between legacy pricing tiers:
 
 1. In the Azure portal, from the Log Analytics subscriptions pane, select a workspace.
 
 2. From the workspace pane, under **General**, select **Pricing tier**.  
 
 3. Under **Pricing tier**, select a pricing tier and then click **Select**.  
-    ![Selected pricing plan](./media/manage-access/workspace-pricing-tier-info.png)
+    ![Selected pricing plan](media/manage-cost-storage/workspace-pricing-tier-info.png)
+
+If you want to move your workspace into the current pricing tier, you need to [change your subscription's monitoring pricing model in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) which will change the pricing tier of all workspaces in that subscription.
 
 > [!NOTE]
 > If your workspace is linked to an Automation account, before you can select the *Standalone (Per GB)* pricing tier you must delete any **Automation and Control** solutions and unlink the Automation account. In the workspace blade, under **General**, click **Solutions** to see and delete solutions. To unlink the Automation account, click the name of the Automation account on the **Pricing tier** blade.
