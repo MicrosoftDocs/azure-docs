@@ -41,14 +41,14 @@ A recovery point is considered created only after phases 1 and 2 are completed. 
 
 ![Backup job in VM backup stack Resource Manager deployment model--storage and vault](./media/backup-azure-vms/instant-rp-flow.png)
 
-By default, snapshots are retained for two days. This feature allows the restores operation from these snapshots there by cutting down the restore times. It reduces the time that is required to transform and copy data back from the vault to the user's storage account for unmanaged disk scenarios while for managed disk users, it creates managed disks out of the Recover Services data.
+By default, snapshots are retained for two days. This feature allows restores operation from these snapshots there by cutting down the restore times. It reduces the time that is required to transform and copy data back from the vault to the user's storage account for unmanaged disk scenarios while for managed disk users, it creates managed disks out of the Recover Services data.
 
 ## Feature considerations
 
 * Snapshots are stored along with the disks to boost recovery point creation and to speed up restore operations. As a result, you'll see storage costs that correspond to snapshots taken during this period.
 * Incremental snapshots are stored as page blobs. All the users using unmanaged disks are charged for the snapshots stored in their local storage account. Since the restore point collections used by Managed VM backups use blob snapshots at the underlying storage level, for managed disks you will see costs corresponding to blob snapshot pricing and they are incremental.
 * For premium storage accounts, the snapshots taken for instant recovery points count towards the 10-TB limit of allocated space.
-* You get an ability to configure the snapshot retention based on the restore needs. Depending on the requirement, you can set the snapshot retention to a minimum of 1 day in the backup policy blade as explained below. This can help you save cost for snapshot retention.
+* You get an ability to configure the snapshot retention based on the restore needs. Depending on the requirement, you can set the snapshot retention to a minimum of one day in the backup policy blade as explained below. This can help you save cost for snapshot retention.
 
 > [!NOTE]
 >
@@ -58,7 +58,7 @@ With this instant restore upgrade, the snapshot retention duration of all the cu
 
 ## Cost impact
 
-The incremental snapshots are stored in VM’s storage account which are used for instant recovery. Incremental snapshot means the space occupied by a snapshot is equal to the space occupied by pages that are written after the snapshot was created. Billing is still for the per GB used space occupied by the snapshot and the price per GB is same as mentioned in the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
+The incremental snapshots are stored in VM’s storage account, which are used for instant recovery. Incremental snapshot means the space occupied by a snapshot is equal to the space occupied by pages that are written after the snapshot was created. Billing is still for the per GB used space occupied by the snapshot and the price per GB is same as mentioned in the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 
 ## Upgrading to Instant Restore
@@ -101,6 +101,7 @@ If you are not automatically upgraded yet and wish to self-serve then run the fo
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
+
 ## Upgrade to Instant Restore using CLI
 
 Run the following commands from a shell:
@@ -123,7 +124,7 @@ Run the following commands from a shell:
     az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
     ```
 
-## Verify that the upgrade is finished
+## Verify if upgrade is successfull
 
 ### PowerShell
 From an elevated PowerShell terminal, run the following cmdlet:
@@ -146,14 +147,14 @@ If it says "Registered," then your subscription is upgraded to Instant Restore.
 ### What are the cost implications of Instant restore?
 Snapshots are stored along with the disks to speed up recovery point creation and restore operations. As a result, you'll see storage costs that correspond to the snapshot retention selected as a part of VM backup policy.
 
-### Does snapshot retention increase the premium storage account snapshot limit by 10 TB?
-No, total snapshot limit per storage account remains at 10TB.
+### Does snapshot retention increase the premium storage account snapshot limit by 10-TB?
+No, total snapshot limit per storage account remains at 10-TB.
 
-### In Premium Storage accounts, do the snapshots taken for instant recovery point occupy the 10 TB snapshot limit?
-Yes, for premium storage accounts, the snapshots taken for instant recovery point, occupy the allocated 10 TB of space.
+### In Premium Storage accounts, do the snapshots taken for instant recovery point occupy the 10-TB snapshot limit?
+Yes, for premium storage accounts, the snapshots taken for instant recovery point, occupy the allocated 10-TB of space.
 
 ### How does the snapshot retention work during the five-day period?
-Each day a new snapshot is taken, then there are five individual incremental snapshots. The size of the snapshot depends on the data churn which is in most cases around 2%-5%.
+Each day a new snapshot is taken, then there are five individual incremental snapshots. The size of the snapshot depends on the data churn, which is in most cases around 2%-5%.
 
 ### Is an instant restore snapshot an incremental snapshot or full snapshot?
 Snapshots taken as a part of instant restore capability are incremental snapshots.
@@ -161,11 +162,11 @@ Snapshots taken as a part of instant restore capability are incremental snapshot
 ### How can I calculate the approximate cost increase due to instant restore feature?
 It depends on the churn of the VM. In a steady state, you can assume the increase in cost is = Snapshot retention period * daily churn per VM * storage cost per GB.
 
-## If the recovery type for a restore point is “Snapshot and vault” and I perform a restore operation, which recovery type will be used?
-If the recovery type is “snapshot and vault”, restore will be automatically done from the local snapshot which will be much faster compared to the restore done from the vault.
+### If the recovery type for a restore point is “Snapshot and vault” and I perform a restore operation, which recovery type will be used?
+If the recovery type is “snapshot and vault”, restore will be automatically done from the local snapshot, which will be much faster compared to the restore done from the vault.
 
 ### What happens if I select retention period of restore point (Tier 2) less than the snapshot (Tier1) retention period?
-The new model does not allow deleting the restore point (Tier2) unless the snapshot (Tier1) is deleted. Currently we support 7 days retention period for snapshot (Tier1) deletion, so the restore point (Tier2) retention period for less than 7 days is not honored. We recommend scheduling restore point (Tier2) retention period greater than 7 days.
+The new model does not allow deleting the restore point (Tier2) unless the snapshot (Tier1) is deleted. Currently we support seven days retention period for snapshot (Tier1) deletion, so the restore point (Tier2) retention period for less than seven days is not honored. We recommend scheduling restore point (Tier2) retention period greater than seven days.
 
 ### Why is my snapshot existing even after the set retention period in backup policy?
 If the recovery point has snapshot and that is the latest RP available, it is retained until the time there is a next successful backup. This is as per the designed GC policy today that mandates at least one latest RP to be always present in case all backups further on fail due to an issue in the VM. In normal scenarios, RPs are cleaned up in maximum of 48 hours after their expiry.
