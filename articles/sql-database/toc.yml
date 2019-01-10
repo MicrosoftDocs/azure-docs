@@ -616,7 +616,7 @@
     href: /sql/t-sql/language-reference
   - name: REST
     href: /rest/api/sql/
-  - name: Resource Manager template
+  - name: Resource Manager templates for SQL
     href: /azure/templates/microsoft.sql/allversions
   - name: SQL Server tools
     href: /sql/tools/overview-sql-tools
