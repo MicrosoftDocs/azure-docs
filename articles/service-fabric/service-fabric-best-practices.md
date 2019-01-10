@@ -21,10 +21,11 @@ ms.author: pepogors
 To manage Azure Service Fabric applications and clusters successfully, there are operations that we highly recommend you preform for the reliability of your production environment.  
 
 ## Security 
-For more information about 
+For more information about [Azure Security Best Practices](https://docs.microsoft.com/en-us/azure/security/) and check out [Azure Service Fabric security best practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)
 ### KeyVault
-
+[Azure KeyVault](https://docs.microsoft.com/azure/key-vault/) is the recommended secrets management service for Azure Service Fabric applications and clusters. Azure KeyVault and compute resources must be co-located in the same region.  
 ### CommonName Certificates
+Azu
 ### Encrypting Secret Values 
 ### Azure Active Directory (AAD) for client identity
 ### Compute Managed Service Identity (MSI)
