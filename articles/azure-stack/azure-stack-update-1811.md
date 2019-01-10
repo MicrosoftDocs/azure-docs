@@ -159,7 +159,7 @@ This update includes the following new features and improvements for Azure Stack
 
 - The existing PEP cmdlet to retrieve the BitLocker recovery keys is renamed in 1811, from Get-AzsCsvsRecoveryKeys to Get-AzsRecoveryKeys. For more information on how to retrieve the BitLocker recovery keys, see [instructions on how to retrieve the keys](azure-stack-security-bitlocker.md).
 
-## Common Vulnerabilities and Exposures
+## Common vulnerabilities and exposures
 
 This update installs the following security updates:  
 
