@@ -56,7 +56,7 @@ There are two types of security reports:
 The following table lists the latency information for security reports.
 
 | Report | Minimum | Average | Maximum |
-| :-- | --- | --- | --- |
+| :-- | --- | --- | --- |---|
 | Users at risk          | 5 minutes   | 15 minutes  | 2 hours  |
 | Risky sign-ins         | 5 minutes   | 15 minutes  | 2 hours  |
 
