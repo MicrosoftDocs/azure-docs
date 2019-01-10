@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 01/10/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -54,14 +54,14 @@ To copy data using data copy service, you need to create a job. Follow these ste
     
     |Field                          |Value    |
     |-------------------------------|---------|
-    |Job name                       |A unique name fewer than 230 characters for the job. These characters - `<, >, \, :, /, \\, |, ?, *` aren't allowed in the job name.        |
+    |Job name                       |A unique name fewer than 230 characters for the job. These characters aren't allowed in the job name - `<`, `>`, `|`, `?`, `*`,`\"`, `:`, `/`, and `\\`.         |
     |Source location                |Provide the SMB path to the data source in the format: `\\<ServerIPAddress>\<ShareName>` or `\\<ServerName>\<ShareName>`.        |
     |Username                       |Username to access the data source.        |
     |Password                       |Password to access the data source.           |
     |Destination storage account    |Select the target storage account to upload data to from the dropdown list.         |
     |Destination storage type       |Select the target storage type from block blob, page blob, or Azure Files.        |
-    |Destination container/share    |Enter the name of the container or share to upload data in your destination storage account. The name can be a share name or a container name. For example, `myshare` or `mycontainer`. You can also enter in the format `sharename\virtual_directoryname` or `containername\virtual_directory_name` in cloud.        |
-    |Copy files matching pattern    | Enter file name matching pattern in the following two ways.<ul><li>**Use wildcard expressions** Only `*` and `?` are supported in wildcard expressions. For example, this expression `*.vhd` matches all the files that have .vhd extension. Similarly, `*.dl?` matches all the files whose extension is either `.dl` or `.dll`. Also, `*foo` will match all the files whose names end with `foo`.<br>You can directly enter wildcard expression in the field. By default, value entered in the field is treated as wildcard expression.</li><li>**Use regular expressions** - POSIX-based regular expressions are supported. For example, a regular expression `.*\.vhd` will match all the files that have `.vhd` extension. For regular expression, provide the `<pattern>` directly as `regex(<pattern>)`. </ul>|
+    |Destination container/share    |Enter the name of the container or share to upload data in your destination storage account. The name can be a share name or a container name. For example, `myshare` or `mycontainer`. You can also enter in the format `sharename\directory_name` or `containername\virtual_directory_name` in cloud.        |
+    |Copy files matching pattern    | Enter file name matching pattern in the following two ways.<ul><li>**Use wildcard expressions** Only `*` and `?` are supported in wildcard expressions. For example, this expression `*.vhd` matches all the files that have .vhd extension. Similarly, `*.dl?` matches all the files whose extension is either `.dl` or `.dll`. Also, `*foo` will match all the files whose names end with `foo`.<br>You can directly enter wildcard expression in the field. By default, value entered in the field is treated as wildcard expression.</li><li>**Use regular expressions** - POSIX-based regular expressions are supported. For example, a regular expression `.*\.vhd` will match all the files that have `.vhd` extension. For regular expression, provide the `<pattern>` directly as `regex(<pattern>)`. <li>For more information on regular expressions, go to [Regular expression language - a quick reference](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |File optimization              |When enabled, the files are packed at the ingest. This speeds up the data copy for small files.        |
  
 4. Click **Start**. The inputs are validated and if the validation succeeds, then a job starts. It may take a few minutes for the job to start.
@@ -104,8 +104,7 @@ To copy data using data copy service, you need to create a job. Follow these ste
 
 6. While the job is in progress, on the **Copy data** page: 
 
-    - In the **Status** column, you can view the status of the copy job. The status can be: 
-        - **Starting**
+    - In the **Status** column, you can view the status of the copy job. The status can be:
         - **Running**
         - **Failed**
         - **Succeeded**
@@ -119,13 +118,13 @@ To copy data using data copy service, you need to create a job. Follow these ste
     - In the **Details** column, click **View** to see the job details.
     - If you have any errors during the copy process as shown in the **# Errors** column, go to **Error log** column and download the error logs for troubleshooting.
 
-Wait for the copy jobs to finish. As some errors are only logged in the Connect and copy page, make sure that the copy jobs have finished with no errors before you go to the next step.
+Wait for the copy jobs to finish. As some errors are only logged in the **Connect and copy** page, make sure that the copy jobs have finished with no errors before you go to the next step.
 
 ![No errors on **Connect and copy** page](media/data-box-deploy-copy-data-via-copy-service/verify-no-errors-on-connect-and-copy.png)
 
 To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
     
-   ![Verify free and used space on dashboard](media/data-box-deploy-copy-data-via-copy-service/verify-used-space-dashboard.png)
+![Verify free and used space on dashboard](media/data-box-deploy-copy-data-via-copy-service/verify-used-space-dashboard.png)
 
 Once the copy job is finished, you can go to **Prepare to ship**.
 
