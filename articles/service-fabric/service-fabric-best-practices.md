@@ -3,8 +3,8 @@ title: Azure Service Fabric Application and Cluster Best Practices | Microsoft D
 description: Best practices for managing Service Fabric clusters and applications.
 services: service-fabric
 documentationcenter: .net
-author: peter
-manager: timlt
+author: pepogors
+manager: chackdan
 editor: ''
 
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: 
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/28/2018
+ms.date: 1/10/2019
 ms.author: pepogors
 
 ---
@@ -21,14 +21,12 @@ ms.author: pepogors
 
 ## Azure Service Fabric Application and Cluster Best Practices
 To manage Azure Service Fabric applications and clusters successfully, there are some non-default operations that we highly recommend you preform, to optimize for the reliability of your production environment.  
-
 ## Security 
 For more information about [Azure Security Best Practices](https://docs.microsoft.com/en-us/azure/security/) please check out [Azure Service Fabric security best practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)
 ### KeyVault
 [Azure KeyVault](https://docs.microsoft.com/azure/key-vault/) is the recommended secrets management service for Azure Service Fabric applications and clusters.
 > [!NOTE]
 > Azure KeyVault and compute resources must be co-located in the same region.  
-
 -- Portal Blade Common Name Cert Generation
 -- Deploy Certificate URL for VMSS Resource
 ### CommonName Certificates
@@ -47,18 +45,30 @@ For more information about [Azure Security Best Practices](https://docs.microsof
 -- XML manifest for run as 
 ### Windows Defender 
 -- Windows defender for VMSS extension, and whitelist properties
+
 ## Networking
 For more information about networking
 ### Network Security Group (NSG)
 -- ARM template with port rules, link to the portal
 ### Subnets 
--- Each scale set has its own subnet
+-- Each scale set has its own subnet \
 -- Show a snippet of a subnet and IP configuration - Network profile of VMSS 
 ### Azure Traffic Manager and Azure Load Balancer
 -- You should provision a Traffic Manager, to ensure that you have a naming service to any backend
 -- 1 TM to Multiple LBs, TM Profile
 -- Link to DNS aliasing for TM and for LB
+
 ## Capacity Planning and Scaling
+Before creating any Azure Service Fabric cluster it is important to [plan for capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) by considering many items during the process.
+* The number of node types your cluster needs to start out with
+* The properties of each of node type (size, primary, internet facing, number of VMs, etc.)
+* The reliability and durability characteristics of the cluster
+
+A production scaling operation can take upwards of 30 mintues and therfore should be planned for accordingly.
+> [!NOTE]
+> You should  review all Not Allowed upgrade policy values during planning. This is to ensure that you set the values appropriately and to mitigate burning down of your cluster later because of unchangeable system configuration settings.
+
+
 -- Link to first doc for Capacity Planning and Scaling. You can also programatically and manually - link to them. 
 -- A production scaling operation will take at least 30 min plan accordingly, and can take up to several hours. Tradeoff between performance and safety.
 ### Vertical 
@@ -89,8 +99,6 @@ Application monitoring tracks how features and components of your application ar
 One of Service Fabric's goals is to keep applications resilient to hardware failures. This goal is achieved through the platform's system services' ability to detect infrastructure issues and rapidly failover workloads to other nodes in the cluster. But in this particular case, what if the system services themselves have issues? Or if in attempting to deploy or move a workload, rules for the placement of services are violated? Service Fabric provides diagnostics for these and more to make sure you are informed about activity taking place in your cluster. It is recommended that you set up cluster monitoring with [Diagnostics Agent](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) and [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup).
 ### Infrastructure Monitoring
 [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) is our recommendation to monitor cluster level events.
-
-
 
 ## Next steps
 
