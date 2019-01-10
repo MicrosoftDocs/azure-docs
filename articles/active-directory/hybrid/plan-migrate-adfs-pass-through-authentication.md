@@ -15,14 +15,14 @@ ms.author: billmath
 
 # Migrate from federation to pass-through authentication for Azure Active Directory
 
-This article describes how to move from using Active Directory Federation Services (AD FS) to using pass-through authentication.
+This article describes how to move your organization from using Active Directory Federation Services (AD FS) to using pass-through authentication.
 
 > [!NOTE]
 > [Download](https://aka.ms/ADFSTOPTADPDownload) this article.
 
-## Prerequisites for pass-through authentication
+## Prerequisites for migrating to pass-through authentication
 
-The following prerequisites are required before you can migrate from AD FS to using pass-through authentication.
+The following prerequisites are required to migrate from AD FS to using pass-through authentication.
 
 ### Update Azure AD Connect
 
@@ -167,6 +167,8 @@ For more information, see [Smart lockout feature and how to edit its configurati
 
 ## Plan deployment and support
 
+Complete the tasks that are described in this section to help you play for deployment and support.
+
 ### Plan the maintenance window
 
 Although the domain conversion process is relatively quick, Azure AD might still send some authentication requests to your AD FS servers for up to 4 hours after the domain conversion is finished. During this 4-hour window, and depending on various service side caches, Azure AD might not accept these authentications. Users might receive an error: they can still successfully authenticate against AD FS, but Azure AD no longer accepts a user’s issued token because that federation trust is now removed.
@@ -215,7 +217,7 @@ With your solution planned, you can now implement it. Implementation includes th
 
 To your devices to use seamless SSO, add an Azure AD URL to users' intranet zone settings by using a group policy in Active Directory.
 
-By default, web browsers automatically calculate the correct zone, either internet or intranet, from a URL. For example, **http:\/\/contoso/** maps to the intranet zone and **http:\/\/intranet.contoso.com** maps to the internet zone (because the URL contains a period). Browsers don't send Kerberos tickets to a cloud endpoint like the Azure AD URL unless you explicitly add the URL to the browser's intranet zone.
+By default, web browsers automatically calculate the correct zone, either internet or intranet, from a URL. For example, **http:\/\/contoso/** maps to the intranet zone and **http:\/\/intranet.contoso.com** maps to the internet zone (because the URL contains a period). Browsers send Kerberos tickets to a cloud endpoint like the Azure AD URL only if you explicitly add the URL to the browser's intranet zone.
 
 Complete the steps to [roll out](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start) the required changes to your devices.
 
@@ -255,7 +257,8 @@ First, change the sign-on method:
   - **Federation** is set to **Disabled**.
   - **Seamless single sign-on** is set to **Enabled**.
   - **Pass-through authentication** is set to **Enabled**.<br />
-   ![Screenshot that shows the settings in the User sign-in section](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
+
+  ![Screenshot that shows the settings in the User sign-in section](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
 
 Next. deploy additional authentication methods:
 
@@ -352,7 +355,7 @@ Complete the conversion by using the Azure AD PowerShell module:
 
 ## Testing and next steps
 
-Complete the following tasks to verify pass-through authentication and complete the conversion process.
+Complete the following tasks to verify pass-through authentication and to complete the conversion process.
 
 ### Test pass-through authentication 
 
@@ -395,7 +398,7 @@ After you validate that all users and clients are successfully authenticating vi
 
 If you don't use AD FS for other purposes (for other relying party trusts), it's safe to decommission AD FS at this point.
 
-### Rollback
+### Roll back
 
 If you discover a major issue and can't resolve it quickly, you might choose to roll back the solution back to federation.
 
