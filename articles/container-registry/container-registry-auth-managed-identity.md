@@ -16,7 +16,7 @@ Use a [managed identity for Azure resources](active-directory/managed-identities
 
 For this article, you will set up a managed identity on a Docker-enabled Ubuntu virtual machine to access an Azure container registry. 
 
-To create the Azure resources, this quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
+To create the Azure resources, this article requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
 You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [macOS][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
