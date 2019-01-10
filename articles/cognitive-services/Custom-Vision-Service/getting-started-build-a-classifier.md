@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: conceptual
-ms.date: 11/16/2018
+ms.date: 01/10/2019
 ms.author: anroth
 ---
 
@@ -20,6 +20,7 @@ To use the Custom Vision Service for image classification, you must first build 
 ## Prerequisites
 
 - A valid [Microsoft account](https://account.microsoft.com/account) or an Azure Active Directory (AAD) account ("work or school account").
+
     > [!IMPORTANT] 
     > The login for AAD users from [Microsoft National Clouds](https://www.microsoft.com/en-us/trustcenter/cloudservices/nationalcloud) is not currently supported.
 - A set of images with which to train your classifier. See below for tips on choosing images.
@@ -58,9 +59,19 @@ Finally, select __Create project__.
 
 As a minimum, we recommend you use at least 30 images per tag in the initial training set. You'll also want to collect a few extra images with which to test your model once it is trained.
 
-In order to train your model effectively, you'll want to use images with visual variety. Choose images with different camera angles, lighting, background, types, styles, groups, sizes, and so on.
+In order to train your model effectively, you'll want to use images with visual variety. Choose images with that vary in:
+* camera angle
+* lighting
+* background
+* type
+* visual style
+* individual/grouped subject(s)
+* size
 
-The Custom Vision Service accepts training images in .jpg, .png, and .bmp format, and images can be up to 6MB in size. Prediction images can be up to 4MB in size). We recommend that images be at least 256 pixels on the shortest edge. Any images shorter than that will be automatically scaled up by the Custom Vision Service.
+Additionally, make sure all of your training images meet the following criteria:
+* .jpg, .png, or .bmp format
+* no more than 6MB in size (4MB for prediction images)
+* no less than 256 pixels on the shortest edge; any images shorter than this will be automatically scaled up by the Custom Vision Service
 
 ## Upload and tag images
 
@@ -77,7 +88,7 @@ Select __Done__ once the images have been uploaded.
 
 ![The progress bar shows all tasks completed.](./media/getting-started-build-a-classifier/add-images04.png)
 
-To upload another set of images, return to the top of this section and repeat the steps. At some point in your project, you may need to add "negative" images to help make your classifier more accurate. Negative images are those which do not match any of the other tags. When you upload these images, apply the special "Negative" label to them.
+To upload another set of images, return to the top of this section and repeat the steps. At some point in your project, you may need to add _negative samples_ to help make your classifier more accurate. Negative samples are those which do not match any of the other tags. When you upload these images, apply the special **Negative** label to them.
 
 ## Train the classifier
 
@@ -94,15 +105,15 @@ The training process should only take a few minutes. During this time, informati
 After training has completed, the model's performance is estimated and displayed. The Custom Vision Service uses the images that you submitted for training to calculate precision and recall, using a process called [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)). Precision and recall are two different measurements of the effectiveness of a classifier:
 
 - **Precision** indicates the fraction of identified classifications that were correct. For example, if the model identified 100 images as dogs, and 99 of them were actually of dogs, then the precision would be 99%.
-- **Recall** indicates the fraction of actual classifications that were correctly identified. For example, if there were 100 images of dogs, and the model identified 80 as dogs, the recall would be 80%.
+- **Recall** indicates the fraction of actual classifications that were correctly identified. For example, if there were actually 100 images of apples, and the model identified 80 as apples, the recall would be 80%.
 
 ![The training results show the overall precision and recall, and the precision and recall for each tag in the classifier.](./media/getting-started-build-a-classifier/train03.png)
 
 ### Probability Threshold
 
-Note the **Probability Threshold** slider on the left pane of the **Performance** tab. This is the threshold for a predicted probability to be considered "correct" when computing precision and recall.
+Note the **Probability Threshold** slider on the left pane of the **Performance** tab. This is the threshold for a predicted probability to be considered correct when computing precision and recall.
 
-Interpreting prediction calls with a high probability threshold tends to return results with high precision at the expense of recall; a low probability threshold does the opposite. With this in mind, you should set the probability threshold according to the specific needs of your project. Later, on the client side, you should use the same probability threshold value as a filter when receiving prediction results from the model.
+Interpreting prediction calls with a high probability threshold tends to return results with high precision at the expense of recall (the found classifications are correct, but many were not found); a low probability threshold does the opposite (most of the actual classifications were found, but there are false positives within that set). With this in mind, you should set the probability threshold according to the specific needs of your project. Later, on the client side, you should use the same probability threshold value as a filter when receiving prediction results from the model.
 
 ## Manage training iterations
 
