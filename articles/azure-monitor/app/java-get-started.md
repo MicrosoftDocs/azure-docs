@@ -357,7 +357,7 @@ To collect data on other exceptions, you have two options:
 
 The Application Insights Java SDK now supports [W3C distributed tracing](https://w3c.github.io/trace-context/).
 
-The incoming SDK configuration is explained further in our article on [correlation](correlation.md#W3C-Distributed-Tracing).
+The incoming SDK configuration is explained further in our article on [correlation](correlation.md#w3c-distributed-tracing).
 
 Outgoing SDK configuration is defined in the [AI-Agent.xml](java-agent.md) file.
 
