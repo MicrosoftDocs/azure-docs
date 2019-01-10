@@ -26475,6 +26475,11 @@
       "redirect_document_id": true
     },
     {
+        "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-eligible-visibility.md",
+        "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-azure-ad-controls-access-reviews-overview.md",
       "redirect_url": "/azure/active-directory/governance/access-reviews-overview",
       "redirect_document_id": true
@@ -33482,11 +33487,6 @@
     {
       "source_path": "articles/application-insights/app-insights-asp-net-trace-logs.md",
       "redirect_url": "/azure/azure-monitor/app/asp-net-trace-logs",
-      "redirect_document_id": true
-    },
-	{
-      "source_path": "articles/application-insights/app-insights-live-stream.md",
-      "redirect_url": "/azure/azure-monitor/app/live-stream",
       "redirect_document_id": true
     },
     {
