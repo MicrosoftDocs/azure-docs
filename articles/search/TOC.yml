@@ -237,6 +237,8 @@
     href: /rest/api/searchmanagement
   - name: REST (Preview)
     href: search-api-preview.md
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.search/searchservices
   - name: Predefined skills (Preview) 
     href: cognitive-search-predefined-skills.md
     items:

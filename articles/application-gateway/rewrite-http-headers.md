@@ -112,8 +112,6 @@ This capability supports rewriting headers to the following server variables:
 
 - This capability to rewrite HTTP headers is currently only available through Azure PowerShell, Azure API and Azure SDK. Support through portal and Azure CLI will be available soon.
 
-- Once you apply a header rewrite on your Application Gateway, you should not use the portal for making any subsequent changes to that Application Gateway until the capability is supported on portal. If you use the portal to make changes to the Application Gateway after applying a rewrite rule, the header rewrite rule. You can continue to make changes using Azure PowerShell, Azure APIs or Azure SDK.
-
 - The HTTP header rewrite support is only supported on the new SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). The capability will not be supported on the old SKU.
 
 - Rewriting the Connect, Upgrade and Host headers is not supported yet.
