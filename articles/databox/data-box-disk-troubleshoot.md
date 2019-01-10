@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/10/2019
 ms.author: alkohli
 ---
 # Troubleshoot issues in Azure Data Box Disk
@@ -124,7 +124,7 @@ If that was not the case, [download diagnostics logs](#download-diagnostic-logs)
 
 ## Deployment issues for Windows
 
-This section details some of the top issues faced during deployment of Data Box Disk when using a Linux client for data copy
+This section details some of the top issues faced during deployment of Data Box Disk when using a Windows client for data copy
 
 ### Issue: Could not unlock drive from BitLocker
  
@@ -134,7 +134,7 @@ You have used the password in the BitLocker dialog and trying to unlock the disk
 
 **Resolution**
 
-To unlock the Data Box Disks, you need to use the Data Box Disk Unlock tool and provide the password from the Azure portal.
+To unlock the Data Box Disks, you need to use the Data Box Disk Unlock tool and provide the password from the Azure portal. For more information, go to [Tutorial: Unpack, connect, and unlock Azure Data Box Disk](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
  
 ### Issue: Could not unlock or verify some volumes. Contact Microsoft Support.
  
@@ -150,7 +150,7 @@ This indicates that you are likely missing the appropriate version of Windows Po
 
 You can install [Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) and retry the operation.
  
-If you are still not able to unlock the volumes, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
+If you are still not able to unlock the volumes, [download diagnostics logs](#download-diagnostic-logs) from your system and [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## Next steps
 
