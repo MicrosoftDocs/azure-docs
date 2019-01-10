@@ -16,7 +16,7 @@ ms.author: rambala
 
 # ExpressRoute Global Reach Application Scenario
 
-To learn more about what ExpressRoute Global Reach, see [ExpressRoute Global Reach][Global Reach]. In this article, let's walk through an application scenario and compare the ExpressRoute Global Reach solution to few other solutions. Then we'll configure Global Reach for the example scenario and verify the connections. 
+To learn more about ExpressRoute Global Reach, see [ExpressRoute Global Reach][Global Reach]. In this article, let's walk through an application scenario and compare the ExpressRoute Global Reach solution to few other solutions. Then we'll configure Global Reach for the example scenario and verify the connections. 
 
 ##Application Scenario
 
@@ -83,7 +83,7 @@ Configuring Global Reach between the two ExpressRoute circuits enables private c
 
 To learn how to configure ExpressRoute Global Reach, see [Configure Global Reach][Configure Global Reach]. 
 
-Because Fabrikam Inc. and Contoso Ltd. on boarded Azure as separate companies, the ExpressRoute circuits of the two companies are in two different Azure subscriptions. To create the Global Reach across the subscriptions, you need to create an authorization in the ExpressRoute circuit belonging to Contoso Ltd., and pass it to the Fabrikam Inc. ExpressRoute circuit.
+Because Fabrikam Inc. and Contoso Ltd. onboarded Azure as separate companies, the ExpressRoute circuits of the two companies are in two different Azure subscriptions. To create the Global Reach across the subscriptions, you need to create an authorization in the ExpressRoute circuit belonging to Contoso Ltd., and pass it to the Fabrikam Inc. ExpressRoute circuit.
 
 
 To create an authorization for Contoso's ExpressRoute circuit, first login into Contoso's Azure account, and select the appropriate subscription (if there are multiple subscriptions). The PowerShell commands for these steps are:
@@ -128,9 +128,9 @@ The following table shows the route table of the primary private peering of the 
 
 [![10]][10]
 
-In the above tables, we can see all the expected destination 'NETWORK' prefixes and the appropriate 'NEXT HOP' are listed.
+In the above tables, we see all the expected destination 'NETWORK' prefixes and the appropriate 'NEXT HOP' are listed.
 
-The previous screen clips show 'Get route table' blade that can be accessed in the Azure web portal under 'Private peering' of an ExpressRoute circuit. You can also list an ExpressRoute route table using the following PowerShell Command:
+The previous screen clips show the 'Get route table' blade that can be accessed in the Azure web portal under 'Private peering' of an ExpressRoute circuit. You can also list an ExpressRoute route table using the following PowerShell Command:
 
 	```powershell
 	Get-AzExpressRouteCircuitRouteTable -DevicePath 'primary' -ExpressRouteCircuitName "Your_circuit_name" -PeeringType AzurePrivatePeering -ResourceGroupName "Your_resource_group"
