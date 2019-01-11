@@ -175,7 +175,7 @@ You can filter this view down to **groups** or **users**.
 
 ![Audit logs](./media/concept-audit-logs/25.png "Audit logs")
 
-### Office 365 activity logs
+## Office 365 activity logs
 
 You can view Office 365 activity logs from the [Office 365 Admin Center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, only the Office 365 Admin Center provides a full view of the Office 365 activity logs. 
 
