@@ -45,7 +45,7 @@ node --version
 
 If you haven't already done so, download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
 
-**Bugbash instructions:** Download the file from \\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-nodejs.zip (`MD5=72AAFEC0C37976D60EF7B90CA92CE762`).
+**Bug bash instructions:** Download the file from \\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-nodejs.zip (`MD5=72AAFEC0C37976D60EF7B90CA92CE762`).
 
 
 ## Create an IoT hub
@@ -63,9 +63,9 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
 
-   **YourIoTHubName** : Replace this placeholder below with the name you chose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
-   **MyDevice** : This is the name given for the registered device. Use MyDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+   **MyDevice**: This is the name given for the registered device. Use MyDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -74,7 +74,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 2. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
-    **YourIoTHubName** : Replace this placeholder below with the name you chose for your IoT hub.
+    **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName

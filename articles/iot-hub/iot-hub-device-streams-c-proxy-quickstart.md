@@ -21,7 +21,7 @@ ms.author: rezas
 This document describes the setup for tunneling SSH traffic (using port 22) through device streams. The setup for RDP traffic is similar and requires a simple configuration change. Since device streams are application and protocol agnostic, the present quickstart can be modified (by changing the communication ports) to accommodate other types of application traffic.
 
 ### How it works?
-Figure below illustrates the setup of how the deivce- and service-local proxy programs will enable end-to-end connectivity between SSH client and SSH daemon processes. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-local proxy application. You should run an accompanying service-local proxy application which is available in [C# quickstart](./iot-hub-device-streams-csharp-proxy-quickstart.md) or [Node.js quickstart](./iot-hub-device-streams-nodejs-proxy-quickstart.md) guides.
+Figure below illustrates the setup of how the device- and service-local proxy programs will enable end-to-end connectivity between SSH client and SSH daemon processes. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-local proxy application. You should run an accompanying service-local proxy application which is available in [C# quickstart](./iot-hub-device-streams-csharp-proxy-quickstart.md) or [Node.js quickstart](./iot-hub-device-streams-nodejs-proxy-quickstart.md) guides.
 
 <p>
     <img style="margin:auto;display:block;background-color:white;width:50%;" 
@@ -77,7 +77,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
     ```
     The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
 
-**Bugbash instructions:** Skip this step and download and unzip the device streams repo directly from \\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-c.zip (`MD5=02D5179BC57F1C2FD2BED969E0555B31`).
+**Bug bash instructions:** Skip this step and download and unzip the device streams repo directly from \\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-c.zip (`MD5=02D5179BC57F1C2FD2BED969E0555B31`).
 
 
 3. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 
@@ -123,9 +123,9 @@ A device must be registered with your IoT hub before it can connect. In this sec
 
 1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
-   **MyDevice** : This is the name given for the registered device. Use MyDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+   **MyDevice**: This is the name given for the registered device. Use MyDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -134,7 +134,7 @@ A device must be registered with your IoT hub before it can connect. In this sec
 
 2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just    registered:
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
@@ -185,7 +185,7 @@ iothub_client_c2d_streaming_proxy_sample.exe
 
 ### Run the service-local proxy application
 
-As discussed [above](#how-it-works) establishing an end-to-end stream to tunnel SSH traffic requires a local proxy at each end (i.e., service and device). During public preview, IoT Hub C SDK only supports device streams on the device side however. For the service-local proxy, use the accompaying guides in [C# quickstart](./iot-hub-device-streams-csharp-proxy-quickstart.md) or [Node.js quickstart](./iot-hub-device-streams-nodejs-proxy-quickstart.md) instead.
+As discussed [above](#how-it-works) establishing an end-to-end stream to tunnel SSH traffic requires a local proxy at each end (i.e., service and device). During public preview, IoT Hub C SDK only supports device streams on the device side however. For the service-local proxy, use the accompanying guides in [C# quickstart](./iot-hub-device-streams-csharp-proxy-quickstart.md) or [Node.js quickstart](./iot-hub-device-streams-nodejs-proxy-quickstart.md) instead.
 
 
 ### Establish an SSH session

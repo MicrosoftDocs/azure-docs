@@ -16,7 +16,7 @@ ms.author: rezas
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-side application. You should run an accompanying service-side application which is available in [C# quickstart](./iot-hub-device-streams-csharp-echo-quickstart.md) or [Node.js quickstart](./iot-hub-device-streams-nodejs-echo-quickstart.md) guides.
+[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-side application. You should run an accompanying service-side application, which is available in [C# quickstart](./iot-hub-device-streams-csharp-echo-quickstart.md) or [Node.js quickstart](./iot-hub-device-streams-nodejs-echo-quickstart.md) guides.
 
 The device-side C application in this quickstart has the following functionality:
 
@@ -110,9 +110,9 @@ A device must be registered with your IoT hub before it can connect. In this sec
 
 1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
-   **MyDevice** : This is the name given for the registered device. Use MyDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+   **MyDevice**: This is the name given for the registered device. Use MyDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -121,7 +121,7 @@ A device must be registered with your IoT hub before it can connect. In this sec
 
 2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just    registered:
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table

@@ -36,7 +36,7 @@ dotnet --version
 
 Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive.
 
-**Bugbash instructions:** Download the file from \\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-csharp.zip (`MD5=D66D2D64472B1253BC71BC607057A2CE`).
+**Bug bash instructions:** Download the file from \\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-csharp.zip (`MD5=D66D2D64472B1253BC71BC607057A2CE`).
 
 ## Create an IoT hub
 
@@ -48,9 +48,9 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
-   **MyDevice** : This is the name given for the registered device. Use MyDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+   **MyDevice**: This is the name given for the registered device. Use MyDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -59,7 +59,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
@@ -73,7 +73,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 3. You also need the _service connection string_ from your IoT hub to enable the service-side application to connect to your IoT hub and establish a device stream. The following command retrieves this value for your IoT hub:
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
