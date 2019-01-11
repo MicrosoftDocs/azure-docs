@@ -113,6 +113,8 @@ user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt -o plaintext_UTF-16.txt
 user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform der TestCert.pem | base64 > encrypted.txt
 ```
 
+After encrypting your will need to [specify encrypted secrets in Service Fabric Application](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application), and [decrypt encrypted secrets from service code](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code)
+
 ### Azure Active Directory (AAD) for client identity
 -- ARM properties for enabling AAD
 ### Authenticate Service Fabric Applications to Azure Resources using Managed Service Identity (MSI)
