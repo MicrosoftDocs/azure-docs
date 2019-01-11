@@ -14,17 +14,17 @@ ms.custom: seodec2018
 
 The Azure portal provides an **Import data** wizard on the Azure Search dashboard for loading data into an index. Behind the scenes, the wizard configures and invokes a *data source*, *index*, and *indexer* - automating several steps of the indexing process: 
 
-* Connects to an external data source in the same Azure subscription
-* Optionally, in the **Add cognitive search** step, includes optical character recognition or natural language processing for extracting text from unstructured data
-* Generates a modifiable index schema based on data sampling and metadata
-* Serializes and loads JSON documents into an index
+* Connects to an external data source in the same Azure subscription.
+* Optionally, integrates optical character recognition or natural language processing for extracting text from unstructured data.
+* Generates an index based on data sampling and metadata of the external data source.
+* Crawls the data source for searchable content, serializing and loading JSON documents into the index.
 
-The wizard can't connect to a predefined index or run an existing indexer, but within the wizard, you can configure an index or indexer to support the structure and behaviors you need.
+The wizard can't connect to a predefined index or run an existing indexer, but within the wizard, you can configure a new index or indexer to support the structure and behaviors you need.
 
 New to Azure Search? Step through the [Quickstart: Import, index, and query using portal tools](search-get-started-portal.md) to test-drive importing and indexing using **Import data** and the built-in realestate sample data set.
 
 > [!NOTE]
-> You can launch the **Import data** wizard from other Azure services, including Azure Cosmos DB, Azure SQL Database, and Azure Blob storage. Look for **Add Azure Search** in the left-navigation pane on the service overview page.
+> You can launch **Import data** from other Azure services, including Azure Cosmos DB, Azure SQL Database, and Azure Blob storage. Look for **Add Azure Search** in the left-navigation pane on the service overview page.
 
 ## How to start Import data
 
@@ -32,23 +32,29 @@ This section explains how to start the wizard and provides a high-level overview
 
 1. In the [Azure portal](https://portal.azure.com), open the search service page from the dashboard or [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list.
 
-2. In the service overview page, click **Import data**.
+2. In the service overview page at the top, click **Import data**.
 
    ![Import data command in portal](./media/search-import-data-portal/import-data-cmd2.png "Start the Import data wizard")
 
-3. The wizard opens to **Connect to your data**, where you can choose an external data source to use for this import. There are several things to know about this step, so be sure to read the [Data source inputs](#data-source-inputs) section in this article.
+3. The wizard opens to **Connect to your data**, where you can choose an external data source to use for this import. There are several things to know about this step, so be sure to read the [Data source inputs](#data-source-inputs) section for more details.
 
    ![Import data wizard in portal](./media/search-import-data-portal/import-data-wizard-startup.png "Import data wizard for Azure Search")
 
-4. Next is **Add Cognitive Services resources**, in case you want to include optical character recognition (OCR) of text in image files, or text analysis over unstructured data. This step requires an assist from the Azure Cognitive Services features. For more information, see [Attach Cognitive Services to an Azure Search skillset](cognitive-search-attach-cognitive-services.md). For a walkthrough demonstration, see this [Quickstart](cognitive-search-quickstart-blob.md).
+4. Next is **Add Cognitive Services resources**, in case you want to include optical character recognition (OCR) of text in image files, or text analysis over unstructured data. AI algorithms from Cognitive Services are pulled in for this task. There are two parts to this step:
+  
+   Part one [attaches a Cognitive Services resource to an Azure Search skillset](cognitive-search-attach-cognitive-services.md).
+  
+   Part two is choosing which AI enrichments to include in the skillset. For a walkthrough demonstration, see this [Quickstart](cognitive-search-quickstart-blob.md).
 
    If you just want to import data, skip this step and go directly to index definition.
 
 5. Next is **Customize target index**, where you can accept or modify the index schema presented in the wizard. The wizard infers the fields and datatypes by sampling data and reading metadata from the external data source.
 
-   For each field, [check the index attributes](#index-definition) to enable specific behaviors. You can also enable suggesters for type-ahead queries or analyzers for language-specific optimizations.
+   For each field, [check the index attributes](#index-definition) to enable specific behaviors. If you don't select any attributes, your index won't be usable. 
 
-6. Next is **Create an indexer**. Give the indexer a name, and click **Submit** to create all three objects (data source, index, indexer) and begin the import process. 
+6. Next is **Create an indexer**, which is a product of this wizard. An indexer is a crawler that extracts searchable data and metadata from an external Azure data source. By selecting the data source and attaching skillsets (optional) and an index, you've been configuring an indexer as you move through each step of the wizard.
+
+   Give the indexer a name, and click **Submit** to begin the import process. 
 
 You can monitor indexing in the portal by clicking the indexer in the **Indexers** list. As documents are loaded, the document count will grow for the index you have defined. Sometimes it takes a few minutes for the portal page to pick up the most recent updates.
 
@@ -70,7 +76,7 @@ A flattened dataset is a required input. You can only import from a single table
 |  Selection | Description |
 | ---------- | ----------- |
 | **Existing data source** |If you already have indexers defined in your search service, you can select an existing data source definition for another import. In Azure Search, data source objects are only used by indexers. You can create a data source object programmatically or through the **Import data** wizard.|
-| **Samples**| Azure Search hosts a free public Azure SQL database that you can use to learn about importing and query requests in Azure Search. |
+| **Samples**| Azure Search hosts a free public Azure SQL database that you can use to learn about importing and query requests in Azure Search. See [Quickstart: Import, index, and query using portal tools](search-get-started-portal.md) for a walkthrough. |
 | **Azure SQL Database** |Service name, credentials for a database user with read permission, and a database name can be specified either on the page or via an ADO.NET connection string. Choose the connection string option to view or customize properties. <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection. |
 | **SQL Server on Azure VM** |Specify a fully qualified service name, user ID and password, and database as a connection string. To use this data source, you must have previously installed a certificate in the local store that encrypts the connection. For instructions, see [SQL VM connection to Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection. |
 | **Azure Cosmos DB** |Requirements include the account, database, and collection. All documents in the collection will be included in the index. You can define a query to flatten or filter the rowset, or to detect changed documents for subsequent data refresh operations. |
@@ -90,7 +96,7 @@ For a functional index, make sure you have the following elements defined.
 
    If field values include spaces or dashes, you must set the **Base-64 Encode Key** option in the **Create an Indexer** step, under **Advanced options**, to suppress the validation check for these characters.
 
-1. Set index attributes for each field. If you select no attributes, your index is essentially empty, except for the required key field. At a minimum, choose 
+1. Set index attributes for each field. If you select no attributes, your index is essentially empty, except for the required key field. At a minimum, choose one or more of these attributes for each field.
    
    + **Retrievable** returns the field in search results. Every field that provides content to search results must have this attribute. Setting this field does not appreciably effect index size.
    + **Filterable** allows the field to be referenced in filter expressions. Every field used in a **$filter**  expression must have this attribute. Filter expressions are for exact matches. Because text strings remain intact, additional storage is required to accommodate the verbatim content.
@@ -98,10 +104,10 @@ For a functional index, make sure you have the following elements defined.
 
 1. Optionally, set these attribute as needed:
 
-   + **Sortable** allows the field to be used in a sort.
+   + **Sortable** allows the field to be used in a sort. Every field used in an **$Orderby** expression must have this attribute.
    + **Facetable** enables the field for faceted navigation. Only fields also marked as **Filterable** can be marked as **Facetable**.
 
-1. Set an **Analyzer** if you want language-enhanced indexing and querying. The default is *Standard Lucene* but you could choose *Microsoft English* if you wanted to use Microsoft's analyzer for advanced processing, such as resolving irregular noun and verb forms.
+1. Set an **Analyzer** if you want language-enhanced indexing and querying. The default is *Standard Lucene* but you could choose *Microsoft English* if you wanted to use Microsoft's analyzer for advanced lexical processing, such as resolving irregular noun and verb forms.
 
    + Select **Searchable** to enable the **Analyzer** list.
    + Choose an analyzer provided in the list. 
