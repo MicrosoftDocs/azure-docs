@@ -371,7 +371,7 @@ This information comes from the ```outputs``` section in the ARM template. As sh
 ```json
   "outputs": {
     "publicIPAddress": {
-      "value": "[reference('helloWorldGateway').ipAddress]",
+      "value": "[reference('todolistappGateway').ipAddress]",
       "type": "string"
     }
   }
