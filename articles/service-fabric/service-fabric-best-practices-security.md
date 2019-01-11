@@ -161,7 +161,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 ```
 
 ## Windows Defender 
-"[By default](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016), Windows Defender Antimalware is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but is not required." Given the performance impact and resource consumption overhead, if your security policies allow you to exclude processes and paths for open source software, then you will declare the following Virtual Machine Scale Set Extension Resource Manager template properties:
+"[By default](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016), Windows Defender Antimalware is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but is not required." Given the performance impact and resource consumption overhead, if your security policies allow you to exclude processes and paths for open source software, declaring the following Virtual Machine Scale Set Extension Resource Manager template properties will exclude your Service Fabric Cluster from scans:
 
 ```json
  {
