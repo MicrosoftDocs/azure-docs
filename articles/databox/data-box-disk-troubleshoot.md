@@ -91,12 +91,11 @@ This section details some of the top issues faced during deployment of Data Box 
 
 This could be due to an unclean file system. 
 
-- Remounting a drive as read does not work with Data Box Disks. This scenario is not supported with drives decrypted by dislocker. 
-- Remounting as read-write will not work. You may have successfully remounted the device using the following command: 
+Remounting a drive as read-write does not work with Data Box Disks. This scenario is not supported with drives decrypted by dislocker. You may have successfully remounted the device using the following command: 
 
     `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
 
-   Though the remounting was successful, the data will not persist.
+Though the remounting was successful, the data will not persist.
 
 **Resolution**
 
@@ -120,7 +119,7 @@ If you see that your drive does not have data after it was unmounted (though dat
  
 If that is the case, see the resolution for [drives getting mounted as read-only](#issue-drive-getting-mounted-as-read-only).
 
-If that was not the case, [download diagnostics logs](#download-diagnostic-logs) from your system and [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
+If that was not the case, copy the logs from the folder that has the Data Box Disk Unlock tool and [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## Deployment issues for Windows
 
@@ -150,7 +149,7 @@ This indicates that you are likely missing the appropriate version of Windows Po
 
 You can install [Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) and retry the operation.
  
-If you are still not able to unlock the volumes, [download diagnostics logs](#download-diagnostic-logs) from your system and [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
+If you are still not able to unlock the volumes, copy the logs from the folder that has the Data Box Disk Unlock tool and [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## Next steps
 
