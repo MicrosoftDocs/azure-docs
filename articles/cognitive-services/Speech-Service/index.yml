@@ -55,9 +55,9 @@ sections:
       - image:
           src: media/index/logo_csharp.svg
       - image:
-          src: media/index/logo_cplusplus.svg
-      - image:
           src: media/index/logo_netcore.svg
+      - image:
+          src: media/index/logo_cplusplus.svg
       - image:
           src: media/index/logo_java.jpg
       - image:
@@ -75,8 +75,8 @@ sections:
         values:
         - href: quickstart-csharp-uwp
         - href: quickstart-csharp-windows
-        - href: quickstart-cpp-windows
         - href: quickstart-csharp-dotnetcore-windows
+        - href: quickstart-cpp-windows
         - href: quickstart-java-jre
         - href: quickstart-python
         - href:
@@ -86,8 +86,8 @@ sections:
         values:
         - href: quickstart-csharp-uwp
         - href: quickstart-csharp-windows
-        - href: quickstart-cpp-windows
         - href: quickstart-csharp-dotnetcore-windows
+        - href: quickstart-cpp-windows
         - href:
         - href:
         - href:
@@ -97,8 +97,8 @@ sections:
         values:
         - href:
         - href:
-        - href: quickstart-cpp-linux
         - href: quickstart-csharp-dotnetcore-windows
+        - href: quickstart-cpp-linux
         - href: quickstart-java-jre
         - href: quickstart-python
         - href:
@@ -108,8 +108,8 @@ sections:
         values:
         - href:
         - href:
-        - href: quickstart-cpp-linux
         - href:
+        - href: quickstart-cpp-linux
         - href:
         - href:
         - href:
