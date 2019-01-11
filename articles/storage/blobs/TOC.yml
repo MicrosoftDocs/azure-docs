@@ -31,18 +31,18 @@
         href: storage-quickstart-blobs-dotnet.md
       - name: Java 
         href: storage-quickstart-blobs-java-v10.md 
-      - name: Python 
-        href: storage-quickstart-blobs-python.md
-      - name: Go 
-        href: storage-quickstart-blobs-go.md
-      - name: Ruby 
-        href: storage-quickstart-blobs-ruby.md
       - name: Node.js
         href: storage-quickstart-blobs-nodejs-v10.md
+      - name: Python 
+        href: storage-quickstart-blobs-python.md
       - name: JS/HTML
         href: storage-quickstart-blobs-javascript-client-libraries.md
+      - name: Go 
+        href: storage-quickstart-blobs-go.md
       - name: PHP
         href: storage-quickstart-blobs-php.md
+      - name: Ruby 
+        href: storage-quickstart-blobs-ruby.md
   - name: Tutorials
     items:
     - name: Upload and process an image
@@ -73,13 +73,13 @@
           href: storage-blob-static-website-host.md
         - name: 2 - Enable a custom domain with SSL
           href: storage-blob-static-website-custom-domain.md
-    - name: Design for high availability in cloud storage
+    - name: Design applications for high availability
       items:
         - name: 1 - Make your application highly available
           href: storage-create-geo-redundant-storage.md
         - name: 2 - Simulate a failure with RA-GRS storage
           href: storage-simulate-failure-ragrs-account-app.md
-    - name: Search unstructured data in cloud storage
+    - name: Search unstructured data
       href: storage-unstructured-search.md
   - name: Samples
     items:
@@ -342,6 +342,18 @@
         href: ../common/storage-import-export-file-format-log.md
   - name: How to
     items:
+    - name: Authorize requests to Storage
+      items: 
+      - name: Authenticate with Azure AD
+        items:
+          - name: Manage access rights with RBAC
+            href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Authenticate from an application
+            href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Authenticate with managed identities
+            href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Use an Azure AD identity with CLI or PowerShell
+            href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Develop with blobs
       items:
       - name: REST
