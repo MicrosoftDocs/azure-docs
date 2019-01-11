@@ -74,8 +74,8 @@ To configure and test Azure AD single sign-on with [Application name], you need 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure iDiD Manager Single Sign-On](#configure-idid-manager-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create iDiD Manager test user](#create-idid-manager-test-user)** - to have a counterpart of Britta Simon in iDiD Manager that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create iDiD Manager test user](#create-idid-manager-test-user)** - to have a counterpart of Britta Simon in iDiD Manager that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -96,14 +96,14 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. On the **Basic SAML Configuration** section, perform the following steps if you wish to configure the application in **SP** initiated mode:
 
     ![iDiD Manager Domain and URLs single sign-on information](common/both-preintegrated-signon.png)
 
-    a. Click **set additional URLs**.
+    a. Click **Set additional URLs**.
 
     b. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://idid2.fi/saml/login/<domain>`.
+    `https://idid2.fi/saml/login/<domain>`
 
     > [!NOTE]
 	> The value is not real. Update the value with the actual Sign-on URL. Contact [iDiD Manager Client support team](mailto:support@idid.fi) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
