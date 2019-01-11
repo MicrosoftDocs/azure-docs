@@ -95,7 +95,7 @@ Add the Kubernetes from the Marketplace:
     - **Publisher**: Microsoft Corp
 
     > [!Note]  
-    > More than one version of Custom Script for Linux may be listed. You will need to add the version that matches. The Kubernetes requires the exact version of the item.
+    > More than one version of Custom Script for Linux may be listed. You will need to add the latest version of the item.
 
 1. Select **Download.**
 
