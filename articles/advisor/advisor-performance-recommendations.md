@@ -49,7 +49,7 @@ Advisor will identify virtual machines that belong to a storage account that is 
 
 ## Improve the performance and reliability of virtual machine disks by using Premium Storage
 
-Advisor identifies virtual machines with standard disks that have a high volume of transations on your storage account and recommends upgrading to premium disks. 
+Advisor identifies virtual machines with standard disks that have a high volume of transactions on your storage account and recommends upgrading to premium disks. 
 
 Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines that run I/O-intensive workloads. Virtual machine disks that use premium storage accounts store data on solid-state drives (SSDs). For the best performance for your application, we recommend that you migrated any virtual machine disks requiring high IOPS to premium storage.
 
@@ -67,7 +67,7 @@ Azure Advisor detects if your SQL Data Warehouse has high cache used percentage 
 
 ## Convert SQL Data Warehouse tables to replicated tables to increase query performance
 
-Advisor identifies tables that are not replicated tables but would benefit from converting and suggests that you convert these tables. Recommendations are based on the replicated table size, number of columns, table distribution type, and number of partitions of the SQL Data Warehouse table. Additional heurisitics may be provided in the recommendation for context. To learn more about how this recommendation is determined, see [SQL Data Warehouse Recommendations](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
+Advisor identifies tables that are not replicated tables but would benefit from converting and suggests that you convert these tables. Recommendations are based on the replicated table size, number of columns, table distribution type, and number of partitions of the SQL Data Warehouse table. Additional heuristics may be provided in the recommendation for context. To learn more about how this recommendation is determined, see [SQL Data Warehouse Recommendations](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
 
 ## Migrate your Storage Account to Azure Resource Manager to get all of the latest Azure features
 

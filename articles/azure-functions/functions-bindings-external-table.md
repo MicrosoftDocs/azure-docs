@@ -15,7 +15,7 @@ ms.author: cshoe
 ---
 # External Table binding for Azure Functions (experimental)
 
-This article explains how to work with tabular data on SaaS providers, such as Sharepoint and Dynamics, in Azure Functions. Azure Functions supports input and output bindings for external tables.
+This article explains how to work with tabular data on SaaS providers, such as SharePoint and Dynamics, in Azure Functions. Azure Functions supports input and output bindings for external tables.
 
 > [!IMPORTANT]
 > The External Table binding is experimental and might never reach Generally Available (GA) status. It is included only in Azure Functions 1.x, and there are no plans to add it to Azure Functions 2.x. For scenarios that require access to data in SaaS providers, consider using [logic apps that call into functions](functions-twitter-email.md).

@@ -16,7 +16,7 @@ ms.author: mbullwin
 ---
 
 # Feed Power BI from Application Insights
-[Power BI](https://www.powerbi.com/) is a suite of business tools that helps you analyze data and share insights. Rich dashboards are available on every device. You can combine data from many sources, including Analytics queries from [Azure Application Insights](../../application-insights/app-insights-overview.md).
+[Power BI](https://www.powerbi.com/) is a suite of business tools that helps you analyze data and share insights. Rich dashboards are available on every device. You can combine data from many sources, including Analytics queries from [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 There are three methods of exporting Application Insights data to Power BI:
 

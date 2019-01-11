@@ -22,15 +22,18 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
-## Version 1.6.1
-12/18/2018
+## Version 1.6.2
+1/9/2019
 
-### Download Azure Storage Explorer 1.6.1
-- [Azure Storage Explorer 1.6.1 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.6.1 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.6.1 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### Download Azure Storage Explorer 1.6.2
+- [Azure Storage Explorer 1.6.2 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.6.2 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.6.2 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### Hotfixes
+* In 1.6.1, entities added to ADLS Gen2 ACLs by ObjectId which were not users were always added as groups. Now, only groups are added as groups, and entities such as Enterprise Applications andService Principals are added as users. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
+* If an ADLS Gen2 Storage account had no containers and was attached with name and key, then Storage Explorer would not detect that the Storage Account was ADLS Gen2. This has been fixed. [#1048](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1048)
+* In 1.6.0, conflicts during copy and paste would not prompt for a resolution. Instead, the conflicted copy would simply fail. Now, on the first conflict, you will be asked how you would like it to be resolved. [#1014](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1014)
 * Due to API limitations, all validation of ObjectIds in the Manage Access dialog have been disabled. Validation will now only occur for user UPNs. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
 * In the ADLS Gen2 Manage Access dialog, the permissions for a group could not be modified. This has been fixed. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
 * Added drag and drop upload support to the ADLS Gen2 editor. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
@@ -98,6 +101,7 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 
 ## Previous releases
 
+* [Version 1.6.1](#version-161)
 * [Version 1.6.0](#version-160)
 * [Version 1.5.0](#version-150)
 * [Version 1.4.4](#version-144)
@@ -130,6 +134,75 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 * [Version 0.7.20160129.1](#version-07201601291)
 * [Version 0.7.20160105.0](#version-07201601050)
 * [Version 0.7.20151116.0](#version-07201511160)
+
+## Version 1.6.1
+12/18/2018
+
+### Hotfixes
+* Due to API limitations, all validation of ObjectIds in the Manage Access dialog have been disabled. Validation will now only occur for user UPNs. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
+* In the ADLS Gen2 Manage Access dialog, the permissions for a group could not be modified. This has been fixed. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
+* Added drag and drop upload support to the ADLS Gen2 editor. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
+* The URL property in the properties dialog for ADLS Gen2 files and folders was sometimes missing a '/'. This has been fixed. [#960](https://www.github.com/Microsoft/AzureStorageExplorer/issues/960)
+* If getting the current permissions for an ADLS Gen2 container, file, or folder fails, then the error is now propertly displayed in the activity log. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
+* The temporary path created for opening files has been shortened to reduce the chance of creating a path which is longer than MAX_PATH on Windows. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
+* The Connect dialog now correctly appears when there are no signed in users and no resources have been attached. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
+* In 1.6.0, saving properties for non-HNS Blobs and Files would encode the value of every property. This resulted in unnecessary encoding of values which only contained ASCII characters. Now, values will only be encoded if they contain non-ASCII characters. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* Uploading a folder to a non-HNS Blob container would fail if a SAS was used and the SAS did not have read permissions. This has been fixed. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
+* Canceling an AzCopy transfer did not work. This has been fixed. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
+* AzCopy would fail when trying to download a folder from an ADLS Gen2 Blob container if the folder had spaces in its name. This has been fixed. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
+* The CosmosDB editor was broken in 1.6.0. It is now fixed. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+        
+### New
+
+* You can now use Storage Explorer to access your Blob data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). If you are signed in and Storage Explorer is unable to retrieve the keys for your Storage account, then an OAuth token will be used to authenticate when interacting with your data.
+* Storage Explorer now supports ADLS Gen2 Storage accounts. When Storage Explorer detects that hierarchical namespace is enabled for a Storage account, you will see "(ADLS Gen2 Preview)" next to the name of your Storage account. Storage Explorer is able to detect whether or not hierarchical namespace is enabled when you are signed in, or if you have attached your Storage Account with name and  key. For ADLS Gen2 Storage accounts, you can use Storage Explorer to:
+	* Create and delete containers
+	* Manage container properties and permissions (left-hand side)
+	* View and navigate data inside of containers
+	* Create new folders
+	* Upload, download, rename, and delete files and folders
+	* Manage file and folder properties and permissions (right-hand side).
+	
+	Other typical Blob features, such as Soft Delete, and Snapshots, are not currently available. Managing permissions is also only available when signed in. Additionally, when working in an ADLS Gen2 Storage account, Storage Explorer will use AzCopy for all uploads and downloads and default to using name and key credentials for all operations if available.
+* After strong user feedback, break lease can once again be used to break leases on multiple blobs at once.
+
+### Known Issues
+
+* When downloading from an ADLS Gen2 Storage account, if one of the files being transferred already exists, then AzCopy will sometimes crash. This will be fixed in an upcoming hotfix.
+* Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. For more information, see #537.
+* If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, comment on this issue.
+* Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
+* In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
+* Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron. To work around this issue when uploading to or downloading from a blob container, you can use the experimental AzCopy feature.
+* When targeting Azure Stack, uploading certain files as append blobs may fail.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described here.
+* If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
+* Azure Stack does not support the following features. Attempting to use these features while working with Azure Stack resources may result in unexpected errors.
+   * File shares
+   * Access tiers
+   * Soft Delete
+* The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
+
+	```
+	./StorageExplorer.exe --disable-gpu
+	```
+
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+	```
+
+* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo apt-get install libgconf-2-4
+	```
 
 ## Version 1.6.0
 12/5/2018

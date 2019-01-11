@@ -29,7 +29,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Disk <SUP>Preview</SUP></b> for data sizes < 40 TB. Microsoft ships you 1 to 5 encrypted solid-state drives (SSDs) to copy data and ship back.</p>
+                            <p><b>Data Box Disk</b> for data sizes < 40 TB. Microsoft ships you 1 to 5 encrypted solid-state drives (SSDs) to copy data and ship back.</p>
                         </div>
                     </div>
                 </div>

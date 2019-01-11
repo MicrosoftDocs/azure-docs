@@ -118,8 +118,8 @@ The Log Analytics software development and service team are actively working wit
 ## Certifications and attestations
 Azure Log Analytics meets the following requirements:
 
-* [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm)
-* [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
+* [ISO/IEC 27001](https://www.iso.org/iso/home/standards/management-standards/iso27001.htm)
+* [ISO/IEC 27018:2014](https://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * [Payment Card Industry (PCI Compliant) Data Security Standard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) by the PCI Security Standards Council.
 * [Service Organization Controls (SOC) 1 Type 1 and SOC 2 Type 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) compliant

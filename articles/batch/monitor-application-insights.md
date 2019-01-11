@@ -16,7 +16,7 @@ ms.author: danlep
 
 # Monitor and debug an Azure Batch .NET application with Application Insights
 
-[Application Insights](../application-insights/app-insights-overview.md) provides an elegant and powerful way for developers to monitor and debug 
+[Application Insights](../azure-monitor/app/app-insights-overview.md) provides an elegant and powerful way for developers to monitor and debug 
 applications deployed to Azure services. Use Application Insights to 
 monitor performance counters and exceptions as well as instrument your code 
 with custom metrics and tracing. Integrating Application Insights with your 
@@ -374,7 +374,7 @@ See [Sampling in Application Insights](../azure-monitor/app/sampling.md) for som
 
 
 ## Next steps
-* Learn more about [Application Insights](../application-insights/app-insights-overview.md).
+* Learn more about [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 * For Application Insights support in other languages, look at the 
 [languages, platforms, and integrations documentation](../azure-monitor/app/platforms.md).

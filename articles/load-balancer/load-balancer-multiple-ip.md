@@ -1,5 +1,5 @@
 ---
-title: Load balancing on multiple IP configurations in Azure
+title: Load balancing on multiple IP configurations - Azure portal
 titlesuffix: Azure Load Balancer
 description: Load balancing across primary and secondary IP configurations.
 services: load-balancer
