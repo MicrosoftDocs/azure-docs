@@ -14,28 +14,30 @@ ms.author: diberry
 
 # Deploy the Language detection container to Azure Kubernetes Service
 
-Deploy the language detection container, with a running sample, to the Azure Kubernetes Service, and test it in a web browser. 
+Learn how to deploy the language detection container. This procedure shows you how create the local Docker containers, push the containers to your own private container registry, run the container in a Kubernetes cluster, and test it in a web browser. 
 
 ## Prerequisites
 
 This procedure requires several tools that must be installed and run locally. Do not use Azure Cloud shell. 
 
-* Have a valid Azure subscription. The trial and pay-as-you-go subscriptions will both work. 
-* Install [Git](https://git-scm.com/downloads) for your operating system so you can clone the sample used in this procedure. 
+* Use an Azure subscription. The trial and pay-as-you-go subscriptions will both work. 
+* Install [Git](https://git-scm.com/downloads) for your operating system so you can clone the [sample](https://github.com/Azure-Samples/cognitive-services-containers-samples) used in this procedure. 
 * Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
-* Install [Docker engine](https://www.docker.com/products/docker-engine) and validate that the Docker CLI works in a terminal.
+* Install [Docker engine](https://www.docker.com/products/docker-engine) and validate that the Docker CLI works in a console window.
 * Install [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe). 
-* An Azure resource with correct pricing tier. Not all pricing tiers work with this container:
-    * Text Analytics resource with F0 or Standard pricing tiers only.
-    * Azure Cognitive Services resource with the S0 pricing tier.
+* An Azure resource with the correct pricing tier. Not all pricing tiers work with this container:
+    * **Text Analytics** resource with F0 or Standard pricing tiers only.
+    * **Cognitive Services** resource with the S0 pricing tier.
 
 ## Running the sample
 
-This procedure loads and runs the Cognitive Services Container sample for language detection. The sample has two containers, one for the client application and one for the Cognitive Services container. Both these images need to be pushed to your own Azure Container Registry. Once they are on your own Azure Container Registry, create an Azure Kubernetes Service to access these images and run the containers. Once the containers are running, use the **kubectl** CLI to watch the containers performance. Access the client application with an HTTP request and see the results. 
+This procedure loads and runs the Cognitive Services Container sample for language detection. The sample has two containers, one for the client application and one for the Cognitive Services container. You need to push both these images to your own Azure Container Registry. Once they are on your own registry, create an Azure Kubernetes Service to access these images and run the containers. When the containers are running, use the **kubectl** CLI to watch the containers performance. Access the client application with an HTTP request and see the results. 
+
+
 
 ## The sample containers
 
-The sample has two container images, one for the frontend website with its own API. The second image is the language detection image returning the detected language (culture) of text. Both containers will be accessible from an external IP when you are done. 
+The sample has two container images, one for the frontend website with its own API. The second image is the language detection image returning the detected language (culture) of text. Both containers are accessible from an external IP when you are done. 
 
 ### The website container
 
@@ -51,9 +53,9 @@ Port 5000 is the default port used with the Cognitive Services containers.
 
 ## Create Azure Container Registry service
 
-In order to deploy the container to the Azure Kubernetes Service, the container images need to be accessible. Create your own Azure Container Registry service to host the images. 
+To deploy the container to the Azure Kubernetes Service, the container images need to be accessible. Create your own Azure Container Registry service to host the images. 
 
-1. Login to the Azure CLI 
+1. Sign in to the Azure CLI 
 
     ```azurecli
     az login
@@ -95,7 +97,7 @@ In order to deploy the container to the Azure Kubernetes Service, the container 
     }
     ```
 
-1. Login to your container registry. You need to login before you can push images to your registry.
+1. Sign in to your container registry. You need to login before you can push images to your registry.
 
     ```azurecli
     az acr login --name pattyregistry
@@ -117,7 +119,7 @@ In order to deploy the container to the Azure Kubernetes Service, the container 
     docker build -t language-frontend -t pattiyregistry.azurecr.io/language-frontend:v1 . 
     ```
 
-    In order to track the version on your container registry, add the tag with a version format, such as `v1`. 
+    To track the version on your container registry, add the tag with a version format, such as `v1`. 
 
 1. Push the image to your container registry. This may take a few minutes. 
 
@@ -163,7 +165,7 @@ In order to deploy the container to the Azure Kubernetes Service, the container 
 
 ## Get Container Registry credentials
 
-The following steps are needed to get the required information to connect your container registry with the Azure Kubernetes Service you will create later in this procedure.
+The following steps are needed to get the required information to connect your container registry with the Azure Kubernetes Service you create later in this procedure.
 
 1. Create service principal.
 
@@ -184,7 +186,7 @@ The following steps are needed to get the required information to connect your c
     }
     ```
 
-1. Get your container registry id.
+1. Get your container registry ID.
 
     ```azurecli
     az acr show --resource-group cogserv-container-rg --name pattyregistry --query "id" --o table
@@ -320,7 +322,7 @@ This section uses the **kubectl** CLI to talk with the Azure Kubernetes Service.
 
     [!code-yml[Kubernetes orchestration file for the Cognitive Services containers sample](~/samples-cogserv-containers/Kubernetes/language/language.yml "Kubernetes orchestration file for the Cognitive Services containers sample")]
 
-1. Change the lines of `language.yml` based on the table below in order to add your own container registry image names, client secret, and text analytics settings.
+1. Change the lines of `language.yml` based on the following table to add your own container registry image names, client secret, and text analytics settings.
 
     |Change|Purpose|
     |--|--|
