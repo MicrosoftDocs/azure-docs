@@ -26,7 +26,7 @@ For more information about [Azure Security Best Practices](https://docs.microsof
 > Azure KeyVault and compute resources must be co-located in the same region.  
 
 ## Provision Service Fabric Cluster Custom Domain Certificate
-The following is the Portal Blade where you can provide the credentials for a KeyVault integrated CA to provsion your custom domain certificate:
+The following is the Portal Blade where you can provide the credentials for a KeyVault integrated CA to provision your custom domain certificate:
 
 ![Common Name Cert Creation][Image1]
 
@@ -77,17 +77,17 @@ Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/
     "x509StoreName": "[parameters('certificateStoreValue')]"
 }
 ```
-Your Service Fabric cluster will use your valid trusted installed certificate, that you declared by common name, which expires further into the future; when more than one valid certificate is installed on your Virtual Machine Scale Sets ceritifcate store.
+Your Service Fabric cluster will use your valid trusted installed certificate, that you declared by common name, which expires further into the future; when more than one valid certificate is installed on your Virtual Machine Scale Sets certificate store.
 
-Given you can not provision certificates for Microsoft domains, such as *\<YOUR SUBDOMAIN\>.cloudapp.azure.com or \<YOUR SUBDOMAIN\>.trafficmanager.net, from KeyVault integrated 3rd Party Certificate Authorities; you must provision and configure [Azure DNS to host your domain](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). After delegating your domains name servers to your Azure DNS zone name servers, you will need to add the following 2 Records Set to you DNS Zone:'A' record for domain APEX that is NOT a "Alias record set" to all IP Addresses your custom domain will resolve, and a 'C' record for Microsoft Subdomain you provisioned  that is NOT a "Alias record set" (E.G. Use your Traffic Manager or Load Balancer's DNS name).
+Given you can not provision certificates for Microsoft domains, such as *\<YOUR SUBDOMAIN\>.cloudapp.azure.com or \<YOUR SUBDOMAIN\>.trafficmanager.net, from KeyVault integrated 3rd-party Certificate Authorities; you must provision and configure [Azure DNS to host your domain](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). After delegating your domains name servers to your Azure DNS zone name servers, you will need to add the following 2 Records Set to you DNS Zone:'A' record for domain APEX that is NOT a "Alias record set" to all IP Addresses your custom domain will resolve, and a 'C' record for Microsoft Subdomain you provisioned  that is NOT a "Alias record set" (E.G. Use your Traffic Manager or Load Balancer's DNS name).
 
-You should also update your Service Fabric Cluster "managementEndpoint" Resource Manager template property to your custom domain, so that portal can display the correct url to connnect to your Service Fabric Explorer User Interface, and the follow is the snippet of the property you will update to your custom domain:
+You should also update your Service Fabric Cluster "managementEndpoint" Resource Manager template property to your custom domain, so that portal can display the correct url to connect to your Service Fabric Explorer User Interface, and the follow is the snippet of the property you will update to your custom domain:
 ```json
  "managementEndpoint": "[concat('https://<YOUR CUSTOM DOMAIN>:',parameters('nt0fabricHttpGatewayPort'))]",
 ```
 
 ## Encrypting Service Fabric Package Secret Values
-Common values that are encrypted in Service Fabric Packages include: Azure Container Registery (ACR) credentials, and environment variables.
+Common values that are encrypted in Service Fabric Packages include: Azure Container Registry (ACR) credentials, and environment variables.
 
 To [set up an encryption certificate and encrypt secrets on Windows clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-windows):
 
@@ -119,9 +119,6 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 
 After encrypting your will need to [specify encrypted secrets in Service Fabric Application](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application), and [decrypt encrypted secrets from service code](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code)
 
-## Azure Active Directory (AAD) for client identity
--- ARM properties for enabling AAD
-
 ## Authenticate Service Fabric Applications to Azure Resources using Managed Service Identity (MSI)
 [Managed identities for Azure resources is a feature of Active Directory](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work).
 
@@ -151,14 +148,14 @@ principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGr
 az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
 ```
 
-In your Service Fabric Application Code obtain an access token for ARM by making a rest call that will be similar to the following:
+In your Service Fabric Application Code obtain an access token for Azure Resource Manager by making a rest call that will be similar to the following:
 
 ```bash
 access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")
 
 ```
 
-Your Service Fabric Application can then use the access token to authenticate to Azure Resources that support Active Directory, and the followinig is an example of how to do this for cosmos db resource:
+Your Service Fabric Application can then use the access token to authenticate to Azure Resources that support Active Directory, and the following is an example of how to do this for cosmos db resource:
 ```bash
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
