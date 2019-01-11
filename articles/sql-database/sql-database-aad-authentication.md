@@ -11,7 +11,7 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/03/2018
+ms.date: 01/18/2019
 ---
 # Use Azure Active Directory Authentication for authentication with SQL
 
@@ -78,7 +78,9 @@ The following members of Azure AD can be provisioned in Azure SQL server or SQL 
 - Imported members from other Azure AD's who are native or federated domain members.
 - Active Directory groups created as security groups.
 
-Azure AD logins and users are supported as a preview feature for [Managed Instances](sql-database-managed-instance.md)
+Azure AD logins and users are supported as a preview feature for [Managed Instances](sql-database-managed-instance.md).
+
+Setting Azure AD logins mapped to an Azure AD group as database owner is not supported in [Managed Instances](sql-database-managed-instance.md).
 
 These system functions return NULL values when executed under Azure AD principals:
 
@@ -88,6 +90,20 @@ These system functions return NULL values when executed under Azure AD principal
 - `SUSER_ID(<admin name>)`
 - `SUSER_SID(<admin name>)`
 
+### Manage Instances
+
+- Azure AD logins and users are supported as a preview feature for [Managed Instances](sql-database-managed-instance.md).
+- Setting Azure AD logins mapped to an Azure AD group as database owner is not supported in [Managed Instances](sql-database-managed-instance.md).
+    - An extension of this is that when a group is added as part of the `dbcreator` server role, users from this group can connect to the Managed Instance and create new databases, but will not be able to access the database. This is because the new database owner is SA, and not the Azure AD user. This issue does not manifest if the individual user is added to the `dbcreator` server role.
+- SQL Agent management and jobs execution is supported for Azure AD logins.
+- Database backup and restore operations can be executed by Azure AD logins.
+- Auditing of all statements related to Azure AD logins and authentication events is supported.
+- Dedicated administrator connection for Azure AD logins which are members of sysadmin server role is supported.
+    - Supported through SQLCMD Utility and SQL Server Management Studio.
+- Logon triggers are supported for logon events coming from Azure AD logins.
+- Service Broker and DB mail can be setup using Azure AD login.
+
+
 ## Connecting using Azure AD identities
 
 Azure Active Directory authentication supports the following methods of connecting to a database using Azure AD identities:
@@ -95,6 +111,14 @@ Azure Active Directory authentication supports the following methods of connecti
 - Using integrated Windows authentication
 - Using an Azure AD principal name and a password
 - Using Application token authentication
+
+The following authentication methods are supported for Azure AD logins (**public preview**):
+
+- Azure Active Directory Password
+- Azure Active Directory Integrated
+- Azure Active Directory Universal with MFA
+- Azure Active Directory Interactive
+
 
 ### Additional considerations
 
