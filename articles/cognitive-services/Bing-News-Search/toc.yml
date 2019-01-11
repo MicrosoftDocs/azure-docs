@@ -58,7 +58,7 @@
 - name: Concepts
   items:
     - name: Sending queries
-      href: concepts/sending-queries.md
+      href: concepts/sending-search-queries.md
     - name: Searching for news
       href: concepts/search-for-news.md
 - name: Reference
