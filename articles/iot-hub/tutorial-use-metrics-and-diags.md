@@ -180,7 +180,7 @@ Now set up some metrics to watch for when messages are sent to the hub.
 
 Go to the hub in the portal. Click **Resource Groups**, select *ContosoResources*, then select IoT Hub *ContosoTestHub*. 
 
-IoT Hub has not been migrated to the [metrics in Azure Monitor](/azure/azure-monitor/platform/data-collection.md#metrics) yet; you have to use [classic alerts](/azure/azure-monitor/platform/alerts-classic.overview).
+IoT Hub has not been migrated to the [metrics in Azure Monitor](/azure/azure-monitor/platform/data-collection#metrics) yet; you have to use [classic alerts](/azure/azure-monitor/platform/alerts-classic.overview).
 
 1. Under **Monitoring**, click **Alerts** This shows the main alert screen. 
 
