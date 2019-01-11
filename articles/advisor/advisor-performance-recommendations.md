@@ -7,7 +7,7 @@ author: kasparks
 manager: carmonm
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -28,7 +28,7 @@ Azure Advisor identifies Traffic Manager profiles with a longer TTL configured a
 
 ## Improve database performance with SQL DB Advisor
 
-Advisor provides you with a consistent, consolidated view of recommendations for all your Azure resources. It integrates with SQL Database Advisor to bring you recommendations for improving the performance of your SQL Azure database. SQL Database Advisor assesses the performance of your SQL Azure databases by analyzing your usage history. It then offers recommendations that are best suited for running the database’s typical workload. 
+Advisor provides you with a consistent, consolidated view of recommendations for all your Azure resources. It integrates with SQL Database Advisor to bring you recommendations for improving the performance of your SQL Azure database. SQL Database Advisor assesses the performance of your SQL Azure databases by analyzing your usage history. It then offers recommendations that are best suited for running the database’s typical workload.
 
 > [!NOTE]
 > To get recommendations, a database must have about a week of usage, and within that week there must be some consistent activity. SQL Database Advisor can optimize more easily for consistent query patterns than for random bursts of activity.
@@ -39,7 +39,7 @@ For more information about SQL Database Advisor, see [SQL Database Advisor](http
 
 Azure Advisor integrates best practices recommendations for improving your App Services experience and discovering relevant platform capabilities. Examples of App Services recommendations are:
 * Detection of instances where memory or CPU resources are exhausted by app runtimes with mitigation options.
-* Detection of instances where collocating resources like web apps and databases can improve performance and lower cost. 
+* Detection of instances where collocating resources like web apps and databases can improve performance and lower cost.
 
 For more information about App Services recommendations, see [Best Practices for Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
@@ -71,7 +71,9 @@ Advisor identifies tables that are not replicated tables but would benefit from 
 
 ## Migrate your Storage Account to Azure Resource Manager to get all of the latest Azure features
 
-Migrate your Storage Account deployment model to Azure Resource Manager (ARM) to take advantage of template deployments, additional security options, and the ability to upgrade to a GPv2 account for utilization of Azure Storage's latest features. Advisor will identify any stand-alone storage accounts that are using the Classic deployment model and recommends migrating to the ARM deployment model. 
+Migrate your Storage Account deployment model to Azure Resource Manager (ARM) to take advantage of template deployments, additional security options, and the ability to upgrade to a GPv2 account for utilization of Azure Storage's latest features. Advisor will identify any stand-alone storage accounts that are using the Classic deployment model and recommends migrating to the ARM deployment model.
+
+Classic alerts in Azure Monitor is announced to retire in June 2019, it is recommended that you upgrade your classic storage account to ARM to retain alerting functionality with the new alerting platform. For more information, see [Classic Alerts Retirement](https://azure.microsoft.com/en-us/updates/classic-alerting-monitoring-retirement/).
 
 ## How to access Performance recommendations in Advisor
 
@@ -88,4 +90,3 @@ To learn more about Advisor recommendations, see:
 * [Advisor Cost recommendations](advisor-performance-recommendations.md)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
-
