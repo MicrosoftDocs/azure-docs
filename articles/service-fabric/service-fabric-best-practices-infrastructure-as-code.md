@@ -18,17 +18,27 @@ ms.author: pepogors
 
 ---
 # Infrastructure as Code 
-In a production scenario, Azure Service Fabric clusters should be created using Resource Manager templates. Resource Manager templates allow for a greater level of control of resource properties and ensures that you have a consistent resource model. Resource 
-```bash
-ResourceGroupName="sfclustergroup"
+In a production scenario, Azure Service Fabric clusters should be created using Resource Manager templates. Resource Manager templates allow for a greater level of control of resource properties and ensures that you have a consistent resource model. 
 
-az group deployment create --resource-group {}
+Creating a resource using Azure CLI
+```azurecli
+ResourceGroupName="sfclustergroup"
+Location="westus"
+
+az group create --name $ResourceGroupName --location $Location 
+az group deployment create --name $ResourceGroupName  --template-file azuredeploy.json --parameters @azuredeploy.parameters.json
 ```
 
--- Sample repo link and API documentation. Modify these samples for these needs.
--- Portal should not be used to provision a production ready cluster.
--- deployment using AZ CLI and Powershell
--- The create SF powershell cmdlet should only be used for dev test
+Creating a resource 
+```powershell
+$ResourceGroupName="sfclustergroup"
+$Location="westus"
+$Template="azuredeploy.json"
+$Parameters="azuredeploy.parameters.json"
+
+New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+New-AzureRmResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
+```
 
 ## Service Fabric ARM Resources 
 -- JSON Snippet of the types of SF 
