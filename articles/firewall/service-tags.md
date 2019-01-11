@@ -17,7 +17,7 @@ Azure Firewall service tags can be used in the network rules destination field. 
 
 ## Supported service tags
 
-The following service tags are available for use in Azure firewall networking rules:
+The following service tags are available for use in Azure firewall network rules:
 
 * **AzureCloud** (Resource Manager only): This tag denotes the IP address space for Azure including all [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=41653). If you specify *AzureCloud* for the value, traffic is allowed or denied to Azure public IP addresses. If you only want to allow access to AzureCloud in a specific [region](https://azure.microsoft.com/regions), you can specify the region. For example, if you want to allow access only to Azure AzureCloud in the East US region, you could specify *AzureCloud.EastUS* as a service tag. 
 * **AzureTrafficManager** (Resource Manager only): This tag denotes the IP address space for the Azure Traffic Manager probe IP addresses. More information on Traffic Manager probe IP addresses can be found in the [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). 
