@@ -267,7 +267,7 @@ This table lists required and optional headers for speech-to-text requests.
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Your Speech Service subscription key. | Either this header or `Authorization` is required. |
 | `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
-| `Content-type` | Describes the format and codec of the provided audio data. Accepted values are `audio/wav; codecs=audio/pcm; samplerate=16000` and `audio/ogg; codecs=opus; samplerate=16000`. | Required |
+| `Content-type` | Describes the format and codec of the provided audio data. Accepted values are `audio/wav; codecs=audio/pcm; samplerate=16000` and `audio/ogg; codecs=opus`. | Required |
 | `Transfer-Encoding` | Specifies that chunked audio data is being sent, rather than a single file. Only use this header if chunking audio data. | Optional |
 | `Expect` | If using chunked transfer, send `Expect: 100-continue`. The Speech Service acknowledges the initial request and awaits additional data.| Required if sending chunked audio data. |
 | `Accept` | If provided, it must be `application/json`. The Speech Service provides results in JSON. Some Web request frameworks provide an incompatible default value if you do not specify one, so it is good practice to always include `Accept`. | Optional, but recommended. |
