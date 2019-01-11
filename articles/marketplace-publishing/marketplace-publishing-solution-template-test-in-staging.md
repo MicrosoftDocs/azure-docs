@@ -3,7 +3,7 @@ title: Testing your solution template offer for the Marketplace | Microsoft Docs
 description: Understand how to test your solution template offer for the Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 
@@ -16,18 +16,21 @@ ms.workload: na
 ms.date: 12/04/2015
 ms.author: hascipio; v-divte
 
+ROBOTS: NOINDEX
+
 ---
+
 # Test your solution template offer in staging
-Staging means deploying your offer in a private "sandbox" where you can test and verify its functionality before pushing it to production. The offer appears in staging just as it would to a customer who has deployed it. Your offer must be certified to be pushed to staging.
+Staging means deploying your offer in a private "sandbox" where you can test and verify its functionality before pushing it to production. The offer appears in staging just as it would to a customer who has deployed it. An offer must be certified before being pushed to staging.
 
-After the offer is staged, you can view and test the offer in the [Azure Portal](https://portal.azure.com/).
+After the offer is staged, you can view and test the offer in the [Azure portal](https://portal.azure.com/).
 
-Follow the steps below to push your offer to staging and test it in the [Azure Portal](https://portal.azure.com/):
+Follow the steps below to push your offer to staging and test it in the [Azure portal](https://portal.azure.com/):
 
 1. Go to the [Publishing Portal](https://publish.windowsazure.com) > **Solution Templates** tab > your offer > **Publish** > **Push to Staging**.
 2. Provide the list of Azure subscriptions that you will use to preview and test your offer.
-3. Sign in to the Azure preview portal by using the subscription ID that you used in the previous step.
-4. Carry out at least one round of testing in the Azure preview portal on the points mentioned below:
+3. Sign in to the Azure portal by using the subscription ID that you used in the previous step.
+4. Carry out at least one round of testing in the Azure portal on the points mentioned below:
    * Make sure that marketing content shows up correctly in the Azure Marketplace.
    * End-to-end deployment of the topology.
    * Perform performance testing and stress testing.

@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 01/09/2019
 ms.author: douglasl
 ---
 # Continuous integration and delivery (CI/CD) in Azure Data Factory
@@ -157,7 +157,7 @@ There are two ways to handle the secrets:
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### Grant permissions to the Azure Pipelines agent
-The Azure Key Vault task may fail the first time with an Access Denied error. Download the logs for the release, and locate the `.ps1` file with the command to give permissions to the Azure Pipelines agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. (*Get* and *List* are the minimum permissions required).
+The Azure Key Vault task may fail the fIntegration Runtimest time with an Access Denied error. Download the logs for the release, and locate the `.ps1` file with the command to give permissions to the Azure Pipelines agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. (*Get* and *List* are the minimum permissions required).
 
 ### Update active triggers
 Deployment can fail if you try to update active triggers. To update active triggers, you need to manually stop them and start them after the deployment. You can add an Azure Powershell task for this purpose, as shown in the following example:
@@ -179,7 +179,7 @@ Deployment can fail if you try to update active triggers. To update active trigg
 You can follow similar steps and use similar code (with the `Start-AzureRmDataFactoryV2Trigger` function) to restart the triggers after deployment.
 
 > [!IMPORTANT]
-> In continuous integration and deployment scenarios, the Integration Runtime type across different environments must be the same. For example, if you have a *Self-Hosted* Integration Runtime (IR) in the development environment, the same IR must be of type *Self-Hosted* in other environments such as test and production also. Similarly, if you're sharing integration runtimes across multiple stages, you have to configure the IRs as *Linked Self-Hosted* in all environments, such as development, test, and production.
+> In continuous integration and deployment scenarios, the Integration Runtime type across different environments must be the same. For example, if you have a *Self-Hosted* Integration Runtime (IR) in the development environment, the same IR must be of type *Self-Hosted* in other environments such as test and production also. Similarly, if you're sharing integration runtimes across multiple stages, you have to configure the Integration Runtimes as *Linked Self-Hosted* in all environments, such as development, test, and production.
 
 ## Sample deployment template
 
@@ -849,7 +849,7 @@ You can define custom parameters for the Resource Manager template. You simply n
 
 Here are some guidelines to use when authoring the custom parameters file. To see examples of this syntax, see the following section, [Sample custom parameters file](#sample).
 
-1. When you specify array in the definition file, you indicate that the matching property in the template is an array. Data Factory iterates through all the objects in the array using the definition specified in the first object of the array. The second object, a string, becomes the name of the property, which is used as the name for the parameter for each iteration.
+1. When you specify array in the definition file, you indicate that the matching property in the template is an array. Data Factory iterates through all the objects in the array using the definition specified in the fIntegration Runtimest object of the array. The second object, a string, becomes the name of the property, which is used as the name for the parameter for each iteration.
 
     ```json
     ...
@@ -973,7 +973,7 @@ The following example shows a sample parameters file. Use this sample as a refer
 
 ## Linked Resource Manager templates
 
-If you've set up continuous integration and deployment (CI/CD) for your Data Factories, you may observe that, as your factory grows bigger, you run into the Resource Manager template limits, like the maximum number of resources or the maximum payload in an Resource Manager template. For scenarios like these, along with generating the full Resource Manager template for a factory, Data Factory also now generates Linked Resource Manager templates. As a result, you have the entire factory payload broken down into several files, so that you don’t run into the mentioned limits.
+If you've set up continuous integration and deployment (CI/CD) for your Data Factories, you may observe that, as your factory grows bigger, you run into the Resource Manager template limits, like the maximum number of resources or the maximum payload in a Resource Manager template. For scenarios like these, along with generating the full Resource Manager template for a factory, Data Factory also now generates Linked Resource Manager templates. As a result, you have the entire factory payload broken down into several files, so that you don’t run into the mentioned limits.
 
 If you have Git configured, the linked templates are generated and saved alongside the full Resource Manager templates, in the `adf_publish` branch, under a new folder called `linkedTemplates`.
 
@@ -984,3 +984,23 @@ The Linked Resource Manager templates usually have a master template and a set o
 Remember to add the Data Factory scripts in your CI/CD pipeline before and after the deployment task.
 
 If you don’t have Git configured, the linked templates are accessible via the **Export ARM template** gesture.
+
+## Best practices for CI/CD
+
+If you're using Git integration with your data factory, and you have a CI/CD pipeline that moves your changes from Development into Test and then to Production, we recommend the following best practices:
+
+-   **Git Integration**. You are only required to configure your Development data factory with Git integration. Changes to Test and Production are deployed via CI/CD, and they don't need to have Git integration.
+
+-   **Data Factory CI/CD script**. Before the Resource Manager deployment step in CI/CD, you must take care of things like stopping the triggers, and different kind of factory cleanup. We recommend using [this script](#sample-script-to-stop-and-restart-triggers-and-clean-up) as it takes care of all these things. Run the script once before the deployment, and once after, using appropriate flags.
+
+-   **Integration Runtimes and sharing**. Integration Runtimes are one of the infrastructural components in your data factory, which undergo changes less often, and are similar across all stages in your CI/CD. As a result, Data Factory expects you to have the same name and same type of Integration Runtimes across all stages of CI/CD. If you are looking to share Integration Runtimes across all stages - for instance, the Self-hosted Integration Runtimes - one way to share is by hosting the Self-hosted IR in a ternary factory, just for containing the shared Integration Runtimes. Then you can use them in Dev/Test/Prod as a Linked IR type.
+
+-   **Key Vault**. When you use the recommended Azure Key Vault based linked services, you can take its advantages one level further by potentially keeping separate key vaults for Dev/Test/Prod. You can also configure separate permission levels for each of them. You may not want your team members to have permissions to the Production secrets. We also recommend you to keep the same secret names across all stages. If you keep the same names, you don't have to change your Resource Manager templates across CI/CD, since the only thing that needs to be changed is the key vault name, which is one of the Resource Manager template parameters.
+
+## Unsupported features
+
+-   You can't publish individual resources, because data factory entities depend on each other. For example, triggers depend on pipelines, pipelines depend on datasets and other pipelines, etc. Tracking changing dependencies is hard. If it was possible to select the resources to publish manually, it would be possible to pick only a subset of the entire set of changes, which would lead to things unexpected behavior after publishing.
+
+-   You can't publish from private branches.
+
+-   You can't host projects on Bitbucket.

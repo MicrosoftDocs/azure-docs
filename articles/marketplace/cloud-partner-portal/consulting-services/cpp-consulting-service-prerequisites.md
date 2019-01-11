@@ -19,16 +19,16 @@ ms.author: pbutlerm
 
 # Consulting service prerequisites
 
-To submit consulting service offers for any of the products below, you need to first fulfill one or more of the corresponding requirements.
+To submit consulting service offers for any of the following products, fulfill one or more of the corresponding requirements:
 
-* **Dynamics 365 for customer engagement**: Partners must have a Silver or Gold certification for the [Cloud Customer Relationship Management competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency). 
-* **Dynamics 365 for finance & operations**: Partners must have a Silver or Gold certification for the [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency), and a minimum revenue of $25K in Cloud Operations in the trailing 12 months.
-* **Dynamics 365 business central**: Partners must have acted as Cloud Solution Provider (CSP) or Digital Partner of Record (DPOR) for at least one customer.
-    * **CSP**: See [Get started CSP](https://partner.microsoft.com/cloud-solution-provider/get-started) for how to become a CSP.
-    * **DPOR**: See [DPOR Overview](https://partner.microsoft.com/membership/digital-partner-of-record#Membership_Digital_Partner_of_Record_Navigated_Rich_Text_Node1) for DPOR requirements.
-* **Power BI**: Get listed on the Power BI partner showcase. See [Solution Partner criteria](https://powerbi.microsoft.com/become-a-partner) for more information.
-* **PowerApps**: Partners must have a solution published on [Partner Showcase](https://powerapps.microsoft.com/partner-showcase).
+* **Dynamics 365 for Customer Engagement**: Partners must have a Silver or Gold certification for the [Cloud Customer Relationship Management competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency). 
+* **Dynamics 365 for Finance & Operations**: Partners must have a Silver or Gold certification for the [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency). Partners also must have a minimum revenue of $25,000 in Cloud Operations in the trailing 12 months.
+* **Dynamics 365 Business Central**: Partners must have acted as a Cloud Solution Provider (CSP) or a Digital Partner of Record (DPOR) for at least one customer.
+    * **CSP**: For information on how to become a CSP, see [Get started as a CSP](https://partner.microsoft.com/cloud-solution-provider/get-started).
+    * **DPOR**: For DPOR requirements, see the [DPOR overview](https://partner.microsoft.com/membership/digital-partner-of-record#Membership_Digital_Partner_of_Record_Navigated_Rich_Text_Node1).
+* **Power BI**: Get listed on the Power BI partner showcase. For more information, see [Solution Partner criteria](https://powerbi.microsoft.com/become-a-partner).
+* **PowerApps**: Partners must have a solution published on the [Partner Solution Showcase](https://powerapps.microsoft.com/partner-showcase).
 
-**Next steps**
+## Next steps
 
-If the above requirements are met, you are ready to [create a consulting services offer](./cpp-consulting-service-create-offer.md).
+If you met the preceding requirements, you're ready to [create a consulting services offer](./cpp-consulting-service-create-offer.md).

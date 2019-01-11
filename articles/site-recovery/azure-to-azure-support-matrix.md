@@ -39,6 +39,9 @@ This article summarizes supported configurations and components when you deploy 
 
 You can replicate and recover VMs between any two regions within the same geographic cluster. Geographic clusters are defined keeping data latency and sovereignty in mind.
 
+>[!NOTE]
+>If you are not able to see a region within a Geographic cluster during enabling replication then make sure your subscription has access to create virtual machine in that region. If not than raise a support request under "Issue type" subscription.
+>
 **Geographic cluster** | **Azure regions**
 -- | --
 America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
