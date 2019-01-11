@@ -36,7 +36,7 @@ https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/<
 ```
 
 ## Deploy KeyVault Certificates to Service Fabric Cluster's Virtual Machine Scale Sets
-Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) is how you reliably deploy KeyVault certificates to your Service Fabric Cluster's Virtual Machine Scale Sets, and the following are the Resource Manager template properties that you will declare: 
+Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) is how you reliably deploy KeyVault certificates to your Service Fabric Cluster's Virtual Machine Scale Sets, and the following are the Resource Manager template properties: 
 ```json
 "secrets": [
    {
@@ -54,7 +54,7 @@ Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/comput
 ```
 
 ## ACL Certificate to your Service Fabric Cluster
-[Virtual Machine Scale Set extensions](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) publisher   Microsoft.Azure.ServiceFabric is how you ACL certificates to your Service Fabric Cluster, and the following are the Resource Manager template properties that you will declare:
+[Virtual Machine Scale Set extensions](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) publisher   Microsoft.Azure.ServiceFabric is how you ACL certificates to your Service Fabric Cluster, and the following are the Resource Manager template properties:
 ```json
 "certificate": {
    "commonNames": [
@@ -65,7 +65,7 @@ Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/comput
 ```
 
 ## Declare Custom Domain Service Fabric Cluster Certificate
-Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames) Resource Manager template property, is how you configure the custom domain common name property of your valid certificate, and the following are the Resource Manager template properties that you will declare:
+Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames) Resource Manager template property, is how you configure the custom domain common name property of your valid certificate, and the following are the Resource Manager template properties:
 ```json
 "certificateCommonNames": {
     "commonNames": [
