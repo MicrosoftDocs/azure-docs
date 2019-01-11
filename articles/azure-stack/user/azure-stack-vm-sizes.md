@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 
@@ -22,6 +22,8 @@ ms.reviewer: kivenkat
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 This article lists the virtual machine (VM) sizes that are available in Azure Stack.
+
+Disk IOPS (Input/Output Operations Per Second) on Azure Stack is a function of VM size instead of the disk type. This means that for a Standard_Fs series VM, regardless of whether you choose SSD or HDD for the disk type, the IOPS limit for a single additional data disk is 2300 IOPS. The IOPS limits imposed is a cap (maximum possible) to prevent noisy neighbors. It is not an assurance of IOPS that you will get on a specific VM size.
 
 ## General purpose
 

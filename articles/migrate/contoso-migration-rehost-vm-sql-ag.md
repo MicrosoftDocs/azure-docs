@@ -90,7 +90,7 @@ In this scenario:
 
 ### Database considerations
 
-As part of the solution design process, Contoso did a feature comparison between Azure SQL Database and SQL Server. The following considerations helped them to decide to go with an Azure Iaas VM running SQL Server:
+As part of the solution design process, Contoso did a feature comparison between Azure SQL Database and SQL Server. The following considerations helped them to decide to go with an Azure IaaS VM running SQL Server:
 
  - Using an Azure VM running SQL Server seems to be an optimal solution if Contoso needs to customize the operating system or the database server, or if it might want to colocate and run third-party apps on the same VM.
  - Using the Data Migration Assistant, Contoso can easily assess and migrate to an Azure SQL Database.

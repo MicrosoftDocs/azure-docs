@@ -32,6 +32,10 @@ Managed Disks are integrated with Availability Sets to ensure that the disks of 
 
 To protect against regional disasters, [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md) can be used to create a backup job with time-based backups and backup retention policies. This allows you to perform easy VM restorations at will. Currently Azure Backup supports disk sizes up to 4 TiB disks. For more information, see [Using Azure Backup for VMs with Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
+### Granular access control
+
+You can use [Azure Role-Based Access Control (RBAC)](../articles/role-based-access-control/overview.md) to assign specific permissions for a managed disk to one or more users. Managed Disks exposes a variety of operations, including read, write (create/update), delete, and retrieving a [shared access signature (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) for the disk. You can grant access to only the operations a person needs to perform their job. For example, if you don't want a person to copy a managed disk to a storage account, you can choose not to grant access to the export action for that managed disk. Similarly, if you don't want a person to use an SAS URI to copy a managed disk, you can choose not to grant that permission to the managed disk.
+
 ## More About Disks in Azure
 
 ### Data Disks
