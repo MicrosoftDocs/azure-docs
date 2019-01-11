@@ -1,6 +1,6 @@
 ---
-title: Instant Restore Capability
-description: Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
+title: Azure Instant Restore Capability
+description: Azure Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
 services: backup
 author: trinadhk
 manager: vijayts
@@ -17,7 +17,7 @@ ms.author: trinadhk
 > Based on the feedback received from users that the **VM backup stack V2** is confusing with Azure stack, we have renamed it to **Instant Restore** thus providing an upgraded and better experience.
 
 > [!IMPORTANT]
-> After receiving positive response from our users already experiencing the upgraded performance, we have decided to upgrade all our users to instant restore feature. To upgrade, there is no action required from your end. **In February 2019**, we will start rolling out this feature region by region.
+> After receiving positive response from our users already experiencing the upgraded performance, we have decided to upgrade all our users to instant restore feature. To upgrade, there is no action required from your end. **Starting February 2019**, we will start rolling out this feature region by region.
 >
 >
 
@@ -67,7 +67,7 @@ To open a screen for upgrading to Instant Restore, select the banner.
 ## Upcoming changes
 
 > [!IMPORTANT]
-> After receiving positive response from our users already experiencing the upgraded performance, we have decided to upgrade all our users to instant restore feature. To upgrade, there is no action required from your end. **In February 2019**, we will start rolling out this feature region by region.
+> After receiving positive response from our users already experiencing the upgraded performance, we have decided to upgrade all our users to instant restore feature. To upgrade, there is no action required from your end. **Starting February 2019**, we will start rolling out this feature region by region.
 >
 >
 
