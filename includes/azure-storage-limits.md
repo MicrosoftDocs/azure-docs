@@ -12,7 +12,7 @@
 
 The following table describes default limits for Azure Storage. The *ingress* limit refers to all data (requests) being sent to a storage account. The *egress* limit refers to all data (responses) being received from a storage account.
 
-| Resource | Default Limit |
+| Resource | Default limit |
 | --- | --- |
 | Number of storage accounts per region per subscription, including both standard and premium accounts | 250 |
 | Max storage account capacity | 2 PB for US and Europe, 500 TB for all other regions including UK |
