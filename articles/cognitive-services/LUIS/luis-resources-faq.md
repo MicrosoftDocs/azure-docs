@@ -197,6 +197,12 @@ If you select a LUIS template, and select the **Select** button in the template 
 ### What LUIS regions support Bot Framework speech priming?
 [Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) is only supported for LUIS apps in the central (US) instance.
 
+## API Programming Strategies
+
+### How do I programmatically get the LUIS region of a resource? 
+
+Use the LUIS sample to [find region](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) programmatically using C# or Node.Js. 
+
 ## LUIS service
 
 ### Is Language Understanding (LUIS) available on-premises or in private cloud?
