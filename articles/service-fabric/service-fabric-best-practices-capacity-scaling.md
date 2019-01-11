@@ -34,7 +34,7 @@ Before creating any Azure Service Fabric cluster it is important to [plan for ca
 > [!NOTE]
 > Your primary NodeType that is hosting Stateful Service Fabric System Services, and must be Silver durability level or greater.
 
-Given inplace vertical scaling of a Virtual Machine Scale Set is a destructive operation, you have to horizontally scale your cluster by adding a new Scale Set with the desires SKU, and migrate your services to your desired SKU to complete a safe vertical scaling operation. Service Fabric [node properties and placement constraints](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) are leveraged by your cluster to decide where to host your Applications services; so when vertically scaling your Primary Node Type, declaring indentical property values for "nodeTypeRef" Virtual Machine Scale Set Service Fabric Extension, enables your cluster to choose an your provisioned scale set with those properties to host your Applications services. The following is a snippet of the Resource Manager template properties you will declare, with the same value for your new provisioned scale sets that you are scaling to, and is only supported as a temporary stateful for your cluster:
+Given in place vertical scaling of a Virtual Machine Scale Set is a destructive operation, you have to horizontally scale your cluster by adding a new Scale Set with the desires SKU, and migrate your services to your desired SKU to complete a safe vertical scaling operation. Service Fabric [node properties and placement constraints](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) are leveraged by your cluster to decide where to host your Applications services; so when vertically scaling your Primary Node Type, declaring identical property values for "nodeTypeRef" Virtual Machine Scale Set Service Fabric Extension, enables your cluster to choose an your provisioned scale set with those properties to host your Applications services. The following is a snippet of the Resource Manager template properties you will declare, with the same value for your new provisioned scale sets that you are scaling to, and is only supported as a temporary stateful for your cluster:
 ```json
 "settings": {
    "nodeTypeRef": ["[parameters('vmNodeType0Name')]"]
@@ -46,20 +46,20 @@ Given inplace vertical scaling of a Virtual Machine Scale Set is a destructive o
 With your node properties and placement constraints declared, you need to execute the following steps one VM instance at a time. This allows for the system services (and your stateful services) to be shut down gracefully on the VM instance you are removing and new replicas created else where.
 1. Run Disable-ServiceFabricNode with intent ‘RemoveNode’ to disable the node you’re going to remove (the highest instance in that node type).
 2. Run Get-ServiceFabricNode to make sure that the node has indeed transitioned to disabled. If not, wait until the node is disabled. You cannot hurry this step.
-3. Change the number of VMs by one in that Node type. This will now remove the highest VM instance.
+3. Change the number of VMs by one in that Node type. The highest VM instance will now be removed.
 4. Repeat steps 1 through 3 as needed, but never scale down the number of instances in the primary node types less than what the reliability tier warrants. Refer to the details on reliability tiers here.
 
 ## Horizontal Scaling 
-Horizontal Scaling in Service Fabric can be done either [maunally](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) or [programmatically](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
+Horizontal Scaling in Service Fabric can be done either [manually](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) or [programmatically](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
 
 ### Scaling Out
-Scaling out of a Service Fabric cluster can simply be done by increasing the instance count for a particular VMSS. You can scale out programmatically by using the AzureClient and the id for the desired scale set to increase the capacity.
+Scaling out of a Service Fabric cluster can be done by increasing the instance count for a particular Vitrual Machine Scale Set. You can scale out programmatically by using the AzureClient and the ID for the desired scale set to increase the capacity.
 ```c#
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ```
-To scale out manually you can update the capactity in the SKU property of the desired [Virtual Machine Scale Set](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) resource.
+Scaling out manually, you can update the capacity in the SKU property of the desired [Virtual Machine Scale Set](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) resource.
 ```json
 "sku": {
     "name": "[parameters('vmNodeType0Size')]",
@@ -70,9 +70,9 @@ To scale out manually you can update the capactity in the SKU property of the de
 ### Scaling In
 Scaling In requires more consideration than scaling out. 
 * The service fabric system services run in the Primary node type in your cluster. So should never shut down or scale down the number of instances in that node types less than what the reliability tier warrants. 
-* For a stateful service, you need a certain number of nodes to be always up to maintain availability and preserve state of your service. At the very minimum, you need the number of nodes equal to the target replica set count of the partition/service.
+* For a stateful service, you need a certain number of nodes to be always up to maintain availability and preserve state of your service. At the minimum, you need the number of nodes equal to the target replica set count of the partition/service.
 
-To scale in manually requires the completion of the following steps:
+To, scale in manually requires the completion of the following steps:
 1. Run [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) with intent ‘RemoveNode’ to disable the node you’re going to remove (the highest instance in that node type).
 2. Run [Get-ServiceFabricNode](https://docs.microsoft.com/en-us/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) to make sure that the node has indeed transitioned to disabled. If not, wait until the node is disabled. You cannot hurry this step.
 3. Decrease the instance count to the desired number of nodes in the SKU property of the desired [Virtual Machine Scale Set](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) resource.
@@ -85,7 +85,7 @@ To scale in manually requires the completion of the following steps:
 ```
 4. Repeat steps 1 through 3 as needed, but never scale down the number of instances in the primary node types less than what the reliability tier warrants. Refer to the [details on reliability tiers here](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
-To scale in programatically requires preparing the node for shutdown involves finding the node to be removed (the most recently added virtual machine scale set instance) and deactivating it. 
+Scaling in programmatically requires preparing the node for shutdown involves finding the node to be removed (the most recently added virtual machine scale set instance) and deactivating it. 
 ```c#
 using (var client = new FabricClient())
 {
@@ -131,7 +131,7 @@ The [reliability level](https://docs.microsoft.com/azure/service-fabric/service-
 * Gold - Run the System services with a target replica set count of seven
 * Silver - Run the System services with a target replica set count of five
 * Bronze - Run the System services with a target replica set count of three
-The minimum recommened reliability level is Silver.
+The minimum recommended reliability level is Silver.
 
 The reliability level is set in the properties section of the [Microsoft.ServiceFabric/clusters resource](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters)
 ```json
