@@ -74,8 +74,8 @@ ms.author: magoedte
 														             <h3>Manage workspace</h3>
                                                                     <p>
                                                                     <a href="/azure/azure-monitor/learn/quick-create-workspace">Create workspace in the Azure portal</a><br/>
-                                                                    <a href="/azure/azure-monitor/learn/quick-create-workspace-cli">Create workspace using Azure CLI</a><br/>
-                                                                   <a href="/azure/azure-monitor/learn/quick-create-workspace-posh">Create workspace using Azure PowerShell</a><br/>
+                                                                    <a href="/azure/azure-monitor/learn/quick-create-workspace-cli">Create workspace with Azure CLI</a><br/>
+                                                                   <a href="/azure/azure-monitor/learn/quick-create-workspace-posh">Create workspace with Azure PowerShell</a><br/>
                                                                   <a href="/azure/azure-monitor/platform/delete-workspace">Delete workspace</a><br/>
 														         </p>
 																</div>
