@@ -110,7 +110,7 @@ For down-level Windows OS versions that are on-premises Active Directory domain 
 
 **A:** Yes. Windows has cached username and password capability that allows users who signed in previously to access the desktop quickly even without network connectivity. When a device is deleted or disabled in Azure AD, it's not known to the Windows device. So users who signed in previously continue to access the desktop with the cached username and password. But as the device is deleted or disabled, users can't access any resources protected by device-based conditional access. 
 
-Users who who didn't sign in previously can't access the device. There's no cached username and password enabled for them. 
+Users who didn't sign in previously can't access the device. There's no cached username and password enabled for them. 
 
 ---
 
