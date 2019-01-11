@@ -45,7 +45,7 @@ node --version
 
 If you haven't already done so, download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
 
-**[Bugbash instructions]:** Download the file from [here](\\scratch2\scratch\rezas\devicstreamsbugbash\nodejs.zip).
+**[Bugbash instructions]:** Download the file from [here](\\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-nodejs.zip).
 
 
 ## Create an IoT hub
