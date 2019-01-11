@@ -16,7 +16,7 @@ Just as a blueprint allows an engineer or an architect to sketch a project's des
 Azure Blueprints enables cloud architects and central information technology groups to define a
 repeatable set of Azure resources that implements and adheres to an organization's standards,
 patterns, and requirements. Azure Blueprints makes it possible for development teams to rapidly
-build and spin up new environments with trust they're building within organizational compliance
+build and stand up new environments with trust they're building within organizational compliance
 with a set of built-in components -- such as networking -- to speed up development and delivery.
 
 Blueprints are a declarative way to orchestrate the deployment of various resource templates and
@@ -69,7 +69,7 @@ Including a policy in a blueprint enables the creation of the right pattern or d
 assignment of the blueprint. The policy inclusion makes sure that only approved or expected changes
 can be made to the environment to protect ongoing compliance to the intent of the blueprint.
 
-A policy can be included as one of many _artifacts_ in a blueprints definition. Blueprints also
+A policy can be included as one of many _artifacts_ in a blueprint definition. Blueprints also
 support using parameters with policies and initiatives.
 
 ## Blueprint definition
