@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
+ms.reviewer: jiahan
 ---
 
 # Update the SQL resource provider
