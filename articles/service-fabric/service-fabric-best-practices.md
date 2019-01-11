@@ -146,8 +146,18 @@ principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGr
 
 az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
 ```
--- VMSS MSI enable system assign, link to user assigned docs
--- Code snippet consuming
+
+In your Service Fabric Application Code obtain an access token for ARM by making a rest call that will be similar to the following:
+
+```bash
+access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")
+
+```
+
+Your Service Fabric Application can then use the access token to authenticate to Azure Resources that support Active Directory, and the followinig is an example of how to do this for cosmos db resource:
+```bash
+cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
+```
 ### Security Policies
 -- XML manifest for run as 
 ### Windows Defender 
