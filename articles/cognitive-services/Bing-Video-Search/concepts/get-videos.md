@@ -3,7 +3,7 @@
 
 ## Suggesting & using search terms
 
-If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
+If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 
 After the user enters their search term, URL encode it before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query) query parameter. For example, if the user enters *sailing dinghies*, set `q` to `sailing+dinghies` or `sailing%20dinghies`.
 
@@ -82,7 +82,7 @@ The response contains a [Videos](https://docs.microsoft.com/rest/api/cognitivese
 }
 ```
 
-You could display a collage of all the video thumbnails or you could display a subset of the thumbnails. If you display a subset, provide the user an option to view the remaining videos. You must display the videos in the order provided in the response. For information about resizing the thumbnail, see [Resizing and Cropping Thumbnails](./resize-and-crop-thumbnails.md). 
+You could display a collage of all the video thumbnails or you could display a subset of the thumbnails. If you display a subset, provide the user an option to view the remaining videos. You must display the videos in the order provided in the response. For information about resizing the thumbnail, see [Resizing and Cropping Thumbnails](../resize-and-crop-thumbnails.md). 
 
 As the user hovers over the thumbnail you can use [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-motionthumbnailurl) to play a thumbnail version of the video. Be sure to attribute the motion thumbnail when you display it.
 
@@ -90,7 +90,7 @@ As the user hovers over the thumbnail you can use [motionThumbnailUrl](https://d
 ![Motion thumbnail of a video](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
 -->
 
-If the user clicks the thumbnail, the following are the video viewing options:
+When a thumbnail is clicked, there are three options for videwing the video:
 
 - Use [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-hostpageurl) to view the video on the host website (for example, YouTube)
 - Use [webSearchUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-websearchurl) to view the video in the Bing video browser
@@ -98,7 +98,7 @@ If the user clicks the thumbnail, the following are the video viewing options:
 
 Be sure to use the publisher and creator to attribute the video when you play it.
 
-For details about using [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) to get insights about the video, see [Video Insights](./video-insights.md).
+For details about using [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) to get insights about the video, see [Video Insights](../video-insights.md).
 
 ## Filtering videos
 
