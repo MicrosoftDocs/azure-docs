@@ -22694,6 +22694,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-manage-with-automation.md",
+      "redirect_url": "/azure/storage/blobs/storage-blobs-overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/windows/a8-a9-a10-a11-specs.md",
       "redirect_url": "/azure/virtual-machines/windows/sizes-hpc",
       "redirect_document_id": false
