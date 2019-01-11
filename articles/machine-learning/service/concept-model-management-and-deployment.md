@@ -31,15 +31,19 @@ Each step can be performed independently or as part of a single deployment comma
 
 [ !['Azure Machine Learning continuous integration/continuous deployment (CI/CD) cycle'](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-
 ## Step 1: Register model
 
-The model registry keeps track of all the models in your Azure Machine Learning Service workspace.
-Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. You can also provide additional metadata tags during registration that can be used when searching for models.
+Model registration allows you to store and version your models in the Azure cloud, in your workspace. The model registry makes it easy to organize and keep track of your trained models.
+ 
+Registered models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. You can also provide additional metadata tags during registration that can be used when searching for models. The Azure Machine Learning service supports models stored using any model that can be loaded using Python 3. 
 
 You can't delete models that are being used by an image.
 
 For more information, see the register model section of [Deploy models](how-to-deploy-and-where.md#registermodel).
+
+For an example of registering a model stored in pickle format, see [Tutorial: Train an image classification model](tutorial-deploy-models-with-aml.md).
+
+For information on using ONNX models, see the [ONNX and Azure Machine Learning](how-to-build-deploy-onnx.md) document.
 
 ## Step 2: Register image
 
