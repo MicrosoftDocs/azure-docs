@@ -20,11 +20,11 @@ Learn how to deploy the language detection container. This procedure shows you h
 
 This procedure requires several tools that must be installed and run locally. Do not use Azure Cloud shell. 
 
-* Use an Azure subscription. The trial and pay-as-you-go subscriptions will both work. 
-* Install [Git](https://git-scm.com/downloads) for your operating system so you can clone the [sample](https://github.com/Azure-Samples/cognitive-services-containers-samples) used in this procedure. 
-* Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
-* Install [Docker engine](https://www.docker.com/products/docker-engine) and validate that the Docker CLI works in a console window.
-* Install [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe). 
+* Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* [Git](https://git-scm.com/downloads) for your operating system so you can clone the [sample](https://github.com/Azure-Samples/cognitive-services-containers-samples) used in this procedure. 
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+* [Docker engine](https://www.docker.com/products/docker-engine) and validate that the Docker CLI works in a console window.
+* [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe). 
 * An Azure resource with the correct pricing tier. Not all pricing tiers work with this container:
     * **Text Analytics** resource with F0 or Standard pricing tiers only.
     * **Cognitive Services** resource with the S0 pricing tier.
@@ -37,17 +37,17 @@ This procedure loads and runs the Cognitive Services Container sample for langua
 
 ## The sample containers
 
-The sample has two container images, one for the frontend website with its own API. The second image is the language detection image returning the detected language (culture) of text. Both containers are accessible from an external IP when you are done. 
+The sample has two container images, one for the frontend website. The second image is the language detection container returning the detected language (culture) of text. Both containers are accessible from an external IP when you are done. 
 
-### The website container
+### The language-frontend container
 
 This website is equivalent to your own client-side application that makes requests of the language detection endpoint. When the procedure is finished, you get the detected language of a string of characters by accessing the website container in a browser with `http://<external-IP>/<text-to-analyze>`. An example of this URL is `http://132.12.23.255/helloworld!`. The result in the browser is `English`.
 
-### The language detection container
+### The language container
 
 The language detection container, in this specific procedure, is accessible to any external request. The container hasn't been changed in any way so the standard Cognitive Services container-specific language detection API is available. 
 
-For this container, that API is a POST request for language detection. It is different than using the REST-based Azure APIs in that you don't need to pass any authentication information such as the Azure resource key. As with all Cognitive Services containers, you can learn more about the container from its hosted Swagger information, `http://<external-IP>:5000/swagger/index.html`. 
+For this container, that API is a POST request for language detection. As with all Cognitive Services containers, you can learn more about the container from its hosted Swagger information, `http://<external-IP>:5000/swagger/index.html`. 
 
 Port 5000 is the default port used with the Cognitive Services containers. 
 
@@ -73,7 +73,7 @@ To deploy the container to the Azure Kubernetes Service, the container images ne
     az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
     ```
 
-    Save the results to get the **loginServer** property:
+    Save the results to get the **loginServer** property. This will be part of the hosted container's address, used later in the `language.yml` file.
 
     ```console
     >az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
@@ -111,7 +111,7 @@ To deploy the container to the Azure Kubernetes Service, the container images ne
     git clone https://github.com/Azure-Samples/cognitive-services-containers-samples
     ```
 
-    Once the repository is on your local computer, find the website in the [\dotnet\Language\FrontendService](https://github.com/Azure-Samples/cognitive-services-containers-samples/tree/master/dotnet/Language/FrontendService) directory. There is also a Python version if you are comfortable with that language instead. This website acts as the client application calling the language detection API hosted in the language detection container.  
+    Once the repository is on your local computer, find the website in the [\dotnet\Language\FrontendService](https://github.com/Azure-Samples/cognitive-services-containers-samples/tree/master/dotnet/Language/FrontendService) directory. This website acts as the client application calling the language detection API hosted in the language detection container.  
 
 1. Build the Docker image for this website. Make sure the console is in the [\FrontendService](https://github.com/Azure-Samples/cognitive-services-containers-samples/tree/master/dotnet/Language/FrontendService) directory where the Dockerfile is located when you run the following command:
 
@@ -201,26 +201,10 @@ The following steps are needed to get the required information to connect your c
 
     Save the full value for step 3 in this section. 
 
-1. To grant the correct access for the AKS cluster to use images stored in your Container Registry, create a role assignment. Replace <appId> and <acrId> with the values gathered in the previous two steps.
+1. To grant the correct access for the AKS cluster to use images stored in your container registry, create a role assignment. Replace <appId> and <acrId> with the values gathered in the previous two steps.
 
     ```azurecli
     az role assignment create --assignee <appId> --scope <acrId> --role Reader
-    ```
-
-    The result includes the full JSON of the role assignment.
-
-    ```console
-    > az role assignment create --assignee <appId> --scope <acrId> --role Reader
-    {
-      "canDelegate": null,
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattyregistry/providers/Microsoft.Authorization/roleAssignments/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "principalId": xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "resourceGroup": "cogserv-container-rg",
-      "roleDefinitionId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleDefinitions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "scope": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattyregistry",
-      "type": "Microsoft.Authorization/roleAssignments"
-    }
     ```
 
 ## Create Azure Kubernetes Service
@@ -324,16 +308,18 @@ This section uses the **kubectl** CLI to talk with the Azure Kubernetes Service.
 
 1. Change the lines of `language.yml` based on the following table to add your own container registry image names, client secret, and text analytics settings.
 
-    |Change|Purpose|
+    Language-frontend deployment settings|Purpose|
     |--|--|
     |Line 32<br> `image` property|Image location for the frontend image in your Container Registry<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
     |Line 44<br> `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|
+
+    Language deployment settings|Purpose|
     |Line 78<br> `image` property|Image location for the language image in your Container Registry<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |Line 95<br> `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|
     |Line 91<br> `apiKey` property|Your text analytics resource key|
     |Line 92<br> `billing` property|The billing endpoint for your text analytics resource.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
-    Because the apiKey and billing endpoint are set as part of the Kubernetes orchestration definition, the website container doesn't need to know about these or pass them as part of the request. The website container refers to the language detection container by its orchestrator name `language`. 
+    Because the **apiKey** and **billing endpoint** are set as part of the Kubernetes orchestration definition, the website container doesn't need to know about these or pass them as part of the request. The website container refers to the language detection container by its orchestrator name `language`. 
 
 1. Load the orchestration definition file for this sample from the folder where you created and saved the `language.yml`. 
 
@@ -356,16 +342,38 @@ This section uses the **kubectl** CLI to talk with the Azure Kubernetes Service.
 For the two containers, verify the `language-frontend` and `language` services are running and get the external IP address. 
 
 ```console
-kubectl get all --watch
+kubectl get all
 ```
 
 ```console
-> kubectl get all --watch
-NAME       TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
-language   LoadBalancer   10.0.196.26   168.62.220.174   5000:31834/TCP   22m
+> kubectl get all
+NAME                                     READY     STATUS    RESTARTS   AGE
+pod/language-586849d8dc-7zvz5            1/1       Running   0          13h
+pod/language-frontend-68b9969969-bz9bg   1/1       Running   1          13h
+
+NAME                        TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)          AGE
+service/kubernetes          ClusterIP      10.0.0.1      <none>          443/TCP          14h
+service/language            LoadBalancer   10.0.39.169   104.42.172.68   5000:30161/TCP   13h
+service/language-frontend   LoadBalancer   10.0.42.136   104.42.37.219   80:30943/TCP     13h
+
+NAME                                      DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+deployment.extensions/language            1         1         1            1           13h
+deployment.extensions/language-frontend   1         1         1            1           13h
+
+NAME                                                 DESIRED   CURRENT   READY     AGE
+replicaset.extensions/language-586849d8dc            1         1         1         13h
+replicaset.extensions/language-frontend-68b9969969   1         1         1         13h
+
+NAME                                DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/language            1         1         1            1           13h
+deployment.apps/language-frontend   1         1         1            1           13h
+
+NAME                                           DESIRED   CURRENT   READY     AGE
+replicaset.apps/language-586849d8dc            1         1         1         13h
+replicaset.apps/language-frontend-68b9969969   1         1         1         13h
 ```
 
-_Initially_ the EXTERNAL-IP for the service is shown as pending. Wait until the IP address is show before testing the service in the browser. 
+If the `EXTERNAL-IP` for the service is shown as pending, rerun the command until the IP address is shown before moving to the next step. 
 
 ## Test the language detection container
 
@@ -375,7 +383,7 @@ Open a browser and navigate to the external IP of the `language` container from 
 
 ## Test the client application container
 
-Change the URL in the browser to the external IP of the `language-frontend` container using the following format: `http://<external-ip>/helloworld`. The text, `helloworld`, returns `English`.
+Change the URL in the browser to the external IP of the `language-frontend` container using the following format: `http://<external-ip>/helloworld`. The english culture text of `helloworld` is predictied as `English`.
 
 ## Clean up resources
 
