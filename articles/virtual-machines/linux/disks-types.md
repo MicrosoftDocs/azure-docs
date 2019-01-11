@@ -4,7 +4,7 @@ description: Learn about Ultra, Premium, and Standard SSDs as well as Standard H
 services: "virtual-machines-linux,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux

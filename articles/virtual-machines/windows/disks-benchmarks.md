@@ -4,7 +4,7 @@ description: Learn about the process of benchmarking your application on Azure.
 services: "virtual-machines-windows,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 01/09/2019
+ms.date: 01/11/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows

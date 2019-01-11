@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-# Azure Premium Storage: Design for High Performance
+# Azure premium storage: design for high performance
 
 This article provides guidelines for building high performance applications using Azure Premium Storage. You can use the instructions provided in this document combined with performance best practices applicable to technologies used by your application. To illustrate the guidelines, we have used SQL Server running on Premium Storage as an example throughout this document.
 
@@ -32,7 +32,7 @@ We have provided these guidelines specifically for Premium Storage because workl
 
 Before you begin, if you are new to Premium Storage, first read the [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/virtual-machines/windows/premium-storage.md) and [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) articles.
 
-## Application Performance Indicators
+## Application performance indicators
 
 We assess whether an application is performing well or not using performance indicators like, how fast an application is processing a user request, how much data an application is processing per request, how many requests is an application processing in a specific period of time, how long a user has to wait to get a response after submitting their request. The technical terms for these performance indicators are, IOPS, Throughput or Bandwidth, and Latency.
 
@@ -62,7 +62,7 @@ Latency is the time it takes an application to receive a single request, send it
 
 When you are optimizing your application to get higher IOPS and Throughput, it will affect the latency of your application. After tuning the application performance, always evaluate the latency of the application to avoid unexpected high latency behavior.
 
-# Performance Application Checklist for Disks
+# Performance Application Checklist for disks
 
 The first step in designing high-performance applications running on Azure Premium Storage is understanding the performance requirements of your application. After you have gathered performance requirements, you can optimize your application to achieve the most optimal performance.
 
@@ -70,7 +70,7 @@ In the previous section, we explained the common performance indicators, IOPS, T
 
 Next, measure the maximum performance requirements of your application throughout its lifetime. Use the sample checklist below as a start. Record the maximum performance requirements during normal, peak, and off-hours workload periods. By identifying requirements for all workloads levels, you will be able to determine the overall performance requirement of your application. For example, the normal workload of an e-commerce website will be the transactions it serves during most days in a year. The peak workload of the website will be the transactions it serves during holiday season or special sale events. The peak workload is typically experienced for a limited period, but can require your application to scale two or more times its normal operation. Find out the 50 percentile, 90 percentile, and 99 percentile requirements. This helps filter out any outliers in the performance requirements and you can focus your efforts on optimizing for the right values.
 
-## Application Performance Requirements Checklist
+## Application performance requirements checklist
 
 | **Performance requirements** | **50 Percentile** | **90 Percentile** | **99  Percentile** |
 | --- | --- | --- | --- |
@@ -114,13 +114,13 @@ The PerfMon counters are available for processor, memory and, each logical disk 
 
 Learn more about [iostat](https://linux.die.net/man/1/iostat) and [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
-## Optimizing Application Performance
+## Optimize application performance
 
 The main factors that influence performance of an application running on Premium Storage are Nature of IO Requests, VM size, Disk size, Number of disks, Disk Caching, Multithreading and Queue Depth. You can control some of these factors with knobs provided by the system. Most applications may not give you an option to alter the IO size and Queue Depth directly. For example, if you are using SQL Server, you cannot choose the IO size and queue depth. SQL Server chooses the optimal IO size and queue depth values to get the most performance. It is important to understand the effects of both types of factors on your application performance, so that you can provision appropriate resources to meet performance needs.
 
 Throughout this section, refer to the application requirements checklist that you created, to identify how much you need to optimize your application performance. Based on that, you will be able to determine which factors from this section you will need to tune. To witness the effects of each factor on your application performance, run benchmarking tools on your application setup. Refer to the [Benchmarking](#Benchmarking) section at the end of this article for steps to run common benchmarking tools on Windows and Linux VMs.
 
-### Optimizing IOPS, Throughput and Latency at a glance
+### Optimize IOPS, throughput and latency at a glance
 
 The table below summarizes performance factors and the steps necessary to optimize IOPS, throughput and latency. The sections following this summary will describe each factor is much more depth.
 
@@ -140,7 +140,7 @@ For more information on VM sizes and on the IOPS, throughput, and latency availa
 | **Multithreading** |Use multithreading to push higher number of requests to Premium Storage that will lead to higher IOPS and Throughput. For example, on SQL Server set a high MAXDOP value to allocate more CPUs to SQL Server. | &nbsp; | &nbsp; |
 | **Queue Depth** |Larger Queue Depth yields higher IOPS. |Larger Queue Depth yields higher Throughput. |Smaller Queue Depth yields lower latencies. |
 
-## Nature of IO Requests
+## Nature of IO requests
 
 An IO request is a unit of input/output operation that your application will be performing. Identifying the nature of IO requests, random or sequential, read or write, small or large, will help you determine the performance requirements of your application. It is very important to understand the nature of IO requests, to make the right decisions when designing your application infrastructure.
 
@@ -175,7 +175,7 @@ To get IOPS and Bandwidth higher than the maximum value of a single premium stor
 
 To witness the effects of IO size on application performance, you can run benchmarking tools on your VM and disks. Create multiple test runs and use different IO size for each run to see the impact. Refer to the [Benchmarking](#Benchmarking) section at the end of this article for more details.
 
-## High Scale VM Sizes
+## High scale VM sizes
 
 When you start designing an application, one of the first things to do is, choose a VM to host your application. Premium Storage comes with High Scale VM sizes that can run applications requiring higher compute power and a high local disk I/O performance. These VMs provide faster processors, a higher memory-to-core ratio, and a Solid-State Drive (SSD) for the local disk. Examples of High Scale VMs supporting Premium Storage are the DS, DSv2 and GS series VMs.
 
@@ -214,7 +214,7 @@ With Azure Premium Storage, you get the same level of Performance for VMs runnin
 
 When running Linux with Premium Storage, check the latest updates about required drivers to ensure high performance.
 
-## Premium Storage Disk Sizes
+## Premium storage disk sizes
 
 Azure Premium Storage offers eight GA disk sizes and three disk sizes which are in preview, currently. Each disk size has a different scale limit for IOPS, Bandwidth and Storage. Choose the right Premium Storage Disk size depending on the application requirements and the high scale VM size. The table below shows the eleven disks sizes and their capabilities. P4, P6, P15, P60, P70, and P80 sizes are currently only supported for Managed Disks.
 
@@ -241,7 +241,7 @@ Determine the number of disks you will need by assessing application requirement
 
 Remember, the Premium Storage disks have higher performance capabilities compared to Standard Storage disks. Therefore, if you are migrating your application from Azure IaaS VM using Standard Storage to Premium Storage, you will likely need fewer premium disks to achieve the same or higher performance for your application.
 
-## Disk Caching
+## Disk caching
 
 High Scale VMs that leverage Azure Premium Storage have a multi-tier caching technology called BlobCache. BlobCache uses a combination of the Virtual Machine RAM and local SSD for caching. This cache is available for the Premium Storage persistent disks and the VM local disks. By default, this cache setting is set to Read/Write for OS disks and ReadOnly for data disks hosted on Premium Storage. With disk caching enabled on the Premium Storage disks, the high scale VMs can achieve extremely high levels of performance that exceed the underlying disk performance.
 
@@ -253,14 +253,14 @@ To learn more about how BlobCache works, refer to the Inside [Azure Premium Stor
 
 It is important to enable cache on the right set of disks. Whether you should enable disk caching on a premium disk or not will depend on the workload pattern that disk will be handling. Table below shows the default cache settings for OS and Data disks.
 
-| **Disk Type** | **Default Cache Setting** |
+| **Disk type** | **Default cache setting** |
 | --- | --- |
 | OS disk |ReadWrite |
 | Data disk |ReadOnly |
 
 Following are the recommended disk cache settings for data disks,
 
-| **Disk Caching Setting** | **Recommendation on when to use this setting** |
+| **Disk caching setting** | **recommendation on when to use this setting** |
 | --- | --- |
 | None |Configure host-cache as None for write-only and write-heavy disks. |
 | ReadOnly |Configure host-cache as ReadOnly for read-only and read-write disks. |
@@ -283,7 +283,7 @@ As an example, you can apply these guidelines to SQL Server running on Premium S
 1. Configure "None" cache on premium storage disks hosting the log files.  
    a.  Log files have primarily write-heavy operations. Therefore, they do not benefit from the ReadOnly cache.
 
-## Disk Striping
+## Disk striping
 
 When a high scale VM is attached with several premium storage persistent disks, the disks can be striped together to aggregate their IOPs, bandwidth, and storage capacity.
 
@@ -317,7 +317,7 @@ For example, say your application using SQL Server is executing a large query an
 
 Learn more about [Degrees of Parallelism](https://technet.microsoft.com/library/ms188611.aspx) in SQL Server. Find out such settings that influence multi-threading in your application and their configurations to optimize performance.
 
-## Queue Depth
+## Queue depth
 
 The Queue Depth or Queue Length or Queue Size is the number of pending IO requests in the system. The value of Queue Depth determines how many IO operations your application can line up, which the storage disks will be processing. It affects all the three application performance indicators that we discussed in this article viz., IOPS, Throughput and Latency.
 

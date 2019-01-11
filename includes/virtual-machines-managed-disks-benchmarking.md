@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 12/04/2018
+ ms.date: 01/11/2019
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -26,14 +26,14 @@ The disk with ReadOnly host caching will be able to give higher IOPS than the di
 
 Iometer uses a test file that is stored on the volume on which you will run the benchmarking test. It drives Reads and Writes on this test file to measure the disk IOPS and Throughput. Iometer creates this test file if you have not provided one. Create a 200 GB test file called iobw.tst on the CacheReads and NoCacheWrites volumes.
 
-#### Access Specifications
+#### Access specifications
 
 The specifications, request IO size, % read/write, % random/sequential are configured using the "Access Specifications" tab in Iometer. Create an access specification for each of the scenarios described below. Create the access specifications and "Save" with an appropriate name like – RandomWrites\_8K, RandomReads\_8K. Select the corresponding specification when running the test scenario.
 
 An example of access specifications for maximum Write IOPS scenario is shown below,  
-    ![](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
+    ![Example of access specifications for maximum write IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
 
-#### Maximum IOPS Test Specifications
+#### Maximum IOPS test specifications
 
 To demonstrate maximum IOPs, use smaller request size. Use 8K request size and create specifications for Random Writes and Reads.
 
@@ -42,7 +42,7 @@ To demonstrate maximum IOPs, use smaller request size. Use 8K request size and c
 | RandomWrites\_8K |8K |100 |0 |
 | RandomReads\_8K |8K |100 |100 |
 
-#### Maximum Throughput Test Specifications
+#### Maximum throughput test specifications
 
 To demonstrate maximum Throughput, use larger request size. Use 64 K request size and create specifications for Random Writes and Reads.
 
@@ -51,7 +51,7 @@ To demonstrate maximum Throughput, use larger request size. Use 64 K request siz
 | RandomWrites\_64K |64 K |100 |0 |
 | RandomReads\_64K |64 K |100 |100 |
 
-#### Running the Iometer Test
+#### Run the Iometer test
 
 Perform the steps below to warm up cache
 
@@ -87,13 +87,13 @@ After cache disk is warmed up, proceed with the test scenarios listed below. To 
 
 Below are screenshots of the Iometer test results for combined IOPS and Throughput scenarios.
 
-#### Combined Reads and Writes Maximum IOPS
+#### Combined reads and writes maximum IOPS
 
-![](../articles/virtual-machines/linux/media/premium-storage-performance/image9.png)
+![Combined Reads and Writes Maximum IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image9.png)
 
-#### Combined Reads and Writes Maximum Throughput
+#### Combined reads and writes maximum throughput
 
-![](../articles/virtual-machines/linux/media/premium-storage-performance/image10.png)
+![Combined Reads and Writes Maximum Throughput](../articles/virtual-machines/linux/media/premium-storage-performance/image10.png)
 
 ### FIO
 
@@ -109,7 +109,7 @@ apt-get install fio
 
 We will use four worker threads for driving Write operations and four worker threads for driving Read operations on the disks. The Write workers will be driving traffic on the "nocache" volume, which has 10 disks with cache set to "None". The Read workers will be driving traffic on the "readcache" volume, which has one disk with cache set to "ReadOnly".
 
-#### Maximum Write IOPS*
+#### Maximum write IOPS
 
 Create the job file with following specifications to get maximum Write IOPS. Name it "fiowrite.ini".
 
@@ -148,9 +148,9 @@ sudo fio --runtime 30 fiowrite.ini
 ```
 
 While the test runs, you will be able to see the number of write IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering its maximum write IOPS limit of 50,000 IOPS.  
-    ![](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
+    ![Number of write IOPS VM and Premium disks are delivering](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
 
-#### Maximum Read IOPS
+#### Maximum read IOPS
 
 Create the job file with following specifications to get maximum Read IOPS. Name it "fioread.ini".
 
@@ -191,7 +191,7 @@ sudo fio --runtime 30 fioread.ini
 While the test runs, you will be able to see the number of read IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering more than 64,000 Read IOPS. This is a combination of the disk and the cache performance.  
     ![](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
 
-#### Maximum Read and Write IOPS
+#### Maximum read and write IOPS
 
 Create the job file with following specifications to get maximum combined Read and Write IOPS. Name it "fioreadwrite.ini".
 
@@ -247,8 +247,8 @@ sudo fio --runtime 30 fioreadwrite.ini
 ```
 
 While the test runs, you will be able to see the number of combined read and write IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering more than 100,000 combined Read and Write IOPS. This is a combination of the disk and the cache performance.  
-    ![](../articles/virtual-machines/linux/media/premium-storage-performance/image13.png)
+    ![Combined read and write IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image13.png)
 
-#### Maximum Combined Throughput
+#### Maximum combined throughput
 
 To get the maximum combined Read and Write Throughput, use a larger block size and large queue depth with multiple threads performing reads and writes. You can use a block size of 64 KB and queue depth of 128.
