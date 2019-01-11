@@ -15,17 +15,19 @@ ms.date: 01/08/2019
 
 # Securely run experiments and inferencing inside an Azure Virtual Network
 
-In this article, you learn how to run your experiments and inferencing inside a Virtual Network. The Azure Machine Learning service works with Azure Services that can be created in a virtual network. For example, you can use a Data Science VM to train a model and then deploy the model to Azure Kubernetes Service.
+In this article, you learn how to run your experiments and inferencing inside a Virtual Network. A virtual network acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure Virtual Network to your on-premises network. It allows you to securely train your models and access your deployed models for inferencing.
 
-A virtual network acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure Virtual Network to your on-premise network. It allows you to securely train your models and access your deployed models for inferencing. For more information about virtual networks, see the [Virtual Networks Overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) document.
+The Azure Machine Learning service relies on other Azure services for things compute resources. Compute resources (compute targets) are used to train and deploy models. These compute targets can be created inside a virtual network. For example, you can use a Data Science VM to train a model and then deploy the model to Azure Kubernetes Service. For more information about virtual networks, see the [Virtual Networks Overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) document.
 
 ## Storage account for your workspace
 
-When you create an Azure Machine Learning service workspace, it requires an Azure Storage account. Make sure that the firewall and virtual network settings for the storage account is configured to allow access from __All networks__. For more information, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+When you create an Azure Machine Learning service workspace, it requires an Azure Storage account. Do not turn on firewall rules for this storage account. The Azure Machine Learning service requires unrestricted access to the storage account.
+
+If you are not sure whether you have modified these settings or not, see the __Change the default network access rule__ section of the [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security) document and use the steps to _allow access_ from __All networks__.
 
 ## Use Machine Learning Compute
 
-To use Machine Learning Compute in a virtual network, use the follow information to understand network requirements:
+To use Machine Learning Compute in a virtual network, use the following information to understand network requirements:
 
 - The virtual network must be in the same subscription and region as the Azure Machine Learning service workspace.
 
@@ -35,7 +37,9 @@ To use Machine Learning Compute in a virtual network, use the follow information
 
 - Check whether your security policies or locks on the virtual network's subscription or resource group restrict permissions to manage the virtual network.
 
-- Machine Learning Compute automatically allocates additional networking resources in the resource group containing the virtual network. For each Machine Learning Compute cluster, Azure Machine Learning service allocates the following resources: 
+- If you are going to place multiple Machine Learning Compute clusters in one virtual network, you may need to request a quota increase for one or more of these resources.
+
+    Machine Learning Compute automatically allocates additional networking resources in the resource group containing the virtual network. For each Machine Learning Compute cluster, Azure Machine Learning service allocates the following resources: 
 
     - One network security group (NSG)
 
@@ -43,7 +47,7 @@ To use Machine Learning Compute in a virtual network, use the follow information
 
     - One load balancer
 
-    These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). If you are going to place multiple Machine Learning Compute clusters in one virtual network, you may need to request a quota increase for one or more of these resources.
+    These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). 
 
 ### <a id="mlcports"></a> Required ports
 
@@ -188,7 +192,7 @@ To add Azure Kubernetes Service in a Virtual Network to your workspace, use the 
 
     - __Kubernetes Service address range__: Select the Kubernetes Service address range. This address range uses a CIDR notation IP range to define the IP addresses available for the cluster. It must not overlap with any Subnet IP ranges. For example: 10.0.0.0/16.
 
-    - __Kubernetes DNS service IP address__: Select the Kubernetes DNS service IP address. This IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes Service address range. For example: 10.0.0.10.
+    - __Kubernetes DNS service IP address__: Select the Kubernetes DNS service IP address. This IP address is assigned to the Kubernetes DNS service. It must be within the Kubernetes Service address range. For example: 10.0.0.10.
 
     - __Docker bridge address__: Select the Docker bridge address. This IP address is assigned to Docker Bridge. It must not be in any Subnet IP ranges, or the Kubernetes Service address range. For example: 172.17.0.1/16
 
