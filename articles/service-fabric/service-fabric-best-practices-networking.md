@@ -18,17 +18,9 @@ ms.author: pepogors
 
 ---
 # Networking
-For more information about networking
+Review Azure [Service Fabric Networking Patterns](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) to learn how to create clusters that use the following features: Existing virtual network or subnet, Static public IP address, Internal-only load balancer, or Internal and external load balancer.
 
 ## Network Security Group (NSG)
--- ARM template with port rules, link to the portal
--- Each scale set has its own subnet
--- Show a snippet of a subnet and IP configuration - Network profile of VMSS 
-
-## Azure Traffic Manager and Azure Load Balancer
--- You should provision a Traffic Manager, to ensure that you have a naming service to any backend
--- 1 TM to Multiple LBs, TM Profile
--- Link to DNS aliasing for TM and for LB
 
 ## Next steps
 
