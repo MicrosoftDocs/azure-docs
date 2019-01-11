@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hub-page
-ms.date: 11/16/2018
+ms.date: 01/11/2019
 ms.author: magoedte
 
 ---
