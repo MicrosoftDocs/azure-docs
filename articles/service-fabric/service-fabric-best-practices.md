@@ -17,10 +17,8 @@ ms.date: 11/28/2018
 ms.author: pepogors
 
 ---
-### Link to a production ready ARM Template!!!
-
-## Azure Service Fabric Application and Cluster Best Practices
-To manage Azure Service Fabric applications and clusters successfully, there are operations that we highly recommend you perform, to optimize for the reliability of your production environment.
+# Azure Service Fabric Application and Cluster Best Practices
+To manage Azure Service Fabric applications and clusters successfully, there are operations that we highly recommend you perform, to optimize for the reliability of your production environment; please perform operations defined in this document, and select one of our [Azure Samples Service Fabric Cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates) to achitect your production solution or modify your existing template.
 
 ## Security 
 For more information about [Azure Security Best Practices](https://docs.microsoft.com/en-us/azure/security/) please check out [Azure Service Fabric security best practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)
