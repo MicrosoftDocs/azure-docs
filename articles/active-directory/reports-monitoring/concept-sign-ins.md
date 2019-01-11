@@ -171,6 +171,12 @@ In addition to Azure AD, the Azure portal provides you with additional entry poi
 - Groups
 - Enterprise applications
 
+### Office 365 activity logs
+
+You can view Office 365 activity logs from the [Office 365 Admin Center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, only the Office 365 Admin Center provides a full view of the Office 365 activity logs. 
+
+You can also access the Office 365 activity logs programmatically using the [Office 365 Management APIs](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+
 ### Users sign-ins data in Identity security protection
 
 The user sign-in graph in the **Identity security protection** overview page shows weekly aggregations of sign ins for all users in a given time period. The default for the time period is 30 days.
