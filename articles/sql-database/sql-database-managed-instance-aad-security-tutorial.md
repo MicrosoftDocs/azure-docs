@@ -326,7 +326,7 @@ For the user to see data in the database, we can provide [database-level roles](
 
 ### Enable security features
 
-See the following [Managed Instance capabilities security features](sql-database-managed-instance#azure-sql-database-security-features) article for a comprehensive list of ways to secure your database. The following security features are discussed:
+See the following [Managed Instance capabilities security features](sql-database-managed-instance.md#azure-sql-database-security-features) article for a comprehensive list of ways to secure your database. The following security features are discussed:
 
 - [Managed Instance auditing](sql-database-managed-instance-auditing.md) 
 - [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
@@ -340,4 +340,4 @@ See the following [Managed Instance capabilities security features](sql-database
 For a complete overview of an Azure SQL Database Managed Instance capabilities, see:
 
 > [!div class="nextstepaction"]
-> [Managed instance capabilities](sql-database-managed-instance)
+> [Managed instance capabilities](sql-database-managed-instance.md)
