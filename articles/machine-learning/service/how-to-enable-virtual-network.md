@@ -37,7 +37,7 @@ To use Machine Learning Compute in a virtual network, use the following informat
 
 - Check whether your security policies or locks on the virtual network's subscription or resource group restrict permissions to manage the virtual network.
 
-- If you are going to place multiple Machine Learning Compute clusters in one virtual network, you may need to request a quota increase for one or more of these resources.
+- If you are going to place multiple Machine Learning Compute clusters in one virtual network, you may need to request a quota increase for one or more of resources.
 
     Machine Learning Compute automatically allocates additional networking resources in the resource group containing the virtual network. For each Machine Learning Compute cluster, Azure Machine Learning service allocates the following resources: 
 
