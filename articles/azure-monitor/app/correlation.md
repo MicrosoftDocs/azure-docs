@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights Telemetry Correlation | Microsoft Docs
+title: Azure Application Insights telemetry correlation | Microsoft Docs
 description: Application Insights telemetry correlation
 services: application-insights
 documentationcenter: .net
@@ -15,38 +15,35 @@ ms.author: lagayhar
 ---
 # Telemetry correlation in Application Insights
 
-In the world of micro services, every logical operation requires work done in various components of the service. Each of these components can be separately monitored by [Application Insights](../../azure-monitor/app/app-insights-overview.md). The web app component communicates with authentication provider component to validate user credentials, and with the API component to get data for visualization. The API component in its turn can query data from other services and use cache-provider components and notify the billing component about this call. Application Insights supports distributed telemetry correlation. It allows you to detect which component is responsible for failures or performance degradation.
+In the world of microservices, every logical operation requires work to be done in various components of the service. Each of these components can be monitored separately by [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). The web-app component communicates with the authentication provider component to validate user credentials, and with the API component to get data for visualization. The API component can query data from other services and use cache-provider components and notify the billing component about this call. Application Insights supports distributed telemetry correlation, which you use to detect which component is responsible for failures or performance degradation.
 
-This article explains the data model used by Application Insights to correlate telemetry sent by multiple components. It covers the context propagation techniques and protocols. It also covers the implementation of the correlation concepts on different languages and platforms.
+This article explains the data model used by Application Insights to correlate telemetry sent by multiple components. It covers context-propagation techniques and protocols. It also covers the implementation of correlation concepts on different languages and platforms.
 
-## Telemetry correlation data model
+## Data model for telemetry correlation
 
-Application Insights defines a [data model](../../azure-monitor/app/data-model.md) for distributed telemetry correlation. To associate telemetry with the logical operation, every telemetry item has a context field called `operation_Id`. This identifier is shared by every telemetry item in the distributed trace. So even with loss of telemetry from a single layer you still can associate telemetry reported by other components.
+Application Insights defines a [data model](../../azure-monitor/app/data-model.md) for distributed telemetry correlation. To associate telemetry with the logical operation, every telemetry item has a context field called `operation_Id`. This identifier is shared by every telemetry item in the distributed trace. So, even with loss of telemetry from a single layer, you can still associate telemetry reported by other components.
 
-Distributed logical operation typically consists of a set of smaller operations - requests processed by one of the components. Those operations are defined by [request telemetry](../../azure-monitor/app/data-model-request-telemetry.md). Every request telemetry has its own `id` that uniquely globally identifies it. And all telemetry - traces, exceptions, etc. associated with this request should set the `operation_parentId` to the value of the request `id`.
+A distributed logical operation typically consists of a set of smaller operations, which are requests processed by one of the components. These operations are defined by [request telemetry](../../azure-monitor/app/data-model-request-telemetry.md). Every request telemetry has its own `id` that identifies it uniquely and globally. And all telemetry items (such as traces and exceptions) that are associated with this request should set the `operation_parentId` to the value of the request `id`.
 
-Every outgoing operation (such as an http call to another component) is represented by [dependency telemetry](../../azure-monitor/app/data-model-dependency-telemetry.md). Dependency telemetry also defines its own `id` that is globally unique. Request telemetry, initiated by this dependency call, uses it as `operation_parentId`.
+Every outgoing operation, such as an HTTP call to another component, is represented by [dependency telemetry](../../azure-monitor/app/data-model-dependency-telemetry.md). Dependency telemetry also defines its own `id` that is globally unique. Request telemetry, initiated by this dependency call, uses this `id` as its `operation_parentId`.
 
-You can build the view of distributed logical operation using `operation_Id`, `operation_parentId`, and `request.id` with `dependency.id`. Those fields also define the causality order of telemetry calls.
+You can build a view of the distributed logical operation by using `operation_Id`, `operation_parentId`, and `request.id` with `dependency.id`. These fields also define the causality order of telemetry calls.
 
-In micro services environment, traces from components may go to the different storages. Every component may have its own instrumentation key in Application Insights. To get telemetry for the logical operation, you need to query data from every storage. When number of storages is huge, you need to have a hint on where to look next.
-
-Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request, and the second identifies which component returned the response of the dependency call.
-
+In a microservices environment, traces from components can go to the different storages. Every component can have its own instrumentation key in Application Insights. To get telemetry for the logical operation, you must query data from every storage. When the number of storages is huge, you'll need a hint about where to look next. The Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request, and the second identifies which component returned the response of the dependency call.
 
 ## Example
 
-Let's take an example of an application STOCK PRICES showing the current market price of a stock using the external API called STOCKS API. The STOCK PRICES application has a page `Stock page` opened by the client web browser using `GET /Home/Stock`. The application queries the STOCK API by using an HTTP call `GET /api/stock/value`.
+Let's take an example of an application called Stock Prices, which shows the current market price of a stock by using an external API called `Stock`. The Stock Prices application has a page called `Stock page` that the client web browser opens by using `GET /Home/Stock`. The application queries the `Stock` API by using an HTTP call `GET /api/stock/value`.
 
-You can analyze resulting telemetry running a query:
+You can analyze the resulting telemetry by running a query:
 
 ```
-(requests | union dependencies | union pageViews) 
+(requests | union dependencies | union pageViews)
 | where operation_Id == "STYz"
 | project timestamp, itemType, name, id, operation_ParentId, operation_Id
 ```
 
-In the result view note that all telemetry items share the root `operation_Id`. When ajax call made from the page - new unique ID `qJSXU` is assigned to the dependency telemetry and pageView's ID is used as `operation_ParentId`. In turn server request uses ajax's ID as `operation_ParentId`, etc.
+In the results, note that all telemetry items share the root `operation_Id`. When ajax call made from the page - new unique ID `qJSXU` is assigned to the dependency telemetry and pageView's ID is used as `operation_ParentId`. In turn server request uses ajax's ID as `operation_ParentId`, etc.
 
 | itemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
