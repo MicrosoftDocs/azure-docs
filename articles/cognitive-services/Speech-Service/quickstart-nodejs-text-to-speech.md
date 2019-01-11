@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
