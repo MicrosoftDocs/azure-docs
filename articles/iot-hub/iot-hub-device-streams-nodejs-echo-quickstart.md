@@ -115,9 +115,10 @@ Change `MyDevice` to the device ID you chose for your device.
   node c2d_tcp_streaming.js
 ```
 
-**[Bugbash instructions]:** Use the following:
+**Bug bash instructions:** Please follow these instuctions instead:
+Navigate to `samples` in your unzipped project folder and run the commands below:
 ```cmd/sh
-  cd ./bugbash-node/samples
+  cd ./samples
 
   # Install the packages
   npm install

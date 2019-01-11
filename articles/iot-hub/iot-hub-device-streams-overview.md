@@ -99,7 +99,7 @@ The setup leverages two *local proxy* programs shown in the figure below, namely
   <img src="./media/iot-hub-device-streams-blog/iot-hub-device-streams-ssh.png">
 </p>
 
-1. The user runs service-local proxy to initiate a C2D connection to the device.
+1. The user runs service-local proxy to initiate a device stream to the device.
 
 2. The device accepts the stream initiation and the tunnel is established to IoT Hub's streaming endpoint (as discussed above).
 

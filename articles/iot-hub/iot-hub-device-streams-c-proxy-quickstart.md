@@ -88,30 +88,28 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
     cd cmake
     ```
 
-4. Run the following command that builds a version of the SDK specific to your development client platform. A Visual Studio solution for the simulated device will be generated in the `cmake` directory. 
+4. Run the following command that builds a version of the SDK specific to your development client platform. In Windows, a Visual Studio solution for the simulated device will be generated in the `cmake` directory. 
 
-    ```cmd
-    cmake ..
-    ```
+```cmd/sh
+    # In Linux
+    cmake -Denable_streaming=ON ..
+    make -j
+```
+
+In Windows, run the following commands in Developer Command Prompt for your Visual Studio 2015 or 2017 prompt:
+
+```cmd/sh
+    # In Windows
+    # For VS2015
+    $ cmake -Denable_streaming=ON .. -G "Visual Studio 15 2015"
     
-    If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+    # Or for VS2017
+    $ cmake -Denable_streaming=ON .. -G "Visual Studio 15 2017
 
-    Once the build succeeds, the last few output lines will look similar to the following output:
-
-    ```cmd/sh
-    $ cmake ..
-    -- Building for: Visual Studio 15 2017
-    -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
-    -- The C compiler identification is MSVC 19.12.25835.0
-    -- The CXX compiler identification is MSVC 19.12.25835.0
-
-    ...
-
-    -- Configuring done
-    -- Generating done
-    -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
-    ```
-
+    # Then build the project
+    cmake --build . -- /m /p:Configuration=Release
+```
+    
 
 ## Create an IoT hub
 
@@ -161,26 +159,26 @@ A device must be registered with your IoT hub before it can connect. In this sec
 
 - Compile the sample as follows:
 ```bash
-# In Linux
-# Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
-$ make -j
+    # In Linux
+    # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
+    $ make -j
 
 
-# In Windows
-# Go to cmake at root of repository
-cmake --build . -- /m /p:Configuration=Release
-```
+    # In Windows
+    # Go to cmake at root of repository
+    cmake --build . -- /m /p:Configuration=Release
+    ```
 
-- Run the compiled program on the device:
-```bash
-# In Linux
-# Go to sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
-$ ./iothub_client_c2d_streaming_proxy_sample
+    - Run the compiled program on the device:
+    ```bash
+    # In Linux
+    # Go to sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
+    $ ./iothub_client_c2d_streaming_proxy_sample
 
 
-# In Windows
-# Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
-iothub_client_c2d_streaming_proxy_sample.exe
+    # In Windows
+    # Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
+    iothub_client_c2d_streaming_proxy_sample.exe
 ```
 
 ### Run the service-local proxy application
