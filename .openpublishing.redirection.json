@@ -8758,6 +8758,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-stack/user/azure-stack-kv-deploy-vm-with-secret.md",
+      "redirect_url": "/azure/azure-stack/user/azure-stack-key-vault-deploy-vm-with-secret",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/user/azure-stack-kv-intro.md",
+      "redirect_url": "/azure/azure-stack/user/azure-stack-key-vault-intro",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/azure-stack/user/azure-stack-kv-manage-portal.md",
+      "redirect_url": "/azure/azure-stack/user/azure-stack-key-vault-manage-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/user/azure-stack-kv-manage-powershell.md",
+      "redirect_url": "/azure/azure-stack/user/azure-stack-key-vault-manage-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/user/azure-stack-kv-push-secret-into-vm.md",
+      "redirect_url": "/azure/azure-stack/user/azure-stack-key-vault-push-secret-into-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/user/azure-stack-kv-sample-app.md",
+      "redirect_url": "/azure/azure-stack/user/azure-stack-key-vault-sample-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-stack/user/azure-stack-manage-vm-backup.md",
       "redirect_url": "/azure/azure-stack/user/azure-stack-manage-vm-protect",
       "redirect_document_id": false
@@ -33452,6 +33482,11 @@
     {
       "source_path": "articles/application-insights/app-insights-asp-net-trace-logs.md",
       "redirect_url": "/azure/azure-monitor/app/asp-net-trace-logs",
+      "redirect_document_id": true
+    },
+	{
+      "source_path": "articles/application-insights/app-insights-live-stream.md",
+      "redirect_url": "/azure/azure-monitor/app/live-stream",
       "redirect_document_id": true
     },
     {

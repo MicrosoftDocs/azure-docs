@@ -24,7 +24,7 @@ The security of two-step verification lies in its layered approach. Compromising
 
 <center>![Conceptual authentication methods image](./media/concept-mfa-howitworks/methods.png)</center>
 
-Azure Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use [authentication methods](concept-authentication-methods.md).
+Azure Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use [authentication methods](concept-authentication-methods.md). Users may or may not be challenged for MFA based on configuration decisions that an administrator makes.
 
 ## How to get Multi-Factor Authentication?
 

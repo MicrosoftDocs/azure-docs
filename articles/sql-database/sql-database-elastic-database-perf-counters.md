@@ -28,7 +28,7 @@ Counters are used to track the performance of [data dependent routing](sql-datab
 
 ## Create performance category and counters
 
-To create the counters, call the CreatePerformanceCategoryAndCounters method of the [ShardMapManagementFactory class](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Only an administrator can execute the method:
+To create the counters, call the CreatePerformanceCategoryAndCounters method of the [ShardMapManagementFactory class](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory). Only an administrator can execute the method:
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
@@ -36,7 +36,7 @@ You can also use [this](https://gallery.technet.microsoft.com/scriptcenter/Elast
 The method creates the following performance counters:  
 
 * **Cached mappings**: Number of mappings cached for the shard map.
-* **DDR operations/sec**: Rate of data dependent routing operations for the shard map. This counter is  updated when a call to [OpenConnectionForKey()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) results in a successful connection to the destination shard.
+* **DDR operations/sec**: Rate of data dependent routing operations for the shard map. This counter is  updated when a call to [OpenConnectionForKey()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) results in a successful connection to the destination shard.
 * **Mapping lookup cache hits/sec**: Rate of successful cache lookup operations for mappings in the shard map.
 * **Mapping lookup cache misses/sec**: Rate of failed cache lookup operations for mappings in the shard map.
 * **Mappings added or updated in cache/sec**: Rate at which mappings are being added or updated in cache for the shard map.
@@ -48,7 +48,7 @@ Performance counters are created for each cached shard map per process.
 
 The following events trigger the creation of the performance counters:  
 
-* Initialization of the [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) with [eager loading](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy.aspx), if the ShardMapManager contains any shard maps. These include the [GetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) and the [TryGetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx) methods.
+* Initialization of the [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) with [eager loading](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy), if the ShardMapManager contains any shard maps. These include the [GetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) and the [TryGetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) methods.
 * Successful lookup of a shard map (using [GetShardMap()](https://msdn.microsoft.com/library/azure/dn824215.aspx), [GetListShardMap()](https://msdn.microsoft.com/library/azure/dn824212.aspx) or [GetRangeShardMap()](https://msdn.microsoft.com/library/azure/dn824173.aspx)).
 * Successful creation of shard map using CreateShardMap().
 

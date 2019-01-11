@@ -179,7 +179,9 @@ Manage your Azure IoT Edge device from the cloud to deploy a module that will se
 
 ## View generated data
 
-In this quickstart, you created a new IoT Edge device and installed the IoT Edge runtime on it. Then, you used the Azure portal to push an IoT Edge module to run on the device without having to make changes to the device itself. In this case, the module that you pushed creates environmental data that you can use for the tutorials.
+In this quickstart, you created a new IoT Edge device and installed the IoT Edge runtime on it. Then, you used the Azure portal to deploy an IoT Edge module to run on the device without having to make changes to the device itself. 
+
+In this case, the module that you pushed creates sample data that you can use for testing. The simulated temperature sensor module generates environment data that you can use for testing later. The simulated sensor is monitoring both a machine and the environment around the machine. For example, this sensor might be in a server room, on a factory floor, or on a wind turbine. The message includes ambient temperature and humidity, machine temperature and pressure, and a timestamp. The IoT Edge tutorials use the data created by this module as test data for analytics.
 
 Open the command prompt on your IoT Edge device again, or use the SSH connection from Azure CLI. Confirm that the module deployed from the cloud is running on your IoT Edge device:
 
@@ -199,8 +201,6 @@ View the messages being sent from the temperature sensor module:
    >IoT Edge commands are case-sensitive when referring to module names.
 
    ![View the data from your module](./media/quickstart-linux/iotedge-logs.png)
-
-The temperature sensor module may be waiting to connect to Edge Hub if the last line you see in the log is **Using transport Mqtt_Tcp_Only**. Try stopping the module and letting the Edge Agent restart it. You can stop it with the command `sudo docker stop SimulatedTemperatureSensor`.
 
 You can also watch the messages arrive at your IoT hub by using the [Azure IoT Hub Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (formerly Azure IoT Toolkit extension). 
 
@@ -226,20 +226,6 @@ Remove the IoT Edge runtime.
 
    ```bash
    sudo apt-get remove --purge iotedge
-   ```
-
-When the IoT Edge runtime is removed, the containers that it created are stopped, but still exist on your device. View all containers.
-
-   ```bash
-   sudo docker ps -a
-   ```
-
-Delete the containers that were created on your device by the IoT Edge runtime. 
-
-   ```bash
-   sudo docker rm -f SimulatedTemperatureSensor
-   sudo docker rm -f edgeHub
-   sudo docker rm -f edgeAgent
    ```
 
 Remove the container runtime.
