@@ -1,6 +1,6 @@
 ---
-title: Set up and use metrics and diagnostic logs with an IoT hub | Microsoft Docs
-description: Set up and use metrics and diagnostic logs with an IoT hub 
+title: Set up and use metrics and diagnostic logs with an Azure IoT hub | Microsoft Docs
+description: Set up and use metrics and diagnostic logs with an Azure IoT hub 
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 12/15/2018
 ms.author: robinsh
 ms.custom: mvc
-#Customer intent: As a developer, I want to know how to set up and check metrics and diagnostic logs, to help me troubleshoot when there is a problem with an IoT hub. 
+#Customer intent: As a developer, I want to know how to set up and check metrics and diagnostic logs, to help me troubleshoot when there is a problem with an Azure IoT hub. 
 ---
 
 # Tutorial: Set up and use metrics and diagnostic logs with an IoT hub
@@ -180,7 +180,7 @@ Now set up some metrics to watch for when messages are sent to the hub.
 
 Go to the hub in the portal. Click **Resource Groups**, select *ContosoResources*, then select IoT Hub *ContosoTestHub*. 
 
-IoT Hub has not been migrated to the [metrics in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collection#metrics) yet; you have to use [classic alerts](/azure/azure-monitor/platform/alerts-classic.overview).
+IoT Hub has not been migrated to the [metrics in Azure Monitor](/azure/azure-monitor/platform/data-collection.md#metrics) yet; you have to use [classic alerts](/azure/azure-monitor/platform/alerts-classic.overview).
 
 1. Under **Monitoring**, click **Alerts** This shows the main alert screen. 
 
