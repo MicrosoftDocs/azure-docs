@@ -17,10 +17,8 @@ ms.date: 11/28/2018
 ms.author: pepogors
 
 ---
-### Link to a production ready ARM Template!!!
-
-## Azure Service Fabric Application and Cluster Best Practices
-To manage Azure Service Fabric applications and clusters successfully, there are operations that we highly recommend you perform, to optimize for the reliability of your production environment.
+# Azure Service Fabric Application and Cluster Best Practices
+To manage Azure Service Fabric applications and clusters successfully, there are operations that we highly recommend you perform, to optimize for the reliability of your production environment; please perform operations defined in this document, and select one of our [Azure Samples Service Fabric Cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates) to begin achitecting your production solution or modify your existing template to incorporate these practices.
 
 ## Security 
 For more information about [Azure Security Best Practices](https://docs.microsoft.com/en-us/azure/security/) please check out [Azure Service Fabric security best practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)
@@ -29,6 +27,7 @@ For more information about [Azure Security Best Practices](https://docs.microsof
 > [!NOTE]
 > Azure KeyVault and compute resources must be co-located in the same region.  
 
+### Provision Service Fabric Cluster Custom Domain Certificate
 The following is the Portal Blade where you can provide the credentials for a KeyVault integrated CA to provsion your custom domain certificate:
 
 ![Common Name Cert Creation][Image1]
@@ -38,8 +37,9 @@ Portal Blade for Keyvault certificates:
 https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.KeyVault/vaults/<YOUR VAULT>/certificates
 ```
 
-#### Reliably Deploy KeyVault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets
-Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) is how you reliably deploy KeyVault certificates to your Service Fabric Cluster's Virtual Machine Scale Sets, and the following is the Resource Manager template properties that you will declare: 
+### Deploy KeyVault Certificates to Service Fabric Cluster's Virtual Machine Scale Sets
+
+Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) is how you reliably deploy KeyVault certificates to your Service Fabric Cluster's Virtual Machine Scale Sets, and the following are the Resource Manager template properties that you will declare: 
 ```json
 "secrets": [
    {
@@ -55,9 +55,8 @@ Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/comput
    }
 ]
 ```
-### Service Fabric Cluster Common Name Certificate
-#### ACL Certificate to your Service Fabric Cluster
-[Virtual Machine Scale Set extensions](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) publisher   Microsoft.Azure.ServiceFabric is how you ACL certificates to your Service Fabric Cluster, and the following is the Resource Manager template properties that you will declare:
+### ACL Certificate to your Service Fabric Cluster
+[Virtual Machine Scale Set extensions](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) publisher   Microsoft.Azure.ServiceFabric is how you ACL certificates to your Service Fabric Cluster, and the following are the Resource Manager template properties that you will declare:
 ```json
 "certificate": {
    "commonNames": [
@@ -66,8 +65,8 @@ Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/comput
    "x509StoreName": "[parameters('certificateStoreValue')]"
 }
 ```
-#### Configure Custom Domain Service Fabric Cluster Certificate
-Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames) Resource Manager template property, is how you configure the custom domain common name property of your valid certificate, and the following is the Resource Manager template properties that you will declare:
+### Declare Custom Domain Service Fabric Cluster Certificate
+Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames) Resource Manager template property, is how you configure the custom domain common name property of your valid certificate, and the following are the Resource Manager template properties that you will declare:
 ```json
 "certificateCommonNames": {
     "commonNames": [
@@ -87,7 +86,9 @@ You should also update your Service Fabric Cluster "managementEndpoint" Resource
 ```json
  "managementEndpoint": "[concat('https://<YOUR CUSTOM DOMAIN>:',parameters('nt0fabricHttpGatewayPort'))]",
 ```
-### Encrypting Secret Values 
+### Encrypting Service Fabric Package Secret Values
+Common values that are encrypted in Service Fabric Packages include: Azure Container Registery (ACR) credentials, and environment variables.
+
 To [set up an encryption certificate and encrypt secrets on Windows clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-windows):
 
 Generate a self signed certificate for encrypting your secret using the following:
@@ -116,9 +117,11 @@ user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt -o plaintext_UTF-16.txt
 user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform der TestCert.pem | base64 > encrypted.txt
 ```
 
+After encrypting your will need to [specify encrypted secrets in Service Fabric Application](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application), and [decrypt encrypted secrets from service code](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code)
+
 ### Azure Active Directory (AAD) for client identity
 -- ARM properties for enabling AAD
-### Compute Managed Service Identity (MSI)
+### Authenticate Service Fabric Applications to Azure Resources using Managed Service Identity (MSI)
 [Managed identities for Azure resources is a feature of Active Directory](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work).
 
 To [enable system-assigned managed identity during the creation of a virtual machines scale set or an existing virtual machines scale set](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss#system-assigned-managed-identity), declare the following Microsoft.Compute/virtualMachinesScaleSets" property:
@@ -195,7 +198,6 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 For more information about networking
 ### Network Security Group (NSG)
 -- ARM template with port rules, link to the portal
-### Subnets 
 -- Each scale set has its own subnet
 -- Show a snippet of a subnet and IP configuration - Network profile of VMSS 
 ### Azure Traffic Manager and Azure Load Balancer
@@ -367,8 +369,6 @@ Application monitoring tracks how features and components of your application ar
 One of Service Fabric's goals is to keep applications resilient to hardware failures. This goal is achieved through the platform's system services' ability to detect infrastructure issues and rapidly failover workloads to other nodes in the cluster. But in this particular case, what if the system services themselves have issues? Or if in attempting to deploy or move a workload, rules for the placement of services are violated? Service Fabric provides diagnostics for these and more to make sure you are informed about activity taking place in your cluster. It is recommended that you set up cluster monitoring with [Diagnostics Agent](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) and [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup).
 ### Infrastructure Monitoring
 [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) is our recommendation to monitor cluster level events.
-
-
 
 ## Next steps
 
