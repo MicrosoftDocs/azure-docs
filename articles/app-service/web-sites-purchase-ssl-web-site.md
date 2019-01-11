@@ -1,5 +1,5 @@
 ---
-title: Buy and configure an SSL certificate for Azure App Service | Microsoft Docs
+title: Buy and configure an SSL certificate from Azure - App Service | Microsoft Docs
 description: Learn how to buy an App Service certificate and bind it to your App Service app
 services: app-service
 documentationcenter: .net
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
+ms.custom: seodec18
 ---
 # Buy and configure an SSL certificate for Azure App Service
 
@@ -29,7 +30,7 @@ This tutorial shows you how to secure your web app by creating (purchasing) an A
 To follow this how-to guide:
 
 - [Create an App Service app](/azure/app-service/)
-- [Map a domain name to your web app](app-service-web-tutorial-custom-domain.md) or [buy and configure it in Azure](custom-dns-web-site-buydomains-web-app.md)
+- [Map a domain name to your web app](app-service-web-tutorial-custom-domain.md) or [buy and configure it in Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -85,7 +86,7 @@ Select **App Service Verification**. Since you already mapped the domain to your
 > Four types of domain verification methods are supported: 
 > 
 > - **App Service** - The most convenient option when the domain is already mapped to an App Service app in the same subscription. It takes advantage of the fact that the App Service app has already verified the domain ownership.
-> - **Domain** - Verify an [App Service domain that you purchased from Azure](custom-dns-web-site-buydomains-web-app.md). Azure automatically adds the verification TXT record for you and completes the process.
+> - **Domain** - Verify an [App Service domain that you purchased from Azure](manage-custom-dns-buy-domain.md). Azure automatically adds the verification TXT record for you and completes the process.
 > - **Mail** - Verify the domain by sending an email to the domain administrator. Instructions are provided when you select the option.
 > - **Manual** - Verify the domain using either an HTML page (**Standard** certificate only) or a DNS TXT record. Instructions are provided when you select the option.
 
@@ -109,7 +110,7 @@ Use the following table to help you configure the binding in the **SSL Bindings*
 |-|-|
 | Hostname | The domain name to add SSL binding for. |
 | Private Certificate Thumbprint | The certificate to bind. |
-| SSL Type | <ul><li>**SNI SSL** - Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP-based SSL** - Only one IP-based SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. After configure the binding, follow the steps in [Remap A record for IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
+| SSL Type | <ul><li>**SNI SSL** - Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP-based SSL** - Only one IP-based SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. After configure the binding, follow the steps in [Remap A record for IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
 ## Verify HTTPS access
 

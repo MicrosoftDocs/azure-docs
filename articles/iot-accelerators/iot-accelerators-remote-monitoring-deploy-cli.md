@@ -18,7 +18,7 @@ This how-to guide shows you how to deploy the Remote Monitoring solution acceler
 
 To deploy the Remote Monitoring solution accelerator, you need an active Azure subscription.
 
-If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 To run the CLI, you need [Node.js](https://nodejs.org/) installed on your local machine.
 

@@ -1,20 +1,15 @@
 ---
-title: Asymmetric routing | Microsoft Docs
-description: This article walks you through the issues a customer might face with asymmetric routing in a network that has multiple links to a destination.
+title: Asymmetric routing - Azure ExpressRoute | Microsoft Docs
+description: This article walks you through the issues you might face with asymmetric routing in a network that has multiple links to a destination.
 documentationcenter: na
 services: expressroute
 author: osamazia
-manager: carmonm
-editor: ''
 
-ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: article
 ms.date: 10/10/2016
 ms.author: osamam
+ms.custom: seodec18
 
 ---
 # Asymmetric routing with multiple network paths

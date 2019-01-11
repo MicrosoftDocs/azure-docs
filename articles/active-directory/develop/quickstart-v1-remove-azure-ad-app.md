@@ -66,7 +66,7 @@ A subset of the applications that appear under the **All apps** filter (excludin
 
 In technical terms, these multi-tenant applications are from another tenant, and were registered into your tenant during the consent process. More specifically, they are represented by only a service principal object in your tenant, with no corresponding application object. For more info on the differences between application and service principal objects, see [Application and service principal objects in Azure AD](app-objects-and-service-principals.md).
 
-To remove a multi-tenant application’s access to your directory (after having granted consent), the company administrator must remove the application's service principal. The administrator must have global admin access and can remove it through the Azure portal or use the [Azure AD PowerShell Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151).
+To remove a multi-tenant application’s access to your directory (after having granted consent), the company administrator must remove the application's service principal. The administrator must have global admin access and can remove it through the Azure portal or use the [Azure AD PowerShell Cmdlets](https://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## Next steps
 

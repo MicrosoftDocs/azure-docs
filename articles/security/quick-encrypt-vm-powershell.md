@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Encrypt a Windows IaaS VM with Azure PowerShell | Microsoft Docs
-description:  In this quickstart, you learn how to use Azure PowerShell to encrypt a Windows virtual machine.
+description:  In this quickstart, learn how to use Azure PowerShell to encrypt a Windows IaaS VM in Azure.
 services: security
 documentationcenter: na
 author: mestew
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: mstewart
+ms.custom: seodec18
 ---
 # Quickstart: Encrypt a Windows IaaS VM with Azure PowerShell
 
-Azure Disk Encryption helps you encrypt your Windows and Linux IaaS virtual machine disks. The solution is integrated with Azure Key Vault to help you control and manage the disk-encryption keys and secrets. By using Azure Disk encryption, you can ensure that your VMs are secured at rest using industry-standard encryption technology. In this quickstart, you'll create a Windows Server 2016 VM and encrypt the OS disk. 
+Azure Disk Encryption helps you encrypt your Windows and Linux IaaS virtual machine disks. The solution is integrated with Azure Key Vault to help you control and manage the disk-encryption keys and secrets. By using Azure Disk encryption, you can ensure that your VMs are secured at rest using industry-standard encryption technology. In this quickstart, you'll create a Windows Server 2016 VM and encrypt the OS disk.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

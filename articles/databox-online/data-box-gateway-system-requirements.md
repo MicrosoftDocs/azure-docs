@@ -22,6 +22,19 @@ The system requirements for the Data Box Gateway virtual device include:
 > [!IMPORTANT]
 > Data Box Gateway is in Preview. Please review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution. 
 
+## Specifications for the virtual device
+
+The underlying host system for the Data Box Gateway is able to dedicate the following resources to provision your virtual device:
+
+| Specifications                                          | Description              |
+|---------------------------------------------------------|--------------------------|
+| Virtual processors (cores)   | Minimum 4 |            
+| Memory  | Minimum 8 GB|
+| Availability|Single node|
+| Disks| OS disk: 250 GB <br> Data disk: 2 TB minimum, thin provisioned, and must be backed by SSDs|
+| Network interfaces|1 or more virtual network interface|
+
+
 ## Supported OS for clients connected to device
 
 Here is a list of the supported operating systems for clients or hosts connected to the Data Box Gateway.

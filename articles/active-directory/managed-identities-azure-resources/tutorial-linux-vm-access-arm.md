@@ -30,15 +30,7 @@ You learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Sign in to Azure portal](https://portal.azure.com)
-
-- [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
-
-- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Grant your VM access to a Resource Group in Azure Resource Manager 
 
@@ -98,7 +90,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
      
     ```bash
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
-    ```     
+    ```
 
 ## Next steps
 

@@ -7,7 +7,7 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/08/2018
 ---
 
 # Understand event domains for managing Event Grid topics
@@ -19,7 +19,7 @@ This article describes how to use event domains to manage the flow of custom eve
 * Partition your topics without managing each individually.
 * Avoid individually publishing to each of your topic endpoints.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+This feature is in preview. To use it, you must install a preview extension or module. For instructions, see [Manage topics and publish events using Event Domains](how-to-event-domains.md).
 
 ## Event domain overview
 

@@ -1,14 +1,15 @@
 ---
-title: Create an Azure Blueprint with REST API
+title: Create a blueprint with REST API
 description: Use Azure Blueprints to create, define, and deploy artifacts.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 11/07/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Define and Assign an Azure Blueprint with REST API
 
@@ -34,6 +35,8 @@ to get a general understanding of REST API, specifically request URI and request
 uses these concepts to provide directions for working with Azure Blueprints and assumes a working
 knowledge of them. Tools such as [ARMClient](https://github.com/projectkudu/ARMClient) and others
 may handle authorization automatically and are recommended for beginners.
+
+For the Blueprints specs, see [Azure Blueprints REST API](/rest/api/blueprints/).
 
 ### REST API and PowerShell
 

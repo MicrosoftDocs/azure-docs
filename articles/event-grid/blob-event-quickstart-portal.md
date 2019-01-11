@@ -1,6 +1,6 @@
 ---
-title: Blob storage events for Azure Event Grid with the Azure portal | Microsoft Docs
-description: Use Azure Event Grid and Azure portal to create Blob storage account, and subscribe its events. 
+title: Send Blob storage events to web endpoint - portal | Microsoft Docs
+description: Use Azure Event Grid and Azure portal to create Blob storage account, and subscribe its events. Send the events to a Webhook.
 services: event-grid 
 keywords: 
 author: tfitzmac
@@ -8,8 +8,9 @@ ms.author: tomfitz
 ms.date: 10/17/2018
 ms.topic: quickstart
 ms.service: event-grid
+ms.custom: seodec18
 ---
-# Create and route Blob storage events with the Azure portal and Event Grid
+# Quickstart: Route Blob storage events to web endpoint with the Azure portal
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to create a Blob storage account, subscribe to events for that blob storage, and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Use a Windows VM system-assigned managed identity to access Azure AD Graph API
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure AD Graph API.
 services: active-directory
@@ -19,7 +19,7 @@ ms.author: daveba
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure AD Graph API
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
 This tutorial shows you how to use a system-assigned managed identity for a Windows virtual machine (VM) to access the Microsoft Graph API to retrieve its group memberships. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code.  For this tutorial you will query your VM identity's membership in Azure AD groups. Group information is often used in authorization decisions, for example. Under the covers, your VM's managed identity is represented by a **Service Principal** in Azure AD. Before you do the group query, add the service principal representing the VM's identity to a group in Azure AD. You can do this using Azure PowerShell, Azure AD PowerShell, or the Azure CLI.
 
@@ -31,15 +31,7 @@ This tutorial shows you how to use a system-assigned managed identity for a Wind
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Sign in to Azure portal](https://portal.azure.com)
-
-- [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 - To grant a VM identity access to Azure AD Graph, your account needs to be assigned the **Global Admin** role in Azure AD.
 

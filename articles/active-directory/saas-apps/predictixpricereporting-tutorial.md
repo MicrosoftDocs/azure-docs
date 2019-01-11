@@ -110,13 +110,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname-pricing>.predictix.com/sso/request`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://<companyname-pricing>.predictix.com` |
 	| `https://<companyname-pricing>.dev.predictix.com` |
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Predictix Price Reporting Client support team](http://www.infor.com/company/customer-center/) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Predictix Price Reporting Client support team](https://www.infor.com/company/customer-center/) to get these values. 
  
 1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -130,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Predictix Price Reporting Configuration](./media/predictixpricereporting-tutorial/tutorial_predictixpricereporting_configure.png) 
 
-1. To configure single sign-on on **Predictix Price Reporting** side, you need to send the downloaded **Certificate (Base64)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Predictix Price Reporting support team](http://www.infor.com/company/customer-center/). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **Predictix Price Reporting** side, you need to send the downloaded **Certificate (Base64)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Predictix Price Reporting support team](https://www.infor.com/company/customer-center/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -170,7 +171,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Predictix Price Reporting test user
 
-In this section, you create a user called Britta Simon in Predictix Price Reporting. Work with [Predictix Price Reporting support team](http://www.infor.com/company/customer-center/) to add the users in the Predictix Price Reporting platform.
+In this section, you create a user called Britta Simon in Predictix Price Reporting. Work with [Predictix Price Reporting support team](https://www.infor.com/company/customer-center/) to add the users in the Predictix Price Reporting platform.
 
 ### Assign the Azure AD test user
 

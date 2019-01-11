@@ -1,5 +1,5 @@
 ---
-title: How to use the Azure WebJobs SDK
+title: How to use the WebJobs SDK - Azure
 description: Learn more about how to write code for the WebJobs SDK. Create  event-driven background processing jobs that access data in Azure services and third-party services.
 services: app-service\web, storage
 documentationcenter: .net
@@ -412,7 +412,7 @@ public class WorkItem
 
 The default scope for a lock is `SingletonScope.Function` meaning the lock scope (the blob lease path) is tied to the fully qualified function name. To lock across functions, specify `SingletonScope.Host` and use a scope ID name that is the same across all of the functions that you don't want to run simultaneously. In the following example, only one instance of `AddItem` or `RemoveItem` runs at a time:
 
-```charp
+```csharp
 [Singleton("ItemsLock", SingletonScope.Host)]
 public static void AddItem([QueueTrigger("add-item")] string message)
 {
@@ -446,7 +446,7 @@ The queue and blob triggers automatically prevent a function from processing a q
 
 The timer trigger automatically ensures that only one instance of the timer runs, so you don't get more than one function instance running at a given scheduled time.
 
-If you want to ensure that only one instance of a function runs even when there are multiple instances of the host web app, you can use the [Singleton](#singleton) attribute.
+If you want to ensure that only one instance of a function runs even when there are multiple instances of the host web app, you can use the [Singleton attribute](#singleton-attribute).
 	
 ## Filters 
 
@@ -458,7 +458,7 @@ We recommend the logging framework that was developed for ASP.NET, and the [Get 
 
 ### Log filtering
 
-Every log created by an `ILogger` instance has an associated `Category` and `Level`. [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) is an enumeration, and the integer code indicates relative importance:
+Every log created by an `ILogger` instance has an associated `Category` and `Level`. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) is an enumeration, and the integer code indicates relative importance:
 
 |LogLevel    |Code|
 |------------|---|
@@ -470,7 +470,7 @@ Every log created by an `ILogger` instance has an associated `Category` and `Lev
 |Critical    | 5 |
 |None        | 6 |
 
-Each category can be independently filtered to a particular [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel). For example, you might want to see all logs for blob trigger processing but only `Error` and higher for everything else.
+Each category can be independently filtered to a particular [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel). For example, you might want to see all logs for blob trigger processing but only `Error` and higher for everything else.
 
 To make it easier to specify filtering rules, the WebJobs SDK provides the `LogCategoryFilter` that can be passed into many of the existing logging providers, including Application Insights and Console.
 
@@ -494,7 +494,7 @@ config.LoggerFactory = new LoggerFactory()
 
 ### Custom telemetry for Application Insights
 
-Internally, the `TelemetryClient` created by the Application Insights provider for the WebJobs SDK uses the [ServerTelemetryChannel](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs). When the Application Insights endpoint is unavailable or throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](http://apmtips.com/blog/2015/09/03/more-telemetry-channels).
+Internally, the `TelemetryClient` created by the Application Insights provider for the WebJobs SDK uses the [ServerTelemetryChannel](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs). When the Application Insights endpoint is unavailable or throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
 
 The `TelemetryClient` is created by a class that implements `ITelemetryClientFactory`. By default, this is the [DefaultTelemetryClientFactory](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs).
 

@@ -1,5 +1,5 @@
 ---
-title: Service limits in Azure Search | Microsoft Docs
+title: Service limits for tiers and skus - Azure Search
 description: Service limits used for capacity planning and maximum limits on requests and responses for Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,7 +9,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: heidist
-
+ms.custom: seodec2018
 ---
 # Service limits in Azure Search
 Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you [provision Azure Search](search-create-service-portal.md) at **Free**, **Basic**, or **Standard** pricing tiers.

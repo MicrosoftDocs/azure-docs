@@ -31,7 +31,7 @@ ms.author: jegeib
 | **Mobile Client** | <ul><li>[Implement Certificate Pinning](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[Enable HTTPS - Secure Transport channel](#https-transport)</li><li>[WCF: Set Message security Protection level to EncryptAndSign](#message-protection)</li><li>[WCF: Use a least-privileged account to run your WCF service](#least-account-wcf)</li></ul> |
 | **Web API** | <ul><li>[Force all traffic to Web APIs over HTTPS connection](#webapi-https)</li></ul> |
-| **Azure Redis Cache** | <ul><li>[Ensure that communication to Azure Redis Cache is over SSL](#redis-ssl)</li></ul> |
+| **Azure Cache for Redis** | <ul><li>[Ensure that communication to Azure Cache for Redis is over SSL](#redis-ssl)</li></ul> |
 | **IoT Field Gateway** | <ul><li>[Secure Device to Field Gateway communication](#device-field)</li></ul> |
 | **IoT Cloud Gateway** | <ul><li>[Secure Device to Cloud Gateway communication using SSL/TLS](#device-cloud)</li></ul> |
 
@@ -110,7 +110,7 @@ ms.author: jegeib
 | **Applicable Technologies** | Generic |
 | **Attributes**              | EnvironmentType - Azure |
 | **References**              | [Enforce HTTPS on Azure App Service](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
-| **Steps** | <p>Though Azure already enables HTTPS for Azure app services with a wildcard certificate for the domain *.azurewebsites.net, it do not enforce HTTPS. Visitors may still access the app using HTTP, which may compromise the app's security and hence HTTPS has to be enforced explicitly. ASP.NET MVC applications should use the [RequireHttps filter](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) that forces an unsecured HTTP request to be re-sent over HTTPS.</p><p>Alternatively, the URL Rewrite module, which is included with Azure App Service can be used to enforce HTTPS. URL Rewrite module enables developers to define rules that are applied to incoming requests before the requests are handed to your application. URL Rewrite rules are defined in a web.config file stored in the root of the application</p>|
+| **Steps** | <p>Though Azure already enables HTTPS for Azure app services with a wildcard certificate for the domain *.azurewebsites.net, it do not enforce HTTPS. Visitors may still access the app using HTTP, which may compromise the app's security and hence HTTPS has to be enforced explicitly. ASP.NET MVC applications should use the [RequireHttps filter](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) that forces an unsecured HTTP request to be re-sent over HTTPS.</p><p>Alternatively, the URL Rewrite module, which is included with Azure App Service can be used to enforce HTTPS. URL Rewrite module enables developers to define rules that are applied to incoming requests before the requests are handed to your application. URL Rewrite rules are defined in a web.config file stored in the root of the application</p>|
 
 ### Example
 The following example contains a basic URL Rewrite rule that forces all incoming traffic to use HTTPS
@@ -153,7 +153,7 @@ This rule works by returning an HTTP status code of 301 (permanent redirect) whe
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | SQL Azure  |
 | **Attributes**              | SQL Version - V12 |
-| **References**              | [Best Practices on Writing Secure Connection Strings for SQL Database](http://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
+| **References**              | [Best Practices on Writing Secure Connection Strings for SQL Database](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
 | **Steps** | <p>All communications between SQL Database and a client application are encrypted using Secure Sockets Layer (SSL) at all times. SQL Database doesn’t support unencrypted connections. To validate certificates with application code or tools, explicitly request an encrypted connection and do not trust the server certificates. If your application code or tools do not request an encrypted connection, they will still receive encrypted connections</p><p>However, they may not validate the server certificates and thus will be susceptible to "man in the middle" attacks. To validate certificates with ADO.NET application code, set `Encrypt=True` and `TrustServerCertificate=False` in the database connection string. To validate certificates via SQL Server Management Studio, open the Connect to Server dialog box. Click Encrypt connection on the Connection Properties tab</p>|
 
 ## <a id="encrypted-sqlserver"></a>Force Encrypted communication to SQL server
@@ -369,16 +369,16 @@ public class ValuesController : ApiController
 }
 ```
  
-## <a id="redis-ssl"></a>Ensure that communication to Azure Redis Cache is over SSL
+## <a id="redis-ssl"></a>Ensure that communication to Azure Cache for Redis is over SSL
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure Redis Cache | 
+| **Component**               | Azure Cache for Redis | 
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Azure Redis SSL support](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| **Steps** | Redis server does not support SSL out of the box, but Azure Redis Cache does. If you are connecting to Azure Redis Cache and your client supports SSL, like StackExchange.Redis, then you should use SSL. By default non-SSL port is disabled for new Azure Redis Cache instances. Ensure that the secure defaults are not changed unless there is a dependency on SSL support for redis clients. |
+| **Steps** | Redis server does not support SSL out of the box, but Azure Cache for Redis does. If you are connecting to Azure Cache for Redis and your client supports SSL, like StackExchange.Redis, then you should use SSL. By default non-SSL port is disabled for new Azure Cache for Redis instances. Ensure that the secure defaults are not changed unless there is a dependency on SSL support for redis clients. |
 
 Please note that Redis is designed to be accessed by trusted clients inside trusted environments. This means that usually it is not a good idea to expose the Redis instance directly to the internet or, in general, to an environment where untrusted clients can directly access the Redis TCP port or UNIX socket. 
 

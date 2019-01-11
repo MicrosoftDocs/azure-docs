@@ -38,6 +38,8 @@ To follow the steps from this article, you must:
 
 + Understand the concept of [Capacity of an Azure API Management instance](api-management-capacity.md).
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## Upgrade and scale  
 
 You can choose between four tiers: **Developer**, **Basic**,  **Standard** and **Premium**. The **Developer** tier should be used to evaluate the service; it should not be used for production. The **Developer** tier does not have SLA and you cannot scale this tier (add/remove units). 

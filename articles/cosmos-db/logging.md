@@ -1,19 +1,15 @@
 ---
-title: Azure Cosmos DB diagnostic logging | Microsoft Docs
-description: Use this tutorial to help you get started with Azure Cosmos DB logging.
-services: cosmos-db
+title: Diagnostic logging in Azure Cosmos DB 
+description: Learn about the different ways to log and monitor data stored in Azure Cosmos DB.
 author: SnehaGunda
-manager: kfile
-tags: azure-resource-manager
-
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/07/2018
+ms.date: 12/06/2018
 ms.author: sngun
+ms.custom: seodec18
 
 ---
-# Azure Cosmos DB diagnostic logging
+# Diagnostic logging in Azure Cosmos DB 
 
 After you start to use one or more Azure Cosmos DB databases, you may want to monitor how and when your databases are accessed. This article provides an overview of the logs that are available on the Azure platform. You learn how to enable diagnostic logging for monitoring purposes to send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), how to stream logs to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and how to export logs to [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/).
 
@@ -25,9 +21,9 @@ The following image shows the different kinds of Azure logs that are available:
 
 ![Different kinds of Azure logs](./media/logging/azurelogging.png)
 
-In the image, the **Compute resources** represent the Azure resources for which you can access the Microsoft Guest OS. For example, Azure Virtual Machines, virtual machine scale sets, Azure Container Service, and so on, are considered compute resources. Compute resources generate Activity Logs, Diagnostic Logs, and Application Logs. To learn more, refer to the [Sources of monitoring data in Azure](../monitoring/monitoring-data-sources.md#) article.
+In the image, the **Compute resources** represent the Azure resources for which you can access the Microsoft Guest OS. For example, Azure Virtual Machines, virtual machine scale sets, Azure Container Service, and so on, are considered compute resources. Compute resources generate Activity Logs, Diagnostic Logs, and Application Logs. To learn more, refer to the [Sources of monitoring data in Azure](../azure-monitor/platform/data-sources.md) article.
 
-The **Non-Compute resources** are resources in which you can't access the underlying OS and work directly with the resource. For example, Network Security Groups, Logic Apps, and so on. Azure Cosmos DB is a non-compute resource. You can view logs for non-compute resources in the Activity Log or enable the Diagnostic Logs option in the portal. To learn more, refer to the [Sources of data in Azure Monitor](../monitoring/monitoring-data-sources.md) article.
+The **Non-Compute resources** are resources in which you can't access the underlying OS and work directly with the resource. For example, Network Security Groups, Logic Apps, and so on. Azure Cosmos DB is a non-compute resource. You can view logs for non-compute resources in the Activity Log or enable the Diagnostic Logs option in the portal. To learn more, refer to the [Sources of data in Azure Monitor](../azure-monitor/platform/data-sources.md) article.
 
 The Activity Log records the operations at a subscription level for Azure Cosmos DB. Operations like ListKeys, Write DatabaseAccounts, and more are logged. Diagnostic Logs provide more granular logging and allow you to log DataPlaneRequests (Create, Read, Query, and so on) and MongoRequests.
 
@@ -78,10 +74,10 @@ To enable diagnostic logging in the Azure portal, do the following steps:
 
     * **Archive to a storage account**: To use this option, you need an existing storage account to connect to. To create a new storage account in the portal, see [Create a storage account](../storage/common/storage-create-storage-account.md) and follow the instructions to create an Azure Resource Manager, general-purpose account. Then, return to this page in the portal to select your storage account. It might take a few minutes for newly created storage accounts to appear in the drop-down menu.
     * **Stream to an event hub**: To use this option, you need an existing Event Hubs namespace and event hub to connect to. To create an Event Hubs namespace, see [Create an Event Hubs namespace and an event hub by using the Azure portal](../event-hubs/event-hubs-create.md). Then, return to this page in the portal to select the Event Hubs namespace and policy name.
-    * **Send to Log Analytics**: To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [Create a new workspace](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) in the portal. For more information about viewing your logs in Log Analytics, see [View logs in Log Analytics](#view-in-loganalytics).
+    * **Send to Log Analytics**: To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [Create a new workspace](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) in the portal. For more information about viewing your logs in Log Analytics, see [View logs in Log Analytics](#view-in-loganalytics).
     * **Log DataPlaneRequests**: Select this option to log back-end requests from the underlying Azure Cosmos DB distributed platform for SQL, Graph, MongoDB, Cassandra, and Table API accounts. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
-    * **Log MongoRequests**: Select this option to log user-initiated requests from the Azure Cosmos DB front end for serving MongoDB API accounts. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
-    * **Metric Requests**: Select this option to store verbose data in [Azure metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md). If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
+    * **Log MongoRequests**: Select this option to log user-initiated requests from the Azure Cosmos DB front end for serving Cosmos accounts configured with Azure Cosmos DB's API for MongoDB. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
+    * **Metric Requests**: Select this option to store verbose data in [Azure metrics](../azure-monitor/platform/metrics-supported.md). If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
 
 3. Select **Save**.
 
@@ -458,7 +454,7 @@ The following table describes the content of each log entry.
 
 ## Next steps
 
-- To understand how to enable logging, and also the metrics and log categories that are supported by the various Azure services, read both the [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) articles.
+- To understand how to enable logging, and also the metrics and log categories that are supported by the various Azure services, read both the [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [Overview of Azure Diagnostic Logs](../azure-monitor/platform/diagnostic-logs-overview.md) articles.
 - Read these articles to learn about event hubs:
    - [What is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

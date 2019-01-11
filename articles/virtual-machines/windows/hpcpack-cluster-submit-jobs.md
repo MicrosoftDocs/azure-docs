@@ -48,7 +48,7 @@ configure the components by running the HPC PowerShell script
 **Set-HPCWebComponents.ps1**.
 
 For detailed procedures, see [Install the Microsoft HPC Pack Web
-Components](http://technet.microsoft.com/library/hh314627.aspx).
+Components](https://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
 > Certain Azure quickstart templates for HPC Pack clusters install and configure the web components automatically.
@@ -183,7 +183,7 @@ from the on-premises computer. For example, you can use HPC Pack GUI tools or co
 1. To view the results of the job that you submitted, click the job ID, and then click **View Tasks** to view the command output (under **Output**).
 
 ## Next steps
-* You can also submit jobs to the Azure cluster with the [HPC Pack REST API](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
+* You can also submit jobs to the Azure cluster with the [HPC Pack REST API](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
 * If you want to submit cluster jobs from a Linux client, see the Python sample in the [HPC Pack 2012 R2 SDK and Sample Code](https://www.microsoft.com/download/details.aspx?id=41633).
 
 <!--Image references-->

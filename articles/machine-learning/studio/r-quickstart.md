@@ -1,14 +1,14 @@
 ---
-title: Quickstart tutorial for R language for Machine Learning | Microsoft Docs
+title: Quickstart tutorial for R language for Machine Learning Studio - Azure | Microsoft Docs
 description: Use this R programming tutorial to get started quickly using the R language with Azure Machine Learning Studio to create a forecasting solution.
 keywords: quickstart,r language,r programming language,r programming tutorial
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
+author: ericlicoding
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: amlstudiodocs
 
+editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
 ms.component: studio
@@ -17,9 +17,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-
 ---
-# Quickstart tutorial for the R programming language for Azure Machine Learning
+# Quickstart tutorial for the R programming language for Azure Machine Learning Studio
 
 <!-- Stephen F Elston, Ph.D. -->
 
@@ -28,7 +27,7 @@ This quickstart tutorial helps you quickly start extending Azure Machine Learnin
 
 Microsoft Azure Machine Learning contains many powerful machine learning and data manipulation modules. The powerful R language has been described as the lingua franca of analytics. Happily, analytics and data manipulation in Azure Machine Learning can be extended by using R. This combination provides the scalability and ease of deployment of Azure Machine Learning with the flexibility and deep analytics of R.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### Forecasting and the dataset
 Forecasting is a widely employed and quite useful analytical method. Common uses range from predicting sales of seasonal items, determining optimal inventory levels, to predicting macroeconomic variables. Forecasting is typically done with time series models.

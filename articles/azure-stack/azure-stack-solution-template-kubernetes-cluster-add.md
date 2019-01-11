@@ -117,7 +117,7 @@ Add the Kubernetes from the Marketplace:
     > [!note]  
     > It may take five minutes for the marketplace item to appear in the Marketplace.
 
-    ![Kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
+    ![Kubernetes](user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
 
 ## Update or remove the Kubernetes 
 
@@ -133,7 +133,7 @@ To remove the Kubernetes item:
     Get-AzsGalleryItem | Select Name
     ```
     
-3. Note name of the current item, such as `Microsoft.AzureStackKubernetesCluster.0.2.0`
+3. Note name of the current item, such as `Microsoft.AzureStackKubernetesCluster.0.3.0`
 
 4. Use the following PowerShell cmdlet to remove the item:
 

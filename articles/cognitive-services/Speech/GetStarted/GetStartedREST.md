@@ -95,7 +95,7 @@ The following example shows how to send a speech recognition request to Speech R
 > [!NOTE]
 > Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_SUBSCRIPTION_KEY` with your own subscription key.
 
-# [PowerShell](#tab/Powershell)
+# [PowerShell](#tab/azure-powershell)
 
 ```Powershell
 
@@ -130,7 +130,7 @@ The example uses curl on Linux with bash. If it's not available on your platform
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
 ```
 
-# [C#](#tab/CSharp)
+# [C#](#tab/csharp)
 
 ```cs
 HttpWebRequest request = null;
@@ -179,7 +179,7 @@ After processing the request, Speech Service returns the results in a response a
 
 The following code snippet shows an example of how you can read the response from the stream.
 
-# [PowerShell](#tab/Powershell)
+# [PowerShell](#tab/azure-powershell)
 
 ```Powershell
 # show the response in JSON format
@@ -194,7 +194,7 @@ In this example, curl directly returns the response message in a string. If you 
 curl -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE | jq
 ```
 
-# [C#](#tab/CSharp)
+# [C#](#tab/csharp)
 
 ```cs
 /*

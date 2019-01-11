@@ -55,6 +55,9 @@ If you are in a reauthentication loop, or have changed the UPN of one of your ac
 2. Delete the .IdentityService folder from your machine. On Windows, the folder is located at `C:\users\<username>\AppData\Local`. For Mac and Linux, you can find the folder at the root of your user directory.
 3. If you are on Mac or Linux, you will also need to delete the Microsoft.Developer.IdentityService entry from your OS' keystore. On Mac, the keystore is the "Gnome Keychain" application. For Linux, the application is usually called "Keyring", but the name may be different depending on your distribution.
 
+### Conditional Access
+Conditional access is not supported when Storage Explorer is being used on Windows 10, Linux, or macOS. This is due to a limitation in the AAD Library used by Storage Explorer.
+
 ## Mac Keychain errors
 The macOS Keychain can sometimes get into a state that causes issues for Storage Explorer's authentication library. To get the keychain out of this state try the following steps:
 1. Close Storage Explorer.
@@ -73,7 +76,7 @@ The macOS Keychain can sometimes get into a state that causes issues for Storage
 * Restart Storage Explorer
 * If the authentication window is blank, wait at least one minute before closing the authentication dialog box.
 * Ensure that your proxy and certificate settings are properly configured for both your machine and Storage Explorer.
-* If you are on Windows and have access to Visual Studio 2017 on the same machine and login, try signing in to Visual Studio 2017. After a successful sign-in to Visual Studio 2017, you should be able to open Storage Explorer and see your account in the account panel. 
+* If you are on Windows and have access to Visual Studio 2017 on the same machine and login, try signing in to Visual Studio 2017. After a successful sign-in to Visual Studio 2017, you should be able to open Storage Explorer and see your account in the account panel.
 
 If none of these methods work [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -107,6 +110,8 @@ First, make sure that the following information you entered are all correct:
 
 * The proxy URL and port number
 * Username and password if required by the proxy
+
+Note that Storage Explorer does not support .pac file for configuring proxy settings.
 
 ### Common solutions
 

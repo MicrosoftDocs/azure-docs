@@ -34,15 +34,7 @@ This tutorial shows you how to use a system-assigned managed identity for a Linu
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Sign in to Azure portal](https://portal.azure.com)
-
-- [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
-
-- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 To run the CLI script examples in this tutorial, you have two options:
 
@@ -86,7 +78,7 @@ You can use the VM's managed identity to retrieve the data in the Azure storage 
 
 1. Navigate back to your newly created storage account.  
 2. Click the **Access control (IAM)** link in the left panel.  
-3. Click **+ Add** on top of the page to add a new role assignment for your VM.
+3. Click **+ Add role assignment** on top of the page to add a new role assignment for your VM.
 4. Under **Role**, from the dropdown, select **Storage Blob Data Reader (Preview)**. 
 5. In the next dropdown, under **Assign access to**, choose **Virtual Machine**.  
 6. Next, ensure the proper subscription is listed in **Subscription** dropdown and then set **Resource Group** to **All resource groups**.  

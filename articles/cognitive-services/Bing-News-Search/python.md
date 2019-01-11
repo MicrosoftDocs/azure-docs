@@ -1,19 +1,21 @@
 ---
-title: "Quickstart: Bing News Search API, Python"
+title: "Quickstart: Perform a news search with Python - Bing News Search REST API"
 titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing News Search API.
+description:  Use this quickstart to send a request to the Bing News Search REST API using Python, and receive a JSON response.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
+ms.author: aahi
+ms.custom: seodec2018
 ---
 
-# Quickstart for Bing News Search API with Python
+# Quickstart: Perform a news search using Python and the Bing News Search REST API
+
 This walkthrough demonstrates a simple example of calling into the Bing News Search API and post-processing the resulting JSON object. For more information, see [Bing New Search documentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).  
 
 You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
@@ -22,7 +24,7 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Running the walkthrough
 First, set `subscription_key` to your API key for the Bing API service.

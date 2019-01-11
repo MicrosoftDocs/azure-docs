@@ -1,23 +1,23 @@
 ---
 title: Azure IoT Hub scaling | Microsoft Docs
 description: How to scale your IoT hub to support your anticipated message throughput and desired features. Includes a summary of the supported throughput for each tier and options for sharding.
-author: kgremban
+author: wesmc7777
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: kgremban
+ms.author: wesmc
 ---
 
 # Choose the right IoT Hub tier for your solution
 
-Every IoT solution is different, so Azure IoT Hub offers several options based on pricing and scale. This article is meant to help you evaluate your IoT Hub needs. For pricing information about IoT Hub tiers refer to [IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
+Every IoT solution is different, so Azure IoT Hub offers several options based on pricing and scale. This article is meant to help you evaluate your IoT Hub needs. For pricing information about IoT Hub tiers, see [IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
 
 To decide which IoT Hub tier is right for your solution, ask yourself two questions:
 
 **What features do I plan to use?**
-Azure IoT Hub offers two tiers, basic and standard, that differ in the number of features they support. If your IoT solution is based around collecting data from devices and analyzing it centrally then the basic tier is probably right for you. If you want to use more advanced configurations to control IoT devices remotely or distribute some of your workloads onto the devices themselves then you should consider the standard tier. For a detailed breakdown of which features are included in each tier continue to [Basic and standard tiers](#basic-and-standard-tiers).
+Azure IoT Hub offers two tiers, basic and standard, that differ in the number of features they support. If your IoT solution is based around collecting data from devices and analyzing it centrally, then the basic tier is probably right for you. If you want to use more advanced configurations to control IoT devices remotely or distribute some of your workloads onto the devices themselves, then you should consider the standard tier. For a detailed breakdown of which features are included in each tier continue to [Basic and standard tiers](#basic-and-standard-tiers).
 
 **How much data do I plan to move daily?**
 Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in any given day. These sizes are numerically identified as 1, 2, and 3. For example, each unit of a level 1 IoT hub can handle 400 thousand messages a day, while a level 3 unit can handle 300 million. For more details about the data guidelines, continue to [Message throughput](#message-throughput).
@@ -26,7 +26,7 @@ Each IoT Hub tier is available in three sizes, based around how much data throug
 
 The standard tier of IoT Hub enables all features, and is required for any IoT solutions that want to make use of the bi-directional communication capabilities. The basic tier enables a subset of the features and is intended for IoT solutions that only need uni-directional communication from devices to the cloud. Both tiers offer the same security and authentication features.
 
-Once you create your IoT hub you can upgrade from the basic tier to the standard tier without interrupting your existing operations. For more information, see [How to upgrade your IoT hub](iot-hub-upgrade.md). Note that the maximum partition limit for basic tier IoT Hub is 8 and for standard tier is 32. Most IoT hubs only need 4 partitions. The partition limit is chosen when IoT Hub is created, and relates the device-to-cloud messages to the number of simultaneous readers of these messages. This value remains unchanged when you migrate from basic tier to standard tier. Also note that only one type of [edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT Hub. For example, you can create an IoT Hub with multiple units of S1, but not with a mix of units from different editions, such as S1 and B3, or S1 and S2.
+Only one type of [edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT Hub. For example, you can create an IoT Hub with multiple units of S1, but not with a mix of units from different editions, such as S1 and B3, or S1 and S2.
 
 | Capability | Basic tier | Standard tier |
 | ---------- | ---------- | ------------- |
@@ -37,12 +37,27 @@ Once you create your IoT hub you can upgrade from the basic tier to the standard
 | [Device Provisioning Service](../iot-dps/about-iot-dps.md) | Yes | Yes |
 | [Monitoring and diagnostics](iot-hub-monitor-resource-health.md) | Yes | Yes |
 | [Cloud-to-device messaging](iot-hub-devguide-c2d-guidance.md) |   | Yes |
-| [Device twins](iot-hub-devguide-device-twins.md), [Module twins](iot-hub-devguide-module-twins.md) and [Device management](iot-hub-device-management-overview.md) |   | Yes |
+| [Device twins](iot-hub-devguide-device-twins.md), [Module twins](iot-hub-devguide-module-twins.md), and [Device management](iot-hub-device-management-overview.md) |   | Yes |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Yes |
 
 IoT Hub also offers a free tier that is meant for testing and evaluation. It has all the capabilities of the standard tier, but limited messaging allowances. You cannot upgrade from the free tier to either basic or standard. 
 
-### IoT Hub REST APIs
+
+## Partitions
+
+Azure IoT Hubs contain many core components of [Azure Event Hubs](../event-hubs/event-hubs-features.md), including [Partitions](../event-hubs/event-hubs-features.md#partitions). Event streams for IoT Hubs are generally populated with incoming telemetry data that is reported by various IoT devices. The partitioning of the event stream is used to reduce contentions that occur when concurrently reading and writing to event streams. 
+
+The partition limit is chosen when IoT Hub is created, and cannot be changed. The maximum partition limit for basic tier IoT Hubs is 8, and for standard tier the maximum is 32. Most IoT hubs only need 4 partitions. For more information on determining the partitions, see the Event Hubs FAQ [How many partitions do I need?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+
+
+## Tier upgrade
+
+Once you create your IoT hub, you can upgrade from the basic tier to the standard tier without interrupting your existing operations. For more information, see [How to upgrade your IoT hub](iot-hub-upgrade.md).
+
+The partition configuration remains unchanged when you migrate from basic tier to standard tier.
+
+
+## IoT Hub REST APIs
 
 The difference in supported capabilities between the basic and standard tiers of IoT Hub means that some API calls do not work with basic tier hubs. The following table shows which APIs are available: 
 
@@ -63,7 +78,7 @@ The difference in supported capabilities between the basic and standard tiers of
 | [Send device event](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Yes | Yes |
 | Send module event | Yes | Yes |
 | [Update file upload status](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Yes | Yes |
-| [Bulk device operation](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/bulkoperation) | Yes, except for IoT Edge capabilites | Yes | 
+| [Bulk device operation](/rest/api/iot-dps/runbulkenrollmentoperation/runbulkenrollmentoperation) | Yes, except for IoT Edge capabilities | Yes | 
 | [Purge command queue](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Yes |
 | [Get device twin](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Yes |
 | Get module twin |   | Yes |
@@ -106,11 +121,11 @@ For specific burst performance numbers, see [IoT Hub quotas and throttles][IoT H
 If you are approaching the allowed message limit on your IoT Hub, you can use these [steps to automatically scale](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) to increment an IoT Hub unit in the same IoT Hub tier.
 
 ## Sharding
-While a single IoT hub can scale to millions of devices, sometimes your solution requires specific performance characteristics that a single IoT hub cannot guarantee. In that case you can partition your devices across multiple IoT hubs. Multiple IoT hubs smooth traffic bursts and obtain the required throughput or operation rates that are required.
+While a single IoT hub can scale to millions of devices, sometimes your solution requires specific performance characteristics that a single IoT hub cannot guarantee. In that case, you can partition your devices across multiple IoT hubs. Multiple IoT hubs smooth traffic bursts and obtain the required throughput or operation rates that are required.
 
 ## Next steps
 
-* For additional information about IoT Hub capabilities and performance details, see [IoT Hub pricing][link-pricing] or [IoT Hub quotas and throttles][IoT Hub quotas and throttles].
+* For more information about IoT Hub capabilities and performance details, see [IoT Hub pricing][lnk-pricing] or [IoT Hub quotas and throttles][IoT Hub quotas and throttles].
 * To change your IoT Hub tier, follow the steps in [Upgrade your IoT hub](iot-hub-upgrade.md).
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

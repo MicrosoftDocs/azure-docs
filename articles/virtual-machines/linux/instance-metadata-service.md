@@ -409,6 +409,50 @@ Azure has various sovereign clouds like [Azure Government](https://azure.microso
   echo $environment
 ```
 
+### Failover Clustering in Windows Server
+
+For certain scenarios, when querying Instance Metadata Service with Failover Clustering, it is necessary to add a route to the routing table.
+
+1. Open command prompt with administrator privileges.
+
+2. Run the following command and note the address of the Interface for Network Destination (`0.0.0.0`) in the IPv4 Route Table.
+
+```bat
+route print
+```
+
+> [!NOTE] 
+> The following example output from a Windows Server VM with Failover Cluster enabled contains only the IPv4 Route Table for simplicity.
+
+```bat
+IPv4 Route Table
+===========================================================================
+Active Routes:
+Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
+         10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
+        10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
+        10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
+        10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
+        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+      169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
+    169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
+  169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
+        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
+        224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
+        224.0.0.0        240.0.0.0         On-link         10.0.1.10    266
+  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+  255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
+  255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
+```
+
+3. Run the following command and use the address of the Interface for Network Destination (`0.0.0.0`) which is (`10.0.1.10`) in this example.
+
+```bat
+route add 169.254.169.254/32 10.0.1.10 metric 1 -p
+```
 
 ### Examples of calling metadata service using different languages inside the VM 
 

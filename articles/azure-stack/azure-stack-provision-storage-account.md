@@ -34,4 +34,4 @@ Storage accounts include Blob and Table services, and the unique namespace for y
 
 [Learn about Azure storage accounts](../storage/common/storage-create-storage-account.md)
 
-[Download the Azure Stack Azure-consistent Storage Validation Guide](http://aka.ms/azurestacktp1doc)
+[Download the Azure Stack Azure-consistent Storage Validation Guide](https://aka.ms/azurestacktp1doc)

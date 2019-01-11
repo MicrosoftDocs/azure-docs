@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 12/03/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -148,7 +148,9 @@ Update the relying party (RP) file that initiates the user journey that you crea
 
     KMSI is configured using the **UserJourneyBehaviors** element. The **KeepAliveInDays** attribute controls how long the user remains signed in. In the following example, the KMSI session automatically expires after `7` days regardless of how often the user performs silent authentication. Setting the **KeepAliveInDays**  value to `0` turns off KMSI functionality. By default, this value is `0`. If the value of **SessionExpiryType** is `Rolling`, the KMSI session is extended by `7` days every time the user performs silent authentication.  If `Rolling` is selected, you should keep the number of days to minimum. 
 
-    The value of **SessionExpiryInSeconds** represents the expiry time of an SSO session. This is used internally by Azure AD B2C to check whether the session for KMSI is expired or not. The value of **KeepAliveInDays** determines the Expires/Max-Age value of the SSO cookie in the web browser. Unlike **SessionExpiryInSeconds**, **KeepAliveInDays** is used to prevent the browser from clearing the cookie when it's closed. A user can silently sign in only if the SSO session cookie exists, which is controlled by **KeepAliveInDays**, and is not expired, which is controlled by **SessionExpiryInSeconds**. It is recommended that you set the value of **SessionExpiryInSeconds** to be the equivalent time of **KeepAliveInDays** in seconds, as shown in the following example.
+    The value of **SessionExpiryInSeconds** represents the expiry time of an SSO session. This is used internally by Azure AD B2C to check whether the session for KMSI is expired or not. The value of **KeepAliveInDays** determines the Expires/Max-Age value of the SSO cookie in the web browser. Unlike **SessionExpiryInSeconds**, **KeepAliveInDays** is used to prevent the browser from clearing the cookie when it's closed. A user can silently sign in only if the SSO session cookie exists, which is controlled by **KeepAliveInDays**, and isn't expired, which is controlled by **SessionExpiryInSeconds**. 
+    
+    If a user doesn't enable **Keep me signed in** on the sign-up and sign-in page, a session expires after the time indicated by **SessionExpiryInSeconds** has passed or the browser is closed. If a user enables **Keep me signed in**, the value of **KeepAliveInDays** overrides the value of **SessionExpiryInSeconds** and dictates the session expiry time. Even users close the browser and open it again, they can still silently sign-in as long as it's within the time of **KeepAliveInDays**. It is recommended that you set the value of **SessionExpiryInSeconds** to be a short period (1200 seconds), while the value of **KeepAliveInDays** can be set to a relatively long period (7 days), as shown in the following example:
 
     ```XML
     <RelyingParty>
@@ -156,7 +158,7 @@ Update the relying party (RP) file that initiates the user journey that you crea
       <UserJourneyBehaviors>
         <SingleSignOn Scope="Tenant" KeepAliveInDays="7" />
         <SessionExpiryType>Absolute</SessionExpiryType>
-        <SessionExpiryInSeconds>604800</SessionExpiryInSeconds>
+        <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
       </UserJourneyBehaviors>
       <TechnicalProfile Id="PolicyProfile">
         <DisplayName>PolicyProfile</DisplayName>

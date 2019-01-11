@@ -462,12 +462,12 @@ To encode, please follow these steps:
 * The encoded asset will contain multi language audio tracks and these tracks should be selectable in Azure Media Player.
 
 ## See also
-* [Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-* [How to use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+* [Introducing Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+* [How to use Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Encoding on-demand content with Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [Media Encoder Premium Workflow formats and codecs](media-services-premium-workflow-encoder-formats.md)
 * [Sample workflow files](https://github.com/Azure/azure-media-services-samples)
-* [Azure Media Services Explorer tool](http://aka.ms/amse)
+* [Azure Media Services Explorer tool](https://aka.ms/amse)
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

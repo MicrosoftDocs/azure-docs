@@ -112,7 +112,7 @@ Tenant Restrictions is currently supported by Office 365 browser-based applicati
 
 Outlook and Skype for Business clients that support modern authentication may still able to use legacy protocols against tenants where modern authentication is not enabled, effectively bypassing Tenant Restrictions. Applications that use legacy protocols may be blocked by Tenant Restrictions if they contact login.microsoftonline.com, login.microsoft.com, or login.windows.net during authentication.
 
-For Outlook on Windows, customers may choose to implement restrictions preventing end users from adding non-approved mail accounts to their profiles. For example, see the [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) group policy setting.
+For Outlook on Windows, customers may choose to implement restrictions preventing end users from adding non-approved mail accounts to their profiles. For example, see the [Prevent adding non-default Exchange accounts](https://gpsearch.azurewebsites.net/default.aspx?ref=1) group policy setting.
 
 ## Testing
 
@@ -122,21 +122,21 @@ If you want to try out Tenant Restrictions before implementing it for your whole
 
 Fiddler is a free web debugging proxy that can be used to capture and modify HTTP/HTTPS traffic, including inserting HTTP headers. To configure Fiddler to test Tenant Restrictions, perform the following steps:
 
-1.	[Download and install Fiddler](http://www.telerik.com/fiddler).
-2.	Configure Fiddler to decrypt HTTPS traffic, per [Fiddler’s help documentation](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+1.	[Download and install Fiddler](https://www.telerik.com/fiddler).
+2.	Configure Fiddler to decrypt HTTPS traffic, per [Fiddler’s help documentation](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
 3.	Configure Fiddler to insert the *Restrict-Access-To-Tenants* and *Restrict-Access-Context* headers using custom rules:
-  1. In the Fiddler Web Debugger tool, select the **Rules** menu and select **Customize Rules…** to open the CustomRules file.
-  2. Add the following lines at the beginning of the *OnBeforeRequest* function. Replace \<tenant domain\> with a domain registered with your tenant, for example, contoso.onmicrosoft.com. Replace \<directory ID\> with your tenant's Azure AD GUID identifier.
+    1. In the Fiddler Web Debugger tool, select the **Rules** menu and select **Customize Rules…** to open the CustomRules file.
+    2. Add the following lines at the beginning of the *OnBeforeRequest* function. Replace \<tenant domain\> with a domain registered with your tenant, for example, contoso.onmicrosoft.com. Replace \<directory ID\> with your tenant's Azure AD GUID identifier.
 
-  ```
-  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
-  ```
+    ```
+    if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
+    ```
 
-  If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
+    If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
 
-  ```
-  oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
-  ```
+    ```
+    oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
+    ```
 
 4. Save and close the CustomRules file.
 

@@ -66,5 +66,6 @@ After you sign up, the Office 365 subscription is added to the same Azure Active
 
     ![Screenshot that shows Azure portal directory role Billing Admin](./media/billing-use-existing-azure-account-office-365-subscription/billing-directoryrole-limited.png)
 
-## Need help? Contact support.
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. 
+## Need help? Contact us.
+
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 

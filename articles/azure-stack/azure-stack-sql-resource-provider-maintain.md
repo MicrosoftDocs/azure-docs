@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: quying
+ms.reviewer: georgel
 ---
 
 # SQL resource provider maintenance operations
@@ -28,16 +28,6 @@ The SQL resource provider isn't serviced as part of Azure Stack because it's an 
 ### Provider virtual machine
 
 Because the resource provider runs on a *user* virtual machine, you need to apply the required patches and updates when they're released. You can use the Windows update packages that are provided as part of the patch-and-update cycle to apply updates to the VM.
-
-## Backup/Restore/Disaster Recovery
-
- Because it's an add-on component, the SQL resource provider isn't backed up as part of an Azure Stack Business Continuity Disaster Recovery (BCDR) process. Scripts will be provided for the following operations:
-
-- Backing up state information (stored in an Azure Stack storage account.)
-- Restoring the resource provider if a full stack recovery is required.
-
->[!NOTE]
->If you have to do a recovery, database servers must be recovered before the resource provider is restored.
 
 ## Updating SQL credentials
 

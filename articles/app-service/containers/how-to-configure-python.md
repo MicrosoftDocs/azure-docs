@@ -1,5 +1,5 @@
 ---
-title: Configure Python apps for Azure App Service on Linux
+title: Configure Python apps on Linux - Azure App Service
 description: This tutorial describes options for authoring and configuring Python apps for Azure App Service on Linux.
 services: app-service\web
 documentationcenter: ''
@@ -16,6 +16,7 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
+ms.custom: seodec18
 
 ---
 
@@ -23,15 +24,29 @@ ms.custom: mvc
 
 This article describes how [Azure App Service on Linux](app-service-linux-intro.md) runs Python apps, and how you can customize the behavior of App Service when needed.
 
+## Set Python version
+
+Two base images are available: Python 3.6 and Python 3.7. You can create an app with the desired Python based image. For example, to create an app with Python 3.7, run the following command in the Cloud Shell:
+
+```azurecli-interactive
+az webapp create --resource-group <group_name> --plan <plan_name> --name <app_name> --runtime "PYTHON|3.7"
+```
+
+To change the Python version (based image) to Python 3.6, for example, run the following command in the Cloud Shell:
+
+```azurecli-interactive
+az webapp config set --resource-group <group_name> --name <app_name> --linux-fx-version "PYTHON|3.6"
+```
+
+If you require a different version of Python, you must build and deploy your own container image instead. For more information, see [Use a custom Docker image for Web App for Containers](tutorial-custom-docker-image.md).
+
 ## Container characteristics
 
-Python apps deployed to App Service on Linux run within a Docker container that's defined in the GitHub repository, [Azure-App-Service/python container](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
+Python apps deployed to App Service on Linux run within a Docker container that's defined in the GitHub repository, [Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) or [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
 
 This container has the following characteristics:
 
-- The base container image is `python-3.7.0-slim-stretch`, which means apps are run with Python 3.7. If you require a different version of Python, you must build and deploy your own container image instead. For more information, see [Use a custom Docker image for Web App for Containers](tutorial-custom-docker-image.md).
-
-- Apps are run using the [Gunicorn WSGI HTTP Server](http://gunicorn.org/), using the additional arguments `--bind=0.0.0.0 --timeout 600`.
+- Apps are run using the [Gunicorn WSGI HTTP Server](https://gunicorn.org/), using the additional arguments `--bind=0.0.0.0 --timeout 600`.
 
 - By default, the base image includes the Flask web framework, but the container supports other frameworks that are WSGI-compliant and compatible with Python 3.7, such as Django.
 
@@ -42,9 +57,9 @@ This container has the following characteristics:
 During startup, the App Service on Linux container runs the following steps:
 
 1. Check for and apply a custom startup command, if provided.
-1. Check for the existence of a Django app's *wsgi.py* file, and if so, launch Gunicorn using that file.
-1. Check for a file named *application.py* and if found, launch Gunicorn using `application:app` assuming a Flask app.
-1. If no other app is found, start a default app that's built into the container.
+2. Check for the existence of a Django app's *wsgi.py* file, and if so, launch Gunicorn using that file.
+3. Check for a file named *application.py* and if found, launch Gunicorn using `application:app` assuming a Flask app.
+4. If no other app is found, start a default app that's built into the container.
 
 The following sections provide additional details for each option.
 
@@ -83,7 +98,7 @@ If your main module is in a subfolder, such as `website`, specify that folder wi
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-You can also add any additional arguments for Gunicorn to the command, such as `--workers=4`. For more information, see [Running Gunicorn](http://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
+You can also add any additional arguments for Gunicorn to the command, such as `--workers=4`. For more information, see [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
 To provide a custom command, do the following steps:
 
@@ -115,4 +130,4 @@ If the App Service doesn't find a custom command, a Django app, or a Flask app, 
 - **You see the message "Service Unavailable" in the browser.** The browser has timed out waiting for a response from App Service, which indicates that App Service started the Gunicorn server, but the arguments that specify the app code are incorrect.
   - Refresh the browser, especially if you're using the lowest pricing tiers in your App Service Plan. The app may take longer to start up when using free tiers, for example, and becomes responsive after you refresh the browser.
   - Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#custom-startup-command).
-  - Use SSH or the Kudu Console to connect to the App Service, then examine the diagnostic logs stored in the *LogFiles* folder. For more information on logging, see [Enable diagnostics logging for web apps in Azure App Service](../web-sites-enable-diagnostic-log.md).
+  - Use SSH or the Kudu Console to connect to the App Service, then examine the diagnostic logs stored in the *LogFiles* folder. For more information on logging, see [Enable diagnostics logging for web apps in Azure App Service](../troubleshoot-diagnostic-logs.md).

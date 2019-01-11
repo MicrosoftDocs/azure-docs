@@ -185,9 +185,9 @@ perform the refresh gesture, data is synced to your mobile backend.
 <!-- URLs. -->
 [1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [2]: app-service-mobile-offline-data-sync.md
-[3]: http://go.microsoft.com/fwlink/p/?LinkID=716919
-[4]: http://go.microsoft.com/fwlink/p/?LinkID=716920
-[5]: http://sqlite.org/2016/sqlite-uwp-3120200.vsix
+[3]: https://go.microsoft.com/fwlink/p/?LinkID=716919
+[4]: https://go.microsoft.com/fwlink/p/?LinkID=716920
+[5]: https://sqlite.org/2016/sqlite-uwp-3120200.vsix
 [6]: https://www.getpostman.com/
-[7]: http://www.telerik.com/fiddler
+[7]: https://www.telerik.com/fiddler
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md

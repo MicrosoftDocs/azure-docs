@@ -15,7 +15,7 @@ You may encounter errors when onboarding solutions like Update Management or Cha
 
 ## General Errors
 
-### <a name="computer-grou-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
+### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
 #### Issue
 
@@ -69,11 +69,11 @@ The MMA extension on the virtual machine is unable to communicate with external 
 
 The following are examples of error messages that are returned:
 
-```
+```error
 Please verify the VM has a running VM agent, and can establish outbound connections to Azure storage.
 ```
 
-```
+```error
 'Manifest download error from https://<endpoint>/<endpointId>/Microsoft.EnterpriseCloud.Monitoring_MicrosoftMonitoringAgent_australiaeast_manifest.xml. Error: UnknownError. An exception occurred during a WebClient request.
 ```
 
@@ -97,15 +97,15 @@ The installation of the Microsoft Monitoring Agent extension failed during deplo
 
 The following are examples of error messages may be returned:
 
-```
+```error
 The Microsoft Monitoring Agent failed to install on this machine. Please try to uninstall and reinstall the extension. If the issue persists, please contact support.
 ```
 
-```
+```error
 'Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 1618'
 ```
 
-```
+```error
 'Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.2) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.2\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 1601'
 ```
 
@@ -128,7 +128,7 @@ The installation of the MMA extension did not complete due to a timeout.
 
 The following is an example of an error message that may be returned:
 
-```
+```error
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
 ```
 

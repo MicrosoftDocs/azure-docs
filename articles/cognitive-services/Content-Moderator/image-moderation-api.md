@@ -15,7 +15,7 @@ ms.author: sajagtap
 
 # Image moderation
 
-Use Content Moderator’s machine-assisted image moderation and [human review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate images for adult and racy content. Scan images for text content and extract that text, and detect faces. You can match images against custom lists, and take further action.
+Use Content Moderator’s machine-assisted image moderation and [human-in-the-loop Review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate images for adult and racy content. Scan images for text content and extract that text, and detect faces. You can match images against custom lists, and take further action.
 
 ## Evaluating for adult and racy content
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage your virtual machines by using Azure PowerShell | Microsoft Docs
 description: Learn commands that you can use to automate tasks in managing your virtual machines.
 services: virtual-machines-windows
@@ -38,7 +38,7 @@ This is a basic task you'll use often. Use it to get information about a VM, per
 
 To get information about the VM, run this command, replacing everything in the quotes, including the < and > characters:
 
-     Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+    Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 To store the output in a $vm variable, run:
 
@@ -50,9 +50,9 @@ Run these commands:
 > [!NOTE]
 > You can get the virtual machine and cloud service name from the display of the **Get-AzureVM** command.
 > 
-> $svcName = "<cloud service name>"
-> $vmName = "<virtual machine name>"
-> $localPath = "<drive and folder location to store the downloaded RDP file, example: c:\temp >"
+> $svcName = `"<cloud service name>"`
+> $vmName = `"<virtual machine name>"`
+> $localPath = `"<drive and folder location to store the downloaded RDP file, example: c:\temp >"`
 > $localFile = $localPath + "\" + $vmname + ".rdp"
 > Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 > 

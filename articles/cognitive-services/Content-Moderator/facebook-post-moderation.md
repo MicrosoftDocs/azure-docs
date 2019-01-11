@@ -149,14 +149,10 @@ The solution sends all images and text posted on your Facebook page to Content M
 
 All Microsoft Cognitive Services SDKs and samples are licensed with the MIT License. For more details, see [LICENSE](https://microsoft.mit-license.org/).
 
-## Developer Code of Conduct
-
-Developers using Cognitive Services, including this client library & sample, are expected to follow the “Developer Code of Conduct for Microsoft Cognitive Services”, found at http://go.microsoft.com/fwlink/?LinkId=698895.
-
 ## Next steps
 
 1. [Watch a demo (video)](https://channel9.msdn.com/Events/Build/2017/T6033) of this solution from Microsoft Build 2017.
-1. [The Facebook sample on Github](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
+1. [The Facebook sample on GitHub](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
 1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
 2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
 3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token

@@ -7,7 +7,7 @@ author: michaelhauss
 ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.component: blobs
 ---
@@ -16,9 +16,7 @@ ms.component: blobs
 
 This article shows how to perform common scenarios using Microsoft Azure Blob storage. The samples are written in Objective-C and use the [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios). The scenarios covered include uploading, listing, downloading, and deleting blobs. For more information on blobs, see the [Next Steps](#next-steps) section. You can also download the [sample app](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) to quickly see the use of Azure Storage in an iOS application.
 
-## What is Blob storage?
-
-[!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
+To learn more about Blob storage, see [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -378,8 +376,8 @@ Now that you've learned how to use Blob Storage from iOS, follow these links to 
 * [Azure Storage Client Library for iOS](https://github.com/azure/azure-storage-ios)
 * [Azure Storage iOS Reference Documentation](http://azure.github.io/azure-storage-ios/)
 * [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage)
+* [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage)
 
-If you have questions regarding this library, feel free to post to our [MSDN Azure forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) or [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+If you have questions regarding this library, feel free to post to our [MSDN Azure forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) or [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 If you have feature suggestions for Azure Storage, please post to [Azure Storage Feedback](https://feedback.azure.com/forums/217298-storage/).
 

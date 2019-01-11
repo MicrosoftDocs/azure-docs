@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer:
 
@@ -22,24 +22,24 @@ ms.reviewer:
 If you’re new to Microsoft Azure Stack, these terms and feature descriptions might be helpful.
 
 ## Personas
-There are two varieties of users for Microsoft Azure Stack, the cloud operator (provider) and the tenant (consumer).
+There are two varieties of users for Microsoft Azure Stack, the Operator and the User.
 
-* A **cloud operator** can configure Azure Stack and manage offers, plans, services, quotas, and pricing to provide resources for their tenants.  Cloud operators also manage capacity and respond to alerts.  
-* A **tenant** (also referred to as a user) consumes services that the cloud administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines.
+* An Azure Stack **Operator** can configure Azure Stack by managing offers, plans, services, quotas, and pricing to provide resources for their tenant users. Operators also manage capacity and respond to alerts.  
+* An Azure Stack **User** (also referred to as a tenant) consumes services that the Operator offers. Users can provision, monitor, and manage services that they have subscribed to, such as web apps, storage, and virtual machines.
 
 ## Portal
-The primary methods of interacting with Microsoft Azure Stack are the administrator portal, user portal, and PowerShell.
+The primary methods of interacting with Microsoft Azure Stack are the administration portal, user portal, and PowerShell.
 
-The Azure Stack portals are each backed by separate instances of Azure Resource Manager.  A cloud operator uses the administrator portal to manage Azure Stack, and to do things like create tenant offerings.  The user portal (also referred to as the tenant portal) provides a self-service experience for consumption of cloud resources, like virtual machines, storage accounts, and Web Apps. For more information, see [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md).
+The Azure Stack portals are each backed by separate instances of Azure Resource Manager. An Operator uses the administration portal to manage Azure Stack, and to do things like create tenant offerings. The user portal (also referred to as the tenant portal) provides a self-service experience for consumption of cloud resources, like virtual machines, storage accounts, and web apps. For more information, see [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md).
 
 ## Identity 
-Azure Stack uses either Azure Active Directory (AAD) or Active Directory Federation Services (AD FS) as an identity provider.  
+Azure Stack uses either Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS) as an identity provider.  
 
 ### Azure Active Directory
-Azure Active Directory is Microsoft's cloud-based, multi-tenant identity provider.  Most hybrid scenarios use Azure Active Directory as the identity store.
+Azure AD is Microsoft's cloud-based, multi-tenant identity provider. Most hybrid scenarios use Azure AD as the identity store.
 
 ### Active Directory Federation Services
-You may choose to use Active Directory Federation Services (AD FS) for disconnected deployments of Azure Stack.  Azure Stack, resource providers, and other applications work much the same way with AD FS as they do with Azure Active Directory. Azure Stack includes its own AD FS and Active Directory instance, and an Active Directory Graph API. Azure Stack Development Kit supports the following AD FS scenarios:
+You may choose to use Active Directory Federation Services (AD FS) for disconnected deployments of Azure Stack. Azure Stack resource providers, and other applications, work much the same way with AD FS as they do with Azure AD. Azure Stack includes its own Active Directory instance and an Active Directory Graph API. Azure Stack Development Kit supports the following AD FS scenarios:
 
 - Sign in to the deployment by using AD FS.
 - Create a virtual machine with secrets in Key Vault
@@ -89,9 +89,9 @@ For the administrator, a Default Provider Subscription is created during deploym
 By using Azure Resource Manager, you can work with your infrastructure resources in a template-based, declarative model.   It provides a single interface that you can use to deploy and manage your solution components. For full information and guidance, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 ### Resource groups
-Resource groups are collections of resources, services, and applications—and each resource has a type, such as virtual machines, virtual networks, public IPs, storage accounts, and websites. Each resource must be in a resource group and so resource groups help logically organize resources, such as by workload or location.  In Microsoft Azure Stack, resources such as plans and offers are also managed in resource groups.
+Resource groups are collections of resources, services, and applications—and each resource has a type, such as virtual machines, virtual networks, public IPs, storage accounts, and websites. Each resource must be in a resource group and so resource groups help logically organize resources, such as by workload or location. In Azure Stack, resources such as plans and offers are also managed in resource groups.
 
-Unlike [Azure](../azure-resource-manager/resource-group-move-resources.md), you cannot move resources between resource groups. When you view the properties of a resource or resource group in the Azure Stack admin portal, the *Move* button is grayed-out and unavailable. 
+Unlike [Azure](../azure-resource-manager/resource-group-move-resources.md), you cannot move Azure Stack resources between resource groups. When you view the properties of a resource or resource group in the Azure Stack administration portal, the *Move* button is grayed-out and unavailable. Additionally, the use of the **Change resource group** or **Change subscription** actions from resource group or resource group item properties is also not supported. All attempted move operations will fail.
  
 ### Azure Resource Manager templates
 With Azure Resource Manager, you can create a template (in JSON format) that defines deployment and configuration of your application. This template is known as an Azure Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state.

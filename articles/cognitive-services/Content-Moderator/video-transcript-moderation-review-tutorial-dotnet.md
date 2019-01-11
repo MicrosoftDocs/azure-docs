@@ -31,7 +31,7 @@ Download the [C# console application](https://github.com/MicrosoftContentModerat
 
 ## Sample program outputs
 
-Before going further, let's look at the follwing sample outputs from the program:
+Before going further, let's look at the following sample outputs from the program:
 
 - [Console output](#program-output)
 - [Video review](#video-review-default-view)
@@ -526,7 +526,7 @@ The transcript is published as an AMS asset. To scan the transcript for objectio
     	}
     	catch
     	{   //TODO:  Logging
-        	Console.WriteLine("Exception occured while generating index for video.");
+        	Console.WriteLine("Exception occurred while generating index for video.");
         	throw;
     	}
 	}

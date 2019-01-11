@@ -1,5 +1,5 @@
 ---
-title: Query types and composition in Azure Search | Microsoft Docs
+title: Query types and composition - Azure Search
 description: Basics for building a search query in Azure Search, using parameters to filter, select, and sort results.
 author: HeidiSteen
 manager: cgronlun
@@ -8,7 +8,7 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
-
+ms.custom: seodec2018
 ---
 # Query types and composition in Azure Search
 
@@ -88,7 +88,7 @@ queryType=simple&search=mountain beach garden ranch^3&searchFields=description&$
 The same query using the full Lucene parser interprets the in-field boost on "ranch", which boosts the search rank of results containing that specific term.
 
 ```
-queryType=simple&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=full&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
 ```
 
 <a name="types-of-queries"></a>

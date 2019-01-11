@@ -31,6 +31,9 @@ Network Security Group flow logs are a feature of Network Watcher that allows yo
 
 To perform the steps in this article, you need to [install the Azure command-line interface for Mac, Linux, and Windows (CLI)](/cli/azure/install-azure-cli).
 
+> [!NOTE] 
+> Flow Logs Version 2 are only available in the West Central US Region. Configuration is available through the Azure Portal and REST API. Enabling Version 2 logs in an unsupported region will result in Version 1 logs outputted to your storage account.
+
 ## Register Insights provider
 
 In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. If you are not sure if the **Microsoft.Insights** provider is registered, run the following script.

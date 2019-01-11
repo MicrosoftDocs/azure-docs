@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use packet capture to do proactive network monitoring with alerts and Azure Functions | Microsoft Docs
 description: This article describes how to create an alert triggered packet capture with Azure Network Watcher
 services: network-watcher
@@ -327,7 +327,7 @@ The following example is PowerShell code that can be used in the function. There
 
     ![Copying the function URL][2]
 
-If you require custom properties in the payload of the webhook POST request, refer to [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+If you require custom properties in the payload of the webhook POST request, refer to [Configure a webhook on an Azure metric alert](../azure-monitor/platform/alerts-webhooks.md).
 
 ## Configure an alert on a VM
 

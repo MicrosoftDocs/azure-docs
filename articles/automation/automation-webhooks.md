@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/04/2018
+ms.date: 10/06/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -25,7 +25,7 @@ The following table describes the properties that you must configure for a webho
 |:--- |:--- |
 | Name |You can provide any name you want for a webhook since this is not exposed to the client. It is only used for you to identify the runbook in Azure Automation. <br> As a best practice, you should give the webhook a name related to the client that uses it. |
 | URL |The URL of the webhook is the unique address that a client calls with an HTTP POST to start the runbook linked to the webhook. It is automatically generated when you create the webhook. You cannot specify a custom URL. <br> <br> The URL contains a security token that allows the runbook to be invoked by a third-party system with no further authentication. For this reason, it should be treated like a password. For security reasons, you can only view the URL in the Azure portal at the time the webhook is created. Note the URL in a secure location for future use. |
-| Expiration date |Like a certificate, each webhook has an expiration date at which time it can no longer be used. This expiration date can be modified after the webhook is created. |
+| Expiration date |Like a certificate, each webhook has an expiration date at which time it can no longer be used. This expiration date can be modified after the webhook is created as long as the webhook is not expired. |
 | Enabled |A webhook is enabled by default when it is created. If you set it to Disabled, then no client is able to use it. You can set the **Enabled** property when you create the webhook or anytime once it is created. |
 
 ### Parameters
@@ -116,6 +116,12 @@ Assuming the request is successful, the webhook response contains the job ID in 
 
 The client cannot determine when the runbook job completes or its completion status from the webhook. It can determine this information using the job ID with another method such as [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) or the [Azure Automation API](/rest/api/automation/job).
 
+## <a name="renew-webhook"></a>Renew a webhook
+
+When a webhook is created it has an validity time of one year. After that year time the webhook automatically expires. Once a webhook is expired it can not be re-activated, it must be removed and recreated. If a webhook has not reached its expiry time it can be extended.
+
+To extend a webhook, navigate to the runbook that contains the webhook. Select **Webhooks** under **Resources**. Click the webhook that you want to extend, this opens the **Webhook** page.  Choose a new expiration date and time and click **Save**.
+
 ## Sample runbook
 
 The following sample runbook accepts the webhook data and starts the virtual machines specified in the request body. To test this runbook, in your Automation Account under **Runbooks**, click **+ Add a runbook**. If you do not know how to create a runbook, see [Creating a runbook](automation-quickstart-create-runbook.md).
@@ -127,8 +133,20 @@ param
     [object] $WebhookData
 )
 
+
+
 # If runbook was called from Webhook, WebhookData will not be null.
 if ($WebhookData) {
+
+    # Check header for message to validate request
+    if ($WebhookData.RequestHeader.message -eq 'StartedbyContoso')
+    {
+        Write-Output "Header has required information"}
+    else
+    {
+        Write-Output "Header missing required information";
+        exit;
+    }
 
     # Retrieve VM's from Webhook request body
     $vms = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
@@ -137,7 +155,7 @@ if ($WebhookData) {
 
     Write-Output "Authenticating to Azure with service principal and certificate"
     $ConnectionAssetName = "AzureRunAsConnection"
-    Write-Output "Get connection asset: $ConnectionAssetName" 
+    Write-Output "Get connection asset: $ConnectionAssetName"
 
     $Conn = Get-AutomationConnection -Name $ConnectionAssetName
             if ($Conn -eq $null)
@@ -165,7 +183,7 @@ else {
 
 The following example uses Windows PowerShell to start a runbook with a webhook. Any language that can make an HTTP request can use a webhook; Windows PowerShell is used here as an example.
 
-The runbook is expecting a list of virtual machines formatted in JSON in the body of the request.
+The runbook is expecting a list of virtual machines formatted in JSON in the body of the request. The runbook validates as well that the headers contain a specifically defined message to validate the webhook caller is valid.
 
 ```azurepowershell-interactive
 $uri = "<webHook Uri>"
@@ -175,8 +193,8 @@ $vms  = @(
             @{ Name="vm02";ResourceGroup="vm02"}
         )
 $body = ConvertTo-Json -InputObject $vms
-
-$response = Invoke-RestMethod -Method Post -Uri $uri -Body $body
+$header = @{ message="StartedbyContoso"}
+$response = Invoke-RestMethod -Method Post -Uri $uri -Body $body -Headers $header
 $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ```
 

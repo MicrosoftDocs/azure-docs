@@ -15,14 +15,14 @@ ms.author: sajagtap
 
 # Quickstart: Get familiar with Content Moderator
 
-In this quickstart, you will use the online Content Moderator Review Tool to test out the basic functionality of Content Moderator without having to write any code. If you wish to integrate this service into your app more quickly, see the other quickstarts in the [Next steps](#next-steps) section.
+In this quickstart, you will use the online Content Moderator Review tool to test out the basic functionality of Content Moderator without having to write any code. If you wish to integrate this service into your app more quickly, see the other quickstarts in the [Next steps](#next-steps) section.
 
 ## Prerequisites
 
 - A web browser
 
 ## Set up the review tool
-The Content Moderator Review Tool is a web-based tool that allows human reviewers to aid the cognitive service in making decisions. In this guide, you will go through the short process of setting up the review tool so that you can see how the Content Moderator service works. Go to the [Content Moderator Review Tool](http://contentmoderator.cognitive.microsoft.com/) site and sign up.
+The Content Moderator Review tool is a web-based tool that allows human reviewers to aid the cognitive service in making decisions. In this guide, you will go through the short process of setting up the review tool so that you can see how the Content Moderator service works. Go to the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/) site and sign up.
 
 ![Content Moderator Home Page](images/homepage.PNG)
 
@@ -50,11 +50,11 @@ Review the applied moderation tags. You can see which tags were applied to your 
 
 In a project, you or your review team can change these tags or add more tags as needed. You'll submit these changes with the **Next** button. As your business application calls the Moderator APIs, the tagged content will queue up here, ready to be reviewed by the human review teams. You can quickly review large volumes of content using this approach.
 
-At this point, you have used the Content Moderator Review Tool to see examples of what the Content Moderator service can do. Next, you can either learn more about the review tool and how to integrate it into a software project using the Review APIs, or you can skip to the [Next steps](#next-steps) section to learn how to use the Moderation APIs themselves in your app.
+At this point, you have used the Content Moderator Review tool to see examples of what the Content Moderator service can do. Next, you can either learn more about the review tool and how to integrate it into a software project using the Review APIs, or you can skip to the [Next steps](#next-steps) section to learn how to use the Moderation APIs themselves in your app.
 
 ## Learn more about the review tool
 
-To learn more about how to use the Content Moderator Review Tool, take a look at the [Human-in-the-loop](Review-Tool-User-Guide/human-in-the-loop.md) guide, and see the Review Tool APIs to learn how to fine-tune the human review experience:
+To learn more about how to use the Content Moderator Review tool, take a look at the [Review tool](Review-Tool-User-Guide/human-in-the-loop.md) guide, and see the Review tool APIs to learn how to fine-tune the human review experience:
 - The [Job API](try-review-api-job.md) scans your content by using the moderation APIs and generates reviews in the review tool. 
 - The [Review API](try-review-api-review.md) directly creates image, text, or video reviews for human moderators without first scanning the content. 
 - The [Workflow API](try-review-api-workflow.md) creates, updates, and gets details about the custom workflows that your team creates.

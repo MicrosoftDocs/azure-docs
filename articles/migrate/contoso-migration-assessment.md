@@ -16,7 +16,7 @@ ms.author: raynew
 
 In this article, Contoso assesses its on-premises SmartHotel360 app for migration to Azure.
 
-This article is part of a series that documents how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background informatio, and detailed deployment scenarios that illustrate how to set up a migration infrastructure, assess the suitability of on-premises resources for migration, and run different types of migrations. Scenarios grow in complexity. Articles will be added to the series over time.
+This article is part of a series that documents how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background information, and detailed deployment scenarios that illustrate how to set up a migration infrastructure, assess the suitability of on-premises resources for migration, and run different types of migrations. Scenarios grow in complexity. Articles will be added to the series over time.
 
 Article | Details | Status
 --- | --- | ---
@@ -122,8 +122,8 @@ Contoso and other users must meet the following prerequisites for the assessment
 - At least two on-premises VMware VMs, one running a SQL Server database.
 - Permissions to install Azure Migrate agents on each VM.
 - The VMs should have direct internet connectivity.  
-        - You can restrict internet access to the [required URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-        - If your VMs don't have internet connectivity, the Azure [Log Analytics Gateway](../log-analytics/log-analytics-oms-gateway.md) must be installed on them, and agent traffic directed through it.
+    - You can restrict internet access to the [required URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+    - If your VMs don't have internet connectivity, the Azure [Log Analytics Gateway](../azure-monitor/platform/gateway.md) must be installed on them, and agent traffic directed through it.
 - The FQDN of the VM running the SQL Server instance, for database assessment.
 - Windows Firewall running on the SQL Server VM should allow external connections on TCP port 1433 (default). This setup allows Data Migration Assistant to connect.
 

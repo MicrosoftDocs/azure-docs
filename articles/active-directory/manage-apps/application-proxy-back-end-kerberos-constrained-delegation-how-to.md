@@ -29,7 +29,7 @@ This article provides a single point of reference that helps troubleshoot and se
 
 This article makes the following assumptions:
 
--   Deployment of Azure AD Application Proxy per [Get started with Application Proxy](application-proxy-enable.md) and general access to non-KCD applications work as expected.
+-   Deployment of Azure AD Application Proxy per [Get started with Application Proxy](application-proxy-add-on-premises-application.md) and general access to non-KCD applications work as expected.
 
 -   The published target application is based on Internet Information Services (IIS) and the Microsoft implementation of Kerberos.
 

@@ -72,7 +72,7 @@ Use the following steps to install the VM Agent in offline mode.
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
-        ![Export the registry subkeys](./media/install-vm-agent-offline/backup-reg.png)
+          ![Export the registry subkeys](./media/install-vm-agent-offline/backup-reg.png)
 
     2. Edit the registry files. In each file, change the entry value **SYSTEM** to **BROKENSYSTEM** (as shown in the following images) and save the file. Remember the **ImagePath** of the current VM agent. We will need to copy the corresponding folder to the attached OS disk. 
 

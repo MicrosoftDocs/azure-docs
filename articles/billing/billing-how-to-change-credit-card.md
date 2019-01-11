@@ -4,7 +4,7 @@ description: Describes how to How to change the credit card used to pay for an A
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: jureid
 editor: ''
 tags: billing
 
@@ -20,7 +20,7 @@ ms.author: cwatson
 ---
 # Add, update, or remove a credit or debit card for Azure
 
-In the Account Center, you can add a new credit card, update an existing credit card, or delete a credit card that you don't use. You must be [Account Administrator](billing-subscription-transfer.md#whoisaa) to make these changes.
+In the Account Center, you can add a new credit card, update an existing credit card, or delete a credit card that you don't use. You must be an [Account Administrator](billing-subscription-transfer.md#whoisaa) to make these changes.
 
 **Want to switch to pay by invoice?** See [Pay for Azure subscriptions by invoice](billing-how-to-pay-by-invoice.md).
  
@@ -78,7 +78,7 @@ If you need to remove your credit or debit card before the 90-day retention peri
 
 ### Why do I keep getting "Your login session has expired. Please click here to log back in"?
 
-If you keep getting this error message even if already you logged out and back in, try again with a private browsing session.
+If you keep getting this error message even if you've already logged out and back in, try again with a private browsing session.
 
 ### How do I use a different card for each subscription I have?
 
@@ -98,6 +98,6 @@ Unfortunately, Azure currently doesn't support one-time payments for credit or d
 
 To add or update tax ID, visit [**Profile** in Azure Account Center](https://account.azure.com/Profile), then select **Tax record**. This tax ID is used for tax exemption calculations and appears on your invoice.
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

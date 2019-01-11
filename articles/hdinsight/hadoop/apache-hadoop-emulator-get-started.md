@@ -1,6 +1,6 @@
 ---
-title: Learn using a Hadoop sandbox - emulator - Azure HDInsight 
-description: 'To start learning about using the Hadoop ecosystem, you can set up a Hadoop sandbox from Hortonworks on an Azure virtual machine. '
+title: Learn using a Apache Hadoop sandbox - emulator - Azure HDInsight 
+description: 'To start learning about using the Apache Hadoop ecosystem, you can set up a Hadoop sandbox from Hortonworks on an Azure virtual machine. '
 keywords: hadoop emulator,hadoop sandbox
 ms.reviewer: jasonh
 services: hdinsight
@@ -13,9 +13,9 @@ ms.date: 12/11/2017
 ms.author: hrasheed
 
 ---
-# Get started with a Hadoop sandbox, an emulator on a virtual machine
+# Get started with a Apache Hadoop sandbox, an emulator on a virtual machine
 
-Learn how to install the Hadoop sandbox from Hortonworks on a virtual machine to learn about the Hadoop ecosystem. The sandbox provides a local development environment to learn about Hadoop, Hadoop Distributed File System (HDFS), and job submission. Once you are familiar with Hadoop, you can start using Hadoop on Azure by creating an HDInsight cluster. For more information on how to get started, see [Get started with Hadoop on HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+Learn how to install the Apache Hadoop sandbox from Hortonworks on a virtual machine to learn about the Hadoop ecosystem. The sandbox provides a local development environment to learn about Hadoop, Hadoop Distributed File System (HDFS), and job submission. Once you are familiar with Hadoop, you can start using Hadoop on Azure by creating an HDInsight cluster. For more information on how to get started, see [Get started with Hadoop on HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
 ## Prerequisites
 * [Oracle VirtualBox](https://www.virtualbox.org/). Download and install it from [here](https://www.virtualbox.org/wiki/Downloads).
@@ -23,7 +23,7 @@ Learn how to install the Hadoop sandbox from Hortonworks on a virtual machine to
 
 
 ## Download and install the virtual machine
-1. Browse to the [Hortonworks downloads](http://hortonworks.com/downloads/#sandbox).
+1. Browse to the [Hortonworks downloads](https://hortonworks.com/downloads/#sandbox).
 
 2. Click **DOWNLOAD FOR VIRTUALBOX** to download the latest Hortonworks Sandbox on a VM. You are prompted to register with Hortonworks before the download begins. It takes one to two hours to download depending on your network speed.
    
@@ -74,6 +74,6 @@ To download an older HDP version sandbox, expand the archive:
 
 ## Next steps
 * [Learn how to use Visual Studio with the Hortonworks Sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
-* [Learning the ropes of the Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Hadoop tutorial - Getting started with HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Learning the ropes of the Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Hadoop tutorial - Getting started with HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 

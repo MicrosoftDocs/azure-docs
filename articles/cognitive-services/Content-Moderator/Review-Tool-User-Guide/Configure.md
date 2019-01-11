@@ -1,5 +1,5 @@
 ---
-title: Configure Content Moderator's Review Tool Settings | Microsoft Docs
+title: Configure Content Moderator's Review tool settings | Microsoft Docs
 description: Configure or get your team, tags, connectors, workflows, and credentials.
 services: cognitive-services
 author: sanjeev3
@@ -11,9 +11,9 @@ ms.date: 06/25/2017
 ms.author: sajagtap
 ---
 
-# About Review Tool settings #
+# Review tool settings #
 
-Using the Settings tab on the Review Tool Dashboard, it is easy to define and change many components.
+Using the Settings tab on the Review tool dashboard, it is easy to define and change many components.
 
 ![Content Moderator Review Settings](images/settings-1.png)
 
@@ -31,7 +31,7 @@ This is where you can [define custom tags](tags.md) by entering the short code, 
 
 ## Connectors ##
 
-Workflows add functionality by using connectors to communicate with the Review Tool. The Review Tool calls the Content Moderator APIs with the default workflow for moderating content. When you sign up for the Review Tool, it auto-provisions the Moderator API credentials for you. It also supports integrating other connector APIs, as long as a connector is available. We have made a few connectors available out of the box.
+Workflows add functionality by using connectors to communicate with the Review tool. The Review tool calls the Content Moderator APIs with the default workflow for moderating content. When you sign up for the Review tool, it auto-provisions the Moderator API credentials for you. It also supports integrating other connector APIs, as long as a connector is available. We have made a few connectors available out of the box.
 
 The [Connectors tab](connectors.md) is where you manage connectors. You can add or delete connectors, and find your subscription key for a particular connector. Click Connect to add these to your custom workflows. 
 

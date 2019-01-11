@@ -36,7 +36,7 @@ On the **Connect your directories** page, in the Azure AD Connect Wizard, if a n
 Whenever any of these issues are found, a related error message is displayed in the AADConnect Wizard:
 
 
-![Error](media\how-to-connect-adconnectivitytools\error1.png)
+![Error](media/how-to-connect-adconnectivitytools/error1.png)
 
 For example, when we are attempting to add a directory on the **Connect your directories** screen, Azure AD Connect needs to verify this and expects to be able to communicate with a domain controller over port 389.  If it cannot, we will see the error that is shown in the screenshot above.  
 

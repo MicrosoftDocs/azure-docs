@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -17,16 +17,16 @@ ms.component: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable sign-in for an ADFS user account by using [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C.
+This article shows you how to enable sign-in for an ADFS user account by using [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C. You enable sign-in by adding a [SAML technical profile](saml-technical-profile.md) to a custom policy.
 
 ## Prerequisites
 
 - Complete the steps in [Get started with custom policies in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
-- Make sure that you have access to the certificate .pfx file with the private key that was issued by ADFS.
+- Make sure that you have access to a certificate .pfx file with a private key. You can generate your own signed certificate and upload it to Azure AD B2C. Azure AD B2C uses this certificate to sign the SAML request sent to your SAML identity provider.
 
 ## Create a policy key
 
-You need to store your ADFS certificate in your Azure AD B2C tenant.
+You need to store your certificate in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
@@ -34,7 +34,7 @@ You need to store your ADFS certificate in your Azure AD B2C tenant.
 4. On the Overview page, select **Identity Experience Framework - PREVIEW**.
 5. Select **Policy Keys** and then select **Add**.
 6. For **Options**, choose `Upload`.
-7. Enter a **Name** for the policy key. For example, `ADFSSamlCert`. The prefix `B2C_1A_` is added automatically to the name of your key.
+7. Enter a **Name** for the policy key. For example, `SamlCert`. The prefix `B2C_1A_` is added automatically to the name of your key.
 8. Browse to and select your certificate .pfx file with the private key.
 9. Click **Create**.
 
@@ -171,7 +171,7 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
     | E-Mail-Address | email |
     | Display-Name | name |
     
-12.  Based on your certificate type, you may need to set the HASH algorithm. On the relying party trust (B2C Demo) properties window, select the **Advanced** tab and change the **Secure hash algorithm** to `SHA-1` or `SHA-256`, and click **Ok**.  
+12.  Based on your certificate type, you may need to set the HASH algorithm. On the relying party trust (B2C Demo) properties window, select the **Advanced** tab and change the **Secure hash algorithm** to `SHA-256`, and click **Ok**.  
 13. In Server Manager, select **Tools**, and then select **ADFS Management**.
 14. Select the relying party trust you created, select **Update from Federation Metadata**, and then click **Update**. 
 

@@ -23,7 +23,7 @@ If you have already [created your first VM](devtest-lab-create-first-vm.md), you
 This article also shows you how to manage the artifacts for a VM in your lab.
 
 ## Steps to add a VM to a lab in Azure DevTest Labs
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **All Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the lab in which you want to create the VM.  
 1. On the lab's **Overview** pane, select **+ Add**.  
@@ -66,7 +66,7 @@ well as artifacts that you've created and added to your own Artifact Repository.
 
 To discover how to create artifacts, see the article, [Learn how to author your own artifacts for use with DevTest Labs](devtest-lab-artifact-author.md).
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **All Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the lab containing the VM with which you want to work.  
 1. Select **My virtual machines**.

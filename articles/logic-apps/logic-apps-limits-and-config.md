@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.author: estfan
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 11/16/2018
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -93,10 +93,10 @@ Here are the limits for a single logic app run:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
-| Trigger concurrency | 50 | The default limit is 20. This limit describes the maximum number of logic app instances that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change trigger concurrency](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
-| Maximum waiting runs | 100 | The default limit is 10. This limit describes the maximum number of logic app instances that can wait to run when your logic app is already running the maximum concurrent instances. <p><p>To change the default limit to a value between 0 and 100 inclusively, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Foreach items | 100,000 | This limit describes the maximum number of array items that a "for each" loop can process. <p><p>To filter larger arrays, you can use the [query action](../connectors/connectors-native-query.md). | 
-| Foreach iterations | 50 | The default limit is 20. This limit describes the maximum number of "for each" loop iterations that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change "for each" concurrency](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| Trigger concurrency | 50 when you limit concurrency | When you turn on concurrency control for a trigger, the default limit is 25. This limit describes the maximum number of logic app instances that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Maximum waiting runs | 100 when you limit concurrency | When you turn on concurrency control for a trigger, the default limit is 10. This limit describes the maximum number of logic app instances that can wait to run when your logic app is already running the maximum concurrent instances. <p><p>To change the default limit to a value between 0 and 100 inclusively, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Foreach array items | 100,000 | This limit describes the maximum number of array items that a "for each" loop can process. <p><p>To filter larger arrays, you can use the [query action](../connectors/connectors-native-query.md). | 
+| Foreach concurrency | 50 when you limit concurrency | When you turn on concurrency control for this loop, the default limit is 20. This limit describes the maximum number of "for each" loop iterations that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change "for each" concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | SplitOn items | 100,000 | | 
 | Until iterations | 5,000 | | 
 |||| 
@@ -130,9 +130,9 @@ for help with your requirements.
 
 | Name | Limit | Notes |
 |------|-------|-------|
-| FTP | 50 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
-| SFTP | 50 MB | To work around this limit, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) or see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
-| SFTP-SSH | 1 GB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| FTP | 50 MB | To exceed this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| SFTP | 50 MB | To exceed this limit, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) or see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| SFTP-SSH | 1 GB | To exceed this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
 |||| 
 
 <a name="request-limits"></a>
@@ -341,13 +341,16 @@ based on where your logic apps exist:
 | UK West | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | | |
 
-### Connectors
+### Managed connectors
 
-To support the calls that [connectors](../connectors/apis-list.md) make, 
-set up your firewall configurations so they include these outbound IP addresses, 
-based on the regions where your logic apps exist.
+To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, 
+set up your firewall configurations so they include all the outbound IP addresses specified 
+for the regions where your logic apps exist. For [Azure Government](../azure-government/documentation-government-welcome.md) 
+and [Azure China 21Vianet](/azure/china/china-welcome), reserved IP addresses for connectors 
+aren't currently available.
 
 > [!IMPORTANT]
+> 
 > If you have existing configurations, please update them 
 > **as soon as possible before September 1, 2018** so they 
 > include and match the IP addresses in this list for the 

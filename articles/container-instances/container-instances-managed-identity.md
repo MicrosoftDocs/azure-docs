@@ -34,7 +34,7 @@ Use a managed identity in a running container to authenticate to any [service th
 
 ### Enable a managed identity
 
- In Azure Container Instances, managed identities for Azure resources are supported as of REST API version 2018-10-01 and corresponding SDKs and tools. When you create a container group, enable one or more managed identities by setting a [ContainerGroupIdentity](/rest/api/container-instances/containergroups/containergroups_createorupdate#containergroupidentity) property. You can also enable or update managed identities after a container group is running; either action causes the container group to restart. To set the identities on a new or existing container group, use the Azure CLI, a Resource Manager template, or a YAML file. 
+ In Azure Container Instances, managed identities for Azure resources are supported as of REST API version 2018-10-01 and corresponding SDKs and tools. When you create a container group, enable one or more managed identities by setting a [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity) property. You can also enable or update managed identities after a container group is running; either action causes the container group to restart. To set the identities on a new or existing container group, use the Azure CLI, a Resource Manager template, or a YAML file. 
 
 Azure Container Instances supports both types of managed Azure identities: user-assigned and system-assigned. On a container group, you can enable a system-assigned identity, one or more user-assigned identities, or both types of identities. 
 
@@ -130,7 +130,7 @@ The `identity` section in the output looks similar to the following, showing the
 
 ### Grant user-assigned identity access to the Key Vault
 
-Run the following [az keyvault set-policy](/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command to set an access policy on the Key Vault. The following example allows the user-assigned identity to get secrets from the Key Vault:
+Run the following [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command to set an access policy on the Key Vault. The following example allows the user-assigned identity to get secrets from the Key Vault:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
@@ -212,7 +212,7 @@ spID=$(az container show --resource-group myResourceGroup --name mycontainer --q
 
 ### Grant container group access to the Key Vault
 
-Run the following [az keyvault set-policy](/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command to set an access policy on the Key Vault. The following example allows the system-managed identity to get secrets from the Key Vault:
+Run the following [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command to set an access policy on the Key Vault. The following example allows the system-managed identity to get secrets from the Key Vault:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get

@@ -80,7 +80,7 @@ You can use the Azure AD consent framework to develop multitenant web and native
 
 The framework is based on a user or an administrator giving consent to an application that asks to be registered in their directory. The registration might involve accessing directory data. After consent is given, the client application can call the Microsoft Graph API on behalf of the user, and use the information as needed.
 
-The [Microsoft Graph API](https://graph.microsoft.io/) provides access to data in Office 365, like:
+The [Microsoft Graph API](https://developer.microsoft.com/graph/) provides access to data in Office 365, like:
 
 - Calendars and messages from Exchange.
 - Sites and lists from SharePoint.

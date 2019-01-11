@@ -144,9 +144,9 @@ In this section, you will build and execute a sample that will read the endorsem
     - **IoT Edge device:** Select **Disable**.
     - **IoT Hub Device ID:** Enter **test-docs-device** to give the device an ID.
 
-    ![Enter device enrollment information in the portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+      ![Enter device enrollment information in the portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
-    On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
+      On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
 
 
 <a id="firstbootsequence"></a>

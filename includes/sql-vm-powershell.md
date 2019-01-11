@@ -1,9 +1,16 @@
-﻿
+﻿---
+author: MikeRayMSFT
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: mikeray
+---
+
 ## Start your PowerShell session
-First you need to have the latest [Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+First you need to have the latest [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
-> The examples in this topic use [Azure Resource Manager deployment model](../articles/azure-resource-manager/resource-group-overview.md), so examples use the [Azure Resource Manager cmdlets](http://msdn.microsoft.com/library/azure/mt125356.aspx). 
+> The examples in this topic use [Azure Resource Manager deployment model](../articles/azure-resource-manager/resource-group-overview.md), so examples use the [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/azure/mt125356.aspx). 
 > 
 > 
 

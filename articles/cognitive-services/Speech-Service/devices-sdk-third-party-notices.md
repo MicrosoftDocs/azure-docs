@@ -1,16 +1,16 @@
 ---
 title: Cognitive Services Speech Devices SDK third-party notice
 titleSuffix: Azure Cognitive Services
-description: Information about third-party tools
+description: This file provides information regarding components that are being relicensed to you by Microsoft under Microsoft's software licensing terms.  Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 12/06/2018
 ms.author: wolfma
+ms.custom: seodec18
 ---
 # Third-party software
 
@@ -23,13 +23,13 @@ Microsoft is offering you a license to use the following components with Speech 
 1.	kgabis/parson version b87a27c
 2.	Azure/azure-c-shared-utility version ed84cdb
 3.	catchorg/Catch2 version d2d8455
-4.	curl/curl version 6d7d0eb 
+4.	curl/curl version 6d7d0eb
 5.	curl/curl version 7.21.3
-6.	openssl/openssl version b2758a2 
+6.	openssl/openssl version b2758a2
 7.	nlohmann/json version d2dd27d
 8.	tinyalsa/tinyalsa version df11091
 9.	xianyi/OpenBLAS version 5f998ef
-10.	openfst version 1.6.5 
+10.	openfst version 1.6.5
 11.	kaldi-asr/kaldi version eba50e4
 
 **1. kgabis/parson**
@@ -58,26 +58,26 @@ THE SOFTWARE.
 
 **2. Azure/azure-c-shared-utility**
 
-Microsoft Azure IoT SDKs 
+Microsoft Azure IoT SDKs
 Copyright (c) Microsoft Corporation
-All rights reserved. 
+All rights reserved.
 MIT License
-Permission is hereby granted, free of charge, to any person obtaining a copy 
-of this software and associated documentation files (the ""Software""), to deal 
-in the Software without restriction, including without limitation the rights 
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
-copies of the Software, and to permit persons to whom the Software is 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the ""Software""), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in 
+The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 **3. catchorg/Catch2**
@@ -169,7 +169,7 @@ The OpenSSL toolkit stays under a double license, i.e. both the conditions of th
     * are met:
     *
     * 1. Redistributions of source code must retain the above copyright
-    *    notice, this list of conditions and the following disclaimer. 
+    *    notice, this list of conditions and the following disclaimer.
     *
     * 2. Redistributions in binary form must reproduce the above copyright
     *    notice, this list of conditions and the following disclaimer in
@@ -223,21 +223,21 @@ The OpenSSL toolkit stays under a double license, i.e. both the conditions of th
     * This package is an SSL implementation written
     * by Eric Young (eay@cryptsoft.com).
     * The implementation was written so as to conform with Netscapes SSL.
-    * 
+    *
     * This library is free for commercial and non-commercial use as long as
     * the following conditions are aheared to.  The following conditions
     * apply to all code found in this distribution, be it the RC4, RSA,
     * lhash, DES, etc., code; not just the SSL code.  The SSL documentation
     * included with this distribution is covered by the same copyright terms
     * except that the holder is Tim Hudson (tjh@cryptsoft.com).
-    * 
+    *
     * Copyright remains Eric Young's, and as such any Copyright notices in
     * the code are not to be removed.
     * If this package is used in a product, Eric Young should be given attribution
     * as the author of the parts of the library used.
     * This can be in the form of a textual message at program startup or
     * in documentation (online or textual) provided with the package.
-    * 
+    *
     * Redistribution and use in source and binary forms, with or without
     * modification, are permitted provided that the following conditions
     * are met:
@@ -252,10 +252,10 @@ The OpenSSL toolkit stays under a double license, i.e. both the conditions of th
     *     Eric Young (eay@cryptsoft.com)"
     *    The word 'cryptographic' can be left out if the rouines from the library
     *    being used are not cryptographic related :-).
-    * 4. If you include any Windows specific code (or a derivative thereof) from 
+    * 4. If you include any Windows specific code (or a derivative thereof) from
     *    the apps directory (application code) you must include an acknowledgement:
     *    "This product includes software written by Tim Hudson (tjh@cryptsoft.com)"
-    * 
+    *
     * THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'' AND
     * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
     * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -267,7 +267,7 @@ The OpenSSL toolkit stays under a double license, i.e. both the conditions of th
     * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
     * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
     * SUCH DAMAGE.
-    * 
+    *
     * The licence and distribution terms for any publicly available version or
     * derivative of this code cannot be changed.  i.e. this code cannot simply be
     * copied and put under another distribution licence
@@ -276,7 +276,7 @@ The OpenSSL toolkit stays under a double license, i.e. both the conditions of th
 
 **7. nlohmann/json**
 
-MIT License 
+MIT License
 
 Copyright (c) 2013-2018 Niels Lohmann
 
@@ -327,32 +327,32 @@ DEALINGS IN THE SOFTWARE.
 
 Files with sample code from IETF RFC 7049
 
-Copyright (c) 2013 IETF Trust and the persons identified as authors 
+Copyright (c) 2013 IETF Trust and the persons identified as authors
 of the code. All rights reserved.
 
-Redistribution and use in source and binary forms, with or without 
+Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
-Redistributions of source code must retain the above copyright notice, 
+Redistributions of source code must retain the above copyright notice,
 this list of conditions and the following disclaimer.
 
-Redistributions in binary form must reproduce the above copyright notice, 
-this list of conditions and the following disclaimer in the documentation 
+Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
 and/or other materials provided with the distribution.
 
-Neither the name of Internet Society, IETF or IETF Trust, nor the names of 
-specific contributors, may be used to endorse or promote products derived 
+Neither the name of Internet Society, IETF or IETF Trust, nor the names of
+specific contributors, may be used to endorse or promote products derived
 from this software without specific prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” 
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
-ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE 
-LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR 
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR 
-TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS”
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
+TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 **8. tinyalsa/tinyalsa**
@@ -398,9 +398,9 @@ met:
       notice, this list of conditions and the following disclaimer in
       the documentation and/or other materials provided with the
       distribution.
-   3. Neither the name of the OpenBLAS project nor the names of 
-      its contributors may be used to endorse or promote products 
-      derived from this software without specific prior written 
+   3. Neither the name of the OpenBLAS project nor the names of
+      its contributors may be used to endorse or promote products
+      derived from this software without specific prior written
       permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
@@ -452,11 +452,11 @@ Texas at Austin.
 File with code "adapted from" Google performance tools
 * Copyright (c) 2007, Google Inc.
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
  * met:
- * 
+ *
  *     * Redistributions of source code must retain the above copyright
  * notice, this list of conditions and the following disclaimer.
  *     * Redistributions in binary form must reproduce the above
@@ -466,7 +466,7 @@ File with code "adapted from" Google performance tools
  *     * Neither the name of Google Inc. nor the names of its
  * contributors may be used to endorse or promote products derived from
  * this software without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
@@ -515,5 +515,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
-

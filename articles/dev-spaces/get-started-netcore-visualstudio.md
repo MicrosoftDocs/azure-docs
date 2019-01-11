@@ -6,8 +6,8 @@ ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.component: azds-kubernetes
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.date: "07/09/2018"
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
@@ -97,6 +97,9 @@ If you choose a cluster that hasn't been enabled to work with Azure Dev Spaces, 
 ![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
 Choose **OK**.
+
+> [!IMPORTANT]
+> The Azure Dev Spaces configuration process will remove the `azds` namespace in the cluster, if it exists.
 
  A background task will be started to accomplish this. It will take a number of minutes to complete. To see if it's still being created, hover your pointer over the **Background tasks** icon in the bottom left corner of the status bar, as shown in the following image.
 
