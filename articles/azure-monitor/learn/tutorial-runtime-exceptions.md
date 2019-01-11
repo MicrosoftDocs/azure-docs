@@ -110,4 +110,4 @@ If you connect Application Insights to a tracking system such as Azure DevOps or
 Now that you've learned how to identify run-time exceptions, advance to the next tutorial to learn how to identify and diagnose performance issues.
 
 > [!div class="nextstepaction"]
-> [Identify performance issues](../../application-insights/app-insights-tutorial-performance.md)
+> [Identify performance issues](../../azure-monitor/learn/tutorial-performance.md)

@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 012/5/2018
+ms.date: 1/10/2019
 ms.author: victorh
 ---
 
@@ -13,7 +13,7 @@ ms.author: victorh
 
 The Domain Name System, or DNS, is responsible for translating (or resolving) a service name to its IP address. A hosting service for DNS domains, Azure DNS provides name resolution by using the Microsoft Azure infrastructure. In addition to supporting internet-facing DNS domains, Azure DNS now also supports private DNS domains as a preview feature.
 
-Azure DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without your needing to add a custom DNS solution. By using private DNS zones, you can use your own custom domain names rather than the Azure-provided names available today. Using custom domain names helps you to tailor your virtual network architecture to best suit your organization's needs. It provides name resolution for virtual machines (VMs) within a virtual network and between virtual networks. Additionally, you can configure zones names with a split-horizon view, which allows a private and a public DNS zone to share the same name.
+Azure DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without your needing to add a custom DNS solution. By using private DNS zones, you can use your own custom domain names rather than the Azure-provided names available today. Using custom domain names helps you to tailor your virtual network architecture to best suit your organization's needs. It provides name resolution for virtual machines (VMs) within a virtual network and between virtual networks. Additionally, you can configure zones names with a split-horizon view, which allows a private and a public DNS zone to share the name.
 
 If you specify a registration virtual network, the DNS records for the VMs from that virtual network that are registered to the private zone are not viewable or retrievable from the Azure Powershell and Azure CLI APIs, but the VM records are indeed registered and will resolve successfully.
 
@@ -52,11 +52,11 @@ Azure DNS provides the following capabilities:
 
 * **Forward DNS resolution is supported across virtual networks that are linked to the private zone as resolution virtual networks**. For cross-virtual network DNS resolution, there is no explicit dependency such that the virtual networks are peered with each other. However, customers might want to peer virtual networks for other scenarios (for example, HTTP traffic).
 
-* **Reverse DNS lookup is supported within the virtual-network scope**. Reverse DNS lookup for a private IP within the virtual network assigned to a private zone will return the FQDN that includes the host/record name as well as the zone name as the suffix.
+* **Reverse DNS lookup is supported within the virtual-network scope**. Reverse DNS lookup for a private IP within the virtual network assigned to a private zone returns the FQDN that includes the host/record name and the zone name as the suffix.
 
 ## Limitations
 
-Azure DNS is subject to the following limitations:
+Azure DNS has following limitations:
 
 * Only one registration virtual network is allowed per private zone.
 * Up to 10 resolution virtual networks are allowed per private zone.
@@ -65,14 +65,14 @@ Azure DNS is subject to the following limitations:
 * If you specify a registration virtual network, the DNS records for the VMs from that virtual network that are registered to the private zone are not viewable or retrievable from the Azure Powershell and Azure CLI APIs. The VM records are indeed registered and will resolve successfully.
 * Reverse DNS works only for private IP space in the registration virtual network.
 * Reverse DNS for a private IP that isn't registered in the private zone (for example, a private IP for a virtual machine in a virtual network that is linked as a resolution virtual network to a private zone) returns *internal.cloudapp.net* as the DNS suffix. However, this suffix isn't resolvable.
-* The virtual network needs to be empty (that is, no VM records exist) when it initially (that is, for the first time) links to a private zone as a registration or resolution virtual network. However, the virtual network can then be non-empty for future linking as a registration or resolution virtual network, to other private zones.
-* At this time, conditional forwarding is not supported (for example, for enabling resolution between Azure and OnPrem networks). For information about how customers can realize this scenario via other mechanisms, see [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+* The virtual network must be completely empty the first time you link it to a private zone as a registration or resolution virtual network. However, the virtual network can then be non-empty for future linking as a registration or resolution virtual network, to other private zones.
+* Currently, conditional forwarding is not supported (for example, for enabling resolution between Azure and OnPrem networks). For information about how customers can realize this scenario via other mechanisms, see [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 For common questions and answers about private zones in Azure DNS, including specific DNS registration and resolution behavior you can expect for certain kinds of operations, see [FAQ](./dns-faq.md#private-dns).  
 
 ## Pricing
 
-The private DNS zones feature is free of charge during the public preview. During general availability, the feature will offer a usage-based pricing model similar to that of the existing Azure DNS offering. 
+The private DNS zones feature is free of charge during the public preview. During general availability, the feature offers a usage-based pricing model similar to that of the existing Azure DNS offering. 
 
 ## Next steps
 

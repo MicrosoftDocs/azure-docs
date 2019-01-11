@@ -18,6 +18,7 @@ Azure SQL Data Warehouse is a cloud-based Enterprise Data Warehouse (EDW) that l
 
 Click on the links below to find out more about the new features and improvements that you can expect in the latest version of Azure SQL Data Warehouse. You can expect to receive these service updates during your identified maintenance schedule.
 
+- [December 2018](./release-notes-december-2018.md)
 - [October 2018](./release-notes-october-2018.md)
 - [September 2018](./release-notes-september-2018.md)
 - [August 2018](./release-notes-august-2018.md)

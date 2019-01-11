@@ -67,7 +67,7 @@
     items:
     - name: Azure to Azure architecture
       href: azure-to-azure-architecture.md
-      name: Common questions
+    - name: Common questions
       href: azure-to-azure-common-questions.md
     - name: Azure to Azure support matrix
       href: azure-to-azure-support-matrix.md

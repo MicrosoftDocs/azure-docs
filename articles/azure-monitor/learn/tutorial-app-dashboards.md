@@ -162,4 +162,4 @@ Since Azure Applications Insights Analytics is a separate service, you need to s
 Now that you've learned how to create custom dashboards, have a look at the rest of the Application Insights documentation including a case study.
 
 > [!div class="nextstepaction"]
-> [Deep diagnostics](../../application-insights/app-insights-devops.md)
+> [Deep diagnostics](../../azure-monitor/app/devops.md)
