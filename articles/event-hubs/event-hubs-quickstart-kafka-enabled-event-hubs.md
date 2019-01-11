@@ -35,7 +35,6 @@ To complete this quickstart, make sure you have the following prerequisites:
     
     ![Search for Event Hubs in the portal](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
- 
 3. Provide a unique name and enable Kafka on the namespace. Click **Create**. Note: Event Hubs for Kafka is only supported by Standard and Dedicated tier Event Hubs. Basic tier Event Hubs will return a Topic Authorization Error in response to any Kafka operations.
     
     ![Create a namespace](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
