@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -41,7 +41,7 @@ You'll only be charged for the compute usage required by the nodes supporting yo
 
 ## Deploy Kubernetes
 
-The steps to deploy a Kubernetes cluster on Azure Stack will depend on your identity solution.
+The steps to deploy a Kubernetes cluster on Azure Stack will depend on your identity management service. Verify the identity management solution used by your installation of Azure Stack. Contact your Azure Stack administrator to verify your identity management service.
 
 - **Azure Active Directory (Azure AD)**  
 For instructions on installing the cluster when using Azure AD, see [Deploy Kubernetes to Azure Stack using Azure Active Directory (Azure AD)](azure-stack-solution-template-kubernetes-azuread.md).
