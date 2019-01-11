@@ -5,6 +5,7 @@ description: This quickstart shows how to create a Standard Load Balancer using 
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: 
 ms.service: load-balancer

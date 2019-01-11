@@ -1,5 +1,5 @@
 ---
-title: How to unify multiple Azure Monitor Application Insights resources  | Microsoft Docs
+title: Unify multiple Azure Monitor Application Insights resources  | Microsoft Docs
 description: This article provides details on how to use a function in Azure Monitor Logs to query multiple Application Insights resources and visualize that data. 
 services: azure-monitor
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.date: 01/10/2019
 ms.author: magoedte
 ---
 
-# How to unify multiple Azure Monitor Application Insights resources 
+# Unify multiple Azure Monitor Application Insights resources 
 This article describes how to query and view all your Application Insights application log data in one place, even when they are in different Azure subscriptions, as a replacement for the deprecation of the Application Insights Connector.  
 
 ## Recommended approach to query multiple Application Insights resources 

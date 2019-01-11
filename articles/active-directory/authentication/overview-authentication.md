@@ -19,7 +19,7 @@ ms.reviewer: sahenry, michmcla
 
 We hear reports in the news, passwords being stolen, and identities being compromised. Requiring a second factor in addition to a password immediately increases the security of your organization. Microsoft Azure Active Directory (Azure AD) includes features, like Azure Multi-Factor Authentication (Azure MFA) and Azure AD self-service password reset (SSPR), to help administrators protect their organizations and users with additional authentication methods.
 
-When a user needs to access a sensitive application, reset their password, or enable Windows Hello, they may be asked to provide additional verification that they are who they say they are.
+There are many scenarios that include: signing in to an application, resetting their password, enabling Windows Hello, and others, your users may be asked to provide additional verification that they are who they say they are.
 
 Additional verification may come in the form of authentication methods such as:
 
