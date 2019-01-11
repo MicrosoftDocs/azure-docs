@@ -13,10 +13,10 @@ ms.date: 01/18/2019
 ---
 # Tutorial: Azure SQL Database Managed Instance Security using Azure AD logins
 
-Azure SQL Database Managed Instance provides nearly all of the security features that the latest SQL Server on-premises (Enterprise Edition) Database Engine has:
+Azure SQL Database Managed Instance provides nearly all security features that the latest SQL Server on-premises (Enterprise Edition) Database Engine has:
 
 - Limiting access in an isolated environment
-- Use authentication mechanisms that require identity (Azure AD, SQL Auth)
+- Use authentication mechanisms that require identity (Azure AD, SQL Authentication)
 - Use authorization with role-based memberships and permissions
 - Enable security features
 
@@ -48,7 +48,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 
 ## Limiting access to your Managed Instance
 
-Managed Instances can only be accessed through a private IP address. There are no service endpoints that are available to connect to a Managed Instance from outside of the Managed Instance network. Much like an isolated SQL Server on-premise environment, applications or users will first need access to the Managed Instance Network (VNet) before a connection to the Managed Instance can be established. For more information, see the following article, [Connect your application to Azure SQL Database Managed Instance](sql-database-managed-instance-connect-app.md).
+Managed Instances can only be accessed through a private IP address. There are no service endpoints that are available to connect to a Managed Instance from outside the Managed Instance network. Much like an isolated SQL Server on-premise environment, applications or users need access to the Managed Instance Network (VNet) before a connection can be established. For more information, see the following article, [Connect your application to Azure SQL Database Managed Instance](sql-database-managed-instance-connect-app.md).
 
 > [!NOTE] 
 > Since Managed Instances can only be accessed inside of its VNET, [SQL Database firewall rules](sql-database-firewall-configure.md) do not apply. Managed Instances has its own [built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
@@ -97,11 +97,11 @@ The first Azure AD login must be created by the standard SQL Server account (non
 
     ![native-login.png](media/sql-database-managed-instance-security-tutorial/native-login.png)
 
-Please see the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) article for more information on the syntax.
+See the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) article for more information on the syntax.
 
 ## Granting permissions to allow the creation of Managed Instance logins
 
-In order to provision other logins, SQL Server roles or permissions must be granted to the principal (SQL or Azure AD).
+To provision other logins, SQL Server roles or permissions must be granted to the principal (SQL or Azure AD).
 
 ### SQL authentication
 
@@ -136,9 +136,9 @@ To add the login to the `sysadmin` server role:
 
 ## Create additional Azure AD logins using SSMS
 
-Once the Azure AD login has been created, and provided with `sysadmin` priviledges, that login can create additional logins using the **FROM EXTERNAL PROVIDER** clause with **CREATE LOGIN**.
+Once the Azure AD login has been created, and provided with `sysadmin` privileges, that login can create additional logins using the **FROM EXTERNAL PROVIDER** clause with **CREATE LOGIN**.
 
-1. Connect to the Managed Instance server with the Azure AD login, using SQL Server Management Studio. Enter your Managed Instance server name. For Authentication in SSMS, there are 3 options to choose from when logging in with an Azure AD account:
+1. Connect to the Managed Instance server with the Azure AD login, using SQL Server Management Studio. Enter your Managed Instance server name. For Authentication in SSMS, there are three options to choose from when logging in with an Azure AD account:
     1. Active Directory - Universal with MFA support
     1. Active Directory - Password
     1. Active Directory - Integrated
@@ -147,7 +147,7 @@ Once the Azure AD login has been created, and provided with `sysadmin` priviledg
 
     For more information, see the following article: [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](sql-database-ssms-mfa-authentication.md)
 
-1. Select **Active Directory - Universal with MFA support**. This will bring up a Multi-Factor Authentication (MFA) login window. Log in with your Azure AD password.
+1. Select **Active Directory - Universal with MFA support**. This brings up a Multi-Factor Authentication (MFA) login window. Sign in with your Azure AD password.
 
     ![mfa-login-prompt.png](media/sql-database-managed-instance-security-tutorial/mfa-login-prompt.png)
 
@@ -163,7 +163,7 @@ Once the Azure AD login has been created, and provided with `sysadmin` priviledg
 
     This example creates a login for the Azure AD user bob@aadsqlmi.net, whose domain aadsqlmi.net is federated with the Azure AD aadsqlmi.onmicrosoft.com.
 
-    Execute the following T-SQL command. Note that federated Azure AD accounts are the Managed Instance replacements for on-premise Windows logins and users.
+    Execute the following T-SQL command. Federated Azure AD accounts are the Managed Instance replacements for on-premise Windows logins and users.
 
     ```sql
     USE master
@@ -172,9 +172,9 @@ Once the Azure AD login has been created, and provided with `sysadmin` priviledg
     GO
     ```
 
-1. Create a new database in the Managed Instance using the [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) syntax. This database will be used to test user logins in the next section.
+1. Create a database in the Managed Instance using the [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) syntax. This database will be used to test user logins in the next section.
     1. In **Object Explorer**, right-click the server and choose **New Query**.
-    1. In the query window, use the following syntax to create a new database named **MyMITestDB**.
+    1. In the query window, use the following syntax to create a database named **MyMITestDB**.
 
         ```sql
         CREATE DATABASE MyMITestDB;
@@ -208,7 +208,7 @@ Once the Azure AD login has been created, and provided with `sysadmin` priviledg
 
 Authorization to individual databases works much in the same way in Managed Instance as it does with SQL Server on-premise. A user can be created from the login in the specific database that the user needs access to, and be provided with permissions on that database, or added to a database role.
 
-Now that we have created a database called **MyMITestDB**, and a login that only has **CONNECT SQL** and **VIEW ANY DATABASE** permissions, the next step is to create a user from that login. At the moment, the login can be used to connect to the Managed Instance, and see all of the databases, but cannot interact with the databases. If you were to log in with the Azure AD account that has the default permissions, and try to expand the newly created database, you will see the following error:
+Now that we've created a database called **MyMITestDB**, and a login that only has default permissions, the next step is to create a user from that login. At the moment, the login can connect to the Managed Instance, and see all the databases, but can't interact with the databases. If you sign in with the Azure AD account that has the default permissions, and try to expand the newly created database, you'll see the following error:
 
 ![ssms-db-not-accessible.png](media/sql-database-managed-instance-security-tutorial/ssms-db-not-accessible.png)
 
@@ -236,7 +236,7 @@ See [Getting Started with Database Engine Permissions](/sql/relational-databases
     GO
     ```
 
-    It is also supported to create an Azure AD user from an Azure AD login that is a group.
+    It's also supported to create an Azure AD user from an Azure AD login that is a group.
 
     ```sql
     USE MyMITestDB
@@ -250,7 +250,7 @@ See [Getting Started with Database Engine Permissions](/sql/relational-databases
     > [!IMPORTANT]
     > When creating a **USER** from an Azure AD login, specify the user_name as the same login_name from **LOGIN**.
 
-    Please see the [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) article for additional information regarding the syntax.
+    See the [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) article for additional information regarding the syntax.
 
 1. In a new query window, create a test table using the following T-SQL command:
 
@@ -266,7 +266,7 @@ See [Getting Started with Database Engine Permissions](/sql/relational-databases
     );
     ```
 
-1. Create a new connection in SSMS with the user that was just created. You will notice that you cannot see the table **TestTable** that was created by the `sysadmin` earlier. We will need to provide the user with permissions in order to read data from the database.
+1. Create a connection in SSMS with the user that was created. You'll notice that you cannot see the table **TestTable** that was created by the `sysadmin` earlier. We need to provide the user with permissions to read data from the database.
 
 1. You can check the current permission the user has by executing the following command:
 
@@ -277,7 +277,7 @@ See [Getting Started with Database Engine Permissions](/sql/relational-databases
 
 ### Add users to database-level roles
 
-For the user to see data inside of the database, we can provide [database-level roles](/sql/relational-databases/security/authentication-access/database-level-role) to the user.
+For the user to see data in the database, we can provide [database-level roles](/sql/relational-databases/security/authentication-access/database-level-role) to the user.
 
 1. Log into your Managed Instance using a `sysadmin` account using SQL Server Management Studio
 
@@ -311,14 +311,14 @@ For the user to see data inside of the database, we can provide [database-level 
 
     ![ssms-test-table.png](media/sql-database-managed-instance-security-tutorial/ssms-test-table.png)
 
-1. Open a new query window and execute the following SELECT statement to see if the user is able to read from the table.
+1. Open a new query window and execute the following SELECT statement:
 
     ```sql
     SELECT *
     FROM TestTable
     ```
 
-    You should see the columns being returned.
+    Are you able to see data from the table? You should see the columns being returned.
 
     ![ssms-test-table-query.png](media/sql-database-managed-instance-security-tutorial/ssms-test-table-query.png)
 
