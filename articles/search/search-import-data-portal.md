@@ -19,18 +19,16 @@ The Azure portal provides an **Import data** wizard on the Azure Search dashboar
 * Generates a modifiable index schema based on data sampling and metadata
 * Serializes and loads JSON documents into an index
 
-The wizard can't connect to a predefined index, but you can modify the generated index to support the structure and behaviors you need.
+The wizard can't connect to a predefined index or run an existing indexer, but within the wizard, you can configure an index or indexer to support the structure and behaviors you need.
 
-If you are new to Azure Search, step through the [Quickstart: Import, index, and query using portal tools](search-get-started-portal.md) to test-drive importing and indexing using the built-in realestate sample data set.
-
-   ![Import data wizard in portal](./media/search-import-data-portal/import-data-wizard-startup "Import data wizard for Azure Search")
+New to Azure Search? Step through the [Quickstart: Import, index, and query using portal tools](search-get-started-portal.md) to test-drive importing and indexing using **Import data** and the built-in realestate sample data set.
 
 > [!NOTE]
 > You can launch the **Import data** wizard from other Azure services, including Azure Cosmos DB, Azure SQL Database, and Azure Blob storage. Look for **Add Azure Search** in the left-navigation pane on the service overview page.
 
 ## How to start Import data
 
-This section explains how to start the wizard and provides a high-level overview of what you will accomplish.
+This section explains how to start the wizard and provides a high-level overview of each step.
 
 1. In the [Azure portal](https://portal.azure.com), open the search service page from the dashboard or [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list.
 
@@ -38,13 +36,19 @@ This section explains how to start the wizard and provides a high-level overview
 
    ![Import data command in portal](./media/search-import-data-portal/import-data-cmd2.png "Start the Import data wizard")
 
-3. Choose a [data source input](#data-source-inputs). The wizard reads source metadata and performs data sampling to infer a default index.
+3. The wizard opens to **Connect to your data**, where you can choose an external data source to use for this import. There are several things to know about this step, so be sure to read the [Data source inputs](#data-source-inputs) section in this article.
 
-4. Optionally, [add Cognitive Services resources](cognitive-search-attach-cognitive-services.md) to include optical character recognition of text in image files, or text analysis over unstructured data. For a walkthrough demonstration of how to set up a cognitive search pipeline, see [Quickstart: Create a cognitive search pipeline using skills and sample data](cognitive-search-quickstart-blob.md).
+   ![Import data wizard in portal](./media/search-import-data-portal/import-data-wizard-startup.png "Import data wizard for Azure Search")
 
-5. Accept or modify the index schema. [Select checkmarks to attribute each field](#index-definition) for specific behaviors, and optionally enable suggesters for type-ahead queries or analyzers for language-specific optimizations.
+4. Next is **Add Cognitive Services resources**, in case you want to include optical character recognition (OCR) of text in image files, or text analysis over unstructured data. This step requires an assist from the Azure Cognitive Services features. For more information, see [Attach Cognitive Services to an Azure Search skillset](cognitive-search-attach-cognitive-services.md). For a walkthrough demonstration, see this [Quickstart](cognitive-search-quickstart-blob.md).
 
-6. Give the indexer a name, and click **Submit** to create all three objects (data source, index, indexer) and begin the import process. 
+   If you just want to import data, skip this step and go directly to index definition.
+
+5. Next is **Customize target index**, where you can accept or modify the index schema presented in the wizard. The wizard infers the fields and datatypes by sampling data and reading metadata from the external data source.
+
+   For each field, [check the index attributes](#index-definition) to enable specific behaviors. You can also enable suggesters for type-ahead queries or analyzers for language-specific optimizations.
+
+6. Next is **Create an indexer**. Give the indexer a name, and click **Submit** to create all three objects (data source, index, indexer) and begin the import process. 
 
 You can monitor indexing in the portal by clicking the indexer in the **Indexers** list. As documents are loaded, the document count will grow for the index you have defined. Sometimes it takes a few minutes for the portal page to pick up the most recent updates.
 
@@ -84,7 +88,7 @@ For a functional index, make sure you have the following elements defined.
 
 1. One field must be marked as a **Key**, which is used to uniquely identify each document. The **Key** must be *Edm.string*. 
 
-  If field values include spaces or dashes, you must set the **Base-64 Encode Key** option in the **Create an Indexer** step, under **Advanced options**, to suppress the validation check for these characters.
+   If field values include spaces or dashes, you must set the **Base-64 Encode Key** option in the **Create an Indexer** step, under **Advanced options**, to suppress the validation check for these characters.
 
 1. Set index attributes for each field. If you select no attributes, your index is essentially empty, except for the required key field. At a minimum, choose 
    
