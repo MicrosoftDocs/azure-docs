@@ -77,12 +77,12 @@ With this instant restore upgrade, the snapshot retention duration of all the cu
 
 ### Configure snapshot retention using Azure portal
 
-For the upgraded users, in the Azure portal you will see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You will see the change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
+For the upgraded users, in the Azure portal you will see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You will be able to see the change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
 
 
 ![Backup job in Instant Restore deployment](./media/backup-azure-vms/instant-rp-banner1.png)
 
-You get an ability to configure the snapshot retention based on the restore needs. Depending on the requirement, you can set the snapshot retention to a minimum of one day in the backup policy blade as explained below. This can help you save cost for snapshot retention.
+You will get an ability to configure the snapshot retention based on the restore needs. Depending on the requirement, you will be able to set the snapshot retention to a minimum of one day in the backup policy blade as explained below. This can help you save cost for snapshot retention.
 
 
 ## Upgrade to Instant Restore using PowerShell
