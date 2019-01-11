@@ -45,7 +45,7 @@ Only the following devices are listed under **USER devices**:
 
 **Q: I see the device record under the **USER** info in the Azure portal. And I see the state as registered on the device. Am I set up correctly to use conditional access?**
 
-**A:** The device join state, reflected by **deviceID**, must match the state on Azure AD and meet any evaluation criteria for conditional access. 
+**A:** The device join state, shown by **deviceID**, must match the state on Azure AD and meet any evaluation criteria for conditional access. 
 For more information, see [Require managed devices for cloud app access with conditional access](../conditional-access/require-managed-devices.md).
 
 ---
@@ -76,7 +76,7 @@ For down-level Windows OS versions that are on-premises Active Directory domain 
 
 **A:**
 
--	For Windows 10 and Windows Server 2016, repeated attempts to unjoin and rejoin the same device might cause duplicate entries. 
+-	For Windows 10 and Windows Server 2016, repeated tries to unjoin and rejoin the same device might cause duplicate entries. 
 
 -	Each Windows user who uses **Add Work or School Account** creates a new device record with the same device name.
 
@@ -100,7 +100,7 @@ For down-level Windows OS versions that are on-premises Active Directory domain 
 **Q: How do I unjoin an Azure AD joined device locally on the device?**
 
 **A:** 
-- For hybrid Azure AD joined devices, make sure to turn off automatic registration. Then the scheduled task doesn't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across multiple devices to unjoin in bulk.
+- For hybrid Azure AD joined devices, make sure to turn off automatic registration. Then the scheduled task doesn't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
 
 - For pure Azure AD joined devices, make sure you have an offline local administrator account or create one. You can't sign in with any Azure AD user credentials. Next, go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Follow the prompts and provide the local administrator credentials when prompted. Reboot the device to finish the unjoin process.
 
@@ -169,7 +169,7 @@ This behavior isn't applicable to any other user who signs in to that device. So
 
 ---
 
-**Q: Why did my attempt to Azure AD join a PC fail, although I didn't get any error information?**
+**Q: Why did my try to Azure AD join a PC fail, although I didn't get any error information?**
 
 **A:** A likely cause is that you signed in to the device by using the local built-in administrator account. 
 Create a different local account before you use Azure Active Directory join to finish the setup. 
@@ -190,7 +190,7 @@ Create a different local account before you use Azure Active Directory join to f
 
 **A:** When your users add their accounts to apps on a domain-joined device, they might be prompted: **Add account to Windows?** If they enter **Yes** on the prompt, the device registers with Azure AD. The trust type is marked as Azure AD registered. After you enable Hybrid Azure AD join in your organization, the device also gets hybrid Azure AD joined. Then two device states show up for the same device. 
 
-However, hybrid Azure AD join takes precedence over the Azure AD registered state. So your device is considered hybrid Azure AD joined for any authentication and conditional access evaluation. You can safely delete the Azure AD registered device record from the Azure AD portal. Learn to [avoid or cleanup this dual state on the Windows 10 machine](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know) in the Hybrid Azure AD join article. 
+Hybrid Azure AD join takes precedence over the Azure AD registered state. So your device is considered hybrid Azure AD joined for any authentication and conditional access evaluation. You can safely delete the Azure AD registered device record from the Azure AD portal. Learn to [avoid or clean up this dual state on the Windows 10 machine](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know) in the Hybrid Azure AD join article. 
 
 ---
 
@@ -211,6 +211,6 @@ However, hybrid Azure AD join takes precedence over the Azure AD registered stat
 
 - The users included in your conditional access policy need a [supported version of Office for macOS](../conditional-access/technical-reference.md#client-apps-condition) to access resources. 
 
-- During the first access attempt, your users are prompted to enroll the device by using the company portal.
+- During the first access try, your users are prompted to enroll the device by using the company portal.
 
 ---
