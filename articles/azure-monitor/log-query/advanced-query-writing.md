@@ -19,7 +19,7 @@ ms.author: bwren
 # Writing advanced queries in Azure Monitor
 
 > [!NOTE]
-> You should complete [Get started with Log Analytics](get-started-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
+> You should complete [Get started with Azure Monitor log analytics](get-started-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

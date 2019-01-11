@@ -72,6 +72,10 @@ The following sample applications showcase a few of the ways the Face API can be
 - [Microsoft Face API: Windows Client Library & Sample](https://github.com/Microsoft/Cognitive-Face-Windows) - a WPF app that demonstrates several scenarios of Face detection, analysis and identification.
 - [FamilyNotes UWP app](https://github.com/Microsoft/Windows-appsample-familynotes) - a Universal Windows Platform (UWP) app that uses face identification along with speech, Cortana, ink, and camera in a family note-sharing scenario.
 
+## Data privacy and security
+
+As with all of the Cognitive Services, developers using the Face service should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/en-us/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
+
 ## Next steps
 
 Follow a quickstart to implement a simple face detection scenario in code.

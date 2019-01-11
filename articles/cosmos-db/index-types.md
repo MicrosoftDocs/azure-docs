@@ -58,8 +58,8 @@ Here are examples of queries that Hash, Range, and Spatial indexes can be used t
 
 Azure Cosmos DB returns an error when a query uses ORDER BY but doesn't have a Range index against the queried path with the maximum precision.
 
-  > [!NOTE]
-  > Azure Cosmos containers support a new index layout that no longer requires a custom index precision other than the maximum precision value(-1). With this method, paths are always indexed with the maximum precision. If you specify a precision value on the indexing policy, the CRUD requests on a containers will silently ignore the precision value and the response from the container only contains the maximum precision value(-1).  All new Cosmos containers use the new index layout by default.
+> [!NOTE]
+> Azure Cosmos containers support a new index layout that no longer requires a custom index precision other than the maximum precision value(-1). With this method, paths are always indexed with the maximum precision. If you specify a precision value on the indexing policy, the CRUD requests on a containers will silently ignore the precision value and the response from the container only contains the maximum precision value(-1).  All new Cosmos containers use the new index layout by default.
 
 ## Next steps
 
