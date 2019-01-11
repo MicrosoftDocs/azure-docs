@@ -608,7 +608,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Attribute|Type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Optional. Specifies the maximum amount of file system storage that is available for the specified data.<br /><br /> The default is 0.|  
-|**scheduledTransferLogLevelFilterr**|**string**|Optional. Specifies the minimum severity level for log entries that are transferred. The default value is **Undefined**, which transfers all logs. Other possible values (in order of most to least information) are **Verbose**, **Information**, **Warning**, **Error**, and **Critical**.|  
+|**scheduledTransferLogLevelFilter**|**string**|Optional. Specifies the minimum severity level for log entries that are transferred. The default value is **Undefined**, which transfers all logs. Other possible values (in order of most to least information) are **Verbose**, **Information**, **Warning**, **Error**, and **Critical**.|  
 |**scheduledTransferPeriod**|**duration**|Optional. Specifies the interval between scheduled transfers of data, rounded up to the nearest minute.<br /><br /> The default is PT0S.|  
 |**sinks** |**string**| Added in 1.5. Optional. Points to a sink location to also send diagnostic data. For example, Application Insights or Event Hubs.|  
 
