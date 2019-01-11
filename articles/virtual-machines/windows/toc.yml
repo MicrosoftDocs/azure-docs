@@ -430,6 +430,8 @@
     href: /rest/api/compute
   - name: Managed Disks REST
     href: /rest/api/compute/disks
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.compute/allversions
 - name: Resources
   items:
   - name: Author templates

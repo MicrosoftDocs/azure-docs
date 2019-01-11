@@ -22,7 +22,19 @@ In this article, you learn different methods of loading data using the [Azure Ma
 * Type-conversion using inference during file loading
 * Connection support for MS SQL Server and Azure Data Lake Storage
 
-## Load text line data 
+## Load data automatically
+
+To load data automatically without specifying the file type, use the `auto_read_file()` function. The type of the file and the arguments required to read it are inferred automatically.
+
+```python
+import azureml.dataprep as dprep
+
+dataflow = dprep.auto_read_file(path='./data/any-file.txt')
+```
+
+This function is useful when file type is not explicitly known. A usage example is a directory that contains hundreds of files of different types to be converted into dataflow objects. Iterating through each file path and calling `auto_read_file()` allows you to easily process the files in the directory into a list of dataflow objects.
+
+## Load text line data
 
 To read simple text data into a dataflow, use the `read_lines()` without specifying optional parameters.
 
@@ -183,7 +195,7 @@ dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
 
 The SDK can also load data from a SQL source. Currently, only Microsoft SQL Server is supported. To read data from a SQL server, create a `MSSQLDataSource` object that contains the connection parameters. The password parameter of `MSSQLDataSource` accepts a `Secret` object. You can build a secret object in two ways:
 
-* Register the secret and its value with the execution engine. 
+* Register the secret and its value with the execution engine.
 * Create the secret with only an `id` (if the secret value is already registered in the execution environment) using `dprep.create_secret("[SECRET-ID]")`.
 
 ```python
@@ -227,7 +239,7 @@ az account show --query tenantId
 dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > If your user account is a member of more than one Azure tenant, you need to specify the tenant in the AAD URL hostname form.
 
 ### Create a service principal with the Azure CLI
@@ -251,7 +263,7 @@ To configure the ACL for the Azure Data Lake Storage file system, use the object
 az ad sp show --id "8dd38f34-1fcb-4ff9-accd-7cd60b757174" --query objectId
 ```
 
-To configure `Read` and `Execute` access for the Azure Data Lake Storage file system, you configure the ACL for folders and files individually. This is due to the fact that the underlying HDFS ACL model doesn't support inheritance. 
+To configure `Read` and `Execute` access for the Azure Data Lake Storage file system, you configure the ACL for folders and files individually. This is due to the fact that the underlying HDFS ACL model doesn't support inheritance.
 
 ```azurecli
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r-x" --path /

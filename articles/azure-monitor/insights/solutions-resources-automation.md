@@ -391,7 +391,7 @@ The sample uses [standard solution parameters]( solutions-solution-file.md#param
 	    "scheduleStartTime": {
 	      "type": "string",
 	      "metadata": {
-	        "Description": "Start time for shedule."
+	        "Description": "Start time for schedule."
 	      }
 	    },
 	    "scheduleTimeZone": {

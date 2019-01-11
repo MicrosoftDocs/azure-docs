@@ -230,7 +230,7 @@ As we literally want to have one partition per letter, we can use 0 as the low k
             return String.Format(
                 "User {0} {1}",
                 user,
-                addResult ? "sucessfully added" : "already exists");
+                addResult ? "successfully added" : "already exists");
         }
     }
     ```

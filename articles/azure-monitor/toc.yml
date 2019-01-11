@@ -749,6 +749,8 @@
         items:  
         - name: Configure alerts on analytics query
           href: platform/alerts-log.md
+        - name: Log alert queries
+          href: platform/alerts-log-query.md
         - name: Webhook actions for log alerts
           href: platform/alerts-log-webhook.md
         - name: Troubleshooting log alerts

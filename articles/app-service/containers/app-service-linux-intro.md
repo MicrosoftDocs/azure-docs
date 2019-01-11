@@ -4,8 +4,8 @@ description: Learn about Azure App Service on Linux.
 keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: ''
-author: naziml
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/09/2018
-ms.author: wesmc
+ms.date: 1/11/2019
+ms.author: msangapu;yili
 ms.custom: mvc
 ms.custom: seodec18
 
@@ -33,7 +33,7 @@ App Service on Linux supports a number of Built-in images in order to increase d
 | Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10 |
 | Java * | Tomcat 8.5, 9.0, Java SE, WildFly 14 (all running JRE 8) |
 | PHP | 5.6, 7.0, 7.2 |
-| Python (Preview) | 3.6, 3.7 |
+| Python (Preview) | 2.7, 3.6, 3.7 |
 | .NET Core | 1.0, 1.1, 2.0, 2.1 |
 | Ruby | 2.3 |
 
