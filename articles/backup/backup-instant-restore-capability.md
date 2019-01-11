@@ -1,6 +1,6 @@
 ---
-title: Upgrade to the Azure VM Backup Stack V2
-description: Upgrade process and FAQs for VM backup stack, Resource Manager deployment model
+title: Instant Restore Capability
+description: Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
 services: backup
 author: trinadhk
 manager: vijayts
