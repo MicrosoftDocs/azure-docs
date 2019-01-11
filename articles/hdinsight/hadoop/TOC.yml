@@ -51,7 +51,7 @@
       href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
     - name: Using Azure Data Lake Store Gen2
-      href: ../hdinsight-hadoop-use-data-lake-store-gen2.md
+      href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
       maintainContext: true
   - name: Use Apache Hadoop for batch queries
     items:
