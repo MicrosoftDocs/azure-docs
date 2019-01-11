@@ -81,7 +81,7 @@ This update includes the following improvements for Azure Stack:
 Please review the [post update steps section](#post-update-steps) for more information on available hotfixes for 1809. Once the hotfix is available, make sure to apply it after updating to 1809 only if your network policies do not allow the public VIP network to access infrastructure resouces. 
 in 1811, this change will be applied to all systems. If you applied the hotfix in 1809, there is no further action required.  
 
-### Common Vulnerabilities and Exposures
+### Common vulnerabilities and exposures
 
 This update installs the following security updates:  
 
