@@ -368,7 +368,7 @@ omsagent   2         2         2         2            2           beta.kubernete
 Use the `aks show` command to get details such as is the solution enabled or not, what is the Log Analytics workspace resourceID, and summary details about the cluster.  
 
 ```azurecli
-az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
+az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about solution.  The results of the command should show the monitoring add-on profile and resembles the following example output:
