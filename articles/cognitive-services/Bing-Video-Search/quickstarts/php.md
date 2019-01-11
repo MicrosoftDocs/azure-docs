@@ -24,7 +24,7 @@ Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservic
 
 * PHP 5.6 or later
 
-[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](cognitive-services-bing-video-search-signup-requirements.md)
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)
 
 ## Running the application
 

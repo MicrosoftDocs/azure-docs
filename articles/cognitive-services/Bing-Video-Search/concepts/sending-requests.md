@@ -16,7 +16,7 @@ ms.author: aahill
 
 This article describes the parameters and attributes of requests sent to the Bing Video Search API, as well as the JSON response object it returns.
 
-[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](cognitive-services-bing-video-search-signup-requirements.md)
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)
 
 ## Sending a request
 
@@ -136,8 +136,8 @@ BingAPIs-Market: en-US
 
 Try out the API. Go to [Video Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8). 
 
-For details about consuming the response objects, see [Searching the Web for Videos](./search-the-web.md).
+For details about consuming the response objects, see [Searching the Web for Videos](../search-the-web.md).
 
-For details about getting insights about a video such as related searches, see [Video Insights](./video-insights.md).  
+For details about getting insights about a video such as related searches, see [Video Insights](../video-insights.md).  
   
-For details about videos that are trending on social media, see [Trending Videos](./trending-videos.md).  
+For details about videos that are trending on social media, see [Trending Videos](../trending-videos.md).  

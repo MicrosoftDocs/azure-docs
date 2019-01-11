@@ -26,8 +26,7 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
 
 * Python [2.x or 3.x](https://python.org)
 
-[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](cognitive-services-bing-video-search-signup-requirements.md)
-
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)
 
 ## Initialize the application
 

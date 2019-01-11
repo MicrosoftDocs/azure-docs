@@ -23,7 +23,7 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
 * The Request module for JavaScript
     * You can install this module using `npm install request`
 
-[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](cognitive-services-bing-video-search-signup-requirements.md)
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)
 
 ## Initialize the application
 

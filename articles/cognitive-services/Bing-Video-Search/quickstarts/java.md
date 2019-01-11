@@ -22,7 +22,7 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
 
 * The [Gson library](https://github.com/google/gson)
 
-[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](cognitive-services-bing-video-search-signup-requirements.md)
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)
 
 
 ## Create and initialize a project
