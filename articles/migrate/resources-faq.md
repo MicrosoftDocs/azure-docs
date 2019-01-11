@@ -4,7 +4,7 @@ description: Addresses frequently asked questions about Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/11/2019
 ms.author: snehaa
 ---
 
@@ -48,6 +48,7 @@ Azure Migrate currently supports Europe, United States and Azure Government as t
 **Geography** | **Metadata storage location**
 --- | ---
 Azure Government | US Gov Virginia
+Asia | Southeast Asia
 Europe | North Europe or West Europe
 Unites States | East US of West Central US
 
@@ -58,6 +59,17 @@ The connection can be over the internet or use ExpressRoute with public peering.
 ### Can I harden the VM set up with the OVA template?
 
 Additional components (for example anti-virus) can be added into the OVA template as long as the communication and firewall rules required for the Azure Migrate appliance to work are left as is.   
+
+### To harden the Azure Migrate appliance, what are the recommended Antivirus (AV) exclusions?
+
+You need to exclude the following folders in the appliance for antivirus scanning:
+
+- Folder that has the binaries for Azure Migrate Service. Exclude all sub-folders.
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate Web Applciation. Exclude all sub-folders.
+  %SystemDrive%\inetpub\wwwroot
+- Local Cache for Database and log files. Azure migrate service needs RW access to this folder.
+  %SystemDrive%\Profiler
 
 ## Discovery
 
@@ -131,16 +143,6 @@ If you have an environment that is shared across tenants and you do not want to 
 
 You can discover 1500 virtual machines in a single migration project. If you have more machines in your on-premises environment, [learn more](how-to-scale-assessment.md) about how you can discover a large environment in Azure Migrate.
 
-### To harden the Azure Migrate appliance, what are the recommended Antivirus (AV) exclusions?
-
-You need to exclude the following folders in the appliance for antivirus scanning:
-
-- Folder that has the binaries for Azure Migrate Service. Exclude all sub-folders.
-  %ProgramFiles%\ProfilerService  
-- Azure Migrate Web Applciation. Exclude all sub-folders.
-  %SystemDrive%\inetpub\wwwroot
-- Local Cache for Database and log files. Azure migrate service needs RW access to this folder.
-  %SystemDrive%\Profiler
 
 ## Assessment
 

@@ -6,7 +6,7 @@ author: shizn
 manager: philmea
 
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 01/10/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
@@ -22,8 +22,11 @@ The Azure IoT Edge Tools for Visual Studio provides the following benefits:
 - Code your Azure IoT modules in C# while having all of the benefits of Visual Studio development.
 - Manage Azure IoT Edge devices and modules with UI.
 
-This article shows you how to use the Azure IoT Edge Tools for Visual Studio 2017 to develop your IoT Edge modules in C#. You also learn how to deploy your project to your Azure IoT Edge device.
+This article shows you how to use the Azure IoT Edge Tools for Visual Studio 2017 to develop your IoT Edge modules in C#. You also learn how to deploy your project to your Azure IoT Edge device. 
 
+  > [!TIP]
+  > The IoT Edge project structure created by Visual Studio is not the same as in Visual Studio Code.
+  
 ## Prerequisites
 
 This article assumes that you use a computer or virtual machine running Windows as your development machine. Your IoT Edge device can be another physical device.

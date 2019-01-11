@@ -189,8 +189,7 @@
       href: how-to-connect-azureadaccount.md
     - name: Change the AD DS Connector account password
       href: how-to-connect-sync-change-addsacct-pass.md
-    - name: What is the ADConnectivityTools PowerShell module?
-      href: how-to-connect-adconnectivitytools.md
+  
   - name: Manage Pass-through authentication  
     items:
     - name: Get started with pass-through authentication
@@ -269,6 +268,8 @@
          href: how-to-connect-sync-service-manager-ui-mvsearch.md
   - name: Troubleshoot
     items:
+    - name: What is the ADConnectivityTools PowerShell module?
+      href: how-to-connect-adconnectivitytools.md
     - name: Connectivity
       href: tshoot-connect-connectivity.md
     - name: Errors during synchronization
