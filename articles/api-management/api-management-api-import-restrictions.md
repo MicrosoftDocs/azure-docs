@@ -31,7 +31,7 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 * **$ref** pointers can't reference external files.
 * **x-ms-paths** and **x-servers** are the only supported extensions.
 * Custom extensions are ignored on import and aren't saved or preserved for export.
-* **Recursion** - API Management doesn't support definitions defined recursively (for example, referring to themselves).
+* **Recursion** - API Management doesn't support definitions defined recursively (for example, schemas referring to themselves).
 * Source file URL (if available) is applied to relative server URLs.
 
 ### <a name="open-api-v2"> </a>OpenAPI version 2
