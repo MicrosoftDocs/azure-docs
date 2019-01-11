@@ -40,6 +40,8 @@
     href: ./ansible-create-configure-azure-web-apps.md
   - name: Scale Azure Web Apps
     href: ./ansible-scale-azure-web-apps.md
+  - name: Create and configure route tables
+    href: ./ansible-create-configure-route-table.md
 - name: Reference
   items:
   - name: Playbook roles

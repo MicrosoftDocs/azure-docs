@@ -102,7 +102,7 @@ Update the DNS zone file foCreate web apps and publishr the domain. Azure AD can
 Set up hybrid CI/CD to deploy Web App to Azure and Azure Stack, and auto push changes to both clouds.
 
 > [!Note]  
-> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" section for Azure Stack Operator.
+> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation [Before you get started with App Service on Azure Stack](../azure-stack-app-service-before-you-get-started.md) section for Azure Stack Operator.
 
 #### Add Code to Azure Repos
 
@@ -251,7 +251,7 @@ Azure DevOps and Azure DevOps Server provide a highly configurable and manageabl
 > [!Note]  
 >  Use a CNAME for all custom DNS names except a root domain (for example,northwind.com).
 
-To migrate a live site and its DNS domain name to App Service, see [Migrate an active DNS name to Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-custom-domain-name-migrate).
+To migrate a live site and its DNS domain name to App Service, see [Migrate an active DNS name to Azure App Service](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain).
 
 ### Prerequisites
 
@@ -272,7 +272,7 @@ Update the DNS zone file for the domain. Azure AD will verify ownership of the c
 For example, to add DNS entries fornorthwindcloud.comandwww.northwindcloud.com, configure DNS settings for thenorthwindcloud.com root domain.
 
 > [!Note]  
->  A domain name may be purchased using the [Azure portal](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).  
+>  A domain name may be purchased using the [Azure portal](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).  
 > To map a custom DNS name to a web app, the web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**).
 
 

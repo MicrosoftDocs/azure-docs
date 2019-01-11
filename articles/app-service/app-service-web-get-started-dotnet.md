@@ -25,7 +25,7 @@ ms.custom: seodec18
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create a .NET Core web app in App Service on Linux](./containers/quickstart-dotnetcore.md). 
 >
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET Core web app to Azure App Service. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET Core web app to Azure App Service. When you're finished, you'll have a resource group that consists of an App Service plan and an App Service app with a deployed web application.
 
 ![](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
@@ -144,13 +144,13 @@ When publishing completes, Visual Studio launches a browser to the URL of the we
 
 ![Updated ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
-## Manage the Azure web app
+## Manage the Azure app
 
 Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app.
 
-From the left menu, select **App Services**, and then select the name of your Azure web app.
+From the left menu, select **App Services**, and then select the name of your Azure app.
 
-![Portal navigation to Azure web app](./media/app-service-web-get-started-dotnet/access-portal.png)
+![Portal navigation to Azure app](./media/app-service-web-get-started-dotnet/access-portal.png)
 
 You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
 

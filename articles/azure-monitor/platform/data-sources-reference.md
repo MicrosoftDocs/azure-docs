@@ -25,7 +25,7 @@ Across the Azure platform, we are bringing together monitoring data in a single 
 | Activity Log | Events | All Azure services | <ul><li>**REST API:** [Azure Monitor Events API](https://docs.microsoft.com/rest/api/monitor/eventcategories)</li><li>**Storage blob or event hub:** [Log Profile](activity-logs-overview.md#export-the-activity-log-with-a-log-profile)</li></ul> |
 | Azure Monitor Diagnostic Logs | Events | [See list here](tutorial-dashboards.md) | <ul><li>**Storage blob or event hub:** [Diagnostic Settings](diagnostic-logs-overview.md#diagnostic-settings)</li></ul> |
 | Compute guest OS logs (eg. IIS, ETW, syslogs) | Events | [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) and Linux Virtual Machines (v2), [Cloud Services](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Storage table or blob:** [Windows or Linux Azure diagnostics](diagnostics-extension-to-storage.md)</li><li>**Event hub:** [Windows Azure diagnostics](diagnostics-extension-stream-event-hubs.md)</li></ul> |
-| App Service logs | Events | App services | <ul><li>**File, table, or blob storage:** [Web app diagnostics](../../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
+| App Service logs | Events | App services | <ul><li>**File, table, or blob storage:** [Web app diagnostics](../../app-service/troubleshoot-diagnostic-logs.md)</li></ul> |
 | Storage logs | Events | Azure Storage | <ul><li>**Storage table:** [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Security Center alerts | Events | Azure Security Center | <ul><li>**REST API:** [Security Alerts](https://msdn.microsoft.com/library/mt704050.aspx)</li></ul> |
 | Active Directory reporting | Events | Azure Active Directory | <ul><li>**REST API:** [Azure Active Directory graph API](../../active-directory/reports-monitoring/concept-reporting-api.md)</li></ul> |
@@ -35,8 +35,8 @@ Across the Azure platform, we are bringing together monitoring data in a single 
 | Azure Monitor Activity Log alerts | Notifications | All Azure services | <ul><li>**Webhook:** Azure Activity Log alerts</li></ul> |
 | Autoscale notifications | Notifications | [See list here](autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [Autoscale notification webhook payload schema](autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
 | Log Search Query alerts | Notifications | Log Analytics | <ul><li>**Webhook:** [Webhook action for log alert rules](alerts-log-webhook.md)</li></ul> |
-| Application Insights metric alerts | Notifications | Application Insights | <ul><li>**Webhook:** [Application Insights alerts](../../application-insights/app-insights-alerts.md)</li></ul> |
-| Application Insights web tests | Notifications | Application Insights | <ul><li>**Webhook:** [Application Insights alerts](../../application-insights/app-insights-alerts.md)</li></ul> |
+| Application Insights metric alerts | Notifications | Application Insights | <ul><li>**Webhook:** [Application Insights alerts](../../azure-monitor/app/alerts.md)</li></ul> |
+| Application Insights web tests | Notifications | Application Insights | <ul><li>**Webhook:** [Application Insights alerts](../../azure-monitor/app/alerts.md)</li></ul> |
 
 ## Next steps
 

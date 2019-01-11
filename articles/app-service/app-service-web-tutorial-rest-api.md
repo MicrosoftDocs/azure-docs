@@ -129,7 +129,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### Browse to the Azure web app
+### Browse to the Azure app
 
 Navigate to `http://<app_name>.azurewebsites.net/swagger` in a browser and play with the Swagger UI.
 

@@ -18,13 +18,13 @@ ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
 ---
-# Build a .NET Core and SQL Database web app in Azure App Service on Linux
+# Build a .NET Core and SQL Database app in Azure App Service on Linux
 
 > [!NOTE]
-> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Build a .NET Core and SQL Database web app in Azure App Service](../app-service-web-tutorial-dotnetcore-sqldb.md).
+> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Build a .NET Core and SQL Database app in Azure App Service](../app-service-web-tutorial-dotnetcore-sqldb.md).
 >
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a .NET Core web app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service on Linux.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a .NET Core app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service on Linux.
 
 ![app running in App Service on Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
@@ -175,7 +175,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 Next, set `ASPNETCORE_ENVIRONMENT` app setting to _Production_. This setting lets you know whether you are running in Azure, because you use SQLite for your local development environment and SQL Database for your Azure environment.
 
-The following example configures a `ASPNETCORE_ENVIRONMENT` app setting in your Azure web app. Replace the *\<app_name>* placeholder.
+The following example configures a `ASPNETCORE_ENVIRONMENT` app setting in your Azure app. Replace the *\<app_name>* placeholder.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -246,9 +246,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### Browse to the Azure web app
+### Browse to the Azure app
 
-Browse to the deployed web app using your web browser.
+Browse to the deployed app using your web browser.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -350,21 +350,21 @@ git commit -m "added done field"
 git push azure master
 ```
 
-Once the `git push` is complete, navigate to your Azure web app and try out the new functionality.
+Once the `git push` is complete, navigate to your Azure app and try out the new functionality.
 
-![Azure web app after Code First Migration](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
+![Azure app after Code First Migration](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
 All your existing to-do items are still displayed. When you republish your .NET Core app, existing data in your SQL Database is not lost. Also, Entity Framework Core Migrations only changes the data schema and leaves your existing data intact.
 
-## Manage your Azure web app
+## Manage your Azure app
 
-Go to the [Azure portal](https://portal.azure.com) to see the web app you created.
+Go to the [Azure portal](https://portal.azure.com) to see the app you created.
 
-From the left menu, click **App Services**, then click the name of your Azure web app.
+From the left menu, click **App Services**, then click the name of your Azure app.
 
-![Portal navigation to Azure web app](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
+![Portal navigation to Azure app](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
 
-By default, the portal shows your web app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
+By default, the portal shows your app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
 ![App Service page in Azure portal](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
 
@@ -383,7 +383,7 @@ What you learned:
 > * Stream logs from Azure to your terminal
 > * Manage the app in the Azure portal
 
-Advance to the next tutorial to learn how to map a custom DNS name to your web app.
+Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md)

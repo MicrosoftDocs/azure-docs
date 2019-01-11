@@ -1,6 +1,6 @@
 ---
 title: Azure CLI Script Sample - Create app and deploy code from local Git repo | Microsoft Docs
-description: Azure CLI Script Sample - Create a web app and deploy code from a local Git repository
+description: Azure CLI Script Sample - Create an App Service app and deploy code from a local Git repository
 services: app-service\web
 documentationcenter: 
 author: msangapu
@@ -20,9 +20,9 @@ ms.custom: mvc
 ms.custom: seodec18
 ---
 
-# Create a web app and deploy code from a local Git repository using Azure CLI
+# Create an App Service app and deploy code from a local Git repository using Azure CLI
 
-This sample script creates a web app in App Service with its related resources, and then deploys your web app code in a local Git repository.
+This sample script creates a app in App Service with its related resources, and then deploys your app code in a local Git repository.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -33,7 +33,7 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-local-git/deploy-local-git.sh?highlight=3-5 "Create a web app and deploy code from a local Git repository")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-local-git/deploy-local-git.sh?highlight=3-5 "Create an app and deploy code from a local Git repository")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -45,7 +45,7 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Creates a resource group in which all resources are stored. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Creates an App Service plan. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an Azure web app. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an App Service app. |
 | [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) | Sets the account-level deployment credentials for App Service. |
 | [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) | Creates a source control configuration for a local Git repository. |
 

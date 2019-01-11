@@ -37,7 +37,11 @@ For detailed information about live encoding with Media Services, see [Live stre
 
 ## Live encoders that output RTMP
 
-Media Services recommends using one of following live encoders that have RTMP as output:
+Media Services recommends using one of following live encoders that have RTMP as output. The supported URL schemes are `rtmp://` or `rtmps://`.
+
+> [!NOTE]
+ > When streaming via RTMP, check firewall and/or proxy settings to confirm that outbound TCP ports 1935 and 1936 are open.<br/>
+ When streaming via RTMPS, check firewall and/or proxy settings to confirm that outbound TCP ports 2935 and 2936 are open.
 
 - Adobe Flash Media Live Encoder 3.2
 - Haivision KB
@@ -54,7 +58,7 @@ Media Services recommends using one of following live encoders that have RTMP as
 
 ## Live encoders that output fragmented-MP4
 
-Media Services recommends using one of the following live encoders that have multi-bitrate fragmented-MP4 (Smooth Streaming) as output:
+Media Services recommends using one of the following live encoders that have multi-bitrate Smooth Streaming (fragmented-MP4) as output. The supported URL schemes are `rtmp://` or `rtmps://`.
 
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200

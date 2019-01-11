@@ -187,4 +187,4 @@ You can optionally modify these build and release pipelines to meet the needs of
 To learn more about using the Kubernetes dashboard, see:
 
 > [!div class="nextstepaction"]
-> [Use the Kubernetes dashboard](https://docs.microsoft.com/en-us/azure/aks/kubernetes-dashboard)
+> [Use the Kubernetes dashboard](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)

@@ -98,7 +98,7 @@ Give the service principal access to your subscription so that the principal can
 
 1. Select the subscription created by your operator for using the Kubernetes Cluster.
 
-1. Select **Access control (IAM)** > Select **+ Add**.
+1. Select **Access control (IAM)** > Select **Add role assignment**.
 
 1. Select the **Contributor** role.
 

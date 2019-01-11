@@ -22,7 +22,7 @@ The application is based on the Microsoft [Cognitive Services Speech SDK](https:
 
 ## Prerequisites
 
-* A subscription key for the Speech service. See [Try the Speech Service for free](get-started.md).
+* An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 * A current version of [Node.js](https://nodejs.org).
 
 ## Create a new project folder
@@ -116,10 +116,7 @@ You can run the sample from Visual Studio Code as well. Follow these steps to in
 
    ![Screenshot of debug console](media/sdk/qs-js-node-07-debug_output.png)
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/js-node` folder.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get our samples](speech-sdk.md#get-the-samples)
+> [Explore Node.js samples on GitHub](https://aka.ms/csspeech/samples)

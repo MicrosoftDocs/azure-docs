@@ -5,11 +5,10 @@ description: Learn how to recognize speech in Java on Android by using the Speec
 services: cognitive-services
 author: fmegen
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/13/2018
 ms.author: wolfma
 ---
 
@@ -137,16 +136,12 @@ Press the button in the application to begin a speech recognition section. The n
 
 ![Screenshot of the Android application](media/sdk/qs-java-android-13-gui-on-device.png)
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/java-android` folder.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Recognize intents from speech by using the Speech SDK for Java](how-to-recognize-intents-from-speech-java.md)
+> [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)
 
 ## See also
 
-- [Translate speech](how-to-translate-speech-csharp.md)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)

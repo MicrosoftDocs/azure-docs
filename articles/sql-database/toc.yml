@@ -25,9 +25,9 @@
       href: sql-database-managed-instance-configure-p2s.md
   - name: Load data
     items:
-    - name: Import BACPAC into a single database
+    - name: Import BACPAC into a new database
       href: sql-database-import.md
-    - name: Restore a database backup to a Managed Instance
+    - name: Restore database backup to a Managed Instance
       href: sql-database-managed-instance-get-started-restore.md
   - name: Query
     href: sql-database-connect-query.md
@@ -152,7 +152,7 @@
     items:
     - name: Managed instances overview
       href: sql-database-managed-instance-index.yml
-    - name: Managed instance overview
+    - name: Managed instance capabilities
       href: sql-database-managed-instance.md
     - name: Management API reference
       href: sql-database-managed-instance-create-manage.md
@@ -198,7 +198,7 @@
     items:
     - name: Security overview
       href: sql-database-security-index.yml
-    - name: Security overview
+    - name: Security capabilities
       href: sql-database-security-overview.md
     - name: Advanced Threat Protection
       items:

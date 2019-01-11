@@ -9,7 +9,7 @@
   - name: About App Service Environments
     href: environment/intro.md
   - name: Compare hosting options
-    href: choose-web-site-cloud-service-vm.md
+    href: overview-compare.md
 - name: Quickstarts
   expanded: true
   items:
@@ -66,26 +66,26 @@
   - name: How App Service works
     href: app-service-how-works-readme.md
   - name: App Service plans
-    href: azure-web-sites-web-hosting-plans-in-depth-overview.md
+    href: overview-hosting-plans.md
   - name: OS functionality
     href: operating-system-functionality.md
   - name: Security
-    href: app-service-security.md
+    href: overview-security.md
     items:
     - name: Authentication and authorization
-      href: app-service-authentication-overview.md
+      href: overview-authentication-authorization.md
     - name: OS and runtime patching
-      href: app-service-patch-os-runtime.md
+      href: overview-patch-os-runtime.md
   - name: Inbound and outbound IPs
-    href: app-service-ip-addresses.md
+    href: overview-inbound-outbound-ips.md
   - name: Hybrid connections
     href: app-service-hybrid-connections.md
   - name: Traffic Manager integration
     href: web-sites-traffic-manager.md
   - name: Local cache
-    href: app-service-local-cache-overview.md
+    href: overview-local-cache.md
   - name: Diagnostics
-    href: app-service-diagnostics.md
+    href: overview-diagnostics.md
 - name: How-To guides
   items:
   - name: Configure app
@@ -115,17 +115,17 @@
     - name: Set deployment credentials
       href: deploy-configure-credentials.md
     - name: Create staging environments
-      href: web-sites-staged-publishing.md
+      href: deploy-staging-slots.md
     - name: Resource Manager template guidance
-      href: web-sites-rm-template-guidance.md
+      href: deploy-resource-manager-template.md
   - name: Map custom domain
     items:
     - name: Buy domain
-      href: custom-dns-web-site-buydomains-web-app.md
+      href: manage-custom-dns-buy-domain.md
     - name: Map domains with Traffic Manager
       href: web-sites-traffic-manager-custom-domain-name.md
     - name: Migrate an active domain
-      href: app-service-custom-domain-name-migrate.md
+      href: manage-custom-dns-migrate-domain.md
   - name: Secure app
     items:
     - name: Buy SSL cert
@@ -147,7 +147,7 @@
     - name: Restrict IPs
       href: app-service-ip-restrictions.md
     - name: Use a managed identity
-      href: app-service-managed-service-identity.md
+      href: overview-managed-identity.md
     - name: Reference secrets from Key Vault
       href: app-service-key-vault-references.md
     - name: Use SSL cert in application code
@@ -163,19 +163,19 @@
     - name: Scale out to multiple instances
       href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
     - name: High density hosting
-      href: app-service-high-density-hosting.md
+      href: manage-scale-per-app.md
   - name: Monitor app
     items:
     - name: Quotas & alerts
       href: web-sites-monitor.md
     - name: Enable logs
-      href: web-sites-enable-diagnostic-log.md
+      href: troubleshoot-diagnostic-logs.md
   - name: Manage app
     items:
     - name: Manage the hosting plan
       href: app-service-plan-manage.md
     - name: Back up an app
-      href: web-sites-backup.md
+      href: manage-backup.md
     - name: Restore a backup
       href: web-sites-restore.md
     - name: Restore a snapshot
@@ -187,9 +187,9 @@
   - name: Run background tasks
     items:
     - name: Create WebJobs
-      href: web-sites-create-web-jobs.md
+      href: webjobs-create.md
     - name: Develop WebJobs using VS
-      href: websites-dotnet-deploy-webjobs.md
+      href: webjobs-dotnet-deploy-vs.md
     - name: Get started with WebJobs SDK
       href: webjobs-sdk-get-started.md
     - name: Use WebJobs SDK
@@ -229,7 +229,7 @@
   - name: Troubleshooting
     items:
     - name: Troubleshoot with Visual Studio
-      href: web-sites-dotnet-troubleshoot-visual-studio.md
+      href: troubleshoot-dotnet-visual-studio.md
     - name: Troubleshoot Node.js app
       href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
     - name: Troubleshoot HTTP 502 & 503

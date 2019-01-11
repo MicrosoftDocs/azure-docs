@@ -213,7 +213,7 @@ The most likely cause of this exception is that not enough heap memory is alloca
 
 ### Additional reading
 
-- [Apache Spark memory management overview](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
+- [Apache Spark memory management overview](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 - [Debug an Apache Spark application on an HDInsight cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 

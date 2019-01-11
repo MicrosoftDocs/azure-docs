@@ -60,7 +60,7 @@ See [Create a Java web app in App Service on Linux](https://docs.microsoft.com/a
 
 ## Scaling
 
-* Customers can scale web apps up and down by changing the tier of their [App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview?toc=%2fazure%2fapp-service-web%2ftoc.json)
+* Customers can scale web apps up and down by changing the tier of their [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
 ## Locations
 
@@ -90,7 +90,7 @@ You can access the SCM site from **Advanced Tools** in the **Development Tools**
 The following articles get you started with App Service on Linux with web apps written in a variety of languages:
 
 * [.NET Core](quickstart-dotnetcore.md)
-* [PHP](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-php)
+* [PHP](https://docs.microsoft.com/azure/app-service/containers/quickstart-php)
 * [Node.js](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
 * [Python](quickstart-python.md)
@@ -102,7 +102,7 @@ Also see the following articles for more details on App Service on Linux:
 
 * [App Service for Linux FAQ](app-service-linux-faq.md)
 * [SSH support for App Service on Linux](app-service-linux-ssh-support.md)
-* [Set up staging environments in App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Set up staging environments in App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Docker Hub continuous deployment](app-service-linux-ci-cd.md)
 
 You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
