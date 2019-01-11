@@ -36,7 +36,7 @@ For a list of issues fixed in this release, please see [this section](../azure-s
 
 ### Known issues
 
-For a list of known issues in this release, please see [this section](../azure-stack-update-1901.md#known-issues).
+For a list of known issues in this release, please see [this section](../azure-stack-update-1901.md#known-issues-post-installation).
 
 ## Build 1.1811.0.101
 
@@ -52,7 +52,7 @@ For a list of issues fixed in this release, please see [this section](../azure-s
 
 ### Known issues
 
-For a list of known issues in this release, please see [this section](../azure-stack-update-1811.md#known-issues).
+For a list of known issues in this release, please see [this section](../azure-stack-update-1811.md#known-issues-post-installation).
 
 ## Build 1.1809.0.90
 
@@ -73,4 +73,4 @@ For a list of issues fixed in this release, please see [this section](../azure-s
 
 ### Known issues
 
-For a list of known issues in this release, please see [this section](../azure-stack-update-1809.md#known-issues).
+For a list of known issues in this release, please see [this section](../azure-stack-update-1809.md#known-issues-post-installation).
