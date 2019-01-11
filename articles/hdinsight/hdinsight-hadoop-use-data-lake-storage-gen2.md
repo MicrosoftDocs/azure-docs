@@ -27,23 +27,23 @@ To create a HDInsight cluster, which uses ADLS Gen2 for storage, use the followi
 
 1. Create a user-assigned managed identity, if you don’t already have one. See [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](/../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal#create-a-user-assigned-managed-identity.md).
 
-    ![Create a user-assigned managed identity](media/hdinsight-hadoop-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
+    ![Create a user-assigned managed identity](./media/hdinsight-hadoop-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
 1. Create an Azure Data Lake Storage Gen2 storage account. Ensure that the **Hierarchical filesystem** option is enabled. See [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](/../storage/blobs/data-lake-storage-quickstart-create-account.md) for more details.
 
-    ![Screen shot showing storage account creation in the Azure portal](media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
+    ![Screen shot showing storage account creation in the Azure portal](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
  
 1. Assigned the managed identity to the **contributor** role on the storage account. See [Manage access rights to Azure Blob and Queue data with RBAC (Preview)](/../storage/common/storage-auth-aad-rbac#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal.md)
 
     1. In the [Azure portal](https://portal.azure.com), navigate to your storage account.
     1. Select your storage account, then select **Access control (IAM)** to display access control settings for the account. Select the **Role assignments** tab to see the list of role assignments.
     
-        ![Screen shot showing storage access control settings](media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
+        ![Screen shot showing storage access control settings](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
     1. Click the **Add role assignment** button to add a new role.
     1. In the **Add role assignment** window, select the **Contributor** role. Then, select the subscription that has the managed identity and storage account. Next, search to locate the user-assigned managed identity that you created previously. Finally, select the managed identity and it will be listed under **Selected members**.
     
-        ![Screenshot showing how to assign an RBAC role](media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role2.png)
+        ![Screenshot showing how to assign an RBAC role](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role2.png)
     
     1. Click **Save**. The user-assigned identity that you selected is now listed under the **Contributor** role.
 
