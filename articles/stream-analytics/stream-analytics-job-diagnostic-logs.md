@@ -7,12 +7,12 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/10/2018
 ms.custom: seodec18
 ---
 # Troubleshoot Azure Stream Analytics by using diagnostics logs
 
-Occasionally, an Azure Stream Analytics job unexpectedly stops processing. It's important to be able to troubleshoot this kind of event. The event might be caused by an unexpected query result, by connectivity to devices, or by an unexpected service outage. The diagnostics logs in Stream Analytics can help you identify the cause of issues when they occur, and reduce recovery time.
+Occasionally, an Azure Stream Analytics job unexpectedly stops processing. It's important to be able to troubleshoot this kind of event. The event might be caused by an unexpected query result, by connectivity to devices, or by an unexpected service outage. The diagnostics logs in Stream Analytics can help you identify the cause of issues when they occur and reduce recovery time.
 
 ## Log types
 
@@ -24,17 +24,17 @@ Stream Analytics offers two types of logs:
 > You can use services like Azure Storage, Azure Event Hubs, and Azure Log Analytics to analyze nonconforming data. You are charged based on the pricing model for those services.
 >
 
-## Turn on diagnostics logs
+## Send diagnostics to Log Analytics
 
 Diagnostics logs are **off** by default. To turn on diagnostics logs, complete these steps:
 
-1.  Sign in to the Azure portal, and go to the streaming job blade. Under **Monitoring**, select **Diagnostics logs**.
+1.  Sign in to the Azure portal, and navigate to your Stream Analytics job. Under **Monitoring**, select **Diagnostics logs**. Then select **Turn on diagnostics**.
 
     ![Blade navigation to diagnostics logs](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Select **Turn on diagnostics**.
+2.  Create a **Name** in **Diagnostic settings** and check the box next to **Send to Log Analytics**. Then add an existing or create a new **Log analytics workspace**. Check the boxes for **Execution** and **Authoring** under **LOG**.
 
-    ![Turn on Stream Analytics diagnostics logs](./media/stream-analytics-job-diagnostic-logs/turn-on-diagnostic-logs.png)
+    ![Settings for diagnostics logs](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
 3.  On the **Diagnostics settings** page, for **Status**, select **On**.
 
