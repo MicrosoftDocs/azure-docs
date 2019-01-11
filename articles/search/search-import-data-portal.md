@@ -30,7 +30,7 @@ If you are new to Azure Search, step through the [Quickstart: Import, index, and
 
 ## How to start Import data
 
-This section explains how to start the wziard and provides a high-level overview of what you will accomplish.
+This section explains how to start the wizard and provides a high-level overview of what you will accomplish.
 
 1. In the [Azure portal](https://portal.azure.com), open the search service page from the dashboard or [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list.
 
@@ -89,7 +89,7 @@ For a functional index, make sure you have the following elements defined.
 1. Set index attributes for each field. If you select no attributes, your index is essentially empty, except for the required key field. At a minimum, choose 
    
    + **Retrievable** returns the field in search results. Every field that provides content to search results must have this attribute. Setting this field does not appreciably effect index size.
-   + **Filterable** allows the field to be referenced in filter expressions. Every field used in a **$filter**  expression must have this attribute. Filter expressions are for exact matches. Because text strings remain intact, additional storage is required to accomodate the verbatim content.
+   + **Filterable** allows the field to be referenced in filter expressions. Every field used in a **$filter**  expression must have this attribute. Filter expressions are for exact matches. Because text strings remain intact, additional storage is required to accommodate the verbatim content.
    + **Searchable** enables full-text search. Every field used in free form queries or in query expressions must have this attribute. Inverted indexes are created for each field that you mark as **Searchable**.
 
 1. Optionally, set these attribute as needed:
