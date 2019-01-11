@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/28/2018
+ms.date: 1/11/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by an Azure AD v2.0 endpoint using client credentials flow.
@@ -101,7 +101,7 @@ This quickstart requires [.NET Core 2.1](https://www.microsoft.com/net/download/
     
 #### Step 4: Admin consent
 
-If you try to run the application at this point, you will receive *HTTP 403 - Forbidden* error: `Authorization_RequestDenied: Insufficient privileges to complete the operation`. This happens because any *app-only permission* requires Admin consent, which means that an global administrator of your directory must give consent to your application. Select one of the options below depending your role:
+If you try to run the application at this point, you will receive *HTTP 403 - Forbidden* error: `Insufficient privileges to complete the operation`. This happens because any *app-only permission* requires Admin consent, which means that an global administrator of your directory must give consent to your application. Select one of the options below depending your role:
 
 ##### Global tenant administrator
 
@@ -144,7 +144,7 @@ dotnet run
 You should see a list of users in your Azure AD directory as result.
 
 > [!IMPORTANT]
-> This quickstart application uses a client secret to identify itself as confidential client application. Because the client secret is added as a plain-text to your project files, it is recommended that you replace the client secret methodology with a certificate prior to consider the application as production application. For instructions on how to use a certificate, please see [these instructions](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) in the GitHub repository for this sample.
+> This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) in the GitHub repository for this sample.
 
 ## More information
 
