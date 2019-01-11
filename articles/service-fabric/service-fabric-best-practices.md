@@ -115,7 +115,7 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 
 ### Azure Active Directory (AAD) for client identity
 -- ARM properties for enabling AAD
-### Compute Managed Service Identity (MSI)
+### Authenticate Service Fabric Applications to Azure Resources using Managed Service Identity (MSI)
 [Managed identities for Azure resources is a feature of Active Directory](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work).
 
 To [enable system-assigned managed identity during the creation of a virtual machines scale set or an existing virtual machines scale set](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss#system-assigned-managed-identity), declare the following Microsoft.Compute/virtualMachinesScaleSets" property:
