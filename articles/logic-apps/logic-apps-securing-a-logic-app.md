@@ -332,14 +332,14 @@ later on this page.
 To protect sensitive information in your logic app 
 workflow definition, use secured parameters so this 
 information isn't visible after you save your logic app. 
-For example, suppose you're using "Basic" authentication 
+For example, suppose you're using `Basic` authentication 
 in an HTTP action definition. This example includes a 
-`parameters` section that defines the parameters used in 
-the action definition plus an `authentication` section 
-that uses parameters for the username and password. 
-To specify values for these parameters, you can use 
+`parameters` section that defines the parameters for the 
+action definition plus an `authentication` section that 
+accepts `username` and `password` parameter values. 
+To provide values for these parameters, you can use 
 a separate parameters file. If using secrets, you can 
-retrieve secrets at deployment time by using 
+get those secrets at deployment time by using 
 [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
 ```json
@@ -396,7 +396,7 @@ logic app definition's `logicAppWfParam` parameter
 using basic authentication
 
 To specify the environment values for parameters, you can use a separate parameters file. 
-If using secrets, you can retrieve secrets at deployment time by using 
+If using secrets, you can get those secrets at deployment time by using 
 [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 The example includes an inner `parameters` section, which belongs to your logic app's 
 workflow definition, and an outer `parameters` section, which belongs to your deployment template.
