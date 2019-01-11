@@ -130,7 +130,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Clearing the existing login information from the azure powershell context
+# Clear the existing login information from the Azure PowerShell context.
 Clear-AzureRMContext -Scope CurrentUser -Force
 Clear-AzureRMContext -Scope Process -Force
 
