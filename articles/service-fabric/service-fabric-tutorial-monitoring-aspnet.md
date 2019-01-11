@@ -75,6 +75,8 @@ Follow these steps to configure Application Insights for both VotingWeb and Voti
 1. Right-click on the name of the service, and click **Configure Application Insights...**.
 
     ![Configure AI](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
+>[!NOTE]
+>Depending on the project type, when you Right-click on the name of the service, you may need to click Add-> Application Insights Telemetry ...
 
 2. Click **Start Free**.
 3. Sign in to your account (with which you also set up your Azure subscription) and select the subscription in which you created the Application Insights resource. Find the resource under *Existing Application Insights resource* in the "Resource" dropdown. Click **Register** to add Application Insights to your service.
@@ -187,11 +189,11 @@ Additionally, you can click *Application map* on the left menu on the Overview p
 
 ![AI trace details](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
-The App map can help you understand your application topology better, especially as you start adding multiple different services that work together. It also gives you basic data on request success rates, and can help you diagnose failed request to understand where things may have gone wrong. To learn more about using the App map, see [Application Map in Application Insights](../application-insights/app-insights-app-map.md).
+The App map can help you understand your application topology better, especially as you start adding multiple different services that work together. It also gives you basic data on request success rates, and can help you diagnose failed request to understand where things may have gone wrong. To learn more about using the App map, see [Application Map in Application Insights](../azure-monitor/app/app-map.md).
 
 ## Add custom instrumentation to your application
 
-Though Application Insights provides a lot of telemetry out of the box, you may want to add further custom instrumentation. This could be based on your business needs or to improve diagnostics when things go wrong in your application. Application Insights has an API to ingest custom events and metrics, which you can read more about [here](../application-insights/app-insights-api-custom-events-metrics.md).
+Though Application Insights provides a lot of telemetry out of the box, you may want to add further custom instrumentation. This could be based on your business needs or to improve diagnostics when things go wrong in your application. Application Insights has an API to ingest custom events and metrics, which you can read more about [here](../azure-monitor/app/api-custom-events-metrics.md).
 
 Let's add some custom events to *VoteDataController.cs* (under *VotingData* > *Controllers*) to track when votes are being added and deleted from the underlying *votesDictionary*.
 

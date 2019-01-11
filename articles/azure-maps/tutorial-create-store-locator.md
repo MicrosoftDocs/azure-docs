@@ -76,7 +76,7 @@ Looking at the screenshot of the data, we can make the following observations:
 * Some additional columns contain metadata related to the coffee shops: a phone number, Boolean columns for Wi-Fi hotspot and wheelchair accessibility, and store opening and closing times in 24-hour format. You can create your own columns that contain metadata that’s more relevant to your location data.
 
 > [!Note]
-> Azure maps uses a spherical Mercato projection (EPSG:3857).
+> Azure Maps renders data in the spherical Mercator projection "EPSG:3857" but reads data in "EPSG:4325" that use the WGS84 datum. 
 
 There are many ways to expose the dataset to the application. One approach is to load the data into a database and expose a web service that queries the data and sends the results to the user’s browser. This option is ideal for large datasets or for datasets that are updated frequently. However, this option requires significantly more development work and has a higher cost. 
 
@@ -104,7 +104,7 @@ To create the project, you can use [Visual Studio](https://visualstudio.microsof
 
 To create the user interface, add code to *index.html*:
 
-1. Add the following `meta` tags to the `head` of *index.html*. The tags define the character set (UTF-8), tell Internet Explorer and Edge to use the latest browser versions, and specify a viewport that works well for responsive layouts.
+1. Add the following `meta` tags to the `head` of *index.html*. The tags define the character set (UTF-8), tell Internet Explorer and Microsoft Edge to use the latest browser versions, and specify a viewport that works well for responsive layouts.
 
     ```HTML
     <meta charset="utf-8" /> 

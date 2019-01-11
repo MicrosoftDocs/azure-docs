@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs Get Connection String | Microsoft Docs
-description: Get an Azure Event Hubs connection string
+title: Get connection string - Azure Event Hubs | Microsoft Docs
+description: This article provides instructions for getting a connection string that clients can use to connect to Azure Event Hubs. 
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -8,7 +8,8 @@ manager: timlt
 
 ms.service: event-hubs
 ms.topic: article
-ms.date: 10/15/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
@@ -48,7 +49,7 @@ You can either add a new SAS policy and get the connection string or use the def
 ![Event Hubs get connection string](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## Getting the connection string with Azure PowerShell
-You can use the Get-AzureRmEventHubNamespaceKey to get the connection string for the specify policy/rule name as shown below:
+You can use the Get-AzureRmEventHubNamespaceKey to get the connection string for the specific policy/rule name as shown below:
 
 ```azurepowershell-interactive
 Get-AzureRmEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey

@@ -46,6 +46,7 @@ With Service Fabric Mesh you can:
 - Deploy and manage resources using the [Azure portal](https://portal.azure.com), Resource Manager templates, or Azure CLI/PowerShell libraries.
 - Set up operational monitoring and alerting using [Application Insights](/azure/application-insights/) (or your tool of choice) to capture operational and diagnostic traces from the platform.
 - Access application diagnostics information emitted from the application model using [Application Insights](/azure/application-insights/) or your tool of choice.
+- Optimize resource usage by specifying auto-scale rules for the services in the application definition.
 
 ## Mission critical platform capabilities
 

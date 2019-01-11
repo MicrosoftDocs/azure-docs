@@ -98,7 +98,7 @@ Give the service principal access to your subscription so that the principal can
 
 1. Select the subscription created by your operator for using the Kubernetes Cluster.
 
-1. Select **Access control (IAM)** > Select **+ Add**.
+1. Select **Access control (IAM)** > Select **Add role assignment**.
 
 1. Select the **Contributor** role.
 
@@ -176,6 +176,6 @@ You may also find the **Helm** package manager useful for installing and deployi
 
 ## Next steps
 
-[Add a Kubernetes to the Marketplace (for the Azure Stack operator)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Add a Kubernetes to the Marketplace (for the Azure Stack operator)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes on Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

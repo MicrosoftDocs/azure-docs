@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova 
 manager: craigg
-ms.date: 10/24/2018
+ms.date: 12/03/2018
 ---
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server
 
@@ -139,7 +139,7 @@ Managed Instance cannot access files so cryptographic providers cannot be create
 
 ### Collation
 
-Server collation is `SQL_Latin1_General_CP1_CI_AS` and cannot be changed. See [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations).
+The default instance collation is `SQL_Latin1_General_CP1_CI_AS` and can be specified as a creation parameter. See [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
 ### Database options
 
@@ -271,7 +271,8 @@ Operations
 ### Logins / users
 
 - SQL logins created `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, and `FROM SID` are supported. See [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Windows logins created with `CREATE LOGIN ... FROM WINDOWS` syntax are not supported.
+- Azure Active Directory (AAD) logins created with [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax or the [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax are supported (**public preview**).
+- Windows logins created with `CREATE LOGIN ... FROM WINDOWS` syntax are not supported. Use Azure Active Directory logins and users.
 - Azure Active Directory (Azure AD) user who created the instance has [unrestricted admin privileges](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
 - Non-administrator Azure Active Directory (Azure AD) database-level users can be created using `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
 
@@ -327,7 +328,7 @@ For information about Restore statements, see [RESTORE Statements](https://docs.
 Cross-instance service broker is not supported:
 
 - `sys.routes` - Prerequisite: select address from sys.routes. Address must be LOCAL on every route. See [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE` - you cannot `CREATE ROUTE` with `ADDRESS` other than `LOCAL`. See [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
+- `CREATE ROUTE` - you cannot use `CREATE ROUTE` with `ADDRESS` other than `LOCAL`. See [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
 - `ALTER ROUTE` cannot `ALTER ROUTE` with `ADDRESS` other than `LOCAL`. See [ALTER ROUTE](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).  
 
 ### Service key and service master key
@@ -421,14 +422,14 @@ The following variables, functions, and views return different results:
 
 Each Managed Instance has up to 35 TB storage reserved for Azure Premium Disk space, and each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on disk is not charged, but the total sum of Azure Premium Disk sizes cannot exceed 35 TB. In some cases, a Managed Instance that does not need 8 TB in total might exceed the 35 TB Azure limit on storage size, due to internal fragmentation.
 
-For example, a Managed Instance could have one file 1.2 TB in size that is placed on a 4 TB disk, and 248 files each 1 GB in size that are placed on separate 128 GB disks. In this example:
+For example, a Managed Instance could have one file 1.2 TB in size that is placed on a 4 TB disk, and 248 files (each 1 GB in size) that are placed on separate 128 GB disks. In this example:
 
-- the total disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB.
-- the total reserved space for databases on the instance is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB.
+- The total allocated disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB.
+- The total reserved space for databases on the instance is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB.
 
-This illustrates that under certain circumstance, due to a very specific distribution of files, a Managed Instance might reach the 35TB reserved for attached Azure Premium Disk when you might not expect it to.
+This illustrates that under certain circumstance, due to a specific distribution of files, a Managed Instance might reach the 35 TB reserved for attached Azure Premium Disk when you might not expect it to.
 
-In this example existing databases will continue to work and can grow without any problem as long as new files are not added. However new databases could not be created or restored because there is not enough space for new disk drives, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case is not clear.
+In this example, existing databases will continue to work and can grow without any problem as long as new files are not added. However new databases could not be created or restored because there is not enough space for new disk drives, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case is not clear.
 
 ### Incorrect configuration of SAS key during database restore
 
@@ -437,7 +438,10 @@ Make sure that you remove the leading `?` from the SAS key that is generated usi
 
 ### Tooling
 
-SQL Server Management Studio and SQL Server Data Tools might have some issues while accessing Managed Instance. All tooling issues will be addressed before General Availability.
+SQL Server Management Studio (SSMS) and SQL Server Data Tools (SSDT) might have some issues while accessing Managed Instance.
+
+- Using Azure AD logins and users (**public preview**) with SSDT is currently not supported.
+- Scripting for Azure AD logins and users (**public preview**) are not supported in SSMS.
 
 ### Incorrect database names in some views, logs, and messages
 
@@ -445,7 +449,7 @@ Several system views, performance counters, error messages, XEvents, and error l
 
 ### Database mail profile
 
-There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile`. This is a temporary limitation that will be removed soon.
+There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile`.
 
 ### Error logs are not-persisted
 
@@ -490,7 +494,7 @@ Although this code works with data within the same instance it required MSDTC.
 
 ### CLR modules and linked servers sometime cannot reference local IP address
 
-CLR modules placed in Managed Instance and linked servers/distributed queries that are referencing current instance sometime cannot resolve the IP of the local instance. This is transient error.
+CLR modules placed in Managed Instance and linked servers/distributed queries that are referencing current instance sometime cannot resolve the IP of the local instance. This error is a transient issue.
 
 **Workaround**: Use context connections in CLR module if possible.
 

@@ -123,7 +123,7 @@
         href: service-bus-amqp-request-response.md
     - name: Advanced features
       items:
-      - name: IP connection filters
+      - name: Use firewalls
         href: service-bus-ip-filtering.md
       - name: Virtual Network service endpoints
         href: service-bus-service-endpoints.md
@@ -194,6 +194,8 @@
     href: /powershell/module/azurerm.servicebus
   - name: REST
     href: /rest/api/servicebus
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.servicebus/allversions
   - name: Quotas
     href: service-bus-quotas.md
   - name: SQLFilter syntax

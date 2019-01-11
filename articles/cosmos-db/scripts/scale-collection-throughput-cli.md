@@ -2,11 +2,12 @@
 title: Azure CLI Script-Scale Azure Cosmos DB container throughput | Microsoft Docs
 description: Azure CLI Script Sample - Scale Azure Cosmos DB container throughput
 author: markjbrown
-
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
+ms.reviewer: sngun
 ---
 
 # Scale Azure Cosmos DB container throughput using the Azure CLI

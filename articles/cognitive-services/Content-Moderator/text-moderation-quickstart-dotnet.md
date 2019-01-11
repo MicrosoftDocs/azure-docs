@@ -44,59 +44,19 @@ Next, you'll copy and paste the code from this guide into your project to implem
 
 Add the following `using` statements to the top of your *Program.cs* file.
 
-```csharp
-using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading;
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=1-8)]
 
 ### Create the Content Moderator client
 
 Add the following code to your *Program.cs* file to create a Content Moderator client provider for your subscription. Add the code alongside the **Program** class, in the same namespace. You'll need to update the **AzureRegion** and **CMSubscriptionKey** fields with the values of your region identifier and subscription key.
 
-```csharp
-// Wraps the creation and configuration of a Content Moderator client.
-public static class Clients
-{
-	// The region/location for your Content Moderator account, 
-	// for example, westus.
-	private static readonly string AzureRegion = "YOUR API REGION";
-
-	// The base URL fragment for Content Moderator calls.
-	private static readonly string AzureBaseURL =
-		$"https://{AzureRegion}.api.cognitive.microsoft.com";
-
-	// Your Content Moderator subscription key.
-	private static readonly string CMSubscriptionKey = "YOUR API KEY";
-
-	// Returns a new Content Moderator client for your subscription.
-	public static ContentModeratorClient NewClient()
-	{
-		// Create and initialize an instance of the Content Moderator API wrapper.
-		ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
-
-		client.Endpoint = AzureBaseURL;
-		return client;
-	}
-}
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=54-77)]
 
 ### Set up input and output targets
 
 Add the following static fields to the **Program** class in _Program.cs_. These specify the files for input text content and output JSON content.
 
-```csharp
-// The name of the file that contains the text to evaluate.
-private static string TextFile = "TextFile.txt";
-
-// The name of the file to contain the output from the evaluation.
-private static string OutputFile = "TextModerationOutput.txt";
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
 You will need to create the *TextFile.txt* input file and update its path accordingly (relative paths are relative to the execution directory). Open _TextFile.txt_ and add the text to moderate. This quickstart uses the following sample text:
 
@@ -116,34 +76,7 @@ Add the following code to the **Main** method. The **ScreenText** method is the 
 
 If you want to learn more about what these operations do, follow the link in the [Next steps](#next-steps) section.
 
-```csharp
-// Load the input text.
-string text = File.ReadAllText(TextFile);
-Console.WriteLine("Screening {0}", TextFile);
-
-text = text.Replace(System.Environment.NewLine, " ");
-byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(text);
-MemoryStream stream = new MemoryStream(byteArray);
-
-// Save the moderation results to a file.
-using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
-{
-	// Create a Content Moderator client and evaluate the text.
-	using (var client = Clients.NewClient())
-	{
-		// Screen the input text: check for profanity,
-		// autocorrect text, check for personally identifying
-		// information (PII), and classify the text into three categories
-		outputWriter.WriteLine("Autocorrect typos, check for matching terms, PII, and classify.");
-		var screenResult =
-		client.TextModeration.ScreenText("text/plain", stream, "eng", true, true, null, true);
-		outputWriter.WriteLine(
-				JsonConvert.SerializeObject(screenResult, Formatting.Indented));
-	}
-	outputWriter.Flush();
-	outputWriter.Close();
-}
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=23-48)]
 
 ## Run the program
 

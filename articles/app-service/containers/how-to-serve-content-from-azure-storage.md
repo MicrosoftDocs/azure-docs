@@ -1,5 +1,5 @@
 ﻿---
-title: Serve content from Azure Storage in App Service on Linux
+title: Serve content from Azure Storage on Linux - App Service
 description: How to configure and serve content from Azure Storage in Azure App Service on Linux.
 author: msangapu
 manager: jeconnoc
@@ -9,6 +9,7 @@ ms.workload: web
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: msangapu
+ms.custom: seodec18
 ---
 # Serve content from Azure Storage in App Service on Linux
 
@@ -62,7 +63,7 @@ You should do this for any other directories you want to be linked to a storage 
 Once a storage container is linked to a web app, you can verify this by running the following command:
 
 ```azurecli
-az webapp conf storage-account list --resource-group <group_name> --name <app_name>
+az webapp config storage-account list --resource-group <group_name> --name <app_name>
 ```
 
 ## Next steps

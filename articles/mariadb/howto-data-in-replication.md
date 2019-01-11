@@ -3,8 +3,6 @@ title: Configure Data-in Replication to replicate data into Azure Database for M
 description: This article describes how to set up Data-in Replication for Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018

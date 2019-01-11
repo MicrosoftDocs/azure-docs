@@ -1,6 +1,6 @@
 ---
 title: How to use AMQP 1.0 with the Java Service Bus API | Microsoft Docs
-description: How to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0.
+description: How to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protocol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
 author: spelluru
@@ -63,7 +63,7 @@ queue.QUEUE = queue1
 #### Setup JNDI context and Configure the ConnectionFactory
 
 The **ConnectionString** referenced in the one available in the 'Shared Access Policies' in the [Azure Portal](https://portal.azure.com) under **Primary Connection String**
-```
+```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
 // connection string. 
@@ -86,7 +86,7 @@ Destination queue = (Destination) context.lookup("QUEUE");
 The entry used to define a destination in the Qpid properties file JNDI provider is of the following format:
 
 To create the destination queue for the Producer - 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -100,7 +100,7 @@ MessageProducer producer = session.createProducer(queue);
 ```
 
 To create a destination queue for the Consumer - 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -294,7 +294,7 @@ public class JmsQueueQuickstart {
 ```
 
 ### Run the application
-Pass the **Connection String** from the Shared Acccess Policies to run the application.
+Pass the **Connection String** from the Shared Access Policies to run the application.
 Below is the output of the form by running the Application:
 
 ```

@@ -1,21 +1,14 @@
 ﻿---
-title: 'Reset a failed Azure ExpressRoute circuit: PowerShell | Microsoft Docs'
+title: 'Reset a failed circuit - ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: This article helps you reset an ExpressRoute circuit that is in a failed state.
-documentationcenter: na
 services: expressroute
 author: anzaman
-manager: 
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2017
-ms.author: anzaman;cherylmc
+ms.date: 11/28/2018
+ms.author: anzaman
+ms.custom: seodec18
 
 ---
 # Reset a failed ExpressRoute circuit
@@ -28,22 +21,22 @@ When an operation on an ExpressRoute circuit does not complete successfully, the
 
 2. Open your PowerShell console with elevated privileges, and connect to your account. Use the following example to help you connect:
 
-  ```powershell
+  ```azurepowershell-interactive
   Connect-AzureRmAccount
   ```
 3. If you have multiple Azure subscriptions, check the subscriptions for the account.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmSubscription
   ```
 4. Specify the subscription that you want to use.
 
-  ```powershell
+  ```azurepowershell-interactive
   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
 5. Run the following commands to reset a circuit that is in a failed state:
 
-  ```powershell
+  ```azurepowershell-interactive
   $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt

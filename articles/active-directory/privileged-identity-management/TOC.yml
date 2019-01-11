@@ -20,8 +20,8 @@
     href: pim-email-notifications.md
   - name: Assignment types
     href: pim-resource-roles-eligible-visibility.md
-  - name: Security wizard
-    href: pim-security-wizard.md
+  - name: Microsoft Graph APIs
+    href: pim-apis.md
 - name: How-to guides
   expanded: true
   items:
@@ -35,6 +35,8 @@
       href: pim-resource-roles-activate-your-roles.md
   - name: Configure PIM
     items:
+    - name: Security wizard
+      href: pim-security-wizard.md
     - name: Discover Azure resources
       href: pim-resource-roles-discover-resources.md
     - name: Grant access to others to manage PIM
@@ -57,6 +59,8 @@
     items:
     - name: Assign roles
       href: pim-resource-roles-assign-roles.md
+    - name: Invite external users
+      href: pim-resource-roles-external-users.md
     - name: Approve requests
       href: pim-resource-roles-approval-workflow.md
     - name: Extend or renew roles

@@ -1,6 +1,6 @@
 ---
-title: How to add branding to your Azure Active Directory sign-in page | Microsoft Docs
-description: Learn how to add your organization's branding to the Azure Active Directory sign-in page.
+title: Add branding to your organization's sign-in page - Azure Active Directory | Microsoft Docs
+description: Instructions about how to add your organization's branding to the Azure Active Directory sign-in page.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
-custom: it-pro
+ms.custom: "it-pro, seodec18"
 ---
 
-# How to: Add branding to your Azure Active Directory sign-in page
+# Add branding to your organization's Azure Active Directory sign-in page
 Use your organization's logo and custom color schemes to provide a consistent look-and-feel on your Azure Active Directory (Azure AD) sign-in pages. Your sign-in pages appear when users sign in to your organization's web-based apps, such as Office 365, which uses Azure AD as your identity provider.
 
 >[!Note]

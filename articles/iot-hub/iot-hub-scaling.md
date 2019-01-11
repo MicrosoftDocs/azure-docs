@@ -78,7 +78,7 @@ The difference in supported capabilities between the basic and standard tiers of
 | [Send device event](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Yes | Yes |
 | Send module event | Yes | Yes |
 | [Update file upload status](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Yes | Yes |
-| [Bulk device operation](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/bulkoperation) | Yes, except for IoT Edge capabilities | Yes | 
+| [Bulk device operation](/rest/api/iot-dps/runbulkenrollmentoperation/runbulkenrollmentoperation) | Yes, except for IoT Edge capabilities | Yes | 
 | [Purge command queue](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Yes |
 | [Get device twin](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Yes |
 | Get module twin |   | Yes |

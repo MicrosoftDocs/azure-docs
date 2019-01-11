@@ -8,7 +8,6 @@ ms.date: 10/22/2018
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.custom: mvc
 ---
 # What is Azure Resource Graph
 

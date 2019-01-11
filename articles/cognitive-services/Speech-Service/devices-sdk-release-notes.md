@@ -17,6 +17,12 @@ ms.author: gracez
 
 The following sections list changes in the most recent releases.
 
+## Cognitive Services Speech Devices SDK 1.1.0: 2018-Nov release 
+
+* Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.1.0. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew). 
+* Far Field Speech recognition accuracy has been improved with our enhanced audio processing algorithm.
+* Sample application added Chinese speech recognition support.
+
 ## Cognitive Services Speech Devices SDK 1.0.1: 2018-Oct release 
 
 * Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.0.1. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew). 

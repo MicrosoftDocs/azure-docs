@@ -1,9 +1,9 @@
 ---
-title: VHD Deployment Template (JSON) for Microsoft Azure | Microsoft Docs
-description: Example VHD deployment template for the Azure portal.
+title: Azure VHD deployment template | Microsoft Docs
+description: Lists the Azure Resource Manager template required to deploy a new Azure virtual machine from a user virtual hard disk.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: pbutlerm
+author: v-miclar
 manager: Patrick.Butler  
 editor:
 
@@ -12,17 +12,16 @@ ms.service: marketplace
 ms.workload: 
 ms.tgt_pltfrm: 
 ms.devlang: 
-ms.topic: reference
-ms.date: 09/25/2018
+ms.topic: article
+ms.date: 11/29/2018
 ms.author: pbutlerm
 ---
 
-# VHD Deployment Template (JSON) 
+# Virtual hard disk deployment template 
 
-The following JSON code represents a deployment template that enables you to deploy a virtual machine (VM) image to Microsoft Azure.  A VM resource  is required to create a VM offer in the Azure Marketplace. 
+The following Azure Resource Manager template defines a new Azure virtual machine (VM) instance, created from local virtual hard disk (VHD).  This template is used in the article [Deploy an Azure VM from a user VHD](./cpp-deploy-vm-user-image.md). 
 
-
-``` json
+```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
@@ -43,7 +42,7 @@ The following JSON code represents a deployment template that enables you to dep
         },
         "adminPassword": {
             "type": "securestring",
-            "defaultValue": ""
+            "defaultValue": "Password@123"
         },
         "osType": {
             "type": "string",
@@ -73,7 +72,25 @@ The following JSON code represents a deployment template that enables you to dep
         },
         "nicName": {
             "type": "string"
-        },        
+        },
+        "vaultName": {
+            "type": "string",            
+            "metadata": {
+                "description": "Name of the KeyVault"
+            }
+        },
+        "vaultResourceGroup": {
+            "type": "string",           
+            "metadata": {
+                "description": "Resource Group of the KeyVault"
+            }
+        },
+        "certificateUrl": {
+            "type": "string",
+            "metadata": {
+                "description": "Url of the certificate with version in KeyVault e.g. https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7"
+            }
+        },
         "vhdUrl": {
             "type": "string",
             "metadata": {
@@ -173,7 +190,35 @@ The following JSON code represents a deployment template that enables you to dep
                     "osProfile": {
                         "computername": "[parameters('vmName')]",
                         "adminUsername": "[parameters('adminUsername')]",
-                        "adminPassword": "[parameters('adminPassword')]"                       
+                        "adminPassword": "[parameters('adminPassword')]",
+                        "secrets": [
+                            {
+                                "sourceVault": {
+                                    "id": "[resourceId(parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+                                },
+                                "vaultCertificates": [
+                                    {
+                                        "certificateUrl": "[parameters('certificateUrl')]",
+                                        "certificateStore": "My"
+                                    }
+                                ]
+                            }
+                        ],
+                        "windowsConfiguration": {
+                            "provisionVMAgent": "true",
+                            "winRM": {
+                                "listeners": [
+                                    {
+                                        "protocol": "http"
+                                    },
+                                    {
+                                        "protocol": "https",
+                                        "certificateUrl": "[parameters('certificateUrl')]"
+                                    }
+                                ]
+                            },
+                            "enableAutomaticUpdates": "true"
+                        }
                     },
                     "storageProfile": {
                         "osDisk": {
@@ -195,9 +240,17 @@ The following JSON code represents a deployment template that enables you to dep
                                 "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
                             }
                         ]
-                    }                
+                    },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('http://', parameters('userStorageAccountName'), '.blob.core.windows.net')]"
+                    }
+                }
+                
                 }
             }
         ]
     }
+
 ```

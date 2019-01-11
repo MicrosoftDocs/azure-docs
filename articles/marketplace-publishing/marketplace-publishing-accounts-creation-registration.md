@@ -3,7 +3,7 @@ title: Creating and registering the publisher account | Microsoft Docs
 description: Instructions for creating a Microsoft Developer account so, upon approval, you can sell various offer types on the Azure Marketplace.
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 
@@ -16,6 +16,8 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
 
+ROBOTS: NOINDEX
+
 ---
 # Create a Microsoft Developer account
 This article walks you through the necessary account creation and registration process to become an approved Microsoft Developer for the Azure Marketplace.
@@ -23,7 +25,7 @@ This article walks you through the necessary account creation and registration p
 ## 1. Create a Microsoft account
 To start the publishing process, you will need to create a Microsoft account. This account will be used to register in to both the **Microsoft Developer Center** and **Azure Publishing Portal**. You should have only one Microsoft account for your Azure Marketplace offerings. It should not be specific to services or offers.
 
-The address that forms the user name should be on your domain and controlled by your IT team. All the publishing related activities should be done through this account.
+The address that forms the user name should be on your domain and controlled by your IT team. All the publishing-related activities should be done through this account.
 
 > [!WARNING]
 > Words like **"Azure"** and **"Microsoft"** are not supported for Microsoft account registration. Avoid using these words to complete the account creation and registration process.
@@ -39,27 +41,27 @@ more info, see [Manage account users](https://msdn.microsoft.com/windows/uwp/pub
 
 * Create your Microsoft account using an email address that belongs to your company's domain, but not to a single individual—for example, windowsapps@fabrikam.com.
 * Limit access to this Microsoft account to the smallest possible number of developers.
-* Set up a corporate email distribution list that includes everyone who needs to access the developer account, and add this email address to your security info. This allows all of the employees on the list to receive security codes when needed and to manage your Microsoft account’s security info. If setting up a distribution list is not feasible, the owner of the individual email account will need to be available to access and share the security code when prompted (such as when new security info is added to the account or when it must be accessed from a new device).
+* Set up a corporate email distribution list that includes everyone who needs to access the developer account, and add this email address to your security info. This configuration allows all of the employees on the list to receive security codes when needed and to manage your Microsoft account’s security info. If setting up a distribution list is not feasible, the owner of the individual email account will need to be available to access and share the security code when prompted (such as when new security info is added to the account or when it must be accessed from a new device).
 * Add a company phone number that does not require an extension and is accessible to key team members.
-* In general, have developers use trusted devices to log in to your company's developer account. All key team members should have access to these trusted devices. This will reduce the need for security codes to be sent when accessing the account.
+* In general, have developers use trusted devices to sign in to your company's developer account. All key team members should have access to these trusted devices. This approach will reduce the need for security codes to be sent when accessing the account.
 * If you need to allow access to the account from a non-trusted PC, limit that access to a maximum of five developers. Ideally, these developers should access the account from machines that share the same geographical and network location.
 * Frequently review your company’s security info at [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) to make sure it's all current.
 
-Your developer account should be accessed primarily from trusted PCs. This is critical because there is a limit to the number of codes generated per account, per week. It also enables the most seamless sign-in experience.
+Your developer account should be accessed primarily from trusted PCs. This restriction is critical because there is a limit to the number of codes generated per account, per week. It also enables the most seamless sign-in experience.
 
-For more information on additional developer account guidelines and security, click [here](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+For more information on additional developer account guidelines and security, see [here](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### Instructions
 1. Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to an existing account.
-2. Register the email (per the guidelines above e.g. windowsapp@fabrikam.com) as a Microsoft account by using the link [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Follow the instructions below.
+2. Register the email (per the guidelines above, for example windowsapp@fabrikam.com) as a Microsoft account by using the link [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Follow the instructions below.
 
    1. During registering your account as a Microsoft account, you need to provide a valid phone number for the system to send you an account verification code as a text message or an automated call.
-   2. During registering your account as a Microsoft account, you need to provide a valid email id for receiving an automated email for account verification.
+   2. During registering your account as a Microsoft account, you need to provide a valid email ID for receiving an automated email for account verification.
 3. Verify the email address sent to the DL.
 4. You’re now ready to use the new Microsoft account in the Microsoft Developer Center.
 
 ## 2. Register your account in Microsoft Developer Center
-The Microsoft Developer Center is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account that is shared for the company, **and the same account must be used in the Azure Publishing Portal.** You should check to make sure your company does not already have a Microsoft Developer Center account before you attempt to create one. During the process, we will collect company address information, bank account information, and tax information. These are typically obtainable from finance or business contacts.
+The Microsoft Developer Center is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account that is shared for the company, *and the same account must be used in the Azure Publishing Portal.* Verify that your company does not already have a Microsoft Developer Center account before you attempt to create one. During the process, we will collect company address information, bank account information, and tax information. These data are typically obtainable from finance or business contacts.
 
 > [!IMPORTANT]
 > You must complete the following Developer profile components in order to progress through the various phases of offer creation and deployment.
@@ -79,11 +81,10 @@ The Microsoft Developer Center is used to register the company information once.
 
 ### Register your company account
 1. Open a new  Internet Explorer InPrivate or Chrome Incognito browsing session to ensure that you’re not signed in to a personal account.
-2. Go to [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) to register yourself as a seller in the Dev Center. Please read the following important note before you proceed.
+2. Go to [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) to register yourself as a seller in the Dev Center. Note the following:
 
    > [!IMPORTANT]
-   > Ensure that the email id or distribution list (a distribution list is recommended to remove dependency from individuals) which you will be using for registering in the Dev Center is at first registered as a Microsoft account. If not, then please register using this [link](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Also, **any email id under the Microsoft company domain i.e. @microsoft.com cannot be used** for Dev Center registration.
-   >
+   > Ensure that the email id or distribution list (a distribution list is recommended to remove dependency from individuals) which you will be using for registering in the Dev Center is at first registered as a Microsoft account. If not, then please register using this [link](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Also, *any email ID under the Microsoft company domain, for example @microsoft.com, cannot be used* for Dev Center registration.
    >
 
     ![drawing][img-signin]
@@ -128,9 +129,9 @@ The Microsoft Developer Center is used to register the company information once.
 11. Click **Finish** to confirm your registration. We'll send a confirmation message to your email address.
 12. If you are planning to publish only free offers, click **Go to Azure Marketplace Publishing Portal** and you can skip to section 3 of this document, [Register your account in the publishing portal](#3-register-your-account-in-the-publishing-portal).
 
-If you are planning to publish commercial offers (e.g. Virtual Machine offers with hourly billing model), click **Update your account information** where you must fill in the tax and banking information in your Developer Center account.
+If you are planning to publish commercial offers (for example Virtual Machine offers with hourly billing model), click **Update your account information** where you must fill in the tax and banking information in your Developer Center account.
 
-If you prefer to update your tax and bank information later, then you can move to the next section i.e. section 3 of this document, [Register your account in the publishing portal](#3-register-your-account-in-the-publishing-portal), and come back later by using links in the Azure Publishing Portal.
+If you prefer to update your tax and bank information later, then you can move to the next section (section 3) of this document, [Register your account in the publishing portal](#3-register-your-account-in-the-publishing-portal), and come back later by using links in the Azure Publishing Portal.
 
 > [!IMPORTANT]
 > In case of commercial offers, you will not be able to push your offers to production without completing the tax and bank account information.
@@ -171,7 +172,7 @@ If you prefer to update your tax and bank information later, you can go to secti
 >
 >
 
-If you have issues with Developer Center registration, please log a support ticket as below
+If you have issues with Developer Center registration, log a support ticket as below
 
 1. Go to the support link [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)
 2. Under **Contact Us** section, click on the button **Submit an incident** (as shown in the screenshot below)
@@ -180,7 +181,7 @@ If you have issues with Developer Center registration, please log a support tick
 3. Choose "Help with Dev Center" as **Problem type** and "Publish and manage apps" as **Category**. After that click on the button "Start email".
 
     ![drawing](media/marketplace-publishing-accounts-creation-registration/imgAddTax_03.png)
-4. You will be provided with a login page. Use any Microsoft account sign in. If you do not have a Microsoft account then create one using this [link](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
+4. You will be provided with a sign in page. Use any Microsoft account sign-in. If you do not have a Microsoft account, then create one using this [link](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
 5. Fill in the details of the issue and subit the ticket by clicking on the **Submit** button.
 
     ![drawing](media/marketplace-publishing-accounts-creation-registration/imgAddTax_05.png)
@@ -190,7 +191,7 @@ The [Publishing portal](http://publish.windowsazure.com) is used to publish and 
 
 1. Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to a personal account.
 2. Go to [http://publish.windowsazure.com](http://publish.windowsazure.com).
-3. If you are a new user and signing in to the Publishing portal for the first time, then you must sign in with the same email id with which your Dev Center account is registered. In this way your Dev Center account and Publishing portal account will be linked with each other. You can later add the other members of the company, who are working on the application, as a co-admin in the Publishing portal by following the steps below.
+3. If you are a new user and signing in to the Publishing portal for the first time, then you must sign in with the same email ID with which your Dev Center account is registered. In this way, your Dev Center account and Publishing portal account will be linked with each other. You can later add the other members of the company, who are working on the application, as a co-admin in the Publishing portal by following the steps below.
 
 If you are added as a co-admin in the Publishing portal, then you can sign in with your co-admin account.
 
@@ -207,10 +208,10 @@ If you are added as a co-admin in the Publishing portal, then you can sign in wi
 >
 >
 
-1. Ensure that the co-admin email id is a Microsoft account(MSA). If not, register it as a MSA using this [link](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
+1. Ensure that the co-admin email ID is a Microsoft account(MSA). If not, register it as an MSA using this [link](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
 2. Ensure that there is at least one application under the admin account before trying to add a co-admin.
-3. After the above steps are done, login to the Publishing portal with the co-admin email id and then log out.
-4. Now login to the Publishing portal with the admin email id.
+3. After the above steps are done, login to the Publishing portal with the co-admin email ID and then sign out.
+4. Now sign into the Publishing portal with the admin email ID.
 5. Navigate to Publishers->select your account->Administrators->Add the co-admin (screenshot given below)
 
    ![drawing](media/marketplace-publishing-accounts-creation-registration/imgAddAdmin_05.png)
@@ -218,7 +219,7 @@ If you are added as a co-admin in the Publishing portal, then you can sign in wi
 ## 5. Steps to delete a co-admin in the Publishing portal
 **Assuming that you are the admin,** given below are the steps to delete a co-admin.
 
-1. Login to the Publishing portal with the admin email id.
+1. Login to the Publishing portal with the admin email ID.
 2. Navigate to **Publishers** -> select your account -> **Administrators** -> **Co-Admins**.
 3. Click on the **X** button next to the co-admin you want tot delete (screenshot given below).
 

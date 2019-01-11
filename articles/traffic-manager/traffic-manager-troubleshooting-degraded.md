@@ -81,7 +81,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Cloud Services](https://go.microsoft.com/fwlink/?LinkId=314074)
 
-[Azure Web Apps](https://azure.microsoft.com/documentation/services/app-service/web/)
+[Azure App Service](https://azure.microsoft.com/documentation/services/app-service/web/)
 
 [Operations on Traffic Manager (REST API Reference)](https://go.microsoft.com/fwlink/?LinkId=313584)
 

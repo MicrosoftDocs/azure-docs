@@ -15,9 +15,14 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 07/26/2018
 ms.author: danlep
+
+ROBOTS: NOINDEX
+
 ---
 
 # CLI example: Create and manage a Batch AI cluster of low-priority nodes
+
+[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
 
 This script demonstrates some of the commands available in the Azure CLI to create and
 manage a Batch AI cluster consisting of low-priority nodes (virtual machines).

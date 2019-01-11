@@ -4,20 +4,18 @@ description: This tutorial uses the Azure portal to configure SAML-based single 
 services: active-directory
 author: barbkess
 manager: mtillman
-
 ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/09/2018
+ms.date: 12/06/2018
 ms.author: barbkess
 ms.reviewer: arvinh,luleon
 ---
 
 # Tutorial: Configure SAML-based single sign-on for an application with Azure Active Directory
 
-This tutorial uses the [Azure portal](https://portal.azure.com) to configure SAML-based single sign-on for an application with Azure Active Directory (Azure AD). Use this tutorial for configuring applications that do not have an [application-specific tutorial](../saas-apps/tutorial-list.md). 
-
+This tutorial uses the [Azure portal](https://portal.azure.com) to configure SAML-based single sign-on for an application with Azure Active Directory (Azure AD). Use this tutorial when an [application-specific tutorial](../saas-apps/tutorial-list.md) isn't available. 
 
 This tutorial uses the Azure portal to:
 
@@ -32,17 +30,17 @@ This tutorial uses the Azure portal to:
 
 ## Before you begin
 
-1. If the application has not been added to your Azure AD tenant, see  [Quickstart: Add an application to your Azure AD tenant](add-application-portal.md).
+1. If the application hasn't been added to your Azure AD tenant, see  [Quickstart: Add an application to your Azure AD tenant](add-application-portal.md).
 
 2. Ask your application vendor for the information described in [Configure domain and URLS](#configure-domain-and-urls).
 
 3. To test the steps in this tutorial, we recommend using a non-production environment. If you don't have an Azure AD non-production environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
-4. Sign in to the [Azure portal](https://portal.azure.com) as a global admin for your Azure AD tenant, a cloud application admin, or an application admin.
+4. Sign in to the [Azure portal](https://portal.azure.com) as a cloud application admin, or an application admin for your Azure AD tenant.
 
 ## Select a single sign-on mode
 
-After an application is added to your Azure AD tenant, you are ready to configure single sign-on for the application.
+After an application is added to your Azure AD tenant, you're ready to configure single sign-on for the application.
 
 To open the single sign-on settings:
 
@@ -52,7 +50,7 @@ To open the single sign-on settings:
 
 3. In the **Application Type** menu, select **All applications**, and click **Apply**.
 
-4. Enter the name of the application for which you want to configure single sign-on. Choose your own application, or use the GitHub-test application that was added in the [add application](add-application-portal.md) quickstart.
+4. Enter the name of the application for which you want to configure single sign-on. Choose your own application, or enter **GitHub-test** to configure the application you added in the [add application](add-application-portal.md) quickstart.
 
 5. Click **Single sign-on**. Under **Single Sign-on Mode**, **SAML-based Sign-on** appears as the default option. 
 
@@ -68,8 +66,8 @@ To configure the domain and URLs:
 
     | Configuration setting | SP-Initiated | idP-Initiated | Description |
     |:--|:--|:--|:--|
-    | Sign-on URL | Required | Do not specify | When a user opens this URL, the service provider redirects to Azure AD to authenticate and sign on the user. Azure AD uses the URL to start the application from Office 365 and the Azure AD Access Panel. When blank, Azure AD performs idP-initiated single sign-on when a user launches the application from Office 365, the Azure AD Access Panel, or from the Azure AD single sign-on URL.|
-    | Identifier (Entity ID) | Required for some apps | Required for some apps | Uniquely identifies the application for which single sign-on is being configured. Azure AD sends the identifier back to the application as the Audience parameter of the SAML token, and the application is expected to validate it. This value also appears as the Entity ID in any SAML metadata provided by the application.|
+    | Sign-on URL | Required | Don't specify | When a user opens this URL, the service provider redirects to Azure AD to authenticate and sign on the user. Azure AD uses the URL to start the application from Office 365 or the Azure AD Access Panel. When blank, Azure AD relies on the identity provider to initiate single sign-on when a user launches the application.|
+    | Identifier (Entity ID) | Required for some apps | Required for some apps | Uniquely identifies the application for which single sign-on is being configured. Azure AD sends the identifier to the application as the Audience parameter of the SAML token. The application is expected to validate it. This value also appears as the Entity ID in any SAML metadata provided by the application.|
     | Reply URL | Optional | Required | Specifies where the application expects to receive the SAML token. The reply URL is also referred to as the Assertion Consumer Service (ACS) URL. |
     | Relay State | Optional | Optional | Specifies to the application where to redirect the user after authentication is completed. Typically the value is a valid URL for the application, however some applications use this field differently. For more information, ask the application vendor.
 
@@ -79,11 +77,11 @@ To configure the domain and URLs:
 
 3. At the top of the blade, click **Save**.
 
-4. There is a **Test SAML Settings** button in this section. Run this test later in the tutorial in the [Test single sign-on](#test-single-sign-on) section.
+4. There's a **Test SAML Settings** button in this section. Run this test later in the tutorial in the [Test single sign-on](#test-single-sign-on) section.
 
 ## Configure user attributes
 
-User attributes allow you to control what information Azure AD sends to the application. For example, Azure AD could send the name, email, and employee ID of the user to the application. Azure AD sends the user attributes to the application in the SAML token each time a user signs-in. 
+User attributes allow you to control what information Azure AD sends to the application in the SAML token each time a user signs on. For example, Azure AD could send the name, email, and employee ID of the user to the application. 
 
 These attributes may be required or optional to make single sign-on work properly. For more information, see the [application-specific tutorial](../saas-apps/tutorial-list.md), or ask the application vendor.
 
@@ -111,7 +109,7 @@ Azure AD uses a certificate to sign the SAML tokens that it sends to the applica
 
 2. To configure a certificate, click **Create new certificate**.
 
-3. In the **Create New Certificate** blade, set the expiration date, and click **Save**.
+3. In the **Create New Certificate** blade, set **expiration date**, and click **Save**.
 
 4. Click **Make new certificate active**.
 
@@ -125,7 +123,7 @@ Microsoft recommends testing the single sign-on with several users or groups bef
 
 To assign a user or group to the application:
 
-1. Open the application in the portal, if it is not already open.
+1. Open the application in the portal, if it isn't already open.
 2. In the left application blade, click **Users and groups**.
 3. Click **Add user**.
 4. In the **Add Assignment** blade, click **Users and groups**.
@@ -142,7 +140,7 @@ You're almost done.  As a final step, you need to configure the application to u
     ![Configure application](media/configure-single-sign-on-portal/configure-app.png)
 
 2. Click **Configure application** in the portal, and follow the instructions.
-3. Manually create user accounts in the application for the purpose of testing single sign-on. Create the user accounts you assigned to the application in the [previous section](#assign-users-to-the-application).   When you are ready to roll out the application to the organization, we recommend using automatic user provisioning to automatically create user accounts in the application.
+3. Manually create user accounts in the application to test single sign-on. Create the user accounts you assigned to the application in the [previous section](#assign-users-to-the-application). 
 
 ## Test single sign-on
 
@@ -154,12 +152,12 @@ You are ready to test your settings.
 
     ![Test single sign-on options](media/configure-single-sign-on-portal/test-single-sign-on.png) 
 
-3. Click **Sign in as current user**. This lets you first see if single sign-on works for you, the admin.
-4. If there is an error, an error message appears. Copy and paste the specifics into the **What does the error look like?** box.
+3. Click **Sign in as current user**. This test lets you first see if single sign-on works for you, the admin.
+4. If there's an error, an error message appears. Copy and paste the specifics into the **What does the error look like?** box.
 
     ![Get resolution guidance](media/configure-single-sign-on-portal/error-guidance.png)
 
-5. Click **Get resolution guidance**. Root cause and resolution guidance appears.  In this example, the user was not assigned to the application.
+5. Click **Get resolution guidance**. The root cause and resolution guidance appear.  In this example, the user wasn't assigned to the application.
 
     ![Fix error](media/configure-single-sign-on-portal/fix-error.png)
 
@@ -170,7 +168,7 @@ You are ready to test your settings.
 
 
 ## Next steps
-In this tutorial, you used the Azure portal to configure an application for single sign-on with Azure AD. You found the single sign-on configuration page, and configured the single sign-on settings. After finishing the configuration, you assigned a user to the application, and configured the application to use SAML-based single sign-on. When all of this work was finished, you verified the SAML sign-on is working properly.
+In this tutorial, you configured the single sign-on settings for an application. After finishing the configuration, you assigned a user to the application, and configured the application to use SAML-based single sign-on. When all of this work was finished, you verified the SAML sign-on is working properly.
 
 You did these things:
 > [!div class="checklist"]
@@ -179,12 +177,13 @@ You did these things:
 > * Configured user attributes
 > * Created a SAML signing certificate
 > * Manually assigned users or groups to the application
-> * Configured the application for single sign-on
+> * Configured the application to use Azure AD as a SAML identity provider
 > * Tested the SAML-based single sign-on
 
-To roll out the application to more users in your organization, we recommend using automatic provisioning.
+To roll out the application to more users in your organization, we recommend using automatic user provisioning.
 
 > [!div class="nextstepaction"]
->[Learn how to assign users with automatic provisioning](configure-automatic-user-provisioning-portal.md)
+>[Learn how to as
+>sign users with automatic provisioning](configure-automatic-user-provisioning-portal.md)
 
 

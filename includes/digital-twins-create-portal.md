@@ -5,7 +5,7 @@
  author: dsk-2015
  ms.service: digital-twins
  ms.topic: include
- ms.date: 09/17/2018
+ ms.date: 12/17/2018
  ms.author: dkshir
  ms.custom: include file
 ---
@@ -28,8 +28,8 @@
 
 1. Open the **Overview** pane of your Digital Twins instance. Note the link under **Management API**.
 
-   The **Management API** URL is formatted as: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger_. This URL takes you to the Azure Digital Twins REST API documentation that applies to your instance. Read [How to use Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md) to learn how to read and use this API documentation.
+   The **Management API** URL is formatted as `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`. This URL takes you to the Azure Digital Twins REST API documentation that applies to your instance. Read [How to use Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md) to learn how to read and use this API documentation.
 
-    Modify the **Management API** URL to this format: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_. Your application will use the modified URL as the base URL to access your instance. Copy this modified URL to a temporary file. You'll need this in the next section.
+    Modify the **Management API** URL to this format `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Your application will use the modified URL as the base URL to access your instance. Copy this modified URL to a temporary file. You'll need this in the next section.
 
     ![Management API](./media/create-digital-twins-portal/digital-twins-management-api.png)

@@ -29,7 +29,7 @@ The Power BI content pack for Azure Active Directory (Azure AD) contains pre-bui
 
 ## Prerequisites
 
-You need an Azure AD premium (P1/P2) license to use the content pack. 
+You need an Azure AD premium (P1/P2) license to use the content pack. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition.
 
 ## Install the content pack
 

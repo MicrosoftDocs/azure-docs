@@ -1,16 +1,18 @@
 ---
-title: Azure IoT Edge Platform Support | Microsoft Docs 
-description: Platforms supported by Azure IoT Edge
+title: Supported operating systems, container engines - Azure IoT Edge | Microsoft Docs 
+description: Learn which operating systems can run the Azure IoT Edge daemon and runtime, and supported container engines for your production devices
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
-# Azure IoT Edge support
+# Azure IoT Edge supported systems
+
 There are a variety of ways to seek support for the Azure IoT Edge product.
 
 **Reporting bugs** – The majority of development that goes into the Azure IoT Edge product happens in the IoT Edge open-source project. Bugs can be reported on the [issues page](https://github.com/azure/iotedge/issues) of the project. Fixes rapidly make their way from the project in to product updates.
@@ -34,12 +36,14 @@ Generally available
 | Ubuntu Server 16.04 | Yes | No |
 | Ubuntu Server 18.04 | Yes | No |
 
-Public Preview
+Public preview
 | Operating System | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Windows 10 IoT Core (April 2018 update) | Yes | No |
-| Windows 10 IoT Enterprise (April 2018 update) | Yes | No |
-| Windows 10 Server 1803 | Yes | No |
+| Windows 10 IoT Core build 17763 | Yes | No |
+| Windows 10 build 17763 for Windows containers<br><br>Windows 10 build 14393 or newer for Linux containers\* | Yes | No |
+| Windows Server 2019 for Windows containers<br><br>Windows Server 2016 or newer for Linux containers\* | Yes | No |
+
+\* Microsoft provides installation packages for Linux containers on Windows devices for development and testing only. This is not a supported configuration for production use. 
 
 ### Tier 2
 Tier 2 systems can be thought of as compatible with Azure IoT Edge and can be used relatively easily. This means that:

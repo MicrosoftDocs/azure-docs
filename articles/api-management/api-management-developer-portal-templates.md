@@ -27,7 +27,10 @@ There are three fundamental ways to customize the developer portal in Azure API 
 
 Templates are used to customize the content of system-generated developer portal pages (for example, API docs, products, user authentication, etc.). Using [DotLiquid](http://dotliquidmarkup.org/) syntax, and a provided set of localized string resources, icons, and page controls, you have great flexibility to configure the content of the pages as you see fit.
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## Developer portal templates overview
+
 Editing templates is done from the **Developer portal** while being logged in as an administrator. To get there first open the Azure Portal and  click **Developer portal** from the service toolbar of your API Management instance.
 
 To access the developer portal templates, click the customize icon on the left to display the customization menu, and click **Templates**.

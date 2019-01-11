@@ -1,5 +1,6 @@
 ---
-title: Monitor operations, events, and counters for public Basic Load Balancer | Microsoft Docs
+title: Monitor operations, events, and counters for public Basic Load Balancer
+titlesuffix: Azure Load Balancer
 description: Learn how to enable alert events, and probe health status logging for public Basic Load Balancer
 services: load-balancer
 documentationcenter: na
@@ -7,6 +8,7 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018

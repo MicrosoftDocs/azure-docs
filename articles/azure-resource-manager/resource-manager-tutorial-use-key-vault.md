@@ -14,6 +14,7 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
+ms.custom: seodec18
 ---
 
 # Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment
@@ -77,7 +78,7 @@ To create a Key Vault:
 
 1. Select the following image to sign in to Azure and open a template. The template creates a Key Vault and a Key Vault secret.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" /></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 2. Select or enter the following values.  Don't select **Purchase** after you enter the values.
 
@@ -89,7 +90,7 @@ To create a Key Vault:
     * **Key Vault Name**: assign a unique name. 
     * **Tenant Id**: the template function automatically retrieve your tenant id.  Don't change the default value
     * **Ad User Id**: enter your Azure AD user object ID that you retrieved from the last procedure.
-    * **Secret Name**: The default name is **mAdminPassword**. If you change the secret name here, you need to update the secret name when you deploy the virtual machine.
+    * **Secret Name**: The default name is **vmAdminPassword**. If you change the secret name here, you need to update the secret name when you deploy the virtual machine.
     * **Secret Value**: Enter your secret.  The secret is the password used to sign in to the virtual machine. It is recommended to use the generated password you created in the last procedure.
     * **I agree to the terms and conditions state above**: Select.
 3. Select **Edit parameters** from the top to take a look of the template.

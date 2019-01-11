@@ -9,7 +9,7 @@ cloud: azure-stack
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ---
@@ -73,9 +73,6 @@ if($s)
 ### To run Get-AzureStackLog on an Azure Stack Development Kit (ASDK) system
 Use these steps to run Get-AzureStackLog on an ASDK host computer.
 
-- The parameters **OutputSharePath** and **OutputShareCredential** are used to store logs in a user specified location.
-- The **FromDate** and **ToDate** parameters can be used to collect logs for a particular time period. If these parameters are not specified, logs are collected for the past four hours by default.
-
 1. Sign in as **AzureStack\CloudAdmin** on the ASDK host computer.
 2. Open a new PowerShell window as an administrator.
 3. Run the **Get-AzureStackLog** PowerShell cmdlet.
@@ -108,7 +105,10 @@ Use these steps to run Get-AzureStackLog on an ASDK host computer.
 
 ### Parameter considerations for both ASDK and integrated systems
 
-- If the **FromDate** and **ToDate** parameters are not specified, logs are collected for the past four hours by default.
+- The parameters **OutputSharePath** and **OutputShareCredential** are used to store logs in a user specified location.
+
+- The **FromDate** and **ToDate** parameters can be used to collect logs for a particular time period. If these parameters are not specified, logs are collected for the past four hours by default.
+
 - Use the **FilterByNode** parameter to filter logs by computer name. For example:
 
     ```powershell

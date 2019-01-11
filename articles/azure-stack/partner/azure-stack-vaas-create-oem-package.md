@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: John.Haskin
 
@@ -19,13 +19,13 @@ ms.reviewer: John.Haskin
 
 # Create an OEM package
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 The Azure Stack OEM Extension Package is the mechanism by which OEM specific content is added to Azure Stack infrastructure, for use in deployment as well as operational processes like update, expansion, and field replacement.
 
 ## Creating the package
 
-Once created and validated, the OEM extension package can be used in VaaS.  Before continuing, ensure that you have completed the steps for [creating an OEM package](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). The package is then submitted to Microsoft along with VaaS test results for signing in the Package Validation workflow. The following steps detail how to bundle the generated files into a single zip file that VaaS can consume.
+Once created and validated, the OEM extension package can be used in VaaS.  Before continuing, ensure that you have completed the steps for [creating an OEM package](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). The package is then submitted to Microsoft along with VaaS test results for signing in the Solution Validation workflow. The following steps detail how to bundle the generated files into a single zip file that VaaS can consume.
 
 1. Identify the following content for the package:
     - An executable named `<Publisher>-<Model>-<Version>.exe`
@@ -47,7 +47,7 @@ To validate the structure of your zip file, inspect it and check that there are 
 
 ![Properly zipped package contents](media/vaas-create-oem-package-3.png)
 
-The zip file can now be uploaded to VaaS and signed by Microsoft in the Package Validation workflow.
+The zip file can now be uploaded to VaaS and signed by Microsoft in the Solution Validation workflow.
 
 ## Next steps
 

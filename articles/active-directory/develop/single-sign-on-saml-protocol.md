@@ -104,7 +104,7 @@ When a requested sign-on completes successfully, Azure AD posts a response to th
 ```
 <samlp:Response ID="_a4958bfd-e107-4e67-b06d-0d85ade2e76a" Version="2.0" IssueInstant="2013-03-18T07:38:15.144Z" Destination="https://contoso.com/identity/inboundsso.aspx" InResponseTo="id758d0ef385634593a77bdf7e632984b6" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
   <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
-  <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+  <ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
     ...
   </ds:Signature>
   <samlp:Status>
@@ -112,7 +112,7 @@ When a requested sign-on completes successfully, Azure AD posts a response to th
   </samlp:Status>
   <Assertion ID="_bf9c623d-cc20-407a-9a59-c2d0aee84d12" IssueInstant="2013-03-18T07:38:15.144Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
     <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
-    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
       ...
     </ds:Signature>
     <Subject>
@@ -201,7 +201,7 @@ Azure AD signs the assertion in response to a successful sign-on. The `Signature
 To generate this digital signature, Azure AD uses the signing key in the `IDPSSODescriptor` element of its metadata document.
 
 ```
-<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
       digital_signature_here
     </ds:Signature>
 ```

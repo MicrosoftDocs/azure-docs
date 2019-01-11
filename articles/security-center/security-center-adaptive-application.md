@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 12/2/2018
 ms.author: rkarlin
 
 ---
@@ -114,7 +114,8 @@ After you select Create, Azure Security Center automatically creates the appropr
   - **Enforce**: in this mode, the application control solution does enforce the rules, and makes sure that applications that are not allowed to run are blocked.
 
    > [!NOTE]
-   > As previously mentioned, by default a new application control policy is always configured in *Audit* mode. 
+   > - 	**Enforce** protection mode is disabled until further notice.
+   > - As previously mentioned, by default a new application control policy is always configured in *Audit* mode. 
    >
 
 4. Under **Policy extension**, you can add any application path that you want to allow. After you add these paths, Security Center updates the application whielisting policy on the VMs within the selected group of VMS and creates the appropriate rules for these applications, in addition to the rules that are already in place.

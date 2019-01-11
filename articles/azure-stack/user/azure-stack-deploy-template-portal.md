@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer:
 
@@ -37,6 +37,6 @@ You can use the portal to deploy Azure Resource Manager templates to Azure Stack
 
 ## Next steps
 
-To learn more about deploying templates, see:
+To learn more about deploying templates, see the following article:
 
-[Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
+- [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)

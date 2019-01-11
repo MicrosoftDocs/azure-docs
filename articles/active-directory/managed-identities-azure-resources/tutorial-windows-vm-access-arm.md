@@ -37,7 +37,7 @@ Using managed identities for Azure resources, your code can get access tokens to
 1.	Navigate to the tab for **Resource Groups**. 
 2.	Select the specific **Resource Group** you created for your **Windows VM**. 
 3.	Go to **Access control (IAM)** in the left panel. 
-4.	Then **Add** a new role assignment for your **Windows VM**.  Choose **Role** as **Reader**. 
+4.	Then **Add role assignment** a new role assignment for your **Windows VM**.  Choose **Role** as **Reader**. 
 5.	In the next drop-down, **Assign access to** the resource **Virtual Machine**. 
 6.	Next, ensure the proper subscription is listed in the **Subscription** dropdown. And for **Resource Group**, select **All resource groups**. 
 7.	Finally, in **Select** choose your Windows VM in the dropdown and click **Save**.

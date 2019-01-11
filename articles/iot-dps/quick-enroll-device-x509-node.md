@@ -41,13 +41,13 @@ To use this test tooling to generate certificates, perform the following steps:
  
 1. Open a command prompt or Git Bash shell, and change to a working folder on your machine. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
     
-  ```cmd/sh
-  git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-  ```
+   ```cmd/sh
+   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+   ```
 
-  The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
+   The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
 
-  The test tooling is located in the *azure-iot-sdk-c/tools/CACertificates* of the repository you cloned.    
+   The test tooling is located in the *azure-iot-sdk-c/tools/CACertificates* of the repository you cloned.    
 
 2. Follow the steps in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). 
 
@@ -110,7 +110,7 @@ To use this test tooling to generate certificates, perform the following steps:
     1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service. 
     2. Click **Shared access policies**, then click the access policy you want to use to open its properties. In the **Access Policy** window, copy and note down the primary key connection string. 
 
-    ![Get provisioning service connection string from the portal](./media/quick-enroll-device-x509-node/get-service-connection-string.png) 
+       ![Get provisioning service connection string from the portal](./media/quick-enroll-device-x509-node/get-service-connection-string.png) 
 
 
 3. As stated in [Prepare test certificates](quick-enroll-device-x509-node.md#prepare-test-certificates), you also need a .pem file that contains an X.509 intermediate or root CA certificate that has been previously uploaded and verified with your provisioning service. To check that your certificate has been uploaded and verified, on the Device Provisioning Service summary page in the Azure portal, click  **Certificates**. Find the certificate that you want to use for the group enrollment and ensure that its status value is *verified*.

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Tutorial: Recognize emotions on a face in an image - Emotion API, C#"
 titlesuffix: Azure Cognitive Services
 description: Explore a basic Windows app to recognize the emotions expressed by faces in an image.
@@ -53,7 +53,7 @@ You may download the Emotion API client library via [SDK](https://www.github.com
   ![Emotion Functionality Interface](../Images/EmotionKey.png)
 
 3.	Under "**Select Scenario**" click to use either of the two scenarios, “**Detect emotion using a stream**” or “**Detect emotion using a URL**”, then follow the instructions on the screen. Microsoft receives the images you upload and may use them to improve Emotion API and related services. By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
-4.	There are example images to be used with this example application. You can find these images on [the Face API Github repo](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) under the **Data** folder. Please note the use of these images is licensed under Fair Use agreement meaning they are OK to use for testing this example, but not for republishing.
+4.	There are example images to be used with this example application. You can find these images on [the Face API GitHub repo](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) under the **Data** folder. Please note the use of these images is licensed under Fair Use agreement meaning they are OK to use for testing this example, but not for republishing.
 
 ## <a name="Review">Review and Learn</a>
 Now that you have a running application, let us review how this example app integrates with Microsoft Cognitive Services. This will make it easier to either continue building onto this app or develop your own app using Microsoft Emotion API.

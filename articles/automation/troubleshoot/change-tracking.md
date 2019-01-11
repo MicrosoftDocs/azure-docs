@@ -3,7 +3,7 @@ title: Troubleshooting issues with Azure Change Tracking
 description: This article provides information on troubleshooting Change Tracking
 services: automation
 ms.service: automation
-ms.component: change-tracking
+ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/24/2018
