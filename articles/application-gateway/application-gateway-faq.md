@@ -6,9 +6,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/6/2018
+ms.date: 1/11/2019
 ms.author: victorh
-
 ---
 
 # Frequently asked questions for Application Gateway
@@ -21,7 +20,7 @@ Azure Application Gateway is an Application Delivery Controller (ADC) as a servi
 
 ### What features does Application Gateway support?
 
-Application Gateway supports autoscaling, SSL offloading and end to end SSL, Web Application Firewall, cookie-based session affinity, url path-based routing, multi site hosting, and others. For a full list of supported features, see [Introduction to Application Gateway](application-gateway-introduction.md).
+Application Gateway supports autoscaling, SSL offloading and end to end SSL, Web Application Firewall, cookie-based session affinity, url path-based routing, multisite hosting, and others. For a full list of supported features, see [Introduction to Application Gateway](application-gateway-introduction.md).
 
 ### What is the difference between Application Gateway and Azure Load Balancer?
 
@@ -49,7 +48,7 @@ Backend pools can be composed of NICs, virtual machine scale sets, public IPs, i
 
 ### What regions is the service available in?
 
-Application Gateway is available in all regions of global Azure. It is also available in [Azure China](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
+Application Gateway is available in all regions of global Azure. It is also available in [Azure China 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 ### Is this a dedicated deployment for my subscription or is it shared across customers?
 
@@ -122,7 +121,7 @@ No, but you can deploy other application gateways in the subnet.
 
 Network Security Groups (NSGs) are supported on the application gateway subnet with the following restrictions:
 
-* Exceptions must be put in for incoming traffic on ports 65503-65534 for the Application Gateway v1 SKU and ports 65200 - 65535 for the v2 SKU. This port-range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
+* Exceptions must be put in for incoming traffic on ports 65503-65534 for the Application Gateway v1 SKU and ports 65200 - 65535 for the v2 SKU. This port-range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, are not able to initiate any changes on those endpoints.
 
 * Outbound internet connectivity can't be blocked.
 
@@ -133,6 +132,8 @@ Network Security Groups (NSGs) are supported on the application gateway subnet w
 User-defined routes (UDRs) are supported on the application gateway subnet, as long as they do not alter the end-to-end request/response communication.
 
 For example, you can set up a UDR in the application gateway subnet to point to a firewall appliance for packet inspection, but you must ensure that the packet can reach its intended destination post inspection. Failure to do so might result in incorrect health probe or traffic routing behavior. This includes learned routes or default 0.0.0.0/0 routes propagated by ExpressRoute or VPN Gateways in the virtual network.
+
+UDRs on the application gateway subnet are **not** supported on the v2 SKU. For more information, see [Autoscaling and Zone-redundant Application Gateway (Public Preview)](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations).
 
 ### What are the limits on Application Gateway? Can I increase these limits?
 
@@ -160,7 +161,7 @@ Custom probes do not support wildcard or regex on response data.
 
 ### How are rules processed?
 
-Rules are processed in the order they are configured. It is recommended that multi-site rules are configured before basic rules to reduce the chance that traffic is routed to the inappropriate backend as the basic rule would match traffic based on port prior to the multi-site rule being evaluated.
+Rules are processed in the order they are configured. It is recommended that multi-site rules are configured before basic rules to reduce the chance that traffic is routed to the inappropriate backend as the basic rule would match traffic based on port before the multi-site rule being evaluated.
 
 ### What does the Host field for custom probes signify?
 
@@ -202,11 +203,11 @@ Yes, the Application Gateway v2 SKU supports autoscaling. For more information, 
 
 ### Does manual scale up/down cause downtime?
 
-There is no downtime, instances are distributed across upgrade domains and fault domains.
+There is no downtime. Instances are distributed across upgrade domains and fault domains.
 
 ### Does Application Gateway support connection draining?
 
-Yes. You can configure connection draining to change members within a backend pool without disruption. This will allow existing connections to continue to be sent to their previous destination until either that connection is closed or a configurable timeout expires. Connection draining only waits for current in-flight connections to complete. Application Gateway is not aware of application session state.
+Yes. You can configure connection draining to change members within a backend pool without disruption. This allows existing connections to continue to be sent to their previous destination until either that connection is closed or a configurable timeout expires. Connection draining only waits for current in-flight connections to complete. Application Gateway is not aware of application session state.
 
 ### What are application gateway sizes?
 
@@ -370,13 +371,13 @@ Yes, Application Gateway does support alerts. Alerts are configured on metrics. 
 
 ### How do I analyze traffic statistics for Application Gateway?
 
-You can view and analyze Access logs via a number of mechanisms such as Azure Log Analytics, Excel, Power BI etc.
+You can view and analyze Access logs via several mechanisms such as Azure Log Analytics, Excel, Power BI etc.
 
 We have also published a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details, please see the [Readme file in the Resource Manager template folder in GitHub](https://aka.ms/appgwgoaccessreadme).
 
 ### Backend health returns unknown status, what could be causing this status?
 
-The most common reason is access to the backend is being blocked by an NSG or custom DNS. See [Backend health, diagnostics logging, and metrics for Application Gateway](application-gateway-diagnostics.md) to learn more.
+The most common reason is access to the backend is blocked by an NSG or custom DNS. See [Backend health, diagnostics logging, and metrics for Application Gateway](application-gateway-diagnostics.md) to learn more.
 
 ## Next Steps
 
