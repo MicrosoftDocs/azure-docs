@@ -193,7 +193,6 @@ For more information about networking
 -- 1 TM to Multiple LBs, TM Profile
 -- Link to DNS aliasing for TM and for LB
 ## Capacity Planning and Scaling
-<<<<<<< HEAD
 Before creating any Azure Service Fabric cluster it is important to [plan for capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) by considering many items during the process.
 * The number of node types your cluster needs to start out with
 * The properties of each of node type (size, primary, internet facing, number of VMs, etc.)
@@ -202,10 +201,6 @@ Before creating any Azure Service Fabric cluster it is important to [plan for ca
 > [!NOTE]
 > Scaling compute resources to source your application work load requires intentional planning, will nearly always take longer than an hour to complete for a production environment
 
-=======
--- Link to first doc for Capacity Planning and Scaling. You can also programatically and manually - link to them. 
--- A production scaling operation will take at least 30 min plan accordingly, and can take up to several hours. Tradeoff between performance and safety.
->>>>>>> 7677d09cc97377ddc74c684b90c80f6e6061ab82
 ### Vertical 
 [Vertical scaling](https://docs.microsoft.com/en-us/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms) of a Node Type in Azure Service Fabric requires a number of steps and considerations that must be taken. 
 * The cluster must be healthy before scaling, otherwise you will only destabilize cluster further.
@@ -293,7 +288,23 @@ var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Che
 scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
-### Durability and Reliability Levels
+### Reliability Levels
+Reliability tier is not applicable to individual node types. It controls the replication factor of the system services for the cluster, and is a setting at the cluster resource level. The reliability level will determine the minimum number of nodes that your primary node type must have. The reliability tier can take the following values:
+* Platinum - Run the System services with a target replica set count of seven
+* Gold - Run the System services with a target replica set count of seven
+* Silver - Run the System services with a target replica set count of five
+* Bronze - Run the System services with a target replica set count of three
+The minimum recommened reliability level is Silver.
+
+The reliability level is set in the properties section of the [Microsoft.ServiceFabric/clusters resource](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters)
+```json
+"properties":{
+    "reliabilityLevel": "Silver"
+}
+```
+### Durability Levels
+
+
 -- Provide the code snippets of the setting of these levels - VM extension, SF resource
 -- You should use Silver of greater for your needs. PrimaryNodeType is stateful, if your services running on other node types are also stateful they should be silver. 
 ## Infrastructure as Code 
