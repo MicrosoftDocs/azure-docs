@@ -24,13 +24,24 @@ When importing an API, you might come across some restrictions or identify issue
 ## <a name="open-api"> </a>OpenAPI/Swagger
 If you are receiving errors importing your OpenAPI document, ensure you have validated it - either using the designer in the Azure portal (Design - Front End - OpenAPI Specification Editor), or with a third-party tool such as <a href="https://editor.swagger.io">Swagger Editor</a>.
 
-* Only JSON format for OpenAPI is supported.
-* Required parameters across both path and query must have unique names. (In OpenAPI a parameter name only needs to be unique within a location, e.g. path, query, header.  However, in API Management we allow operations to be discriminated by both path and query parameters (which OpenAPI does not support). Therefore we require parameter names to be unique within the entire URL template.)
-* Schemas referenced using **$ref** properties can't contain other **$ref** properties.
+### <a name="open-api-general"> </a>General
+
+* Required parameters across both path and query must have unique names. (In OpenAPI a parameter name only needs to be unique within a location, e.g. path, query, header. However, in API Management we allow operations to be discriminated by both path and query parameters (which OpenAPI does not support). Therefore we require parameter names to be unique within the entire URL template.)
 * **$ref** pointers can't reference external files.
 * **x-ms-paths** and **x-servers** are the only supported extensions.
 * Custom extensions are ignored on import and are not saved or preserved for export.
-* **Recursion** - Definitions that are defined recursively (for example, refer to themselves) are not supported by APIM.
+* **Recursion** - definitions that are defined recursively (for example, refer to themselves) are not supported by API Management.
+* Source file URL (if available) is applied to relative server URLs.
+
+### <a name="open-api-v2"> </a>OpenAPI version 2
+
+* Only JSON format is supported.
+
+### <a name="open-api-v3"> </a>OpenAPI version 3
+
+* In case of multiple **servers** specified, API Management will attempt to select the first HTTPs URL. In case of no HTTPs URL - the first HTTP URL. In case of no HTTP URLs - the server URL will be empty.
+* **Examples** is not supported, but **example** is.
+* **Multipart/form-data** is not supported.
 
 > [!IMPORTANT]
 > See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.
