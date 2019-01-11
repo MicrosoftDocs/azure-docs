@@ -96,7 +96,7 @@ This update includes the following improvements for Azure Stack.
 <!--  TBD – IS, ASDK --> 
 - *Basic A* virtual machine sizes are retired for [creating virtual machine scale sets](azure-stack-compute-add-scalesets.md) (VMSS) through the portal. To create a VMSS with this size, use PowerShell or a template.  
 
-### Common Vulnerabilities and Exposures
+### Common vulnerabilities and exposures
 
 This update installs the following updates:  
 

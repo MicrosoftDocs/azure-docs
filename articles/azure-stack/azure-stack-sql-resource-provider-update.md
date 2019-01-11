@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: georgel
 ---
@@ -21,7 +21,7 @@ ms.reviewer: georgel
 
 *Applies to: Azure Stack integrated systems.*
 
-A new SQL resource provider might be released when Azure Stack is updated to a new build. Although the existing adapter continues to work, we recommend updating to the latest build as soon as possible.
+A new SQL resource provider might be released when Azure Stack is updated to a new build. Although the existing resource provider continues to work, we recommend updating to the latest build as soon as possible.
 
 > [!IMPORTANT]
 > You must install updates in the order they're released. You can't skip versions. Refer to the versions list in [Deploy the resource provider prerequisites](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
@@ -29,6 +29,9 @@ A new SQL resource provider might be released when Azure Stack is updated to a n
 ## Overview
 
 To update the resource provider, use the *UpdateSQLProvider.ps1* script. This script is included with the download of the new SQL resource provider. The update process is similar to the process used to [Deploy the resource provider](./azure-stack-sql-resource-provider-deploy.md). The update script uses the same arguments as the DeploySqlProvider.ps1 script, and you'll need to provide certificate information.
+
+ > [!IMPORTANT]
+ > Before upgrading the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
 
 ### Update script processes
 

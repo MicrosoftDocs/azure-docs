@@ -12,13 +12,13 @@ ms.custom: seodec2018
 ---
 # Create an Azure Search service in the portal
 
-Azure Search is a standalone resource used for adding a search experience to custom apps. Although Azure Search is easily integrated with many other Azure services, you can also use it by itself, with apps hosted on network servers, or with software running on other cloud platforms. 
+Azure Search is a standalone resource used to plug in a search experience in custom apps. Although Azure Search integrates easily with other Azure services, you can also use it by itself, with apps on network servers, or with software running on other cloud platforms. 
 
 In this article, learn how to create an Azure Search resource in the [Azure portal](https://portal.azure.com/). 
 
 ![Azure Search resource in the portal](media/search-create-service-portal/azure-search-resource-label.png)
 
-Prefer PowerShell? Use the Azure Resource Manager [service template](https://azure.microsoft.com/resources/templates/101-azure-search-create/). For help getting started, see [Manage Azure Search with PowerShell](search-manage-powershell.md) for background.
+Prefer PowerShell? Use the Azure Resource Manager [service template](https://azure.microsoft.com/resources/templates/101-azure-search-create/). For help getting started, see [Manage Azure Search with PowerShell](search-manage-powershell.md).
 
 ## Subscribe (free or paid)
 
