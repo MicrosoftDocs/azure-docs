@@ -33,7 +33,7 @@ Although the default free text search is simple and intuitive, you can also use 
 | Grouping with parenthesis |Use parentheses to group parts of the query to achieve logical isolation, especially in conjunction with Boolean operators. |`name:finance AND (tags:Q1 OR tags:Q2)` |
 | Comparison operators |Use comparisons other than equality for properties that have numeric and date data types. |`modifiedTime > "11/05/2014"` |
 
-For more information about Data Catalog search, see the [Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267594.aspx) article.
+For more information about Data Catalog search, see the [Azure Data Catalog](/rest/api/datacatalog/#search-syntax-reference) article.
 
 ## Hit highlighting
 When you view search results, any displayed properties that match the specified search terms (such as the data asset name, description, and tags) are highlighted to make it easier to identify why a given data asset was returned by a given search.

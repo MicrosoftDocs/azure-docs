@@ -70,4 +70,4 @@ Glossary tags and user tags are both searchable, and you can apply them as filte
 By using the business glossary in Azure Data Catalog, and the governed tagging it enables, you can identify, manage, and discover data assets in a consistent manner. The business glossary can promote learning of the business vocabulary by organization members. The glossary also supports capturing meaningful metadata, which simplifies asset discovery and understanding.
 
 ## Next steps
-* [REST API documentation for business glossary operations](https://msdn.microsoft.com/library/mt708855.aspx)
+* [REST API documentation for business glossary operations](/rest/api/datacatalog/data-catalog-glossary)

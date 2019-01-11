@@ -92,7 +92,7 @@ The Adventure Works database supports standard online transaction-processing sce
 To install the Adventure Works sample database:
 
 1. Download [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) on CodePlex.
-2. To restore the database on your machine, follow the instructions in [Restore a Database Backup by using SQL Server Management Studio](https://msdn.microsoft.com/library/ms177429.aspx), or by following these steps:
+2. To restore the database on your machine, follow the instructions in [Restore a Database Backup by using SQL Server Management Studio](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms), or by following these steps:
    1. Open SQL Server Management Studio and connect to the SQL Server Database Engine.
    2. Right-click **Databases** and click **Restore Database**.
    3. Under **Restore Database**, click the **Device** option for **Source** and click **Browse**.
@@ -153,7 +153,7 @@ Filtering is designed to complement searching. You can select specific character
 
 By using a combination of searching and filtering, you can quickly navigate the data sources that have been registered with Azure Data Catalog to discover the data assets you need.
 
-In this exercise, you use the Azure Data Catalog portal to discover data assets you registered in the previous exercise. See [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) for details about search syntax.
+In this exercise, you use the Azure Data Catalog portal to discover data assets you registered in the previous exercise. See [Data Catalog Search syntax reference](/rest/api/datacatalog/#search-syntax-reference) for details about search syntax.
 
 Following are a few examples for discovering data assets in the catalog.  
 
@@ -184,7 +184,7 @@ Basic search helps you search a catalog by using one or more search terms. Resul
 Property scoping helps you discover data assets where the search term is matched with the specified property.
 
 1. Clear the **Table** filter under **Object Type** in **Filters**.  
-2. In the search box, enter `tags:cycles` and press **ENTER**. See [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) for all the properties you can use for searching the data catalog.
+2. In the search box, enter `tags:cycles` and press **ENTER**. See [Data Catalog Search syntax reference](/rest/api/datacatalog/#search-syntax-reference) for all the properties you can use for searching the data catalog.
 3. Confirm that you see all four tables and the database (AdventureWorks2014) in the results.  
    
     ![Data Catalog--property scoping search results](media/data-catalog-get-started/data-catalog-property-scoping-results.png)
@@ -226,7 +226,7 @@ With comparison operators, you can use comparisons other than equality for prope
    
     ![Azure Data Catalog--comparison search results](media/data-catalog-get-started/data-catalog-comparison-operator-results.png)
 
-See [How to discover data assets](data-catalog-how-to-discover.md) for detailed information about discovering data assets and [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) for search syntax.
+See [How to discover data assets](data-catalog-how-to-discover.md) for detailed information about discovering data assets and [Data Catalog Search syntax reference](/rest/api/datacatalog/#search-syntax-reference) for search syntax.
 
 ## Annotate data assets
 In this exercise, you use the Azure Data Catalog portal to annotate (add information such as descriptions, tags, or experts) data assets you have previously registered in the catalog. The annotations supplement and enhance the structural metadata extracted from the data source during registration and makes the data assets much easier to discover and understand.
