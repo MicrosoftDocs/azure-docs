@@ -288,7 +288,7 @@ Yes, [configuration of cipher suites](application-gateway-ssl-policy-overview.md
 
 ### How many SSL certificates are supported?
 
-Up to 20 SSL certificates are supported.
+Up to 100 SSL certificates are supported.
 
 ### How many authentication certificates for backend re-encryption are supported?
 

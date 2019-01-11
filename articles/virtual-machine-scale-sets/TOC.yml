@@ -266,6 +266,8 @@
     href: ../virtual-machines/azure-cli-arm-commands.md
   - name: REST
     href: /rest/api/virtualmachinescalesets/
+  - name: Azure templates
+    href: /azure/templates/microsoft.compute/virtualmachinescalesets
 - name: Resources
   items:
   - name: Azure Roadmap
