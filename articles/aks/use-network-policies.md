@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/11/2019
 ms.author: iainfou
 ---
 
@@ -34,7 +34,25 @@ To see network policies in action, let's create and then expand on a policy that
 
 ## Create an AKS cluster and enable network policy
 
-To use network policy with an AKS cluster, you must use the Azure CNI plugin and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking]. The following example script:
+Network policy can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster. To create an AKS with network policy, first enable a feature flag on your subscription. To register the *EnableNetworkPolicy* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
+
+```azurecli-interactive
+az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
+```
+
+It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableNetworkPolicy')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+To use network policy with an AKS cluster, you must use the [Azure CNI plugin][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking]. The following example script:
 
 * Creates a virtual network and subnet.
 * Creates an Azure Active Directory (AD) service principal for use with the AKS cluster.
@@ -88,7 +106,7 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --network-policy azure
+    --network-policy calico
 ```
 
 It takes a few minutes to create the cluster. When finished, configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them:
@@ -241,7 +259,7 @@ Exit out of the attached terminal session:
 exit
 ```
 
-### Test a pod with a matching label
+### Test a pod without a matching label
 
 The network policy allows traffic from pods labeled *app: frontend*, but should deny all other traffic. Let's test that another pod without the *app: frontend* label can't access the backend NGINX pod. Create another test pod and attach a terminal session:
 
@@ -399,9 +417,13 @@ To learn more about using policies, see [Kubernetes network policies][kubernetes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
+[azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [use-advanced-networking]: configure-advanced-networking.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [concepts-network]: concepts-network.md
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
