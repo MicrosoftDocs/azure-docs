@@ -27,7 +27,7 @@ Conceptually Kafka and Event Hubs are nearly identical: they are both partitione
 | Kafka Concept | Event Hubs Concept|
 | --- | --- |
 | Cluster | Namespace |
-| Topic | Event Hubs |
+| Topic | Event Hub |
 | Partition | Partition|
 | Consumer Group | Consumer Group |
 | Offset | Offset|
@@ -72,6 +72,4 @@ This article provided an introduction to Event Hubs for Kafka. To learn more, se
 - [Connect Akka Streams to a Kafka-enabled event hub](event-hubs-kafka-akka-streams-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 
- 
- 
 
