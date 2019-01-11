@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 01/11/2019
 ms.author: cwatson
 
 ---
@@ -42,8 +42,8 @@ For Windows virtual machines and SQL Database, you can cover the licensing costs
 
 Azure customers with these subscriptions types can buy a reservation:
 
-- Enterprise agreement subscription offer type (MS-AZR-0017P).
-- [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription offer type (MS-AZR-003P). You must have the “Owner” role on the subscription to buy a reservation.
+- Enterprise agreement subscription offer type (MS-AZR-0017P or MS-AZR-0148P).
+- Pay-As-You-Go subscription offer type (MS-AZR-003P or MS-AZR-0023P). You must have the “Owner” role on the subscription to buy a reservation.
 - Cloud Solution Provider (CSP) partners can use Azure portal or [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) to purchase Azure Reservations.
 
 A reservation discount only applies to resources associated with Enterprise, Pay-As-You-Go, or CSP subscription types.
@@ -56,7 +56,7 @@ The reservation is charged to the payment method tied to the subscription. If yo
 
 The reservation discount applies to the resource usage that matches the attributes you select when you buy the reservation. The attributes include the scope where the matching VMs, SQL databases, Azure Cosmos DB, or other resources run. For example, if you want a reservation discount for four Standard D2 virtual machines in the West US region, select the subscription where the VMs are running. If the virtual machines are running in different subscriptions within your enrollment/account, then select the scope as shared. Shared scope allows the reservation discount to be applied across subscriptions. You can change the scope after you buy a reservation. For more information, see [Manage Azure Reservations](billing-manage-reserved-vm-instance.md).
 
-A reservation discount only applies to resources associated with Enterprise, Pay-As-You-Go, or CSP subscription types. Resources that run in a subscription with other offer types don't receive the reservation discount. For enterprise enrollments, enterprise Dev/Test subscriptions aren’t eligible for the reservation benefits.
+A reservation discount only applies to resources associated with Enterprise, Pay-As-You-Go, or CSP subscription types. Resources that run in a subscription with other offer types don't receive the reservation discount.
 
 To better understand how Reservations affects your billing, see the following topics:
 
