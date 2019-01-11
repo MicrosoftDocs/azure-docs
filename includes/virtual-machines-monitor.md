@@ -25,7 +25,7 @@ You can set up and monitor the collection of [diagnostics data](https://docs.mic
 
 ## Alerts
 
-You can create [alerts](../articles/azure-monitor/platform/alerts-overview.md) based on specific performance metrics. Examples of the issues you can be alerted about include when average CPU usage exceeds a certain threshold, or available free disk space drops below a certain amount. Alerts can be configured in the [Azure portal](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), using [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md), or the [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
+You can create [alerts](../articles/azure-monitor/platform/alerts-overview.md) based on specific performance metrics. Examples of the issues you can be alerted about include when average CPU usage exceeds a certain threshold, or available free disk space drops below a certain amount. Alerts can be configured in the [Azure portal](../articles/azure-monitor/platform/alerts-classic-portal.md), using [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell), or the [Azure CLI](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli).
 
 ## Azure Service Health
 

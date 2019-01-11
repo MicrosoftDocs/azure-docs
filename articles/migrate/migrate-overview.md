@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -34,6 +34,7 @@ Azure Migrate helps you to:
     **Geography** | **Storage location**
     --- | ---
     Azure Government | US Gov Virginia
+    Asia | Southeast Asia
     Europe | North Europe or West Europe
     Unites States | East US or West Central US
 

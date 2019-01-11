@@ -1,5 +1,5 @@
 ---
-title: Search explorer in Azure portal for querying indexes - Azure Search
+title: Search explorer tool for querying data in Azure portal - Azure Search
 description: Use Azure portal tools like Search explorer to query indexes in Azure Search. Enter search terms or fully-qualified search strings with advanced syntax.
 manager: cgronlun
 author: HeidiSteen
@@ -10,41 +10,15 @@ ms.date: 01/10/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
-# How to use Search explorer to query indexes in Azure Search 
+# Search explorer tool for querying data in Azure Search 
 
-This article shows you how to query an existing Azure Search index using **Search explorer** in the Azure portal. You can use Search explorer to submit simple or full Lucene query strings to any existing index in your service.
+This article shows you how to query an existing Azure Search index using **Search explorer** in the Azure portal. You can use Search explorer to submit simple or full Lucene query strings to any existing index in your service. 
 
-## Start Search explorer
-
-1. In the [Azure portal](https://portal.azure.com), open the search service page from the dashboard or [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list.
-
-2. In the service overview page, click **Search explorer**.
-
-   ![Search explorer command in portal](./media/search-explorer/search-explorer-cmd2.png "Search explorer command in portal")
-
-3. Select the index to query.
-
-   ![Select the index to query](./media/search-explorer/search-explorer-changeindex-se2.png "Select the index")
-
-4. Optionally, set the API version. By default, the current generally available API version is selected, but you can choose a preview or older API if the syntax you want to use is version-specific.
-
-5. Once the index and API version is selected, enter search terms or fully qualified query expressions in the search bar and click **Search** to execute.
-
-   ![Enter search terms and click Search](./media/search-explorer/search-explorer-query-string-example.png "Enter search terms and click Search")
-
-Tips for searching in **Search explorer**:
-
-+ Results are returned as verbose JSON documents so that you can view document construction and content, in entirety. You can use query expressions, shown in the examples, to limit which fields are returned.
-
-+ Documents are composed of all fields marked as **Retrievable** in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** list on the search overview page.
-
-+ Free-form queries, similar to what you might enter in a commercial web browser, are useful for testing an end-user experience. For example, assuming the built-in realestate sample index, you could enter "Seattle apartments lake washington", and then you can use Ctrl-F to find terms within the search results. 
-
-+ Query and filter expressions must be articulated in a syntax supported by Azure Search. The default is a [simple syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), but you can optionally use [full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) for more powerful queries. [Filter expressions](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) are an OData syntax.
+For help getting started, see [Start Search explorer](#start-search-explorer).
 
 ## Basic search strings
 
-The following examples assume the built-in realestate sample index. For more information on creating this index, see [Quickstart: Import, index, and query in Azure portal](search-get-started-portal.md).
+The following examples assume the built-in realestate sample index. For help creating this index, see [Quickstart: Import, index, and query in Azure portal](search-get-started-portal.md).
 
 ### Example 1 - empty search
 
@@ -122,6 +96,37 @@ Add **$orderby** to sort results by another field besides search score. An examp
    ![Orderby expression](./media/search-explorer/search-explorer-example-ordery.png "Change the sort order")
 
 Both **$filter** and **$orderby** expressions are OData constructions. For more information, see [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+
+<a name="start-search-explorer"></a>
+
+## How to start Search explorer
+
+1. In the [Azure portal](https://portal.azure.com), open the search service page from the dashboard or [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list.
+
+2. In the service overview page, click **Search explorer**.
+
+   ![Search explorer command in portal](./media/search-explorer/search-explorer-cmd2.png "Search explorer command in portal")
+
+3. Select the index to query.
+
+   ![Select the index to query](./media/search-explorer/search-explorer-changeindex-se2.png "Select the index")
+
+4. Optionally, set the API version. By default, the current generally available API version is selected, but you can choose a preview or older API if the syntax you want to use is version-specific.
+
+5. Once the index and API version is selected, enter search terms or fully qualified query expressions in the search bar and click **Search** to execute.
+
+   ![Enter search terms and click Search](./media/search-explorer/search-explorer-query-string-example.png "Enter search terms and click Search")
+
+Tips for searching in **Search explorer**:
+
++ Results are returned as verbose JSON documents so that you can view document construction and content, in entirety. You can use query expressions, shown in the examples, to limit which fields are returned.
+
++ Documents are composed of all fields marked as **Retrievable** in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** list on the search overview page.
+
++ Free-form queries, similar to what you might enter in a commercial web browser, are useful for testing an end-user experience. For example, assuming the built-in realestate sample index, you could enter "Seattle apartments lake washington", and then you can use Ctrl-F to find terms within the search results. 
+
++ Query and filter expressions must be articulated in a syntax supported by Azure Search. The default is a [simple syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), but you can optionally use [full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) for more powerful queries. [Filter expressions](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) are an OData syntax.
+
 
 ## Next steps
 

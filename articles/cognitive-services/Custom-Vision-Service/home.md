@@ -36,6 +36,10 @@ The Custom Vision Service is available as a set of native SDKs as well as throug
 
 ![Custom Vision home page in a Chrome browser window](media/browser-home.png)
 
+## Data privacy and security
+
+As with all of the Cognitive Services, developers using the Custom Vision service should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
+
 ## Next steps
 
 Follow the [Build a classifier](getting-started-build-a-classifier.md) guide to get started using Custom Vision on the web, or complete an [Image classification tutorial](csharp-tutorial.md) to implement the scenario in code.
