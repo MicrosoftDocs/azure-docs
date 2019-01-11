@@ -349,6 +349,12 @@ this service for this scenario. For more info, see
 
 ### Outbound IP addresses - Logic Apps service & managed connectors
 
+| Region | Logic Apps IP | Managed connectors IP | 
+|--------|---------------|-----------------------|
+| Australia East | 13.75.149.4, 52.187.226.96, 52.187.226.139, 52.187.227.245, 52.187.229.130, 52.187.231.184, 104.210.90.241, 104.210.91.55 | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 | 
+|||| 
+
+
 | Region | Component | IP address ranges | 
 |--------|-----------|-------------------|
 | Australia East | Logic Apps service | 13.75.149.4, 52.187.226.96, 52.187.226.139, 52.187.227.245, 52.187.229.130, 52.187.231.184, 104.210.90.241, 104.210.91.55 |
