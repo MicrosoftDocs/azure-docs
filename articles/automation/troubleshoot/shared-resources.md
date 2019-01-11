@@ -33,6 +33,42 @@ To resolve this issue, you must remove the module that is stuck in the **Importi
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
+### <a name="all-modules-suspended"></a>Scenario: Importing all Azure runbooks gets suspended
+
+#### Issue
+
+When using the [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook to update your Azure modules the module update the update process gets suspended.
+
+#### Cause
+
+The default modules that get updated simultaneously is 10 when using the `Update-AzureModule.ps1` script. When updating too many modules at the same time te process is prone to errors.
+
+#### Resolution
+
+It is not common that all the AzureRM modules are actually required in the same Automation account. It is recommended to only import the AzureRM modules that you need.
+
+> [!NOTE]
+> Avoid importing the **AzureRM** module. Importing the **AzureRM** modules causes all **AzureRM.\*** modules to be imported, this is not recommened.
+
+If the update process suspends, you'll need to add the `SimultaneousModuleImportJobCount` parameter to the `Update-AzureModules.ps1` script and provide a lower value than the default that is 10. It is recommended if you do this to start with a value of 3 or 5. `SimultaneousModuleImportJobCount` is a parameter of the `Update-AutomationAzureModulesForAccount` system runbook that is used to update Azure modules.
+
+ ```powershell
+         $Body = @"
+            {
+               "properties":{
+               "runbook":{
+                   "name":"Update-AutomationAzureModulesForAccount"
+               },
+               "parameters":{
+                    ...
+                    "SimultaneousModuleImportJobCount":"3",
+                    ... 
+               }
+              }
+           }
+"@
+```
+
 ## Run As accounts
 
 ### <a name="unable-create-update"></a>Scenario: You're unable to create or update a Run As account

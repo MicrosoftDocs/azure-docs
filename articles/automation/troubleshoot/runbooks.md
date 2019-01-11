@@ -261,6 +261,30 @@ Any of the following three solutions fix this problem:
 2. Pass the name or value that you need from the complex object instead of passing the entire object.
 3. Use a PowerShell runbook instead of a PowerShell Workflow runbook.
 
+### <a name="runbook-fails"></a>Scenario: My Runbook fails but works when ran locally
+
+#### Issue
+
+Your script fails when ran as a runbook but it works when ran locally.
+
+#### Cause
+
+Your script may fail when running as a runbook for one of the following reasons:
+
+1. Authentication issues
+2. Required modules are not imported or out of date.
+3. Your script may be prompting for user interaction.
+
+#### Resolution
+
+Any of the following solutions may fix this problem:
+
+1. Verify you are properly [authenticating to Azure](../manage-runas-account.md).
+2. Ensure your [Azure modules are imported and up to date](automation-update-azure-modules.md).
+3. Verify that none of your cmdlets are prompting for information, this is not supported in runbooks.
+
+If none of these solutions solve your problemReview the [job logs](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) for specific details in to why your runbook may have failed.
+
 ### <a name="quota-exceeded"></a>Scenario: Runbook job failed because the allocated quota exceeded
 
 #### Issue
