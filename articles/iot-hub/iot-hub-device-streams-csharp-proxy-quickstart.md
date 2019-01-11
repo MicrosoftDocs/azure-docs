@@ -54,7 +54,7 @@ dotnet --version
 
 Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive.
 
-**[Bugbash instructions]:** Download the file from [here](\\scratch2\scratch\rezas\devicstreamsbugbash\csharp-proxy.zip).
+**[Bugbash instructions]:** Download the file from [here](\\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-nodejs.zip).
 
 ## Create an IoT hub
 
@@ -116,7 +116,7 @@ Navigate to `ServiceLocalProxyC2DStreamingSample` in your unzipped project folde
 
 Compile and run the code as follows:
 
-```
+```cmd/sh
 cd ./iothub/service/samples/ServiceLocalProxyC2DStreamingSample
 
 # Build the application
@@ -142,7 +142,7 @@ Navigate to `DeviceLocalProxyC2DStreamingSample` in your unzipped project folder
 
 Compile and run the code as follows:
 
-```
+```cmd/sh
 cd ./iothub/device/samples/DeviceLocalProxyC2DStreamingSample/
 
 # Build the application
@@ -158,7 +158,7 @@ dotnet run %DeviceConnectionString% localhost 22
 
 Now use your SSH client program and connect to service-local proxy on port `2222` (instead of the SSH daemon directly). 
 
-```
+```cmd/sh
 ssh <username>@localhost -p 2222
 ```
 
@@ -170,7 +170,7 @@ At this point, you will be presented with the SSH login prompt to enter your cre
 </p>
 
 <p>
-    Console output on the device-local (the device-local proxy connects to the SSH daemon at <code>IP_address:22</code>:
+    Console output on the device-local proxy which connects to the SSH daemon at <code>IP_address:22</code>:
     <img src="./media/iot-hub-device-streams-csharp-proxy-quickstart/device-console-output.png"/>
 </p>
 
@@ -195,7 +195,7 @@ Navigate to `ServiceLocalProxyC2DStreamingSample` in your unzipped project folde
 
 Compile and run the code as follows:
 
-```
+```cmd/sh
 cd ./iothub/service/samples/ServiceLocalProxyC2DStreamingSample
 
 # Build the application
@@ -221,7 +221,7 @@ Navigate to `DeviceLocalProxyC2DStreamingSample` in your unzipped project folder
 
 Compile and run the code as follows:
 
-```
+```cmd/sh
 cd ./iothub/device/samples/DeviceLocalProxyC2DStreamingSample/
 
 # Run the application
@@ -251,4 +251,4 @@ Use the links below to learn more about device streams:
 > [!div class="nextstepaction"]
 > [Device streams overview](./iot-hub-device-streams-overview.md)
 > [Device streams tutorial](./iot-hub-device-streams-tutorial.md)
-> [Try other quickstarts](./)
+> [Try other quickstarts](/azure/iot-hub)

@@ -88,47 +88,51 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ### Run the service-side application
 
-Navigate to `ServiceClientC2DStreamingSample` in your unzipped project folder, and edit `App.config` file as follows:
+Navigate to `ServiceClientC2DStreamingSample` in your unzipped project folder. You will need the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
-| `IotHubConnectionString` | Set the value to the service connection string of your IoT Hub. |
-| `DeviceId` | Set the value to the device ID you created earlier. |
+| `ServiceConnectionString` | The service connection string of your IoT Hub. |
+| `DeviceId` | The identifier of the device you created earlier. |
 
 Compile and run the code as follows:
 
-```azurecli-interactive
+```cmd/sh
 cd ./iothub/service/samples/ServiceClientC2DStreamingSample/
-
-# Edit App.config file with parameter information above
 
 # Build the application
 dotnet build
 
 # Run the application
-dotnet run
+# In Linux/MacOS
+dotnet run $ServiceConnectionString MyDevice
+
+# In Windows
+dotnet run %ServiceConnectionString% MyDevice
 ```
 
 ### Run the device-side application
 
-Navigate to `DeviceClientC2DStreamingSample` in your unzipped project folder, and edit `App.config` file as follows:
+Navigate to `DeviceClientC2DStreamingSample` in your unzipped project folder. You will need the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
-| `DeviceConnectionString` | Set the value to the connection string of the device you created earlier. |
+| `DeviceConnectionString` | The connection string of the device you created earlier. |
 
 Compile and run the code as follows:
 
-```azurecli-interactive
+```cmd/sh
 cd ./iothub/device/samples/DeviceClientC2DStreamingSample/
-
-# Edit App.config file with parameter information above
 
 # Build the application
 dotnet build
 
 # Run the application
-dotnet run
+# In Linux/MacOS
+dotnet run $DeviceConnectionString
+
+# In Windows
+dotnet run %DeviceConnectionString%
 ```
 
 At the end of the last step, the service-side program will initiate a stream to your device and once established will send a string buffer to the service over the stream. In this sample, the service-side program simply echos back the same data to the device, demonstrating successful bidirectional communication between the two applications. See figure below.
@@ -145,9 +149,11 @@ At the end of the last step, the service-side program will initiate a stream to 
 
 The traffic being sent over the stream will be tunneled through IoT Hub rather than being sent directly. This provides [these benefits](./iot-hub-device-streams-blog.md#benefits).
 
+
 ## Clean up resources
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
+
 
 ## Next steps
 
@@ -158,4 +164,4 @@ Use the links below to learn more about device streams:
 > [!div class="nextstepaction"]
 > [Device streams overview](./iot-hub-device-streams-overview.md)
 > [Device streams tutorial](./iot-hub-device-streams-tutorial.md)
-> [Try other quickstarts](./)
+> [Try other quickstarts](/azure/iot-hub)

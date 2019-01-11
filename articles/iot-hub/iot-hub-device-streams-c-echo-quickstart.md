@@ -1,22 +1,22 @@
 ---
-title: Azure IoT Hub device streams quickstart (NodeJS) | Microsoft Docs
-description: In this quickstart, you will run a NodeJS service-side applications that communicates with an IoT device via a device stream.
+title: Azure IoT Hub device streams quickstart (C) | Microsoft Docs
+description: In this quickstart, you will run a C service-side applications that communicates with an IoT device via a device stream.
 author: rezasherafat
 manager: briz
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: nodejs
+ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/3/2019
 ms.author: rezas
 ---
 
-# Quickstart: Communicate to a device application via IoT Hub device streams (NodeJS)
+# Quickstart: Communicate to a device application via IoT Hub device streams (C)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-side application. You should run an accompanying service-side application which is available in [C# quickstart](./iot-hub-device-streams-csharp-echo-quickstart.md) or [NodeJS quickstart](./iot-hub-device-streams-nodejs-echo-quickstart.md) guides.
+[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-side application. You should run an accompanying service-side application which is available in [C# quickstart](./iot-hub-device-streams-csharp-echo-quickstart.md) or [Node.js quickstart](./iot-hub-device-streams-nodejs-echo-quickstart.md) guides.
 
 The device-side C application in this quickstart has the following functionality:
 
@@ -65,6 +65,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
     ```
     The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
 
+**[Bugbash instructions]:** Skip this step and download and unzip the device streams repo directly from [here](\\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-c.zip).
 
 3. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 
 
@@ -76,7 +77,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
 4. Run the following command that builds a version of the SDK specific to your development client platform. A Visual Studio solution for the simulated device will be generated in the `cmake` directory. 
 
-    ```cmd
+    ```cmd/sh
     cmake ..
     ```
     
@@ -174,7 +175,7 @@ To run the device-side application, you need to:
 
 ### Run the service-side application
 
-As mentioned earlier, IoT Hub C SDK only supports device streams on the device side. For the service-side application, use the accompaying service programs available in [C# quickstart](./iot-hub-device-streams-csharp-echo-quickstart.md) or [NodeJS quickstart](./iot-hub-device-streams-nodejs-echo-quickstart.md) guides.
+As mentioned earlier, IoT Hub C SDK only supports device streams on the device side. For the service-side application, use the accompaying service programs available in [C# quickstart](./iot-hub-device-streams-csharp-echo-quickstart.md) or [Node.js quickstart](./iot-hub-device-streams-nodejs-echo-quickstart.md) guides.
 
 
 ## Clean up resources
@@ -185,11 +186,9 @@ As mentioned earlier, IoT Hub C SDK only supports device streams on the device s
 
 In this quickstart, you have set up an IoT hub, registered a device, sent simulated telemetry to the hub using a C application, and read the telemetry from the hub using the Azure Cloud Shell.
 
-To learn more about developing with the Azure IoT Hub C SDK, continue to the following How-to guide:
+Use the links below to learn more about device streams:
 
 > [!div class="nextstepaction"]
-> [QuickStart: SSH/RDP to your IoT devices using device streams (C)](iot-hub-device-streams-c-proxy-quickstart.md)
-> [QuickStart: SSH/RDP to your IoT devices using device streams (C#)](iot-hub-device-streams-csharp-proxy-quickstart.md)
-> [QuickStart: SSH/RDP to your IoT devices using device streams (NodeJS)](iot-hub-device-streams-nodejs-proxy-quickstart.md)
-> [QuickStart: Communicate with IoT devices using device streams (echo) (C#)](iot-hub-device-streams-csharp-echo-quickstart.md)
-> [QuickStart: Communicate with IoT devices using device streams (echo) (NodeJS)](iot-hub-device-streams-nodejs-echo-quickstart.md)
+> [Device streams overview](./iot-hub-device-streams-overview.md)
+> [Device streams tutorial](./iot-hub-device-streams-tutorial.md)
+> [Try other quickstarts](/azure/iot-hub)

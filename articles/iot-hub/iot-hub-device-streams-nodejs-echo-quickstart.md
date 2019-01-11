@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-To run the service-side application in this quickstart you need Node.js v4.x.x or later on your development machine (note that version 10 or later is not yet supported).
+To run the service-side application in this quickstart you need Node.js v4.x.x or later on your development machine.
 
 You can download Node.js for multiple platforms from [Node.js.org](https://Node.js.org).
 
@@ -97,7 +97,7 @@ As mentioned earlier, IoT Hub Node.js SDK only supports device streams on the se
 Assuming the device-side application is running, follow the steps below to run the service-side application in Node.js:
 
 - Provide your service credentials and device ID as environment variables.
-```
+```cmd/sh
   # In Linux
   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
   export STREAMING_TARGET_DEVICE="MyDevice"
@@ -109,12 +109,32 @@ Assuming the device-side application is running, follow the steps below to run t
 Change `MyDevice` to the device ID you chose for your device.
 
 - Navigate to `service/samples` in your unzipped project folder and run the sample using node.
-```
+```cmd/sh
   cd ./service/samples
   npm install
   node c2d_tcp_streaming.js
 ```
-After the connection is established, you can type in the service application console and press enter to send the data to device. The device application will echo back the results which will be printed on the console. You can then terminate the program by pressing enter again.
+
+**[Bugbash instructions]:** Use the following:
+```cmd/sh
+  cd ./bugbash-node/samples
+
+  # Install the packages
+  npm install
+  npm install ../azure-iothub-1.10.0-preview.tgz
+
+  # Run the application
+  node c2d_tcp_streaming.js
+```
+
+At the end of the last step, the service-side program will initiate a stream to your device and once established will send a string buffer to the service over the stream. In this sample, the service-side program simply reads the stdin on the terminal and sends it to the device, which will then echo it back. This demonstrates successful bidirectional communication between the two applications.
+
+<p>
+    Console output on the service-side:
+    <img src="./media/iot-hub-device-streams-nodejs-echo-quickstart/service-console-output.PNG"/>
+</p>
+
+You can then terminate the program by pressing enter again.
 
 
 ## Clean up resources
@@ -131,4 +151,4 @@ Use the links below to learn more about device streams:
 > [!div class="nextstepaction"]
 > [Device streams overview](./iot-hub-device-streams-overview.md)
 > [Device streams tutorial](./iot-hub-device-streams-tutorial.md)
-> [Try other quickstarts](./)
+> [Try other quickstarts](/azure/iot-hub)
