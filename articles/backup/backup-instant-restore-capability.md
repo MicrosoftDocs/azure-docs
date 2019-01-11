@@ -148,10 +148,10 @@ If it says "Registered," then your subscription is upgraded to Instant Restore.
 Snapshots are stored along with the disks to speed up recovery point creation and restore operations. As a result, you'll see storage costs that correspond to the snapshot retention selected as a part of VM backup policy.
 
 ### Does snapshot retention increase the premium storage account snapshot limit by 10-TB?
-No, total snapshot limit per storage account remains at 10-TB.
+No, the snapshot retention does not increases the premium storage account (managed/unmanaged) snapshot limit by 10-TB.
 
 ### In Premium Storage accounts, do the snapshots taken for instant recovery point occupy the 10-TB snapshot limit?
-Yes, for premium storage accounts, the snapshots taken for instant recovery point, occupy the allocated 10-TB of space.
+Yes, for premium storage accounts (managed/unmanaged) the snapshots taken for instant recovery point occupy 10-TB of allocated snapshot space.
 
 ### How does the snapshot retention work during the five-day period?
 Each day a new snapshot is taken, then there are five individual incremental snapshots. The size of the snapshot depends on the data churn, which is in most cases around 2%-5%.
