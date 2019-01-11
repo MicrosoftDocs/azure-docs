@@ -5,6 +5,7 @@ description: This quickstart shows how to create a public load balancer using th
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 tags: azure-resource-manager
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.custom: seodec18

@@ -88,7 +88,7 @@ queryType=simple&search=mountain beach garden ranch^3&searchFields=description&$
 The same query using the full Lucene parser interprets the in-field boost on "ranch", which boosts the search rank of results containing that specific term.
 
 ```
-queryType=simple&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=full&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
 ```
 
 <a name="types-of-queries"></a>
