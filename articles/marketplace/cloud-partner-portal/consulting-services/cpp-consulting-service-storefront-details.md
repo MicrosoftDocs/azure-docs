@@ -94,7 +94,7 @@ of current environment, and mini POC.
 **Offer description**: This 3-day workshop is for technical and business
 leaders and is held on-site at the client's facility.
 
- Agenda
+Agenda
 
 Day 1
 
@@ -113,7 +113,7 @@ Day 3
     with Power BI and includes a collaborative session to cobuild a Power
     BI dashboard.
 
- Deliverables
+Deliverables
 
 By the end of the workshop, the client can define a
 high-level plan and an implementation roadmap for data and analytics
