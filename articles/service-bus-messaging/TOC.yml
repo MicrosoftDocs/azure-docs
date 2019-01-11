@@ -194,6 +194,8 @@
     href: /powershell/module/azurerm.servicebus
   - name: REST
     href: /rest/api/servicebus
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.servicebus/allversions
   - name: Quotas
     href: service-bus-quotas.md
   - name: SQLFilter syntax

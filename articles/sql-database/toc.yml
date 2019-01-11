@@ -25,9 +25,9 @@
       href: sql-database-managed-instance-configure-p2s.md
   - name: Load data
     items:
-    - name: Import BACPAC into a single database
+    - name: Import BACPAC into a new database
       href: sql-database-import.md
-    - name: Restore a database backup to a Managed Instance
+    - name: Restore database backup to a Managed Instance
       href: sql-database-managed-instance-get-started-restore.md
   - name: Query
     href: sql-database-connect-query.md

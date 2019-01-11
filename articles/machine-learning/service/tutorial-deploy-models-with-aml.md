@@ -340,8 +340,6 @@ This result is from one random sample of test images:
 
 ![Graphic showing results](./media/tutorial-deploy-models-with-aml/results.png)
 
-![Results](./media/tutorial-deploy-models-with-aml/results.png)
-
 You can also send a raw HTTP request to test the web service:
 
 ```python
