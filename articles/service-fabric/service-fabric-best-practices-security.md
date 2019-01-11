@@ -140,7 +140,7 @@ If you created a  [user-assigned managed identity](https://docs.microsoft.com/az
 }
 ```
 
-Before your Service Fabric Application can make use of a managed identity, it need have permissions granted to the Azure Resources it needs to authenticate with, and the follow are the commands to grant access to an Azure Resource:
+Before your Service Fabric Application can make use of a managed identity, permissions must be granted to the Azure Resources it needs to authenticate with, and the follow are the commands to grant access to an Azure Resource:
 
 ```bash
 principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGroups/<YOUR RG>/providers/Microsoft.Compute/virtualMachineScaleSets/<YOUR SCALE SET> --api-version 2018-06-01 | python -c "import sys, json; print(json.load(sys.stdin)['identity']['principalId'])")
@@ -161,7 +161,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 ```
 
 ## Windows Defender 
-"[By default](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016), Windows Defender Antimalware is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but is not required." Given the performance impact and resource consumption overhead, if your security policies allow you to exclude processes and paths for open source software, declaring the following Virtual Machine Scale Set Extension Resource Manager template properties will exclude your Service Fabric Cluster from scans:
+"[By default](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016), Windows Defender Antimalware is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but is not required." Given the performance impact and resource consumption overhead, if your security policies allow you to exclude processes and paths for open-source software, declaring the following Virtual Machine Scale Set Extension Resource Manager template properties will exclude your Service Fabric Cluster from scans:
 
 ```json
  {
