@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 01/11/2019
 ms.author: davidmu
 ms.component: B2C
 
@@ -123,46 +123,6 @@ To set up client credential flow, see [Azure Active Directory v2.0 and the OAuth
 Many architectures include a web API that needs to call another downstream web API, where both are secured by Azure AD B2C. This scenario is common in native clients that have a Web API back-end. This then calls a Microsoft online service such as the Azure AD Graph API.
 
 This chained web API scenario can be supported by using the OAuth 2.0 JWT bearer credential grant, also known as the on-behalf-of flow.  However, the on-behalf-of flow is not currently implemented in the Azure AD B2C.
-
-### Reply URL values
-
-Currently, apps that are registered with Azure AD B2C are restricted to a limited set of reply URL values. The reply URL for web apps and services must begin with the scheme `https`, and all reply URL values must share a single DNS domain. For example, you cannot register a web app that has one of these reply URLs:
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-The registration system compares the whole DNS name of the existing reply URL to the DNS name of the reply URL that you are adding. The request to add the DNS name fails if either of the following conditions is true:
-
-- The whole DNS name of the new reply URL does not match the DNS name of the existing reply URL.
-- The whole DNS name of the new reply URL is not a subdomain of the existing reply URL.
-
-For example, if the app has this reply URL:
-
-`https://login.contoso.com`
-
-You can add to it, like this:
-
-`https://login.contoso.com/new`
-
-In this case, the DNS name matches exactly. Or, you can do this:
-
-`https://new.login.contoso.com`
-
-In this case, you're referring to a DNS subdomain of login.contoso.com. If you want to have an app that has login-east.contoso.com and login-west.contoso.com as reply URLs, you must add those reply URLs in this order:
-
-`https://contoso.com`
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-You can add the latter two because they are subdomains of the first reply URL, contoso.com. 
-
-When you create mobile/native applications, you define a **Redirect URI** instead of a **Replay URL**. There are two important considerations when choosing a Redirect URI:
-
-- **Unique**: The scheme of the redirect URI should be unique for every application. In the example `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` is the scheme. This pattern should be followed. If two applications share the same scheme, the user sees a **choose app** dialog. If the user makes an incorrect choice, the login fails.
-- **Complete**: Redirect URI must have a scheme and a path. The path must contain at least one forward slash after the domain. For example, `//contoso/` works and `//contoso` fails. Ensure there are no special characters like underscores in the redirect URI.
 
 ### Faulted apps
 

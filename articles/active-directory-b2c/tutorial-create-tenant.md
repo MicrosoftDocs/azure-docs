@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 01/11/2019
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -56,4 +56,4 @@ In this article, you learned how to:
 > * Link your tenant to your subscription
 
 > [!div class="nextstepaction"]
-> [Enable a web application to authenticate with accounts](active-directory-b2c-tutorials-web-app.md)
+> [Register your applications](tutorial-register-applications.md)
