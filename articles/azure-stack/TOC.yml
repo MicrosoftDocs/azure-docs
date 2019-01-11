@@ -76,6 +76,8 @@
       items:    
       - name: Choose an identity provider
         href: azure-stack-integrate-identity.md
+      - name: Create registration role
+        href: azure-stack-registration-role.md
       - name: Validate Azure identity
         href: azure-stack-validate-identity.md
       - name: Validate ADFS integration

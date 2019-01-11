@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
 ---
@@ -95,6 +95,43 @@ public void ConfigureServices(IServiceCollection services)
     // ....
 }
 ```
+
+#### Enable W3C distributed tracing support for Java apps
+
+Incoming:
+
+**J2EE apps** add the following to the `<TelemetryModules>` tag inside ApplicationInsights.xml
+
+```xml
+<Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
+   <Param name = "W3CEnabled" value ="true"/>
+   <Param name ="enableW3CBackCompat" value = "true" />
+</Add>
+```
+
+**Spring Boot apps** add the following properties:
+
+`azure.application-insights.web.enable-W3C=true`
+`azure.application-insights.web.enable-W3C-backcompat-mode=true`
+
+Outgoing:
+
+Add the following to AI-Agent.xml:
+
+```xml
+<Instrumentation>
+        <BuiltIn enabled="true">
+            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+        </BuiltIn>
+    </Instrumentation>
+```
+
+> [!NOTE]
+> Backward compatibility mode is enabled by default and the enableW3CBackCompat parameter is optional and should be used only when you want to turn it off. 
+
+Ideally this would be the case when all your services have been updated to newer version of SDKs supporting W3C protocol. It is highly recommended to move to newer version of SDKs with W3C support as soon as possible. 
+
+Make sure that both **incoming and outgoing configurations are exactly same**.
 
 ## Open tracing and Application Insights
 
