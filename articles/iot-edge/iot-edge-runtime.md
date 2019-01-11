@@ -36,7 +36,7 @@ Both the IoT Edge hub and the IoT Edge agent are modules, just like any other mo
 The IoT Edge hub is one of two modules that make up the Azure IoT Edge runtime. It acts as a local proxy for IoT Hub by exposing the same protocol endpoints as IoT Hub. This consistency means that clients (whether devices or modules) can connect to the IoT Edge runtime just as they would to IoT Hub. 
 
 >[!NOTE]
-> IoTEdge Hub supports clients that connect using MQTT or AMQP. It does not support clients that use HTTP. 
+> IoT Edge Hub supports clients that connect using MQTT or AMQP. It does not support clients that use HTTP. 
 
 The IoT Edge hub is not a full version of IoT Hub running locally. There are some things that the IoT Edge hub silently delegates to IoT Hub. For example, IoT Edge hub forwards authentication requests to IoT Hub when a device first tries to connect. After the first connection is established, security information is cached locally by IoT Edge hub. Subsequent connections from that device are allowed without having to authenticate to the cloud. 
 
