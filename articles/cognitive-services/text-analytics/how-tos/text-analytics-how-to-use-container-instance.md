@@ -377,9 +377,22 @@ Change the URL in the browser to the external IP of the `language-frontend` cont
 
 ## Clean up resources
 
+When you are done with the cluster, delete the Azure resource group. 
+
+```azure-cli
+az group delete --name cogserv-container-rg
+```
+
 ## Related information
 
+* [kubectl for Docker Users](https://kubernetes.io/docs/reference/kubectl/docker-cli-to-kubectl/)
+* [Access the Kubernetes web dashboard in Azure Kubernetes Service (AKS)](../../../aks/kubernetes-dashboard)
+* [Supported Kubernetes versions in Azure Kubernetes Service (AKS)](../../../aks/supported-kubernetes-versions)
+
 ## Next steps 
+
+> [!div class="nextstepaction"]
+> [Use the Text Analytics Connected Service](../vs-text-connected-service.md)
 
 
 <!--

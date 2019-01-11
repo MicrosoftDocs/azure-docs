@@ -168,3 +168,8 @@ For example, the following command defines a Docker bind mount to the `D:\Output
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0 ApiKey=0123456789 Logging:Disk:Format=json
   ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Run container on Azure Kubernetes Service](how-tos/text-analytics-how-to-use-container-instance.md)
