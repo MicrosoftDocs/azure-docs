@@ -116,9 +116,9 @@ This section answers frequently asked questions and discusses known issues with 
 
 ---
 
-**Q: What happens if an Admin changes the retention days of a diagnostic setting?**
+**Q: What happens if an Adminstrator changes the retention period of a diagnostic setting?**
 
-**A**: The logs that were collected before the change will behave as per the old setting and new settings will be applicable only for the logs collected after the change.
+**A**: The new retention policy will be applied to logs collected after the change. Logs collected before the policy change will be unaffected.
 
 ---
 
