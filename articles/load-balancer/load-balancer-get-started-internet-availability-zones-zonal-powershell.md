@@ -5,6 +5,7 @@ description: Learn how to create Standard Load Balancer with a zonal frontend us
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
