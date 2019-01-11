@@ -214,14 +214,25 @@ Before creating any Azure Service Fabric cluster it is important to [plan for ca
 ### Vertical 
 [Vertical scaling](https://docs.microsoft.com/en-us/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms) of a Node Type in Azure Service Fabric requires a number of steps and considerations that must be taken. 
 * The cluster must be healthy before scaling, otherwise you will only destabilize cluster further.
-* THE VM SKU of a scale set/node type should be at **Silver durability or greater**.
- 
-When adding a new VMSS resource to the cluster for Vertical Scaling you must create a new VMSS and add it to an existing Node Type. This can be done in the Resource Manager Template for [Microsoft.Compute/virtualMachineScaleSet.properties.virtualMachineProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile)   under  properties->virtualMachineProfile->extensionProfile->extensions->properties->settings->nodeTypeRef setting.
+* **Silver durability level or greater** is required for all Service Fabric Cluster NodeTypes that are hosting stateful services.
+
+> [!NOTE]
+> Your primary NodeType that is hosting Stateful Service Fabric System Services, and must be Silver durability level or greater.
+
+Given inplace vertical scaling of a Virtual Machine Scale Set is a destructive operation, you have to horizontally scale your cluster by adding a new Scale Set with the desires SKU, and migrate your services to your desired SKU to complete a safe vertical scaling operation. Service Fabric [node properties and placement constraints](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) are leveraged by your cluster to decide where to host your Applications services; so when vertically scaling your Primary Node Type, declaring indentical property values for "nodeTypeRef" Virtual Machine Scale Set Service Fabric Extension, enables your cluster to choose an your provisioned scale set with those properties to host your Applications services. The following is a snippet of the Resource Manager template properties you will declare, with the same value for your new provisioned scale sets that you are scaling to, and is only supported as a temporary stateful for your cluster:
 ```json
 "settings": {
    "nodeTypeRef": ["[parameters('vmNodeType0Name')]"]
 }
 ```
+> [!NOTE]
+> Do not leave your cluster with multiple scale sets using the same nodeTypeRef property value longer than required to complete a successful vertical scaling operation, and you should always validate operations in test environments before attempting production environment changes. By default Service Fabric Cluster System Services have a placement constraint to target primary nodetype only.
+
+With your node properties and placement constraints declared, you need to execute the following steps one VM instance at a time. This allows for the system services (and your stateful services) to be shut down gracefully on the VM instance you are removing and new replicas created else where.
+1. Run Disable-ServiceFabricNode with intent ‘RemoveNode’ to disable the node you’re going to remove (the highest instance in that node type).
+2. Run Get-ServiceFabricNode to make sure that the node has indeed transitioned to disabled. If not, wait until the node is disabled. You cannot hurry this step.
+3. Change the number of VMs by one in that Node type. This will now remove the highest VM instance.
+4. Repeat steps 1 through 3 as needed, but never scale down the number of instances in the primary node types less than what the reliability tier warrants. Refer to the details on reliability tiers here.
 
 ### Horizontal Scaling 
 Horizontal Scaling in Service Fabric can be done either [maunally](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) or [programmatically](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
@@ -304,24 +315,15 @@ The [reliability level](https://docs.microsoft.com/azure/service-fabric/service-
 * Gold - Run the System services with a target replica set count of seven
 * Silver - Run the System services with a target replica set count of five
 * Bronze - Run the System services with a target replica set count of three
-
-The minimum recommened reliability level is **Silver**.
+The minimum recommened reliability level is Silver.
 
 The reliability level is set in the properties section of the [Microsoft.ServiceFabric/clusters resource](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters)
 ```json
-"properties": {
+"properties":{
     "reliabilityLevel": "Silver"
 }
 ```
 ### Durability Levels
-The [durability level](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) is used to indicate to the system the privileges that your VMs have with the underlying Azure infrastructure. In the primary node type, this privilege allows Service Fabric to pause any VM level infrastructure request (such as a VM reboot, VM reimage, or VM migration) that impact the quorum requirements for the system services and your stateful services.In the non-primary node types, this privilege allows Service Fabric to pause any VM level infrastructure requests (such as VM reboot, VM reimage, and VM migration) that impact the quorum requirements for your stateful services.
-
-| Durability tier  | Required minimum number of VMs | Supported VM SKUs                                                                  | Updates you make to your virtual machine scale set                               | Updates and maintenance initiated by Azure                                                              | 
-| ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Gold             | 5                              | Full-node SKUs dedicated to a single customer (for example, L32s, GS5, G5, DS15_v2, D15_v2) | Can be delayed until approved by the Service Fabric cluster | Can be paused for 2 hours per UD to allow additional time for replicas to recover from earlier failures |
-| Silver           | 5                              | VMs of single core or above                                                        | Can be delayed until approved by the Service Fabric cluster | Cannot be delayed for any significant period of time                                                    |
-| Bronze           | 1                              | All                                                                                | Will not be delayed by the Service Fabric cluster           | Cannot be delayed for any significant period of time                                                    |
-
 > [!WARNING]
 > Node types running with Bronze durability obtain _no privileges_. This means that infrastructure jobs that impact your stateless workloads will not be stopped or delayed, which might impact your workloads. Use only Bronze for node types that run only stateless workloads. For production workloads, running Silver or above is recommended. 
 
