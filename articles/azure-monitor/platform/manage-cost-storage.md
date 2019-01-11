@@ -143,7 +143,7 @@ To see the count of events ingested per computer, use
 `union withsource = tt *
 | summarize count() by Computer |sort by count_ nulls last`
 
-Use this query sparingly as it is expensive to execute. If you want to see which data types are sendng data to a specific computer, use:
+Use this query sparingly as it is expensive to execute. If you want to see which data types are sending data to a specific computer, use:
 
 `union withsource = tt *
 | where Computer == "*computer name*"
