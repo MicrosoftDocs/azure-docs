@@ -76,6 +76,8 @@
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
   - name: Secure your database
     href: sql-database-security-tutorial.md
+  - name: Azure AD logins with Managed Instances
+    href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
   - name: Set up Azure SQL Data Sync
