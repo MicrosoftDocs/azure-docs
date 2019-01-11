@@ -388,8 +388,8 @@ az group delete --name cogserv-container-rg
 ## Related information
 
 * [kubectl for Docker Users](https://kubernetes.io/docs/reference/kubectl/docker-cli-to-kubectl/)
-* [Access the Kubernetes web dashboard in Azure Kubernetes Service (AKS)](../../../aks/kubernetes-dashboard)
-* [Supported Kubernetes versions in Azure Kubernetes Service (AKS)](../../../aks/supported-kubernetes-versions)
+* [Access the Kubernetes web dashboard in Azure Kubernetes Service (AKS)](../../aks/kubernetes-dashboard)
+* [Supported Kubernetes versions in Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions)
 
 ## Next steps 
 
