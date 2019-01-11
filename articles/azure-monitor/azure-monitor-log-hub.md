@@ -49,8 +49,8 @@ ms.author: magoedte
 																	<p> 
 																	    <a href="/azure/azure-monitor/overview">What is Azure Monitor?</a><br/>
                                                                         <a href="/azure/azure-monitor/azure-monitor-rebrand">Branding changes</a><br/>
-                                                                        <a href="/azure/monitoring/monitoring-data-sources">Monitoring data sources</a><br/>
-                                                                        <a href="/azure/log-analytics/log-analytics-service-providers">Design considerations for Service Providers</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/monitoring-data-sources">Monitoring data sources</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/log-analytics-service-providers">Design considerations for Service Providers</a><br/>
 																	</p>
 																</div>
                                                             </div>
@@ -66,10 +66,18 @@ ms.author: magoedte
                                                                 <div class="cardText">
                                                                     <h3>Understand security</h3> 
 																	<p>
-																	    <a href="/azure/log-analytics/log-analytics-data-security">Log data</a><br/>
-                                                                        <a href="/azure/log-analytics/log-analytics-personal-data-mgmt">Personal log data handling</a><br/>
-                                                                        <a href="/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security">Role permissions and security</a><br/>
+																	    <a href="/azure/azure-monitor/platform/log-analytics-data-security">Log data</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/log-analytics-personal-data-mgmt">Personal log data handling</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/roles-permissions-security">Role permissions and security</a><br/>
 																    </p>
+                                                                    <br>
+														             <h3>Manage workspace</h3>
+                                                                    <p>
+                                                                    <a href="/azure/azure-monitor/learn/quick-create-workspace">Create workspace in the Azure portal</a><br/>
+                                                                    <a href="/azure/azure-monitor/learn/quick-create-workspace-cli">Create workspace using Azure CLI</a><br/>
+                                                                   <a href="/azure/azure-monitor/learn/quick-create-workspace-posh">Create workspace using Azure PowerShell</a><br/>
+                                                                  <a href="/azure/azure-monitor/platform/delete-workspace">Delete workspace</a><br/>
+														         </p>
 																</div>
                                                             </div>
                                                         </div>
@@ -85,32 +93,32 @@ ms.author: magoedte
                                                     <div class="cardText">
 													<h3>Monitoring</h3>
                                                         <p>
-                                                            <a href="/azure/monitoring/monitoring-data-collection">Metrics and logs</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-data-ingestion-time">Log data ingestion time</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-collection">Metrics and logs</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/log-analytics-data-ingestion-time">Log data ingestion time</a><br/>
 														</p>
 														<br>
 														<h3>Manage workspace</h3>
                                                         <p>
-                                                            <a href="/azure/log-analytics/log-analytics-quick-create-workspace">Create workspace - Azure portal</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-quick-create-workspace-cli">Create workspace - Azure CLI</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-quick-create-workspace-posh">Create workspace - Azure PowerShell</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-manage-del-workspace">Delete workspace</a><br/>
+                                                            <a href="/azure/azure-monitor/learn/quick-create-workspace">Create workspace in the Azure portal</a><br/>
+                                                            <a href="/azure/azure-monitor/learn/quick-create-workspace-cli">Create workspace using Azure CLI</a><br/>
+                                                            <a href="/azure/azure-monitor/learn/quick-create-workspace-posh">Create workspace using Azure PowerShell</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/delete-workspace">Delete workspace</a><br/>
 														</p>
 														<br>
                                                         <h3>Data sources</h3>
                                                         <p>
-                                                            <a href="/azure/monitoring/monitoring-data-sources">Overview<br/>
-                                                            <a href="/azure/log-analytics/log-analytics-data-sources-windows-events">Windows events</a><br/>
-                                                            <a href="/azure/log-analytics-data-sources-performance-counters">Windows and Linux performance counters</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-data-sources-linux-applications">Linux application performance</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-data-sources-json">Custom JSON data</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-data-sources-collectd">Collectd performance data</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-data-sources-alerts-nagios-zabbix">Nagios and Zabbix alerts</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-data-sources-syslog">Syslog</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-data-sources-iis-logs">IIS logs</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-data-sources-custom-logs">Custom logs</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-custom-fields">Custom fields</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-data-collector-api">Data Collector API</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources">Overview<br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources-windows-events">Windows events</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources-performance-counters">Windows and Linux performance counters</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources-linux-applications">Linux application performance</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources-json">Custom JSON data</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources-collectd">Collectd performance data</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources-alerts-nagios-zabbix">Nagios and Zabbix alerts</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources-syslog">Syslog</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources-iis-logs">IIS logs</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources-custom-logs">Custom logs</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/custom-fields">Custom fields</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-collector-api">Data Collector API</a><br/>
 														</p>
                                                     </div>
                                                 </div>
@@ -124,20 +132,20 @@ ms.author: magoedte
                                                     <div class="cardText">
                                                         <h3>Analyze data</h3>
                                                         <p>
-                                                            <a href="/azure/log-analytics/query-language/get-started-queries">Get started with queries</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-log-search">Understand Log queries</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-log-search-portals">Log query portals</a><br/>
-                                                            <a href="/azure/log-analytics/query-language/query-language">Log query language reference</a><br/>
-                                                            <a href="/azure/log-analytics-cross-workspace-search">Cross-resource query</a><br/>
+                                                            <a href="/azure/azure-monitor/log-query/get-started-queries">Get started with queries</a><br/>
+                                                            <a href="/azure/azure-monitor/log-query/search-queries">Understand Log queries</a><br/>
+                                                            <a href="/azure/azure-monitor/log-query/portals">Log query portals</a><br/>
+                                                            <a href="/azure/azure-monitor/log-query/query-language">Log query language reference</a><br/>
+                                                            <a href="/azure/azure-monitor/log-query/cross-workspace-query">Cross-resource query</a><br/>
 														</p>
 														<br>
                                                         <h3>Incident response</h3>
                                                         <p>
-                                                            <a href="/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts">Alerts overview</a><br/>
-                                                            <a href="/azure/monitoring-and-diagnostics/monitoring-overview-autoscale">Autoscale</a><br/>
-                                                            <a href="/azure/monitoring-and-diagnostics/monitor-alerts-unified-log">Log alerts</a><br/>
-                                                            <a href="/azure/monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience">Activity log alerts</a><br/>
-                                                            <a href="/azure/monitoring-and-diagnostics/monitoring-action-groups">Action groups</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/alerts-unified">Alerts overview</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/autoscale-overview">Autoscale</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/alerts-unified-log">Log alerts</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/alerts-activity-log">Activity log alerts</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/action-groups">Action groups</a><br/>
                                                         </p>
 													</div>
                                                 </div>
