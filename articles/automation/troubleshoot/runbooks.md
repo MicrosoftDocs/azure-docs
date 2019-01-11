@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Azure Automation runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/11/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -280,7 +280,7 @@ Your script may fail when running as a runbook for one of the following reasons:
 Any of the following solutions may fix this problem:
 
 1. Verify you are properly [authenticating to Azure](../manage-runas-account.md).
-2. Ensure your [Azure modules are imported and up to date](automation-update-azure-modules.md).
+2. Ensure your [Azure modules are imported and up to date](../automation-update-azure-modules.md).
 3. Verify that none of your cmdlets are prompting for information, this is not supported in runbooks.
 
 If none of these solutions solve your problemReview the [job logs](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) for specific details in to why your runbook may have failed.
