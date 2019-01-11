@@ -12,9 +12,9 @@ ms.author: danlep
 
 # Use an Azure managed identity to authenticate to an Azure container registry 
 
-Use a [managed identity for Azure resources](active-directory/managed-identities-azure-resources/overview.md) to authenticate to an Azure container registry from another Azure resource without needing to provide or manage registry credentials. For example, use a user-assigned or system-assigned managed identity for a Linux VM to push or pull container images from your container registry - without having to pass credentials for the registry login server.
+Use a [managed identity for Azure resources](active-directory/managed-identities-azure-resources/overview.md) to authenticate to an Azure container registry from another Azure resource, without needing to provide or manage registry credentials. For example, use a user-assigned or system-assigned managed identity configured on a Linux VM to push or pull container images from your container registry as easily as you use a public registry.
 
-For this article, you will set up a managed identity on a Docker-enabled Ubuntu virtual machine to access an Azure container registry. 
+For this article, you will set up a managed identity on a Docker-enabled Ubuntu virtual machine to access a private Azure container registry. 
 
 To create the Azure resources, this article requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
@@ -22,15 +22,15 @@ You must also have Docker installed locally. Docker provides packages that easil
 
 ## Why use a managed identity?
 
-A managed identity for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can configure [certain Azure resources](active-directory/managed-identities-azure-resources/services-support-msi), including virtual machines, with a managed identity. You can then use the identity to access other Azure resources, without passing credentials in code or scripts.
+A managed identity for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can configure [certain Azure resources](active-directory/managed-identities-azure-resources/services-support-msi), including virtual machines, with a managed identity. Then, use the identity to access other Azure resources, without passing credentials in code or scripts.
 
-Managed identities you set up can be of two types:
+Managed identities are of two types:
 
 * *User-assigned identities*, which you can assign to multiple resources and that persist for as long as your want. 
 
 * A *system-managed identity*, which is unique to a specific resource like a single virtual machine and lasts for the lifetime of that resource.
 
-After you set up an Azure resource with a managed identity, you can give the identity access to another resource, just like any security principal. For example, assign a managed identity a role with pull, push and pull, or other permissions to a private registry in Azure. (For a complete list of registry roles, see [Azure Container Registry roles and permissions](container-registry-roles.md).) You can give the identity access to multiple resources.
+After you set up an Azure resource with a managed identity, you can give the identity access to another resource, just like any security principal. For example, assign a managed identity a role with pull, push and pull, or other permissions to a private registry in Azure. (For a complete list of registry roles, see [Azure Container Registry roles and permissions](container-registry-roles.md).) You can give an identity access to multiple resources.
 
 Then, use the identity to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication), including Azure Container Registry, without any credentials in your code. Choose how to authenticate using the managed identity, depending on your scenario. For a managed identity set up on a virtual machine, you have several options:
 
@@ -40,12 +40,11 @@ Then, use the identity to authenticate to any [service that supports Azure AD au
 
 * [Sign into Azure CLI or PowerShell](./active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md) with the identity. 
 
-
 ## Create a container registry
 
 If you don't already have an Azure container registry, create a registry and push a sample container image to it. For steps, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli).
 
-This article assumes you have the aci-helloworld:v1 image stored in your registry. Substitute your own image name in later steps if you want to use a different image name.
+This article assumes you have the `aci-helloworld:v1` container image stored in your registry. The examples use a registry name of *myContainerRegistry*. Substitute your own registry and image names in later steps.
 
 ## Create a Docker-enabled virtual machine
 
@@ -93,15 +92,148 @@ This message shows that your installation appears to be working correctly.
 
 ### Install the Azure CLI
 
-Follow the steps in [Install Azure CLI with apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) to install the Azure CLI on your virtual machine. 
+Follow the steps in [Install Azure CLI with apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) to install the Azure CLI on your Ubuntu virtual machine. 
 
 Exit the SSH session.
 
 ## Example 1: Use a user-assigned identity to access a container registry
 
+### Create an identity
+
+First create an identity in your subscription using the [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) command. You can use the same resource group you used previously to create the container registry or virtual machine, or use a different one.
+
+```azurecli-interactive
+az identity create --resource-group myResourceGroup --name myACRId
+```
+
+To use the identity in the following steps, use the [az identity show][az-identity-show] command to store the identity's resource ID and service principal ID in variables.
+
+```azurecli
+# Get resource ID of the user-assigned identity
+userID=$(az identity show --resource-group myResourceGroup --name myACRId --query id --output tsv)
+
+# Get service principal ID of the user-assigned identity
+spID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
+```
+
+Because you need the resource ID in a later step when you access the registry from your virtual machine, show the value:
+
+```bash
+echo $userID
+```
+
+The ID is of the form:
+
+```
+/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACRId
+```
+
+### Configure the VM with the identity
+
+The following [az vm identity assign][az-vm-identity-assign] command configures your Docker VM with the user-assigned identity:
+
+```azurecli
+az vm identity assign --resource-group myResourceGroup --name myDockerVM --identities $userID
+```
+
+### Grant identity access to the container registry
+
+Now configure the identity to access your container registry. First use the [az acr show][az-acr-show] command to get the resource ID of the registry:
+
+```azurecli
+resourceID=$(az acr show --resource-group myResourceGroup --name myContainerRegistry --query id --output tsv)
+```
+
+Use the [az role assignment create][az-role-assignment-create] command to assign the Reader role to the registry. This role provides [pull permissions](container-registry-roles.md) to the registry as well as access to Azure Resource Manager.
+
+```azurecli
+az role assignment create --assignee $spID --scope $resourceID --role reader
+```
+
+### Use the identity to access the registry
+
+SSH into the Docker virtual machine that's configured with the identity. Run the following Azure CLI commands, using the Azure CLI installed on the VM.
+
+First, sign into the Azure CLI with [az login][az-login], using the identity you configured on the VM. For <userID>, substitute the resource ID of the identity you retrieved in a previous step. 
+
+```azurecli
+az login --identity --username <userID>
+```
+
+Then, login to the registry with [az acr login][az-acr-login]. When you use this command, the CLI uses the Active Directory token created when you ran `az login` to seamlessly authenticate your session with the container registry. You might need to run this command with `sudo`.
+
+```azurecli
+sudo az acr login --name myContainerRegistry
+```
+
+You should see a `Login succeeded` message. You can then run `docker` commands without providing credentials. For example, pull the `aci-helloworld:v1` image, specifying the login server name of your registry:
+
+```azurecli
+# Get the login server name of the registry
+loginserver=$(az acr show --name myContainerRegistry --query loginServer --output tsv)
+```
+
+```docker
+sudo docker pull $loginserver/aci-helloworld:v1
+```
 
 ## Example 2: Use a system-assigned identity to access a container registry
 
+
+### Configure the VM with a system-managed identity
+
+The following [az vm identity assign][az-vm-identity-assign] command configures your Docker VM with a system-assigned identity:
+
+```azurecli
+az vm identity assign --resource-group myResourceGroup --name myDockerVM 
+```
+
+Set a variable to the value of `principalId` (the service principal ID) of the VM's identity, to use in later steps.
+
+```azurecli-interactive
+spID=$(az vm show --resource-group myResourceGroup --name myDockerVM --query identity.principalId --out tsv)
+```
+
+### Grant identity access to the container registry
+
+Now configure the identity to access your container registry. First use the [az acr show][az-acr-show] command to get the resource ID of the registry:
+
+```azurecli
+resourceID=$(az acr show --resource-group myResourceGroup --name myContainerRegistry --query id --output tsv)
+```
+
+Use the [az role assignment create][az-role-assignment-create] command to assign the Reader role to the identity. This role provides [pull permissions](container-registry-roles.md) to the registry as well as access to Azure Resource Manager.
+
+```azurecli
+az role assignment create --assignee $spID --scope $resourceID --role reader
+```
+
+### Use the identity to access the registry
+
+SSH into the Docker virtual machine that's configured with the identity. Run the following Azure CLI commands, using the Azure CLI installed on the VM.
+
+First, sign into the Azure CLI with [az login][az-login], using the system-assigned identity on the VM.
+
+```azurecli
+az login --identity
+```
+
+Then, login to the registry with [az acr login][az-acr-login]. When you use this command, the CLI uses the Active Directory token created when you ran `az login` to seamlessly authenticate your session with the container registry. You might need to run this command and with `sudo`.
+
+```azurecli
+az acr login --name myContainerRegistry
+```
+
+You should see a `Login succeeded` message. You can then run `docker` commands without providing credentials. For example, pull the `aci-helloworld:v1` image, specifying the login server name of your registry:
+
+```azurecli
+# Get the login server name of the registry
+loginserver=$(az acr show --name myContainerRegistry --query loginServer --output tsv)
+```
+
+```docker
+sudo docker pull $loginserver/aci-helloworld:v1
+```
 
 ## Next steps
 
@@ -114,5 +246,12 @@ Exit the SSH session.
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - Internal -->
-[az-vm-create]: /cli/azure/vm#az-vm-create
+[az-login]: /cli/azure/reference-index#az-login
 [az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-show]: /cli/azure/acr#az-acr-show
+[az-vm-create]: /cli/azure/vm#az-vm-create
+[az-vm-identity-assign]: /cli/azure/vm/identity#az-vm-identity-assign
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-identity-show]: /cli/azure/identity#az-identity-show
+[azure-cli]: /cli/azure/install-azure-cli
