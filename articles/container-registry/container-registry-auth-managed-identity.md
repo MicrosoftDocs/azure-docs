@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Use an Azure managed identity to authenticate to an Azure container registry 
 
-Use a [managed identity for Azure resources](active-directory/managed-identities-azure-resources/overview.md) to authenticate to an Azure container registry from another Azure resource, without needing to provide or manage registry credentials. For example, set up a user-assigned or system-assigned managed identity configured on a Linux VM to access container images from your container registry, as easily as you use a public registry.
+Use a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) to authenticate to an Azure container registry from another Azure resource, without needing to provide or manage registry credentials. For example, set up a user-assigned or system-assigned managed identity configured on a Linux VM to access container images from your container registry, as easily as you use a public registry.
 
 For this article, you learn more about managed identities and how to:
 
@@ -27,7 +27,7 @@ To set up a container registry and push a container image to it, you must also h
 
 ## Why use a managed identity?
 
-A managed identity for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can configure [certain Azure resources](active-directory/managed-identities-azure-resources/services-support-msi), including virtual machines, with a managed identity. Then, use the identity to access other Azure resources, without passing credentials in code or scripts.
+A managed identity for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can configure [certain Azure resources](../active-directory/managed-identities-azure-resources/services-support-msi), including virtual machines, with a managed identity. Then, use the identity to access other Azure resources, without passing credentials in code or scripts.
 
 Managed identities are of two types:
 
@@ -43,11 +43,11 @@ Then, use the identity to authenticate to any [service that supports Azure AD au
 
 * Use the [Azure SDKs](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md)
 
-* [Sign into Azure CLI or PowerShell](./active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md) with the identity. 
+* [Sign into Azure CLI or PowerShell](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md) with the identity. 
 
 ## Create a container registry
 
-If you don't already have an Azure container registry, create a registry and push a sample container image to it. For steps, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli).
+If you don't already have an Azure container registry, create a registry and push a sample container image to it. For steps, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
 
 This article assumes you have the `aci-helloworld:v1` container image stored in your registry. The examples use a registry name of *myContainerRegistry*. Substitute your own registry and image names in later steps.
 
