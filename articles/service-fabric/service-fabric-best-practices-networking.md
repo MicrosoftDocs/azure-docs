@@ -21,6 +21,7 @@ ms.author: pepogors
 Review Azure [Service Fabric Networking Patterns](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) to learn how to create clusters that use the following features: Existing virtual network or subnet, Static public IP address, Internal-only load balancer, or Internal and external load balancer.
 
 ## Network Security Group (NSG)
+![Service Fabric NSG Rules][Image1]
 
 ## Next steps
 
@@ -28,4 +29,4 @@ Review Azure [Service Fabric Networking Patterns](https://docs.microsoft.com/azu
 * Create a cluster on VMs or computers running Linux: [Create a Linux cluster](service-fabric-cluster-creation-via-portal.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
-[Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png
+[Image1]: ./media/service-fabric-best-practices/service-fabric-nsg-rules.png
