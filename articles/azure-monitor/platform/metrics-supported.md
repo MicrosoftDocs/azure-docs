@@ -113,12 +113,12 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |PoolResizeCompleteEvent|Pool Resize Complete Events|Count|Total|Total number of pool resizes that have completed|No Dimensions|
 |PoolDeleteStartEvent|Pool Delete Start Events|Count|Total|Total number of pool deletes that have started|No Dimensions|
 |PoolDeleteCompleteEvent|Pool Delete Complete Events|Count|Total|Total number of pool deletes that have completed|No Dimensions|
-|JobDeleteCompleteEvent|Job Delete Complete Events|Count|Total|Total number of jobs that have been sucessfully deleted.|No Dimensions|
+|JobDeleteCompleteEvent|Job Delete Complete Events|Count|Total|Total number of jobs that have been successfully deleted.|No Dimensions|
 |JobDeleteStartEvent|Job Delete Start Events|Count|Total|Total number of jobs that have been requested to be deleted.|No Dimensions|
-|JobDisableCompleteEvent|Job Disable Complete Events|Count|Total|Total number of jobs that have been sucessfully disabled.|No Dimensions|
+|JobDisableCompleteEvent|Job Disable Complete Events|Count|Total|Total number of jobs that have been successfully disabled.|No Dimensions|
 |JobDisableStartEvent|Job Disable Start Events|Count|Total|Total number of jobs that have been requested to be disabled.|No Dimensions|
-|JobStartEvent|Job Start Events|Count|Total|Total number of jobs that have been sucessfully started.|No Dimensions|
-|JobTerminateCompleteEvent|Job Terminate Complete Events|Count|Total|Total number of jobs that have been sucessfully terminated.|No Dimensions|
+|JobStartEvent|Job Start Events|Count|Total|Total number of jobs that have been successfully started.|No Dimensions|
+|JobTerminateCompleteEvent|Job Terminate Complete Events|Count|Total|Total number of jobs that have been successfully terminated.|No Dimensions|
 |JobTerminateStartEvent|Job Terminate Start Events|Count|Total|Total number of jobs that have been requested to be terminated.|No Dimensions|
 
 ## Microsoft.Cache/redis
