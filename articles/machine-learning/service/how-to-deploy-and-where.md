@@ -36,15 +36,21 @@ The process of deploying a model is similar for all compute targets:
 1. Deploy the image to a compute target.
 1. Test the deployment
 
-To understand the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning Service](concept-model-management-and-deployment.md).
-
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
+
+
+For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning Service](concept-model-management-and-deployment.md).
 
 ## Prerequisites
 
 - An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [Get started with Azure Machine Learning quickstart](quickstart-get-started.md).
 
-- A trained model in either pickle (`.pkl`) or ONNX (`.onnx`) format. If you do not have a trained model, use the steps in the [Train models](tutorial-train-models-with-aml.md) tutorial to train and register one with the Azure Machine Learning service.
+- A trained model in pickle (`.pkl`) format. If you do not have a trained model, use the steps in the [Train models](tutorial-train-models-with-aml.md) tutorial to train and register one with the Azure Machine Learning service.
+
+    > [!NOTE]
+    > While the Azure Machine Learning service can work with any generic model that can be loaded in Python 3, the examples in this document expect a pickle file.
+    > 
+    > For more information on using ONNX models, see the [ONNX and Azure Machine Learning](how-to-build-deploy-onnx.md) document.
 
 - The code sections assume that `ws` references your machine learning workspace. For example, `ws = Workspace.from_config()`.
 
@@ -61,9 +67,6 @@ model = Model.register(model_path = "model.pkl",
                        description = "test",
                        workspace = ws)
 ```
-
-> [!NOTE]
-> While the example shows using an model stored as a pickle file, you can also used ONNX models. For more information on using ONNX models, see the [ONNX and Azure Machine Learning](how-to-build-deploy-onnx.md) document.
 
 For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
@@ -467,6 +470,8 @@ print(service.state)
 > [!NOTE]
 > When you update an image, the web service is not automatically updated. You must manually update each service that you want to use the new image.
 
+For more information, see the [WebService.update()](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#update--args-) class.
+
 ## Clean up
 
 To delete a deployed web service, use `service.delete()`.
@@ -474,6 +479,8 @@ To delete a deployed web service, use `service.delete()`.
 To delete an image, use `image.delete()`.
 
 To delete a registered model, use `model.delete()`.
+
+For more information, see the reference documentation for [WebService.delete()](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), and [Model.delete()](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## Next steps
 
