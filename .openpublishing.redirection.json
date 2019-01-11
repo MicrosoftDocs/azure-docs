@@ -29521,12 +29521,12 @@
     },
     {
         "source_path": "articles/cognitive-services/Bing-News-Search/tutorial-bing-news-search-single-page-app-source.md",
-        "redirect_url": "/azure/cognitive-services/bing-custom-search/tutorial-bing-news-search-single-page-app",
+        "redirect_url": "/azure/cognitive-services/bing-News-Search/tutorial-bing-news-search-single-page-app",
         "redirect_document_id": false
     },
     {
         "source_path": "articles/cognitive-services/Bing-News-Search/sdk.md",
-        "redirect_url": "/azure/cognitive-services/bing-custom-search/sdk-csharp-quick-start",
+        "redirect_url": "/azure/cognitive-services/bing-News-search/sdk-csharp-quick-start",
         "redirect_document_id": false
     },
     {

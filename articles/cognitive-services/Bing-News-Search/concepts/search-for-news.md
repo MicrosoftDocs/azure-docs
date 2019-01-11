@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: overview
-ms.date: 06/21/2016
+ms.date: 01/11/2019
 ms.author: scottwhi
 ---
 
@@ -256,3 +256,8 @@ If there are other articles that are related to a news article, the news article
 ## Throttling requests
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
+
+## Next steps
+
+> [!div class="nextstepaction"]
+[How to page through Bing News Search results](paging-news.md)
