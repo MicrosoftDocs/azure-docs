@@ -1,0 +1,49 @@
+---
+title: Azure Service Fabric Application and Cluster Best Practices | Microsoft Docs
+description: Best practices for managing Service Fabric clusters and applications.
+services: service-fabric
+documentationcenter: .net
+author: peterpogorski
+manager: timlt
+editor: ''
+
+ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: 
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/11/2019
+ms.author: pepogors
+
+---
+# Azure Service Fabric Application and Cluster Best Practices
+To manage Azure Service Fabric applications and clusters successfully, there are operations that we highly recommend you perform, to optimize for the reliability of your production environment; please perform operations defined in this document, and select one of our [Azure Samples Service Fabric Cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates) to begin achitecting your production solution or modify your existing template to incorporate these practices.
+
+## Security 
+* [Best practices for security](service-fabric-best-practices-security.md)
+
+## Networking
+* [Best practices for networking](service-fabric-best-practices-networking.md)
+
+## Capacity Planning and Scaling
+* [Best practices for cluster planning and scaling](service-fabric-best-practices-capacity-scaling.md)
+* [Cluster capacity planning](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)
+
+## Infrastructure as Code 
+* [Best practices for implementing infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md)
+
+## Monitoring and Diagnostics
+* [Best practices for cluster monitoring and diagnostics](service-fabric-best-practices-monitoring.md)
+
+## Checklist
+Once you have completed all of the sections above, ensure that you have integrated all of the best practices in the production readiness checklist:
+* [Azure Service Fabric Production Readiness Checklist](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
+
+## Next steps
+
+* Create a cluster on VMs or computers running Windows Server: [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)
+* Create a cluster on VMs or computers running Linux: [Create a Linux cluster](service-fabric-cluster-creation-via-portal.md)
+* Learn about [Service Fabric support options](service-fabric-support.md)
+
+[Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png
