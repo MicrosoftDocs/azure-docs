@@ -27,13 +27,13 @@ For more information about [Azure Security Best Practices](https://docs.microsof
 > [!NOTE]
 > Azure KeyVault and compute resources must be co-located in the same region.  
 
-### Provision Your Service Fabric Cluster Custom Domain Certificate
+### Provision Service Fabric Cluster Custom Domain Certificate
 The following is the Portal Blade where you can provide the credentials for a KeyVault integrated CA to provsion your custom domain certificate:
 ```bash
 https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.KeyVault/vaults/<YOUR VAULT>/certificates
 ```
 
-### Reliably Deploy KeyVault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets
+### Deploy KeyVault Certificates to Service Fabric Cluster's Virtual Machine Scale Sets
 
 Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) is how you reliably deploy KeyVault certificates to your Service Fabric Cluster's Virtual Machine Scale Sets, and the following are the Resource Manager template properties that you will declare: 
 ```json
@@ -51,7 +51,6 @@ Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/comput
    }
 ]
 ```
-### Service Fabric Cluster Common Name Certificate
 ### ACL Certificate to your Service Fabric Cluster
 [Virtual Machine Scale Set extensions](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) publisher   Microsoft.Azure.ServiceFabric is how you ACL certificates to your Service Fabric Cluster, and the following are the Resource Manager template properties that you will declare:
 ```json
