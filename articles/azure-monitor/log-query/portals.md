@@ -48,7 +48,7 @@ The following options are not yet available through the resource view of Log Ana
 
 
 ### Firewall requirements
-Your browser requires access to the following addresses to access Log Analytics and the Advanced Analytics portal.  If your browser is accessing the Azure portal through a firewall, you must enable access to these addresses.
+Your browser requires access to the following addresses to access Log Analytics.  If your browser is accessing the Azure portal through a firewall, you must enable access to these addresses.
 
 | Uri | IP | Ports |
 |:---|:---|:---|

@@ -15,7 +15,7 @@ ms.date: 08/20/2018
 ms.author: bwren
 ---
 
-# Get started with Log Analytics in the Azure portal
+# Get started with Azure Monitor log analytics
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

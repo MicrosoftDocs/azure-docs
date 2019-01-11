@@ -96,9 +96,9 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ```
 
 ## Using cross-resource query for multiple resources
-When using cross-resource queries to correlate data from multiple Log Analytics and Application Insights resources, the query can become complex and difficult to maintain. You should leverage [functions in Log Analytics](../../azure-monitor/log-query/functions.md) to separate the query logic from the scoping of the query resources, which simplifies the query structure. The following example demonstrates how you can monitor multiple Application Insights resources and visualize the count of failed requests by application name. 
+When using cross-resource queries to correlate data from multiple Log Analytics workspaces and Application Insights resources, the query can become complex and difficult to maintain. You should leverage [functions in Azure Monitor log queries](functions.md) to separate the query logic from the scoping of the query resources, which simplifies the query structure. The following example demonstrates how you can monitor multiple Application Insights resources and visualize the count of failed requests by application name. 
 
-Create a query like the following that references the scope of Application Insights resources. The `withsource= SourceApp` command adds a column that designates the application name that sent the log. [Save the query as function](../../azure-monitor/log-query/functions.md#create-a-function) with the alias _applicationsScoping_.
+Create a query like the following that references the scope of Application Insights resources. The `withsource= SourceApp` command adds a column that designates the application name that sent the log. [Save the query as function](functions.md#create-a-function) with the alias _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -127,4 +127,5 @@ applicationsScoping
 
 ## Next steps
 
-Review the [Log Analytics log search reference](https://docs.microsoft.com/azure/log-analytics/query-language/kusto) to view all of the query syntax options available in Log Analytics.    
+- Review [Analyze log data in Azure Monitor](log-query-overview.md) for an overview of log queries and how Azure Monitor log data is structured.
+- Review [Azure Monitor log queries](query-language) to view all of the resources for Azure Monitor log queries.

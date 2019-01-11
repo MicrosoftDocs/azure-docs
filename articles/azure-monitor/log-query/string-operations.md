@@ -19,7 +19,7 @@ ms.author: bwren
 
 
 > [!NOTE]
-> You should complete [Get started with Log Analytics in the Azure portal](get-started-portal.md) and [Getting started with Azure Monitor log queries](get-started-queries.md) before completing this tutorial.
+> You should complete [Get started with Azure Monitor log analytics](get-started-portal.md) and [Getting started with Azure Monitor log queries](get-started-queries.md) before completing this tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
