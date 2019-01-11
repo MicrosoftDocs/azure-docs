@@ -97,14 +97,6 @@ ms.author: magoedte
                                                             <a href="/azure/azure-monitor/platform/log-analytics-data-ingestion-time">Log data ingestion time</a><br/>
 														</p>
 														<br>
-														<h3>Manage workspace</h3>
-                                                        <p>
-                                                            <a href="/azure/azure-monitor/learn/quick-create-workspace">Create workspace in the Azure portal</a><br/>
-                                                            <a href="/azure/azure-monitor/learn/quick-create-workspace-cli">Create workspace using Azure CLI</a><br/>
-                                                            <a href="/azure/azure-monitor/learn/quick-create-workspace-posh">Create workspace using Azure PowerShell</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/delete-workspace">Delete workspace</a><br/>
-														</p>
-														<br>
                                                         <h3>Data sources</h3>
                                                         <p>
                                                             <a href="/azure/azure-monitor/platform/data-sources">Overview<br/>
