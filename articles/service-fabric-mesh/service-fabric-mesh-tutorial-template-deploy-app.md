@@ -382,7 +382,7 @@ This information comes from the ```outputs``` section in the ARM template. As sh
 Once the application successfully deploys, get the public IP address for the service endpoint. The deployment command returns the public IP address of the service endpoint. Optionally, you can also query the network resource to find the public IP address of the service endpoint. The network resource name for this application is `todolistappNetwork`, fetch information about it using the following command. 
 
 ```azurecli
-az mesh network show --resource-group myResourceGroup --name todolistappNetwork
+az mesh gateway show --resource-group myResourceGroup --name todolistappGateway
 ```
 
 Navigate to the IP address in a web browser.
