@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/06/2018
+ms.date: 01/11/2019
 ms.author: yashar
 ---
 # Prepay for Red Hat Enterprise Linux plans from Azure Reservations
@@ -33,8 +33,8 @@ You can buy Red Hat software plans in the Azure portal. To buy a plan:
     | Field      | Description|
     |:------------|:--------------|
     |Name        |The name of this purchase.|
-    |Subscription|The subscription used to pay for this plan. The payment method on the subscription is charged the upfront costs for the reservation. The subscription type must be an enterprise agreement (offer number: MS-AZR-0017P) or Pay-As-You-Go (offer number: MS-AZR-0003P). For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. For Pay-As-You-Go subscription, the charges are billed to the credit card or invoice payment method on the subscription.|
-    |Scope       |The scope can cover one subscription or multiple subscriptions (shared scope). If you select: <ul><li>Single subscription - The plan discount is applied to Red Hat Linux usage in this subscription. </li><li>Shared - The plan discount is applied to Red Hat Linux usage in any subscription within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions (except dev/test subscriptions) within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</li></ul>|
+    |Subscription|The subscription used to pay for this plan. The payment method on the subscription is charged the upfront costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. For Pay-As-You-Go subscription, the charges are billed to the credit card or invoice payment method on the subscription.|
+    |Scope       |The scope can cover one subscription or multiple subscriptions (shared scope). If you select: <ul><li>Single subscription - The plan discount is applied to Red Hat Linux usage in this subscription. </li><li>Shared - The plan discount is applied to Red Hat Linux usage in any subscription within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</li></ul>|
     |Plan     |Select the Red Hat Linux plan. For help in identifying what to buy, see Understand how the Red Hat Linux Enterprise software reservation discount is applied.|
     |VM size     |Red Hat Linux pricing depends on the number of vCPUs on the VM. Select the option that represents the number of vCPUs on your Red Hat Linux VMs.|
     |Term        |One year or three years.|
