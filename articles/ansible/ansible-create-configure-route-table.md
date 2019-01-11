@@ -5,7 +5,7 @@ ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, networking, route, route table
 author: tomarchermsft
 manager: jeconnoc
-ms.author: yuwzho, kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/17/2018
 ---

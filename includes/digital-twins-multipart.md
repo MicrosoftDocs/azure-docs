@@ -29,3 +29,5 @@ Multipart requests can be made programmatically (through C#), through a REST cli
 > * Blob contents which include the unstructured contents of a file to be uploaded
 >
 > Neither of the two parts is required for **PATCH** requests. Both are required for **POST** or create operations.
+
+The [Occupancy Quickstart source code](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/api/update.cs) contains complete C# examples demonstrating how to make multipart requests against the Azure Digital Twins Management APIs.
