@@ -29515,11 +29515,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cognitive-services/bing-News-search/quickstart.md",
-      "redirect_url": "/azure/cognitive-services/bing-News-search/csharp",
-      "redirect_document_id": true
-    },
-    {
         "source_path": "articles/cognitive-services/Bing-News-Search/tutorial-bing-news-search-single-page-app-source.md",
         "redirect_url": "/azure/cognitive-services/bing-News-Search/tutorial-bing-news-search-single-page-app",
         "redirect_document_id": false
