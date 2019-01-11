@@ -30,12 +30,6 @@ For more information about networking
 -- 1 TM to Multiple LBs, TM Profile
 -- Link to DNS aliasing for TM and for LB
 
-## Capacity Planning and Scaling
-Before creating any Azure Service Fabric cluster it is important to [plan for capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) by considering many items during the process.
-* The number of node types your cluster needs to start out with
-* The properties of each of node type (size, primary, internet facing, number of VMs, etc.)
-* The reliability and durability characteristics of the cluster
-
 ## Next steps
 
 * Create a cluster on VMs or computers running Windows Server: [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)

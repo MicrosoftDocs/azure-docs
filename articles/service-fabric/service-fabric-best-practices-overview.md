@@ -26,9 +26,9 @@ To manage Azure Service Fabric applications and clusters successfully, there are
 ## Networking
 * [Best practices for networking](service-fabric-best-practices-networking.md)
 
-## Capacity Planning and Scaling
-* [Best practices for cluster planning and scaling](service-fabric-best-practices-capacity-scaling.md)
-* [Cluster capacity planning](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)
+## Compute Planning and Scaling
+* [Best practices for compute scaling](service-fabric-best-practices-capacity-scaling.md)
+* [Compute capacity planning](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)
 
 ## Infrastructure as Code 
 * [Best practices for implementing infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md)
@@ -44,6 +44,4 @@ Once you have completed all of the sections above, ensure that you have integrat
 
 * Create a cluster on VMs or computers running Windows Server: [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 * Create a cluster on VMs or computers running Linux: [Create a Linux cluster](service-fabric-cluster-creation-via-portal.md)
-* Learn about [Service Fabric support options](service-fabric-support.md)
-
-[Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png
+* Troubleshooting[Service Fabric troubleshooting guide](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)
