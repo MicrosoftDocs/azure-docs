@@ -79,7 +79,7 @@ Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/
 ```
 Your Service Fabric cluster will use your valid trusted installed certificate, that you declared by common name, which expires further into the future; when more than one valid certificate is installed on your Virtual Machine Scale Sets certificate store.
 
-Given Azure domains, such as *\<YOUR SUBDOMAIN\>.cloudapp.azure.com or \<YOUR SUBDOMAIN\>.trafficmanager.net, are owned by Microsoft; only Microsoft employees are authorized to provision certificates from Keyvault Integrated Certificate Authorities for these domains; so you must provision and configure [Azure DNS to host your domain](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) if you to provision your Cluster certificate with a Subject Alternative Name value that resolves to a DNS name you own. After delegating your domains name servers to your Azure DNS zone name servers, you will need to add the following two Records Set to your DNS Zone:'A' record for domain APEX that is NOT an "Alias record set" to all IP Addresses your custom domain will resolve, and a 'C' record for Microsoft Subdomain you provisioned  that is NOT an "Alias record set"; E.G. Use your Traffic Manager or Load Balancer's DNS name.
+Given Azure domains, such as *\<YOUR SUBDOMAIN\>.cloudapp.azure.com or \<YOUR SUBDOMAIN\>.trafficmanager.net, are owned by Microsoft; only Microsoft employees are authorized to provision certificates from Keyvault-Integrated Certificate Authorities for these domains; so you must provision and configure [Azure DNS to host your domain](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) if you to provision your Cluster certificate with a Subject Alternative Name value that resolves to a DNS name you own. After delegating your domains name servers to your Azure DNS zone name servers, you will need to add the following two Records Set to your DNS Zone:'A' record for domain APEX that is NOT an "Alias record set" to all IP Addresses your custom domain will resolve, and a 'C' record for Microsoft Subdomain you provisioned  that is NOT an "Alias record set"; E.G. Use your Traffic Manager or Load Balancer's DNS name.
 
 You should also update your Service Fabric Cluster "managementEndpoint" Resource Manager template property to your custom domain, so that portal can display the correct url to connect to your Service Fabric Explorer User Interface, and the follow is the snippet of the property you will update to your custom domain:
 ```json
@@ -95,7 +95,7 @@ Generate a self-signed certificate for encrypting your secret using the followin
 ```powershell
 New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'
 ```
-Use the Reliably Deploy KeyVault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets instructions in this document to deploy/install your certificate.
+Use the instructions in this document to deploy KeyVault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets.
 
 Encrypt your secret using the following, and update your Service Fabric Application Manifest with the encrypted value:
 ``` powershell
@@ -108,7 +108,7 @@ Generate a self-signed certificate for encrypting your secrets using the followi
 user@linux:~$ openssl req -newkey rsa:2048 -nodes -keyout TestCert.prv -x509 -days 365 -out TestCert.pem
 user@linux:~$ cat TestCert.prv >> TestCert.pem
 ```
-Use the Reliably Deploy KeyVault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets instructions in this document to deploy/install your certificate.
+Use the instructions in this document to deploy KeyVault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets.
 
 Encrypt your secret using the following, and update your Service Fabric Application Manifest with the encrypted value:
 ```bash
