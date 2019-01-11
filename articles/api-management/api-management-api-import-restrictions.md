@@ -42,7 +42,7 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 
 * If many **servers** are specified, API Management will try to select the first HTTPs URL. If there aren't any HTTPs URLs - the first HTTP URL. If there aren't any HTTP URLs - the server URL will be empty.
 * **Examples** isn't supported, but **example** is.
-* **Multipart/form-data** in't supported.
+* **Multipart/form-data** isn't supported.
 
 > [!IMPORTANT]
 > See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.
