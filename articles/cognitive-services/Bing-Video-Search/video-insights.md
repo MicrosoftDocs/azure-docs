@@ -1,7 +1,7 @@
 ---
-title: Get video insights - Bing Video Search
+title: Get video insights using the Bing Video Search API
 titlesuffix: Azure Cognitive Services
-description: Shows how to use the Bing Video Search API to get more information about a video.
+description: Learn how to use the Bing Video Search API to get more information about videos, such as related videos.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -9,15 +9,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 01/11/2019
 ms.author: scottwhi
 ---
 
 # Get insights about a video
 
-Each video includes a video ID that you can use to get more information about the video, such as related videos.  
+Each video returned by the Bing Video Search API includes a video ID that you can use to get more information about it, such as related videos.  
   
-To get insights about a video, capture its [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) token in the response. 
+To get insights about a video, get its [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) token in the response. 
 
 ```json
     "value" : [
@@ -91,3 +91,9 @@ The following is the response to the previous request. The top-level object is a
     }
 }
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Search for trending videos](trending-videos.md)
+
