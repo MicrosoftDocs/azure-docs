@@ -79,7 +79,7 @@ Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/
 ```
 Your Service Fabric cluster will use your valid trusted installed certificate, that you declared by common name, which expires further into the future; when more than one valid certificate is installed on your Virtual Machine Scale Sets certificate store.
 
-Given you can not provision certificates for Microsoft domains, such as *\<YOUR SUBDOMAIN\>.cloudapp.azure.com or \<YOUR SUBDOMAIN\>.trafficmanager.net, from KeyVault integrated 3rd-party Certificate Authorities; you must provision and configure [Azure DNS to host your domain](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). After delegating your domains name servers to your Azure DNS zone name servers, you will need to add the following 2 Records Set to you DNS Zone:'A' record for domain APEX that is NOT a "Alias record set" to all IP Addresses your custom domain will resolve, and a 'C' record for Microsoft Subdomain you provisioned  that is NOT a "Alias record set" (E.G. Use your Traffic Manager or Load Balancer's DNS name).
+Given you cannot provision certificates for Microsoft domains, such as *\<YOUR SUBDOMAIN\>.cloudapp.azure.com or \<YOUR SUBDOMAIN\>.trafficmanager.net, from KeyVault integrated 3rd-party Certificate Authorities; you must provision and configure [Azure DNS to host your domain](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). After delegating your domains name servers to your Azure DNS zone name servers, you will need to add the following 2 Records Set to your DNS Zone:'A' record for domain APEX that is NOT an "Alias record set" to all IP Addresses your custom domain will resolve, and a 'C' record for Microsoft Subdomain you provisioned  that is NOT an "Alias record set" (E.G. Use your Traffic Manager or Load Balancer's DNS name).
 
 You should also update your Service Fabric Cluster "managementEndpoint" Resource Manager template property to your custom domain, so that portal can display the correct url to connect to your Service Fabric Explorer User Interface, and the follow is the snippet of the property you will update to your custom domain:
 ```json
@@ -91,7 +91,7 @@ Common values that are encrypted in Service Fabric Packages include: Azure Conta
 
 To [set up an encryption certificate and encrypt secrets on Windows clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-windows):
 
-Generate a self signed certificate for encrypting your secret using the following:
+Generate a self-signed certificate for encrypting your secret using the following:
 ```powershell
 New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'
 ```
@@ -103,7 +103,7 @@ Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text 
 ```
 To [set up an encryption certificate and encrypt secrets on Linux clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-linux):
 
-Generate a self signed certificate for encrypting your secrets using the following:
+Generate a self-signed certificate for encrypting your secrets using the following:
 ```bash
 user@linux:~$ openssl req -newkey rsa:2048 -nodes -keyout TestCert.prv -x509 -days 365 -out TestCert.pem
 user@linux:~$ cat TestCert.prv >> TestCert.pem
@@ -161,7 +161,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 ```
 
 ## Windows Defender 
-"[By default](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016), Windows Defender Antimalware is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but is not required." Given the performance impact and resource consumption overhead, if you security policies allow you to exclude processes and paths for open source software, then you will declare the following Virtual Machine Scale Set Extension Resource Manager template properties:
+"[By default](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016), Windows Defender Antimalware is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but is not required." Given the performance impact and resource consumption overhead, if your security policies allow you to exclude processes and paths for open source software, then you will declare the following Virtual Machine Scale Set Extension Resource Manager template properties:
 
 ```json
  {
