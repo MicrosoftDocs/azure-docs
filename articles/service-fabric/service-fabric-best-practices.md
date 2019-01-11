@@ -31,7 +31,7 @@ For more information about [Azure Security Best Practices](https://docs.microsof
 
 The following is the Portal Blade where you can provide the credentials for a KeyVault integrated CA to provsion your custom domain certificate:
 
--- TODO: Add Portal Blade Common Name Cert Generation
+![Common Name Cert Creation][Image1]
 
 Portal Blade for Keyvault certificates:
 ```bash
@@ -376,3 +376,4 @@ One of Service Fabric's goals is to keep applications resilient to hardware fail
 * Create a cluster on VMs or computers running Linux: [Create a Linux cluster](service-fabric-cluster-creation-via-portal.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
+[Image1]: media/service-fabric-best-practices/generate-common-name-cert.png
