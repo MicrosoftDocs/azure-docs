@@ -98,7 +98,7 @@ All the remote exception thrown by service API, are sent back to the client eith
 ServiceProxy does handle all Failover Exception for the service partition it  is created for. It re-resolves the endpoints if there is Failover Exceptions(Non-Transient Exceptions) and retries the call with the correct endpoint. Number of retries for failover Exception is indefinite.
 In case of TransientExceptions, it only retries the call.
 
-Default retry parameters are provied by [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings)
+Default retry parameters are provied by [OperationRetrySettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
 You can configure these values by passing OperationRetrySettings object to ServiceProxyFactory constructor.
 
 ## Next steps
