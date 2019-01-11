@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/10/2018
 ms.author: magoedte
 ms.component: 
 ---
@@ -95,6 +95,25 @@ The following steps describe how to configure how long log data is kept by in yo
 
 Customers with an Enterprise Agreement signed prior to July 1, 2018 or who already created a Log Analytics workspace in a subscription, you still have access to the *Free* plan. If your subscription is not tied to an existing EA enrollment, the *Free* tier is not available when you create a workspace in a new subscription after April 2, 2018.  Data is limited to 7 days retention for the *Free* tier.  For the legacy *Standalone* or *Per Node* tiers, as well as the current 2018 single pricing tier , data collected is available for the last 31 days. The *Free* tier has 500 MB daily ingestion limit, and if you find that you consistently exceed the amounts allowed volume, you can change your workspace to another plan to collect data beyond this limit. 
 
+> [!NOTE]
+> To use the entitlements that come from purchasing OMS E1 Suite, OMS E2 Suite or OMS Add-On for System Center, choose the Log Analytics *Per Node* pricing tier.
+
+## Changing pricing tier
+
+If your Log Analytics workspace has access to legacy pricing tiers, to change between legacy pricing tiers:
+
+1. In the Azure portal, from the Log Analytics subscriptions pane, select a workspace.
+
+2. From the workspace pane, under **General**, select **Pricing tier**.  
+
+3. Under **Pricing tier**, select a pricing tier and then click **Select**.  
+    ![Selected pricing plan](media/manage-cost-storage/workspace-pricing-tier-info.png)
+
+If you want to move your workspace into the current pricing tier, you need to [change your subscription's monitoring pricing model in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) which will change the pricing tier of all workspaces in that subscription.
+
+> [!NOTE]
+> If your workspace is linked to an Automation account, before you can select the *Standalone (Per GB)* pricing tier you must delete any **Automation and Control** solutions and unlink the Automation account. In the workspace blade, under **General**, click **Solutions** to see and delete solutions. To unlink the Automation account, click the name of the Automation account on the **Pricing tier** blade.
+
 
 ## Troubleshooting why Log Analytics is no longer collecting data
 If you are on the legacy Free pricing tier and have sent more than 500 MB of data in a day, data collection stops for the rest of the day. Reaching the daily limit is a common reason that Log Analytics stops collecting data, or data appears to be missing.  Log Analytics creates an event of type Operation when data collection starts and stops. Run the following query in search to check if you are reaching the daily limit and missing data: 
@@ -132,22 +151,55 @@ You can drill in further to see data trends for specific data types, for example
 
 ### Nodes sending data
 
-To undersand the number of nodes reporting data in the last month, use
+To understand the number of computers (nodes) reporting data each day in the last month, use
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
-| summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
+| summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-To see the count of events ingested per computer, use
+To get a list of computers sending **billed data types** (some data types are free), leverage the `_IsBilled` property:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+
+Use these `union withsource = tt *` queries sparingly as scans across data data typres are expensive to execute. 
+
+This can be extended to return the count of computers per hour that are sending billed data types:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+
+To see the **size** of billable events ingested per computer, use the `_BilledSize` property which provides the size in bytes:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+
+This query replaces the old way of querying this with the Usage data type. 
+
+To see the **count** of events ingested per computer, use
 
 `union withsource = tt *
-| summarize count() by Computer |sort by count_ nulls last`
+| summarize count() by Computer | sort by count_ nulls last`
 
-Use this query sparingly as it is expensive to execute. If you want to see which data types are sendng data to a specific computer, use:
+To see the count of billable events ingested per computer, use 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last`
+
+If you want to see counts for billable data types are sending data to a specific computer, use:
 
 `union withsource = tt *
-| where Computer == "*computer name*"
-| summarize count() by tt |sort by count_ nulls last `
+| where Computer == "computer name"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last `
 
 > [!NOTE]
 > Some of the fields of the Usage data type, while still in the schema, have been deprecated and will their values are no longer populated. 
