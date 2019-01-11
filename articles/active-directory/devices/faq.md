@@ -24,7 +24,7 @@ ms.reviewer: jairoc
 **Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?**
 
 **A:** Windows 10 devices that are hybrid Azure AD joined don't show up under **USER devices**.
-Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
+Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](https://docs.microsoft.com/en-us/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 Only the following devices are listed under **USER devices**:
 
@@ -43,7 +43,7 @@ Only the following devices are listed under **USER devices**:
 
 ---
 
-**Q: I see the device record under the **USER** info in the Azure portal. And I see the state as registered on the device. Am I set up correctly to use conditional access?**
+**Q: I see the device record under the USER info in the Azure portal. And I see the state as registered on the device. Am I set up correctly to use conditional access?**
 
 **A:** The device join state, shown by **deviceID**, must match the state on Azure AD and meet any evaluation criteria for conditional access. 
 For more information, see [Require managed devices for cloud app access with conditional access](../conditional-access/require-managed-devices.md).
@@ -62,9 +62,9 @@ To clear the join state from Windows 10 and Windows Server 2016 that are on-prem
 
 2.	Enter `dsregcmd.exe /debug /leave`.
 
-3.	Sign out and sign in to trigger the scheduled task that registers the device with Azure AD again. 
+3.	Sign out and sign in to trigger the scheduled task that registers the device again with Azure AD. 
 
-For down-level Windows OS versions that are on-premises Active Directory domain joined:
+For down-level Windows OS versions that are on-premises Active Directory domain joined, take the following steps:
 
 1.	Open the command prompt as an administrator.
 2.	Enter `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
@@ -108,7 +108,9 @@ For down-level Windows OS versions that are on-premises Active Directory domain 
 
 **Q: Can my users sign in to Azure AD joined devices that are deleted or disabled in Azure AD?**
 
-**A:** Yes. Windows has a cached username and password capability that allows users who signed in previously to access the desktop quickly even without network connectivity. When a device is deleted or disabled in Azure AD, it's not known to the Windows device. So users who signed in previously continue to access the desktop with the cached username and password. But as the device is deleted or disabled, users can't access any resources protected by device-based conditional access. 
+**A:** Yes. Windows has a cached username and password capability that allows users who signed in previously to access the desktop quickly even without network connectivity. 
+
+When a device is deleted or disabled in Azure AD, it's not known to the Windows device. So users who signed in previously continue to access the desktop with the cached username and password. But as the device is deleted or disabled, users can't access any resources protected by device-based conditional access. 
 
 Users who didn't sign in previously can't access the device. There's no cached username and password enabled for them. 
 
@@ -116,7 +118,9 @@ Users who didn't sign in previously can't access the device. There's no cached u
 
 **Q: Can disabled or deleted users sign in to Azure AD joined devices?**
 
-**A:** Yes, but only for a limited time. When a user is deleted or disabled in Azure AD, it's not immediately known to the Windows device. So users who signed in previously can access the desktop with the cached username and password. Typically, the device is aware of the user state in less than four hours. Then Windows blocks those users' access to the desktop. As the user is deleted or disabled in Azure AD, all their tokens are revoked. So they can't access any resources. 
+**A:** Yes, but only for a limited time. When a user is deleted or disabled in Azure AD, it's not immediately known to the Windows device. So users who signed in previously can access the desktop with the cached username and password. 
+
+Typically, the device is aware of the user state in less than four hours. Then Windows blocks those users' access to the desktop. As the user is deleted or disabled in Azure AD, all their tokens are revoked. So they can't access any resources. 
 
 Deleted or disabled users who didn't sign in previously can't access a device. There's no cached username and password enabled for them. 
 
@@ -136,7 +140,7 @@ Deleted or disabled users who didn't sign in previously can't access a device. T
 
 **Q: Why do my users see *You can’t get there from here*?**
 
-**A:** Did you configure certain conditional access rules to require a specific device state? If the device doesn't meet the criteria, users are blocked. They see that message. 
+**A:** Did you configure certain conditional access rules to require a specific device state? If the device doesn't meet the criteria, users are blocked, and they see that message. 
 Evaluate the conditional access policy rules. Make sure the device meets the criteria to avoid the message.
 
 ---
@@ -169,7 +173,7 @@ This behavior isn't applicable to any other user who signs in to that device. So
 
 ---
 
-**Q: Why did my try to Azure AD join a PC fail, although I didn't get any error information?**
+**Q: Why did my attempt to Azure AD join a PC fail, although I didn't get any error information?**
 
 **A:** A likely cause is that you signed in to the device by using the local built-in administrator account. 
 Create a different local account before you use Azure Active Directory join to finish the setup. 
@@ -188,9 +192,9 @@ Create a different local account before you use Azure Active Directory join to f
  
 **Q: Why do I see a duplicate Azure AD registered record for my Windows 10 hybrid Azure AD joined device in the Azure AD devices list?**
 
-**A:** When your users add their accounts to apps on a domain-joined device, they might be prompted: **Add account to Windows?** If they enter **Yes** on the prompt, the device registers with Azure AD. The trust type is marked as Azure AD registered. After you enable Hybrid Azure AD join in your organization, the device also gets hybrid Azure AD joined. Then two device states show up for the same device. 
+**A:** When your users add their accounts to apps on a domain-joined device, they might be prompted with **Add account to Windows?** If they enter **Yes** on the prompt, the device registers with Azure AD. The trust type is marked as Azure AD registered. After you enable hybrid Azure AD join in your organization, the device also gets hybrid Azure AD joined. Then two device states show up for the same device. 
 
-Hybrid Azure AD join takes precedence over the Azure AD registered state. So your device is considered hybrid Azure AD joined for any authentication and conditional access evaluation. You can safely delete the Azure AD registered device record from the Azure AD portal. Learn to [avoid or clean up this dual state on the Windows 10 machine](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know) in the Hybrid Azure AD join article. 
+Hybrid Azure AD join takes precedence over the Azure AD registered state. So your device is considered hybrid Azure AD joined for any authentication and conditional access evaluation. You can safely delete the Azure AD registered device record from the Azure AD portal. Learn to [avoid or clean up this dual state on the Windows 10 machine](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
 
 ---
 
@@ -198,7 +202,7 @@ Hybrid Azure AD join takes precedence over the Azure AD registered state. So you
 
 **Q: Can I register Android or iOS BYOD devices?**
 
-**A:** Yes, but only with Azure device registration service and for hybrid customers. It's not supported with on-premises device registration service in Active Directory Federation Services (AD FS).
+**A:** Yes, but only with the Azure device registration service and for hybrid customers. It's not supported with the on-premises device registration service in Active Directory Federation Services (AD FS).
 
 **Q: How can I register a macOS device?**
 
