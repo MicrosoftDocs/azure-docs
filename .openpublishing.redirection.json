@@ -30558,6 +30558,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/tutorial-bing-video-search-single-page-app-source.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/tutorial-bing-video-search-single-page-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/sdk.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/video-sdk-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/quick-start.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/csharp",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/aks/aks-ssh.md",
       "redirect_url": "/azure/aks/ssh",
       "redirect_document_id": true
