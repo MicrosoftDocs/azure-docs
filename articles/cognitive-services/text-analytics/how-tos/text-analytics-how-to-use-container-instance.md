@@ -306,14 +306,17 @@ This section uses the **kubectl** CLI to talk with the Azure Kubernetes Service.
 
     [!code-yml[Kubernetes orchestration file for the Cognitive Services containers sample](~/samples-cogserv-containers/Kubernetes/language/language.yml "Kubernetes orchestration file for the Cognitive Services containers sample")]
 
-1. Change the lines of `language.yml` based on the following table to add your own container registry image names, client secret, and text analytics settings.
+1. Change the language-frontend deployment lines of `language.yml` based on the following table to add your own container registry image names, client secret, and text analytics settings.
 
     Language-frontend deployment settings|Purpose|
     |--|--|
     |Line 32<br> `image` property|Image location for the frontend image in your Container Registry<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
     |Line 44<br> `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|
 
-    Language deployment settings|Purpose|
+1. Change the language deployment lines of `language.yml` based on the following table to add your own container registry image names, client secret, and text analytics settings.
+
+    |Language deployment settings|Purpose|
+    |--|--|
     |Line 78<br> `image` property|Image location for the language image in your Container Registry<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |Line 95<br> `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|
     |Line 91<br> `apiKey` property|Your text analytics resource key|
@@ -383,7 +386,7 @@ Open a browser and navigate to the external IP of the `language` container from 
 
 ## Test the client application container
 
-Change the URL in the browser to the external IP of the `language-frontend` container using the following format: `http://<external-ip>/helloworld`. The english culture text of `helloworld` is predictied as `English`.
+Change the URL in the browser to the external IP of the `language-frontend` container using the following format: `http://<external-ip>/helloworld`. The English culture text of `helloworld` is predicted as `English`.
 
 ## Clean up resources
 
