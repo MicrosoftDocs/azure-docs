@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: unknown
 ---
 # Download marketplace items from Azure to Azure Stack
 

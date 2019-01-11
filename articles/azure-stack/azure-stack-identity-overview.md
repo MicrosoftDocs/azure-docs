@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/09/2018
 ms.author: patricka
-ms.reviewer:
+ms.reviewer: unknown
+
 ---
 
 # Overview of identity for Azure Stack
