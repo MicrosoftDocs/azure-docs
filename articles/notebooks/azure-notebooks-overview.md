@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
 ---
 
@@ -53,7 +53,7 @@ In short, Azure Notebooks helps you accomplish your work more efficiently and th
 
 Azure Notebooks is a free service but each project is limited to 4-GB memory and 1-GB data to prevent abuse. Legitimate users that exceed these limits see a Captcha challenge to continue running notebooks.
 
-To release all limits, associate your account with an Azure subscription, which enables you to select premium compute tiers.
+To release all limits, sign into Azure Notebooks with an account using Azure Active Directory (such as a corporate account). If that account is associated with an Azure subscription, you can use Azure Data Science Virtual Machine compute tiers.
 
 ## Available kernels and environments
 
