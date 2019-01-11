@@ -27,16 +27,14 @@ For more information about [Azure Security Best Practices](https://docs.microsof
 > [!NOTE]
 > Azure KeyVault and compute resources must be co-located in the same region.  
 
+### Provision Your Service Fabric Cluster Custom Domain Certificate
 The following is the Portal Blade where you can provide the credentials for a KeyVault integrated CA to provsion your custom domain certificate:
-
--- TODO: Add Portal Blade Common Name Cert Generation
-
-Portal Blade for Keyvault certificates:
 ```bash
 https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.KeyVault/vaults/<YOUR VAULT>/certificates
 ```
 
-#### Reliably Deploy KeyVault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets
+### Reliably Deploy KeyVault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets
+
 Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) is how you reliably deploy KeyVault certificates to your Service Fabric Cluster's Virtual Machine Scale Sets, and the following is the Resource Manager template properties that you will declare: 
 ```json
 "secrets": [
@@ -54,7 +52,7 @@ Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/comput
 ]
 ```
 ### Service Fabric Cluster Common Name Certificate
-#### ACL Certificate to your Service Fabric Cluster
+### ACL Certificate to your Service Fabric Cluster
 [Virtual Machine Scale Set extensions](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) publisher   Microsoft.Azure.ServiceFabric is how you ACL certificates to your Service Fabric Cluster, and the following is the Resource Manager template properties that you will declare:
 ```json
 "certificate": {
@@ -64,7 +62,7 @@ Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/comput
    "x509StoreName": "[parameters('certificateStoreValue')]"
 }
 ```
-#### Configure Custom Domain Service Fabric Cluster Certificate
+### Configure Custom Domain Service Fabric Cluster Certificate
 Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames) Resource Manager template property, is how you configure the custom domain common name property of your valid certificate, and the following is the Resource Manager template properties that you will declare:
 ```json
 "certificateCommonNames": {
@@ -193,7 +191,6 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 For more information about networking
 ### Network Security Group (NSG)
 -- ARM template with port rules, link to the portal
-### Subnets 
 -- Each scale set has its own subnet
 -- Show a snippet of a subnet and IP configuration - Network profile of VMSS 
 ### Azure Traffic Manager and Azure Load Balancer
@@ -365,8 +362,6 @@ Application monitoring tracks how features and components of your application ar
 One of Service Fabric's goals is to keep applications resilient to hardware failures. This goal is achieved through the platform's system services' ability to detect infrastructure issues and rapidly failover workloads to other nodes in the cluster. But in this particular case, what if the system services themselves have issues? Or if in attempting to deploy or move a workload, rules for the placement of services are violated? Service Fabric provides diagnostics for these and more to make sure you are informed about activity taking place in your cluster. It is recommended that you set up cluster monitoring with [Diagnostics Agent](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) and [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup).
 ### Infrastructure Monitoring
 [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) is our recommendation to monitor cluster level events.
-
-
 
 ## Next steps
 
