@@ -24,7 +24,7 @@ ms.reviewer: jairoc
 **Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?**
 
 **A:** Windows 10 devices that are hybrid Azure AD joined don't show up under **USER devices**.
-You need to use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
+Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 Only the following devices are listed under **USER devices**:
 
@@ -78,7 +78,7 @@ For down-level Windows OS versions that are on-premises Active Directory domain 
 
 -	For Windows 10 and Windows Server 2016, repeated attempts to unjoin and rejoin the same device might cause duplicate entries. 
 
--	If you use **Add Work or School Account**, each Windows user who uses **Add Work or School Account** creates a new device record with the same device name.
+-	Each Windows user who uses **Add Work or School Account** creates a new device record with the same device name.
 
 -	For down-level Windows OS versions that are on-premises Azure Directory domain joined, automatic registration creates a new device record with the same device name for each domain user who signs in to the device. 
 
@@ -108,7 +108,7 @@ For down-level Windows OS versions that are on-premises Active Directory domain 
 
 **Q: Can my users sign in to Azure AD joined devices that are deleted or disabled in Azure AD?**
 
-**A:** Yes. Windows has cached username and password capability that allows users who signed in previously to access the desktop quickly even without network connectivity. When a device is deleted or disabled in Azure AD, it's not known to the Windows device. So users who signed in previously continue to access the desktop with the cached username and password. But as the device is deleted or disabled, users can't access any resources protected by device-based conditional access. 
+**A:** Yes. Windows has a cached username and password capability that allows users who signed in previously to access the desktop quickly even without network connectivity. When a device is deleted or disabled in Azure AD, it's not known to the Windows device. So users who signed in previously continue to access the desktop with the cached username and password. But as the device is deleted or disabled, users can't access any resources protected by device-based conditional access. 
 
 Users who didn't sign in previously can't access the device. There's no cached username and password enabled for them. 
 
@@ -136,16 +136,16 @@ Deleted or disabled users who didn't sign in previously can't access a device. T
 
 **Q: Why do my users see *You can’t get there from here*?**
 
-**A:** If you configure certain conditional access rules to require a specific device state, and the device doesn't meet the criteria, users are blocked. They see that message. 
+**A:** Did you configure certain conditional access rules to require a specific device state? If the device doesn't meet the criteria, users are blocked. They see that message. 
 Evaluate the conditional access policy rules. Make sure the device meets the criteria to avoid the message.
 
 ---
 
 **Q: Why don't some of my users get Azure Multi-Factor Authentication prompts on Azure AD joined devices?**
 
-**A:** If a user joins or registers a device with Azure AD by using Multi-Factor Authentication, the device itself becomes a trusted second factor for that particular user. Then whenever the same user signs in to the device and accesses an application, Azure AD considers the device as a second factor. It enables that user to seamlessly access applications without additional Multi-Factor Authentication prompts. 
+**A:** A user might join or register a device with Azure AD by using Multi-Factor Authentication. Then the device itself becomes a trusted second factor for that user. Whenever the same user signs in to the device and accesses an application, Azure AD considers the device as a second factor. It enables that user to seamlessly access applications without additional Multi-Factor Authentication prompts. 
 
-This behavior isn't applicable to any other user who signs in to that device. So all other users who access that device are prompted with a Multi-Factor Authentication challenge before they access applications that require Multi-Factor Authentication.
+This behavior isn't applicable to any other user who signs in to that device. So all other users who access that device get a Multi-Factor Authentication challenge. Then they can access applications that require Multi-Factor Authentication.
 
 ---
 
@@ -165,7 +165,7 @@ This behavior isn't applicable to any other user who signs in to that device. So
 
 **Q: Why do I see the *Oops… an error occurred!* dialog when I try to Azure AD join my PC?**
 
-**A:** This error happens when you set up Azure Active Directory enrollment with Intune. Make sure that the user who attempts to Azure AD join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+**A:** This error happens when you set up Azure Active Directory enrollment with Intune. Make sure that the user who tries to Azure AD join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
 
 ---
 
@@ -188,7 +188,7 @@ Create a different local account before you use Azure Active Directory join to f
  
 **Q: Why do I see a duplicate Azure AD registered record for my Windows 10 hybrid Azure AD joined device in the Azure AD devices list?**
 
-**A:** When your users add their accounts to apps on a domain-joined device, they might be prompted: **Add account to Windows?**. If they enter **Yes** on the prompt, the device registers with Azure AD. The trust type is marked as Azure AD registered. After you enable Hybrid Azure AD join in your organization, the device also gets hybrid Azure AD joined. Then two device states show up for the same device. 
+**A:** When your users add their accounts to apps on a domain-joined device, they might be prompted: **Add account to Windows?** If they enter **Yes** on the prompt, the device registers with Azure AD. The trust type is marked as Azure AD registered. After you enable Hybrid Azure AD join in your organization, the device also gets hybrid Azure AD joined. Then two device states show up for the same device. 
 
 However, hybrid Azure AD join takes precedence over the Azure AD registered state. So your device is considered hybrid Azure AD joined for any authentication and conditional access evaluation. You can safely delete the Azure AD registered device record from the Azure AD portal. Learn to [avoid or cleanup this dual state on the Windows 10 machine](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know) in the Hybrid Azure AD join article. 
 
