@@ -23,10 +23,7 @@ The wizard can't connect to a predefined index or run an existing indexer, but w
 
 New to Azure Search? Step through the [Quickstart: Import, index, and query using portal tools](search-get-started-portal.md) to test-drive importing and indexing using **Import data** and the built-in realestate sample data set.
 
-> [!NOTE]
-> You can launch **Import data** from other Azure services, including Azure Cosmos DB, Azure SQL Database, and Azure Blob storage. Look for **Add Azure Search** in the left-navigation pane on the service overview page.
-
-## How to start Import data
+## Start importing data
 
 This section explains how to start the wizard and provides a high-level overview of each step.
 
@@ -36,15 +33,18 @@ This section explains how to start the wizard and provides a high-level overview
 
    ![Import data command in portal](./media/search-import-data-portal/import-data-cmd2.png "Start the Import data wizard")
 
+   > [!NOTE]
+   > You can launch **Import data** from other Azure services, including Azure Cosmos DB, Azure SQL Database, and Azure Blob storage. Look for **Add Azure Search** in the left-navigation pane on the service overview page.
+
 3. The wizard opens to **Connect to your data**, where you can choose an external data source to use for this import. There are several things to know about this step, so be sure to read the [Data source inputs](#data-source-inputs) section for more details.
 
    ![Import data wizard in portal](./media/search-import-data-portal/import-data-wizard-startup.png "Import data wizard for Azure Search")
 
-4. Next is **Add Cognitive Services resources**, in case you want to include optical character recognition (OCR) of text in image files, or text analysis over unstructured data. AI algorithms from Cognitive Services are pulled in for this task. There are two parts to this step:
+4. Next is **Add cognitive search**, in case you want to include optical character recognition (OCR) of text in image files, or text analysis over unstructured data. AI algorithms from Cognitive Services are pulled in for this task. There are two parts to this step:
   
-   Part one [attaches a Cognitive Services resource to an Azure Search skillset](cognitive-search-attach-cognitive-services.md).
+   First, [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to an Azure Search skillset.
   
-   Part two is choosing which AI enrichments to include in the skillset. For a walkthrough demonstration, see this [Quickstart](cognitive-search-quickstart-blob.md).
+   Second, choose which AI enrichments to include in the skillset. For a walkthrough demonstration, see this [Quickstart](cognitive-search-quickstart-blob.md).
 
    If you just want to import data, skip this step and go directly to index definition.
 
