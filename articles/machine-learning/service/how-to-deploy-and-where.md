@@ -68,6 +68,8 @@ model = Model.register(model_path = "model.pkl",
                        workspace = ws)
 ```
 
+**Time estimate**: Approximately 10 seconds.
+
 For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
 ## <a id="configureimage"></a> Create and register an image
@@ -89,6 +91,8 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                  tags = {"data": "diabetes", "type": "regression"}
                                                  )
 ```
+
+**Time estimate**: Approximately 10 seconds.
 
 The important parameters in this example described in the following table:
 
@@ -300,6 +304,8 @@ aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 aks_target.wait_for_completion(True)
 ```
 
+**Time estimate**: Approximately 3 minutes.
+
 #### Deploy the image
 
 To deploy the image created in the [Create the image](#createimage) section of this document to the Azure Kubernetes Server cluster, use the following code:
@@ -320,6 +326,8 @@ service = Webservice.deploy_from_image(workspace = ws,
 service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
+
+**Time estimate**: Approximately 3 minutes.
 
 > [!TIP]
 > If there are errors during deployment, use `service.get_logs()` to view the AKS service logs. The logged information may indicate the cause of the error.
