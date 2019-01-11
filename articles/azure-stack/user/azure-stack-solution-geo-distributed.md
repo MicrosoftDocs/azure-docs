@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
+ms.reviewer: anajod
 ---
 
 # Tutorial: Create a geo-distributed app solution with Azure and Azure Stack

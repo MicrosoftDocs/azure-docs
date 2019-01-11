@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 01/03/2019
+ms.date: 01/11/2019
 ---
 # Managed API reference for Azure SQL Database Managed Instances
 
@@ -56,7 +56,6 @@ To create and manage Azure SQL server, databases, and firewalls with [Azure CLI]
 |[az sql midb create](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Creates a managed database|
 |[az sql midb list](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Lists available managed databases|
 |[az sql midb restore](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Restore a managed database|
-|[az sql midb update](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-update)|Updates a managed database|
 |[az sql midb delete](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Removes a managed database|
 
 ## Transact-SQL: Manage logical servers and databases
