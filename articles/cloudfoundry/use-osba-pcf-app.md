@@ -261,5 +261,5 @@ cf delete spring-music
 
 This tutorial covered deploying an application to Pivotal Cloud Foundry as well as creating a database using Open Service Broker for Azure. It also covered binding your database to your application within your Pivotal Cloud Foundry instance. For more information about deploying applications to Cloud Foundry on Azure, see:
 
-* [Cloud Foundry on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cloudfoundry-get-started)
-* [Deploy your first app to Cloud Foundry on Microsoft Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app)
+* [Cloud Foundry on Azure](../virtual-machines/linux/cloudfoundry-get-started.md)
+* [Deploy your first app to Cloud Foundry on Microsoft Azure](../virtual-machines/linux/cloudfoundry-deploy-your-first-app.md)
