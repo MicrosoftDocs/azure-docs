@@ -18,7 +18,7 @@ ms.author: pepogors
 
 ---
 # Infrastructure as Code 
-In a production scenario, Azure Service Fabric clusters should be created using Resource Manager templates. Resource Manager templates allow for a greater level of control of resource properties and ensures that you have a consistent resource model. 
+In a production scenario, Azure Service Fabric clusters should be created using Resource Manager templates. Resource Manager templates allow for a greater level of control of resource properties and ensure that you have a consistent resource model. 
 
 Creating a resource using Azure CLI
 ```azurecli
@@ -29,7 +29,7 @@ az group create --name $ResourceGroupName --location $Location
 az group deployment create --name $ResourceGroupName  --template-file azuredeploy.json --parameters @azuredeploy.parameters.json
 ```
 
-Creating a resource 
+Creating a resource using Powershell
 ```powershell
 $ResourceGroupName="sfclustergroup"
 $Location="westus"
@@ -40,7 +40,7 @@ New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 New-AzureRmResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
 ```
 
-## Service Fabric ARM Resources
+## Azure Service Fabric Resources
 [You can deploy applications and services onto your Service Fabric cluster via Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource), and the following are the Resource Manager template resources you would use to deploy your application:
 ```json
 {
@@ -69,7 +69,7 @@ New-AzureRmResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Templ
 }
 ```
 
-Which requires you to [create an sfpkg](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) Service Fabric Application package. The following is an example of how to create an sfpkg using python:
+Which requires you to [create a sfpkg](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) Service Fabric Application package. The following python script is an example of how to create a sfpkg:
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container
