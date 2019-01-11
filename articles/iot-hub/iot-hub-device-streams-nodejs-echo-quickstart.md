@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub device streams quickstart (NodeJS) | Microsoft Docs
-description: In this quickstart, you will run a NodeJS service-side applications that communicates with an IoT device via a device stream.
+title: Azure IoT Hub device streams quickstart (Node.js) | Microsoft Docs
+description: In this quickstart, you will run a Node.js service-side applications that communicates with an IoT device via a device stream.
 author: rezasherafat
 manager: briz
 ms.service: iot-hub
@@ -8,7 +8,7 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 1/3/2019
+ms.date: 01/15/2019
 ms.author: rezas
 ---
 
@@ -45,7 +45,7 @@ node --version
 
 If you haven't already done so, download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
 
-**Bug bash instructions:** Download the file from \\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-nodejs.zip (`MD5=72AAFEC0C37976D60EF7B90CA92CE762`).
+**Bug bash instructions:** Download the file from \\\\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-nodejs.zip (`MD5=72AAFEC0C37976D60EF7B90CA92CE762`).
 
 
 ## Create an IoT hub

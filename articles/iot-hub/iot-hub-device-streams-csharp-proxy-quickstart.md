@@ -8,7 +8,7 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/15/2019
 ms.author: rezas
 ---
 
@@ -54,7 +54,7 @@ dotnet --version
 
 Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive.
 
-**Bug bash instructions:** Download the file from \\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-csharp.zip (`MD5=D66D2D64472B1253BC71BC607057A2CE`).
+**Bug bash instructions:** Download the file from \\\\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-csharp.zip (`MD5=D66D2D64472B1253BC71BC607057A2CE`).
 
 ## Create an IoT hub
 

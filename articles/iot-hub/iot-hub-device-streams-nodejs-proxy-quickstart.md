@@ -1,7 +1,7 @@
 ---
-title: Azure IoT Hub device streams quickstart for SSH/RDP (NodeJS) | Microsoft Docs
-description: In this quickstart, you will run a sample NodeJS application that acts as a proxy to enable SSH/RDP scenarios over IoT Hub device streams.
-description: In this quickstart, you will run a NodeJS service-side applications that communicates with an IoT device via a device stream.
+title: Azure IoT Hub device streams quickstart for SSH/RDP (Node.js) | Microsoft Docs
+description: In this quickstart, you will run a sample Node.js application that acts as a proxy to enable SSH/RDP scenarios over IoT Hub device streams.
+description: In this quickstart, you will run a Node.js service-side applications that communicates with an IoT device via a device stream.
 author: rezasherafat
 manager: briz
 ms.service: iot-hub
@@ -9,11 +9,11 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 1/3/2019
+ms.date: 01/15/2019
 ms.author: rezas
 ---
 
-# Quickstart: SSH/RDP over IoT Hub device streams (NodeJS)
+# Quickstart: SSH/RDP over IoT Hub device streams (Node.js)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
@@ -42,7 +42,7 @@ node --version
 
 If you haven't already done so, download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
 
-**Bug bash instructions:** Download the file from \\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-nodejs.zip (`MD5=72AAFEC0C37976D60EF7B90CA92CE762`).
+**Bug bash instructions:** Download the file from \\\\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-nodejs.zip (`MD5=72AAFEC0C37976D60EF7B90CA92CE762`).
 
 
 ## Create an IoT hub
@@ -111,6 +111,15 @@ Change `MyDevice` to the device ID you chose for your device.
 ```cmd/sh
   cd ./service/samples
   npm install
+  node tcp_streaming_proxy.js
+```
+
+**Bug bash instructions:** Please follow these instuctions instead:
+Navigate to `samples` in your unzipped project folder and run the service-local proxy.
+```cmd/sh
+  cd ./samples
+  npm install
+  install ../azure-iothub-1.10.0-preview.tgz
   node tcp_streaming_proxy.js
 ```
 

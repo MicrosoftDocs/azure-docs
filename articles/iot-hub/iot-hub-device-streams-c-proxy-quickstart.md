@@ -8,7 +8,7 @@ services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 1/3/2019
+ms.date: 01/15/2019
 ms.author: rezas
 ---
 
@@ -77,7 +77,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
     ```
     The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
 
-**Bug bash instructions:** Skip this step and download and unzip the device streams repo directly from \\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-c.zip (`MD5=02D5179BC57F1C2FD2BED969E0555B31`).
+**Bug bash instructions:** Skip this step and download and unzip the device streams repo directly from \\\\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-c.zip (`MD5=02D5179BC57F1C2FD2BED969E0555B31`).
 
 
 3. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 

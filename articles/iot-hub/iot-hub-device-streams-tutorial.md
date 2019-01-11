@@ -5,10 +5,8 @@ author: rezasherafat
 manager: briz
 services: iot-hub
 ms.service: iot-hub
-ms.devlang: csharp
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/15/2019
 ms.author: rezas
 ---
 
@@ -50,6 +48,7 @@ The details of the steps involved in this process are depicted in the figure bel
 
 
 ## Connectivity Requirements
+
 Both the device and service sides of a device stream must be capable of establishing TLS-enabled connections to IoT Hub and its streaming endpoint. This requires outbound connectivity over port 443 to these endpoints. The hostname associated with these endpoints can be found on the _Overview_ tab of IoT Hub, as shown in the figure below:
 <p>
     <img src="./media/iot-hub-device-streams-tutorial/device-stream-portal.png">
@@ -61,6 +60,40 @@ Alternatively, the endpoints information can use be retrieved using Azure CLI un
 az iot hub show --name <YourIoTHubName>
 ```
 
+## Troubleshoot via Device Streams Activity Logs
+
+You can setup Azure Log Analytics to collect the activity log of device streams in your IoT Hub. This can be very helpful in troubleshooting scenarios.
+
+Follow the steps below to configure Azure Log Analytics for your IoT Hub's device stream activities:
+
+1. Navigate to the *Diagnostic settings* tab in your IoT Hub, and click on *Turn on diagnostics* link.
+
+<p>
+    <img style="margin:auto;display:block;background-color:white;width:75%" src="./media/iot-hub-device-streams-tutorial/device-streams-diagnostics-settings.PNG">
+</p>
+
+2. Provide a name for your diagnostics settings, and choose *Send to Log Analytics* option. You will be guided to choose an existing Log Analytics resource or create a new one. Additionally, check the *DeviceStreams* from the list.
+
+<p>
+    <img style="margin:auto;display:block;background-color:white;width:55%" src="./media/iot-hub-device-streams-tutorial/device-streams-diagnostics.PNG">
+</p>
+
+3. You can now access your device streams logs under the *Logs* tab in your IoT Hub's portal.
+
+
+## Whitelist Device Streaming Endpoints
+
+As mentioned [earlier](#Overview), your device creates an outbound connection to IoT Hub streaming endpoint during device streams initiation process. Your firewalls on the device or its network must allow outbound connectivity to the streaming gateway over port 443 (this is a WebSocket connection that is encrypted using TLS).
+
+The hostname of device streaming endpoint can be found on the Azure IoT Hub portal under the Overview tab.
+<p>
+    <img style="margin:auto;display:block;background-color:white;width:75%" src="./media/iot-hub-device-streams-tutorial/device-stream-portal.PNG">
+</p>
+
+Alternatively, you can find this information using Azure CLI:
+```cmd/sh
+az iot hub show --name tcpstreaming-preview
+```
 
 ## Next Steps
 
