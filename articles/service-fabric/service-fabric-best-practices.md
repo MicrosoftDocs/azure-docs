@@ -299,22 +299,56 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 ### Reliability Levels
-Reliability tier is not applicable to individual node types. It controls the replication factor of the system services for the cluster, and is a setting at the cluster resource level. The reliability level will determine the minimum number of nodes that your primary node type must have. The reliability tier can take the following values:
+The [reliability level](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) is not applicable to individual node types. It controls the replication factor of the system services for the cluster, and is a setting at the cluster resource level. The reliability level will determine the minimum number of nodes that your primary node type must have. The reliability tier can take the following values:
 * Platinum - Run the System services with a target replica set count of seven
 * Gold - Run the System services with a target replica set count of seven
 * Silver - Run the System services with a target replica set count of five
 * Bronze - Run the System services with a target replica set count of three
-The minimum recommened reliability level is Silver.
+
+The minimum recommened reliability level is **Silver**.
 
 The reliability level is set in the properties section of the [Microsoft.ServiceFabric/clusters resource](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters)
 ```json
-"properties":{
+"properties": {
     "reliabilityLevel": "Silver"
 }
 ```
 ### Durability Levels
+The [durability level](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) is used to indicate to the system the privileges that your VMs have with the underlying Azure infrastructure. In the primary node type, this privilege allows Service Fabric to pause any VM level infrastructure request (such as a VM reboot, VM reimage, or VM migration) that impact the quorum requirements for the system services and your stateful services.In the non-primary node types, this privilege allows Service Fabric to pause any VM level infrastructure requests (such as VM reboot, VM reimage, and VM migration) that impact the quorum requirements for your stateful services.
 
+| Durability tier  | Required minimum number of VMs | Supported VM SKUs                                                                  | Updates you make to your virtual machine scale set                               | Updates and maintenance initiated by Azure                                                              | 
+| ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Gold             | 5                              | Full-node SKUs dedicated to a single customer (for example, L32s, GS5, G5, DS15_v2, D15_v2) | Can be delayed until approved by the Service Fabric cluster | Can be paused for 2 hours per UD to allow additional time for replicas to recover from earlier failures |
+| Silver           | 5                              | VMs of single core or above                                                        | Can be delayed until approved by the Service Fabric cluster | Cannot be delayed for any significant period of time                                                    |
+| Bronze           | 1                              | All                                                                                | Will not be delayed by the Service Fabric cluster           | Cannot be delayed for any significant period of time                                                    |
 
+> [!WARNING]
+> Node types running with Bronze durability obtain _no privileges_. This means that infrastructure jobs that impact your stateless workloads will not be stopped or delayed, which might impact your workloads. Use only Bronze for node types that run only stateless workloads. For production workloads, running Silver or above is recommended. 
+
+The durability level must be set in two resources. The extension profile of the [Virtual Machine Scale Set resource](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile).
+```json
+"extensionProfile": {
+    "extensions":          {
+        "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
+        "properties": {
+            "settings": {
+                "durabilityLevel": "Bronze"
+            }
+        }
+    }
+}
+```
+And under the nodeType in the [Microsoft.ServiceFabric/clusters resource](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters) 
+```json
+"nodeTypes": [
+    {
+        "name": "[variables('vmNodeType0Name')]",
+        "durabilityLevel": "Bronze"
+    }
+]
+```
+
+The primary node type should always have a sliver durability level. 
 -- Provide the code snippets of the setting of these levels - VM extension, SF resource
 -- You should use Silver of greater for your needs. PrimaryNodeType is stateful, if your services running on other node types are also stateful they should be silver. 
 ## Infrastructure as Code 
