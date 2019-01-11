@@ -17,7 +17,7 @@ ms.component: B2C
 
 Azure Active Directory (Azure AD) B2C supports authentication for a variety of modern application architectures. All of them are based on the industry standard protocols [OAuth 2.0](active-directory-b2c-reference-protocols.md) or [OpenID Connect](active-directory-b2c-reference-protocols.md). This document describes the types of applications that you can build, independent of the language or platform you prefer. It also helps you understand the high-level scenarios before you start building applications.
 
-Every application that uses Azure AD B2C must be registered in your [Azure AD B2C tenant](active-directory-b2c-get-started.md) by using the [Azure Portal](https://portal.azure.com/). The application registration process collects and assigns values, such as:
+Every application that uses Azure AD B2C must be registered in your [Azure AD B2C tenant](active-directory-b2c-get-started.md) by using the [Azure portal](https://portal.azure.com/). The application registration process collects and assigns values, such as:
 
 * An **Application ID** that uniquely identifies your application.
 * A **Reply URL** that can be used to direct responses back to your application.
@@ -37,7 +37,7 @@ These steps can differ slightly based on the type of application you're building
 
 ## Web applications
 
-For web applications (including .NET, PHP, Java, Ruby, Python, and Node.js) that are hosted on a server and accessed through a browser, Azure AD B2C supports [OpenID Connect](active-directory-b2c-reference-protocols.md) for all user experiences. This includes sign-in, sign-up, and profile management. In the Azure AD B2C implementation of OpenID Connect, your web application initiates these user experiences by issuing authentication requests to Azure AD. The result of the request is an `id_token`. This security token represents the user's identity. It also provides information about the user in the form of claims:
+For web applications (including .NET, PHP, Java, Ruby, Python, and Node.js) that are hosted on a server and accessed through a browser, Azure AD B2C supports [OpenID Connect](active-directory-b2c-reference-protocols.md) for all user experiences. In the Azure AD B2C implementation of OpenID Connect, your web application initiates user experiences by issuing authentication requests to Azure AD. The result of the request is an `id_token`. This security token represents the user's identity. It also provides information about the user in the form of claims:
 
 ```
 // Partial raw id_token
@@ -64,7 +64,7 @@ In a web application, each execution of a [policy](active-directory-b2c-referenc
 6. The `id_token` is validated and a session cookie is set.
 7. A secure page is returned to the user.
 
-Validation of the `id_token` by using a public signing key that is received from Azure AD is sufficient to verify the identity of the user. This also sets a session cookie that can be used to identify the user on subsequent page requests.
+Validation of the `id_token` by using a public signing key that is received from Azure AD is sufficient to verify the identity of the user. This process also sets a session cookie that can be used to identify the user on subsequent page requests.
 
 To see this scenario in action, try one of the web application sign-in code samples in our [Getting started section](active-directory-b2c-overview.md).
 
@@ -120,18 +120,18 @@ To set up client credential flow, see [Azure Active Directory v2.0 and the OAuth
 
 #### Web API chains (on-behalf-of flow)
 
-Many architectures include a web API that needs to call another downstream web API, where both are secured by Azure AD B2C. This scenario is common in native clients that have a Web API back-end. This then calls a Microsoft online service such as the Azure AD Graph API.
+Many architectures include a web API that needs to call another downstream web API, where both are secured by Azure AD B2C. This scenario is common in native clients that have a Web API back-end and calls a Microsoft online service such as the Azure AD Graph API.
 
 This chained web API scenario can be supported by using the OAuth 2.0 JWT bearer credential grant, also known as the on-behalf-of flow.  However, the on-behalf-of flow is not currently implemented in the Azure AD B2C.
 
 ### Faulted apps
 
-Azure AD B2C applications should NOT be edited:
+Do not edit Azure AD B2C applications in these ways:
 
 - On other application management portals such as the [Application Registration Portal](https://apps.dev.microsoft.com/).
 - Using Graph API or PowerShell.
 
-If you edit the Azure AD B2C application outside of the Azure portal, it becomes a faulted application and is no longer usable with Azure AD B2C. You need to delete the application and create it again.
+If you edit the Azure AD B2C application outside of the Azure portal, it becomes a faulted application and is no longer usable with Azure AD B2C. Delete the application and create it again.
 
 To delete the application, go to the [Application Registration Portal](https://apps.dev.microsoft.com/) and delete the application there. In order for the application to be visible, you need to be the owner of the application (and not just an admin of the tenant).
 
