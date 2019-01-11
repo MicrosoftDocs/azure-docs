@@ -22,7 +22,7 @@ You can configure an alert to do the following actions when it triggers:
 You can configure and get information about alert rules using:
 * [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure Monitor REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts)
+* [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## Create an alert rule on a metric from the Azure portal
 1. In the [Azure portal](https://portal.azure.com/), select the Azure Database for MySQL server you want to monitor.
@@ -43,7 +43,7 @@ You can configure and get information about alert rules using:
    
    ![Select metric](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-7. Configure the alert logic including the **Condition** (ex. "Greater than"), **Threshold** (ex. 85 percent), **Time Aggregation**, **Period** of time the metric rule must be satisfied before the alert triggers (ex. "Over the last 30 minutes", and **Frequency**.
+7. Configure the alert logic including the **Condition** (ex. "Greater than"), **Threshold** (ex. 85 percent), **Time Aggregation**, **Period** of time the metric rule must be satisfied before the alert triggers (ex. "Over the last 30 minutes"), and **Frequency**.
    
    Select **Done** when complete.
 
