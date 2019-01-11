@@ -299,7 +299,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 ### Reliability Levels
-The [reliability level](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) is not applicable to individual node types. It controls the replication factor of the system services for the cluster, and is a setting at the cluster resource level. The reliability level will determine the minimum number of nodes that your primary node type must have. The reliability tier can take the following values:
+The [reliability level](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) is a property of your Service Fabric Cluster resource, and can not be configured differently for individual nodeTypes. It controls the replication factor of the system services for the cluster, and is a setting at the cluster resource level. The reliability level will determine the minimum number of nodes that your primary node type must have. The reliability tier can take the following values:
 * Platinum - Run the System services with a target replica set count of seven
 * Gold - Run the System services with a target replica set count of seven
 * Silver - Run the System services with a target replica set count of five
@@ -347,10 +347,6 @@ And under the nodeType in the [Microsoft.ServiceFabric/clusters resource](https:
     }
 ]
 ```
-
-The primary node type should always have a sliver durability level. 
--- Provide the code snippets of the setting of these levels - VM extension, SF resource
--- You should use Silver of greater for your needs. PrimaryNodeType is stateful, if your services running on other node types are also stateful they should be silver. 
 ## Infrastructure as Code 
 -- Sample repo link and API documentation. Modify these samples for these needs.
 -- Portal should not be used to provision a production ready cluster.
