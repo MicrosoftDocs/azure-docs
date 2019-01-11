@@ -30575,7 +30575,7 @@
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/csharp.md",
       "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/csharp",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/java.md",
@@ -30609,7 +30609,7 @@
     },
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/video-search-sdk-node-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-python-quickstart",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-node-quickstart",
       "redirect_document_id": true
     },
     {
