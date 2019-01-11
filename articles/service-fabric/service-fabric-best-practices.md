@@ -82,7 +82,9 @@ You should also update your Service Fabric Cluster "managementEndpoint" Resource
 ```json
  "managementEndpoint": "[concat('https://<YOUR CUSTOM DOMAIN>:',parameters('nt0fabricHttpGatewayPort'))]",
 ```
-### Encrypting Secret Values 
+### Encrypting Service Fabric Package Secret Values
+Common values that are encrypted in Service Fabric Packages include: Azure Container Registery (ACR) credentials, and environment variables.
+
 To [set up an encryption certificate and encrypt secrets on Windows clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-windows):
 
 Generate a self signed certificate for encrypting your secret using the following:
