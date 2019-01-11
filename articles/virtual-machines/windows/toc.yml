@@ -97,11 +97,11 @@
     href: maintenance-and-updates.md
   - name: Disk storage
     items:
-    - name: Managed Disks
+    - name: Managed disks
       href: managed-disks-overview.md
-    - name: Disk Types
+    - name: Disk types
       href: disks-types.md
-    - name: Performance Checklist
+    - name: Designing for high performance
       href: premium-storage-performance.md
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
@@ -311,6 +311,8 @@
         href: attach-disk-ps.md
       - name: Azure portal
         href: attach-managed-disk-portal.md
+    - name: Benchmark a disk
+      href: disks-benchmarks.md
     - name: Detach a disk
       href: detach-disk.md
     - name: Resize a disk
