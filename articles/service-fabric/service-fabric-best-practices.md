@@ -119,6 +119,33 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 ### Azure Active Directory (AAD) for client identity
 -- ARM properties for enabling AAD
 ### Compute Managed Service Identity (MSI)
+[Managed identities for Azure resources is a feature of Active Directory](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work).
+
+To [enable system-assigned managed identity during the creation of a virtual machines scale set or an existing virtual machines scale set](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss#system-assigned-managed-identity), declare the following Microsoft.Compute/virtualMachinesScaleSets" property:
+
+```json
+"identity": { 
+    "type": "SystemAssigned"
+}
+```
+
+If you created a  [user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm#create-a-user-assigned-managed-identity), declare the following resource in your template to assign it to your virtual machine scale set, and replace \<USERASSIGNEDIDENTITYNAME\> with the name of the user-assigned managed identity you created:
+```json
+"identity": {
+    "type": "userAssigned",
+    "userAssignedIdentities": {
+        "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+    }
+}
+```
+
+Before your Service Fabric Application can make use of a managed identity, it need have permissions granted to the Azure Resources it needs to authenticate with, and the follow are the commands to grant access to an Azure Resource:
+
+```bash
+principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGroups/<YOUR RG>/providers/Microsoft.Compute/virtualMachineScaleSets/<YOUR SCALE SET> --api-version 2018-06-01 | python -c "import sys, json; print(json.load(sys.stdin)['identity']['principalId'])")
+
+az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
+```
 -- VMSS MSI enable system assign, link to user assigned docs
 -- Code snippet consuming
 ### Security Policies
