@@ -17,8 +17,7 @@ ms.author: billmath
 
 This article describes how to move your organization domains from Active Directory Federation Services (AD FS) to password hash synchronization.
 
-> [!NOTE]
-> [Download](https://aka.ms/ADFSTOPHSDPDownload) this article.
+You can [download this article](https://aka.ms/ADFSTOPHSDPDownload).
 
 ## Prerequisites for migrating to password hash synchronization
 
@@ -65,13 +64,13 @@ To verify your current user sign-in settings:
 
 1. Sign in to the [Azure AD portal](https://aad.portal.azure.com/) by using a Global Administrator account.
 2. In the **User sign-in** section, verify the following settings:
-   - **Federation** is set to **Enabled**.
-   - **Seamless single sign-on** is set to **Disabled**.
-   - **Pass-through authentication** is set to **Disabled**. 
+   * **Federation** is set to **Enabled**.
+   * **Seamless single sign-on** is set to **Disabled**.
+   * **Pass-through authentication** is set to **Disabled**. 
 
-![Screenshot of the settings in the Azure AD Connect User sign-in section](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image1.png)
+   ![Screenshot of the settings in the Azure AD Connect User sign-in section](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image1.png)
 
-#### Verify Azure AD Connect configuration
+#### Verify the Azure AD Connect configuration
 
 1. On your Azure AD Connect server, open Azure AD Connect. Select **Configure**.
 2. On the **Additional tasks** page, select **View current configuration**, and then select **Next**.<br />
@@ -313,9 +312,9 @@ First, change the sign-in method:
        
 7. In the Azure AD portal, select **Azure Active Directory** > **Azure AD Connect**.
 8. Verify these settings:
-  - **Federation** is set to **Disabled**.
-  - **Seamless single sign-on** is set to **Enabled**.
-  - **Password Sync** is set to **Enabled**.<br /> 
+  * **Federation** is set to **Disabled**.
+  * **Seamless single sign-on** is set to **Enabled**.
+  * **Password Sync** is set to **Enabled**.<br /> 
 
    ![Screenshot that shows the settings in the User sign-in section ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 

@@ -17,8 +17,7 @@ ms.author: billmath
 
 This article describes how to move your organization domains from Active Directory Federation Services (AD FS) to pass-through authentication.
 
-> [!NOTE]
-> [Download](https://aka.ms/ADFSTOPTADPDownload) this article.
+You can [download this article](https://aka.ms/ADFSTOPTADPDownload).
 
 ## Prerequisites for migrating to pass-through authentication
 
@@ -62,7 +61,7 @@ To understand which method you should use, complete the steps in the following s
    - **Seamless single sign-on** is set to **Disabled**.
    - **Pass-through authentication** is set to **Disabled**. 
 
-![Screenshot of the settings in the Azure AD Connect User sign-in section](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image1.png)
+   ![Screenshot of the settings in the Azure AD Connect User sign-in section](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image1.png)
 
 #### Verify how federation was configured
 
