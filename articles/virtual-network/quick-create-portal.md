@@ -19,7 +19,7 @@ ms.author: jdial
 
 # Quickstart: Create a virtual network using the Azure portal
 
-A virtual network enables Azure resources, like virtual machines (VMs), to communicate privately with each other, and with the internet. In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to the VMs from the internet, and communicate privately between the two VMs.
+A virtual network enables Azure resources, like virtual machines (VMs), to communicate privately with each other and with the internet. In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to the VMs from the internet, and communicate privately between the two VMs.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
