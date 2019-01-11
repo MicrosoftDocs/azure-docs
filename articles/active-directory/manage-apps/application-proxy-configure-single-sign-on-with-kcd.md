@@ -63,13 +63,15 @@ The Active Directory configuration varies, depending on whether your Application
 1. For a list of prerequisites for working with KCD across domains, see [Kerberos Constrained Delegation across domains](https://technet.microsoft.com/library/hh831477.aspx).
 2. Use the `principalsallowedtodelegateto` property on the Connector server to enable the Application Proxy to delegate for the Connector server. The application server is `sharepointserviceaccount` and the delegating server is `connectormachineaccount`. For Windows 2012 R2, use this code as an example:
 
-        $connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
+```powershell
+$connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
 
-        Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
 
-        Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+```
 
-Sharepointserviceaccount can be the SPS machine account or a service account under which the SPS app pool is running.
+`sharepointserviceaccount` can be the SPS machine account or a service account under which the SPS app pool is running.
 
 ## Configure single sign-on 
 1. Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.

@@ -129,7 +129,7 @@
     - name: Continuous integration with Azure DevOps Services
       href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
       maintainContext: true
-  - name: Manage templates
+  - name: Manage resources
     items:
     - name: Manage by using the Azure portal
       href: resource-group-portal.md
@@ -152,6 +152,8 @@
       href: programmatically-create-subscription.md
     - name: Grant access to create EA subscriptions
       href: grant-access-to-create-subscription.md
+    - name: Authenticate across tenants
+      href: authenticate-multi-tenant.md
   - name: Audit deployments
     items:
     - name: View activity logs
@@ -238,7 +240,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=azure-resource-manager
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-resource-manager
+    href: https://stackoverflow.com/questions/tagged/azure-resource-manager
   - name: Manage personal data
     href: resource-manager-personal-data.md
   - name: Videos

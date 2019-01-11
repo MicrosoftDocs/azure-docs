@@ -402,7 +402,7 @@ In addition to installing SAP HANA as part of a distributed installation by usin
 For more information about the HANA HDBLCM tool, see:
 
 * [Choosing the Correct SAP HANA HDBLCM for Your Task](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
-* [SAP HANA Lifecycle Management Tools](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
+* [SAP HANA Lifecycle Management Tools](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm)
 * [SAP HANA Server Installation and Update Guide](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 To avoid problems with a default group ID setting for the `\<HANA SID\>adm user` (created by the HDBLCM tool), define a new group called `sapsys` by using group ID `1001` before you install SAP HANA via HDBLCM:

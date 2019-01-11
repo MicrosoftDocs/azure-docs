@@ -84,7 +84,7 @@ Because the vast majority of attacks target the end user, the endpoint becomes o
 
 ## Protect data at rest
 
-[Data encryption at rest](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step toward data privacy, compliance, and data sovereignty.
+[Data encryption at rest](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step toward data privacy, compliance, and data sovereignty.
 
 **Best practice**: Apply disk encryption to help safeguard your data.   
 **Detail**: Use [Azure Disk Encryption](azure-security-disk-encryption.md). It enables IT administrators to encrypt Windows and Linux IaaS VM disks. Disk Encryption combines the industry-standard Windows BitLocker feature and the Linux dm-crypt feature to provide volume encryption for the OS and the data disks.

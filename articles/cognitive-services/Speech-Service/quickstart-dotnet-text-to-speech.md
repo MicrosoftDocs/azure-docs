@@ -157,7 +157,7 @@ string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'
 ```
 
 > [!NOTE]
-> This sample uses the `ZiraRUS` voice font. For a complete list of Microsoft provided voices/languages, see [Language support](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/language-support). If you're interested in creating a unique, recognizable voice for your brand, see [Creating custom voice fonts](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font).
+> This sample uses the `ZiraRUS` voice font. For a complete list of Microsoft provided voices/languages, see [Language support](language-support.md). If you're interested in creating a unique, recognizable voice for your brand, see [Creating custom voice fonts](how-to-customize-voice-font.md).
 
 ## Instantiate the client, make a request, and save synthesized audio to a file
 

@@ -467,7 +467,7 @@ For more information, see about_CommonParameters (https://go.microsoft.com/fwlin
 ## Get-ADSyncToolsRunHistory
 
 ### SYNOPSIS
-Get AAD Connnect Run History
+Get AAD Connect Run History
 
 ### SYNTAX
 
@@ -476,7 +476,7 @@ Get-ADSyncToolsRunHistory [[-Days] <Int32>] [<CommonParameters>]
 ```
 
 ### DESCRIPTION
-Function that returns the AAD Connnect Run History in XML format
+Function that returns the AAD Connect Run History in XML format
 
 ### EXAMPLES
 
@@ -523,7 +523,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 ```
 
 ### DESCRIPTION
-Function queries AAD Connnect Run History and exports all the users reporting the Error: 
+Function queries AAD Connect Run History and exports all the users reporting the Error: 
  "SourceAnchor attribute has changed."
 
 ### EXAMPLES

@@ -9,8 +9,12 @@
   items:
   - name: Create a service
     href: search-create-service-portal.md
-  - name: Try cognitive search
-    href: cognitive-search-quickstart-blob.md
+  - name: Portal
+    items:
+    - name: Import, index, and query using tools
+      href: search-get-started-portal.md
+    - name: Try cognitive search
+      href: cognitive-search-quickstart-blob.md
   - name: .NET
     items:
     - name: Create an index
@@ -31,8 +35,6 @@
       href: search-fiddler.md
 - name: Tutorials
   items:
-  - name: Use tools in Azure portal
-    href: search-get-started-portal.md
   - name: Learn cognitive search APIs
     href: cognitive-search-tutorial-blob.md
   - name: Index Azure blobs
@@ -57,12 +59,12 @@
   items:
   - name: Cognitive search (Preview)
     items:
+    - name: Attach a Cognitive Services resource
+      href: cognitive-search-attach-cognitive-services.md
     - name: Define a skillset
       href: cognitive-search-defining-skillset.md
     - name: Reference an annotation    
       href: cognitive-search-concept-annotations-syntax.md
-    - name: Associate Cognitive Services with skillset
-      href: cognitive-search-attach-cognitive-services.md
     - name: Map to index fields
       href: cognitive-search-output-field-mapping.md
     - name: Process and extract information from images
@@ -143,13 +145,13 @@
       href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
     - name: Synonyms
       href: search-synonyms.md
-  - name: Index data
+  - name: Load and refresh data
     items:
-    - name: Load data
+    - name: Data import overview
       href: search-what-is-data-import.md
     - name: Rebuild an index
       href: search-howto-reindex.md
-    - name: Import wizard (portal)
+    - name: Import data (portal)
       href: search-import-data-portal.md
     - name: Index large data sets
       href: search-howto-large-index.md
@@ -235,6 +237,8 @@
     href: /rest/api/searchmanagement
   - name: REST (Preview)
     href: search-api-preview.md
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.search/searchservices
   - name: Predefined skills (Preview) 
     href: cognitive-search-predefined-skills.md
     items:

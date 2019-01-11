@@ -11,9 +11,9 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 11/15/2018
+ms.date: 01/08/2019
 ms.author: jeffgilb
-ms.reviewer: quying
+ms.reviewer: georgel
 ---
 
 # Update the MySQL resource provider 
@@ -105,7 +105,7 @@ You can specify these parameters in the command line. If you don't, or if any pa
 | **RetryDuration** | The timeout interval between retries, in seconds. | 120 | 
 | **Uninstall** | Remove the resource provider and all associated resources (see the following notes). | No | 
 | **DebugMode** | Prevents automatic cleanup on failure. | No | 
-| **AcceptLicense** | Skips the prompt to accept the GPL license.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
+| **AcceptLicense** | Skips the prompt to accept the GPL license.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
  
 
 ## Next steps

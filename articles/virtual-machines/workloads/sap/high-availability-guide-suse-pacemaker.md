@@ -480,12 +480,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 The STONITH device uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal.
 
-1. Go to <https://portal.azure.com>
+1. Go to <https\://portal.azure.com>
 1. Open the Azure Active Directory blade  
    Go to Properties and write down the Directory ID. This is the **tenant ID**.
 1. Click App registrations
 1. Click Add
-1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http://localhost) and click Create
+1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http\://localhost) and click Create
 1. The sign-on URL is not used and can be any valid URL
 1. Select the new App and click Keys in the Settings tab
 1. Enter a description for a new key, select "Never expires" and click Save
@@ -522,7 +522,7 @@ Use the following content for the input file. You need to adapt the content to y
 
 Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore!
 
-1. Go to https://portal.azure.com
+1. Go to https\://portal.azure.com
 1. Open the All resources blade
 1. Select the virtual machine of the first cluster node
 1. Click Access control (IAM)
