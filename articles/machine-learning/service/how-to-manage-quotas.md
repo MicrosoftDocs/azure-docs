@@ -24,7 +24,7 @@ Keep these quotas in mind as you design and scale up your Azure ML resources for
 
 + A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, contact Azure support.
 
-+ Your quota is shared across all the services in your subscriptions including Azure Machine Learning service. The only exception is Azure Machine Learning compute which has a seperate quota from the core compute quota. Be sure to calculate the quota usage across all services when evaluating your capacity needs.
++ Your quota is shared across all the services in your subscriptions including Azure Machine Learning service. The only exception is Azure Machine Learning compute which has a separate quota from the core compute quota. Be sure to calculate the quota usage across all services when evaluating your capacity needs.
 
 + Default limits vary by offer Category Type, such as Free Trial, Pay-As-You-Go, and series, such as Dv2, F, G, and so on.
 
