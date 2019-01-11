@@ -410,13 +410,13 @@ When you're done with a notebook, use the **File** > **Close and halt** command,
 
 If the code cells in your notebook don't behave in the way you expect, you may have code bugs or other defects. However, other than using `print` statements to show the value of variables, a Jupyter notebook doesn't offer any debugging facilities.
 
-Fortunately, the Python extension for Visual Studio Code can directly import a Jupyter notebook as a single code file with your Markdown cells in comments. You can then run the Visual Studio Code debugger to step through your code, set breakpoints, examine state, and so forth.
+Fortunately, the Python extension for Visual Studio Code can directly import a Jupyter notebook as a single code file with your Markdown cells in comments. You can then run the Visual Studio Code debugger to step through your code, set breakpoints, examine state, and so forth. 
 
 Once you've made corrections to your code, save the *.ipynb* file, then upload it into Azure Notebooks.
 
 For more information, see the following articles in the Visual Studio Code documentation:
 
-- [Overview of Jupyter notebooks in VS Code](https://code.visualstudio.com/docs/python/jupyter-support)
+- [Overview of Jupyter notebooks in VS Code](https://code.visualstudio.com/docs/languages/python#_jupyter-notebooks)
 - [Python tutorial - Configure and run the debugger](https://code.visualstudio.com/docs/python/python-tutorial#_configure-and-run-the-debugger)
 - [Editing - Jupyter code cells](https://code.visualstudio.com/docs/python/editing#_jupyter-code-cells)
 
