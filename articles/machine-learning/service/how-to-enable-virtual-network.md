@@ -47,7 +47,7 @@ To use Machine Learning Compute in a virtual network, use the following informat
 
     - One load balancer
 
-    These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). 
+    These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-subscription-service-limits). 
 
 ### <a id="mlcports"></a> Required ports
 
@@ -166,7 +166,7 @@ To use a virtual machine or HDInsight cluster in a Virtual Network with your wor
 ## Use Azure Kubernetes Service (AKS)
 
 > [!IMPORTANT]
-> Please check the prerequisites and plan IP addressing for your cluster before proceeding with the steps mentioned below. You can refer to [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/configure-advanced-networking)
+> Please check the prerequisites and plan IP addressing for your cluster before proceeding with the steps mentioned below. You can refer to [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking)
 > 
 > Keep the default outbound rules for the NSG. For more information, see the default security rules section of the [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules) documentation.
 >
