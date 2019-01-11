@@ -246,7 +246,7 @@ When debugging modules using this method, your modules are running on top of the
 
 - Set up your IoT Edge device, build your IoT Edge module(s) with the **.debug** Dockerfile, and then deploy to the IoT Edge device.
 - Expose the IP and port of the module so that the debugger can be attached.
-- Update the `launch.json` so that Visual Studio Code can attach to the process in the container on the remote machine. (This file is located in the `.vscode` folder in your workspace and updates each time you add a new module that supports debugging.)
+- Update the `launch.json` so that Visual Studio Code can attach to the process in the container on the remote machine. This file is located in the `.vscode` folder in your workspace and updates each time you add a new module that supports debugging.
 
 ### Build and deploy your module to the IoT Edge device
 
