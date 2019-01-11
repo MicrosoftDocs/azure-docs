@@ -7,7 +7,7 @@ manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 01/10/2019
 ms.author: trinadhk
 ---
 
