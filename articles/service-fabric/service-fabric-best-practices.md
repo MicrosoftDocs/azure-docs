@@ -61,7 +61,7 @@ Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/comput
    "x509StoreName": "[parameters('certificateStoreValue')]"
 }
 ```
-### Configure Custom Domain Service Fabric Cluster Certificate
+### Declare Custom Domain Service Fabric Cluster Certificate
 Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames) Resource Manager template property, is how you configure the custom domain common name property of your valid certificate, and the following is the Resource Manager template properties that you will declare:
 ```json
 "certificateCommonNames": {
