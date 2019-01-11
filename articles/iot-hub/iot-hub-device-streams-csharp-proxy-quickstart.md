@@ -54,7 +54,7 @@ dotnet --version
 
 Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive.
 
-**[Bugbash instructions]:** Download the file from [here](\\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-csharp.zip).
+**Bugbash instructions:** Download the file from \\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-csharp.zip (`MD5=D66D2D64472B1253BC71BC607057A2CE`).
 
 ## Create an IoT hub
 
