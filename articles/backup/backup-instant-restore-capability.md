@@ -55,7 +55,7 @@ The incremental snapshots are stored in VM’s storage account, which are used f
 
 
 ## Upgrading to Instant Restore
-If you use the Azure portal, you see a notification on the vault dashboard. This notification relates to large-disk support and backup and restore speed improvements. Alternatively you can go to Properties page of the vault to get the upgrade option.
+If you use the Azure portal, you will see a notification on the vault dashboard. This notification relates to large-disk support and backup and restore speed improvements. Alternatively you can go to Properties page of the vault to get the upgrade option.
 
 
 ![Backup job in VM backup stack Resource Manager deployment model--support notification](./media/backup-azure-vms/instant-rp-banner.png)
@@ -77,7 +77,7 @@ With this instant restore upgrade, the snapshot retention duration of all the cu
 
 ### Configure snapshot retention using Azure portal
 
-For the upgraded users, in the Azure portal you can see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You can change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
+For the upgraded users, in the Azure portal you will see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You will see the change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
 
 
 ![Backup job in Instant Restore deployment](./media/backup-azure-vms/instant-rp-banner1.png)
@@ -87,7 +87,7 @@ You get an ability to configure the snapshot retention based on the restore need
 
 ## Upgrade to Instant Restore using PowerShell
 
-If you are not automatically upgraded yet and wish to self-serve then run the following cmdlets from an elevated PowerShell terminal:
+If you wish to self-serve and upgrade to Instant Restore, run the following cmdlets from an elevated PowerShell terminal:
 
 1.	Sign in to your Azure account:
 
@@ -156,7 +156,7 @@ Snapshots are stored along with the disks to speed up recovery point creation an
 Yes, for premium storage accounts the snapshots taken for instant recovery point occupy 10-TB of allocated snapshot space.
 
 ### How does the snapshot retention work during the five-day period?
-Each day a new snapshot is taken, then there are five individual incremental snapshots. The size of the snapshot depends on the data churn, which is in most cases around 2%-5%.
+Each day a new snapshot is taken, then there are five individual incremental snapshots. The size of the snapshot depends on the data churn, which is in most cases around 2%-7%.
 
 ### Is an instant restore snapshot an incremental snapshot or full snapshot?
 Snapshots taken as a part of instant restore capability are incremental snapshots.
