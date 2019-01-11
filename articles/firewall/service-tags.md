@@ -11,9 +11,9 @@ ms.author: victorh
 
 # Azure Firewall service tags
 
-A service tag represents a group of IP address prefixes to help minimize complexity for security rule creation. You cannot create your own service tag, nor specify which IP addresses are included within a tag. Microsoft manages the address prefixes encompassed by the service tag, and automatically updates the service tag as addresses change. You can use service tags in place of specific IP addresses when creating security rules.
+A service tag represents a group of IP address prefixes to help minimize complexity for security rule creation. You cannot create your own service tag, nor specify which IP addresses are included within a tag. Microsoft manages the address prefixes encompassed by the service tag, and automatically updates the service tag as addresses change.
 
-Azure Firewall service tags can be used in the networking rules destination field.
+Azure Firewall service tags can be used in the network rules destination field. You can use them in place of specific IP addresses.
 
 ## Supported service tags
 
