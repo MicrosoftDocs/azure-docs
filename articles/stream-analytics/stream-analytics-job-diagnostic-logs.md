@@ -32,23 +32,11 @@ Diagnostics logs are **off** by default. To turn on diagnostics logs, complete t
 
     ![Blade navigation to diagnostics logs](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Create a **Name** in **Diagnostic settings** and check the box next to **Send to Log Analytics**. Then add an existing or create a new **Log analytics workspace**. Check the boxes for **Execution** and **Authoring** under **LOG**.
+2.  Create a **Name** in **Diagnostic settings** and check the box next to **Send to Log Analytics**. Then add an existing or create a new **Log analytics workspace**. Check the boxes for **Execution** and **Authoring** under **LOG**, and click **Save**.
 
     ![Settings for diagnostics logs](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3.  On the **Diagnostics settings** page, for **Status**, select **On**.
 
-    ![Change status for diagnostics logs](./media/stream-analytics-job-diagnostic-logs/save-diagnostic-log-settings.png)
-
-4.  Set up the archival target (storage account, event hub, Log Analytics) that you want. Then, select the categories of logs that you want to collect (Execution, Authoring). 
-
-5.  Save the new diagnostics configuration.
-
-The diagnostics configuration takes about 10 minutes to take effect. After that, the logs start appearing in the configured archival target (you can see these on the **Diagnostics logs** page):
-
-![Blade navigation to diagnostics logs - archival targets](./media/stream-analytics-job-diagnostic-logs/view-diagnostic-logs-page.png)
-
-For more information about configuring diagnostics, see [Collect and consume diagnostics data from your Azure resources](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 ## Diagnostics log categories
 
