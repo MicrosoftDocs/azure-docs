@@ -407,7 +407,6 @@ this service for this scenario. For more info, see
 | UK West | Managed connectors | 51.140.211.0 - 51.140.211.15, 51.141.47.105 | 
 |||| 
 
-
 ## Next steps  
 
 * Learn how to [create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)  

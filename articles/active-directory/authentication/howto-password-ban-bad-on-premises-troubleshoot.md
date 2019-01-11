@@ -271,7 +271,7 @@ If it is decided to uninstall the public preview software and cleanup all relate
 
    ```Powershell
    $passwordProtectonConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
-   Remove-ADObject $passwordProtectonConfigContainer
+   Remove-ADObject -Recursive $passwordProtectonConfigContainer
    ```
 
 6. Manually remove all sysvol related state by manually deleting the following folder and all of its contents:

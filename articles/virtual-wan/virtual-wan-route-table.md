@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
 ---
@@ -17,7 +17,7 @@ This article shows you how to steer traffic from a Virtual Hub to a Network Virt
 
 ![Virtual WAN diagram](./media/virtual-wan-route-table/vwanroute.png)
 
-In this article you'll learn how to:
+In this article you learn how to:
 
 * Create a WAN
 * Create a hub
@@ -39,7 +39,7 @@ Verify that you have met the following criteria:
 
 ## <a name="signin"></a>1. Sign in
 
-Make sure you install the latest version of the Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). This is important because earlier versions of the cmdlets do not contain the current values that you need for this exercise.
+Make sure you install the latest version of the Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/azurerm/overview). This is important because earlier versions of the cmdlets do not contain the current values that you need for this exercise. The modules in thee following examples are Azure RM. This article will be updated to Azure Az in the future.
 
 1. Open your PowerShell console with elevated privileges, and sign in to your Azure account. This cmdlet prompts you for the sign-in credentials. After signing in, it downloads your account settings so that they are available to Azure PowerShell.
 
