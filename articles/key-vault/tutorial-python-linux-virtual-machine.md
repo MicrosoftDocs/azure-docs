@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use Azure Key Vault with an Azure virtual Machine in Python | Microsoft Docs
+title: Tutorial - Use Azure Key Vault with an Azure virtual machine in Python | Microsoft Docs
 description: In this tutorial, you configure a Python application to read a secret from a key vault
 services: key-vault
 documentationcenter: 
@@ -17,7 +17,7 @@ ms.custom: mvc
 ---
 # Tutorial: Use Azure Key Vault with an Azure virtual machine in Python
 
-Azure Key Vault helps you protect secrets such as API keys and database connection strings needed to access your applications, services, and IT resources.
+Azure Key Vault helps you protect secrets such as the API keys and database connection strings needed to access your applications, services, and IT resources.
 
 In this tutorial, you follow the steps to get an Azure web application to read information from Azure Key Vault by using managed identities for Azure resources. You learn how to:
 
@@ -29,7 +29,7 @@ In this tutorial, you follow the steps to get an Azure web application to read i
 > * Grant the required permissions for the console application to read data from the key vault.
 > * Retrieve a secret from the key vault.
 
-Before we go any further, please read the [basic concepts about Key Vault](key-vault-whatis.md#basic-concepts).
+Before you go any further, please read the [basic concepts about Key Vault](key-vault-whatis.md#basic-concepts).
 
 ## Prerequisites
 For all platforms, you need:
@@ -41,13 +41,13 @@ For all platforms, you need:
 ### Managed Service Identity and how it works
 This tutorial makes use of Managed Service Identity (MSI).
 
-Azure Key Vault can store credentials securely so they aren’t in your code. To retrieve them, you need to authenticate to Key Vault. To authenticate to Key Vault, you need a credential! That's a classic bootstrap problem. Through Azure and Azure Active Directory (Azure AD), MSI provides a “bootstrap identity” that makes it simpler to get things started.
+Azure Key Vault can store credentials securely so they aren’t in your code. To retrieve them, you need to authenticate to Key Vault. To authenticate to Key Vault, you need a credential. That's a classic bootstrap problem. Through Azure and Azure Active Directory (Azure AD), MSI provides a “bootstrap identity” that makes it simpler to get things started.
 
 When you enable MSI for an Azure service such as Virtual Machines, App Service, or Functions, Azure creates a [service principal](key-vault-whatis.md#basic-concepts) for the instance of the service in Azure AD. Azure injects the credentials for the service principal into the instance of the service. 
 
 ![MSI](media/MSI.png)
 
-Next, Your code calls a local metadata service available on the Azure resource to get an access token.
+Next, Your code calls a local metadata service that's available on the Azure resource to get an access token.
 Your code uses the access token that it gets from the local MSI endpoint to authenticate to an Azure Key Vault service. 
 
 ## Log in to Azure
