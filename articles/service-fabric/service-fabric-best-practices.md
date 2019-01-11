@@ -124,7 +124,7 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 ### Security Policies
 -- XML manifest for run as 
 ### Windows Defender 
-"[By default](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016), Windows Defender Antimalware is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but is not required."
+"[By default](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016), Windows Defender Antimalware is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but is not required." Given the performance impact and resource consumption overhead, if you security policies allow you to exclude processes and paths for open source software, then you will declare the following Virtual Machine Scale Set Extension Resource Manager template properties:
 
 ```json
  {
@@ -151,6 +151,8 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
     }
 }
 ```
+> [!NOTE]
+> Please refer to your Antimalware documentation for configuring rules if not using Windows Defender; Windows Defender isn't supported on none windows Operating System distributions.
 
 ## Networking
 For more information about networking
