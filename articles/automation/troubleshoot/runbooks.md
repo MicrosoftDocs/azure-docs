@@ -400,32 +400,6 @@ There are two ways to resolve this error:
 * Edit the runbook, and reduce the number of job streams that it emits​.
 * Reduce the number of streams to be retrieved when running the cmdlet. To follow this behavior, you can specify the `-Stream Output` parameter to the `Get-AzureRmAutomationJobOutput` cmdlet to retrieve only output streams. ​
 
-## Common errors when importing modules
-
-### <a name="module-fails-to-import"></a>Scenario: Module fails to import or cmdlets can't be executed after importing
-
-#### Issue
-
-A module fails to import or imports successfully, but no cmdlets are extracted.
-
-#### Cause
-
-Some common reasons that a module might not successfully import to Azure Automation are:
-
-* The structure doesn't match the structure that Automation needs it to be in.
-* The module is dependent on another module that hasn't been deployed to your Automation account.
-* The module is missing its dependencies in the folder.
-* The `New-AzureRmAutomationModule` cmdlet is being used to upload the module, and you haven't given the full storage path or haven't loaded the module by using a publicly accessible URL.
-
-#### Resolution
-
-Any of the following solutions fix the problem:
-
-* Make sure that the module follows the following format:
-  ModuleName.Zip **->** ModuleName or Version Number **->** (ModuleName.psm1, ModuleName.psd1)
-* Open the .psd1 file and see if the module has any dependencies. If it does, upload these modules to the Automation account.
-* Make sure that any referenced .dlls are present in the module folder.
-
 ## Next steps
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
