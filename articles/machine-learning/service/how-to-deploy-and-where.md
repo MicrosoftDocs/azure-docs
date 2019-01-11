@@ -29,6 +29,15 @@ You can deploy models to the following compute targets:
 | [Azure IoT Edge](#iotedge) | IoT module | Deploy models on IoT devices. Inferencing happens on the device. |
 | [Field-programmable gate array (FPGA)](#fpga) | Web service | Ultra-low latency for real-time inferencing. |
 
+The process of deploying a model is similar for all compute targets:
+
+1. Train and register a model.
+1. Configure and register an image that uses the model.
+1. Deploy the image to a compute target.
+1. Test the deployment
+
+To understand the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning Service](concept-model-management-and-deployment.md).
+
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
 
 ## Prerequisites
@@ -39,29 +48,7 @@ You can deploy models to the following compute targets:
 
 - The code sections assume that `ws` references your machine learning workspace. For example, `ws = Workspace.from_config()`.
 
-## Deployment workflow
-
-The process of deploying a model is similar for all compute targets:
-
-1. Train a model.
-1. Register the model.
-1. Create an image configuration.
-1. Create the image.
-1. Deploy the image to a compute target.
-1. Test the deployment
-1. (Optional) Clean up artifacts.
-
-    * When **deploying as a web service**, there are three deployment options:
-
-        * [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-): When using this method, you do not need to register the model or create the image. However you cannot control the name of the model or image, or associated tags and descriptions.
-        * [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-): When using this method, you do not need to create an image. But you do not have control over the name of the image that is created.
-        * [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-): Register the model and create an image before using this method.
-
-        The examples in this document use `deploy_from_image`.
-
-    * When **deploying as an IoT Edge module**, you must register the model and create the image.
-
-## Register a model
+## <a id="registermodel"></a> Register a model
 
 Only trained models can be deployed. The model can be trained using Azure Machine Learning, or another service. To register a model from file, use the following code:
 
@@ -80,7 +67,7 @@ model = Model.register(model_path = "model.pkl",
 
 For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## <a id="configureimage"></a> Create an image configuration
+## <a id="configureimage"></a> Create and register an image
 
 Deployed models are packaged as an image. The image contains the dependencies needed to run the model.
 
@@ -108,7 +95,7 @@ The important parameters in this example are the `execution_script`, `runtime`, 
 
 * The `conda_file` parameter is used to provide a conda environment file. This file defines the conda environment for the deployed model. For more information on creating this file, see [Create an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file).
 
-    For more information, see the reference documentation for [ContainerImage class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)
+For more information, see the reference documentation for [ContainerImage class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)
 
 ### <a id="script"></a> Execution script
 
@@ -187,12 +174,12 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-## <a id="createimage"></a> Create the image
+### <a id="createimage"></a> Register the image
 
-Once you have created the image configuration, you can use it to create an image. This image is stored in the container registry for your workspace. Once created, you can deploy the same image to multiple services.
+Once you have created the image configuration, you can use it to register an image. This image is stored in the container registry for your workspace. Once created, you can deploy the same image to multiple services.
 
 ```python
-# Create the image from the image configuration
+# Register the image from the image configuration
 image = ContainerImage.create(name = "myimage", 
                               models = [model], #this is the model object
                               image_config = image_config,
@@ -206,7 +193,7 @@ Images are versioned automatically when you register multiple images with the sa
 
 For more information, see the reference documentation for [ContainerImage class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
-## Deploy the image
+## <a id="deploy"></a> Deploy the image
 
 When you get to deployment, the process is slightly different depending on the compute target that you deploy to. Use the information in the following sections to learn how to deploy to:
 
@@ -214,6 +201,17 @@ When you get to deployment, the process is slightly different depending on the c
 * [Azure Kubernetes Services](#aks)
 * [Project Brainwave (field-programmable gate arrays)](#fpga)
 * [Azure IoT Edge devices](#iotedge)
+
+> ![NOTE]
+> When **deploying as a web service**, there are three deployment options:
+>
+> * [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-): When using this method, you do not need to register the model or create the image. However you cannot control the name of the model or image, or associated tags and descriptions.
+>
+> * [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-): When using this method, you do not need to create an image. But you do not have control over the name of the image that is created.
+>
+>* [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-): Register the model and create an image before using this method.
+>
+> The examples in this document use `deploy_from_image`.
 
 ### <a id="aci"></a> Deploy to Azure Container Instances
 
@@ -449,7 +447,9 @@ prediction = service.run(input_data = test_sample)
 print(prediction)
 ```
 
-## Update the web service
+The webservice is a REST API, so you can create client applications in a variety of programming languages. For more information, see [Create client applications to consume webservices](how-to-consume-web-service.md).
+
+## <a id="update"></a> Update the web service
 
 To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new image:
 
@@ -480,3 +480,5 @@ To delete a registered model, use `model.delete()`.
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
 * [How to run batch predictions](how-to-run-batch-predictions.md)
+* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
+* [Collect data for models in production](how-to-enable-data-collection.md)
