@@ -101,7 +101,7 @@ This quickstart requires [.NET Core 2.1](https://www.microsoft.com/net/download/
     
 #### Step 4: Admin consent
 
-Any *app-only permission* requires Admin consent - which means that it needs an global administrator of your directory to give consent to your application. Select one of the options below depending your role:
+If you try to run the application at this point, you will receive *HTTP 403 - Forbidden* error: `Authorization_RequestDenied: Insufficient privileges to complete the operation`. This happens because any *app-only permission* requires Admin consent, which means that an global administrator of your directory must give consent to your application. Select one of the options below depending your role:
 
 ##### Global tenant administrator
 
@@ -143,6 +143,9 @@ dotnet run
 
 You should see a list of users in your Azure AD directory as result.
 
+> [!IMPORTANT]
+> This quickstart application uses a client secret to identify itself as confidential client application. Because the client secret is added as a plain-text to your project files, it is recommended that you replace the client secret methodology with a certificate prior to consider the application as production application. For instructions on how to use a certificate, please see [these instructions](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) in the GitHub repository for this sample.
+
 ## More information
 
 ### MSAL.NET
@@ -152,7 +155,13 @@ MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Ident
  You can install MSAL.NET by running the following command in Visual Studio's **Package Manager Console**:
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client
+```
+
+Alternatively, if you are not using Visual Studio, you can run the following command to add MSAL to your project:
+
+```cmd
+dotnet add package Microsoft.Identity.Client
 ```
 
 ### MSAL initialization
