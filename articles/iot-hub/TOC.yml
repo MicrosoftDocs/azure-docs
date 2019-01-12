@@ -36,6 +36,8 @@
   items:
   - name: Routing messages
     href: tutorial-routing.md
+  - name: Use metrics and diagnostic logs
+    href: tutorial-use-metrics-and-diags.md
   - name: Perform manual failover
     href: tutorial-manual-failover.md
   - name: Configure your devices
