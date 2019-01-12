@@ -33,13 +33,94 @@ The four main JSON schemas are:
 
 ![JSON schemas][1]
 
+JSON blob metadata conforms to the following model:
+
+```JSON
+{
+    "parentId": "00000000-0000-0000-0000-000000000000",
+    "name": "My First Blob",
+    "type": "Map",
+    "subtype": "GenericMap",
+    "description": "A well chosen description",
+    "sharing": "None"
+  }
+```
+
+| Attribute | Type | Description |
+| --- | --- | --- |
+| parentId | String | The parent entity to associate the blob with (spaces, devices, or users) |
+| name |String | A human-friendly name for the blob |
+| type | String | The type of blob - cannot use *type* and *typeId*  |
+| typeId | Integer | The blob type ID - cannot use *type* and *typeId* |
+| subtype | String | The blob subtype - cannot use *subtype* and *subtypeId* |
+| subtypeId | Integer | The subtype ID for the blob - cannot use *subtype* and *subtypeId* |
+| description | String | Customized description of the blob |
+| sharing | String | Whether the blob can be shared - enum [`None`, `Tree`, `Global`] |
+
+Blob metadata is always supplied as the first chunk with **Content-Type** `application/json` or as a `.json` file. File data is supplied in the second chunk and can be of any supported MIME type.
+
 The Swagger documentation describes these model schemas in full detail.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 Learn about using the reference documentation by reading [How to use Swagger](./how-to-use-swagger.md).
 
-### Examples
+<div id="blobModel"></div>
+
+### Blobs response data
+
+Individually returned blobs conform to the following JSON schema:
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "name": "string",
+  "parentId": "00000000-0000-0000-0000-000000000000",
+  "type": "string",
+  "subtype": "string",
+  "typeId": 0,
+  "subtypeId": 0,
+  "sharing": "None",
+  "description": "string",
+  "contentInfos": [
+    {
+      "type": "string",
+      "sizeBytes": 0,
+      "mD5": "string",
+      "version": "string",
+      "lastModifiedUtc": "2019-01-12T00:58:08.689Z",
+      "metadata": {
+        "additionalProp1": "string",
+        "additionalProp2": "string",
+        "additionalProp3": "string"
+      }
+    }
+  ],
+  "fullName": "string",
+  "spacePaths": [
+    "string"
+  ]
+}
+```
+
+| Attribute | Type | Description |
+| --- | --- | --- |
+| id | String | The unique identifier for the blob |
+| name |String | A human-friendly name for the blob |
+| parentId | String | The parent entity to associate the blob with (spaces, devices, or users) |
+| type | String | The type of blob - cannot use *type* and *typeId*  |
+| typeId | Integer | The blob type ID - cannot use *type* and *typeId* |
+| subtype | String | The blob subtype - cannot use *subtype* and *subtypeId* |
+| subtypeId | Integer | The subtype ID for the blob - cannot use *subtype* and *subtypeId* |
+| sharing | String | Whether the blob can be shared - enum [`None`, `Tree`, `Global`] |
+| description | String | Customized description of the blob |
+| contentInfos | Array | Specifies unstructured metadata information including version |
+| fullName | String | The fullname of the blob |
+| spacePaths | String | The space path |
+
+Blob metadata is always supplied as the first chunk with **Content-Type** `application/json` or as a `.json` file. File data is supplied in the second chunk and can be of any supported MIME type.
+
+### Blob multipart request examples
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
@@ -137,15 +218,7 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-Successful requests return a **DeviceBlob** JSON object in the response. **DeviceBlob** objects conform to the following JSON schema:
-
-| Attribute | Type | Description | Examples |
-| --- | --- | --- | --- |
-| **DeviceBlobType** | String | A blob category that can be attached to a device | `Model` and `Specification` |
-| **DeviceBlobSubtype** | String | A blob subcategory that's more specific than **DeviceBlobType** | `PhysicalModel`, `LogicalModel`, `KitSpecification`, and `FunctionalSpecification` |
-
-> [!TIP]
-> Use the preceding table to handle successfully returned request data.
+Successful requests return a JSON object as [described above](#blobModel).
 
 ### Spaces
 
@@ -163,14 +236,9 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
+Successful requests return a JSON object as [described above](#blobModel).
+
 A PATCH request to the same endpoint updates metadata descriptions and creates new versions of the blob. The HTTP request is made through the PATCH method, along with any necessary meta, and multipart form data.
-
-Successful operations return a **SpaceBlob** object that conforms to the following schema. You can use it to consume returned data.
-
-| Attribute | Type | Description | Examples |
-| --- | --- | --- | --- |
-| **SpaceBlobType** | String | A blob category that can be attached to a space | `Map` and `Image` |
-| **SpaceBlobSubtype** | String | A blob subcategory that's more specific than **SpaceBlobType** | `GenericMap`, `ElectricalMap`, `SatelliteMap`, and `WayfindingMap` |
 
 ### Users
 
@@ -188,12 +256,7 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-The returned JSON (**UserBlob** objects) conforms to the following JSON models:
-
-| Attribute | Type | Description | Examples |
-| --- | --- | --- | --- |
-| **UserBlobType** | String | A blob category that can be attached to a user | `Image` and `Video` |
-| **UserBlobSubtype** |  String | A blob subcategory that's more specific than **UserBlobType** | `ProfessionalImage`, `VacationImage`, and `CommercialVideo` |
+Successful requests return a JSON object as [described above](#blobModel).
 
 ## Common errors
 
@@ -213,7 +276,7 @@ To resolve this error, verify that the overall request has an appropriate **Cont
 * `multipart/mixed`
 * `multipart/form-data`
 
-That each chunk has a corresponding **Content-Type** as needed.
+Also, verify that each multipart chunk has a corresponding **Content-Type** as needed
 
 ## Next steps
 
