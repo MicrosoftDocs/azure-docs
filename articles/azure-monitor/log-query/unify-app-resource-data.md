@@ -103,12 +103,12 @@ The following table shows the schema differences between Log Analytics and Appli
 | ExceptionMessage | message | 
 | ExceptionType | type |
 | OperationID | operation_id |
-| OperationName | opeation_Name | 
+| OperationName | operation_Name | 
 | OS | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duration | 
 | PageViewName | name | 
-| ParentOpeartionID | operation_Id | 
+| ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
 | RequestDuration | duration | 
 | RequestID | id | 
