@@ -95,75 +95,102 @@ This part requires the Azure PowerShell module version 6.0.0 or later. Run ` Get
 
 Create variables for common parameters.
 
-    ```powershell
-	$resourceGroupName = 'yourResourceGroupName'
-	
-	$location = 'your location' 
-	
-	$virtualNetworkName = 'yourExistingVirtualNetworkName'
-	
-	$virtualMachineName = 'yourVMName'
-	
-	$virtualMachineSize = 'Standard_DS3'
-	
-	$adminUserName = "youradminusername"
-	
-	$adminPassword = "yourpassword" | ConvertTo-SecureString -AsPlainText -Force
-	
-	$imageName = 'yourImageName'
-	
-	$osVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
-	
-	$dataVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/datadisk1.vhd'
-	
-	$dataDiskName = 'dataDisk1'
-	```
+```powershell
+$resourceGroupName = 'yourResourceGroupName'
 
-Create a managed OS disk using the VHD from the classic VM.
+$location = 'your location' 
 
-    Make sure that you have provided the complete URI of the OS VHD to the $osVhdUri parameter. Also, enter **-AccountType** as **Premium_LRS** or **Standard_LRS** based on type of disks (premium or standard) you are migrating to.
+$virtualNetworkName = 'yourExistingVirtualNetworkName'
 
-    ```powershell
-	$osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk (New-AzureRmDiskConfig '
-	-AccountType Premium_LRS -Location $location -CreateOption Import -SourceUri $osVhdUri) '
-	-ResourceGroupName $resourceGroupName
-	```
+$virtualMachineName = 'yourVMName'
+
+$virtualMachineSize = 'Standard_DS3'
+
+$adminUserName = "youradminusername"
+
+$adminPassword = "yourpassword" | ConvertTo-SecureString -AsPlainText -Force
+
+$imageName = 'yourImageName'
+
+$osVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
+
+$dataVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/datadisk1.vhd'
+
+$dataDiskName = 'dataDisk1'
+```
+
+Create a managed OS disk using the VHD from the classic VM. Make sure that you have provided the complete URI of the OS VHD to the $osVhdUri parameter. Also, enter **-AccountType** as **Premium_LRS** or **Standard_LRS** based on type of disks (premium or standard) you are migrating to.
+
+```powershell
+$osDisk = New-AzureRmDisk -DiskName $osDiskName '
+   -Disk (New-AzureRmDiskConfig '
+   -AccountType Premium_LRS '
+   -Location $location '
+   -CreateOption Import '
+   -SourceUri $osVhdUri) '
+   -ResourceGroupName $resourceGroupName
+```
 
 Attach the OS disk to the new VM.
 
-    ```powershell
-	$VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
-	$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $osDisk.Id '
-	-StorageAccountType Premium_LRS -DiskSizeInGB 128 -CreateOption Attach -Windows
-	```
+```powershell
+$VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
+$VirtualMachine = Set-AzureRmVMOSDisk '
+   -VM $VirtualMachine '
+   -ManagedDiskId $osDisk.Id '
+   -StorageAccountType Premium_LRS '
+   -DiskSizeInGB 128 '
+   -CreateOption Attach -Windows
+```
 
 Create a managed data disk from the data VHD file and add it to the new VM.
 
-    ```powershell
-	$dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig '
-	-AccountType Premium_LRS -Location $location -CreationOption Import '
-	-SourceUri $dataVhdUri ) -ResourceGroupName $resourceGroupName
+```powershell
+$dataDisk1 = New-AzureRmDisk '
+   -DiskName $dataDiskName '
+   -Disk (New-AzureRmDiskConfig '
+   -AccountType Premium_LRS '
+   -Location $location '
+   -CreationOption Import '
+   -SourceUri $dataVhdUri ) '
+   -ResourceGroupName $resourceGroupName
 	
-	$VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName '
-	-CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
-	```
+$VirtualMachine = Add-AzureRmVMDataDisk '
+   -VM $VirtualMachine '
+   -Name $dataDiskName '
+   -CreateOption Attach '
+   -ManagedDiskId $dataDisk1.Id '
+   -Lun 1
+```
 
 Create the new VM by setting public IP, virtual network, and NIC.
 
-    ```powershell
-	$publicIp = New-AzureRmPublicIpAddress -Name ($VirtualMachineName.ToLower()+'_ip') '
-	-ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
+```powershell
+$publicIp = New-AzureRmPublicIpAddress '
+   -Name ($VirtualMachineName.ToLower()+'_ip') '
+   -ResourceGroupName $resourceGroupName '
+   -Location $location '
+   -AllocationMethod Dynamic
 	
-	$vnet = Get-AzureRmVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName
+$vnet = Get-AzureRmVirtualNetwork '
+   -Name $virtualNetworkName '
+   -ResourceGroupName $resourceGroupName
 	
-	$nic = New-AzureRmNetworkInterface -Name ($VirtualMachineName.ToLower()+'_nic') '
-	-ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets[0].Id '
-	-PublicIpAddressId $publicIp.Id
+$nic = New-AzureRmNetworkInterface '
+   -Name ($VirtualMachineName.ToLower()+'_nic') '
+   -ResourceGroupName $resourceGroupName '
+   -Location $location '
+   -SubnetId $vnet.Subnets[0].Id '
+   -PublicIpAddressId $publicIp.Id
 	
-	$VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
+$VirtualMachine = Add-AzureRmVMNetworkInterface '
+   -VM $VirtualMachine '
+   -Id $nic.Id
 	
-	New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $resourceGroupName -Location $location
-	```
+New-AzureRmVM -VM $VirtualMachine '
+   -ResourceGroupName $resourceGroupName '
+   -Location $location
+```
 
 > [!NOTE]
 >There may be additional steps necessary to support your application that is not be covered by this guide.
