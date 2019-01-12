@@ -92,7 +92,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
 ```
 
 #### Otherwise ...
-Follow the guidelines to manually install Application Insights Java SDK, download the jar (After ariving at Maven Central Page click on 'jar' link in download section) for appropriate appender and add the downloaded appender jar to the project.
+Follow the guidelines to manually install Application Insights Java SDK, download the jar (After arriving at Maven Central Page click on 'jar' link in download section) for appropriate appender and add the downloaded appender jar to the project.
 
 | Logger | Download | Library |
 | --- | --- | --- |
