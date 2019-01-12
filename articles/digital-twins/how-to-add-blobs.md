@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: seodec18
 ---
@@ -89,20 +89,33 @@ multipartContent.Add(metadataContent, "metadata");
 
 //MY_BLOB.txt is the String representation of your text file
 var fileContents = new StringContent("MY_BLOB.txt");
+fileContents.Headers.ContentType = MediaTypeHeaderValue.Parse("text/plain");
 multipartContent.Add(fileContents, "contents");
 
 var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 ```
 
-In both examples:
+Lastly, [cURL](https://curl.haxx.se/) users can make multipart form requests in the same manner:
 
-1. Verify that the headers include: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
-1. Verify that the body is multipart:
+![Device blobs][5]
 
-   - The first part contains the required blob metadata.
-   - The second part contains the text file.
+```bash
+curl
+ -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs"
+ -H "Authorization: Bearer YOUR_TOKEN"
+ -H "Accept: application/json"
+ -H "Content-Type: multipart/form-data"
+ -F "meta={\"ParentId\": \"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\": \"A well chosen description\", \"Sharing\": \"None\"};type=application/json"
+ -F "text=PATH_TO_FILE;type=text/plain"
+```
 
-1. Verify that the text file is supplied as `Content-Type: text/plain`.
+| Value | Replace with |
+| --- | --- |
+| YOUR_TOKEN | Your valid OAuth 2.0 token |
+| YOUR_SPACE_ID | The ID of the space to associate the blob with |
+| PATH_TO_FILE | The path to your text file |
+
+A successful POST will return the ID of the new the blob (highlighted in red above).
 
 ## API endpoints
 
@@ -184,7 +197,7 @@ The returned JSON (**UserBlob** objects) conforms to the following JSON models:
 
 ## Common errors
 
-A common error is to not include the correct header information:
+A common error involves not supplying the correct header information:
 
 ```JSON
 {
@@ -194,6 +207,13 @@ A common error is to not include the correct header information:
     }
 }
 ```
+
+To resolve this error, verify that the overall request has an appropriate **Content-Type** header:
+
+* `multipart/mixed`
+* `multipart/form-data`
+
+That each chunk has a corresponding **Content-Type** as needed.
 
 ## Next steps
 
@@ -206,3 +226,4 @@ A common error is to not include the correct header information:
 [2]: media/how-to-add-blobs/blobs-device-api.PNG
 [3]: media/how-to-add-blobs/blobs-space-api.PNG
 [4]: media/how-to-add-blobs/blobs-users-api.PNG
+[5]: media/how-to-add-blobs/curl.PNG
