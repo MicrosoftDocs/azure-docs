@@ -74,13 +74,13 @@ In the Solution Explorer, right-click the project and use the **Manage NuGet Pac
 
 Next, you will add the code that actually leverages the Computer Vision service to create metadata for images. These steps will apply to the ASP.NET app in the lab, but you can adapt them to your own app. What's important is that at this point you have an ASP.NET web application that can upload images to an Azure Storage container, read images from it, and display them in the view. If you're unsure about this, it's best to follow [Exercise 3 of the Azure Storage Lab](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3). 
 
-1. Open the *HomeController.cs* file in the project's **Controllers** folder (or whichever file contains the methods for uploading images to Azure Storage). Add the following `using` statement at the top of the file:
+1. Open the *HomeController.cs* file in the project's **Controllers** folder and add the following `using` statement at the top of the file:
 
     ```csharp
     using Microsoft.ProjectOxford.Vision;
     ```
 
-1. Then, go to the **Upload** method (or whichever method uploads images), and add the following code immediately after the block that begins with `// Generate a thumbnail` (or at the end of your image-blob-creation process). This code takes the blob containing the image (`photo`), and uses Computer Vision to generate a description for that image. The Computer Vision API also generates a list of keywords that apply to the image. The generated description and keywords are stored in the blob's metadata so that they can be retrieved later on.
+1. Then, go to the **Upload** method; this method converts and uploads images to blob storage. Add the following code immediately after the block that begins with `// Generate a thumbnail` (or at the end of your image-blob-creation process). This code takes the blob containing the image (`photo`), and uses Computer Vision to generate a description for that image. The Computer Vision API also generates a list of keywords that apply to the image. The generated description and keywords are stored in the blob's metadata so that they can be retrieved later on.
 
     ```csharp
     // Submit the image to Azure's Computer Vision API
@@ -104,7 +104,7 @@ Next, you will add the code that actually leverages the Computer Vision service 
     await photo.SetMetadataAsync();
     ```
 
-1. Next, go to the **Index** method in the same file (or whichever method you are using to enumerate the image blobs in Azure Storage and pass them to the application view). This method should retrieve a list of **IListBlobItem** instances from a targeted blob container. Replace the `foreach` block in that method (or add a `foreach` block) with the following code. This code calls **CloudBlockBlob.FetchAttributes** to get each blob's attached metadata. It extracts the computer-generated description (`caption`) from the metadata and adds it to the **BlobInfo** object, which gets passed to the view.
+1. Next, go to the **Index** method in the same file; this method enumerates the stored image blobs in the targeted blob container (as **IListBlobItem** instances) and passes them to the application view. Replace the `foreach` block in this method with the following code. This code calls **CloudBlockBlob.FetchAttributes** to get each blob's attached metadata. It extracts the computer-generated description (`caption`) from the metadata and adds it to the **BlobInfo** object, which gets passed to the view.
     
     ```csharp
     foreach (IListBlobItem item in container.ListBlobs())
