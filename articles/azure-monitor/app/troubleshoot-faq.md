@@ -113,9 +113,9 @@ From [client web pages](javascript.md):
 From other sources, if you configure them:
 
 * [Azure diagnostics](../platform/diagnostics-extension-to-application-insights.md)
-* [Import to Analytics](../platform/data-collector-api)
-* [Log Analytics](../platform/data-collector-api)
-* [Logstash](../platform/data-collector-api)
+* [Import to Analytics](../platform/data-collector-api.md)
+* [Log Analytics](../platform/data-collector-api.md)
+* [Logstash](../platform/data-collector-api.md)
 
 ## Can I filter out or modify some telemetry?
 
