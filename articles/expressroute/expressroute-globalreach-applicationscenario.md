@@ -16,7 +16,7 @@ ms.author: rambala
 
 # ExpressRoute Global Reach Application Scenario
 
-To learn more about ExpressRoute Global Reach, see [ExpressRoute Global Reach][Global Reach]. In this article, let's walk through an application scenario and compare the ExpressRoute Global Reach solution to few other solutions. Then we'll configure Global Reach for the example scenario and verify the connections. 
+To learn more about ExpressRoute Global Reach, see [ExpressRoute Global Reach][Global Reach]. In this article, let's walk through an application scenario, compare the ExpressRoute Global Reach solution to a few other solutions, and configure Global Reach for the example scenario and verify the connections. 
 
 ##Application Scenario
 
