@@ -59,7 +59,7 @@ applicationsScoping //this brings data from Application Insights resources
 | where success == 'False' 
 | where duration > 1000 
 | union ( 
-    ApplicationInsights //this is Application Insights data in Log Analytics worspace 
+    ApplicationInsights //this is Application Insights data in Log Analytics workspace 
     | where TimeGenerated < (datetime("2018-12-01") 
     | where RequestSuccess == 'False' 
     | where RequestDuration > 1000 
