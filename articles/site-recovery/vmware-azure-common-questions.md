@@ -86,7 +86,7 @@ For replication, a VMware VM must be running a supported operating system. In ad
 Replication is continuous when replicating VMware VMs to Azure.
 
 ### Can I extend replication?
-Extended or chained replication isn't supported. Request this feature in [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+Extended or chained replication isn't supported. Request this feature in [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### Can I do an offline initial replication?
 This isn't supported. Request this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
