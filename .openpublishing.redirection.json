@@ -3455,6 +3455,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-app-registration.md",
+      "redirect_url": "/azure/active-directory-b2c/tutorial-register-applications",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet.md",
       "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi",
       "redirect_document_id": false
@@ -30449,11 +30454,6 @@
       "source_path": "articles/active-directory/active-directory-application-troubleshoot-content-map.md",
       "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory-b2c/tutorial-register-applications.md",
-      "redirect_url": "/azure/active-directory-b2c/tutorial-create-tenant",
-      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-get-started.md",
