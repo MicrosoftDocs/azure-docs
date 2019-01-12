@@ -262,7 +262,9 @@ The following are post-installation known issues for this build version.
 
 - Usage records in resource provider APIs may contain unexpected capitalization; for example:
 
-   `{"Microsoft.Resources":{"resourceUri":"/subscriptions/<subid>/resourceGroups/ANDREWRG/providers/Microsoft.Compute/virtualMachines/andrewVM0002","location":"twm","tags":"null","additionalInfo":"{\"ServiceType\":\"Standard_DS3_v2\",\"ImageType\":\"Windows_Server\"}"}}`
+   ```shell
+   {"Microsoft.Resources":{"resourceUri":"/subscriptions/<subid>/resourceGroups/ANDREWRG/providers/Microsoft.Compute/virtualMachines/andrewVM0002","location":"twm","tags":"null","additionalInfo":"{\"ServiceType\":\"Standard_DS3_v2\",\"ImageType\":\"Windows_Server\"}"}}
+   ```
 
    In this example the name of the resource group should be AndrewRG. You can safely ignore this inconsistency, which is due to a bug in Azure.
 
