@@ -130,7 +130,7 @@ The `identity` section in the output looks similar to the following, showing the
 
 ### Grant user-assigned identity access to the Key Vault
 
-Run the following [az keyvault set-policy](/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy)(/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command to set an access policy on the Key Vault. The following example allows the user-assigned identity to get secrets from the Key Vault:
+Run the following [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command to set an access policy on the Key Vault. The following example allows the user-assigned identity to get secrets from the Key Vault:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get

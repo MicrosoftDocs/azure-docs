@@ -62,14 +62,14 @@ Azure Stack Managed Disks supports the following API versions:
 
 - 2017-03-30
 
-## Known Issues
+## Configuration
 
-After applying the updates after 1808, you might encounter the following issues when deploying VMs with Managed Disks:
+After applying the 1808 update or later, you must perform the following configuration before using Managed Disks:
 
-- If the subscription was created before the 1808 update, deploying a VM with Managed Disks might fail with an internal error message. To resolve the error, follow these steps for each subscription:
+- If a subscription was created before the 1808 update, follow below steps to update the subscription. Otherwise, deploying VMs in this subscription might fail with an error message “Internal error in disk manager.”
    1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
    2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
-- If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
+- If you use a multi-tenant environment, ask your cloud operator (may in your own organization or from the Service Provider) to reconfigure each of your guest directories follow these steps in [this article](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Otherwise, deploying VMs in a subscription associated with a guest directory might fail with an error message “Internal error in disk manager.”
 
 
 ## Next steps

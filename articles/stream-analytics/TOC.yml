@@ -400,6 +400,8 @@
     href: /dotnet/api/microsoft.azure.management.streamanalytics
   - name: REST
     href: /rest/api/streamanalytics
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.streamanalytics/allversions
 - name: Resources
   items:
   - name: Stream Analytics previews
