@@ -31,6 +31,8 @@ If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/lo
 
 ## Prerequisites
 
+To follow the example, you need these items:
+
 * An Azure subscription. If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
@@ -41,11 +43,9 @@ That way, you can specify to use your gateway installation
 when you create the file system connection from your logic app.
 
 * A [Drobox account](https://www.dropbox.com/) 
-and your account credentials
-
-  Your DropBox credentials are necessary for 
-  creating a connection between your logic app 
-  and your Drobox account. 
+and your account credentials. Your DropBox 
+credentials are necessary for creating a 
+connection between your logic app and your Drobox account. 
 
 * Your account credentials for the computer 
 that has the file system you want to access. 
