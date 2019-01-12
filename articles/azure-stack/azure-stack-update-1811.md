@@ -262,11 +262,11 @@ The following are post-installation known issues for this build version.
 
 - Usage records in resource provider APIs may contain unexpected capitalization; for example:
 
-   ```shell
-   {"Microsoft.Resources":{"resourceUri":"/subscriptions/<subid>/resourceGroups/ANDREWRG/providers/Microsoft.Compute/virtualMachines/andrewVM0002","location":"twm","tags":"null","additionalInfo":"{\"ServiceType\":\"Standard_DS3_v2\",\"ImageType\":\"Windows_Server\"}"}}
-   ```
+   `{"Microsoft.Resources":{"resourceUri":"/subscriptions/<subid>/resourceGroups/ANDREWRG/providers/Microsoft.Compute/
+   virtualMachines/andrewVM0002","location":"twm","tags":"null","additionalInfo":
+   "{\"ServiceType\":\"Standard_DS3_v2\",\"ImageType\":\"Windows_Server\"}"}}`
 
-   In this example the name of the resource group should be AndrewRG. You can safely ignore this inconsistency, which is due to a bug in Azure.
+   In this example the name of the resource group should be **AndrewRG**. You can safely ignore this inconsistency, which is due to a bug in Azure.
 
 <!-- 3235634 – IS, ASDK -->
 - To deploy VMs with sizes containing a **v2** suffix; for example, **Standard_A2_v2**, specify the suffix as **Standard_A2_v2** (lowercase v). Do not use **Standard_A2_V2** (uppercase V). This works in global Azure and is an inconsistency on Azure Stack.
