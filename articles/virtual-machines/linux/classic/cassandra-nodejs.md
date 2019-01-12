@@ -54,7 +54,7 @@ The process described in creating the single-region deployment uses Ubuntu 14.04
 
 **High availability:** The Cassandra nodes shown in Figure 1 are deployed to two availability sets so that the nodes are spread between multiple fault domains for high availability. VMs annotated with each availability set are mapped to two fault domains. 
 
-Azure uses the concept of fault domains to manage unplanned downtime (for example, hardware or software failures). The concept of upgrade domains (for example, host or guest OS patching/upgrades or application upgrades) is used to manage scheduled downtime. For the role of fault and upgrade domains in attaining high availability, see [Disaster recovery and high availability for Azure applications](https://msdn.microsoft.com/library/dn251004.aspx).
+Azure uses the concept of fault domains to manage unplanned downtime, such as hardware or software failures. The concept of upgrade domains, for example, host or guest OS patching or upgrades or application upgrades, is used to manage scheduled downtime. For the role of fault and upgrade domains in attaining high availability, see [Disaster recovery and high availability for Azure applications](https://msdn.microsoft.com/library/dn251004.aspx).
 
 ![Single-region deployment](./media/cassandra-nodejs/cassandra-linux1.png)
 
@@ -93,7 +93,7 @@ The following parameters are used for the deployed cluster.
 
 **Azure considerations for a Cassandra cluster:** Microsoft Azure Virtual Machines uses Azure Blob storage for disk persistence. Azure Storage saves three replicas of each disk for high durability. This redundancy means that each row of data inserted into a Cassandra table is already stored in three replicas. So data consistency is already taken care of even if the replication factor is 1. 
 
-The main problem with the replication factor being 1 is that the application experiences downtime even if a single Cassandra node fails. If a node is down for problems (for example, hardware, system software failures) that are recognized by Azure Fabric Controller, it provisions a new node in its place by using the same storage drives. Provisioning a new node to replace the old one might take a few minutes. 
+The main problem with the replication factor being 1 is that the application experiences downtime even if a single Cassandra node fails. If a node is down for problems such as hardware or system software failures that are recognized by Azure Fabric Controller, it provisions a new node in its place by using the same storage drives. Provisioning a new node to replace the old one might take a few minutes. 
 
 Similarly for planned maintenance activities like guest OS changes, Cassandra upgrades, and application changes, Azure Fabric Controller performs rolling upgrades of the nodes in the cluster. Rolling upgrades also might take down a few nodes at a time, so the cluster might experience brief downtime for a few partitions. Data isn't lost because of the built-in Azure Storage redundancy.
 
@@ -152,13 +152,13 @@ The following software versions are used during deployment.
 
 To simplify the deployment, download all the required software to the desktop. Then upload it to the Ubuntu template image to create a precursor to the cluster deployment.
 
-Download the software into a well-known download directory (for example, %TEMP%/downloads on Windows or ~/Downloads on most Linux distributions or Mac) on the local computer.
+Download the software into a well-known download directory, such as, %TEMP%/downloads on Windows or ~/Downloads on most Linux distributions or Mac, on the local computer.
 
 ### Create an Ubuntu VM
-In this step, you create an Ubuntu image with the prerequisite software so that you can reuse the image to provision several Cassandra nodes.
+Create an Ubuntu image with the prerequisite software. You reuse the image to provision several Cassandra nodes.
 
 #### Step 1: Generate an SSH key pair
-Azure needs an X509 public key that is either PEM or DER encoded at the provisioning time. Generate a public/private key pair by following the instructions in "How to use SSH with Linux on Azure." If you plan to use putty.exe as an SSH client either on Windows or Linux, convert the PEM-encoded RSA private key to PPK format by using puttygen.exe. For instructions on how to do this, see the previous webpage.
+Azure needs an X509 public key that is either PEM or DER encoded at the provisioning time. Generate a public/private key pair by following the instructions in "How to use SSH with Linux on Azure." If you plan to use putty.exe as an SSH client either on Windows or Linux, convert the PEM-encoded RSA private key to public/private key format by using puttygen.exe. For instructions on how to do this, see the previous webpage.
 
 #### Step 2: Create an Ubuntu template VM
 To create the template VM, sign in to the Azure portal. Select **New** > **Compute** > **Virtual Machine** >  **From Gallery** > **Ubuntu** > **Ubuntu Server 14.04 LTS**. Then select the right arrow. For a tutorial that describes how to create a Linux VM, see "Create a virtual machine running Linux."
@@ -192,7 +192,7 @@ Enter the following information on the second **Virtual machine configuration** 
 
 Select the right arrow, and leave the defaults as shown on the third screen. Select the “check” button to finish the VM provisioning process. After a few minutes, the VM with the name “ubuntu-template” appears in the “running” status.
 
-### INSTALL THE NECESSARY SOFTWARE
+### Install the necessary software
 #### Step 1: Upload tarballs
 Using scp or pscp, copy the previously downloaded software to the ~/downloads directory by using the following command format:
 
@@ -267,11 +267,11 @@ make_dir $JRE_INSTALL_DIR
 make_dir $CASS_DATA_DIR
 make_dir $CASS_LOG_DIR
 
-#unzip JRE and Cassandra
+#Unzip JRE and Cassandra.
 unzip $HOME/downloads/$JRE_TARBALL $JRE_INSTALL_DIR
 unzip $HOME/downloads/$CASS_TARBALL $CASS_INSTALL_DIR
 
-#Change the ownership to the service credentials
+#Change the ownership to the service credentials.
 
 chown -R $SVC_USER:$GROUP $CASS_DATA_DIR
 chown -R $SVC_USER:$GROUP $CASS_LOG_DIR
@@ -283,8 +283,8 @@ If you paste this script into the vim window, remove the carriage return (‘\r�
 
     tr -d '\r' <infile.sh >outfile.sh
 
-#### Step 3: Edit etc/profile
-Append the following at the end:
+#### Step 3: Edit etc./profile
+Append the following script at the end:
 
     JAVA_HOME=/opt/java/jdk1.8.0_05
     CASS_HOME= /opt/cassandra/apache-cassandra-2.0.8
@@ -295,8 +295,8 @@ Append the following at the end:
 
 #### Step 4: Install JNA for production systems
 Use the following command sequence.
-The following command installs jna-3.2.7.jar and jna-platform-3.2.7.jar to /usr/share.java directory
-sudo apt-get install libjna-java
+The following command installs jna-3.2.7.jar and jna-platform-3.2.7.jar to the /usr/share.java directory
+sudo apt-get install libjna-java.
 
 Create symbolic links in the $CASS_HOME/lib directory so that the Cassandra startup script can find these jars:
 
@@ -308,41 +308,41 @@ Create symbolic links in the $CASS_HOME/lib directory so that the Cassandra star
 Edit cassandra.yaml on each VM to reflect the configuration needed by all the virtual machines. You tweak this configuration during the actual provisioning.
 
 <table>
-<tr><th>Field Name   </th><th> Value  </th><th>    Remarks </th></tr>
-<tr><td>cluster_name </td><td>    “CustomerService”    </td><td> Use the name that reflects your deployment</td></tr>
-<tr><td>listen_address    </td><td>[leave it blank]    </td><td> Delete “localhost” </td></tr>
-<tr><td>rpc_addres   </td><td>[leave it blank]    </td><td> Delete “localhost” </td></tr>
-<tr><td>seeds    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>List of  all the IP addresses which are designated as seeds.</td></tr>
-<tr><td>endpoint_snitch </td><td> org.apache.cassandra.locator.GossipingPropertyFileSnitch </td><td> This is used by the NetworkTopologyStrateg for inferring the datacenter and the rack of the VM</td></tr>
+<tr><th>Field name   </th><th> Value  </th><th>    Remarks </th></tr>
+<tr><td>cluster_name </td><td>    “CustomerService”    </td><td> Use the name that reflects your deployment.</td></tr>
+<tr><td>listen_address    </td><td>[leave it blank]    </td><td> Delete “localhost.” </td></tr>
+<tr><td>rpc_addres   </td><td>[leave it blank]    </td><td> Delete “localhost.” </td></tr>
+<tr><td>seeds    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>List of all the IP addresses that are designated as seeds.</td></tr>
+<tr><td>endpoint_snitch </td><td> org.apache.cassandra.locator.GossipingPropertyFileSnitch </td><td> This value is used by NetworkTopologyStrategy to infer the datacenter and the rack of the VM.</td></tr>
 </table>
 
 #### Step 6: Capture the VM image
-Sign in to the virtual machine using the hostname (hk-cas-template.cloudapp.net) and the SSH private key previously created. See How to Use SSH with Linux on Azure for details on how to log in using the command ssh or putty.exe.
+Sign in to the virtual machine by using the hostname (hk-cas-template.cloudapp.net) and the SSH private key that was previously created. For information on how to log in by using SSH or putty.exe, see "How to use SSH with Linux on Azure."
 
-Execute the following sequence of actions to capture the image:
+Follow these steps to capture the image.
 
 ##### 1. Deprovision
-Use the command “sudo waagent –deprovision+user” to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](capture-image-classic.md) to Use as a Template more details on the image capture process.
+Use the command **sudo waagent –deprovision+user** to remove virtual machine instance-specific information. For more information on the image capture process, see [How to capture a Linux virtual machine](capture-image-classic.md).
 
-##### 2: Shut down the VM
-Make sure that the virtual machine is highlighted and select the SHUTDOWN link from the bottom command bar.
+##### 2. Shut down the VM
+Highlight the virtual machine, and select **SHUTDOWN** on the bottom command bar.
 
-##### 3: Capture the image
-Make sure that the virtual machine is highlighted and select the CAPTURE link from the bottom command bar. In the next screen, give an IMAGE NAME (for example hk-cas-2-08-ub-14-04-2014071), appropriate IMAGE DESCRIPTION, and select the “check” mark to finish the CAPTURE process.
+##### 3. Capture the image
+Highlight the virtual machine, and select **CAPTURE** on the bottom command bar. On the next screen, name the image, for example, hk-cas-2-08-ub-14-04-2014071. Enter an image description. Select the check mark to finish the capture process.
 
-This process takes a few seconds and the image should be available in MY IMAGES section of the image gallery. The source VM is automatically deleted after the image is successfully captured. 
+This process takes a few seconds. The image appears in the **MY IMAGES** section of the image gallery. The source VM is automatically deleted after the image is successfully captured. 
 
 ## Single-region deployment process
 **Step 1: Create the virtual network**
 
-Sign in to the Azure portal, and create a virtual network (classic) with the attributes shown in the following table. For detailed steps of the process, see [Create a virtual network (classic) using the Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+Sign in to the Azure portal. Use the classic deployment model to create a virtual network with the attributes shown in the following table. For information on the steps, see [Create a virtual network (classic) using the Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 <table>
-<tr><th>VM Attribute Name</th><th>Value</th><th>Remarks</th></tr>
+<tr><th>VM attribute name</th><th>Value</th><th>Remarks</th></tr>
 <tr><td>Name</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Region</td><td>West US</td><td></td></tr>
-<tr><td>DNS Servers</td><td>None</td><td>Ignore this as we are not using a DNS Server</td></tr>
-<tr><td>Address Space</td><td>10.1.0.0/16</td><td></td></tr>
+<tr><td>DNS servers</td><td>None</td><td>Ignore this because we aren't using an Azure DNS server.</td></tr>
+<tr><td>Address space</td><td>10.1.0.0/16</td><td></td></tr>
 <tr><td>Starting IP</td><td>10.1.0.0</td><td></td></tr>
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
 </table>
@@ -359,7 +359,7 @@ Data and web subnets can be protected through network security groups. How to do
 
 **Step 2: Provision virtual machines**
 
-Using the image created previously, you create the following virtual machines in the cloud server “hk-c-svc-west” and bind them to the respective subnets as shown:
+Using the image you created previously, create the following virtual machines in the cloud server “hk-c-svc-west” and bind them to the respective subnets as shown:
 
 <table>
 <tr><th>Machine name    </th><th>Subnet    </th><th>IP address    </th><th>Availability set</th><th>DC/Rack</th><th>Seed?</th></tr>
@@ -375,31 +375,31 @@ Using the image created previously, you create the following virtual machines in
 <tr><td>hk-w2-west-us    </td><td>web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/A</td></tr>
 </table>
 
-Creation of the above list of VMs requires the following process:
+Follow these steps to create the list of VMs.
 
-1. Create an empty cloud service in a particular region
-2. Create a VM from the previously captured image and attach it to the virtual network created previously; repeat this for all the VMs
-3. Add an internal load balancer to the cloud service and attach it to the “data” subnet
-4. For each VM created previously, add a load balanced endpoint for thrift traffic through a load balanced set connected to the previously created internal load balancer
+1. Create an empty cloud service in a particular region.
+2. Create a VM from the previously captured image, and attach it to the virtual network that was created previously. Repeat this step for all the VMs.
+3. Add an internal load balancer to the cloud service, and attach it to the “data” subnet.
+4. For each VM you created, add a load-balanced endpoint for thrift traffic. The traffic runs through a load-balanced set connected to the previously created internal load balancer.
 
-The above process can be executed using Azure portal; use a Windows machine (use a VM on Azure if you don't have access to a Windows machine), use the following PowerShell script to provision all 8 VMs automatically.
+You can carry out these steps by using the Azure portal. Use a Windows machine, or use a VM on Azure if you don't have access to a Windows machine. Use the following PowerShell script to provision all eight VMs automatically.
 
-**List 1: PowerShell script for provisioning virtual machines**
+**List 1: PowerShell script used to provision virtual machines**
 
 ```powershell
 #Tested with Azure Powershell - November 2014
-#This PowerShell script deploys a number of VMs from an existing image inside an Azure region
-#Import your Azure subscription into the current PowerShell session before proceeding
-#The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. create a list of VMs from the template
+#This PowerShell script deploys a number of VMs from an existing image inside an Azure region.
+#Import your Azure subscription into the current PowerShell session before proceeding.
+#The process: 1. Create an Azure Storage account. 2. Create a virtual network. 3. Create the VM template. 4. Create a list of VMs from the template.
 
-#fundamental variables - change these to reflect your subscription
+#Fundamental variables - Change these to reflect your subscription.
 $country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
 $numVMs=8;$prefix = "hk-cass";$ilbIP="your_ilb_ip"
 $subscriptionName = "Azure_subscription_name";
 $vmSize="ExtraSmall"; $imageName="your_linux_image_name"
 $ilbName="ThriftInternalLB"; $thriftEndPoint="ThriftEndPoint"
 
-#generated variables
+#Generated variables
 $serviceName = "$prefix-svc-$region-$country"; $azureRegion = "$region $country"
 
 $vmNames = @()
@@ -408,16 +408,16 @@ for ($i=0; $i -lt $numVMs; $i++)
     $vmNames+=("$prefix-vm"+($i+1) + "-$region-$country" );
 }
 
-#select an Azure subscription already imported into PowerShell session
+#Select an Azure subscription already imported into the PowerShell session.
 Select-AzureSubscription -SubscriptionName $subscriptionName -Current
 Set-AzureSubscription -SubscriptionName $subscriptionName -CurrentStorageAccountName $storageAccount
 
-#create an empty cloud service
+#Create an empty cloud service.
 New-AzureService -ServiceName $serviceName -Label "hkcass$region" -Location $azureRegion
 Write-Host "Created $serviceName"
 
 $VMList= @()   # stores the list of azure vm configuration objects
-#create the list of VMs
+#Create the list of VMs.
 foreach($vmName in $vmNames)
 {
     $VMList += New-AzureVMConfig -Name $vmName -InstanceSize ExtraSmall -ImageName $imageName |
@@ -427,10 +427,10 @@ foreach($vmName in $vmNames)
 
 New-AzureVM -ServiceName $serviceName -VNetName $vnetName -VMs $VMList
 
-#Create internal load balancer
+#Create an internal load balancer.
 Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
 Write-Host "Created $ilbName"
-#Add the thrift endpoint to the internal load balancer for all the VMs
+#Add the thrift endpoint to the internal load balancer for all the VMs.
 foreach($vmName in $vmNames)
 {
     Get-AzureVM -ServiceName $serviceName -Name $vmName |
@@ -443,22 +443,22 @@ foreach($vmName in $vmNames)
 
 **Step 3: Configure Cassandra on each VM**
 
-Sign in to the VM and do the following:
+Sign in to the VM, and do the following:
 
-* Edit $CASS_HOME/conf/cassandra-rackdc.properties to specify the datacenter and rack properties:
+* Edit $CASS_HOME/conf/cassandra-rackdc.properties to specify the datacenter and rack properties.
   
        dc =EASTUS, rack =rack1
-* Edit cassandra.yaml to configure seed nodes as shown:
+* Edit cassandra.yaml to configure the seed nodes.
   
        Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10"
 
-**Step 4: Start the VMs and test the cluster**
+**Step 4: Start the VMs, and test the cluster**
 
-Sign into one of the nodes (for example, hk-c1-west-us) and run the following command to see the status of the cluster:
+Sign in to one of the nodes, for example, hk-c1-west-us. To see the status of the cluster, run the following command:
 
        nodetool –h 10.1.2.4 –p 7199 status
 
-You should see the display similar to the one below for an 8-node cluster:
+A display similar to this one for an eight-node cluster appears:
 
 <table>
 <tr><th>Status</th><th>Address    </th><th>Load    </th><th>Tokens    </th><th>Owns </th><th>Host ID    </th><th>Rack</th></tr>
@@ -475,20 +475,20 @@ You should see the display similar to the one below for an 8-node cluster:
 ## Test the single-region cluster
 Follow these steps to test the cluster.
 
-1. Using the PowerShell command Get-AzureInternalLoadbalancer commandlet, obtain the IP address of the internal load balancer (for example 10.1.2.101). The syntax of the command is shown below: Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us” [displays the details of the internal load balancer along with its IP address]
-2. Sign in to the web farm VM (for example hk-w1-west-us) using Putty or ssh
-3. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160
-4. Use the following CQL commands to verify if the cluster is working:
+1. Using the PowerShell Get-AzureInternalLoadbalancer cmdlet, get the IP address of the internal load balancer, for example, 10.1.2.101. The syntax of the command is Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us.” The details of the internal load balancer display along with its IP address.
+2. Sign in to the web farm VM, for example, hk-w1-west-us, by using PuTTY or SSH.
+3. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160.
+4. To verify if the cluster is working, use the following CQL commands:
    
-     CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };
-     USE customers_ks;
-     CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
-     INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
-     INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
-   
-     SELECT * FROM Customers;
-
-You should see something like the following results:
+         CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };
+         USE customers_ks;
+         CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
+         INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
+         INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
+       
+         SELECT * FROM Customers;
+    
+Results like the following appear:
 
 <table>
   <tr><th> customer_id </th><th> firstname </th><th> lastname </th></tr>
@@ -496,22 +496,23 @@ You should see something like the following results:
   <tr><td> 2 </td><td> Jane </td><td> Doe </td></tr>
 </table>
 
-The keyspace created in step 4 uses SimpleStrategy with a replication_factor of 3. SimpleStrategy is recommended for single datacenter deployments whereas NetworkTopologyStrategy for multiple-datacenter deployments. A replication_factor of 3 gives tolerance for node failures.
+The keyspace created in step 4 uses SimpleStrategy with a replication factor of 3. We recommend SimpleStrategy for single datacenter deployments. Use NetworkTopologyStrategy for multiple-datacenter deployments. A replication factor of 3 gives tolerance for node failures.
 
 ## <a id="tworegion"> </a>Multiple-region deployment process
-You use the single-region deployment completed and repeat the same process to install the second region. The key difference between the single- and multiple-region deployment is the VPN tunnel setup for inter-region communication. You start with the network installation, provision the VMs, and configure Cassandra.
+Use the single-region deployment process, and repeat the process to install the second region. The key difference between single- and multiple-region deployment is the VPN tunnel setup for inter-region communication. You start with the network installation, provision the VMs, and configure Cassandra.
 
-### Step 1: Create the virtual network at the second region
-Sign in to the Azure portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) for detailed steps of the process.
+**Step 1: Create the virtual network at the second region**
+
+Sign in to the Azure portal, and create a virtual network with the attributes shown in the table. For instructions, see [Configure a cloud-only virtual network in the Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 <table>
-<tr><th>Attribute Name    </th><th>Value    </th><th>Remarks</th></tr>
+<tr><th>Attribute name    </th><th>Value    </th><th>Remarks</th></tr>
 <tr><td>Name    </td><td>vnet-cass-east-us</td><td></td></tr>
 <tr><td>Region    </td><td>East US</td><td></td></tr>
-<tr><td>DNS Servers        </td><td></td><td>Ignore this as we are not using a DNS Server</td></tr>
-<tr><td>Configure a point-to-site VPN</td><td></td><td>        Ignore this</td></tr>
-<tr><td>Configure a site-to-site VPN</td><td></td><td>        Ignore this</td></tr>
-<tr><td>Address Space    </td><td>10.2.0.0/16</td><td></td></tr>
+<tr><td>DNS servers        </td><td></td><td>Ignore this because we aren't using an Azure DNS server.</td></tr>
+<tr><td>Configure a point-to-site VPN</td><td></td><td>        Ignore this.</td></tr>
+<tr><td>Configure a site-to-site VPN</td><td></td><td>        Ignore this.</td></tr>
+<tr><td>Address space    </td><td>10.2.0.0/16</td><td></td></tr>
 <tr><td>Starting IP    </td><td>10.2.0.0    </td><td></td></tr>
 <tr><td>CIDR    </td><td>/16 (65531)</td><td></td></tr>
 </table>
@@ -525,29 +526,33 @@ Add the following subnets:
 </table>
 
 
-### Step 2: Create local networks
-A Local Network in Azure virtual networking is a proxy address space that maps to a remote site including a private cloud or another Azure region. This proxy address space is bound to a remote gateway for routing network to the right networking destinations. See [Configure a VNet to VNet Connection](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) for the instructions on establishing VNET-to-VNET connection.
+**Step 2: Create local networks**
 
-Create two local networks per the following details:
+A local network in Azure virtual networking is a proxy address space that maps to a remote site that includes a private cloud or another Azure region. This proxy address space is bound to a remote gateway that's used to route networks to the right networking destinations. For information on how to establish a network-to-network connection, see [Configure a VNet-to-VNet connection](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
-| Network Name | VPN Gateway Address | Address Space | Remarks |
+Create two local networks based on the following information:
+
+| Network name | VPN gateway address | Address space | Remarks |
 | --- | --- | --- | --- |
-| hk-lnet-map-to-east-us |23.1.1.1 |10.2.0.0/16 |While creating the Local Network give a placeholder gateway address. The real gateway address is filled once the gateway is created. Make sure the address space exactly matches the respective remote VNET; in this case the VNET created in the East US region. |
-| hk-lnet-map-to-west-us |23.2.2.2 |10.1.0.0/16 |While creating the Local Network give a placeholder gateway address. The real gateway address is filled once the gateway is created. Make sure the address space exactly matches the respective remote VNET; in this case the VNET created in the West US region. |
+| hk-lnet-map-to-east-us |23.1.1.1 |10.2.0.0/16 |When you create the local network, use a placeholder gateway address. The real gateway address is filled after the gateway is created. Make sure the address space exactly matches the respective remote virtual network. In this case, it's the virtual network created in the East US region. |
+| hk-lnet-map-to-west-us |23.2.2.2 |10.1.0.0/16 |When you create the local network, use a placeholder gateway address. The real gateway address is filled after the gateway is created. Make sure the address space exactly matches the respective remote virtual network. In this case, it's the virtual network created in the West US region. |
 
-### Step 3: Map “Local” network to the respective VNETs
-From the Azure portal, select each vnet, select “Configure”, check “Connect to the local network”, and select the Local Networks per the following details:
+**Step 3: Map a local network to the respective virtual networks**
 
-| Virtual Network | Local Network |
+In the Azure portal, select each virtual network. Select **Configure** > **Connect to the local network**. Select the local networks based on the following information:
+
+| Virtual network | Local network |
 | --- | --- |
 | hk-vnet-west-us |hk-lnet-map-to-east-us |
 | hk-vnet-east-us |hk-lnet-map-to-west-us |
 
-### Step 4: Create Gateways on VNET1 and VNET2
-From the dashboard of both the virtual networks, select CREATE GATEWAY to trigger the VPN gateway provisioning process. After a few minutes the dashboard of each virtual network should display the actual gateway address.
+**Step 4: Create gateways on both virtual networks**
 
-### Step 5: Update “Local” networks with the respective “Gateway” addresses
-Edit both the local networks to replace the placeholder gateway IP address with the real IP address of the just provisioned gateways. Use the following mapping:
+On the dashboards for both virtual networks, select **CREATE GATEWAY** to start the VPN gateway provisioning process. After a few minutes, the dashboard of each virtual network displays the actual gateway address.
+
+**Step 5: Update the local networks with the respective gateway addresses**
+
+Edit both local networks to replace the placeholder gateway IP address with the real IP address of the gateways you provisioned. Use the following mapping:
 
 <table>
 <tr><th>Local Network    </th><th>Virtual Network Gateway</th></tr>
@@ -555,16 +560,20 @@ Edit both the local networks to replace the placeholder gateway IP address with 
 <tr><td>hk-lnet-map-to-west-us </td><td>Gateway of hk-vnet-east-us</td></tr>
 </table>
 
-### Step 6: Update the shared key
-Use the following PowerShell script to update the IPSec key of each VPN gateway [use the sake key for both the gateways]:
-Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK
-Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
+**Step 6: Update the shared key**
 
-### Step 7: Establish the VNET-to-VNET connection
-From the Azure portal, use the “DASHBOARD” menu of both the virtual networks to establish gateway-to-gateway connection. Use the “CONNECT” menu items in the bottom toolbar. After a few minutes the dashboard should display the connection details graphically.
+Use the following PowerShell script to update the IPSec key of each VPN gateway. Use the same key for both  gateways.
 
-### Step 8: Create the virtual machines in region #2
-Create the Ubuntu image as described in region #1 deployment by following the same steps. Or copy the image VHD file to the Azure storage account located in region #2 and create the image. Use this image and create the following list of virtual machines into a new cloud service hk-c-svc-east-us:
+    Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK
+    Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
+
+**Step 7: Establish the network-to-network connection**
+
+In the Azure portal, use the **DASHBOARD** menu of both virtual networks to establish a gateway-to-gateway connection. Use the **CONNECT** menu items in the bottom toolbar. After a few minutes, the dashboard displays the connection information.
+
+**Step 8: Create the virtual machines in region #2**
+
+Create the Ubuntu image as described in region #1 deployment by following the same steps. Or copy the image VHD file to the Azure Storage account located in region #2 and create the image. Use this image and create the following list of virtual machines into a new cloud service hk-c-svc-east-us:
 
 | Machine name | Subnet | IP address | Availability set | DC/Rack | Seed? |
 | --- | --- | --- | --- | --- | --- |
@@ -578,10 +587,11 @@ Create the Ubuntu image as described in region #1 deployment by following the sa
 | hk-w1-east-us |web |10.2.1.4 |hk-w-aset-1 |N/A |N/A |
 | hk-w2-east-us |web |10.2.1.5 |hk-w-aset-1 |N/A |N/A |
 
-Follow the same instructions as region #1 but use 10.2.xxx.xxx address space.
+Follow the same instructions as region #1 but use the 10.2.xxx.xxx address space.
 
-### Step 9: Configure Cassandra on each VM
-Sign in to the VM and follow these steps.
+**Step 9: Configure Cassandra on each VM**
+
+Sign in to the VM, and follow these steps.
 
 1. Edit $CASS_HOME/conf/cassandra-rackdc.properties to specify the datacenter and rack properties in the format:
     dc =EASTUS
@@ -589,20 +599,24 @@ Sign in to the VM and follow these steps.
 2. Edit cassandra.yaml to configure seed nodes:
     Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
 
-### Step 10: Start Cassandra
-Sign in to each VM and start Cassandra in the background by running the following command:
-$CASS_HOME/bin/cassandra
+**Step 10: Start Cassandra**
+
+Sign in to each VM, and start Cassandra in the background by running the following command:
+
+    $CASS_HOME/bin/cassandra
 
 ## Test the multiple-region cluster
 By now Cassandra has been deployed to 16 nodes with 8 nodes in each Azure region. These nodes are in the same cluster by virtue of the common cluster name and the seed node configuration. Use the following process to test the cluster.
 
-### Step 1: Get the internal load balancer IP for both the regions by using PowerShell
+**Step 1: Get the internal load balancer IP for both the regions by using PowerShell**
+
 * Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
 * Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"
   
-    Note the IP addresses (for example west - 10.1.2.101, east - 10.2.2.101) displayed.
+    Note the IP addresses, for example, west - 10.1.2.101, east - 10.2.2.101, that display.
 
-### Step 2: Execute the following in the west region after logging into hk-w1-west-us
+**Step 2: Execute the following in the west region after logging into hk-w1-west-us**
+
 1. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 2. Execute the following CQL commands:
    
@@ -614,34 +628,35 @@ By now Cassandra has been deployed to 16 nodes with 8 nodes in each Azure region
      INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
      SELECT * FROM Customers;
 
-You should see a display like the one below:
+A display like this one appears:
 
 | customer_id | firstname | Lastname |
 | --- | --- | --- |
 | 1 |John |Doe |
 | 2 |Jane |Doe |
 
-### Step 3: Execute the following in the east region after logging into hk-w1-east-us:
+**Step 3: Execute the following in the east region after logging into hk-w1-east-us**
+
 1. Execute $CASS_HOME/bin/cqlsh 10.2.2.101 9160
 2. Execute the following CQL commands:
    
-     USE customers_ks;
-     CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
-     INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
-     INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
-     SELECT * FROM Customers;
+         USE customers_ks;
+         CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
+         INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
+         INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
+         SELECT * FROM Customers;
 
-You should see the same display as seen for the West region:
+The same display as seen for the West region appears:
 
 | customer_id | firstname | Lastname |
 | --- | --- | --- |
 | 1 |John |Doe |
 | 2 |Jane |Doe |
 
-Execute a few more inserts and see that those get replicated to the west-us part of the cluster.
+Execute a few more inserts, and see that those get replicated to the west-us part of the cluster.
 
 ## Test the Cassandra cluster from Node.js
-Using one of the Linux VMs created in the "web" tier previously, you execute a simple Node.js script to read the previously inserted data.
+Using one of the Linux VMs you created in the "web" tier previously, execute a simple Node.js script to read the previously inserted data.
 
 **Step 1: Install Node.js and the Cassandra client**
 
