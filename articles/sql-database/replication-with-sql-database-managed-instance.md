@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
+ms.date: 01/11/2019
 ---
 # Replication with SQL Database Managed Instance
 
@@ -81,7 +81,7 @@ Supports:
 
    In the example scripts below, replace `<Publishing_DB>` with the name of this database.
 
-4. Create a database user with SQL Authentication for the distributor. See, [Creating database users](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Use a secure password.
+4. Create a database user with SQL Authentication for the distributor. Use a secure password.
 
    In the example scripts below, use `<SQL_USER>` and `<PASSWORD>` with this SQL Server Account database user and password.
 

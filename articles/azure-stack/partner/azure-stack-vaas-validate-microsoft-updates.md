@@ -15,6 +15,8 @@ ms.date: 1/07/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
+ROBOTS: NOINDEX
+
 ---
 
 # Validate software updates from Microsoft

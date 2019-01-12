@@ -66,7 +66,7 @@ The script configures only Windows Firewall locally. If you have network firewal
 You should use at least one agent for each subnet that you want to monitor.
 
 ### What is the maximum number of agents I can use or I see error ".... you have reached your Configuration limit"?
-NPM limits the number of IPs to 5000 IPs per workspace. If a node has both IPv4 and IPv6 addresses, this will count as 2 IPs for that node. Hence, this limit of 5000 IPs would decide the upper limit on the number of agents. You can delete the inactive agents from Nodes tab in NPM >> Configure. NPM also maintains history of all the IPs that were ever assigned to the VM hosting the agent and these also count as seperate IPs contributing to that upper limit of 5000 IPs. To free up IPs for your workspace, you can use the Nodes page to delete the IPs that are not in use .
+NPM limits the number of IPs to 5000 IPs per workspace. If a node has both IPv4 and IPv6 addresses, this will count as 2 IPs for that node. Hence, this limit of 5000 IPs would decide the upper limit on the number of agents. You can delete the inactive agents from Nodes tab in NPM >> Configure. NPM also maintains history of all the IPs that were ever assigned to the VM hosting the agent and these also count as separate IPs contributing to that upper limit of 5000 IPs. To free up IPs for your workspace, you can use the Nodes page to delete the IPs that are not in use .
 
 ## Monitoring
 

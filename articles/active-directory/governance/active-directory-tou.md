@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/20/2018
+ms.date: 01/10/2019
 ms.author: rolyon
 
 ---
@@ -83,9 +83,7 @@ Once you have finalized your Terms of use document, use the following procedure 
 
 1. To require end users to view the Terms of use prior to accepting them, set **Require users to expand the terms of use** to **On**.
 
-1. To require end users to accept your Terms of use on every device they are accessing from, set **Require users to consent on every device** to **On**.
-
-    If you do not see the **Require users to consent on every device** setting, it is because this feature has not yet been deployed to your region. This feature is expected to be fully deployed by early January 2019. For more information, see [Per-device Terms of use](#per-device-terms-of-use).
+1. To require end users to accept your Terms of use on every device they are accessing from, set **Require users to consent on every device** to **On**. For more information, see [Per-device Terms of use](#per-device-terms-of-use).
 
 1. If you want to expire Terms of use consents on a schedule, set **Expire consents** to **On**. When set to On, two additional schedule settings are displayed.
 
@@ -249,9 +247,6 @@ The following procedure describes how to add a Terms of use language.
 ## Per-device Terms of use
 
 The **Require users to consent on every device** setting enables you to require end users to accept your Terms of use on every device they are accessing from. The end user will be required to join their device in Azure AD. When the device is joined, the device ID is used to enforce the Terms of use on each device.
-
-> [!NOTE]
-> If you do not see the **Require users to consent on every device** setting when creating a new Terms of use, it is because this feature has not yet been deployed to your region. This feature is expected to be fully deployed by early January 2019.
 
 Here is a list of the supported platforms and software.
 
