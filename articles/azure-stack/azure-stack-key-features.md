@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer:
+ms.reviewer: unknown
 
 ---
 # Key features and concepts in Azure Stack

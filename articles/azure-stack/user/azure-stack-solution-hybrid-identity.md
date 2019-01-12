@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/28/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
+ms.reviewer: anajod
 ---
 
 # Tutorial: Configure hybrid cloud identity for Azure and Azure Stack applications

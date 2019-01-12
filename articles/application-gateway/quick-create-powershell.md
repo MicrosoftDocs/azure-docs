@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 1/8/2019
+ms.date: 1/11/2019
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -20,7 +20,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Run Azure PowerShell locally
 
-If you choose to install and use Azure PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. 
+If you choose to install and use Azure PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later.
 
 1. To find the version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 2. To create a connection with Azure, run `Login-AzureRmAccount`.
@@ -74,7 +74,7 @@ When you run the following code sample to create the virtual machines, Azure pro
     
 ```azurepowershell-interactive
 $vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork myVNet -Name myBackendSubnet
+$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name myBackendSubnet
 $cred = Get-Credential
 for ($i=1; $i -le 2; $i++)
 {
@@ -126,7 +126,7 @@ for ($i=1; $i -le 2; $i++)
 
 ```azurepowershell-interactive
 $vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork myVNet -Name myAGSubnet
+$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name myAGSubnet
 $pip    = Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress 
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
   -Name myAGIPConfig `

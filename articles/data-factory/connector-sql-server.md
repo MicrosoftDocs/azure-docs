@@ -528,7 +528,7 @@ When copying data from/to SQL Server, the following mappings are used from SQL S
     See [Enable or Disable a Server Network Protocol](https://msdn.microsoft.com/library/ms191294.aspx) for details and alternate ways of enabling TCP/IP protocol.
 
 3. In the same window, double-click **TCP/IP** to launch **TCP/IP Properties** window.
-4. Switch to the **IP Addresses** tab. Scroll down to see **IPAll** section. Note down the **TCP Port **(default is **1433**).
+4. Switch to the **IP Addresses** tab. Scroll down to see **IPAll** section. Note down the **TCP Port** (default is **1433**).
 5. Create a **rule for the Windows Firewall** on the machine to allow incoming traffic through this port.  
 6. **Verify connection**: To connect to the SQL Server using fully qualified name, use SQL Server Management Studio from a different machine. For example: `"<machine>.<domain>.corp.<company>.com,1433"`.
 
