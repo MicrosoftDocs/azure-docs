@@ -16,7 +16,7 @@ ms.author: rambala
 
 # ExpressRoute Global Reach Application Scenario
 
-To learn more about ExpressRoute Global Reach, see [ExpressRoute Global Reach][Global Reach]. In this article, let's walk through an application scenario, compare the ExpressRoute Global Reach solution to a few other solutions, configure Global Reach for the example scenario and verify the connections. 
+To learn more about ExpressRoute Global Reach, see [ExpressRoute Global Reach][Global Reach]. In this article, let's walk through an application scenario, compare the ExpressRoute Global Reach solution to a few other solutions, configure Global Reach for the example scenario, and verify the connections. 
 
 ##Application Scenario
 
@@ -226,7 +226,7 @@ The following ping verifies data plane connectivity to the Contoso Azure VNet fr
 
 ## Optimization for latency sensitive traffic
 
-Global Reach routes traffic via Microsoft Edge devices. For the specific scenario considered in this article you can achieve more optimal routing between the two VNets by enabling VNet peering between them. Similarly you can achieve more optimal routing between the two on-premises network through a service provider, who can provide a more direct WAN connection between the sites. In such scenarios, you can use Global Reach routing as a fail back option for those connections. 
+Global Reach routes traffic via Microsoft Edge devices. For the specific scenario considered in this article, you can achieve more optimal routing between the two VNets by enabling VNet peering between them. Similarly you can achieve more optimal routing between the two on-premises networks through a service provider, who can provide a more direct WAN connection between the sites. In such scenarios, you can use Global Reach routing as a fail back option for those connections. 
 
 ## Next Steps
 
