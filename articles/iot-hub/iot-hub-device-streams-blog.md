@@ -18,21 +18,23 @@ IoT Hub device streams address the end-to-end connectivity needs of the above sc
   <img src="./media/iot-hub-device-streams-blog/iot-hub-device-streams-overview.png">
 </p>
 
-- Device and service endpoints each create separate outbound connections to an IoT Hub endpoint that acts as a proxy for the traffic being transmitted between them;
+- Device and service endpoints each create separate outbound connections to an IoT Hub endpoint that acts as a proxy for the traffic being transmitted between them.
 
-- IoT Hub endpoint will relay traffic packets from device to service and vice-versa. This establishes an end-to-end bi-directional tunnel through which device and service applications can communicate;
+- The IoT Hub endpoint will relay traffic packets from device to service and vice-versa. This establishes an end-to-end bidirectional tunnel through which device and service applications can communicate.
 
 - The established tunnel through IoT Hub provides reliable and ordered packet delivery guarantees. Furthermore, the transfer of traffic through IoT Hub as an intermediary is masked from the applications, giving them the seamless experience of direct bi-direction communication that is on par with TCP.
 
+
 ## Benefits
-IoT Hub device streams provide the following benefits:
+
+IoT Hub device streams provide the following benefits.
 - **Firewall-friendly secure connectivity:** IoT devices can be reached from service endpoints without opening up of inbound firewall port at the device or network perimeters. All that is needed is the ability to create outbound connections to IoT Hub cloud endpoints over port 443 (devices that use IoT Hub SDK already maintain such a connection).
 
-- **Authentication enforcement:** To establish a stream, both device and service endpoints need to authenticate with IoT Hub using their corresponding credentials. This enhances security of the device's communication layer, by ensuring that the identity of each side of the tunnel is verified prior to any communication taking place between them.
+- **Authentication enforcement:** To establish a stream, both device and service endpoints need to authenticate with IoT Hub using their corresponding credentials. This enhances security of the device's communication layer by ensuring that the identity of each side of the tunnel is verified prior to any communication taking place between them.
 
 - **Encryption:** By default, IoT Hub device streams use TLS-enabled connections. This ensures that the application traffic is encrypted regardless of whether the application uses encryption or not.
 
-- **Simplicity of connectivity:** The use of device streams eliminates the need for complex setup of Virtual Private Networks to enable connectivity to IoT devices. Furthermore, unlike VPN, which give broad access to the entire network, device streams are point-to-point involving a single device and a single service at each side of the tunnel.
+- **Simplicity of connectivity:** The use of device streams eliminates the need for complex setup of Virtual Private Networks (VPN) to enable connectivity to IoT devices. Furthermore, unlike VPN, which gives broad access to the entire network, device streams are point-to-point involving a single device and a single service at each side of the tunnel.
 
 - **Compatibility with TCP/IP stack:** IoT Hub device streams can accommodate TCP/IP application traffic. This means that a wide range of proprietary as well as standards-based protocols can leverage this feature. This includes well established protocols such as Remote Desktop Protocol (RDP), Secure Shell (SSH), File Transfer Protocol (FTP), HTTP/REST, among many others.
 
