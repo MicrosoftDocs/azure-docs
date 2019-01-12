@@ -19,7 +19,7 @@ Azure Digital Twins supports attaching blobs to devices, spaces, and users. Blob
 
 [!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
-## Uploading blobs: an overview
+## Uploading blobs overview
 
 You can use multipart requests to upload blobs to specific endpoints and their respective functionalities.
 
@@ -48,14 +48,14 @@ JSON blob metadata conforms to the following model:
 
 | Attribute | Type | Description |
 | --- | --- | --- |
-| parentId | String | The parent entity to associate the blob with (spaces, devices, or users) |
-| name |String | A human-friendly name for the blob |
-| type | String | The type of blob - cannot use *type* and *typeId*  |
-| typeId | Integer | The blob type ID - cannot use *type* and *typeId* |
-| subtype | String | The blob subtype - cannot use *subtype* and *subtypeId* |
-| subtypeId | Integer | The subtype ID for the blob - cannot use *subtype* and *subtypeId* |
-| description | String | Customized description of the blob |
-| sharing | String | Whether the blob can be shared - enum [`None`, `Tree`, `Global`] |
+| **parentId** | String | The parent entity to associate the blob with (spaces, devices, or users) |
+| **name** |String | A human-friendly name for the blob |
+| **type** | String | The type of blob - cannot use *type* and *typeId*  |
+| **typeId** | Integer | The blob type ID - cannot use *type* and *typeId* |
+| **subtype** | String | The blob subtype - cannot use *subtype* and *subtypeId* |
+| **subtypeId** | Integer | The subtype ID for the blob - cannot use *subtype* and *subtypeId* |
+| **description** | String | Customized description of the blob |
+| **sharing** | String | Whether the blob can be shared - enum [`None`, `Tree`, `Global`] |
 
 Blob metadata is always supplied as the first chunk with **Content-Type** `application/json` or as a `.json` file. File data is supplied in the second chunk and can be of any supported MIME type.
 
@@ -105,18 +105,18 @@ Individually returned blobs conform to the following JSON schema:
 
 | Attribute | Type | Description |
 | --- | --- | --- |
-| id | String | The unique identifier for the blob |
-| name |String | A human-friendly name for the blob |
-| parentId | String | The parent entity to associate the blob with (spaces, devices, or users) |
-| type | String | The type of blob - cannot use *type* and *typeId*  |
-| typeId | Integer | The blob type ID - cannot use *type* and *typeId* |
-| subtype | String | The blob subtype - cannot use *subtype* and *subtypeId* |
-| subtypeId | Integer | The subtype ID for the blob - cannot use *subtype* and *subtypeId* |
-| sharing | String | Whether the blob can be shared - enum [`None`, `Tree`, `Global`] |
-| description | String | Customized description of the blob |
-| contentInfos | Array | Specifies unstructured metadata information including version |
-| fullName | String | The fullname of the blob |
-| spacePaths | String | The space path |
+| **id** | String | The unique identifier for the blob |
+| **name** |String | A human-friendly name for the blob |
+| **parentId** | String | The parent entity to associate the blob with (spaces, devices, or users) |
+| **type** | String | The type of blob - cannot use *type* and *typeId*  |
+| **typeId** | Integer | The blob type ID - cannot use *type* and *typeId* |
+| **subtype** | String | The blob subtype - cannot use *subtype* and *subtypeId* |
+| **subtypeId** | Integer | The subtype ID for the blob - cannot use *subtype* and *subtypeId* |
+| **sharing** | String | Whether the blob can be shared - enum [`None`, `Tree`, `Global`] |
+| **description** | String | Customized description of the blob |
+| **contentInfos** | Array | Specifies unstructured metadata information including version |
+| **fullName** | String | The full name of the blob |
+| **spacePaths** | String | The space path |
 
 Blob metadata is always supplied as the first chunk with **Content-Type** `application/json` or as a `.json` file. File data is supplied in the second chunk and can be of any supported MIME type.
 
@@ -196,7 +196,7 @@ curl
 | YOUR_SPACE_ID | The ID of the space to associate the blob with |
 | PATH_TO_FILE | The path to your text file |
 
-A successful POST will return the ID of the new the blob (highlighted in red above).
+A successful POST returns the ID of the new the blob (highlighted in red earlier).
 
 ## API endpoints
 
@@ -218,7 +218,7 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-Successful requests return a JSON object as [described above](#blobModel).
+Successful requests return a JSON object as [described earlier](#blobModel).
 
 ### Spaces
 
@@ -236,9 +236,9 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-Successful requests return a JSON object as [described above](#blobModel).
+Successful requests return a JSON object as [described earlier](#blobModel).
 
-A PATCH request to the same endpoint updates metadata descriptions and creates new versions of the blob. The HTTP request is made through the PATCH method, along with any necessary meta, and multipart form data.
+A PATCH request to the same endpoint updates metadata descriptions and creates versions of the blob. The HTTP request is made through the PATCH method, along with any necessary meta, and multipart form data.
 
 ### Users
 
@@ -256,7 +256,7 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-Successful requests return a JSON object as [described above](#blobModel).
+Successful requests return a JSON object as [described earlier](#blobModel).
 
 ## Common errors
 
@@ -276,7 +276,7 @@ To resolve this error, verify that the overall request has an appropriate **Cont
 * `multipart/mixed`
 * `multipart/form-data`
 
-Also, verify that each multipart chunk has a corresponding **Content-Type** as needed
+Also, verify that each multipart chunk has a corresponding **Content-Type** as needed.
 
 ## Next steps
 
