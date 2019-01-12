@@ -16,7 +16,7 @@ ms.author: rambala
 
 # ExpressRoute Global Reach Application Scenario
 
-To learn more about ExpressRoute Global Reach, see [ExpressRoute Global Reach][Global Reach]. In this article, let's walk through an application scenario, compare the ExpressRoute Global Reach solution to a few other solutions, and configure Global Reach for the example scenario and verify the connections. 
+To learn more about ExpressRoute Global Reach, see [ExpressRoute Global Reach][Global Reach]. In this article, let's walk through an application scenario, compare the ExpressRoute Global Reach solution to a few other solutions, configure Global Reach for the example scenario and verify the connections. 
 
 ##Application Scenario
 
@@ -26,7 +26,7 @@ Fabrikam Inc. acquires Contoso Ltd. Following the merger, Fabrikam wants to inte
 
  [![1]][1]
 
-The dashed arrows in the middle of the above figure indicate the required network inter-connections. The following table shows the route table of the primary private peering of the ExpressRoute of Contoso Ltd. prior to the merger.
+The dashed arrows in the middle of the above figure indicate the required network interconnections. The following table shows the route table of the primary private peering of the ExpressRoute of Contoso Ltd. prior to the merger.
 
 [![2]][2]
 
@@ -63,9 +63,9 @@ The interconnection between the two on-premises networks is still needed for the
 
 This option allows inter-regional Azure communication for the private deployment to ride over the Microsoft backbone and the communication between the on-premises network to be carried over the external network. However, the main drawback of the solution is that you need to establish multiple cross regional connections, which complicate maintenance and troubleshooting. Also, the option doesn't let you take advantage of the high-available Microsoft global backbone for communicating between the two on-premises networks.
 
-### Option 3: VNet-peering and interconnecting on-premises networks
+### Option 3: VNet peering and interconnecting on-premises networks
 
-The following figure illustrates this option. The option uses VNet-peering for the inter-regional VNet communication. The option, as illustrated, is incomplete as it doesn't address cross-regional VNet to on-premises communication (indicated via the two dotted-arrow lines in the middle). Use on-premises to on-premises connection (as in Option 1) or ExpressRoute cross connectivity (as in Option 2) for the cross-regional to on-premises communication.
+The following figure illustrates this option. The option uses VNet peering for the inter-regional VNet communication. The option, as illustrated, is incomplete as it doesn't address cross-regional VNet to on-premises communication (indicated via the two dotted-arrow lines in the middle). Use on-premises to on-premises connection (as in Option 1) or ExpressRoute cross connectivity (as in Option 2) for the cross-regional to on-premises communication.
 
 [![6]][6]
 
@@ -130,7 +130,7 @@ The following table shows the route table of the primary private peering of the 
 
 In the above tables, we see all the expected destination 'NETWORK' prefixes and the appropriate 'NEXT HOP' are listed.
 
-The previous screen clips show the 'Get route table' blade that can be accessed in the Azure web portal under 'Private peering' of an ExpressRoute circuit. You can also list an ExpressRoute route table using the following PowerShell Command:
+Above you see the 'Get route table' blade that can be accessed in the Azure portal under 'Private peering' of an ExpressRoute circuit. You can also list an ExpressRoute route table using the following PowerShell Command:
 
 	```powershell
 	Get-AzExpressRouteCircuitRouteTable -DevicePath 'primary' -ExpressRouteCircuitName "Your_circuit_name" -PeeringType AzurePrivatePeering -ResourceGroupName "Your_resource_group"
@@ -224,6 +224,10 @@ The following ping verifies data plane connectivity to the Contoso Azure VNet fr
 	Approximate round trip times in milli-seconds:
 	    Minimum = 76ms, Maximum = 78ms, Average = 77ms
 
+## Optimization for latency sensitive traffic
+
+Global Reach routes traffic via Microsoft Edge devices. For the specific scenario considered in this article you can achieve more optimal routing between the two VNets by enabling VNet peering between them. Similarly you can achieve more optimal routing between the two on-premises network through a service provider, who can provide a more direct WAN connection between the sites. In such scenarios, you can use Global Reach routing as a fail back option for those connections. 
+
 ## Next Steps
 
 Global Reach is rolled out on a country by country basis. To see if Global Reach is available in the countries that you want, see [ExpressRoute Global Reach][Global Reach].
@@ -234,7 +238,7 @@ Global Reach is rolled out on a country by country basis. To see if Global Reach
 [3]: ./media/expressroute-globalreach-applicationscenario/FabrikamExR-RT-Premerger.png "Fabrikam ExpressRoute Route table prior to merger"
 [4]: ./media/expressroute-globalreach-applicationscenario/S2SVPN-Solution.png "Interconnecting on-premises networks"
 [5]: ./media/expressroute-globalreach-applicationscenario/ExR-XConnect-Solution.png "ExpressRoute Cross Connect"
-[6]: ./media/expressroute-globalreach-applicationscenario/VNet-peering-Solution.png "VNet-peering"
+[6]: ./media/expressroute-globalreach-applicationscenario/VNet-peering-Solution.png "VNet peering"
 [7]: ./media/expressroute-globalreach-applicationscenario/GlobalReach-Solution.png "Global Reach"
 [8]: ./media/expressroute-globalreach-applicationscenario/ER-Ckt-details.png "Contoso ExpressRoute circuit"
 [9]: ./media/expressroute-globalreach-applicationscenario/ContosoExR-RT-Postmerger.png "Contoso ExpressRoute Route table with Global Reach"
