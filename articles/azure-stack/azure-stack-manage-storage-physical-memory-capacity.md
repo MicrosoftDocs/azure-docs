@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
-ms.reviewer: Thomas.Roettinger
+ms.reviewer: thoroet
 
 ---
 
