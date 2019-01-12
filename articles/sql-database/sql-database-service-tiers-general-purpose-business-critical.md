@@ -11,9 +11,14 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 11/30/2018
 ---
-# General Purpose and Business Critical service tiers
+# Azure SQL Database service tiers
+
+Azure SQL Database is based on SQL Server Database Engine architecture that is adjusted for the cloud environment in order to ensure 99.99% availability even in the cases of infrastructure failures. There are three architectural models that are used in Azure SQL Database:
+- [General Purpose](sql-database-service-tier-general-purpose.md) designed for most of the generic workloads.
+- [Business Critical](sql-database-service-tier-business-critical.md) designed for low latency workloads with one readable replica.
+- [Hyperscale](sql-database-service-tier-hyperscale.md) designed for very large databases (up to 100TB) with multiple readable replicas.
 
 This article discusses storage and backup considerations for the General Purpose and Business Critical service tiers in the vCore-based purchasing model.
 

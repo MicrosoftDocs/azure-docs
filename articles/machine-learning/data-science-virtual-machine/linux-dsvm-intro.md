@@ -1,11 +1,12 @@
 ---
-title: Provision a Linux CentOS Data Science Virtual Machine on Azure | Microsoft Docs
+title: Create a CentOS Linux Data Science Virtual Machine
+titleSuffix: Azure
 description: Configure and create a Linux Data Science Virtual Machine on Azure to do analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-
+ms.custom: seodec18
 
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning

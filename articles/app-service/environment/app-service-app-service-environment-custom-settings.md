@@ -1,5 +1,5 @@
 ---
-title: Custom settings for App Service Environments
+title: Custom settings for App Service Environments - Azure
 description: Custom configuration settings for App Service Environments
 services: app-service
 documentationcenter: ''
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 08/22/2016
 ms.author: stefsch
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Custom configuration settings for App Service Environments
 ## Overview

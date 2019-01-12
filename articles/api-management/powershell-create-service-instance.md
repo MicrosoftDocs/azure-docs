@@ -25,7 +25,7 @@ This quickstart describes the steps for creating a new API Management instance u
 
 ## Log in to Azure
 
-Log in to the Azure portal at http://portal.azure.com.
+Log in to the Azure portal at https://portal.azure.com.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 

@@ -3,8 +3,8 @@ title: Testing SAP NetWeaver on Microsoft Azure SUSE Linux VMs | Microsoft Docs
 description: Testing SAP NetWeaver on Microsoft Azure SUSE Linux VMs
 services: virtual-machines-linux
 documentationcenter: ''
-author: hermanndms
-manager: jeconnoc
+author: msjuergent
+manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,7 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
-ms.author: hermannd
+ms.author: juergent
+ms.custom: H1Hack27Feb2017
 
 ---
 # Running SAP NetWeaver on Microsoft Azure SUSE Linux VMs

@@ -47,7 +47,7 @@ You can enable the password-less phone sign-in preview using the following Power
 
 ## How do my end users enable phone sign-in?
 
-For public preview, there is no way to enforce users to create or use this new credential. An end user will only encounter password-less sign-in once an admin as enabled their tenant and the user has updated their Microsoft Authenticator app to enable phone sign-in.
+For public preview, there is no way to enforce users to create or use this new credential. An end user will only encounter password-less sign-in once an admin has enabled their tenant and the user has updated their Microsoft Authenticator app to enable phone sign-in.
 
 > [!NOTE]
 > This capability has been in the app since March of 2017, so there is a possibility that when the policy is enabled for a tenant, users may encounter this flow immediately. Be aware and prepare your users for this change.

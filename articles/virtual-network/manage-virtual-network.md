@@ -1,20 +1,16 @@
-﻿---
-title: Create, change, or delete an Azure virtual network | Microsoft Docs
+---
+title: Create, change, or delete an Azure virtual network
+titlesuffix: Azure Virtual Network
 description: Learn how to create, change, or delete a virtual network in Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 01/10/2019
 ms.author: jdial
 
 ---
@@ -85,7 +81,7 @@ Complete the following tasks before completing steps in any section of this arti
 	- **Properties**: Displays settings about the virtual network, including the virtual network's resource ID and the Azure subscription it is in.
 	- **Diagram**: The diagram provides a visual representation of all devices that are connected to the virtual network. The diagram has some key information about the devices. To manage a device in this view, in the diagram, select the device.
 	- **Common Azure settings**: To learn more about common Azure settings, see the following information:
-		*	[Activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+		*	[Activity log](../azure-monitor/platform/activity-logs-overview.md)
 		*	[Access control (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
 		*	[Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 		*	[Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -98,7 +94,13 @@ Complete the following tasks before completing steps in any section of this arti
 
 ## Add or remove an address range
 
-You can add and remove address ranges for a virtual network. An address range must be specified in CIDR notation, and cannot overlap with other address ranges within the same virtual network. The address ranges you define can be public or private (RFC 1918). Whether you define the address range as public or private, the address range is reachable only from within the virtual network, from interconnected virtual networks, and from any on-premises networks that you have connected to the virtual network. You cannot add the following address ranges:
+You can add and remove address ranges for a virtual network. An address range must be specified in CIDR notation, and cannot overlap with other address ranges within the same virtual network. The address ranges you define can be public or private (RFC 1918). Whether you define the address range as public or private, the address range is reachable only from within the virtual network, from interconnected virtual networks, and from any on-premises networks that you have connected to the virtual network. 
+
+You can decrease the address range for a virtual network if you don't have any subnets associated with it. Otherwise, you can only extend the address range, for example, changing a /16 to /8. You could begin with a small address range, and then extend it later or add additional ranges.
+
+<!-- the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+
+You cannot add the following address ranges:
 
 - 224.0.0.0/4 (Multicast)
 - 255.255.255.255/32 (Broadcast)

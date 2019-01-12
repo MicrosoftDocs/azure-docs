@@ -50,10 +50,8 @@ Once you've enabled the feature, a new service identity is created in your Azure
 
 Next, [create a Service Bus Messaging namespace](service-bus-create-namespace-portal.md) in one of the Azure regions that have preview support for RBAC: **US East**, **US East 2**, or **West Europe**. 
 
-Navigate to the namespace **Access Control (IAM)** page on the portal, and then click **Add** to add the managed identity to the **Owner** role. To do so, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**.
+Navigate to the namespace **Access Control (IAM)** page on the portal, and then click **Add role assignment** to add the managed identity to the **Owner** role. To do so, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**.
 
-![](./media/service-bus-managed-service-identity/msi2.png)
- 
 The web application's managed identity now has access to the Service Bus namespace, and to the queue you previously created. 
 
 ### Run the app

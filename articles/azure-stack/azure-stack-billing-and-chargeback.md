@@ -31,9 +31,9 @@ Each resource provider in Azure Stack posts usage data per resource usage. The u
 
 If you have [Registered your Azure Stack instance with Azure](azure-stack-register.md), Azure Stack is configured to send the usage data to Azure Commerce. After the data is uploaded to Azure, you can access it through the billing portal or by using Azure resource usage APIs. To learn more about what usage data is reported to Azure, see [Usage data reporting](azure-stack-usage-reporting.md).  
 
-The following image shows the key components in the usage pipeline: 
+The following image shows the key components in the usage pipeline:
 
-![Usage pipeline](media\azure-stack-billing-and-chargeback\usagepipeline.png)
+![Usage pipeline](media/azure-stack-billing-and-chargeback/usagepipeline.png)
 
 ## What usage information can I find, and how?
 

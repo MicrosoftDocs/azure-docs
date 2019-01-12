@@ -51,7 +51,7 @@ To learn how to update your billing information, see [Change the credit card use
 
 Because of technical constraints, we cannot change the country on an existing account. However, you can create an account in the desired country and then contact Azure support to migrate your services to that account.
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. 
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

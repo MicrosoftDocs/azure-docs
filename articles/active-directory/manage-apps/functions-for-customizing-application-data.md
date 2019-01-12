@@ -23,13 +23,13 @@ When you configure provisioning to a SaaS application, one of the types of attri
 The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic for Applications (VBA) functions.
 
 * The entire expression must be defined in terms of functions, which consist of a name followed by arguments in parentheses: <br>
-  *FunctionName(<<argument 1>>,<<argument N>>)*
-* You may nest functions within each other. For example: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
+  *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
+* You may nest functions within each other. For example: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * You can pass three different types of arguments into functions:
   
   1. Attributes, which must be enclosed in square brackets. For example: [attributeName]
   2. String constants, which must be enclosed in double quotes. For example: "United States"
-  3. Other Functions. For example: FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
+  3. Other Functions. For example: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
 * For string constants, if you need a backslash ( \ ) or quotation mark ( " ) in the string, it must be escaped with the backslash ( \ ) symbol. For example: "Company name: \"Contoso\""
 
 ## List of Functions
@@ -63,7 +63,7 @@ Takes a date string from one format and converts it into a different format.
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the source object. |
-| **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Required |String |Format of the output date. |
 
 - - -
@@ -81,7 +81,7 @@ If one of the source values is a multi-value attribute, then every value in that
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **separator** |Required |String |String used to separate source values when they are concatenated into one string. Can be "" if no separator is required. |
-| **source1  … sourceN ** |Required, variable-number of times |String |String values to be joined together. |
+| **source1  … sourceN** |Required, variable-number of times |String |String values to be joined together. |
 
 - - -
 ### Mid
@@ -150,6 +150,7 @@ Replaces values within a string. It works differently depending on the parameter
   * If **source** has a value, uses **regexPattern** and **regexGroupName** to extract replacement value from the property with **replacementPropertyName**. Replacement value is returned as the result
 
 **Parameters:**<br> 
+
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the source object. |
@@ -177,7 +178,7 @@ Requires a minimum of two arguments, which are unique value generation rules def
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN ** |At least 2 are required, no upper bound |String | List of unique value generation rules to evaluate |
+| **uniqueValueRule1  … uniqueValueRuleN** |At least 2 are required, no upper bound |String | List of unique value generation rules to evaluate |
 
 
 - - -

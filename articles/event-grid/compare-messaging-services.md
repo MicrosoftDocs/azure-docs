@@ -1,17 +1,18 @@
 ---
-title: Azure messaging services comparison
-description: Compares Azure Event Grid, Event Hubs, and Service Bus. Recommends which service to use for different scenarios.
+title: Azure messaging comparison - Event Grid, Event Hubs, Service Bus
+description: Describes the three Azure messaging services - Azure Event Grid, Event Hubs, and Service Bus. Recommends which service to use for different scenarios.
 services: event-grid
 author: tfitzmac
 manager: timlt
 
 ms.service: event-grid
 ms.topic: overview
-ms.date: 07/05/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
+ms.custom: seodec18
 ---
 
-# Choose between Azure services that deliver messages
+# Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus
 
 Azure offers three services that assist with delivering event messages throughout a solution. These services are:
 
@@ -29,7 +30,7 @@ There's an important distinction to note between services that deliver an event 
 
 An event is a lightweight notification of a condition or a state change. The publisher of the event has no expectation about how the event is handled. The consumer of the event decides what to do with the notification. Events can be discrete units or part of a series.
 
-Discrete events report state change and are actionable. To take the next step, the consumer only needs to know that something happened. The event data has information about what happened but doesn't have the data that triggered the event. For example, an event notifies consumers that a file was created. It may have general information about the file, but it doesn't have the file itself. Discrete events are ideal for serverless solutions that need to scale.
+Discrete events report state change and are actionable. To take the next step, the consumer only needs to know that something happened. The event data has information about what happened but doesn't have the data that triggered the event. For example, an event notifies consumers that a file was created. It may have general information about the file, but it doesn't have the file itself. Discrete events are ideal for [serverless](http://azure.com/serverless) solutions that need to scale.
 
 Series events report a condition and are analyzable. The events are time-ordered and interrelated. The consumer needs the sequenced series of events to analyze what happened.
 

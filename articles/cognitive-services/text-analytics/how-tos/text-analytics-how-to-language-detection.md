@@ -47,7 +47,7 @@ Document size must be under 5,000 characters per document, and you can have up t
             },                
             {
                 "id": "5",
-                "text": "Этот документ находится на английском языке."
+                "text": "Этот документ на английском языке."
             }
         ]
     }

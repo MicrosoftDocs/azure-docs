@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Azure Automation shared resou
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/05/2018
+ms.date: 12/3/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -19,11 +19,11 @@ This article discusses solutions to resolve issues that you may run across when 
 
 #### Issue
 
-When you import or update your modules in Azure automation, you find a module that is stuck in the **Importing** state.
+A module is stuck in the **Importing** state when you import or update your modules in Azure automation.
 
-#### Error
+#### Cause
 
-Importing PowerShell modules is a complex multi-step process. This process introduces the possibility of a module not importing correctly. If this occurs, the module you're importing can be stuck in a transient state. To learn more about this process, see [Importing a PowerShell Module]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
+Importing PowerShell modules is a complex multi-step process. This process introduces the possibility of a module not importing correctly. If this issue occurs, the module you're importing can be stuck in a transient state. To learn more about this process, see [Importing a PowerShell Module]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
 
 #### Resolution
 
@@ -32,6 +32,28 @@ To resolve this issue, you must remove the module that is stuck in the **Importi
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
+
+## Run As accounts
+
+### <a name="unable-create-update"></a>Scenario: You're unable to create or update a Run As account
+
+#### Issue
+
+When you try to create or update a Run As account, you receive an error similar to the following error message:
+
+```error
+You do not have permissions to create…
+```
+
+#### Cause
+
+You don't have the permissions that you need to create or update the Run As account or the resource is locked at a resource group level.
+
+#### Resolution
+
+To create or update a Run As account, you must have appropriate permissions to the various resources used by the Run As account. To learn about the permissions needed to create or update a Run As account, see [Run As account permissions](../manage-runas-account.md#permissions).
+
+If the issue is due to a lock, verify that the lock is ok to remove and navigate to the resource that is locked, right-click the lock and choose **Delete** to remove the lock.
 
 ## Next steps
 

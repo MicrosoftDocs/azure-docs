@@ -1,3 +1,10 @@
+---
+author: erikre
+ms.service: multiple
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: erikre
+---
 Azure customers can unlock 25,000 free emails each month. These 25,000 free monthly emails will give you access to advanced reporting and analytics and [all APIs][all APIs] (Web, SMTP, Event, Parse and more). For information about additional services provided by SendGrid, visit the [SendGrid Solutions][SendGrid Solutions] page.
 
 ### To sign up for a SendGrid account

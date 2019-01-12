@@ -4,8 +4,9 @@ description: This article describes support and requirements when deploying the 
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: article
-ms.date: 11/11/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ---
 

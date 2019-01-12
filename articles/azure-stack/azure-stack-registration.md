@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/02/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 
@@ -119,8 +119,8 @@ Connected environments can access the internet and Azure. For these environments
 
 2. Add the Azure account that you use to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet. You are prompted to enter your Azure account credentials and you may have to use 2-factor authentication based on your account’s configuration.
 
-   ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+   ```PowerShell
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | Parameter | Description |  
@@ -145,11 +145,15 @@ Connected environments can access the internet and Azure. For these environments
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-6. Next, in the same PowerShell session, ensure you are logged in to the correct Azure PowerShell Context. This is the azure account that was used to register the Azure Stack resource provider above. Powershell to run:
+6. Next, in the same PowerShell session, ensure you are logged in to the correct Azure PowerShell Context. This is the Azure account that was used to register the Azure Stack resource provider above. Powershell to run:
 
    ```PowerShell  
-   Add-AzureRmAccount -Environment "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
+
+   | Parameter | Description |  
+   |-----|-----|
+   | EnvironmentName | The Azure cloud subscription environment name. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure Subscription, **AzureChinaCloud**.  |
 
 7. In the same PowerShell session, run the **Set-AzsRegistration** cmdlet. PowerShell to run:  
 
@@ -180,7 +184,7 @@ Connected environments can access the internet and Azure. For these environments
 2. Add the Azure account that you use to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet. You are prompted to enter your Azure account credentials and you may have to use 2-factor authentication based on your account’s configuration.
 
    ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | Parameter | Description |  
@@ -294,15 +298,20 @@ Optionally, you can use the Get-Content cmdlet to point to a file that contains 
 
 ## Verify Azure Stack registration
 
-Use these steps to verify that Azure Stack is successfully registered with Azure.
+You can use the **Region management** tile to verify that the Azure Stack registration was successful. This tile is available on the default dashboard in the administrator portal. The status can be registered, or not registered. If registered, it also shows the Azure subscription ID that you used to register your Azure Stack along with the registration resource group and name.
 
-1. Sign in to the Azure Stack [administrator portal](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;//adminportal.*&lt;region>.&lt;fqdn>*.
-2. Select **All Services**, and then under the **ADMINISTRATION** category, select **Marketplace management** > **Add from Azure**.
+1. Sign in to the [Azure Stack administration portal](https://adminportal.local.azurestack.external).
 
-If you see a list of items available from Azure (such as WordPress), your activation was successful. However, in disconnected environments you will not see Azure marketplace items in the Azure Stack marketplace.
+2. From the Dashboard, select **Region management**.
 
-> [!Note]  
-> After registration is complete, the active warning for not registering will no longer appear.
+    [ ![Region management tile](media/azure-stack-registration/admin1sm.png "Region management tile") ](media/azure-stack-registration/admin1.png#lightbox)
+
+3. Select **Properties**. This blade shows the status and details of your environment. The status can be **Registered** or **Not registered**. If registered, it also shows the Azure subscription ID that you used to register your Azure Stack, along with the registration resource group and name.
+
+Alternatively, you can verify if your registration was successful by using the Marketplace management feature. If you see a list of marketplace items in the Marketplace Management blade, your registration was successful. However, in disconnected environments, you will not be able to see marketplace items in Marketplace management. However, you can use the offline tool to verify registration.
+
+> [!NOTE]
+> After registration is complete, the active warning for not registering will no longer appear. In disconnected scenarios, you will see a message in Marketplace management asking you to register and activate your Azure Stack, even if you have registered successfully.
 
 ## Renew or change registration
 

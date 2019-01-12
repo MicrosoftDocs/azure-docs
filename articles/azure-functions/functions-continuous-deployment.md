@@ -22,7 +22,7 @@ Continuous deployment is a great option for projects where multiple and frequent
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
 * External repository (Git or Mercurial)
-* [Git local repository](../app-service/app-service-deploy-local-git.md)
+* [Git local repository](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
 * [Azure DevOps Services](https://www.visualstudio.com/team-services/)
@@ -48,7 +48,7 @@ Use this procedure to configure continuous deployment for an existing function a
  
     ![Setup continuous deployment](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. In the **Deployment source** blade, click **Choose source**, then fill in the information for your chosen deployment source and click **OK**.
+3. In the **Deployment source** blade, click **Choose source**, then fill in the information for your chosen deployment source and click **OK**.
    
     ![Choose deployment source](./media/functions-continuous-deployment/choose-deployment-source.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge offline capabilities | Microsoft Docs 
-description: Understand how IoT Edge devices and modules can operate offline for extended periods of time, and how IoT Edge can enable regular IoT devices to operate offline too.
+title: Operate devices offline - Azure IoT Edge | Microsoft Docs 
+description: Understand how IoT Edge devices and modules can operate without internet connection for extended periods of time, and how IoT Edge can enable regular IoT devices to operate offline too.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,6 +8,7 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Understand extended offline capabilities for IoT Edge devices, modules, and child devices (preview)

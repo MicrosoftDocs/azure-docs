@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Bing News search SDK, C#"
+title: "Quickstart: Perform a news search - Bing News Search SDK for C#"
 titleSuffix: Azure Cognitive Services
-description: Setup for Bing News Search SDK console application.
+description: Use this quickstart to search for news using the Bing News Search SDK for Python, and process the response.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -11,15 +11,17 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
+ms.custom: seodec2018
 ---
 
-# Quickstart: Bing News Search SDK with C#
+# Quickstart: Perform a news search with the Bing News Search SDK for C#
 
 The Bing News Search SDK contains the functionality of the REST API for news queries and parsing results. 
 
 The [source code for C# Bing News Search SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) is available on Git Hub.
 
 ## Application dependencies
+Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).  
 
 To set up a console application using the Bing News Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.NewsSearch` package.
 
@@ -29,14 +31,14 @@ Installing the [NuGet News Search SDK package](https://www.nuget.org/packages/Mi
 * Newtonsoft.Json
 
 ## News Search client
-To create an instance of the `NewsSearchAPI` client, add using directive:
+To create an instance of the `NewsSearchClient`, add using directive:
 ```
 using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
 
 ```
 Then, instantiate the client:
 ```
-var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
@@ -50,7 +52,7 @@ Parse the news returned in the results of the previous query:
 ```
 if (newsResults.Value.Count > 0)
 {
-    var firstNewsResult = newsResults.Value.First();
+    var firstNewsResult = newsResults.Value[0];
 
     Console.WriteLine($"TotalEstimatedMatches value: {newsResults.TotalEstimatedMatches}");
     Console.WriteLine($"News result count: {newsResults.Value.Count}");
@@ -58,7 +60,7 @@ if (newsResults.Value.Count > 0)
     Console.WriteLine($"First news url: {firstNewsResult.Url}");
     Console.WriteLine($"First news description: {firstNewsResult.Description}");
     Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
-    Console.WriteLine($"First news provider: {firstNewsResult.Provider.First().Name}");
+    Console.WriteLine($"First news provider: {firstNewsResult.Provider[0].Name}");
 }
 
 else
@@ -82,7 +84,7 @@ namespace NewsSrchSDK
     {
         static void Main(string[] args)
         {
-            var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+            var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
             try
             {
@@ -135,7 +137,7 @@ namespace NewsSrchSDK
 ## Recent news, freshness and sortBy parameters
 The following code searches most recent news for "Artificial Intelligence" with `freshness` and `sortBy` parameters. It verifies the number of results and prints out `totalEstimatedMatches`, `name`, `url`, `description`, `published time`, and `name` of provider of the first news result.
 ```
-        public static void NewsSearchWithFilters(NewsSearchAPI client)
+        public static void NewsSearchWithFilters(NewsSearchClient client)
         {
             try
             {
@@ -178,7 +180,7 @@ The following code searches most recent news for "Artificial Intelligence" with 
 ## Category news, safe search
 The following code searches category news for movie and TV entertainment with safe search.  It verifies the number of results and prints out `category`, `name`, `url`, `description`, `published time`, and `name` of provider of the first news result.
 ```
-        public static void NewsCategory(NewsSearchAPI client)
+        public static void NewsCategory(NewsSearchClient client)
         {
             try
             {
@@ -220,7 +222,7 @@ The following code searches category news for movie and TV entertainment with sa
 ## Trending topics
 The following code searches news trending topics in Bing. It verifies the number of results and prints out `name`, `text of query`, `webSearchUrl`, `newsSearchUrl`, and `image.Url` of the first news result.
 ```
-        public static void TrendingTopics(NewsSearchAPI client)
+        public static void TrendingTopics(NewsSearchClient client)
         {
             try
             {

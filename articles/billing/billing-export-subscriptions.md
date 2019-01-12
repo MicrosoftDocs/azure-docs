@@ -28,7 +28,8 @@ The downloaded .json file provides the following information:
 - SubscriptionIds: A list of subscriptions that belong to your account, enumerated by subscription ID.
 
 ### subscriptions.json sample
-~~~~
+
+```json
 {
   "Email":"admin@contoso.com",
   "Puid":"00052xxxxxxxxxxx",
@@ -41,4 +42,4 @@ The downloaded .json file provides the following information:
     "90757cdc-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   ]
 }
-~~~~
+```

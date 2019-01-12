@@ -1,13 +1,12 @@
 ---
-title: Predict an answer with a simple regression model - Azure Machine Learning | Microsoft Docs
+title: Predict answers with regression models - Azure Machine Learning Studio | Microsoft Docs
 description: How to create a simple regression model to predict a price in Data Science for Beginners video 4. Includes a linear regression with target data.
 keywords: create a model,simple model,price prediction,simple regression model
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cjgronlund
 ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
 ms.service: machine-learning

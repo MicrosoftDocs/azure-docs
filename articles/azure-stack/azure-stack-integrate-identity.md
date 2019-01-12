@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -22,7 +22,7 @@ The following table shows the differences between the two identity choices:
 |Billing|Must be Capacity<br> Enterprise Agreement (EA) only|Capacity or Pay-as-you-use<br>EA or Cloud Solution Provider (CSP)|
 |Identity|Must be AD FS|Azure AD or AD FS|
 |Marketplace |Supported<br>BYOL licensing|Supported<br>BYOL licensing|
-|Registration|Recommended, requires removable media<br> and a separate connected device.|Automated|
+|Registration|Required, requires removable media<br> and a separate connected device.|Automated|
 |Patch and update|Required, requires removable media<br> and a separate connected device.|Update package can be downloaded directly<br> from the Internet to Azure Stack.|
 
 > [!IMPORTANT]
@@ -126,7 +126,7 @@ The following information is required as input for the automation parameters:
 
 |Parameter|Description|Example|
 |---------|---------|---------|
-|CustomAdfsName|Name of the claims provider.<cr>It appears that way on the AD FS landing page.|Contoso|
+|CustomAdfsName|Name of the claims provider.<br>It appears that way on the AD FS landing page.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Federation metadata link|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
@@ -210,7 +210,7 @@ For this procedure, use a computer that can communicate with the privileged endp
 
 Microsoft provides a script that configures the relying party trust, including the claim transformation rules. Using the script is optional as you can run the commands manually.
 
-You can download the helper script from [Azure Stack Tools](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) on Github.
+You can download the helper script from [Azure Stack Tools](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) on GitHub.
 
 If you decide to manually run the commands, follow these steps:
 
@@ -273,7 +273,7 @@ If you decide to manually run the commands, follow these steps:
    > [!IMPORTANT]  
    > You must use the AD FS MMC snap-in to configure the Issuance Authorization Rules when using Windows Server 2012 or 2012 R2 AD FS.
 
-4. When you use Internet Explorer or the Edge browser to access Azure Stack, you must ignore token bindings. Otherwise, the sign-in attempts fail. On your AD FS instance or a farm member, run the following command:
+4. When you use Internet Explorer or the Microsoft Edge browser to access Azure Stack, you must ignore token bindings. Otherwise, the sign-in attempts fail. On your AD FS instance or a farm member, run the following command:
 
    > [!note]  
    > This step is not applicable when using Windows Server 2012 or 2012 R2 AD FS. It is safe to skip this command and continue with the integration.

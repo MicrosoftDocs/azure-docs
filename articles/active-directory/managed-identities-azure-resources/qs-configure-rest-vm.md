@@ -65,10 +65,80 @@ To create an Azure VM with the system-assigned managed identity enabled,your acc
    ``` 
 
 4. Create a VM using CURL to call the Azure Resource Manager REST endpoint. The following example creates a VM named *myVM* with a system-assigned managed identity, as identified in the request body by the value `"identity":{"type":"SystemAssigned"}`. Replace `<ACCESS TOKEN>` with the value you received in the previous step when you requested a Bearer access token and the `<SUBSCRIPTION ID>` value as appropriate for your environment.
- 
-    ```bash
-    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"SystemAssigned"},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
-    ```
+
+   ```bash
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"SystemAssigned"},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"<SECURE PASSWORD STRING>"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   
+   **Request headers**
+   |Request header  |Description  |
+   |---------|---------|
+   |*Content-Type*     | Required. Set to `application/json`.        |
+   |*Authorization*     | Required. Set to a valid `Bearer` access token.        | 
+   
+   **Request body**
+
+   ```JSON
+     {
+       "location":"westus",
+       "name":"myVM",
+       "identity":{
+          "type":"SystemAssigned"
+       },
+       "properties":{
+          "hardwareProfile":{
+             "vmSize":"Standard_D2_v2"
+          },
+          "storageProfile":{
+             "imageReference":{
+                "sku":"2016-Datacenter",
+                "publisher":"MicrosoftWindowsServer",
+                "version":"latest",
+                "offer":"WindowsServer"
+             },
+             "osDisk":{
+                "caching":"ReadWrite",
+                "managedDisk":{
+                   "storageAccountType":"Standard_LRS"
+                },
+                "name":"myVM3osdisk",
+                "createOption":"FromImage"
+             },
+             "dataDisks":[
+                {
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":0
+                },
+                {
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":1
+                }
+             ]
+          },
+          "osProfile":{
+             "adminUsername":"azureuser",
+             "computerName":"myVM",
+             "adminPassword":"myPassword12"
+          },
+          "networkProfile":{
+             "networkInterfaces":[
+                {
+                   "id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic",
+                   "properties":{
+                      "primary":true
+                   }
+                }
+             ]
+          }
+       }
+    }  
+   ```
 
 ### Enable system-assigned identity on an existing Azure VM
 
@@ -86,7 +156,26 @@ To enable system-assigned managed identity on a VM that was originally provision
    > To ensure you don't delete any existing user-assigned managed identities that are assigned to the VM, you need to list the user-assigned managed identities by using this CURL command: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"`. If you have any user-assigned managed identities assigned to the VM as identified in the `identity` value in the response, skip to step 3 that shows you how to retain user-assigned managed identities while enabling system-assigned managed identity on your VM.
 
    ```bash
-    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   **Request headers**
+   |Request header  |Description  |
+   |---------|---------|
+   |*Content-Type*     | Required. Set to `application/json`.        |
+   |*Authorization*     | Required. Set to a valid `Bearer` access token.        | 
+   
+   **Request body**
+    
+   ```JSON
+    {  
+       "identity":{  
+          "type":"SystemAssigned"
+       }
+    }
    ```
 
 3. To enable system-assigned managed identity on a VM with existing user-assigned managed identities, you need to add `SystemAssigned` to the `type` value.  
@@ -101,11 +190,63 @@ To enable system-assigned managed identity on a VM that was originally provision
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   **Request headers**
+
+   |Request header  |Description  |
+   |---------|---------|
+   |*Content-Type*     | Required. Set to `application/json`.        |
+   |*Authorization*     | Required. Set to a valid `Bearer` access token.        | 
+
+   **Request body**
+
+   ```JSON
+    {  
+       "identity":{  
+          "type":"SystemAssigned, UserAssigned",
+          "userAssignedIdentities":{  
+             "/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{  
+    
+             },
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{  
+    
+             }
+          }
+       }
+    }
+   ```
+
    **API VERSION 2017-12-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
+   ```
+    
+   **Request headers**
+
+   |Request header  |Description  |
+   |---------|---------|
+   |*Content-Type*     | Required. Set to `application/json`.        |
+   |*Authorization*     | Required. Set to a valid `Bearer` access token.        | 
+   **Request body**
+
+   ```JSON
+    {  
+       "identity":{  
+          "type":"SystemAssigned, UserAssigned",
+          "identityIds":[  
+             "/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1",
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"
+          ]
+       }
+    }
+   ```   
 
 ### Disable system-assigned managed identity from an Azure VM
 
@@ -126,7 +267,27 @@ To disable system-assigned managed identity on a VM, your account needs the [Vir
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
-3. To remove system-assigned managed identity from a virtual machine that has user-assigned managed identities, remove `SystemAssigned` from the `{"identity":{"type:" "}}` value while keeping the `UserAssigned` value and the `userAssignedIdentities` dictionary values if you are using **API version 2018-06-01**. If you are using **API version 2017-12-01** or earlier, keep the `identityIds` array.
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   **Request headers**
+
+   |Request header  |Description  |
+   |---------|---------|
+   |*Content-Type*     | Required. Set to `application/json`.        |
+   |*Authorization*     | Required. Set to a valid `Bearer` access token.        | 
+
+   **Request body**
+
+   ```JSON
+    {  
+       "identity":{  
+          "type":"None"
+       }
+    }
+   ```
+
+   To remove system-assigned managed identity from a virtual machine that has user-assigned managed identities, remove `SystemAssigned` from the `{"identity":{"type:" "}}` value while keeping the `UserAssigned` value and the `userAssignedIdentities` dictionary values if you are using **API version 2018-06-01**. If you are using **API version 2017-12-01** or earlier, keep the `identityIds` array.
 
 ## User-assigned managed identity
 
@@ -158,17 +319,165 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
 
 5. Create a VM using CURL to call the Azure Resource Manager REST endpoint. The following example creates a VM named *myVM* in the resource group *myResourceGroup* with a user-assigned managed identity `ID1`, as identified in the request body by the value `"identity":{"type":"UserAssigned"}`. Replace `<ACCESS TOKEN>` with the value you received in the previous step when you requested a Bearer access token and the `<SUBSCRIPTION ID>` value as appropriate for your environment.
  
-   
    **API VERSION 2018-06-01**
-    
-   ```bash   
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM",{"identity":{"type":"UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
-   ``` 
 
+   ```bash   
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"UserAssigned","identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
+    
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **Request headers**
+
+   |Request header  |Description  |
+   |---------|---------|
+   |*Content-Type*     | Required. Set to `application/json`.        |
+   |*Authorization*     | Required. Set to a valid `Bearer` access token.        | 
+
+   **Request body**
+
+   ```JSON
+    {  
+       "location":"westus",
+       "name":"myVM",
+       "identity":{  
+          "type":"UserAssigned",
+          "identityIds":[  
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       },
+       "properties":{  
+          "hardwareProfile":{  
+             "vmSize":"Standard_D2_v2"
+          },
+          "storageProfile":{  
+             "imageReference":{  
+                "sku":"2016-Datacenter",
+                "publisher":"MicrosoftWindowsServer",
+                "version":"latest",
+                "offer":"WindowsServer"
+             },
+             "osDisk":{  
+                "caching":"ReadWrite",
+                "managedDisk":{  
+                   "storageAccountType":"Standard_LRS"
+                },
+                "name":"myVM3osdisk",
+                "createOption":"FromImage"
+             },
+             "dataDisks":[  
+                {  
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":0
+                },
+                {  
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":1
+                }
+             ]
+          },
+          "osProfile":{  
+             "adminUsername":"azureuser",
+             "computerName":"myVM",
+             "adminPassword":"myPassword12"
+          },
+          "networkProfile":{  
+             "networkInterfaces":[  
+                {  
+                   "id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic",
+                   "properties":{  
+                      "primary":true
+                   }
+                }
+             ]
+          }
+       }
+    }
+
+   ```
+  
    **API VERSION 2017-12-01**
 
    ```bash   
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PUT -d '{"location":"westus","name":"myVM",{"identity":{"type":"UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"UserAssigned","identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
+   ```
+
+   **Request headers**
+
+   |Request header  |Description  |
+   |---------|---------|
+   |*Content-Type*     | Required. Set to `application/json`.        |
+   |*Authorization*     | Required. Set to a valid `Bearer` access token.        | 
+
+   **Request body**
+
+   ```JSON
+    {
+       "location":"westus",
+       "name":"myVM",
+       "identity":{
+          "type":"UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       },
+       "properties":{
+          "hardwareProfile":{
+             "vmSize":"Standard_D2_v2"
+          },
+          "storageProfile":{
+             "imageReference":{
+                "sku":"2016-Datacenter",
+                "publisher":"MicrosoftWindowsServer",
+                "version":"latest",
+                "offer":"WindowsServer"
+             },
+             "osDisk":{
+                "caching":"ReadWrite",
+                "managedDisk":{
+                   "storageAccountType":"Standard_LRS"
+                },
+                "name":"myVM3osdisk",
+                "createOption":"FromImage"
+             },
+             "dataDisks":[
+                {
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":0
+                },
+                {
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":1
+                }
+             ]
+          },
+          "osProfile":{
+             "adminUsername":"azureuser",
+             "computerName":"myVM",
+             "adminPassword":"myPassword12"
+          },
+          "networkProfile":{
+             "networkInterfaces":[
+                {
+                   "id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic",
+                   "properties":{
+                      "primary":true
+                   }
+                }
+             ]
+          }
+       }
+    }
    ```
 
 ### Assign a user-assigned managed identity to an existing Azure VM
@@ -183,11 +492,19 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
 
 2.  Create a user-assigned managed identity using the instructions found here, [Create a user-assigned managed identity](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
-3.  To ensure you don't delete existing user or system-assigned managed identities that are assigned to the VM, you need to list the identity types assigned to the VM by using the following CURL command. If you have managed identities assigned to the virtual machine scale set, they are listed under in the `identity` value.
+3. To ensure you don't delete existing user or system-assigned managed identities that are assigned to the VM, you need to list the identity types assigned to the VM by using the following CURL command. If you have managed identities assigned to the virtual machine scale set, they are listed under in the `identity` value.
 
-    ```bash
-    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
-    ```
+   ```bash
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
+   ```
+
+   ```HTTP
+   GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
+   ```
+   **Request headers**
+   |Request header  |Description  |
+   |---------|---------|
+   |*Authorization*     | Required. Set to a valid `Bearer` access token.
 
     If you have any user or system-assigned managed identities assigned to the VM as identified in the `identity` value in the response, skip to step 5 that shows you how to retain thr system-assigned managed identity while adding a user-assigned managed identity on your VM.
 
@@ -201,10 +518,59 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   **Request headers**
+
+   |Request header  |Description  |
+   |---------|---------|
+   |*Content-Type*     | Required. Set to `application/json`.        |
+   |*Authorization*     | Required. Set to a valid `Bearer` access token.        |
+ 
+   **Request body**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{
+    
+             }
+          }
+       }
+    }
+   ```
+
    **API VERSION 2017-12-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
+   ```
+   
+   **Request headers**
+
+   |Request header  |Description  |
+   |---------|---------|
+   |*Content-Type*     | Required. Set to `application/json`.        |
+   |*Authorization*     | Required. Set to a valid `Bearer` access token.        | 
+
+   **Request body**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"userAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       }
+    }
    ```
 
 5. If you have an existing user-assigned or system-assigned managed identity assigned to your VM:
@@ -219,6 +585,35 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
    curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   
+   **Request headers**
+
+   |Request header  |Description  |
+   |---------|---------|
+   |*Content-Type*     | Required. Set to `application/json`.        |
+   |*Authorization*     | Required. Set to a valid `Bearer` access token.        | 
+
+   **Request body**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned, UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{
+    
+             },
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{
+    
+             }
+          }
+       }
+    }
+   ```
+
    **API VERSION 2017-12-01**
 
    Retain the user-assigned managed identities you would like to keep in the `identityIds` array value while adding the new user-assigned managed identity.
@@ -226,8 +621,33 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
    For example, if you have system-assigned managed identity and the user-assigned managed identity `ID1` currently assigned to your VM and would like to add the user-assigned managed identity `ID2` to it: 
 
    ```bash
-   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned","UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
+   ```
+
+   **Request headers**
+
+   |Request header  |Description  |
+   |---------|---------|
+   |*Content-Type*     | Required. Set to `application/json`.        |
+   |*Authorization*     | Required. Set to a valid `Bearer` access token.        | 
+
+   **Request body**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned,UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1",
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"
+          ]
+       }
+    }
+   ```   
 
 ### Remove a user-assigned managed identity from an Azure VM
 
@@ -240,10 +660,20 @@ To remove a user-assigned identity to a VM, your account needs the [Virtual Mach
    ```
 
 2. To ensure you don't delete any existing user-assigned managed identities that you would like to keep assigned to the VM or remove the system-assigned managed identity, you need to list the managed identities by using the following CURL command: 
- 
+
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
+ 
+   ```HTTP
+   GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **Request headers**
+   |Request header  |Description  |
+   |---------|---------|
+   |*Content-Type*     | Required. Set to `application/json`.        |
+   |*Authorization*     | Required. Set to a valid `Bearer` access token.
  
    If you have managed identities assigned to the VM, they are listed in the response in the `identity` value.
 
@@ -257,6 +687,30 @@ To remove a user-assigned identity to a VM, your account needs the [Virtual Mach
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":null}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **Request headers**
+
+   |Request header  |Description  |
+   |---------|---------|
+   |*Content-Type*     | Required. Set to `application/json`.        |
+   |*Authorization*     | Required. Set to a valid `Bearer` access token.        | 
+
+   **Request body**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned, UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":null
+          }
+       }
+    }
+   ```
+
    **API VERSION 2017-12-01**
 
    Retain only the user-assigned managed identity(s) you would like to keep in the `identityIds` array:
@@ -265,10 +719,55 @@ To remove a user-assigned identity to a VM, your account needs the [Virtual Mach
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
+   ```
+
+   **Request headers**
+
+   |Request header  |Description  |
+   |---------|---------|
+   |*Content-Type*     | Required. Set to `application/json`.        |
+   |*Authorization*     | Required. Set to a valid `Bearer` access token.        | 
+
+   **Request body**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned, UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       }
+    }
+   ```
+
 If your VM has both system-assigned and user-assigned managed identities, you can remove all the user-assigned managed identities by switching to use only system-assigned managed identity using the following command:
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+```
+
+```HTTP
+PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+```
+
+**Request headers**
+
+|Request header  |Description  |
+|---------|---------|
+|*Content-Type*     | Required. Set to `application/json`.        |
+|*Authorization*     | Required. Set to a valid `Bearer` access token. | 
+
+**Request body**
+
+```JSON
+{
+   "identity":{
+      "type":"SystemAssigned"
+   }
+}
 ```
     
 If your VM has only user-assigned managed identities and you would like to remove them all, use the following command:
@@ -276,6 +775,28 @@ If your VM has only user-assigned managed identities and you would like to remov
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
 ```
+
+```HTTP
+PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+```
+
+**Request headers**
+
+|Request header  |Description  |
+|---------|---------|
+|*Content-Type*     | Required. Set to `application/json`.        |
+|*Authorization*     | Required. Set to a valid `Bearer` access token.| 
+
+**Request body**
+
+```JSON
+{
+   "identity":{
+      "type":"None"
+   }
+}
+```
+
 ## Next steps
 
 For information on how to create, list, or delete user-assigned managed identities using REST see:

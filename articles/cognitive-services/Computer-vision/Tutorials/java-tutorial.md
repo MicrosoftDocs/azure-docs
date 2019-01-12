@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Computer Vision API Java"
+title: "Tutorial: Perform image operations - Java"
 titlesuffix: "Azure Cognitive Services"
 description: Explore a basic Java Swing app that uses the Computer Vision API in Azure Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
@@ -10,6 +10,7 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
+ms.custom: seodec18
 ms.date: 09/21/2017
 ---
 
@@ -773,7 +774,7 @@ Copy and paste the following **HandwritingImage** method to just underneath the 
             
             // Check for success.
             if (textResponse.getStatusLine().getStatusCode() != 202) {
-                // An error occured. Return the JSON error message.
+                // An error occurred. Return the JSON error message.
                 HttpEntity entity = textResponse.getEntity();
                 String jsonString = EntityUtils.toString(entity);
                 return new JSONObject(jsonString);

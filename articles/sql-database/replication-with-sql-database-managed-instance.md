@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
+ms.date: 01/11/2019
 ---
 # Replication with SQL Database Managed Instance
 
@@ -58,6 +58,8 @@ Publisher and distributor on Azure SQL Database requires:
 
 - An Azure Storage Account share for the replication working directory.
 
+- Port 445 (TCP outbound) needs to be open in the security rules of the Managed Instance subnet to access the Azure file share
+
 ## Features
 
 Supports:
@@ -79,7 +81,7 @@ Supports:
 
    In the example scripts below, replace `<Publishing_DB>` with the name of this database.
 
-4. Create a database user with SQL Authentication for the distributor. See, [Creating database users](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Use a secure password.
+4. Create a database user with SQL Authentication for the distributor. Use a secure password.
 
    In the example scripts below, use `<SQL_USER>` and `<PASSWORD>` with this SQL Server Account database user and password.
 

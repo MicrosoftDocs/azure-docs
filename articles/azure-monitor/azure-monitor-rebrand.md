@@ -6,15 +6,12 @@ manager: carmonm
 editor: tysonn
 services: azure-monitor
 documentationcenter: azure-monitor
-
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: bwren
-
 ---
 
 # Azure Monitor branding changes
@@ -44,4 +41,4 @@ Operations Management Suite (OMS) was a bundling of the following Azure manageme
 ## Next steps
 
 - Read an [overview of Azure Monitor](overview.md) that describes its different components and features.
-- Learn about the [transition of the OMS portal](../log-analytics/log-analytics-oms-portal-transition.md).
+- Learn about the [transition of the OMS portal](../azure-monitor/platform/oms-portal-transition.md).

@@ -11,9 +11,10 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
 
-# Extracting text with OCR
+# Extracting text with Optical Character Recognition
 
 Optical character recognition (OCR) technology in Computer Vision detects text content in an image and extracts the identified text into a machine-readable character stream. You can use the result for search and numerous other purposes like medical records, security, and banking. It automatically detects the language. OCR saves time and provides convenience for users by allowing them to take photos of text instead of transcribing the text.
 
@@ -21,7 +22,7 @@ OCR supports 25 languages. These languages are: Arabic, Chinese Simplified, Chin
 
 If needed, OCR corrects the rotation of the recognized text, in degrees, around the horizontal image axis. OCR provides the frame coordinates of each word as seen in the following illustration.
 
-![OCR Overview](./Images/vision-overview-ocr.png)
+![A diagram depicting an image being rotated and its text being read and delineated](./Images/vision-overview-ocr.png)
 
 ## OCR requirements
 

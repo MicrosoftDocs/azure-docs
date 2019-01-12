@@ -92,7 +92,7 @@ You can create alerts to notify you when thresholds have been reached for storag
 3. Enter a **Name** and **Description** for your new alert rule.
 4. Select the **Metric** for which you'd like to add an alert, an alert **Condition**, and a **Threshold**. The threshold unit type changes depending on the metric you've chosen. For example, "count" is the unit type for *ContainerCount*, while the unit for the *PercentNetworkError* metric is a percentage.
 5. Select the **Period**. Metrics that reach or exceed the Threshold within the period trigger an alert.
-6. (Optional) Configure **Email** and **Webhook** notifications. For more information on webhooks, see [Configure a webhook on an Azure metric alert](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). If you do not configure email or webhook notifications, alerts will appear only in the Azure portal.
+6. (Optional) Configure **Email** and **Webhook** notifications. For more information on webhooks, see [Configure a webhook on an Azure metric alert](../../azure-monitor/platform/alerts-webhooks.md). If you do not configure email or webhook notifications, alerts will appear only in the Azure portal.
 
 !['Add an alert rule' blade in the Azure portal](./media/storage-monitor-storage-account/add-alert-rule.png)
 

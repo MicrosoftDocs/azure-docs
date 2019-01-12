@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://myaba.co.uk/<companyname>`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [MCM Client support team](http://mcmtechnology.com/support/) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [MCM Client support team](https://mcmtechnology.com/support/) to get these values. 
  
 1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -124,7 +124,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/mcm-tutorial/tutorial_general_400.png) 
 
-1. To configure single sign-on on **MCM** side, you need to send the downloaded **Metadata XML** to [MCM support team](http://mcmtechnology.com/support/). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **MCM** side, you need to send the downloaded **Metadata XML** to [MCM support team](https://mcmtechnology.com/support/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -163,7 +163,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a MCM test user
 
-In this section, you create a user called Britta Simon in MCM. Work with [MCM support team](http://mcmtechnology.com/support/) to add the users in the MCM platform.
+In this section, you create a user called Britta Simon in MCM. Work with [MCM support team](https://mcmtechnology.com/support/) to add the users in the MCM platform.
 
 > [!NOTE]
 > You can use any other MCM user account creation tools or APIs provided by MCM to provision AAD user accounts.

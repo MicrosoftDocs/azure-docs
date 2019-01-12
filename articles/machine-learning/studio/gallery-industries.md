@@ -1,10 +1,10 @@
 ---
-title: Azure AI Gallery industry-specific solutions | Microsoft Docs
-description: Discover industry solutions in the Azure AI Gallery.
+title: Azure AI Gallery industry solutions - Azure Machine Learning Studio | Microsoft Docs
+description: The Industries section of Azure AI Gallery brings together various resources that are specific to such industries as retail, manufacturing, banking, and healthcare.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-manager: jhubbard
+
 editor: cgronlun
 ms.assetid: fd2ecf9a-ff76-4a0f-8d68-7f762249648c
 ms.service: machine-learning
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.custom: "(previous ms.author=garye, author=garyericson)"
+ms.custom: previous-ms.author=garye, previous-author=garyericson
 ms.author: amlstudiodocs
 ---
 # Discover industry-specific solutions in the Azure AI Gallery
@@ -48,5 +48,5 @@ These resources include experiments, custom modules, APIs, collections, and any 
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

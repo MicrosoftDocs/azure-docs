@@ -1,4 +1,3 @@
-
 ---
 title: Linux VM agent and extensions in Azure | Microsoft Docs
 description: Gives an overview of the agent and extensions, and how to install the agent, using the classic deployment model on a Linux VM.

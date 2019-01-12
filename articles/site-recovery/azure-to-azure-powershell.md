@@ -6,7 +6,7 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
 ---
 # Set up disaster recovery for Azure virtual machines using Azure PowerShell
@@ -58,7 +58,7 @@ In the example in this article, a virtual machine in the East US region will be 
 # Get details of the virtual machine
 $VM = Get-AzureRmVM -ResourceGroupName "A2AdemoRG" -Name "AzureDemoVM"
 
-Write-Output $VM
+Write-Output $VM     
 ```
 
 ```

@@ -1,13 +1,12 @@
 ---
-title: Ask a question data can answer - data science problems - Azure Machine Learning | Microsoft Docs
+title: Ask a question data can answer - Azure Machine Learning Studio | Microsoft Docs
 description: Learn how to formulate a sharp data science question in Data Science for Beginners video 3. Includes a comparison of classification and regression questions.
 keywords: data science problems,data science questions,formulate questions,regression questions,classification questions,sharp question
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning

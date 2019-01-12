@@ -13,11 +13,18 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 10/29/2018
 ms.author: vturecek
 
 ---
+
+
 # Implement Reliable Actors backup and restore
+
+> [!NOTE]
+> Microsoft recommends to use [Periodic backup and restore](service-fabric-backuprestoreservice-quickstart-azurecluster.md) for configuring data backup of Reliable Stateful services and Reliable Actors. 
+> 
+
 In the following example, a custom actor service exposes a method to back up actor data by taking advantage of the remoting listener already present in `ActorService`:
 
 ```csharp
@@ -109,7 +116,7 @@ MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.cla
 myActorServiceProxy.backupActorsAsync();
 ```
 
-For more information on Reliable Actors, read the following:
+For more information on Reliable Actors, read the following articles:
 * [Actor state management](service-fabric-reliable-actors-state-management.md)
 * [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
 * [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
