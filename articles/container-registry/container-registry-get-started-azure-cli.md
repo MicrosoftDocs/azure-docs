@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 03/03/2018
+ms.date: 01/11/2019
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
 ---
@@ -30,9 +30,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a container registry
 
-In this quickstart you create a *Basic* registry. Azure Container Registry is available in several different SKUs, described briefly in the following table. For extended details on each, see [Container registry SKUs][container-registry-skus].
-
-[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
+In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry SKUs][container-registry-skus].
 
 Create an ACR instance using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry007* is used. Update this to a unique value.
 
@@ -77,7 +75,7 @@ The command returns a `Login Succeeded` message once completed.
 
 ## Push image to ACR
 
-To push an image to an Azure Container registry, you must first have an image. If you don't yet have any local container images, run the following command to pull an existing image from Docker Hub.
+To push an image to an Azure Container registry, you must first have an image. If you don't yet have any local container images, run the following [docker pull][docker-pull]command to pull an existing image from Docker Hub.
 
 ```bash
 docker pull microsoft/aci-helloworld
@@ -86,7 +84,7 @@ docker pull microsoft/aci-helloworld
 Before you can push an image to your registry, you must tag it with the fully qualified name of your ACR login server. Run the following command to obtain the full login server name of the ACR instance.
 
 ```azurecli
-az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
+az acr show --myContainerRegistry007 --query "{acrLoginServer:loginServer}" --output table
 ```
 
 Tag the image using the [docker tag][docker-tag] command. Replace `<acrLoginServer>` with the login server name of your ACR instance.
@@ -95,7 +93,7 @@ Tag the image using the [docker tag][docker-tag] command. Replace `<acrLoginServ
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Finally, use [docker push][docker-push] to push the image to the ACR instance. Replace `<acrLoginServer>` with the login server name of your ACR instance.
+Finally, use [docker push][docker-push] to push the image to the ACR instance. Replace `<acrLoginServer>` with the login server name of your ACR instance. This example creates the **aci-helloworld** repository, containing the `aci-helloworld:v1` image.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -145,13 +143,13 @@ Once admin is enabled the username is the same as your registry name and you can
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-To deploy your container image with 1 CPU core and 1 GB of memory, run the following command. Replace `<acrName>`, `<acrLoginServer>`, and `<acrPassword>` with the values you obtained from previous commands.
+To deploy your container image with 1 CPU core and 1 GB of memory, run the following command. Replace `<acrName>`, `<acrLoginServer>`, and `<acrPassword>` with the values you obtained from previous commands. The `--dns-name-label` value must be unique within the Azure region you create the instance. If you receive a "DNS name label not available" error message, try a different DNS name label.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name acr-quickstart --image <acrLoginServer>/aci-helloworld:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-You should get an initial response back from Azure Resource Manager with details on your container. To monitor the status of your container and check and see when it is running, repeat the [az container show][az-container-show]. It should take less than a minute.
+You should get an initial response back from the Azure CLI with details on your container. To monitor the status of your container and check and see when it is running, repeat the [az container show][az-container-show] command. It should take less than a minute.
 
 ```azurecli
 az container show --resource-group myResourceGroup --name acr-quickstart --query instanceView.state
@@ -181,20 +179,19 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you created an Azure Container Registry with the Azure CLI, pushed a container image to the registry, and launched an instance of it via Azure Container Instances. Continue to the Azure Container Instances tutorial for a deeper look at ACI.
+In this quickstart, you created an Azure Container Registry with the Azure CLI, pushed a container image to the registry, and launched an instance of it via Azure Container Instances. Continue to the Azure Container Registry tutorials for a deeper look at ACR.
 
 > [!div class="nextstepaction"]
-> [Azure Container Instances tutorial][container-instances-tutorial-prepare-app]
+> [Azure Container Registry tutorials][container-registry-tutorial-quick-task]
 
 <!-- IMAGES> -->
 [aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png
 
-
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
-[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
 [docker-mac]: https://docs.docker.com/docker-for-mac/
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-pull]: https://docs.docker.com/engine/reference/commandline/pull/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
@@ -205,6 +202,6 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI, 
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli]: /cli/azure/install-azure-cli
 [az-container-show]: /cli/azure/container#az-container-show
-[container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
+[container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
 [container-registry-auth-aci]: container-registry-auth-aci.md
