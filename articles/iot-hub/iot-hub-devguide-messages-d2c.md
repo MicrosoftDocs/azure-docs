@@ -48,6 +48,24 @@ IoT Hub batches messages and writes data to a blob whenever the batch reaches a 
 
 You may use any file naming convention, however you must use all listed tokens. IoT Hub will write to an empty blob if there is no data to write.
 
+When routing to blob storage, we recommend enlisting the blobs and then iterating over them, to ensure all containers are read without making any assumptions of partitionId. The partitionId range could potentially change during a [Microsoft-initiated failover](./iot-hub/iot-hub-ha-dr#microsoft-initiated-failover) or IoT Hub [manual failover](.iot-hub/iot-hub-ha-dr#manual-failover-preview). You can use the [List Blobs API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) to enumerate the list of blobs. Please see the following sample as guidance.
+
+   ```csharp
+        public void ListBlobsInContainer(string containerName, string iotHubName)
+        {
+            var storageAccount = CloudStorageAccount.Parse(this.blobConnectionString);
+            var cloudBlobContainer = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
+            if (cloudBlobContainer.Exists())
+            {
+                var results = cloudBlobContainer.ListBlobs(prefix: $"{iotHubName}/");
+                foreach (IListBlobItem item in results)
+                {
+                    Console.WriteLine(item.Uri);
+                }
+            }
+        }
+   ```
+
 ### Service Bus Queues and Service Bus Topics
 
 Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
