@@ -26,7 +26,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 The code in this section presents a sample Ansible playbook to create a resource group, and an AKS cluster that resides in the resource group.
 
 > [!Tip]
-> For the *"your_ssh_key"* placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes). 
+> For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes). 
 
   ```yaml
   - name: Create Azure Kubernetes Service
@@ -98,7 +98,7 @@ The output from the **ansible-playbook* command looks similar to the following s
 The sample playbook in the previous section defines two nodes. If you need fewer or more container workloads on your cluster, you can easily adjust the number of nodes. The sample playbook in this section increases the number of nodes from two nodes to three. Modifying the node count is done by changing the **count** value in the **agent_pool_profiles** block. 
 
 > [!Tip]
-> For the *"your_ssh_key"* placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes). 
+> For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes). 
 
 ```yaml
 - name: Scale AKS cluster
