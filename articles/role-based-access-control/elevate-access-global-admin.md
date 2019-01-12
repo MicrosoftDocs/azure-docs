@@ -1,6 +1,6 @@
 ---
-title: Elevate access for a Global Administrator in Azure Active Directory | Microsoft Docs
-description: Describes how to elevate access for a Global Administrator in Azure Active Directory using the Azure portal or REST API.
+title: Elevate access to all Azure subscriptions and management groups in your directory | Microsoft Docs
+description: Describes how to elevate access for a Global Administrator to all subscriptions and management groups in Azure Active Directory using the Azure portal or REST API.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,27 +13,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/15/2018
+ms.date: 01/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
 ---
-# Elevate access for a Global Administrator in Azure Active Directory
+# Elevate access to all Azure subscriptions and management groups in your directory
 
-If you are a [Global Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) in Azure Active Directory (Azure AD), there might be times when you want to do the following:
-
-- Regain access to an Azure subscription when a user has lost access
-- Grant another user or yourself access to an Azure subscription
-- See all Azure subscriptions in an organization
-- Allow an automation app (such as an invoicing or auditing app) to access all Azure subscriptions
-
-This article describes the different ways that you can elevate your access in Azure AD.
+As a Global Administrator in Azure Active Directory (Azure AD), you might not have access to all subscriptions and management groups in your directory. This article describes the ways that you can elevate your access to all subscriptions and management groups.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## Overview
+## Why would you need to elevate your access?
 
-Azure AD and Azure resources are secured independently from one another. That is, Azure AD role assignments do not grant access to Azure resources, and Azure role assignments do not grant access to Azure AD. However, if you are a Global Administrator in Azure AD, you can assign yourself access to all Azure subscriptions and management groups in your directory. Use this capability if you don't have access to Azure subscription resources, such as virtual machines or storage accounts, and you want to use your Global Administrator privilege to gain access to those resources.
+If you are a Global Administrator, there might be times when you want to do the following:
+
+- Regain access to an Azure subscription or management group when a user has lost access
+- Grant another user or yourself access to an Azure subscription or management group
+- See all Azure subscriptions or management groups in an organization
+- Allow an automation app (such as an invoicing or auditing app) to access all Azure subscriptions or management groups
+
+## How does elevate access work?
+
+Azure AD and Azure resources are secured independently from one another. That is, Azure AD role assignments do not grant access to Azure resources, and Azure role assignments do not grant access to Azure AD. However, if you are a [Global Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) in Azure AD, you can assign yourself access to all Azure subscriptions and management groups in your directory. Use this capability if you don't have access to Azure subscription resources, such as virtual machines or storage accounts, and you want to use your Global Administrator privilege to gain access to those resources.
 
 When you elevate your access, you will be assigned the [User Access Administrator](built-in-roles.md#user-access-administrator) role in Azure at root scope (`/`). This allows you to view all resources and assign access in any subscription or management group in the directory. User Access Administrator role assignments can be removed using PowerShell.
 
@@ -61,9 +63,13 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
 1. Click **Save** to save your setting.
 
-   This setting is not a global property and applies only to the currently logged in user.
+   This setting is not a global property and applies only to the currently logged in user. You can't enable this setting for all members of the Global Administrator role.
 
-1. Perform the tasks you need to make at the elevated access. When you are done, set the switch back to **No**.
+1. Make the changes you need to make at the elevated access.
+
+    For more information, see [Manage access using RBAC and the Azure portal](role-assignments-portal.md). If you are using Azure AD Privileged Identity Management (PIM), see [Discover Azure resources to manage in PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) or [Assign Azure resource roles in PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+
+1. When you are done, set the **Access management for Azure resources** switch back to **No**.
 
 ## Azure PowerShell
 
