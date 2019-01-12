@@ -77,7 +77,7 @@ Next, you will add the code that actually leverages the Computer Vision service 
 1. Open the *HomeController.cs* file in the project's **Controllers** folder and add the following `using` statement at the top of the file:
 
     ```csharp
-    using Microsoft.ProjectOxford.Vision;
+    using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
     ```
 
 1. Then, go to the **Upload** method; this method converts and uploads images to blob storage. Add the following code immediately after the block that begins with `// Generate a thumbnail` (or at the end of your image-blob-creation process). This code takes the blob containing the image (`photo`), and uses Computer Vision to generate a description for that image. The Computer Vision API also generates a list of keywords that apply to the image. The generated description and keywords are stored in the blob's metadata so that they can be retrieved later on.
