@@ -12,7 +12,7 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 01/11/2019
 ms.author: kumud
 
 ---
@@ -149,7 +149,13 @@ An internal Load Balancer enables the following types of load balancing:
 *Figure: Load balancing multi-tier applications by using both public and internal Load Balancer*
 
 ## Pricing
-Standard Load Balancer usage is charged based on the number of configured load-balancing rules and the amount of processed inbound and outbound data. For Standard Load Balancer pricing information, go to the [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.
+
+Standard Load Balancer usage is charged.
+
+- Number of configured load-balancing and outbound rules rules (inbound NAT rules do not count against the total number of rules)
+- Amount of data processed inbound and outbound irrespective of rule. 
+
+For Standard Load Balancer pricing information, go to the [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.
 
 Basic Load Balancer is offered at no charge.
 

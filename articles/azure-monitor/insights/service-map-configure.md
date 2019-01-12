@@ -329,7 +329,7 @@ Node localhost
 ```
 
 ## Remove the Dependency agent
-### Uinstall agent on Windows
+### Uninstall agent on Windows
 An administrator can uninstall the Dependency agent for Windows through Control Panel.
 
 An administrator can also run %Programfiles%\Microsoft Dependency Agent\Uninstall.exe to uninstall the Dependency agent.

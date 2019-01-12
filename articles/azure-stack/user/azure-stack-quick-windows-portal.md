@@ -9,7 +9,7 @@ ms.service: azure-stack
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: mabrigg
-ms.reviewer: 
+ms.reviewer: unknown
 ms.custom: mvc
 ---
 
