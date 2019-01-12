@@ -37,21 +37,23 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a Computer Vision resource
 
-Sign in to the [Azure portal](https://ms.portal.azure.com) and click **Create a resource**, followed by **AI + Machine Learning** and **Computer Vision**.
+You will need to create a Computer Vision resource for your Azure account; this resource manages your access to Azure's Computer Vision service.
 
-![Creating a new Computer Vision API subscription](../Images/new-vision-api.png)
+1. Sign in to the [Azure portal](https://ms.portal.azure.com) and click **Create a resource**, followed by **AI + Machine Learning** and **Computer Vision**.
 
-In the dialog window, enter "vision-api-key" in the **Name** field and select **F0** as the **Pricing tier**. Select the same **Location** that you selected when you set up your Azure Storage account. Under **Resource group**, select **Use existing** and select the same resource group as well. Check the **I confirm** box, and then click **Create**.
+    ![Creating a new Computer Vision API subscription](../Images/new-vision-api.png)
 
-![Subcribing to the Computer Vision API](../Images/create-vision-api.png)
+1. In the dialog window, enter "vision-api-key" in the **Name** field and select **F0** as the **Pricing tier**. Select the same **Location** that you selected when you set up your Azure Storage account. Under **Resource group**, select **Use existing** and select the same resource group as well. Check the **I confirm** box, and then click **Create**.
 
-Return to the menu for your resource group and click the Computer Vision API subscription that you just created. Copy the URL under **Endpoint** to somewhere you can easily retrieve it in a moment. Then click **Show access keys**.
+    ![Subcribing to the Computer Vision API](../Images/create-vision-api.png)
 
-![Viewing the access keys](../Images/copy-vision-endpoint.png)
+1. Return to the menu for your resource group and click the Computer Vision API subscription that you just created. Copy the URL under **Endpoint** to somewhere you can easily retrieve it in a moment. Then click **Show access keys**.
 
-In the next window, copy the value of **KEY 1** to the clipboard.
+    ![Viewing the access keys](../Images/copy-vision-endpoint.png)
 
-![Copying the access key](../Images/copy-vision-key.png)
+1. In the next window, copy the value of **KEY 1** to the clipboard.
+
+    ![Copying the access key](../Images/copy-vision-key.png)
 
 ## Add Computer Vision credentials
 
@@ -66,64 +68,64 @@ Open your ASP.NET web application in Visual Studio and navigate to the **Web.con
 
 If the endpoint URL you just added to **Web.config** doesn't end with "/vision/v1.0", add it. The complete URL should look something like this: https://eastus.api.cognitive.microsoft.com/vision/v1.0.
 
-In the Solution Explorer, right-click the project and use the **Manage NuGet Packages** command to install the package **Microsoft.ProjectOxford.Vision**. This package contains the types needed to call the Computer Vision API.
+In the Solution Explorer, right-click the project and use the **Manage NuGet Packages** command to install the package **Microsoft.Azure.CognitiveServices.Vision.ComputerVision**. This package contains the types needed to call the Computer Vision API.
 
 ## Add metadata generation code
 
-Next, you will add the code that actually leverages the Computer Vision service to create metadata for images. Depending on your web app, you may need to edit existing methods or create new methods. What's important is that at this point you have an ASP.NET web application that can upload images to an Azure Storage container, read images from it, and display them in the view. If you're unsure about this, it's best to follow [Exercise 3 of the Azure Storage Lab](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3).
+Next, you will add the code that actually leverages the Computer Vision service to create metadata for images. These steps will apply to the ASP.NET app in the lab, but you can adapt them to your own app. What's important is that at this point you have an ASP.NET web application that can upload images to an Azure Storage container, read images from it, and display them in the view. If you're unsure about this, it's best to follow [Exercise 3 of the Azure Storage Lab](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3). 
 
-Open the *HomeController.cs* file in the project's **Controllers** folder (or whichever file contains the methods for uploading images to Azure Storage). Add the following `using` statement at the top of the file:
+1. Open the *HomeController.cs* file in the project's **Controllers** folder (or whichever file contains the methods for uploading images to Azure Storage). Add the following `using` statement at the top of the file:
 
-```csharp
-using Microsoft.ProjectOxford.Vision;
-```
+    ```csharp
+    using Microsoft.ProjectOxford.Vision;
+    ```
 
-Then, go to the **Upload** method (or whichever method uploads images), and add the following code immediately after the block that begins with `// Generate a thumbnail` (or at the end of your image-blob-creation process). This code takes the blob containing the image (`photo`), and uses Computer Vision to generate a description for that image. The Computer Vision API also generates a list of keywords that apply to the image. The generated description and keywords are stored in the blob's metadata so that they can be retrieved later on.
+1. Then, go to the **Upload** method (or whichever method uploads images), and add the following code immediately after the block that begins with `// Generate a thumbnail` (or at the end of your image-blob-creation process). This code takes the blob containing the image (`photo`), and uses Computer Vision to generate a description for that image. The Computer Vision API also generates a list of keywords that apply to the image. The generated description and keywords are stored in the blob's metadata so that they can be retrieved later on.
 
-```csharp
-// Submit the image to Azure's Computer Vision API
-VisionServiceClient vision = new VisionServiceClient(
-    ConfigurationManager.AppSettings["SubscriptionKey"],
-    ConfigurationManager.AppSettings["VisionEndpoint"]
-);
-
-VisualFeature[] features = new VisualFeature[] { VisualFeature.Description };
-var result = await vision.AnalyzeImageAsync(photo.Uri.ToString(), features);
-
-// Record the image description and tags in blob metadata
-photo.Metadata.Add("Caption", result.Description.Captions[0].Text);
-
-for (int i = 0; i < result.Description.Tags.Length; i++)
-{
-    string key = String.Format("Tag{0}", i);
-    photo.Metadata.Add(key, result.Description.Tags[i]);
-}
-
-await photo.SetMetadataAsync();
-```
-
-Next, go to the **Index** method in the same file (or whichever method you are using to enumerate the image blobs in Azure Storage and pass them to the application view). This method should retrieve a list of **IListBlobItem** instances from a targeted blob container. Replace the `foreach` block in that method (or add a `foreach` block) with the following code. This code calls **CloudBlockBlob.FetchAttributes** to get each blob's attached metadata. It extracts the computer-generated description (`caption`) from the metadata and adds it to the **BlobInfo** object, which gets passed to the view.
-
-```csharp
-foreach (IListBlobItem item in container.ListBlobs())
-{
-    var blob = item as CloudBlockBlob;
-
-    if (blob != null)
+    ```csharp
+    // Submit the image to Azure's Computer Vision API
+    VisionServiceClient vision = new VisionServiceClient(
+        ConfigurationManager.AppSettings["SubscriptionKey"],
+        ConfigurationManager.AppSettings["VisionEndpoint"]
+    );
+    
+    VisualFeature[] features = new VisualFeature[] { VisualFeature.Description };
+    var result = await vision.AnalyzeImageAsync(photo.Uri.ToString(), features);
+    
+    // Record the image description and tags in blob metadata
+    photo.Metadata.Add("Caption", result.Description.Captions[0].Text);
+    
+    for (int i = 0; i < result.Description.Tags.Length; i++)
     {
-        blob.FetchAttributes(); // Get blob metadata
-        var caption = blob.Metadata.ContainsKey("Caption") ? blob.Metadata["Caption"] : blob.Name;
-
-        blobs.Add(new BlobInfo()
-        {
-            ImageUri = blob.Uri.ToString(),
-            ThumbnailUri = blob.Uri.ToString().Replace("/photos/", "/thumbnails/"),
-            Caption = caption
-        });
+        string key = String.Format("Tag{0}", i);
+        photo.Metadata.Add(key, result.Description.Tags[i]);
     }
-}
-```
+    
+    await photo.SetMetadataAsync();
+    ```
 
+1. Next, go to the **Index** method in the same file (or whichever method you are using to enumerate the image blobs in Azure Storage and pass them to the application view). This method should retrieve a list of **IListBlobItem** instances from a targeted blob container. Replace the `foreach` block in that method (or add a `foreach` block) with the following code. This code calls **CloudBlockBlob.FetchAttributes** to get each blob's attached metadata. It extracts the computer-generated description (`caption`) from the metadata and adds it to the **BlobInfo** object, which gets passed to the view.
+    
+    ```csharp
+    foreach (IListBlobItem item in container.ListBlobs())
+    {
+        var blob = item as CloudBlockBlob;
+    
+        if (blob != null)
+        {
+            blob.FetchAttributes(); // Get blob metadata
+            var caption = blob.Metadata.ContainsKey("Caption") ? blob.Metadata["Caption"] : blob.Name;
+    
+            blobs.Add(new BlobInfo()
+            {
+                ImageUri = blob.Uri.ToString(),
+                ThumbnailUri = blob.Uri.ToString().Replace("/photos/", "/thumbnails/"),
+                Caption = caption
+            });
+        }
+    }
+    ```
+    
 ## Test the app
 
 Save your changes in Visual Studio and press **Ctrl+F5** to launch the application in your browser. Use the app to upload a few images, either from the "photos" folder in the lab's resources or from your own folder. When you hover the cursor over one of the images in the view, a tooltip window should appear and display the computer-generated caption for the image.
