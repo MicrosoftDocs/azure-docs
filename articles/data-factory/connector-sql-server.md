@@ -500,7 +500,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 )
 ```
 
-The stored procedure feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+The stored procedure feature takes advantage of [Table-Valued Parameters](/dotnet/framework/data/adonet/sql/table-valued-parameters).
 
 ## Data type mapping for SQL server
 
@@ -550,13 +550,13 @@ When copying data from/to SQL Server, the following mappings are used from SQL S
 
     ![Enable remote connections](media/copy-data-to-from-sql-server/AllowRemoteConnections.png)
 
-    See [Configure the remote access Server Configuration Option](https://msdn.microsoft.com/library/ms191464.aspx) for detailed steps.
+    See [Configure the remote access Server Configuration Option](/sql/database-engine/configure-windows/configure-the-remote-access-server-configuration-option) for detailed steps.
 
 2. Launch **SQL Server Configuration Manager**. Expand **SQL Server Network Configuration** for the instance you want, and select **Protocols for MSSQLSERVER**. You should see protocols in the right-pane. Enable TCP/IP by right-clicking **TCP/IP** and clicking **Enable**.
 
     ![Enable TCP/IP](./media/copy-data-to-from-sql-server/EnableTCPProptocol.png)
 
-    See [Enable or Disable a Server Network Protocol](https://msdn.microsoft.com/library/ms191294.aspx) for details and alternate ways of enabling TCP/IP protocol.
+    See [Enable or Disable a Server Network Protocol](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol) for details and alternate ways of enabling TCP/IP protocol.
 
 3. In the same window, double-click **TCP/IP** to launch **TCP/IP Properties** window.
 4. Switch to the **IP Addresses** tab. Scroll down to see **IPAll** section. Note down the **TCP Port** (default is **1433**).

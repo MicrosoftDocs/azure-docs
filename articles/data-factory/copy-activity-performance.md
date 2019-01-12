@@ -403,8 +403,8 @@ Here is performance monitoring and tuning references for some of the supported d
 * Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-single-database-monitor.md) and check the database transaction unit (DTU) percentage
 * Azure SQL Data Warehouse: Its capability is measured in data warehouse units (DWUs); see [Manage compute power in Azure SQL Data Warehouse (Overview)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../cosmos-db/performance-levels.md)
-* On-premises SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx)
-* On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx)
+* On-premises SQL Server: [Monitor and tune for performance](/sql/relational-databases/performance/monitor-and-tune-for-performance)
+* On-premises file server: [Performance tuning for file servers](/previous-versions//dn567661(v=vs.85))
 
 ## Next steps
 See the other Copy Activity articles:

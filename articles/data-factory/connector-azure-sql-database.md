@@ -36,7 +36,7 @@ Specifically, this Azure SQL Database connector supports these functions:
 Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) is not supported now. 
 
 > [!IMPORTANT]
-> If you copy data by using Azure Data Factory Integration Runtime, configure an [Azure SQL server firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) so that Azure Services can access the server.
+> If you copy data by using Azure Data Factory Integration Runtime, configure an [Azure SQL server firewall](/previous-versions/azure/ee621782(v=azure.100)#ConnectingFromAzure) so that Azure Services can access the server.
 > If you copy data by using a self-hosted integration runtime, configure the Azure SQL server firewall to allow the appropriate IP range. This range includes the machine's IP that is used to connect to Azure SQL Database.
 
 ## Get started
@@ -593,7 +593,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 )
 ```
 
-The stored procedure feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+The stored procedure feature takes advantage of [Table-Valued Parameters](/dotnet/framework/data/adonet/sql/table-valued-parameters).
 
 ## Data type mapping for Azure SQL Database
 

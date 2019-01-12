@@ -199,7 +199,7 @@ For a twelve-minute introduction and demonstration of this feature, watch the fo
 
 * Sharing feature works only for Data Factories within the same Azure Active Directory tenant.
 
-* For Active Directory [guest users](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews), the search functionality (listing all data factories by using a search keyword) in the UI [does not work](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). But as long as the guest user is the Owner of the data factory, they can share the IR without the search functionality, by directly typing the MSI of the data factory with which the IR needs to be shared in the **Assign Permission** text box and selecting **Add** in the Azure Data Factory UI. 
+* For Active Directory [guest users](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews), the search functionality (listing all data factories by using a search keyword) in the UI [does not work](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). But as long as the guest user is the Owner of the data factory, they can share the IR without the search functionality, by directly typing the MSI of the data factory with which the IR needs to be shared in the **Assign Permission** text box and selecting **Add** in the Azure Data Factory UI. 
 
   > [!NOTE]
   > This feature is available only in Azure Data Factory V2. 
@@ -296,7 +296,7 @@ If you select the **Use system proxy** setting for the HTTP proxy, the self-host
 	</system.net>
 	```
 
-	Additional properties are allowed inside the proxy tag to specify the required settings like `scriptLocation`. See [proxy Element (Network Settings)](https://msdn.microsoft.com/library/sa91de1e.aspx) for syntax.
+	Additional properties are allowed inside the proxy tag to specify the required settings like `scriptLocation`. See [proxy Element (Network Settings)](/dotnet/framework/configure-apps/file-schema/network/proxy-element-network-settings) for syntax.
 
 	```xml
 	<proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>

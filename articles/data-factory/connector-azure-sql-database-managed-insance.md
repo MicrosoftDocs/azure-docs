@@ -498,7 +498,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 )
 ```
 
-The stored procedure feature takes advantage of [table-valued parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+The stored procedure feature takes advantage of [table-valued parameters](/dotnet/framework/data/adonet/sql/table-valued-parameters).
 
 ## Data type mapping for Azure SQL Database Managed Instance
 

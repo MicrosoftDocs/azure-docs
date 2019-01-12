@@ -262,7 +262,7 @@ To copy data to Azure Table, set the sink type in the copy activity to **AzureTa
 | azureTableDefaultPartitionKeyValue |The default partition key value that can be used by the sink. |No |
 | azureTablePartitionKeyName |Specify the name of the column whose values are used as partition keys. If not specified, "AzureTableDefaultPartitionKeyValue" is used as the partition key. |No |
 | azureTableRowKeyName |Specify the name of the column whose column values are used as the row key. If not specified, use a GUID for each row. |No |
-| azureTableInsertType |The mode to insert data into Azure Table. This property controls whether existing rows in the output table with matching partition and row keys have their values replaced or merged. <br/><br/>Allowed values are **merge** (default) and **replace**. <br/><br> This setting applies at the row level not the table level. Neither option deletes rows in the output table that do not exist in the input. To learn about how the merge and replace settings work, see [Insert or merge entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) and [Insert or replace entity](https://msdn.microsoft.com/library/azure/hh452242.aspx). |No |
+| azureTableInsertType |The mode to insert data into Azure Table. This property controls whether existing rows in the output table with matching partition and row keys have their values replaced or merged. <br/><br/>Allowed values are **merge** (default) and **replace**. <br/><br> This setting applies at the row level not the table level. Neither option deletes rows in the output table that do not exist in the input. To learn about how the merge and replace settings work, see [Insert or merge entity](/rest/api/storageservices/Insert-Or-Merge-Entity) and [Insert or replace entity](/rest/api/storageservices/Insert-Or-Replace-Entity). |No |
 | writeBatchSize |Inserts data into Azure Table when writeBatchSize or writeBatchTimeout is hit.<br/>Allowed values are integer (number of rows). |No (default is 10,000) |
 | writeBatchTimeout |Inserts data into Azure Table when writeBatchSize or writeBatchTimeout is hit.<br/>Allowed values are timespan. An example is "00:20:00" (20 minutes). |No (default is 90 seconds, storage client's default timeout) |
 
@@ -325,7 +325,7 @@ In the following example, source column DivisionID is mapped to the destination 
 
 When you copy data from and to Azure Table, the following mappings are used from Azure Table data types to Data Factory interim data types. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-When you move data to and from Azure Table, the following [mappings defined by Azure Table](https://msdn.microsoft.com/library/azure/dd179338.aspx) are used from Azure Table OData types to .NET type and vice versa.
+When you move data to and from Azure Table, the following [mappings defined by Azure Table](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) are used from Azure Table OData types to .NET type and vice versa.
 
 | Azure Table data type | Data Factory interim data type | Details |
 |:--- |:--- |:--- |
