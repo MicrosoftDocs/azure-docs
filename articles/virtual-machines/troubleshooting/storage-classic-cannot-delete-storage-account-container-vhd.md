@@ -1,16 +1,13 @@
 ---
 title: Troubleshoot errors when you delete Azure classic storage accounts, containers, or VHDs | Microsoft Docs
 description: How to troubleshoot problems when deleting storage resources containing attached VHDs.
-keywords: 
 services: storage
-author: annayak
-manager: kavithag
+author: AngshumanNayakMSFT
 tags: top-support-issue,azure-service-management
 
 ms.service: storage
-ms.tgt_pltfrm: storage
 ms.topic: troubleshooting
-ms.date: 11/20/2018
+ms.date: 01/11/2019
 ms.author: annayak
 
 ---
@@ -92,8 +89,8 @@ On the portal, there could be two experiences depending on the list of blobs sel
 
 
 2. If a mix of “Leased” and “Available” blobs are selected, the “Delete” button shows up. But the “Delete” operation will leave behind the page blobs, which have a Disk lease on them. 
-![Screenshot of the portal, with the container blob "list" pane open](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased&unleased_portal_1.jpg)
-![Screenshot of the portal, with the selected blob "delete" pane open](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased&unleased_portal_2.jpg)
+![Screenshot of the portal, with the container blob "list" pane open](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
+![Screenshot of the portal, with the selected blob "delete" pane open](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
 
 #### Azure PowerShell 
 If the user chooses to delete using PowerShell, it will result in the following error. 
