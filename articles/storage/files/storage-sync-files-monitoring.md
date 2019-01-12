@@ -47,3 +47,14 @@ Cloud Tiering
 - Recall 
   - Use Event ID 9005, 9006, 9007 to monitor recall activity and errors. See [How do I monitor recall activity on a server?](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#monitor-recall-activity) for more information.
 
+## Azure Monitor
+
+Use [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) to monitor sync, cloud tiering and server connectivity. Metrics for Azure File Sync are enabled by default and are sent to Azure Monitor every 15 minutes.
+
+To view Azure File Sync metrics in Azure Monitor, select the Storage Sync Services resource type.
+
+The following metrics for Azure File Sync are available in Azure Monitor:
+
+| Metric Name | Description |
+|-|-|
+| Bytes synced | Size of data transferred (upload and download).<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
