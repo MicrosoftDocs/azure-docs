@@ -38,7 +38,7 @@ Consider the following when preparing to disable monitoring of your virtual mach
 
 ## Complete removal of Azure Monitor for VMs
 
-The following steps describe how to completely remove Azure Monitor for VMs if you still require the Log Analytics workspace. You are going to remove the **InfastructureInsights** and **ServiceMap** solutions from the workspace.  
+The following steps describe how to completely remove Azure Monitor for VMs if you still require the Log Analytics workspace. You are going to remove the **InfrastructureInsights** and **ServiceMap** solutions from the workspace.  
 
 >[!NOTE]
 >If you were using the Service Map monitoring solution previous to enabling Azure Monitor for VMs and you still rely on it, do not remove that solution as described in step 6 below.  
