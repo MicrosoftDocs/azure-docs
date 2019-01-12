@@ -19,17 +19,16 @@ ms.author: juliako
 
 Azure Media Services v3 is available via Azure Resource Manager manifest in global Azure, Azure Government, Azure Germany, Azure China 21Vianet. However, not all Media Services features are available in all the Azure clouds. This document outlines availabilities of main Media Services v3 components.
 
-## Feature avalability in Azure clouds
+## Feature availability in Azure clouds
 
 | Feature|Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
-| Azure EventGrid | Available | Not available | Not available | Not available |
-| Unified Speech Service | Available | Not available | Not available | Not available |
-| VideoAnalyzerPreset |  Available | Not available | Not available | Not available |
-| AudioAnalyzerPreset |  Available | Not available | Not available | Not available |
-| StandardEncoderPreset| Available | Available | Available | Available |
-| LiveEvents | Available | Available | Available | Available |
-| StreamingEndpoints | Available | Available | Available | Available |
+| [Azure EventGrid](reacting-to-media-services-events.md) | Available | Not available | Not available | Not available |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Available | Not available | Not available | Not available |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Available | Not available | Not available | Not available |
+| [StandardEncoderPreset](encoding-concept.md) | Available | Available | Available | Available |
+| [LiveEvents](live-streaming-overview.md) | Available | Available | Available | Available |
+| [StreamingEndpoints](streaming-endpoint-concept.md) | Available | Available | Available | Available |
 
 ## Regions 
 
