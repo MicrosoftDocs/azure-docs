@@ -189,7 +189,8 @@ for the resource you want to call.
 
 1. In the HTTP action, choose **Show advanced options**. 
 
-1. From the **Authentication** list, select **Managed Service Identity**, fill in **URL** by the following URL :
+1. From the  **Authentication** list, select **Managed Service Identity**. In the **URL** box, enter the endpoint URL for Azure Active Directory authentication, based on the Azure service you're using. After you enter this URL, the Audience box appears for you to set that property. For example, if you're using Azure Resource Manager, use this URL:
+
 ```url
 https://management.azure.com/subscriptions/<Azure-Subscription-ID>?api-version=2016-06-01
 ```
