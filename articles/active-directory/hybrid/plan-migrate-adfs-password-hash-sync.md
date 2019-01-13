@@ -318,7 +318,7 @@ First, change the sign-in method:
 Skip to [Testing and next steps](#testing-and-next-steps).
 
    > [!IMPORTANT]
-   > Skip the section **Option B: Switch from federation to password hash sync by using Azure AD Connect and PowerShell**. The steps in that section don't apply if you chose Option A to change the sign-in method to password hash synchronization and enable seamless SSO.
+   > Skip the section **Option B: Switch from federation to password hash synchronization by using Azure AD Connect and PowerShell**. The steps in that section don't apply if you chose Option A to change the sign-in method to password hash synchronization and enable seamless SSO.
 
 #### Option B: Switch from federation to password hash synchronization using Azure AD Connect and PowerShell
 
