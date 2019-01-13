@@ -66,3 +66,18 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 | Files synced | Count of files uploaded and downloaded.<br><br>Unit: Count<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 | Server Heartbeat | Count of heartbeats received from the server. (Note: Data for this metric will be available in a future update.)<br><br>Unit: Count<br>Aggregation Type: Maximum<br>Applicable dimension: Server Name |
 | Sync Session Result | Sync session result (1=successful sync session; 0=failed sync session)<br><br>Unit: Count<br>Aggregation Types: Maximum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
+
+## Performance counters
+
+Use the Azure File Sync performance counters on the server to monitor sync activity.
+
+Current performance counters 
+- AFS Bytes Transferred 
+  - Downloaded Bytes/sec
+  - Total Bytes/sec
+  - Uploaded Bytes/sec
+- AFS Sync Operations 
+  - Downloaded Sync Files/sec
+  - Total Sync File Operations/sec
+  - Uploaded Sync Files/sec
+
