@@ -36,7 +36,19 @@ Diagnostics logs are **off** by default. To turn on diagnostics logs, complete t
 
     ![Settings for diagnostics logs](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
+3. When your Stream Analytics job starts, diagnostic logs are routed to your Log Analytics workspace. In the portal, select the Log Analytics workspace and choose **Logs** under the **General** section.
 
+   ![Log Analytics logs under general section](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+
+4. You can [write your own query](./azure-monitor/log-query/get-started-portal.md) to search for terms, identify trends, analyze patterns, and provide insights based on your data. Diagnostic logs from Azure Stream Analytics are stored stored in **AzureDiagnostics** table. For example, you can write a query to filter only diagnostic logs that have the message “The streaming job failed.”
+
+   ![Diagnostics query and results](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-query.png)
+
+5. When you have a query that is searching for the right logs, save it by selecting “Save” and provide a Name and Category. You can then create an alert by selecting ‘New alert rule’. Next you need to specify the condition to get alerted. Select ‘Condition’ and enter the threshold value and the frequency at which this custom log search is evaluated.  
+
+   ![Diagnostic log search query](./media/stream-analytics-job-diagnostic-logs/search-query.png)
+
+   You can then choose the action group, specify the alert details like name and description after which you can create the alert rule. You can route the diagnostic logs of various jobs to the same Log Analytics workspace. This will enable you to setup alerts once which will work across all jobs.  
 
 ## Diagnostics log categories
 
