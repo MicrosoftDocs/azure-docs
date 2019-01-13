@@ -166,7 +166,7 @@ $StorageAccountName = "azsblobcontainer" # Give a name to your new storage accou
 $Location = "Local" # Choose "Local" as an example.
 $ContainerName = "photo" # Give a name to your new container.
 $ImageToUpload = "C:\temp\Hello.jpg" # Prepare an image file and a source directory in your local computer.
-$DestinationFolder = "C:\temp\downlaod" # A destination directory in your local computer.
+$DestinationFolder = "C:\temp\download" # A destination directory in your local computer.
 
 # Import the Connect PowerShell module"
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
