@@ -43,20 +43,23 @@ Security Center continuously assesses the configuration of your resources to ide
 
 The regulatory compliance dashboard view can help focus your attention on the gaps in compliance with a standard or regulation that is important to you. This focused view also enables you to continuously monitor your compliance score over time within dynamic cloud and hybrid environments.
 
+>[!NOTE]
+> Currently supported regulatory standards are: Azure CIS, PCI DSS 3.2, ISO 27001, and SOC TSP. Additional standards will be reflected in the dashboard as it develops.
+
 1.  In the Security Center main menu, under **POLICY & COMPLIANCE** select **Regulatory compliance dashboard**. <br>
 At the top of the screen, you see a dashboard with an overview of your compliance status with the set of supported compliance regulations. You can see your overall compliance score, and the number of passing vs. failing assessments associated with each standard.
 
-    ![A screenshot of a computer Description generated with very high confidence](media/791dc43cb85996c764640a37d6ddadd9.png)
+    ![computer description high confidence](./media/security-center-compliance-dashboard/compliance-dashboard.png)
 
 
 2.  Select a tab for a compliance standard that is relevant to you. You will see the list of all controls for that standard. For the applicable controls, you can view the details of passing and failing assessments associated with that control. Some controls are grayed out. These controls do not have any Security Center assessments associated with them. You need to analyze the requirements for these and assess them in your environment on your own. Some of these may be process-related and not technical.
 
-    ![compliance tab](media/a11749badfcf5e709cf4f278e2144b79.png)
+    ![compliance tab](./media/security-center-compliance-dashboard/compliance-pci.png)
 
 3.  Select the **All** tab to see a view of all relevant Security Center recommendations and their associated standards. This view can be useful for identifying all the different standards impacted by a particular recommendation. <br> 
 You can potentially use this view to prioritize recommendations you need to resolve. For example, if you see that the recommendation **Enable MFA for accounts with owner permissions on your subscription** is failing on multiple resources and is associated with multiple standards, then resolving this recommendation will have a high impact on your overall compliance score.
 
-   ![compliance score impact](media/8675af7b59de8d96a9c6bf4cbea013b9.png)
+    ![compliance score impact](./media/security-center-compliance-dashboard/compliance-all-tabs.png)
 
 ## Improve your compliance posture
 
@@ -65,17 +68,18 @@ Given the information in the Regulatory compliance dashboard, you can improve yo
 
 1.  Click through any of the failing assessments that appear in the dashboard to view the details for that recommendation. Each recommendation includes a set of remediation steps that should be followed to resolve the issue.
 
-2.  You can select a particular resource to view more details and resolve the recommendation for that resource. <br>For example, in the **Azure CIS standard** tab, you can click on the recommendation **Require secure transfer to storage account**. As you click through to the recommendation information and select an unhealthy resource, it leads you directly to the experience of enabling **secure storage transfer** within the Azure portal.
+2.  You can select a particular resource to view more details and resolve the recommendation for that resource. <br>For example, in the **Azure CIS standard** tab, you can click on the recommendation **Require secure transfer to storage account**.
 
-   ![resolve recommendations](./media/image4.png)
+    ![compliance recommendation](./media/security-center-compliance-dashboard/compliance-recommendation.png)
+
+3. As you click through to the recommendation information and select an unhealthy resource, it leads you directly to the experience of enabling **secure storage transfer** within the Azure portal.
+
+    ![compliance recommendation](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
 
   
+    For more information about how to apply recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 
-    ![](media/9f68795c6fed151cda3561b98cef2192.png)
-
-    For more information about how to apply recommendations, see [Implementing security recommendations in Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-recommendations).
-
-3.  After you take action to resolve recommendations, you will see the impact in the compliance dashboard report because your compliance score improves.
+4.  After you take action to resolve recommendations, you will see the impact in the compliance dashboard report because your compliance score improves.
 
     > [!NOTE]
     > Assessments are run approximately every 12 hours, so you will see the impact on your compliance data only after the assessments run.
