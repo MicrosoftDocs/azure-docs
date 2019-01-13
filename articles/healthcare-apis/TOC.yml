@@ -7,6 +7,8 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Deploy Healthcare APIs - PowerShell
+    href: fhir-paas-powershell-quickstart.md
   - name: Deploy OSS FHIR server - Portal
     href: fhir-oss-portal-quickstart.md
   - name: Deploy OSS FHIR Server - PowerShell
