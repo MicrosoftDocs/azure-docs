@@ -731,7 +731,7 @@ az group deployment create \
 
 ## Template for a more advanced Dynamic Thresholds metric alert
 
-You can use the following template to create a more advanced Dynamic Thresholds metric alert on dimensional metrics. multiple criteria are not currently supported.
+You can use the following template to create a more advanced Dynamic Thresholds metric alert on dimensional metrics. Multiple criteria are not currently supported.
 
 Dynamic Thresholds alerts can create custom-tailored thresholds for hundreds of metric series (even different types) at a time, which results in fewer alert rules to manage.
 
