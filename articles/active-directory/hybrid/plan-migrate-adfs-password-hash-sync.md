@@ -25,7 +25,7 @@ The following prerequisites are required to migrate from using AD FS to using pa
 
 ### Update Azure AD Connect
 
-To successfully complete the steps it takes to migrate to using password hash synchronization, you must have [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0, at a minimum. In this version, the way sign-in conversion is performed changes significantly. The overall time to migrate from AD FS to cloud authentication in this version is reduced from potentially hours to minutes.
+To successfully complete the steps it takes to migrate to using password hash synchronization, you must have [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0 or a later version. In Azure AD Connect 1.1.819.0, the way sign-in conversion is performed changes significantly. The overall time to migrate from AD FS to cloud authentication in this version is reduced from potentially hours to minutes.
 
 > [!IMPORTANT]
 > You might read in outdated documentation, tools, and blogs that user conversion is required when you convert domains from federated identity to managed identity. *Converting users* is no longer required. Microsoft is working to update documentation and tools to reflect this change.
@@ -47,14 +47,14 @@ Now is a good time to verify that these permissions are in place for all domains
 
 You can choose from two methods to migrate from federated identity management to password hash synchronization and seamless single sign-on (SSO). The method you use depends on how your AD FS instance was originally configured.
 
-- **Azure AD Connect**. If you originally configured AD FS by using Azure AD Connect, you *must* change to password hash synchronization by using the Azure AD Connect wizard.
+* **Azure AD Connect**. If you originally configured AD FS by using Azure AD Connect, you *must* change to password hash synchronization by using the Azure AD Connect wizard.
 
-   ‎Azure AD Connect automatically runs the **Set-MsolDomainAuthentication** cmdlet when you change the user sign-in method. Azure AD Connect automatically unfederates all the verified federated domains in your Azure AD tenant.  
-   ‎  
+   ‎Azure AD Connect automatically runs the **Set-MsolDomainAuthentication** cmdlet when you change the user sign-in method. Azure AD Connect automatically unfederates all the verified federated domains in your Azure AD tenant.
+
    > [!NOTE]
-   > Currently, if you originally used Azure AD Connect to configure AD FS, you can't avoid unfederating all domains in your tenant when you change the user sign-in to password hash synchronization.  
+   > Currently, if you originally used Azure AD Connect to configure AD FS, you can't avoid unfederating all domains in your tenant when you change the user sign-in to password hash synchronization. 
 ‎
-- **Azure AD Connect with PowerShell**. You can use this method only if you didn't originally configure AD FS by using Azure AD Connect. For this option, you still must change the user sign-in method via the Azure AD Connect wizard. The core difference with this option is that the wizard doesn't automatically run the **Set-MsolDomainAuthentication** cmdlet. With this option, you have full control over which domains are converted and in which order.
+* **Azure AD Connect with PowerShell**. You can use this method only if you didn't originally configure AD FS by using Azure AD Connect. For this option, you still must change the user sign-in method via the Azure AD Connect wizard. The core difference with this option is that the wizard doesn't automatically run the **Set-MsolDomainAuthentication** cmdlet. With this option, you have full control over which domains are converted and in which order.
 
 To understand which method you should use, complete the steps in the following sections.
 
@@ -66,7 +66,7 @@ To verify your current user sign-in settings:
 2. In the **User sign-in** section, verify the following settings:
    * **Federation** is set to **Enabled**.
    * **Seamless single sign-on** is set to **Disabled**.
-   * **Pass-through authentication** is set to **Disabled**. 
+   * **Pass-through authentication** is set to **Disabled**.
 
    ![Screenshot of the settings in the Azure AD Connect User sign-in section](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image1.png)
 
@@ -75,7 +75,7 @@ To verify your current user sign-in settings:
 1. On your Azure AD Connect server, open Azure AD Connect. Select **Configure**.
 2. On the **Additional tasks** page, select **View current configuration**, and then select **Next**.<br />
 
-   ![Screenshot of the View current configuration option selected on the Additional tasks page](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image2.png)<br />    
+   ![Screenshot of the View current configuration option selected on the Additional tasks page](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image2.png)<br />
 3. On the **Review Your Solution** page, note the **Password hash synchronization** status.<br /> 
 
    * If **Password hash synchronization** is set to **Disabled**, complete the steps in this article to enable it.
@@ -147,7 +147,7 @@ AD FS issues the **InsideCorporateNetwork** claim if the user who is authenticat
 
 The **InsideCorporateNetwork** claim isn't available after your domains are converted to password hash synchronization. You can use [named locations in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations) to replace this functionality.
 
-After you configure named locations, you must update all conditional access policies that were configured to either include or exclude the network locations **All trusted locations** or **MFA Trusted IPs** to reflect the new named locations.
+After you configure named locations, you must update all conditional access policies that were configured to either include or exclude the network **All trusted locations** or **MFA Trusted IPs** values to reflect the new named locations.
 
 For more information about the **Location** condition in conditional access, see [Active Directory conditional access locations](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
@@ -172,7 +172,7 @@ Although similar customizations are available, some visual changes on sign-in pa
 
 ## Plan deployment and support
 
-Complete the tasks that are described in this section to help you play for deployment and support.
+Complete the tasks that are described in this section to help you plan for deployment and support.
 
 ### Plan the maintenance window
 
@@ -180,21 +180,21 @@ Although the domain conversion process is relatively quick, Azure AD might conti
 
 Only users who access the services via a web browser during this post-conversion window before the service side cache is cleared are affected. Legacy clients (Exchange ActiveSync, Outlook 2010/2013) aren't expected to be affected because Exchange Online keeps a cache of their credentials for a set period of time. The cache is used to silently reauthenticate the user. The user doesn't have to return to AD FS. Credentials stored on the device for these clients are used to silently reauthenticate themselves after this cached is cleared. Users aren't expected to receive any password prompts as a result of the domain conversion process. 
 
-Modern authentication clients (Office 2013/2016, iOS, and Android Apps) use a valid refresh token to obtain new access tokens for continued access to resources instead of returning to AD FS. These clients are immune to any password prompts resulting from the domain conversion process. The clients will continue to function without additional configuration.
+Modern authentication clients (Office 2016 and Office 2013, iOS, and Android apps) use a valid refresh token to obtain new access tokens for continued access to resources instead of returning to AD FS. These clients are immune to any password prompts resulting from the domain conversion process. The clients will continue to function without additional configuration.
 
 > [!IMPORTANT]
 > Don’t shut down your AD FS environment or remove the Office 365 relying party trust until you have verified that all users can successfully authenticate by using cloud authentication.
 
 ### Plan for rollback
 
-If you encounter a major issue that can't be quickly resolved, you might decide to roll back the solution to federation. It’s important to plan what to do if your deployment doesn’t roll out as intended. If conversion of the domain or users fails during deployment, or if you need to roll back to federation, you must understand how to mitigate any outage and reduce the effect on your users.
+If you encounter a major issue that you can't resolve quickly, you might decide to roll back the solution to federation. It’s important to plan what to do if your deployment doesn’t roll out as intended. If conversion of the domain or users fails during deployment, or if you need to roll back to federation, you must understand how to mitigate any outage and reduce the effect on your users.
 
 #### To roll back
 
-To plan for rollback, consult the federation design and deployment documentation for your specific deployment details. The process should involve these tasks:
+To plan for rollback, check the federation design and deployment documentation for your specific deployment details. The process should include these tasks:
 
-* Convert managed domains to federated domains by using the **Convert-MSOLDomainToFederated** cmdlet.
-* If necessary, configure additional claims rules.
+* Converting managed domains to federated domains by using the **Convert-MSOLDomainToFederated** cmdlet.
+* If necessary, configuring additional claims rules.
 
 ### Plan communications
 
@@ -205,18 +205,18 @@ After both password hash synchronization and seamless SSO are deployed, the user
 Include the following elements in your communication strategy:
 
 * Notify users about upcoming and released functionality by using:
-  * Email and other internal communication channels.
-  * Visuals, such as posters.
-  * Executive, live, or other communications.
+   * Email and other internal communication channels.
+   * Visuals, such as posters.
+   * Executive, live, or other communications.
 * Determine who will customize the communications and who will send the communications, and when.
 
 ## Implement your solution
 
 You planned your solution. Now, you can now implement it. Implementation involves the following components:
 
-1. Enabling password hash synchronization.
-2. Preparing for seamless SSO.
-3. Changing the sign-in method to password hash synchronization and enabling seamless SSO.
+* Enabling password hash synchronization.
+* Preparing for seamless SSO.
+* Changing the sign-in method to password hash synchronization and enabling seamless SSO.
 
 ### Step 1: Enable password hash synchronization
 
@@ -232,12 +232,12 @@ To enable password hash synchronization:
 4. On the **Connect your directories** page, select **Next**.
 5. On the **Domain and OU filtering** page, select **Next**.
 6. On the **Optional features** page, select **Password synchronization**, and then select **Next**.
-   
+ 
    ![Screenshot of the Password synchronization option selected on the Optional features page](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image6.png)<br />
 7. Select **Next** on the remaining pages. On the last page, select **Configure**.
 8. Azure AD Connect starts to sync password hashes on the next synchronization.
 
-After password hash synchronization is enabled, the password hashes for all users in the Azure AD Connect synchronization scope are rehashed and written to Azure AD. Depending on the number of users, this operation might take between minutes and several hours.
+After password hash synchronization is enabled, the password hashes for all users in the Azure AD Connect synchronization scope are rehashed and written to Azure AD. Depending on the number of users, this operation might take minutes or several hours.
 
 For planning purposes, you should estimate that approximately 20,000 users are processed in 1 hour.
 
@@ -251,7 +251,7 @@ To verify that password hash synchronization works correctly, complete the **Tro
 6. On the main menu, select **Troubleshoot password hash synchronization**.
 7. On the sub menu, select **Password hash synchronization does not work at all**.
 
-If you find issues, see [Troubleshoot password hash synchronization with Azure AD Connect sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization) to troubleshoot.
+For troubleshooting issues, see [Troubleshoot password hash synchronization with Azure AD Connect sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization).
 
 ### Step 2: Prepare for seamless SSO
 
@@ -272,9 +272,6 @@ You have two options for changing the sign-in method to password hash synchroniz
 
 Use this method if you initially configured your AD FS environment by using Azure AD Connect. You can't use this method if you *didn't* originally configure your AD FS environment by using Azure AD Connect.
 
-> [!IMPORTANT]
-> After you complete the following steps, all your domains are converted from federated identity to managed identity. For more information, review [Plan the migration method](#plan-the-migration-method).
-
 First, change the sign-in method:
 
 1. On the Azure AD Connect server, open the Azure AD Connect wizard.
@@ -285,78 +282,79 @@ First, change the sign-in method:
 4. On the **User sign-in** page, select the **Password hash synchronization button**. Make sure to select the **Do not convert user accounts** check box. The option is deprecated. Select **Enable single sign-on**, and then select **Next**.
 
    ![Screenshot of the Enable single sign-on page](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image8.png)<br />
-   
+
    > [!NOTE]
    > Starting with Azure AD Connect version 1.1.880.0, the **Seamless single sign-on** check box is selected by default.
-   
+
    > [!IMPORTANT]
    > You can safely ignore the warnings that indicate that user conversion and full password hash synchronization are required steps for converting from federation to cloud authentication. Note that these steps aren't required anymore. If you still see these warnings, make sure that you're running the latest version of Azure AD Connect and that you're using the latest version of this guide. For more information, see the section [Update Azure AD Connect](#update-azure-ad-connect).
-   
+
 5. On the **Enable single sign-on** page, enter the credentials of Domain Administrator account, and then select **Next**.
 
    ![Screenshot of the Enable single sign-on page](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
-   
+
    > [!NOTE]
-   > Domain Administrator account credentials are required to enable seamless SSO. The process completes the following actions, which require these elevated permissions. The Domain Administrator account credentials aren't stored in Azure AD Connect or in Azure AD. The Domain Administrator account credentials are used only to enable the feature. The credentials are discarded when the process successfully finishes.
+   > Domain Administrator account credentials are required to enable seamless SSO. The process completes the following actions, which require these elevated permissions. The Domain Administrator account credentials aren't stored in Azure AD Connect or in Azure AD. The Domain Administrator account credentials are used only to turn on the feature. The credentials are discarded when the process successfully finishes.
    >
    > 1. A computer account named AZUREADSSOACC (which represents Azure AD) is created in your on-premises Active Directory instance.
    > 2. The computer account's Kerberos decryption key is securely shared with Azure AD.
    > 3. Two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
-   
+
 6. On the **Ready to configure** page, make sure that the **Start the synchronization process when configuration completes** check box is selected. Then, select **Configure**.
-      
+
       ![Screenshot of the Ready to configure page](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image10.png)<br />
-   
+
    > [!IMPORTANT]
    > At this point, all your federated domains will change to managed authentication. Password hash synchronization is the new method of authentication.
-       
+
 7. In the Azure AD portal, select **Azure Active Directory** > **Azure AD Connect**.
 8. Verify these settings:
-  * **Federation** is set to **Disabled**.
-  * **Seamless single sign-on** is set to **Enabled**.
-  * **Password Sync** is set to **Enabled**.<br /> 
+   * **Federation** is set to **Disabled**.
+   * **Seamless single sign-on** is set to **Enabled**.
+   * **Password Sync** is set to **Enabled**.<br /> 
 
    ![Screenshot that shows the settings in the User sign-in section ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 Skip to [Testing and next steps](#testing-and-next-steps).
-   
-   > [!IMPORTANT]
-   > Skip the section **Option B: Switch from federation to password hash sync by using Azure AD Connect and PowerShell**. The steps in that section don't apply if you chose Option A to change the sign-in method to password hash synchronization and enable seamless SSO.  
 
-#### Option B: Switch from federation to password hash sync using Azure AD Connect and PowerShell
+   > [!IMPORTANT]
+   > Skip the section **Option B: Switch from federation to password hash sync by using Azure AD Connect and PowerShell**. The steps in that section don't apply if you chose Option A to change the sign-in method to password hash synchronization and enable seamless SSO.
+
+#### Option B: Switch from federation to password hash synchronization using Azure AD Connect and PowerShell
 
 Use this option if you didn't initially configure your federated domains by using Azure AD Connect. During this process, you enable seamless SSO and switch your domains from federated to managed.
 
 1. On the Azure AD Connect server, open the Azure AD Connect wizard.
-2. Select **Change user sign-in**, and then select **Next**. 
+2. Select **Change user sign-in**, and then select **Next**.
 3. On the **Connect to Azure AD** page, enter the username and password for a Global Administrator account.
 4. On the **User sign-in** page, select the **Password hash synchronization** button. Select **Enable single sign-on**, and then select **Next**.
-   
-   Before the change:
+
+   Before you enable password hash synchronization:
    ![Screenshot that shows the Do not configure option on the User sign-in page](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
-   After the change:  
+   After you enable password hash synchronization:
    ![Screenshot that shows new options on the User sign-in page ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
    
    > [!NOTE]
    > Starting with Azure AD Connect version 1.1.880.0, the **Seamless single sign-on** check box is selected by default.
-   
+
 5. On the **Enable single sign-on** page, enter the credentials for a Domain Administrator account, and then select **Next**.
-   
+
    > [!NOTE]
-   > Domain Administrator account credentials are required to enable seamless SSO. The process completes the following actions, which require these elevated permissions. The Domain Administrator account credentials aren't stored in Azure AD Connect or Azure AD. They're used only to enable the feature and then discarded after successful completion.
+   > Domain Administrator account credentials are required to enable seamless SSO. The process completes the following actions, which require these elevated permissions. The Domain Administrator account credentials aren't stored in Azure AD Connect or in Azure AD. The Domain Administrator account credentials are used only to turn on the feature. The credentials are discarded when the process successfully finishes.
+   >
    > 1. A computer account named AZUREADSSOACC (which represents Azure AD) is created in your on-premises Active Directory instance.
    > 2. The computer account's Kerberos decryption key is securely shared with Azure AD.
    > 3. Two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
-   
+
 6. On the **Ready to configure** page, make sure that the **Start the synchronization process when configuration completes** check box is selected. Then, select **Configure**.
 
    ![Screenshot that shows the Configure button on the Ready to configure page](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image15.png)<br />
    When you select the **Configure** button, seamless SSO is configured as indicated in the preceding step. Password hash synchronization configuration isn't modified because it was enabled earlier.
-   
+
    > [!IMPORTANT]
-   > No changes are made to the way users sign in at this time.  
-   
+   > No changes are made to the way users sign in at this time.
+
 7. In the Azure AD portal, verify these settings:
    * **Federation** is set to **Enabled**.
    * **Seamless single sign-on** is set to **Enabled**.
@@ -373,23 +371,23 @@ At this point, federation is still enabled and operational for your domains. To 
 
 Complete the conversion by using the Azure AD PowerShell module:
 
-1. In PowerShell, sign in to Azure AD by using a Global Administrator account.  
-2. To convert the first domain, run the following command:  
-   
+1. In PowerShell, sign in to Azure AD by using a Global Administrator account.
+2. To convert the first domain, run the following command:
+
    ``` PowerShell
    Set-MsolDomainAuthentication -Authentication Managed -DomainName <domain name>
    ```
-   
+
 3. In the Azure AD portal, select **Azure Active Directory** > **Azure AD Connect**.
 4. Verify that the domain has been converted to managed by running the following command:
-   
+
    ``` PowerShell
    Get-MsolDomain -DomainName <domain name>
    ```
 
 ## Testing and next steps
 
-Complete the following tasks to verify password hash synchronization and to complete the conversion process.
+Complete the following tasks to verify password hash synchronization and to finish the conversion process.
 
 ### Test authentication by using password hash synchronization 
 
@@ -412,7 +410,7 @@ To test password hash synchronization:
 
 ### Test seamless SSO
 
-1. Sign in to a domain-joined machine that is connected to the corporate network. 
+1. Sign in to a domain-joined machine that is connected to the corporate network.
 2. In Internet Explorer or Chrome, go to one of the following URLs (replace "contoso" with your domain):
 
    * https:\/\/myapps.microsoft.com/contoso.com
@@ -425,7 +423,7 @@ To test password hash synchronization:
 
    > [!NOTE]
    > Seamless SSO works on Office 365 services that support domain hint (for example, myapps.microsoft.com/contoso.com). Currently, the Office 365 portal (portal.office.com) doesn’t support domain hints. Users are required to enter a UPN. After a UPN is entered, seamless SSO retrieves the Kerberos ticket on behalf of the user. The user is signed in without entering a password.
-   
+
    > [!TIP]
    > Consider deploying [Azure AD hybrid join on Windows 10](https://docs.microsoft.com/azure/active-directory/device-management-introduction) for an improved SSO experience.
 
@@ -459,7 +457,7 @@ Your support team should understand how to troubleshoot any authentication issue
 
 [Troubleshoot Azure Active Directory password hash synchronization](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization)
 
-[Troubleshoot Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sso)  
+[Troubleshoot Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sso)
 
 ## Roll over the seamless SSO Kerberos decryption key
 
@@ -471,6 +469,6 @@ For more information, see [How do I roll over the Kerberos decryption key of the
 
 ## Next steps
 
-- Learn about [Azure AD Connect design concepts](plan-connect-design-concepts.md).
-- Choose the [right authentication](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
-- Learn about [supported topologies](plan-connect-design-concepts.md).
+* Learn about [Azure AD Connect design concepts](plan-connect-design-concepts.md).
+* Choose the [right authentication](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+* Learn about [supported topologies](plan-connect-design-concepts.md).

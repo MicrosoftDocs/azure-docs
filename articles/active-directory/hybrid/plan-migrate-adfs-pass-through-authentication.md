@@ -25,7 +25,7 @@ The following prerequisites are required to migrate from using AD FS to using pa
 
 ### Update Azure AD Connect
 
-To successfully complete the steps it takes to migrate to using pass-through authentication, you must have [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0, at a minimum. In this version, the way sign-in conversion is performed changes significantly. The overall time to migrate from AD FS to cloud authentication in this version is reduced from potentially hours to minutes.
+To successfully complete the steps it takes to migrate to using pass-through authentication, you must have [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0 or a later version. In Azure AD Connect 1.1.819.0, the way sign-in conversion is performed changes significantly. The overall time to migrate from AD FS to cloud authentication in this version is reduced from potentially hours to minutes.
 
 > [!IMPORTANT]
 > You might read in outdated documentation, tools, and blogs that user conversion is required when you convert domains from federated identity to managed identity. *Converting users* is no longer required. Microsoft is working to update documentation and tools to reflect this change.
@@ -42,14 +42,14 @@ For most customers, two or three authentication agents are sufficient to provide
 
 You can choose from two methods to migrate from federated identity management to pass-through authentication and seamless single sign-on (SSO). The method you use depends on how your AD FS instance was originally configured.
 
-- **Azure AD Connect**. If you originally configured AD FS by using Azure AD Connect, you *must* change to pass-through authentication by using the Azure AD Connect wizard.
+* **Azure AD Connect**. If you originally configured AD FS by using Azure AD Connect, you *must* change to pass-through authentication by using the Azure AD Connect wizard.
 
-   ‎Azure AD Connect automatically runs the **Set-MsolDomainAuthentication** cmdlet when you change the user sign-in method. Azure AD Connect automatically unfederates all the verified federated domains in your Azure AD tenant.  
-   ‎  
+   ‎Azure AD Connect automatically runs the **Set-MsolDomainAuthentication** cmdlet when you change the user sign-in method. Azure AD Connect automatically unfederates all the verified federated domains in your Azure AD tenant.
+
    > [!NOTE]
-   > Currently, if you originally used Azure AD Connect to configure AD FS, you can't avoid unfederating all domains in your tenant when you change the user sign-in to pass-through authentication.  
+   > Currently, if you originally used Azure AD Connect to configure AD FS, you can't avoid unfederating all domains in your tenant when you change the user sign-in to pass-through authentication.
 ‎
-- **Azure AD Connect with PowerShell**. You can use this method only if you didn't originally configure AD FS by using Azure AD Connect. For this option, you still must change the user sign-in method via the Azure AD Connect wizard. The core difference with this option is that the wizard doesn't automatically run the **Set-MsolDomainAuthentication** cmdlet. With this option, you have full control over which domains are converted and in which order.
+* **Azure AD Connect with PowerShell**. You can use this method only if you didn't originally configure AD FS by using Azure AD Connect. For this option, you still must change the user sign-in method via the Azure AD Connect wizard. The core difference with this option is that the wizard doesn't automatically run the **Set-MsolDomainAuthentication** cmdlet. With this option, you have full control over which domains are converted and in which order.
 
 To understand which method you should use, complete the steps in the following sections.
 
@@ -57,9 +57,9 @@ To understand which method you should use, complete the steps in the following s
 
 1. Sign in to the [Azure AD portal](https://aad.portal.azure.com/) by using a Global Administrator account.
 2. In the **User sign-in** section, verify the following settings:
-   - **Federation** is set to **Enabled**.
-   - **Seamless single sign-on** is set to **Disabled**.
-   - **Pass-through authentication** is set to **Disabled**. 
+   * **Federation** is set to **Enabled**.
+   * **Seamless single sign-on** is set to **Disabled**.
+   * **Pass-through authentication** is set to **Disabled**.
 
    ![Screenshot of the settings in the Azure AD Connect User sign-in section](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image1.png)
 
@@ -132,11 +132,11 @@ This section describes common AD FS customizations.
 
 #### InsideCorporateNetwork claim
 
-AD FS issues the **InsideCorporateNetwork** claim if the user who is authenticating is inside the corporate network. This claim can then be passed on to Azure AD. The claim is used to bypass multi-factor authentication based on the user's network location. To learn how to determine whether this functionality currently is enabled in AD FS, see [Trusted IPs for federated users](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud).
+AD FS issues the **InsideCorporateNetwork** claim if the user who is authenticating is inside the corporate network. This claim can then be passed on to Azure AD. The claim is used to bypass multi-factor authentication based on the user's network location. To learn how to determine whether this functionality currently is available in AD FS, see [Trusted IPs for federated users](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud).
 
 The **InsideCorporateNetwork** claim isn't available after your domains are converted to pass-through authentication. You can use [named locations in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations) to replace this functionality.
 
-After you configure named locations, you must update all conditional access policies that were configured to either include or exclude the network locations **All trusted locations** or **MFA Trusted IPs** to reflect the new named locations.
+After you configure named locations, you must update all conditional access policies that were configured to either include or exclude the network **All trusted locations** or **MFA Trusted IPs** values to reflect the new named locations.
 
 For more information about the **Location** condition in conditional access, see [Active Directory conditional access locations](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
@@ -144,7 +144,7 @@ For more information about the **Location** condition in conditional access, see
 
 When you join a device to Azure AD, you can create conditional access rules that enforce that devices meet your access standards for security and compliance. Also, users can sign in to a device by using an organizational work or school account instead of a personal account. When you use hybrid Azure AD-joined devices, you can join your Active Directory domain-joined devices to Azure AD. Your federated environment might have been set up to use this feature.
 
-To ensure that hybrid join continues to work for any devices that are joined to the domain after your domains are converted to pass-through authentication, for Windows 10 clients, you must use Azure AD Connect to sync Active Directory computer accounts to Azure AD. 
+To ensure that hybrid join continues to work for any devices that are joined to the domain after your domains are converted to pass-through authentication, for Windows 10 clients, you must use Azure AD Connect to sync Active Directory computer accounts to Azure AD.
 
 For Windows 8 and Windows 7 computer accounts, hybrid join uses seamless SSO to register the computer in Azure AD. You don't have to sync Windows 8 and Windows 7 computer accounts like you do for Windows 10 devices. However, you must deploy an updated workplacejoin.exe file (via an .msi file) to Windows 8 and Windows 7 clients so they can register themselves by using seamless SSO. [Download the .msi file](https://www.microsoft.com/download/details.aspx?id=53554).
 
@@ -161,7 +161,7 @@ Although similar customizations are available, some visual changes on sign-in pa
 
 ## Plan for smart lockout
 
-Azure AD smart lockout protects against brute-force password attacks. Smart lockout prevents an on-premises Active Directory account from being locked out when pass-through authentication is being used and an account lockout group policy is set in Active Directory. 
+Azure AD smart lockout protects against brute-force password attacks. Smart lockout prevents an on-premises Active Directory account from being locked out when pass-through authentication is being used and an account lockout group policy is set in Active Directory.
 
 For more information, see [Azure Active Directory smart lockout](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout).
 
@@ -173,36 +173,36 @@ Complete the tasks that are described in this section to help you plan for deplo
 
 Although the domain conversion process is relatively quick, Azure AD might continue to send some authentication requests to your AD FS servers for up to four hours after the domain conversion is finished. During this four-hour window, and depending on various service side caches, Azure AD might not accept these authentications. Users might receive an error. The user can still successfully authenticate against AD FS, but Azure AD no longer accepts the user’s issued token because that federation trust is now removed.
 
-Only users who access the services via a web browser during this post-conversion window before the service side cache is cleared are affected. Legacy clients (Exchange ActiveSync, Outlook 2010/2013) aren't expected to be affected because Exchange Online keeps a cache of their credentials for a set period of time. The cache is used to silently reauthenticate the user. The user doesn't have to return to AD FS. Credentials stored on the device for these clients are used to silently reauthenticate themselves after this cached is cleared. Users aren't expected to receive any password prompts as a result of the domain conversion process. 
+Only users who access the services via a web browser during this post-conversion window before the service side cache is cleared are affected. Legacy clients (Exchange ActiveSync, Outlook 2010/2013) aren't expected to be affected because Exchange Online keeps a cache of their credentials for a set period of time. The cache is used to silently reauthenticate the user. The user doesn't have to return to AD FS. Credentials stored on the device for these clients are used to silently reauthenticate themselves after this cached is cleared. Users aren't expected to receive any password prompts as a result of the domain conversion process.
 
-Modern authentication clients (Office 2013/2016, iOS, and Android Apps) use a valid refresh token to obtain new access tokens for continued access to resources instead of returning to AD FS. These clients are immune to any password prompts resulting from the domain conversion process. The clients will continue to function without additional configuration.
+Modern authentication clients (Office 2016 and Office 2013, iOS, and Android apps) use a valid refresh token to obtain new access tokens for continued access to resources instead of returning to AD FS. These clients are immune to any password prompts resulting from the domain conversion process. The clients will continue to function without additional configuration.
 
 > [!IMPORTANT]
 > Don’t shut down your AD FS environment or remove the Office 365 relying party trust until you have verified that all users can successfully authenticate by using cloud authentication.
 
 ### Plan for rollback
 
-If you encounter a major issue that can't be quickly resolved, you might decide to roll back the solution to federation. It’s important to plan what to do if your deployment doesn’t roll out as intended. If conversion of the domain or users fails during deployment, or if you need to roll back to federation, you must understand how to mitigate any outage and reduce the effect on your users.
+If you encounter a major issue that you can't resolve quickly, you might decide to roll back the solution to federation. It’s important to plan what to do if your deployment doesn’t roll out as intended. If conversion of the domain or users fails during deployment, or if you need to roll back to federation, you must understand how to mitigate any outage and reduce the effect on your users.
 
 #### To roll back
 
-To plan for rollback, consult the federation design and deployment documentation for your specific deployment details. The process should involve these tasks:
+To plan for rollback, check the federation design and deployment documentation for your specific deployment details. The process should include these tasks:
 
-* Convert managed domains to federated domains by using the **Convert-MSOLDomainToFederated** cmdlet.
-* If necessary, configure additional claims rules.
+* Converting managed domains to federated domains by using the **Convert-MSOLDomainToFederated** cmdlet.
+* If necessary, configuring additional claims rules.
 
 ### Plan communications
 
-An important part of planning deployment and support is ensuring that your users are proactively informed about upcoming changes. Users should know in advance what they might experience and what is required of them. 
+An important part of planning deployment and support is ensuring that your users are proactively informed about upcoming changes. Users should know in advance what they might experience and what is required of them.
 
 After both pass-through authentication and seamless SSO are deployed, the user sign-in experience for accessing Office 365 and other resources that are authenticated through Azure AD changes. Users who are outside the network see only the Azure AD sign-in page. These users aren't redirected to the forms-based page that's presented by external-facing web application proxy servers.
 
 Include the following elements in your communication strategy:
 
 * Notify users about upcoming and released functionality by using:
-  * Email and other internal communication channels.
-  * Visuals, such as posters.
-  * Executive, live, or other communications.
+   * Email and other internal communication channels.
+   * Visuals, such as posters.
+   * Executive, live, or other communications.
 * Determine who will customize the communications and who will send the communications, and when.
 
 ## Implement your solution
@@ -240,10 +240,10 @@ First, change the sign-in method:
 2. Select **Change user sign-in**, and then select **Next**. 
 3. On the **Connect to Azure AD** page, enter the username and password of a Global Administrator account.
 4. On the **User sign-in** page, select the **Pass-through authentication** button, select **Enable single sign-on**, and then select **Next**.
-5. On the **Enable single sign-on** page, enter the credentials of a Domain Administrator account, and then select **Next**.  
+5. On the **Enable single sign-on** page, enter the credentials of a Domain Administrator account, and then select **Next**.
 
    > [!NOTE]
-   > Domain Administrator account credentials are required to enable seamless SSO. The process completes the following actions, which require these elevated permissions. The Domain Administrator account credentials aren't stored in Azure AD Connect or in Azure AD. The Domain Administrator account credentials are used only to enable the feature. The credentials are discarded when the process successfully finishes.
+   > Domain Administrator account credentials are required to enable seamless SSO. The process completes the following actions, which require these elevated permissions. The Domain Administrator account credentials aren't stored in Azure AD Connect or in Azure AD. The Domain Administrator account credentials are used only to turn on the feature. The credentials are discarded when the process successfully finishes.
    >
    > 1. A computer account named AZUREADSSOACC (which represents Azure AD) is created in your on-premises Active Directory instance.
    > 2. The computer account's Kerberos decryption key is securely shared with Azure AD.
@@ -254,9 +254,9 @@ First, change the sign-in method:
    ![Screenshot of the Ready to configure page](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)<br />
 7. In the Azure AD portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
 8. Verify these settings:
-  - **Federation** is set to **Disabled**.
-  - **Seamless single sign-on** is set to **Enabled**.
-  - **Pass-through authentication** is set to **Enabled**.<br />
+  * **Federation** is set to **Disabled**.
+  * **Seamless single sign-on** is set to **Enabled**.
+  * **Pass-through authentication** is set to **Enabled**.<br />
 
   ![Screenshot that shows the settings in the User sign-in section](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
 
@@ -282,11 +282,11 @@ Next. deploy additional authentication methods:
 Skip to [Testing and next steps](#testing-and-next-steps).
 
 > [!IMPORTANT]
-> Skip the section **Option B: Switch from federation to pass-through authentication by using Azure AD Connect and PowerShell**. The steps in that section don't apply if you chose Option A to change the sign-in method to pass-through authentication and enable seamless SSO.  
+> Skip the section **Option B: Switch from federation to pass-through authentication by using Azure AD Connect and PowerShell**. The steps in that section don't apply if you chose Option A to change the sign-in method to pass-through authentication and enable seamless SSO. 
 
 #### Option B: Switch from federation to pass-through authentication by using Azure AD Connect and PowerShell
 
-Use this option if you didn't initially configure your federated domains by using Azure AD Connect. 
+Use this option if you didn't initially configure your federated domains by using Azure AD Connect.
 
 First, enable pass-through authentication:
 
@@ -297,7 +297,8 @@ First, enable pass-through authentication:
 5. On the **Enable single sign-on** page, enter the credentials of a Domain Administrator account, and then select **Next**.
 
    > [!NOTE]
-   > Domain Administrator account credentials are required to enable seamless SSO. The process completes the following actions, which require these elevated permissions. The Domain Administrator account credentials aren't stored in Azure AD Connect or Azure AD. They're used only to enable the feature and then discarded after successful completion.
+   > Domain Administrator account credentials are required to enable seamless SSO. The process completes the following actions, which require these elevated permissions. The Domain Administrator account credentials aren't stored in Azure AD Connect or in Azure AD. The Domain Administrator account credentials are used only to turn on the feature. The credentials are discarded when the process successfully finishes.
+   > 
    > 1. A computer account named AZUREADSSOACC (which represents Azure AD) is created in your on-premises Active Directory instance.
    > 2. The computer account's Kerberos decryption key is securely shared with Azure AD.
    > 3. Two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
@@ -306,6 +307,7 @@ First, enable pass-through authentication:
 
    ‎![Screenshot that shows the Ready to configure page and the Configure button](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image18.png)<br />
    The following steps occur when you select **Configure**:
+
    1. The first pass-through authentication agent is installed.
    2. The pass-through feature is enabled.
    3. Seamless SSO is enabled.
@@ -318,19 +320,19 @@ First, enable pass-through authentication:
    ![Screenshot that shows the settings in the User sign-in section](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
 8. Select **Pass-through authentication** and verify that the status is **Active**.<br />
    
-   If the authentication agent isn't active, complete some [troubleshooting steps](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication) before you continue with the domain conversion process in the next step. You risk causing an authentication outage if you convert your domains before you validate that your pass-through authentication agents are successfully installed and that their status **Active** in the Azure portal.  
+   If the authentication agent isn't active, complete some [troubleshooting steps](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication) before you continue with the domain conversion process in the next step. You risk causing an authentication outage if you convert your domains before you validate that your pass-through authentication agents are successfully installed and that their status **Active** in the Azure portal.
 
 Next, deploy additional authentication agents:
 
 1. In the Azure portal, go to **Azure Active Directory** > **Azure AD Connect**, and then select **Pass-through authentication**.
-2. On the **Pass-through authentication** page, select the **Download** button. 
+2. On the **Pass-through authentication** page, select the **Download** button 
 3. On the **Download agent** page, select **Accept terms and download**.
-   
+ 
    The authentication agent starts to download. Install the secondary authentication agent on a domain-joined server.
 
    > [!NOTE]
    > The first agent is always installed on the Azure AD Connect server itself as part of the configuration changes made in the **User sign-in** section of the Azure AD Connect tool. Install any additional authentication agents on a separate server. We recommend that you have two or three additional authentication agents available.
-  
+ 
 4. Run the authentication agent installation. During the installation, you must enter the credentials of a Global Administrator account.<br />
 
    ![Screenshot that shows the Install button on the Microsoft Azure AD Connect Authentication Agent Package page](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image23.png)<br />
@@ -350,17 +352,17 @@ Complete the conversion by using the Azure AD PowerShell module:
    Set-MsolDomainAuthentication -Authentication Managed -DomainName <domain name>
    ```
  
-3. In the Azure AD portal, select **Azure Active Directory** > **Azure AD Connect**.  
+3. In the Azure AD portal, select **Azure Active Directory** > **Azure AD Connect**.
 4. After you convert all your federated domains, verify these settings:
-   - **Federation** is set to **Disabled**.
-   - **Seamless single sign-on** is set to **Enabled**.
-   - **Pass-through authentication** is set to **Enabled**.<br />
+   * **Federation** is set to **Disabled**.
+   * **Seamless single sign-on** is set to **Enabled**.
+   * **Pass-through authentication** is set to **Enabled**.<br />
 
    ![Screenshot that shows the settings in the User sign-in section](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
 
 ## Testing and next steps
 
-Complete the following tasks to verify pass-through authentication and to complete the conversion process.
+Complete the following tasks to verify pass-through authentication and to finish the conversion process.
 
 ### Test pass-through authentication 
 
@@ -384,9 +386,9 @@ To test pass-through authentication:
 
 To test seamless SSO:
 
-1. Sign in to a domain-joined machine that is connected to the corporate network. 
-2. In Internet Explorer or Chrome, go to one of the following URLs (replace "contoso" with your domain):   
-      ‎  
+1. Sign in to a domain-joined machine that is connected to the corporate network.
+2. In Internet Explorer or Chrome, go to one of the following URLs (replace "contoso" with your domain):
+
    * https:\/\/myapps.microsoft.com/contoso.com
    * https:\/\/myapps.microsoft.com/contoso.onmicrosoft.com
 
@@ -397,7 +399,7 @@ To test seamless SSO:
 
    > [!NOTE]
    > Seamless SSO works on Office 365 services that support domain hint (for example, myapps.microsoft.com/contoso.com). Currently, the Office 365 portal (portal.office.com) doesn’t support domain hints. Users are required to enter a UPN. After a UPN is entered, seamless SSO retrieves the Kerberos ticket on behalf of the user. The user is signed in without entering a password.
-   
+
    > [!TIP]
    > Consider deploying [Azure AD hybrid join on Windows 10](https://docs.microsoft.com/azure/active-directory/device-management-introduction) for an improved SSO experience.
 
@@ -439,12 +441,12 @@ Monitor the servers that run the authentication agents to maintain the solution 
 
 Authentication agents log operations to the Windows event logs that are located under Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin.
 
-You can also enable troubleshooting logs.
+You can also turn on logging for troubleshooting.
 
 For more information, see [Troubleshoot Azure Active Directory pass-through authentication](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-Pass-through-authentication).
 
 ## Next steps
 
-- Learn about [Azure AD Connect design concepts](plan-connect-design-concepts.md).
-- Choose the [right authentication](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
-- Learn about [supported topologies](plan-connect-design-concepts.md).
+* Learn about [Azure AD Connect design concepts](plan-connect-design-concepts.md).
+* Choose the [right authentication](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+* Learn about [supported topologies](plan-connect-design-concepts.md).
