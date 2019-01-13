@@ -18,7 +18,7 @@ This article describes how to monitor your Azure File Sync deployment. Additiona
 
 The following monitoring options are available currently:
 
-## Azure Portal
+## Azure portal
 Use the portal to view Registered server state and Server endpoint health (sync health).
 
 Registered Server State
@@ -26,10 +26,10 @@ Registered Server State
 - If Registered server state = Appears Offline, verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process on the server is running. If the server is behind a Firewall or Proxy, configure the firewall and proxy per our [documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy).
 
 Server Endpoint Health 
-- The server endpoint health in the portal is based on the sync events that are logged in the Telemetry event log on the server (ID 9102 and 9302). If a sync session fails due a transient error (e.g., error cancelled), sync may still show healthy in the portal as long as the current sync session is making progress (Event ID 9302 is used to determine if files are being applied).
+- The server endpoint health in the portal is based on the sync events that are logged in the Telemetry event log on the server (ID 9102 and 9302). If a sync session fails due to a transient error (for example, error canceled), sync may still show healthy in the portal as long as the current sync session is making progress (Event ID 9302 is used to determine if files are being applied).
 - If the portal shows a sync error due to sync not making progress, check the [Troubleshooting documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) for guidance.
 
-## Event Logs
+## Event logs
 
 Use the Telemetry event log on the server to monitor registered server, sync, and cloud tiering health. The Telemetry event log is located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer.
 
@@ -52,7 +52,7 @@ Cloud Tiering
 
 ## Azure Monitor
 
-Use [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) to monitor sync, cloud tiering and server connectivity. Metrics for Azure File Sync are enabled by default and are sent to Azure Monitor every 15 minutes.
+Use [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) to monitor sync, cloud tiering, and server connectivity. Metrics for Azure File Sync are enabled by default and are sent to Azure Monitor every 15 minutes.
 
 To view Azure File Sync metrics in Azure Monitor, select the Storage Sync Services resource type.
 
