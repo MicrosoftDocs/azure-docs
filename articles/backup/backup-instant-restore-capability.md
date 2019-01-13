@@ -1,13 +1,13 @@
 ---
-title: Upgrade to the Azure VM Backup Stack V2
-description: Upgrade process and FAQs for VM backup stack, Resource Manager deployment model
+title: Azure Instant Restore Capability
+description: Azure Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
 services: backup
 author: trinadhk
 manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/3/2018
+ms.date: 01/10/2019
 ms.author: trinadhk
 ---
 
@@ -16,15 +16,10 @@ ms.author: trinadhk
 > [!NOTE]
 > Based on the feedback received from users that the **VM backup stack V2** is confusing with Azure stack, we have renamed it to **Instant Restore** thus providing an upgraded and better experience.
 
-> [!IMPORTANT]
-> After receiving positive response from our users already experiencing the upgraded performance, we have decided to upgrade all our users to instant restore feature. To upgrade, there is no action required from your end. **Starting February 2019**, we will start rolling out this feature region by region.
->
->
-
 The new model for Instant Restore provides the following feature enhancements:
 
 * Ability to use snapshots taken as part of a backup job that is available for recovery without waiting for data transfer to the vault to finish. It reduces the wait time for snapshots to copy to the vault before triggering restore.
-* Reduces backup and restore times by retaining snapshots locally, for two days by default. This default vault is configurable to any value between 1 to 5 days.
+* Reduces backup and restore times by retaining snapshots along with the disk(s) for seven days.
 * Supports disk sizes up to 4 TB.
 * Supports Standard SSD disks.
 * Ability to use an unmanaged VM's original storage accounts (per disk), when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for a wide variety of VM configurations.
@@ -41,20 +36,13 @@ A recovery point is considered created only after phases 1 and 2 are completed. 
 
 ![Backup job in VM backup stack Resource Manager deployment model--storage and vault](./media/backup-azure-vms/instant-rp-flow.png)
 
-By default, snapshots are retained for two days. This feature allows restores operation from these snapshots there by cutting down the restore times. It reduces the time that is required to transform and copy data back from the vault to the user's storage account for unmanaged disk scenarios while for managed disk users, it creates managed disks out of the Recovery Services data.
+Snapshots are retained for seven days. This feature allows restores operation from these snapshots there by cutting down the restore times. It reduces the time that is required to transform and copy data back from the vault to the user's storage account for unmanaged disk scenarios while for managed disk users, it creates managed disks out of the backup data.
 
 ## Feature considerations
 
 * Snapshots are stored along with the disks to boost recovery point creation and to speed up restore operations. As a result, you'll see storage costs that correspond to snapshots taken during this period.
 * Incremental snapshots are stored as page blobs. All the users using unmanaged disks are charged for the snapshots stored in their local storage account. Since the restore point collections used by Managed VM backups use blob snapshots at the underlying storage level, for managed disks you will see costs corresponding to blob snapshot pricing and they are incremental.
 * For premium storage accounts, the snapshots taken for instant recovery points count towards the 10-TB limit of allocated space.
-* You get an ability to configure the snapshot retention based on the restore needs. Depending on the requirement, you can set the snapshot retention to a minimum of one day in the backup policy blade as explained below. This can help you save cost for snapshot retention.
-
-> [!NOTE]
->
-With this instant restore upgrade, the snapshot retention duration of all the customers **(new and existing both included)** will be set to a default value of two days. However, you can set the duration as per your requirement to any value between 1-5 days.
->
->
 
 ## Cost impact
 
@@ -62,7 +50,8 @@ The incremental snapshots are stored in VM’s storage account, which are used f
 
 
 ## Upgrading to Instant Restore
-If you use the Azure portal, you see a notification on the vault dashboard. This notification relates to large-disk support and backup and restore speed improvements. Alternatively you can go to Properties page of the vault to get the upgrade option.
+If you use the Azure portal, you will see a notification on the vault dashboard. This notification relates to large-disk support and backup and restore speed improvements. Alternatively you can go to Properties page of the vault to get the upgrade option.
+
 
 ![Backup job in VM backup stack Resource Manager deployment model--support notification](./media/backup-azure-vms/instant-rp-banner.png)
 
@@ -70,19 +59,9 @@ To open a screen for upgrading to Instant Restore, select the banner.
 
 ![Backup job in VM backup stack Resource Manager deployment model--upgrade](./media/backup-azure-vms/instant-rp.png)
 
-## Upcoming changes
-
-### Configure snapshot retention using Azure portal
-
-For the upgraded users, in the Azure portal you can see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You can change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
-
-
-![Backup job in Instant Restore deployment](./media/backup-azure-vms/instant-rp-banner1.png)
-
-
 ## Upgrade to Instant Restore using PowerShell
 
-If you are not automatically upgraded yet and wish to self-serve then run the following cmdlets from an elevated PowerShell terminal:
+If you wish to self-serve and upgrade to Instant Restore, run the following cmdlets from an elevated PowerShell terminal:
 
 1.	Sign in to your Azure account:
 
@@ -147,14 +126,11 @@ If it says "Registered," then your subscription is upgraded to Instant Restore.
 ### What are the cost implications of Instant restore?
 Snapshots are stored along with the disks to speed up recovery point creation and restore operations. As a result, you'll see storage costs that correspond to the snapshot retention selected as a part of VM backup policy.
 
-### Does snapshot retention increase the premium storage account snapshot limit by 10-TB?
-No, total snapshot limit per storage account remains at 10-TB.
-
 ### In Premium Storage accounts, do the snapshots taken for instant recovery point occupy the 10-TB snapshot limit?
-Yes, for premium storage accounts, the snapshots taken for instant recovery point, occupy the allocated 10-TB of space.
+Yes, for premium storage accounts the snapshots taken for instant recovery point occupy 10-TB of allocated snapshot space.
 
 ### How does the snapshot retention work during the five-day period?
-Each day a new snapshot is taken, then there are five individual incremental snapshots. The size of the snapshot depends on the data churn, which is in most cases around 2%-5%.
+Each day a new snapshot is taken, then there are five individual incremental snapshots. The size of the snapshot depends on the data churn, which is in most cases around 2%-7%.
 
 ### Is an instant restore snapshot an incremental snapshot or full snapshot?
 Snapshots taken as a part of instant restore capability are incremental snapshots.
