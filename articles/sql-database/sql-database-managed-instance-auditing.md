@@ -13,7 +13,7 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/20/2018
+ms.date: 01/12/2019
 ---
 # Get started with Azure SQL Database Managed Instance Auditing
 
