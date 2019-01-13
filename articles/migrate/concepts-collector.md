@@ -121,7 +121,7 @@ The connectivity check is validated by connecting to a list of URLs.
 
 The Collector connects to the vCenter Server and queries for VM metadata, and performance counters. Here's what you need for the connection.
 
-- Only vCenter Server versions 5.5, 6.0 and 6.5 are supported.
+- Only vCenter Server versions 5.5, 6.0, 6.5 and 6.7 are supported.
 - You need a read-only account with the permissions summarized below for discovery. Only datacenters accessible with the account can be accessed for discovery.
 - By default you connect to vCenter Server with an FQDN or IP address. If vCenter Server listens on a different port, you connect to it using the form *IPAddress:Port_Number* or *FQDN:Port_Number*.
 - To collect performance data for storage and networking, the statistics settings for vCenter Server must be set to level three.
