@@ -10,9 +10,12 @@ ms.date: 01/10/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
-# Search explorer tool for querying data in Azure Search 
+# Search explorer for querying data in Azure Search 
 
 This article shows you how to query an existing Azure Search index using **Search explorer** in the Azure portal. You can use Search explorer to submit simple or full Lucene query strings to any existing index in your service. 
+
+   ![Search explorer command in portal](./media/search-explorer/search-explorer-cmd2.png "Search explorer command in portal")
+
 
 For help getting started, see [Start Search explorer](#start-search-explorer).
 
