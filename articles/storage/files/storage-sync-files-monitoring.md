@@ -22,8 +22,8 @@ The following monitoring options are available currently:
 Use the portal to view Registered server state and Server endpoint health (sync health).
 
 Registered Server State
-- If the Registered server state = Online, the server is successfully communicating with the service.
-- If Registered server state = Appears Offline, verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process on the server is running. If the server is behind a Firewall or Proxy, configure the firewall and proxy per our [documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy).
+- If the Registered server state is Online, the server is successfully communicating with the service.
+- If Registered server state is Appears Offline, verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process on the server is running. If the server is behind a Firewall or Proxy, configure the firewall and proxy per our [documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy).
 
 Server Endpoint Health 
 - The server endpoint health in the portal is based on the sync events that are logged in the Telemetry event log on the server (ID 9102 and 9302). If a sync session fails due to a transient error (for example, error canceled), sync may still show healthy in the portal as long as the current sync session is making progress (Event ID 9302 is used to determine if files are being applied).
