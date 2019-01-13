@@ -11,7 +11,7 @@
 ---
 
 *Warming up the Cache*  
-The disk with ReadOnly host caching will be able to give higher IOPS than the disk limit. To get this maximum read performance from the host cache, first you must warm up the cache of this disk. This ensures that the Read IOs that the benchmarking tool will drive on CacheReads volume, actually hits the cache, and not the disk directly. The cache hits result in additional IOPS from the single cache enabled disk.
+The disk with ReadOnly host caching are able to give higher IOPS than the disk limit. To get this maximum read performance from the host cache, first you must warm up the cache of this disk. This ensures that the Read IOs that the benchmarking tool will drive on CacheReads volume, actually hits the cache, and not the disk directly. The cache hits result in additional IOPS from the single cache enabled disk.
 
 > [!IMPORTANT]
 > You must warm up the cache before running benchmarking, every time VM is rebooted.
@@ -24,7 +24,7 @@ The disk with ReadOnly host caching will be able to give higher IOPS than the di
 
 #### Test file
 
-Iometer uses a test file that is stored on the volume on which you will run the benchmarking test. It drives Reads and Writes on this test file to measure the disk IOPS and Throughput. Iometer creates this test file if you have not provided one. Create a 200 GB test file called iobw.tst on the CacheReads and NoCacheWrites volumes.
+Iometer uses a test file that is stored on the volume on which you run the benchmarking test. It drives Reads and Writes on this test file to measure the disk IOPS and Throughput. Iometer creates this test file if you have not provided one. Create a 200 GB test file called iobw.tst on the CacheReads and NoCacheWrites volumes.
 
 #### Access specifications
 
@@ -107,7 +107,7 @@ Run the following command for Ubuntu,
 apt-get install fio
 ```
 
-We will use four worker threads for driving Write operations and four worker threads for driving Read operations on the disks. The Write workers will be driving traffic on the "nocache" volume, which has 10 disks with cache set to "None". The Read workers will be driving traffic on the "readcache" volume, which has one disk with cache set to "ReadOnly".
+We use four worker threads for driving Write operations and four worker threads for driving Read operations on the disks. The Write workers are driving traffic on the "nocache" volume, which has 10 disks with cache set to "None". The Read workers are driving traffic on the "readcache" volume, which has one disk with cache set to "ReadOnly".
 
 #### Maximum write IOPS
 
@@ -147,7 +147,7 @@ Run the following command to kick off the FIO test for 30 seconds,
 sudo fio --runtime 30 fiowrite.ini
 ```
 
-While the test runs, you will be able to see the number of write IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering its maximum write IOPS limit of 50,000 IOPS.  
+While the test runs, you are able to see the number of write IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering its maximum write IOPS limit of 50,000 IOPS.  
     ![Number of write IOPS VM and Premium disks are delivering](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
 
 #### Maximum read IOPS
@@ -188,7 +188,7 @@ Run the following command to kick off the FIO test for 30 seconds,
 sudo fio --runtime 30 fioread.ini
 ```
 
-While the test runs, you will be able to see the number of read IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering more than 64,000 Read IOPS. This is a combination of the disk and the cache performance.  
+While the test runs, you are able to see the number of read IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering more than 64,000 Read IOPS. This is a combination of the disk and the cache performance.  
     ![](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
 
 #### Maximum read and write IOPS
@@ -246,7 +246,7 @@ Run the following command to kick off the FIO test for 30 seconds,
 sudo fio --runtime 30 fioreadwrite.ini
 ```
 
-While the test runs, you will be able to see the number of combined read and write IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering more than 100,000 combined Read and Write IOPS. This is a combination of the disk and the cache performance.  
+While the test runs, you are able to see the number of combined read and write IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering more than 100,000 combined Read and Write IOPS. This is a combination of the disk and the cache performance.  
     ![Combined read and write IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image13.png)
 
 #### Maximum combined throughput
