@@ -73,7 +73,7 @@ Before you start this tutorial, make sure you can meet the following requirement
 
 2. On the **Dashboard**, select **Marketplace**.
 
-    ![Auzure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
+    ![Azure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
 
 3. In **Marketplace**, select **Compute**, and then choose **More**. Under **More**, select the **Free SQL Server License: SQL Server 2017 Developer on Windows Server** image.
 
