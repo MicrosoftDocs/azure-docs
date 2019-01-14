@@ -121,8 +121,6 @@
         href: backup-azure-vms-encryption.md
       - name: Enable VM backup during VM creation
         href: backup-during-vm-creation.md
-      - name: Instant Restore capability
-        href: backup-instant-restore-capability.md
     - name: Manage and monitor VMs
       items:
       - name: Manage Azure VM backups in Azure portal
@@ -135,6 +133,8 @@
         href: backup-azure-restore-files-from-vm.md
       - name: Restore VMs in Azure portal
         href: backup-azure-arm-restore-vms.md
+      - name: Instant Restore capability
+        href: backup-instant-restore-capability.md
       - name: Restore encrypted VMs
         href: backup-azure-vms-encryption.md
       - name: Restore Key Vault key and secret for encrypted VMs

@@ -1,17 +1,19 @@
 ---
-title: Review images in Azure Content Moderator | Microsoft Docs
-description: The review tool allows human moderators to review images.
+title: Review tagged images - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Learn how the Review tool allows human moderators to review images in a web portal.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 08/06/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
-# Review moderated images
+# Let human reviewers review images
 
 After you have signed up for Content Moderation and obtained a subscription key, you can try out the image review features.
 
