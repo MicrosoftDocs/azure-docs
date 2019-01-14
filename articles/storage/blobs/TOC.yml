@@ -133,24 +133,12 @@
         href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Designing HA Apps using RA-GRS
         href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Performance and scaling
-      items:
-      - name: Scalability and performance targets
-        href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Performance and scalability checklist
-        href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Data and metadata management
+    - name: Access tiers
       items:
       - name: Access tiers
         href: storage-blob-storage-tiers.md
       - name: Managing the Azure Blob Storage Lifecycle
         href: storage-lifecycle-management-concepts.md
-    - name: Data integration
-      items:
-      - name: Reacting to events
-        href: storage-blob-event-overview.md
-    - name: Concurrency
-      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Security
       items:
       - name: Security guide
@@ -171,83 +159,95 @@
         href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Enable secure TLS for Azure Storage client
         href: ../common/storage-security-tls.md
-    - name: Move data to and from Storage
-      href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Compare data transfer solutions
-      href: ../common/storage-choose-data-transfer-solution.md
+    - name: Performance and scaling
       items:
-      - name: Large dataset, low network bandwidth
-        href: ../common/storage-solution-large-dataset-low-network.md
-      - name: Large dataset, moderate to high network bandwidth
-        href: ../common/storage-solution-large-dataset-moderate-high-network.md
-      - name: Small dataset, low to moderate network bandwidth
-        href: ../common/storage-solution-small-dataset-low-moderate-network.md
-      - name: Periodic data transfer
-        href: ../common/storage-solution-periodic-data-transfer.md
-    - name: Monitor and troubleshoot
+      - name: Scalability and performance targets
+        href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Performance and scalability checklist
+        href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Concurrency
+      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Data migration
       items:
-      - name: Troubleshooting tutorial
-        href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Monitor, diagnose, and troubleshoot
-        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Metrics and logging
+      - name: Compare data transfer solutions
+        href: ../common/storage-choose-data-transfer-solution.md
         items:
-        - name: Metrics in Azure Monitor
-          href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Migrate to new metrics
-          href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Storage Analytics
-          href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Enable and view metrics (classic)
-          href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Page blob features 
-      href: storage-blob-pageblob-overview.md
-    - name: Import/Export data
-      href: ../common/storage-import-export-service.md
-      items: 
-      - name: Review requirements
-        href: ../common/storage-import-export-requirements.md
-      - name: Import data to blobs
-        href: ../common/storage-import-export-data-to-blobs.md
-      - name: Import data to files
-        href: ../common/storage-import-export-data-to-files.md
-      - name: Export data from blobs
-        href: ../common/storage-import-export-data-from-blobs.md      
-      - name: How-to
-        items:
-        - name: View drive status
-          href: ../common/storage-import-export-view-drive-status.md
-        - name: Review job status
-          href: ../common/storage-import-export-tool-reviewing-job-status-v1.md
-        - name: Repair import job
-          href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md
-        - name: Repair export job
-          href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md  
-      - name: FAQ
-        href: ../common/storage-import-export-service-faq.md
-      - name: REST API
-        href: https://docs.microsoft.com/rest/api/storageimportexport/jobs  
-      - name: Contact Support
-        href: ../common/storage-import-export-contact-microsoft-support.md   
-      - name: Archive
-        items:
-        - name: Prepare drives for import (v1)
-          href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md
+        - name: Large dataset, low network bandwidth
+          href: ../common/storage-solution-large-dataset-low-network.md
+        - name: Large dataset, moderate to high network bandwidth
+          href: ../common/storage-solution-large-dataset-moderate-high-network.md
+        - name: Small dataset, low to moderate network bandwidth
+          href: ../common/storage-solution-small-dataset-low-moderate-network.md
+        - name: Periodic data transfer
+          href: ../common/storage-solution-periodic-data-transfer.md
+      - name: Move data to and from Storage
+        href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Import/Export data
+        href: ../common/storage-import-export-service.md
+        items: 
+        - name: Review requirements
+          href: ../common/storage-import-export-requirements.md
+        - name: Import data to blobs
+          href: ../common/storage-import-export-data-to-blobs.md
+        - name: Import data to files
+          href: ../common/storage-import-export-data-to-files.md
+        - name: Export data from blobs
+          href: ../common/storage-import-export-data-from-blobs.md      
+        - name: How-to
           items:
-          - name: Set properties & metadata
-            href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
-          - name: Sample - Prepare drives for import
-            href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
-          - name: Quick command reference for import
-            href: ../common/storage-import-export-tool-quick-reference-v1.md
-        - name: Prepare drives for import (v2)
-          href: ../common/storage-import-export-tool-preparing-hard-drives-import.md
-          items: 
-          - name: Set properties & metadata
-            href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
-          - name: Sample - Prepare drives for import
-            href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
-          - name: Quick command reference for import
+          - name: View drive status
+            href: ../common/storage-import-export-view-drive-status.md
+          - name: Review job status
+            href: ../common/storage-import-export-tool-reviewing-job-status-v1.md
+          - name: Repair import job
+            href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md
+          - name: Repair export job
+            href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md  
+        - name: FAQ
+          href: ../common/storage-import-export-service-faq.md
+        - name: REST API
+          href: https://docs.microsoft.com/rest/api/storageimportexport/jobs  
+        - name: Contact Support
+          href: ../common/storage-import-export-contact-microsoft-support.md   
+        - name: Archive
+          items:
+          - name: Prepare drives for import (v1)
+            href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md
+            items:
+            - name: Set properties & metadata
+              href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+            - name: Sample - Prepare drives for import
+              href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+            - name: Quick command reference for import
+              href: ../common/storage-import-export-tool-quick-reference-v1.md
+          - name: Prepare drives for import (v2)
+            href: ../common/storage-import-export-tool-preparing-hard-drives-import.md
+            items: 
+            - name: Set properties & metadata
+              href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+            - name: Sample - Prepare drives for import
+              href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+            - name: Quick command reference for import
+              href: ../common/storage-import-export-tool-quick-reference-v1.md
+          - name: Create import job
+            href: ../common/storage-import-export-creating-an-import-job.md
+          - name: Create export job
+            href: ../common/storage-import-export-creating-an-import-job.md
+          - name: Get job state
+            href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
+          - name: Create export job
+            href: ../common/storage-import-export-creating-an-import-job.md
+          - name: Enumerate jobs
+            href: ../common/storage-import-export-enumerating-jobs.md
+          - name: Cancel & delete job
+            href: ../common/storage-import-export-cancelling-and-deleting-jobs.md
+          - name: Back up drive manifest
+            href: ../common/storage-import-export-backing-up-drive-manifests.md
+          - name: Enumerate jobs
+            href: ../common/storage-import-export-enumerating-jobs.md
+          - name: Diagnostics & error recovery
+            href: ../common/storage-import-export-diagnostics-and-error-recovery.md
+          - name: Commands for import jobs
             href: ../common/storage-import-export-tool-quick-reference-v1.md
         - name: Create import job
           href: ../common/storage-import-export-creating-an-import-job.md
@@ -269,32 +269,32 @@
           href: ../common/storage-import-export-diagnostics-and-error-recovery.md
         - name: Commands for import jobs
           href: ../common/storage-import-export-tool-quick-reference-v1.md
-      - name: Create import job
-        href: ../common/storage-import-export-creating-an-import-job.md
-      - name: Create export job
-        href: ../common/storage-import-export-creating-an-import-job.md
-      - name: Get job state
-        href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
-      - name: Create export job
-        href: ../common/storage-import-export-creating-an-import-job.md
-      - name: Enumerate jobs
-        href: ../common/storage-import-export-enumerating-jobs.md
-      - name: Cancel & delete job
-        href: ../common/storage-import-export-cancelling-and-deleting-jobs.md
-      - name: Back up drive manifest
-        href: ../common/storage-import-export-backing-up-drive-manifests.md
-      - name: Enumerate jobs
-        href: ../common/storage-import-export-enumerating-jobs.md
-      - name: Diagnostics & error recovery
-        href: ../common/storage-import-export-diagnostics-and-error-recovery.md
-      - name: Commands for import jobs
-        href: ../common/storage-import-export-tool-quick-reference-v1.md
-      - name: Service manifest file
-        href: ../common/storage-import-export-file-format-manifest.md
-      - name: Service metadata and properties file 
-        href: ../common/storage-import-export-file-format-metadata-and-properties.md
-      - name: Service log file 
-        href: ../common/storage-import-export-file-format-log.md
+        - name: Service manifest file
+          href: ../common/storage-import-export-file-format-manifest.md
+        - name: Service metadata and properties file 
+          href: ../common/storage-import-export-file-format-metadata-and-properties.md
+        - name: Service log file 
+          href: ../common/storage-import-export-file-format-log.md
+    - name: Monitor and troubleshoot
+      items:
+      - name: Troubleshooting tutorial
+        href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Monitor, diagnose, and troubleshoot
+        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Metrics and logging
+        items:
+        - name: Metrics in Azure Monitor
+          href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Migrate to new metrics
+          href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Storage Analytics
+          href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Enable and view metrics (classic)
+          href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Event handling
+      href: storage-blob-event-overview.md
+    - name: Page blob features 
+      href: storage-blob-pageblob-overview.md
   - name: How to
     items:
     - name: Authorize requests to Storage
