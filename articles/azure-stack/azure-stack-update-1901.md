@@ -89,6 +89,9 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 This update includes the following new features and improvements for Azure Stack:
 
 ## Fixed issues
+Fixed an issue where the Portal showed  an option to create Policy Based VPN Gateways, which are not supported in Azure Stack.  This option has been removed from the Portal.
+An issue where if you updated your DNS Settings for your Virtual Network from Use Azure Stack DNS to Custom DNS, the instances would not be updated with the new setting has been fixed.
+
 
 ## Changes
 
@@ -242,21 +245,6 @@ The following are post-installation known issues for this build version.
 - An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
 
 ### Networking  
-
-<!-- 1766332 - IS ASDK --> 
-- Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
-
-<!-- 1902460 - IS ASDK --> 
-- Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are rejected.
-
-<!-- 16309153 - IS ASDK --> 
-- On a virtual network that was created with a DNS server setting of **Automatic**, changing to a custom DNS server fails. The updated settings are not pushed to VMs in that Vnet.
-
-<!-- 2529607 - IS ASDK --> 
-- During Azure Stack *Secret Rotation*, there is a period in which public IP addresses are unreachable for two to five minutes.
-
-<!-- 2664148 - IS ASDK --> 
--	In scenarios where the tenant is accessing virtual machines by using a S2S VPN tunnel, they might encounter a scenario where connection attempts fail if the on-premises subnet was added to the local network gateway after the gateway was already created. 
 
 - In the Azure Stack portal, when you change a static IP address for an IP configuration that is bound to a network adapter attached to a VM instance, you will see a warning message that states 
 
