@@ -55,8 +55,6 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 The following video demonstrates using a Cognitive Services key. 
 
-[![Single key demonstration for Cognitive Services](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
-
 ## Authenticate with a multi-service subscription key
 
 >[!WARNING]
@@ -65,6 +63,8 @@ The following video demonstrates using a Cognitive Services key.
 This option also uses a subscription key to authenticate requests. The main difference is that a subscription key is not tied to a specific service, rather, a single key can be used to authenticate requests for multiple Cognitive Services. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) for information about regional availability, supported features, and pricing.
 
 The subscription key is provided in each request as the `Ocp-Apim-Subscription-Key` header.
+
+[![Multi-service subscription key demonstration for Cognitive Services](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
 
 ### Supported regions
 
