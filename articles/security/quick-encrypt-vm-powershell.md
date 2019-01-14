@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - Windows PowerShell ISE
-- Install or update to the [latest version of Azure PowerShell](/powershell/azure/install-azurerm-ps)
+- Install or update to the [latest version of the AzureRM PowerShell module](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0)
     - The AzureRM module version needs to be 6.0.0 or higher. `Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path`
 - A copy of the [Azure Disk Encryption prerequisites script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
     - If you have this script already, download a new copy as it has recently changed. 
