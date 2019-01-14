@@ -77,11 +77,13 @@ The POST operation contains the following JSON payload and schema for all near n
     "name": "StorageCheck",
     "description": "",
     "conditionType": "SingleResourceMultipleMetricCriteria",
+    "severity":"3",
     "condition": {
       "windowSize": "PT5M",
       "allOf": [
         {
           "metricName": "Transactions",
+          "metricNamespace":"microsoft.storage/storageAccounts",
           "dimensions": [
             {
               "name": "AccountResourceId",
