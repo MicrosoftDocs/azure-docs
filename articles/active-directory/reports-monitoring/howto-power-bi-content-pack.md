@@ -104,7 +104,7 @@ When working with the content pack, it is possible that you run into the followi
 
 - [Refresh failed](#refresh-failed) 
 - [Failed to update data source credentials](#failed-to-update-data-source-credentials) 
-- [Importing of data is taking too long](#importing-of-data-is-taking-too-long) 
+- [Importing of data is taking too long](#data-import-is-too-slow) 
 
 For general help with Power BI, check out these [help articles](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 
