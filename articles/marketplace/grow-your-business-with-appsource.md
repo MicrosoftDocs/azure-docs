@@ -66,7 +66,6 @@ The following checklist provides marketing best practices and resources to consi
 *   **Be aware of Microsoft Trademark & Brand Guidelines.**  
     When naming your app and referring to Microsoft trademarks and the names of Microsoft software, products, and services, follow the Microsoft Trademark and Brand Guidelines as well as relevant product-specific guidelines.  
     *   For more information about Microsoft trademarks and branding, visit the Microsoft Trademark and Brand Guidelines page located at [https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/).
-).  
 *   **Enable a get it now experience, free trial offer, or test drive experience for your app.**  
     Business users want to experience your app first hand.  
 *   **Build a strong value proposition.**  
