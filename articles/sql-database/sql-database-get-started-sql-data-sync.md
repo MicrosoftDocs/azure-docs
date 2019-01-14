@@ -39,7 +39,7 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
 
 1. On the **Sync to other databases** page, select **New Sync Group**. The **New sync group** page opens with **Create sync group (step 1)** highlighted.
 
-    ![Step one settings](media/sql-database-get-started-sql-data-sync/stepone.png)
+    ![Step 1 settings](media/sql-database-get-started-sql-data-sync/stepone.png)
 
     On the **Create Data Sync Group** page, change the following settings:
 
@@ -61,13 +61,13 @@ After the new sync group is created and deployed, **Add sync members (step 2)** 
 
 In the **Hub Database** section, enter existing credentials for the SQL Database server on which the hub database is located. Don't enter *new* credentials in this section.
 
-![Step two settings](media/sql-database-get-started-sql-data-sync/steptwo.png)
+![Step 2 settings](media/sql-database-get-started-sql-data-sync/steptwo.png)
 
 To add an Azure SQL Database:
 
 In the **Member Database** section, optionally add an Azure SQL Database to the sync group by selecting **Add an Azure Database**. The **Configure Azure Database** page opens.
 
-    ![Step two - configure database](media/sql-database-get-started-sql-data-sync/steptwo-configure.png)
+   ![Step 2 - configure database](media/sql-database-get-started-sql-data-sync/steptwo-configure.png)
 
     On the **Configure Azure Database** page, change the following settings:
 
@@ -146,11 +146,11 @@ In the **Member Database** section, optionally add an on-premises SQL Server to 
 
 After the new sync group members are created and deployed, **Configure sync group (step 3)** is highlighted in the **New sync group** page.
 
-![Step three settings](media/sql-database-get-started-sql-data-sync/stepthree.png)
+![Step 3 settings](media/sql-database-get-started-sql-data-sync/stepthree.png)
 
 1. On the **Tables** page, select a database from the list of sync group members and select **Refresh schema**.
 
-1. From the list of available tables, select those you want to sync. By default, all columns are selected, so disable the checkbox for the columns you don't want to sync. Be sure to leave the primary key column selected.
+1. From the list, select the tables you want to sync. By default, all columns are selected, so disable the checkbox for the columns you don't want to sync. Be sure to leave the primary key column selected.
 
 1. Select **Save**.
 
@@ -168,8 +168,8 @@ The minimal duration between synchronizations is five minutes.
 
 If sync schema tables are missing in the destination database, SQL Data Sync creates them with the columns you selected. However, this doesn't result in a full-fidelity schema for the following reasons:
 
-- Only columns you select are created in the destination table. Columns not selected aren't created.
-- Only selected column indexes are created in the destination table. For columns not selected, those indexes aren't created.
+- Only columns you select are created in the destination table. Columns not selected are ignored.
+- Only selected column indexes are created in the destination table. For columns not selected, those indexes are ignored.
 - Indexes on XML type columns aren't created.
 - CHECK constraints aren't created.
 - Triggers on the source tables aren't created.
@@ -182,7 +182,7 @@ Because of these limitations, we recommend the following things:
 
 **Why do I see tables I didn't create?**
 
-Data Sync creates additional tables in the database for change tracking. Don't delete these or Data Sync will stop working.
+Data Sync creates additional tables in the database for change tracking. Don't delete these or Data Sync stops working.
 
 **Is my data convergent after a sync?**
 
@@ -190,14 +190,14 @@ Not necessarily. Take a sync group with a hub and three spokes (A, B, and C) whe
 
 **How do I get schema changes into a sync group?**
 
-You have to make and propagate all schema changes manually.
+Make and propagate all schema changes manually.
 
 1. Replicate the schema changes manually to the hub and to all sync members.
 1. Update the sync schema.
 
 For adding new tables and columns:
 
-New tables and columns don't impact the current sync and Data Sync will ignore them until they are added to the sync schema. When adding new database objects, follow the sequence:
+New tables and columns don't impact the current sync and Data Sync ignores them until they're added to the sync schema. When adding new database objects, follow the sequence:
 
 1. Add new tables or columns to the hub and to all sync members.
 1. Add new tables or columns to the sync schema.
