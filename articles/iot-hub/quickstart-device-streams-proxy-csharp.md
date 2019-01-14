@@ -30,8 +30,11 @@ Figure below illustrates the setup of how the device- and service-local proxy pr
 </p>
 
 1. Service-local proxy connects to IoT hub and initiates a device stream to the target device.
+
 2. Device-local proxy completes the stream initiation handshake and establishes an end-to-end streaming tunnel through IoT Hub's streaming endpoint to the service side.
+
 3. Device-local proxy connects to the SSH daemon (SSHD) listening on port 22 on the device (this is configurable, as described [below](#run-the-device-side-application)).
+
 4. Service-local proxy awaits for new SSH connections from the user by listening on a designated port which in this case is port `2222` (this is also configurable, as described [below](#run-the-service-side-application)). When user connects via SSH client, the tunnel enables application traffic to be exchanged between the SSH client and server programs.
 
 > [!NOTE]
@@ -55,7 +58,6 @@ dotnet --version
 
 Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive.
 
-**Bug bash instructions:** Download the file from \\\\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-csharp.zip (`MD5=D66D2D64472B1253BC71BC607057A2CE`).
 
 ## Create an IoT hub
 
