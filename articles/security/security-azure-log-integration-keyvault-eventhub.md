@@ -9,14 +9,14 @@ editor: TomShinder
 ms.assetid:
 ms.service: security
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
 ---
 # Azure Log Integration tutorial: Process Azure Key Vault events by using Event Hubs
 
 >[!IMPORTANT]
-> The Azure Log integration feature will be deprecated by 06/01/2019. AzLog downloads will be disabled by Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> The Azure Log integration feature will be deprecated by 06/01/2019. AzLog downloads were disabled on Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 You can use Azure Log Integration to retrieve logged events and make them available to your security information and event management (SIEM) system. This tutorial shows an example of how Azure Log Integration can be used to process logs that are acquired through Azure Event Hubs.
 
@@ -51,21 +51,22 @@ Before you can complete the steps in this article, you need the following:
  
 1. A system with access to the internet that meets the requirements for installing Azure Log Integration. The system can be on a cloud service or hosted on-premises.
 
-1. [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) installed. To install it:
+1. Azure Log Integration installed. To install it:
 
    a. Use Remote Desktop to connect to the system mentioned in step 2.   
-   b. Copy the Azure Log Integration installer to the system. You can [download the installation files](https://www.microsoft.com/download/details.aspx?id=53324).   
-   c. Start the installer and accept the Microsoft Software License Terms.   
-   d. If you will provide telemetry information, leave the check box selected. If you'd rather not send usage information to Microsoft, clear the check box.
-   
+   b. Copy the Azure Log Integration installer to the system. 
+   c. Start the installer and accept the Microsoft Software License Terms.
+
+1. If you will provide telemetry information, leave the check box selected. If you'd rather not send usage information to Microsoft, clear the check box.
+
    For more information about Azure Log Integration and how to install it, see [Azure Log Integration with Azure Diagnostics logging and Windows Event Forwarding](security-azure-log-integration-get-started.md).
 
 1. The latest PowerShell version.
- 
+
    If you have Windows Server 2016 installed, then you have at least PowerShell 5.0. If you're using any other version of Windows Server, you might have an earlier version of PowerShell installed. You can check the version by entering ```get-host``` in a PowerShell window. If you don't have PowerShell 5.0 installed, you can [download it](https://www.microsoft.com/download/details.aspx?id=50395).
 
    After you have at least PowerShell 5.0, you can proceed to install the latest version:
-   
+
    a. In a PowerShell window, enter the ```Install-Module Azure``` command. Complete the installation steps.    
    b. Enter the ```Install-Module AzureRM``` command. Complete the installation steps.
 
