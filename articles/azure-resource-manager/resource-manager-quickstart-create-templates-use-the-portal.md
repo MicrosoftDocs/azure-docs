@@ -21,7 +21,9 @@ ms.author: jgao
 
 # Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal
 
-Learn how to generate a Resource Manager template using the Azure portal, and the process of editing and deploying the template from the portal. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. The instructions in this tutorial deploy an Azure Storage account. You can use the same process to create other Azure resources.
+Learn how to generate a Resource Manager template using the Azure portal, and the process of editing and deploying the template from the portal. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).
+
+After completing the tutorial, you deploy an Azure Storage account. The same process can be used to deploy other Azure resources.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
