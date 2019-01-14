@@ -108,8 +108,8 @@ If you use Active Directory Federated Services (AD FS) for your identity managem
        | Value | Description                     |
        | ---   | ---                             |
        | ERCS IP | In the ASDK, the privileged endpoint is normally `AzS-ERCS01`. |
-       | Application name |                      |
-       | Certificate store location |            |
+       | Application name | A simple name for the application service principle. |
+       | Certificate store location | The path on your computer where you have stored the certificate. For example: `Cert:\LocalMachine\My\<someuid>` |
 
     - Open PowerShell with an elevated prompt. Run the following script with the parameters updated to your values:
 
