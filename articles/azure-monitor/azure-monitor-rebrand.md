@@ -10,7 +10,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2018
+ms.date: 01/14/2019
 ms.author: bwren
 ---
 
@@ -29,6 +29,10 @@ Log Analytics has played a central role in Azure management by collecting teleme
 This critical role hasn't changed, but is now considered the logs feature of Azure Monitor. Other features that were considered part of Log Analytics such as agents and views have also been repositioned as features of Azure Monitor. Their functionality hasn't changed other than potential improvements to their experience in the Azure portal.
 
 The term Log Analytics now applies to the page in the Azure portal used to write and run queries and analyze log data. It's the functional equivalent of Metrics Analytics which is the page in the Azure portal used to analyze metric data.
+
+### Log Analytics workspaces
+Workspaces that hold log data in Azure Monitor are still referred to as Log Analytics workspaces. The **Log Analytics** page in the Azure portal has been renamed to **Log Analytics workspaces** and is where you create new workspaces and configure data sources. Monitor your logs in Azure Monitor and configure them in Log Analytics workspaces.
+
 
 ## Metrics explorer is now metrics analytics
 The tool in the Azure portal used to graph and analyze metrics collected by Azure Monitor has been renamed from metrics explorer to metrics analytics. This is the same tool, but the new name provides better consistency with log analytics. Use log analytics to analyze your log data and metrics analytics to analyze your metric data.
