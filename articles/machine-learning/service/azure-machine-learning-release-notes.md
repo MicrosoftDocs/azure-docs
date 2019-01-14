@@ -17,6 +17,14 @@ ms.custom: seodec18
 
 In this article, learn about the Azure Machine Learning service releases. 
 
+## 2019-01-14
+
+### Azure Machine Learning SDK for Python v1.0.8
+
++ **SDK reference docs**: https://aka.ms/aml-sdk
+
++ **Bug fixes**: This release mostly contains minor bug fixes
+
 ## 2019-01-09
 
 ### Azure Machine Learning Data Prep SDK v1.0.6
