@@ -110,7 +110,7 @@ package main
 
 import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network" 
 func main() { 
-  vnetC1ient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
+  vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
   vnetClient .Authorizer = autorest.NewBearerAuthorizer(token)
 
   vnetClient .CreateOrUpdate( ) 

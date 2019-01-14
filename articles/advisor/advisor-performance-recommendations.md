@@ -73,7 +73,8 @@ Advisor identifies tables that are not replicated tables but would benefit from 
 
 Migrate your Storage Account deployment model to Azure Resource Manager (ARM) to take advantage of template deployments, additional security options, and the ability to upgrade to a GPv2 account for utilization of Azure Storage's latest features. Advisor will identify any stand-alone storage accounts that are using the Classic deployment model and recommends migrating to the ARM deployment model.
 
-Classic alerts in Azure Monitor is announced to retire in June 2019, it is recommended that you upgrade your classic storage account to ARM to retain alerting functionality with the new alerting platform. For more information, see [Classic Alerts Retirement](https://azure.microsoft.com/en-us/updates/classic-alerting-monitoring-retirement/).
+> [!NOTE]
+> Classic alerts in Azure Monitor is announced to retire in June 2019, it is recommended that you upgrade your classic storage account to ARM to retain alerting functionality with the new platform. For more information, see [Classic Alerts Retirement](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
 ## How to access Performance recommendations in Advisor
 

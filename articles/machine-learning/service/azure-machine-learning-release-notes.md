@@ -111,7 +111,7 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
   + Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md)
   + Learn how to [run batch predictions using pipelines](how-to-run-batch-predictions.md)
 + Azure Machine Learning compute target
-  + [Sample notebooks] (https://aka.ms/aml-notebooks) are now updated to use the new managed compute.
+  + [Sample notebooks](https://aka.ms/aml-notebooks) are now updated to use the new managed compute.
   + [Learn about this compute](how-to-set-up-training-targets.md#amlcompute)
 
 ### Azure portal: new features
@@ -132,7 +132,7 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
 
 + **Breaking changes** 
   * *azureml.train.widgets* namespace has moved to *azureml.widgets*.
-  * *azureml.core.compute.AmlCompute* deprecates the following classes - *azureml.core.compute.BatchAICompute* and *azureml.core.compute.DSVMCompute*. The latter class will be removed in subsequent releases. The AmlCompute class has an easier definition now, and simply needs a vm_size and the max_nodes, and will automatically scale your cluster from 0 to the max_nodes when a job is submitted. Our [sample notebooks] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) have been updated with this information and should give you usage examples. We hope you like this simplification and lots of more exciting features to come in a later release!
+  * *azureml.core.compute.AmlCompute* deprecates the following classes - *azureml.core.compute.BatchAICompute* and *azureml.core.compute.DSVMCompute*. The latter class will be removed in subsequent releases. The AmlCompute class has an easier definition now, and simply needs a vm_size and the max_nodes, and will automatically scale your cluster from 0 to the max_nodes when a job is submitted. Our [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/training) have been updated with this information and should give you usage examples. We hope you like this simplification and lots of more exciting features to come in a later release!
 
 ### Azure Machine Learning Data Prep SDK v0.5.1 
 

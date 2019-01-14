@@ -1,18 +1,19 @@
 ---
 title: Moderation jobs and human-in-the-loop reviews - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Apply human oversight to machine-assisted moderation for best results.
+description: Combine machine-assisted moderation with human-in-the-loop capabilities by using the Azure Content Moderator Review API to get the best results for your business.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 1/21/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
-# Moderation jobs and reviews
+# Content moderation jobs and reviews
 
 Combine machine-assisted moderation with human-in-the-loop capabilities by using the Azure Content Moderator [Review API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) to get the best results for your business.
 

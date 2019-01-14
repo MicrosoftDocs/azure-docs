@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: seodec18
 ---
@@ -19,7 +19,7 @@ Azure Digital Twins supports attaching blobs to devices, spaces, and users. Blob
 
 [!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
-## Uploading blobs: an overview
+## Uploading blobs overview
 
 You can use multipart requests to upload blobs to specific endpoints and their respective functionalities.
 
@@ -33,13 +33,94 @@ The four main JSON schemas are:
 
 ![JSON schemas][1]
 
+JSON blob metadata conforms to the following model:
+
+```JSON
+{
+    "parentId": "00000000-0000-0000-0000-000000000000",
+    "name": "My First Blob",
+    "type": "Map",
+    "subtype": "GenericMap",
+    "description": "A well chosen description",
+    "sharing": "None"
+  }
+```
+
+| Attribute | Type | Description |
+| --- | --- | --- |
+| **parentId** | String | The parent entity to associate the blob with (spaces, devices, or users) |
+| **name** |String | A human-friendly name for the blob |
+| **type** | String | The type of blob - cannot use *type* and *typeId*  |
+| **typeId** | Integer | The blob type ID - cannot use *type* and *typeId* |
+| **subtype** | String | The blob subtype - cannot use *subtype* and *subtypeId* |
+| **subtypeId** | Integer | The subtype ID for the blob - cannot use *subtype* and *subtypeId* |
+| **description** | String | Customized description of the blob |
+| **sharing** | String | Whether the blob can be shared - enum [`None`, `Tree`, `Global`] |
+
+Blob metadata is always supplied as the first chunk with **Content-Type** `application/json` or as a `.json` file. File data is supplied in the second chunk and can be of any supported MIME type.
+
 The Swagger documentation describes these model schemas in full detail.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 Learn about using the reference documentation by reading [How to use Swagger](./how-to-use-swagger.md).
 
-### Examples
+<div id="blobModel"></div>
+
+### Blobs response data
+
+Individually returned blobs conform to the following JSON schema:
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "name": "string",
+  "parentId": "00000000-0000-0000-0000-000000000000",
+  "type": "string",
+  "subtype": "string",
+  "typeId": 0,
+  "subtypeId": 0,
+  "sharing": "None",
+  "description": "string",
+  "contentInfos": [
+    {
+      "type": "string",
+      "sizeBytes": 0,
+      "mD5": "string",
+      "version": "string",
+      "lastModifiedUtc": "2019-01-12T00:58:08.689Z",
+      "metadata": {
+        "additionalProp1": "string",
+        "additionalProp2": "string",
+        "additionalProp3": "string"
+      }
+    }
+  ],
+  "fullName": "string",
+  "spacePaths": [
+    "string"
+  ]
+}
+```
+
+| Attribute | Type | Description |
+| --- | --- | --- |
+| **id** | String | The unique identifier for the blob |
+| **name** |String | A human-friendly name for the blob |
+| **parentId** | String | The parent entity to associate the blob with (spaces, devices, or users) |
+| **type** | String | The type of blob - cannot use *type* and *typeId*  |
+| **typeId** | Integer | The blob type ID - cannot use *type* and *typeId* |
+| **subtype** | String | The blob subtype - cannot use *subtype* and *subtypeId* |
+| **subtypeId** | Integer | The subtype ID for the blob - cannot use *subtype* and *subtypeId* |
+| **sharing** | String | Whether the blob can be shared - enum [`None`, `Tree`, `Global`] |
+| **description** | String | Customized description of the blob |
+| **contentInfos** | Array | Specifies unstructured metadata information including version |
+| **fullName** | String | The full name of the blob |
+| **spacePaths** | String | The space path |
+
+Blob metadata is always supplied as the first chunk with **Content-Type** `application/json` or as a `.json` file. File data is supplied in the second chunk and can be of any supported MIME type.
+
+### Blob multipart request examples
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
@@ -87,6 +168,7 @@ var metadataContent = new StringContent(JsonConvert.SerializeObject(metaData), E
 metadataContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
 multipartContent.Add(metadataContent, "metadata");
 
+//MY_BLOB.txt is the String representation of your text file
 var fileContents = new StringContent("MY_BLOB.txt");
 fileContents.Headers.ContentType = MediaTypeHeaderValue.Parse("text/plain");
 multipartContent.Add(fileContents, "contents");
@@ -94,15 +176,27 @@ multipartContent.Add(fileContents, "contents");
 var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 ```
 
-In both examples:
+Lastly, [cURL](https://curl.haxx.se/) users can make multipart form requests in the same manner:
 
-1. Verify that the headers include: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
-1. Verify that the body is multipart:
+![Device blobs][5]
 
-   - The first part contains the required blob metadata.
-   - The second part contains the text file.
+```bash
+curl
+ -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs"
+ -H "Authorization: Bearer YOUR_TOKEN"
+ -H "Accept: application/json"
+ -H "Content-Type: multipart/form-data"
+ -F "meta={\"ParentId\": \"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\": \"A well chosen description\", \"Sharing\": \"None\"};type=application/json"
+ -F "text=PATH_TO_FILE;type=text/plain"
+```
 
-1. Verify that the text file is supplied as `Content-Type: text/plain`.
+| Value | Replace with |
+| --- | --- |
+| YOUR_TOKEN | Your valid OAuth 2.0 token |
+| YOUR_SPACE_ID | The ID of the space to associate the blob with |
+| PATH_TO_FILE | The path to your text file |
+
+A successful POST returns the ID of the new the blob (highlighted in red earlier).
 
 ## API endpoints
 
@@ -124,15 +218,7 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-Successful requests return a **DeviceBlob** JSON object in the response. **DeviceBlob** objects conform to the following JSON schema:
-
-| Attribute | Type | Description | Examples |
-| --- | --- | --- | --- |
-| **DeviceBlobType** | String | A blob category that can be attached to a device | `Model` and `Specification` |
-| **DeviceBlobSubtype** | String | A blob subcategory that's more specific than **DeviceBlobType** | `PhysicalModel`, `LogicalModel`, `KitSpecification`, and `FunctionalSpecification` |
-
-> [!TIP]
-> Use the preceding table to handle successfully returned request data.
+Successful requests return a JSON object as [described earlier](#blobModel).
 
 ### Spaces
 
@@ -150,14 +236,9 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-A PATCH request to the same endpoint updates metadata descriptions and creates new versions of the blob. The HTTP request is made through the PATCH method, along with any necessary meta, and multipart form data.
+Successful requests return a JSON object as [described earlier](#blobModel).
 
-Successful operations return a **SpaceBlob** object that conforms to the following schema. You can use it to consume returned data.
-
-| Attribute | Type | Description | Examples |
-| --- | --- | --- | --- |
-| **SpaceBlobType** | String | A blob category that can be attached to a space | `Map` and `Image` |
-| **SpaceBlobSubtype** | String | A blob subcategory that's more specific than **SpaceBlobType** | `GenericMap`, `ElectricalMap`, `SatelliteMap`, and `WayfindingMap` |
+A PATCH request to the same endpoint updates metadata descriptions and creates versions of the blob. The HTTP request is made through the PATCH method, along with any necessary meta, and multipart form data.
 
 ### Users
 
@@ -175,16 +256,11 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-The returned JSON (**UserBlob** objects) conforms to the following JSON models:
-
-| Attribute | Type | Description | Examples |
-| --- | --- | --- | --- |
-| **UserBlobType** | String | A blob category that can be attached to a user | `Image` and `Video` |
-| **UserBlobSubtype** |  String | A blob subcategory that's more specific than **UserBlobType** | `ProfessionalImage`, `VacationImage`, and `CommercialVideo` |
+Successful requests return a JSON object as [described earlier](#blobModel).
 
 ## Common errors
 
-A common error is to not include the correct header information:
+A common error involves not supplying the correct header information:
 
 ```JSON
 {
@@ -194,6 +270,13 @@ A common error is to not include the correct header information:
     }
 }
 ```
+
+To resolve this error, verify that the overall request has an appropriate **Content-Type** header:
+
+* `multipart/mixed`
+* `multipart/form-data`
+
+Also, verify that each multipart chunk has a corresponding **Content-Type** as needed.
 
 ## Next steps
 
@@ -206,3 +289,4 @@ A common error is to not include the correct header information:
 [2]: media/how-to-add-blobs/blobs-device-api.PNG
 [3]: media/how-to-add-blobs/blobs-space-api.PNG
 [4]: media/how-to-add-blobs/blobs-users-api.PNG
+[5]: media/how-to-add-blobs/curl.PNG
