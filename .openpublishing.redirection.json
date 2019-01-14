@@ -34512,6 +34512,21 @@
       "source_path": "articles/media-services/video-indexer/faq.md",
       "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-find-region-csharp.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#how-do-i-programmatically-get-the-luis-region-of-a-resource",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-find-region-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#how-do-i-programmatically-get-the-luis-region-of-a-resource",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-manage-from-cloud-shell.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#is-there-a-powershell-command-to-the-endpoint-quota",
+      "redirect_document_id": true
+    }     
   ]
 }
