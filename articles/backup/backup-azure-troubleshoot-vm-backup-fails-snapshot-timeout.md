@@ -117,16 +117,8 @@ Per the deployment requirement, the VM doesn't have internet access. Or, it migh
 
 To function correctly, the Backup extension requires connectivity to Azure public IP addresses. The extension sends commands to an Azure storage endpoint (HTTPs URL) to manage the snapshots of the VM. If the extension doesn't have access to the public internet, backup eventually fails.
 
-It is possible to deploy a proxy server to route the VM traffic.
-##### Create a path for HTTPs traffic
-
-1. If you have network restrictions in place (for example, a network security group), deploy an HTTPs proxy server to route the traffic.
-2. To allow access to the internet from the HTTPs proxy server, add rules to the network security group, if you have one.
-
-Either the backed up VM or the proxy server through which the traffic is routed requires access to Azure Public IP addresses.
-
 ####  Solution
-To resolve the network issue, see [Prepare your environment to back up Azure virtual machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+To resolve the network issue, see [Establish network connectivity](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>The agent is installed in the VM, but it's unresponsive (for Windows VMs)
 
