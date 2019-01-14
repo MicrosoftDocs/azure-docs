@@ -20,9 +20,9 @@ In this quickstart, create your first enrichment pipeline in the [Azure portal](
 
 > [!div class="checklist"]
 > * Begin with sample data in Azure Blob storage
-> * Configure the [Import data wizard](search-import-data-portal.md) for cognitive indexing and enrichment 
+> * Configure the [**Import data**](search-import-data-portal.md) wizard for cognitive indexing and enrichment 
 > * Run the wizard (an entity skill detects people, location, and organizations)
-> * Use [Search explorer](search-explorer.md) to query the enriched data
+> * Use [**Search explorer**](search-explorer.md) to query the enriched data
 
 ## <a name="supported-regions"></a> Supported Regions
 
@@ -93,15 +93,15 @@ The enrichment pipeline pulls from Azure data sources supported by [Azure Search
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consisting of a small file set of different types. 
 
-1. Sign up for Azure Blob storage, create a storage account, sign in to Storage Explorer, and create a container. Set the public access level to **Container**. For more information, see ["Create a container" section](../storage/blobs/storage-unstructured-search.md#create-a-container) in the Search unstructured data tutorial.
+1. Sign up for Azure Blob storage, create a storage account, open the Blob services pages, and create a container. On the container, set the public access level to **Container**. For more information, see ["Create a container" section](../storage/blobs/storage-unstructured-search.md#create-a-container) in the *Search unstructured data* tutorial.
 
-1. In the container you created, click **Upload** to upload the sample files.
+1. In the container you created, click **Upload** to upload the sample files you downloaded in a previous step.
 
   ![Source files in Azure blob storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 ## Create the enrichment pipeline
 
-Go back to the Azure Search service dashboard page and click **Import data** on the command bar to set up cognitive enrichment in four steps.
+Return to the Azure Search service dashboard page and click **Import data** on the command bar to set up cognitive enrichment in four steps.
 
   ![Import data command](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 

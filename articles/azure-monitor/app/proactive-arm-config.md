@@ -154,6 +154,6 @@ Below is a table of smart detection rule names as they appear in the portal, alo
 
 Learn more about automatically detecting:
 
-- [Failure anomalies](../../application-insights/app-insights-proactive-failure-diagnostics.md)
-- [Memory Leaks](../../application-insights/app-insights-proactive-potential-memory-leak.md)
-- [Performance anomalies](../../application-insights/app-insights-proactive-performance-diagnostics.md)
+- [Failure anomalies](../../azure-monitor/app/proactive-failure-diagnostics.md)
+- [Memory Leaks](../../azure-monitor/app/proactive-potential-memory-leak.md)
+- [Performance anomalies](../../azure-monitor/app/proactive-performance-diagnostics.md)

@@ -161,7 +161,7 @@ This is enabled by default. If your app sends a lot of telemetry, this processor
 
 The parameter provides the target that the algorithm tries to achieve. Each instance of the SDK works independently, so if your server is a cluster of several machines, the actual volume of telemetry will be multiplied accordingly.
 
-[Learn more about sampling](../../application-insights/app-insights-sampling.md).
+[Learn more about sampling](../../azure-monitor/app/sampling.md).
 
 #### Fixed-rate sampling telemetry processor (from 2.0.0-beta1)
 There is also a standard [sampling telemetry processor](../../azure-monitor/app/api-filtering-sampling.md) (from 2.0.1):
@@ -240,7 +240,7 @@ Determines the maximum size in MB that is allotted to the persistent storage on 
 
 #### Local forwarder
 
-[Local forwarder](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and frameworks and routes it to Application Insights. It's capable of running under Windows and Linux. When coupled with the Application Insights Java SDK the local forwarder provides full support for [Live Metrics](../../azure-monitor/app/live-stream.md) and adaptive sampling.
+[Local forwarder](opencensus-local-forwarder.md) is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and frameworks and routes it to Application Insights. It's capable of running under Windows and Linux. When coupled with the Application Insights Java SDK the local forwarder provides full support for [Live Metrics](../../azure-monitor/app/live-stream.md) and adaptive sampling.
 
 ```xml
 <Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
@@ -389,6 +389,6 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationI
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: ../../azure-monitor/app/asp-net-exceptions.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
-[new]: ../../application-insights/app-insights-create-new-resource.md
+[new]: ../../azure-monitor/app/create-new-resource.md 
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md

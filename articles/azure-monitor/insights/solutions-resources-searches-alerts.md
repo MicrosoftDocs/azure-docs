@@ -149,7 +149,7 @@ There are two types of action resource specified by the **Type** property.  A sc
 Alert actions have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
 
 
-```
+```json
 	{
 		"name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
 		"type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
@@ -286,7 +286,7 @@ The properties for Webhook action resources are described in the following table
 |:--|:--|:--|
 | type | Yes | Type of the action.  This is **Webhook** for webhook actions. |
 | name | Yes | Display name for the action.  This is not displayed in the console. |
-| wehookUri | Yes | Uri for the webhook. |
+| webhookUri | Yes | Uri for the webhook. |
 | customPayload | No | Custom payload to be sent to the webhook. The format depends on what the webhook is expecting. |
 
 
@@ -300,7 +300,7 @@ Following is a sample of a solution that includes the following resources:
 
 The sample uses [standard solution parameters]( solutions-solution-file.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
 
-```
+```json
 	{
 	    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 	    "contentVersion": "1.0",
@@ -458,7 +458,7 @@ The sample uses [standard solution parameters]( solutions-solution-file.md#param
 ```
 
 The following parameter file provides samples values for this solution.
-```
+```json
 	{
 		"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
 		"contentVersion": "1.0.0.0",

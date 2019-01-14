@@ -6,6 +6,7 @@ ms.author: andrl
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
+ms.reviewer: sngun
 ---
 
 # Unique keys in Azure Cosmos DB

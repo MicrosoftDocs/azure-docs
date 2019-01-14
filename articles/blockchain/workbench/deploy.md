@@ -5,10 +5,10 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 12/4/2018
+ms.date: 1/8/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
 #customer intent: As a developer, I want to deploy Azure Blockchain Workbench so that I can create a blockchain apps.
 ---
@@ -56,7 +56,7 @@ Azure Blockchain Workbench requires Azure AD configuration and application regis
 Once the prerequisite steps have been completed, you are ready to deploy the Blockchain Workbench. The following sections outline how to deploy the framework.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select your account in the top right corner, and switch to the desired Azure AD tenant where you want to deploy Azure Blockchain Workbench.
+2. Select your account in the top-right corner, and switch to the desired Azure AD tenant where you want to deploy Azure Blockchain Workbench.
 3. In the left pane, select **Create a resource**. Search for `Azure Blockchain Workbench` in the **Search the Marketplace** search bar. 
 
     ![Marketplace search bar](media/deploy/marketplace-search-bar.png)
@@ -114,7 +114,7 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
 
     | Setting | Description  |
     |---------|--------------|
-    | Ethereum RPC Endpoint | Provide the RPC endpoint of an existing PoA blockchain network. The endpoint starts with https:// or http:// and ends with a port number. For example, `https://network.westus.cloudapp.com:8540` |
+    | Ethereum RPC Endpoint | Provide the RPC endpoint of an existing PoA blockchain network. The endpoint starts with https:// or http:// and ends with a port number. For example, `http<s>://<network-url>:<port>` |
     | Azure Active Directory settings | Choose **Add Later**.</br>Note: If you chose to [pre-configure Azure AD](#azure-ad-configuration) or are redeploying, choose to *Add Now*. |
     | VM selection | Choose the preferred VM size for your blockchain network. |
 
@@ -154,7 +154,7 @@ To associate a custom domain name with Blockchain Workbench, see [configuring a 
 Azure AD must be configured to complete your Blockchain Workbench deployment. You'll use a PowerShell script to do the configuration.
 
 1. In a browser, navigate to the [Blockchain Workbench Web URL](#blockchain-workbench-web-url).
-2. You'll see instructions to setup Azure AD using Cloud Shell. Copy the command and launch Cloud Shell.
+2. You'll see instructions to set up Azure AD using Cloud Shell. Copy the command and launch Cloud Shell.
 
     ![Launch AAD script](media/deploy/launch-aad-script.png)
 
@@ -189,7 +189,7 @@ Blockchain Workbench deployment requires registration of an Azure AD application
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select your account in the top right corner, and switch to the desired Azure AD tenant. The tenant should be the subscription admin's tenant of the subscription where Workbench is deployed and you have sufficient permissions to register applications.
+2. Select your account in the top-right corner, and switch to the desired Azure AD tenant. The tenant should be the subscription admin's tenant of the subscription where Workbench is deployed and you have sufficient permissions to register applications.
 3. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **App registrations** > **New application registration**.
 
     ![App registration](media/deploy/app-registration.png)
@@ -235,7 +235,7 @@ Next, you need to modify the manifest to use application roles within Azure AD t
     > [!IMPORTANT]
     > The value **Administrator** is needed to identify Blockchain Workbench administrators.
 
-4. In the manifest, also change the **Oauth2AllowImplictFlow** value to **true**.
+4. In the manifest, also change the **Oauth2AllowImplicitFlow** value to **true**.
 
     ``` json
     "oauth2AllowImplicitFlow": true,

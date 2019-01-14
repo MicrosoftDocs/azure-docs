@@ -2,7 +2,6 @@
 title: Cross-Origin Resource Sharing (CORS) in Azure Cosmos DB 
 description: This article describes how to configure Cross-Origin Resource Sharing (CORS) in Azure Cosmos DB by using Azure portal and Azure Resource Manager templates.
 author: deborahc
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2018

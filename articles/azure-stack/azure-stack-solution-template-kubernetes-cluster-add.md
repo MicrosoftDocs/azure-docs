@@ -265,6 +265,4 @@ To remove the Kubernetes item:
 
 [Deploy a Kubernetes to Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
 
-
-
 [Overview of offering services in Azure Stack](azure-stack-offer-services-overview.md)

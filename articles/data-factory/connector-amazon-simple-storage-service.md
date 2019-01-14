@@ -27,7 +27,7 @@ You can copy data Amazon S3 to any supported sink data store. For a list of data
 Specifically, this Amazon S3 connector supports copying files as-is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 >[!TIP]
->You can use this Amazon S3 connector to copy data from **any S3-compatible storage providers** e.g. [Google Cloud Storage](#copy-from-google-cloud-storage). Specify the corresponding service URL in the linked service configuration.
+>You can use this Amazon S3 connector to copy data from **any S3-compatible storage providers** e.g. [Google Cloud Storage](connector-google-cloud-storage.md). Specify the corresponding service URL in the linked service configuration.
 
 ## Required permissions
 
@@ -208,35 +208,6 @@ To copy data from Amazon S3, set the source type in the copy activity to **FileS
         }
     }
 ]
-```
-
-## Copy from Google Cloud Storage
-
-Because Google Cloud Storage provides S3-compatible interoperability, you can use Amazon S3 connector to copy data from Google Cloud Storage to any [supported sink data stores](copy-activity-overview.md#supported-data-stores-and-formats). 
-
-You can find the specific Google Cloud Storage entry in the ADF authoring UI connector gallery, which automatically fills in the service URL as `https://storage.googleapis.com`. To find the access key and secret, go to **Google Cloud Storage** > **Settings** > **Interoperability**. Refer to this article from the beginning for a detailed overview of using S3 connector to copy data.
-
-**Example linked service:**
-
-```json
-{
-    "name": "GoogleCloudStorageLinkedService",
-    "properties": {
-        "type": "AmazonS3",
-        "typeProperties": {
-            "accessKeyId": "<access key id>",
-            "secretAccessKey": {
-                "type": "SecureString",
-                "value": "<secret access key>"
-            },
-            "serviceUrl": "https://storage.googleapis.com"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
 ```
 
 ## Next steps

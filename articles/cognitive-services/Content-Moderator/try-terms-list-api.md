@@ -1,7 +1,7 @@
 ---
 title: Moderate text with custom term lists - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Test-drive custom term lists in the Content Moderator API console.
+description: Use the List Management API to create custom lists of terms to use with the Text Moderation API.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -9,8 +9,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
 # Moderate with custom term lists in the API console

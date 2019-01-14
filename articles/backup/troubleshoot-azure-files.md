@@ -31,7 +31,7 @@ Backup for Azure File Shares in Storage Accounts with [zone redundant storage](.
 ## Configuring Backup
 The following table is for configuring the backup:
 
-| Configuring Backup | Workaround or Resolution tips |
+| Error messages | Workaround or Resolution tips |
 | ------------------ | ----------------------------- |
 | Could not find my Storage Account to configure backup for Azure file share | <ul><li>Wait until discovery is complete. <li>Check if any File share from the storage account is already protected with another Recovery Services vault. **Note**: All file shares in a Storage Account can be protected only under one Recovery Services vault. <li>Be sure the File share is not present in any of the unsupported Storage Accounts.|
 | Error in portal states discovery of storage accounts failed. | If your subscription is partner (CSP-enabled), ignore the error. If your subscription is not CSP-enabled, and your storage accounts can't be discovered, contact support.|
@@ -59,6 +59,14 @@ The following table is for configuring the backup:
 | Restore operation failed as target file share is full. | Increase the target file share size quota to accommodate the restore data and retry the operation. |
 | Restore operation failed as an error occurred while performing pre restore operations on File Sync Service resources associated with the target file share. | Please retry after sometime, if the issue persists please contact Microsoft support. |
 | One or more files could not be recovered successfully. For more information, check the failed file list in the path given above. | <ul> <li> Recovery failure reasons are listed in the file (path provided in the Job details), address the reasons and retry the restore operation for the failed files only. <li> Common reasons for file restore failures are: <br/> - Make sure the failed files aren't currently in use. <br/> - A directory with the same name as the failed files exists in the parent directory. |
+
+
+## Modify Policy
+| Error messages | Workaround or Resolution tips |
+| ------------------ | ----------------------------- |
+| Another configure protection operation is in progress for this item. | Please wait for the previous modify policy operation to finish and retry after some time.|
+| Another operation is in progress on the selected item. | Please wait for the other in-progress operation to complete and retry after sometime |
+
 
 ## See Also
 For additional information about backing up Azure file shares, see:

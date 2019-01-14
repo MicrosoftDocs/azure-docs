@@ -34,7 +34,7 @@ The
 [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0)
 cmdlet can be used to retrieve the group object and check the *Licenses*
 property: it lists all product licenses currently assigned to the group.
-```
+```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
 ```
@@ -80,11 +80,11 @@ HTTP/1.1 200 OK
 ## Get all groups with licenses
 
 You can find all groups with any license assigned by running the following command:
-```
+```powershell
 Get-MsolGroup | Where {$_.Licenses}
 ```
 More details can be displayed about what products are assigned:
-```
+```powershell
 Get-MsolGroup | Where {$_.Licenses} | Select `
     ObjectId, `
     DisplayName, `
@@ -107,7 +107,7 @@ below, the script lists the total user count, the count of users with licenses
 already assigned by the group, and the count of users for whom licenses
 could not be assigned by the group.
 
-```
+```powershell
 #get all groups with licenses
 Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
     $groupId = $_.ObjectId;
@@ -165,7 +165,7 @@ Access to Offi... 11151866-5419-4d93-9141-0603bbf78b42 STANDARDPACK             
 
 ## Get all groups with license errors
 To find groups that contain some users for whom licenses could not be assigned:
-```
+```powershell
 Get-MsolGroup -HasLicenseErrorsOnly $true
 ```
 Output:
@@ -206,7 +206,7 @@ HTTP/1.1 200 OK
 
 Given a group that contains some license-related errors, you can now list all users affected by those errors. A user can have errors from other groups, too. However, in this example we limit results only to errors relevant to the group in question by checking the **ReferencedObjectId** property of each **IndirectLicenseError** entry on the user.
 
-```
+```powershell
 #a sample group with errors
 $groupId = '11151866-5419-4d93-9141-0603bbf78b42'
 
@@ -214,7 +214,7 @@ $groupId = '11151866-5419-4d93-9141-0603bbf78b42'
 Get-MsolGroupMember -All -GroupObjectId $groupId |
     #get full information about user objects
     Get-MsolUser -ObjectId {$_.ObjectId} |
-    #filter out users without license errors and users with licenense errors from other groups
+    #filter out users without license errors and users with license errors from other groups
     Where {$_.IndirectLicenseErrors -and $_.IndirectLicenseErrors.ReferencedObjectId -eq $groupId} |
     #display id, name and error detail. Note: we are filtering out license errors from other groups
     Select ObjectId, `
@@ -257,7 +257,7 @@ The following script can be used to get all users who have license errors from o
 > [!NOTE]
 > This script enumerates all users in the tenant, which might not be optimal for large tenants.
 
-```
+```powershell
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
     $user = $_;
     $user.IndirectLicenseErrors | % {
@@ -283,7 +283,7 @@ Drew Fogarty     f2af28fc-db0b-4909-873d-ddd2ab1fd58c 1ebd5028-6092-41d0-9668-12
 
 Here is another version of the script that searches only through groups that contain license errors. It may be more optimized for scenarios where you expect to have few groups with problems.
 
-```
+```powershell
 $groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
     foreach ($groupId in $groupIds) {
     Get-MsolGroupMember -All -GroupObjectId $groupId.ObjectID |
@@ -301,7 +301,7 @@ $groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
 For a user object, it is possible to check if a particular product license is assigned from a group or if it is assigned directly.
 
 The two sample functions below can be used to analyze the type of assignment on an individual user:
-```
+```powershell
 #Returns TRUE if the user has the license assigned directly
 function UserHasLicenseAssignedDirectly
 {
@@ -363,7 +363,7 @@ function UserHasLicenseAssignedFromGroup
 ```
 
 This script executes those functions on each user in the tenant, using the SKU ID as input - in this example we are interested in the license for *Enterprise Mobility + Security*, which in our tenant is represented with ID *contoso:EMS*:
-```
+```powershell
 #the license SKU we are interested in. use Msol-GetAccountSku to see a list of all identifiers in your tenant
 $skuId = "contoso:EMS"
 
@@ -441,7 +441,7 @@ The purpose of this script is to remove unnecessary direct licenses from users w
 > [!NOTE]
 > It is important to first validate that the direct licenses to be removed do not enable more service functionality than the inherited licenses. Otherwise, removing the direct license may disable access to services and data for users. Currently it is not possible to check via PowerShell which services are enabled via inherited licenses vs direct. In the script, we specify the minimum level of services we know are being inherited from groups and check against that to make sure users do not unexpectedly lose access to services.
 
-```
+```powershell
 #BEGIN: Helper functions used by the script
 
 #Returns TRUE if the user has the license assigned directly
