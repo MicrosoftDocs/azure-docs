@@ -183,6 +183,8 @@ There are many methods for deploying templates.  In this quickstart, you use the
     
     ---
 
+To learn more about using Azure storage accounts, see [Quickstart: Upload, download, and list blobs using the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
+
 ## Clean up resources
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
