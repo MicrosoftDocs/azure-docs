@@ -171,7 +171,7 @@ The test plan is important to have a comparison between the expected results and
 
 ### Configure the policy
 
-One entry point to conditional access is the **Security** section of the **Active Directory** page. 
+Managing conditional access policies is a manual task. In the Azure portal, you can manage your conditional access policies in one central location. One entry point to the conditional access page is the **Security** section in the **Active Directory** navigation pane. 
 
 ![Conditional access](media/plan-conditional-access/03.png)
 
