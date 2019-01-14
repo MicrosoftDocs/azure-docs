@@ -6,7 +6,7 @@ manager: jeconnoc
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.author: zarhoads
-ms.date: 01/18/2019
+ms.date: 01/11/2019
 ms.topic: tutorial
 description: Explains how to configure a Pivotal Cloud Foundry application to use an Open Service Broker for Azure database
 keywords: "Pivotal Cloud Foundry, Cloud Foundry, Open Service Broker, Open Service Broker for Azure"
