@@ -18966,11 +18966,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-stack/azure-stack-kv-manage-powershell.md",
-      "redirect_url": "/azure/azure-stack/user/azure-stack-kv-manage-powershell",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-stack/azure-stack-kv-push-secret-into-vm.md",
       "redirect_url": "/azure/azure-stack/user/azure-stack-kv-push-secret-into-vm",
       "redirect_document_id": false
