@@ -733,7 +733,7 @@ az group deployment create \
 
 You can use the following template to create a more advanced Dynamic Thresholds metric alert on dimensional metrics. Multiple criteria are not currently supported.
 
-Dynamic Thresholds alerts can create custom-tailored thresholds for hundreds of metric series (even different types) at a time, which results in fewer alert rules to manage.
+Dynamic Thresholds alerts rule can create tailored thresholds for hundreds of metric series (even different types) at a time, which results in fewer alert rules to manage.
 
 Save the json below as advanceddynamicmetricalert.json for the purpose of this walkthrough.
 
@@ -934,7 +934,7 @@ az group deployment create \
 
 The previous sections described sample Azure Resource Manager templates to create metric alerts that monitor a single resource. Azure Monitor now supports monitoring multiple resources with a single metric alert rule. This preview feature is currently available only via Azure Resource Manager templates and REST API and is only supported for virtual Machines.
 
-Dynamic Thresholds alerts can also help create custom-tailored thresholds for hundreds of metric series (even different types) at a time, which results in fewer alert rules to manage.
+Dynamic Thresholds alerts rule can also help create tailored thresholds for hundreds of metric series (even different types) at a time, which results in fewer alert rules to manage.
 
 This section will describe Azure Resource Manager templates for three scenarios to monitor multiple resources with a single rule.
 
