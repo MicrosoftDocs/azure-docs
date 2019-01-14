@@ -43,17 +43,17 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
 
   On the **Create Data Sync Group** page, change the following settings:
 
-    | Setting                        | Description |
-    | ------------------------------ | ------------------------------------------------- |
-    | **Sync Group Name** | Enter a name for the new sync group. This name is distinct from the name of the database itself. |
-    | **Sync Metadata Database** | Choose to create a database (recommended) or to use an existing database.<br/><br/>If you choose **New database**, select **Create new database.** Then on the **SQL Database** page, name and configure the new database and select **OK**.<br/><br/>If you choose **Use existing database**, select the database from the list. |
-    | **Automatic Sync** | Select **On** or **Off**.<br/><br/>If you choose **On**, enter a number and select **Seconds**, **Minutes**, **Hours**, or **Days** in the **Sync Frequency** section. |
-    | **Conflict Resolution** | Select **Hub win** or **Member win**.<br/><br/>**Hub win** means when conflicts occur, data in the hub database overwrites conflicting data in the member database.<br/><br/>**Member win** means when conflicts occur, data in the member database overwrites conflicting data in the hub database. |
+  | Setting                        | Description |
+  | ------------------------------ | ------------------------------------------------- |
+  | **Sync Group Name** | Enter a name for the new sync group. This name is distinct from the name of the database itself. |
+  | **Sync Metadata Database** | Choose to create a database (recommended) or to use an existing database.<br/><br/>If you choose **New database**, select **Create new database.** Then on the **SQL Database** page, name and configure the new database and select **OK**.<br/><br/>If you choose **Use existing database**, select the database from the list. |
+  | **Automatic Sync** | Select **On** or **Off**.<br/><br/>If you choose **On**, enter a number and select **Seconds**, **Minutes**, **Hours**, or **Days** in the **Sync Frequency** section. |
+  | **Conflict Resolution** | Select **Hub win** or **Member win**.<br/><br/>**Hub win** means when conflicts occur, data in the hub database overwrites conflicting data in the member database.<br/><br/>**Member win** means when conflicts occur, data in the member database overwrites conflicting data in the hub database. |
 
-    > [!NOTE]
-    > Microsoft recommends to create a new, empty database for use as the **Sync Metadata Database**. Data Sync creates tables in this database and runs a frequent workload. This database is shared as the **Sync Metadata Database** for all Sync Groups in a selected region and you can't change the database or its name without removing all Sync Groups and Sync Agents in the region.
+  > [!NOTE]
+  > Microsoft recommends to create a new, empty database for use as the **Sync Metadata Database**. Data Sync creates tables in this database and runs a frequent workload. This database is shared as the **Sync Metadata Database** for all Sync Groups in a selected region and you can't change the database or its name without removing all Sync Groups and Sync Agents in the region.
 
-    Select **OK** and wait for the sync group to be created and deployed.
+  Select **OK** and wait for the sync group to be created and deployed.
 
 ## Add sync members
 
@@ -71,14 +71,14 @@ In the **Member Database** section, optionally add an Azure SQL Database to the 
 
   On the **Configure Azure Database** page, change the following settings:
 
-   | Setting                       | Description |
-   | ----------------------------- | ------------------------------------------------- |
-   | **Sync Member Name** | Provide a name for the new sync member. This name is distinct from the database name itself. |
-   | **Subscription** | Select the associated Azure subscription for billing purposes. |
-   | **Azure SQL Server** | Select the existing SQL database server. |
-   | **Azure SQL Database** | Select the existing SQL database. |
-   | **Sync Directions** | Select **Bi-directional Sync**, **To the Hub**, or **From the Hub**. |
-   | **Username** and **Password** | Enter the existing credentials for the SQL Database server on which the member database is located. Don't enter *new* credentials in this section. |
+  | Setting                       | Description |
+  | ----------------------------- | ------------------------------------------------- |
+  | **Sync Member Name** | Provide a name for the new sync member. This name is distinct from the database name itself. |
+  | **Subscription** | Select the associated Azure subscription for billing purposes. |
+  | **Azure SQL Server** | Select the existing SQL database server. |
+  | **Azure SQL Database** | Select the existing SQL database. |
+  | **Sync Directions** | Select **Bi-directional Sync**, **To the Hub**, or **From the Hub**. |
+  | **Username** and **Password** | Enter the existing credentials for the SQL Database server on which the member database is located. Don't enter *new* credentials in this section. |
 
   Select **OK** and wait for the new sync member to be created and deployed.
 
