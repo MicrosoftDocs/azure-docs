@@ -8,42 +8,50 @@
     href: about-iot-hub.md
 - name: Quickstarts
   items:
-  - name: Send telemetry (C)
-    href: quickstart-send-telemetry-c.md
-  - name: Send telemetry (Node.js)
-    href: quickstart-send-telemetry-node.md
-  - name: Send telemetry (.NET)
-    href: quickstart-send-telemetry-dotnet.md
-  - name: Send telemetry (Java)
-    href: quickstart-send-telemetry-java.md
-  - name: Send telemetry (Python)
-    href: quickstart-send-telemetry-python.md
-  - name: Send telemetry (Android)
-    href: quickstart-send-telemetry-android.md
-  - name: Send telemetry (iOS)
-    href: quickstart-send-telemetry-ios.md
-  - name: Control a device (Node.js)
-    href: quickstart-control-device-node.md
-  - name: Control a device (.NET)
-    href: quickstart-control-device-dotnet.md
-  - name: Control a device (Java)
-    href: quickstart-control-device-java.md
-  - name: Control a device (Python)
-    href: quickstart-control-device-python.md
-  - name: Control a device (Android)
-    href: quickstart-control-device-android.md
-  - name: Communicate using device streams (C#)
-    href: iot-hub-device-streams-csharp-echo-quickstart.md
-  - name: Communicate using device streams (Node.js)
-    href: iot-hub-device-streams-nodejs-echo-quickstart.md
-  - name: Communicate using device streams (C)
-    href: iot-hub-device-streams-c-echo-quickstart.md
-  - name: SSH/RDP using device streams (C#)
-    href: iot-hub-device-streams-csharp-proxy-quickstart.md
-  - name: SSH/RDP using device streams (Node.js)
-    href: iot-hub-device-streams-nodejs-proxy-quickstart.md
-  - name: SSH/RDP using device streams (C)
-    href: iot-hub-device-streams-c-proxy-quickstart.md
+  - name: Send telemetry
+    items:
+    - name: C
+      href: quickstart-send-telemetry-c.md
+    - name: Node.js
+      href: quickstart-send-telemetry-node.md
+    - name: .NET
+      href: quickstart-send-telemetry-dotnet.md
+    - name: Java
+      href: quickstart-send-telemetry-java.md
+    - name: Python
+      href: quickstart-send-telemetry-python.md
+    - name: Android
+      href: quickstart-send-telemetry-android.md
+    - name: iOS
+      href: quickstart-send-telemetry-ios.md
+  - name: Control a device
+    items:
+    - name: Node.js
+      href: quickstart-control-device-node.md
+    - name: .NET
+      href: quickstart-control-device-dotnet.md
+    - name: Java
+      href: quickstart-control-device-java.md
+    - name: Python
+      href: quickstart-control-device-python.md
+    - name: Android
+      href: quickstart-control-device-android.md
+  - name: Communicate using device streams
+    items:
+    - name: C#
+      href: iot-hub-device-streams-csharp-echo-quickstart.md
+    - name: Node.js
+      href: iot-hub-device-streams-nodejs-echo-quickstart.md
+    - name: C
+      href: iot-hub-device-streams-c-echo-quickstart.md
+  - name: SSH/RDP using device streams
+    items:
+    - name: C#
+      href: iot-hub-device-streams-csharp-proxy-quickstart.md
+    - name: Node.js
+      href: iot-hub-device-streams-nodejs-proxy-quickstart.md
+    - name: C
+      href: iot-hub-device-streams-c-proxy-quickstart.md
 - name: Tutorials
   items:
   - name: Routing messages

@@ -30,7 +30,7 @@ You can download the .NET Core SDK for multiple platforms from [.NET](https://ww
 
 You can verify the current version of C# on your development machine using the following command:
 
-```cmd/sh
+```
 dotnet --version
 ```
 
@@ -65,7 +65,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
     ```
 
-    Make a note of the device connection string, which looks like:
+    Make a note of the device connection string, which looks like the following example:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -97,7 +97,7 @@ Navigate to `ServiceClientC2DStreamingSample` in your unzipped project folder. Y
 
 Compile and run the code as follows:
 
-```cmd/sh
+```
 cd ./iothub/service/samples/ServiceClientC2DStreamingSample/
 
 # Build the application
@@ -121,7 +121,7 @@ Navigate to `DeviceClientC2DStreamingSample` in your unzipped project folder. Yo
 
 Compile and run the code as follows:
 
-```cmd/sh
+```
 cd ./iothub/device/samples/DeviceClientC2DStreamingSample/
 
 # Build the application
@@ -163,5 +163,5 @@ Use the links below to learn more about device streams:
 
 > [!div class="nextstepaction"]
 > [Device streams overview](./iot-hub-device-streams-overview.md)
-> [Device streams tutorial](./iot-hub-device-streams-tutorial.md)
+> [Device streams tutorial](./tutorial-device-streams.md)
 > [Try other quickstarts](/azure/iot-hub)

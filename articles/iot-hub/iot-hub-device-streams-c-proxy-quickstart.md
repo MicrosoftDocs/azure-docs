@@ -72,7 +72,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
 2. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
     
-    ```cmd/sh
+    ```
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
     The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
@@ -82,7 +82,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
 3. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 
 
-    ```cmd/sh
+    ```
     cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
@@ -90,7 +90,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
 4. Run the following command that builds a version of the SDK specific to your development client platform. In Windows, a Visual Studio solution for the simulated device will be generated in the `cmake` directory. 
 
-```cmd/sh
+```
     # In Linux
     cmake -Denable_streaming=ON ..
     make -j
@@ -98,7 +98,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
 In Windows, run the following commands in Developer Command Prompt for your Visual Studio 2015 or 2017 prompt:
 
-```cmd/sh
+```
     # In Windows
     # For VS2015
     $ cmake -Denable_streaming=ON .. -G "Visual Studio 15 2015"
@@ -138,7 +138,7 @@ A device must be registered with your IoT hub before it can connect. In this sec
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
     ```
 
-    Make a note of the device connection string, which looks like:
+    Make a note of the device connection string, which looks like the following example:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -218,5 +218,5 @@ Use the links below to learn more about device streams:
 
 > [!div class="nextstepaction"]
 > [Device streams overview](./iot-hub-device-streams-overview.md)
-> [Device streams tutorial](./iot-hub-device-streams-tutorial.md)
+> [Device streams tutorial](./tutorial-device-streams.md)
 > [Try other quickstarts](/azure/iot-hub)

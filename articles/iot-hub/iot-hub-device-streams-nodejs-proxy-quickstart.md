@@ -35,7 +35,7 @@ You can download Node.js for multiple platforms from [nodejs.org](https://nodejs
 
 You can verify the current version of Node.js on your development machine using the following command:
 
-```cmd/sh
+```
 node --version
 ```
 
@@ -93,7 +93,7 @@ As mentioned earlier, IoT Hub Node.js SDK only supports device streams on the se
 Assuming the device-side proxy is running, follow the steps below to run the service-side proxy written in Node.js:
 
 - Provide your service credentials, the target device ID where SSH daemon runs, and the port number for the proxy running on the device as environment variables.
-```cmd/sh
+```
   # In Linux
   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
   export STREAMING_TARGET_DEVICE="MyDevice"
@@ -107,7 +107,7 @@ Assuming the device-side proxy is running, follow the steps below to run the ser
 Change `MyDevice` to the device ID you chose for your device.
 
 - Navigate to `service/samples` in your unzipped project folder and run the service-local proxy.
-```cmd/sh
+```
   cd ./service/samples
   npm install
   node tcp_streaming_proxy.js
@@ -115,7 +115,7 @@ Change `MyDevice` to the device ID you chose for your device.
 
   **Bug bash instructions:** Please follow these instuctions instead:
   Navigate to `samples` in your unzipped project folder and run the service-local proxy.
-  ```cmd/sh
+  ```
     cd ./samples
     npm install
     install ../azure-iothub-1.10.0-preview.tgz
@@ -159,5 +159,5 @@ Use the links below to learn more about device streams:
 
 > [!div class="nextstepaction"]
 > [Device streams overview](./iot-hub-device-streams-overview.md)
-> [Device streams tutorial](./iot-hub-device-streams-tutorial.md)
+> [Device streams tutorial](./tutorial-device-streams.md)
 > [Try other quickstarts](/azure/iot-hub)

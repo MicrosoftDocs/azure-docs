@@ -13,7 +13,7 @@ ms.author: rezas
 # IoT Hub device streams tutorial
 IoT Hub device streams enable secure communication to devices that are located behind firewalls or inside of private networks. As shown in the figure below, this is achieved by leveraging IoT Hub's cloud endpoints as a proxy to tunnel application traffic between device and services.
 <p>
-    <img style="margin:auto;display:block;background-color:white;width:50%" src="./media/iot-hub-device-streams-tutorial/iot-hub-device-streams.svg">
+    <img style="margin:auto;display:block;background-color:white;width:50%" src="./media/tutorial-device-streams/iot-hub-device-streams.svg">
 </p>
 
 In our terminology, a *service* is an entity that authenticates using IoT Hub's *service connect* credentials and attempts to initiate a connection to a device. A device, on the other hand, has access to device credentials and awaits incoming streaming requests from the service. As such, the interaction between the service and device mimics a client/server interaction where service acts as the client connecting to the device (acting as server).
@@ -33,7 +33,7 @@ The device stream initiation handshake can be thought of as a control-plane oper
 
 The details of the steps involved in this process are depicted in the following figure.
 <p>
-    <img style="margin:auto;display:block;background-color:white;width:50%" src="./media/iot-hub-device-streams-tutorial/iot-hub-device-streams-handshake.svg">
+    <img style="margin:auto;display:block;background-color:white;width:50%" src="./media/tutorial-device-streams/iot-hub-device-streams-handshake.svg">
 </p>
 
 1. Device connects to IoT Hub and authenticates using its device credentials. This step usually takes place when the device first comes online. The device also registers a callback to be notified when new streams are initiated towards it from the service-side. The callback is registered for a specific stream name, which the device expects to be receiving in the future.
@@ -51,7 +51,7 @@ The details of the steps involved in this process are depicted in the following 
 
 Both the device and the service sides of a device stream must be capable of establishing TLS-enabled connections to IoT Hub and its streaming endpoint. This requires outbound connectivity over port 443 to these endpoints. The hostname associated with these endpoints can be found on the *Overview* tab of IoT Hub, as shown in the figure below:
 <p>
-    <img src="./media/iot-hub-device-streams-tutorial/device-stream-portal.png">
+    <img src="./media/tutorial-device-streams/device-stream-portal.png">
 </p>
 
 Alternatively, the endpoints information can use be retrieved using Azure CLI under the hub's properties section, specifically, `property.hostname` and `property.deviceStreams` keys.
@@ -69,20 +69,20 @@ Follow the steps below to configure Azure Log Analytics for your IoT Hub's devic
 1. Navigate to the *Diagnostic settings* tab in your IoT Hub, and click on *Turn on diagnostics* link.
 
     <p>
-        <img style="margin:auto;display:block;background-color:white;width:75%" src="./media/iot-hub-device-streams-tutorial/device-streams-diagnostics-settings.PNG">
+        <img style="margin:auto;display:block;background-color:white;width:75%" src="./media/tutorial-device-streams/device-streams-diagnostics-settings.PNG">
     </p>
 
 2. Provide a name for your diagnostics settings, and choose *Send to Log Analytics* option. You will be guided to choose an existing Log Analytics resource or create a new one. Additionally, check the *DeviceStreams* from the list.
 
     <p>
-        <img style="margin:auto;display:block;background-color:white;width:75%" src="./media/iot-hub-device-streams-tutorial/device-streams-diagnostics.PNG">
+        <img style="margin:auto;display:block;background-color:white;width:75%" src="./media/tutorial-device-streams/device-streams-diagnostics.PNG">
     </p>
 
 3. You can now access your device streams logs under the *Logs* tab in your IoT Hub's portal. Device stream activity logs will appear in the `AzureDiagnostics` table and have `Category=DeviceStreams`.
 
     <p>
     As shown below the identity of the target device and the result of the operation is also available in the logs.
-        <img style="margin:auto;display:block;background-color:white;width:100%" src="./media/iot-hub-device-streams-tutorial/device-streams-log-analytics.PNG">
+        <img style="margin:auto;display:block;background-color:white;width:100%" src="./media/tutorial-device-streams/device-streams-log-analytics.PNG">
     </p>
 
 ## Whitelist Device Streaming Endpoints
@@ -91,7 +91,7 @@ As mentioned [earlier](#Overview), your device creates an outbound connection to
 
 The hostname of device streaming endpoint can be found on the Azure IoT Hub portal under the Overview tab.
 <p>
-    <img style="margin:auto;display:block;background-color:white;width:100%" src="./media/iot-hub-device-streams-tutorial/device-stream-portal.PNG">
+    <img style="margin:auto;display:block;background-color:white;width:100%" src="./media/tutorial-device-streams/device-stream-portal.PNG">
 </p>
 
 Alternatively, you can find this information using Azure CLI:

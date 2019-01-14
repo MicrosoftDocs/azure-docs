@@ -24,7 +24,7 @@ The service-side Node.js application in this quickstart has the following functi
 
 * Reads input from command line and sends it to the device application, which will echo it back.
 
-The code will demonstrate the initiation of a device stream, and its use to send and receive data.
+The code will demonstrate the initiation process of a device stream, as well as how to use to send and receive data.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -39,7 +39,7 @@ You can download Node.js for multiple platforms from [Node.js.org](https://Node.
 
 You can verify the current version of Node.js on your development machine using the following command:
 
-```cmd/sh
+```
 node --version
 ```
 
@@ -97,7 +97,7 @@ As mentioned earlier, IoT Hub Node.js SDK only supports device streams on the se
 Assuming the device-side application is running, follow the steps below to run the service-side application in Node.js:
 
 - Provide your service credentials and device ID as environment variables.
-```cmd/sh
+```
   # In Linux
   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
   export STREAMING_TARGET_DEVICE="MyDevice"
@@ -109,7 +109,7 @@ Assuming the device-side application is running, follow the steps below to run t
 Change `MyDevice` to the device ID you chose for your device.
 
 - Navigate to `service/samples` in your unzipped project folder and run the sample using node.
-```cmd/sh
+```
   cd ./service/samples
   npm install
   node c2d_tcp_streaming.js
@@ -117,7 +117,7 @@ Change `MyDevice` to the device ID you chose for your device.
 
   **Bug bash instructions:** Please follow these instuctions instead:
   Navigate to `samples` in your unzipped project folder and run the commands below:
-```cmd/sh
+```
   cd ./samples
 
   # Install the packages
@@ -151,5 +151,5 @@ Use the links below to learn more about device streams:
 
 > [!div class="nextstepaction"]
 > [Device streams overview](./iot-hub-device-streams-overview.md)
-> [Device streams tutorial](./iot-hub-device-streams-tutorial.md)
+> [Device streams tutorial](./tutorial-device-streams.md)
 > [Try other quickstarts](/azure/iot-hub)
