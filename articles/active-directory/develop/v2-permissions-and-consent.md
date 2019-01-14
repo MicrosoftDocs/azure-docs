@@ -73,7 +73,7 @@ _Effective permissions_ are the permissions that your app will have when making 
 
 ## OpenID Connect scopes
 
-The v2.0 implementation of OpenID Connect has a few well-defined scopes that do not apply to a specific resource: `openid`, `email`, `profile`, and `offline_access`.
+The v2.0 implementation of OpenID Connect has a few well-defined scopes that do not apply to a specific resource: `openid`, `email`, `profile`, and `offline_access`.  The `address` and `phone` OpenID Connect scopes are not supported.  
 
 ### openid
 
@@ -247,6 +247,49 @@ Content-Type: application/json
 You can use the resulting access token in HTTP requests to the resource. It reliably indicates to the resource that your app has the proper permission to perform a specific task. 
 
 For more information about the OAuth 2.0 protocol and how to get access tokens, see the [v2.0 endpoint protocol reference](active-directory-v2-protocols.md).
+
+## The /.default scope
+
+To aid apps in migrating from the v1.0 endpoint to the v2.0 endpoint, the `/.default` scope was created.  This is a built-in scope for every application that refers to the static list of permissions configured on the application registration.  A `scope` value of `https://graph.microsoft.com/.default` is functionally the same as the v1.0 endpoints `resource=https://graph.microsoft.com` - namely, it requests a token with the scopes on Microsoft Graph that the application has registered for in the Azure Portal.  
+
+Note: clients cannot combine static (`/.default`) and dynamic consent in a single request.  Thus, `scope=https://graph.microsoft.com/.default+mail.read` will result in an error due to the combination of scope types.  
+
+### /.default and consent
+
+The `/.default` scope triggers the v1.0 endpoint behavior for `prompt=consent` as well - it requests consent for all permissions registered by the application, regardless of the resource.  Then, if included as part of the request, it returns a token containing the scopes for the resource specifically requested.  
+
+### /.default when the user has already given consent
+
+Because `/.default` is funcationally identical to the `resource`-centric v1.0 endpoint's behavior, it brings with it the consent behavior of the v1.0 endpoint as well.  Namely, `/.default` only triggers a consent prompt if **no** permission has been granted between the client and the resource by the user.  If any such consent exists, then a token will be returned containing all scopes granted betweent by the user for that resource.  However, if no permission has been granted, or the `prompt=consent` parameter has been provided, then a consent prompt will be shown for all scopes registered by the client application. 
+
+**Example 1:**
+
+The user (or a tenant administrator) has granted the client the Microsoft Graph permissions `mail.read` and `user.read`.  If the client makes a request for `scope=https://graph.microsoft.com/.default`, then no consent prompt will be shown - regardless of the contents of the client applications registered permissions for Microsoft Graph.  A token would be returned containing the scopes `mail.read` and `user.read`.  
+
+**Example 2:**
+
+No consent for the user exists between the client and Microsoft Graph.  The client has registered for the `user.read` and `contacts.read` permissions, as well as the Azure KeyVault scope `https://vault.azure.net/user_impersonation`.  When the client requests a token for `scope=https://graph.microsoft.com/.default`, the user will see a consent screen for the `user.read`, `contacts.read`, and the KeyVault `user_impersonation` sopes.  The token returned will have just the `user.read` and `contacts.read` scopes in it.  
+
+**Example 3:**
+
+The user has already consented to `mail.read` for the client.  The client has registered for the `contacts.read` scope in its registration.  When the client makes a request for a token using `scope=https://graph.microsoft.com/.default` and requests consent via `prompt=consent`, then the user will see a consent screen for only and all the permissions registered in by the application. `contacts.read` will be present in the consent screen, but `mail.read` will not.  The token returned will be for Microsoft Graph and will contain `mail.read` and `contacts.read`.
+
+### Using the /.default scope with the client
+
+A special case of the `/.default` scope exists where a client requests its own `/.default` scope - for example: 
+
+```
+// Line breaks are for legibility only.
+
+GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+response_type=token            //code or a hybrid flow is also possible here
+&client_id=9ada6f8a-6d83-41bc-b169-a306c21527a5
+&scope=9ada6f8a-6d83-41bc-b169-a306c21527a5/.default
+&redirect_uri=https%3A%2F%2Flocalhost
+&state=1234
+```
+
+This produces a consent screen for all registered permissions (if applicable based ont he above descriptions of consent and `/.default`), then returns an access token targeting the client itself.  The token does not contain any scope claims, but has an `aud` claim of the client application.  This can be used in the On-Behalf-Of flow for requesting more tokens if so desired, although use of a refresh token to do so is better and often easier.
 
 ## Troubleshooting
 
