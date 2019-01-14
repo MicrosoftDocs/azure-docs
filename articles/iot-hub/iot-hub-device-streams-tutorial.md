@@ -10,7 +10,7 @@ ms.date: 01/15/2019
 ms.author: rezas
 ---
 
-# IoT Hub Device Streams Tutorial
+# IoT Hub device streams tutorial
 IoT Hub device streams enable secure communication to devices that are located behind firewalls or inside of private networks. As shown in the figure below, this is achieved by leveraging IoT Hub's cloud endpoints as a proxy to tunnel application traffic between device and services.
 
 In our terminology, a _service_ is an entity that authenticates using IoT Hub's _service connect_ credentials and attempts to initiate a connection to a device. A device, on the other hand, has access to device credentials and awaits incoming streaming requests from the service. As such, the interaction between the service and device mimics a client/server interaction where service acts as the client connecting to the device (acting as server).
@@ -68,22 +68,22 @@ Follow the steps below to configure Azure Log Analytics for your IoT Hub's devic
 
 1. Navigate to the *Diagnostic settings* tab in your IoT Hub, and click on *Turn on diagnostics* link.
 
-<p>
-    <img style="margin:auto;display:block;background-color:white;width:75%" src="./media/iot-hub-device-streams-tutorial/device-streams-diagnostics-settings.PNG">
-</p>
+    <p>
+        <img style="margin:auto;display:block;background-color:white;width:75%" src="./media/iot-hub-device-streams-tutorial/device-streams-diagnostics-settings.PNG">
+    </p>
 
 2. Provide a name for your diagnostics settings, and choose *Send to Log Analytics* option. You will be guided to choose an existing Log Analytics resource or create a new one. Additionally, check the *DeviceStreams* from the list.
 
-<p>
-    <img style="margin:auto;display:block;background-color:white;width:75%" src="./media/iot-hub-device-streams-tutorial/device-streams-diagnostics.PNG">
-</p>
+    <p>
+        <img style="margin:auto;display:block;background-color:white;width:75%" src="./media/iot-hub-device-streams-tutorial/device-streams-diagnostics.PNG">
+    </p>
 
 3. You can now access your device streams logs under the *Logs* tab in your IoT Hub's portal. Device stream activity logs will appear in the `AzureDiagnostics` table and have `Category=DeviceStreams`.
-
-<p>
-As shown below the identity of the target device and the result of the operation is also available in the logs.
-    <img style="margin:auto;display:block;background-color:white;width:100%" src="./media/iot-hub-device-streams-tutorial/device-streams-log-analytics.PNG">
-</p>
+    
+    <p>
+    As shown below the identity of the target device and the result of the operation is also available in the logs.
+        <img style="margin:auto;display:block;background-color:white;width:100%" src="./media/iot-hub-device-streams-tutorial/device-streams-log-analytics.PNG">
+    </p>
 
 ## Whitelist Device Streaming Endpoints
 

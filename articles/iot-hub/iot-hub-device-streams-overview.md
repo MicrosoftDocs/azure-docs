@@ -124,10 +124,12 @@ Use the links below for instructions on how to run the local proxy programs in y
 | NodeJS | [Link](iot-hub-device-streams-nodejs-proxy-quickstart.md) | -                                                         |
 | C      | -                                                         | [Link](iot-hub-device-streams-c-proxy-quickstart.md)      |
 
-# Next steps
+## Next steps
 
 Use the links below to learn more about device streams:
 
 > [!div class="nextstepaction"]
 > [Device streams tutorial](./iot-hub-device-streams-tutorial.md)
 > [Try device streams quickstarts](./iot-hub-device-streams-tutorial.md)
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-IoT-Hub-Device-Streams"/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>

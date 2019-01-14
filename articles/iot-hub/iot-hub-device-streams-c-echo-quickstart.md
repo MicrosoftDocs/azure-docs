@@ -65,7 +65,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
     ```
     The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
 
-**Bugbash instructions:** Skip this step and download and unzip the device streams repo directly from \\\\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-c.zip (`MD5=02D5179BC57F1C2FD2BED969E0555B31`).
+    **Bugbash instructions:** Skip this step and download and unzip the device streams repo directly from \\\\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-c.zip (`MD5=02D5179BC57F1C2FD2BED969E0555B31`).
 
 3. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 
 
@@ -93,7 +93,7 @@ In Windows, run the following commands in Developer Command Prompt for your Visu
     # Or for VS2017
     $ cmake -Denable_streaming=ON .. -G "Visual Studio 15 2017
 
-    # Then run
+    # Then build the project
     cmake --build . -- /m /p:Configuration=Release
 ```
 
@@ -131,7 +131,7 @@ A device must be registered with your IoT hub before it can connect. In this sec
     You use this value later in the quickstart.
 
 
-## Communicate between device and service applications via IoT Hub device streams
+## Communicate between device and service via device streams
 
 ### Run the device-side application
 
@@ -150,7 +150,7 @@ To run the device-side application, you need to:
   # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
   $ make -j
 
-  
+
   # In Windows
   # Go to the cmake folder at the root of repo
   cmake --build . -- /m /p:Configuration=Release

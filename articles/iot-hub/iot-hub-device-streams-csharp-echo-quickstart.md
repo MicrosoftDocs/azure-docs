@@ -84,7 +84,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
     
 
-## Communicate between device and service apps via IoT Hub device streams
+## Communicate between device and service via device streams
 
 ### Run the service-side application
 

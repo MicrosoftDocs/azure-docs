@@ -20,7 +20,7 @@ ms.author: rezas
 
 This document describes the setup for tunneling SSH traffic (using port 22) through device streams. The setup for RDP traffic is similar and requires a simple configuration change. Since device streams are application and protocol agnostic, the present quickstart can be modified (by changing the communication ports) to accommodate other types of application traffic.
 
-### How it works?
+## How it works?
 Figure below illustrates the setup of how the device- and service-local proxy programs will enable end-to-end connectivity between SSH client and SSH daemon processes. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-local proxy application. You should run an accompanying service-local proxy application which is available in [C# quickstart](./iot-hub-device-streams-csharp-proxy-quickstart.md) or [Node.js quickstart](./iot-hub-device-streams-nodejs-proxy-quickstart.md) guides.
 
 <p>
@@ -36,7 +36,7 @@ Figure below illustrates the setup of how the device- and service-local proxy pr
 
 4. Service-local proxy awaits for new SSH connections from the user by listening on a designated port which in this case is port 2222 (this is also configurable, as described [below](#run-the-device-local-proxy-application)). When user connects via SSH client, the tunnel enables SSH application traffic to be trasferred between the SSH client and server programs.
 
-Note that the SSH traffic being sent over a device stream will be tunneled through IoT Hub's streaming endpoint rather than being sent directly between service and device. This provides [these benefits](./iot-hub-device-streams-blog.md#benefits). Furthermore, the figure illustrates the SSH daemon running on the same device (or machine) as the device-local proxy. In this quickstart, providing the SSH daemon IP address allows device-local proxy and daemon to run on different machines as well.
+[!NOTE] SSH traffic being sent over a device stream will be tunneled through IoT Hub's streaming endpoint rather than being sent directly between service and device. This provides [these benefits](./iot-hub-device-streams-blog.md#benefits). Furthermore, the figure illustrates the SSH daemon running on the same device (or machine) as the device-local proxy. In this quickstart, providing the SSH daemon IP address allows device-local proxy and daemon to run on different machines as well.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -77,7 +77,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
     ```
     The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
 
-**Bug bash instructions:** Skip this step and download and unzip the device streams repo directly from \\\\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-c.zip (`MD5=02D5179BC57F1C2FD2BED969E0555B31`).
+    **Bug bash instructions:** Skip this step and download and unzip the device streams repo directly from \\\\scratch2\scratch\rezas\devicstreamsbugbash\device-streams-c.zip (`MD5=02D5179BC57F1C2FD2BED969E0555B31`).
 
 
 3. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 
@@ -145,7 +145,7 @@ A device must be registered with your IoT hub before it can connect. In this sec
     You use this value later in the quickstart.
 
 
-## SSH to a device via IoT Hub device streams
+## SSH to a device via device streams
 
 ### Run the device-local proxy application
 

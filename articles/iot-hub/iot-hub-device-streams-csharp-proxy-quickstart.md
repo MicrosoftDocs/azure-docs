@@ -20,7 +20,7 @@ ms.author: rezas
 
 We first describe the setup for SSH (using port 22). We then describe how to modify the setup's configured port for RDP. Since device streams are application and protocol agnostic, the same sample can be modified (usually by changing the communication ports) to accommodate other types of application traffic.
 
-### How it works?
+## How it works?
 
 Figure below illustrates the setup of how the device- and service-local proxy programs in this sample will enable end-to-end connectivity between SSH client and SSH daemon. Here, we assume that the daemon is running on the same device as the device-local proxy.
 
@@ -34,7 +34,7 @@ Figure below illustrates the setup of how the device- and service-local proxy pr
 3. Device-local proxy connects to the SSH daemon (SSHD) listening on port 22 on the device (this is configurable, as described [below](#run-the-device-side-application)).
 4. Service-local proxy awaits for new SSH connections from the user by listening on a designated port which in this case is port `2222` (this is also configurable, as described [below](#run-the-service-side-application)). When user connects via SSH client, the tunnel enables application traffic to be exchanged between the SSH client and server programs.
 
-Note that the SSH traffic being sent over the stream will be tunneled through IoT Hub's streaming endpoint rather than being sent directly between service and device. This provides [these benefits](./iot-hub-device-streams-blog.md#benefits).
+[!NOTE] SSH traffic being sent over the stream will be tunneled through IoT Hub's streaming endpoint rather than being sent directly between service and device. This provides [these benefits](./iot-hub-device-streams-blog.md#benefits).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -102,7 +102,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
     
 
-## SSH to a device via IoT Hub device streams
+## SSH to a device via device streams
 
 ### Run the service-side proxy
 
@@ -179,7 +179,7 @@ At this point, you will be presented with the SSH login prompt to enter your cre
     <img src="./media/iot-hub-device-streams-csharp-proxy-quickstart/ssh-console-output.png"/>
 </p>
 
-## RDP to a device via IoT Hub device streams
+## RDP to a device via device streams
 
 The setup for RDP is very similar to SSH (described above). We basically need to use the RDP destination IP and port 3389 instead and use RDP client (instead of SSH client).
 
