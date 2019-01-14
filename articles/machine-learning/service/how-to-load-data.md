@@ -32,7 +32,13 @@ import azureml.dataprep as dprep
 dataflow = dprep.auto_read_file(path='./data/any-file.txt')
 ```
 
-This function is useful when file type is not explicitly known. A usage example is a directory that contains hundreds of files of different types to be converted into dataflow objects. Iterating through each file path and calling `auto_read_file()` allows you to easily process the files in the directory into a list of dataflow objects.
+This function is useful for automatically detecting file type, encoding, and other parsing arguments all from one convenient entry point. The function also automatically performs the following steps commonly performed when loading delimited data:
+
+* Inferring and setting the delimiter
+* Skipping empty records at the top of the file
+* Inferring and setting the header row
+
+Alternatively, if you know the file type ahead of time and want to explicitly control the way it is parsed, continue following this article to see the specialized functions the SDK offers.
 
 ## Load text line data
 

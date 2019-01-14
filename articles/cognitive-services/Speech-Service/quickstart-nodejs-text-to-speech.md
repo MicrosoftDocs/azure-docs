@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
@@ -38,7 +38,8 @@ const request = require('request');
 const fs = require('fs');
 // Requires readline-sync to read command line inputs
 const readline = require('readline-sync');
-
+// Requires xmlbuilder to build the SSML body
+const xmlbuilder = require('xmlbuilder');
 ```
 
 > [!NOTE]
@@ -121,6 +122,18 @@ Finally, you'll make a request to the service. If the request is successful, and
 // You can also change the voice and output formats. See:
 // https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech
 function saveAudio(accessToken) {
+    // Create the SSML request.
+    let xml_body = xmlbuilder.create('speak')
+      .att('version', '1.0')
+      .att('xml:lang', 'en-us')
+      .ele('voice')
+      .att('xml:lang', 'en-us')
+      .att('name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
+      .txt(text)
+      .end();
+    // Convert the XML into a string to send in the TTS request.
+    let body = xml_body.toString();
+
     let options = {
         method: 'POST',
         baseUrl: 'https://westus.tts.speech.microsoft.com/',
@@ -132,7 +145,7 @@ function saveAudio(accessToken) {
             'X-Microsoft-OutputFormat': 'riff-24khz-16bit-mono-pcm',
             'Content-Type': 'application/ssml+xml'
         },
-        body: '<speak version=\'1.0\' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang=\'en-US\'>\n<voice  name=\'Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)\'>' + text + '</voice> </speak>'
+        body: body
     };
     // This function makes the request to convert speech to text.
     // The speech is returned as the response.

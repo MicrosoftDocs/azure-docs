@@ -230,6 +230,12 @@ The **Sign-ins** option gives you a complete overview of all sign-in events to y
 
 ![Sign-in activity](./media/concept-sign-ins/11.png "Sign-in activity")
 
+## Office 365 activity logs
+
+You can view Office 365 activity logs from the [Office 365 Admin Center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, only the Office 365 Admin Center provides a full view of the Office 365 activity logs. 
+
+You can also access the Office 365 activity logs programmatically using the [Office 365 Management APIs](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+
 ## Next steps
 
 * [Sign-in activity report error codes](reference-sign-ins-error-codes.md)
