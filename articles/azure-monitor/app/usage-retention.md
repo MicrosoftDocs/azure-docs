@@ -17,7 +17,7 @@ ms.author: daviste
 
 # User retention analysis for web applications with Application Insights
 
-The retention feature in [Azure Application Insights](../../application-insights/app-insights-overview.md) helps you analyze how many users return to your app, and how often they perform particular tasks or achieve goals. For example, if you run a game site, you could compare the numbers of users who return to the site after losing a game with the number who return after winning. This knowledge can help you improve both your user experience and your business strategy.
+The retention feature in [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) helps you analyze how many users return to your app, and how often they perform particular tasks or achieve goals. For example, if you run a game site, you could compare the numbers of users who return to the site after losing a game with the number who return after winning. This knowledge can help you improve both your user experience and your business strategy.
 
 ## Get started
 
@@ -65,7 +65,7 @@ Or in ASP.NET server code:
     - [Users, Sessions, Events](usage-segmentation.md)
     - [Funnels](usage-funnels.md)
     - [User Flows](usage-flows.md)
-    - [Workbooks](../../application-insights/app-insights-usage-workbooks.md)
+    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
     - [Add user context](usage-send-user-context.md)
 
 

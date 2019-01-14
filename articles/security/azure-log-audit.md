@@ -268,9 +268,9 @@ The following table lists and describes integration scenarios:
 | --------------------- | :---------- |
 |[Application map](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|The components of your app, with key metrics and alerts.||
 |[Diagnostics search for instance data](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Search and filter events such as requests, exceptions, dependency calls, log traces, and page views.||
-|[Metrics Explorer for aggregated data](https://docs.microsoft.com/azure/application-insights/app-insights-metrics-explorer)|Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times.||
+|[Metrics Explorer for aggregated data](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times.||
 |[Dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room.||
-|[Live Metrics Stream](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)|When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected.||
+|[Live Metrics Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected.||
 |[Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Answer tough questions about your app's performance and usage by using this powerful query language.||
 |[Automatic and manual alerts](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Automatic alerts adapt to your app's normal patterns of telemetry and are triggered when there's something outside the usual pattern. You can also set alerts on particular levels of custom or standard metrics.||
 |[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|View performance data in the code. Go to code from stack traces.||

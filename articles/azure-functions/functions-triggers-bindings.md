@@ -671,6 +671,10 @@ In C# and other .NET languages, you can use an imperative binding pattern, as op
 
 The *function.json* file schema is available at [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
+## Testing bindings
+
+When developing functions locally, you can test your bindings using either Visual Studio 2017 or Visual Studio Code. To learn more, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md). You can also invoke non-HTTP bindings using REST APIs. To learn more, see [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md).
+
 ## Handling binding errors
 
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]

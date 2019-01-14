@@ -6,7 +6,7 @@ author: dimazaid
 manager: kpiteira
 editor: spelluru
 
-ms.service: data-factory
+ms.service: notification-hubs
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
 
@@ -71,7 +71,7 @@ For an app, the available metrics are:
 | Metric | Description |
 | --- | --- |
 | **Average Response Time** | The average time taken for the app to serve requests, in milliseconds. |
-| **Average memory working set** | The average amount of memory used by the app, in mebibytes (MiB). |
+| **Average memory working set** | The average amount of memory used by the app, in megabytes (MiB). |
 | **CPU Time** | The amount of CPU consumed by the app, in seconds. For more information about this metric, see [CPU time vs CPU percentage](#cpu-time-vs-cpu-percentage). |
 | **Data In** | The amount of incoming bandwidth consumed by the app, in MiB. |
 | **Data Out** | The amount of outgoing bandwidth consumed by the app, in MiB. |
@@ -141,14 +141,12 @@ To learn more about metrics, see [Monitor service metrics](../monitoring-and-dia
 ## Alerts and autoscale
 Metrics for an app or an App Service plan can be hooked up to alerts. For more information, see [Receive alert notifications](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-App Service apps hosted in Basic, Standard, or Premium App Service plans support autoscale. With autoscale, you can configure rules that monitor the App Service plan metrics. Rules can increase or decrease the instance count, which can provide additional resources as needed. Rules can also help you save money when the app is over-provisioned. 
+App Service apps hosted in Basic, Standard, or Premium App Service plans support autoscale. With autoscale, you can configure rules that monitor the App Service plan metrics. Rules can increase or decrease the instance count, which can provide additional resources as needed. Rules can also help you save money when the app is over-provisioned.
 
 For more information about autoscale, see [How to scale](../monitoring-and-diagnostics/insights-how-to-scale.md) and [Best practices for Azure Monitor autoscaling](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
-
-
 
 <!-- Images. -->
 [http403]: ./media/web-sites-monitor/http403.png

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
+ms.reviewer: anajod
 ---
 
 # Tutorial: Create a geo-distributed app solution with Azure and Azure Stack
@@ -37,7 +37,7 @@ With the geo-distributed pattern, your app can spans regions. You can default to
 
 #### Scalability considerations
 
-The solution you will build with this tutorial is not to accommodate scalability. However, if used in combination with other Azure and On-Premises technologies and solutions you can accommodate scalability requirements. For information on creating a hyrbid solution with auto-scaling via traffic manager, see [Create cross-cloud scaling solutions with Azure](azure-stack-solution-cloud-burst.md).
+The solution you will build with this tutorial is not to accommodate scalability. However, if used in combination with other Azure and On-Premises technologies and solutions you can accommodate scalability requirements. For information on creating a hybrid solution with auto-scaling via traffic manager, see [Create cross-cloud scaling solutions with Azure](azure-stack-solution-cloud-burst.md).
 
 #### Availability considerations
 
@@ -102,7 +102,7 @@ Update the DNS zone file foCreate web apps and publishr the domain. Azure AD can
 Set up hybrid CI/CD to deploy Web App to Azure and Azure Stack, and auto push changes to both clouds.
 
 > [!Note]  
-> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" section for Azure Stack Operator.
+> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation [Before you get started with App Service on Azure Stack](../azure-stack-app-service-before-you-get-started.md) section for Azure Stack Operator.
 
 #### Add Code to Azure Repos
 

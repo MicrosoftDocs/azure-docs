@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 01/08/2018
 
 ms.custom: seodec18
 
@@ -68,6 +68,9 @@ Any network security group settings that are applied must still allow the endpoi
 
 ### Azure Key Vault behind a firewall
 The VM must be able to access a key vault. Refer to guidance on access to the key vault from behind a firewall that the [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) team maintains. 
+
+### Azure Instance Metadata Service 
+The VM must be able to access the [Azure Instance Metadata service](../virtual-machines/windows/instance-metadata-service.md) endpoint which uses a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.
 
 ### Linux package management behind a firewall
 
