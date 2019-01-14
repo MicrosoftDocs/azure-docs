@@ -611,9 +611,9 @@ When debugging application in Visual Studio, you are using a local Service Fabri
 
 To look at what happens in the code, complete the following steps:
 
-1. Open the **VotingWeb\VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 63).
+1. Open the **VotingWeb\VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 72).
 
-2. Open the **VotingData\VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 53).
+2. Open the **VotingData\VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 54).
 
 3. Press **F5** to start the application in debug mode.
 
