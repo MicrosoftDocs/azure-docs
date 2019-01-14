@@ -1,6 +1,6 @@
 ---
-title: Deploy Microsoft Healthcare APIs for FHIR using PowerShell
-description: Deploy Microsoft Healthcare APIs for FHIR using PowerShell.
+title: Deploy Microsoft Healthcare APIs for FHIR to Azure using PowerShell
+description: Deploy Microsoft Healthcare APIs for FHIR to Azure using PowerShell.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
@@ -39,7 +39,7 @@ Save it with the name `azuredeploy.json`
 $rg = New-AzureRmResourceGroup -Name "myResourceGroupName" -Location westus2
 ```
 
-## Deploy Template
+## Deploy template
 
 ```azurepowershell-interactive
 $accountName = "myHealthcareApis"
