@@ -63,7 +63,7 @@ In the **Hub Database** section, enter existing credentials for the SQL Database
 
 ![Step 2 settings](media/sql-database-get-started-sql-data-sync/steptwo.png)
 
-To add an Azure SQL Database:
+### To add an Azure SQL Database
 
 In the **Member Database** section, optionally add an Azure SQL Database to the sync group by selecting **Add an Azure Database**. The **Configure Azure Database** page opens.
 
@@ -83,7 +83,7 @@ In the **Member Database** section, optionally add an Azure SQL Database to the 
   Select **OK** and wait for the new sync member to be created and deployed.
 
 <a name="add-on-prem"></a>
-To add an on-premises SQL Server database:
+### To add an on-premises SQL Server database
 
 In the **Member Database** section, optionally add an on-premises SQL Server to the sync group by selecting **Add an On-Premises Database**. The **Configure On-Premises** page opens where you can do the following things:
 
