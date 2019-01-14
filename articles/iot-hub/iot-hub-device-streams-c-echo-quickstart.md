@@ -145,7 +145,7 @@ To run the device-side application, you need to perform the following steps:
 
 - Compile the code as follows:
 
-```bash
+```
   # In Linux
   # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
   $ make -j
@@ -157,7 +157,8 @@ To run the device-side application, you need to perform the following steps:
 ```
 
 - Run the compiled program:
-```bash
+
+```
   # In Linux
   # Go to sample's folder
   cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
