@@ -8,7 +8,7 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 01/15/2019
 ---
 
 # Authenticate and access resources with managed identities in Azure Logic Apps
