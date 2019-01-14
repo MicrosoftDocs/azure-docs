@@ -78,7 +78,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supported |Supported |Amsterdam, Chicago, Dallas, London, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Supported |Supported |Montreal, Toronto, Quebec City |
 | **[British Telecom](https://globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |Supported |Supported |Amsterdam, Hong Kong, London, Sao Paulo, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
-| **[C3ntro](https://c3ntro.com/data/express-route/)** |Coming soon |Coming soon |Miami |
+| **C3ntro** |Coming soon |Coming soon |Miami |
 | **CDC** | Supported | Supported | Canberra, Canberra2 |
 | **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Supported |Supported |Las Vegas, New York, San Antonio, Silicon Valley, Tokyo, Toronto |
 | **China Telecom Global** |Supported |Not Supported |Hong Kong |
@@ -131,7 +131,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Telus](http://www.telus.com)** |Supported |Supported |Montreal, Toronto |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Supported |Supported |Cape Town, Johannesburg |
 | **TIME dotCom** | Supported | Supported | Kuala Lumpur |
-| **[UOLDIVEO](http://www.uoldiveo.com.br/solucoes/cloud.html#rmcl)** |Supported |Supported |Sao Paulo |
+| **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Supported |Supported |Sao Paulo |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Supported |Supported |Amsterdam, Chicago, Dallas, Hong Kong, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Supported |Not Supported |London, Singapore |
 | **Vodafone Idea** | Supported | Supported | Mumbai2 |
@@ -235,7 +235,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **[ThinkTel](http://www.thinktel.ca/services/agile-ix-data/expressroute/)** | Equinix | Toronto | 
 | **[Transtelco](http://www.transtelco.net/tcloud/microsoft)** |Equinix | Dallas, Los Angeles |  
 | **[United Information Highway (UIH)](https://www.uih.co.th/en/internet-solution/cloud-direct/uih-cloud-direct-for-microsoft-azure-expressroute)**| Equinix | Singapore |
-| **[Venha Pra Nuvem](http://venhapranuvem.com.br/infraestrutura/oferta-especial-digital-edge-expressroute/)** | Equinix | Sao Paulo |
+| **[Venha Pra Nuvem](http://venhapranuvem.com.br/)** | Equinix | Sao Paulo |
 | **[Webair](https://www.webair.com/microsoft-express-route-partnership/)**| Megaport | New York |
 | **[Windstream](http://www.windstreambusiness.com/solutions/cloud-services/cloud-and-managed-hosting-services)**| Equinix | Chicago, Silicon Valley, Washington DC |
 | **Zain** |Equinix |London|
@@ -291,7 +291,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | North America |
 | **[Presidio](http://info.presidio.com/microsoft-azure-expressroute)** | North America |
 | **[sol-tec](https://www.sol-tec.com/services)** | Europe |
-| **[Venha Pra Nuvem](http://venhapranuvem.com.br/infraestrutura/oferta-especial-digital-edge-expressroute/)** | South America |
+| **[Venha Pra Nuvem](http://venhapranuvem.com.br/)** | South America |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Australia |
 
 ## Next steps

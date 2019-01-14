@@ -153,7 +153,7 @@ cf logs spring-music --recent | grep jdbcUrl
 2018-12-07T14:44:30.57-0600 [APP/PROC/WEB/0] OUT 2018-12-07 20:44:30.574 DEBUG 24 --- [           main] com.zaxxer.hikari.HikariConfig           : jdbcUrl.........................jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
 ```
 
-Notice the application is using *h2:mem:testdb*, which is the in-memory database. A Spring application is automatically configured to use an in-memory database when an in-memory database dependency is on the classpath and [auto-configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-auto-configuration.html) is enabled. The sample application has the [h2 in-memory database dependency configured](https://github.com/cloudfoundry-samples/spring-music/blob/master/build.gradle#L49) and auto-configuration enabled in [src/main/java/org/cloudfoundry/samples/music/Application.java]([https://github.com/cloudfoundry-samples/spring-music/blob/master/src/main/java/org/cloudfoundry/samples/music/Application.java#L8).
+Notice the application is using *h2:mem:testdb*, which is the in-memory database. A Spring application is automatically configured to use an in-memory database when an in-memory database dependency is on the classpath and [auto-configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-auto-configuration.html) is enabled. The sample application has the [h2 in-memory database dependency configured](https://github.com/cloudfoundry-samples/spring-music/blob/master/build.gradle#L49) and auto-configuration enabled in [src/main/java/org/cloudfoundry/samples/music/Application.java](https://github.com/cloudfoundry-samples/spring-music/blob/master/src/main/java/org/cloudfoundry/samples/music/Application.java#L8).
 
 Use the application's route to navigate to it in a browser. The route, or URL, is displayed in the output from the `cf push` command.
 
@@ -261,5 +261,5 @@ cf delete spring-music
 
 This tutorial covered deploying an application to Pivotal Cloud Foundry as well as creating a database using Open Service Broker for Azure. It also covered binding your database to your application within your Pivotal Cloud Foundry instance. For more information about deploying applications to Cloud Foundry on Azure, see:
 
-* [Cloud Foundry on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cloudfoundry-get-started)
-* [Deploy your first app to Cloud Foundry on Microsoft Azure]([https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app)
+* [Cloud Foundry on Azure](../virtual-machines/linux/cloudfoundry-get-started.md)
+* [Deploy your first app to Cloud Foundry on Microsoft Azure](../virtual-machines/linux/cloudfoundry-deploy-your-first-app.md)
