@@ -132,5 +132,4 @@ Use the links below to learn more about device streams:
 > [Device streams tutorial](./tutorial-device-streams.md)
 > [Try a device stream quickstart guide](/azure/iot-hub)
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-IoT-Hub-Device-Streams"/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
-
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-IoT-Hub-Device-Streams/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
