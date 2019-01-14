@@ -160,7 +160,7 @@ Install-Package Microsoft.Identity.Client
 
 Alternatively, if you are not using Visual Studio, you can run the following command to add MSAL to your project:
 
-```cmd
+```console
 dotnet add package Microsoft.Identity.Client
 ```
 
