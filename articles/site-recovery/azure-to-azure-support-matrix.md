@@ -51,7 +51,6 @@ Germany	| Germany Central, Germany Northeast
 China | China East, China North, China North2, China East2
 
 >[!NOTE]
-
 >
 > - For **Brazil South** region, you can replicate and fail over to one of the following: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US regions. It should be noted that Site Recovery has only enabled Brazil South to be used as a source region from where VMs can be protected. It **cannot be used as a Target DR region** for any of the Azure regions like South Central US. The reason being latency observed due to geographical distance it is recommended to select any other America's region other than Brazil South.
 > 
