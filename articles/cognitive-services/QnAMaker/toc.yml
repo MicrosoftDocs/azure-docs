@@ -117,6 +117,8 @@
       href: How-To/business-continuity-plan.md      
     - name: Troubleshoot and update QnAMaker runtime
       href: How-To/troubleshooting-runtime.md
+  - name: Improve knowledge base
+    href: How-to/improve-knowledge-base.md
   - name: Use REST API
     items:
     - name: C#
