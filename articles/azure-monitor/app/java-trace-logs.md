@@ -150,7 +150,7 @@ The Application Insights appenders can be referenced by any configured logger, a
 ## Explore your traces in the Application Insights portal
 Now that you've configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the [Search][diagnostic] blade.
 
-Exceptions submited via loggers will be displayed on the portal as Exception Telemetry.
+Exceptions submitted via loggers will be displayed on the portal as Exception Telemetry.
 
 ![In the Application Insights portal, open Search](./media/java-trace-logs/10-diagnostics.png)
 
