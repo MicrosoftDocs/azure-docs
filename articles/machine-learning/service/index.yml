@@ -26,7 +26,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Get started using <a href="quickstart-get-started">Azure portal</a> <br>&nbsp;
+    - html: Get started using <a href="quickstart-get-started">Azure portal</a> 
     - html: Get started using <a href="quickstart-create-workspace-with-python">Python</a>
     
 - title: Step-by-Step Tutorials
@@ -36,29 +36,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="tutorial-train-models-with-aml">Training & deploying image classification models</a> with MNIST data (two-part tutorial) <br>&nbsp;
-    - html: <a href="tutorial-data-prep">Preparing data & using automated ML </a> to train and tune a regression model with NYC taxi data  (two-part tutorial)
+    - html: <a href="tutorial-train-models-with-aml">Train & deploy image classification models</a> with MNIST data (<b>two-part tutorial</b>)
+    - html: <a href="tutorial-data-prep">Prep data & use automated ML </a> to train and tune regression models with NYC taxi data  (<b>two-part tutorial</b>)<br>&nbsp;
   - type: paragraph
     text: '<b>Samples</b>: Explore the service with these <a href="https://aka.ms/aml-notebooks">Jupyter notebooks</a> on GitHub.'
-
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: '<b>Image classification tutorial with MNIST data:</b>'
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="tutorial-train-models-with-aml">Train your own machine learning model</a>
-    - html: <a href="tutorial-deploy-models-with-aml">Deploy the model</a>
-  - type: paragraph
-    text: '<b>Regression modeling tutorial with NYC taxi data:</b>'
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="tutorial-data-prep">Prepare NYC taxi data for modeling</a>
-    - html: <a href="tutorial-auto-train-models">Use automated machine learning to build models</a>
-  - type: paragraph
-    text: '<b>Sample notebooks</b>: Explore the service with these <a href="https://aka.ms/aml-notebooks">Jupyter notebooks</a> on GitHub.'
 
 - title: Reference
   items:
