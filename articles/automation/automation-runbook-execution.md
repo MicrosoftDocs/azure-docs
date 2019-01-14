@@ -26,9 +26,29 @@ The following diagram shows the lifecycle of a runbook job for [PowerShell runbo
 
 Your jobs have access to your Azure resources by making a connection to your Azure subscription. They only have access to resources in your data center if those resources are accessible from the public cloud.
 
+## Where to run your runbooks
+
+Runbooks in Azure Automation can run on either a sandbox in Azure or a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). A sandbox is a shared environment in Azure that can be used by multiple jobs, jobs using the same sandbox are bound by the resource limitations of the sandbox. Hybrid Runbook Workers can be used to run runbooks directly on the computer that's hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned computers. Most runbooks can easily be ran in the Azure sandboxes. There are specific scenarios where choosing to execute your runbook on on either an Azure sandbox or Hybrid worker where it may be your best option. See the following table for a list of some example scenarios:
+
+|Task|Best Choice|Notes|
+|---|---|---|
+|Long running script|Hybrid Runbook Worker||
+|Interact with Local services|Hybrid Runbook Worker|Can have access directly to host machine|
+|Require 3rd party software and executables|Hybrid Runbook Worker|You manage the OS and can install software|
+|Integrate with Azure resources|Azure Sandbox|Hosted in azure, authentication is simpler. If you are using a Hybrid Runbook Worker on an Azure VM, you can use [managed identities for Azure resources](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
+|Monitor a file or folder with a runbook|Hybrid Runbook Worker|Use a [Watcher task](automation-watchers-tutorial.md) on a Hybrid Runbook worker|
+|Resource intensive script|Hybrid Runbook Worker| Azure sandboxes have [limitation on resources](azure/azure-subscription-service-limits.md#automation-limits)|
+|Optimal performance to manage azure resources|Azure Sandbox|Script is ran in the same environment, which in turn has less latency|
+|Minimize operational costs|Azure Sandbox|There is no compute overhead, no need for a VM|
+|Using modulees with specific requirements| Hybrid Runbook Worker|Some examples are</br> **WinSCP** - dependancy on winscp.exe </br> **IISAdministration** - Needs IIS to be enabled|
+|Install module that requires installer|Hybrid Runbook Worker|Modules for sandbox must be xcopyable|
+|Using runbooks or modules that require .NET Framework different from 4.7.2|Hybrid Runbook Worker|Automation sandboxes have .NET Framework 4.7.2, and there is no way to upgrade it|
+
 ## Runbook behavior
 
 Runbooks execute based on the logic that is defined inside them. If a runbook is interrupted, the runbook restarts at the beginning. This behavior requires runbooks to be written in a way where they support being restarted in case of transient issues.
+
+### Creating resources
 
 If your script creates resources, you should check to see if the resource already exists before attempting to create it again. A basic example is shown in the following example.
 
@@ -49,9 +69,17 @@ else
     }
 ```
 
-Careful consideration should be taken into account when authoring runbooks. As mentioned earlier, runbooks need to be authored in a way that they are robust and can handle transient errors that may cause the runbook to restart or fail. It is a good practice to author runbooks to be modular in nature. This makes it easier to create the logic in the runbook to be restartable. Tracking progress in a runbook is a good way to ensure that the logic in a runbook is executed correctly in case of issues. Some possible ways to keep track of the progress of the runbook is by using an external source such as storage accounts, a database, or shared files. By tracking the state externally you can create logic in your runbook to first check the state of the last action the runbook took and based off the results either skip or continue specific tasks in the runbook.
+### Time dependant scripts
 
-Runbooks ran in Azure sandboxes do not support calling processes (such as an .exe or subprocess.call). This is due to the fact that Azure sandboxes are   For scenarios where you require 3rd party software or calling of sub processes, it is recommended you execute the runbook on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+Careful consideration should be taken into account when authoring runbooks. As mentioned earlier, runbooks need to be authored in a way that they are robust and can handle transient errors that may cause the runbook to restart or fail. If a runbook fails it will be retried, if a runbook normally runs within a time constraint, logic to check the execution time should be implemented in the runbook to ensure operations like start up, shut down or scale out are ran only during specific times.
+
+### Tracking progress
+
+It is a good practice to author runbooks to be modular in nature. This makes it easier to create the logic in the runbook to be restartable. Tracking progress in a runbook is a good way to ensure that the logic in a runbook is executed correctly in case of issues. Some possible ways to keep track of the progress of the runbook is by using an external source such as storage accounts, a database, or shared files. By tracking the state externally you can create logic in your runbook to first check the state of the last action the runbook took and based off the results either skip or continue specific tasks in the runbook.
+
+### Using executables or calling processes
+
+Runbooks ran in Azure sandboxes do not support calling processes (such as an .exe or subprocess.call). This is due to the fact that Azure sandboxes are shared proceses ran in container which do not have access to all the underlying APIs. For scenarios where you require 3rd party software or calling of sub processes, it is recommended you execute the runbook on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
 
 ## Job statuses
 
