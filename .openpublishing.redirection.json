@@ -29555,6 +29555,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/bing-news-search/quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-news-search/csharp",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/cognitive-services/Bing-News-Search/tutorial-bing-news-search-single-page-app-source.md",
+        "redirect_url": "/azure/cognitive-services/bing-News-Search/tutorial-bing-news-search-single-page-app",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cognitive-services/Bing-News-Search/sdk.md",
+        "redirect_url": "/azure/cognitive-services/bing-News-search/news-search-sdk-quickstart",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-appssoaccess-whatis.md",
       "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
       "redirect_document_id": true
