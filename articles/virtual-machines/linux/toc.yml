@@ -99,9 +99,9 @@
     href: maintenance-and-updates.md
   - name: Disk storage
     items:
-    - name: Managed disks
+    - name: Introduction to managed disks
       href: managed-disks-overview.md
-    - name: Disk types
+    - name: Choosing a disk type
       href: disks-types.md
     - name: Designing for high performance
       href: premium-storage-performance.md
