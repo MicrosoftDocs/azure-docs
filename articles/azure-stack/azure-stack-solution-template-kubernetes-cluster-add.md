@@ -107,7 +107,7 @@ If you use Active Directory Federated Services (AD FS) for your identity managem
 
        | Value | Description                     |
        | ---   | ---                             |
-       | ERCS IP | In the ASDK the privilage enpoint is normally `AzS-ERCS01`. |
+       | ERCS IP | In the ASDK the priviledged endpoint is normally `AzS-ERCS01`. |
        | Application name |                      |
        | Certificate store location |            |
 
