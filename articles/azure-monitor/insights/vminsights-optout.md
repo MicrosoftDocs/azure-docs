@@ -26,7 +26,7 @@ Azure Monitor for VMs relies on the following components to deliver its experien
 * A Log Analytics workspace, which stores monitoring data collected from VMs and other sources.
 * Collection of performance counters configured in the workspace, which updates monitoring configuration on all VMs connected to the workspace.
 * Two monitoring solutions configured in the workspace - **InfrastructureInsights** and **ServiceMap**, which update monitoring configuration on all VMs connected to the workspace.
-* Two Azure virtual machine extensions, the **MicrosoftMonitoringAgent** and the **DepenendencyAgent**, which collect and send data to the workspace.
+* Two Azure virtual machine extensions, the **MicrosoftMonitoringAgent** and the **DependencyAgent**, which collect and send data to the workspace.
 
 Consider the following when preparing to disable monitoring of your virtual machines with Azure Monitor for VMs:
 
