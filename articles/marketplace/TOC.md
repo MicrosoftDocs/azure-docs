@@ -104,7 +104,7 @@
 
 ### [Dynamics 365 for Customer Engagement offer](./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md)
 #### [Prerequisites](./cloud-partner-portal/dyn365ce/cpp-prerequisites.md)
-#### [Create IoT Edge module offer](./cloud-partner-portal/dyn365ce/cpp-create-offer.md)
+#### [Create Customer Engagement offer](./cloud-partner-portal/dyn365ce/cpp-create-offer.md)
 ##### [Offer Settings tab](./cloud-partner-portal/dyn365ce/cpp-offer-settings-tab.md)
 ##### [Technical Info tab](./cloud-partner-portal/dyn365ce/cpp-technical-info-tab.md)
 ##### [Test Drive tab](./cloud-partner-portal/dyn365ce/cpp-testdrive-tab.md)
