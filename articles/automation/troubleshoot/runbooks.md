@@ -391,7 +391,7 @@ Some common reasons that a module might not successfully import to Azure Automat
 * The structure doesn't match the structure that Automation needs it to be in.
 * The module is dependent on another module that hasn't been deployed to your Automation account.
 * The module is missing its dependencies in the folder.
-* The `New-AzureRmAutomationModule` cmdlet is being used to upload the module, and you have't given the full storage path or haven't loaded the module by using a publicly accessible URL.
+* The `New-AzureRmAutomationModule` cmdlet is being used to upload the module, and you haven't given the full storage path or haven't loaded the module by using a publicly accessible URL.
 
 #### Resolution
 

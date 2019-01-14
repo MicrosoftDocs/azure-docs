@@ -81,7 +81,7 @@ a role assignment on the resource group.
 
 In each REST API URI, there are variables that are used that you need to replace with your own values:
 
-- `{YourMG}` - Replace with the name of your management group
+- `{YourMG}` - Replace with the ID of your management group 
 - `{subscriptionId}` - Replace with your subscription ID
 
 1. Create the initial _blueprint_ object. The **Request Body** includes properties about the
