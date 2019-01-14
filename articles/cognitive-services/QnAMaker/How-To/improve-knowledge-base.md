@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: 
 author: diberry
 manager: cgronlun
-displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, user setting
+displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
@@ -16,20 +16,20 @@ ms.author: diberry
 
 Active learning allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them. 
 
-Your knowledge base doesn't change automatically. You must accept the suggestions in order for any change to take effect. These suggestions will add questions but will not change or remove existing questions.
+Your knowledge base doesn't change automatically. You must accept the suggestions in order for any change to take effect. These suggestions add questions but don't change or remove existing questions.
 
 ## What is Active Learning
 
 QnA Maker learns new question variations in two possible ways.
  
-* Auto learning – The ranker understands when a user question has multiple answers with less variation in scores and considers that as a feedback. 
-* Train API – When multiple answers with little variation in scores are returned from the knowledge base, the client application can ask the user which question is the correct question. When the user selects the correct question, the user feedback is sent to QnA Maker as well as sent to QnA Maker with the Train API. 
+* Auto learning – The ranker understands when a user question has multiple answers with less variation in scores and considers that as feedback. 
+* Train API – When multiple answers with little variation in scores are returned from the knowledge base, the client application can ask the user which question is the correct question. When the user selects the correct question, the user feedback is sent to QnA Maker with the Train API. 
 
 Either method provides the ranker with similar queries that are clustered.
 
 When similar queries are clustered, QnA Maker suggests the user-based questions to the knowledge base developer to accept or reject.
 
-## Turn active learning on
+## Turn on active learning
 
 1. To turn active learning on, go to your **Service Settings** in the QnA Maker portal, in the top-right corner.  
 
@@ -47,7 +47,7 @@ When similar queries are clustered, QnA Maker suggests the user-based questions 
 1. On the **Edit** knowledge base page, select **Filter by Suggestions** to see the suggested questions.
     
 
-1.	Each question section with suggestions shows the new questions with a check mark to accept the question or an x mark to reject the suggetions. Select the check mark to add the question. 
+1.	Each question section with suggestions shows the new questions with a check mark to accept the question or an x mark to reject the suggestions. Select the check mark to add the question. 
 
     You can add or delete _all suggestions_ by selecting **Add all** or **Reject all**.
 
