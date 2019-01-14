@@ -25,7 +25,7 @@ ms.reviewer: waltero
 > [!note]  
 > Kubernetes on Azure Stack is in preview.
 
-You can offer Kubernetes as a Marketplace item to your users. Your users can deploy Kubernetes in a single, coordinated operation.
+You can offer Kubernetes as a Marketplace item to your users. Your users can, then, deploy Kubernetes in a single, coordinated operation.
 
 The following article look at using an Azure Resource Manager template to deploy and provision the resources for a standalone Kubernetes cluster. The Kubernetes Cluster Marketplace item 0.3.0 requires Azure Stack version 1808. Before you start, check your Azure Stack and global Azure tenant settings. Collect the required information about your Azure Stack. Add necessary resources to your tenant and to the Azure Stack Marketplace. The cluster depends on an Ubuntu server, custom script, and the Kubernetes items to be in the marketplace.
 
@@ -45,7 +45,7 @@ Create a plan, an offer, and a subscription for the Kubernetes Marketplace item.
 
 1. Select **Change state**. Select **Public**.
 
-1. Select **+ Create a resource** > **Offers and Plans** > **Subscription** to create a new subscription.
+1. Select **+ Create a resource** > **Offers and Plans** > **Subscription** to create a subscription.
 
     a. Enter a **Display Name**.
 
@@ -61,7 +61,7 @@ Create a plan, an offer, and a subscription for the Kubernetes Marketplace item.
 
 If you use Active Directory Federated Services (AD FS) for your identity management service, you will need to create a service principle for users deploying a Kubernetes cluster.
 
-1. Create and export a certificate to be used to create the service principle. The following code snippet below shows how to create a self signed certificate. 
+1. Create and export a certificate to be used to create the service principle. The following code snippet below shows how to create a self-signed certificate. 
 
     - You need the following pieces of information:
 
@@ -70,7 +70,7 @@ If you use Active Directory Federated Services (AD FS) for your identity managem
        | Password | The certificate password. |
        | Local certificate path | The path and file name of the certificate. For example: `path\certfilename.pfx` |
        | Certificate name | The name of the certificate. |
-       | Certificate store location |  For example `Cert:\LocalMachine\My` |
+       | Certificate store location |  For example, `Cert:\LocalMachine\My` |
 
     - Open PowerShell with an elevated prompt. Run the following script with the parameters updated to your values:
 
@@ -107,7 +107,7 @@ If you use Active Directory Federated Services (AD FS) for your identity managem
 
        | Value | Description                     |
        | ---   | ---                             |
-       | ERCS IP | In the ASDK the priviledged endpoint is normally `AzS-ERCS01`. |
+       | ERCS IP | In the ASDK, the privileged endpoint is normally `AzS-ERCS01`. |
        | Application name |                      |
        | Certificate store location |            |
 
@@ -164,7 +164,7 @@ If you use Active Directory Federated Services (AD FS) for your identity managem
         $ServicePrincipal
         ```
 
-    - The Service principle details will look like the snippet below
+    - The Service principle details look like the snippet below
 
         ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -239,7 +239,7 @@ Add the Kubernetes from the Marketplace:
 
 ## Update or remove the Kubernetes 
 
-When updating the Kubernetes item, you will need to remove the item that is in the Marketplace. Then you can follow the instruction in this article to add the Kubernetes to the marketplace.
+When updating the Kubernetes item, you'll remove the previous item in the Marketplace. Follow the instruction in this article to add the Kubernetes update to the marketplace.
 
 To remove the Kubernetes item:
 
