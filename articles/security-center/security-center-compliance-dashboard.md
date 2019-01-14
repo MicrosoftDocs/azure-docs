@@ -72,12 +72,9 @@ Given the information in the Regulatory compliance dashboard, you can improve yo
 
     ![compliance recommendation](./media/security-center-compliance-dashboard/compliance-recommendation.png)
 
-3. As you click through to the recommendation information and select an unhealthy resource, it leads you directly to the experience of enabling **secure storage transfer** within the Azure portal.
+3. As you click through to the recommendation information and select an unhealthy resource, it leads you directly to the experience of enabling **secure storage transfer** within the Azure portal.<br>For more information about how to apply recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 
     ![compliance recommendation](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
-
-  
-    For more information about how to apply recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 
 4.  After you take action to resolve recommendations, you will see the impact in the compliance dashboard report because your compliance score improves.
 
