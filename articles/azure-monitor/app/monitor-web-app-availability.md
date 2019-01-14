@@ -16,7 +16,7 @@ ms.author: lagayhar
 
 ---
 # Monitor availability and responsiveness of any web site
-After you've deployed your web app or web site to any server, you can set up tests to monitor its availability and responsiveness. [Azure Application Insights](../../application-insights/app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It alerts you if your application doesn't respond, or responds slowly.
+After you've deployed your web app or web site to any server, you can set up tests to monitor its availability and responsiveness. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It alerts you if your application doesn't respond, or responds slowly.
 
 You can set up availability tests for any HTTP or HTTPS endpoint that is accessible from the public internet. You don't have to add anything to the web site you're testing. It doesn't even have to be your site: you could test a REST API service on which you depend.
 
@@ -367,4 +367,4 @@ When the test is complete, you are shown response times and success rates.
 [azure-availability]: ../../insights-create-web-tests.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [qna]: ../../azure-monitor/app/troubleshoot-faq.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md

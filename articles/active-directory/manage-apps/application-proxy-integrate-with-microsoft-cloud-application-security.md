@@ -22,7 +22,7 @@ Here are some examples of the types of policies you can create with MCAS:
 - Use client certificates or device compliance to block access to specific applications from unmanaged devices.
 - Restrict user sessions from non-corporate networks. You can give restricted access to users accessing an application from outside your corporate network. For example, this restricted access can block the user from downloading sensitive documents.
 
-For more information, see [Protect apps with Microsoft Cloud App Security Conditional Access App Control](/cloud-app-security/proxy-intro-aad.md).
+For more information, see [Protect apps with Microsoft Cloud App Security Conditional Access App Control](/cloud-app-security/proxy-intro-aad).
 
 ## Requirements
 

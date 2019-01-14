@@ -116,7 +116,7 @@ The following are considerations for choosing a Cache offering.
 <a name="cache-performance"></a>
 
 ### Azure Cache for Redis performance
-The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an Iaas VM against the Azure Cache for Redis endpoint. For SSL throughput, redis-benchmark is used with stunnel to connect to the Azure Cache for Redis endpoint.
+The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an IaaS VM against the Azure Cache for Redis endpoint. For SSL throughput, redis-benchmark is used with stunnel to connect to the Azure Cache for Redis endpoint.
 
 >[!NOTE] 
 >These values are not guaranteed and there is no SLA for these numbers, but should be typical. You should load test your own application to determine the right cache size for your application.

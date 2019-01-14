@@ -92,7 +92,7 @@
     - name: Application Insights
       items:
       - name: Overview
-        href: ../application-insights/app-insights-overview.md?toc=/azure/azure-monitor/toc.json
+        href: app/app-insights-overview.md
       - name: DevOps
         href: app/detect-triage-diagnose.md
       - name: Distributed tracing
@@ -711,6 +711,8 @@
         items:
         - name: Application data
           href: app/analytics.md
+        - name: Unify application data resources
+          href: log-query/unify-app-resource-data.md
         - name: Standard properties
           href: platform/log-standard-properties.md
         - name: Parse text data
@@ -747,6 +749,8 @@
         items:  
         - name: Configure alerts on analytics query
           href: platform/alerts-log.md
+        - name: Log alert queries
+          href: platform/alerts-log-query.md
         - name: Webhook actions for log alerts
           href: platform/alerts-log-webhook.md
         - name: Troubleshooting log alerts
