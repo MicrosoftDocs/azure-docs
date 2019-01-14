@@ -140,7 +140,8 @@ In Linux, run SSH using `ssh $USER@localhost -p 2222` on a terminal. In Windows,
 
 Now use your RDP client program and connect to service proxy on port 2222 (this was an arbitrary available port you chose earlier).
 
-[!NOTE] Ensure that your device proxy is configured correctly for RDP and configured with RDP port 3389.
+> [!NOTE]
+> Ensure that your device proxy is configured correctly for RDP and configured with RDP port 3389.
 
 <p>
     <img style="margin:auto;display:block;background-color:white;width:50%;" src="./media/iot-hub-device-streams-nodejs-proxy-quickstart/rdp-screen-capture.PNG">
