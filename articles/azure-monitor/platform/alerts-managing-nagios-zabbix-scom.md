@@ -12,7 +12,7 @@ ms.component: alerts
 
 # Manage alerts from SCOM, Zabbix and Nagios in Azure Monitor
 
-You can now view your alerts from Nagios, Zabbix, and System Center Operations Manager in the [Azure Monitor](https://aka.ms/azure-alerts-overview). These alerts come from integrations with Nagios/Zabbix servers or System Center Operations Manager into Log Analytics. 
+You can now view your alerts from Nagios, Zabbix, and System Center Operations Manager in [Azure Monitor](https://aka.ms/azure-alerts-overview). These alerts come from integrations with Nagios/Zabbix servers or System Center Operations Manager into Log Analytics. 
 
 ## Prerequisites
 Any records in the Log Analytics repository with a type of Alert will get imported into Azure Monitor, so you must perform the configuration that is required to collect these records.
