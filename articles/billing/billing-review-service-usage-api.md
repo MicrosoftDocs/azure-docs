@@ -37,7 +37,7 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-The `{subscriptionGuid}` parameter is required and should contain a subscription ID that can be read using the credentials provieed in the API token. The `{reportName}`
+The `{subscriptionGuid}` parameter is required and should contain a subscription ID that can be read using the credentials provided in the API token. The `{reportName}`
 
 The following headers are required: 
 
