@@ -141,7 +141,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
   # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-  $GraphAudience = "<GraphAuidence endpoint for your environment>"
+  $GraphAudience = "<GraphAudience endpoint for your environment>"
 
   # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
   Add-AzureRMEnvironment `

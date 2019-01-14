@@ -78,7 +78,7 @@ This update includes the following improvements for Azure Stack:
 
 > [!IMPORTANT]  
 > If you have a firewall that does not allow connections from the public VIP network to the file server, this change will cause infrastructure backups to fail with "Error 53 The network path was not found." This is a breaking change that has no reasonable workaround. Based on customer feedback, Microsoft will revert this change in a hotfix. 
-Please review the [post update steps section](#post-update-steps) for more information on available hotfixes for 1809. Once the hotfix is available, make sure to apply it after updating to 1809 only if your network policies do not allow the public VIP network to access infrastructure resouces. 
+Please review the [post update steps section](#post-update-steps) for more information on available hotfixes for 1809. Once the hotfix is available, make sure to apply it after updating to 1809 only if your network policies do not allow the public VIP network to access infrastructure resources. 
 in 1811, this change will be applied to all systems. If you applied the hotfix in 1809, there is no further action required.  
 
 ### Common vulnerabilities and exposures

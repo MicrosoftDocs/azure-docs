@@ -26,7 +26,7 @@ This article assumes that you have a web app with application insights configure
 > Note: The steps below use an app service plan associated with a web app that has app insights configured.
 - In the scale setting blade for the resource, notice that the current instance count is 1. Click on 'Enable autoscale'.
   ![Scale setting for new web app][5]
-- Provide a name for the scale setting, and the click on "Add a rule". Notice the scale rule options that opens as a context pane in the right hand side. By default, it sets the option to scale your instance count by 1 if the CPU percetage of the resource exceeds 70%. Change the metric source at the top to "Application Insights", select the app insights resource in the 'Resource' dropdown and then select the custom metric based on which you want to scale.
+- Provide a name for the scale setting, and the click on "Add a rule". Notice the scale rule options that opens as a context pane in the right hand side. By default, it sets the option to scale your instance count by 1 if the CPU percentage of the resource exceeds 70%. Change the metric source at the top to "Application Insights", select the app insights resource in the 'Resource' dropdown and then select the custom metric based on which you want to scale.
   ![Scale by custom metric][6]
 - Similar to the step above, add a scale rule that will scale in and decrease the scale count by 1 if the custom metric is below a threshold.
   ![Scale based on cpu][7]

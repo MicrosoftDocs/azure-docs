@@ -71,11 +71,11 @@ On the solution dashboard, click **Configuration** to open the DNS Analytics Con
 
 If you are using the Microsoft Monitoring Agent to connect to your Log Analytics workspace, the following management pack is installed:
 
-- Microsoft DNS Data Collector Intelligence Pack (Microsft.IntelligencePacks.Dns)
+- Microsoft DNS Data Collector Intelligence Pack (Microsoft.IntelligencePacks.Dns)
 
 If your Operations Manager management group is connected to your Log Analytics workspace, the following management packs are installed in Operations Manager when you add this solution. There is no required configuration or maintenance of these management packs:
 
-- Microsoft DNS Data Collector Intelligence Pack (Microsft.IntelligencePacks.Dns)
+- Microsoft DNS Data Collector Intelligence Pack (Microsoft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS Analytics Configuration (Microsoft.IntelligencePack.Dns.Configuration)
 
 For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../../azure-monitor/platform/om-agents.md).

@@ -84,8 +84,6 @@
       href: gallery-collections.md
     - name: Custom Modules
       href: gallery-custom-modules.md
-    - name: View and delete account data
-      href: ai-gallery-control-personal-data-dsr.md 
 - name: Concepts
   items:
   - name: Model management
@@ -213,6 +211,8 @@
       href: consume-web-service-with-web-app-template.md
     - name: Use Batch Pool
       href: dedicated-capacity-for-bes-jobs.md
+  - name: View and delete account data
+    href: ai-gallery-control-personal-data-dsr.md 
 - name: Reference
   items:
   - name: Azure PowerShell module (New)
