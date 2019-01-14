@@ -22699,6 +22699,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-manage-with-automation.md",
+      "redirect_url": "/azure/storage/blobs/storage-blobs-overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/windows/a8-a9-a10-a11-specs.md",
       "redirect_url": "/azure/virtual-machines/windows/sizes-hpc",
       "redirect_document_id": false
@@ -29550,6 +29555,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/bing-news-search/quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-news-search/csharp",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/cognitive-services/Bing-News-Search/tutorial-bing-news-search-single-page-app-source.md",
+        "redirect_url": "/azure/cognitive-services/bing-News-Search/tutorial-bing-news-search-single-page-app",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cognitive-services/Bing-News-Search/sdk.md",
+        "redirect_url": "/azure/cognitive-services/bing-News-search/news-search-sdk-quickstart",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-appssoaccess-whatis.md",
       "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
       "redirect_document_id": true
@@ -34512,6 +34532,21 @@
       "source_path": "articles/media-services/video-indexer/faq.md",
       "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-find-region-csharp.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#how-do-i-programmatically-get-the-luis-region-of-a-resource",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-find-region-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#how-do-i-programmatically-get-the-luis-region-of-a-resource",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-manage-from-cloud-shell.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#is-there-a-powershell-command-to-the-endpoint-quota",
+      "redirect_document_id": true
+    }     
   ]
 }
