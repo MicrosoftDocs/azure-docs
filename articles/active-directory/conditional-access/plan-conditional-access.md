@@ -62,14 +62,15 @@ For more information, see [what's required to make a policy work](best-practices
 
 This is a good time to decide on a naming standard for your policies. The naming standard helps you to find policies and understand their purpose without opening them in the Azure admin portal. You should name your policy to show:
 
+- The app it applies to
 - The outcome
 - Who it applies to
 - Where it applies 
-- The app it applies to
+
  
 For example, the following name states that the policy requires MFA for marketing users on external networks using the Dynamics CRP app:
 
-`Dynamics CRP: Require MFA for Marketing on External networks`
+`Dynamics CRP: Require MFA For marketing From external networks`
 
 Organizations can also create disabled policies to act as secondary resilient access controls in outage scenarios. A naming standard should also include this purpose to make it easier to enable during an outage. For example:
 
@@ -170,23 +171,15 @@ The test plan is important to have a comparison between the expected results and
 
 ### Configure the policy
 
-To create your policy:
+One entry point to conditional access is the **Security** section of the **Active Directory** page. 
 
-1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator, security administrator, or a conditional access administrator.
-
-2. Navigate to [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
-
-3. On the **Azure Active Directory** page, in the **Security** section, click **Conditional Access**.
+![Conditional access](media/plan-conditional-access/03.png)
 
 
-4. On the **Conditional Access** page, in the toolbar on the top, click **New policy**.
+If are not familiar with the configuration of conditional access policies, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md) to:
 
-5. Configure the test users, apps, conditions, and controls.
-
-6. In the **Enable policy** section, click **On**.
-
-
-![Picture 26](media/plan-conditional-access/azure-ad-ca-deployment-image1.png)
+- Become familiar with the user interface.
+- Get a first impression of how conditional access works. 
 
 
 ### Evaluate a simulated sign-in
@@ -243,17 +236,17 @@ In case you need to roll back your newly implemented policies, use one or more o
 
 1. **Disable the policy** - Disabling a policy makes sure it doesn't apply when a user tries to sign in. You can always come back and enable the policy when you’d like to use it.
 
-    ![Picture 27](media/plan-conditional-access/azure-ad-ca-deployment-image2.png)
+    ![Disable policy](media/plan-conditional-access/07.png)
 
 2. **Exclude a user / group from a policy** - If a user is unable to access the app, you can choose to exclude the user from the policy
 
     >[!NOTE]
     > This option should be used sparingly, only in situations where the user is trusted. The user should be added back into the policy or group as soon as possible.
 
-    ![Picture 30](media/plan-conditional-access/azure-ad-ca-deployment-image3.png)
+    ![Exluce users](media/plan-conditional-access/08.png)
 
 3. **Delete the policy** - If the policy is no longer required, delete it.
 
 ## Next steps
 
-* Conditional access [technical reference](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
+Check out [Azure AD Conditional Access Documentation](index.md) to get an overview of the available information.
