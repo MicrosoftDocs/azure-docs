@@ -1,6 +1,6 @@
 ---
 title: Ethereum proof-of-work consortium solution template
-description: Use the Etherereum Proof-of-Work Consortium solution template to deploy and configure a multi-member consortium Ethereum network
+description: Use the Ethereum Proof-of-Work Consortium solution template to deploy and configure a multi-member consortium Ethereum network
 services: azure-blockchain
 keywords: 
 author: PatAltimore

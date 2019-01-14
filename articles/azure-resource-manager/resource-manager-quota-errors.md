@@ -1,6 +1,6 @@
 ---
 title: Azure quota errors | Microsoft Docs
-description: Describes how to resolve resource qouta errors.
+description: Describes how to resolve resource quota errors.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
