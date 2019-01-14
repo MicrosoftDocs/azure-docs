@@ -297,7 +297,7 @@ The data is written to blob storage in the Avro format by default.
    > 
    > The blobs are written in the Avro format by default. You can choose to write files in JSON format. See [guidance on routing to blob storage] (iot-hub-devguide-messages-d2c.md#azure-blob-storage).
    > 
-   > When routing to blob storage, we recommend enlisting the blobs and then iterating over them, to ensure all containers are read without making any assumptions of partitionId. The partitionId range could potentially change during a [Microsoft-initiated failover](./iot-hub/iot-hub-ha-dr#microsoft-initiated-failover) or IoT Hub [manual failover](./iot-hub/iot-hub-ha-dr.md#manual-failover-preview). To learn how to enumerate the list of blobs see [routing to blob storage](./iot-hub/iot-hub-devguide-messages-d2c.md#azure-blob-storage)
+   > When routing to blob storage, we recommend enlisting the blobs and then iterating over them, to ensure all containers are read without making any assumptions of partitionId. The partitionId range could potentially change during a [Microsoft-initiated failover](iot-hub-ha-dr#microsoft-initiated-failover) or IoT Hub [manual failover](iot-hub-ha-dr.md#manual-failover-preview). To learn how to enumerate the list of blobs see [routing to blob storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage)
    >
 
 8. Click **Create** to create the storage endpoint and add it to the route. You return to the **Add a route** pane.
