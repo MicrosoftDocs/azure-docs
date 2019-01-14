@@ -249,9 +249,8 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single page web app](tutorial-bing-video-search-single-page-app.md)
+> [Build a single-page web app](../tutorial-bing-video-search-single-page-app.md)
 
 ## See also 
 
-* [What is the Bing Video Search API](search-the-web.md) 
-* [Paging videos](paging-videos.md)
+ [What is the Bing Video Search API?](../overview.md)

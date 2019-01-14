@@ -209,10 +209,8 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Paging videos](paging-videos.md)
-> [Resizing and cropping thumbnail images](resize-and-crop-thumbnails.md)
+> [Build a single-page web app](../tutorial-bing-video-search-single-page-app.md)
 
 ## See also 
 
- [Searching the web for videos](search-the-web.md)
- [Try it](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)
+ [What is the Bing Video Search API?](../overview.md)

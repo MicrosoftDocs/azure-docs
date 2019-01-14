@@ -10,29 +10,27 @@
       expanded: true
       items:
       - name: Using C#
-        href: csharp.md
+        href: quickstarts/csharp.md
       - name: Using Java
-        href: java.md
+        href: quickstarts/java.md
       - name: Using Node.js
-        href: nodejs.md
+        href: quickstarts/nodejs.md
       - name: Using PHP
-        href: php.md
+        href: quickstarts/php.md
       - name: Using Python
-        href: python.md
+        href: quickstarts/python.md
       - name: Using Ruby
-        href: ruby.md
+        href: quickstarts/ruby.md
     - name: SDK
       items:
-      - name: SDK samples overview 
-        href: sdk.md
       - name: Using C#
-        href: video-search-sdk-quickstart.md 
+        href: quickstarts/sdk-csharp-quickstart.md 
       - name: Using Node.js
-        href: video-search-sdk-node-quickstart.md 
+        href: quickstarts/sdk-node-quickstart.md 
       - name: Using Python
-        href: video-sdk-python-quickstart.md
+        href: quickstarts/sdk-python-quickstart.md
       - name: Using Java
-        href: video-sdk-java-quickstart.md 
+        href: quickstarts/sdk-java-quickstart.md 
 - name: Tutorials
   items:
   - name: Build a single-page web app

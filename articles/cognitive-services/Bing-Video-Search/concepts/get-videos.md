@@ -212,4 +212,4 @@ You can use the `text` and `thumbnail` fields to display the expanded query stri
 
 ## Throttling requests
 
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+[!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]

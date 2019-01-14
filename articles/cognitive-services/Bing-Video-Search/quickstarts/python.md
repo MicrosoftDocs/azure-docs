@@ -76,8 +76,8 @@ HTML(search_results["value"][0]["embedHtml"].replace("autoplay=1","autoplay=0"))
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a single-page web app](tutorial-bing-video-search-single-page-app.md)
+> [Build a single-page web app](../tutorial-bing-video-search-single-page-app.md)
 
 ## See also 
 
- [What is the Bing Video Search API](search-the-web.md)
+ [What is the Bing Video Search API?](../overview.md)
