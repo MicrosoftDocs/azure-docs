@@ -406,3 +406,4 @@ To delete a registered model, use `model.delete()`.
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
 * [How to run batch predictions](how-to-run-batch-predictions.md)
+* [Use Azure Machine Learning service with Azure Virtual Networks](how-to-enable-virtual-network.md)
