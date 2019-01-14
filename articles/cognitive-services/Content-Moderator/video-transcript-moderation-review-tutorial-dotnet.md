@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Moderate videos and transcripts in .NET - Content Moderator"
 titlesuffix: Azure Cognitive Services
-description: How to use Content Moderator to moderate videos and transcripts in .NET.
+description: This tutorial helps you understand how to build a complete video and transcript moderation solution with machine-assisted moderation and human-in-the-loop review creation.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -9,15 +9,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 1/27/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
 # Tutorial: Video and transcript moderation
 
 Content Moderator's video APIs allow you to moderate videos and create video reviews in the human review tool. 
 
-This detailed tutorial helps to understand how to build a complete video and transcript moderation solution with machine-assisted moderation and human-in-the-loop review creation.
+This tutorial helps you understand how to build a complete video and transcript moderation solution with machine-assisted moderation and human-in-the-loop review creation.
 
 Download the [C# console application](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) for this tutorial. The console application uses the SDK and related packages to perform the following tasks:
 

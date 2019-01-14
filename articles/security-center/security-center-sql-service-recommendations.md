@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
 
 ---
 # Protecting Azure SQL service and data in Azure Security Center
 Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls.  Recommendations apply to Azure resource types: virtual machines (VMs), networking, SQL and data, and applications.
 
-This article addresses recommendations that apply to Azure SQL service and data. Recommendations center around enabling auditing for Azure SQL servers and databases, enabling encryption for SQL databases, and enabling encryption of your Azure storage account.  Use the table below as a reference to help you understand the available SQL service and data recommendations and what each one does if you apply it.
+
 ### Monitor data security
 
 When you click **Data security** in the **Prevention** section, the **Data Resources** opens with recommendations for SQL and Storage. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database. For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
@@ -56,7 +56,6 @@ To enable auditing, select **ON** under the **Auditing** option.
 |SQL|15|Enable auditing on SQL databases|Enable auditing for Azure SQL databases. (Azure SQL service only. Doesn't include SQL running on your virtual machines.)|
 |Data lake analytics|15|Enable encryption at rest of the Data Lake Analytics|Enable transparent data encryption to secure data at rest in your Data Lake Analytics. Encryption at rest is transparent, meaning that the Data Lake Analytics automatically encrypts data prior to persisting, and decrypts data prior to retrieval. There are no changes required in the in applications and services that interact with Data Lake Analytics because of encryption. Encryption at rest minimizes the risk of data loss from physical theft and also helps meet regulatory compliance requirements.|
 |Data lake store|15|Enable encryption at rest for the Data Lake Store|Enable transparent data encryption to secure data at rest in your Data Lake Store. Encryption at rest is transparent, meaning that the Data Lake Store automatically encrypts data prior to persisting, and decrypts data prior to retrieval. You don't have to make any changes in the applications and services that interact with Data Lake Store to accommodate encryption. Encryption at rest minimizes the risk of data loss from physical theft and also helps meet regulatory compliance requirements.|
-|Storage account|15|Enable encryption for Azure Storage Account|Enable Azure Storage Service Encryption for data at rest. Storage Service Encryption (SSE) works by encrypting the data when it is written to Azure storage and decrypts before retrieval. SSE is currently available only for the Azure Blob service and can be used for block blobs, page blobs, and append blobs.|
 |Data lake analytics|5|Enable diagnostics logs in Data Lake Analytics|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
 |Data lake store|5|Enable diagnostics logs in Azure Data Lake Store|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
 |SQL|30|Remediate vulnerabilities on your SQL databases|SQL Vulnerability Assessment scans your database for security vulnerabilities and exposes any deviations from best practices such as misconfigurations, excessive permissions and unprotected sensitive data. Resolving the vulnerabilities found can greatly improve your database security stature.|

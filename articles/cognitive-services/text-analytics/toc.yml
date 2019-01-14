@@ -49,6 +49,8 @@
         href: how-tos/text-analytics-how-to-install-containers.md
       - name: Configure containers
         href: text-analytics-resource-container-config.md
+      - name: How to run on Azure Kubernetes Service
+        href: How-tos/text-analytics-how-to-use-container-instance.md
    - name: Use the Text Analytics Connected Service
      href: vs-text-connected-service.md
 - name: Reference
