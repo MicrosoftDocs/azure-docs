@@ -24,7 +24,12 @@ The **Pay-per-usage** model means that the per-second cost of running the Azure 
 
 The **Bring-your-own-license** model is also known as the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/), and it allows you to use your own SQL Server license with a VM running SQL Server. For more information about prices, see [SQL VM pricing guide](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance).
 
-Switching between the two license models incurs **no VM downtime**, does not restart the VM, adds **no additional cost** (in fact, activating AHB reduces cost) and is **effective immediately**. 
+Switching between the two license models incurs **no downtime**, does not restart the VM, adds **no additional cost** (in fact, activating AHB reduces cost) and is **effective immediately**. 
+
+## Prerequisites
+The use of the SQL VM resource provider requires the SQL IaaS extension. As such, to proceed with utilizing the SQL VM resource provider, you need the following:
+- An [Azure subscription](https://azure.microsoft.com/en-us/free/).
+- A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) with the [SQL IaaS extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) installed. 
 
 ## Register existing SQL VM with new resource provider
 The ability to switch between licensing models is a feature provided by the new SQL VM resource provider (Microsoft.SqlVirtualMachine). At this time, to be able to switch your licensing model, you will first need to register the new provider to your subscription, and then register your existing VM with the new SQL VM resource provider. To utilize the SQL VM resource provider, you must also install the SQL IaaS extension. Doing so will allow you to register a VM that was deployed with a VHD. For more information, see [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md). 
@@ -32,9 +37,6 @@ The ability to switch between licensing models is a feature provided by the new 
   >[!IMPORTANT]
   > If you drop your SQL VM resource, you will go back to the hard coded license setting of the image. 
   
-  
-  >[!WARNING]
-  > **The SQL Server process may restart** when registering your SQL Server VM with the SQL VM resource provider if the *SQL IaaS extension has not already been installed*, as it is installed during the registration process. If the SQL IaaS extension is not  installed on your SQL Server VM, please register your SQL Server VM with the resource provider during a maintenance window. 
 
 ### PowerShell
 
