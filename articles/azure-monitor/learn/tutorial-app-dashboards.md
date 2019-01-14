@@ -37,7 +37,7 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 ## Create a new dashboard
 A single dashboard can contain resources from multiple applications, resource groups, and subscriptions.  Start the tutorial by creating a new dashboard for your application.  
 
-2.  On the dashboard blade, select **New dashboard**.
+2.  On the dashboard pane, select **New dashboard**.
 
 	![New dashboard](media/tutorial-app-dashboards/1newdashboard.png)
 
@@ -54,22 +54,22 @@ A single dashboard can contain resources from multiple applications, resource gr
 A dashboard with just static text isn't very interesting, so now add a tile from Application Insights to show information about your application.  You can add Application Insights tiles from the Tile Gallery, or you can pin them directly from Application Insights screens.  This allows you to configure charts and views that you're already familiar with before pinning them to your dashboard.  Start by adding the standard health overview for your application.  This requires no configuration and allows minimal customization in the dashboard.
 
 
-1. Select your **Application Insights** resource in the home blade.
-2. In the **Overview** blade, click the pushpin icon to add the tile to the last dashboard that you were viewing.  
+1. Select your **Application Insights** resource on the home screen.
+2. In the **Overview** pane, click the pushpin icon to add the tile to the last dashboard that you were viewing.  
 
 	![Pin Overview timeline](media/tutorial-app-dashboards/3overview.png)
  
-3. In the top right a notification will appear that your tile was pinned to your dashboard. Click **Pinned to dashboard** in the notification to return to your dashboard or use the dashboard blade.
-4. That tile is now added to your dashboard. Select **Edit** to change the positioning of the tile. Click and drag the it into position and then click **Done customizing**. Your dashboard now has a tile with some useful information. 
+3. In the top right a notification will appear that your tile was pinned to your dashboard. Click **Pinned to dashboard** in the notification to return to your dashboard or use the dashboard pane.
+4. That tile is now added to your dashboard. Select **Edit** to change the positioning of the tile. Click and drag the it into position and then click **Done customizing**. Your dashboard now has a tile with some useful information.
 
-	![Dashboard with Overview timeline](media/tutorial-app-dashboards/4dashboard-edit)
+	![Dashboard with Overview timeline](media/tutorial-app-dashboards/4dashboard-edit.png)
 
 
 
 ## Add custom metric chart
 The **Metrics** panel allows you to graph a metric collected by Application Insights over time with optional filters and grouping.  Like everything else in Application Insights, you can add this chart to the dashboard.  This does require you to do a little customization first.
 
-1. Select your **Application Insights** resource in the home blade.
+1. Select your **Application Insights** resource in the home screen.
 1. Select **Metrics**.  
 2. An empty chart has already been created, and you're prompted to add a metric.  Add a metric to the chart and optionally add a filter and a grouping.  The example below shows the number of server requests grouped by success.  This gives a running view of successful and unsuccessful requests.
 
@@ -95,7 +95,7 @@ Since Azure Applications Insights Analytics is a separate service, you need to s
 	![Publish dashboard](media/tutorial-app-dashboards/8dashboard-share.png)
 
 2. Keep the **Dashboard name** the same and select the **Subscription Name** to share the dashboard.  Click **Publish**.  The dashboard is now available to other services and subscriptions.  You can optionally define specific users who should have access to the dashboard.
-1. Select your **Application Insights** resource in the home blade.
+1. Select your **Application Insights** resource in the home screen.
 2. Click **Analytics** at the top of the screen to open the Analytics portal.
 
 	![Start Analytics](media/tutorial-app-dashboards/9analytics.png)
