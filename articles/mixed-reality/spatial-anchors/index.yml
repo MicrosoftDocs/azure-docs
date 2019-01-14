@@ -27,27 +27,27 @@ sections:
     - image:
         src: /media/logos/logo_android.svg
       text: Android
-      href: get-started-android.md
+      href: quickstarts/get-started-android.md
     - image:
         src: /media/logos/logo_windows.svg
       text: HoloLens
-      href: get-started-hololens.md
+      href: quickstarts/get-started-hololens.md
     - image:
         src: /media/logos/logo_ios.svg
       text: iOS
-      href: get-started-ios.md
+      href: quickstarts/get-started-ios.md
     - image:
         src: /media/logos/logo_android.svg
       text: Unity Android
-      href: get-started-unity-android.md
+      href: quickstarts/get-started-unity-android.md
     - image:
         src: /media/logos/logo_windows.svg
       text: Unity HoloLens
-      href: get-started-unity-android.md
+      href: quickstarts/get-started-unity-android.md
     - image:
         src: /media/logos/logo_ios.svg
       text: Unity iOS
-      href: get-started-unity-android.md
+      href: quickstarts/get-started-unity-android.md
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -55,5 +55,5 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Create a Azure Spatial Anchors resource.
+    - html: Create an Azure Spatial Anchors resource.
     - html: Create a HoloLens, iOS, Android, or Unity application that uses Azure Spatial Anchors.

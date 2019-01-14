@@ -14,11 +14,11 @@ ms.service: spatial-anchors
 ---
 # Quickstart: Create a HoloLens Unity app using Spatial Anchors
 
-[Spatial Anchors](overview.md) is a cross-platform developer service that makes it easy for you to create
+[Spatial Anchors](../overview.md) is a cross-platform developer service that makes it easy for you to create
 Mixed Reality experiences. This quickstart shows how to create a HoloLens Unity app using spatial anchors. When you're finished,
 you'll have an HoloLens app built with Unity that can save and recall a spatial anchor.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -27,11 +27,11 @@ Before you get started, here's a list of prerequisites:
 - A Windows machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.2+</a> and <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> installed with the **Universal Windows Platform development** workload.
 - A HoloLens device with [developer mode](https://docs.microsoft.com/en-us/windows/mixed-reality/using-visual-studio) enabled.
 
-[!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
+[!INCLUDE [Create Spatial Anchors resource](../../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Open the sample project in Unity
 
-[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+[!INCLUDE [Clone Sample Repo](../../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 Open Unity and open the project at the `unity\samples` folder.
 
@@ -49,7 +49,7 @@ Close the **Build Settings** window.
 
 In the **Project** pane, navigate to `Assets/MRCloudPlugin/Examples` and open the `HoloLensMRCloudDemo.unity` scene file.
 
-[!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
+[!INCLUDE [Configure Unity Scene](../../../../includes/spatial-anchors-unity-configure-scene.md)]
 
 ## Export the HoloLens project
 
@@ -77,4 +77,4 @@ Follow the instructions in the app to place and recall an anchor.
 
 In Visual Studio, stop the app by either selecting **Stop Debugging** or pressing **Shift + F5**.
 
-[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](../../../../includes/clean-up-section-portal.md)]

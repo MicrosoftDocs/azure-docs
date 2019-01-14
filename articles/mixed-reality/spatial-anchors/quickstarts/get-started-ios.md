@@ -14,11 +14,11 @@ ms.service: spatial-anchors
 ---
 # Quickstart: Create an iOS app with Spatial Anchors
 
-[Spatial Anchors](overview.md) is a cross-platform developer service that makes it easy for you to create
+[Spatial Anchors](../overview.md) is a cross-platform developer service that makes it easy for you to create
 Mixed Reality experiences. This quickstart shows how to create an iOS app using spatial anchors in either Swift or
 Objective-C. When you're finished, you'll have an ARKit iOS app that can save and recall a spatial anchor.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -27,11 +27,11 @@ Before you get started, here's a list of prerequisites:
 - A developer enabled macOS machine with <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 9.4+</a> and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
 - A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
 
-[!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
+[!INCLUDE [Create Spatial Anchors resource](../../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Open the sample project
 
-[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+[!INCLUDE [Clone Sample Repo](../../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 Install the necessary pods using CocoaPods:
 
@@ -91,7 +91,7 @@ Select **Build and then run the current scheme**.
 
 In Xcode, stop the app by pressing **Stop**.
 
-[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](../../../../includes/clean-up-section-portal.md)]
 
 ## Next steps
 

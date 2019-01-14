@@ -14,11 +14,11 @@ ms.service: spatial-anchors
 ---
 # Quickstart: Create a HoloLens app with Spatial Anchors
 
-[Spatial Anchors](overview.md) is a cross-platform developer service that makes it easy for you to create
+[Spatial Anchors](../overview.md) is a cross-platform developer service that makes it easy for you to create
 Mixed Reality experiences. This quickstart shows how to create a HoloLens DirectX C++/WinRT app using spatial anchors. When you're finished,
 you'll have an HoloLens app that can save and recall a spatial anchor.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -33,11 +33,11 @@ Before you get started, here's a list of prerequisites:
 > as RS5). To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, then select
 > the **Check for updates** button.
 
-[!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
+[!INCLUDE [Create Spatial Anchors resource](../../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Open the sample project
 
-[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+[!INCLUDE [Clone Sample Repo](../../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 Open `holo.cpp\samples\SampleHoloLens.sln` in Visual Studio.
 
@@ -59,4 +59,4 @@ Follow the instructions in the app to place and recall an anchor.
 
 In Visual Studio, stop the app by either selecting **Stop Debugging** or pressing **Shift + F5**.
 
-[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](../../../../includes/clean-up-section-portal.md)]

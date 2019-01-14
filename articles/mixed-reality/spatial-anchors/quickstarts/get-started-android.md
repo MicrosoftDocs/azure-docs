@@ -14,11 +14,11 @@ ms.service: spatial-anchors
 ---
 # Quickstart: Create an Android app with Spatial Anchors
 
-[Spatial Anchors](overview.md) is a cross-platform developer service that makes it easy for you to create
+[Spatial Anchors](../overview.md) is a cross-platform developer service that makes it easy for you to create
 Mixed Reality experiences. This quickstart shows how to create an Android app using spatial anchors. When you're finished,
 you'll have an ARCore Android app that can save and recall a spatial anchor.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -27,11 +27,11 @@ Before you get started, here's a list of prerequisites:
 - A macOS or Windows machine with <a href="https://developer.android.com/studio/" target="_blank">Android Studio</a>.
 - An <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore capable</a> Android device.
 
-[!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
+[!INCLUDE [Create Spatial Anchors resource](../../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Open the sample project
 
-[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+[!INCLUDE [Clone Sample Repo](../../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 Open Android Studio.
 
@@ -65,4 +65,4 @@ Stop the app by selecting **Stop** from the Android Studio toolbar.
 
 ![Android Studio Stop](./media/get-started-android/android-studio-stop.png)
 
-[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](../../../../includes/clean-up-section-portal.md)]

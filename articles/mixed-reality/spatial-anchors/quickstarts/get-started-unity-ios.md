@@ -14,11 +14,11 @@ ms.service: spatial-anchors
 ---
 # Quickstart: Create an iOS Unity app with Spatial Anchors
 
-[Spatial Anchors](overview.md) is a cross-platform developer service that makes it easy for you to create
+[Spatial Anchors](../overview.md) is a cross-platform developer service that makes it easy for you to create
 Mixed Reality experiences. This quickstart shows how to create an iOS Unity app using spatial anchors. When you're finished,
 you'll have an ARKit iOS app built with Unity that can save and recall a spatial anchor.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -27,11 +27,11 @@ Before you get started, here's a list of prerequisites:
 - A macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.2+</a>, <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 9.4+</a>, and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
 - A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
 
-[!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
+[!INCLUDE [Create Spatial Anchors resource](../../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Open the sample project in Unity
 
-[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+[!INCLUDE [Clone Sample Repo](../../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 Open Unity and open the project at the `unity\samples` folder.
 
@@ -49,7 +49,7 @@ Close the **Build Settings** window.
 
 In the **Project** pane, navigate to `Assets/MRCloudPlugin/Examples` and open the `iOSMRCloudDemo.unity` scene file.
 
-[!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
+[!INCLUDE [Configure Unity Scene](../../../../includes/spatial-anchors-unity-configure-scene.md)]
 
 ## Export the Xcode project
 
@@ -93,4 +93,4 @@ Follow the instructions in the app to place and recall an anchor.
 
 In Xcode, stop the app by pressing **Stop**.
 
-[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](../../../../includes/clean-up-section-portal.md)]

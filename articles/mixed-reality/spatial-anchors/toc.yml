@@ -8,16 +8,16 @@
   expanded: true
   items:
   - name: Create Android app
-    href: get-started-android.md
+    href: quickstarts/get-started-android.md
   - name: Create HoloLens app
-    href: get-started-hololens.md
+    href: quickstarts/get-started-hololens.md
   - name: Create iOS app
-    href: get-started-ios.md
+    href: quickstarts/get-started-ios.md
   - name: Create Unity app
     items:
     - name: Android
-      href: get-started-unity-android.md
+      href: quickstarts/get-started-unity-android.md
     - name: HoloLens
-      href: get-started-unity-hololens.md
+      href: quickstarts/get-started-unity-hololens.md
     - name: iOS
-      href: get-started-unity-ios.md
+      href: quickstarts/get-started-unity-ios.md
