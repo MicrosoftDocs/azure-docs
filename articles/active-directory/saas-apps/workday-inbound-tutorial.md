@@ -844,7 +844,7 @@ Here is how you can handle such requirements for constructing *CN* or *displayNa
      | PreferredLastName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:Last_Name/text() |
      | Company | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data[wd:Organization_Data/wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='Company']/wd:Organization_Reference/@wd:Descriptor |
      | SupervisoryOrganization | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data/wd:Organization_Data[wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='Supervisory']/wd:Organization_Name/text() |
-     Confirm with your Workday team that the API expression above is valid for your Workday tenant configuration. If required, you can edit them as described in the section [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
+  Confirm with your Workday team that the API expression above is valid for your Workday tenant configuration. If required, you can edit them as described in the section [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
 
 * Similarly the country information present in Workday is retrieved using the following XPATH: *wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference*
 
@@ -857,7 +857,7 @@ Here is how you can handle such requirements for constructing *CN* or *displayNa
      | CountryReferenceNumeric | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID[@wd:type='ISO_3166-1_Numeric-3_Code']/text() |
      | CountryReferenceTwoLetter | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID[@wd:type='ISO_3166-1_Alpha-2_Code']/text() |
      | CountryRegionReference | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Region_Reference/@wd:Descriptor |
-     Confirm with your Workday team that the API expressions above are valid for your Workday tenant configuration. If required, you can edit them as described in the section [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
+  Confirm with your Workday team that the API expressions above are valid for your Workday tenant configuration. If required, you can edit them as described in the section [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
 
 * To build the right attribute mapping expression, identify which Workday attribute “authoritatively” represents the user’s first name, last name, country and department. Let’s say the attributes are *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* and *SupervisoryOrganization* respectively. You can use this to build an expression for the AD *displayName* attribute as follows to get a display name like *Smith, John (Marketing-US)*.
 
@@ -884,9 +884,52 @@ Here is how you can handle such requirements for constructing *CN* or *displayNa
   * [Join Function Syntax](../manage-apps/functions-for-customizing-application-data.md#join)
   * [Append Function Syntax](../manage-apps/functions-for-customizing-application-data.md#append)
 
-## Troubleshooting Notes
+## Troubleshooting Workday to AD provisioning issues
 
-### The Workday to AD User Provisioning connector is not setting the manager attribute in Active Directory
+This section provides specific guidance on how to troubleshoot provisioning issues with your Workday integration using the Azure AD Audit Logs and Windows Server Event Viewer logs. It builds on top of the generic troubleshooting steps and concepts captured in the [Tutorial: Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md)
+
+### Setup Windows Event Viewer for troubleshooting
+
+* Login to the Windows Server machine where the Provisioning Agent is deployed
+* Open **Windows Server Event Viewer** desktop app.
+* Select **Windows Logs > Application**.
+* Use the **Filter Current Log…** option to view all events logged under the source **AAD.Connect.ProvisioningAgent** and exclude events with Event ID "5", by specifying the filter "-5" as shown below.
+
+  ![Windows Event Viewer](media/workday-inbound-tutorial/wd_event_viewer_01.png))
+
+* Click **OK** and sort the result view by **Date and Time** column.
+
+### Setup Azure Portal Audit Logs view
+
+* Launch the [Azure portal](https://portal.azure.com), and navigate to the **Audit logs** section of your Workday provisioning application.
+* Use the **Columns** button on the Audit Logs page to display only the following columns in the view (Date, Activity, Status, Status Reason). This ensures that you focus only on data that is relevant for troubleshooting.
+
+  ![Audit log columns](media/workday-inbound-tutorial/wd_audit_logs_00.png)
+
+* Use the **Target** and **Date Range** query parameters to filter the view. 
+  * Set the **Target** query parameter to the "Worker ID" or "Employee ID" of the Workday worker object.
+  * Set the **Date Range** to an appropriate time period over which you want to investigate for errors or issues with the provisioning.
+
+  ![Audit log filters](media/workday-inbound-tutorial/wd_audit_logs_01.png)
+
+### Troubleshoot AD User Account create operations
+
+When a new hire in Workday is detected (let's say with Employee ID *21023*), the Azure AD provisioning service attempts to create a new AD user account for the worker and in the process creates 4 audit log records as described below:
+
+  ![Audit log create ops](media/workday-inbound-tutorial/wd_audit_logs_02.png)
+
+When you click on any of the audit log records, the **Activity Details** page opens up. Here is what the **Activity Details** page displays for each log record type.
+
+* **Workday Import** record: This log record displays the worker information fetched from Workday. Use information in the *Additional Details* section to troubleshoot issues with fetching data from Workday. An example record is shown below along with pointers on how to interpret each field.
+
+  ```csharp
+  ErrorCode : None  // Use the error code captured here to troubleshoot Workday issues
+  EventName : EntryImportAdd // For full sync, value is "EntryImportAdd" and for delta sync, value is "EntryImport"
+  JoiningProperty : 21023 // Value of the Workday attribute that serves as the Matching ID (usually the Worker ID or Employee ID field)
+  SourceAnchor : a071861412de4c2486eb10e5ae0834c3 // set to the WorkdayID (WID) associated with the record
+  ```
+
+
 
 ## Customizing the list of Workday user attributes
 
@@ -920,7 +963,7 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 9. Select **OK**.
 
-10.	The **Request** pane, paste in the XML below and set **Employee_ID** to the employee ID of a real user in your Workday tenant. Select a user that has the attribute populated that you wish to extract.
+10. In the **Request** pane, paste in the XML below and set **Employee_ID** to the employee ID of a real user in your Workday tenant. Select a user that has the attribute populated that you wish to extract.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
