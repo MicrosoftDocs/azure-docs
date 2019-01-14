@@ -33,9 +33,23 @@ Select **Create** to create a new Healthcare APIs account:
 
 ![Create Healthcare APIs account](media/quickstart-paas-portal/portal-create-healthcare-apis.png)
 
+## Enter account details
+
+Select an existing resource group or create a new one, choose a name for the account, and finally click **Review + create**:
+
+![New healthcare api details](media/quickstart-paas-portal/portal-new-healthcareapi-details.png)
+
+Confirm creation and await FHIR API deployment.
+
+## Fetch FHIR API capability statement
+
+To validate that the new FHIR API account is provisioned, fetch a capability statement by pointing a browser to `https://<ACCOUNT-NAME>.microsofthealthcareapis.com/metadata`:
+
+![Capability statement in browser](media/quickstart-paas-portal/portal-metadata-browser.png)
 
 ## Clean up resources
-When no longer needed, you can delete the resource group, Microsoft Healthcare APIs, and all related resources. To do so, select the resource group containing the Microsoft Healthcare APIs account, select **Delete**, then confirm the name of the resource group to delete.
+
+When no longer needed, you can delete the resource group, Microsoft Healthcare APIs, and all related resources. To do so, select the resource group containing the Microsoft Healthcare APIs account, select **Delete resource group**, then confirm the name of the resource group to delete.
 
 ## Next steps
 
