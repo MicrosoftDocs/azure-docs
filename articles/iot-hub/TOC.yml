@@ -36,7 +36,7 @@
       href: quickstart-control-device-python.md
     - name: Android
       href: quickstart-control-device-android.md
-  - name: Communicate using device streams
+  - name: Communicate using device streams (preview)
     items:
     - name: C#
       href: quickstart-device-streams-echo-csharp.md
@@ -44,7 +44,7 @@
       href: quickstart-device-streams-echo-nodejs.md
     - name: C
       href: quickstart-device-streams-echo-c.md
-  - name: SSH/RDP using device streams
+  - name: SSH/RDP using device streams (preview)
     items:
     - name: C#
       href: quickstart-device-streams-proxy-csharp.md

@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub device streams quickstart for SSH/RDP (C) | Microsoft Docs
+title: Azure IoT Hub device streams C quickstart for SSH/RDP (preview) | Microsoft Docs
 description: In this quickstart, you will run a sample C application that acts as a proxy to enable SSH/RDP scenarios over IoT Hub device streams.
 author: rezasherafat
 manager: briz
@@ -12,7 +12,7 @@ ms.date: 01/15/2019
 ms.author: rezas
 ---
 
-# Quickstart: SSH/RDP over IoT Hub device streams (C)
+# Quickstart: SSH/RDP over IoT Hub device streams using C proxy application (preview)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 

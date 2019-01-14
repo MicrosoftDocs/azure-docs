@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub device streams quickstart (C#) | Microsoft Docs
+title: Azure IoT Hub device streams C# quickstart (preview) | Microsoft Docs
 description: In this quickstart, you will run two sample C# applications that communicate via a device stream established through IoT Hub.
 author: rezasherafat
 manager: briz
@@ -12,7 +12,7 @@ ms.date: 01/15/2019
 ms.author: rezas
 ---
 
-# Quickstart: Communicate to device applications via IoT Hub device streams (C#)
+# Quickstart: Communicate to device applications in C# via IoT Hub device streams (preview)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 

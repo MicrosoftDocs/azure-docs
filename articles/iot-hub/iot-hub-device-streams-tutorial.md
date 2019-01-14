@@ -10,7 +10,7 @@ ms.date: 01/15/2019
 ms.author: rezas
 ---
 
-# IoT Hub device streams tutorial
+# IoT Hub device streams tutorial (preview)
 IoT Hub device streams enable secure communication to devices that are located behind firewalls or inside of private networks. As shown in the figure below, this is achieved by leveraging IoT Hub's cloud endpoints as a proxy to tunnel application traffic between device and services.
 <p>
     <img style="margin:auto;display:block;background-color:white;width:50%" src="./media/iot-hub-device-streams-tutorial/iot-hub-device-streams.svg">
