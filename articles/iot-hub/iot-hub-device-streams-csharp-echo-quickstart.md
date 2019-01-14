@@ -147,7 +147,7 @@ At the end of the last step, the service-side program will initiate a stream to 
 </p>
 
 
-The traffic being sent over the stream will be tunneled through IoT Hub rather than being sent directly. This provides [these benefits](./iot-hub-device-streams-blog.md#benefits).
+The traffic being sent over the stream will be tunneled through IoT Hub rather than being sent directly. This provides [these benefits](./iot-hub-device-streams-overview.md#benefits).
 
 
 ## Clean up resources

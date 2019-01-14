@@ -16,7 +16,7 @@ ms.author: rezas
 Azure IoT Hub *device streams* facilitate the creation of secure bi-directional TCP tunnels for a variety of cloud-to-device communication scenarios. A device stream is mediated by an IoT Hub *streaming endpoint* which acts as a proxy between your device and service endpoints. This setup is depicted in the diagram below, which is espcially useful when devices are behind a network firewall or reside inside of a private network. As such, IoT Hub device streams help address customers' need to reach IoT devices in a firewall-friendly manner and without the need to broadly opening up incoming or outgoing network firewall ports.
 
 <p align="center">
-<img src="./media/iot-hub-device-streams-blog/iot-hub-device-streams-overview.png">
+<img src="./media/iot-hub-device-streams-overview/iot-hub-device-streams-overview.png">
 </p>
 
 Using IoT Hub device streams, devices remain secure and will only need to open up outbound TCP connections to IoT hub's streaming endpoint over port 443. Once a stream is established, the service-side and device-side applications will each have programmatic access to a WebSocket client object to send and receive raw byte to one another. The reliability and ordering guarantees provided by this tunnel is on par with TCP.
@@ -43,7 +43,7 @@ The device stream creation process involves a negotiation between the device, se
 ### Device stream creation flow
 Programmatic creation of a device stream using the SDK involves the following steps, which are also depicted in the figure below:
 <p align="center"> 
-  <img src="./media/iot-hub-device-streams-blog/iot-hub-device-streams-handshake.png">
+  <img src="./media/iot-hub-device-streams-overview/iot-hub-device-streams-handshake.png">
 </p>
 
 1. The device aplication registers a callback in advance to be notified of when a new device stream is initiated to the device. This step typically takes place when the device boots up and connects to IoT Hub.
@@ -96,7 +96,7 @@ This section describes the use of device streams to enable the SSH scenarios to 
 The setup leverages two *local proxy* programs shown in the figure below, namely *device-local proxy* and *service-local proxy*. The local proxies are responsible for performing the [device stream initiation handshake](#Device-stream-creation-flow) with IoT Hub, and  interacting with SSH client and SSH daemon using regular client/server socket programming.
 
 <p align="center"> 
-  <img src="./media/iot-hub-device-streams-blog/iot-hub-device-streams-ssh.png">
+  <img src="./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png">
 </p>
 
 1. The user runs service-local proxy to initiate a device stream to the device.
