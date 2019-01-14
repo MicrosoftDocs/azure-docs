@@ -56,8 +56,11 @@ Here are some considerations when you use "Foreach" loops:
 not in parallel. To run operations in parallel for items 
 in a nested loop, create and [call a child logic app](../logic-apps/logic-apps-http-endpoint.md).
 
-* To get predictable results from operations on 
-variables in loops, run those loops sequentially.
+* To get predictable results from operations on variables during each loop iteration, 
+run those loops sequentially. For example, when a concurrently running loop ends, 
+the increment, decrement, and append to variable operations return predictable results. 
+However, during each iteration in the concurrently running loop, these operations might 
+return unpredictable results. 
 
 * Actions in a "Foreach" loop use the 
 [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
@@ -164,11 +167,12 @@ loops or variables inside loops where you expect predictable results.
 
    ![On "Foreach" loop, choose "..." > "Settings"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. Turn on the **Concurrency Control** setting. 
+1. Under **Concurrency Control**, turn the 
+**Concurrency Control** setting to **On**. 
 Move the **Degree of Parallelism** slider to **1**, 
 and choose **Done**.
 
-   ![Turn on "Concurrency Control" setting](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
+   ![Turn on concurrency control](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
 If you're working with your logic app's JSON definition, 
 you can use the `Sequential` option by adding the 

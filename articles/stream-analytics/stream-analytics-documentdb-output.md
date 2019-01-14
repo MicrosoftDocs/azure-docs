@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/11/2019
 ms.custom: seodec18
 ---
 # Azure Stream Analytics output to Azure Cosmos DB  
@@ -52,16 +52,17 @@ For fixed Azure Cosmos DB collections, Stream Analytics allows no way to scale u
 Writing to multiple fixed containers is being deprecated and is not the recommended approach for scaling out your Stream Analytics job. The article [Partitioning and scaling in Cosmos DB](../cosmos-db/sql-api-partition-data.md) provides further details.
 
 ## Cosmos DB settings for JSON output
-Creating Cosmos DB as an output in Stream Analytics generates a prompt for information as seen below. This section provides an explanation of the properties definition.
 
+Creating Cosmos DB as an output in Stream Analytics generates a prompt for information as seen below. This section provides an explanation of the properties definition.
 
 ![documentdb stream analytics output screen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-Field           | Description 
--------------   | -------------
-Output Alias    | An alias to refer this output in your ASA query   
-Account Name    | The name or endpoint URI of the Azure Cosmos DB account 
-Account Key     | The shared access key for the Azure Cosmos DB account
-Database        | The Azure Cosmos DB database name
-Collection Name | The collection name for the collection to be used. `MyCollection` is a sample valid input - one collection named `MyCollection` must exist.  
-Document ID     | Optional. The column name in output events used as the unique key on which insert or update operations must be based. If left empty, all events will be inserted, with no update option.
+|Field           | Description|
+|-------------   | -------------|
+|Output alias    | An alias to refer this output in your ASA query.|
+|Subscription    | Choose the your Azure subscription.|
+|Account ID      | The name or endpoint URI of the Azure Cosmos DB account.|
+|Account key     | The shared access key for the Azure Cosmos DB account.|
+|Database        | The Azure Cosmos DB database name.|
+|Collection name pattern | The collection name for the collection to be used. `MyCollection` is a sample valid input - one collection named `MyCollection` must exist.  |
+|Document ID     | Optional. The column name in output events used as the unique key on which insert or update operations must be based. If left empty, all events will be inserted, with no update option.|

@@ -15,7 +15,7 @@ ms.reviewer: olegan
 ms.author: mbullwin
 ---
 # Developer analytics: languages, platforms, and integrations
-These items are implementations of [Application Insights](../../application-insights/app-insights-overview.md) that we've heard about, including some by third parties.
+These items are implementations of [Application Insights](../../azure-monitor/app/app-insights-overview.md) that we've heard about, including some by third parties.
 
 ## Languages - officially supported by Application Insights team
 * [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)

@@ -197,5 +197,5 @@ Because this plan is applicable only to customers with an Operations Management 
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/

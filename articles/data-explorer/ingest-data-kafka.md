@@ -131,7 +131,7 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## Query and review the data 
 
-1. To make sure no errors occured during ingestion:
+1. To make sure no errors occurred during ingestion:
 
     ```Kusto
     .show ingestion failures

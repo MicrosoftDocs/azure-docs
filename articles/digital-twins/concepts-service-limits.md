@@ -69,4 +69,4 @@ The following limits cap the total number of all messages your devices can send 
 
 ## Next steps
 
-To try out an Azure Digital Twins sample, go to [Quickstart to find available rooms](./quickstart-view-occupancy-dotnet.md).
+- To try out an Azure Digital Twins sample, go to [Quickstart to find available rooms](./quickstart-view-occupancy-dotnet.md).

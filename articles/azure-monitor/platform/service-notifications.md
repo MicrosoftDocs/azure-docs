@@ -5,7 +5,7 @@ author: dkamstra
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/12/2017
+ms.date: 4/12/2018
 ms.author: dukek
 ms.component: logs
 ---
@@ -43,57 +43,36 @@ category | This property is always **ServiceHealth**.
 resourceId | The Resource ID of the impacted resource.
 Properties.title | The localized title for this communication. English is the default.
 Properties.communication | The localized details of the communication with HTML markup. English is the default.
-Properties.incidentType | One of the following values: **ActionRequired**, **Information**, **Incident**, **Maintenance**, or **Security**.
+Properties.incidentType | One of the following values: **ActionRequired**, **Informational**, **Incident**, **Maintenance**, or **Security**.
 Properties.trackingId | The incident with which this event is associated. Use this to correlate the events related to an incident.
 Properties.impactedServices | An escaped JSON blob that describes the services and regions impacted by the incident. The property includes a list of services, each of which has a **ServiceName**, and a list of impacted regions, each of which has a **RegionName**.
 Properties.defaultLanguageTitle | The communication in English.
 Properties.defaultLanguageContent | The communication in English as either HTML markup or plain text.
-Properties.stage | The possible values for **Incident**, and **Security** are **Active,** **Resolved** or **RCA**. For **ActionRequired** or **Information** the only value is **Active.** For **Maintenance** they are: **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved**, or **Complete**.
+Properties.stage | The possible values for **Incident**, and **Security** are **Active,** **Resolved** or **RCA**. For **ActionRequired** or **Informational** the only value is **Active.** For **Maintenance** they are: **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved**, or **Complete**.
 Properties.communicationId | The communication with which this event is associated.
 
 ### Details on service health level information
-  <ul>
-    <li><b>Action Required</b> (properties.incidentType == ActionRequired)
-        <dl>
-            <dt>Informational</dt>
-            <dd>Administrator action required to prevent impact to existing services</dd>
-        </dl>
-    </li>
-    <li><b>Maintenance</b> (properties.incidentType == Maintenance)
-        <dl>
-            <dt>Warning</dt>
-            <dd>emergency maintenance<dd>
-            <dt>Informational</dt>
-            <dd>standard planned maintenance</dd>
-        </dl>
-    </li>
-    <li><b>Information</b> (properties.incidentType == Information)
-        <dl>
-            <dt>Informational</dt>
-            <dd>Administrator may be required to prevent impact to existing services</dd>
-        </dl>
-    </li>
-    <li><b>Security</b> (properties.incidentType == Security)
-        <dl>
-            <dt>Error</dt>
-            <dd>Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.</dd>
-            <dt>Warning</dt>
-            <dd>Issues accessing specific services and/or specific regions are impacting a subset of customers.</dd>
-            <dt>Informational</dt>
-            <dd>Issues impacting management operations and/or latency, not impacting service availability.</dd>
-        </dl>
-    </li>
-    <li><b>Service Issues</b> (properties.incidentType == Incident)
-        <dl>
-            <dt>Error</dt>
-            <dd>Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.</dd>
-            <dt>Warning</dt>
-            <dd>Issues accessing specific services and/or specific regions are impacting a subset of customers.</dd>
-            <dt>Informational</dt>
-            <dd>Issues impacting management operations and/or latency, not impacting service availability.</dd>
-        </dl>
-    </li>
-  </ul>
+
+**Action Required** (properties.incidentType == ActionRequired)
+    - Informational - Administrator action required to prevent impact to existing services
+    
+**Maintenance** (properties.incidentType == Maintenance)
+    - Warning - emergency maintenance
+    - Informational - standard planned maintenance
+
+**Information** (properties.incidentType == Information)
+    - Informational - Administrator may be required to prevent impact to existing services
+
+**Security** (properties.incidentType == Security)
+    - Error - Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.
+    - Warning - Issues accessing specific services and/or specific regions are impacting a subset of customers.
+    - Informational - Issues impacting management operations and/or latency, not impacting service availability.
+
+**Service Issues** (properties.incidentType == Incident)
+    - Error - Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.
+    - Warning - Issues accessing specific services and/or specific regions are impacting a subset of customers.
+    - Informational - Issues impacting management operations and/or latency, not impacting service availability.
+
 
 ## View your service health notifications in the Azure portal
 1.	In the [Azure portal](https://portal.azure.com), select **Monitor**.

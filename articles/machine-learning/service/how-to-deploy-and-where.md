@@ -473,6 +473,10 @@ from azureml.core.webservice import Webservice
 service_name = 'aci-mnist-3'
 # Retrieve existing service
 service = Webservice(name = service_name, workspace = ws)
+
+# point to a different image
+new-image = Image(workspace = ws, id="myimage2:1")
+
 # Update the image used by the service
 service.update(image = new-image)
 print(service.state)
@@ -501,3 +505,4 @@ For more information, see the reference documentation for [WebService.delete()](
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
 * [Azure Machine Learning service SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Use Azure Machine Learning service with Azure Virtual Networks](how-to-enable-virtual-network.md)
