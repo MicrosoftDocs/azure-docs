@@ -7,7 +7,7 @@ author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: erhopf
 ---
 
@@ -52,6 +52,10 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 -H 'Content-Type: application/json' \
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
+
+The following video demonstrates using a Cognitive Services key. 
+
+[![Single key demonstration for Cognitive Services](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
 
 ## Authenticate with a multi-service subscription key
 
