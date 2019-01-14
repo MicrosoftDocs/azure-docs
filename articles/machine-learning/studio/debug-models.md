@@ -14,7 +14,7 @@ ms.date: 03/14/2017
 ---
 # Debug your model in Azure Machine Learning Studio
 
-When running a model, you may encounter the following errors:
+When running a model, you may run into the following errors:
 
 * the [Train Model][train-model] module produces an error 
 * the [Score Model][score-model] module produces incorrect results 
@@ -54,11 +54,11 @@ It's possible that even though the experiment succeeds, the [Score Model][score-
 
 1. If the specified Label is categorical and a regression model is trained on the data, an incorrect output would be produced by the [Score Model][score-model] module. This is because regression requires a continuous response variable. In this case, it would be more suitable to use a classification model. 
 
-2. Similarly, if a classification model is trained on a dataset having floating point numbers in the Label column, it may produce undesirable results. This is because classification requires a discrete response variable that only allows values that range over a finite, and somewhat small, set of classes.
+2. Similarly, if a classification model is trained on a dataset having floating point numbers in the Label column, it may produce undesirable results. This is because classification requires a discrete response variable that only allows values that range over a finite, and small, set of classes.
 
 3. If the scoring dataset does not contain all the features used to train the model, the [Score Model][score-model] produces an error.
 
-4. If a row in the scoring dataset contains a missing value or an infinite value for any of its features, the [Score Model][score-model] will not produce any output corresponding to that row.
+4. If a row in the scoring dataset contains a missing value or an infinite value for any of its features, the [Score Model][score-model] does not produce any output corresponding to that row.
 
 5. The [Score Model][score-model] may produce identical outputs for all rows in the scoring dataset. This could occur, for example, when attempting classification using Decision Forests if the minimum number of samples per leaf node is chosen to be more than the number of training examples available.
 
