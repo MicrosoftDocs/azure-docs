@@ -34547,6 +34547,11 @@
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-manage-from-cloud-shell.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#is-there-a-powershell-command-to-the-endpoint-quota",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/set-up-hybrid-hpcpack-cluster-paas",
+      "redirect_document_id": true
     }     
   ]
 }
