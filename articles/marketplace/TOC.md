@@ -57,12 +57,12 @@
 
 ## [Marketplace offers](./cloud-partner-portal/cpp-marketplace-offers.md)
 
-### [Manage offers](./cloud-parftner-portal/manage-offers/cpp-manage-offers.md)
-#### [Create offer](./cloud-parftner-portal/manage-offers/cpp-create-offer.md)
-<!-- #### [Publish offer](./cloud-parftner-portal/manage-offers/cpp-publish-offer.md)   -->
-#### [View offer status](./cloud-parftner-portal/manage-offers/cpp-view-status-offer.md)
-#### [Update offer](./cloud-parftner-portal/manage-offers/cpp-update-offer.md)
-#### [Delete offer](./cloud-parftner-portal/manage-offers/cpp-delete-offer.md) 
+### [Manage offers](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
+#### [Create offer](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
+<!-- #### [Publish offer](./cloud-partner-portal/manage-offers/cpp-publish-offer.md)   -->
+#### [View offer status](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
+#### [Update offer](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
+#### [Delete offer](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
 
 ### [Azure application offer](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 #### [Prerequisites](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)

@@ -27,7 +27,7 @@ The following video introduces the various capabilities and different offers typ
 
 **Building Apps and Services for Azure Marketplace and AppSource - Build 2018**
 
-For more information about these marketplaces, see [Azure Marketplace and AppSource publishing guide](../../marketplace-publishers-guide.md).
+For more information about these marketplaces, see [Azure Marketplace and AppSource publishing guide](../marketplace-publishers-guide.md).
 
 
 ## Azure Marketplace and AppSource offer types

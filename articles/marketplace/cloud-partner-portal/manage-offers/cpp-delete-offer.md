@@ -40,7 +40,7 @@ You can delete a published SKU from Azure Marketplace using the following steps:
 2.  In the **All offers** page, select your offer.  Your offer should be displayed in the **Editor** tab.
 3.  In the left toolbar, select the **SKUs** tab. 
 4.  Select the SKU that you want to delete and click the **Delete** button.
-5.  [Republish](./cppp-publish-offer.md) the offer to Azure Marketplace.
+5.  [Republish](./cpp-publish-offer.md) the offer to Azure Marketplace.
 
 After the modified offer is published to the Azure Marketplace, the selected SKU will no longer be listed in the Azure Marketplace and Azure portal.
 
@@ -53,7 +53,7 @@ You can delete the current version of a published SKU from Azure Marketplace by 
 2. In the **All offers** page, select your offer.  Your offer should be displayed in the **Editor** tab.
 3. In the left toolbar, select the **SKUs** tab. 
 4. Delete the latest version of the associated solution asset from the list of disk versions.  Depending upon the offer type, this field could be **Disk Version**, **Package Versions**, or similar asset. 
-5. [Republish](./cppp-publish-offer.md) the offer to Azure Marketplace.
+5. [Republish](./cpp-publish-offer.md) the offer to Azure Marketplace.
 
 After the modified offer is published on theAzure Marketplace, the current version of the listed SKU will no longer be listed. in the Azure Marketplace and the Azure portal.  The SKU is rolled back to its previous version.
 
