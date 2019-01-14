@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 1/9/2019
 ms.author: rkarlin
 
 ---
@@ -70,10 +70,10 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 |Environment|Azure|Non-Azure|Azure|Non-Azure|
 |VMBA threat detection alerts|✔|✔|✔ (on supported versions)|✔|
 |Network-based threat detection alerts|✔|X|✔|X|
-|Windows Defender ATP integration*|✔ (on supported versions)|✔|X|X|
+|Windows Defender ATP integration|✔ (on supported versions)|✔|X|X|
 |Missing patches|✔|✔|✔|✔|
 |Security configurations|✔|✔|✔|✔|
-|Antimalware programs|✔|✔|X|X|
+|Endpoint protection|✔|✔|X|X|
 |JIT VM access|✔|X|✔|X|
 |Adaptive application controls|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
@@ -84,8 +84,27 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 |Network map|✔|X|✔|X|
 |Adaptive network controls|✔|X|✔|X|
 
-\* These features are currently supported in public preview.
 
+### Supported endpoint protection solutions
+
+The following table provides a matrix of:
+ - Whether you can use Azure Security Center to install each solution for you.
+ - Which endpoint protection solutions Security Center can discover. If one of these endpoint protection solutions is discovered, Security Center will not recommend installing one.
+
+| Endpoint Protection| Platforms | Security Center Installation | Security Center Discovery |
+|------|------|-----|-----|
+| Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, Built in to OS| Yes |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (see note below) | Via Extension | Yes |
+| Trend Micro – All version | Windows Server Family  | No | Yes |
+| Symantec v12.1.1100+| Windows Server Family  | No | Yes |
+| McAfee v10+ | Windows Server Family  | No | Yes |
+| Kaspersky| Windows Server Family  | No | No  |
+| Sophos| Windows Server Family  | No | No  |
+
+> [!NOTE]
+> - Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
+>
+>
 
 ## Supported PaaS features 
 
@@ -105,6 +124,8 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 |Subscription|✔| ✔|
 
 \* These features are currently supported in public preview. 
+
+
 
 ## Next steps
 

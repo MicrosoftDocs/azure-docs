@@ -12,8 +12,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na 
 ms.topic: article 
 ms.date: 01/11/2019
+ms.lastreviewed: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
+ms.reviewer: jiahan
 ---
 
 # Deploy the MySQL resource provider on Azure Stack

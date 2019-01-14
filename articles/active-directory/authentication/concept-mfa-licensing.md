@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 01/11/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,7 +27,7 @@ The following table describes the differences between three versions of multi-fa
 
 | Version | Description |
 | --- | --- |
-| Multi-Factor Authentication for Office 365 |This version works exclusively with Office 365 applications and is managed from the Office 365 portal. Administrators can [secure Office 365 resources with two-step verification](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). This version is part of an Office 365 subscription. |
+| Multi-Factor Authentication for Office 365 <br> Microsoft 365 Business |This version works exclusively with Office 365 applications and is managed from the Office 365 or Microsoft 365 portal. Administrators can [secure Office 365 resources with two-step verification](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). This version is part of an Office 365 or Microsoft 365 Business subscription. |
 | Multi-Factor Authentication for Azure AD Administrators | Users assigned the Azure AD Global Administrator role in Azure AD tenants can enable two-step verification at no additional cost.|
 | Azure Multi-Factor Authentication | Often referred to as the "full" version, Azure Multi-Factor Authentication offers the richest set of capabilities. It provides additional configuration options via the [Azure portal](https://portal.azure.com), advanced reporting, and support for a range of on-premises and cloud applications. Azure Multi-Factor Authentication is a feature of [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features), and can be deployed either in the cloud or on-premises. |
 
