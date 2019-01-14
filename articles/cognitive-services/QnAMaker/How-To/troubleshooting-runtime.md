@@ -49,4 +49,4 @@ QnAMaker service hostname is useful for debugging purposes when you contact QnAM
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use QnAMaker API](./upgrade-qnamaker-service.md)
+> [Improve knowledge base questions with Active Learning](./improve-knowledge-base.md)
