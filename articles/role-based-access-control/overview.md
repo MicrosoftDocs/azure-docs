@@ -100,7 +100,7 @@ You can create role assignments using the Azure portal, Azure CLI, Azure PowerSh
 
 ## Multiple role assignments
 
-So what happens if you have multiple overlapping role assignments? RBAC is an additive model, so your effective permissions is the addition of your role assignments. Consider the following example where a user is granted the Contributor role at the subscription scope and the Reader role on a resource group. The addition of the Contributor permissions and the Reader permissions is effectively the Contributor role for the resource group. Therefore, in this case, the Reader role has no effect.
+So what happens if you have multiple overlapping role assignments? RBAC is an additive model, so your effective permissions are the addition of your role assignments. Consider the following example where a user is granted the Contributor role at the subscription scope and the Reader role on a resource group. The addition of the Contributor permissions and the Reader permissions is effectively the Contributor role for the resource group. Therefore, in this case, the Reader role assignment has no impact.
 
 ![Multiple role assignments](./media/overview/rbac-multiple-roles.png)
 
