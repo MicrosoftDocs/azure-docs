@@ -58,9 +58,8 @@ Once the failover operation for the IoT hub completes, all operations from the d
 > - The Event Hub-compatible name and endpoint of the IoT Hub built-in Events endpoint change after failover. When receiving telemetry messages from the built-in endpoint using either the event hub client or event processor host, you should [use the IoT hub connection string](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) to establish the connection. This ensures that your back-end applications continue to work without requiring manual intervention post failover. If you use the Event Hub-compatible name and endpoint in your back-end application directly, you will need to reconfigure your application by [fetching the new Event Hub-compatible name and endpoint](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) after failover to continue operations.
 >
 > - After failover, the events emitted via Event Grid can be consumed via the same subscription(s) configured earlier as long as those Event Grid subscriptions continue to be available.
-
 >
-> When routing to blob storage, we recommend enlisting the blobs and then iterating over them, to ensure all containers are read without making any assumptions of partition. The partition range could potentially change during a Microsoft-initiated failover or manual failover. To learn how to enumerate the list of blobs see [routing to blob storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+> - When routing to blob storage, we recommend enlisting the blobs and then iterating over them, to ensure all containers are read without making any assumptions of partition. The partition range could potentially change during a Microsoft-initiated failover or manual failover. To learn how to enumerate the list of blobs see [routing to blob storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 >
 
 ### Microsoft-initiated failover
