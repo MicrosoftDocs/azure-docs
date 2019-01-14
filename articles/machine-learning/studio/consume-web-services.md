@@ -1,20 +1,15 @@
 ---
-title: Consume web service - Azure Machine Learning Studio | Microsoft Docs
+title: Consume web service
+titleSuffix: Azure Machine Learning Studio
 description: Once a machine learning service is deployed from Azure Machine Learning Studio, the RESTFul Web service can be consumed either as real-time request-response service or as a batch execution service.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 06/02/2017
 ---
 # How to consume an Azure Machine Learning Studio web service
