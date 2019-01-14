@@ -14,7 +14,7 @@ ms.date: 11/19/2018
  
 # Quickstart: Ingest data from Kafka into Azure Data Explorer
  
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Kafka. Kafka is a distributed streaming platform that allows building of real-time streaming data pipelines that reliably move data between systems or applications. 
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Kafka. Kafka is a distributed streaming platform that allows building of real-time streaming data pipelines that reliably move data between systems or applications.
  
 ## Prerequisites
  

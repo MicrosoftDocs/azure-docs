@@ -7,7 +7,7 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 1/14/2019
 ---
 
 # Azure Data Explorer data ingestion
@@ -39,7 +39,10 @@ Azure Data Explorer supports several ingestion methods, each with its own target
 Azure Data Explorer currently supports the Event Hub pipeline, which can be managed using the management wizard in the Azure portal. For more information, see [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md).
 
 ### Ingestion using connectors and plugins
-Azure Data Explorer currently supports the Logstash plugin. For more information, see [Logstash Output Plugin for Azure Data Explorer](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
+
+* Azure Data Explorer supports the Logstash plugin. For more information, see [Logstash Output Plugin for Azure Data Explorer](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
+
+* Azure Data Explorer supports the Kafka connector. For more information, see [Quickstart: Ingest data from Kafka into Azure Data Explorer](ingest-data-kafka.md)
 
 ### Programmatic ingestion
 
@@ -114,6 +117,7 @@ For all ingestion methods other than ingest from query, the data must be formatt
 > When data is being ingested, data types are inferred based on the target table columns. If a record is incomplete or a field cannot be parsed as the required data type, the corresponding table columns will be populated with null values.
 
 ## Ingestion recommendations and limitations
+
 * The effective retention policy of ingested data is derived from the database's retention policy. See [retention policy](/azure/kusto/concepts/retentionpolicy) for details. Ingesting data requires **Table ingestor** or **Database ingestor** permissions.
 * Ingestion supports a maximum file size of 5GB. The recommendation is to ingest files between 100MB and 1GB.
 
@@ -126,9 +130,17 @@ Schema mapping helps deterministically bind source data fields to destination ta
 
 ## Next steps
 
-[Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md)
 
-[Quickstart: Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Ingest data from Kafka into Azure Data Explorer](ingest-data-kafka.md)
 
-[Quickstart: Ingest data using the Azure Data Explorer Node library](node-ingest-data.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)
 
+> [!div class="nextstepaction"]
+> [Quickstart: Ingest data using the Azure Data Explorer Node library](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Quickstart: Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)](net-standard-ingest-data.md)
