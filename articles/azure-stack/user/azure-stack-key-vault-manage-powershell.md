@@ -93,7 +93,7 @@ The output of this command shows the properties of the key vault that you create
 
 ### Active Directory Federation Services (AD FS) deployment
 
-In an AD FS deployment, you might get this warning: "Access policy is not set. No user or application has access permission to use this vault." To resolve this issue, set an access policy for the vault by using the [Set-AzureRmKeyVaultAccessPolicy](azure-stack-key-vault-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) command:
+In an AD FS deployment, you might get this warning: "Access policy is not set. No user or application has access permission to use this vault." To resolve this issue, set an access policy for the vault by using the [Set-AzureRmKeyVaultAccessPolicy](#authorize-an-application-to-use-a-key-or-secret) command:
 
 ```PowerShell
 # Obtain the security identifier(SID) of the active directory user
