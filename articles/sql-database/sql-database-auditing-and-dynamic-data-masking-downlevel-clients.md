@@ -37,7 +37,7 @@ A partial list of "Downlevel clients" includes:
 * JDBC (while JDBC does support TDS 7.4, the TDS redirection feature is not fully supported)
 * Tedious (for Node.JS)
 
-**Remark:** The above server FDQN modification may be useful also for applying a SQL Server Level Auditing policy without a need for a configuration step in each database (Temporary mitigation).
+**Remark:** The above server FQDN modification may be useful also for applying a SQL Server Level Auditing policy without a need for a configuration step in each database (Temporary mitigation).
 
 ## <a id="subheading-2"></a>IP endpoint changes when enabling Auditing
 Please note that when you enable Table Auditing, the IP endpoint of your database will change. If you have strict firewall settings, please update those firewall settings accordingly.

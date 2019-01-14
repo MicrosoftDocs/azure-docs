@@ -65,7 +65,7 @@ In the Serial Console Access instance, you can query the current status of the f
 *   Query by using the Local Port that the application uses:
 
     ```cmd
-    netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(LocalPort.*<APPLICAITON PORT>)" -context 9,4 | more
+    netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(LocalPort.*<APPLICATION PORT>)" -context 9,4 | more
     ```
 
 *   Query by using the Local IP address that the application uses:

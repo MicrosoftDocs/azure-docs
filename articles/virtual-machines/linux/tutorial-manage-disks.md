@@ -124,7 +124,7 @@ Once a disk has been attached to the virtual machine, the operating system needs
 Create an SSH connection with the virtual machine. Replace the example IP address with the public IP of the virtual machine.
 
 ```azurecli-interactive
-ssh azureuser@52.174.34.95
+ssh 10.101.10.10
 ```
 
 Partition the disk with `fdisk`.
@@ -194,12 +194,16 @@ When you take a disk snapshot, Azure creates a read only, point-in-time copy of 
 Before you create a virtual machine disk snapshot, the ID or name of the disk is needed. Use the [az vm show](/cli/azure/vm#az-vm-show) command to return the disk ID. In this example, the disk ID is stored in a variable so that it can be used in a later step.
 
 ```azurecli-interactive
-osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+osdiskid=$(az vm show \
+   -g myResourceGroupDisk \
+   -n myVM \
+   --query "storageProfile.osDisk.managedDisk.id" \
+   -o tsv)
 ```
 
 Now that you have the ID of the virtual machine disk, the following command creates a snapshot of the disk.
 
-```azurcli
+```azurecli-interactive
 az snapshot create \
     --resource-group myResourceGroupDisk \
     --source "$osdiskid" \
@@ -211,7 +215,10 @@ az snapshot create \
 This snapshot can then be converted into a disk, which can be used to recreate the virtual machine.
 
 ```azurecli-interactive
-az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --source osDisk-backup
+az disk create \
+   --resource-group myResourceGroupDisk \
+   --name mySnapshotDisk \
+   --source osDisk-backup
 ```
 
 ### Restore virtual machine from snapshot
@@ -219,7 +226,9 @@ az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --sour
 To demonstrate virtual machine recovery, delete the existing virtual machine.
 
 ```azurecli-interactive
-az vm delete --resource-group myResourceGroupDisk --name myVM
+az vm delete \
+--resource-group myResourceGroupDisk \
+--name myVM
 ```
 
 Create a new virtual machine from the snapshot disk.
@@ -239,13 +248,19 @@ All data disks need to be reattached to the virtual machine.
 First find the data disk name using the [az disk list](/cli/azure/disk#az-disk-list) command. This example places the name of the disk in a variable named *datadisk*, which is used in the next step.
 
 ```azurecli-interactive
-datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
+datadisk=$(az disk list \
+   -g myResourceGroupDisk \
+   --query "[?contains(name,'myVM')].[id]" \
+   -o tsv)
 ```
 
 Use the [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) command to attach the disk.
 
 ```azurecli-interactive
-az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
+az vm disk attach \
+   –g myResourceGroupDisk \
+   --vm-name myVM \
+   --disk $datadisk
 ```
 
 ## Next steps

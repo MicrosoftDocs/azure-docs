@@ -10,12 +10,12 @@
 - name: Quickstarts
   items:
   - name: Service Bus queues
-    items:     
-    - name: Send and receive messages - PowerShell
+    items:
+    - name: Create a Service Bus queue - Portal
+      href: service-bus-quickstart-portal.md     
+    - name: Create a Service Bus queue - PowerShell
       href: service-bus-quickstart-powershell.md
-    - name: Send and receive messages - Portal
-      href: service-bus-quickstart-portal.md
-    - name: Send and receive messages - CLI
+    - name: Create a Service Bus queue - CLI
       href: service-bus-quickstart-cli.md
     - name: Send and receive messages - .NET
       href: service-bus-dotnet-get-started-with-queues.md
