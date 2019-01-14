@@ -742,7 +742,7 @@ Your current VM configuration may be customized specifically to work well with S
 2. Login to the VM and copy the data from the current volume to the new disk that maps to that volume. Do this for all the current volumes that need to map to a new disk.
 3. Next, change the application settings to switch to the new disks, and detach the old volumes.
 
-For tuning the application for better disk performance, please refer to [Optimizing Application Performance](../../virtual-machines/windows/premium-storage-performance.md#optimizing-application-performance).
+For tuning the application for better disk performance, please refer to the optimizing application performance section of our [designing for high performance](../../virtual-machines/windows/premium-storage-performance.md) article.
 
 ### Application migrations
 Databases and other complex applications may require special steps as defined by the application provider for the migration. Please refer to respective application documentation. E.g. typically databases can be migrated through backup and restore.
