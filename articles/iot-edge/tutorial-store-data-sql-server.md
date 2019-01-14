@@ -262,7 +262,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
         "image": "microsoft/mssql-server-windows-developer",
         "createOptions": {
           "HostConfig": {
-            "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
+            "Mounts": [{"Target": "C:\\mssql","Source": "sqlVolume","Type": "volume"}],
             "PortBindings": {
               "1433/tcp": [{"HostPort": "1401"}]
             }

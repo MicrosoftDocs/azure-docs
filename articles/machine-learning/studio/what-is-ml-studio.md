@@ -1,6 +1,7 @@
 ---
-title: Overview - Azure Machine Learning Studio | Microsoft Docs
-description: Overview of Azure ML Studio, a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
+title: What is 
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio is a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
