@@ -1,6 +1,6 @@
 ---
-title: Deploy Microsoft Healthcare APIs for FHIR using Azure CLI
-description: Deploy Microsoft Healthcare APIs for FHIR using Azure CLI.
+title: Deploy Microsoft Healthcare APIs for FHIR to Azure using Azure CLI
+description: Deploy Microsoft Healthcare APIs for FHIR to Azure using Azure CLI.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
