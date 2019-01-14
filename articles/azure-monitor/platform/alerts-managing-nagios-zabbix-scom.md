@@ -23,7 +23,7 @@ Any records in the Log Analytics repository with a type of Alert will get import
 Once you have configured the import into Log Analytics, you can start viewing alert instances from these monitoring services in [Azure Monitor](https://aka.ms/azure-alerts-overview). Once they are present in Azure Monitor, you can [manage your alert instances](https://aka.ms/managing-alert-instances), [manage smart groups created on these alerts](https://aka.ms/managing-smart-groups) and [change the state of your alerts and smart groups](https://aka.ms/managing-alert-smart-group-states).
 
 > [!NOTE]
->  1. This method only allows you to view the alert instances on Azure Monitor, and not the alert rule configurations themselves.
->  1. Currently, you cannot filter or choose the alert instances that can be managed on Azure Monitor. As soon as the alert is populated in Log Analytics, it will turn up on the Alerts blade in Azure Monitor.
->  1. These alerts from SCOM, Zabbix and Nagios will be populated with the signal type "Unknown".
+>  1. This solution only allows you to view SCOM/Zabbix/Nagios fired alert instances in Azure Monitor. Alert rule configuration can only be viewed/edited in respective monitoring tools. 
+>  1. All fired alert instances will be available both in Azure Monitor and Azure Log Analytics. Currently, there is no way to choose between the two or ingest only specific fired alerts.
+>  1. All alerts from SCOM, Zabbix and Nagios have the signal type "Unknown" since the underlying telemetry type is not available.
 >  1. Nagios alerts are not stateful – for example, the [monitor condition](https://aka.ms/azure-alerts-overview) of an alert will not go from "Fired" to "Resolved". Instead, both the “Fired” and “Resolved” are displayed as separate alert instances. 
