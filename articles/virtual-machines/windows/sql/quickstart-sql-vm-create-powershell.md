@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
+ms.date: 12/21/2018
 ms.author: jroth
 ---
 
@@ -42,11 +42,11 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
    Connect-AzureRmAccount
    ```
 
-1. You should see a sign-in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
+1. You should see a screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
 
 ## Create a resource group
 
-1. Define a variable with a unique resource group name. To simplify the rest of the quickstart, the rest of the commands use this name as a basis for other resource names.
+1. Define a variable with a unique resource group name. To simplify the rest of the quickstart, the remaining commands use this name as a basis for other resource names.
 
    ```PowerShell
    $ResourceGroupName = "sqlvm1"
@@ -117,11 +117,11 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
 
 ## Create the SQL VM
 
-1. Define your credentials to sign into the VM. The user name is "azureadmin". Make sure to change the password before running the command.
+1. Define your credentials to sign in to the VM. The username is "azureadmin". Make sure you change \<password> before running the command.
 
    ``` PowerShell
    # Define a credential object
-   $SecurePassword = ConvertTo-SecureString 'Change.This!000' `
+   $SecurePassword = ConvertTo-SecureString '<password>' `
       -AsPlainText -Force
    $Cred = New-Object System.Management.Automation.PSCredential ("azureadmin", $securePassword)
    ```
@@ -131,7 +131,7 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
    ```PowerShell
    # Create a virtual machine configuration
    $VMName = $ResourceGroupName + "VM"
-   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13 | `
+   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13_V2 | `
       Set-AzureRmVMOperatingSystem -Windows -ComputerName $VMName -Credential $Cred -ProvisionVMAgent -EnableAutoUpdate | `
       Set-AzureRmVMSourceImage -PublisherName "MicrosoftSQLServer" -Offer "SQL2017-WS2016" -Skus "SQLDEV" -Version "latest" | `
       Add-AzureRmVMNetworkInterface -Id $Interface.Id
@@ -145,7 +145,7 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
 
 ## Install the SQL IaaS Agent
 
-To get portal integration and SQL VM features, you must install the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To install the agent on the new VM, run the following command after it is created.
+To get portal integration and SQL VM features, you must install the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To install the agent on the new VM, run the following command after the VM is created.
 
    ```PowerShell
    Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
@@ -153,37 +153,37 @@ To get portal integration and SQL VM features, you must install the [SQL Server 
 
 ## Remote desktop into the VM
 
-1. Use the following command retrieves the Public IP address for the new VM.
+1. Use the following command to retrieve the public IP address for the new VM.
 
    ```PowerShell
    Get-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
-1. Then take the returned IP address and pass it as a command-line parameter to **mstsc** to start a Remote Desktop session into the new VM.
+1. Pass the returned IP address as a command-line parameter to **mstsc** to start a Remote Desktop session into the new VM.
 
    ```
    mstsc /v:<publicIpAddress>
    ```
 
-1. When prompted for credentials, choose to enter credentials for a different account. Enter the user name with a preceding backslash (for example, `\azureadmin`, and the password that you set previously in this quickstart.
+1. When prompted for credentials, choose to enter credentials for a different account. Enter the username with a preceding backslash (for example, `\azureadmin`), and the password that you set previously in this quickstart.
 
 ## Connect to SQL Server
 
-1. After logging into the Remote Desktop session, launch **SQL Server Management Studio 2017** from the start menu.
+1. After signing in to the Remote Desktop session, launch **SQL Server Management Studio 2017** from the start menu.
 
-1. In the **Connect to Server** dialog, keep the defaults. The server name is the name of the VM. Authentication is set to **Windows Authentication**. Click **Connect**.
+1. In the **Connect to Server** dialog box, keep the defaults. The server name is the name of the VM. Authentication is set to **Windows Authentication**. Select **Connect**.
 
-You are now connected to SQL Server locally. If you want to connect remotely, you have to [configure connectivity](virtual-machines-windows-sql-connect.md) from the portal or manually.
+You're now connected to SQL Server locally. If you want to connect remotely, you must [configure connectivity](virtual-machines-windows-sql-connect.md) from the portal or manually.
 
 ## Clean up resources
 
-If you do not need the VM running continually, you can avoid unnecessary charges by stopping it when not in use. The following command stops the VM but leaves it available for future use.
+If you don't need the VM to run continuously, you can avoid unnecessary charges by stopping it when not in use. The following command stops the VM but leaves it available for future use.
 
 ```PowerShell
 Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-You can also permanently delete all resources associated with the virtual machine with the **Remove-AzureRmResourceGroup** command. This permanently deletes the virtual machine as well, so use this command with care.
+You can also permanently delete all resources associated with the virtual machine with the **Remove-AzureRmResourceGroup** command. Doing so permanently deletes the virtual machine as well, so use this command with care.
 
 ## Next steps
 
