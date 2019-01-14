@@ -15,7 +15,7 @@ ms.service: spatial-anchors
 # Quickstart: Create a HoloLens Unity app using Spatial Anchors
 
 [Spatial Anchors](overview.md) is a cross-platform developer service that makes it easy for you to create
-Mixed Reality experiences.​ This quickstart shows how to create a HoloLens Unity app using spatial anchors. When you're finished,
+Mixed Reality experiences. This quickstart shows how to create a HoloLens Unity app using spatial anchors. When you're finished,
 you'll have an HoloLens app built with Unity that can save and recall a spatial anchor.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

@@ -15,7 +15,7 @@ ms.service: spatial-anchors
 # Quickstart: Create an iOS app with Spatial Anchors
 
 [Spatial Anchors](overview.md) is a cross-platform developer service that makes it easy for you to create
-Mixed Reality experiences.​ This quickstart shows how to create an iOS app using spatial anchors in either Swift or
+Mixed Reality experiences. This quickstart shows how to create an iOS app using spatial anchors in either Swift or
 Objective-C. When you're finished, you'll have an ARKit iOS app that can save and recall a spatial anchor.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
