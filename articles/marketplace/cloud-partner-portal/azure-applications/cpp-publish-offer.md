@@ -66,7 +66,7 @@ To view the VSTS items referenced in review feedback, publishers must be granted
 1. Collect the following information:
     - Your publisher name and ID
     - Offer type (Azure app), offer name, and SKU ID
-    - The pull request link, for example `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/jfrog/pullrequest/<number>`.  This URL can be retrieved from the notification message or the address of the 401 response page.
+    - The pull request link, for example: `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/contoso/pullrequest/<number>`  This URL can be retrieved from the notification message or the address of the 401 response page.
     - The email address(es) of the individuals from your publishing organization that you want access granted to.  These should include the owner address(es) you provided when registering as a publisher on the Cloud Partner Portal.
 2. Create a support incident.  In the title bar of the Cloud Partner Portal, select the **Help** button, then choose **Support** from the menu.  You default web browser should launch and navigate to the Microsoft new support incident page.  (You may have to sign in first.)
 3. Specify the **Problem type** as **marketplace onboarding** and **Category** as **Access problem**, then select **Start request**.
@@ -74,7 +74,7 @@ To view the VSTS items referenced in review feedback, publishers must be granted
     ![Support ticket category](./media/support-incident1.png)
 
 4. In **Step 1 of 2** page, supply your contact information and select **Continue**.
-5. In **Step 2 of 2** page, specify an incident title and supply the information you collected in the first step (above).  Read and accept the agreement, then select **Submit**.
+5. In **Step 2 of 2** page, specify an incident title (for example `Request VSTS access`) and supply the information you collected in the first step (above).  Read and accept the agreement, then select **Submit**.
 
 If the incident creation was successful, a confirmation page is displayed.  Save the confirmation information for your reference.  Microsoft support should reply to your access request within a few business days.
 
