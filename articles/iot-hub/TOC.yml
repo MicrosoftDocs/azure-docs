@@ -66,8 +66,6 @@
     href: tutorial-firmware-update.md
   - name: Test device connectivity
     href: tutorial-connectivity.md
-  - name: Using device streams (preview)
-    href: tutorial-device-streams.md
 - name: Concepts
   items:
   - name: Overview of device management

@@ -70,6 +70,59 @@ In the handshake process above:
 ### Termination flow
 An established stream terminates when either of the TCP connections to the gateway are disconnected (by the service or device). This can take place voluntarily by closing the WebSocket on either the device or service programs, or involuntarily in case of a network connectivity timeout or process failure. Upon termination of either device or service's connection to the streaming endpoint, the other TCP connection will also be (forcefully) terminated and the service and device are responsible to re-create the stream, if needed.
 
+
+## Connectivity Requirements
+
+Both the device and the service sides of a device stream must be capable of establishing TLS-enabled connections to IoT Hub and its streaming endpoint. This requires outbound connectivity over port 443 to these endpoints. The hostname associated with these endpoints can be found on the *Overview* tab of IoT Hub, as shown in the figure below:
+<p>
+    <img src="./media/iot-hub-device-streams-overview/device-stream-portal.png">
+</p>
+
+Alternatively, the endpoints information can use be retrieved using Azure CLI under the hub's properties section, specifically, `property.hostname` and `property.deviceStreams` keys.
+
+```azurecli-interactive
+az iot hub show --name <YourIoTHubName>
+```
+
+## Troubleshoot via Device Streams Activity Logs
+
+You can setup Azure Log Analytics to collect the activity log of device streams in your IoT Hub. This can be very helpful in troubleshooting scenarios.
+
+Follow the steps below to configure Azure Log Analytics for your IoT Hub's device stream activities:
+
+1. Navigate to the *Diagnostic settings* tab in your IoT Hub, and click on *Turn on diagnostics* link.
+
+    <p>
+        <img style="margin:auto;display:block;background-color:white;width:75%" src="./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG">
+    </p>
+
+2. Provide a name for your diagnostics settings, and choose *Send to Log Analytics* option. You will be guided to choose an existing Log Analytics resource or create a new one. Additionally, check the *DeviceStreams* from the list.
+
+    <p>
+        <img style="margin:auto;display:block;background-color:white;width:75%" src="./media/iot-hub-device-streams-overview/device-streams-diagnostics.PNG">
+    </p>
+
+3. You can now access your device streams logs under the *Logs* tab in your IoT Hub's portal. Device stream activity logs will appear in the `AzureDiagnostics` table and have `Category=DeviceStreams`.
+
+    <p>
+    As shown below the identity of the target device and the result of the operation is also available in the logs.
+        <img style="margin:auto;display:block;background-color:white;width:100%" src="./media/iot-hub-device-streams-overview/device-streams-log-analytics.PNG">
+    </p>
+
+## Whitelist Device Streaming Endpoints
+
+As mentioned [earlier](#Overview), your device creates an outbound connection to IoT Hub streaming endpoint during device streams initiation process. Your firewalls on the device or its network must allow outbound connectivity to the streaming gateway over port 443 (this is a WebSocket connection that is encrypted using TLS).
+
+The hostname of device streaming endpoint can be found on the Azure IoT Hub portal under the Overview tab.
+<p>
+    <img style="margin:auto;display:block;background-color:white;width:100%" src="./media/iot-hub-device-streams-overview/device-stream-portal.PNG">
+</p>
+
+Alternatively, you can find this information using Azure CLI:
+```cmd/sh
+az iot hub show --name tcpstreaming-preview
+```
+
 ## SDK Availability
 Two sides of each stream (on the device and service side) use the IoT Hub SDK to establish the tunnel. During public preview, customers can choose from the following SDK languages:
 - The C and C# SDK's support device streams on the device side.
@@ -129,7 +182,6 @@ Use the links below for instructions on how to run the local proxy programs in y
 Use the links below to learn more about device streams:
 
 > [!div class="nextstepaction"]
-> [Device streams tutorial](./tutorial-device-streams.md)
 > [Try a device stream quickstart guide](/azure/iot-hub)
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-IoT-Hub-Device-Streams/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
