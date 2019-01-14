@@ -32,15 +32,15 @@ Runbooks in Azure Automation can run on either a sandbox in Azure or a [Hybrid R
 
 |Task|Best Choice|Notes|
 |---|---|---|
-|Long running script|Hybrid Runbook Worker||
+|Long running script|Hybrid Runbook Worker|Azure sandboxes have [limitation on resources](../azure-subscription-service-limits.md#automation-limits)|
 |Interact with Local services|Hybrid Runbook Worker|Can have access directly to host machine|
 |Require 3rd party software and executables|Hybrid Runbook Worker|You manage the OS and can install software|
 |Integrate with Azure resources|Azure Sandbox|Hosted in azure, authentication is simpler. If you are using a Hybrid Runbook Worker on an Azure VM, you can use [managed identities for Azure resources](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
 |Monitor a file or folder with a runbook|Hybrid Runbook Worker|Use a [Watcher task](automation-watchers-tutorial.md) on a Hybrid Runbook worker|
-|Resource intensive script|Hybrid Runbook Worker| Azure sandboxes have [limitation on resources](azure/azure-subscription-service-limits.md#automation-limits)|
+|Resource intensive script|Hybrid Runbook Worker| Azure sandboxes have [limitation on resources](../azure-subscription-service-limits.md#automation-limits)|
 |Optimal performance to manage azure resources|Azure Sandbox|Script is ran in the same environment, which in turn has less latency|
 |Minimize operational costs|Azure Sandbox|There is no compute overhead, no need for a VM|
-|Using modulees with specific requirements| Hybrid Runbook Worker|Some examples are</br> **WinSCP** - dependancy on winscp.exe </br> **IISAdministration** - Needs IIS to be enabled|
+|Using modulees with specific requirements| Hybrid Runbook Worker|Some examples are:</br> **WinSCP** - dependancy on winscp.exe </br> **IISAdministration** - Needs IIS to be enabled|
 |Install module that requires installer|Hybrid Runbook Worker|Modules for sandbox must be xcopyable|
 |Using runbooks or modules that require .NET Framework different from 4.7.2|Hybrid Runbook Worker|Automation sandboxes have .NET Framework 4.7.2, and there is no way to upgrade it|
 
