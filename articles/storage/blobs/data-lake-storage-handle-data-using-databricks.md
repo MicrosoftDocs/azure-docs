@@ -141,7 +141,7 @@ First, you create a notebook in your Azure Databricks workspace and then run cod
     "fs.azure.createRemoteFileSystemDuringInitialization"->"true")
 
     dbutils.fs.mount(
-    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/[<directory-name>]",
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/<directory-name>",
     mountPoint = "/mnt/<mount-name>",
     extraConfigs = configs)
     ```
