@@ -49,7 +49,7 @@ Close the **Build Settings** window.
 
 Download the `unitypackage` file from the [ARCore SDK for Unity releases](https://github.com/google-ar/arcore-unity-sdk/releases/tag/v1.5.0). Back in the Unity project, select **Assets** -> **Import Package** -> **Custom Package...** and then select the `unitypackage` file you previously downloaded. In the **Import Unity Package** dialog, make sure all of the files are selected and then select **Import**.
 
-## Configure the Unity scene
+## Configure the Spatial Anchors endpoint and account key
 
 In the **Project** pane, navigate to `Assets/MRCloudPlugin/Examples` and open the `AndroidMRCloudDemo.unity` scene file.
 

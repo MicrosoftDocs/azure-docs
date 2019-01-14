@@ -45,6 +45,10 @@ Select **Open an existing Android Studio project** and select the project locate
 
 ***
 
+## Configure the Spatial Anchors endpoint and account key
+
+**TODO**
+
 ## Deploy the app to your Android device
 
 Power on the Android device, sign in, and connect it to the PC using a USB cable.

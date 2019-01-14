@@ -25,7 +25,7 @@ you'll have an HoloLens app built with Unity that can save and recall a spatial 
 Before you get started, here's a list of prerequisites:
 
 - A Windows machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.2+</a> and <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> installed with the **Universal Windows Platform development** workload.
-- A HoloLens device.
+- A HoloLens device with [developer mode](https://docs.microsoft.com/en-us/windows/mixed-reality/using-visual-studio) enabled.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -45,7 +45,7 @@ Select **Switch Platform** to change the platform to **Universal Windows Platfor
 
 Close the **Build Settings** window.
 
-## Configure the Unity scene
+## Configure the Spatial Anchors endpoint and account key
 
 In the **Project** pane, navigate to `Assets/MRCloudPlugin/Examples` and open the `HoloLensMRCloudDemo.unity` scene file.
 
@@ -71,7 +71,7 @@ Change the **Solution Configuration** to **Release**, change **Solution Platform
 
 Power on the HoloLens device, sign in, and connect it to the PC using a USB cable.
 
-Press **F5** to build, deploy, and launch the app on the HoloLens. The app will start with the Visual Studio debugger attached.
+Select **Debug** > **Start debugging** to deploy your app and start debugging.
 
 Follow the instructions in the app to place and recall an anchor.
 

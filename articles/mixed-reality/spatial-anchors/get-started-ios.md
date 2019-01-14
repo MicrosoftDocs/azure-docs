@@ -71,6 +71,10 @@ open ./SampleObjC.xcworkspace
 
 ***
 
+## Configure the Spatial Anchors endpoint and account key
+
+**TODO**
+
 ## Deploy the app to your iOS device
 
 Connect the iOS device to the Mac and set the **active scheme** to your iOS device.

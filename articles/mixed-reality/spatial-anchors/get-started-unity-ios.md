@@ -45,7 +45,7 @@ Select **Switch Platform** to change the platform to **iOS**.
 
 Close the **Build Settings** window.
 
-## Configure the Unity scene
+## Configure the Spatial Anchors endpoint and account key
 
 In the **Project** pane, navigate to `Assets/MRCloudPlugin/Examples` and open the `iOSMRCloudDemo.unity` scene file.
 
