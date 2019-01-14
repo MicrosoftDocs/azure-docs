@@ -665,6 +665,41 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/linux/hpcpack-cluster-options.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/overview",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/virtual-machines/windows/hpcpack-cluster-options.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/overview",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/virtual-machines/windows/hpcpack-2016-cluster.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/overview",
+      "redirect_document_id": false
+    },
+		{
+      "source_path": "articles/virtual-machines/windows/hpcpack-cluster-active-directory.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-cluster-active-directory",
+      "redirect_document_id": false
+    },
+		{
+      "source_path": "articles/virtual-machines/windows/hpcpack-cluster-headnode.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/deploy-an-hpc-pack-2016-cluster-in-azure",
+      "redirect_document_id": false
+    },
+		{
+      "source_path": "articles/virtual-machines/windows/hpcpack-cluster-submit-jobs.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-cluster-submit-jobs-in-azure",
+      "redirect_document_id": false
+    },
+		{
+      "source_path": "articles/virtual-machines/windows/excel-cluster-hpcpack.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/excel-2016-offloading-to-azure-cluster",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md",
       "redirect_url": "/azure/virtual-machines/windows/publish-web-app-from-visual-studio",
       "redirect_document_id": true
