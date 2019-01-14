@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 1/8/2019
+ms.date: 1/14/2019
 ms.author: victorh
 ---
 
@@ -23,7 +23,7 @@ With a public load balancer, the load balancer is deployed with a public fronten
 
 Asymmetric routing is where a packet takes one path to the destination and takes another path when returning to the source. An issue can occur when a subnet has a default route going to the firewall's private IP address and a public load balancer. In this case, the incoming load balancer traffic is received via its public IP address, but the return path goes through the firewall's private IP address. Since the firewall is stateful, it drops the returning packet because the firewall is not aware of such an established session.
 
-### Fix the routing problem
+### Fix the routing issue
 
 When you deploy an Azure Firewall into a subnet, one step is to create a default route for the subnet directing packets through the firewall's private IP address located on the AzureFirewallSubnet. For more information, see [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md#create-a-default-route).
 
@@ -41,6 +41,14 @@ With an internal load balancer, the load balancer is deployed with a private fro
 There's no asymmetric routing issue with this scenario. The incoming packets arrive at the firewall's public IP address, get translated to the load balancer's private IP address, and then returns to the firewall's private IP address using the same return path.
 
 So, you can deploy this scenario similar to the public load balancer scenario, but without the need for the firewall public IP address host route.
+
+## Additional security
+
+To further enhance the security of your load-balanced scenario, you can use network security groups (NSGs).
+
+For example, you can create an NSG on the backend subnet where the load-balanced virtual machines are located. Allow incoming traffic originating from the firewall IP address/port.
+
+For more information about NSGs, see [Security groups](../virtual-network/security-overview.md).
 
 ## Next steps
 
