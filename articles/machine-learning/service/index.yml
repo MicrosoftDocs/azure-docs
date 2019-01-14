@@ -22,19 +22,24 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Set up your Azure Machine Learning workspace and get started using: <a href="quickstart-get-started">Azure portal</a> | <a href="quickstart-create-workspace-with-python">Python</a>'
+    text: 'Learn how to set up the workspace and resources for Azure Machine Learning service using a quickstart:'
+  - type: list
+    style: ordered
+    items:
+    - html: Get started using <a href="quickstart-get-started">Azure portal</a> <br>&nbsp;
+    - html: Get started using <a href="quickstart-create-workspace-with-python">Python</a>
     
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to prepare your data, set up an experiment, and operationalize your models:'
+    text: 'Learn how to prep data, set up experiments, and operationalize your machine learning models:'
   - type: list
     style: ordered
     items:
-    - html: Two-part tutorial for <a href="tutorial-train-models-with-aml">training and deploying image classification models</a> with MNIST data.'
-    - html: Two-part tutorial for <a href="tutorial-data-prep">preparing data and using automated ML</a> to train and tune a regression model with NYC taxi data.'
+    - html: <a href="tutorial-train-models-with-aml">Training & deploying image classification models</a> with MNIST data (two-part tutorial) <br>&nbsp;
+    - html: <a href="tutorial-data-prep">Preparing data & using automated ML </a> to train and tune a regression model with NYC taxi data  (two-part tutorial)
   - type: paragraph
-    text: '<b>Sample notebooks</b>: Explore the service with these <a href="https://aka.ms/aml-notebooks">Jupyter notebooks</a> on GitHub.'
+    text: '<b>Samples</b>: Explore the service with these <a href="https://aka.ms/aml-notebooks">Jupyter notebooks</a> on GitHub.'
 
 - title: Step-by-Step Tutorials
   items:
