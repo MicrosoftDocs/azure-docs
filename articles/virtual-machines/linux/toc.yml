@@ -391,12 +391,7 @@
       - name: MS SQL on Linux
         href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: High Performance Computing (HPC)
-      href: hpcpack-cluster-options.md
-      items:
-      - name: Run NAMD
-        href: classic/hpcpack-cluster-namd.md
-      - name: Install NVIDIA GPU drivers
-        href: n-series-driver-setup.md
+      href: https://docs.microsoft.com/powershell/high-performance-computing/overview
     - name: IBM Db2 pureScale
       items:
       - name: Architecture
