@@ -1,21 +1,25 @@
 ---
-title: "Quickstart: Bing News Search API"
+title: "Sending queries to the Bing News Search API"
 titlesuffix: Azure Cognitive Services
-description: Shows how to get started using the Bing News Search API.
+description: Learn about sending search requests to the Bing News Search API.
 services: cognitive-services
-author: swhite-msft
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 04/15/2017
-ms.author: scottwhi
+ms.date: 12/13/2018
+ms.author: aahi
 ---
 
-# Quickstart: Your first news search query
+# Sending queries to the Bing News Search API
 
-Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api).  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+The Bing News Search API enables you to search the web for relevant news items. Use this article to learn more about sending search queries to the API.
+
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
+
+## Sending a request
 
 To get news-only search results, you'd send a GET request to the following endpoint:
 
@@ -40,8 +44,6 @@ The client IP and location headers are important for returning location aware co
 
 For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#headers).
 
-## The request
-
 The following shows a news request that includes all the suggested query parameters and headers. If it's your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination.
 
 ```http
@@ -54,7 +56,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-## The response
+## Bing News Search API response
 
 The following shows the response to the previous request. The example also shows the response headers.
 
@@ -278,10 +280,7 @@ X-MSEdge-Ref: Ref A: 994974CC8D994C95A5C31387296A510A Ref B: BY3EDGE0207 Ref C: 
 
 ## Next steps
 
-Try out the API. Go to [News Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553).
-
-For details about consuming the response objects, see [What is Bing News Search?](./search-the-web.md). You'll also find more information about the following common actions:
-
-- [Getting today's top news](./search-the-web.md#getting-todays-top-news)
-- [Getting news by category](./search-the-web.md#getting-news-by-category)
-- [Getting trending news](./search-the-web.md#getting-trending-news)
+* [What is Bing News Search?](../search-the-web.md). 
+* [Get today's top news](search-for-news.md#get-todays-top-news)
+* [Get news by category](search-for-news.md#get-news-by-category)
+* [Get trending news](search-for-news.md#get-trending-news)

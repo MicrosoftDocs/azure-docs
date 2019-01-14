@@ -28,7 +28,7 @@ Some situations where you might want custom data include:
 
 ## How to correlate custom data with Application Insights data 
 
-Since Application Insights is backed by the powerful LAzure Monitor log platform, we are able to use the full power of Azure Monitor to ingest the data. Then, we will write queries using the “join” operator that will correlate this custom data with the data available to us in Azure Monitor logs. 
+Since Application Insights is backed by the powerful Azure Monitor log platform, we are able to use the full power of Azure Monitor to ingest the data. Then, we will write queries using the “join” operator that will correlate this custom data with the data available to us in Azure Monitor logs. 
 
 ## Ingesting data
 

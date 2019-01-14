@@ -172,7 +172,6 @@ Click any row for specific details.
 
 ![](./media/javascript/37.png)
 
-
 Click `...` for the full telemetry for an Ajax call.
 
 ### No Ajax calls reported?
@@ -200,7 +199,7 @@ Select any event to see more detail. In the details page, click "..." to see eve
 > 
 > 
 
-You can also use the powerful [Data Explorer] query language](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) to search page views.
+You can also use the powerful [Data Explorer query language](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) to search page views.
 
 ### Page view properties
 * **Page view duration** 
