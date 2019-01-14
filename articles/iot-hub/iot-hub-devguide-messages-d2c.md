@@ -48,16 +48,16 @@ IoT Hub batches messages and writes data to a blob whenever the batch reaches a 
 
 You may use any file naming convention, however you must use all listed tokens. IoT Hub will write to an empty blob if there is no data to write.
 
-When routing to blob storage, we recommend enlisting the blobs and then iterating over them, to ensure all containers are read without making any assumptions of partitionId. The partitionId range could potentially change during a [Microsoft-initiated failover](iot-hub-ha-dr.md#microsoft-initiated-failover) or IoT Hub [manual failover](iot-hub-ha-dr.md#manual-failover-preview). You can use the [List Blobs API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) to enumerate the list of blobs. Please see the following sample as guidance.
+When routing to blob storage, we recommend enlisting the blobs and then iterating over them, to ensure all containers are read without making any assumptions of partition. The partition range could potentially change during a [Microsoft-initiated failover](iot-hub-ha-dr.md#microsoft-initiated-failover) or IoT Hub [manual failover](iot-hub-ha-dr.md#manual-failover-preview). You can use the [List Blobs API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) to enumerate the list of blobs. Please see the following sample as guidance.
 
    ```csharp
-        public void ListBlobsInContainer(string containerName, string iotHubName)
+        public void ListBlobsInContainer(string containerName, string iothub)
         {
             var storageAccount = CloudStorageAccount.Parse(this.blobConnectionString);
             var cloudBlobContainer = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
             if (cloudBlobContainer.Exists())
             {
-                var results = cloudBlobContainer.ListBlobs(prefix: $"{iotHubName}/");
+                var results = cloudBlobContainer.ListBlobs(prefix: $"{iothub}/");
                 foreach (IListBlobItem item in results)
                 {
                     Console.WriteLine(item.Uri);
