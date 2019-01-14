@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/09/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.reviewer: unknown
+ms.reviewer: fiseraci
 
 ---
 
@@ -23,7 +23,7 @@ ms.reviewer: unknown
 
 Azure Stack requires Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS), backed by Active Directory as an identity provider. The choice of a provider is a one-time decision that you make when you first deploy Azure Stack. The concepts and authorization details in this article can help you choose between identity providers.
 
-Your choice of either Azure AD or AD FS might be determined by the mode in which you deploy Azure Stack:
+Your choice of either Azure AD or AD FS is determined by the mode in which you deploy Azure Stack:
 
 - When you deploy it in a connected mode, you can use either Azure AD or AD FS.
 - When you deploy it in a disconnected mode, without a connection to the internet, only AD FS is supported.
