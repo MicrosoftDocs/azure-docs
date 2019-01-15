@@ -170,6 +170,7 @@ Before rolling out a policy into production, you should test is to verify that i
 
 To test a policy, create a set of users that is similar to the users in your environment. Creating test users allows you to verify that your policies work as expected before you impact real users and potentially disrupt their access to apps and resources. 
 
+
 Some organizations have test tenants for this purpose. However, it can be difficult to recreate all conditions and apps in a test tenant to fully test the outcome of a policy. 
 
 ### Create a test plan
