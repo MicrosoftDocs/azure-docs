@@ -85,6 +85,34 @@ To enable system-assigned managed identity on a VM that was originally provision
     > [!NOTE]
     > This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.
 
+### Add VM system assigned identity to a group
+
+After you have enabled system assigned identity on a VM, you can add it to a group.  The following procedure adds a VM's system assigned identity to a group.
+
+1. Sign in to Azure using `Login-AzureRmAccount`. Use an account that is associated with the Azure subscription that contains the VM.
+
+   ```powershell
+   Login-AzureRmAccount
+   ```
+
+2. Retrieve and note the `ObjectID` (as specified in the `Id` field of the returned values) of the VM's service principal:
+
+   ```powerhshell
+   Get-AzureRmADServicePrincipal -displayname "myVM"
+   ```
+
+3. Retrieve and note the `ObjectID` (as specified in the `Id` field of the returned values) of the group:
+
+   ```powershell
+   Get-AzureRmADGroup -searchstring "myGroup"
+   ```
+
+4. Add the VM's service principal to the group:
+
+   ```powershell
+   Add-AzureADGroupMember -ObjectId "<objectID of group>" -RefObjectId "<object id of VM service principal>"
+   ```
+
 ## Disable system-assigned managed identity from an Azure VM
 
 To disable system-assigned managed identity on a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.

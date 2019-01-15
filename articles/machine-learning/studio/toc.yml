@@ -225,6 +225,8 @@
     href: web-service-error-codes.md
   - name: REST management APIs
     href: /rest/api/machinelearning
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.machinelearning/allversions
 - name: Resources
   items:
   - name: Pricing

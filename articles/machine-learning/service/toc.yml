@@ -158,6 +158,8 @@
   - name: Monitoring SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk 
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.machinelearningservices/allversions
 - name: Resources
   items:  
   - name: Azure roadmap
