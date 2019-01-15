@@ -16,7 +16,7 @@ ms.author: aahill
 
 The Bing Video Search API makes it easy to integrate Bing's cognitive news searching capabilities into your applications. While the API primarily finds and returns relevant videos from the web, it provides several features for intelligent and focused video retrieval on the web.
 
-## Suggesting & using search terms
+## Suggest search terms with the Bing Autosuggest API
 
 If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 
@@ -97,7 +97,9 @@ The response contains a [Videos](https://docs.microsoft.com/rest/api/cognitivese
 }
 ```
 
-You could display a collage of all the video thumbnails or you could display a subset of the thumbnails. If you display a subset, provide the user an option to view the remaining videos. You must display the videos in the order provided in the response. For information about resizing the thumbnail, see [Resizing and Cropping Thumbnails](../resize-and-crop-thumbnails.md). 
+## Video thumbnails
+
+You can display all, or a subset of the video thumbnails returned by the Bing Video Search API. If you display a subset, provide the user an option to view the remaining videos. as part of the Bing API [use and display requirements](../UseAndDisplayRequirements.md), You must display the videos in the order provided in the response. For information about resizing the thumbnail, see [Resizing and Cropping Thumbnails](../resize-and-crop-thumbnails.md). 
 
 As the user hovers over the thumbnail you can use [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-motionthumbnailurl) to play a thumbnail version of the video. Be sure to attribute the motion thumbnail when you display it.
 
