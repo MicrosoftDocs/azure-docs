@@ -98,7 +98,7 @@ The following table shows the mapping between some Azure services and Azure Gove
 ## Next steps
 For more information about Azure Government, see the following resources:
 
-* [Sign up for a trial](https://azuregov.microsoft.com/trial/azuregovtrial)
+* [Sign up for a trial](https://azure.microsoft.com/global-infrastructure/government/request/?ReqType=Trial)
 * [Acquiring and accessing Azure Government](https://azure.com/gov)
 * [Ask questions via the azure-gov tag in StackOverflow](https://stackoverflow.com/tags/azure-gov)
 * [Azure Government Overview](documentation-government-welcome.md)

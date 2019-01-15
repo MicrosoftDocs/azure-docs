@@ -6,7 +6,7 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/20/2018
-ms.author: vitaly.gorbenko
+ms.author: vitalyg
 ms.component: metrics
 ---
 
