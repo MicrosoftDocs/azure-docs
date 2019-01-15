@@ -16,16 +16,16 @@ ms.reviewer: martincoetzer
 
 # How To: Plan your conditional access deployment in Azure Active Directory
 
-Planning your conditional access deployment is critical to make sure you achieve the desired access strategy for apps and resources in your organization. You should spend most of your time during the planning phase of your deployment to design the various policies you require to grant or block access to your users under the conditions you choose. This document explains the steps you should take to implement secure and effective conditional access policies. Before you begin, make sure you understand how [conditional access](overview.md) works and when you should use it.
+Planning your conditional access deployment is critical to make sure you achieve the required access strategy for apps and resources in your organization. You should spend most of your time during the planning phase of your deployment to design the various policies you require to grant or block access to your users under the conditions you choose. This document explains the steps you should take to implement secure and effective conditional access policies. Before you begin, make sure you understand how [conditional access](overview.md) works and when you should use it.
 
 
 ## What you should know
 
 Think of conditional access as a framework that allows you to control access to your organization’s apps and resources, instead of a stand-alone feature. Consequently, some conditional access settings require additional features to be configured. For example, you can configure a policy that responds to a specific [sign-in risk level](../identity-protection/howto-sign-in-risk-policy.md#what-is-the-sign-in-risk-policy). However, a policy that is based on a sign-in risk level requires [Azure Active Directory identity protection](../identity-protection/overview.md) to be enabled.
 
-If additional features are required, you might also need to get related licenses. For example, while conditional access is Azure AD Premium P1 capability, identity protection requires an Azure AD Premium P2 license.
+If additional features are required, you might also need to get related licenses. For example, while conditional access is Azure AD Premium P1 feature, identity protection requires an Azure AD Premium P2 license.
 
-There are two types of conditional access policies: baseline and standard. A [baseline policy](baseline-protection.md) is a predefined conditional access policy. The goal of these policies is to ensure that you have at least the baseline level of security enabled. Baseline policies. Baseline policies are available in all editions of Azure AD, and they provide only limited customization options. If a scenario requires more flexibility, disable the baseline policy, and implement your requirements in a custom standard policy.
+There are two types of conditional access policies: baseline and standard. A [baseline policy](baseline-protection.md) is a predefined conditional access policy. The goal of these policies is to make sure that you have at least the baseline level of security enabled. Baseline policies. Baseline policies are available in all editions of Azure AD, and they provide only limited customization options. If a scenario requires more flexibility, disable the baseline policy, and implement your requirements in a custom standard policy.
 
 In a standard conditional access policy, you can to customize all settings to adjust the policy to your business requirements. Standard policies require an Azure AD Premium P1 license.
 
@@ -38,7 +38,12 @@ Azure Active Directory conditional access enables you to bring the protection of
 
 ![Reason and response](./media/plan-conditional-access/10.png)
 
-Define every conditional access policy you want to implement using this planning model. The planning exercise helps you to outline the responses and conditions for each policy and results in a well-documented conditional access policy catalog for your organization. Your catalog helps you to assess whether your policy implementation reflects your organization's business requirements. 
+Define every conditional access policy you want to implement using this planning model. The planning exercise:
+
+- Helps you to outline the responses and conditions for each policy.
+- Results in a well-documented conditional access policy catalog for your organization. 
+
+You can use your catalog to assess whether your policy implementation reflects your organization's business requirements. 
 
 Use the following example template to create conditional access policies for your organization:
 
@@ -48,7 +53,7 @@ Use the following example template to create conditional access policies for you
 |An access attempt is made:<br>- To a cloud app*<br>- By users and groups*<br>Using:<br>- Condition 1 (for example, outside Corp network)<br>- Condition 2 (for example, sign-in risk)|Grant access with (AND):<br>- Requirement 1 (for example, MFA)<br>- Requirement 2 (for example, Device compliance)|
 |An access attempt is made:<br>- To a cloud app*<br>- By users and groups*<br>Using:<br>- Condition 1 (for example, outside Corp network)<br>- Condition 2 (for example, sign-in risk)|Grant access with (OR):<br>- Requirement 1 (for example, MFA)<br>- Requirement 2 (for example, Device compliance)|
 
-At a minimum, **when this happens** defines the principal (**who**) that attempts to access a cloud app (**what**). If required, you can also include **how** an access attempt is performed. In conditional access, the elements that define the who, what, and how are known as conditions. For more information, see [What are conditions in Azure Active Directory conditional access?](conditions.md) 
+At a minimum, **when this happens** defines the principal (**who**) that attempts to access a cloud app (**what**). If necessary, you can also include **how** an access attempt is performed. In conditional access, the elements that define the who, what, and how are known as conditions. For more information, see [What are conditions in Azure Active Directory conditional access?](conditions.md) 
 
 With **then do this**, you define the response of your policy to an access condition. In your response, you either block or grant access with additional requirements, for example, multi-factor authentication (MFA). For a complete overview, see [What are access controls in Azure Active Directory conditional access?](controls.md)  
  
@@ -70,7 +75,6 @@ This is a good time to decide on a naming standard for your policies. The naming
 ![Naming standard](./media/plan-conditional-access/11.png)
 
 
-![Naming standard](./media/plan-conditional-access/09.png)
 
 
 
@@ -96,7 +100,7 @@ When planning your conditional access policy solution, assess whether you need t
 
 ### Block access
 
-The option to block access is very powerful because it:
+The option to block access is powerful because it:
 
 - Trumps all other assignments for a user
 
@@ -122,6 +126,8 @@ With conditional access polices, you can implement automated responses to sign-i
 
 - [The sign-in risk condition](conditions.md#sign-in-risk) in conditional access policy
 - [The sign-in risk policy](../identity-protection/howto-sign-in-risk-policy.md) in identity protection 
+
+Addressing sign-in risks as 
 
 Because the sign-in risk condition provides you with more flexibility, use this condition if you need to implement a response to a sign-in risk level. 
 
@@ -162,9 +168,9 @@ Before rolling out a policy into production, you should test is to verify that i
 
 ### Create test users
 
-To test a policy, create a set of users representing users in your environment. Creating test users allows you to test the policies and proof that they work before you impact real users and potentially disrupt their access to apps and resources. 
+To test a policy, create a set of users representing users in your environment. Creating test users allows you to verify that your policies work as expected before you impact real users and potentially disrupt their access to apps and resources. 
 
-Some organizations have test Azure Active Directory tenants for this purpose. However, it can be difficult to recreate all conditions and apps in a test tenant to fully test the outcome of a policy. 
+Some organizations have test tenants for this purpose. However, it can be difficult to recreate all conditions and apps in a test tenant to fully test the outcome of a policy. 
 
 ### Create a test plan
 
@@ -206,7 +212,7 @@ Now that you have configured your conditional access policy, you probably want t
 
 Run test cases according to your test plan. In this step, you run through an end-to-end test of each policy for your test users to make sure each policy behaves correctly. Use the scenarios created above to execute each test.
 
-It is important to make sure you test the exclusion criteria of a policy. For example, you may exclude a user or group from a policy that require MFA. You should therefore test if the excluded users are prompted for MFA or not, because the combination of other policies might require MFA for those users.
+It is important to make sure you test the exclusion criteria of a policy. For example, you may exclude a user or group from a policy that require MFA. You should therefore test if the excluded users that are prompted for MFA or not, because the combination of other policies might require MFA for those users.
 
 
 ### Cleanup
@@ -228,9 +234,9 @@ When you are ready to deploy a new policy into your environment, you should do t
 
 1. Apply a policy to a small set of users and verify it behaves as expected.
 
-2. When you expand a policy to include more users, continue to exclude all administrators from the policy. This ensures that administrators still have access and can update a policy if a change is required.
+2. When you expand a policy to include more users, continue to exclude all administrators. Excluding administrators ensures that someone still has access to a policy if a change is required.
 
-3. Apply a policy to all users only if this is really required.
+3. Apply a policy to all users only if it's required.
 
 As a best practice, create at least one user account that is:
 
@@ -261,4 +267,4 @@ In case you need to roll back your newly implemented policies, use one or more o
 
 ## Next steps
 
-Check out [Azure AD Conditional Access Documentation](index.md) to get an overview of the available information.
+Check out [Azure AD Conditional Access Documentation](index.yml) to get an overview of the available information.
