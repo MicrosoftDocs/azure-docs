@@ -23,10 +23,8 @@ This document describes the setup for tunneling SSH traffic (using port 22) thro
 ## How it works?
 Figure below illustrates the setup of how the device- and service-local proxy programs will enable end-to-end connectivity between SSH client and SSH daemon processes. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-local proxy application. You should run an accompanying service-local proxy application which is available in [C# quickstart](./iot-hub-device-streams-csharp-proxy-quickstart.md) or [Node.js quickstart](./iot-hub-device-streams-nodejs-proxy-quickstart.md) guides.
 
-<p>
-    <img style="margin:auto;display:block;background-color:white;width:50%;" 
-    src="./media/iot-hub-device-streams-csharp-proxy-quickstart/device-stream-proxy-diagram.svg">
-</p>
+![Alt text](./media/iot-hub-device-streams-csharp-proxy-quickstart/device-stream-proxy-diagram.svg "Local proxy setup")
+
 
 1. Service-local proxy connects to IoT hub and initiates a device stream to the target device.
 
@@ -196,15 +194,12 @@ ssh <username>@localhost -p 2222
 
 At this point, you will be presented with the SSH login prompt to enter your credentials.
 
-<p>
-    Console output on the device-local proxy which connects to the SSH daemon at <code>IP_address:22</code>:
-    <img src="./media/iot-hub-device-streams-c-proxy-quickstart/device-console-output.PNG"/>
-</p>
 
-<p>
-    Console output of the SSH client program (SSH client communicates to SSH daemon by connecting to port 22 where service-local proxy is listening on):
-    <img src="./media/iot-hub-device-streams-csharp-proxy-quickstart/ssh-console-output.png"/>
-</p>
+Console output on the device-local proxy which connects to the SSH daemon at <code>IP_address:22</code>:
+![Alt text](./media/iot-hub-device-streams-c-proxy-quickstart/device-console-output.PNG "Device-local proxy output")
+
+Console output of the SSH client program (SSH client communicates to SSH daemon by connecting to port 22 where service-local proxy is listening on):
+![Alt text](./media/iot-hub-device-streams-csharp-proxy-quickstart/ssh-console-output.png "SSH client output")
 
 ## Clean up resources
 
@@ -218,4 +213,3 @@ Use the links below to learn more about device streams:
 
 > [!div class="nextstepaction"]
 > [Device streams overview](./iot-hub-device-streams-overview.md)
-> [Try other quickstarts](/azure/iot-hub)

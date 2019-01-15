@@ -123,15 +123,12 @@ Change `MyDevice` to the device ID you chose for your device.
 ### SSH to your device via device streams
 In Linux, run SSH using `ssh $USER@localhost -p 2222` on a terminal. In Windows, use your favorite SSH client (e.g., PuTTY).
 
-<p>
-    Console output on the service-side after SSH session is established (the service-local proxy listens on port 2222):
-    <img src="./media/iot-hub-device-streams-nodejs-proxy-quickstart/service-console-output.PNG"/>
-</p>
+Console output on the service-side after SSH session is established (the service-local proxy listens on port 2222):
+![Alt text](./media/iot-hub-device-streams-nodejs-proxy-quickstart/service-console-output.PNG "SSH terminal output")
 
-<p>
-    Console output of the SSH client program (SSH client communicates to SSH daemon by connecting to port <code>22</code> where service-local proxy is listening on):
-    <img src="./media/iot-hub-device-streams-nodejs-proxy-quickstart/ssh-console-output.PNG"/>
-</p>
+
+Console output of the SSH client program (SSH client communicates to SSH daemon by connecting to port <code>22</code> where service-local proxy is listening on):
+![Alt text](./media/iot-hub-device-streams-nodejs-proxy-quickstart/ssh-console-output.PNG "SSH client output")
 
 
 ### RDP to your device via device streams
@@ -141,9 +138,7 @@ Now use your RDP client program and connect to service proxy on port 2222 (this 
 > [!NOTE]
 > Ensure that your device proxy is configured correctly for RDP and configured with RDP port 3389.
 
-<p>
-    <img style="margin:auto;display:block;background-color:white;width:50%;" src="./media/iot-hub-device-streams-nodejs-proxy-quickstart/rdp-screen-capture.PNG">
-</p>
+![Alt text](./media/iot-hub-device-streams-nodejs-proxy-quickstart/rdp-screen-capture.PNG "RDP client connects to service-local proxy.")
 
 
 ## Clean up resources
@@ -158,4 +153,3 @@ Use the links below to learn more about device streams:
 
 > [!div class="nextstepaction"]
 > [Device streams overview](./iot-hub-device-streams-overview.md)
-> [Try other quickstarts](/azure/iot-hub)

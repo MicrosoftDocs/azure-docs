@@ -136,14 +136,13 @@ dotnet run %DeviceConnectionString%
 
 At the end of the last step, the service-side program will initiate a stream to your device and once established will send a string buffer to the service over the stream. In this sample, the service-side program simply echos back the same data to the device, demonstrating successful bidirectional communication between the two applications. See figure below.
 
-<p>
-    Console output on the device-side:
-    <img src="./media/iot-hub-device-streams-csharp-echo-quickstart/device-console-output.png"/>
-</p>
-<p>
-    Console output on the service-side:
-    <img src="./media/iot-hub-device-streams-csharp-echo-quickstart/service-console-output.png"/>
-</p>
+Console output on the device-side:
+![alt text](./media/iot-hub-device-streams-csharp-echo-quickstart/device-console-output.png "Console output on the device-side")
+
+
+Console output on the service-side:
+![alt text](./media/iot-hub-device-streams-csharp-echo-quickstart/service-console-output.png "Console output on the service-side")
+
 
 
 The traffic being sent over the stream will be tunneled through IoT Hub rather than being sent directly. This provides [these benefits](./iot-hub-device-streams-overview.md#benefits).
@@ -162,4 +161,3 @@ Use the links below to learn more about device streams:
 
 > [!div class="nextstepaction"]
 > [Device streams overview](./iot-hub-device-streams-overview.md)
-> [Try other quickstarts](/azure/iot-hub)
