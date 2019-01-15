@@ -65,7 +65,7 @@ The combination of conditions with your access controls represents a conditional
 
 For more information, see [what's required to make a policy work](best-practices.md#whats-required-to-make-a-policy-work).
 
-This is a good time to decide on a naming standard for your policies. The naming standard helps you to find policies and understand their purpose without opening them in the Azure admin portal. You should name your policy to show:
+At this point, it's is a good time to decide on a naming standard for your policies. The naming standard helps you to find policies and understand their purpose without opening them in the Azure admin portal. You should name your policy to show:
 
 - The cloud app it applies to
 - The response
@@ -168,7 +168,7 @@ Before rolling out a policy into production, you should test is to verify that i
 
 ### Create test users
 
-To test a policy, create a set of users representing users in your environment. Creating test users allows you to verify that your policies work as expected before you impact real users and potentially disrupt their access to apps and resources. 
+To test a policy, create a set of users that is similar to the users in your environment. Creating test users allows you to verify that your policies work as expected before you impact real users and potentially disrupt their access to apps and resources. 
 
 Some organizations have test tenants for this purpose. However, it can be difficult to recreate all conditions and apps in a test tenant to fully test the outcome of a policy. 
 
@@ -212,7 +212,7 @@ Now that you have configured your conditional access policy, you probably want t
 
 Run test cases according to your test plan. In this step, you run through an end-to-end test of each policy for your test users to make sure each policy behaves correctly. Use the scenarios created above to execute each test.
 
-It is important to make sure you test the exclusion criteria of a policy. For example, you may exclude a user or group from a policy that require MFA. You should therefore test if the excluded users that are prompted for MFA or not, because the combination of other policies might require MFA for those users.
+It is important to make sure you test the exclusion criteria of a policy. For example, you may exclude a user or group from a policy that require MFA. You should therefore test if the excluded users are prompted for MFA, because the combination of other policies might require MFA for those users.
 
 
 ### Cleanup
