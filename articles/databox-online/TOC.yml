@@ -26,7 +26,7 @@
     - name: Understand limits
       href: data-box-gateway-limits.md
     - name: View usecases
-      href: data-box-gateway-usecases.md
+      href: data-box-gateway-use-cases.md
   - name: How to
     items:
     - name: Manage

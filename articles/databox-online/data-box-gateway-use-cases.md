@@ -44,12 +44,11 @@ Archive tier is optimized to store rarely accessed data for at least 180 days. T
 Before you begin, make sure that you have a running Data Box Gateway device. Follow the steps detailed in [Tutorial: Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md) and keep advancing to the next tutorial until you have an operational device.
 
 - Use the Data Box Gateway device to upload data to Azure through the usual transfer procedure as described in [Transfer data via Data Box Gateway](data-box-gateway-deploy-add-shares.md).
-- After the data is uploaded, you will need to move it to Archive tier. You can do this in two ways: Azure PowerShell script or an Azure Storage Lifecycle Management policy.  
-- If using Azure PowerShell, follow these [steps](data-box-how-to-set-data-tier.md#use-azure-powershell-to-set-the-blob-tier) to move the data to Archive tier.
-- If using Azure Lifecycle Management, follow these steps to move the data to Archive tier.
-        
-    - [Register](/azure/storage/common/storage-lifecycle-management-concepts.md#register-for-preview) for the preview of Blob Lifecycle management service to use Archive tier.
-    - Use the following policy to [Archive data on ingest](/azure/storage/blobs/storage-lifecycle-management-concepts.md#archive-data-at-ingest.md).
+- After the data is uploaded, you will need to move it to Archive tier. You can do set the blob tier in two ways: Azure PowerShell script or an Azure Storage Lifecycle Management policy.  
+    - If using Azure PowerShell, follow these [steps](/azure/databox/data-box-how-to-set-data-tier.md#use-azure-powershell-to-set-the-blob-tier) to move the data to Archive tier.
+    - If using Azure Lifecycle Management, follow these steps to move the data to Archive tier.
+        - [Register](/azure/storage/common/storage-lifecycle-management-concepts.md#register-for-preview) for the preview of Blob Lifecycle management service to use Archive tier.
+        - Use the following policy to [Archive data on ingest](/azure/storage/blobs/storage-lifecycle-management-concepts.md#archive-data-at-ingest.md).
 - Once the blobs are marked as Archive, they can no longer be modified by the gateway unless they are moved to hot or cold tier. If the file is in the local storage, any changes made to the local copy (including deletes) are not uploaded to archive tier.
 - To read data in Archive storage, it must be rehydrated by changing the blob tier to hot or cool. Refreshing the share on the gateway does not rehydrate the blob.
 
@@ -63,11 +62,11 @@ Use Data Box and Data Box Gateway together when you want to do a bulk upload of 
 
 Follow these steps to copy the data to Data Box and upload to Azure Storage.
 
-1. [Order your Data Box](data-box-deploy-ordered.md).
-2. [Set up your Data Box](data-box-deploy-set-up.md).
-3. [Copy data to Data Box via SMB](data-box-deploy-copy-data.md).
-4. [Return the Data Box, verify the data upload to Azure](data-box-deploy-copy-data-via-rest.md).
-5. Once the data upload to Azure is complete, all the data should be in Azure storage containers. Go to the Blob (and File) container to make sure that all the data is copied. Make a note of the container name as you will use this later.
+1. [Order your Data Box](/azure/databox/data-box-deploy-ordered.md).
+2. [Set up your Data Box](/azure/databox/data-box-deploy-set-up.md).
+3. [Copy data to Data Box via SMB](/azure/databox/data-box-deploy-copy-data.md).
+4. [Return the Data Box, verify the data upload to Azure](/azure/databox/data-box-deploy-picked-up.md).
+5. Once the data upload to Azure is complete, all the data should be in Azure storage containers. Go to the Blob (and File) container to make sure that all the data is copied. Make a note of the container name as you will use this name later.
 
 This completes the initial seeding phase.
 
