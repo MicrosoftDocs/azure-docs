@@ -32,7 +32,7 @@ When an Operations Manager management group is integrated with Log Analytics, th
 
 To provide high availability for direct connected or Operations Management groups that communicate with Log Analytics through the gateway, you can use network load balancing to redirect and distribute the traffic across multiple gateway servers.  If one gateway server goes down, the traffic is redirected to another available node.  
 
-The Log Analytics Windows agent is required on the computer running the Log Analytics gateway in order for it to not only identify the service end points that it needs to communicate with, but also report to the same workspaces that the agents or Operations Manager management group behind the gateway are configured with. This is necessary for the gateway to allow them to talk to their assigned workspace. A gateway can be multi-homed or report to up to four workspaces, and is because it is the total number of workspaces a Windows agent supports.  
+The Log Analytics Windows agent is required on the computer running the Log Analytics gateway in order for it to not only identify the service end points that it needs to communicate with, but also report to the same workspaces that the agents or Operations Manager management group behind the gateway are configured with. This is necessary for the gateway to allow them to talk to their assigned workspace. A gateway can be multi-homed to up to four workspaces, as this is the total number of workspaces a Windows agent supports.  
 
 Each agent must have network connectivity to the gateway so that agents can automatically transfer data to and from it. Installing the gateway on a domain controller is not recommended.
 
