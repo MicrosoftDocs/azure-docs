@@ -177,7 +177,7 @@ Next, in the Windows Server 2016 Datacenter VM, install the Azure PowerShell mod
 1. Run the following command:
 
    ```powershell
-   Install-Module -Name Az -AllowClobber
+   Install-Module -Name AzureRm
    ```
 
    > [!NOTE]
@@ -196,7 +196,7 @@ Next, in the Windows Server 2016 Datacenter VM, install the Azure PowerShell mod
 
 1. Answer **Yes** or **Yes to All** to continue with the installation.
 
-The `Az` module is a rollup module for the Azure PowerShell cmdlets. Installing it downloads all the available Azure Resource Manager modules and makes their cmdlets available for use.
+The `AzureRM` module is a rollup module for the Azure PowerShell cmdlets. Installing it downloads all the available Azure Resource Manager modules and makes their cmdlets available for use.
 
 At this point, you've set up your environment for the tutorial. You're ready to deploy the Storage Sync Service.
 
@@ -225,14 +225,6 @@ To deploy Azure File Sync, you first place a **Storage Sync Service** resource i
 ## Install the agent
 
 The Azure File Sync agent is a downloadable package that enables Windows Server to be synced with an Azure file share.
-
-> [!Important]  
-> The Azure File Sync agent currently requires the old **AzureRM** PowerShell module rather than the new **Az** PowerShell module. This can be installed by running: 
-> ```PowerShell
-> Install-Module AzureRm
-> ```
-> 
-> Support for the new **Az** module will be added in a future release. 
 
 1. In the **Windows Server 2016 Datacenter** VM, open **Internet Explorer**.
 1. Go to the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). Scroll down to the **Azure File Sync Agent** section and select **Download**.
