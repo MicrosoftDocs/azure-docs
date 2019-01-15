@@ -1,5 +1,5 @@
 ---
-title: Administrator takeover of an unmanaged directory or shadow tenant in Azure Active Directory | Microsoft Docs
+title: Takeover of an unmanaged directory - Administrator - Azure Active Directory | Microsoft Docs
 description: How to take over a DNS domain name in an unmanaged directory (shadow tenant) in Azure Active Directory. 
 services: active-directory
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/08/2019
+ms.date: 01/14/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
