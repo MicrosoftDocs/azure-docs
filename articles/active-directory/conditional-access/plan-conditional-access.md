@@ -67,6 +67,7 @@ For more information, see [what's required to make a policy work](best-practices
 
 At this point, it's is a good time to decide on a naming standard for your policies. The naming standard helps you to find policies and understand their purpose without opening them in the Azure admin portal. You should name your policy to show:
 
+- A sequence number
 - The cloud app it applies to
 - The response
 - Who it applies to
@@ -80,17 +81,12 @@ At this point, it's is a good time to decide on a naming standard for your polic
 
 For example, the following name states that the policy requires MFA for marketing users on external networks using the Dynamics CRP app:
 
-`Dynamics CRP: Require MFA For marketing When on external networks`
+`CA01-Dynamics CRP: Require MFA For marketing When on external networks`
 
 
-`Require MFA, Marketing, External, Dynamics CRP`
+In addition to your active policies, you should also implement disabled policies that act as secondary resilient access controls in outage/emergency  scenarios. Your naming standard should also include this purpose to make it easier to enable them during an outage. For example:
 
-In addition to your active policies, you should also implement disabled policies that act as secondary resilient access controls in outage scenarios. Your naming standard should also include this purpose to make it easier to enable them during an outage. For example:
-
-`(Outage) Finance app: Require MFA For Sales When on untrusted network`
-
-
-`(Outage)Require trusted network, Sales, Internal, Finance app`
+`EM01-Finance app: Require MFA For Sales When on untrusted network`
 
 
 ## Plan policies
