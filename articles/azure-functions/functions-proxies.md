@@ -147,7 +147,7 @@ Each proxy has a friendly name, such as *proxy1* in the preceding example. The c
 
 ### <a name="disableProxies"></a> Disable individual proxies
 
-You can disable individual proxies by adding `"disabled": true` to the proxy in the `proxies.json` file. This will cause any requests meeting the matchCondidtion to return 404.
+You can disable individual proxies by adding `"disabled": true` to the proxy in the `proxies.json` file. This will cause any requests meeting the matchCondition to return 404.
 ```json
 {
     "$schema": "http://json.schemastore.org/proxies",

@@ -1,5 +1,5 @@
 ---
-title: About 
+title: What is 
 titleSuffix: Azure Machine Learning service
 description: Overview of Azure Machine Learning service - An integrated, end-to-end data science solution for professional data scientists to develop, experiment, and deploy advanced analytics applications at cloud scale.
 services: machine-learning

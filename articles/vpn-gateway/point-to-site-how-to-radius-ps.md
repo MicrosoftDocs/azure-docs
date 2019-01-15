@@ -60,7 +60,7 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 ### Sign in
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ### <a name="example"></a>Example values
 

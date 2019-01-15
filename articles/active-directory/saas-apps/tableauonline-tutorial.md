@@ -151,7 +151,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
    ![Configure Single Sign-On](./media/tableauonline-tutorial/attributesection2.png)
 
-    f. To copy the namesapce values for the email and surname follow the preceding steps.
+    f. To copy the namespace values for the email and surname follow the preceding steps.
 
   	g. Switch to the Tableau Online application, then set the **Tableau Online Attributes** section as follows:
      * Email: **mail** or **userprincipalname**
