@@ -1,7 +1,7 @@
 ---
-title:  "Quickstart: Bing Entity Search API, Node.js"
+title:  "Quickstart: Send a search request to the Bing Entity Search REST API using Node.js"
 titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Entity Search API.
+description: Use this quickstart to send a request to the Bing Entity Search REST API using C#, and receive a JSON response.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -9,20 +9,86 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 01/15/2019
 ms.author: aahi
 ---
-# Quickstart for Bing Entity Search API with Node.js
 
-This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with Node.JS.
+# Quickstart: Send a search request to the Bing Entity Search REST API using Node.js
+
+Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple JavaScript application sends a news search query to the API, and displays the response.
+
+While this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
-You will need [Node.js 6](https://nodejs.org/en/download/) to run this code.
+* The latest version of [Node.js](https://nodejs.org/en/download/).
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Entity Search API**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* The [JavaScript Request Library](https://github.com/request/request)
 
-## Search entities
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
+
+## Create and initialize the application
+
+1. Create a new JavaScript file in your favorite IDE or editor, and set the strictness and https requirements.
+
+    ```javaScript
+    'use strict';
+    let https = require ('https');
+    ```
+
+2. Create variables for the API endpoint, your subscription key, and search query.
+
+    ```javascript
+    let subscriptionKey = 'ENTER YOUR KEY HERE';
+    let host = 'api.cognitive.microsoft.com';
+    let path = '/bing/v7.0/entities';
+    
+    let mkt = 'en-US';
+    let q = 'italian restaurant near me';
+    ```
+
+3. Append your market and query parameters to a string called `params`. Be sure to url-encode your query with `encodeURI()`.
+    ```javascript 
+    let params = '?mkt=' + mkt + '&q=' + encodeURI(q);
+    ```
+## Handle and parse the response
+
+1. define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. within this function, perform the following steps:
+
+    1. Define a variable to contain the body of the JSON response.  
+        ```javascript
+        let response_handler = function (response) {
+            let body = '';
+        };
+        ```
+
+    2. Store the body of the response when the **data** flag is called
+        ```javascript
+        response.on('data', function (d) {
+            body += d;
+        });
+        ```
+
+    3. When an **end** flag is signalled, the JSON and headers can be viewed.
+
+        ```javascript
+        response.on('end', function () {
+            console.log('\nRelevant Headers:\n');
+            for (var header in response.headers)
+                // header keys are lower-cased by Node.js
+                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                     console.log(header + ": " + response.headers[header]);
+            body = JSON.stringify(JSON.parse(body), null, '  ');
+            console.log('\nJSON Response:\n');
+            console.log(body);
+         });
+        ```
+
+
+
+
+
+
 
 To run this application, follow these steps.
 
@@ -31,7 +97,7 @@ To run this application, follow these steps.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let https = require ('https');

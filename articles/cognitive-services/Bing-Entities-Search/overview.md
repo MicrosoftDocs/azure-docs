@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: overview
-ms.date: 07/06/2016
+ms.date: 01/15/2019
 ms.author: scottwhi
 ---
 
@@ -21,6 +21,7 @@ The Bing Entity Search API sends a search query to Bing and gets results that in
 |---------|---------|
 |[Real-time search suggestions](define-custom-suggestions.md)     | Provide search suggestions that can be displayed as a dropdown list as your users type.       | 
 | Entity detection | |
+
 ## Workflow
 
 The Bing Entity Search API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. You can use the service using either the REST API, or the SDK.
