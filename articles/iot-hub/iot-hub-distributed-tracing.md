@@ -12,11 +12,7 @@ ms.author: jlian
 
 # Add correlation IDs and timestamps to Azure IoT device-to-cloud messages with distributed tracing (preview)
 
-<!---
-As your IoT solution grows in size and complexity, so does the difficulty of pinpointing bottlenecks and root causes. For example, you have an IoT solution that uses 5 different Azure services and 1500 active devices. Each device is programmed to send 10 device-to-cloud messages/second (for a total of 15000 messages/second), but you notice that your web app sees only 10000 messages/second - where is the issue? How do you find the culprit?
---->
-
-To better understand the flow of requests or IoT messages across services, consider the [distributed tracing pattern](#Understand-Azure-IoT-distributed-tracing). In this public preview, IoT Hub is one of the first services to support distributed tracing. Enable distributed tracing for IoT Hub to:
+To better understand the flow of requests or IoT messages across services, consider the [distributed tracing pattern](#understand-Azure-IoT-distributed-tracing). In this public preview, IoT Hub is one of the first services to support distributed tracing. Enable distributed tracing for IoT Hub to:
 
 - Add correlation IDs (following the [proposed W3C Trace Context format](https://github.com/w3c/trace-context)) to a subset (or all, configured via device twin) of your IoT device-to-cloud messages
 - Automatically log the message correlation IDs and timestamps to [Azure Monitor diagnostic logs](iot-hub-monitor-resource-health.md)
@@ -70,7 +66,7 @@ If you're using the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md) 
 
 For a client app that can receive sampling decisions from the cloud, check out [this sample](https://aka.ms/iottracingCsample). 
 
-If you're not using the C SDK, and still would like preview distributed tracing for IoT Hub, construct the message to contain a `tracestate` application property with the creation time of the message in the unix timestamp format. For example, `tracestate=creationtimeutc=1539243209`. To control the percentage of messages containing this property, implement logic to listen to cloud-initiated events such as twin updates.
+If you're not using the C SDK, and still would like preview distributed tracing for IoT Hub, construct the message to contain a `tracestate` application property with the creation time of the message in the unix timestamp format. For example, `tracestate=timestamp=1539243209`. To control the percentage of messages containing this property, implement logic to listen to cloud-initiated events such as twin updates.
 	
 ### Configure the percentage of messages sampled using device twin
 
@@ -167,7 +163,29 @@ To visualize the flow of IoT messages participating distributed tracing, set up 
 
 ## Understand Azure IoT distributed tracing
 
-[TBD](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing).
+### Context
+
+Many IoT solutions, including our own [reference architecture](https://aka.ms/iotrefarchitecture) (English only), generally follow a variant of the [microservice architecture](https://docs.microsoft.com/azure/architecture/microservices/). As such an IoT solution grows more complex, you end up using a dozen or more microservices, either from Azure or not. Pinpointing where IoT messages are dropping or slowing down can become very challenging. For example, you have an IoT solution that uses 5 different Azure services and 1500 active devices. Each device is programmed to send 10 device-to-cloud messages/second (for a total of 15000 messages/second), but you notice that your web app sees only 10000 messages/second - where is the issue? How do you find the culprit?
+
+### Distributed tracing pattern in microservice architecture
+
+To reconstruct the flow of a IoT message across the different services, each service should propagate a *correlation ID* that uniquely identifies the message. Once collected in a centralized system, the set of correlation IDs enable you to see the message flow. This method is called the [distributed tracing pattern](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing).
+
+Microsoft is supporting wider adoption for distributed tracing in the industry by contributing to a [W3C standard proposal](https://w3c.github.io/trace-context/).
+
+### IoT Hub support
+
+Once enabled, distributed tracing support for IoT Hub works like this:
+
+1. A message is generated on the IoT device
+1. The IoT device decides (with help from cloud) that this message should be assigned with a trace context
+1. The SDK adds a `tracestate` to the message application property, containing the message creation timestamp
+1. The IoT device sends the message to IoT Hub
+1. The message arrives at IoT hub gateway
+1. IoT Hub looks for the `tracestate` in the message application properties, and checks to see if it's in the correct format
+1. If so, IoT Hub logs the `trace-id` and `span-id` to Azure Monitor diagnostic logs
+1. Repeat steps 2 through 6 for each message generated
+
 
 ## Limits of the public preview 
 
