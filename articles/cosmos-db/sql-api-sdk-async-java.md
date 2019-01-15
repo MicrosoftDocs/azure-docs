@@ -46,6 +46,11 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 
 ## Release notes
 
+### <a name="2.3.1"/>2.3.1
+* Fix handling very large query responses.
+* Fix resource token handling when instantiating client.
+* Upgraded vulnerable dependency jackson-databind.
+
 ### <a name="2.3.0"/>2.3.0
 * Fixed a resource leak bug.
 * Added support for MultiPolygon
