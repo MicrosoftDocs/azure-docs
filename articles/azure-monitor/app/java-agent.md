@@ -84,9 +84,19 @@ You have to enable reports exception and method timing for individual methods.
 
 By default, `reportExecutionTime` is true and `reportCaughtExceptions` is false.
 
-### Spring Boot Agent additional config
+## Additional config (Spring Boot)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
+
+For Azure App Services do the following:
+
+* Select Settings > Application Settings
+* Under App Settings, add a new key value pair:
+
+Key: `JAVA_OPTS`
+Value: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.2.1-SNAPSHOT.jar`
+
+* Save the settings and Restart your app.
 
 > [!NOTE]
 > AI-Agent.xml and the agent jar file should be in the same folder. They are often placed together in the `/resources` folder of the project. 
