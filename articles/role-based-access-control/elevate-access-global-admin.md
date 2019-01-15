@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/12/2019
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -104,7 +104,7 @@ CanDelegate        : False
 
 To remove a User Access Administrator role assignment for a user at the root scope (`/`), follow these steps.
 
-1. Ensure you are signed in as the same user as was used to elevate access.
+1. Sign in as a user that can remove elevated access. This can be the same user that was used to elevate access or another Global Administrator with elevated access at the root scope.
 
 
 1. Use the [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) command to remove the User Access Administrator role assignment.
