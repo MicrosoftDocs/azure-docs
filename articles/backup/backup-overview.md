@@ -80,7 +80,7 @@ The advantages of backing up first to DPM/MABS and then to a vault are as follow
 --- | --- | ---
 On-premises Windows VMs | Not backed up to DPM or MABS | Back up files, folders, system state.
 Azure VMs (Windows and Linux) | Not backed up to DPM or MABS | Back up files, folders, system state.<br/><br/> Backups are app-aware for Windows machines, and file-aware for Linux machines.
-On-premises VMs/Azure VMs | Protected by DPM | Back up anything that's protected by DPM, including files/folders/shares/volumes, and app-specific data. [Learn](dpm-protection-matrix.md) what DPM can back up.
+On-premises VMs/Azure VMs | Protected by DPM | Back up anything that's protected by DPM, including files/folders/shares/volumes, and app-specific data. [Learn](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807) what DPM can back up.
 On-premises VMs/Azure VMs | Protected by MABS | Back up anything that's protected by MABS, including files/folders/shares/volumes, and app-specific data. [Learn](backup-mabs-protection-matrix.md) what MABS can back up.
 
 ## What backup agents do I need?
