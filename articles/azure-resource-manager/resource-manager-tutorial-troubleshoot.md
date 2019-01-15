@@ -11,10 +11,9 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/06/2018
+ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: seodec18
 ---
 
 # Tutorial: Troubleshoot Resource Manager template deployments
@@ -23,19 +22,18 @@ Learn how to troubleshoot Resource Manager template deployment. In this tutorial
 
 There are two types of errors you can receive:
 
-- Validation errors: Validation errors arise from scenarios that can be determined before deployment. They include syntax errors in your template, or trying to deploy resources that would exceed your subscription quotas. 
-- Deployment errors: Deployment errors arise from conditions that occur during the deployment process. They include trying to access a resource that is being deployed in parallel.
+- **Validation errors** arise from scenarios that can be determined before deployment. They include syntax errors in your template, or trying to deploy resources that would exceed your subscription quotas. 
+- **Deployment errors** arise from conditions that occur during the deployment process. They include trying to access a resource that is being deployed in parallel.
 
 Both types of errors return an error code that you use to troubleshoot the deployment. Both types of errors appear in the activity log. However, validation errors don't appear in your deployment history because the deployment never started.
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Open a Quickstart template
-> * Understand the template
-> * Find the template reference
-> * Edit the template
-> * Deploy the template
+> * Create a problematic template
+> * Troubleshoot validation errors
+> * Troubleshoot deployment errors
+> * Clean up resources
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -43,7 +41,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/) with [Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+- [Visual Studio Code](https://code.visualstudio.com/) with [Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 
 ## Create a problematic template
 
@@ -57,18 +55,19 @@ Open a template called [Create a standard storage account](https://azure.microso
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 3. Select **Open** to open the file.
-4. Change the **apiVersion** line to the following:
+4. Change the **apiVersion** line to the following line:
 
+    ```json
     "apiVersion1": "2018-07-02",
-
-    - **apiVersion1** is a validation error.
-    - The data is a deployment error.
+    ```
+    - **apiVersion1** is invalid element name. It is a validation error.
+    - The API version shall be "2018-07-01".  It is a deployment error.
 
 5. Select **File**>**Save As** to save the file as **azuredeploy.json** to your local computer.
 
 ## Troubleshoot the validation error
 
-Refer to the [Deploy the template](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section in the Visual Studio Code quickstart for the deployment procedure.
+Refer to the [Deploy the template](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section to deploy the template.
 
 You shall get an error similar to:
 
@@ -78,11 +77,11 @@ New-AzureRmResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestCont
 
 The error message indicates the problem is with **apiVersion1**.
 
-Use Visual Studio Code to correct the problem, and then save the template.
+Use Visual Studio Code to correct the problem by changing **apiVersion1** to **apiVersion**, and then save the template.
 
 ## Troubleshoot the deployment error
 
-Refer to the [Deploy the template](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section in the Visual Studio Code quickstart for the deployment procedure.
+Refer to the [Deploy the template](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section to deploy the template.
 
 You shall get an error similar to:
 
@@ -95,29 +94,31 @@ New-AzureRmResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/sto
 }'
 ```
 
-The deployment error can be also found from the Azure portal using the following procedure:
+The deployment error can be found from the Azure portal using the following procedure:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Open the resource group by selecting **Resource groups** and then the resource group name. You shall see **1 Failed** under **Deployment.
+2. Open the resource group by selecting **Resource groups** and then the resource group name. You shall see **1 Failed** under **Deployment**.
 
     ![Resource Manager tutorial troubleshoot](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
 3. Select **Error details**.
 
-    ![resource manager tutorial troubleshoot](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
+    ![Resource Manager tutorial troubleshoot](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
 
     The error message is the same as shown earlier:
 
-    ![resource manager tutorial troubleshoot](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
+    ![Resource Manager tutorial troubleshoot](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
 
-You can also find the error from the activity log:
+You can also find the error from the activity logs:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Monitor** > **Activity log**. 
 3. Use the filters to find the log.
 
-    ![resource manager tutorial troubleshoot](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-activity-log.png)
+    ![Resource Manager tutorial troubleshoot](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-activity-log.png)
 
 Use Visual Studio Code to correct the problem, and then redeploy the template.
+
+For a list of common errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](./resource-manager-common-deployment-errors.md).
 
 ## Clean up resources
 
@@ -130,7 +131,4 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to use template reference to customize an existing template. To learn how to create multiple storage account instances, see:
-
-> [!div class="nextstepaction"]
-> [Create multiple instances](./resource-manager-tutorial-create-multiple-instances.md)
+In this tutorial, you learned how to troubleshoot Resource Manager template deployment errors.  For more information, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](./resource-manager-common-deployment-errors.md).
