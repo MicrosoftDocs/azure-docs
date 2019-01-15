@@ -24,7 +24,7 @@ To open the Azure Application Insights Profiler settings pane, go to the Applica
 
 The **Configure Application Insights Profiler** pane contains four features: 
 * **Profile Now**: Starts profiling sessions for all apps that are linked to this instance of Application Insights.
-* **Linked apps**: Lists applications that send Profiler to this Application Insights resource.
+* **Linked apps**: Lists applications that send profiling data to this Application Insights resource.
 * **Sessions in Progress**: Displays the status of the session when you select **Profile Now**. 
 * **Recent profiling sessions**: Displays information about past profiling sessions.
 
