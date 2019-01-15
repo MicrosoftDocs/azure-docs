@@ -35,7 +35,7 @@ Read replicas can be created using the following steps:
 
 2.	Select Replication from the menu, under SETTINGS.
 
-If you haven't set **azure.replication_support** to REPLICA on the master and restarted the server, you will see a message instructing you to do so. Do so before proceeding with the create.
+   If you haven't set **azure.replication_support** to REPLICA on the master and restarted the server, you will see a message instructing you to do so. Do so before proceeding with the create.
 
 3.	Select Add Replica.
    ![Azure Database for PostgreSQL - Add replica](./media/howto-read-replicas-portal/add-replica.png)
@@ -87,6 +87,7 @@ Deleting a master follows the same steps as for a standalone Azure Database for 
 
 ## Delete a replica
 To delete a read replica you, can follow the same steps as with deleting a master server above. First open the Overview page of the replica then select Delete.
+
    ![Azure Database for PostgreSQL - Delete replica](./media/howto-read-replicas-portal/delete-replica.png)
  
 Alternatively, you can delete it from the Replication window.
@@ -111,6 +112,7 @@ The **Max lag across replicas** metric shows the lag time between the master and
 1.	In the Azure portal, select the **master** Azure Database for PostgreSQL server.
 
 2.	Select Metrics. In the metrics window, select **Max Lag Across Replicas**.
+    ![Azure Database for PostgreSQL - Monitor max lag across replicas](./media/howto-read-replicas-portal/select-max-lag.png)
  
 3.	Select **Max** as your Aggregation. 
 
