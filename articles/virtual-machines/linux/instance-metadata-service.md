@@ -47,12 +47,9 @@ To try out the Instance Metadata Service, create a VM from [Azure Resource Manag
 
 ### Versioning
 
-The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2018-10-01`. Current supported versions are (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01)
+The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2018-10-01`. Current supported versions are (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01).
 
-> [!NOTE]
-> Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
-
-As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats. However, the previous preview version (2017-03-01) may not be available once the service is generally available.
+As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
 
 ### Using headers
 
@@ -312,7 +309,7 @@ subnet/prefix | Subnet prefix, example 24 | 2017-04-02
 ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02
 macAddress | VM mac address | 2017-04-02
 scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
-identity | (Preview) Managed identities for Azure resources. See [acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+identity | Managed identities for Azure resources. See [acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 attested | See [Attested Data](#attested-data) | 2018-10-01
 
 ## Attested Data
@@ -331,7 +328,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 ```
 
 Api-version is a mandatory field and the version supported for attested data is 2018-10-01.
-Nonce is an optional 10-digit string provided.
+Nonce is an optional 10-digit string provided. Nonce can be used to track the request and if not provided, in response encoded string the current UTC timestamp is returned.
+
  **Response**
 > [!NOTE]
 > The response is a JSON string. The following example response is pretty-printed for readability.
@@ -342,8 +340,6 @@ Nonce is an optional 10-digit string provided.
 }
 ```
 
- > Api-version is a mandatory field and the version supported for attested data is 2018-10-01.
- > Nonce is an optional 10 digit string provided.
  > The signature blob is a pkcs7 signed version of document. It contains the certificate used for signing along with the VM details like vmId, nonce, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
 
 #### Retrieving attested metadata in Windows Virtual Machine
@@ -362,7 +358,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/met
 ```
 
 Api-version is a mandatory field and the version supported for attested data is 2018-10-01.
-Nonce is an optional 10-digit string provided.
+Nonce is an optional 10-digit string provided. Nonce can be used to track the request and if not provided, in response encoded string the current UTC timestamp is returned.
 
  **Response**
 > [!NOTE]
