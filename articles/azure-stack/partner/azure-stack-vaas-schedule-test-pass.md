@@ -18,7 +18,7 @@ ms.reviewer: johnhas
 # Customer intent: As a partner OEM, I want to let the service to test my hardware bill of materials to check that it can run Azure Stack.
 ---
 
-# Scheduling a Test
+# Scheduling a test
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
