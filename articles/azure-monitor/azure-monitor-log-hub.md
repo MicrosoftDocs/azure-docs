@@ -68,7 +68,7 @@ ms.author: magoedte
                                                                         <img alt="" src="https://docs.microsoft.com/media/common/i_security-management.svg" data-linktype="external">
                                                                     </div>
                                                                 </div>
-                                                                <div class="cardText">
+                                                                <div class="cardText" style="padding-left: 0px">
                                                                     <h3>Understand security</h3> 
 																	<p>
 																	    <a href="/azure/azure-monitor/platform/log-analytics-data-security">Log data</a><br/>
