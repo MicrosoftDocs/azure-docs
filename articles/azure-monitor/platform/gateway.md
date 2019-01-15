@@ -119,7 +119,7 @@ To install a gateway, perform the following steps.  If you installed a previous 
 1. If you do not have Microsoft Update enabled, the Microsoft Update page appears where you can choose to enable it. Make a selection and then click **Next**. Otherwise, continue to the next step.
 1. On the **Destination Folder** page, either leave the default folder C:\Program Files\OMS Gateway or type the location where you want to install gateway and then click **Next**.
 1. On the **Ready to install** page, click **Install**. User Account Control might appear requesting permission to install. If so, click **Yes**.
-1. After Setup completes, click **Finish**. You can verify that the service is running by opening the services.msc snap-in and verify that **Log Analytics gateway** appears in the list of services and it status is **Running**.<br><br> ![Services – Log Analytics gateway](./media/gateway/gateway-service.png)  
+1. After Setup completes, click **Finish**. You can verify that the service is running by opening the services.msc snap-in and verify that **OMS Gateway** appears in the list of services and it status is **Running**.<br><br> ![Services – Log Analytics gateway](./media/gateway/gateway-service.png)  
 
 
 ## Configure network load balancing 
@@ -138,7 +138,7 @@ The following section includes steps on how to configure directly connected Log 
 ### Configure standalone Log Analytics agent
 To understand requirements and steps on how to install the Log Analytics agent on the gateway and Windows computers directly connecting to Log Analytics, see [Connect Windows computers to Log Analytics](agent-windows.md) or for Linux computers see [Connect Linux computers to Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md). In the place of specifying a proxy server while configuring the agent, you replace that value with the IP address of the Log Analytics gateway server and its port number. If you have deployed multiple gateway servers behind a network load balancer, the Log Analytics agent proxy configuration is the virtual IP address of the NLB.  
 
-After installing the agent on the gateway server, you can configure it to report to the workspace or workspaces agents talking to the gateway. After completing configuration, you need to restart the **OMS Gateway** service for the changes to take effect. Otherwise, the gateway will reject agents attempting to communicate with Log Analytics and report event id 105 in the **OMS Gateway Log** event log. This applies when you add or remove a workspace from the agent config on the gateway server.   
+After installing the agent on the gateway server, you can configure it to report to the workspace or workspaces agents talking to the gateway. After completing configuration, you need to restart the **OMS Gateway** service for the changes to take effect. Otherwise, the gateway will reject agents attempting to communicate with Log Analytics and report event id 105 in the **OMS Gateway Log** event log. This also applies when you add or remove a workspace from the agent config on the gateway server.   
 
 For information related to the Automation Hybrid Runbook Worker, see [Deploy Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
 
