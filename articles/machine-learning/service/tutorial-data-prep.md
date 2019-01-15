@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 In this tutorial, you learn how to prepare data for regression modeling by using the Azure Machine Learning Data Prep SDK. You run various transformations to filter and combine two different NYC taxi data sets.  
 
-This tutorial is part one of a two-part tutorial series. After you complete the tutorial series, you can predict the cost of a taxi trip by training a model on data features. These features include the pickup day and time, the number of passengers, and the pickup location.
+This tutorial is **part one of a two-part tutorial series**. After you complete the tutorial series, you can predict the cost of a taxi trip by training a model on data features. These features include the pickup day and time, the number of passengers, and the pickup location.
 
 In this tutorial, you:
 
