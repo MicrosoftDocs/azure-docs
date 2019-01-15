@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Quickstart: Set and retrieve a secret from Azure Key Vault by using a .NET web app
 
-In this quickstart, you follow the necessary steps for getting an Azure web application to read information from Azure Key Vault by using managed identities for Azure resources. You learn how to:
+In this quickstart, you follow the steps for getting an Azure web application to read information from Azure Key Vault by using managed identities for Azure resources. Using Key Vault helps keep the information secure. You learn how to:
 
 * Create a key vault.
 * Store a secret in the key vault.
@@ -139,8 +139,7 @@ Publish this app to Azure to see it live as a web app, and to see that you can f
 
 Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../active-directory/managed-identities-azure-resources/overview.md) makes solving this problem simpler, by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
 
-1. Return to the Azure CLI.
-2. Run the assign-identity command to create the identity for this application:
+In the Azure CLI, run the assign-identity command to create the identity for this application:
 
    ```azurecli
    az webapp identity assign --name "keyvaultdotnetcorequickstart" --resource-group "<YourResourceGroupName>"
@@ -168,6 +167,9 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 ```
 
 Now when you run the application, you should see your secret value retrieved. In the above command you are giving the Identity(MSI) of the App Service permissions to do **get** and **list** operations on your Key Vault.
+
+## Clean up resources
+Delete the resource group, virtual machine, and all related resources when you no longer need them. To do so, select the resource group for the VM and select **Delete**.
 
 ## Next steps
 
