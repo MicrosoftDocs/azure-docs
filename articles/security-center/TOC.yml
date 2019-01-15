@@ -22,6 +22,8 @@
     href: tutorial-protect-resources.md
   - name: Respond to incidents
     href: tutorial-security-incident.md
+  - name: Improve your regulatory compliance
+    href: security-center-compliance-dashboard.md  
 
 - name: Concepts
   items:
@@ -29,10 +31,10 @@
     href: security-center-permissions.md
   - name: Data security
     href: security-center-data-security.md
-  - name: Incident response
-    href: security-center-incident-response.md
   - name: Use recommendations to enhance security
     href: security-center-using-recommendations.md
+  - name: Incident response
+    href: security-center-incident-response.md  
 - name: How-to guides
   items:
   - name: Improve your secure score

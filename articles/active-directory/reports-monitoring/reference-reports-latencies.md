@@ -37,10 +37,14 @@ The following table lists the latency information for activity reports.
 > **Latency (95th percentile)** refers to the time by which 95% of the logs will be reported, and **Latency (99th percentile)** refers to the time by which 99% of the logs will be reported. 
 >
 
-| Report | Latency (95th percentile) |Latency (99th percentile)|
-| :-- | --- | --- | 
-| Audit logs | 2 mins  | 5 mins  |
-| Sign-ins | 2 mins  | 5 mins |
+| Report | Latency (95th percentile) |Latency (99th percentile)|Time range within which logs will be reported|
+| :-- | --- | --- | --- |
+| Audit logs | 2 mins  | 5 mins  | 2-60 mins |
+| Sign-ins | 2 mins  | 5 mins | 2-120 mins |
+
+### How soon can I see activities data after getting a premium license?
+
+If you already have activities data with your free license, then you can see it immediately on upgrade. If you don’t have any data, then it will take one or two days for the data to show up in the reports after you upgrade to a premium license.
 
 ## Security reports
 

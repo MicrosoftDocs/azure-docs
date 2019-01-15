@@ -64,8 +64,8 @@ This script uses the following commands to copy data from one storage account to
 
 | Command | Notes |
 |---|---|
-| [Get-AzStorageContainer](/powershell/module/azure.storage/Get-AzStorageContainer) | Returns the containers associated with this Storage account. |
-| [New-AzStorageContext](/powershell/module/azure.storage/New-AzStorageContext) | Creates an Azure Storage context. |
+| [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | Returns the containers associated with this Storage account. |
+| [New-AzStorageContext](/powershell/module/az.storage/New-AzStorageContext) | Creates an Azure Storage context. |
 
 ## Next steps
 
