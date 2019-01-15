@@ -226,6 +226,14 @@ To deploy Azure File Sync, you first place a **Storage Sync Service** resource i
 
 The Azure File Sync agent is a downloadable package that enables Windows Server to be synced with an Azure file share.
 
+> [!Important]  
+> The Azure File Sync agent currently requires the old **AzureRM** PowerShell module rather than the new **Az** PowerShell module. This can be installed by running: 
+> ```PowerShell
+> Install-Module AzureRm
+> ```
+> 
+> Support for the new **Az** module will be added in a future release. 
+
 1. In the **Windows Server 2016 Datacenter** VM, open **Internet Explorer**.
 1. Go to the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). Scroll down to the **Azure File Sync Agent** section and select **Download**.
 
