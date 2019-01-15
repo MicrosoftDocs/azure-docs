@@ -160,8 +160,10 @@ To use the Gateway to support Operations Manager, you must have:
 If it is the first time your Operations Manager management group is registering with a Log Analytics workspace, the option to specify the proxy configuration for the management group is not available in the Operations console.  The management group has to be successfully registered with the service before this option is available.  Update the system proxy configuration using Netsh on the system your running the Operations console from to configure integration, and all management servers in the management group.  
 
 1. Open an elevated command-prompt.
-   a. Go to **Start** and type **cmd**.
-   b. Right-click **Command prompt** and select Run as administrator**.
+
+    a. Go to **Start** and type **cmd**.  
+    b. Right-click **Command prompt** and select **Run as administrator**.  
+
 1. Enter the following command and press **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
