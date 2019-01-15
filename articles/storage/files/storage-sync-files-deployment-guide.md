@@ -15,8 +15,6 @@ Use Azure File Sync to centralize your organization's file shares in Azure Files
 
 We strongly recommend that you read [Planning for an Azure Files deployment](storage-files-planning.md) and [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) before you complete the steps described in this article.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## Prerequisites
 * An Azure storage account and an Azure file share in the same region that you want to deploy Azure File Sync. For more information, see:
     - [Region availability](storage-sync-files-planning.md#region-availability) for Azure File Sync.
