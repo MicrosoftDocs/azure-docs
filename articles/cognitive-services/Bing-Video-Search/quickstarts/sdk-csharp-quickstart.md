@@ -62,7 +62,7 @@ Installing the [[NuGet Video Search SDK package]](https://www.nuget.org/packages
     ```csharp
     if (videoResults.Value.Count > 0)
     {
-        var firstVideoResult = videoResults.Value.First();
+        var firstVideoResult = videoResults.Value[0];
 
         Console.WriteLine($"\r\nVideo result count: {videoResults.Value.Count}");
         Console.WriteLine($"First video id: {firstVideoResult.VideoId}");
