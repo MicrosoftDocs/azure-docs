@@ -28,7 +28,7 @@ Switching between the two license models incurs **no downtime**, does not restar
 
 ## Prerequisites
 The use of the SQL VM resource provider requires the SQL IaaS extension. As such, to proceed with utilizing the SQL VM resource provider, you need the following:
-- An [Azure subscription](https://azure.microsoft.com/en-us/free/).
+- An [Azure subscription](https://azure.microsoft.com/free/).
 - A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) with the [SQL IaaS extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) installed. 
 
 ## Register existing SQL VM with new resource provider
@@ -139,12 +139,15 @@ $SqlVm.Properties.sqlServerLicenseType
 
 ## Known errors
 
-### Sql Iaas Extension is not installed on Virtual Machine
+### Sql IaaS Extension is not installed on Virtual Machine
 The SQL IaaS extension is a necessary prerequisite for registering your SQL Server VM with the SQL VM resource provider. If you attempt to register your SQL Server VM before installing the SQL IaaS extension, you will encounter the following error:
 
-`Sql Iaas Extension is not installed on Virtual Machine: '{0}'. Please make sure it is installed and in running state and try again later.`
+`Sql IaaS Extension is not installed on Virtual Machine: '{0}'. Please make sure it is installed and in running state and try again later.`
 
-To resolve this issue, install the SQL IaaS extension before attempting to register your SQL Server VM. Please note that installing the SQL IaaS extension will restart the SQL Server service and should only be done during a maintenance window. For more information, see [SQL IaaS Extension installation](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension#installation). 
+To resolve this issue, install the SQL IaaS extension before attempting to register your SQL Server VM. 
+
+  > [!NOTE]
+  > Installing the SQL IaaS extension will restart the SQL Server service and should only be done during a maintenance window. For more information, see [SQL IaaS Extension installation](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension#installation). 
 
 ### Cannot validate argument on parameter 'Sku'
 You may encounter this error when attempting to change your SQL Server VM licensing model when using Azure PowerShell > 4.0:
