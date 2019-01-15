@@ -18,16 +18,26 @@ Active learning allows you to improve the quality of your knowledge base by sugg
 
 Your knowledge base doesn't change automatically. You must accept the suggestions in order for any change to take effect. These suggestions add questions but don't change or remove existing questions.
 
-## What is Active Learning
+## Active Learning
 
 QnA Maker learns new question variations in two possible ways.
  
-* Auto learning – The ranker understands when a user question has multiple answers with less variation in scores and considers that as feedback. 
+* Auto learning – The ranker understands when a user question has multiple answers with scores which are very close and considers that as feedback. 
 * Train API – When multiple answers with little variation in scores are returned from the knowledge base, the client application can ask the user which question is the correct question. When the user selects the correct question, the user feedback is sent to QnA Maker with the Train API. 
 
 Either method provides the ranker with similar queries that are clustered.
 
-When similar queries are clustered, QnA Maker suggests the user-based questions to the knowledge base developer to accept or reject.
+When similar queries are clustered, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject.
+
+## Quality and quanity of user utterances
+
+For best practices when using active learning, see [Best practices](../Concepts/best-practices.md#active-learning).
+
+## Score proximity
+
+When a question's score is highly confident, such as 80%, the range of scores that are considered for active learning are wide, approximately within 10%. As the confidence score decreases, such as 40%, the range of scores descreases as well, approximately within 4%. 
+
+The algorithm to determine proximity is not a simple calculation. The ranges in the preceding examples are not meant to be fixed but should be used as a guide to understand the impact of the algorithm only.
 
 ## Turn on active learning
 
@@ -42,17 +52,20 @@ When similar queries are clustered, QnA Maker suggests the user-based questions 
 
     Once **Active Learning** is enabled, the knowledge suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
 
-## Accept active learning suggested questions
+## Add active learning suggestion to knowledge base
 
 1. On the **Edit** knowledge base page, select **Filter by Suggestions** to see the suggested questions.
     
 
 1.	Each question section with suggestions shows the new questions with a check mark to accept the question or an x mark to reject the suggestions. Select the check mark to add the question. 
 
+    [![On the service settings page, toggle on Active Learning](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+
     You can add or delete _all suggestions_ by selecting **Add all** or **Reject all**.
 
 1. Select **Save and Train** to save the changes to the knowledge base.
 
+<!--
 ## Determine best choice when several questions have similar scores
 
 When a question is too close in score to other questions, the client-application developer can choose to ask for clarification.
@@ -116,7 +129,7 @@ Authorization: EndpointKey <endpoint-key>
 Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
-
+-->
 ## Next Steps
  
 > [!div class="nextstepaction"]
