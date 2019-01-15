@@ -13,7 +13,7 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/08/2019
 ---
-# Transactional replication with SQL Logical Server and SQL Managed Instance
+# Transactional replication with Azure SQL Logical Server and Azure SQL Managed Instance
 
 Transactional Replication is a feature of Azure SQL Database, Managed Instance and SQL Server that enables you to replicate data from a table in Azure SQL Database or SQL Server to the tables placed on remote databases. This feature allows you to synchronize multiple tables in different databases.
 
