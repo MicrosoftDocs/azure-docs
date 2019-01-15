@@ -303,7 +303,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 1. You're ready to deploy this template by using the following PowerShell command:
 
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
     ```
 
     The configuration change can take a few minutes to complete. When it's complete, a message is displayed that's similar to the following and includes the result:
