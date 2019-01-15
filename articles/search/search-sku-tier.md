@@ -37,12 +37,9 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 In Azure Search, there are four ways you can incur costs when you create a resource.
 
-* Add replicas and partitions used for regular indexing and querying tasks. You start with one of each, but you can increase one or both to add capacity, choosing and paying for specific levels of resourcing. 
-
+* Adding replicas and partitions used for regular indexing and querying tasks. You start with one of each, but you can increase one or both to add capacity, choosing and paying for specific levels of resourcing. 
 * Data egress charges during indexing. When pulling data from an Azure SQL Database or Cosmos DB data source, you will see charges for the transaction in the bill for those data sources.
-
 * For [cognitive search](cognitive-search-concept-intro.md) only, image extraction during document cracking is billed based on the number of images extracted from your documents. Text extraction is currently free.
-
 * For [cognitive search](cognitive-search-concept-intro.md) only, enrichments based on [built-in cognitive skills](cognitive-search-predefined-skills.md) are billed against a Cognitive Services resource. Enrichments are billed at the same rate as if you had performed the task using Cognitive Services directly.
 
 If you are not using [cognitive search](cognitive-search-concept-intro.md) or [Azure Search indexers](search-indexer-overview.md), your only costs are related to replicas and partitions in active use, for regular indexing and query workloads.
@@ -69,7 +66,7 @@ Pricing is subject to change, but is always documented on the [Pricing Details](
 
 When you set up an enrichment pipeline, any [built-in skills](cognitive-search-predefined-skills.md) used in the pipeline are based on machine learning models. Those models are provided by Cognitive Services. Usage of those models during indexing is billed at the same rate as if you had requested the resource directly.
 
-For example, assume a pipeline consisting of optical character recognition (OCR) against scanned image JPEG files, where the resulting text is pushed into an Azure Search index for free-form search queries. Your indexing pipeline would include an indexer with the [OCR skill](cognitive-search-skill-ocr.md), and that skill would be [attached to a Cognitive Services resource](cognitive-search-attach-cognitive-services.md). When you run the indexer, charges would appeear on your Cognitive Resources bill for OCR execution.
+For example, assume a pipeline consisting of optical character recognition (OCR) against scanned image JPEG files, where the resulting text is pushed into an Azure Search index for free-form search queries. Your indexing pipeline would include an indexer with the [OCR skill](cognitive-search-skill-ocr.md), and that skill would be [attached to a Cognitive Services resource](cognitive-search-attach-cognitive-services.md). When you run the indexer, charges appear on your Cognitive Resources bill for OCR execution.
 
 ## Tips for reducing costs
 
