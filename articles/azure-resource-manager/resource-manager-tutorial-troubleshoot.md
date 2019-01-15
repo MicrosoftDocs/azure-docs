@@ -18,9 +18,9 @@ ms.author: jgao
 
 # Tutorial: Troubleshoot Resource Manager template deployments
 
-Learn how to troubleshoot Resource Manager template deployment. In this tutorial, you set up two errors in a template, and learn how to use the activity logs and deployment history to resolve the issues.
+Learn how to troubleshoot Resource Manager template deployment errors. In this tutorial, you set up two errors in a template, and learn how to use the activity logs and deployment history to resolve the issues.
 
-There are two types of errors you can receive:
+There are two types of errors that are related to template deployment:
 
 - **Validation errors** arise from scenarios that can be determined before deployment. They include syntax errors in your template, or trying to deploy resources that would exceed your subscription quotas. 
 - **Deployment errors** arise from conditions that occur during the deployment process. They include trying to access a resource that is being deployed in parallel.
@@ -68,7 +68,7 @@ Open a template called [Create a standard storage account](https://azure.microso
 
 Refer to the [Deploy the template](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section to deploy the template.
 
-You shall get an error similar to:
+You shall get an error from the shell similar to:
 
 ```
 New-AzureRmResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; Message=The request content was invalid and could not be deserialized: 'Could not find member 'apiVersion1' on object of type 'TemplateResource'. Path 'properties.template.resources[0].apiVersion1', line 36, position 24.'.
@@ -82,7 +82,7 @@ Use Visual Studio Code to correct the problem by changing **apiVersion1** to **a
 
 Refer to the [Deploy the template](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section to deploy the template.
 
-You shall get an error similar to:
+You shall get an error from the shell similar to:
 
 ```
 New-AzureRmResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageAccounts 'storeqii7x2rce77dc' failed with message '{
@@ -103,14 +103,14 @@ The deployment error can be found from the Azure portal using the following proc
 
     ![Resource Manager tutorial troubleshoot](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
 
-    The error message is the same as shown earlier:
+    The error message is the same as the one shown earlier:
 
     ![Resource Manager tutorial troubleshoot](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
 
 You can also find the error from the activity logs:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Monitor** > **Activity log**. 
+2. Select **Monitor** > **Activity log**.
 3. Use the filters to find the log.
 
     ![Resource Manager tutorial troubleshoot](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-activity-log.png)
