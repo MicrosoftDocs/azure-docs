@@ -102,11 +102,6 @@ ms.author: magoedte
                                                             <a href="/azure/azure-monitor/platform/log-analytics-data-ingestion-time">Log data ingestion time</a><br/>
 														</p>
 														<br>
-                                                        <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_data-collection.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
                                                         <h3>Data sources</h3>
                                                         <p>
                                                             <a href="/azure/azure-monitor/platform/data-sources">Overview<br/>
