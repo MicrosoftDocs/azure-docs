@@ -15,7 +15,7 @@ ms.reviewer: librown
 ---
 
 # Add your work or school account
-You can add your work or school account, given to you by your organization, to the Microsoft Authenticator app for two-factor verification.
+If your organization uses two-factor verification, you can set up your work or school account to use the Microsoft Authenticator app as one of the verification methods.
 
 >[!Important]
 >Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.

@@ -30,7 +30,7 @@ You can use the Microsoft Authenticator app in multiple ways, including:
 ## Terminology
 |Term|Description|
 |----|-----------|
-|Two-factor verification |A verification process that requires you to specifically use only two pieces of verification info, like a password and a PIN. The Microsoft Authenticator app uses two-factor verification.|
+|Two-factor verification |A verification process that requires you to specifically use only two pieces of verification info, like a password and a PIN. The Microsoft Authenticator app supports both the standard two-factor verification and passwordless sign-in.|
 |Multi-factor authentication (MFA)|All two-factor verification is multi-factor authentication, requiring you to use *at least* two pieces of verification info, based on your organization's requirements.|
 |Microsoft account (also called, MSA)|You create your own personal accounts, to get access to your consumer-oriented Microsoft products and cloud services, such as Outlook, OneDrive, Xbox LIVE, or Office 365. Your Microsoft account is created and stored in the Microsoft consumer identity account system that's run by Microsoft.|
 |Work or school account|Your organization creates your work or school account (such as alain@contoso.com) to let you access internal and potentially restricted resources, such as Microsoft Azure, Windows Intune, and Office 365.|
@@ -40,10 +40,12 @@ Two-factor verification specifically works in one of two ways:
 
 - **Notification.** The Microsoft Authenticator app sends a notification asking you to **Approve sign-in**. Choose **Approve** if you recognize the sign-in attempt. Otherwise, choose **Deny**. If you choose **Deny**, you can also mark the request as fraudulent.
 
-- **Verification code.** Type in your username and password for either your work or school account or your personal Microsoft account, and then copy the associated verification code from the **Accounts** screen of the Microsoft Authenticator app.
+- **Verification code.** Type your username and password into the device you're logging into for either your work or school account or your personal Microsoft account, and then copy the associated verification code from the **Accounts** screen of the Microsoft Authenticator app.
+
+- **Passwordless sign-in.** Type your username into the device you're logging into for either your work or school account or your personal Microsoft account, and then use your mobile device to verify it's you by using your fingerprint, face, or PIN. For this method, you don't need to enter your password.
 
 ### Whether to use your device's biometric capabilities
-If your organization requires you to use a PIN to complete the authentication process, you can set up the Microsoft Authenticator app to instead use your device's fingerprint or facial recognition (biometric) capabilities. You can set this up the first time you use the authenticator app to verify your account, by selecting the option to use your device biometric capabilities as identification instead of your PIN.
+If you use a PIN to complete the authentication process, you can set up the Microsoft Authenticator app to instead use your device's fingerprint or facial recognition (biometric) capabilities. You can set this up the first time you use the authenticator app to verify your account, by selecting the option to use your device biometric capabilities as identification instead of your PIN.
 
 ## Who decides if you use this feature?
 Depending on your account type, your organization might decide that you have to use two-factor verification, or you might be able to decide for yourself.
