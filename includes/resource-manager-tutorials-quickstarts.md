@@ -44,6 +44,6 @@ Use the following quickstarts and tutorials to learn how to develop resource man
     |[Deploy SQL extensions](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|Perform post-deployment tasks by using extensions. In the tutorial, you deploy a customer script extension to install web server on the virtual machine. |
     |[Secure artifacts](../articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md)|Secure the artifacts needed to complete the deployments. In the tutorial, you learn how to secure the artifact used in the Deploy SQL extensions tutorial. |
     |[Use safe deployment practices](../articles/azure-resource-manager/deployment-manager-tutorial.md)|Use Azure Deployment manager. |
-    |[Tutorial: Troubleshoot Resource Manager template deployments](./resource-manager-tutorial-troubleshoot.md)|Troubleshoot template deployment issues.|
+    |[Tutorial: Troubleshoot Resource Manager template deployments](../articles/azure-resource-manager/resource-manager-tutorial-troubleshoot.md)|Troubleshoot template deployment issues.|
 
 These tutorials can be used individually, or as a series to learn the major Resource Manager template development concepts.
