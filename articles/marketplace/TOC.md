@@ -25,10 +25,15 @@
 #### [Office 365, Dynamics 365 and Power BI publishing guide](./appsource-offer-publishing-guide.md)
 #### [Enable an AppSource and Marketplace listing by using Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
 
-### [Grow your business through marketplace](./grow-your-business-with-azure-marketplace.md)  
-#### [Preferred solutions](./preferred-solutions.md) 
+### [Marketing best practices](./gtm-marketing-best-practices.md)
+#### [Offer listing best practices](./gtm-offer-listing-best-practices.md)
+#### [How to get featured](./gtm-how-to-get-featured.md)
 #### [Marketplace content validation](./marketplace-criteria-content-validation.md)
 #### [Rating and review policies](./rating-review-policies.md)   
+
+### [Your marketplace benefits](./gtm-your-marketplace-benefits.md)
+#### [Promote your business with Microsoft](./gtm-promote-your-business.md)
+#### [Preferred solutions](./preferred-solutions.md) 
 
 ### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)  
 
