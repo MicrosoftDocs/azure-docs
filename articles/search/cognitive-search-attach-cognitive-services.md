@@ -13,9 +13,9 @@ ms.custom: seodec2018
 ---
 # Associate a Cognitive Services resource with a skillset in Azure Search 
 
-The AI algorithms driving [cognitive search](cognitive-search-concept-intro.md) pipelines for processing unstructured data are based on [**Cognitive Services resources**](https://azure.microsoft.com/services/cognitive-services/). Resources like [**Computer Vision**](https://azure.microsoft.com/services/cognitive-services/computer-vision/) provide image analysis and optical character recognition (OCR) extracting text and structure out of image files, while [**Text Analytics**](https://azure.microsoft.com/services/cognitive-services/text-analytics/) provides natural language processing such as entity recognition and key phrase extraction, to name a few.
+The AI algorithms driving [cognitive search pipelines](cognitive-search-concept-intro.md) for processing unstructured data are based on [**Cognitive Services resources**](https://azure.microsoft.com/services/cognitive-services/). Resources like [**Computer Vision**](https://azure.microsoft.com/services/cognitive-services/computer-vision/) provide image analysis and optical character recognition (OCR) for extracting text and structure out of image files, while [**Text Analytics**](https://azure.microsoft.com/services/cognitive-services/text-analytics/) provides natural language processing such as entity recognition and key phrase extraction, to name a few.
 
-You can enrich a limited number of documents for free, or you can attach a billable Cognitive Services resource for larger and more frequent workloads. In this article, you learn how to associate a Cognitive Services resource with your cognitive skillset to enrich data during indexing.
+You can enrich a limited number of documents for free, or attach a billable Cognitive Services resource for larger and more frequent workloads. In this article, you learn how to associate a Cognitive Services resource with your cognitive skillset to enrich data during indexing.
 
 If your pipeline consists exclusively of [custom skills](cognitive-search-create-custom-skill-example.md), you do not need to attach a Cognitive Services resource.
 

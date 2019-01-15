@@ -49,7 +49,7 @@ This page will guide you through the steps needed to get Application Insights pr
 
    To apply the modifications, it usually involves a full template deployment or a cloud service based publish through PowerShell cmdlets or Visual Studio.  
 
-   The following powershell commands are an alternate approach for existing virtual machines that touches only the Azure Diagnostics extension. You just need to add the ProfilerSink as noted above to the config that is returned by the Get-AzureRmVMDiagnosticsExtension command. Then pass the updated config to the Set-AzureRmVMDiagnosticsExcension command.
+   The following powershell commands are an alternate approach for existing virtual machines that touches only the Azure Diagnostics extension. You just need to add the ProfilerSink as noted above to the config that is returned by the Get-AzureRmVMDiagnosticsExtension command. Then pass the updated config to the Set-AzureRmVMDiagnosticsExtension command.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()

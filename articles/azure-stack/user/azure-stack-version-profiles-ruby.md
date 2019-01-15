@@ -87,7 +87,7 @@ In order to use the Ruby Azure SDK with Azure Stack, you must supply the followi
 | Client ID | AZURE_CLIENT_ID | The service principal application ID saved when service principal was created on the previous section of this document.  |
 | Subscription ID | AZURE_SUBSCRIPTION_ID | The [subscription ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) is how you access offers in Azure Stack. |
 | Client Secret | AZURE_CLIENT_SECRET | The service principal application Secret saved when service principal was created. |
-| Resource Manager Endpoint | ARM_ENDPOINT | See [The Azure Stack resource manager endpoin](#The-azure-stack-resource-manager-endpoint).  |
+| Resource Manager Endpoint | ARM_ENDPOINT | See [The Azure Stack resource manager endpoint](#The-azure-stack-resource-manager-endpoint).  |
 
 ### The Azure Stack resource manager endpoint
 

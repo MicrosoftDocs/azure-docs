@@ -16,7 +16,7 @@ ms.author: v-jaswel
 
 Conversation Learner enables you to build and teach conversational interfaces that learn from example interactions. 
 
-Unlike traditional approaches, Conversation Learner considers the end-to-end context of a dialogue to improve responses and deliver more compelling user experiences. Spanning a broad set of task-oriented use cases, Conversation Learner applies machine learning behind the scenes to make bots and intelligent agents less likely to frustrate users, incur additional customer service costs, and more spur more intuitive interactions.
+Unlike traditional approaches, Conversation Learner considers the end-to-end context of a dialogue to improve responses and deliver more compelling user experiences. Spanning a broad set of task-oriented use cases, Conversation Learner applies machine learning behind the scenes to make bots and intelligent agents less likely to frustrate users, incur additional customer service costs, and spur more intuitive interactions.
 
 Developers start by entering prototypical dialogs they want to imitate. The Model learns as more dialogs are entered. Once the Model is working well, the Bot can be deployed to end users. Conversation Learner logs conversations with users, and the developer can review them. If mistakes are spotted, the developer can make an on-the-spot correction, and the model is retrained and available for use immediately.
 

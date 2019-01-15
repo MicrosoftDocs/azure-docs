@@ -123,6 +123,8 @@
       href: protect-with-aes128.md    
     - name: DRM dynamic encryption - .NET
       href: protect-with-drm.md
+    - name: Get content key policy - .NET
+      href: get-content-key-policy-dotnet-howto.md
     - name: Offline FairPlay for iOS 
       href: offline-fairplay-for-ios.md
     - name: Offline Widevine for Android
@@ -157,6 +159,8 @@
       href: https://aka.ms/ams-v3-nodejs-ref
     - name: Go
       href: https://aka.ms/ams-v3-go-ref
+    - name: Resource Manager template
+      href: /azure/templates/microsoft.media/allversions
   - name: Event Grid schemas
     href: media-services-event-schemas.md
   - name: DRM licenses
@@ -197,3 +201,6 @@
     href: release-notes.md
   - name: FAQ
     href: frequently-asked-questions.md
+  - name: Azure clouds and regions
+    href: azure-clouds-regions.md
+
