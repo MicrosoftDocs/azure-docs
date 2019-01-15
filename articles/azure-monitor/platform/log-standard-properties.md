@@ -81,10 +81,10 @@ AzureActivity
 ```
 
 ## \_IsBillable
-The **\_IsBillable** property specifies whether a data type is billable. Data types with **\_IsBillable** equal to _false_ are collected for free and not billed to your Azure account.
+The **\_IsBillable** property specifies whether ingested data is billable. Data with **\_IsBillable** equal to _false_ are collected for free and not billed to your Azure account.
 
 ### Examples
-To get a list of computers sending billed data types, leverage the `_IsBilled` property:
+To get a list of computers sending billed data types, use the following query:
 
 > [!NOTE]
 > Use queries with `union withsource = tt *` sparingly as scans across data data types are expensive to execute. 
@@ -108,7 +108,7 @@ union withsource = tt *
 ```
 
 ## \_BilledSize
-The **\_BilledSize** property specifics the size in bytes of data that is billed to your Azure account.
+The **\_BilledSize** property specifies the size in bytes of data that will be billed to your Azure account if **\_IsBillable** is true.
 
 ### Examples
 To see the size of billable events ingested per computer, use the `_BilledSize` property which provides the size in bytes:
