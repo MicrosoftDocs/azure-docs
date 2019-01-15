@@ -72,4 +72,4 @@ Probably not. Dynamic Thresholds are good for detecting significant deviations r
 
 ## How much data is used to preview and then calculate thresholds?
 
-The thresholds appearing in the chart, before an alert is created on the metric, are calculated based on the last 10 days of historical data, once an alert is created, the Dynamic Thresholds will acquire additional historical data that is available and will continuously learn based on new data to make the thresholds more accurate.
+The thresholds appearing in the chart, before an alert rule is created on the metric, are calculated based on the last 10 days of historical data, once an alert rule is created, the Dynamic Thresholds will acquire additional historical data that is available and will continuously learn based on new data to make the thresholds more accurate.
