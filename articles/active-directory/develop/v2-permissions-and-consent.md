@@ -48,13 +48,13 @@ The same is true for any third-party resources that have integrated with the Mic
 
 By defining these types of permissions, the resource has fine-grained control over its data and how API functionality is exposed. A third-party app can request these permissions from users and administrators, who must approve the request before the app can access data or act on a user's behalf. By chunking the resource's functionality into smaller permission sets, third-party apps can be built to request only the specific permissions that they need to perform their function. Users and administrators can know exactly what data the app has access to, and they can be more confident that it is not behaving with malicious intent. Developers should always abide by the concept of least privilege, asking for only the permissions they need for their applications to function.
 
-In OAuth, these types of permissions are called *scopes*. They also often simply referred to as *permissions*. A permission is represented in the Microsoft identity platform as a string value. Continuing with the Microsoft Graph example, the string value for each permission is:
+In OAuth, these types of permissions are called *scopes*. They also often referred to as *permissions*. A permission is represented in the Microsoft identity platform as a string value. Continuing with the Microsoft Graph example, the string value for each permission is:
 
 * Read a user's calendar by using `Calendars.Read`
 * Write to a user's calendar by using `Calendars.ReadWrite`
 * Send mail as a user using by `Mail.Send`
 
-An app most commonly requests these permissions by specifying the scopes in requests to the v2.0 authorize endpoint. However, certain high privilege permissions can only be granted through administrator consent and generally requested/granted using the [administrator consent endpoint](v2-permissions-and-consent.md#admin-restricted-scopes). Read on to learn more.
+An app most commonly requests these permissions by specifying the scopes in requests to the v2.0 authorize endpoint. However, certain high privilege permissions can only be granted through administrator consent and requested/granted using the [administrator consent endpoint](v2-permissions-and-consent.md#admin-restricted-scopes). Read on to learn more.
 
 ## Permission types
 
@@ -141,7 +141,7 @@ If your app requires access to admin-restricted scopes for organizations, you sh
 
 If the application is requesting high privilege delegated permissions and an administrator grants these permissions via the admin consent endpoint, consent is granted for all users in the tenant.
 
-If the application is requesting application permissions and an administrator grants these permissions via the admin consent endpoint, this grant is not done on behalf of any specific user. Instead, the client application is granted permissions *directly*. These types of permissions are generally only used by daemon servies and other non-interactive applications that run in the background.
+If the application is requesting application permissions and an administrator grants these permissions via the admin consent endpoint, this grant is not done on behalf of any specific user. Instead, the client application is granted permissions *directly*. These types of permissions are generally only used by daemon services and other non-interactive applications that run in the background.
 
 ## Using the admin consent endpoint
 
@@ -153,18 +153,18 @@ To see a code sample that implements the steps, see the [admin-restricted scopes
 
 ### Request the permissions in the app registration portal
 
-The admin consent does not accept a scope parameter, so any permissions being requested must be statically defined in the application's registration. In general it is best practice to ensure that the permissions statically defined for a given application are a superset of the permissions that it will be requesting dynamically/incrementally.
+The admin consent does not accept a scope parameter, so any permissions being requested must be statically defined in the application's registration. In general, it's best practice to ensure that the permissions statically defined for a given application are a superset of the permissions that it will be requesting dynamically/incrementally.
 
 To configure the list of statically requested permissions for an application: 
 1. Go to your application in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or [create an app](quickstart-v2-register-an-app.md) if you haven't already.
 2. Locate the **Microsoft Graph Permissions** section, and then add the permissions that your app requires.
 3. **Save** the app registration.
 
-### Recommended: Sign the user in to your app
+### Recommended: Sign in the user to your app
 
 Typically, when you build an application that uses the admin consent endpoint, the app needs a page or view in which the admin can approve the app's permissions. This page can be part of the app's sign-up flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
 
-When you sign the user in to your app, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users. To sign the user in, follow our [v2.0 protocol tutorials](active-directory-v2-protocols.md).
+When you sign in the user to your app, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users. To sign the user in, follow our [v2.0 protocol tutorials](active-directory-v2-protocols.md).
 
 ### Request the permissions from a directory admin
 
@@ -277,7 +277,7 @@ The user has already consented to `mail.read` for the client. The client has reg
 
 ### Using the /.default scope with the client
 
-A special case of the `/.default` scope exists where a client requests its own `/.default` scope. The following example demonstratesthis scenario.
+A special case of the `/.default` scope exists where a client requests its own `/.default` scope. The following example demonstrates this scenario.
 
 ```
 // Line breaks are for legibility only.
