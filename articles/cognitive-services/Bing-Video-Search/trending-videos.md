@@ -16,7 +16,7 @@ ms.author: scottwhi
 
 To get today's trending videos from the Bing Video Search API, send the following GET request:  
   
-```cURL
+```
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending?mkt=en-us HTTP/1.1
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -48,7 +48,7 @@ The following markets support trending videos.
 
 The following example shows an API response that contains trending videos.  
 
-```  
+```json
 {  
     "_type" : "TrendingVideos",  
     "bannerTiles" : [
