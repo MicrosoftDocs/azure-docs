@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ---
@@ -89,7 +89,7 @@ An Azure subscription and Azure Stack installation are required.
 
 ### Obtain a custom domain and configure DNS
 
-Update the DNS zone file foCreate web apps and publishr the domain. Azure AD can then verify ownership of the custom domain name. Use [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) for Azure/Office 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+Update the DNS zone file for the domain. Azure AD can then verify ownership of the custom domain name. Use [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) for Azure/Office 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
 1. Register a custom domain with a public Registrar.
 
@@ -269,7 +269,7 @@ Update the DNS zone file for the domain. Azure AD will verify ownership of the c
 
 -   Update the DNS zone file for the domain by adding the DNS entry provided by Azure AD.
 
-For example, to add DNS entries fornorthwindcloud.comandwww.northwindcloud.com, configure DNS settings for thenorthwindcloud.com root domain.
+For example, to add DNS entries for northwindcloud.com and www.northwindcloud.com, configure DNS settings for the northwindcloud.com root domain.
 
 > [!Note]  
 >  A domain name may be purchased using the [Azure portal](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).  
@@ -298,7 +298,7 @@ The following screenshot is an example of a DNS records page:
 
 2.  Add a CNAME record to map a subdomain to the app's default hostname.
 
-  For thewww.northwindcloud.comdomain example, add a CNAME record that maps the namewwwto<app\_name>.azurewebsites.net.
+  For the www.northwindcloud.com domain example, add a CNAME record that maps the name to <app\_name>.azurewebsites.net.
 
 After adding the CNAME, the DNS records page looks like the following example:
 

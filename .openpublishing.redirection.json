@@ -665,6 +665,41 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/linux/hpcpack-cluster-options.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/overview",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/virtual-machines/windows/hpcpack-cluster-options.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/overview",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/virtual-machines/windows/hpcpack-2016-cluster.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/overview",
+      "redirect_document_id": false
+    },
+		{
+      "source_path": "articles/virtual-machines/windows/hpcpack-cluster-active-directory.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-cluster-active-directory",
+      "redirect_document_id": false
+    },
+		{
+      "source_path": "articles/virtual-machines/windows/hpcpack-cluster-headnode.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/deploy-an-hpc-pack-2016-cluster-in-azure",
+      "redirect_document_id": false
+    },
+		{
+      "source_path": "articles/virtual-machines/windows/hpcpack-cluster-submit-jobs.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-cluster-submit-jobs-in-azure",
+      "redirect_document_id": false
+    },
+		{
+      "source_path": "articles/virtual-machines/windows/excel-cluster-hpcpack.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/excel-2016-offloading-to-azure-cluster",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md",
       "redirect_url": "/azure/virtual-machines/windows/publish-web-app-from-visual-studio",
       "redirect_document_id": true
@@ -8795,6 +8830,11 @@
     {
       "source_path": "articles/azure-stack/user/azure-stack-manage-vm-backup.md",
       "redirect_url": "/azure/azure-stack/user/azure-stack-manage-vm-protect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/azure-stack-marketplace-publisher.md",
+      "redirect_url": "/azure/azure-stack/azure-stack-create-and-publish-marketplace-item",
       "redirect_document_id": false
     },
     {
@@ -34528,11 +34568,6 @@
 	{ "source_path": "articles/virtual-machines/workloads/sap/dbms-guide.md", 
 	"redirect_url": "/azure/virtual-machines/workloads/sap/dbms_guide_general", 
 	"redirect_document_id": true },
-    {
-      "source_path": "articles/media-services/video-indexer/faq.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
-      "redirect_document_id": false
-    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-find-region-csharp.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#how-do-i-programmatically-get-the-luis-region-of-a-resource",

@@ -17,6 +17,24 @@ ms.custom: seodec18
 
 In this article, learn about the Azure Machine Learning service releases. 
 
+## 2019-01-14
+
+### Azure Machine Learning SDK for Python v1.0.8
+
++ **SDK reference docs**: https://aka.ms/aml-sdk
+
++ **Bug fixes**: This release mostly contains minor bug fixes
+
+### Azure Machine Learning Data Prep SDK v1.0.7
+
++ **SDK reference docs**: https://aka.ms/data-prep-sdk
+
++ **New features**
+  + Datastore improvements (documented in [Datastore how-to-guide](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
+    + Added ability to read from and write to Azure File Share and ADLS Datastores in scale-up.
+    + When using Datastores, Data Prep now supports using service principal authentication instead of interactive authentication.
+    + Added support for wasb and wasbs urls.
+
 ## 2019-01-09
 
 ### Azure Machine Learning Data Prep SDK v1.0.6
