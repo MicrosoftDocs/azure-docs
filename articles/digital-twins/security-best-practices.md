@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 01/15/2019
 ms.author: adgera
 ---
 
@@ -14,7 +14,7 @@ ms.author: adgera
 
 Azure Digital Twins security enables precise access to specific resources and actions in your IoT graph. It does so through granular role and permission management called [role-based access control](./security-role-based-access-control.md).
 
-Azure Digital Twins also uses other security features that are present in Azure IoT, which includes Azure Active Directory (Azure AD). For that reason, configuring your Azure Digital Twins app involves using many of the same [Azure IoT security practices](../iot-fundamentals/iot-security-best-practices.md) currently recommended.
+Azure Digital Twins also uses other security features that are present in Azure IoT, including Azure Active Directory (Azure AD). For that reason, configuring and securing applications built on Azure Digital Twins involves using many of the same [Azure IoT security practices](../iot-fundamentals/iot-security-best-practices.md) currently recommended.
 
 This article summarizes key best practices to follow.
 
