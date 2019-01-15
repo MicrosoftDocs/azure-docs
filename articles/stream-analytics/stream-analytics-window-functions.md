@@ -34,7 +34,7 @@ Sliding window functions, unlike Tumbling or Hopping windows, produce an output 
 
 ![Stream Analytics sliding window](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
-## Session window (Preview)
+## Session window
 Session window functions group events that arrive at similar times, filtering out periods of time where there is no data. It has three main parameters: timeout, maximum duration, and partitioning key (optional).
 
 ![Stream Analytics session window](media/stream-analytics-window-functions/stream-analytics-window-functions-session-intro.png)

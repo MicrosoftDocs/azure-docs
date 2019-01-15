@@ -170,9 +170,6 @@ customize the `CATALINA_OPTS` environment variable that is read in by Tomcat at 
 
 Or set the environment variables in the "Application Settings" blade in the Azure portal.
 
->[!NOTE]
-> If you are using Azure Database for Postgres, replace `ssl=true` with `sslmode=require` in the JDBC connection string.
-
 Next, determine if the data source should be available to one application or to all applications running on the Tomcat servlet.
 
 #### For application-level data sources: 

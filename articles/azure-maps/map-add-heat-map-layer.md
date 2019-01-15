@@ -16,11 +16,11 @@ ms.custom: codepen
 Heat maps, also known as point density maps, are a type of data visualization used to represent the density of data using a range of colors. They are often used to show the data "hot spots" on a map and are a great way to render large point data sets.  For example, rendering tens of thousands of points within the map view as symbols cover most of the map area and would result in many symbols being covered by others, making it difficult to gain much insight into the data. However, visualizing this same data set as a heat map makes it easy to see where the point data is the densest and the relative density to other areas. There are many scenarios in which heat maps, are used. Here are few examples;
 
 * Temperature data is commonly rendered as heat map as it provides approximations for what the temperature between two data points.
-* Rendering data for noise sensors as a heat map not only shows the insanity of the noise where the sensor is but can also provide insights into the dissipation over a distance. The noise level at any one site may not be high, however if the noise coverage area from multiple sensors overlaps, it's possible that this overlapping area may experience higher noise levels, and thus  would be visible in the heat map.
+* Rendering data for noise sensors as a heat map not only shows the intensity of the noise where the sensor is but can also provide insights into the dissipation over a distance. The noise level at any one site may not be high, however if the noise coverage area from multiple sensors overlaps, it's possible that this overlapping area may experience higher noise levels, and thus  would be visible in the heat map.
 * Visualizing a GPS trace that includes the speed as a weight height map where the intensity of each data point is based on the speed is a great way to quickly see where the vehicle was speeding.
 
 > [!TIP]
-> Bubble layers by default will render the coordinates of all geometries in a data source. To limit the layer such that it only renders point geometry features set the `filter` property of the layer to `['==', '$type', 'Point']`
+> Bubble layers by default will render the coordinates of all geometries in a data source. To limit the layer so that it only renders point geometry features, set the `filter` property of the layer to `['==', '$type', 'Point']`
 
 ## Add a heat map layer
 

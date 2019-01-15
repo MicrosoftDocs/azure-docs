@@ -113,9 +113,11 @@ Azure Active Directory is required for the license model because licenses are ad
 
 ## Manage and support user accounts
 
-**Q: What should I tell my users to do if they don’t receive a response on their phone, or don't have their phone with them?**
+**Q: What should I tell my users to do if they don’t receive a response on their phone?**
 
-Hopefully all your users configured more than one verification method. Tell them to try signing in again, but select a different verification method on the sign-in page.
+Have your users attempt up to 5 times in 5 minutes to get a phone call or SMS for authentication. Microsoft uses multiple providers for delivering calls and SMS messages. If this doesnt work please open a support case with Microsoft to further troubleshoot.
+
+If the steps above do not work hopefully all your users configured more than one verification method. Tell them to try signing in again, but select a different verification method on the sign-in page.
 
 You can point your users to the [End-user troubleshooting guide](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
 

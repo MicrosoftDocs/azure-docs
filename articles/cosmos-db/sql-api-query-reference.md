@@ -1,14 +1,14 @@
 ---
 title: SQL language syntax in Azure Cosmos DB 
 description: This article explains the SQL query language syntax used in Azure Cosmos DB, different operators, and keywords available in this language. 
-author: LalithaMV
-
+author: markjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: reference
 ms.date: 12/07/2018
-ms.author: laviswa
+ms.author: mjbrown
 ms.custom: seodec18
+
 ---
 
 # Azure Cosmos DB SQL language reference 
@@ -2327,7 +2327,7 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
  **Syntax**  
   
 ```  
-SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])  
+SUBSTRING(<str_expr>, <num_expr>, <num_expr>)  
 ```  
   
  **Arguments**  
@@ -2338,7 +2338,7 @@ SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])
   
 -   `num_expr`  
   
-     Is any valid numeric expression.  
+     Is any valid numeric expression to denote the start and end character.    
   
  **Return Types**  
   

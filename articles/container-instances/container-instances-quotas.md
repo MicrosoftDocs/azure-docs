@@ -19,7 +19,7 @@ All Azure services include certain default limits and quotas for resources and f
 
 ## Region availability
 
-Azure Container Instances is available in the following regions with the specified CPU and memory limits. Values are current at time of publication. For up-to-date information, use the [List Capabilities](/rest/api/container-instances/listcapabilities/listcapabilities) API.
+Azure Container Instances is available in the following regions with the specified CPU and memory limits. Values are current at time of publication. For up-to-date information, use the [List Capabilities](/rest/api/container-instances/listcapabilities/listcapabilities) API. Availability and resource limits may differ when using Azure Container Instances with a [virtual network](container-instances-vnet.md) (preview) or with [GPU resources](container-instances-gpu.md) (preview).
 
 | Location | OS | CPU | Memory (GB) |
 | -------- | -- | :---: | :-----------: |

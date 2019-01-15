@@ -1,17 +1,12 @@
 ---
 title: 'Migrate your MongoDB data to Azure Cosmos DB using mongoimport and mongorestore'
 description: 'You will learn how to use mongoimport and mongorestore to import data to Cosmos DB.'
-keywords: mongoimport, mongorestore
-services: cosmos-db
-author: rimman
-
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
-ms.devlang: na
+ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 ms.date: 12/26/2018
-ms.author: rimman
-ms.custom: mvc
+author: sivethe
+ms.author: sivethe
 Customer intent: As a developer, I want to migrate the data from my existing MongoDB to Cosmos DB.
 ---
 

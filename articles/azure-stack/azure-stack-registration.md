@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/28/2018
+ms.date: 01/02/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 
@@ -307,6 +307,11 @@ You can use the **Region management** tile to verify that the Azure Stack regist
     [ ![Region management tile](media/azure-stack-registration/admin1sm.png "Region management tile") ](media/azure-stack-registration/admin1.png#lightbox)
 
 3. Select **Properties**. This blade shows the status and details of your environment. The status can be **Registered** or **Not registered**. If registered, it also shows the Azure subscription ID that you used to register your Azure Stack, along with the registration resource group and name.
+
+Alternatively, you can verify if your registration was successful by using the Marketplace management feature. If you see a list of marketplace items in the Marketplace Management blade, your registration was successful. However, in disconnected environments, you will not be able to see marketplace items in Marketplace management. However, you can use the offline tool to verify registration.
+
+> [!NOTE]
+> After registration is complete, the active warning for not registering will no longer appear. In disconnected scenarios, you will see a message in Marketplace management asking you to register and activate your Azure Stack, even if you have registered successfully.
 
 ## Renew or change registration
 
