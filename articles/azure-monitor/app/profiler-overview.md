@@ -27,8 +27,6 @@ Profiler works with .NET applications that are deployed on the following Azure s
 
 If you've enabled Profiler but aren't seeing traces, check our [Troubleshooting guide](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
-Although we don't officially support running Profiler on-premises, you can try the instructions at [Profile production applications in Azure with Application Insights](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
-
 ## View Profiler data
 
 For Profiler to upload traces, your application must be actively handling requests. If you're doing an experiment, you can generate requests to your web app by using [Application Insights performance testing](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). If you've newly enabled Profiler, you can run a short load test. While the load test is running, select the **Profile Now** button on the [**Profiler Settings** pane](profiler-settings.md#profiler-settings-pane). When Profiler is running, it profiles randomly about once per hour and for a duration of two minutes. If your application is handling a steady stream of requests, Profiler uploads traces every hour.
