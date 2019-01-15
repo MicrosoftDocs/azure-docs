@@ -1,5 +1,5 @@
 ---
-title: LinkedIn account connections user consent for data sharing in Azure Active Directory | Microsoft Docs
+title: LinkedIn integration data sharing in Azure Active Directory | Microsoft Docs
 description: Explains how LinkedIn account connections share data via Microsoft apps in Azure Active Directory
 services: active-directory
 author: curtand
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/14/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
