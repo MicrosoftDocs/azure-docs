@@ -1,5 +1,5 @@
 ---
-title: Associate a Cognitive Services resource with a skillset - Azure Search
+title: Attach a Cognitive Services resource with a skillset - Azure Search
 description: Instructions for attaching a Cognitive Services All-in-One subscription to a cognitive enrichment pipeline in Azure Search.
 manager: cgronlun
 author: LuisCabrer
@@ -11,7 +11,7 @@ ms.date: 01/14/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
-# Associate a Cognitive Services resource with a skillset in Azure Search 
+# Attach a Cognitive Services resource with a skillset in Azure Search 
 
 The AI algorithms driving [cognitive search pipelines](cognitive-search-concept-intro.md) for processing unstructured data are based on [**Cognitive Services resources**](https://azure.microsoft.com/services/cognitive-services/). Resources like [**Computer Vision**](https://azure.microsoft.com/services/cognitive-services/computer-vision/) provide image analysis and optical character recognition (OCR) for extracting text and structure out of image files, while [**Text Analytics**](https://azure.microsoft.com/services/cognitive-services/text-analytics/) provides natural language processing such as entity recognition and key phrase extraction, to name a few.
 
@@ -20,11 +20,10 @@ You can enrich a limited number of documents for free, or attach a billable Cogn
 If your pipeline consists exclusively of [custom skills](cognitive-search-create-custom-skill-example.md), you do not need to attach a Cognitive Services resource.
 
 > [!NOTE]
-> Starting December 21, 2018, image extraction by Azure Search and image analysis through Cognitive Services are both billable events. Text extraction from documents, such as pulling text from PDF files, continues to be offered at no charge.
+> As of December 21, 2018, you can associate a Cognitive Services resource with an Azure Search skillset. This allows us to charge for skillset execution. On this date, we also began charging for image extraction as part of the document-cracking stage. Text extraction from documents continues to be offered at no additional cost.
 >
-> Image extraction occurs during document cracking when extracting images from PDF or Word docs. Image extraction preview pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
->
-> Image analysis, such as OCR or textual descriptions of images, is charged to a Cognitive Services resource at the [pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/), identical to what you might pay for requests issued independently of Azure Search. 
+> The execution of [built-in cognitive skills](cognitive-search-predefined-skills.md) is charged at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services), at the same rate as if you had performed the task directly. Image extraction is an Azure Search billable event, currently offered at preview pricing. For details, see the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+
 
 ## Use Free resources
 

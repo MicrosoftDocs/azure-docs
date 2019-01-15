@@ -14,20 +14,20 @@ ms.custom: seodec2018
 
 # Choose a pricing tier for Azure Search
 
-In Azure Search, a [service is provisioned](search-create-service-portal.md) at a pricing tier or SKU that is fixed for the lifetime of the service. Tiers include **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple configurations and capacities. Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development and production deployments. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search. 
+In Azure Search, a [resource is created](search-create-service-portal.md) at a pricing tier or SKU that is fixed for the lifetime of the service. Tiers include **Free**, **Basic**, or **Standard**, where **Standard** is available in several configurations and capacities. Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development and production deployments. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search. 
 
 Tiers determine capacity, not features, and are differentiated by:
 
 + Number of indexes you can create
 + Size and speed of partitions (physical storage)
 
-Although all tiers, including the **Free** tier, generally offer feature parity, larger workloads can dictate requirements for higher tiers. For example, [cognitive search](cognitive-search-concept-intro.md) indexing has long-running skills that time out on a free service unless the data set happens to be very small.
+Although all tiers, including the **Free** tier, generally offer feature parity, larger workloads can dictate requirements for higher tiers. For example, [cognitive search](cognitive-search-concept-intro.md) indexing has long-running skills that time out on a free service unless the data set happens to be small.
 
 > [!NOTE] 
 > The exception to feature parity is [indexers](search-indexer-overview.md), which are not available on S3HD.
 >
 
-Within a tier, you can [adjust replica and partition resources](search-capacity-planning.md) for performance tuning. Whereas you might start with two or three of each, you could temporarily raise your computational power for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with higher resources/replicas offers better value and performance than a higher tier with lower resourcing. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md).
+Within a tier, you can [adjust replica and partition resources](search-capacity-planning.md) for performance tuning. You could start with two or three of each, and then temporarily raise your computational power for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with higher resources/replicas offers better value and performance than a higher tier with lower resourcing. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md).
 
 <!---
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
@@ -35,14 +35,14 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 ## How billing works
 
-In Azure Search, there are four ways to incur costs related to indexing and query operations.
+In Azure Search, there are four ways you can incur costs related to indexing and query operations.
 
-* Replicas and partitions in active use (non-transational billing). When you provision an Azure Search resource, you choose and pay for specific levels of resourcing. It's often less than the maximum allowed by a tier.
-* Data egress charges during indexing. When you pull data from an Azure SQL Database or Cosmos DB data source into Azure Search, you will see charges for that transaction in the bill for those data sources.
-* (applies to cognitive search only) Image extraction in cognitive search indexing, billed per transaction. Text extraction is currently free.
-* (applies to cognitive search only) Image analysis and text analysis, performed by an attached Cognitive Services resource. 
+* Replicas and partitions used for regular indexing and querying tasks. When you provision an Azure Search resource, you choose and pay for specific levels of resourcing. It's often less than the maximum allowed by a tier.
+* Data egress charges during indexing. When pulling data from an Azure SQL Database or Cosmos DB data source, you will see charges for that transaction in the bill for those data sources.
+* (Applies to [cognitive search](cognitive-search-concept-intro.md) only) Image extraction during document cracking is billed based on the number of images extracted from your documents. Text extraction is currently free.
+* (Applies to [cognitive search](cognitive-search-concept-intro.md) only) Any enrichments that you perform using [built-in cognitive skills](cognitive-search-predefined-skills.md) are billed against a Cognitive Services resource. Enrichments are billed at the same rate as if you had performed the task using Cognitive Services directly.
 
-Only data retreival and cognitive search processing have transactional billing. If you are not using [cognitive search](cognitive-search-concept-intro.md) or [Azure Search indexers](search-indexer-overview.md), your only costs are related to replica and partitions in active use, for regular indexing and query workloads.
+If you are not using [cognitive search](cognitive-search-concept-intro.md) or [Azure Search indexers](search-indexer-overview.md), your only costs are related to replicas and partitions in active use, for regular indexing and query workloads.
 
 ### Billing for non-specialized indexing and queries
 
@@ -50,7 +50,7 @@ In Azure Search, the most important billing concept to understand is a *search u
 
 SU is the product of *replica* and *partitions* used by a service: **`(R X P = SU)`**
 
-Every service starts with 1 SU (one replica multiplied by one partition) as the minimum. The maximum for any service is 36 SUs, which can be achieved in multiple ways: 6 partitions x 6 replicas, or 3 partitions x 12 replicas, to name a few. 
+Every service starts with one SU (one replica multiplied by one partition) as the minimum. The maximum for any service is 36 SUs, which can be achieved in multiple ways: 6 partitions x 6 replicas, or 3 partitions x 12 replicas, to name a few. 
 
 It's common to use less than total capacity. For example, a 3-replica, 3-partition service, billed as 9 SUs. 
 
@@ -60,23 +60,23 @@ Most customers bring just a portion of total capacity online, holding the rest i
 
 ### Billing for image extraction in cognitive search
 
-If you are enriching unstructured or semi-strutured data, such as images or application files stored as Azure blobs, in a cognitive search indexing pipeline, then you will be nominally charged per transaction for the cost of retrieving an image from PDFs, Word documents or other blobs in Azure Blob storage or in other data sources providing image content to a cognitive search pipeline.
+If you are extracting images from files in a cognitive search indexing pipeline, you are charged for that operation in your Azure Search bill. The parameter that triggers image extraction is `imageAction` in an [indexer configuration](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters). If `imageAction` is set to none (default), there are no charges for image extraction.
 
 Pricing is subject to change, but is always documented on the [Pricing Details](https://azure.microsoft.com/pricing/details/search/) page for Azure Search. 
 
-For regular indexing of PDF and other application files, images are ignored. The only way you are charged for image extraction is when you set up a cognitive search indexing pipeline that includes images.
+### Billing for built-in skills in cognitive search
 
-### Billing for image and text analysis in cognitive search
+When you set up an enrichment pipeline, any [built-in skills](cognitive-search-predefined-skills.md) used in the pipeline are based on machine learning models. Those models are provided by Cognitive Services. Usage of those models during indexing is billed at the same rate as if you had requested the resource directly.
 
-Optical character recognition of text in JPEG or PNG files or describing in text the content or characteristics of an image, require sophisticated AI-powered processes provided by an external Cognitive Services resource. In Azure Search, you can [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to an enrichment pipeline, allowing Microsoft to bill you for these computations.
+For example, assume optical character recognition (OCR) against scanned image JPEG files,  pushing the resulting text into an Azure Search index for free-form search queries. Your indexing pipeline would include an indexer with the OCR skill, and that skill would be [attached to a Cognitive Services resource](cognitive-search-attach-cognitive-services.md). When you run the indexer, charges would accrue on your Cognitive Resources bill for OCR execution.
 
-You also incur charges for text analysis, such as entity recognition, language detection, sentiment analysis, and key phrase extraction. You are charged at a single pay-as-you-go rate. The bill becomes larger as you add more and more processing, but there is no differentiation at the per process level. Given the same data inputs, a pipeline consisting of language detection would cost the same as a pipeline consisting of sentiment analysis. But if you include both language detection and sentiment analysis, you are charged for both (2x at the going rate).
-
-### Tips for reducing costs
+## Tips for reducing costs
 
 You cannot shut down the service to lower the bill. Dedicated resources are operational 24-7, allocated for your exclusive use, for the lifetime of your service. The only way to lower a bill is by reducing replicas and partitions to a low level that still provides acceptable performance and [SLA compliance](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-One lever for reducing costs is choosing a tier with a lower hourly rate. S1 hourly rates are lower than S2 or S3 rates. You could provision a service aimed at the lower end of your load projections. If you outgrow the service, create a second larger-tiered service, rebuild your indexes on that second service, and then delete the first one. If you have done capacity planning for on premises servers, you know that it's common to "buy up" so that you can handle projected growth. But with a cloud service, you can pursue cost savings more aggressively because you are not locked in to a specific purchase. You can always switch to a higher-tiered service if the current one is insufficient.
+One lever for reducing costs is choosing a tier with a lower hourly rate. S1 hourly rates are lower than S2 or S3 rates. Assuming that you provision a service aimed at the lower end of your load projections, if you outgrow the service, you could create a second larger-tiered service, rebuild your indexes on that second service, and then delete the first one. 
+
+If you have done capacity planning for on premises servers, you know that it's common to "buy up" so that you can handle projected growth. But with a cloud service, you can pursue cost savings more aggressively because you are not locked in to a specific purchase. You can always switch to a higher-tiered service if the current one is insufficient.
 
 ### Capacity drill-down
 
@@ -163,9 +163,9 @@ Index number and size are equally relevant to your analysis because maximum limi
 
 **Query volume considerations**
 
-Queries-per-second (QPS) is a metric that gains prominence during performance tuning, but is generally not a tier consideration unless you expect very high query volume at the outset.
+Queries-per-second (QPS) is a metric that gains prominence during performance tuning, but is generally not a tier consideration unless you expect high query volume at the outset.
 
-All of the standard tiers can deliver a balance of replicas to partitions, supporting faster query turnaround through additional replicas for loading balancing and additional partitions for parallel processing. You can tune for performance after the service is provisioned.
+The standard tiers can deliver a balance of replicas to partitions, supporting faster query turnaround through additional replicas for loading balancing and additional partitions for parallel processing. You can tune for performance after the service is provisioned.
 
 Customer who expect strong sustained query volumes from the outset should consider higher tiers, backed by more powerful hardware. You can then take partitions and replicas offline, or even switch to a lower tier service, if those query volumes fail to materialize. For more information on how to calculate query throughput, see [Azure Search performance and optimization](search-performance-optimization.md).
 
@@ -178,13 +178,13 @@ The **Free** tier and preview features do not come with [service level agreement
 
 + Learn how to build efficient indexes, and which refresh methodologies are the least impactful. We recommend [search traffic analytics](search-traffic-analytics.md) for the insights gained on query activity.
 
-+ Allow metrics to build around queries and collect data around usage patterns (queries during business hours, indexing during off-peak hours), and use this data to inform future service provisioning decisions. While not practical at an hourly or daily level, you can dynamically adjust partitions and resources to accommodate planned changes in query volumes, or unplanned but sustained changes if levels hold long enough to warrant taking action.
++ Allow metrics to build around queries and collect data around usage patterns (queries during business hours, indexing during off-peak hours), and use this data to inform future service provisioning decisions. While not practical at an hourly or daily cadence, you can dynamically adjust partitions and resources to accommodate planned changes in query volumes, or unplanned but sustained changes if levels hold long enough to warrant taking action.
 
 + Remember that the only downside of under-provisioning is that you might have to tear down a service if actual requirements are greater than you estimated. To avoid service disruption, you would create a new service in the same subscription at a higher tier and run it side by side until all apps and requests target the new endpoint.
 
 ## Next steps
 
-Start with a **Free** tier and build an initial index using a subset of your data to understand its characteristics. The data structure in Azure Search is an inverted index, where size and complexity of an inverted index is determined by content. Remember that highly redundant content tends to result in a smaller index than highly irregular content. As such, it's content characteristics rather than the size of the data set that determines index storage requirements.
+Start with a **Free** tier and build an initial index using a subset of your data to understand its characteristics. The data structure in Azure Search is an inverted index, where size and complexity of an inverted index is determined by content. Remember that highly redundant content tends to result in a smaller index than highly irregular content. As such, it is content characteristics rather than the size of the data set that determines index storage requirements.
 
 Once you have an initial idea of index size, [provision a billable service](search-create-service-portal.md) at one of the tiers discussed in this article, either **Basic** or a **Standard** tier. Relax any artificial constraints on data subsets and [rebuild your index](search-howto-reindex.md) to include all of the data you actually want to be searchable.
 
