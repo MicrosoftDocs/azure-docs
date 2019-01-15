@@ -88,10 +88,15 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
 This update includes the following new features and improvements for Azure Stack:
 
-## Fixed issues
-Fixed an issue where the Portal showed  an option to create Policy Based VPN Gateways, which are not supported in Azure Stack.  This option has been removed from the Portal.
-An issue where if you updated your DNS Settings for your Virtual Network from Use Azure Stack DNS to Custom DNS, the instances would not be updated with the new setting has been fixed.
+- New features go here.
 
+- ...
+
+## Fixed issues
+
+- Fixed an issue in which the portal showed an option to create policy-based VPN gateways, which are not supported in Azure Stack. This option has been removed from the portal.
+
+- Fixed an issue in which after updating your DNS Settings for your Virtual Network from **Use Azure Stack DNS** to **Custom DNS**, the instances were not updated with the new setting.
 
 ## Changes
 
