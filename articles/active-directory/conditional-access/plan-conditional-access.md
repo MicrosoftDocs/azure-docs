@@ -72,6 +72,10 @@ For example, the following name states that the policy requires MFA for marketin
 
 `Dynamics CRP: Require MFA For marketing When from external networks`
 
+
+`Require MFA, Marketing, External, Dynamics CRP`
+
+
 Organizations can also create disabled policies to act as secondary resilient access controls in outage scenarios. A naming standard should also include this purpose to make it easier to enable during an outage. For example:
 
 `(Outage)Require trusted network, Sales, Internal, Finance app`
