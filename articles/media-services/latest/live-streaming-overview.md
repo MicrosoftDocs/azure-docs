@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/26/2018
+ms.date: 01/15/2019
 ms.author: juliako
 
 ---
@@ -30,15 +30,15 @@ This article gives a detailed overview, guidance, and includes diagrams of the m
 
 Here are the steps for a live streaming workflow:
 
-1. Create a LiveEvent.
-2. Create a new Asset object.
-3. Create a LiveOutput and use the asset name that you created.
-4. Create a Streaming Policy and Content Key if you intend to encrypt your content with DRM.
-5. If not using DRM, create a Streaming Locator with the built-in Streaming Policy types.
-6. List the paths on the Streaming Policy to get back the URLs to use (these are deterministic).
-7. Get the hostname for the Streaming Endpoint you wish to stream from. 
+1. Create a **Live Event**.
+2. Create a new **Asset** object.
+3. Create a **Live Output** and use the asset name that you created.
+4. Create a **Streaming Policy** and **Content Key** if you intend to encrypt your content with DRM.
+5. If not using DRM, create a **Streaming Locator** with the built-in **Streaming Policy** types.
+6. List the paths on the **Streaming Policy** to get back the URLs to use (these are deterministic).
+7. Get the hostname for the **Streaming Endpoint** you wish to stream from (make sure the Streaming Endpoint is running). 
 8. Combine the URL from step 6 with the hostname in step 7 to get your full URL.
-9. Delete the Streaming Locator to stop making the live event viewable.
+9. If you wish to stop making your **Live Event** viewable, you need to stop streaming the event by deleting the **Streaming Locator**.
 
 For more information, see a [Live streaming tutorial](stream-live-tutorial-with-api.md) that is based on the [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) sample.
 
