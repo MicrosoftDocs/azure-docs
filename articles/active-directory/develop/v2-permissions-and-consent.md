@@ -141,7 +141,7 @@ If your app requires access to admin-restricted scopes for organizations, you sh
 
 If the application is requesting high privilege delegated permissions and an administrator grants these permissions via the admin consent endpoint, consent is granted for all users in the tenant.
 
-If the application is requesting application permissions and an administrator grants these permissions via the admin consent endpoint, this grant is not done on behalf of any specific user. Instead, the client application is granted permissions *directly*. These types of permissions are generally only used by daemon servies and other non-interactive applications that run in the background.
+If the application is requesting application permissions and an administrator grants these permissions via the admin consent endpoint, this grant is not done on behalf of any specific user. Instead, the client application is granted permissions *directly*. These types of permissions are generally only used by daemon services and other non-interactive applications that run in the background.
 
 ## Using the admin consent endpoint
 

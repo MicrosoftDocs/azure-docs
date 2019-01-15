@@ -29,13 +29,13 @@ To complete this quickstart, make sure you have the following prerequisites:
 
 ## Create a Kafka enabled Event Hubs namespace
 
-1. Sign in to the [Azure portal][Azure portal], and click **Create a resource** at the top left of the screen.
+1. Sign in to the [Azure portal](https://portal.azure.com), and click **Create a resource** at the top left of the screen.
 
 2. Search for Event Hubs and select the options shown here:
     
     ![Search for Event Hubs in the portal](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. Provide a unique name and enable Kafka on the namespace. Click **Create**.
+3. Provide a unique name and enable Kafka on the namespace. Click **Create**. Note: Event Hubs for Kafka is only supported by Standard and Dedicated tier Event Hubs. Basic tier Event Hubs will return a Topic Authorization Error in response to any Kafka operations.
     
     ![Create a namespace](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  

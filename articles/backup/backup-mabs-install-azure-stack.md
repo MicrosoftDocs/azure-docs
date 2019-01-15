@@ -32,7 +32,7 @@ Azure Backup Server protects the following Azure Stack virtual machine workloads
 | Windows Server Semi Annual Channel - Datacenter/Enterprise/Standard | Volumes, files, folders |
 | Windows Server 2016 - Datacenter/Enterprise/Standard | Volumes, files, folders |
 | Windows Server 2012 R2 - Datacenter/Enterprise/Standard | Volumes, files, folders |
-| Windows Server 2012 - Datacenter/Entprise/Standard | Volumes, files, folders |
+| Windows Server 2012 - Datacenter/Enterprise/Standard | Volumes, files, folders |
 | Windows Server 2008 R2 - Datacenter/Enterprise/Standard | Volumes, files, folders |
 | SQL Server 2016 | Database |
 | SQL Server 2014 | Database |

@@ -1,5 +1,5 @@
 ---
-title: How to unify multiple Azure Monitor Application Insights resources  | Microsoft Docs
+title: Unify multiple Azure Monitor Application Insights resources  | Microsoft Docs
 description: This article provides details on how to use a function in Azure Monitor Logs to query multiple Application Insights resources and visualize that data. 
 services: azure-monitor
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.date: 01/10/2019
 ms.author: magoedte
 ---
 
-# How to unify multiple Azure Monitor Application Insights resources 
+# Unify multiple Azure Monitor Application Insights resources 
 This article describes how to query and view all your Application Insights application log data in one place, even when they are in different Azure subscriptions, as a replacement for the deprecation of the Application Insights Connector.  
 
 ## Recommended approach to query multiple Application Insights resources 
@@ -59,7 +59,7 @@ applicationsScoping //this brings data from Application Insights resources
 | where success == 'False' 
 | where duration > 1000 
 | union ( 
-    ApplicationInsights //this is Application Insights data in Log Analytics worspace 
+    ApplicationInsights //this is Application Insights data in Log Analytics workspace 
     | where TimeGenerated < (datetime("2018-12-01") 
     | where RequestSuccess == 'False' 
     | where RequestDuration > 1000 
@@ -103,12 +103,12 @@ The following table shows the schema differences between Log Analytics and Appli
 | ExceptionMessage | message | 
 | ExceptionType | type |
 | OperationID | operation_id |
-| OperationName | opeation_Name | 
+| OperationName | operation_Name | 
 | OS | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duration | 
 | PageViewName | name | 
-| ParentOpeartionID | operation_Id | 
+| ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
 | RequestDuration | duration | 
 | RequestID | id | 
