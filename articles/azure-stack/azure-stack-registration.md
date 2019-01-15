@@ -308,10 +308,19 @@ You can use the **Region management** tile to verify that the Azure Stack regist
 
     [ ![Region management tile](media/azure-stack-registration/admin1sm.png "Region management tile") ](media/azure-stack-registration/admin1.png#lightbox)
 
-If registered, the properties include:
+    If registered, the properties include:
+    
+    - **Registration subscription ID**: The Azure subscription ID registered and associated to Azure Stack
+    - **Registration resource group**: The Azure resource group in the associated subscription containing the Azure Stack resources.
 
-- **Registration subscription ID**: The Azure subscription ID registered and associated to Azure Stack
-- **Registration resource group**: The Azure resource group in the associated subscription containing the Azure Stack resources. Use the Azure portal to view the registration resource group and see a list of Azure Stack associated resources.
+4. Use the Azure portal to view the Azure Stack app registrations.
+
+    Sign in to the Azure portal using an account associated to the subscription you used to register Azure Stack.
+5. Navigate to **Azure Active Directory > App registrations > View all applications**.
+
+    ![App registrations](media/azure-stack-registration/app-registrations.png)
+
+    Azure Stack app registrations are prefixed with **Azure Stack**.
 
 Alternatively, you can verify if your registration was successful by using the Marketplace management feature. If you see a list of marketplace items in the Marketplace Management blade, your registration was successful. However, in disconnected environments, you will not be able to see marketplace items in Marketplace management. However, you can use the offline tool to verify registration.
 
