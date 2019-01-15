@@ -175,12 +175,12 @@ The test plan is important to have a comparison between the expected results and
 
 ### Configure the policy
 
-Managing conditional access policies is a manual task. In the Azure portal, you can manage your conditional access policies in one central location. One entry point to the conditional access page is the **Security** section in the **Active Directory** navigation pane. 
+Managing conditional access policies is a manual task. In the Azure portal, you can manage your conditional access policies in one central location - the conditional access page. One entry point to the conditional access page is the **Security** section in the **Active Directory** navigation pane. 
 
 ![Conditional access](media/plan-conditional-access/03.png)
 
 
-If are not familiar with the configuration of conditional access policies, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md) to:
+If you want to learn more about how to create conditional access policies, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md). This quickstart helps you to:
 
 - Become familiar with the user interface.
 - Get a first impression of how conditional access works. 
