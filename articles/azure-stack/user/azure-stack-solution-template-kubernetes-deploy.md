@@ -136,7 +136,7 @@ Give the service principal access to your subscription so that the principal can
 
 1. Enter the **SSH Public Key** used for authorization to all Linux machines created as part of the Kubernetes cluster and DVM.
 
-1. Enter the **Master Profile DNS Prefix** that is unique to the region. This must be a region-unique name, such as `k8s-12345`. Try to make it the same as the resource group name as best practice.
+1. Enter the **Master Profile DNS Prefix** that is unique to the region. This must be a region-unique name, such as `k8s-12345`. Try to make it the same as the resource group name as a best practice.
 
     > [!Note]  
     > For each cluster, use a new and unique master profile DNS prefix.
