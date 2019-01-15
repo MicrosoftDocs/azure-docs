@@ -157,7 +157,7 @@ To understand the number of computers (nodes) reporting data each day in the las
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-To get a list of computers sending **billed data types** (some data types are free), leverage the `_IsBilled` property:
+To get a list of computers sending **billed data types** (some data types are free), leverage the [_IsBillable](log-standard-properties.md#isbillable) property:
 
 `union withsource = tt * 
 | where _IsBillable == true 
