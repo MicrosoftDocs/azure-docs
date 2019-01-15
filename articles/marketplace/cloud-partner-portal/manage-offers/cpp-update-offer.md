@@ -128,6 +128,6 @@ When you make changes on a published offer, you can use the *Compare* feature to
 To view historical publishing activity, select the **History** tab in the left vertical menubar of the Cloud Partner Portal.  The History page provides flexible filtering by several characteristics and supports column ordering.  Each publishing event is timestamped.  For more information, see [Audit history page](../portal-tour/cpp-history-page.md).
 
 
-## Next Steps
+## Next steps
 
 You can also use the Cloud Partner Portal to [delete a published SKU or offer](./cpp-delete-offer.md).

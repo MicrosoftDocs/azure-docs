@@ -75,6 +75,6 @@ The support team guides you through the offer deletion process.
 > Deleting an offer (or SKU) will not affect current purchases of that offer (or SKU). These purchases will continue to work as before. However, deleted offers or SKUs won't be available for any future purchases.
 
 
-## Next Steps
+## Next steps
 
 After you are familiar with the basic operations used to manage offers, you are ready to create an instance of a Microsoft [marketplace offer](../cpp-marketplace-offers.md).

@@ -23,7 +23,7 @@ This first part of this section introduces the general operations used to create
 
 The following video introduces the various capabilities and different offers types available in Azure Marketplace or AppSource.  It also covers important technical and business aspects of publishing an application or service in these marketplaces.
 
-> [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK2513]
+> [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK2513/player]
 
 **Building Apps and Services for Azure Marketplace and AppSource - Build 2018**
 

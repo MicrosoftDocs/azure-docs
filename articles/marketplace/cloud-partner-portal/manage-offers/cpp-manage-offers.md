@@ -17,7 +17,7 @@ ms.date: 01/09/2019
 ms.author: pbutlerm
 ---
 
-# Manage Azure and AppSource Marketplace Offers
+# Manage Azure and AppSource Marketplace offers
 
 This section introduces the general operations used to manage offers for the Azure and AppSource Marketplaces.  For example, it explains how to use the [Cloud Partner Portal](https://cloudpartner.azure.com/) to create and publish a marketplace offer.  This section also explains technical issues that are common to most of the offer types, such as text-based and image assets.
 

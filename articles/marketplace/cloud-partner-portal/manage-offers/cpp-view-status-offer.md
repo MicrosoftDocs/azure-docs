@@ -47,6 +47,6 @@ The final example status of an Azure application shows a critical Microsoft revi
 ![Status tab for Azure app showing review issue](../azure-applications/media/status-tab-ms-review.png)
 
 
-## Next Steps
+## Next steps
 
 To correct outstanding issues or update offer settings, you must [update an offer](./cpp-update-offer.md). 

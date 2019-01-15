@@ -49,16 +49,16 @@ When creating an offer, you supply the required and optional data in each tab lo
 
 |      Tab name       |   Purpose                                                            |
 |      --------       |   -------                                                            |
-| **Offer Settings**  | Collect offer and publisher identity information.                    |
-| **SKUs**            | Define the technical and business characteristics for each stock-keeping unit (SKU) version of your offer |
+| **Offer Settings**  | Collects offer and publisher identity information.                    |
+| **SKUs**            | Defines the technical and business characteristics for each stock-keeping unit (SKU) version of your offer |
 | **Test Drive**      | For those types that support this optional feature, defines a demonstration for your offer.  For more information, see [What is Test Drive?](../../cloud-partner-portal-orig/what-is-test-drive.md)  |
-| **Marketplace** or **Storefront** | Collect text strings, documents, and images used to list the offer in the marketplace |
-| **Support**         | Collect contact information for customer, engineering, and online support  |
+| **Marketplace** or **Storefront** | Collects text strings, documents, and images used to list the offer in the marketplace |
+| **Support**         | Collects contact information for customer, engineering, and online support  |
 |  |  |
 
 The content of the similarly named tabs may differ among different offer types.  Offer-specific details of these tabs are provided within the "Create offer" section for each offer type.
 
 
-## Next Steps
+## Next steps
 
 After you create and save an offer, and before or after you publish it, you can [view its status](./cpp-view-status-offer.md).
