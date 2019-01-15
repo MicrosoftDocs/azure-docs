@@ -22,9 +22,9 @@ The Microsoft Authenticator app helps you sign in to your work or school account
  - **Two-factor verification.** Requires you to enter your username and password for an account, and then when prompted, to provide another verification method.
 
  - **Phone sign-in.** Requires you to enter your username for an account, and then when prompted, your fingerprint, face, or PIN. This method is passwordless.
- 
- ## Prerequisites
- Before you can use the Microsoft Authenticator app, you must:
+
+## Prerequisites
+Before you can use the Microsoft Authenticator app, you must:
 
  1. Download and install the Microsoft Authenticator app. If you haven't done this yet, see [Download and install the app](microsoft-authenticator-app-how-to.md).
 
