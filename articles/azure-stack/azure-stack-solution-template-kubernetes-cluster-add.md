@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -72,7 +72,7 @@ Add the following Ubuntu Server image to the Marketplace:
 1. Select the newest version of the server. Check the full version and ensure that you have the newest version:
     - **Publisher**: Canonical
     - **Offer**: UbuntuServer
-    - **Version**: 16.04.201806120
+    - **Version**: 16.04.201806120 (or later)
     - **SKU**: 16.04-LTS
 
 1. Select **Download.**
@@ -91,11 +91,11 @@ Add the Kubernetes from the Marketplace:
 
 1. Select the script with the following profile:
     - **Offer**: Custom Script for Linux 2.0
-    - **Version**: 2.0.6
+    - **Version**: 2.0.6 (or later)
     - **Publisher**: Microsoft Corp
 
     > [!Note]  
-    > More than one version of Custom Script for Linux may be listed. You will need to add the version that matches. The Kubernetes requires the exact version of the item.
+    > More than one version of Custom Script for Linux may be listed. You will need to add the latest version of the item.
 
 1. Select **Download.**
 
@@ -146,7 +146,5 @@ To remove the Kubernetes item:
 ## Next steps
 
 [Deploy a Kubernetes to Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
-
-
 
 [Overview of offering services in Azure Stack](azure-stack-offer-services-overview.md)

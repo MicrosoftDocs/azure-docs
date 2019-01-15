@@ -59,7 +59,7 @@ A bad gateway error indicates that the connector is unable to reach the backend 
 
 If you see a forbidden error, the user has not been assigned to the application. This error could be either in Azure Active Directory or on the backend application.
 
-To learn how to assign users to the application in Azure, see the [configuration documentation](https://docs.microsoft.com/azure/active-directory/application-proxy-add-on-premises-application#add-a-test-user).
+To learn how to assign users to the application in Azure, see the [configuration documentation](application-proxy-add-on-premises-application.md#test-the-application).
 
 If you confirm the user is assigned to the application in Azure, check the user configuration in the backend application. If you are using Kerberos Constrained Delegation/Integrated Windows Authentication, see the KCD Troubleshoot page for guidelines.
 

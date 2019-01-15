@@ -24,7 +24,7 @@ There are three kinds of alerts:
 
 * **Metric alerts** tell you when a metric crosses a threshold value for some period - such as response times, exception counts, CPU usage, or page views. 
 * [**Web tests**][availability] tell you when your site is unavailable on the internet, or responding slowly. [Learn more][availability].
-* [**Proactive diagnostics**](../../application-insights/app-insights-proactive-diagnostics.md) are configured automatically to notify you about unusual performance patterns.
+* [**Proactive diagnostics**](../../azure-monitor/app/proactive-diagnostics.md) are configured automatically to notify you about unusual performance patterns.
 
 We focus on metric alerts in this article.
 
@@ -97,7 +97,7 @@ Don't forget that [proactive failure rate diagnostics](../../azure-monitor/app/p
 ## See also
 * [Availability web tests](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Automate setting up alerts](../../azure-monitor/app/powershell-alerts.md)
-* [Proactive diagnostics](../../application-insights/app-insights-proactive-diagnostics.md) 
+* [Proactive diagnostics](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 
@@ -105,5 +105,5 @@ Don't forget that [proactive failure rate diagnostics](../../azure-monitor/app/p
 [client]: ../../azure-monitor/app/javascript.md
 [platforms]: ../../azure-monitor/app/platforms.md
 [roles]: ../../azure-monitor/app/resources-roles-access-control.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

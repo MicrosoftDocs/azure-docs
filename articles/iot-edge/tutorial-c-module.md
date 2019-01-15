@@ -7,7 +7,7 @@ author: shizn
 manager: philmea
 
 ms.author: xshi
-ms.date: 11/25/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: "mvc, seodec18"
@@ -45,7 +45,7 @@ Development resources:
 
 * [Visual Studio Code](https://code.visualstudio.com/).
 * [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) for Visual Studio Code.
-* [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code.
+* [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) for Visual Studio Code.
 * [Docker CE](https://docs.docker.com/install/).
 
 >[!Note]
@@ -53,7 +53,7 @@ Development resources:
 
 ## Create a container registry
 
-In this tutorial, you use the Azure IoT Edge extension for Visual Studio Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.
+In this tutorial, you use the Azure IoT Tools for Visual Studio Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.
 
 You can use any Docker-compatible registry to hold your container images. Two popular Docker registry services are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry.
 
@@ -79,7 +79,7 @@ If you don't already have a container registry, follow these steps to create a n
 7. Copy the values for **Login server**, **Username**, and **Password**. You use these values later in the tutorial to provide access to the container registry.
 
 ## Create an IoT Edge module project
-The following steps show you how to create an IoT Edge module project based on .NET core 2.0 using Visual Studio Code and the Azure IoT Edge extension.
+The following steps show you how to create an IoT Edge module project based on .NET core 2.0 using Visual Studio Code and the Azure IoT Tools.
 
 ### Create a new solution
 

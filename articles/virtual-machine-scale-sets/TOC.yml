@@ -230,8 +230,10 @@
     - name: Shared image galleries (preview)
       href: shared-image-galleries.md
       items:
-      - name: Create shared images using CLI
+      - name: CLI
         href: shared-images-cli.md
+      - name: PowerShell
+        href: shared-images-powershell.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Vertical scaling in a scale set
@@ -264,6 +266,8 @@
     href: ../virtual-machines/azure-cli-arm-commands.md
   - name: REST
     href: /rest/api/virtualmachinescalesets/
+  - name: Azure templates
+    href: /azure/templates/microsoft.compute/virtualmachinescalesets
 - name: Resources
   items:
   - name: Azure Roadmap

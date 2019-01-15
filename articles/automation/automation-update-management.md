@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -119,6 +119,15 @@ For more information about how solution management packs are updated, see [Conne
 > [!NOTE]
 > For systems with the Operations Manger Agent, to be able to be fully managed by Update Management, the agent needs to be updated to the Microsoft Monitoring Agent. To learn how to update the agent, see [How to upgrade an Operations Manager agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
 
+## <a name="onboard"></a>Enable Update Management
+
+To begin patching systems, you need to enable the Update Management solution. There are many ways to onboard machines to Update Management. The following are the recommended and supported ways to onboard the solution:
+
+* [From a virtual machine](automation-onboard-solutions-from-vm.md)
+* [From browsing multiple machines](automation-onboard-solutions-from-browse.md)
+* [From your Automation account](automation-onboard-solutions-from-automation-account.md)
+* [With an Azure Automation runbook](automation-onboard-solutions.md)
+  
 ### Confirm that non-Azure machines are onboarded
 
 To confirm that directly connected machines are communicating with Log Analytics, after a few minutes, you can run one the following log searches.

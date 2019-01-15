@@ -144,11 +144,11 @@ The following table contains properties and descriptions for commonly used param
 | maxmemory-reserved |Configures the [memory reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) for non-cache processes |Standard and Premium |
 | maxmemory-policy |Configures the [eviction policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) for the cache |All pricing tiers |
 | notify-keyspace-events |Configures [keyspace notifications](cache-configure.md#keyspace-notifications-advanced-settings) |Standard and Premium |
-| hash-max-ziplist-entries |Configures [memory optimization](http://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
-| hash-max-ziplist-value |Configures [memory optimization](http://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
-| set-max-intset-entries |Configures [memory optimization](http://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
-| zset-max-ziplist-entries |Configures [memory optimization](http://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
-| zset-max-ziplist-value |Configures [memory optimization](http://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
+| hash-max-ziplist-entries |Configures [memory optimization](https://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
+| hash-max-ziplist-value |Configures [memory optimization](https://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
+| set-max-intset-entries |Configures [memory optimization](https://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
+| zset-max-ziplist-entries |Configures [memory optimization](https://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
+| zset-max-ziplist-value |Configures [memory optimization](https://redis.io/topics/memory-optimization) for small aggregate data types |Standard and Premium |
 | databases |Configures the number of databases. This property can be configured only at cache creation. |Standard and Premium |
 
 ## To create an Azure Cache for Redis
@@ -233,7 +233,7 @@ To see a list of available parameters and their descriptions for `New-AzureRmRed
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 To create a cache with default parameters, run the following command.
 
@@ -313,7 +313,7 @@ To see a list of available parameters and their descriptions for `Set-AzureRmRed
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 The `Set-AzureRmRedisCache` cmdlet can be used to update properties such as `Size`, `Sku`, `EnableNonSslPort`, and the `RedisConfiguration` values. 
 
@@ -417,7 +417,7 @@ To see a list of available parameters and their descriptions for `Get-AzureRmRed
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 To return information about all caches in the current subscription, run `Get-AzureRmRedisCache` without any parameters.
 
@@ -484,7 +484,7 @@ To see a list of available parameters and their descriptions for `Get-AzureRmRed
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 To retrieve the keys for your cache, call the `Get-AzureRmRedisCacheKey` cmdlet and pass in the name of your cache the name of the resource group that contains the cache.
 
@@ -529,7 +529,7 @@ To see a list of available parameters and their descriptions for `New-AzureRmRed
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 To regenerate the primary or secondary key for your cache, call the `New-AzureRmRedisCacheKey` cmdlet and pass in the name, resource group, and specify either `Primary` or `Secondary` for the `KeyType` parameter. In the following example, the secondary access key for a cache is regenerated.
 
@@ -580,7 +580,7 @@ To see a list of available parameters and their descriptions for `Remove-AzureRm
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 In the following example, the cache named `myCache` is removed.
 
@@ -644,7 +644,7 @@ To see a list of available parameters and their descriptions for `Import-AzureRm
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 The following command imports data from the blob specified by the SAS uri into Azure Cache for Redis.
@@ -703,7 +703,7 @@ To see a list of available parameters and their descriptions for `Export-AzureRm
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 The following command exports data from an Azure Cache for Redis instance into the container specified by the SAS uri.
@@ -764,7 +764,7 @@ To see a list of available parameters and their descriptions for `Reset-AzureRmR
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 The following command reboots both nodes of the specified cache.
@@ -781,5 +781,5 @@ To learn more about using Windows PowerShell with Azure, see the following resou
 * [Using Resource groups to manage your Azure resources](../azure-resource-manager/resource-group-template-deploy-portal.md): Learn how to create and manage resource groups in the Azure portal.
 * [Azure blog](https://azure.microsoft.com/blog/): Learn about new features in Azure.
 * [Windows PowerShell blog](https://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
-* ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.
+* ["Hey, Scripting Guy!" Blog](https://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.
 
