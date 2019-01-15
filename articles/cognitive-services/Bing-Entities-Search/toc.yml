@@ -3,38 +3,37 @@
 - name: Overview
   items:
     - name: What is Bing Entity Search?
-      href: search-the-web.md
-- name: REST API Quickstarts
-  expanded: true
+      href: overview.md
+- name: Quickstarts
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
-- name: SDK Quickstarts
-  items:
-  - name: Entity Search C# quickstart
-    href: entity-search-sdk-quickstart.md
-  - name: Entity Search Node.js quickstart
-    href: entity-search-sdk-node-quickstart.md  
-  - name: Entity Search Python quickstart
-    href: entity-sdk-python-quickstart.md 
-  - name: Entity Search Java quickstart
-    href: entity-sdk-java-quickstart.md
+    - name: REST API
+      items:
+      - name: Using C#
+        href: quickstarts/csharp.md
+      - name: Using Java
+        href: quickstarts/java.md
+      - name: Using Node.js
+        href: quickstarts/nodejs.md
+      - name: Using PHP
+        href: quickstarts/php.md
+      - name: Using Python
+        href: quickstarts/python.md
+      - name: Using Ruby
+        href: quickstarts/ruby.md
+    - name: SDK
+      items:
+      - name: Using C# 
+        href: quickstarts/entity-sdk-csharp-quickstart.md
+      - name: Using Node.js
+        href: quickstarts/entity-sdk-node-quickstart.md  
+      - name: Using Python
+        href: quickstarts/entity-sdk-python-quickstart.md 
+      - name: Using Java
+        href: quickstarts/entity-sdk-java-quickstart.md
 - name: Tutorials
   items:
-  - name: Single-page web app
+  - name: Build a single-page web app
     href: tutorial-bing-entities-search-single-page-app.md
-  - name: Single-page web app (source code)
-    href: tutorial-bing-entities-search-single-page-app-source.md
 - name: Samples
   items:
     - name: Code samples
