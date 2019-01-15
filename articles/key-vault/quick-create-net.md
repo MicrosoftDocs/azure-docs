@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Set and retrieve a secret from Azure Key Vault by using a node web app - Azure Key Vault | Microsoft Docs'
-description: 'Quickstart: Set and retrieve a secret from Azure Key Vault by using a .NET web app'
+description: In this quickstart, you set and retrieve a secret from Azure Key Vault by using a .NET web app
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -10,27 +10,26 @@ ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
 
-#Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
+#Customer intent: As a developer, I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
 ---
 
 # Quickstart: Set and retrieve a secret from Azure Key Vault by using a .NET web app
 
 In this quickstart, you follow the necessary steps for getting an Azure web application to read information from Azure Key Vault by using managed identities for Azure resources. You learn how to:
 
-> [!div class="checklist"]
-> * Create a key vault.
-> * Store a secret in the key vault.
-> * Retrieve a secret from the key vault.
-> * Create an Azure web application.
-> * Enable a [managed service identity](../active-directory/managed-identities-azure-resources/overview.md) for the web app.
-> * Grant the required permissions for the web application to read data from the key vault.
+* Create a key vault.
+* Store a secret in the key vault.
+* Retrieve a secret from the key vault.
+* Create an Azure web application.
+* Enable a [managed service identity](../active-directory/managed-identities-azure-resources/overview.md) for the web app.
+* Grant the required permissions for the web application to read data from the key vault.
 
-Before we go any further, please read the [basic concepts](key-vault-whatis.md#basic-concepts).
+Before we go any further, please read the [basic concepts for Key Vault](key-vault-whatis.md#basic-concepts).
 
 >[!NOTE]
->Key Vault is a central repository to store secrets programmatically. But to do so, applications and users need to first authenticate to Key Vault--that is, present a secret. To follow security best practices, this first secret needs to be rotated periodically. 
+>Key Vault is a central repository to store secrets programmatically. But to do so, applications and users need to first authenticate to Key Vault--that is, present a secret. In keeping with security best practices, this first secret needs to be rotated periodically. 
 >
->With [managed service identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md), applications that run in Azure are given an identity that Azure manages automatically. This helps solve the *secret introduction problem* so that users and applications can follow best practices and not have to worry about rotating the first secret.
+>With [managed service identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md), applications that run in Azure get an identity that Azure manages automatically. This helps solve the *secret introduction problem* so that users and applications can follow best practices and not have to worry about rotating the first secret.
 
 ## Prerequisites
 
@@ -46,7 +45,7 @@ Before we go any further, please read the [basic concepts](key-vault-whatis.md#b
 * All platforms:
   * Git ([download](https://git-scm.com/downloads)).
   * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later. This is available for Windows, Mac, and Linux.
+  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later. This is available for Windows, Mac, and Linux. This quickstart requires that you run the Azure CLI locally. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](https://review.docs.microsoft.com/en-us/cli/azure/install-azure-cli?branch=master&view=azure-cli-latest).
 
 ## Log in to Azure
 
@@ -74,7 +73,7 @@ The resource group that you just created is used throughout this article.
 
 Next you create a key vault in the resource group that you created in the previous step. Provide the following information:
 
-* Key vault name: The name must be a string of 3-24 characters and must contain only (0-9, a-z, A-Z, and -).
+* Key vault name: The name must be a string of 3-24 characters and must contain only 0-9, a-z, A-Z, and a hyphen (-).
 * Resource group name.
 * Location: **East US**.
 
@@ -116,7 +115,7 @@ Edit the program.cs file to run the sample with your specific key vault name:
 
 1. Browse to the folder key-vault-dotnet-core-quickstart.
 2. Open the key-vault-dotnet-core-quickstart.sln file in Visual Studio 2017.
-3. Open the Program.cs file and update the placeholder *YourKeyVaultName* with the name of your key vault that you created earlier.
+3. Open the Program.cs file and update the placeholder *YourKeyVaultName* with the name of the key vault that you created earlier.
 
 This solution uses [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet libraries.
 
@@ -168,7 +167,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ```
 
-Now when you run the application, you should see your secret value retrieved. In the above command you are giving the Identity(MSI) of the App Service permissions to do **get** and **list** operations on your Key Vault
+Now when you run the application, you should see your secret value retrieved. In the above command you are giving the Identity(MSI) of the App Service permissions to do **get** and **list** operations on your Key Vault.
 
 ## Next steps
 
