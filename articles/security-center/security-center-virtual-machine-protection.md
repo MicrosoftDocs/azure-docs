@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
 
 ---
@@ -40,7 +40,6 @@ Under **Compute & apps**, there are the following tabs:
 - **Cloud Services**: list of your web and worker roles monitored by Security Center.
 - **App services (Preview)**: list of your App service environments and current security state of each.
 - **Containers (Preview)**: list of your containers hosted on IaaS Linux machines and security assessment of their Docker configurations.
-- **VM scale sets (Preview)**: list of your scale sets and recommendations for each.
 - **Compute resources (Preview)**: list of recommendations for your compute resources, such as Service Fabric clusters and Event hubs.
 
 To continue, select **Compute & apps** under **Resource security hygeine**.
@@ -158,24 +157,6 @@ There are three types of icons represented in this list:
 
     ![App Service remediation](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
-## Virtual machine scale sets (Preview)
-Security Center automatically discovers whether you have scales sets and recommends that you install the Microsoft Monitoring Agent on these scale sets. 
-
-To install the Microsoft Monitoring Agent: 
-
-1. Select the recommendation **Install the monitoring agent on virtual machine scale set**. You get a list of unmonitored scale sets.
-2. Select an unhealthy scale set. Follow the instructions to install the monitoring agent using an existing populated workspace or create a new one. Make sure to set the workspace [pricing tier](security-center-pricing.md) if it’s not set.
-
- ![Install MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
-
-If you want to set new scale sets to automatically install the Microsoft Monitoring Agent:
-1. Go to Azure Policy and click **Definitions**.
-2. Search for the policy **Deploy Log Analytics agent for Windows VM scale sets** and click on it.
-3. Click **Assign**.
-4. Set the **Scope** and **Log Analytics workspace** and click **Assign**.
-
-If you want to set all existing scale sets to install the Microsoft Monitoring Agent, in Azure Policy, go to **Remediation** and apply the existing policy to existing scale sets.
-
 
 ## Compute and app recommendations
 |Resource type|Secure score|Recommendation|Description|
@@ -234,11 +215,7 @@ If you want to set all existing scale sets to install the Microsoft Monitoring A
 |Machine|30|Install a vulnerability assessment solution on your virtual machines|Install a vulnerability assessment solution on your virtual machines|
 |Machine|1|Migrate virtual machines to new Azure Resource Manager resources|Use  Azure Resource Manager for your virutal machines to provide security enhancements such as: stronger access control (RBAC), better auditing, Resource Manager-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication and support for tags and resource groups for easier security management. |
 |Machine|30|Remediate vulnerabilities using a vulnerability assessment solution|Virtual machines for which a vulnerability assessment 3rd party solution is deployed are being continuously assessed against application and OS vulnerabilities. Whenever such vulnerabilities are found, these are available for more information as part of the recommendation.|
-|Virtual machine scale set |4|Enable diagnostics logs in Virtual Machine Scale Sets|Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes. This is useful when a security incident occurs, or your network is compromised.|
-|Virtual machine scale set|35|Remediate vulnerabilities in security configuration on your virtual machine scale sets|Remediate vulnerabilities in security configuration on your virtual machine scale sets to protect them from attacks. |
-|Virtual machine scale set|5|Remediate endpoint protection health failures on virtual machine scale sets|Remediate endpoint protection health failures on your virtual machine scale sets to protect them from threats and vulnerabilities. |
-|Virtual machine scale set|10|Install endpoint protection solution on virtual machine scale sets|Install an endpoint protection solution on your virtual machine scale sets, to protect them from threats and vulnerabilities. |
-|Virtual machine scale set|40|Install system updates on virtual machine scale sets|Install missing system security and critical updates to secure your Windows and Linux virtual machine scale sets. |
+
  
 
 

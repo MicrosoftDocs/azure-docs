@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 01/14/2019
 ms.author: alkohli
 ---
 # Azure Data Box Edge system requirements (preview)
@@ -73,6 +73,8 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 > - The device (source) IPs should always be set to all the cloud-enabled network interfaces.
 > - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
+### URL patterns for gateway feature
+
 |    URL pattern                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    Component or functionality                                                                           |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 |    https://\*.databoxedge.azure.com/\*<br>https://\*.servicebus.windows.net/\*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                                                                           |    Azure Data Box Edge service<br>Azure Service Bus<br>Authentication Service                           |
@@ -84,6 +86,15 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 |    https://\*.partners.extranet.microsoft.com/\*                                                                                                                                                                                                                                                                                                                                                                                                                    |    Support package                                                                                      |
 |    http://\*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                                     |    Telemetry service in Windows, see the update   for customer experience and diagnostic telemetry      |
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                         |
+
+
+### URL patterns for compute feature
+
+| URL pattern                      | Component or functionality                     |   |
+|----------------------------------|---------------------------------------------|---|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft container registry (required)               |   |
+| https://\*.azurecr.io                     | Personal and 3rd party container registries (optional) |   |
+| https://\*.azure-devices.net              | IoT Hub access (required)                             |   |
 
 ## Internet bandwidth
 

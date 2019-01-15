@@ -8833,6 +8833,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-stack/azure-stack-marketplace-publisher.md",
+      "redirect_url": "/azure/azure-stack/azure-stack-create-and-publish-marketplace-item",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-stack/azure-stack-faq.md",
       "redirect_url": "/azure/azure-stack/azure-stack-asdk-release-notes",
       "redirect_document_id": false
