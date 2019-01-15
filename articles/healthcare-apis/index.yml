@@ -17,6 +17,23 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
+    text: 'Learn how to deploy Microsoft Healthcare APIs in Azure:'
+  - type: list
+    style: icon48
+    items: 
+    - image:
+        src: media/index/portal.svg
+      text: Portal
+      href: fhir-paas-portal-quickstart.md
+    - image:
+        src: media/index/powershell.svg
+      text: PowerShell
+      href: fhir-paas-powershell-quickstart.md
+    - image:
+        src: media/index/cli.svg
+      text: CLI
+      href: fhir-paas-cli-quickstart.md
+  - type: paragraph
     text: 'Learn how to deploy an Open Source FHIR Server in Azure:'
   - type: list
     style: icon48
