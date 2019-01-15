@@ -42,7 +42,7 @@ To get the name of your storage account in the Azure portal, choose **All Servic
 
 To get the file system endpoint URI, choose **Properties**, and in the properties pane find the value of the **Primary ADLS FILE SYSTEM ENDPOINT** field.
 
-Save both of these values in a text editor. You'll need them soon.
+Paste both of these values into a text file. You'll need them soon.
 
 <a id="service-principal"/>
 
@@ -55,6 +55,8 @@ There's a few specific things that you'll have to do as you perform the steps in
 :heavy_check_mark: When performing the steps in the [Create an Azure Active Directory application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) section of the article,  make sure to set the **Sign-on URL** field of the **Create** dialog box to the endpoint URI that you just collected.
 
 :heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign your application to the **Blob Storage Contributor Role**.
+
+:heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, application ID, and authentication key values into a text file. You'll need those soon.
 
 ## Create a Databricks cluster
 
@@ -91,7 +93,7 @@ The next step is to create a Databricks cluster to create a data workspace.
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. In this code block, replace the `storage-account-name`, `application-id`, `authentication-id`, and `tenant-id` placeholder values in this code block with the values that you collected when you completed the steps in the [Set aside storage account configuration](#config) and [Create a service principal](#service-principal) sections of this article. Set the `file-system-name` to any name that you want to give your file system.
+18. In this code block, replace the `storage-account-name`, `application-id`, `authentication-id`, and `tenant-id` placeholder values in this code block with the values that you collected when you completed the steps in the [Set aside storage account configuration](#config) and [Create a service principal](#service-principal) sections of this article. Replace the `file-system-name` placeholder with any name that you want to give your file system.
 
 19. Press the **SHIFT + ENTER** keys to run the code in this block.
 
