@@ -45,8 +45,7 @@ To complete this article, you need:
 
 ## Create a problematic template
 
-Open a template called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) from 
-[Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/), and setup two issues.
+Open a template called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) from [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/), and setup two template issues.
 
 1. From Visual Studio Code, select **File**>**Open File**.
 2. In **File name**, paste the following URL:
