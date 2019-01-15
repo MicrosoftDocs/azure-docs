@@ -29,7 +29,6 @@
     href: /azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Group-based licensing basics    
     href: /azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: How-to guides
 - name: How-to guides
   expanded: true
   items:
