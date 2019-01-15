@@ -131,7 +131,7 @@ Add the following to AI-Agent.xml:
 > [!NOTE]
 > Backward compatibility mode is enabled by default, and the `enableW3CBackCompat` parameter is optional. Use it only when you want to turn backward compatibility off.
 >
-> Ideally, you would turn this off when all your services have been updated to newer version of SDKs that support the W3C protocol. We highly recommend that you move to newer version of SDKs with W3C support as soon as possible.
+> Ideally, you would turn this off when all your services have been updated to newer versions of SDKs that support the W3C protocol. We highly recommend that you move to these newer SDKs as soon as possible.
 
 
 > [!IMPORTANT]
@@ -177,40 +177,43 @@ The Application Insights SDK, starting with version 2.4.0-beta1, uses `Diagnosti
 <a name="java-correlation"></a>
 ## Telemetry correlation in the Java SDK
 
-The [Application Insights Java SDK](../../azure-monitor/app/java-get-started.md) supports automatic correlation of telemetry beginning with version `2.0.0`. It automatically populates `operation_id` for all telemetry (traces, exceptions, custom events, etc.) issued within the scope of a request. It also takes care of propagating the correlation headers (described above) for service to service calls via HTTP if the [Java SDK agent](../../azure-monitor/app/java-agent.md) is configured. Note: only calls made via Apache HTTP Client are supported for the correlation feature. If you're using Spring Rest Template or Feign, both can be used with Apache HTTP Client under the hood.
+The [Application Insights SDK for Java](../../azure-monitor/app/java-get-started.md) supports automatic correlation of telemetry beginning with version 2.0.0. It automatically populates `operation_id` for all telemetry (such as traces, exceptions, and custom events) issued within the scope of a request. It also takes care of propagating the correlation headers (described earlier) for service-to-service calls via HTTP, if the [Java SDK agent](../../azure-monitor/app/java-agent.md) is configured.
 
-Currently, automatic context propagation across messaging technologies (for example, Kafka, RabbitMQ, Azure Service Bus) isn't supported. It's possible, however to manually code such scenarios by using the `trackDependency` and `trackRequest` APIs, whereby a dependency telemetry represents a message being enqueued by a producer and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
+> [!NOTE]
+> Only calls made via Apache HTTPClient are supported for the correlation feature. If you're using Spring RestTemplate or Feign, both can be used with Apache HTTPClient under the hood.
+
+Currently, automatic context propagation across messaging technologies (such Kafka, RabbitMQ, or Azure Service Bus) isn't supported. However, it's possible to code such scenarios manually by using the `trackDependency` and `trackRequest` APIs. In these APIs, a dependency telemetry represents a message being enqueued by a producer, and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
 
 <a name="java-role-name"></a>
-## Role Name
+## Role name
 
 At times, you might want to customize the way component names are displayed in the [Application Map](../../azure-monitor/app/app-map.md). To do so, you can manually set the `cloud_RoleName` by doing one of the following:
 
-If you use Spring Boot with the Application Insights Spring Boot starter, the only required change is to set your custom name for the application in the application.properties file.
+- If you use Spring Boot with the Application Insights Spring Boot starter, the only required change is to set your custom name for the application in the application.properties file.
 
-`spring.application.name=<name-of-app>`
+  `spring.application.name=<name-of-app>`
 
-The Spring Boot starter will automatically assign cloudRoleName to the value you enter for the spring.application.name property.
+  The Spring Boot starter automatically assigns `cloudRoleName` to the value you enter for the `spring.application.name` property.
 
-If you are using the `WebRequestTrackingFilter`, the `WebAppNameContextInitializer` will set the application name automatically. Add the following to your configuration file (ApplicationInsights.xml):
-```XML
-<ContextInitializers>
-  <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
-</ContextInitializers>
-```
+- If you're using the `WebRequestTrackingFilter`, the `WebAppNameContextInitializer` sets the application name automatically. Add the following to your configuration file (ApplicationInsights.xml):
 
-Via the cloud context class:
+  ```XML
+  <ContextInitializers>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
+  </ContextInitializers>
+  ```
 
-```Java
-telemetryClient.getContext().getCloud().setRole("My Component Name");
-```
+- If you use the cloud context class:
+
+  ```Java
+  telemetryClient.getContext().getCloud().setRole("My Component Name");
+  ```
 
 ## Next steps
 
-- [Write custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md)
-- [Learn more about](../../azure-monitor/app/app-map.md#set-cloudrolename) setting cloud_RoleName for other SDKs.
-- Onboard all components of your micro service on Application Insights. Check out [supported platforms](../../azure-monitor/app/platforms.md).
-- See [data model](../../azure-monitor/app/data-model.md) for Application Insights types and data model.
+- Write [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md).
+- Learn more about [setting cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloudrolename) for other SDKs.
+- Onboard all components of your microservice on Application Insights. Check out the [supported platforms](../../azure-monitor/app/platforms.md).
+- See the [data model](../../azure-monitor/app/data-model.md) for Application Insights types.
 - Learn how to [extend and filter telemetry](../../azure-monitor/app/api-filtering-sampling.md).
-- [Application Insights config reference](configuration-with-applicationinsights-config.md)
-
+- Review the [Application Insights config reference](configuration-with-applicationinsights-config.md).
