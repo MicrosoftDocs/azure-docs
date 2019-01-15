@@ -166,7 +166,7 @@ To create the template VM, sign in to the Azure portal. Select **New** > **Compu
 Enter the following information on the first **Virtual machine configuration** screen:
 
 <table>
-<tr><th>Field name              </td><td>       Field value               </td><td>         Remarks               </td><tr>
+<tr><th>Field name              </td><th>       Field value               </td><th>         Remarks               </td><tr>
 <tr><td>VERSION RELEASE DATE    </td><td> Select a date from the drop-down list.</td><td></td><tr>
 <tr><td>VIRTUAL MACHINE NAME    </td><td> cass-template                   </td><td> This is the hostname of the VM. </td><tr>
 <tr><td>TIER                     </td><td> STANDARD                           </td><td> Leave the default.              </td><tr>
@@ -190,7 +190,7 @@ Enter the following information on the second **Virtual machine configuration** 
 <tr><td>ENDPOINTS    </td><td>Use the default. </td><td>    Use the default SSH configuration. </td></tr>
 </table>
 
-Select the right arrow, and leave the defaults as shown on the third screen. Select the “check” button to finish the VM provisioning process. After a few minutes, the VM with the name “ubuntu-template” appears in the “running” status.
+Select the right arrow, and leave the defaults as shown on the third screen. Select the **Check mark** button to finish the VM provisioning process. After a few minutes, the VM with the name *ubuntu-template* appears in the **running** status.
 
 ### Install the necessary software
 #### Step 1: Upload tarballs
@@ -317,7 +317,7 @@ Edit cassandra.yaml on each VM to reflect the configuration needed by all the vi
 </table>
 
 #### Step 6: Capture the VM image
-Sign in to the virtual machine by using the hostname (hk-cas-template.cloudapp.net) and the SSH private key that was previously created. For information on how to log in by using SSH or putty.exe, see "How to use SSH with Linux on Azure."
+Sign in to the virtual machine by using the hostname (hk-cas-template.cloudapp.net) and the SSH private key that was previously created. For information on how to sign in by using SSH or putty.exe, see "How to use SSH with Linux on Azure."
 
 Follow these steps to capture the image.
 
@@ -328,7 +328,7 @@ Use the command **sudo waagent –deprovision+user** to remove virtual machine i
 Highlight the virtual machine, and select **SHUTDOWN** on the bottom command bar.
 
 ##### 3. Capture the image
-Highlight the virtual machine, and select **CAPTURE** on the bottom command bar. On the next screen, name the image, for example, hk-cas-2-08-ub-14-04-2014071. Enter an image description. Select the check mark to finish the capture process.
+Highlight the virtual machine, and select **CAPTURE** on the bottom command bar. On the next screen, name the image, for example, hk-cas-2-08-ub-14-04-2014071. Enter an image description. Select the **Check mark** button to finish the capture process.
 
 This process takes a few seconds. The image appears in the **MY IMAGES** section of the image gallery. The source VM is automatically deleted after the image is successfully captured. 
 
@@ -359,7 +359,7 @@ Data and web subnets can be protected through network security groups. How to do
 
 **Step 2: Provision virtual machines**
 
-Using the image you created previously, create the following virtual machines in the cloud server “hk-c-svc-west” and bind them to the respective subnets as shown:
+Using the image you created previously, create the following virtual machines in the cloud server **hk-c-svc-west** and bind them to the respective subnets as shown:
 
 <table>
 <tr><th>Machine name    </th><th>Subnet    </th><th>IP address    </th><th>Availability set</th><th>DC/Rack</th><th>Seed?</th></tr>
@@ -384,7 +384,7 @@ Follow these steps to create the list of VMs.
 
 You can carry out these steps by using the Azure portal. Use a Windows machine, or use a VM on Azure if you don't have access to a Windows machine. Use the following PowerShell script to provision all eight VMs automatically.
 
-**List 1: PowerShell script used to provision virtual machines**
+**PowerShell script used to provision virtual machines**
 
 ```powershell
 #Tested with Azure Powershell - November 2014
@@ -445,16 +445,16 @@ foreach($vmName in $vmNames)
 
 Sign in to the VM, and do the following:
 
-* Edit $CASS_HOME/conf/cassandra-rackdc.properties to specify the datacenter and rack properties.
+* Edit **$CASS_HOME/conf/cassandra-rackdc.properties** to specify the datacenter and rack properties.
   
        dc =EASTUS, rack =rack1
-* Edit cassandra.yaml to configure the seed nodes.
+* Edit **cassandra.yaml** to configure the seed nodes.
   
        Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10"
 
 **Step 4: Start the VMs, and test the cluster**
 
-Sign in to one of the nodes, for example, hk-c1-west-us. To see the status of the cluster, run the following command:
+Sign in to one of the nodes, for example, **hk-c1-west-us**. To see the status of the cluster, run the following command:
 
        nodetool –h 10.1.2.4 –p 7199 status
 
@@ -475,9 +475,9 @@ A display similar to this one for an eight-node cluster appears:
 ## Test the single-region cluster
 Follow these steps to test the cluster.
 
-1. Using the PowerShell Get-AzureInternalLoadbalancer cmdlet, get the IP address of the internal load balancer, for example, 10.1.2.101. The syntax of the command is Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us.” The details of the internal load balancer display along with its IP address.
-2. Sign in to the web farm VM, for example, hk-w1-west-us, by using PuTTY or SSH.
-3. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160.
+1. Using the **PowerShell Get-AzureInternalLoadbalancer** cmdlet, get the IP address of the internal load balancer, for example, 10.1.2.101. The syntax of the command is **Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us.”** The details of the internal load balancer display along with its IP address.
+2. Sign in to the web farm VM, for example, **hk-w1-west-us**, by using PuTTY or SSH.
+3. Run **$CASS_HOME/bin/cqlsh 10.1.2.101 9160**.
 4. To verify if the cluster is working, use the following CQL commands:
    
          CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };
@@ -573,7 +573,7 @@ In the Azure portal, use the **DASHBOARD** menu of both virtual networks to esta
 
 **Step 8: Create the virtual machines in region #2**
 
-Create the Ubuntu image as described in region #1 deployment by following the same steps. Or copy the image VHD file to the Azure Storage account located in region #2 and create the image. Use this image and create the following list of virtual machines into a new cloud service hk-c-svc-east-us:
+Create the Ubuntu image as described in region #1 deployment by following the same steps. Or copy the image VHD file to the Azure Storage account located in region #2, and create the image. Use this image to create the following list of virtual machines into a new cloud service **hk-c-svc-east-us**:
 
 | Machine name | Subnet | IP address | Availability set | DC/Rack | Seed? |
 | --- | --- | --- | --- | --- | --- |
@@ -587,17 +587,19 @@ Create the Ubuntu image as described in region #1 deployment by following the sa
 | hk-w1-east-us |web |10.2.1.4 |hk-w-aset-1 |N/A |N/A |
 | hk-w2-east-us |web |10.2.1.5 |hk-w-aset-1 |N/A |N/A |
 
-Follow the same instructions as region #1 but use the 10.2.xxx.xxx address space.
+Follow the same instructions as region #1, but use the 10.2.xxx.xxx address space.
 
 **Step 9: Configure Cassandra on each VM**
 
 Sign in to the VM, and follow these steps.
 
-1. Edit $CASS_HOME/conf/cassandra-rackdc.properties to specify the datacenter and rack properties in the format:
-    dc =EASTUS
-    rack =rack1
-2. Edit cassandra.yaml to configure seed nodes:
-    Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
+- Edit **$CASS_HOME/conf/cassandra-rackdc.properties** to specify the datacenter and rack properties in the format:
+
+       dc =EASTUS
+       rack =rack1
+- Edit **cassandra.yaml** to configure seed nodes:
+
+       Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
 
 **Step 10: Start Cassandra**
 
@@ -606,7 +608,7 @@ Sign in to each VM, and start Cassandra in the background by running the followi
     $CASS_HOME/bin/cassandra
 
 ## Test the multiple-region cluster
-By now Cassandra has been deployed to 16 nodes with 8 nodes in each Azure region. These nodes are in the same cluster by virtue of the common cluster name and the seed node configuration. Use the following process to test the cluster.
+By now, Cassandra is deployed to 16 nodes with 8 nodes in each Azure region. These nodes are in the same cluster because of the common cluster name and the seed node configuration. Use the following process to test the cluster.
 
 **Step 1: Get the internal load balancer IP for both the regions by using PowerShell**
 
@@ -615,10 +617,10 @@ By now Cassandra has been deployed to 16 nodes with 8 nodes in each Azure region
   
     Note the IP addresses, for example, west - 10.1.2.101, east - 10.2.2.101, that display.
 
-**Step 2: Execute the following in the west region after logging into hk-w1-west-us**
+**Step 2: Run the following commands in the West region after you sign into hk-w1-west-us**
 
-1. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160
-2. Execute the following CQL commands:
+1. Run $CASS_HOME/bin/cqlsh 10.1.2.101 9160
+2. Run the following CQL commands:
    
      CREATE KEYSPACE customers_ks
      WITH REPLICATION = { 'class' : 'NetworkToplogyStrategy', 'WESTUS' : 3, 'EASTUS' : 3};
@@ -635,10 +637,10 @@ A display like this one appears:
 | 1 |John |Doe |
 | 2 |Jane |Doe |
 
-**Step 3: Execute the following in the east region after logging into hk-w1-east-us**
+**Step 3: Run the following commands in the East region after you sign into hk-w1-east-us**
 
-1. Execute $CASS_HOME/bin/cqlsh 10.2.2.101 9160
-2. Execute the following CQL commands:
+1. Run $CASS_HOME/bin/cqlsh 10.2.2.101 9160
+2. Run the following CQL commands:
    
          USE customers_ks;
          CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
@@ -653,16 +655,16 @@ The same display as seen for the West region appears:
 | 1 |John |Doe |
 | 2 |Jane |Doe |
 
-Execute a few more inserts, and see that those get replicated to the west-us part of the cluster.
+Run a few more inserts, and see that those get replicated to the west-us part of the cluster.
 
 ## Test the Cassandra cluster from Node.js
-Using one of the Linux VMs you created in the "web" tier previously, execute a simple Node.js script to read the previously inserted data.
+Using one of the Linux VMs you created in the "web" tier previously, run a simple Node.js script to read the previously inserted data.
 
 **Step 1: Install Node.js and the Cassandra client**
 
 1. Install Node.js and npm.
 2. Install the node package "cassandra-client" by using npm.
-3. Execute the following script at the shell prompt that displays the json string of the retrieved data:
+3. Run the following script at the shell prompt that displays the json string of the retrieved data:
     
     ```
     var pooledCon = require('cassandra-client').PooledConnection;
