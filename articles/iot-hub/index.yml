@@ -52,21 +52,21 @@ sections:
         - href: /azure/iot-hub/quickstart-control-device-android
       - title: Echo data over device streams
         values: 
-        - href: /azure/iot-hub/iot-hub-device-streams-nodejs-echo-quickstart
-        - href: /azure/iot-hub/iot-hub-device-streams-csharp-echo-quickstart
+        - href: /azure/iot-hub/quickstart-device-streams-echo-nodejs
+        - href: /azure/iot-hub/quickstart-device-streams-echo-csharp
         - href: 
         - href: 
         - href: 
-        - href: /azure/iot-hub/iot-hub-device-streams-c-echo-quickstart
+        - href: /azure/iot-hub/quickstart-device-streams-echo-c
         - href: 
       - title: SSH/RDP over device streams
         values: 
-        - href: /azure/iot-hub/iot-hub-device-streams-nodejs-proxy-quickstart
-        - href: /azure/iot-hub/iot-hub-device-streams-csharp-proxy-quickstart
+        - href: /azure/iot-hub/quickstart-device-streams-proxy-nodejs
+        - href: /azure/iot-hub/quickstart-device-streams-proxy-csharp
         - href: 
         - href: 
         - href: 
-        - href: /azure/iot-hub/iot-hub-device-streams-c-proxy-quickstart
+        - href: /azure/iot-hub/quickstart-device-streams-proxy-c
         - href: 
 - title: Step-by-Step Tutorials
   items:
