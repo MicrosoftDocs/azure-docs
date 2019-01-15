@@ -197,3 +197,6 @@
     href: release-notes.md
   - name: FAQ
     href: frequently-asked-questions.md
+  - name: Azure clouds and regions
+    href: azure-clouds-regions.md
+

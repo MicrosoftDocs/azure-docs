@@ -309,7 +309,7 @@ The Storage Resource Provider (SRP) enables you to manage your storage account a
 | Subscriptions/Resource Groups | 2016-09-01 |
 | Subscriptions/resourceGroups/resources | 2016-09-01 |
 | Subscriptions/resources | 2016-09-01 |
-| Subscriptiosn/tagNames | 2016-09-01 |
+| Subscriptions/tagNames | 2016-09-01 |
 | Subscriptions/tagNames/tagValues | 2016-09-01 |
 | Tenants | 2017-08-01 |
 
