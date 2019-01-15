@@ -22,12 +22,15 @@ The **azure.replication_support** parameter must be set to REPLICA on the master
 2. Select **Server Parameters** from the menu on the left.
 
 3. Search for **azure.replication_support**.
+   ![Azure Database for PostgreSQL - azure.replication_support](./media/howto-read-replicas-portal/azure-replication-parameter.png)
 
-4. Set **azure.replication_support** to REPLICA.
+4. Set **azure.replication_support** to REPLICA. **Save** the change.
+   ![Azure Database for PostgreSQL - REPLICA and save](./media/howto-read-replicas-portal/save-parameter-replica.png)
 
-5. Save the change.
+5. Once saving is complete, you will receive a notification.
+   ![Azure Database for PostgreSQL - Save notification](./media/howto-read-replicas-portal/parameter-save-notification.png)
 
-6. Restart the server to apply the change.
+6. Restart the server to apply the change after it is saved. See [the restart documentation](howto-restart-server-portal.md) to learn how to restart a server.
 
 ## Create a read replica
 Read replicas can be created using the following steps:
