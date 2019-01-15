@@ -58,7 +58,7 @@ The next few steps help you fill the autoscale screen to look like following pic
   ![Navigate to autoscale settings](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## Create recurrance profile
+## Create recurrence profile
 
 1. Click on the **Add a scale condition** link under the default profile.
 

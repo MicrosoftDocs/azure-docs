@@ -102,7 +102,7 @@ Before setting up audit auditing check if you are using a ["Downlevel Client"](s
 
 5. Click the **OK** button to save the storage details configuration.
 6. Under **LOGGING BY EVENT**, click **SUCCESS** and **FAILURE** to log all events, or choose individual event categories.
-7. If you are configuring Auditing for a database, you may need to alter the connection string of your client to ensure data auditing is correctly captured. Check the [Modify Server FDQN in the connection string](sql-data-warehouse-auditing-downlevel-clients.md) topic for downlevel client connections.
+7. If you are configuring Auditing for a database, you may need to alter the connection string of your client to ensure data auditing is correctly captured. Check the [Modify Server FQDN in the connection string](sql-data-warehouse-auditing-downlevel-clients.md) topic for downlevel client connections.
 8. Click **OK**.
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
@@ -192,7 +192,7 @@ A partial list of "Downlevel clients" includes:
 * JDBC (while JDBC does support TDS 7.4, the TDS redirection feature is not fully supported)
 * Tedious (for Node.JS)
 
-**Remark:** The preceding server FDQN modification may be useful also for applying a SQL Server Level Auditing policy without a need for a configuration step in each database (Temporary mitigation).     
+**Remark:** The preceding server FQDN modification may be useful also for applying a SQL Server Level Auditing policy without a need for a configuration step in each database (Temporary mitigation).     
 
 
 
