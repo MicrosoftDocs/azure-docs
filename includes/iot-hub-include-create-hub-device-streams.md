@@ -5,7 +5,7 @@ author: rezas
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
-ms.date: 1/8/2019
+ms.date: 01/15/2019
 ms.author: rezas
 ms.custom: include file
 ---

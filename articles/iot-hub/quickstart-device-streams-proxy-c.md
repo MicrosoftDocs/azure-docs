@@ -167,7 +167,7 @@ A device must be registered with your IoT hub before it can connect. In this sec
     cmake --build . -- /m /p:Configuration=Release
 ```
 
-    - Run the compiled program on the device:
+- Run the compiled program on the device:
 ```
     # In Linux
     # Go to sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample

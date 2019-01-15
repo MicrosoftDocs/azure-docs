@@ -171,6 +171,5 @@ Use the links below for instructions on how to run the local proxy programs in y
 Use the links below to learn more about device streams:
 
 > [!div class="nextstepaction"]
+> [Device streams on IoT show (Channel 9)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fchannel9.msdn.com%2FShows%2FInternet-of-Things-Show%2FAzure-IoT-Hub-Device-Streams&data=02%7C01%7Crezas%40microsoft.com%7Cc3486254a89a43edea7c08d67a88bcea%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636831125031268909&sdata=S6u9qiehBN4tmgII637uJeVubUll0IZ4p2ddtG5pDBc%3D&reserved=0)
 > [Try a device stream quickstart guide](/azure/iot-hub)
-
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-IoT-Hub-Device-Streams/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
