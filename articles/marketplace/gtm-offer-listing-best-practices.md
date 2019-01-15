@@ -1,5 +1,5 @@
 ---
-title: GTM - Offer listing best practices | Azure
+title: Go-To-Market Services - Offer listing best practices | Azure
 description: Go-To-Market Services - this section describes the listing best practices for an offer
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:

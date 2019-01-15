@@ -1,5 +1,5 @@
 ---
-title: GTM - your marketplace benefits | Azure
+title: Go-To-Market Services - your marketplace benefits | Azure
 description: Go-To-Market Services - Microsoft resources that publishers can use are described in this section.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:

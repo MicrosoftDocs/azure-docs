@@ -1,5 +1,5 @@
 ---
-title: GTM - Promote your business with Microsoft | Azure
+title: Go-To-Market Services - Promote your business with Microsoft | Azure
 description: Go-To-Market Services - Publishers can learn how to promote your business with Microsoft in this section.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:

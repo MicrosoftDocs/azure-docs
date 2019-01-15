@@ -1,5 +1,5 @@
 ---
-title: GTM - Marketing best practices | Azure
+title: Go-To-Market Services - Marketing best practices | Azure
 description: Go-To-Market Services - this section describes marketing best practices for publishers of Azure Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
