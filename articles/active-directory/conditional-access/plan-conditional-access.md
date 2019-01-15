@@ -67,7 +67,7 @@ This is a good time to decide on a naming standard for your policies. The naming
 - Who it applies to
 - When it applies 
  
-![Naming standard](./media/plan-conditional-access/51.png)
+![Naming standard](./media/plan-conditional-access/09.png)
 
 
 
