@@ -66,9 +66,7 @@ Open your ASP.NET web application in Visual Studio and navigate to the **Web.con
 <add key="VisionEndpoint" value="VISION_ENDPOINT" />
 ```
 
-If the endpoint URL you just added to **Web.config** doesn't end with "/vision/v1.0", add it. The complete URL should look something like this: https://eastus.api.cognitive.microsoft.com/vision/v1.0.
-
-In the Solution Explorer, right-click the project and use the **Manage NuGet Packages** command to install the package **Microsoft.Azure.CognitiveServices.Vision.ComputerVision**. This package contains the types needed to call the Computer Vision API.
+Then in the Solution Explorer, right-click the project and use the **Manage NuGet Packages** command to install the package **Microsoft.Azure.CognitiveServices.Vision.ComputerVision**. This package contains the types needed to call the Computer Vision API.
 
 ## Add metadata generation code
 
