@@ -34,7 +34,7 @@ Before you begin, make sure that:
 
 ## Connect to Data Box
 
-Based on the storage account selected, Data Box creates upto:
+Based on the storage account selected, Data Box creates up to:
 - Three shares for each associated storage account for GPv1 and GPv2.
 - One share for premium or blob storage account. 
 
