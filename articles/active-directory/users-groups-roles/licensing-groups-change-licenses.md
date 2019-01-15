@@ -1,11 +1,11 @@
 ---
 
-  title: How to safely migrate users between product licenses by using group-based licensing in Azure Active Directory | Microsoft Docs
-  description: Describes the recommended process to migrate users between different product licenses (Office 365 Enterprise E1 and E3) by using group-based licensing
+  title: How to migrate users between product licenses with groups - Azure Active Directory | Microsoft Docs
+  description: Describes the recommended process to migrate users between different product licenses (Office 365 Enterprise E1 and E3) using group-based licensing
   services: active-directory
   keywords: Azure AD licensing
   documentationcenter: ''
-  author: piotrci
+  author: curtand
   manager: mtillman
   editor: ''
 
@@ -15,8 +15,9 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 10/29/2018
-  ms.author: piotrci
+  ms.date: 01/14/2019
+  ms.author: curtand
+  ms.reviewer: sumitp
 
 ---
 
