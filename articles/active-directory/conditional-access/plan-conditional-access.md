@@ -229,11 +229,13 @@ The cleanup procedure consists of the following steps:
 
 When you are ready to deploy a new policy into your environment, you should do this in phases:
 
-1. Apply a policy to a small set of users and verify it behaves as expected.
+- Provide internal change communication to end users.
 
-2. When you expand a policy to include more users, continue to exclude all administrators. Excluding administrators ensures that someone still has access to a policy if a change is required.
+- Start with a small set of users and verify that the policy behaves as expected.
 
-3. Apply a policy to all users only if it's required.
+- When you expand a policy to include more users, continue to exclude all administrators. Excluding administrators ensures that someone still has access to a policy if a change is required.
+
+- Apply a policy to all users only if it's required.
 
 As a best practice, create at least one user account that is:
 
@@ -241,7 +243,7 @@ As a best practice, create at least one user account that is:
 
 - Excluded from all your policies
 
- Provide internal change communication to end users.
+ 
 
 
 
