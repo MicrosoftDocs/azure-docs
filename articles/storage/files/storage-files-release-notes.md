@@ -27,7 +27,7 @@ The following versions are supported for the Azure File Sync agent:
 | September 2018 update rollup | 3.3.0.0 | September 24, 2018 | Supported |
 | August 2018 update rollup | 3.2.0.0 | August 15, 2018 | Supported |
 | General availability | 3.1.0.0 | July 19, 2018 | Supported |
-| Pre-general availability | 1.1.0.0 - 3.0.13.0 | N/A | Not Supported - Agent versions expired on October 1, 2018 |
+| Expired agents | 1.1.0.0 - 3.0.13.0 | N/A | Not Supported - Agent versions expired on October 1, 2018 |
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
