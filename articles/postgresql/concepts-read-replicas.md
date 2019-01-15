@@ -14,7 +14,7 @@ The read replica feature allows you to replicate data from an Azure Database for
 Replicas are new servers that can be managed in similar ways as normal standalone Azure Database for PostgreSQL servers. 
 
 ## When to use read replicas
-The read replica feature is targeted at helping improve the performance and scale of read-intensive workloads. Read replicas help increase the amount of read capacity available compared to if you were to use a single server for all reads and writes. For instance, the read workloads could be isolated to the replicas, while write workloads can be directed to the master.
+The read replica feature is targeted at helping improve the performance and scale of read-intensive workloads. For instance, the read workloads could be isolated to the replicas, while write workloads can be directed to the master.
 
 A common scenario is to have BI and analytical workloads use the read replica as the data source for reporting.
 
