@@ -155,7 +155,7 @@ If this is the first time your Operations Manager management group is registerin
 
 1. Open an elevated command-prompt.\
    a. Go to **Start** and type **cmd**.\
-   b. Right-click **Command prompt** and select **Run as administrator**.\
+   b. Right-click **Command prompt** and select **Run as administrator**.
 1. Enter the following command and press **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
