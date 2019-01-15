@@ -12,46 +12,66 @@ ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 02/23/2018
 ---
 
-# Manage artifact metadata from integration accounts in Azure Logic Apps with Enterprise Integration Pack
+# Manage artifact metadata in integration accounts with Azure Logic Apps and  Enterprise Integration Pack
 
 You can define custom metadata for artifacts in integration accounts 
-and retrieve that metadata during runtime for your logic app. 
-For example, you can specify metadata for artifacts, such as partners, 
+and get that metadata during runtime for your logic app to use. 
+For example, you can provide metadata for artifacts, such as partners, 
 agreements, schemas, and maps - all store metadata using key-value pairs. 
 
-## Add metadata to artifacts in integration accounts
+## Prerequisites
 
-1. In the Azure portal, create an [integration account](logic-apps-enterprise-integration-create-integration-account.md).
+* An Azure subscription. If you don't have a subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
-2. Add an artifact to your integration account, for example, 
-a [partner](logic-apps-enterprise-integration-partners.md), 
-[agreement](logic-apps-enterprise-integration-agreements.md), 
-or [schema](logic-apps-enterprise-integration-schemas.md).
+* A basic [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
+that has at least one artifact, for example: 
 
-3. Select the artifact, choose **Edit**, and enter metadata details.
+  * [Partner](logic-apps-enterprise-integration-partners.md)
+  * [Agreement](logic-apps-enterprise-integration-agreements.md)
+  * [Schema](logic-apps-enterprise-integration-schemas.md)
+  * [Map](logic-apps-enterprise-integration-maps.md)
+
+* A logic app that's linked to the integration account 
+and artifact metadata you want to use. If your logic app 
+isn't already linked, learn [how to link logic apps to integration accounts](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
+
+  If you don't have a logic app yet, learn [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+  Add the trigger and actions you want to use for managing 
+  artifact metadata. Or, to just try things out, add a trigger 
+  such as **Request** or **HTTP** to your logic app.
+
+## Add metadata to artifacts
+
+1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+with your Azure account credentials. Find and open your integration account.
+
+1. Select the artifact where you want to add metadata, 
+and choose **Edit**. Enter the metadata details for that artifact.
 
    ![Enter metadata](media/logic-apps-enterprise-integration-metadata/image1.png)
 
-## Retrieve metadata from artifacts for logic apps
+## Get artifact metadata
 
-1. In the Azure portal, create a [logic app](quickstart-create-first-logic-app-workflow.md).
+1. In the Azure portal, open the logic app that's 
+linked to the integration account you want. 
 
-2. Create a [link from your logic app to your integration account](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
+1. In the Logic App Designer, if you're adding the step for 
+getting metadata under the trigger or last action in the workflow, 
+choose **New step** > **Add an action**. 
 
-3. In Logic App Designer, add a trigger like **Request** or **HTTP** to your logic app.
+1. Search for "integration account", and select **Enterprise**. 
+From the actions list, select this action: 
+**Integration Account Artifact Lookup - Integration Account**
 
-4. Under the trigger, choose **New step** > **Add an action**. 
-Search for "integration account" so you can find and then select 
-this action: **Integration Account - Integration Account Artifact Lookup**
+   ![Select "Integration Account Artifact Lookup"](media/logic-apps-enterprise-integration-metadata/image2.png)
 
-   ![Select Integration Account Artifact Lookup](media/logic-apps-enterprise-integration-metadata/image2.png)
-
-5. Select the **Artifact Type** and provide the **Artifact Name**. 
+1. Select the **Artifact Type** and provide the **Artifact Name**. 
 For example:
 
    ![Select artifact type and specify artifact name](media/logic-apps-enterprise-integration-metadata/image3.png)
 
-## Example: Retrieve partner metadata
+## Example: Get partner metadata
 
 Suppose this partner has this metadata with `routingUrl` details:
 
