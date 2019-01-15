@@ -22,7 +22,7 @@ A storage account with Data Lake Storage Gen2 capabilities is used as the data l
 
 ## Prerequisites
 
-- You'll need to create a user-assigned managed identity and then assign the ***Blob Storage Contributor Role** to the identity. See [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+- You'll need to create a user-assigned managed identity and then assign the **Blob Storage Contributor Role** to the identity. See [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
 ## Cluster setup methods
 
