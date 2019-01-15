@@ -39,9 +39,7 @@ This article summarizes supported configurations and components when you deploy 
 
 You can replicate and recover VMs between any two regions within the same geographic cluster. Geographic clusters are defined keeping data latency and sovereignty in mind.
 
->[!NOTE]
->If you are not able to see a region within a Geographic cluster during enabling replication then make sure your subscription has access to create virtual machine in that region. If not than raise a support request under "Issue type" subscription.
->
+
 **Geographic cluster** | **Azure regions**
 -- | --
 America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
@@ -54,9 +52,13 @@ China | China East, China North, China North2, China East2
 
 >[!NOTE]
 >
-> For Brazil South region, you can replicate and fail over to one of the following: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US regions.
->
-> It should be noted that Site Recovery has only enabled Brazil South to be used as a source region from where VMs can be protected. It cannot be used as a Target DR region for any of the Azure regions like South Central US. The reason being latency observed due to geographical distance it is recommended to select any other America's region other than Brazil South.
+> - For **Brazil South** region, you can replicate and fail over to one of the following: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US regions. It should be noted that Site Recovery has only enabled Brazil South to be used as a source region from where VMs can be protected. It **cannot be used as a Target DR region** for any of the Azure regions like South Central US. The reason being latency observed due to geographical distance it is recommended to select any other America's region other than Brazil South.
+> 
+> - If you are **not able to see a region** where you want **to create a vault** then make sure your subscription has access to create resources in that region. For example: If you are not able to create vault in France South then your subscription doesn't have access to France south region. Please file support ticket under issue Type "subscription management" and  problem type "other General questions" subject " whitlelist subscription for the XXX Azure region"
+> 
+> - If you are **not able to see a region** within a Geographic cluster **during enabling replication** then make sure your subscription has access to create virtual machine in that region. For example: If you are trying to protect virtual machines from France Central to France south and don't see France south under the region drop down then your subscription doesn't have access to deploy VM in that region. Please file support ticket under issue Type "subscription management" and  problem type "other General questions" subject " whitlelist subscription for the XXX Azure region"
+> - You cannot select regions across geographic clusters mentioned above.
+
 
 ## Cache storage
 

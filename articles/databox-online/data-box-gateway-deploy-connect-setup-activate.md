@@ -82,7 +82,7 @@ You are now at the **Dashboard** of your device.
     - You can configure your network interface as IPv4.
 
     >[!NOTE] 
-    > We recommend that you do not switch the local IP address of the netowrk interface from static to DCHP, unless you have another IP address to connect to the device. If using one network interface and you switch to DHCP, there would be no way to determine the DHCP address. If you want to change to a DHCP address, wait until after the device has registered with the service, and then change. You can then view the IPs of all the adpaters in the **Device properties** in the Azure portal for your service.
+    > We recommend that you do not switch the local IP address of the network interface from static to DHCP, unless you have another IP address to connect to the device. If using one network interface and you switch to DHCP, there would be no way to determine the DHCP address. If you want to change to a DHCP address, wait until after the device has registered with the service, and then change. You can then view the IPs of all the adpaters in the **Device properties** in the Azure portal for your service.
 
 4. (Optionally) configure your web proxy server. Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here.
    
@@ -90,7 +90,7 @@ You are now at the **Dashboard** of your device.
    
    In the **Web proxy** page:
    
-   1. Supply the **Web proxy URL** in this format: *http://&lt;host-IP address or FDQN&gt;:Port number*. Note that HTTPS URLs are not supported.
+   1. Supply the **Web proxy URL** in this format: *http://&lt;host-IP address or FQDN&gt;:Port number*. Note that HTTPS URLs are not supported.
    2. Specify **Authentication** as **Basic** or **None**.
    3. If using authentication, you will also need to provide a **Username** and **Password**.
    4. Click **Apply**. This will validate and apply the configured web proxy settings.

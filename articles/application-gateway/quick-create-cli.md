@@ -3,15 +3,9 @@ title: Quickstart - Direct web traffic with Azure Application Gateway - Azure CL
 description: Learn how use the Azure CLI to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-
 ms.service: application-gateway
-ms.devlang: azurecli
 ms.topic: quickstart
-ms.workload: infrastructure-services
-ms.date: 12/13/2018
+ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
 
@@ -38,7 +32,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## Create network resources 
 
-When you create a virtual network, the application gateway can communicate with other resources. You can create a virtual network at the same time that you create the application gateway. You create two subnets in this example: one for the application gateway, and the other for the virtual machines. 
+When you create a virtual network, the application gateway can communicate with other resources. You can create a virtual network at the same time that you create the application gateway. You create two subnets in this example: one for the application gateway, and the other for the virtual machines. The application gateway subnet can contain only application gateways. No other resources are allowed.
 
 To create the virtual network and subnet, you use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Run [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create) to create the public IP address.
 

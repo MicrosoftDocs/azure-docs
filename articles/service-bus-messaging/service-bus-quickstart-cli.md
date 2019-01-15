@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Use Azure CLI and Java to send and receive messages from Azure Service Bus | Microsoft Docs
-description: In this quickstart, you learn to send and receive Azure Service Bus messages using Azure CLI and a sample Java application
+title: Quickstart - Use the Azure CLI to create a Service Bus queue | Microsoft Docs
+description: In this quickstart, you learn how to use the Azure CLI to creat a Service Bus queue. Then, you use a sample Java application to send messages to and receive messages from the queue.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -8,13 +8,13 @@ manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 
 ---
 
-# Quickstart: Send and receive messages using Azure CLI and Java
+# Quickstart: Use the Azure CLI to create a Service Bus queue
 
 Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services, or processes from each other (applications do not need to be online at the same time), transferring state or data changes, and sending messages between the applications. 
 
@@ -22,7 +22,7 @@ For example, a retail company might send their point of sales data to a back off
 
 ![queue](./media/service-bus-quickstart-cli/quick-start-queue.png)
 
-This quickstart describes how to send and receive messages with Service Bus, using Azure CLI and the Service Bus Java library. Finally, if you're interested in more technical details, you can [read an explanation](#understand-the-sample-code) of the key elements of the sample code.
+This quickstart describes how to send and receive messages with Service Bus by using the Azure CLI and the Service Bus Java library. Finally, if you're interested in more technical details, you can [read an explanation](#understand-the-sample-code) of the key elements of the sample code.
 
 If you don't have an Azure subscription, you can create a [free account][] before you begin.
 
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, you can create a [free account][] befor
 
 Click the Cloud Shell button on the menu in the upper-right corner of the Azure portal, and from the **Select environment** dropdown, select **Bash**. 
 
-## Use CLI to create resources
+## Use the Azure CLI to create resources
 
 In Cloud Shell, from the Bash prompt issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
 
@@ -264,7 +264,7 @@ void registerReceiver(QueueClient queueClient) throws Exception {
 In this article, you created a Service Bus namespace and other resources required to send and receive messages from a queue. To learn more about writing code to send and receive messages, continue to the following tutorial for Service Bus:
 
 > [!div class="nextstepaction"]
-> [Update inventory using CLI and Java](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [Update inventory by using the Azure CLI and Java](./service-bus-tutorial-topics-subscriptions-cli.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
