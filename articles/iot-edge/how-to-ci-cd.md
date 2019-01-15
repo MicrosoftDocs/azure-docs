@@ -13,9 +13,9 @@ ms.custom: seodec18
 
 # Continuous integration and continuous deployment to Azure IoT Edge
 
-You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines or [Azure IoT Edge plugin for Jenkins](https://plugins.jenkins.io/azure-iot-edge) on your Jenkins server. This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
+You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines. This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
 
-In this article, you will learn how to:
+In this article, you learn how to:
 * Create and check in a sample IoT Edge solution.
 * Configure continuous integration (CI) to build the solution.
 * Configure continuous deployment (CD) to deploy the solution and view responses.
@@ -23,72 +23,87 @@ In this article, you will learn how to:
 ![Diagram - CI and CD branches for development and production](./media/how-to-ci-cd/cd.png)
 
 
-## Create a sample Azure IoT Edge solution using Visual Studio Code
+## Prerequisites
 
-In this section, you will create a sample IoT Edge solution containing unit tests that you can execute as part of the build process. Before following the guidance in this section, complete the steps in [Develop an IoT Edge solution with multiple modules in Visual Studio Code](how-to-develop-multiple-modules-vscode.md).
+* An Azure Repos repository. If you don't have one, you can [Create a new Git repo in your project](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav).
+* An IoT Edge solution committed and pushed to your repository. If you want to create a new sample solution for testing this article, follow the steps in [Develop and debug modules in Visual Studio Code](how-to-vs-code-develop-modules.md) or [Develop and debug C# modules in Visual Studio](how-to-visual-studio-develop-csharp-module.md).
+   * For this article, all you need is the solution folder created by the IoT Edge templates in either Visual Studio Code or Visual Studio. You don't need to build, push, deploy, or debug this code before proceeding. You'll set those processes up in Azure Pipelines. 
+   * If you're creating a new solution, clone your repository locally first. Then, when you create the solution you can choose to create it directly in the repository folder. You can easily commit and push the new files from there. 
 
-1. In VS Code command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**), and create a C# Module (**FilterModule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (`localhost:5000/filtermodule`). Change it to Azure Container Registry(`<your container registry address>/filtermodule`) or Docker Hub for further continuous integration.
-
-    ![Set up Azure Container Registry](./media/how-to-ci-cd/acr.png)
-
-2. The VS Code window will load your IoT Edge solution workspace. You can optionally type and run **Azure IoT Edge: Add IoT Edge module** to add more modules. There is a `modules` folder, a `.vscode` folder, and a deployment manifest template file in the root folder. All user module codes will be subfolders under the folder `modules`. The `deployment.template.json` is the deployment manifest template. Some of the parameters in this file will be parsed from the `module.json`, which exists in every module folder.
-
-3. Now your sample IoT Edge solution is ready. The default C# module acts as a pipe message module. In the `deployment.template.json`, you will see this solution contains two modules. The message will be generated from the `tempSensor` module, and will be directly piped via `FilterModule`, then sent to your IoT hub.
-
-4. Save these projects, then commit into your Azure Repos repository.
-    
-> [!NOTE]
-> For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
-
+For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)
 
 ## Configure Azure Pipelines for continuous integration
-In this section, you will create a build pipeline that is configured to run automatically when you check in any changes to the sample IoT Edge solution, and it will show build logs in Azure Pipelines.
+In this section, you create a new build pipeline. Configure the pipeline to run automatically when you check in any changes to the sample IoT Edge solution, and retrieve build logs from Azure Pipelines.
 
-1. Sign into your Azure DevOps organization (**https://dev.azure.com/{your organization}/**) and open the project where you checked in the sample app.
+>[!NOTE]
+>This article uses the Azure DevOps visual designer. Before you follow the steps in this section, turn off the preview feature for the new YAML pipeline creation experience. 
+>1. In Azure DevOps, select your profile icon then select **Preview features**.
+>2. Turn **New YAML pipeline creation experience** off. 
+>
+>For more information, see [Create a build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-    ![Check-in code to Azure Pipelines](./media/how-to-ci-cd/init-project.png)
+1. Sign into your Azure DevOps organization (**https://dev.azure.com/{your organization}/**) and open the project that contains your IoT Edge solution repository.
 
-1. In your Azure Pipelines, open the **Builds** tab, choose **+ New pipeline**. Or, if you already have build pipelines, choose the **+ New** button. Then select **New build pipeline**.
+   For this article, we created a repository called **IoTEdgeRepo**. That repository contains **IoTEdgeSolution** which has the code for a module named **filtermodule**. 
+
+   ![Open your DevOps project](./media/how-to-ci-cd/init-project.png)
+
+2. Navigate to Azure Pipelines in your project. Open the **Builds** tab and choose **+ New pipeline**. Or, if you already have build pipelines, choose the **+ New** button. Then select **New build pipeline**.
 
     ![Create a new build pipeline](./media/how-to-ci-cd/add-new-build.png)
 
-1. If prompted, select Azure Repos for your source. Then select the project, repository, and branch where your code is located. Choose **Continue**.
+3. Follow the prompts to create your pipeline. 
 
-    ![Select Azure Repos Git](./media/how-to-ci-cd/select-vsts-git.png)
+   1. Provide the source information for your new build pipeline. Select **Azure Repos Git** as the source, then select the project, repository, and branch where your IoT Edge solution code is located. Then, select **Continue**. 
 
-    In **Select a template** window, choose **start with an Empty process**.
+      ![Select your pipeline source](./media/how-to-ci-cd/pipeline-source.png)
 
-    ![Start with an empty process](./media/how-to-ci-cd/start-with-empty.png)
+   2. Select **Empty job** instead of a template. 
 
-1. In the pipeline editor, choose the agent pool. 
+      ![Start with an empty process](./media/how-to-ci-cd/start-with-empty.png)
+
+4. Once your pipeline is created, you are taken to the the pipeline editor. In your pipeline description, choose the correct agent pool based on your target platform: 
     
     * If you would like to build your modules in platform amd64 for Linux containers, choose **Hosted Ubuntu 1604**
     * If you would like to build your modules in platform amd64 for Windows containers, choose **Hosted VS2017** 
-    * If you would like to build your modules in platform arm32v7 for Linux containers, you need to Set up your own build agent by visiting the **Manage** button.
+    * If you would like to build your modules in platform arm32v7 for Linux containers, you need to set up your own build agent by visiting the **Manage** button.
     
     ![Configure build agent pool](./media/how-to-ci-cd/configure-env.png)
 
-1. In Agent job, open "+" to add three tasks in the build pipeline. The first two are from **Azure IoT Edge**. And the third one is from **Publish Build Artifacts**
+5. Your pipeline comes preconfigured with a job called **Agent job 1**. Select the plus sign **+** to add three tasks to the job: **Azure IoT Edge** twice, and **Publish Build Artifacts** once. (Hover over the name of each task to see the **Add** button.)
+
+   ![Add Azure IoT Edge task](./media/add-iot-edge-task.png)
+
+   When all three tasks are added, your Agent job looks like the following example:
     
-    ![Add tasks to the build pipeline](./media/how-to-ci-cd/add-tasks.png)
+   ![Three tasks in the build pipeline](./media/how-to-ci-cd/add-tasks.png)
 
-1. In the first **Azure IoT Edge** task, update the **Display name** to **Azure IoT Edge - Build module images**, and in the **Action** dropdown list, select **Build module images**. In the **.template.json file** control, select the **deployment.template.json** file, which describes your IoT Edge solution. Then choose **Default platform**, make sure you select the same platform as your IoT Edge device. This task will build all modules in the solution with the target platform you specified. And also generate the **deployment.json** file, you can find the file path in Output Variables. Set the alias to `edge` for this variable.
-    
-    ![Configure build module images task](./media/how-to-ci-cd/build-and-push.png)
+6. Select the first **Azure IoT Edge** task to edit it. This task builds all modules in the solution with the target platform that you specify, It also generates the **deployment.json** file which tells your IoT Edge devices how to configure the deployment.
 
-1. In the second **Azure IoT Edge** task, update the **Display name** to **Azure IoT Edge - Push module images**, and in the **Action** dropdown list, select **Push module images**. Choose Container Registry Type, make sure you configure and select the same registry in your code(module.json). In the **.template.json file** control, select the **deployment.template.json** file, which describes your IoT Edge solution. Then choose **Default platform**, make sure you select the same platform for your built module images. This task will push all module images to the container registry you selected. And also add container registry credentials in the **deployment.json** file, you can find the file path in Output Variables. Set the alias to `edge` for this variable. If you have multiple container registries to host your module images, you need to duplicate this task, select different container registry, and use **Bypass module(s)** in the advanced settings to bypass the images which are not for this specific registry.
+   * **Display name**: Accept the default **Azure IoT Edge - Build module images**.
+   * **Action**: Accept the default **Build module images**. 
+   * **.template.json file**: Select the ellipsis **...** and navigate to the **deployment.template.json** file in the repository that contains your IoT Edge solution. 
+   * **Default platform**: Select the appropriate platform for your modules based on your target IoT Edge device. 
+   * **Output variables**: The output variables include a reference name that you can use to configure the file path where your deployment.json file will be generated. Set the reference name to **edge**. 
 
-    ![Configure push module images task](./media/how-to-ci-cd/push.png)
+7. Select the second **Azure IoT Edge** task to edit it. This task pushes all module images to the container registry that you select. It also adds your container registry credentials to the **deployment.json** file so that your IoT Edge device can access the module images. 
 
-1. In **Publish Build Artifacts** task, you would specify the deployment file generated by the build task. Set the **Path to publish** to `$(edge.DEPLOYMENT_FILE_PATH)`.
+   * **Display name**: Change the display name to to **Azure IoT Edge - Push module images**
+   * **Action**: Use the dropdown list to select **Push module images**. 
+   * **Container registry type**: Select the type of container registry that you use to store your module images. Depending on which registry type you choose, the form changes. If you choose **Azure Container Registry**, use the dropdown lists to select the Azure subscription and the name of your container registry. If you choose **Generic Container Registry**, select **New** to create a registry service connection. 
+   * **.template.json file**: Select the ellipsis **...** and navigate to the **deployment.template.json** file in the repository that contains your IoT Edge solution. 
+   * **Default platform**: Select the same platform as your built module images.
+   * **Output variables**: Set the reference name to **edge** to match the file path that you configured in the previous task.
 
-    ![Configure publish artifact task](./media/how-to-ci-cd/publish-build-artifacts.png)
+   If you have multiple container registries to host your module images, you need to duplicate this task, select different container registry, and use **Bypass module(s)** in the advanced settings to bypass the images which are not for this specific registry.
 
-1. Open the **Triggers** tab and turn on the **continuous integration** trigger. Make sure the branch containing your code is included.
+8. Select the **Publish Build Artifacts** task to edit it. Provide the file path to the deployment file generated by the build task. Set the **Path to publish** value to `$(edge.DEPLOYMENT_FILE_PATH)`. Leave the other values as their defaults. 
+
+9. Open the **Triggers** tab and check the box to **Enable continuous integration**. Make sure the branch containing your code is included.
 
     ![Turn on continuous integration trigger](./media/how-to-ci-cd/configure-trigger.png)
 
-    Save the new build pipeline with **Save** button.
+10. Save the new build pipeline with **Save** button.
 
 
 ## Configure Azure Pipelines for continuous deployment
