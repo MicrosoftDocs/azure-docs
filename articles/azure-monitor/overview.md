@@ -23,7 +23,7 @@ Azure Monitor maximizes the availability and performance of your applications by
 ## Overview
 The following diagram gives a high-level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs which are the two fundamental types of data use by Azure Monitor. On the left are the [sources that collect telemetry from different monitored resources](platform/data-sources.md) and populate the [data stores](platform/data-collection.md). On the right are the different functions that Azure Monitor performs with this collected data such as analysis, alerting, and streaming to external systems.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ![Azure Monitor overview](media/overview/overview.png)
 
