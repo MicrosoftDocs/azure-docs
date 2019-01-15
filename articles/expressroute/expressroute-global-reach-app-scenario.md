@@ -109,7 +109,7 @@ Peerings                         : [
                                      {
                                        "Name": "AzurePrivatePeering",
                                        "Etag": "W/\"78dfeeae-0485-4cda-b5aa-99e780589677\"",
-                                       *"Id": "/subscriptions/<subscriptionId>/resourceGroups/SEA-Cust11/providers/Microsoft.Network/expressRouteCircuits/SEA-Cust11-ER/peerings/AzurePrivatePeering"*,
+                                       **"Id"**: "/subscriptions/<subscriptionId>/resourceGroups/SEA-Cust11/providers/Microsoft.Network/expressRouteCircuits/SEA-Cust11-ER/peerings/AzurePrivatePeering",
                                        "PeeringType": "AzurePrivatePeering",
                                        "State": "Enabled",
                                        "AzureASN": 12076,
@@ -130,7 +130,7 @@ Authorizations                   : [
                                        "Name": "Auth4-ASH-Cust11",
                                        "Etag": "W/\"78dfeeae-0485-4cda-b5aa-99e780589677\"",
                                        "Id": "/subscriptions/<subscriptionId>/resourceGroups/SEA-Cust11/providers/Microsoft.Network/expressRouteCircuits/SEA-Cust11-ER/authorizations/Auth4-ASH-Cust11",
-                                       *"AuthorizationKey": "<authorizationKey>"*,
+                                       **"AuthorizationKey"**: "<authorizationKey>",
                                        "AuthorizationUseStatus": "Used",
                                        "ProvisioningState": "Succeeded"
                                      }
