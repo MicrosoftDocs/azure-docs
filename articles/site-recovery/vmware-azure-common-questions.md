@@ -7,8 +7,7 @@ ms.service: site-recovery
 services: site-recovery
 ms.date: 12/31/2018
 ms.topic: conceptual
-ms.author: rayne
-
+ms.author: raynew
 ---
 # Common questions - VMware to Azure replication
 
