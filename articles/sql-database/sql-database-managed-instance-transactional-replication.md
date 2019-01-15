@@ -1,5 +1,5 @@
 ---
-title: Transactional replication with SQL Logical Server and SQL Managed Instance | Microsoft Docs"
+title: Transactional replication with Azure SQL Logical Server and Azure SQL Managed Instance | Microsoft Docs"
 description: Learn about using SQL Server transactional replication with Azure SQL Database Logical Servers and SQL Managed Instance. 
 services: sql-database
 ms.service: sql-database
