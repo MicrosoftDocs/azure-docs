@@ -7,44 +7,42 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/15/2019
 ms.author: hrasheed
 
 ---
 # Setup SSL Encryption and Authentication for Apache Kafka in Azure HDInsight
 
-This article describes the steps needed to setup SSL Encryption from clients to Kafka brokers and between the Kafka brokers. In addition to encryption, this article also covers the steps needed to setup authentication of clients (this is sometimes referred to as two-way SSL). You can skip the steps highlighted in yellow, if you need to only setup encryption, but no authentication.
+This article describes how to setup SSL Encryption from Apache Kafka clients to Apache Kafka brokers and also between Apache Kafka brokers. It also gives the steps needed to setup authentication of clients (sometimes referred to as two-way SSL).
 
-## Server Setup
+## Server setup
 
-The first part is setting up the keystore and truststore in kafka brokers and importing the Certificate Authority (CA) and broker certificates into these stores.
+The first step is to setup the keystore and truststore on the Kafka brokers and import the Certificate Authority (CA) and broker certificates into these stores.
 
 > [!Note] 
-> We will use self-signed certificates for this tutorial, but the most secure solution is to use certificates issued by  trusted CAs.
+> This guide will use self-signed certificates, but the most secure solution is to use certificates issued by trusted CAs.
 
-1. Create a folder named ssl and export the server password as an environment variable.
+1. Create a folder named ssl and export the server password as an environment variable. For the remainder of this guide, replace `<server_password>` with the actual administrator password for the server.
 
     ```bash
-    $export SRVPASS=serverpassword123
+    $export SRVPASS=<server_password>
     $mkdir ssl
     $cd ssl
     ```
 
-2. Create a java keystore (kafka.server.keystore.jks).
+2. Next, create a java keystore (kafka.server.keystore.jks) and a CA certificate.
 
     ```bash
     $keytool -genkey -keystore kafka.server.keystore.jks -validity 365 -storepass $SRVPASS -keypass $SRVPASS -dname "CN=wn0-umakaf.xvbseke35rbuddm4fyvhm2vz2h.cx.internal.cloudapp.net" -storetype pkcs12
     ```
 
-This step also created a CA certificate. We now need to get a signed certificate for our broker. To do that, we create a certificate and get it signed by a CA.
-
-3. Create signing request.
+3. Then, create a signing request to get the certificate created in the previous step signed by the CA.
 
     ```bash
     $keytool -keystore kafka.server.keystore.jks -certreq -file cert-file -storepass $SRVPASS -keypass $SRVPASS
     ```
 
-4. Send signing request to the CA and get this certificate signed by CA. Since we are using a self-signed cert, we will sign the certificate with our CA using the `openssl` command.
+4. Now, send the signing request to the CA and get this certificate signed. Because we are using a self-signed certificate, we sign the certificate with our CA using the `openssl` command.
 
     ```bash
     $openssl x509 -req -CA ca-cert -CAkey ca-key -in cert-file -out cert-signed -days 365 -CAcreateserial -passin pass:$SRVPASS
@@ -68,37 +66,38 @@ This step also created a CA certificate. We now need to get a signed certificate
     $keytool -keystore kafka.server.keystore.jks -alias CARoot -import -file ca-cert -storepass $SRVPASS -keypass $SRVPASS -noprompt//output is "Certificate reply was added to keystore"
     ```
 
-This concludes the steps needed to configure the truststore and keystore for a Kafka broker.
+Importing the signed certificate into the keystore is the final step needed to configure the truststore and keystore for a Kafka broker.
 
 ## Update configuration to use SSL and restart brokers
 
-Now that we have setup the Kafka brokers with the key store and trust store, and imported the right certificates, now it’s time to tell Kafka brokers to use them. To do so, modify the below Kafka configurations from Ambari and then restart brokers.
+We have setup each Kafka broker with a keystore and truststore, and imported the correct certificates.  Next, modify related Kafka configuration properties using Ambari and then restart the Kafka brokers.
 
-1. Under **Kafka Broker**  set the **listeners** property to `PLAINTEXT://localhost:9092,SSL://localhost:9093`
+1. Sign in to the Azure portal and select your Apache Kafka cluster.
+1. Go to the Ambari UI by clicking **Ambari home** under **Cluster dashboards**.
+1. Under **Kafka Broker** set the **listeners** property to `PLAINTEXT://localhost:9092,SSL://localhost:9093`
 1. Under **Advanced kafka-broker** set the **security.inter.broker.protocol** property to `SSL`
 
     ![Editing kafka ssl configuration properties in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
 
-1. Note: This step is only required if you are setting up authentication as well. Under **Custom kafka-broker** set the **ssl.client.auth** property to `required`.
+> [!Note]
+> Editing the **ssl.client.auth** property is only required if you are setting up authentication as well as encryption.
+
+1. Under **Custom kafka-broker** set the **ssl.client.auth** property to `required`.
 
     ![Editing kafka ssl configuration properties in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
-1. Add below to kafka-env template
+1. Add configuration properties to the kafka server.properties file to advertise IP addresses instead of the fully qualified domain name (FQDN).
 
     ```bash
-    #Configure Kafka to advertise IP addresses instead of FQDN
     IP_ADDRESS=$(hostname -i)
     echo advertised.listeners=$IP_ADDRESS
     sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
-    ```
-
-    ```bash
     echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092,SSL://$IP_ADDRESS:9093" >> /usr/hdp/current/kafka-broker/conf/server.properties
     echo "ssl.keystore.location=/home/sshuser/ssl/kafka.server.keystore.jks" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.keystore.password=serverpassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.key.password=serverpassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "ssl.keystore.password=<server_password>" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "ssl.key.password=<server_password>" >> /usr/hdp/current/kafka-broker/conf/server.properties
     echo "ssl.truststore.location=/home/sshuser/ssl/kafka.server.truststore.jks" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.truststore.password=serverpassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "ssl.truststore.password=<server_password>" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
 1. To verify that the previous changes have been made correctly, you can optionally check that the following lines are present in the Kafka `server.properties` file.
@@ -106,10 +105,10 @@ Now that we have setup the Kafka brokers with the key store and trust store, and
     ```bash
     advertised.listeners=PLAINTEXT://10.0.0.11:9092,SSL://10.0.0.11:9093
     ssl.keystore.location=/home/sshuser/ssl/kafka.server.keystore.jks
-    ssl.keystore.password=serverpassword123
-    ssl.key.password=serverpassword123
+    ssl.keystore.password=<server_password>
+    ssl.key.password=<server_password>
     ssl.truststore.location=/home/sshuser/ssl/kafka.server.truststore.jks
-    ssl.truststore.password=serverpassword123
+    ssl.truststore.password=<server_password>
     ```
 
 1. Restart all Kafka brokers.
@@ -119,14 +118,14 @@ Now that we have setup the Kafka brokers with the key store and trust store, and
 > [!Note]
 > The following steps are required only if you are setting up both SSL encryption **and** authentication. If you are only setting up encryption, please proceed to [Client Setup Without Authentication](apache-kafka-ssl-encryption-authentication.md#client-setup-without-authentication)
 
-1. Export client password
+1. Export the client password. Replace `<client_password>` with the actual administrator password on the Kafka client machine.
 
     ```bash
-    $export CLIPASS=clientpassword123
+    $export CLIPASS=<client_password>
     $cd ssl
     ```
 
-1. Create a java keystore and get a signed certificate for our broker. Then copy the certificate to the VM where the CA is running.
+1. Create a java keystore and get a signed certificate for the broker. Then copy the certificate to the VM where the CA is running.
 
     ```bash
     $keytool -genkey -keystore kafka.client.keystore.jks -validity 365 -storepass $CLIPASS -keypass $CLIPASS -dname "CN=mylaptop1" -alias my-local-pc1 -storetype pkcs12
@@ -140,7 +139,7 @@ Now that we have setup the Kafka brokers with the key store and trust store, and
 
     ```bash
     $cd ssl
-    $openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:serverpassword123
+    $openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:<server_password>
     ```
 
 1. Go to the client machine (hn1) and navigate to the `~/ssl` folder. Copy the signed cert to client machine.
@@ -162,23 +161,23 @@ Now that we have setup the Kafka brokers with the key store and trust store, and
     $keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -alias my-local-pc1 -storepass $CLIPASS -keypass $CLIPASS -noprompt
     ```
 
-1. The result of viewing the file `client-ssl-auth.properties` with the command `$cat client-ssl-auth.properties` should contain the following lines.
+1. View the file `client-ssl-auth.properties` with the command `$cat client-ssl-auth.properties`. It should have the following lines:
 
     ```bash
     security.protocol=SSL
     ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
-    ssl.truststore.password=clientpassword123
+    ssl.truststore.password=<client_password>
     ssl.keystore.location=/home/sshuser/ssl/kafka.client.keystore.jks
-    ssl.keystore.password=clientpassword123
-    ssl.key.password=clientpassword123
+    ssl.keystore.password=<client_password>
+    ssl.key.password=<client_password>
     ```
 
 ## Client Setup (Without Authentication)
 
-1. Export client password
+1. Export the client password. Replace `<client_password>` with the actual administrator password on the Kafka client machine.
 
     ```bash
-    $export CLIPASS=clientpassword123
+    $export CLIPASS=<client_password>
     $cd ssl
     ```
 
@@ -195,12 +194,12 @@ Now that we have setup the Kafka brokers with the key store and trust store, and
     $keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass $CLIPASS -keypass $CLIPASS -noprompt
     ```
 
-1. The result of viewing the file `client-ssl-auth.properties` with the command `$cat client-ssl-auth.properties` should contain the following lines.
+1. View the file `client-ssl-auth.properties` with the command `$cat client-ssl-auth.properties`. It should have the following lines:
 
     ```bash
     security.protocol=SSL
     ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
-    ssl.truststore.password=clientpassword123
+    ssl.truststore.password=<client_password>
     ```
 
 ## Next Steps
