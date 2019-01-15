@@ -20,10 +20,11 @@ You can enrich a limited number of documents for free, or attach a billable Cogn
 If your pipeline consists exclusively of [custom skills](cognitive-search-create-custom-skill-example.md), you do not need to attach a Cognitive Services resource.
 
 > [!NOTE]
-> Starting December 21, 2018, image extraction and image analysis (OCR, landmark identification, and so forth) is a billable event, charged to a Cognitive Services resource at the [pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/), identical to what you might pay for requests issued independently of Azure Search. Image extraction preview pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Starting December 21, 2018, image extraction by Azure Search and image analysis through Cognitive Services are both billable events. Text extraction from documents, such as pulling text from PDF files, continues to be offered at no charge.
 >
-> Text extraction from documents, such as pulling text from PDF files, continues to be offered at no charge.
-
+> Image extraction occurs during document cracking when extracting images from PDF or Word docs. Image extraction preview pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+>
+> Image analysis, such as OCR or textual descriptions of images, is charged to a Cognitive Services resource at the [pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/), identical to what you might pay for requests issued independently of Azure Search. 
 
 ## Use Free resources
 
