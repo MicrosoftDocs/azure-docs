@@ -30,34 +30,13 @@ The Microsoft Authenticator app helps you sign in to your work or school account
 
  2. Turn on two-factor verification for your work or school account and your personal Microsoft and non-Microsoft accounts and then add them to the Microsoft Authenticator app. If you haven't done this yet, see [Add your work or school account](microsoft-authenticator-app-add-work-account.md) and [Add your personal accounts](microsoft-authenticator-app-add-personal-account.md).
 
-## Sign in using two-factor verification for your work or school account
-Two-factor verification requires you to enter your username and password, and then when prompted, to provide more verification through the use of a security code that's sent to your authenticator app every time you sign in to your work or school account. You turn on two-factor verification for your account as part of the process to add the account to the Microsoft Authenticator app.
+## Sign in using two-factor verification for your account
+Two-factor verification requires you to enter your username and password, and then when prompted, to provide more verification through the use of a security code that's sent to your authenticator app every time you sign in to your account. You turn on two-factor verification for your account as part of the process to add the account to the Microsoft Authenticator app.
 
 >[!Note]
->If you don't see your work or school account on the **Accounts** screen of the Microsoft Authenticator app, it means that you haven't added your work or school account to the Microsoft Authenticator app. To add your account, see [Add your work or school account](microsoft-authenticator-app-add-work-account.md).
+>If you don't see your work or school account or your personal account on the **Accounts** screen of the Microsoft Authenticator app, it means that you haven't added the account to the Microsoft Authenticator app. To add your account, see [Add your work or school account](microsoft-authenticator-app-add-work-account.md) or [Add your personal accounts](microsoft-authenticator-app-add-personal-account.md).
 
-1. Sign in to your work or school account, as you normally would on your PC.
-
-2. 
-
-## Sign in using two-factor verification for a personal account
-Two-factor verification requires you to enter your username and password, and then when prompted, to provide more verification through the use of a security code that's sent to your authenticator app every time you sign in to your personal Microsoft or non-Microsoft account. You turn on two-factor verification for your account as part of the process to add the account to the Microsoft Authenticator app.
-
->[!Note]
->If you don't see the personal account you're looking for on the **Accounts** screen of the Microsoft Authenticator app, it means that you haven't added it to the Microsoft Authenticator app. To add your account, see [Add your personal accounts](microsoft-authenticator-app-add-personal-account.md).
-
-1. Sign in to your personal account, as you would normally on your PC.
-
-    After typing your username and password, an **Approve sign in** screen appears showing you a two-digit number and asking you to sign-in through the Microsoft Authenticator app. If you don’t want to use this sign in method, you can select **Use your password instead**, and sign in using your password.
-
-
-
-
-
-
-
-
-
+For the steps necessary to sign in to your work or school or your personal account, using the various methods of two-factor verfication, see [Sign in using two-step verification or security info](user-help-sign-in.md).
 
 ## Turn on and use phone sign-in for your work or school account
 Phone sign-in is a type of two-step verification. You must still verify your identity by providing a thing you know and a thing you have, but phone sign-in lets you skip entering your account password and performs all of your identity verification on your mobile device.
