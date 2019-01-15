@@ -30,9 +30,9 @@ The following sections describe how to get these values.
 
 ## Export the Azure Stack CA root certificate
 
-You can find the Azure Stack CA root certificate on the development kit and running within the Azure Stack Development Kit environment. If you are using an integrated system, you don't need to export the CA root certificate.
+If you are using an integrated system, you don't need to export the CA root certificate. You will need to export the CA root certificate on an Azure Stack Development Kit (ASDK).
 
- To export the Azure Stack root certificate in PEM format, sign in to your development kit and run the following script:
+To export the ASDK root certificate in PEM format, sign in and run the following script:
 
 ```powershell
 $label = "<Your Azure Stack CA root certificate name>"
