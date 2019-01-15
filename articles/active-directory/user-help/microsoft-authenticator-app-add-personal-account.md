@@ -20,15 +20,6 @@ You can add your personal Microsoft accounts, such as for Outlook.com and Xbox L
 >[!Important]
 >Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.
 
-## Add personal accounts
-Generally, for all your personal accounts, you'll need to:
-
-1. Turn on two-factor verification within your personal app account, either on your device or your PC.
-
-2. Add the account to the Microsoft Authenticator app.
-
-We're providing the process here for your personal Microsoft apps, along with your Facebook, Google, GitHub, and Amazon accounts, but this process is the same for any other app, such as Instagram, Adobe, and so on.
-
 ## Add your personal Microsoft account
 You can add your personal Microsoft account by first turning on two-factor verification, and then by adding the account to the app.
 

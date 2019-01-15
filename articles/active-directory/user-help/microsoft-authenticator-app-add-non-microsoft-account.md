@@ -27,20 +27,7 @@ Generally, for all your personal accounts, you'll need to:
 
 2. Add the account to the Microsoft Authenticator app.
 
-We're providing the process here for your personal Microsoft apps, along with your Facebook, Google, GitHub, and Amazon accounts, but this process is the same for any other app, such as Instagram, Adobe, and so on.
-
-## Add your personal Microsoft account
-You can add your personal Microsoft account by first turning on two-factor verification, and then by adding the account to the app.
-
-### Turn on two-factor verification
-
-1. On your PC, go to your [Security basics](https://account.microsoft.com/security) page and sign-in using your personal Microsoft account. For example, alain@outlook.com.
-
-2. At the bottom of the **Security basics** page, choose the **more security options** link.
-
-    ![Security basics page with the more security options link highlighted](./media/microsoft-authenticator-app-add-personal-account/more-security-options-link.png)
-
-3. Go to the **Two-step verification** section and choose to turn the feature **On**. You can also turn it off here if you no longer want to use it with your personal account.
+We're providing the process here for your Facebook, Google, GitHub, and Amazon accounts, but this process is the same for any other app, such as Instagram, Adobe, and so on.
 
 ## Add your Google account
 You can add your Google account by turning on two-factor verification and then adding the account to the app.
@@ -195,5 +182,7 @@ You can add your Amazon account by turning on two-factor verification and then a
 
 
 ## Next steps
+
+- After you add your accounts to the app, you can sign in using the Authenticator app on your device. For more information, see [Sign in using the app](microsoft-authenticator-app-phone-signin-faq.md).
 
 - For devices running iOS, you can also back up your account credentials and related app settings, such as the order of your accounts, to the cloud. For more information, see [Backup and recover with Microsoft Authenticator app](microsoft-authenticator-app-backup-and-recovery.md).
