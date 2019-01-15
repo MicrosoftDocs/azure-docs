@@ -84,7 +84,7 @@ For example, the following name states that the policy requires MFA for marketin
 `CA01-Dynamics CRP: Require MFA For marketing When on external networks`
 
 
-In addition to your active policies, you should also implement disabled policies that act as secondary resilient access controls in outage/emergency  scenarios. Your naming standard should also include this purpose to make it easier to enable them during an outage. For example:
+In addition to your active policies, you should also implement disabled policies that act as secondary [resilient access controls in outage/emergency scenarios](../authentication/concept-resilient-controls.md). Your naming standard should also include this purpose to make it easier to enable them during an outage. For example:
 
 `EM01-Finance app: Require MFA For Sales When on untrusted network`
 
