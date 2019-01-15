@@ -306,6 +306,12 @@
         href: sql-database-performance.md
       - name: Database advisor performance recommendations
         href: sql-database-advisor.md
+  - name: Load and move data
+    items: 
+      - name: SQL Data Sync
+        href: sql-database-sync-data.md
+      - name: Transactional replication
+        href: sql-database-managed-instance-transactional-replication.md
   - name: Databases features
     items:
     - name: Databases features
@@ -328,7 +334,7 @@
       href: sql-database-cloud-migrate.md
     - name: Manage SQL database after migration
       href: sql-database-manage-after-migration.md
-    - name: Configure transactional replication
+    - name: Configure replication
       href: replication-to-sql-database.md
     - name: Configure threat detection
       href: sql-database-threat-detection.md
@@ -438,8 +444,6 @@
       href: sql-database-export.md
     - name: Data sync
       items:
-      - name: SQL Data Sync
-        href: sql-database-sync-data.md
       - name: Data Sync Agent
         href: sql-database-data-sync-agent.md
       - name: Replicate schema changes
