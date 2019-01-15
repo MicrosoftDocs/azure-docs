@@ -106,24 +106,15 @@ Assuming the device-side application is running, follow the steps below to run t
 ```
 Change `MyDevice` to the device ID you chose for your device.
 
-- Navigate to `service/samples` in your unzipped project folder and run the sample using node.
+- Navigate to `Quickstarts/device-streams-service` in your unzipped project folder and run the sample using node.
 ```
-  cd ./service/samples
+  cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
+  
+  # Install the preview service SDK, and other dependencies
+  npm install azure-iothub@streams-preview
   npm install
-  node c2d_tcp_streaming.js
-```
 
-  **Bug bash instructions:** Please follow these instuctions instead:
-  Navigate to `samples` in your unzipped project folder and run the commands below:
-```
-  cd ./samples
-
-  # Install the packages
-  npm install
-  npm install ../azure-iothub-1.10.0-preview.tgz
-
-  # Run the application
-  node c2d_tcp_streaming.js
+  node echo.js
 ```
 
 At the end of the last step, the service-side program will initiate a stream to your device and once established will send a string buffer to the service over the stream. In this sample, the service-side program simply reads the stdin on the terminal and sends it to the device, which will then echo it back. This demonstrates successful bidirectional communication between the two applications.

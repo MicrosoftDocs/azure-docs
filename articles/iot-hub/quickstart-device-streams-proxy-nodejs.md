@@ -39,7 +39,7 @@ You can verify the current version of Node.js on your development machine using 
 node --version
 ```
 
-If you haven't already done so, download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
+If you haven't already done so, download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip and extract the ZIP archive.
 
 
 ## Create an IoT hub
@@ -104,21 +104,17 @@ Assuming the device-side proxy is running, follow the steps below to run the ser
 ```
 Change `MyDevice` to the device ID you chose for your device.
 
-- Navigate to `service/samples` in your unzipped project folder and run the service-local proxy.
+- Navigate to `Quickstarts/device-streams-service` in your unzipped project folder and run the service-local proxy.
 ```
-  cd ./service/samples
-  npm install
-  node tcp_streaming_proxy.js
-```
+  cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
 
-  **Bug bash instructions:** Please follow these instuctions instead:
-  Navigate to `samples` in your unzipped project folder and run the service-local proxy.
-  ```
-    cd ./samples
-    npm install
-    install ../azure-iothub-1.10.0-preview.tgz
-    node tcp_streaming_proxy.js
-  ```
+  # Install the preview service SDK, and other dependencies
+  npm install azure-iothub@streams-preview
+  npm install
+
+  # Run the service-local proxy application
+  node proxy.js
+```
 
 ### SSH to your device via device streams
 In Linux, run SSH using `ssh $USER@localhost -p 2222` on a terminal. In Windows, use your favorite SSH client (e.g., PuTTY).
