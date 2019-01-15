@@ -666,6 +666,6 @@ For more information, see [rebuilding initramfs](https://access.redhat.com/solut
 
 ## Next steps
 
-You're now ready to use your Red Hat Enterprise Linux virtual hard disk to create new virtual machines in Azure Stack. If this is the first time that you're uploading the VHD file to Azure Stack, see [Use the Marketplace toolkit to create and publish marketplace items](azure-stack-marketplace-publisher.md).
+You're now ready to use your Red Hat Enterprise Linux virtual hard disk to create new virtual machines in Azure Stack. If this is the first time that you're uploading the VHD file to Azure Stack, see [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
 
 For more information about the hypervisors that are certified to run Red Hat Enterprise Linux, see [the Red Hat website](https://access.redhat.com/certified-hypervisors).
