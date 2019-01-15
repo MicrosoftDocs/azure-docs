@@ -20,7 +20,7 @@ This document describes how to configure communication with Azure Automation and
 
 The Log Analytics gateway supports:
 
-* Report up to 4 workspaces to support of agents behind it reporting to different workspaces
+* Reporting up to the same four Log Analytics workspaces agents behind it are configured with  
 * Azure Automation Hybrid Runbook Workers  
 * Windows computers with the Microsoft Monitoring Agent directly connected to a Log Analytics workspace
 * Linux computers with the Log Analytics agent for Linux directly connected to a Log Analytics workspace  
@@ -32,7 +32,7 @@ When an Operations Manager management group is integrated with Log Analytics, th
 
 To provide high availability for direct connected or Operations Management groups that communicate with Log Analytics through the gateway, you can use network load balancing to redirect and distribute the traffic across multiple gateway servers.  If one gateway server goes down, the traffic is redirected to another available node.  
 
-The Log Analytics Windows agent is required on the computer running the Log Analytics gateway in order for it to not only identify the service end points that it needs to communicate with, but also report to the same workspaces that the agents behind the gateway are configured with. This is necessary for the gateway to transmit the collected data from those agents to their assigned workspace. If the Log Analytics Windows agent is not installed on the gateway, event 300 is written to the **OMS Gateway Log** event log indicating the agent needs to be installed. If the agent is installed but not configured to report to the same workspace as the agents communicating through it, event 105 is written to the same event log, stating the agent on the gateway needs to be configured to report to the same workspace as the agents talking to the gateway. A gateway can be multi-homed or report to up to 4 workspaces, and is because it is the total number of workspaces a Windows agent supports.  
+The Log Analytics Windows agent is required on the computer running the Log Analytics gateway in order for it to not only identify the service end points that it needs to communicate with, but also report to the same workspaces that the agents or Operations Manager management group behind the gateway are configured with. This is necessary for the gateway to allow them to talk to their assigned workspace. A gateway can be multi-homed or report to up to four workspaces, and is because it is the total number of workspaces a Windows agent supports.  
 
 Each agent must have network connectivity to the gateway so that agents can automatically transfer data to and from it. Installing the gateway on a domain controller is not recommended.
 
@@ -139,7 +139,9 @@ The following section includes steps on how to configure directly connected Log 
 ### Configure standalone Log Analytics agent
 To understand requirements and steps on how to install the Log Analytics agent on the gateway and Windows computers directly connecting to Log Analytics, see [Connect Windows computers to Log Analytics](agent-windows.md) or for Linux computers see [Connect Linux computers to Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md). In the place of specifying a proxy server while configuring the agent, you replace that value with the IP address of the Log Analytics gateway server and its port number. If you have deployed multiple gateway servers behind a network load balancer, the Log Analytics agent proxy configuration is the virtual IP address of the NLB.  
 
-After installing the agent on the gateway server, you can configure it to report to the workspace or workspaces agents talking to the gateway. After completing configuration, you need to restart the **OMS Gateway** service for the changes to take effect. Otherwise, the gateway will reject agents attempting to communicate with Log Analytics and report event id 105 in the **OMS Gateway Log** event log. This also applies when you add or remove a workspace from the agent config on the gateway server.   
+After installing the agent on the gateway server, you can configure it to report to the workspace or workspaces agents talking to the gateway. If the Log Analytics Windows agent is not installed on the gateway, event 300 is written to the **OMS Gateway Log** event log indicating the agent needs to be installed. If the agent is installed but not configured to report to the same workspace as the agents communicating through it, event 105 is written to the same event log, stating the agent on the gateway needs to be configured to report to the same workspace as the agents talking to the gateway.
+
+After completing configuration, you need to restart the **OMS Gateway** service for the changes to take effect. Otherwise, the gateway will reject agents attempting to communicate with Log Analytics and report event id 105 in the **OMS Gateway Log** event log. This also applies when you add or remove a workspace from the agent config on the gateway server.   
 
 For information related to the Automation Hybrid Runbook Worker, see [Deploy Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
 
