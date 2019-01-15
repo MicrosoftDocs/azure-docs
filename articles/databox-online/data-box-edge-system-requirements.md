@@ -90,7 +90,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 
 ### URL patterns for compute feature
 
-| URL pattern                      | Component/Functionality                     |   |
+| URL pattern                      | Component or functionality                     |   |
 |----------------------------------|---------------------------------------------|---|
 | https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft container registry (required)               |   |
 | https://\*.azurecr.io                     | Personal and 3rd party container registries (optional) |   |
