@@ -129,7 +129,7 @@ Change `MyDevice` to the device ID you chose for your device.
 At the end of the last step, the service-side program will initiate a stream to your device and once established will send a string buffer to the service over the stream. In this sample, the service-side program simply reads the stdin on the terminal and sends it to the device, which will then echo it back. This demonstrates successful bidirectional communication between the two applications.
 
 Console output on the service-side:
-![alt text](./media/iot-hub-device-streams-nodejs-echo-quickstart/service-console-output.PNG "Console output on the service-side")
+![alt text](./media/quickstart-device-streams-echo-nodejs/service-console-output.PNG "Console output on the service-side")
 
 
 You can then terminate the program by pressing enter again.

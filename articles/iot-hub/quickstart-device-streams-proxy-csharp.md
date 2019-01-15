@@ -24,7 +24,7 @@ We first describe the setup for SSH (using port 22). We then describe how to mod
 
 Figure below illustrates the setup of how the device- and service-local proxy programs in this sample will enable end-to-end connectivity between SSH client and SSH daemon. Here, we assume that the daemon is running on the same device as the device-local proxy.
 
-![Alt text](./media/iot-hub-device-streams-csharp-proxy-quickstart/device-stream-proxy-diagram.svg "Local proxy setup")
+![Alt text](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg "Local proxy setup")
 
 1. Service-local proxy connects to IoT hub and initiates a device stream to the target device.
 
@@ -165,13 +165,13 @@ ssh <username>@localhost -p 2222
 At this point, you will be presented with the SSH login prompt to enter your credentials.
 
 Console output on the service-side (the service-local proxy listens on port 2222):
-![Alt text](./media/iot-hub-device-streams-csharp-proxy-quickstart/service-console-output.png "Service-local proxy output")
+![Alt text](./media/quickstart-device-streams-proxy-csharp/service-console-output.png "Service-local proxy output")
 
 Console output on the device-local proxy which connects to the SSH daemon at <code>IP_address:22</code>:
-![Alt text](./media/iot-hub-device-streams-csharp-proxy-quickstart/device-console-output.png "Device-local proxy output")
+![Alt text](./media/quickstart-device-streams-proxy-csharp/device-console-output.png "Device-local proxy output")
 
 Console output of the SSH client program (SSH client communicates to SSH daemon by connecting to port 22 where service-local proxy is listening on):
-![Alt text](./media/iot-hub-device-streams-csharp-proxy-quickstart/ssh-console-output.png "SSH client program output")
+![Alt text](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "SSH client program output")
 
 ## RDP to a device via device streams
 
@@ -228,7 +228,7 @@ dotnet run %DeviceConnectionString% localhost 3389
 
 Now use your RDP client program and connect to service-local proxy on port `2222` (this was an arbitrary available port you chose ealier).
 
-![Alt text](./media/iot-hub-device-streams-csharp-proxy-quickstart/rdp-screen-capture.PNG "RDP connects to serivce-local proxy")
+![Alt text](./media/quickstart-device-streams-proxy-csharp/rdp-screen-capture.PNG "RDP connects to serivce-local proxy")
 
 ## Clean up resources
 

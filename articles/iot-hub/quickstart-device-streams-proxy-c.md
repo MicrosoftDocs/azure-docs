@@ -21,9 +21,9 @@ ms.author: rezas
 This document describes the setup for tunneling SSH traffic (using port 22) through device streams. The setup for RDP traffic is similar and requires a simple configuration change. Since device streams are application and protocol agnostic, the present quickstart can be modified (by changing the communication ports) to accommodate other types of application traffic.
 
 ## How it works?
-Figure below illustrates the setup of how the device- and service-local proxy programs will enable end-to-end connectivity between SSH client and SSH daemon processes. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-local proxy application. You should run an accompanying service-local proxy application which is available in [C# quickstart](./iot-hub-device-streams-csharp-proxy-quickstart.md) or [Node.js quickstart](./iot-hub-device-streams-nodejs-proxy-quickstart.md) guides.
+Figure below illustrates the setup of how the device- and service-local proxy programs will enable end-to-end connectivity between SSH client and SSH daemon processes. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-local proxy application. You should run an accompanying service-local proxy application which is available in [C# quickstart](./quickstart-device-streams-proxy-csharp.md) or [Node.js quickstart](./quickstart-device-streams-proxy-nodejs.md) guides.
 
-![Alt text](./media/iot-hub-device-streams-csharp-proxy-quickstart/device-stream-proxy-diagram.svg "Local proxy setup")
+![Alt text](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg "Local proxy setup")
 
 
 1. Service-local proxy connects to IoT hub and initiates a device stream to the target device.
@@ -181,7 +181,7 @@ A device must be registered with your IoT hub before it can connect. In this sec
 
 ### Run the service-local proxy application
 
-As discussed [above](#how-it-works) establishing an end-to-end stream to tunnel SSH traffic requires a local proxy at each end (i.e., service and device). During public preview, IoT Hub C SDK only supports device streams on the device side however. For the service-local proxy, use the accompanying guides in [C# quickstart](./iot-hub-device-streams-csharp-proxy-quickstart.md) or [Node.js quickstart](./iot-hub-device-streams-nodejs-proxy-quickstart.md) instead.
+As discussed [above](#how-it-works) establishing an end-to-end stream to tunnel SSH traffic requires a local proxy at each end (i.e., service and device). During public preview, IoT Hub C SDK only supports device streams on the device side however. For the service-local proxy, use the accompanying guides in [C# quickstart](./quickstart-device-streams-proxy-csharp.md) or [Node.js quickstart](./quickstart-device-streams-proxy-nodejs.md) instead.
 
 
 ### Establish an SSH session
@@ -196,10 +196,10 @@ At this point, you will be presented with the SSH login prompt to enter your cre
 
 
 Console output on the device-local proxy which connects to the SSH daemon at <code>IP_address:22</code>:
-![Alt text](./media/iot-hub-device-streams-c-proxy-quickstart/device-console-output.PNG "Device-local proxy output")
+![Alt text](./media/quickstart-device-streams-proxy-c/device-console-output.PNG "Device-local proxy output")
 
 Console output of the SSH client program (SSH client communicates to SSH daemon by connecting to port 22 where service-local proxy is listening on):
-![Alt text](./media/iot-hub-device-streams-csharp-proxy-quickstart/ssh-console-output.png "SSH client output")
+![Alt text](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "SSH client output")
 
 ## Clean up resources
 

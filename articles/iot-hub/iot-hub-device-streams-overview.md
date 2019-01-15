@@ -128,9 +128,9 @@ The echo sample demonstrates programmatic use of device streams to send and rece
 
 | SDK    | Service Program                                          | Device Program                                           |
 |--------|----------------------------------------------------------|----------------------------------------------------------|
-| C#     | [Link](iot-hub-device-streams-csharp-echo-quickstart.md) | [Link](iot-hub-device-streams-csharp-echo-quickstart.md) |
-| NodeJS | [Link](iot-hub-device-streams-nodejs-echo-quickstart.md) | -                                                        |
-| C      | -                                                        | [Link](iot-hub-device-streams-c-echo-quickstart.md)      |
+| C#     | [Link](quickstart-device-streams-echo-csharp.md) | [Link](quickstart-device-streams-echo-csharp.md) |
+| NodeJS | [Link](quickstart-device-streams-echo-nodejs.md) | -                                                        |
+| C      | -                                                        | [Link](quickstart-device-streams-echo-c.md)      |
 
 ### Local Proxy Sample (for SSH or RDP)
 The local proxy sample demonstrates a way to enable tunneling of an existing application's traffic that involves communication between a client and a server program. This set up works for client/server protocols like SSH and RDP, where the service-side acts as a client (running SSH or RDP client programs), and the device-side acts as the server (running SSH daemon or RDP server programs). 
@@ -160,11 +160,11 @@ The setup leverages two *local proxy* programs shown in the figure below, namely
 
 Use the links below for instructions on how to run the local proxy programs in your language of choice. Similar to the echo sample, you can run device- and service-local proxies in different languages, as they are fully interoperable.
 
-| SDK    | Service-Local Proxy                                       | Device-Local Proxy                                        |
-|--------|-----------------------------------------------------------|-----------------------------------------------------------|
-| C#     | [Link](iot-hub-device-streams-csharp-proxy-quickstart.md) | [Link](iot-hub-device-streams-csharp-proxy-quickstart.md) |
-| NodeJS | [Link](iot-hub-device-streams-nodejs-proxy-quickstart.md) | -                                                         |
-| C      | -                                                         | [Link](iot-hub-device-streams-c-proxy-quickstart.md)      |
+| SDK    | Service-Local Proxy                                       | Device-Local Proxy                                |
+|--------|-----------------------------------------------------------|---------------------------------------------------|
+| C#     | [Link](quickstart-device-streams-csharp-proxy-csharp.md)  | [Link](quickstart-device-streams-proxy-csharp.md) |
+| NodeJS | [Link](quickstart-device-streams-proxy-nodejs.md)         | -                                                 |
+| C      | -                                                         | [Link](quickstart-device-streams-proxy-c.md)      |
 
 ## Next steps
 
