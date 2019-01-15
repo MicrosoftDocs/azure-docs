@@ -127,7 +127,7 @@ Addressing the sign-in risk as condition is the preferred method because it give
 
 The user risk level is only available as [user risk policy](../identity-protection/howto-user-risk-policy.md) in identity protection. 
 
-For more information, see [What is Azure Active Directory Identity Protection?](../identity-protection/overview) 
+For more information, see [What is Azure Active Directory Identity Protection?](../identity-protection/overview.yml) 
 
 
 ### Require managed devices
