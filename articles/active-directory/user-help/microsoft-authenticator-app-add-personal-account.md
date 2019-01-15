@@ -14,8 +14,8 @@ ms.author: lizross
 ms.reviewer: librown
 ---
 
-# Add your personal accounts
-You can add your personal Microsoft and non-Microsoft accounts, such as for Outlook.com, Xbox LIVE, Google, Facebook, GitHub, and more to the Microsoft Authenticator app for two-factor verification.
+# Add your personal Microsoft accounts
+You can add your personal Microsoft accounts, such as for Outlook.com and Xbox LIVE to the Microsoft Authenticator app for two-factor verification.
 
 >[!Important]
 >Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.

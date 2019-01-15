@@ -40,7 +40,7 @@ You can turn on two-factor verification for many accounts that you use every day
 |------|------------|
 |[Add your work or school account](microsoft-authenticator-app-add-work-account.md)|Describes how to add your work or school account to the Microsoft Authenticator app for two-factor verification.|
 |[Add your personal Microsoft account](microsoft-authenticator-app-add-personal-account.md)|Describes how to add your Microsoft personal accounts for two-factor verification.|
-|[Add your personal non-Microsoft account](microsoft-authenticator-app-add-personal-non-microsoftaccount.md)|Describes how to add your non-Microsoft personal accounts for two-factor verification.|
+|[Add your personal non-Microsoft account](microsoft-authenticator-app-add-non-microsoft-account.md)|Describes how to add your non-Microsoft personal accounts for two-factor verification.|
 |[Manually add your account](microsoft-authenticator-app-add-account-manual.md)|Describes how to manually add your account to the Microsoft Authenticator app if your camera can't capture the QR code.|
 
 

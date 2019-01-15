@@ -52,10 +52,12 @@
     href: microsoft-authenticator-app-add-accounts-overview.md
     expanded: true
     items:
-      - name: Add your work or school account
+      - name: Add a work or school account
         href: microsoft-authenticator-app-add-work-account.md
-      - name: Add your personal accounts
+      - name: Add a personal Microsoft account
         href: microsoft-authenticator-app-add-personal-account.md
+      - name: Add a personal non-Microsoft account
+        href: microsoft-authenticator-app-add-non-microsoft-account.md
       - name: Manually add an account
         href: microsoft-authenticator-app-add-account-manual.md
   - name: Sign in with the app and your device
