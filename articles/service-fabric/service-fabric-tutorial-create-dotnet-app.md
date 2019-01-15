@@ -323,8 +323,6 @@ In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Find t
 
 Also update the Application URL property value in the Voting project so a web browser opens to the correct port when you debug your application.  In Solution Explorer, select the **Voting** project and update the **Application URL** property to **8080**.
 
-![Application URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
-
 ### Deploy and run the Voting application locally
 You can now go ahead and run the Voting application for debugging. In Visual Studio, press **F5** to deploy the application to your local Service Fabric cluster in debug mode. The application will fail if you didn't previously open Visual Studio as **administrator**.
 
