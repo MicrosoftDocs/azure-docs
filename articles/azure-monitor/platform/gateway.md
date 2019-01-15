@@ -20,6 +20,7 @@ This document describes how to configure communication with Azure Automation and
 
 The Log Analytics gateway supports:
 
+* Report up to 4 workspaces to support of agents behind it reporting to different workspaces
 * Azure Automation Hybrid Runbook Workers  
 * Windows computers with the Microsoft Monitoring Agent directly connected to a Log Analytics workspace
 * Linux computers with the Log Analytics agent for Linux directly connected to a Log Analytics workspace  
