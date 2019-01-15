@@ -12,9 +12,11 @@ ms.date: 01/04/2019
 ms.author: aahi
 ---
 
-## Suggesting & using search terms
+# Searching for entities with the Bing Entity API
 
-If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
+## Suggest search terms with the Bing Autosuggest API
+
+If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 
 After the user enters their search term, URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) query parameter. For example, if the user enters *Marcus Appel*, set `q` to *Marcus+Appel* or *Marcus%20Appel*.
 
@@ -28,10 +30,6 @@ If the search term contains a spelling mistake, the search response includes a [
     "adultIntent": false
 }
 ```
-
-## Requesting entities
-
-For an example request, see [Making your first request](./quick-start.md).
 
 ## The Bing Entity Search API response
 
@@ -291,7 +289,7 @@ If the list of contractual rules includes a [LicenseAttribution](https://docs.mi
 
 The following shows an example that includes a `LicenseAttribution` rule.
 
-![License attribution](./media/cognitive-services-bing-entities-api/licenseattribution.png)
+![License attribution](../media/cognitive-services-bing-entities-api/licenseattribution.png)
 
 The license notice that you display must include a hyperlink to the website that contains information about the license. Typically, you make the name of the license a hyperlink. For example, if the notice is **Text under CC-BY-SA license** and CC-BY-SA is the name of the license, you would make CC-BY-SA a hyperlink.
 
@@ -303,7 +301,7 @@ To attribute the providers, include a line immediately following the content tha
 
 The following shows an example that includes `LinkAttribution` and `TextAttribution` rules.
 
-![Link text attribution](./media/cognitive-services-bing-entities-api/linktextattribution.png)
+![Link text attribution](../media/cognitive-services-bing-entities-api/linktextattribution.png)
 
 ### Media attribution
 
@@ -311,7 +309,7 @@ If the entity includes an image and you display it, you must provide a click-thr
 
 The following shows an example that includes an image's `provider` field and contractual rules. Because the example includes the contractual rule, you ignore the image's `provider` field and apply the `MediaAttribution` rule.
 
-![Media attribution](./media/cognitive-services-bing-entities-api/mediaattribution.png)
+![Media attribution](../media/cognitive-services-bing-entities-api/mediaattribution.png)
 
 ### Search or search-like experience
 

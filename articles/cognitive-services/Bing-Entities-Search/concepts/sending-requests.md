@@ -127,11 +127,7 @@ BingAPIs-Market: en-US
 ```
 
 
-
 ## Next steps
 
-Try out the API. Go to [Entities Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/). 
-
-For details about consuming the response objects, see [Searching the Web for entities and places](./search-the-web.md).
-
-Be sure to read [Bing Use and Display Requirements](./use-display-requirements.md) so you don't break any of the rules about using the search results.
+* [Searching for entities with the Bing Entity API](search-for-entities.md)
+* [Bing API Use and Display Requirements](../use-display-requirements.md)

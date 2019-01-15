@@ -19,8 +19,10 @@ The Bing Entity Search API sends a search query to Bing and gets results that in
 
 |Feature  |Description  |
 |---------|---------|
-|[Real-time search suggestions](define-custom-suggestions.md)     | Provide search suggestions that can be displayed as a dropdown list as your users type.       | 
-| Entity detection | |
+|[Real-time search suggestions](search-for-entities.md#suggest-search-terms-with-the-bing-autosuggest-api)     | Provide search suggestions that can be displayed as a dropdown list as your users type.       | 
+| Return information based on entity in the query | |
+| Find the correct intent from queries with multiple meanings | |
+| Search for and return information on local businesses and entities | |
 
 ## Workflow
 
@@ -32,11 +34,9 @@ The Bing Entity Search API is a RESTful web service, making it easy to call from
 
 ## Next steps
 
-To get started quickly with your first request, see [Making Your First Request](./quick-start.md).
+Try the [interactive demo](https://azure.microsoft.com/en-us/services/cognitive-services/bing-entity-search-api/) for the Bing Entity Search API. 
 
-Familiarize yourself with the [Bing Entity Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) reference. The reference contains the headers and query parameters that you use to request search results. It also includes definitions of the response objects. 
-
-Be sure to read [Bing Use and Display Requirements](./use-display-requirements.md) for using search results in your services and applications.
+To get started quickly with your first request, try a [Quickstart](quickstarts/chsarp.md).
 
 ## See also
 
