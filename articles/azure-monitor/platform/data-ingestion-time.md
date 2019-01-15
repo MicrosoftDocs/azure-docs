@@ -40,7 +40,7 @@ Agents and management solutions use different strategies to collect data from a 
 To ensure the Log Analytics agent is lightweight, the agent buffers logs and periodically uploads them to Azure Monitor. Upload frequency varies between 30 seconds and 2 minutes depending on the type of data. Most data is uploaded in under 1 minute. Network conditions may negatively affect the latency of this data to reach Azure Monitor ingestion point.
 
 ### Azure logs and metrics 
-Activity log data will take about 5 minutes to come available in Log Analytics. Data from diagnostic logs and metrics can take 1-15 minutes to become available for processing, depending on the Azure service. Once it's available, it will then take an additional 30-60 seconds for logs and 3 minutes for metrics for data to be sent to Log Analytics ingestion point.
+Activity log data will take about 5 minutes to come available in Azure Monitor. Data from diagnostic logs and metrics can take 1-15 minutes to become available for processing, depending on the Azure service. Once it's available, it will then take an additional 30-60 seconds for logs and 3 minutes for metrics for data to be sent to Azure Monitor ingestion point.
 
 ### Management solutions collection
 Some solutions do not collect their data from an agent and may use a collection method that introduces additional latency. Some solutions collect data at regular intervals without attempting near-real time collection. Specific examples include the following:
