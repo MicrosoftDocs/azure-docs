@@ -1,5 +1,5 @@
 ---
-title: Run Azure ML workloads with Auto ML on Apache Spark in Azure HDInsight
+title: Run Azure ML workloads with AutoML on Apache Spark in Azure HDInsight
 description: Learn how to run Azure ML workloads with AutoML on Apache Spark in Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
@@ -7,7 +7,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: howto
-ms.date: 12/17/2018
+ms.date: 01/14/2018
 ---
 # Run Azure ML workloads with AutoML on Apache Spark in Azure HDInsight
 
@@ -18,17 +18,17 @@ Azure Machine Learning (Azure ML) is a collaborative, drag-and-drop tool you can
 > [!Note]
 > The Azure ML workspace is currently available in the following regions: eastus, eastus2 and westcentralus. The HDInsight cluster should also be created in one of these regions.
 
-For general tutorials of Azure ML and AutoML, see [Tutorial: Create your first data science experiment in Azure Machine Learning Studio](../../machine-learning/studio/create-experiment) and [Tutorial: Use automated machine learning to build your regression model](../../machine-learning/service/tutorial-auto-train-models).
+For general tutorials of Azure ML and AutoML, see [Tutorial: Create your first data science experiment in Azure Machine Learning Studio](../../machine-learning/studio/create-experiment.md) and [Tutorial: Use automated machine learning to build your regression model](../../machine-learning/service/tutorial-auto-train-models.md).
 To install AzureML on your Azure HDInsight cluster, run the script action - [install_aml](https://commonartifacts.blob.core.windows.net/automl/install_aml.sh) - on head nodes and worker nodes of a HDInsight 3.6 Spark 2.3.0 cluster (recommended). This script action can be run either as part of the cluster creation process, or on an existing cluster through the Azure portal.
 
-For more information about script actions, read [Customize Linux-based HDInsight clusters using script actions](../hdinsight-hadoop-customize-cluster-linux). Along with installing Azure ML packages and dependencies, the script also downloads a sample Jupyter Notebook (into path `HdiNotebooks/PySpark` of the default store) which demonstrates how to use Auto ML Classifier for a simple classification problem.
+For more information about script actions, read [Customize Linux-based HDInsight clusters using script actions](../hdinsight-hadoop-customize-cluster-linux.md). Along with installing Azure ML packages and dependencies, the script also downloads a sample Jupyter Notebook (into path `HdiNotebooks/PySpark` of the default store). This Jupyter Notebook demonstrates how to use an AutoML Classifier for a simple classification problem.
 
 > [!Note]
 > Azure ML packages are installed into Python3 conda environment. The installed Jupyter notebook should be run using the PySpark3 kernel.
 
 ## Authentication for workspace
 
-Workspace creation and experiment submission require an authentication token. This token can be generated using an [Azure AD application](../../active-directory/develop/app-objects-and-service-principals). An [Azure AD user](https://docs.microsoft.com/en-us/python/azure/python-sdk-azure-authenticate?view=azure-python) can also be used to generate the required authentication token, if multi-factor authentication isn't enabled on the account.  
+Workspace creation and experiment submission require an authentication token. This token can be generated using an [Azure AD application](../../active-directory/develop/app-objects-and-service-principals.md). An [Azure AD user](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python) can also be used to generate the required authentication token, if multi-factor authentication isn't enabled on the account.  
 
 The following code snippet creates an authentication token using an **Azure AD application**.
 
@@ -67,4 +67,4 @@ In the AutoML configuration, the property `spark_context` should be set for Auto
 
 ## Next Steps
 
-For more information on the motivation behind AutoML, see [Release models at pace using Microsoft’s automated machine learning!](https://azure.microsoft.com/en-us/blog/release-models-at-pace-using-microsoft-s-automl/).
+For more information on the motivation behind AutoML, see [Release models at pace using Microsoft’s automated machine learning!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/).
