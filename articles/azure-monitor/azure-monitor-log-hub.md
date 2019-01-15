@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hub-page
-ms.date: 01/11/2019
+ms.date: 01/15/2019
 ms.author: magoedte
 
 ---
@@ -63,6 +63,11 @@ ms.author: magoedte
                                                     <div class="cardSize">
                                                         <div class="cardPadding">
                                                             <div class="card">
+                                                                <div class="cardImageOuter">
+                                                                    <div class="cardImage">
+                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_security-management.svg" data-linktype="external">
+                                                                    </div>
+                                                                </div>
                                                                 <div class="cardText">
                                                                     <h3>Understand security</h3> 
 																	<p>
@@ -97,6 +102,11 @@ ms.author: magoedte
                                                             <a href="/azure/azure-monitor/platform/log-analytics-data-ingestion-time">Log data ingestion time</a><br/>
 														</p>
 														<br>
+                                                        <div class="cardImageOuter">
+                                                                    <div class="cardImage">
+                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_data-collection.svg" data-linktype="external">
+                                                                    </div>
+                                                                </div>
                                                         <h3>Data sources</h3>
                                                         <p>
                                                             <a href="/azure/azure-monitor/platform/data-sources">Overview<br/>
@@ -121,6 +131,11 @@ ms.author: magoedte
                                         <div class="cardSize">
                                             <div class="cardPadding">
                                                 <div class="card">
+                                                    <div class="cardImageOuter">
+                                                                    <div class="cardImage">
+                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_search.svg" data-linktype="external">
+                                                                    </div>
+                                                                </div>
                                                     <div class="cardText">
                                                         <h3>Analyze data</h3>
                                                         <p>
