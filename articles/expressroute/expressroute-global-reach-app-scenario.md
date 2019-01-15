@@ -1,5 +1,5 @@
 ---
-title: 'ExpressRoute Global Reach Application Scenario | Microsoft Docs'
+title: 'Azure ExpressRoute Global Reach Application Scenario | Microsoft Docs'
 description: This page provides an application scenario for Global Reach.
 documentationcenter: na
 services: networking
@@ -9,16 +9,16 @@ manager: tracsman
 ms.service: expressroute,global reach
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 1/14/2019
+ms.date: 01/14/2019
 ms.author: rambala
 
 ---
 
-# ExpressRoute Global Reach Application Scenario
+# ExpressRoute Global Reach application scenario
 
 To learn more about ExpressRoute Global Reach, see [ExpressRoute Global Reach][Global Reach]. In this article, let's walk through an application scenario, compare the ExpressRoute Global Reach solution to a few other solutions, configure Global Reach for the example scenario, and verify the connections. 
 
-##Application Scenario
+##Application scenario
 
 Fabrikam Inc. has a large physical presence and Azure deployment in East US. Fabrikam has back-end connectivity between its on-premises and Azure deployments via ExpressRoute. Contoso Ltd. has a presence and Azure deployment in West US. Contoso has back-end connectivity between its on-premises and Azure deployments via ExpressRoute.  
 
@@ -34,9 +34,9 @@ The following table shows the route table of the primary private peering of the 
 
 [![3]][3]
 
-## Traditional Solutions
+## Traditional solutions
 
-### Option 1: Interconnecting on-premises networks
+### Option 1: Interconnect on-premises networks
 
 The following figure illustrates this option. As shown, you can interconnect the two on-premises networks using site-to-site VPN or other broadband connection options and manage all the routing between the two entities. 
 
@@ -48,7 +48,7 @@ This option has the following drawbacks:
 - You're denying the benefit of the high availability of the Microsoft backbone network for the inter-regional communication.
 - You're taking the full routing responsibility for the inter-regional communication.
 
-### Option 2: ExpressRoute cross connectivity and interconnecting on-premises networks
+### Option 2: ExpressRoute cross connectivity and interconnect on-premises networks
 
 The following figure illustrates this option.
 
@@ -63,7 +63,7 @@ The interconnection between the two on-premises networks is still needed for the
 
 This option allows inter-regional Azure communication for the private deployment to ride over the Microsoft backbone and the communication between the on-premises network to be carried over the external network. However, the main drawback of the solution is that you need to establish multiple cross regional connections, which complicate maintenance and troubleshooting. Also, the option doesn't let you take advantage of the high-available Microsoft global backbone for communicating between the two on-premises networks.
 
-### Option 3: VNet peering and interconnecting on-premises networks
+### Option 3: VNet peering and interconnect on-premises networks
 
 The following figure illustrates this option. The option uses VNet peering for the inter-regional VNet communication. The option, as illustrated, is incomplete as it doesn't address cross-regional VNet to on-premises communication (indicated via the two dotted-arrow lines in the middle). Use on-premises to on-premises connection (as in Option 1) or ExpressRoute cross connectivity (as in Option 2) for the cross-regional to on-premises communication.
 
@@ -79,7 +79,7 @@ ExpressRoute Global Reach links private peering of the ExpressRoute circuits, as
 
 Configuring Global Reach between the two ExpressRoute circuits enables private communication in between the two on-premises networks and the Azure deployment in the two regions. Thus, the Global Reach satisfies all the desired communication (indicated via dashed line in the first figure of this article) over the Microsoft backbone network.
 
-### Configuring Global Reach
+### Configure Global Reach
 
 To learn how to configure ExpressRoute Global Reach, see [Configure Global Reach][Configure Global Reach]. 
 
@@ -88,21 +88,56 @@ Because Fabrikam Inc. and Contoso Ltd. onboarded Azure as separate companies, th
 
 To create an authorization for Contoso's ExpressRoute circuit, first login into Contoso's Azure account, and select the appropriate subscription (if there are multiple subscriptions). The PowerShell commands for these steps are:
 
-	```powershell
-	Connect-AzureRmAccount
-	Get-AzureRmSubscription
-	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-	```
-
+```powershell
+Connect-AzureRmAccount
+Get-AzureRmSubscription
+Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+```
 The steps for creating an ExpressRoute circuit authorization are listed below:
 
-	```powershell
-	$ckt_2 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
-	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $ckt_2 -Name "Name_for_auth_key"
-	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt_2
-	```
+```powershell
+$ckt_2 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
+Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $ckt_2 -Name "Name_for_auth_key"
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt_2
+```
 
-The 'Set-AzureRmExpressRouteCircuit' output will list the ExpressRouteCircuit. Note the private peering ID and the authorization key that would be listed towards the end of the listing. See an example below:
+The 'Set-AzureRmExpressRouteCircuit' output will list the ExpressRouteCircuit. Note the private peering ID and the authorization key that would be listed towards the end of the listing. See an example PowerShell output snippet below:
+
+```powershell
+ServiceKey                       : <serviceKey>
+Peerings                         : [
+                                     {
+                                       "Name": "AzurePrivatePeering",
+                                       "Etag": "W/\"78dfeeae-0485-4cda-b5aa-99e780589677\"",
+                                       *"Id": "/subscriptions/<subscriptionId>/resourceGroups/SEA-Cust11/providers/Microsoft.Network/expressRouteCircuits/SEA-Cust11-ER/peerings/AzurePrivatePeering"*,
+                                       "PeeringType": "AzurePrivatePeering",
+                                       "State": "Enabled",
+                                       "AzureASN": 12076,
+                                       "PeerASN": 65020,
+                                       "PrimaryPeerAddressPrefix": "192.168.11.16/30",
+                                       "SecondaryPeerAddressPrefix": "192.168.11.20/30",
+                                       "PrimaryAzurePort": "",
+                                       "SecondaryAzurePort": "",
+                                       "VlanId": 110,
+                                       "ProvisioningState": "Succeeded",
+                                       "GatewayManagerEtag": "4",
+                                       "LastModifiedBy": "Customer",
+                                       "Connections": []
+                                     }
+                                   ]
+Authorizations                   : [
+                                     {
+                                       "Name": "Auth4-ASH-Cust11",
+                                       "Etag": "W/\"78dfeeae-0485-4cda-b5aa-99e780589677\"",
+                                       "Id": "/subscriptions/<subscriptionId>/resourceGroups/SEA-Cust11/providers/Microsoft.Network/expressRouteCircuits/SEA-Cust11-ER/authorizations/Auth4-ASH-Cust11",
+                                       *"AuthorizationKey": "<authorizationKey>"*,
+                                       "AuthorizationUseStatus": "Used",
+                                       "ProvisioningState": "Succeeded"
+                                     }
+                                   ]
+AllowClassicOperations           : False
+GatewayManagerEtag               : 4
+```
 
 [![8]][8]
 
@@ -110,15 +145,15 @@ With the peering ID and the authorization key, you can create the Global Reach u
 
 Global Reach creates a redundant set of point-to-point connections across the two MSEE pairs. For the two point-to-point connections, you need to specify a /29 address prefix (for the running example let's use 192.168.11.64/29). Use the following commands to create the Global Reach connection:
 
-	```powershell
-	$ckt_1 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
-	Add-AzureRmExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix "__.__.__.__/29" -AuthorizationKey "########-####-####-####-############"
-	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt_1
-	```
+```powershell
+$ckt_1 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+Add-AzureRmExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix "__.__.__.__/29" -AuthorizationKey "########-####-####-####-############"
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt_1
+```
 
 Once the above commands are executed, it will take couple of minutes to create the redundant Global Reach connections.
 
-### Verifying Global Reach
+### Verify Global Reach
 
 The following table shows the route table of the primary private peering of the ExpressRoute of Contoso Ltd. after configuring Global Reach.
 
@@ -132,9 +167,9 @@ In the above tables, we see all the expected destination 'NETWORK' prefixes and 
 
 Above you see the 'Get route table' blade that can be accessed in the Azure portal under 'Private peering' of an ExpressRoute circuit. You can also list an ExpressRoute route table using the following PowerShell Command:
 
-	```powershell
-	Get-AzExpressRouteCircuitRouteTable -DevicePath 'primary' -ExpressRouteCircuitName "Your_circuit_name" -PeeringType AzurePrivatePeering -ResourceGroupName "Your_resource_group"
-	```
+```powershell
+Get-AzExpressRouteCircuitRouteTable -DevicePath 'primary' -ExpressRouteCircuitName "Your_circuit_name" -PeeringType AzurePrivatePeering -ResourceGroupName "Your_resource_group"
+```
 
 To see the route table of the secondary MSEE, substitute 'primary' with the keyword 'secondary' in the above command.
 
@@ -228,7 +263,7 @@ The following ping verifies data plane connectivity to the Contoso Azure VNet fr
 
 Global Reach routes traffic via Microsoft Edge devices. For the specific scenario considered in this article, you can achieve more optimal routing between the two VNets by enabling VNet peering between them. Similarly you can achieve more optimal routing between the two on-premises networks through a service provider, who can provide a more direct WAN connection between the sites. In such scenarios, you can use Global Reach routing as a fail back option for those connections. 
 
-## Next Steps
+## Next steps
 
 Global Reach is rolled out on a country by country basis. To see if Global Reach is available in the countries that you want, see [ExpressRoute Global Reach][Global Reach].
 
