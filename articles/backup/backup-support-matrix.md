@@ -138,6 +138,9 @@ Recovery points on DPM/MABS disk | 64 for file servers, 448 for app servers.<br/
 
 - [Back up Azure VMs](backup-azure-arm-vms-prepare.md)
 - [Back up Windows machines directly](tutorial-backup-windows-server-to-azure.md), without a backup server.
-- [Set up MABS](backup-azure-microsoft-azure-backup) for backup to Azure, and then back up workloads to MABS.
-- [Set up DPM](backup-azure-dpm-introduction) for backup to Azure, and then back up workloads to DPM.
+- [Set up MABS](backup-azure-microsoft-azure-backup.md) for backup to Azure, and then back up workloads to MABS.
+- [Set up DPM](backup-azure-dpm-introduction.md) for backup to Azure, and then back up workloads to DPM.
 
+[green]: ./media/backup-support-matrix/green.png
+[yellow]: ./media/backup-support-matrix/yellow.png
+[red]: ./media/backup-support-matrix/red.png
