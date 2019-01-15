@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 01/14/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
 
@@ -125,23 +125,13 @@ Azure Queue storage provides cloud messaging between application components. In 
 The KeyVault RP provides management and auditing of secrets, such as passwords and certificates. As an example, a tenant can use the KeyVault RP to provide administrator passwords or keys during VM deployment.
 
 ## High availability for Azure Stack
-*Applies to: Azure Stack 1802 or higher versions*
+To achieve high availability of a multi-VM production system in Azure, VMs are placed in an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) that spreads them across multiple fault domains and update domains. In the smaller scale of Azure Stack, a fault domain in an availability set is defined as a single node in the scale unit.  
 
-To achieve high availability of a multi-VM production system in Azure, VMs are placed in an availability set that spreads them across multiple fault domains and update domains. In this way, [VMs deployed in availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) are physically isolated from each other on separate server racks to allow for failure resiliency as shown in the following diagram:
-
-  ![Azure Stack high availability](media/azure-stack-key-features/high-availability.png)
-
-### Availability sets in Azure Stack
 While the infrastructure of Azure Stack is already resilient to failures, the underlying technology (failover clustering) still incurs some downtime for VMs on an impacted physical server if there is a hardware failure. Azure Stack supports having an availability set with a maximum of three fault domains to be consistent with Azure.
 
 - **Fault domains**. VMs placed in an availability set will be physically isolated from each other by spreading them as evenly as possible over multiple fault domains (Azure Stack nodes). If there is a hardware failure, VMs from the failed fault domain will be restarted in other fault domains, but, if possible, kept in separate fault domains from the other VMs in the same availability set. When the hardware comes back online, VMs will be rebalanced to maintain high availability. 
  
 - **Update domains**. Update domains are another Azure concept that provides high availability in availability sets. An update domain is a logical group of underlying hardware that can undergo maintenance at the same time. VMs located in the same update domain will be restarted together during planned maintenance. As tenants create VMs within an availability set, the Azure platform automatically distributes VMs across these update domains. In Azure Stack, VMs are live migrated across the other online hosts in the cluster before their underlying host is updated. Since there is no tenant downtime during a host update, the update domain feature on Azure Stack only exists for template compatibility with Azure. 
-
-### Upgrade scenarios 
-VMs in availability sets that were created before Azure Stack version 1802 are given a default number of fault and update domains (1 and 1 respectively). To achieve high availability for VMs in these pre-existing availability sets, you must first delete the existing VMs and then redeploy them into a new availability set with the correct fault and update domain counts as described in [Change the availability set for a Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
-
-For virtual machine scale sets, an availability set is created internally with a default fault domain and update domain count (3 and 5 respectively). Any virtual machine scale sets created before the 1802 update will be placed in an availability set with the default fault and update domain counts (1 and 1 respectively). To update these virtual machine scale set instances to achieve the newer spread, scale out the virtual machine scale sets by the number of instances that were present before the 1802 update and then delete the older instances of the virtual machine scale sets. 
 
 ## Role Based Access Control (RBAC)
 You can use RBAC to grant system access to authorized users, groups, and services by assigning them roles at a subscription, resource group, or individual resource level. Each role defines the access level a user, group, or service has over Microsoft Azure Stack resources.
