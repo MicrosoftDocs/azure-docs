@@ -155,11 +155,11 @@ Once the above commands are executed, it will take couple of minutes to create t
 
 The following table shows the route table of the primary private peering of the ExpressRoute of Contoso Ltd. after configuring Global Reach.
 
-[![9]][9]
+[![8]][8]
 
 The following table shows the route table of the primary private peering of the ExpressRoute of Fabrikam Inc. after configuring Global Reach.
 
-[![10]][10]
+[![9]][9]
 
 In the above tables, we see all the expected destination 'NETWORK' prefixes and the appropriate 'NEXT HOP' are listed.
 
@@ -273,8 +273,8 @@ Global Reach is rolled out on a country by country basis. To see if Global Reach
 [5]: ./media/expressroute-globalreach-applicationscenario/ExR-XConnect-Solution.png "ExpressRoute Cross Connect"
 [6]: ./media/expressroute-globalreach-applicationscenario/VNet-peering-Solution.png "VNet peering"
 [7]: ./media/expressroute-globalreach-applicationscenario/GlobalReach-Solution.png "Global Reach"
-[9]: ./media/expressroute-globalreach-applicationscenario/ContosoExR-RT-Postmerger.png "Contoso ExpressRoute Route table with Global Reach"
-[10]: ./media/expressroute-globalreach-applicationscenario/FabrikamExR-RT-Postmerger.png "Fabrikam ExpressRoute Route table with Global Reach"
+[8]: ./media/expressroute-globalreach-applicationscenario/ContosoExR-RT-Postmerger.png "Contoso ExpressRoute Route table with Global Reach"
+[9]: ./media/expressroute-globalreach-applicationscenario/FabrikamExR-RT-Postmerger.png "Fabrikam ExpressRoute Route table with Global Reach"
 
 <!--Link References-->
 [Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-global-reach
