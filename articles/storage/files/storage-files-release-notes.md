@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 1/14/2019
 ms.author: wgries
 ms.component: files
 ---
@@ -20,7 +20,8 @@ The following versions are supported for the Azure File Sync agent:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| December update rollup - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | December 10, 2018 | Supported (recommended version) |
+| January update rollup - [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | January 14, 2019 | Supported (recommended version) |
+| December update rollup - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | December 10, 2018 | Supported |
 | December update rollup | 4.1.0.0 | December 4, 2018 | Supported |
 | V4 Release | 4.0.1.0 | November 13, 2018 | Supported |
 | September update rollup | 3.3.0.0 | September 24, 2018 | Supported |
@@ -39,6 +40,14 @@ The following versions are supported for the Azure File Sync agent:
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## Agent version 4.3.0.0
+The following release notes are for version 4.3.0.0 of the Azure File Sync agent released January 14, 2019. These notes are in addition to the release notes listed for version 4.0.1.0.
+
+List of issues fixed in this release:  
+- Files are not tiered after upgrading the Azure File Sync agent to version 4.x.
+- AfsUpdater.exe is now supported on Windows Server 2019.
+- Miscellaneous reliability improvements for sync. 
 
 ## Agent version 4.2.0.0
 The following release notes are for version 4.2.0.0 of the Azure File Sync agent released December 10, 2018. These notes are in addition to the release notes listed for version 4.0.1.0.
