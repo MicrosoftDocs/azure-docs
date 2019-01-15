@@ -19,7 +19,7 @@ When you call the Video Search API, Bing returns a list of results. The list is 
   
 The following example shows the `totalEstimatedMatches` field that a Video answer includes.  
   
-```  
+```json  
 {
     "_type" : "Videos",
     "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=81EF7545D56...",
@@ -38,7 +38,7 @@ If you want to display 20 videos per page, you would set `count` to 20 and `offs
 
 The following shows an example that requests 20 videos beginning at offset 40.  
   
-```  
+```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&count=20&offset=40&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 Host: api.cognitive.microsoft.com  
@@ -46,7 +46,7 @@ Host: api.cognitive.microsoft.com
 
 If the default `count` value works for your implementation, you only need to specify the `offset` query parameter.  
   
-```  
+```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 Host: api.cognitive.microsoft.com  

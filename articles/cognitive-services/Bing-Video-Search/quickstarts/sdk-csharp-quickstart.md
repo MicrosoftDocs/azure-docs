@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Bing Video Aearch SDK, C#"
+title: "Quickstart: Search for videos using the Bing Video Search SDK for C#"
 titleSuffix: Azure Cognitive Services
-description: Setup for Bing Video search SDK console application.
+description: Use this quickstart to send video search requests using the Bing Video Search SDK for C#.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -13,51 +13,53 @@ ms.date: 01/29/2018
 ms.author: rosh
 ---
 
-# Quickstart: Bing Video Search SDK with C# 
+# Quickstart: Perform a video search with the Bing Video Search SDK for C#
 
-The Bing Video Search SDK contains the functionality of the REST API for web requests and parsing results.
-
-The [source code for C# Bing Video Search SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) is available on Git Hub.
+Use this quickstart to begin searching for news with the Bing Video Search SDK for C#. While Bing Video Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch). It contains more annotations and features.
 
 ## Application dependencies
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-To set up a console application using the Bing Video Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.VideoSearch` package.
+* Any edition of [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
+* The Json.NET framework, available [as a NuGet package](https://www.nuget.org/packages/Newtonsoft.Json/).
 
-Installing the [[NuGet Video Search SDK package]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) also installs dependencies, including:
+To add the Bing Video Search SDK to your project, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.VideoSearch` package.
+
+Installing the [[NuGet Video Search SDK package]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) also installs the following dependencies:
+
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-
-## Video Search client
-To create an instance of the `VideoSearchAPI` client, add using directives:
-```
-using Microsoft.Azure.CognitiveServices.Search.VideoSearch;
-using Microsoft.Azure.CognitiveServices.Search.VideoSearch.Models;
-
-```
-Then, instantiate the client:
-```
-var client = new VideoSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)
 
 
-```
-Use the client to search with a query text "SwiftKey" for videos.
-```
-var videoResults = client.Videos.SearchAsync(query: "SwiftKey").Result;
-Console.WriteLine("Search videos for query \"SwiftKey\"");
+## Create and initialize a project
 
-```
+1. Create a new C# console solution in Visual Studio. Then add the following into the main code file.
 
-Parse the results, then verify number of results and print out ID, name, and url of first video result.
-```
-if (videoResults == null)
-{
-    Console.WriteLine("Didn't see any video result data..");
-}
-else
-{
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Microsoft.Azure.CognitiveServices.Search.VideoSearch;
+    using Microsoft.Azure.CognitiveServices.Search.VideoSearch.Models;
+    ```
+
+2. Instantiate the client by creating a new `ApiKeyServiceClientCredentials` object with your subscription key, and calling the constructor.
+
+    ```csharp
+    var client = new VideoSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+    ```
+## Send a search request and process the results
+
+1. Use the client to send a search request. Use "SwiftKey" for the search query.
+
+    ```csharp
+    var videoResults = client.Videos.SearchAsync(query: "SwiftKey").Result;
+    ```
+
+2. If any results were returned, get the first one with `videoResults.Value[0]`. Then print the video's ID, title, and url.
+    ```csharp
     if (videoResults.Value.Count > 0)
     {
         var firstVideoResult = videoResults.Value.First();
@@ -71,253 +73,14 @@ else
     {
         Console.WriteLine("Couldn't find video results!");
     }
-}
-
-```
-## Complete console application
-
-The following console application executes the previously defined query and parses results.
-
-```
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Azure.CognitiveServices.Search.VideoSearch;
-using Microsoft.Azure.CognitiveServices.Search.VideoSearch.Models;
-
-namespace VideoSrchSDK
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var client = new VideoSearchAPI(new ApiKeyServiceClientCredentials("19aa718a79d6444daaa415981d9f54ad"));
-
-            try
-            {
-                var videoResults = client.Videos.SearchAsync(query: "SwiftKey").Result;
-                Console.WriteLine("Search videos for query \"SwiftKey\"");
-
-                if (videoResults == null)
-                {
-                    Console.WriteLine("Didn't see any video result data..");
-                }
-                else
-                {
-                    if (videoResults.Value.Count > 0)
-                    {
-                        var firstVideoResult = videoResults.Value.First();
-
-                        Console.WriteLine($"\r\nVideo result count: {videoResults.Value.Count}");
-                        Console.WriteLine($"First video id: {firstVideoResult.VideoId}");
-                        Console.WriteLine($"First video name: {firstVideoResult.Name}");
-                        Console.WriteLine($"First video url: {firstVideoResult.ContentUrl}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find video results!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-
-            // Include these calls to use queries defined under the following headings.
-            //VideoSearchWithFilters(client);
-            //VideoDetail(client);
-            //VideoTrending(client);
-
-
-            Console.WriteLine("Any key to exit...");
-            Console.ReadKey();
-
-        }
-
-```
-## URL parameters
-
-Search on query text "Bellevue Trailer" for videos that are unchanged, short, and 1080p resolution.  Verify the number of results, and print out ID, name, and url of first video result.
-
-```
-        public static void VideoSearchWithFilters(VideoSearchAPI client)
-        {
-            try
-            {
-                var videoResults = client.Videos.SearchAsync(query: "Bellevue Trailer", pricing: VideoPricing.Free, length: VideoLength.Short, resolution: VideoResolution.HD1080p).Result;
-                Console.WriteLine("Search videos for query \"Bellevue Trailer\" that is free, short and 1080p resolution");
-
-                if (videoResults == null)
-                {
-                    Console.WriteLine("Didn't see any video result data..");
-                }
-                else
-                {
-                    if (videoResults.Value.Count > 0)
-                    {
-                        var firstVideoResult = videoResults.Value.First();
-
-                        Console.WriteLine($"\r\nVideo result count: {videoResults.Value.Count}");
-                        Console.WriteLine($"First video id: {firstVideoResult.VideoId}");
-                        Console.WriteLine($"First video name: {firstVideoResult.Name}");
-                        Console.WriteLine($"First video url: {firstVideoResult.ContentUrl}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find video results!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-
-        }
-
-
-```
-## Trending videos
-Search for trending videos, then verify banner tiles and categories.
-```
-        public static void VideoTrending(VideoSearchAPI client)
-        {
-            try
-            {
-                var trendingResults = client.Videos.TrendingAsync().Result;
-                Console.WriteLine("Search trending videos");
-
-                if (trendingResults == null)
-                {
-                    Console.WriteLine("Didn't see any trending video data..");
-                }
-                else
-                {
-                    // Banner Tiles
-                    if (trendingResults.BannerTiles?.Count > 0)
-                    {
-                        var firstBannerTile = trendingResults.BannerTiles[0];
-                        Console.WriteLine($"\r\nBanner tile count: {trendingResults.BannerTiles.Count}");
-                        Console.WriteLine($"First banner tile text: {firstBannerTile.Query.Text}");
-                        Console.WriteLine($"First banner tile url: {firstBannerTile.Query.WebSearchUrl}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find banner tiles!");
-                    }
-
-                    // Categories
-                    if (trendingResults.Categories?.Count > 0)
-                    {
-                        var firstCategory = trendingResults.Categories[0];
-                        Console.WriteLine($"Category count: {trendingResults.Categories.Count}");
-                        Console.WriteLine($"First category title: {firstCategory.Title}");
-
-                        if (firstCategory.Subcategories?.Count > 0)
-                        {
-                            var firstSubCategory = firstCategory.Subcategories[0];
-                            Console.WriteLine($"SubCategory count: {firstCategory.Subcategories.Count}");
-                            Console.WriteLine($"First sub category title: {firstSubCategory.Title}");
-
-                            if (firstSubCategory.Tiles?.Count > 0)
-                            {
-                                var firstTile = firstSubCategory.Tiles[0];
-                                Console.WriteLine($"Tile count: {firstSubCategory.Tiles.Count}");
-                                Console.WriteLine($"First tile text: {firstTile.Query.Text}");
-                                Console.WriteLine($"First tile url: {firstTile.Query.WebSearchUrl}");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Couldn't find tiles!");
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find subcategories!");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find categories!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-
-        }
-
-
-```
-## Details
-Search videos for "Bellevue Trailer", and then search for detailed information of the first video.
-```
-        public static void VideoDetail(VideoSearchAPI client)
-        {
-            try
-            {
-                var videoResults = client.Videos.SearchAsync(query: "Bellevue Trailer").Result;
-
-                var firstVideo = videoResults?.Value?.FirstOrDefault();
-
-                if (firstVideo != null)
-                {
-                    var modules = new List<VideoInsightModule?>() { VideoInsightModule.All };
-                    var videoDetail = client.Videos.DetailsAsync(query: "Bellevue Trailer", id: firstVideo.VideoId, modules: modules).Result;
-                    Console.WriteLine($"Search detail for video id={firstVideo.VideoId}, name={firstVideo.Name}");
-
-                    if (videoDetail != null)
-                    {
-                        if (videoDetail.VideoResult != null)
-                        {
-                            Console.WriteLine($"\r\nExpected video id: {videoDetail.VideoResult.VideoId}");
-                            Console.WriteLine($"Expected video name: {videoDetail.VideoResult.Name}");
-                            Console.WriteLine($"Expected video url: {videoDetail.VideoResult.ContentUrl}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find expected video!");
-                        }
-
-                        if (videoDetail?.RelatedVideos?.Value?.Count > 0)
-                        {
-                            var firstRelatedVideo = videoDetail.RelatedVideos.Value[0];
-                            Console.WriteLine($"Related video count: {videoDetail.RelatedVideos.Value.Count}");
-                            Console.WriteLine($"First related video id: {firstRelatedVideo.VideoId}");
-                            Console.WriteLine($"First related video name: {firstRelatedVideo.Name}");
-                            Console.WriteLine($"First related video url: {firstRelatedVideo.ContentUrl}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find any related video!");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find detail about the video!");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Couldn't find video results!");
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-        }
-    }
-
-```
+    ```
 
 ## Next steps
 
-[Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+> [!div class="nextstepaction"]
+> [Create a single page web app](../tutorial-bing-video-search-single-page-app.md)
+
+## See also 
+
+* [What is the Bing Video Search API?](../overview.md)
+* [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

@@ -53,6 +53,12 @@
     href: resize-and-crop-thumbnails.md
   - name: Upgrade from v5 to v7
     href: bing-video-upgrade-guide-v5-to-v7.md
+- name: Concepts
+  items:
+    - name: Getting videos from the web
+      href: concepts/get-videos.md
+    - name: Sending search requests
+      href: concepts/sending-requests.md 
 - name: Reference
   items:
   - name: Bing Video Search API v7

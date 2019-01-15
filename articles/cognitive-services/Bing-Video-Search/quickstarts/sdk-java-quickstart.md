@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Bing Video Search SDK, Java"
+title: "Quickstart: Search for videos using the Bing Video Search SDK for Java"
 titleSuffix: Azure Cognitive Services
-description: Learn how to set up the Bing Video Search SDK console application.
+description: Use this quickstart to send video search requests using the Bing Video Search SDK for Java.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -12,17 +12,21 @@ ms.topic: quickstart
 ms.date: 02/18/2018
 ms.author: rosh
 ---
-# Quickstart: Bing Video Search SDK Java
+# Quickstart: Perform a video search with the Bing Video Search SDK for C#
 
-The Bing Video Search SDK provides the REST API functionality for video queries and parsing results.
-
-The [source code for Java Bing Video Search SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch) is available on Git Hub.
+Use this quickstart to begin searching for news with the Bing Video Search SDK for Java. While Bing Video Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch). It contains more annotations and features.
 
 ## Application dependencies
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
+* The [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
+
+* The [Gson library](https://github.com/google/gson)
+
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)
 
 Install the Bing Video Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the declaration:
-```
+
+```xml
   <dependencies>
     <dependency>
       <groupId>com.microsoft.azure.cognitiveservices</groupId>
@@ -31,27 +35,30 @@ Install the Bing Video Search SDK dependencies by using Maven, Gradle, or anothe
     </dependency>
   </dependencies> 
 ```
-## Video Search client
-Add imports to the class implementation.
-```
-import com.microsoft.azure.cognitiveservices.videosearch.*;
-import com.microsoft.azure.cognitiveservices.videosearch.Freshness;
-import com.microsoft.azure.cognitiveservices.videosearch.VideoObject;
-import com.microsoft.azure.cognitiveservices.videosearch.implementation.TrendingVideosInner;
-import com.microsoft.azure.cognitiveservices.videosearch.implementation.VideoDetailsInner;
-import com.microsoft.azure.cognitiveservices.videosearch.implementation.VideoSearchAPIImpl;
-import com.microsoft.azure.cognitiveservices.videosearch.implementation.VideosInner;
-import com.microsoft.rest.credentials.ServiceClientCredentials;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-```
-Implement the **VideoSearchAPIImpl** client, which requires an instance of the **ServiceClientCredentials** class.
+## Create and initalize a project
+
+
+1. Create a new Java project in your favorite IDE or editor, and import the following libraries.
+
+    ```java
+    import com.microsoft.azure.cognitiveservices.videosearch.*;
+    import com.microsoft.azure.cognitiveservices.videosearch.VideoObject;
+    import com.microsoft.azure.cognitiveservices.videosearch.implementation.TrendingVideosInner;
+    import com.microsoft.azure.cognitiveservices.videosearch.implementation.VideoDetailsInner;
+    import com.microsoft.azure.cognitiveservices.videosearch.implementation.VideoSearchAPIImpl;
+    import com.microsoft.azure.cognitiveservices.videosearch.implementation.VideosInner;
+    import com.microsoft.rest.credentials.ServiceClientCredentials;
+    import okhttp3.Interceptor;
+    import okhttp3.OkHttpClient;
+    import okhttp3.Request;
+    import okhttp3.Response;
+    import java.io.IOException;
+    import java.util.ArrayList;
+    import java.util.List; 
+    ```
+
+2. Implement the **VideoSearchAPIImpl** client, which requires an instance of the **ServiceClientCredentials** class.
 ```
 public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
     return new VideoSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
