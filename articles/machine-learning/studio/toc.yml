@@ -215,16 +215,18 @@
     href: ai-gallery-control-personal-data-dsr.md 
 - name: Reference
   items:
+  - name: Algorithm & Module reference
+    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
   - name: Azure PowerShell module (New)
     href: https://docs.microsoft.com/powershell/module/azurerm.machinelearning
   - name: Azure PowerShell module (Classic)
     href: powershell-module.md
-  - name: Algorithm & Module reference
-    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
-  - name: REST management APIs
-    href: /rest/api/machinelearning
   - name: Web service error codes
     href: web-service-error-codes.md
+  - name: REST management APIs
+    href: /rest/api/machinelearning
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.machinelearning/allversions
 - name: Resources
   items:
   - name: Pricing
