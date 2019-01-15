@@ -18,7 +18,7 @@
   items:
     - name: Deploy the local agent
       href: azure-stack-vaas-local-agent.md
-    - name: Schedule your a test
+    - name: Schedule your test
       href: azure-stack-vaas-schedule-test-pass.md
     - name: Create an OEM package
       href: azure-stack-vaas-create-oem-package.md
