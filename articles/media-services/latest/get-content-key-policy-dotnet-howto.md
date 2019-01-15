@@ -39,7 +39,7 @@ Clone a GitHub repository that contains the full .NET sample to your machine usi
  
 The ContentKeyPolicy with secrets example is located in the [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) folder.
 
-## Create a transform with a custom preset 
+## Get ContentKeyPolicy with secrets 
 
 To get to the key, use **GetPolicyPropertiesWithSecretsAsync**, as shown in the example below.
 
