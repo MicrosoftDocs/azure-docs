@@ -77,9 +77,39 @@ Careful consideration should be taken into account when authoring runbooks. As m
 
 It is a good practice to author runbooks to be modular in nature. This makes it easier to create the logic in the runbook to be restartable. Tracking progress in a runbook is a good way to ensure that the logic in a runbook is executed correctly in case of issues. Some possible ways to keep track of the progress of the runbook is by using an external source such as storage accounts, a database, or shared files. By tracking the state externally you can create logic in your runbook to first check the state of the last action the runbook took and based off the results either skip or continue specific tasks in the runbook.
 
+### Prevent concurrent jobs
+
+Some runbooks may require logic that limits the number of concurrent jobs that can be running. In this case, it is important to implement logic to check to see if a runbook already has a running job. A basic example of how you may do this is shown in the following example:
+
+```powershell
+# Authenticate to Azure
+$connection = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
+-ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $connection.SubscriptionID
+
+# Check for already running or new runbooks
+$runbookName = "<RunbookName>"
+$rgName = "<ResourceGroupName>"
+$aaName = "<AutomationAccountName>"
+$jobs = Get-AzureRmAutomationJob -ResourceGroupName $rgName -AutomationAccountName $aaName -RunbookName $runbookName -AzureRmContext $AzureContext
+
+# If then check to see if it is already running
+$runningCount = ($jobs | ? {$_.Status -eq "Running"}).count
+
+If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Status -eq "New")) {
+    # Exit code
+    Write-Output "Runbook is already running"
+    Exit 1
+} else {
+    # Insert Your code here
+}
+```
+
 ### Using executables or calling processes
 
-Runbooks ran in Azure sandboxes do not support calling processes (such as an .exe or subprocess.call). This is due to the fact that Azure sandboxes are shared proceses ran in container which do not have access to all the underlying APIs. For scenarios where you require 3rd party software or calling of sub processes, it is recommended you execute the runbook on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+Runbooks ran in Azure sandboxes do not support calling processes (such as an .exe or subprocess.call). This is due to the fact that Azure sandboxes are shared processes ran in containers which may not have access to all the underlying APIs. For scenarios where you require 3rd party software or calling of sub processes, it is recommended you execute the runbook on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
 
 ## Job statuses
 
