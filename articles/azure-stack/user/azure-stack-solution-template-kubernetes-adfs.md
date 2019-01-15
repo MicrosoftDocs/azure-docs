@@ -85,10 +85,10 @@ You need to work with your Azure Stack administrator to set up your service prin
         Add-AzureRmEnvironment -ARMEndpoint $armEndpoint -Name t
         $mycreds = Get-Credential
         Login-AzureRmAccount -Credential $mycreds -Environment t -Subscription $subscriptionId
-            
+        
         # Create new Resource group and key vault
         New-AzureRmResourceGroup -Name $resource_group_name -Location $resource_group_location -Force
-            
+        
         # Note, Do not omit -EnabledForTemplateDeployment flag
         New-AzureRmKeyVault -VaultName $key_vault_name -ResourceGroupName $resource_group_name -Location local -EnabledForTemplateDeployment
         

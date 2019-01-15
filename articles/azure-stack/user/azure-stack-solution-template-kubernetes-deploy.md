@@ -49,7 +49,6 @@ For instructions on installing the cluster when using Azure AD, see [Deploy Kube
 - **Active Directory Federated Services (AD FS)**  
 For instructions on installing the cluster when using AD FS, see [Deploy Kubernetes to Azure Stack using Active Directory Federated Services (AD FS)](azure-stack-solution-template-kubernetes-adfs.md).
 
-
 ## Connect to your cluster
 
 You're now ready to connect to your cluster. The master can be found in your cluster resource group, and is named `k8s-master-<sequence-of-numbers>`. Use an SSH client to connect to the master. On the master, you can use **kubectl**, the Kubernetes command-line client to manage your cluster. For instructions, see [Kubernetes.io](https://kubernetes.io/docs/reference/kubectl/overview).

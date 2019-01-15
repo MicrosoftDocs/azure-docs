@@ -18,7 +18,7 @@ ms.reviewer: johnhas
 # Customer intent: As a partner OEM, I want to let the service to test my hardware bill of materials to check that it can run Azure Stack.
 ---
 
-# Schedule your first test
+# Scheduling a test
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -33,8 +33,8 @@ While the Test Pass workflow can be used to run any test provided by VaaS, inclu
 Before you follow this quickstart, you should finish the following items:
 
 - [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md)
-- [Deploy the local agent](azure-stack-vaas-local-agent.md) (Recommended)
-- [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md) (Recommended)
+- [Deploy the local agent](azure-stack-vaas-local-agent.md) (Required)
+- [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md) (Required)
 
 ## Start a workflow
 
