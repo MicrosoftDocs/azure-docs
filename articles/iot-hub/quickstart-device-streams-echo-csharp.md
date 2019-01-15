@@ -87,7 +87,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ### Run the service-side application
 
-Navigate to `ServiceClientC2DStreamingSample` in your unzipped project folder. You will need the following information handy:
+Navigate to `device-streams-echo/service` in your unzipped project folder. You will need the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
@@ -97,7 +97,7 @@ Navigate to `ServiceClientC2DStreamingSample` in your unzipped project folder. Y
 Compile and run the code as follows:
 
 ```
-cd ./iothub/service/samples/ServiceClientC2DStreamingSample/
+cd ./iot-hub/Quickstarts/device-streams-echo/service/
 
 # Build the application
 dotnet build
@@ -112,7 +112,7 @@ dotnet run %ServiceConnectionString% MyDevice
 
 ### Run the device-side application
 
-Navigate to `DeviceClientC2DStreamingSample` in your unzipped project folder. You will need the following information handy:
+Navigate to `device-streams-echo/device` directory in your unzipped project folder. You will need the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
@@ -121,7 +121,7 @@ Navigate to `DeviceClientC2DStreamingSample` in your unzipped project folder. Yo
 Compile and run the code as follows:
 
 ```
-cd ./iothub/device/samples/DeviceClientC2DStreamingSample/
+cd ./iot-hub/Quickstarts/device-streams-echo/device/
 
 # Build the application
 dotnet build

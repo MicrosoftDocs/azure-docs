@@ -106,7 +106,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ### Run the service-side proxy
 
-Navigate to `ServiceLocalProxyC2DStreamingSample` in your unzipped project folder. You will need the following information handy:
+Navigate to `device-streams-proxy/service` in your unzipped project folder. You will need the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
@@ -117,7 +117,7 @@ Navigate to `ServiceLocalProxyC2DStreamingSample` in your unzipped project folde
 Compile and run the code as follows:
 
 ```
-cd ./iothub/service/samples/ServiceLocalProxyC2DStreamingSample
+cd ./iot-hub/Quickstarts/device-streams-proxy/service/
 
 # Build the application
 dotnet build
@@ -132,7 +132,7 @@ dotnet run %serviceConnectionString% MyDevice 2222
 
 ### Run the device-local proxy
 
-Navigate to `DeviceLocalProxyC2DStreamingSample` in your unzipped project folder. You will need the following information handy:
+Navigate to `device-streams-proxy/device` in your unzipped project folder. You will need the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
@@ -143,7 +143,7 @@ Navigate to `DeviceLocalProxyC2DStreamingSample` in your unzipped project folder
 Compile and run the code as follows:
 
 ```
-cd ./iothub/device/samples/DeviceLocalProxyC2DStreamingSample/
+cd ./iot-hub/Quickstarts/device-streams-proxy/device/
 
 # Build the application
 dotnet build
@@ -179,7 +179,7 @@ The setup for RDP is very similar to SSH (described above). We basically need to
 
 ### Run the service-side application
 
-Navigate to `ServiceLocalProxyC2DStreamingSample` in your unzipped project folder. You will need the following information handy:
+Navigate to `device-streams-proxy/service` in your unzipped project folder. You will need the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
@@ -190,7 +190,7 @@ Navigate to `ServiceLocalProxyC2DStreamingSample` in your unzipped project folde
 Compile and run the code as follows:
 
 ```
-cd ./iothub/service/samples/ServiceLocalProxyC2DStreamingSample
+cd ./iot-hub/Quickstarts/device-streams-proxy/service/
 
 # Build the application
 dotnet build
@@ -205,7 +205,7 @@ dotnet run %serviceConnectionString% MyDevice 2222
 
 ### Run the device-side application
 
-Navigate to `DeviceLocalProxyC2DStreamingSample` in your unzipped project folder. You will need the following information handy:
+Navigate to `device-streams-proxy/device` in your unzipped project folder. You will need the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
@@ -216,7 +216,7 @@ Navigate to `DeviceLocalProxyC2DStreamingSample` in your unzipped project folder
 Compile and run the code as follows:
 
 ```
-cd ./iothub/device/samples/DeviceLocalProxyC2DStreamingSample/
+cd ./iot-hub/Quickstarts/device-streams-proxy/device
 
 # Run the application
 # In Linux/MacOS
