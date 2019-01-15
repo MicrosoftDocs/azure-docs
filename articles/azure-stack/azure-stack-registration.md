@@ -313,7 +313,7 @@ You can use the **Region management** tile to verify that the Azure Stack regist
     - **Registration subscription ID**: The Azure subscription ID registered and associated to Azure Stack
     - **Registration resource group**: The Azure resource group in the associated subscription containing the Azure Stack resources.
 
-4. Use the Azure portal to view the Azure Stack app registrations. Sign in to the Azure portal using an account associated to the subscription you used to register Azure Stack.
+4. Use the Azure portal to view the Azure Stack app registrations. Sign in to the Azure portal using an account associated to the subscription you used to register Azure Stack. Switch to the tenant associated with Azure Stack.
 5. Navigate to **Azure Active Directory > App registrations > View all applications**.
 
     ![App registrations](media/azure-stack-registration/app-registrations.png)
