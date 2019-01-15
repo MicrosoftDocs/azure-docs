@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 1/07/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 

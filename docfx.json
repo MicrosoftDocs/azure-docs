@@ -307,7 +307,8 @@
         "articles/data-lake-analytics/**/*.md": ["Azure","Azure Data Lake Analytics"],
         "articles/postgresql/**.md": ["Azure","Azure Database for PostgreSQL","PostgreSQL"],
         "articles/mysql/**.md": ["Azure","Azure Database for MySQL", "MySQL"],
-        "articles/stream-analytics/**/*.md": ["Azure", "Stream Analytics"]
+        "articles/stream-analytics/**/*.md": ["Azure", "Stream Analytics"],
+        "articles/data-explorer/**/*.md": ["Azure", "Data Explorer", "Azure Data Explorer", "Kusto", "kusto"]
       },
       "titleSuffix": {
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
