@@ -33,7 +33,7 @@ To create a HDInsight cluster, which uses ADLS Gen2 for storage, use the followi
 
     ![Screen shot showing storage account creation in the Azure portal](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
  
-1. Assigned the managed identity to the **contributor** role on the storage account. See [Manage access rights to Azure Blob and Queue data with RBAC (Preview)](/../storage/common/storage-auth-aad-rbac#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal.md)
+1. Assign the managed identity to the **contributor** role on the storage account. See [Manage access rights to Azure Blob and Queue data with RBAC (Preview)](/../storage/common/storage-auth-aad-rbac#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal.md)
 
     1. In the [Azure portal](https://portal.azure.com), navigate to your storage account.
     1. Select your storage account, then select **Access control (IAM)** to display access control settings for the account. Select the **Role assignments** tab to see the list of role assignments.
@@ -47,7 +47,7 @@ To create a HDInsight cluster, which uses ADLS Gen2 for storage, use the followi
     
     1. Click **Save**. The user-assigned identity that you selected is now listed under the **Contributor** role.
 
-After this initial setup is complete, you can create a cluster through the portal
+After this initial setup is complete, you can create a cluster through the portal.
 
 In the **Storage** section of the cluster creation menu, select the following options:
 
@@ -56,13 +56,13 @@ In the **Storage** section of the cluster creation menu, select the following op
 
     ![Storage settings for using ADLS Gen2 with Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
 
-* Under **Identity** select the correct Subscription and the newly created User assigned managed Identity.
+* Under **Identity** select the correct subscription and the newly created user-assigned managed Identity.
 
     ![Identity settings for using ADLS Gen2 with Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
 
 ## Access Control for ADLS Gen2 in HDInsight
 
-### What kinds of permissions does ADLS Gen2 support
+### What kinds of permissions does ADLS Gen2 support?
 
 Azure Data Lake Storage Gen2 implements an access control model that supports both Azure Role Based Access Control (RBAC) and POSIX-like access control lists (ACLs). ADLS Gen1 only supported access control lists for controlling access to data.
 
@@ -73,13 +73,13 @@ Azure Role-based Access Control (RBAC) uses role assignments to effectively appl
 For more information on file permissions with ACLs, see [Access control lists on files and directories](/../storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories.md).
 
 
-### How do I control access to my data in Gen2
+### How do I control access to my data in Gen2?
 
 The ability for your HDInsight cluster to access files in ADLS Gen2 is controlled through managed identities. A managed identity is an identity registered in Azure AD whose credentials are managed by Azure. You don't need to register service principals in Azure AD and maintain credentials such as certificates.
 
 There are two types of Managed identities for Azure services: system-assigned and user-assigned. Azure HDInsight uses user-assigned managed identities to access Azure Data Lake Storage Gen2. A user-assigned managed identity is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Azure AD tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances. The lifecycle of a user-assigned identity is managed separately from the lifecycle of the Azure service instances to which it's assigned. For more information on managed identities, see [How does the managed identities for Azure resources work](/../active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka.md).
 
-### How do I set permissions for Azure AD users to query data in ADLS Gen2 using Hive or other services
+### How do I set permissions for Azure AD users to query data in ADLS Gen2 using Hive or other services?
 
 Use Azure AD security groups as the assigned principal in ACLs. Don't directly assign individual users or service principals with file access permissions. When you use AD security groups to control the flow of permissions, you can add and remove users or service principals without reapplying ACLs to an entire directory structure. You only have to add or remove the users from the appropriate Azure AD security group. ACLs are not inherited, and so reapplying ACLs requires updating the ACL on every file and subdirectory.
 
