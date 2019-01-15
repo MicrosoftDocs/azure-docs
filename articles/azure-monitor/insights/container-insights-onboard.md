@@ -26,7 +26,7 @@ Azure Monitor for containers can be enabled for new, or one or more existing dep
 ## Prerequisites 
 Before you start, make sure that you have the following:
 
-- A Log Analytics workspace. You can create it when you enable monitoring of your new AKS cluster or let the onboarding experience create a default workspace in the default resource group of the AKS cluster subscription. If you chose to create it yourself, you can create it through [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md).
+- A Log Analytics workspace. You can create it when you enable monitoring of your new AKS cluster or let the onboarding experience create a default workspace in the default resource group of the AKS cluster subscription. If you chose to create it yourself, you can create it through [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md).
 - You are a member of the Log Analytics contributor role to enable container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../../azure-monitor/platform/manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -163,7 +163,7 @@ This method includes two JSON templates. One template specifies the configuratio
 >The template needs to be deployed in the same resource group as the cluster.
 >
 
-The Log Analytics workspace has to be created manually. To create the workspace, you can set it up through [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md).
+The Log Analytics workspace has to be created manually. To create the workspace, you can set it up through [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md).
 
 If you are unfamiliar with the concept of deploying resources by using a template, see:
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
@@ -271,7 +271,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
        "contentVersion": "1.0.0.0",
        "parameters": {
          "aksResourceId": {
-           "value": "/subscriptions/<SubscriptiopnId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
+           "value": "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
        },
        "aksResourceLocation": {
          "value": "<aksClusterLocation>"
@@ -368,7 +368,7 @@ omsagent   2         2         2         2            2           beta.kubernete
 Use the `aks show` command to get details such as is the solution enabled or not, what is the Log Analytics workspace resourceID, and summary details about the cluster.  
 
 ```azurecli
-az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
+az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about solution.  The results of the command should show the monitoring add-on profile and resembles the following example output:

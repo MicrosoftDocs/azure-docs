@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/11/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -54,6 +54,7 @@ To use password writeback, you must have one of the following licenses assigned 
 * Microsoft 365 E3 or A3
 * Microsoft 365 E5 or A5
 * Microsoft 365 F1
+* Microsoft 365 Business
 
 > [!WARNING]
 > Standalone Office 365 licensing plans *don't support "Self-Service Password Reset/Change/Unlock with on-premises writeback"* and require that you have one of the preceding plans for this functionality to work.

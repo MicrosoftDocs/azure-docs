@@ -132,7 +132,7 @@ for help with your requirements.
 |------|-------|-------|
 | FTP | 50 MB | To exceed this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
 | SFTP | 50 MB | To exceed this limit, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) or see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
-| SFTP-SSH | 1 GB | To exceed this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| SFTP-SSH | 1 GB | This connector handles up to 1 GB, but transfers that data in 50 MB pieces, not 1 GB pieces. | 
 |||| 
 
 <a name="request-limits"></a>
@@ -345,7 +345,7 @@ based on where your logic apps exist:
 
 To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, 
 set up your firewall configurations so they include all the outbound IP addresses specified 
-for the regions where your logic apps exist. For [Azure Government](/azure-government/documentation-government-welcome) 
+for the regions where your logic apps exist. For [Azure Government](../azure-government/documentation-government-welcome.md) 
 and [Azure China 21Vianet](/azure/china/china-welcome), reserved IP addresses for connectors 
 aren't currently available.
 
