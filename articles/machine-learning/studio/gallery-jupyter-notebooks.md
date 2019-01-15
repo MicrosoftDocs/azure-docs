@@ -1,20 +1,15 @@
 ---
-title: Azure AI Gallery Jupyter notebooks - Azure Machine Learning Studio | Microsoft Docs
+title: Azure AI Gallery Jupyter notebooks
+titleSuffix: Azure Machine Learning Studio
 description: Discover Jupyter notebooks in the Azure AI Gallery. Notebooks in the Gallery provide tutorials and detailed explanations of advanced machine learning techniques and solutions.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
+ms.topic: article
 
-editor: cgronlun
-ms.assetid: 556e0671-1b50-4bcb-92eb-889962310633
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 03/31/2017
 ---
 # Discover Jupyter Notebooks in the Azure AI Gallery

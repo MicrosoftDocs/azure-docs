@@ -1,20 +1,15 @@
 ---
-title: Azure AI Gallery experiments - Azure Machine Learning Studio | Microsoft Docs
+title: Azure AI Gallery experiments
+titleSuffix: Azure Machine Learning Studio
 description: Discover and share experiments in Azure AI Gallery. An experiment is a canvas in Machine Learning Studio that you can use to construct a predictive analysis model
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
+ms.topic: article
 
-editor: cgronlun
-ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 04/26/2017
 ---
 # Discover Azure Machine Learning Studio experiments in Azure AI Gallery
