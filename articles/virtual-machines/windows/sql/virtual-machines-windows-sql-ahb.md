@@ -85,7 +85,7 @@ The following code snippet switches your pay-per-usage license model to BYOL (or
 #example: $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
 $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 $SqlVm.Properties.sqlServerLicenseType="AHUB"
-<# the following code snippet is only necessary if using Powershell version > 4
+<# the following code snippet is only necessary if using Azure Powershell version > 4
 $SqlVm.Kind= "LicenseChange"
 $SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
 $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new() #>
@@ -97,7 +97,7 @@ The following code snippet switches your BYOL model to pay-per-usage:
 #example: $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
 $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 $SqlVm.Properties.sqlServerLicenseType="PAYG"
-<# the following code snippet is only necessary if using Powershell version > 4
+<# the following code snippet is only necessary if using Azure Powershell version > 4
 $SqlVm.Kind= "LicenseChange"
 $SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
 $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new() #>
@@ -147,19 +147,19 @@ The SQL IaaS extension is a necessary prerequisite for registering your SQL Serv
 To resolve this issue, install the SQL IaaS extension before attempting to register your SQL Server VM. Please note that installing the SQL IaaS extension will restart the SQL Server service and should only be done during a maintenance window. For more information, see [SQL IaaS Extension installation](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension#installation). 
 
 ### Cannot validate argument on parameter 'Sku'
-You may encounter this error when attempting to change your SQL Server VM licensing model when using PowerShell > 4.0:
+You may encounter this error when attempting to change your SQL Server VM licensing model when using Azure PowerShell > 4.0:
 
 `Set-AzureRmResource : Cannot validate argument on parameter 'Sku'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.`
 
 To resolve this error, uncomment these lines in the previously mentioned PowerShell code snippet when switching your licensing model: 
 ```PowerShell
-# the following code snippet is necessary if using Powershell version > 4
+# the following code snippet is necessary if using Azure Powershell version > 4
 $SqlVm.Kind= "LicenseChange"
 $SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
 $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new()
 ```
 
-Use the following code to verify your PowerShell version:
+Use the following code to verify your Azure PowerShell version:
 
 ```PowerShell
 Get-Module -ListAvailable -Name Azure -Refresh
