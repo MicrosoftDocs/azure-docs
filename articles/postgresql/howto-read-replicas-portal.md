@@ -12,7 +12,7 @@ ms.date: 01/15/2019
 In this article, you will learn how to create and manage read replicas in the Azure Database for PostgreSQL service using the Azure portal. To learn more about read replicas, [read the concepts documentation](concepts-read-replicas.md).
 
 ## Prerequisites
-- An [Azure Database for PostgreSQL server]((quickstart-create-server-database-portal.md)) that will be the master server.
+- An [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md) that will be the master server.
 
 ## Prepare the master
 The **azure.replication_support** parameter must be set to REPLICA on the master server. Changing this parameter requires a server restart to take effect.
@@ -115,7 +115,7 @@ The **Max lag across replicas** metric shows the lag time between the master and
 3.	Select **Max** as your Aggregation. 
 
 ### Replica Lag
-The **Replica Lag** metric shows the time since the last replayed transaction on this replica. If there are no transactions occurring on your master, the metric will reflect this time lag.
+The **Replica Lag** metric shows the time since the last replayed transaction on this replica. If there are no transactions occurring on your master, the metric reflects this time lag.
 
 1.	In the Azure portal, select a **replica** Azure Database for PostgreSQL server.
 
