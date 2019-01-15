@@ -161,8 +161,8 @@ Storage consumption, recovery time objective (RTO), and network consumption vari
 
 Read more:
 
-- Learn more about disk storage for [Windows](../virtual-machines/windows/about-disks-and-vhds) and [Linux](../virtual-machines/linux/about-disks-and-vhds) VMs.
-- Learn about standard(../virtual-machines/windows/standard-storage) and [premium](../virtual-machines/windows/premium-storage.md) storage.
+- Learn more about disk storage for [Windows](../virtual-machines/windows/about-disks-and-vhds.md) and [Linux](../virtual-machines/linux/about-disks-and-vhds.md) VMs.
+- Learn about [standard](../virtual-machines/windows/standard-storage.md) and [premium](../virtual-machines/windows/premium-storage.md) storage.
 
 
 ### Backing up and restoring Azure VMs with premium storage 
@@ -196,8 +196,8 @@ When you restore VMs with managed disks, you can restore to a complete VM with m
 - Set up backup for one of the scenarios:
     - [Back up Azure VMs](backup-azure-arm-vms-prepare.md)
     - [Back up Windows machines directly](tutorial-backup-windows-server-to-azure.md), without a backup server.
-    - [Set up MABS](backup-azure-microsoft-azure-backup) for backup to Azure, and then back up workloads to MABS.
-    - [Set up DPM](backup-azure-dpm-introduction) for backup to Azure, and then back up workloads to DPM.
+    - [Set up MABS](backup-azure-microsoft-azure-backup.md) for backup to Azure, and then back up workloads to MABS.
+    - [Set up DPM](backup-azure-dpm-introduction.md) for backup to Azure, and then back up workloads to DPM.
 
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
