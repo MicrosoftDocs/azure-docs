@@ -25,7 +25,7 @@ Application Insights Profiler is installed with the Azure Diagnostics extension.
 ## Enable Profiler for your Azure cloud service
 1. Check to make sure that you're using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later. It's sufficient to confirm that the *ServiceConfiguration.\*.cscfg* files have an `osFamily` value of "5" or later.
 
-1. Add [Application Insights SDK to cloud service](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json).
+1. Add [Application Insights SDK to cloud service](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
 1. Track requests with Application Insights:
 
