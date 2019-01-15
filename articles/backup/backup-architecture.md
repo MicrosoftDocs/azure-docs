@@ -206,7 +206,7 @@ When you restore VMs with managed disks, you can restore to a complete VM with m
     - [Set up DPM](backup-azure-dpm-introduction.md) for backup to Azure, and then back up workloads to DPM.
 
 
-[green]: ./media/backup-introduction-to-azure-backup/green.png
-[yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
-[red]: ./media/backup-introduction-to-azure-backup/red.png
+[green]: ./media/backup-architecture/green.png
+[yellow]: ./media/backup-architecture/yellow.png
+[red]: ./media/backup-architecture/red.png
 
