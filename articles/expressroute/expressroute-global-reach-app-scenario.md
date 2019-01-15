@@ -139,8 +139,6 @@ AllowClassicOperations           : False
 GatewayManagerEtag               : 4
 ```
 
-[![8]][8]
-
 With the peering ID and the authorization key, you can create the Global Reach under the Fabrikam's ExpressRoute circuit. Login to the Fabrikam's Azure account. If there is more than one subscription, select the appropriate subscription.
 
 Global Reach creates a redundant set of point-to-point connections across the two MSEE pairs. For the two point-to-point connections, you need to specify a /29 address prefix (for the running example let's use 192.168.11.64/29). Use the following commands to create the Global Reach connection:
@@ -275,7 +273,6 @@ Global Reach is rolled out on a country by country basis. To see if Global Reach
 [5]: ./media/expressroute-globalreach-applicationscenario/ExR-XConnect-Solution.png "ExpressRoute Cross Connect"
 [6]: ./media/expressroute-globalreach-applicationscenario/VNet-peering-Solution.png "VNet peering"
 [7]: ./media/expressroute-globalreach-applicationscenario/GlobalReach-Solution.png "Global Reach"
-[8]: ./media/expressroute-globalreach-applicationscenario/ER-Ckt-details.png "Contoso ExpressRoute circuit"
 [9]: ./media/expressroute-globalreach-applicationscenario/ContosoExR-RT-Postmerger.png "Contoso ExpressRoute Route table with Global Reach"
 [10]: ./media/expressroute-globalreach-applicationscenario/FabrikamExR-RT-Postmerger.png "Fabrikam ExpressRoute Route table with Global Reach"
 
