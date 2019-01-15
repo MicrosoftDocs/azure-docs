@@ -464,9 +464,7 @@ This is a list of supported audio formats that are sent in each request as the `
 
 ### Request body
 
-[Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) is sent as the body of an HTTP `POST` request. SSML allows you to choose the voice and language of the synthesized speech returned by the text-to-speech service.
-
-* For a complete list of supported voices, see [language support](language-support.md#text-to-speech).
+The body of each `POST` request is sent as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). SSML allows you to choose the voice and language of the synthesized speech returned by the text-to-speech service. For a complete list of supported voices, see [language support](language-support.md#text-to-speech).
 
 > [!NOTE]
 > If using a custom voice, the body of a request can be sent as plain text (ASCII or UTF-8).
