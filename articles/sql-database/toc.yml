@@ -310,7 +310,7 @@
     items: 
       - name: SQL Data Sync
         href: sql-database-sync-data.md
-      - name: Transacational Replication
+      - name: Transactional Replication
         href: sql-database-managed-instance-transactional-replication.md
   - name: Databases features
     items:
