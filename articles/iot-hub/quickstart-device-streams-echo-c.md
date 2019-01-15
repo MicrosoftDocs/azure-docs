@@ -187,4 +187,3 @@ Use the links below to learn more about device streams:
 
 > [!div class="nextstepaction"]
 > [Device streams overview](./iot-hub-device-streams-overview.md)
-> [Try other quickstarts](/azure/iot-hub)

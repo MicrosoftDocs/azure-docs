@@ -41,10 +41,11 @@ The device stream creation process involves a negotiation between the device, se
 
 ### Device stream creation flow
 Programmatic creation of a device stream using the SDK involves the following steps, which are also depicted in the figure below:
+
 ![Alt text](./media/iot-hub-device-streams-overview/iot-hub-device-streams-handshake.png "Device stream handshake process")
 
 
-1. The device aplication registers a callback in advance to be notified of when a new device stream is initiated to the device. This step typically takes place when the device boots up and connects to IoT Hub.
+1. The device application registers a callback in advance to be notified of when a new device stream is initiated to the device. This step typically takes place when the device boots up and connects to IoT Hub.
 
 2. The service-side program initiates a device stream when needed by providing the device ID (_not_ the IP address).
 
