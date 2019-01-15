@@ -35,15 +35,15 @@ The steps to lock down egress from your existing ASE with Azure Firewall are:
    ![select service endpoints][2]
   
 1. Create a subnet in the VNet where your ASE is that is named AzureFirewallSubnet. Follow the directions in the [Azure Firewall documenation](https://docs.microsoft.com/azure/firewall/) to create your Azure Firewall.
-1. From the Azure Firewall UI > Rules > Application rule collection, select Add application rule collection. Provide a name, priority, and set Allow. In the FQDN tags section, provide a name, set the source addresses to * and select the App Service Environment FQDN Tag and the Windows. 
+1. From the Azure Firewall UI > Rules > Application rule collection, select Add application rule collection. Provide a name, priority, and set Allow. In the FQDN tags section, provide a name, set the source addresses to * and select the App Service Environment FQDN Tag and the Windows Update. 
    
    ![Add application rule][1]
    
-1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority and set Allow. In the Rules section, provide a name, select Any, set * to Source and Destination addresses, and set the ports to 123. This is to allow the system to perform clock sync using NTP.
+1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority and set Allow. In the Rules section, provide a name, select **Any**, set * to Source and Destination addresses, and set the ports to 123. This is to allow the system to perform clock sync using NTP.
 
    ![Add NTP network rule][3]
 
-1. Create a route table with the management addresses from [App Service Environment management addresses]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) with a next hop of Internet. The route table entries are required to avoid asymmetric routing problems. Add routes for the IP address dependencies noted below in the IP address dependencies with a next hop of Internet. Add a route to your route table for 0.0.0.0/0 with the next hop being your Azure Firewall private IP address. 
+1. Create a route table with the management addresses from [App Service Environment management addresses]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) with a next hop of Internet. The route table entries are required to avoid asymmetric routing problems. Add routes for the IP address dependencies noted below in the IP address dependencies with a next hop of Internet. Add a Virtual Appliance route to your route table for 0.0.0.0/0 with the next hop being your Azure Firewall private IP address. 
 
    ![Creating a route table][4]
    
@@ -74,14 +74,15 @@ Azure Firewall can send logs to Azure Storage, Event Hub or Log Analytics. To in
  
 ## Dependencies
 
-The following information is only required if you wish to configure a firewall appliance other than Azure Firewall. The Azure App Service external dependencies can be categorically broken down into several main areas:
+The following information is only required if you wish to configure a firewall appliance other than Azure Firewall. 
 
 - Service Endpoint capable services should be configured with service endpoints.
-- IP address endpoints without a domain name are a problem for firewall devices, like Azure Firewall, that expect all HTTPS traffic to use domain names. The IP address endpoint dependencies should be added to the route table that is set on the ASE subnet.
+- IP Address dependencies are for non-HTTP/S traffic
 - FQDN HTTP/HTTPS endpoints can be placed in your firewall device.
 - Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your ASE based on a number of qualifiers. 
 - Linux dependencies are only a concern if you are deploying Linux apps into your ASE. If you are not deploying Linux apps into your ASE, then these addresses do not need to be added to your firewall. 
 
+There is traffic also to 
 
 #### Service Endpoint capable dependencies 
 
@@ -91,19 +92,15 @@ The following information is only required if you wish to configure a firewall a
 | Azure Storage |
 | Azure Event Hub |
 
+#### IP Address dependencies
 
-#### IP address dependencies 
+| Endpoint | Details |
+|----------| ----- |
+| \*:123 | NTP clock check. Traffic is checked at multiple endpoints on port 123 |
+| \*:12000 | Monitoring endpoint. If blocked then some issues will be harder to triage |
 
-| Endpoint |
-|----------|
-| 40.77.24.27:443 |
-| 13.82.184.151:443 |
-| 13.68.109.212:443 |
-| 13.90.249.229:443 |
-| 13.91.102.27:443 |
-| 104.45.230.69:443 |
-| 168.62.226.198:12000 |
 
+With an Azure Firewall you automatically get everything below configured with the FQDN tags. 
 
 #### FQDN HTTP/HTTPS dependencies 
 
@@ -133,6 +130,7 @@ The following information is only required if you wish to configure a firewall a
 |csc3-2009-2.crl.verisign.com:80 |
 |crl.verisign.com:80 |
 |ocsp.verisign.com:80 |
+|cacerts.digicert.com:80 |
 |azperfcounters1.blob.core.windows.net:443 |
 |azurewatsonanalysis-prod.core.windows.net:443 |
 |global.metrics.nsatc.net:80   |
@@ -149,6 +147,7 @@ The following information is only required if you wish to configure a firewall a
 |schemas.microsoft.com:443 |
 |management.core.windows.net:443 |
 |management.core.windows.net:80 |
+|management.azure.com:443 |
 |www.msftconnecttest.com:80 |
 |shavamanifestcdnprod1.azureedge.net:443 |
 |validation-v2.sls.microsoft.com:443 |
@@ -195,3 +194,4 @@ The following information is only required if you wish to configure a firewall a
 [2]: ./media/firewall-integration/firewall-serviceendpoints.png
 [3]: ./media/firewall-integration/firewall-ntprule.png
 [4]: ./media/firewall-integration/firewall-routetable.png
+[5]: ./media/firewall-integration/firewall-routetable.png
