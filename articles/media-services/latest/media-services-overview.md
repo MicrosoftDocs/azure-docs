@@ -35,7 +35,6 @@ Media Services enables you to build a variety of media workflows in the cloud, t
 * Create a subscription video service and stream DRM protected content when a customer (for example, a movie studio) needs to restrict the access and use of proprietary copyrighted work.
 * Deliver offline content for playback on airplanes, trains, and automobiles. A customer might need to download content onto their phone or tablet for playback when they anticipate to be disconnected from the network.
 * Implement an educational e-learning video platform with Azure Media Services and [Azure Cognitive Services APIs](https://docs.microsoft.com/azure/#pivot=products&panel=ai) for speech-to-text captioning, translating to multi-languages, etc. 
-
     You can also use these capabilities for adding subtitles and captions to videos, to cater to a broader audience (for example, people with hearing disabilities or people who want to read along in a different language).
 * Enable Azure CDN to achieve large scaling to better handle instantaneous high loads (for example, the start of a product launch event). 
 
