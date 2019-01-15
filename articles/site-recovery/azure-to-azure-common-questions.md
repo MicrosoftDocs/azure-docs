@@ -69,10 +69,16 @@ A crash-consistent recovery point represents the on-disk data as if the VM crash
 
 Today, most applications can recover well from crash-consistent snapshots. A crash-consistent recovery point is usually enough for no-database operating systems and applications like file servers, DHCP servers, and print servers.
 
+### What is the frequency of crash-consistent recovery point generation?
+Site Recovery creates a crash-consistent recovery point every 5 minutes.
+
 ### What is an application-consistent recovery point? 
 Application-consistent recovery points are created from application-consistent snapshots. Application-consistent snapshots capture the same data as crash-consistent snapshots, with the addition of all data in memory and all transactions in process. 
 
 Because of their extra content, application-consistent snapshots are the most involved and take the longest to perform. We recommend application-consistent recovery points for database operating systems and applications such as SQL Server.
+
+### What is the minimum frequency of application-consistent recovery point generation?
+Site Recovery can creates a application-consistent recovery point with a minimum frequency of in 1 hour.
 
 ### How are recovery points generated and saved?
 To understand how Site Recovery generates recovery points, let's take an example of a replication policy that has a recovery point retention window of 24 hours and an app-consistent frequency snapshot of 1 hour.
@@ -149,6 +155,9 @@ The **Last processed** option fails over all VMs in the plan to the latest recov
 
 ### If I'm replicating between two Azure regions, what happens if my primary region experiences an unexpected outage?
 You can trigger a failover after the outage. Site Recovery doesn't need connectivity from the primary region to perform the failover.
+
+### What is a RTO of a virtual machine failover ?
+Site Recovery has a [RTO SLA of 2 hours](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). However, most of the time, Site Recovery fail over virtual machines within minutes. You can calculate the RTO by going to the failover Jobs which shows the time it took to bring up the VM. For Recovery plan RTO, refer below section. 
 
 ## Recovery plan
 

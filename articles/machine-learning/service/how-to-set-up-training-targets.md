@@ -379,3 +379,4 @@ See these notebooks for examples of training with various compute targets:
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
 * View the [RunConfiguration class](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK reference.
+* [Use Azure Machine Learning service with Azure Virtual Networks](how-to-enable-virtual-network.md)

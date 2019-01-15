@@ -947,6 +947,12 @@
       href: /rest/api/monitor/
     - name: Logs
       href: /rest/api/loganalytics 
+  - name: Resource Manager template
+    items:
+    - name: Monitor
+      href: /azure/templates/microsoft.insights/allversions
+    - name: Logs
+      href: /azure/templates/microsoft.operationalinsights/allversions
   - name: Metrics
     items:
     - name: Supported metrics

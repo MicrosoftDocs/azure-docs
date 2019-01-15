@@ -107,7 +107,7 @@ You can use the Windows Registry Editor to manually set the telemetry level on t
 Before deploying Azure Stack on the development kit host, boot into CloudBuilder.vhdx and run the following script in an elevated PowerShell window:
 
 ```powershell
-### Get current AllowTelmetry value on DVM Host
+### Get current AllowTelemetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host
