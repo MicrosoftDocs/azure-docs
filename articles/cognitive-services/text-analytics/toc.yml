@@ -24,6 +24,7 @@
 - name: Tutorials
   items:
    - name: Sentiment analysis on streaming data using Azure Databricks
+     maintaincontext: true
      href: ../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
    - name: Text Analytics with Power BI
      href: Tutorials/tutorial-power-bi-key-phrases.md
