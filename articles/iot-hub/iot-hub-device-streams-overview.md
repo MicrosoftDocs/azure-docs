@@ -162,7 +162,7 @@ Use the links below for instructions on how to run the local proxy programs in y
 
 | SDK    | Service-Local Proxy                                       | Device-Local Proxy                                |
 |--------|-----------------------------------------------------------|---------------------------------------------------|
-| C#     | [Link](quickstart-device-streams-csharp-proxy-csharp.md)  | [Link](quickstart-device-streams-proxy-csharp.md) |
+| C#     | [Link](quickstart-device-streams-proxy-csharp.md)  | [Link](quickstart-device-streams-proxy-csharp.md) |
 | NodeJS | [Link](quickstart-device-streams-proxy-nodejs.md)         | -                                                 |
 | C      | -                                                         | [Link](quickstart-device-streams-proxy-c.md)      |
 
