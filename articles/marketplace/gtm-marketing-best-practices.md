@@ -88,7 +88,7 @@ When your offer is listed in AppSource or the Azure Marketplace, you have earned
 
 The AppSource badge is available in three sizes. You can download the badge along with guidance on how to use it at [Promote the availability of your app on Microsoft AppSource](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource).
 
-The Azure Marketplace badge is provided as part of your free [go-to-market benefits](./gtm-benefits-in-the-marketplace.md).
+The Azure Marketplace badge is provided as part of your free [go-to-market benefits](./gtm-your-marketplace-benefits.md).
 
 ## Next steps
 
