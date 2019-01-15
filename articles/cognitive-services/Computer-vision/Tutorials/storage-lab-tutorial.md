@@ -74,33 +74,34 @@ In the Solution Explorer, right-click the project and use the **Manage NuGet Pac
 
 Next, you will add the code that actually leverages the Computer Vision service to create metadata for images. These steps will apply to the ASP.NET app in the lab, but you can adapt them to your own app. What's important is that at this point you have an ASP.NET web application that can upload images to an Azure Storage container, read images from it, and display them in the view. If you're unsure about this, it's best to follow [Exercise 3 of the Azure Storage Lab](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3). 
 
-1. Open the *HomeController.cs* file in the project's **Controllers** folder and add the following `using` statement at the top of the file:
+1. Open the *HomeController.cs* file in the project's **Controllers** folder and add the following `using` statements at the top of the file:
 
     ```csharp
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+    using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
     ```
 
 1. Then, go to the **Upload** method; this method converts and uploads images to blob storage. Add the following code immediately after the block that begins with `// Generate a thumbnail` (or at the end of your image-blob-creation process). This code takes the blob containing the image (`photo`), and uses Computer Vision to generate a description for that image. The Computer Vision API also generates a list of keywords that apply to the image. The generated description and keywords are stored in the blob's metadata so that they can be retrieved later on.
 
     ```csharp
     // Submit the image to Azure's Computer Vision API
-    VisionServiceClient vision = new VisionServiceClient(
-        ConfigurationManager.AppSettings["SubscriptionKey"],
-        ConfigurationManager.AppSettings["VisionEndpoint"]
-    );
-    
-    VisualFeature[] features = new VisualFeature[] { VisualFeature.Description };
+    ComputerVisionClient vision = new ComputerVisionClient(
+        new ApiKeyServiceClientCredentials(ConfigurationManager.AppSettings["SubscriptionKey"]),
+        new System.Net.Http.DelegatingHandler[] { });
+    vision.Endpoint = ConfigurationManager.AppSettings["VisionEndpoint"];
+
+    VisualFeatureTypes[] features = new VisualFeatureTypes[] { VisualFeatureTypes.Description };
     var result = await vision.AnalyzeImageAsync(photo.Uri.ToString(), features);
-    
+
     // Record the image description and tags in blob metadata
     photo.Metadata.Add("Caption", result.Description.Captions[0].Text);
-    
-    for (int i = 0; i < result.Description.Tags.Length; i++)
+
+    for (int i = 0; i < result.Description.Tags.Count; i++)
     {
         string key = String.Format("Tag{0}", i);
         photo.Metadata.Add(key, result.Description.Tags[i]);
     }
-    
+
     await photo.SetMetadataAsync();
     ```
 
@@ -125,7 +126,7 @@ Next, you will add the code that actually leverages the Computer Vision service 
         }
     }
     ```
-    
+
 ## Test the app
 
 Save your changes in Visual Studio and press **Ctrl+F5** to launch the application in your browser. Use the app to upload a few images, either from the "photos" folder in the lab's resources or from your own folder. When you hover the cursor over one of the images in the view, a tooltip window should appear and display the computer-generated caption for the image.
