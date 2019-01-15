@@ -127,11 +127,11 @@ With conditional access polices, you can implement automated responses to sign-i
 - [The sign-in risk condition](conditions.md#sign-in-risk) in conditional access policy
 - [The sign-in risk policy](../identity-protection/howto-sign-in-risk-policy.md) in identity protection 
 
-Addressing sign-in risks as 
-
-Because the sign-in risk condition provides you with more flexibility, use this condition if you need to implement a response to a sign-in risk level. 
+Addressing the sign-in risk as condition is the preferred method because it gives you more customization options.
 
 The user risk level is only available as [user risk policy](../identity-protection/howto-user-risk-policy.md) in identity protection. 
+
+For more information, see [What is Azure Active Directory Identity Protection?](../identity-protection/overview) 
 
 
 ### Require managed devices
