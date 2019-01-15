@@ -77,7 +77,6 @@ sections:
     - html: <a href="/azure/iot-hub/tutorial-device-twins">Configure your devices from a back-end service</a>
     - html: <a href="/azure/iot-hub/tutorial-firmware-update">Implement a device firmware update process</a>
     - html: <a href="/azure/iot-hub/tutorial-connectivity">Use a simulated device to test connectivity with your IoT hub</a>
-    - html: <a href="/azure/iot-hub/iot-hub-device-streams-tutorial">Using IoT Hub device streams</a>
 - title: Reference
   items:
   - type: list
