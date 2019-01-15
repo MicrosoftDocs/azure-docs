@@ -283,7 +283,6 @@ You can also chain activities that are in different pipelines.
 In this sample, Pipeline1 has only one activity that takes Dataset1 as an input and produces Dataset2 as an output. The Pipeline2 also has only one activity that takes Dataset2 as an input and Dataset3 as an output.
 
 For more information, see [scheduling and execution](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
-
 ## Create and monitor pipelines
 You can create pipelines by using one of these tools or SDKs.
 
@@ -351,6 +350,6 @@ Note the following:
 * Diagram view does not show one-time pipelines. This behavior is by design.
 * One-time pipelines cannot be updated. You can clone a one-time pipeline, rename it, update properties, and deploy it to create another one.
 
-## Next Steps
+## Next steps
 - For more information about datasets, see [Create datasets](data-factory-create-datasets.md) article.
 - For more information about how pipelines are scheduled and executed, see [Scheduling and execution in Azure Data Factory](data-factory-scheduling-and-execution.md) article.
