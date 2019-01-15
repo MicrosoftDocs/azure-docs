@@ -4,7 +4,7 @@ description: Use Azure Blueprints to create, define, and deploy artifacts.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/157/2019
+ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
