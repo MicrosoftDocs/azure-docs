@@ -7,7 +7,7 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -35,6 +35,17 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 ## How billing works
 
+In Azure Search, there are four ways to incur costs related to indexing and query operations.
+
+* Replicas and partitions in active use (non-transational billing). When you provision an Azure Search resource, you choose and pay for specific levels of resourcing. It's often less than the maximum allowed by a tier.
+* Data egress charges during indexing. When you pull data from an Azure SQL Database or Cosmos DB data source into Azure Search, you will see charges for that transaction in the bill for those data sources.
+* (applies to cognitive search only) Image extraction in cognitive search indexing, billed per transaction. Text extraction is currently free.
+* (applies to cognitive search only) Image analysis and text analysis, performed by an attached Cognitive Services resource. 
+
+Only data retreival and cognitive search processing have transactional billing. If you are not using [cognitive search](cognitive-search-concept-intro.md) or [Azure Search indexers](search-indexer-overview.md), your only costs are related to replica and partitions in active use, for regular indexing and query workloads.
+
+### Billing for non-specialized indexing and queries
+
 In Azure Search, the most important billing concept to understand is a *search unit* (SU). Because Azure Search depends on both replicas and partitions to function, it doesn't make sense to bill by just one or the other. Instead, billing is based on a composite of both. 
 
 SU is the product of *replica* and *partitions* used by a service: **`(R X P = SU)`**
@@ -46,6 +57,20 @@ It's common to use less than total capacity. For example, a 3-replica, 3-partiti
 The billing rate is **hourly per SU**, with each tier having a progressively higher rate. Higher tiers come with larger and speedier partitions, contributing to an overall higher hourly rate for that tier. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/). 
 
 Most customers bring just a portion of total capacity online, holding the rest in reserve. In terms of billing, it's the number of partitions and replicas that you bring online, calculated using the SU formula, that determines what you actually pay on an hourly basis.
+
+### Billing for image extraction in cognitive search
+
+If you are enriching unstructured or semi-strutured data, such as images or application files stored as Azure blobs, in a cognitive search indexing pipeline, then you will be nominally charged per transaction for the cost of retrieving an image from PDFs, Word documents or other blobs in Azure Blob storage or in other data sources providing image content to a cognitive search pipeline.
+
+Pricing is subject to change, but is always documented on the [Pricing Details](https://azure.microsoft.com/pricing/details/search/) page for Azure Search. 
+
+For regular indexing of PDF and other application files, images are ignored. The only way you are charged for image extraction is when you set up a cognitive search indexing pipeline that includes images.
+
+### Billing for image and text analysis in cognitive search
+
+Optical character recognition of text in JPEG or PNG files or describing in text the content or characteristics of an image, require sophisticated AI-powered processes provided by an external Cognitive Services resource. In Azure Search, you can [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to an enrichment pipeline, allowing Microsoft to bill you for these computations.
+
+You also incur charges for text analysis, such as entity recognition, language detection, sentiment analysis, and key phrase extraction. You are charged at a single pay-as-you-go rate. The bill becomes larger as you add more and more processing, but there is no differentiation at the per process level. Given the same data inputs, a pipeline consisting of language detection would cost the same as a pipeline consisting of sentiment analysis. But if you include both language detection and sentiment analysis, you are charged for both (2x at the going rate).
 
 ### Tips for reducing costs
 
