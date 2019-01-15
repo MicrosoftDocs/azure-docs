@@ -81,6 +81,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
     ```
     cd azure-iot-sdk-c
+    git checkout public-preview
     mkdir cmake
     cd cmake
     ```

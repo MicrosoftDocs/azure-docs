@@ -68,6 +68,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
     ```
     cd azure-iot-sdk-c
+    git checkout public-preview
     mkdir cmake
     cd cmake
     ```
@@ -85,10 +86,10 @@ In Windows, run the following commands in Developer Command Prompt for your Visu
 ```
     # In Windows
     # For VS2015
-    $ cmake -Denable_streaming=ON .. -G "Visual Studio 15 2015"
+    cmake -Denable_streaming=ON .. -G "Visual Studio 15 2015"
     
     # Or for VS2017
-    $ cmake -Denable_streaming=ON .. -G "Visual Studio 15 2017
+    cmake -Denable_streaming=ON .. -G "Visual Studio 15 2017
 
     # Then build the project
     cmake --build . -- /m /p:Configuration=Release
@@ -146,7 +147,7 @@ To run the device-side application, you need to perform the following steps:
 ```
   # In Linux
   # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
-  $ make -j
+  make -j
 
 
   # In Windows
@@ -160,7 +161,7 @@ To run the device-side application, you need to perform the following steps:
   # In Linux
   # Go to sample's folder
   cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
-  $ ./iothub_client_c2d_streaming_sample
+  ./iothub_client_c2d_streaming_sample
 
 
   # In Windows
