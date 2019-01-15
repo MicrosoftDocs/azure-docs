@@ -25224,6 +25224,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/marketplace/grow-your-business-with-appsource.md",
+      "redirect_url": "/azure/marketplace/marketplace-publishers-guide",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/marketplace/billing-options-azure-marketplace.md",
       "redirect_url": "/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations",
       "redirect_document_id": true
