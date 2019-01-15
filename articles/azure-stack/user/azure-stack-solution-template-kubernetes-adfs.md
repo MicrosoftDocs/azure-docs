@@ -25,7 +25,7 @@ ms.reviewer: waltero
 > [!Note]  
 > Kubernetes on Azure Stack is in preview.
 
-You can follow the steps in this article to deploy and set up the resources for Kubernetes, when using Active Directory Federated Services (AD FS) as your identity management service, in a single, coordinated operation.
+You can follow the steps in this article to deploy and set up the resources for Kubernetes. Use these steps when Active Directory Federated Services (AD FS) is your identity management service.
 
 ## Prerequisites 
 
@@ -64,7 +64,7 @@ You need to work with your Azure Stack administrator to set up your service prin
 
         | Value | Description |
         | ---   | ---         |
-        | ARM Endpoint | The Microsoft Azure Resource Manager is a management framework that allows administrators to deploy, manage, and monitor Azure resources. Azure Resource Manager can handle these tasks as a group, rather than individually, in a single operation.<br>The endpoint in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`<br>The endpoint in integrated systems is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
+        | Azure Resource Manager Endpoint | The Microsoft Azure Resource Manager is a management framework that allows administrators to deploy, manage, and monitor Azure resources. Azure Resource Manager can handle these tasks as a group, rather than individually, in a single operation.<br>The endpoint in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`<br>The endpoint in integrated systems is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | Your Subscription ID | The [subscription ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) is how you access offers in Azure Stack. |
         | Your user name | Your user name. |
         | The resource group name  | The name of a new resource group or select an existing resource group. The resource name needs to be alphanumeric and lowercase. |
@@ -74,7 +74,7 @@ You need to work with your Azure Stack administrator to set up your service prin
     - Open PowerShell with an elevated prompt. Run the following script with the parameters updated to your values:
 
     ```PowerShell  
-        $armEndpoint="<ARM Endpoint>"
+        $armEndpoint="<Azure Resource Manager Endpoint>"
         $subscriptionId="<Your Subscription ID>"
         $username="<your user name >"
         $resource_group_name = "<the resource group name >"
@@ -99,7 +99,7 @@ You need to work with your Azure Stack administrator to set up your service prin
         Set-AzureRmKeyVaultAccessPolicy -VaultName $key_vault_name -ResourceGroupName $resource_group_name -ObjectId $objectSID -BypassObjectIdValidation -PermissionsToKeys all -PermissionsToSecrets all
     ```
 
-4. Upload your Certificate to key Vault.
+4. Upload your certificate to the Key Vault.
 
     - You need the following pieces of information:
 
@@ -109,7 +109,7 @@ You need to work with your Azure Stack administrator to set up your service prin
         | Certificate password | The certificate password. |
         | Secret name | The secret produced in the previous step. |
         | Keyvault name | The name of the keyvault crated in the previous step. |
-        | ARM Endpoint | The endpoint in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`<br>The endpoint in integrated systems is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
+        | Azure Resource Manager Endpoint | The endpoint in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`<br>The endpoint in integrated systems is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | Your Subscription ID | The [subscription ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) is how you access offers in Azure Stack. |
 
     - Open PowerShell with an elevated prompt. Run the following script with the parameters updated to your values:
@@ -121,7 +121,7 @@ You need to work with your Azure Stack administrator to set up your service prin
     $password = "<certificate password>"
     $keyVaultSecretName = "<secret name>"
     $keyVaultName = "<keyvault name>"
-    $armEndpoint="<ARM Endpoint>"
+    $armEndpoint="<Azure Resource Manager Endpoint>"
     $subscriptionId="<Your Subscription ID>"
     # Login Azure Stack Environment
     Add-AzureRmEnvironment -ARMEndpoint $armEndpoint -Name t
@@ -190,9 +190,11 @@ You need to work with your Azure Stack administrator to set up your service prin
 
 1. Enter the **Service Principal ClientId** This is used by the Kubernetes Azure cloud provider. The Client ID identified as the Application ID when your Azure Stack administrator created the service principal.
 
-1. Enter the **Service principle certificate Key Vault Id** where your certificate is stored.
+1. Enter the **Key Vault resource group**. 
 
-1. Add the ***Service principle certificate secret name** where the certificate is stored. 
+1. Enter the **Key Vault name**.
+
+1. Enter the **Key Vault secret**.
 
 1. Enter the **Kubernetes Azure Cloud Provider Version**. This is the version for the Kubernetes Azure provider. Azure Stack releases a custom Kubernetes build for each Azure Stack version.
 
