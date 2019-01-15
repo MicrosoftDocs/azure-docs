@@ -95,6 +95,8 @@
       href: groups-restore-deleted.md
     - name: Manage group settings    
       href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context 
+    - name: Set up group self-service    
+      href: groups-self-service-management.md
     - name: Dynamic groups    
       items: 
       - name: Create a dynamic group    
@@ -103,8 +105,6 @@
         href: groups-dynamic-membership.md
       - name: Change group membership type  
         href: groups-change-type.md
-    - name: Set up user-created groups    
-      href: groups-self-service-management.md
   - name: Assign licenses
     items:
     - name: Assign licenses to a group    
