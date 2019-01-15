@@ -55,9 +55,9 @@ Open the application in Visual Studio, running as administor, and build the appl
 
 ## Create a cluster
 
-Now that the application is ready, you create a cluster directly from Visual Studio and then deploy the application. A [Service Fabric cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed.
+Now that the application is ready, you create a Service Fabric cluster and then deploy the application to the cluster. A [Service Fabric cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed.
 
-In this tutorial, you create a new cluster in the Visual Studio IDE and then publish the application to that cluster. You can also deploy the application to an existing cluster that you previously created through the [Azure portal](https://portal.azure.com), by using [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) or [Azure CLI](./scripts/cli-create-cluster.md) scripts, or from an [Azure Resource Manager template](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+In this tutorial, you create a new three node test cluster in the Visual Studio IDE and then publish the application to that cluster. See the [Create and manage a cluster tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md) for information on creating a production cluster. You can also deploy the application to an existing cluster that you previously created through the [Azure portal](https://portal.azure.com), by using [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) or [Azure CLI](./scripts/cli-create-cluster.md) scripts, or from an [Azure Resource Manager template](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 > [!NOTE]
 > The Voting application, and many other applications, use the Service Fabric reverse proxy to communicate between services. Clusters created from Visual Studio have the reverse proxy enabled by default. If you're deploying to an existing cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy-setup.md) for the Voting application to work.
@@ -71,7 +71,7 @@ The front-end web service of the Voting application is listening on a specific p
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
 ```
 
-Take note of the service endpoint, which is needed in a later step.  If you are deploying to an existing cluster, open this port by using a load-balancing rule in Azure through a [PowerShell script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) or via the load balancer for this cluster in the [Azure portal](https://portal.azure.com).
+Take note of the service endpoint, which is needed in a later step.  If you are deploying to an existing cluster, open this port by creating a load-balancing rule and probe in the Azure load balancer using a [PowerShell script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) or via the load balancer for this cluster in the [Azure portal](https://portal.azure.com).
 
 ### Create a test cluster in Azure
 In Solution Explorer, right-click on **Voting** and select **Publish**.
@@ -90,13 +90,15 @@ In the **VM Detail** tab, enter the **User name** and **Password** for the clust
 
 ![Create a cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
 
-In **Ports**, enter the VotingWeb service endpoint from the previous step (for example, 8080).  When the cluster is created, this port is opened in the Azure load balancer.  Click **Create** to create the cluster, which takes several minutes.
+In **Ports**, enter the VotingWeb service endpoint from the previous step (for example, 8080).  When the cluster is created, these application ports are opened in the Azure load balancer to forward traffic to the cluster.  Click **Create** to create the cluster, which takes several minutes.
+
+![Create a cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
 
 ## Publish the application to the cluster
 
 When the new cluster is ready, you can deploy the Voting application directly from Visual Studio.
 
-Right-click **Voting** in the Solution Explorer. Choose **Publish**. The **Publish** dialog box appears.
+In Solution Explorer, right-click on **Voting** and select **Publish**. The **Publish** dialog box appears.
 
 In **Connection Endpoint**, select the endpoint for the cluster you created in the previous step.  For example, "mytestcluster.southcentral.cloudapp.azure.com:19000". If you select **Advanced Connection Parameters**, the certificate information should be auto-filled.  
 ![Publish a Service Fabric application](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
