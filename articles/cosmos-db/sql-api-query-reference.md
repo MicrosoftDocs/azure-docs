@@ -2539,7 +2539,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ```  
   
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
-Returns a Boolean indicating whether the array contains the specified value. You can check for a partial or full match of a JSON object by using a boolean expression within the command. 
+Returns a Boolean indicating whether the array contains the specified value. You can check for a partial or full match of an object by using a boolean expression within the command. 
 
  **Syntax**  
   
