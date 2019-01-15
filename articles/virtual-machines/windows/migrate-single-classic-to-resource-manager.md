@@ -70,7 +70,7 @@ By default, disk caching policy is *Read-Only* for all the Premium data disks, a
 
 ### Pricing
 
-Review the [pricing for Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). Pricing of managed Premium disks is same as the unmanged premium disks. But pricing for manged standard disks is different than unmanaged standard disks.
+Review the [pricing for Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). Pricing of managed Premium disks is same as the unmanaged premium disks. But pricing for managed standard disks is different than unmanaged standard disks.
 
 
 ## Checklist
