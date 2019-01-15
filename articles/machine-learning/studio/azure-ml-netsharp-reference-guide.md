@@ -1,20 +1,15 @@
 ---
-title: Net# Neural Networks - Azure Machine Learning Studio | Microsoft Docs
+title: Net# Neural Networks
+titleSuffix: Azure Machine Learning Studio
 description: Syntax for the Net# neural networks specification language, together with examples of how to create a custom neural network model using Net# with Azure Machine Learning Studio.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
-ms.service: machine-learning
+ms.service: machine-learning
 ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ---
 # Guide to Net# neural network specification language for Azure Machine Learning Studio
