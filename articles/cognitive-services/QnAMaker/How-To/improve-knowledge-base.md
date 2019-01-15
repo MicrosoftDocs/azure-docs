@@ -33,7 +33,7 @@ When similar queries are clustered, QnA Maker suggests the user-based questions 
 
 For best practices when using active learning, see [Best practices](../Concepts/best-practices.md#active-learning).
 
-## Score proximity
+## Score proximity between knowledge base questions
 
 When a question's score is highly confident, such as 80%, the range of scores that are considered for active learning are wide, approximately within 10%. As the confidence score decreases, such as 40%, the range of scores descreases as well, approximately within 4%. 
 
