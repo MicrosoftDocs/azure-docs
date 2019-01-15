@@ -103,41 +103,40 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt_2
 
 The 'Set-AzureRmExpressRouteCircuit' output will list the ExpressRouteCircuit. Note the private peering ID and the authorization key that would be listed towards the end of the listing. See an example PowerShell output snippet below:
 
-```powershell
-ServiceKey                       : <serviceKey>
-Peerings                         : [
-                                     {
-                                       "Name": "AzurePrivatePeering",
-                                       "Etag": "W/\"78dfeeae-0485-4cda-b5aa-99e780589677\"",
-                                       **"Id"**: "/subscriptions/<subscriptionId>/resourceGroups/SEA-Cust11/providers/Microsoft.Network/expressRouteCircuits/SEA-Cust11-ER/peerings/AzurePrivatePeering",
-                                       "PeeringType": "AzurePrivatePeering",
-                                       "State": "Enabled",
-                                       "AzureASN": 12076,
-                                       "PeerASN": 65020,
-                                       "PrimaryPeerAddressPrefix": "192.168.11.16/30",
-                                       "SecondaryPeerAddressPrefix": "192.168.11.20/30",
-                                       "PrimaryAzurePort": "",
-                                       "SecondaryAzurePort": "",
-                                       "VlanId": 110,
-                                       "ProvisioningState": "Succeeded",
-                                       "GatewayManagerEtag": "4",
-                                       "LastModifiedBy": "Customer",
-                                       "Connections": []
-                                     }
-                                   ]
-Authorizations                   : [
-                                     {
-                                       "Name": "Auth4-ASH-Cust11",
-                                       "Etag": "W/\"78dfeeae-0485-4cda-b5aa-99e780589677\"",
-                                       "Id": "/subscriptions/<subscriptionId>/resourceGroups/SEA-Cust11/providers/Microsoft.Network/expressRouteCircuits/SEA-Cust11-ER/authorizations/Auth4-ASH-Cust11",
-                                       **"AuthorizationKey"**: "<authorizationKey>",
-                                       "AuthorizationUseStatus": "Used",
-                                       "ProvisioningState": "Succeeded"
-                                     }
-                                   ]
-AllowClassicOperations           : False
-GatewayManagerEtag               : 4
-```
+	ServiceKey                       : <serviceKey>
+	Peerings                         : [
+	                                     {
+	                                       "Name": "AzurePrivatePeering",
+	                                       "Etag": "W/\"78dfeeae-0485-4cda-b5aa-99e780589677\"",
+	                                       **"Id"**: "/subscriptions/<subscriptionId>/resourceGroups/SEA-Cust11/providers/Microsoft.Network/expressRouteCircuits/SEA-Cust11-ER/peerings/AzurePrivatePeering",
+	                                       "PeeringType": "AzurePrivatePeering",
+	                                       "State": "Enabled",
+	                                       "AzureASN": 12076,
+	                                       "PeerASN": 65020,
+	                                       "PrimaryPeerAddressPrefix": "192.168.11.16/30",
+	                                       "SecondaryPeerAddressPrefix": "192.168.11.20/30",
+	                                       "PrimaryAzurePort": "",
+	                                       "SecondaryAzurePort": "",
+	                                       "VlanId": 110,
+	                                       "ProvisioningState": "Succeeded",
+	                                       "GatewayManagerEtag": "4",
+	                                       "LastModifiedBy": "Customer",
+	                                       "Connections": []
+	                                     }
+	                                   ]
+	Authorizations                   : [
+	                                     {
+	                                       "Name": "Auth4-ASH-Cust11",
+	                                       "Etag": "W/\"78dfeeae-0485-4cda-b5aa-99e780589677\"",
+	                                       "Id": "/subscriptions/<subscriptionId>/resourceGroups/SEA-Cust11/providers/Microsoft.Network/expressRouteCircuits/SEA-Cust11-ER/authorizations/Auth4-ASH-Cust11",
+	                                       **"AuthorizationKey"**: "<authorizationKey>",
+	                                       "AuthorizationUseStatus": "Used",
+	                                       "ProvisioningState": "Succeeded"
+	                                     }
+	                                   ]
+	AllowClassicOperations           : False
+	GatewayManagerEtag               : 4
+
 
 With the peering ID and the authorization key, you can create the Global Reach under the Fabrikam's ExpressRoute circuit. Login to the Fabrikam's Azure account. If there is more than one subscription, select the appropriate subscription.
 
