@@ -73,14 +73,14 @@ This is a good time to decide on a naming standard for your policies. The naming
 
 For example, the following name states that the policy requires MFA for marketing users on external networks using the Dynamics CRP app:
 
-`Dynamics CRP: Require MFA For marketing When from external networks`
+`Dynamics CRP: Require MFA For marketing When on external networks`
 
 
 `Require MFA, Marketing, External, Dynamics CRP`
 
 In addition to your active policies, you should also implement disabled policies that act as secondary resilient access controls in outage scenarios. Your naming standard should also include this purpose to make it easier to enable them during an outage. For example:
 
-`(Outage) Finance app: Require MFA For Sales When from untrusted network`
+`(Outage) Finance app: Require MFA For Sales When on untrusted network`
 
 
 `(Outage)Require trusted network, Sales, Internal, Finance app`
