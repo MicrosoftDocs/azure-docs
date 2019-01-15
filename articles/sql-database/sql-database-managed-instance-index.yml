@@ -63,7 +63,7 @@ sections:
 - title: New and preview features
   items:
   - type: paragraph
-    text: 'We are continously improving Managed Instance with new features:'
+    text: 'We are continuously improving Managed Instance with new features:'
   - type: list
     style: unordered
     items:
