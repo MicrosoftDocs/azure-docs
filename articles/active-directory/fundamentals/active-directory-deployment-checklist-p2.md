@@ -33,9 +33,9 @@ Additional information about licensing can be found on the following pages:
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 * [Azure AD B2B licensing guidance](../b2b/licensing-guidance.md)
 
-## Phase 1: Foundation of security
+## Phase 1: Build a foundation of security
 
-In phase 1, administrators enable baseline security features to create a more secure and easy to use foundation in Azure AD before we import or create normal user accounts. This foundational phase ensures you are in a more secure state from the start and that your end-users only have to be introduced to new concepts one time.
+In this phase, administrators enable baseline security features to create a more secure and easy to use foundation in Azure AD before we import or create normal user accounts. This foundational phase ensures you are in a more secure state from the start and that your end-users only have to be introduced to new concepts one time.
 
 | Task | Detail | Required license |
 | ---- | ------ | ---------------- |
@@ -54,9 +54,9 @@ In phase 1, administrators enable baseline security features to create a more se
 | [Use risk events to trigger multi-factor authentication and password changes](../authentication/tutorial-risk-based-sspr-mfa.md) | Enable automation that can trigger events such as multi-factor authentication, password reset, and blocking of sign-ins based on risk. | Azure AD Premium P2 |
 | [Enable converged registration for self-service password reset and Azure AD Multi-Factor Authentication (preview)](../authentication/concept-registration-mfa-sspr-converged.md) | Allow your users to register from one common experience for both Azure Multi-Factor Authentication and self-service password reset. | Azure AD Premium P1 |
 
-## Phase 2: Users, synchronization, and devices
+## Phase 2: Import users, enable synchronization, and manage devices
 
-In phase 2, we add to the foundation laid in phase 1 by importing our users and enabling synchronization, planning for guest access, and preparing to support additional functionality.
+Next, we add to the foundation laid in phase 1 by importing our users and enabling synchronization, planning for guest access, and preparing to support additional functionality.
 
 | Task | Detail | Required license |
 | ---- | ------ | ---------------- |
@@ -69,9 +69,9 @@ In phase 2, we add to the foundation laid in phase 1 by importing our users and 
 | [Decide on device management strategy](../devices/overview.md) | Decide what your organization allows regarding devices. Registering vs joining, Bring Your Own Device vs company provided. | |
 | [Deploy Windows Hello for Business in your organization](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Prepare for password-less authentication using Windows Hello | |
 
-## Phase 3: Applications
+## Phase 3: Manage applications
 
-In phase 3, administrators begin the ongoing process to add in applications.
+As we continue to build on the previous phases, we identify candidate applications for migration and integration with Azure AD and complete the setup of those applications.
 
 | Task | Detail | Required license |
 | ---- | ------ | ---------------- |
@@ -79,15 +79,15 @@ In phase 3, administrators begin the ongoing process to add in applications.
 | [Integrate supported SaaS applications in the gallery](../manage-apps/add-application-portal.md) | Azure AD has a gallery that contains thousands of pre-integrated applications. Some of the applications your organization uses are probably in the gallery accessible directly from the Azure portal. | Azure AD Free |
 | [Use Application Proxy to integrate on-premises applications](../manage-apps/application-proxy-add-on-premises-application.md) | Application Proxy enables users to access on-premises applications by signing in with their Azure AD account. | Azure AD Basic |
 
-## Phase 4: Privileged identities, access reviews, and user lifecycle
+## Phase 4: Audit privileged identities, complete an access review, and manage user lifecycle
 
 Phase 4 sees administrators enforcing least privilege principles for administration, completing their first access reviews, and enabling automation of common user lifecycle tasks.
 
 | Task | Detail | Required license |
 | ---- | ------ | ---------------- |
-| [Enforce the use of Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Remove administrative roles from normal day to day user accounts. Make administrative users eligible to use their role after succeeding a multi-factor authentication check, providing a business justification, or requesting approval from designated approvers. | Azure AD Premium P2 |
+| [Enforce the use of Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Remove administrative roles from normal day to day user accounts. Make administrative users eligible to use their role after succeeding a multi-factor authentication check, providing a business justification, or requesting approval from designated approvers. | Azure AD Premium P2 |
 | [Complete an access review for Azure AD directory roles in PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Work with your security and leadership teams to create an access review policy to review administrative access based on your organization's policies. | Azure AD Premium P2 |
-| [Implement Dynamic Group membership policies](../users-groups-roles/groups-dynamic-membership.md) | Use Dynamic Groups to automatically assign users to groups based on their attributes from HR (or your source of truth), such as department, title, region, and other attributes. |  |
+| [Implement dynamic group membership policies](../users-groups-roles/groups-dynamic-membership.md) | Use dynamic groups to automatically assign users to groups based on their attributes from HR (or your source of truth), such as department, title, region, and other attributes. |  |
 | [Implement group based application provisioning](../manage-apps/what-is-access-management.md) | Use group-based access management provisioning to automatically provision users for SaaS applications. |  |
 | [Automate user provisioning and deprovisioning](../manage-apps/user-provisioning.md) | Remove manual steps from your employee account lifecycle to prevent unauthorized access. Synchronize identities from your source of truth (HR System) to Azure AD. |  |
 

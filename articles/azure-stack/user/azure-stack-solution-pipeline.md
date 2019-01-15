@@ -358,7 +358,7 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [Az
 
 1. Sign in to Azure DevOps Services with an organization that can create a build pipeline.
 
-2. Navigate to the **Build Web Applicaiton** page for the project.
+2. Navigate to the **Build Web Application** page for the project.
 
 3. In **Arguments**, add **-r win10-x64** code. This is required to trigger a self-contained deployment with .Net Core.
 

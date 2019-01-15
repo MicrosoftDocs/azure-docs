@@ -28,7 +28,7 @@ If you have [instrumented your Java web app with Application Insights][java], yo
 To use the Java agent, you install it on your server. Your web apps must be instrumented with the [Application Insights Java SDK][java]. 
 
 ## Install the Application Insights agent for Java
-1. On the machine running your Java server, [download the agent](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Please ensure to download the same verson of Java Agent as Application Insights Java SDK core and web packages.
+1. On the machine running your Java server, [download the agent](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Please ensure to download the same version of Java Agent as Application Insights Java SDK core and web packages.
 2. Edit the application server startup script, and add the following JVM:
    
     `javaagent:`*full path to the agent JAR file*
