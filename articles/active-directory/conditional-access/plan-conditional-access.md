@@ -62,10 +62,10 @@ For more information, see [what's required to make a policy work](best-practices
 
 This is a good time to decide on a naming standard for your policies. The naming standard helps you to find policies and understand their purpose without opening them in the Azure admin portal. You should name your policy to show:
 
-- The app it applies to
-- The outcome
+- The cloud app it applies to
+- The response
 - Who it applies to
-- Where it applies 
+- When it applies 
 
  
 For example, the following name states that the policy requires MFA for marketing users on external networks using the Dynamics CRP app:
@@ -244,10 +244,10 @@ In case you need to roll back your newly implemented policies, use one or more o
 
 2. **Exclude a user / group from a policy** - If a user is unable to access the app, you can choose to exclude the user from the policy
 
+    ![Exluce users](media/plan-conditional-access/08.png)
+
     >[!NOTE]
     > This option should be used sparingly, only in situations where the user is trusted. The user should be added back into the policy or group as soon as possible.
-
-    ![Exluce users](media/plan-conditional-access/08.png)
 
 3. **Delete the policy** - If the policy is no longer required, delete it.
 
