@@ -66,8 +66,11 @@ This is a good time to decide on a naming standard for your policies. The naming
 - The response
 - Who it applies to
 - When it applies 
-
  
+![Naming standard](./media/plan-conditional-access/51.png)
+
+
+
 For example, the following name states that the policy requires MFA for marketing users on external networks using the Dynamics CRP app:
 
 `Dynamics CRP: Require MFA For marketing When from external networks`
