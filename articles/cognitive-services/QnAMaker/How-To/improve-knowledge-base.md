@@ -110,7 +110,7 @@ The client application developer chooses how far apart the question scores need 
 
 The user selects one of the existing questions. The selected question should be sent to the Train API to continue the active learning feedback loop. 
 
-```text
+```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
 Authorization: EndpointKey <endpoint-key>
 Content-Type: application/json
