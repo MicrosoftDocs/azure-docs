@@ -29,7 +29,7 @@ Either method provides the ranker with similar queries that are clustered.
 
 When similar queries are clustered, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject.
 
-## Quality and quanity of user utterances
+## Best practices
 
 For best practices when using active learning, see [Best practices](../Concepts/best-practices.md#active-learning).
 
