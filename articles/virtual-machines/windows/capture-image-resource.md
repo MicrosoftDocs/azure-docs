@@ -20,7 +20,7 @@ ms.author: cynthn
 ---
 # Create a managed image of a generalized VM in Azure
 
-A managed image resource can be created from a generalized virtual machine (VM) that is stored as either a managed disk or an unmanaged disk in a storage account. The image can then be used to create multiple VMs. 
+A managed image resource can be created from a generalized virtual machine (VM) that is stored as either a managed disk or an unmanaged disk in a storage account. The image can then be used to create multiple VMs. Images are billed based on the storage costs for the image.
 
 ## Generalize the Windows VM using Sysprep
 
