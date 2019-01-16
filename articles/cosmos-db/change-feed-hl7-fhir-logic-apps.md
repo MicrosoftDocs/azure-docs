@@ -216,11 +216,11 @@ The following image shows all of the Azure services for this solution running in
 
 ## Summary
 
-- You have learned that Azure Cosmos DB has native suppport for notifications for new or modified documents and how easy it is to use. 
+- You have learned that Azure Cosmos DB has native support for notifications for new or modifed documents and how easy it is to use. 
 - By leveraging Logic Apps, you can create workflows without writing any code.
 - Using Azure Service Bus Queues to handle the distribution for the HL7 FHIR documents.
 
 ## Next steps
-For more information about Azure Cosmos DB, see the [Azure Cosmos DB home page](https://azure.microsoft.com/services/cosmos-db/). For more informaiton about Logic Apps, see [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
+For more information about Azure Cosmos DB, see the [Azure Cosmos DB home page](https://azure.microsoft.com/services/cosmos-db/). For more information about Logic Apps, see [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 
 
