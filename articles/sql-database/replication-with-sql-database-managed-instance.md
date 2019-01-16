@@ -15,7 +15,7 @@ ms.date: 01/16/2019
 ---
 # Configure replication in Azure SQL Database Managed Instance
 
-Transactional replication enables you to replicate data from the SQL Server or Azure SQL Database Managed Instance databases into the Managed Instance, or to push changes made in your databases in Managed Instance to other SQL Server, Azure Single Database or other Managed Instance. Replication is available for public preview on [Azure SQL Database Managed Instance](sql-database-managed-instance-index.md#new-and-preview-features). A Managed Instance can host publisher, distributor, and subscriber databases. See [Transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) for available configurations.
+Transactional replication enables you to replicate data from the SQL Server or Azure SQL Database Managed Instance databases into the Managed Instance, or to push changes made in your databases in Managed Instance to other SQL Server, Azure Single Database, or other Managed Instance. Replication is available for public preview on [Azure SQL Database Managed Instance](sql-database-managed-instance-index.md). A Managed Instance can host publisher, distributor, and subscriber databases. See [Transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) for available configurations.
 
 ## Requirements
 
