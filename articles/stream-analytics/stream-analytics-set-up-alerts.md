@@ -7,20 +7,20 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/17/2019
 ms.custom: seodec18 
 ---
 # Set up alerts for Azure Stream Analytics jobs
 
-It is important to monitor your Azure Stream Analytics job to ensure the job is running continuously without any problems. This article describes how to set up alerts for common scenarios that should be monitored. 
+It's important to monitor your Azure Stream Analytics job to ensure the job is running continuously without any problems. This article describes how to set up alerts for common scenarios that should be monitored. 
 
-Rules can be set up on metrics through the portal, or can be configured [programmatically](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) over Operation Logs data.
+Rules can be set up on metrics through the portal and can be configured [programmatically](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) over Operation Logs data.
 
 ## Set up alerts in the Azure portal
 
 1. In the Azure portal, open the Stream Analytics job you want to create an alert for.
 
-2. On the **Job** page, navigate to the the **Monitoring** section.  
+2. On the **Job** page, navigate to the **Monitoring** section.  
 
 3. Select **Metrics**, and then click **New alert rule**.
 
@@ -48,12 +48,12 @@ Rules can be set up on metrics through the portal, or can be configured [program
 
 ## Scenarios to monitor
 
-The following alerts are recommended for monitoring the performance of your Stream Analytics job. These metrics should be evaluated every minute over the last 5-minute period. If your job suffers from performance issues, you can leverage query parallelization to make it more optimal and try increasing the number of streaming units.
+The following alerts are recommended for monitoring the performance of your Stream Analytics job. These metrics should be evaluated every minute over the last 5-minute period. If your job suffers from performance issues, you can use query parallelization to make it more optimal and try increasing the number of streaming units.
 
 |Metric|Condition|Time Aggregation|Threshold|Corrective Actions|
 |-|-|-|-|-|
 |SU% Utilization|Greater than|Maximum|80|There are multiple factors that increase SU% Utilization. You can scale with query parallelization or increase the number of streaming units.|
-|Runtime errors|Greater than|Total|0|Examine the activity or diagnostic logs and make appropriate changes to the inputs, query or outputs.|
+|Runtime errors|Greater than|Total|0|Examine the activity or diagnostic logs and make appropriate changes to the inputs, query, or outputs.|
 |Watermark delay|Greater than|Maximum|When average value of this metric over the last 15 minutes is greater than late arrival tolerance (in seconds). If you have not modified the late arrival tolerance, the default is set to 5 seconds.|Try increasing the number of SUs or parallelizing your query.|
 |Input deserialization errors|Greater than|Total|0|Examine the activity or diagnostic logs and make appropriate changes to the input.|
 
@@ -61,7 +61,7 @@ The following alerts are recommended for monitoring the performance of your Stre
 
 For more detail on configuring alerts in the Azure portal, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).  
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
