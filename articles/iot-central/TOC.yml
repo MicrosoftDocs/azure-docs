@@ -97,6 +97,8 @@
         href: howto-prepare-images.md
       - name: Manage IoT Central from the Azure Management Portal
         href: howto-manage-iot-central-from-portal.md
+      - name: Manage IoT Central from Azure PowerShell
+        href: howto-manage-iot-central-from-powershell.md
       - name: As a CSP create and manage an application
         href: howto-create-and-manage-applications-as-CSP.md
       - name: Configure homepage
