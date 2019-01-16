@@ -32,6 +32,8 @@
 - name: How-to guides
   expanded: true
   items:
+  - name: Plan your conditional access deployment
+    href: plan-conditional-access.md
   - name: Best practices
     href: best-practices.md
   - name: Block legacy authentication
