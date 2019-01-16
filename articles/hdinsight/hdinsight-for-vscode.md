@@ -219,6 +219,8 @@ With HDInsight Tools for VS Code, you can submit interactive Hive queries, Hive 
 
 6. Install the Python environment in your system if you haven't already. 
    - For Windows, download and install [Python](https://www.python.org/downloads/). Then make sure `Python` and `pip` are in your system PATH.
+  
+   - Install virtualenv by `pip install virtualenv`.
 
    - For instructions for macOS and Linux, see [Set up PySpark interactive environment for Visual Studio Code](set-up-pyspark-interactive-environment.md).
 
