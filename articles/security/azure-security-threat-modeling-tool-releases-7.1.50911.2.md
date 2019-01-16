@@ -20,11 +20,11 @@ ms.author: jegeib
 
 # Threat Modeling Tool GA Release 7.1.5091.2 - 9/12/2018
 
-We are excited to announce the Microsoft Threat Modeling Tool is now available to download as a supported generally available (GA) release. This release contains important privacy and security updates as well as bug fixes, feature updates, and stability improvements. Existing users of the 2017 Preview version will be prompted to update to the latest release through the ClickOnce technology upon opening the client. For new users of the tool, please [click here to download the client](https://aka.ms/threatmodelingtool).
+We are excited to announce the Microsoft Threat Modeling Tool is now available to download as a supported generally available (GA) release. This release contains important privacy and security updates as well as bug fixes, feature updates, and stability improvements. Existing users of the 2017 Preview version will be prompted to update to the latest release through the ClickOnce technology upon opening the client. For new users of the tool, [click here to download the client](https://aka.ms/threatmodelingtool).
 
-With this release, we are ending support for the 2017 Preview and recommend all users of the Preview update to the GA release. On or after October 15th 2018, we will set the minimum required ClickOnce version for the Threat Modeling Tool, and all Preview clients will be required to upgrade.
+With this release, we are ending support for the 2017 Preview and recommend all users of the Preview update to the GA release. On or after October 15 2018, we will set the minimum required ClickOnce version for the Threat Modeling Tool, and all Preview clients will be required to upgrade.
 
-The Microsoft Threat Modeling Tool 2016, which is available from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=49168), remains supported until October 1st, 2019 for critical security fixes only.
+The Microsoft Threat Modeling Tool 2016, which is available from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=49168), remains supported until October 1 2019 for critical security fixes only.
 
 # Feature Changes
 
@@ -42,7 +42,7 @@ The “Save To OneDrive”, “Open From OneDrive”, and “Share a Link” fea
 
 ## In TMT Preview, the tool crashes when using the standard template
 
-- When a Generic stencil (e.g. “Generic Data Flow”) is added to the drawing surface and generates threats, the tool may crash. This issue has been fixed.
+- When a Generic stencil (for example “Generic Data Flow”) is added to the drawing surface and generates threats, the tool may crash. This issue has been fixed.
 
 ## In TMT Preview, when I save a report or copy the threats, the risk levels are incorrect
 
@@ -54,9 +54,9 @@ The “Save To OneDrive”, “Open From OneDrive”, and “Share a Link” fea
 
 ### Issue
 
-In the Analysis View of the tool, if the user has a high-resolution screen that is set by default to magnify for readability in Windows, the “Possible Mitigation(s)” section of a threat may appear with very small text.
+In the Analysis View of the tool, if the user has a high-resolution screen that is set by default to magnify for readability in Windows, the “Possible Mitigation(s)” section of a threat may appear with small text.
 
-![Known issue with high resolution screens](./media/azure-security-threat-modeling-tool-releases-7.1.50911.2/tmt_screen_resolution-300x153.png)
+![Known issue with high-resolution screens](./media/azure-security-threat-modeling-tool-releases-7.1.50911.2/tmt_screen_resolution-300x153.png)
 
 ### Workaround
 
@@ -68,13 +68,13 @@ The user can click on the mitigation text and use the standard Windows zoom cont
 
 The “Open From OneDrive” feature of the Preview release has been removed. Users with “Recently Opened Models” that were saved to OneDrive will receive the following error.
 
-![Known issue with high resolution screens](./media/azure-security-threat-modeling-tool-releases-7.1.50911.2/tmt_save_error-300x131.png)
+![OneDrive feature removed](./media/azure-security-threat-modeling-tool-releases-7.1.50911.2/tmt_save_error-300x131.png)
 
 ### Workaround
 
 Users of OneDrive are encouraged to use Microsoft’s [OneDrive for Windows](https://onedrive.live.com/about/en-us/download/) client to access their files stored on OneDrive through the standard and “Open a model” dialog.
 
-![Known issue with high resolution screens](./media/azure-security-threat-modeling-tool-releases-7.1.50911.2/tmt_save_onedrive-300x149.png)
+![OneDrive feature removed](./media/azure-security-threat-modeling-tool-releases-7.1.50911.2/tmt_save_onedrive-300x149.png)
 
 ### My organization uses the 2016 version of the tool, can I use the Azure stencil set?
 
