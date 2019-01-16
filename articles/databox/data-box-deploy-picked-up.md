@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 01/16/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -34,9 +34,7 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 
     If the device is shipping in Europe, the E-ink display does not show the shipping label. Instead the return shipping label is included in the clear pouch under the forward shipping label. Remove the old shipping label and ensure that the shipping label is clearly visible.
     
-3. Schedule a pickup with UPS if returning the device in US. If you are returning the device in Europe with DHL, request for pickup from DHL by visiting their website and specifying the airway bill number. Go to the country DHL Express website and choose **Book a Courier Collection > eReturn Shipment**. 
-
-    Specify the waybill number and click **Schedule Pickup** to arrange for pickup.
+3. Schedule a pickup with UPS if returning the device. To schedule a pickup, call the local UPS (country specific toll free number) or drop off the Data Box at the nearest drop-off location.
 
 4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
