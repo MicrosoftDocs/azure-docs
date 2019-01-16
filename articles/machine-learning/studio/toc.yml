@@ -183,13 +183,13 @@
       href: consume-web-service-with-web-app-template.md
     - name: Use Batch Pool
       href: dedicated-capacity-for-bes-jobs.md
-  - name: Examples by problem type
+  - name: Examples
     items: 
     - name: Customer churn
       href: azure-ml-customer-churn-scenario.md
     - name: Sentiment analysis
       href: text-analytics-module-tutorial.md
-    - name: Revenue forecasting
+    - name: Migrate analytics to Studio
       href: linear-regression-in-azure.md
   - name: View and delete Studio account data
     displayName: export
