@@ -56,7 +56,7 @@ In all cases matching is case insensitive and regular expression aren't allowed 
 
 The following Azure PowerShell snippet demonstrates the use of exclusions:
 
-```azure-powershell
+```azurepowershell
 // exclusion 1: exclude request head start with xyz
 // exclusion 2: exclude request args equals a
 
