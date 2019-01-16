@@ -20,10 +20,10 @@ Your knowledge base doesn't change automatically. You must accept the suggestion
 
 ## Active Learning
 
-QnA Maker learns new question variations in two possible ways.
+QnA Maker learns new question variations with implicit and expllicit feedback.
  
-* Auto learning – The ranker understands when a user question has multiple answers with scores which are very close and considers that as feedback. 
-* Train API – When multiple answers with little variation in scores are returned from the knowledge base, the client application can ask the user which question is the correct question. When the user selects the correct question, the user feedback is sent to QnA Maker with the Train API. 
+* Auto learning – The ranker understands when a user question has multiple answers with scores which are very close and considers that as **implicit** feedback. 
+* Train API – When multiple answers with little variation in scores are returned from the knowledge base, the client application can ask the user which question is the correct question. When the user selects the correct question, the user's **explicit** feedback is sent to QnA Maker with the Train API. 
 
 Either method provides the ranker with similar queries that are clustered.
 
