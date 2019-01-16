@@ -20,63 +20,65 @@ ms.author: cshoe
 # Run a Cassandra cluster on Linux in Azure with Node.js
 
 > [!IMPORTANT]
-> Azure has two deployment models for creating and working with resources: [Azure Resource Manager and classic](../../../resource-manager-deployment-model.md). This article covers using the classic deployment model. We recommend that most new deployments use the Resource Manager model. See Resource Manager templates for [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) and [Spark cluster and Cassandra on CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
+> Azure has two deployment models for creating and working with resources: [Azure Resource Manager and classic](../../../resource-manager-deployment-model.md). This article uses the classic deployment model. We recommend that most new deployments use the Resource Manager model. See Resource Manager templates for [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) and [Spark cluster and Cassandra on CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
 ## Overview
-Microsoft Azure is an open cloud platform that runs both Microsoft and non-Microsoft software. This software includes operating systems, application servers, messaging middleware and SQL and NoSQL databases from both commercial and open source models. Building resilient services on public clouds like Azure requires careful planning and deliberate architecture for applications, servers, and storage layers. 
+Microsoft Azure is an open cloud platform that runs Microsoft and non-Microsoft software. This software includes operating systems, application servers, messaging middleware, and SQL and NoSQL databases from both commercial and open-source models. Building resilient services on public clouds like Azure requires careful planning and deliberate architecture for applications, servers, and storage layers. 
 
 Cassandra’s distributed storage architecture helps in building highly available systems that are fault tolerant for cluster failures. Cassandra is a cloud-scale NoSQL database maintained by [Apache Software Foundation](http://cassandra.apache.org/). Cassandra is written in Java, so it runs on Windows and Linux platforms.
 
-This article shows Cassandra deployment on Ubuntu as a single- and multiple-datacenter cluster that uses Azure Virtual Machines and Virtual Networks. The cluster deployment for production-optimized workloads is out of scope for this article. That requires multiple-disk node configuration, appropriate ring topology design, and data modeling to support the needed replication, data consistency, throughput, and high-availability requirements.
+This article shows Cassandra deployment on Ubuntu as a single- and multiple-datacenter cluster that uses Azure Virtual Machines and Azure Virtual Networks. The cluster deployment for production-optimized workloads is out of scope for this article. It requires multiple-disk node configuration, appropriate ring topology design, and data modeling to support the needed replication, data consistency, throughput, and high-availability requirements.
 
 This article shows what's involved in building the Cassandra cluster, as compared to Docker, Chef, or Puppet. This approach can make the infrastructure deployment a lot easier.
 
 ## Deployment models
-Microsoft Azure networking allows the deployment of isolated private clusters, You can restrict the access of the clusters to get fine-grained network security. Because this article is about showing the Cassandra deployment at a fundamental level, it doesn't focus on the consistency level and the optimal storage design for throughput. Here are the networking requirements for the hypothetical cluster:
+Microsoft Azure networking allows the deployment of isolated private clusters. You can restrict the access of the clusters to get detailed network security. This article shows the Cassandra deployment at a fundamental level. It doesn't focus on the consistency level and the optimal storage design for throughput. 
 
-* External systems can’t access Cassandra database from within or outside Azure.
-* The Cassandra cluster has to be behind a load balancer for thrift traffic.
+Here are the networking requirements for the hypothetical cluster:
+
+* External systems can’t access the Cassandra database from within or outside Azure.
+* The Cassandra cluster must be behind a load balancer for thrift traffic.
 * You deploy Cassandra nodes in two groups in each datacenter for enhanced cluster availability.
 * You lock down the cluster so that only the application server farm has access to the database directly.
 * No public networking endpoints exist, other than SSH.
 * Each Cassandra node needs a fixed internal IP address.
 
-Cassandra can be deployed to a single Azure region or to multiple regions based on the distributed nature of the workload. You can use a multiple-region deployment model to serve users closer to a particular geography through the same Cassandra infrastructure. 
+Cassandra can be deployed to a single Azure region or to multiple regions. Deployment is based on the distributed nature of the workload. A multiple-region deployment model can serve users who are closer to a particular geography through the same Cassandra infrastructure. 
 
 Cassandra’s built-in node replication takes care of the synchronization of multi-master writes that originate from multiple datacenters. It presents a consistent view of the data to applications. 
 
-Multiple-region deployment also can help with the risk mitigation of broader Azure service outages. Cassandra’s tunable consistency and replication topology help in meeting diverse recovery point objectives (RPOs) of applications.
+Multiple-region deployment also can help with the risk mitigation of broader Azure service outages. Cassandra’s tunable consistency and replication topology help to meet the diverse recovery point objectives (RPOs) of applications.
 
 ### Single-region deployment
 Let's start with a single-region deployment and use what we learn to create a multiple-region model. We use an Azure virtual network to create isolated subnets that meet network security requirements. 
 
-The process described in creating the single-region deployment uses Ubuntu 14.04 LTS and Cassandra 2.08. But the process can easily be adopted to the other Linux variants. The single-region deployment includes the following characteristics.
+The process described in creating the single-region deployment uses Ubuntu 14.04 LTS and Cassandra 2.08. But the process can easily be adopted to the other Linux variants. The single-region deployment includes the following characteristics:
 
-**High availability:** The Cassandra nodes shown in Figure 1 are deployed to two availability sets so that the nodes are spread between multiple fault domains for high availability. VMs annotated with each availability set are mapped to two fault domains. 
+**High availability:** The Cassandra nodes shown in Figure 1 are deployed to two availability sets. The nodes are spread between multiple fault domains for high availability. VMs annotated with each availability set are mapped to two fault domains. 
 
-Azure uses the concept of fault domains to manage unplanned downtime, such as hardware or software failures. The concept of upgrade domains, for example, host or guest OS patching or upgrades or application upgrades, is used to manage scheduled downtime. For the role of fault and upgrade domains in attaining high availability, see [Disaster recovery and high availability for Azure applications](https://msdn.microsoft.com/library/dn251004.aspx).
+Azure uses the concept of fault domains to manage unplanned downtime, such as hardware or software failures. The concept of upgrade domains is used to manage scheduled downtime. Examples are host or guest OS patching or upgrades or application upgrades. For more information on the role of fault and upgrade domains to reach high availability, see [Disaster recovery and high availability for Azure applications](https://msdn.microsoft.com/library/dn251004.aspx).
 
 ![Single-region deployment](./media/cassandra-nodejs/cassandra-linux1.png)
 
 Figure 1: Single-region deployment
 
-Note that at the time of this writing, Azure doesn’t allow the explicit mapping of a group of VMs to a specific fault domain. Even with the deployment model shown in Figure 1, it's statistically probable that all the virtual machines are mapped to two fault domains instead of four.
+Azure doesn’t allow the explicit mapping of a group of VMs to a specific fault domain. Even with the deployment model shown in Figure 1, it's statistically probable that all the virtual machines are mapped to two fault domains instead of four.
 
-**Load-balancing thrift traffic:** Thrift client libraries inside the web server connect to the cluster through an internal load balancer. This requires the process of adding the internal load balancer to the “data” subnet (refer to Figure 1) in the context of the cloud service hosting the Cassandra cluster. 
+**Load-balancing thrift traffic:** Thrift client libraries inside the web server connect to the cluster through an internal load balancer. This process requires adding the internal load balancer to the “data” subnet in the context of the cloud service that hosts the Cassandra cluster, as shown in Figure 1. 
 
 After the internal load balancer is defined, each node requires the load-balanced endpoint to be added with the annotations of a load-balanced set with the previously defined load-balancer name. For more information, see [Azure internal load balancing](../../../load-balancer/load-balancer-internal-overview.md).
 
-**Cluster seeds:** It's important to select the most highly available nodes for seeds, because the new nodes communicate with seed nodes to discover the topology of the cluster. Designate one node from each availability set as the seed node to avoid single point of failure.
+**Cluster seeds:** Select the most highly available nodes for seeds. The new nodes communicate with seed nodes to discover the topology of the cluster. To avoid a single point of failure, make one node from each availability set the seed node.
 
-**Replication factor and consistency level:** Cassandra’s built-in high availability and data durability are characterized by: 
-- Replication factor (RF): The number of copies of each row stored on the cluster. 
-- Consistency level: The number of replicas to be read or written before returning the result to the caller. 
+**Replication factor and consistency level:** Cassandra’s built-in high availability and data durability are characterized by the: 
+- Replication factor (RF), which is the number of copies of each row stored on the cluster. 
+- Consistency level, which is the number of replicas to be read or written before the result is returned to the caller. 
 
-The replication factor is specified during keyspace (similar to a relational database) creation. The consistency level is specified while you're issuing the CRUD query. For consistency details and the formula for quorum computation, see the Cassandra documentation at [Configure for consistency](https://docs.datastax.com/en/cassandra/3.0/cassandra/dml/dmlConfigConsistency.html).
+The replication factor is specified during the creation of a keyspace, which is similar to a relational database. The consistency level is specified while you issue the CRUD query. For consistency details and the formula for quorum computation, see the Cassandra documentation at [Configure for consistency](https://docs.datastax.com/en/cassandra/3.0/cassandra/dml/dmlConfigConsistency.html).
 
-Cassandra supports two types of data integrity models: consistency and eventual consistency. The replication factor and consistency level together determine if the data is consistent as soon as a write operation is complete, or if the data is eventually consistent. For example, specifying QUORUM as the consistency level always ensures data consistency. Any consistency level below the number of replicas to be written as needed to attain QUORUM (for example, ONE) results in data being eventually consistent.
+Cassandra supports two types of data integrity models: consistency and eventual consistency. When a write operation is finished, the replication factor and consistency level together determine if the data is consistent or eventually consistent. For example, specifying QUORUM as the consistency level always ensures data consistency. Any consistency level below the number of replicas to be written as needed to achieve QUORUM, for example, ONE, results in data being eventually consistent.
 
-The eight-node cluster shown in Figure 1, with a replication factor of 3 and a QUORUM (two nodes are read or written for consistency) read/write consistency level, can survive the theoretical loss of one node per replication group before the applications start noticing the failure. This scenario assumes that all the keyspaces have well-balanced read/write requests. 
+The eight-node cluster shown in Figure 1 has a replication factor of 3 and a QUORUM (two nodes are read or written for consistency) read/write consistency level. The cluster can survive the theoretical loss of one node per replication group before applications start to notice the failure. This scenario assumes that all the keyspaces have well-balanced read/write requests. 
 
 The following parameters are used for the deployed cluster.
 
@@ -89,26 +91,26 @@ The following parameters are used for the deployed cluster.
 | Consistency level (write) |QUORUM [(RF/2) +1) = 2] The result of the formula is rounded down. |Writes at the most two replicas before the response is sent to the caller. A third replica is written in an eventually consistent manner. |
 | Consistency level (read) |QUORUM [(RF/2) +1 = 2] The result of the formula is rounded down. |Reads two replicas before a response is sent to the caller. |
 | Replication strategy |NetworkTopologyStrategy For more information, see [Data replication](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) in the Cassandra documentation. |Understands the deployment topology and places replicas on nodes so that all the replicas don’t end up on the same rack. |
-| Snitch |GossipingPropertyFileSnitch For more information, see [Snitches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) in the Cassandra documentation. |NetworkTopologyStrategy uses the concept of a snitch to understand the topology. GossipingPropertyFileSnitch gives better control in mapping each node to the datacenter and the rack. The cluster then uses gossip to propagate this information. This configuration is simpler in a dynamic IP setting relative to PropertyFileSnitch. |
+| Snitch |GossipingPropertyFileSnitch For more information, see [Snitches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) in the Cassandra documentation. |NetworkTopologyStrategy uses the snitch concept to understand the topology. GossipingPropertyFileSnitch gives better control in mapping each node to the datacenter and the rack. The cluster then uses gossip to propagate this information. This configuration is simpler in a dynamic IP setting compared to PropertyFileSnitch. |
 
-**Azure considerations for a Cassandra cluster:** Microsoft Azure Virtual Machines uses Azure Blob storage for disk persistence. Azure Storage saves three replicas of each disk for high durability. This redundancy means that each row of data inserted into a Cassandra table is already stored in three replicas. So data consistency is already taken care of even if the replication factor is 1. 
+**Azure considerations for a Cassandra cluster:** Microsoft Azure Virtual Machines uses Azure Blob storage for disk persistence. Azure Storage saves three replicas of each disk for high durability. This redundancy means that each row of data inserted into a Cassandra table is already stored in three replicas. So, data consistency is already taken care of even if the replication factor is 1. 
 
-The main problem with the replication factor being 1 is that the application experiences downtime even if a single Cassandra node fails. If a node is down for problems such as hardware or system software failures that are recognized by Azure Fabric Controller, it provisions a new node in its place by using the same storage drives. Provisioning a new node to replace the old one might take a few minutes. 
+The main problem with the replication factor being 1 is that the application experiences downtime even if a single Cassandra node fails. A node might be down for problems such as hardware or system software failures. If Azure Fabric Controller recognizes the problem, it uses the same storage drives to provision a new node in its place. Provisioning a new node to replace the old one might take a few minutes. 
 
-Similarly for planned maintenance activities like guest OS changes, Cassandra upgrades, and application changes, Azure Fabric Controller performs rolling upgrades of the nodes in the cluster. Rolling upgrades also might take down a few nodes at a time, so the cluster might experience brief downtime for a few partitions. Data isn't lost because of the built-in Azure Storage redundancy.
+Azure Fabric Controller also carries out rolling upgrades of the nodes in the cluster for planned maintenance activities. These activities include guest OS changes, Cassandra upgrades, and application changes. Rolling upgrades might take down a few nodes at a time, so the cluster might experience brief downtime for a few partitions. Data isn't lost because of the built-in Azure Storage redundancy.
 
-For systems deployed to Azure that don’t require high availability (for example, around 99.9, which is equivalent to 8.76 hours per year), you might be able to run with RF=1 and consistency level=ONE. For more information, see [High availability](http://en.wikipedia.org/wiki/High_availability). 
+For systems deployed to Azure that don’t require high availability, for example, around 99.9, which is about to 8.76 hours per year, you might run with RF=1 and consistency level=ONE. For more information, see [High availability](http://en.wikipedia.org/wiki/High_availability). 
 
-For applications with high-availability requirements, RF=3 and consistency level=QUORUM tolerate the downtime of one of the nodes of one replica. You can’t use RF=1 in traditional deployments (for example, on-premises) because of the possible data loss that results from problems like disk failures.
+For applications with high-availability requirements, RF=3 and consistency level=QUORUM tolerate the downtime of one of the nodes of one replica. You can’t use RF=1 in traditional deployments like on-premises. Data loss might result from problems like disk failures.
 
 ## Multiple-region deployment
-Cassandra’s datacenter-aware replication and consistency model helps with multiple-region deployment without the need for any external tooling. This setup is different from traditional relational databases where the setup for database mirroring for multi-master writes can be complex. Using Cassandra in a multiple-region setup can help with the following usage scenarios.
+Cassandra’s datacenter-aware replication and consistency model helps with multiple-region deployment without the need for any external tooling. This setup is different from traditional relational databases where the setup for database mirroring for multi-master writes can be complex. Using Cassandra in a multiple-region setup can help with the following usage scenarios:
 
-**Proximity-based deployment:** Multi-tenant applications, with clear mapping of tenant users-to-region, can benefit from the multiple-region cluster’s low latencies. For example, a learning management system for educational institutions can deploy a distributed cluster in East US and West US regions to serve respective campuses for transactional and analytics. The data can be locally consistent at the time of reads and writes and can be eventually consistent across both regions. There are other examples like media distribution and e-commerce. Anything that serves a geo-concentrated user base is a good use case for this deployment model.
+**Proximity-based deployment:** Multi-tenant applications, with clear mapping of tenant users-to-region, benefit from the multiple-region cluster’s low latencies. For example, a learning management system for educational institutions might deploy a distributed cluster in East US and West US regions to serve respective campuses for transactional and analytics. The data can be locally consistent at the time of reads and writes and can be eventually consistent across both regions. There are other examples like media distribution and e-commerce. Anything that serves a geo-concentrated user base is a good use case for this deployment model.
 
-**High availability:** Redundancy is a key factor in attaining high availability of software and hardware. For more information, see "Build reliable cloud systems on Microsoft Azure." 
+**High availability:** Redundancy is a key factor in achieving high availability of software and hardware. For more information, see "Build reliable cloud systems on Microsoft Azure." 
 
-On Microsoft Azure, the only reliable way to achieve true redundancy is to deploy a multiple-region cluster. Applications can be deployed in an active-active or active-passive mode. If one region is down, Azure Traffic Manager can redirect traffic to the active region. With single-region deployment, if availability is 99.9, a two-region deployment can attain availability of 99.9999 computed by the formula (1-(1-0.999) * (1-0.999)) * 100). For more information, see the previous paper.
+On Microsoft Azure, the only reliable way to achieve true redundancy is to deploy a multiple-region cluster. You can deploy applications in an active-active or active-passive mode. If one region is down, Azure Traffic Manager redirects traffic to the active region. With single-region deployment, if availability is 99.9, a two-region deployment can achieve availability of 99.9999 computed by the formula (1-(1-0.999) * (1-0.999)) * 100). For more information, see the previous paper.
 
 **Disaster recovery:** A multiple-region Cassandra cluster, if properly designed, can withstand catastrophic datacenter outages. If one region is down, the application deployed to other regions can start serving the users. Like any other business continuity implementations, the application must be tolerant of some data loss that results from the data in the asynchronous pipeline. Cassandra makes recovery much faster than the time required by traditional database recovery processes. 
 
@@ -119,9 +121,9 @@ Figure 2 shows a typical multiple-region deployment model with eight nodes in ea
 Figure 2: Multiple-region Cassandra deployment
 
 ### Network integration
-Sets of virtual machines deployed to private networks located on two regions communicate with each other by using a VPN tunnel. The VPN tunnel connects two software gateways provisioned during the network deployment process. Both regions have similar network architecture in terms of "web" and "data" subnets. 
+Sets of virtual machines that are deployed to private networks located on two regions use a VPN tunnel to communicate with each other. The VPN tunnel connects two software gateways provisioned during the network deployment process. Both regions have similar network architecture in terms of "web" and "data" subnets. 
 
-Azure networking allows for the creation of as many subnets as are needed and applies ACLs as needed by network security. You must consider inter-datacenter communication latency and the economic effect of network traffic in your cluster topology design. 
+Azure networking allows for the creation of as many subnets as are needed and applies ACLs as needed by network security. Consider inter-datacenter communication latency and the economic effect of network traffic in your cluster topology design. 
 
 ### Data consistency for multiple-datacenter deployment
 Distributed deployments must be aware of the cluster topology impact on throughput and high availability. The RF and consistency level must be selected in such a way that the quorum doesn’t depend on the availability of all the datacenters.
@@ -137,7 +139,7 @@ For a system that needs high consistency, LOCAL_QUORUM for consistency level (fo
 | Consistency level (write) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] The result of the formula is rounded down. |Two nodes are written to the first datacenter synchronously. The additional two nodes needed for quorum are written asynchronously to the second datacenter. |
 | Consistency level (read) |LOCAL_QUORUM ((RF/2) +1) = 2 The result of the formula is rounded down. |Read requests are satisfied from only one region. Two nodes are read before the response is sent back to the client. |
 | Replication strategy |NetworkTopologyStrategy For more information, see [Data replication](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) in the Cassandra documentation. |Understands the deployment topology and places replicas on nodes so that all the replicas don’t end up on the same rack. |
-| Snitch |GossipingPropertyFileSnitch For more information, see [Snitches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) in the Cassandra documentation. |NetworkTopologyStrategy uses the concept of a snitch to understand the topology. GossipingPropertyFileSnitch gives better control in mapping each node to the datacenter and the rack. The cluster then uses gossip to propagate this information. This configuration is simpler in a dynamic IP setting relative to PropertyFileSnitch. |
+| Snitch |GossipingPropertyFileSnitch For more information, see [Snitches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) in the Cassandra documentation. |NetworkTopologyStrategy uses the snitch concept to understand the topology. GossipingPropertyFileSnitch gives better control in mapping each node to the datacenter and the rack. The cluster then uses gossip to propagate this information. This configuration is simpler in a dynamic IP setting compared to PropertyFileSnitch. |
 
 ## Software configuration
 The following software versions are used during deployment.
@@ -152,13 +154,13 @@ The following software versions are used during deployment.
 
 To simplify the deployment, download all the required software to the desktop. Then upload it to the Ubuntu template image to create a precursor to the cluster deployment.
 
-Download the software into a well-known download directory, such as, %TEMP%/downloads on Windows or ~/Downloads on most Linux distributions or Mac, on the local computer.
+Download the software into a well-known download directory on the local computer. Use a directory such as %TEMP%/downloads on Windows or ~/Downloads for most Linux distributions or Mac.
 
 ### Create an Ubuntu VM
 Create an Ubuntu image with the prerequisite software. You reuse the image to provision several Cassandra nodes.
 
 #### Step 1: Generate an SSH key pair
-Azure needs an X509 public key that is either PEM or DER encoded at the provisioning time. Generate a public/private key pair by following the instructions in "How to use SSH with Linux on Azure." If you plan to use putty.exe as an SSH client either on Windows or Linux, convert the PEM-encoded RSA private key to public/private key format by using puttygen.exe. For instructions on how to do this, see the previous webpage.
+Azure needs an X509 public key that is either PEM or DER encoded at the provisioning time. Generate a public/private key pair by following the instructions in "How to use SSH with Linux on Azure." If you plan to use putty.exe as an SSH client either on Windows or Linux, convert the PEM-encoded RSA private key to public/private key format by using puttygen.exe. For instructions on how to do this conversion, see the previous webpage.
 
 #### Step 2: Create an Ubuntu template VM
 To create the template VM, sign in to the Azure portal. Select **New** > **Compute** > **Virtual Machine** >  **From Gallery** > **Ubuntu** > **Ubuntu Server 14.04 LTS**. Then select the right arrow. For a tutorial that describes how to create a Linux VM, see "Create a virtual machine running Linux."
@@ -168,7 +170,7 @@ Enter the following information on the first **Virtual machine configuration** s
 <table>
 <tr><th>Field name              </td><th>       Field value               </td><th>         Remarks               </td><tr>
 <tr><td>VERSION RELEASE DATE    </td><td> Select a date from the drop-down list.</td><td></td><tr>
-<tr><td>VIRTUAL MACHINE NAME    </td><td> cass-template                   </td><td> This is the hostname of the VM. </td><tr>
+<tr><td>VIRTUAL MACHINE NAME    </td><td> cass-template                   </td><td> This name is the hostname of the VM. </td><tr>
 <tr><td>TIER                     </td><td> STANDARD                           </td><td> Leave the default.              </td><tr>
 <tr><td>SIZE                     </td><td> A1                              </td><td>Select the VM based on the IO needs. For this purpose, leave the default. </td><tr>
 <tr><td> NEW USER NAME             </td><td> localadmin                       </td><td> "Admin" is a reserved user name in Ubuntu 12.xx and after.</td><tr>
@@ -190,7 +192,7 @@ Enter the following information on the second **Virtual machine configuration** 
 <tr><td>ENDPOINTS    </td><td>Use the default. </td><td>    Use the default SSH configuration. </td></tr>
 </table>
 
-Select the right arrow, and leave the defaults as shown on the third screen. Select the **Check mark** button to finish the VM provisioning process. After a few minutes, the VM with the name *ubuntu-template* appears in the **running** status.
+Select the right arrow, and leave the defaults as shown on the third screen. Select the **Check mark** button to finish the VM provisioning process. After a few minutes, the VM with the name **ubuntu-template** appears in the **running** status.
 
 ### Install the necessary software
 #### Step 1: Upload tarballs
@@ -279,11 +281,11 @@ echo "edit /etc/profile to add JRE to the PATH"
 echo "installation is complete"
 ```
 
-If you paste this script into the vim window, remove the carriage return (‘\r”) by using the following command:
+If you paste this script into the vim window, remove the carriage return ('\r') by using the following command:
 
     tr -d '\r' <infile.sh >outfile.sh
 
-#### Step 3: Edit etc./profile
+#### Step 3: Edit etc/profile
 Append the following script at the end:
 
     JAVA_HOME=/opt/java/jdk1.8.0_05
@@ -294,7 +296,7 @@ Append the following script at the end:
     export PATH
 
 #### Step 4: Install JNA for production systems
-Use the following command sequence.
+Use this command sequence.
 The following command installs jna-3.2.7.jar and jna-platform-3.2.7.jar to the /usr/share.java directory
 sudo apt-get install libjna-java.
 
@@ -305,21 +307,21 @@ Create symbolic links in the $CASS_HOME/lib directory so that the Cassandra star
     ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
 
 #### Step 5: Configure cassandra.yaml
-Edit cassandra.yaml on each VM to reflect the configuration needed by all the virtual machines. You tweak this configuration during the actual provisioning.
+Edit cassandra.yaml on each VM to show the configuration needed by all the virtual machines. You tweak this configuration during the actual provisioning.
 
 <table>
 <tr><th>Field name   </th><th> Value  </th><th>    Remarks </th></tr>
-<tr><td>cluster_name </td><td>    “CustomerService”    </td><td> Use the name that reflects your deployment.</td></tr>
+<tr><td>cluster_name </td><td>    “CustomerService”    </td><td> Use the name of your deployment.</td></tr>
 <tr><td>listen_address    </td><td>[leave it blank]    </td><td> Delete “localhost.” </td></tr>
-<tr><td>rpc_addres   </td><td>[leave it blank]    </td><td> Delete “localhost.” </td></tr>
-<tr><td>seeds    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>List of all the IP addresses that are designated as seeds.</td></tr>
+<tr><td>rpc_address   </td><td>[leave it blank]    </td><td> Delete “localhost.” </td></tr>
+<tr><td>seeds    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>List of all the IP addresses that are assigned as seeds.</td></tr>
 <tr><td>endpoint_snitch </td><td> org.apache.cassandra.locator.GossipingPropertyFileSnitch </td><td> This value is used by NetworkTopologyStrategy to infer the datacenter and the rack of the VM.</td></tr>
 </table>
 
 #### Step 6: Capture the VM image
 Sign in to the virtual machine by using the hostname (hk-cas-template.cloudapp.net) and the SSH private key that was previously created. For information on how to sign in by using SSH or putty.exe, see "How to use SSH with Linux on Azure."
 
-Follow these steps to capture the image.
+To capture the image, follow these steps.
 
 ##### 1. Deprovision
 Use the command **sudo waagent –deprovision+user** to remove virtual machine instance-specific information. For more information on the image capture process, see [How to capture a Linux virtual machine](capture-image-classic.md).
@@ -335,13 +337,13 @@ This process takes a few seconds. The image appears in the **MY IMAGES** section
 ## Single-region deployment process
 **Step 1: Create the virtual network**
 
-Sign in to the Azure portal. Use the classic deployment model to create a virtual network with the attributes shown in the following table. For information on the steps, see [Create a virtual network (classic) using the Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+Sign in to the Azure portal. Use the classic deployment model to create a virtual network with the attributes shown in this table. For information on the steps, see [Create a virtual network (classic) using the Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 <table>
 <tr><th>VM attribute name</th><th>Value</th><th>Remarks</th></tr>
 <tr><td>Name</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Region</td><td>West US</td><td></td></tr>
-<tr><td>DNS servers</td><td>None</td><td>Ignore this because we aren't using an Azure DNS server.</td></tr>
+<tr><td>DNS servers</td><td>None</td><td>Ignore this attribute because we aren't using an Azure DNS server.</td></tr>
 <tr><td>Address space</td><td>10.1.0.0/16</td><td></td></tr>
 <tr><td>Starting IP</td><td>10.1.0.0</td><td></td></tr>
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
@@ -355,7 +357,7 @@ Add the following subnets:
 <tr><td>data</td><td>10.1.2.0</td><td>/24 (251)</td><td>Subnet for the database nodes</td></tr>
 </table>
 
-Data and web subnets can be protected through network security groups. How to do that is out of scope for this article.
+Data and web subnets can be protected through network security groups. That subject is out of scope for this article.
 
 **Step 2: Provision virtual machines**
 
@@ -382,7 +384,7 @@ Follow these steps to create the list of VMs.
 3. Add an internal load balancer to the cloud service, and attach it to the “data” subnet.
 4. For each VM you created, add a load-balanced endpoint for thrift traffic. The traffic runs through a load-balanced set connected to the previously created internal load balancer.
 
-You can carry out these steps by using the Azure portal. Use a Windows machine, or use a VM on Azure if you don't have access to a Windows machine. Use the following PowerShell script to provision all eight VMs automatically.
+You can use the Azure portal to do these steps. Use a Windows machine, or use a VM on Azure if you don't have access to a Windows machine. Use the following PowerShell script to provision all eight VMs automatically.
 
 **PowerShell script used to provision virtual machines**
 
@@ -443,7 +445,7 @@ foreach($vmName in $vmNames)
 
 **Step 3: Configure Cassandra on each VM**
 
-Sign in to the VM, and do the following:
+Sign in to the VM, and then:
 
 * Edit **$CASS_HOME/conf/cassandra-rackdc.properties** to specify the datacenter and rack properties.
   
@@ -454,7 +456,7 @@ Sign in to the VM, and do the following:
 
 **Step 4: Start the VMs, and test the cluster**
 
-Sign in to one of the nodes, for example, **hk-c1-west-us**. To see the status of the cluster, run the following command:
+Sign in to one of the nodes, for example, hk-c1-west-us. To see the status of the cluster, run the following command:
 
        nodetool –h 10.1.2.4 –p 7199 status
 
@@ -473,10 +475,10 @@ A display similar to this one for an eight-node cluster appears:
 </table>
 
 ## Test the single-region cluster
-Follow these steps to test the cluster.
+To test the cluster, follow these steps.
 
-1. Using the **PowerShell Get-AzureInternalLoadbalancer** cmdlet, get the IP address of the internal load balancer, for example, 10.1.2.101. The syntax of the command is **Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us.”** The details of the internal load balancer display along with its IP address.
-2. Sign in to the web farm VM, for example, **hk-w1-west-us**, by using PuTTY or SSH.
+1. Using the **PowerShell Get-AzureInternalLoadbalancer** cmdlet, get the IP address of the internal load balancer, for example, 10.1.2.101. The syntax of the command is Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us." The details of the internal load balancer display along with its IP address.
+2. Sign in to the web farm VM, for example, hk-w1-west-us, by using PuTTY or SSH.
 3. Run **$CASS_HOME/bin/cqlsh 10.1.2.101 9160**.
 4. To verify if the cluster is working, use the following CQL commands:
    
@@ -509,9 +511,9 @@ Sign in to the Azure portal, and create a virtual network with the attributes sh
 <tr><th>Attribute name    </th><th>Value    </th><th>Remarks</th></tr>
 <tr><td>Name    </td><td>vnet-cass-east-us</td><td></td></tr>
 <tr><td>Region    </td><td>East US</td><td></td></tr>
-<tr><td>DNS servers        </td><td></td><td>Ignore this because we aren't using an Azure DNS server.</td></tr>
-<tr><td>Configure a point-to-site VPN</td><td></td><td>        Ignore this.</td></tr>
-<tr><td>Configure a site-to-site VPN</td><td></td><td>        Ignore this.</td></tr>
+<tr><td>DNS servers        </td><td></td><td>Ignore this attribute because we aren't using an Azure DNS server.</td></tr>
+<tr><td>Configure a point-to-site VPN</td><td></td><td>        Ignore this attribute.</td></tr>
+<tr><td>Configure a site-to-site VPN</td><td></td><td>        Ignore this attribute.</td></tr>
 <tr><td>Address space    </td><td>10.2.0.0/16</td><td></td></tr>
 <tr><td>Starting IP    </td><td>10.2.0.0    </td><td></td></tr>
 <tr><td>CIDR    </td><td>/16 (65531)</td><td></td></tr>
@@ -555,7 +557,7 @@ On the dashboards for both virtual networks, select **CREATE GATEWAY** to start 
 Edit both local networks to replace the placeholder gateway IP address with the real IP address of the gateways you provisioned. Use the following mapping:
 
 <table>
-<tr><th>Local Network    </th><th>Virtual Network Gateway</th></tr>
+<tr><th>Local network    </th><th>Virtual network gateway</th></tr>
 <tr><td>hk-lnet-map-to-east-us </td><td>Gateway of hk-vnet-west-us</td></tr>
 <tr><td>hk-lnet-map-to-west-us </td><td>Gateway of hk-vnet-east-us</td></tr>
 </table>
@@ -573,7 +575,7 @@ In the Azure portal, use the **DASHBOARD** menu of both virtual networks to esta
 
 **Step 8: Create the virtual machines in region #2**
 
-Create the Ubuntu image as described in region #1 deployment by following the same steps. Or copy the image VHD file to the Azure Storage account located in region #2, and create the image. Use this image to create the following list of virtual machines into a new cloud service **hk-c-svc-east-us**:
+Create the Ubuntu image as described in the region #1 deployment by following the same steps. Or copy the image VHD file to the Azure Storage account located in region #2, and create the image. Use this image to create the following list of virtual machines into a new cloud service hk-c-svc-east-us:
 
 | Machine name | Subnet | IP address | Availability set | DC/Rack | Seed? |
 | --- | --- | --- | --- | --- | --- |
@@ -587,7 +589,7 @@ Create the Ubuntu image as described in region #1 deployment by following the sa
 | hk-w1-east-us |web |10.2.1.4 |hk-w-aset-1 |N/A |N/A |
 | hk-w2-east-us |web |10.2.1.5 |hk-w-aset-1 |N/A |N/A |
 
-Follow the same instructions as region #1, but use the 10.2.xxx.xxx address space.
+Follow the same instructions as for region #1, but use the 10.2.xxx.xxx address space.
 
 **Step 9: Configure Cassandra on each VM**
 
@@ -619,16 +621,16 @@ By now, Cassandra is deployed to 16 nodes with 8 nodes in each Azure region. The
 
 **Step 2: Run the following commands in the West region after you sign into hk-w1-west-us**
 
-1. Run $CASS_HOME/bin/cqlsh 10.1.2.101 9160
+1. Run **$CASS_HOME/bin/cqlsh 10.1.2.101 9160**.
 2. Run the following CQL commands:
    
-     CREATE KEYSPACE customers_ks
-     WITH REPLICATION = { 'class' : 'NetworkToplogyStrategy', 'WESTUS' : 3, 'EASTUS' : 3};
-     USE customers_ks;
-     CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
-     INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
-     INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
-     SELECT * FROM Customers;
+         CREATE KEYSPACE customers_ks
+         WITH REPLICATION = { 'class' : 'NetworkToplogyStrategy', 'WESTUS' : 3, 'EASTUS' : 3};
+         USE customers_ks;
+         CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
+         INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
+         INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
+         SELECT * FROM Customers;
 
 A display like this one appears:
 
@@ -639,7 +641,7 @@ A display like this one appears:
 
 **Step 3: Run the following commands in the East region after you sign into hk-w1-east-us**
 
-1. Run $CASS_HOME/bin/cqlsh 10.2.2.101 9160
+1. Run **$CASS_HOME/bin/cqlsh 10.2.2.101 9160**.
 2. Run the following CQL commands:
    
          USE customers_ks;
@@ -655,15 +657,15 @@ The same display as seen for the West region appears:
 | 1 |John |Doe |
 | 2 |Jane |Doe |
 
-Run a few more inserts, and see that those get replicated to the west-us part of the cluster.
+Run a few more inserts, and see that those inserts get replicated to the west-us part of the cluster.
 
 ## Test the Cassandra cluster from Node.js
-Using one of the Linux VMs you created in the "web" tier previously, run a simple Node.js script to read the previously inserted data.
+Using one of the Linux VMs you created in the "web" tier previously, run a Node.js script to read the previously inserted data.
 
 **Step 1: Install Node.js and the Cassandra client**
 
 1. Install Node.js and npm.
-2. Install the node package "cassandra-client" by using npm.
+2. Install the node package **cassandra-client** by using npm.
 3. Run the following script at the shell prompt that displays the json string of the retrieved data:
     
     ```
@@ -750,7 +752,7 @@ Using one of the Linux VMs you created in the "web" tier previously, run a simpl
     ```
 
 ## Conclusion
-Microsoft Azure is a flexible platform that runs Microsoft and open source software, as demonstrated by this exercise. You can deploy highly available Cassandra clusters on a single datacenter by spreading the cluster nodes across multiple fault domains. Cassandra clusters also can be deployed across multiple geographically distant Azure regions for disaster-proof systems. Use Azure and Cassandra together to construct highly scalable, highly available, and disaster-recoverable cloud services for your internet-scale services.
+Microsoft Azure is a flexible platform that runs Microsoft and open-source software, as demonstrated by this exercise. You can deploy highly available Cassandra clusters on a single datacenter by spreading the cluster nodes across multiple fault domains. Cassandra clusters also can be deployed across multiple geographically distant Azure regions for disaster-proof systems. Use Azure and Cassandra together to construct highly scalable, highly available, and disaster-recoverable cloud services for your internet-scale services.
 
 ## References
 * [Apache Cassandra](http://cassandra.apache.org)
