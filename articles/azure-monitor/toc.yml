@@ -701,6 +701,8 @@
         items:
         - name: Examples
           href: log-query/examples.md
+        - name: Smart analytics
+          href: log-query/smart-analytics.md
         - name: Cross-resource searches
           href: log-query/cross-workspace-query.md
         - name: app expression

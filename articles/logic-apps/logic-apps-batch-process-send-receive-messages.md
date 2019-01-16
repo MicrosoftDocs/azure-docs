@@ -8,7 +8,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
-ms.date: 08/19/2018
+ms.date: 01/16/2019
 ---
 
 # Send, receive, and batch process messages in Azure Logic Apps
@@ -91,11 +91,21 @@ Select this trigger: **Batch messages**
    |----------|-------------|
    | **Batch Mode** | - **Inline**: For defining release criteria inside the batch trigger <br>- **Integration Account**: For defining multiple release criteria configurations through an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). With an integration account, you can maintain these configurations all in one place rather than in separate logic apps. | 
    | **Batch Name** | The name for your batch, which is "TestBatch" in this example, and applies only to **Inline** batch mode |  
-   | **Release Criteria** | Applies only to **Inline** batch mode and selects the criteria to meet before processing each batch: <p>- **Message count based**: The number of messages to collect in the batch, for example, 10 messages <br>- **Size based**: The maximum batch size in bytes, for example, 10 MB <br>- **Schedule based**: The interval and frequency between batch releases, for example, 10 minutes. The minimum recurrence is 60 seconds or 1 minute. Fractional minute values are effectively rounded up to 1 minute. To specify a start date and time, choose **Show advanced options**. <br>- **Select all**: Use all the specified criteria. | 
+   | **Release Criteria** | Applies only to **Inline** batch mode and selects the criteria to meet before processing each batch: <p>- **Message count based**: Release the batch based on the number of messages collected by the batch. <br>- **Size based**: Release the batch based on the total size in bytes for all messages collected by that batch. <br>- **Schedule**: Release the batch based on a recurrence schedule, which specifies an interval and frequency. In the advanced options, you can also select a time zone and provide a start date and time. <br>- **Select all**: Use all the specified criteria. | 
+   | **Message Count** | The number of messages to collect in the batch, for example, 10 messages. A batch's limit is 8,000 messages. | 
+   | **Batch Size** | The total size in bytes to collect in the batch, for example, 10 MB. A batch's size limit is 80 MB. | 
+   | **Schedule** | The interval and frequency between batch releases, for example, 10 minutes. The minimum recurrence is 60 seconds or 1 minute. Fractional minutes are effectively rounded up to 1 minute. To specify a time zone or a start date and time, choose **Show advanced options**. | 
    ||| 
 
+   > [!NOTE]
+   > 
+   > If you change the release criteria while the 
+   > trigger still has batched but unsent messages, 
+   > the trigger uses the updated release criteria 
+   > for handling the unsent messages. 
+
    This example shows all the criteria, 
-   but for your own testing, select only one criteria:
+   but for your own testing, try just one criterion:
 
    ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
 

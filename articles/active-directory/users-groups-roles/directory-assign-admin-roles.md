@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 01/16/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -46,7 +46,8 @@ The following administrator roles are available:
 
 * **[Cloud Device Administrator](#cloud-device-administrator)**: Users in this role can enable, disable, and delete devices in Azure AD and read Windows 10 BitLocker keys (if present) in the Azure portal. The role does not grant permissions to manage any other properties on the device.
 
-* **[Compliance Administrator](#compliance-administrator)**: Users with this role have management permissions within in the Office 365 Security & Compliance Center and Exchange Admin Center. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Compliance Administrator](#compliance-administrator)**: Users with this role have permissions to manage compliance-related features in the Microsoft 365 compliance center, Microsoft 365 security center, Microsoft 365 admin center, and Azure. Users can also manage all features within the Exchange admin center, Compliance Manager, and Teams & Skype for Business admin center and create support tickets for Azure and Microsoft 365. More information is available at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d). 
+
 
 * **[Conditional Access Administrator](#conditional-access-administrator)**: Users with this role have the ability to manage Azure Active Directory conditional access settings.
   > [!NOTE]
