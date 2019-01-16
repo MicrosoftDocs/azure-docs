@@ -130,17 +130,15 @@ When you download activity logs in the Azure portal, we limit the scale to 5000 
 
 You can leverage [Azure AD Reporting APIs](concept-reporting-api.md) to fetch up to a million records at any given point. Our recommended approach is to [run a script on a scheduled basis](tutorial-signin-logs-download-script.md) that calls the reporting APIs to fetch records in an incremental fashion over a period of time (for example, daily or weekly). 
 
-# Troubleshoot: Missing data in the Azure Active Directory activity logs 
+### Missing audit data for recent actions in the Azure portal
 
-## I can't find audit logs for recent actions in the Azure portal
-
-### Symptoms
+#### Symptoms
 
 I performed some actions in the Azure portal and expected to see the audit logs for those actions in the `Activity logs > Audit Logs` blade, but I can’t find them.
 
  ![Reporting](./media/troubleshoot-missing-audit-data/01.png)
  
-### Cause
+#### Cause
 
 Actions don’t appear immediately in the activity logs. The table below enumerates our latency numbers for activity logs. 
 
@@ -149,11 +147,11 @@ Actions don’t appear immediately in the activity logs. The table below enumera
 | Directory audit | &nbsp; | 2 mins | 5 mins |
 | Sign-in activity | &nbsp; | 2 mins | 5 mins | 
 
-### Resolution
+#### Resolution
 
 Wait for 15 minutes to two hours and see if the actions appear in the log. If you don’t see the logs even after two hours, please [file a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) and we will look into it.
 
-### I can’t find recent user sign-ins in the Azure Active Directory sign-ins activity log
+### Missing logs for recent user sign-ins in the Azure AD sign-ins activity log
 
 #### Symptoms
 
