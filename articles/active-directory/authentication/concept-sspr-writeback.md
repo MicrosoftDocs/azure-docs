@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 01/16/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -38,7 +38,7 @@ Password writeback provides:
 * **Doesn’t require any inbound firewall rules**: Password writeback uses an Azure Service Bus relay as an underlying communication channel. All communication is outbound over port 443.
 
 > [!Note]
-> User accounts that exist within protected groups in on-premises Active Directory cannot be used with password writeback. For more information about protected groups, see [Protected accounts and groups in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+> User accounts that exist within protected groups in on-premises Active Directory cannot be used with password writeback. Administrator accounts that exist within protected groups in on-premises AD can be used with password writeback. For more information about protected groups, see [Protected accounts and groups in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
 >
 
 ## Licensing requirements for password writeback
