@@ -3,15 +3,16 @@ title: What to do in the event of an Azure Storage outage | Microsoft Docs
 description: What to do in the event of an Azure Storage outage
 services: storage
 author: tamram
+
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
 ---
 
-# What to do if an Azure Storage outage occurs
+# Planning for an Azure Storage outage
+
 At Microsoft, we work hard to make sure our services are always available. Sometimes, forces beyond our control impact us in ways that cause unplanned service outages in one or more regions. To help you handle these rare occurrences, we provide the following high-level guidance for Azure Storage services.
 
 ## How to prepare
