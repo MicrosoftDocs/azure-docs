@@ -12,24 +12,29 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/11/2019
 abstract:
-  description: Microsoft Healthcare APIs are a set of services in Azure that provide interfaces for integrating healthcare data. The services are built around the emerging FHIR standard. Learn how Microsoft Healthcare APIs can power healthcare iteroperability in Azure.
+  description: The Microsoft Healthcare API for FHIR&reg; is a multi-tenant, globally scalable implementation of a Fast Healthcare Interoperable Resources (FHIR) server as an Azure Platform as a Service (PaaS) offering. The API for FHIR enables organizations to take advantage of a fully managed implementation of the FHIR specification and data management to support secure handling of Protected Health Information (PHI). 
 sections:
 - title: 5-Minute Quickstarts
   items:
-  - type: paragraph
-    text: 'Learn how to deploy an Open Source FHIR Server in Azure:'
-  - type: list
-    style: icon48
-    items: 
-    - image:
-        src: media/index/portal.svg
-      text: Portal
-      href: fhir-oss-portal-quickstart.md
-    - image:
-        src: media/index/powershell.svg
-      text: PowerShell
-      href: fhir-oss-powershell-quickstart.md
-    - image:
-        src: media/index/cli.svg
-      text: CLI
-      href: fhir-oss-cli-quickstart.md
+    - type: paragraph
+      text: Learn how Microsoft Healthcare APIs can power healthcare iteroperability in Azure by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
+    - type: table
+      style: dataMatrix
+      columns:
+        - image:
+            src: media/index/portal.svg
+        - image:
+            src: media/index/powershell.svg
+        - image:
+            src: media/index/cli.svg
+      rows:
+        - title: Deploy Microsoft Healthcare APIs
+          values:
+          - href: fhir-paas-portal-quickstart.md
+          - href: fhir-paas-powershell-quickstart.md
+          - href: fhir-paas-cli-quickstart.md
+        - title: Deploy Open Source FHIR Server
+          values:
+          - href: fhir-oss-portal-quickstart.md
+          - href: fhir-oss-powershell-quickstart.md
+          - href: fhir-oss-cli-quickstart.md
