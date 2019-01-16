@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
+ms.date: 01/16/2019
 ms.author: cwatson
 ---
 # Understand how the Red Hat Linux Enterprise software reservation plan discount is applied for Azure
@@ -39,83 +39,119 @@ The ratio for 5 or more vCPUs is 2.6. So a reservation for Red Hat with a VM wit
 
 The following tables show the software plans you can buy a reservation for, their associated usage meters, and the ratios for each.
 
-### Red Hat Enterprise Linux 6.9
+### Red Hat Enterprise Linux
 
-Azure portal marketplace name:
+Azure portal marketplace names:
 
-- SLES 12 SP3 for HPC (Priority)
+- Red Hat Enterprise Linux 6.7
+- Red Hat Enterprise Linux 6.8
+- Red Hat Enterprise Linux 6.9
+- Red Hat Enterprise Linux 6.10
+- Red Hat Enterprise Linux 7.2
+- Red Hat Enterprise Linux 7.3
+- Red Hat Enterprise Linux 7.4
+- Red Hat Enterprise Linux 7.5
+- Red Hat Enterprise Linux 7.6
+- Red Hat Enterprise Linux 7 (latest lvm)
 
 |Red Hat VM | MeterId| Ratio| Example VM size|
 | -------| ------------------------| --- |--- |
-|SLES for HPC 1-2 vCPUs|e275a668-ce79-44e2-a659-f43443265e98|1|D2s_v3|
-|SLES for HPC 3-4 vCPUs|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2|D4s_v3|
-|SLES for HPC 5+ vCPUs|4edcd5a5-8510-49a8-a9fc-c9721f501913|2.6|D8s_v3|
+|1-4 vCPU VM License|077a07bb-20f8-4bc6-b596-ab7211a1e247|||
+|1-4 vCPU VM License|2f96d035-3bac-46d6-b2bc-c6daa0938536|||
+|1-4 vCPU VM License|4831a7b4-bdd4-48a2-8e95-18d053971ede|||
+|5+ vCPU VM License|291b2cbc-6c34-4e2b-a4e4-1ff8c106f672|||
+|5+ vCPU VM License|3b6661c4-03dd-45e7-88c9-512fcb7906d5|||
+|5+ vCPU VM License|037eddc0-fedd-4d73-b5d8-92fba9edb831|||
+|5+ vCPU VM License|432cdeee-4034-4ddf-9ba4-9250a19b0d5f|||
+|5+ vCPU VM License|794dcb90-0793-43e6-9909-70d29974e56d|||
+|5+ vCPU VM License|86b5b0b4-3c19-4720-82e9-874f8c58b48e|||
+|5+ vCPU VM License|86c35ec3-0a48-426a-9625-22d80e6ea55b|||
+|5+ vCPU VM License|8b698c7a-47f1-4cba-8ae1-9853d5ad562d|||
+|5+ vCPU VM License|a4daffb4-96f4-4fc5-b1e6-fd3a2cf3595e|||
+|5+ vCPU VM License|a838cfb1-0bd3-4965-84f0-663f49afc2e2|||
+|5+ vCPU VM License|99aed7b9-a0a9-4783-b90c-be7c2f3c7e30|||
+|5+ vCPU VM License|d09f877e-03b4-48b2-b11a-782b965cff19|||
+|44 vCPU VM License|6f44ae85-a70e-44be-83ec-153a0bc23979|||
+|60 vCPU VM License|b9edcc5b-a429-4778-bc5a-82e7fa07fe55|||
 
-### Red Hat Enterprise Linux 6.10
+### Red Hat Enterprise Linux for SAP with HA
 
 Azure portal marketplace name:
 
-- SLES 12 SP3 for HPC
+- ?
 
 |Red Hat VM | MeterId | Ratio|Example VM size|
 | ------- | --- | ------------------------| --- | --- |
-|SLES for HPC 1-2 vCPUs |8c94ad45-b93b-4772-aab1-ff92fcec6610|1|D2s_v3|
-|SLES for HPC 3-4 vCPUs|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1.92308|D4s_v3|
-|SLES for HPC 5+ vCPUs |907a85de-024f-4dd6-969c-347d47a1bdff|2.92308|D8s_v3|
+|1-4 vCPU VM License |4d902611-eed7-4060-a33e-3c7fdbac6406|||
+|5+ vCPU VM License|6dfb482b-23ea-487f-810c-e66360f025de|||
 
-### Red Hat Enterprise Linux 7.5
+### Red Hat Enterprise Linux with HA
 
 Azure portal marketplace names:
 
-- SLES for SAP 15 (Priority)
-- SLES for SAP 12 SP3 (Priority)
-- SLES for SAP 12 SP2 (Priority)
+- ?
 
 |Red Hat VM | MeterId | Ratio|Example VM size|
 | ------- |------------------------| --- | --- |
-|SLES for SAP Priority 1-2 vCPUs|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
-|SLES for SAP Priority 3-4 vCPUs |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
-|SLES for SAP Priority 5+ vCPUs |18ae79cd-dfce-48c9-897b-ebd3053c6058|2.41176|D8s_v3|
+|1-4 vCPU VM License|e9711132-d9d9-450c-8203-25cfc4bce8de|||
+|5+ vCPU VM License|93954aa4-b55f-4b7b-844d-a119d6bf3c4e|||
 
-### Red Hat Enterprise Linux 7.5 for SAP
-
-Azure portal marketplace names:
-
-- SLES 15 (PRIORITY)
-- SLES 12 SP3 (Priority)
-- SLES 11 SP4 (Priority)
-
-|Red Hat VM | MeterId | Ratio|Example VM size|
-| ------- |------------------------| --- |--- |
-|SLES 1 vCPU|462cd632-ec6b-4663-b79f-39715f4e8b38|1|B1ms|
-|SLES 2-4 vCPUs |924bee71-5eb8-424f-83ed-a58823c33908|2|D4s_v3|
-|SLES 2-4 vCPUs |60b3ae9d-e77a-46b2-9cdf-92fa87407969|2|D4s_v3|
-|SLES 6 vCPUs |e8862232-6131-4dbe-bde4-e2ae383afc6f|3||
-|SLES 8 vCPUs |e11331a8-fd32-4e71-b60e-4de2a818c67a|3.2|D8s_v3|
-|SLES 12 core vCPUs |a5afd00d-d3ef-4bcd-8b42-f158b2799782|3.2||
-|SLES 16 vCPUs |bb21066f-fe46-46d3-8006-b326b1663e52|3.2| D16s_v3|
-|SLES 20 vCPUs |c5228804-1de6-4bd4-a61c-501d9003acc8|3.2| |
-|SLES 24 cores vCPUs |-005d-4075-ac11-822ccde9e8f6|3.2| ND24s|
-|SLES 32 vCPUs |180c1a0a-b0a5-4de3-a032-f92925a4bf90|3.2| D32s_v3|
-|SLES 40 cores vCPUs |a161d3d3-0592-4956-9b64-6829678b6506|3.2||
-|SLES 64 vCPUs |7f5a36ed-d5b5-4732-b6bb-837dbf0fb9d8|3.2| D64s_v3|
-|SLES 72 cores vCPUs |93329a72-24d7-4faa-93d9-203f367ed334|3.2|F72s_v2|
-|SLES 96 cores vCPUs |2018c3a8-ff13-41f8-b64d-9558c5206547|3.2||
-|SLES 128 cores vCPUss |ac27e4d7-44b5-4fee-bc1a-78ac5b4abaf7|3.2| M128ms|
-
-### Red Hat Enterprise Linux for 7.5
+### RHEL for SAP Business Applications
 
 Azure portal marketplace names:
 
-- SLES 15
-- SLES 15 (Standard)
-- SLES 12 SP3 (Standard)
+- Red Hat Enterprise Linux 6.8 for SAP Business Apps
+- Red Hat Enterprise Linux 7.3 for SAP Business Apps
+- Red Hat Enterprise Linux 7.4 for SAP
+- Red Hat Enterprise Linux 7.5 for SAP
 
 |Red Hat VM | MeterId | Ratio|Example VM size|
 | ------- |------------------------| --- |--- |
-|SLES 1-2 cores vCPUs |4b2fecfc-b110-4312-8f9d-807db1cb79ae|1|D2s_v3|
-|SLES 3-4 cores vCPUs |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|
-|SLES 5+ vCPUs |7b349b65-d906-42e5-833f-b2af38513468|2.30769| D8s_v3|
+|1 vCPU VM License|25889e91-c740-42ac-bc52-6b8f73b98575|||
+|2 vCPU VM License|2a0c92c8-23a7-4dc9-a39c-c4a73a85b5da|||
+|4 vCPU VM License|875898d3-3639-423c-82c1-38846281b7e8|||
+|6 vCPU VM License|69a140fa-e08e-415c-85f2-48158e4c73a0|||
+|8 vCPU VM License|777a5a74-22d6-48c9-9705-ac38fe05a278|||
+|12 vCPU VM License|d6b8917a-5127-497a-9f48-1e959df98812|||
+|16 vCPU VM License|03667e82-e009-425a-83f7-8ebddbca5af4|||
+|20 vCPU VM License|bbd65e5b-35f1-42be-b86d-6625fbc1f1a4|||
+|24 vCPU VM License|c2c07d3e-a7d0-400b-8832-b532bfd0be25|||
+|32 vCPU VM License|633d1494-5ec1-46f0-a742-eaf58eeaec7e|||
+|40 vCPU VM License|737142c3-8e4f-4fc1-aa41-05b1661edff8|||
+|44 vCPU VM License|722bda73-a8c8-4d04-b96b-541f0bb6c0c4|||
+|60 vCPU VM License|a22bb342-ba9a-4529-a178-39a92ce770b6|||
+|64 vCPU VM License|d37c8e17-e5f2-4060-881b-080dd4a8c4ce|||
+|72 vCPU VM License|14341b96-e92c-4dca-ba66-322c88a79aa6|||
+|96 vCPU VM License|8b2e5cb8-0362-4cbf-a30a-115e8d6dbc49|||
+|128 vCPU VM License|9b198a68-974a-47a7-9013-49169ac0f2e9|||
+
+### RHEL for SAP HANA
+
+Azure portal marketplace names:
+
+- Red Hat Enterprise Linux 6.7 for SAP HANA
+- Red Hat Enterprise Linux 7.2 for SAP HANA
+- Red Hat Enterprise Linux 7.3 for SAP HANA
+
+|Red Hat VM | MeterId | Ratio|Example VM size|
+| ------- |------------------------| --- |--- |
+|1 vCPU VM License|be0a59d1-eed7-47ec-becd-453267753793|||
+|2 vCPU VM License|3b97c9f5-f5d5-4fd3-a421-b78fca32a656|||
+|4 vCPU VM License|b39feb58-57bf-40f2-8193-f4fe9ac3dda3|||
+|6 vCPU VM License|a5963812-0f5a-4053-8ace-2b5babd15ed8|||
+|8 vCPU VM License|5460ab4d-ce9a-46af-8ad5-ca5e53d715b5|||
+|12 vCPU VM License|0e3bc72d-a888-4bcf-8437-119f763a3215|||
+|16 vCPU VM License|b40e95d8-3176-42f0-967c-497785c031b2|||
+|20 vCPU VM License|81f34277-499d-40a3-a634-99adc08e2d45|||
+|24 vCPU VM License|e03f1906-d35d-4084-b2cd-63281869c8ee|||
+|32 vCPU VM License|0a58c082-ceb8-4327-9b64-887c30dddb23|||
+|40 vCPU VM License|a14225c0-04e6-4669-974f-e2ddd61a9c5b|||
+|44 vCPU VM License|378b8125-d8a5-4e09-99bc-c1462534ffb0|||
+|60 vCPU VM License|5d7db11a-54e9-404e-aaa8-509fac7c0638|||
+|64 vCPU VM License|3c8157b2-a57d-45ce-ba02-bd86e9209795|||
+|72 vCPU VM License|5e87a3ee-7afb-4040-b8d9-b109ddb38f31|||
+|96 vCPU VM License|b13895fc-0d06-4de9-b860-627c471cd247|||
+|128 vCPU VM License|6e67ac0b-19d3-4289-96df-05d0093d4b3b|||
 
 ## Next steps
 
