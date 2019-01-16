@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 1/15/2019
+ms.date: 1/16/2019
 ms.author: dukek
 ms.component: logs
 ---
@@ -719,7 +719,13 @@ resource.
         "isComplianceCheck": "True",
         "resourceLocation": "westus2",
         "ancestors": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-        "policies": "[{\"policyDefinitionId\":\"/providers/Microsoft.Authorization/policyDefinitions/a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9/\",\"policySetDefinitionId\":\"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8/\",\"policyDefinitionReferenceId\":\"sqlServerAuditingMonitoring\",\"policySetDefinitionName\":\"1f3afdf9-d0c9-4c3d-847f-89da613e70a8\",\"policyDefinitionName\":\"a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9\",\"policyDefinitionEffect\":\"AuditIfNotExists\",\"policyAssignmentId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/SecurityCenterBuiltIn/\",\"policyAssignmentName\":\"SecurityCenterBuiltIn\",\"policyAssignmentScope\":\"/subscriptions/<subscriptionID>\",\"policyAssignmentSku\":{\"name\":\"A1\",\"tier\":\"Standard\"},\"policyAssignmentParameters\":{\"diagnosticsLogsInServiceFabricMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"systemUpdatesMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"systemConfigurationsMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"endpointProtectionMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"diskEncryptionMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"networkSecurityGroupsMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"webApplicationFirewallMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"sqlAuditingMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"sqlEncryptionMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"nextGenerationFirewallMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"vulnerabilityAssesmentMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"storageEncryptionMonitoringEffect\":{\"value\":\"Audit\"},\"jitNetworkAccessMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"adaptiveApplicationControlsMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"identityDesignateLessThanOwnersMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"identityDesignateMoreThanOneOwnerMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"identityEnableMFAForOwnerPermissionsMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"identityEnableMFAForWritePermissionsMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"identityEnableMFAForReadPermissionsMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"identityRemoveDeprecatedAccountWithOwnerPermissionsMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"identityRemoveDeprecatedAccountMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"identityRemoveExternalAccountWithOwnerPermissionsMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"identityRemoveExternalAccountWithWritePermissionsMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"identityRemoveExternalAccountWithReadPermissionsMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"secureTransferToStorageAccountMonitoringEffect\":{\"value\":\"Audit\"},\"aadAuthenticationInSqlServerMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"diagnosticsLogsInRedisCacheMonitoringEffect\":{\"value\":\"Audit\"},\"clusterProtectionLevelInServiceFabricMonitoringEffect\":{\"value\":\"Audit\"},\"aadAuthenticationInServiceFabricMonitoringEffect\":{\"value\":\"Audit\"},\"diagnosticsLogsInServiceBusMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"diagnosticsLogsInDataLakeAnalyticsMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"diagnosticsLogsInDataLakeStoreMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"diagnosticsLogsInBatchAccountMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"diagnosticsLogsInEventHubMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"metricAlertsInBatchAccountMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"namespaceAuthorizationRulesInServiceBusMonitoringEffect\":{\"value\":\"Audit\"},\"disableUnrestrictedNetworkToStorageAccountMonitoringEffect\":{\"value\":\"Audit\"},\"classicComputeVMsMonitoringEffect\":{\"value\":\"Audit\"},\"classicStorageAccountsMonitoringEffect\":{\"value\":\"Audit\"},\"sqlDbVulnerabilityAssesmentMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"diagnosticsLogsInKeyVaultMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"diagnosticsLogsInStreamAnalyticsMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"diagnosticsLogsInSearchServiceMonitoringEffect\":{\"value\":\"AuditIfNotExists\"},\"diagnosticsLogsInLogicAppsMonitoringEffect\":{\"value\":\"AuditIfNotExists\"}}}]"
+        "policies": "[{\"policyDefinitionId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.
+            Authorization/policyDefinitions/5775cdd5-d3d3-47bf-bc55-bb8b61746506/\",\"policyDefiniti
+            onName\":\"5775cdd5-d3d3-47bf-bc55-bb8b61746506\",\"policyDefinitionEffect\":\"Deny\",\"
+            policyAssignmentId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.Authorization
+            /policyAssignments/991a69402a6c484cb0f9b673/\",\"policyAssignmentName\":\"991a69402a6c48
+            4cb0f9b673\",\"policyAssignmentScope\":\"/subscriptions/<subscriptionID>\",\"policyAssig
+            nmentParameters\":{}}]"
     },
     "relatedEvents": []
 }
@@ -740,21 +746,21 @@ resource.
 | category | Declares the activity log event as belonging to "Policy". |
 | eventTimestamp | Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
 | id | Unique identifier of the event on the specific resource. |
-| level | Level of the event. Audit uses "Warning" and Deny uses "Error". A auditIfNotExists or deployIfNotExists can generate "Warning" or "Error" depending on severity. All other Policy events use "Informational". |
+| level | Level of the event. Audit uses "Warning" and Deny uses "Error". An auditIfNotExists or deployIfNotExists error can generate "Warning" or "Error" depending on severity. All other Policy events use "Informational". |
 | operationId | A GUID shared among the events that correspond to a single operation. |
 | operationName | Name of the operation and directly correlates to the Policy effect. |
 | resourceGroupName | Name of the resource group for the evaluated resource. |
 | resourceProviderName | Name of the resource provider for the evaluated resource. |
 | resourceType | For new resources, it is the type being evaluated. For existing resources, returns "Microsoft.Resources/checkPolicyCompliance". |
 | resourceId | Resource ID of the evaluated resource. |
-| status | String describing the status of the Policy evaluation result. Most Policy evaluations return "Succeeded", but a Deny effect returns "Failed". |
+| status | String describing the status of the Policy evaluation result. Most Policy evaluations return "Succeeded", but a Deny effect returns "Failed". Errors in auditIfNotExists or deployIfNotExists also return "Failed". |
 | subStatus | This field is blank for Policy events. |
 | submissionTimestamp | Timestamp when the event became available for querying. |
 | subscriptionId | Azure Subscription ID. |
-| properties.isComplianceCheck | For new resources, returns "False". For existing resources, returns "True". |
+| properties.isComplianceCheck | Returns "False" when a new resource is deployed or an existing resource's Resource Manager properties are updated. All other [evaluation triggers](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) result in "True". |
 | properties.resourceLocation | The Azure region of the resource being evaluated. |
 | properties.ancestors | A comma-separated list of parent management groups ordered from direct parent to farthest grandparent. |
-| properties.policies | Includes details about the policy definition, policy assignment, and parameters used by the assignment that this Policy evaluation is a result of. |
+| properties.policies | Includes details about the policy definition, assignment, effect, and parameters that this Policy evaluation is a result of. |
 | relatedEvents | This field is blank for Policy events. |
 
 ## Mapping to diagnostic logs schema
