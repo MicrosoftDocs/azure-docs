@@ -261,7 +261,7 @@ ms.author: sngun
 ### <a name="1.8.0"/>1.8.0
 * Added the support for multi-region database accounts.
 * Added support for retry on throttled requests.  User can customize the number of retries and the max wait time by configuring the ConnectionPolicy.RetryOptions property.
-* Added a new IDocumentClient interface that defines the signatures of all DocumenClient properties and methods.  As part of this change, also changed extension methods that create IQueryable and IOrderedQueryable to methods on the DocumentClient class itself.
+* Added a new IDocumentClient interface that defines the signatures of all DocumentClient properties and methods.  As part of this change, also changed extension methods that create IQueryable and IOrderedQueryable to methods on the DocumentClient class itself.
 * Added configuration option to set the ServicePoint.ConnectionLimit for a given Azure Cosmos DB endpoint Uri.  Use ConnectionPolicy.MaxConnectionLimit to change the default value, which is set to 50.
 * Deprecated IPartitionResolver and its implementation.  Support for IPartitionResolver is now obsolete. It's recommended that you use Partitioned Collections for higher storage and throughput.
 
