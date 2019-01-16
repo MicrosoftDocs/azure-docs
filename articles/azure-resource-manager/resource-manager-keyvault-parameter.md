@@ -88,7 +88,7 @@ See [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment
 
 ## Enable access to the secret
 
-Other than setting `enabledForTemplateDeployment` to `true`, the user deploying the template must have the `Microsoft.KeyVault/vaults/deploy/action` permission for scope that contains the Key Vault including resource group and Key Vault. The [Owner](../role-based-access-control/built-in-roles.md#owner) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles both grant this access. If you create the Key Vault, you are the owner so you have the permission. If the Key Vault is under a different subscription, the owner of the Key Vault must grand the access.
+Other than setting `enabledForTemplateDeployment` to `true`, the user deploying the template must have the `Microsoft.KeyVault/vaults/deploy/action` permission for scope that contains the Key Vault including resource group and Key Vault. The [Owner](../role-based-access-control/built-in-roles.md#owner) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles both grant this access. If you create the Key Vault, you are the owner so you have the permission. If the Key Vault is under a different subscription, the owner of the Key Vault must grant the access.
 
 The following procedure shows how to create a role with the minimum permssion, and how to assign the user
 1. Create a custom role definition JSON file:
