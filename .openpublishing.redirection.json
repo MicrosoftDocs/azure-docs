@@ -19006,11 +19006,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-stack/azure-stack-kv-manage-powershell.md",
-      "redirect_url": "/azure/azure-stack/user/azure-stack-kv-manage-powershell",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-stack/azure-stack-kv-push-secret-into-vm.md",
       "redirect_url": "/azure/azure-stack/user/azure-stack-kv-push-secret-into-vm",
       "redirect_document_id": false
@@ -25219,6 +25214,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/marketplace/gtm-benefits.md",
+      "redirect_url": "/azure/marketplace/gtm-your-marketplace-benefits",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/grow-your-business-with-azure-marketplace.md",
+      "redirect_url": "/azure/marketplace/gtm-marketing-best-practices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/grow-your-business-with-appsource.md",
+      "redirect_url": "/azure/marketplace/marketplace-publishers-guide",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/marketplace/billing-options-azure-marketplace.md",
       "redirect_url": "/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations",
       "redirect_document_id": true
@@ -25286,6 +25296,91 @@
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-support-common-issues.md",
       "redirect_url": "https://cloudpartner.azure.com",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-azure-certification.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/become-publisher",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-getting-started.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/publisher-guide-by-offer-type",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-portals.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/become-publisher",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-powershell-setup.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-create-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-pre-requisites.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-push-to-production.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-push-to-staging.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-marketplace-tab",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-creation.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-create-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-creation-prerequisites.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-test-in-staging.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation-on-premise.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-post-publishing.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-update-existing-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-test-in-staging.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image",
       "redirect_document_id": false
     },
     {
