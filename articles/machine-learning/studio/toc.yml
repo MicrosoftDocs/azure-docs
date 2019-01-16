@@ -60,12 +60,6 @@
     href: sample-experiments.md
   - name: Sample datasets
     href: use-sample-datasets.md
-  - name: Customer churn example
-    href: azure-ml-customer-churn-scenario.md
-  - name: Linear regression example
-    href: linear-regression-in-azure.md
-  - name: Sentiment analysis example
-    href: text-analytics-module-tutorial.md
   - name: Azure AI Gallery
     href: gallery-how-to-use-contribute-publish.md
   - name: View and delete Gallery account data
@@ -88,9 +82,6 @@
       href: troubleshooting-creating-ml-workspace.md
     - name: Deploy using ARM
       href: deploy-with-resource-manager-template.md
-    - name: View and delete Studio account data
-      displayName: export
-      href: export-delete-personal-data-dsr.md
   - name: Import training data
     items:
     - name: Overview
@@ -192,8 +183,17 @@
       href: consume-web-service-with-web-app-template.md
     - name: Use Batch Pool
       href: dedicated-capacity-for-bes-jobs.md
-  - name: View and delete account data
-    href: export-delete-personal-data-dsr.md 
+  - name: Examples by problem type
+    items: 
+    - name: Customer churn
+      href: azure-ml-customer-churn-scenario.md
+    - name: Sentiment analysis
+      href: text-analytics-module-tutorial.md
+    - name: Revenue forecasting
+      href: linear-regression-in-azure.md
+  - name: View and delete Studio account data
+    displayName: export
+    href: export-delete-personal-data-dsr.md
 - name: Reference
   items:
   - name: Algorithm & Module reference
