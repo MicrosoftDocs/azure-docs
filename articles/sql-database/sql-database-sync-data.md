@@ -20,7 +20,27 @@ SQL Data Sync is a service built on Azure SQL Database that lets you synchronize
 > [!IMPORTANT]
 > Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
 
-## Architecture of SQL Data Sync
+## When to use Data Sync
+
+Data Sync is useful in cases where data needs to be kept up-to-date across several Azure SQL databases or SQL Server databases. Here are the main use cases for Data Sync:
+
+-   **Hybrid Data Synchronization:** With Data Sync, you can keep data synchronized between your on-premises databases and Azure SQL databases to enable hybrid applications. This capability may appeal to customers who are considering moving to the cloud and would like to put some of their application in Azure.
+
+-   **Distributed Applications:** In many cases, it's beneficial to separate different workloads across different databases. For example, if you have a large production database, but you also need to run a reporting or analytics workload on this data, it's helpful to have a second database for this additional workload. This approach minimizes the performance impact on your production workload. You can use Data Sync to keep these two databases synchronized.
+
+-   **Globally Distributed Applications:** Many businesses span several regions and even several countries. To minimize network latency, it's best to have your data in a region close to you. With Data Sync, you can easily keep databases in regions around the world synchronized.
+
+Data Sync is not the preferred solution for the following scenarios:
+
+| Scenario | Some recommended solutions |
+|----------|----------------------------|
+| Disaster Recovery | [Azure geo-redundant backups](sql-database-automated-backups.md) |
+| Read Scale | [Use read-only replicas to load balance read-only query workloads (preview)](sql-database-read-scale-out.md) |
+| ETL (OLTP to OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) or [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| Migration from on-premises SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+|||
+
+## Overview of SQL Data Sync
 
 Data Sync is based around the concept of a Sync Group. A Sync Group is a group of databases that you want to synchronize.
 
@@ -44,26 +64,6 @@ A Sync Group has the following properties:
 
 -   The **Conflict Resolution Policy** is a group level policy, which can be *Hub wins* or *Member wins*.
 
-## When to use Data Sync
-
-Data Sync is useful in cases where data needs to be kept up-to-date across several Azure SQL databases or SQL Server databases. Here are the main use cases for Data Sync:
-
--   **Hybrid Data Synchronization:** With Data Sync, you can keep data synchronized between your on-premises databases and Azure SQL databases to enable hybrid applications. This capability may appeal to customers who are considering moving to the cloud and would like to put some of their application in Azure.
-
--   **Distributed Applications:** In many cases, it's beneficial to separate different workloads across different databases. For example, if you have a large production database, but you also need to run a reporting or analytics workload on this data, it's helpful to have a second database for this additional workload. This approach minimizes the performance impact on your production workload. You can use Data Sync to keep these two databases synchronized.
-
--   **Globally Distributed Applications:** Many businesses span several regions and even several countries. To minimize network latency, it's best to have your data in a region close to you. With Data Sync, you can easily keep databases in regions around the world synchronized.
-
-Data Sync is not the preferred solution for the following scenarios:
-
-| Scenario | Some recommended solutions |
-|----------|----------------------------|
-| Disaster Recovery | [Azure geo-redundant backups](sql-database-automated-backups.md) |
-| Read Scale | [Use read-only replicas to load balance read-only query workloads (preview)](sql-database-read-scale-out.md) |
-| ETL (OLTP to OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) or [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
-| Migration from on-premises SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
-|||
-
 ## How does Data Sync work? 
 
 -   **Tracking data changes:** Data Sync tracks changes using insert, update, and delete triggers. The changes are recorded in a side table in the user database. Note that BULK INSERT does not fire triggers by default. If FIRE_TRIGGERS is not specified, no insert triggers execute. Add the FIRE_TRIGGERS option so Data Sync can track those inserts. 
@@ -73,6 +73,14 @@ Data Sync is not the preferred solution for the following scenarios:
 -   **Resolving conflicts:** Data Sync provides two options for conflict resolution, *Hub wins* or *Member wins*.
     -   If you select *Hub wins*, the changes in the hub always overwrite changes in the member.
     -   If you select *Member wins*, the changes in the member overwrite changes in the hub. If there's more than one member, the final value depends on which member syncs first.
+
+## Compare Data Sync with Transactional Replication
+
+| | Data Sync | Transactional Replication |
+|---|---|---|
+| Advantages | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration |
+| Disadvantages | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can’t publish from Azure SQL Database single database<br/>-	High maintenance cost |
+| | | |
 
 ## Get started with SQL Data Sync
 

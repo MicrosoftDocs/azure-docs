@@ -140,11 +140,13 @@ A server endpoint health status of "No Activity" means the server endpoint has n
 
 A server endpoint may not log sync activity for the following reasons:
 
-- The server has reached the maximum number of concurrent sync sessions. Azure File Sync currently supports 2 active sync sessions per processor or a maximum of 8 active sync sessions per server.
+- The server has an active VSS sync session (SnapshotSync). When a VSS sync session is active for a server endpoint, other server endpoints on the same volume cannot start a start sync session until the VSS sync session completes.
 
-- The server has an active VSS sync session (SnapshotSync). When a VSS sync session is active for a server endpoint, other server endpoints on the server cannot start a start sync session until the VSS sync session completes.
+	To check current sync activity on a server, see [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-To check current sync activity on a server, see [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- The server has reached the maximum number of concurrent sync sessions. 
+	- Agent version 4.x and later: Limit varies based on available system resources.
+	- Agent version 3.x: 2 active sync sessions per processor or a maximum of 8 active sync sessions per server.
 
 > [!Note]  
 > If the server state on the registered servers blade is “Appears Offline,” perform the steps documented in the [Server endpoint has a health status of “No Activity” or “Pending” and the server state on the registered servers blade is “Appears offline”](#server-endpoint-noactivity) section.
@@ -545,6 +547,16 @@ In cases where there are many per file sync errors, sync sessions may begin to f
 | **Remediation required** | Yes |
 
 Ensure the path exists, is on a local NTFS volume, and is not a reparse point or existing server endpoint.
+
+<a id="-2134375817"></a>**Sync failed because the filter driver version is not compatible with the agent version**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C80277 |
+| **HRESULT (decimal)** | -2134375817 |
+| **Error string** | ECS_E_INCOMPATIBLE_FILTER_VERSION |
+| **Remediation required** | Yes |
+
+This error occurs because the Cloud Tiering filter driver (StorageSync.sys) version loaded is not compatible with the Storage Sync Agent (FileSyncSvc) service. If the Azure File Sync agent was upgraded, restart the server to complete the installation. If the error continues to occur, uninstall the agent, restart the server and reinstall the Azure File Sync agent.
 
 <a id="-2134376373"></a>**The service is currently unavailable.**  
 | | |

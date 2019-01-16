@@ -81,14 +81,14 @@ Some points to consider:
 * Reporting build versions: Add a property using a telemetry initializer. [Learn more](../../azure-monitor/app/separate-resources.md)
 
 ## Monitor backend servers and desktop apps
-[Use the Windows Server SDK module](../../application-insights/app-insights-windows-desktop.md).
+[Use the Windows Server SDK module](../../azure-monitor/app/windows-desktop.md).
 
 ## Visualize data
 #### Dashboard with metrics from multiple apps
 * In [Metric Explorer](../../azure-monitor/app/metrics-explorer.md), customize your chart and save it as a favorite. Pin it to the Azure dashboard.
 
 #### Dashboard with data from other sources and Application Insights
-* [Export telemetry to Power BI](../../application-insights/app-insights-export-power-bi.md).
+* [Export telemetry to Power BI](../../azure-monitor/app/export-power-bi.md ).
 
 Or
 

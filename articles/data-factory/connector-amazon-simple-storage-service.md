@@ -27,14 +27,14 @@ You can copy data Amazon S3 to any supported sink data store. For a list of data
 Specifically, this Amazon S3 connector supports copying files as-is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 >[!TIP]
->You can use this Amazon S3 connector to copy data from **any S3-compatible storage providers** e.g. [Google Cloud Storage](#copy-from-google-cloud-storage). Specify the corresponding service URL in the linked service configuration.
+>You can use this Amazon S3 connector to copy data from **any S3-compatible storage providers** e.g. [Google Cloud Storage](connector-google-cloud-storage.md). Specify the corresponding service URL in the linked service configuration.
 
 ## Required permissions
 
 To copy data from Amazon S3, make sure you have been granted the following permissions:
 
 - **For copy activity execution:**: `s3:GetObject` and `s3:GetObjectVersion` for Amazon S3 Object Operations.
-- **For Data Factory GUI authoring**: `s3:ListAllMyBuckets` and `s3:ListBucket`/`s3:GetBucketLocation` for Amazon S3 Bucket Operations permissions are additionally required for operations like test connection and browse/navigate file paths. If you don't want to grant these permission, skip test connection in linked service creation page and speicify the path directly in dataset settings.
+- **For Data Factory GUI authoring**: `s3:ListAllMyBuckets` and `s3:ListBucket`/`s3:GetBucketLocation` for Amazon S3 Bucket Operations permissions are additionally required for operations like test connection and browse/navigate file paths. If you don't want to grant these permission, skip test connection in linked service creation page and specify the path directly in dataset settings.
 
 For details about the full list of Amazon S3 permissions, see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
@@ -208,35 +208,6 @@ To copy data from Amazon S3, set the source type in the copy activity to **FileS
         }
     }
 ]
-```
-
-## Copy from Google Cloud Storage
-
-Because Google Cloud Storage provides S3-compatible interoperability, you can use Amazon S3 connector to copy data from Google Cloud Storage to any [supported sink data stores](copy-activity-overview.md#supported-data-stores-and-formats). 
-
-You can find the specific Google Cloud Storage entry in the ADF authoring UI connector gallery, which automatically fills in the service URL as `https://storage.googleapis.com`. To find the access key and secret, go to **Google Cloud Storage** > **Settings** > **Interoperability**. Refer to this article from the beginning for a detailed overview of using S3 connector to copy data.
-
-**Example linked service:**
-
-```json
-{
-    "name": "GoogleCloudStorageLinkedService",
-    "properties": {
-        "type": "AmazonS3",
-        "typeProperties": {
-            "accessKeyId": "<access key id>",
-            "secretAccessKey": {
-                "type": "SecureString",
-                "value": "<secret access key>"
-            },
-            "serviceUrl": "https://storage.googleapis.com"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
 ```
 
 ## Next steps

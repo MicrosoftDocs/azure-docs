@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 
@@ -71,7 +71,7 @@ When you view information about a scale unit node, you can also perform node act
 
 The operational state of the node determines which options are available.
 
-You will need to install Azure Stack PowerShell modules. These cmdlets are in the **Azs.Fabric.Admin** module. To install or verify your installation of PowerShell for Azure Stack, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
+You need to install Azure Stack PowerShell modules. These cmdlets are in the **Azs.Fabric.Admin** module. To install or verify your installation of PowerShell for Azure Stack, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
 ## Stop
 

@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/25/2018
+ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
@@ -64,7 +64,7 @@ In this case, the results no longer fit into a continuous x-axis model as they d
 
 ## How does the Impact tool calculate these conversion rates?
 
-Under the hood, the Impact tool relies on the [Pearson correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Results are computed between -1 and 1 with -1 representing zero correlation and 1 representing a positive correlation.
+Under the hood, the Impact tool relies on the [Pearson correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Results are computed between -1 and 1 with -1 representing a negative linear correlation and 1 representing a positive linear correlation.
 
 The basic breakdown of how Impact Analysis works is as follows:
 
@@ -88,5 +88,5 @@ How Impact is ultimately calculated varies based on whether we are analyzing by 
     - [Funnels](usage-funnels.md)
     - [Retention](usage-retention.md)
     - [User Flows](usage-flows.md)
-    - [Workbooks](../../application-insights/app-insights-usage-workbooks.md)
+    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
     - [Add user context](usage-send-user-context.md)
