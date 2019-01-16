@@ -63,7 +63,7 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 ### Graphics and rendering
 
-* [Rendering applications](../articles/batch/batch-rendering-service.md) on Azure Batch, including Autodesk Maya, 3ds Max, and Arnold, Chaos Group V-Ray, and Blende
+* [Rendering applications](../articles/batch/batch-rendering-service.md) on Azure Batch, including Autodesk Maya, 3ds Max, and Arnold, Chaos Group V-Ray, and Blender
 
 ### AI and deep learning
 
@@ -118,9 +118,7 @@ Large-scale Batch and HPC workloads have demands for data storage and access tha
 Learn more:
 
 * [Avere vFXT for Azure](../articles/avere-vfxt/avere-vfxt-overview.md) 
-* [Parallel virtual file systems on Azure](https://azure.microsoft.com/resources/parallel-virtual-file-systems-on-microsoft-azure/) such as [Lustre](http://lustre.org/) and [BeeGFS](http://www.beegfs.com/content/).
-
-
+* [Parallel virtual file systems on Azure](https://azure.microsoft.com/resources/parallel-virtual-file-systems-on-microsoft-azure/) including [Lustre](http://lustre.org/) and [BeeGFS](http://www.beegfs.com/content/).
 
 ## Related Azure services
 
