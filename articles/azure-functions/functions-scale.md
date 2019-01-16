@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 Azure Functions runs in two different modes: Consumption plan and Azure App Service plan. The Consumption plan automatically allocates compute power when your code is running. Your app is scaled out when needed to handle load, and scaled down when code is not running. You don't have to pay for idle VMs or reserve capacity in advance.
 
 > [!NOTE]  
-> [Linux hosting](functions-create-first-azure-function-azure-cli-linux.md) is currently only available on an App Service plan.
+> Consumption plan for Linux is [now in Public Preview](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/).
 
 If you aren't familiar with Azure Functions, see the [Azure Functions overview](functions-overview.md).
 

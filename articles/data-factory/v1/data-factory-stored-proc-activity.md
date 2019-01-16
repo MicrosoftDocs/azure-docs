@@ -74,7 +74,7 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
 2. Create the following **stored procedure** that inserts data in to the **sampletable**.
 
 	```SQL
-    CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
+    CREATE PROCEDURE usp_sample @DateTime nvarchar(127)
     AS
 
     BEGIN
@@ -106,7 +106,7 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
    ![Data Factory home page](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### Create an Azure SQL linked service
-After creating the data factory, you create an Azure SQL linked service that links your Azure SQL database, which contains the sampletable table and sp_sample stored procedure, to your data factory.
+After creating the data factory, you create an Azure SQL linked service that links your Azure SQL database, which contains the sampletable table and usp_sample stored procedure, to your data factory.
 
 1. Click **Author and deploy** on the **Data Factory** blade for **SProcDF** to launch the Data Factory Editor.
 2. Click **New data store** on the command bar and choose **Azure SQL Database**. You should see the JSON script for creating an Azure SQL linked service in the editor.
@@ -158,7 +158,7 @@ Now, let's create a pipeline with a stored procedure activity.
 Notice the following properties: 
 
 - The **type** property is set to **SqlServerStoredProcedure**. 
-- The **storedProcedureName** in type properties is set to **sp_sample** (name of the stored procedure).
+- The **storedProcedureName** in type properties is set to **usp_sample** (name of the stored procedure).
 - The **storedProcedureParameters** section contains one parameter named **DateTime**. Name and casing of the parameter in JSON must match the name and casing of the parameter in the stored procedure definition. If you need pass null for a parameter, use the syntax: `"param1": null` (all lowercase).
  
 1. Click **... More** on the command bar and click **New pipeline**.
@@ -172,7 +172,7 @@ Notice the following properties:
                 {
                     "type": "SqlServerStoredProcedure",
                     "typeProperties": {
-                        "storedProcedureName": "sp_sample",
+                        "storedProcedureName": "usp_sample",
                         "storedProcedureParameters": {
                             "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                         }
@@ -338,7 +338,7 @@ CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable2(Id);
 **Stored procedure:**
 
 ```SQL
-CREATE PROCEDURE sp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
+CREATE PROCEDURE usp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
 
 AS
 
@@ -353,7 +353,7 @@ Now, pass the **Scenario** parameter and the value from the stored procedure act
 ```JSON
 "typeProperties":
 {
-    "storedProcedureName": "sp_sample",
+    "storedProcedureName": "usp_sample",
     "storedProcedureParameters":
     {
         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
@@ -392,7 +392,7 @@ Now, pass the **Scenario** parameter and the value from the stored procedure act
             {
                 "type": "SqlServerStoredProcedure",
                 "typeProperties": {
-                    "storedProcedureName": "sp_sample2",
+                    "storedProcedureName": "usp_sample2",
                     "storedProcedureParameters": {
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
                         "Scenario": "Document sample"
