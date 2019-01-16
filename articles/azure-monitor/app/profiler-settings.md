@@ -31,7 +31,7 @@ The **Configure Application Insights Profiler** pane contains four features:
 ![Profiler on-demand][profiler-on-demand]
 
 ## App Service Environment
-Depending on how your Azure App Service Environment (ASE) is configured, the call to check on the agent status might be blocked. The pane might display a message that the agent isn't running even when it is running. To make sure that it is, check the webjob on your application. If all the app settings values are correct and the Application Insights site extension is installed on your application, Profiler is running. If your application is receiving enough traffic, recent profiling sessions should be displayed in a list.
+Depending on how your Azure App Service Environment is configured, the call to check on the agent status might be blocked. The pane might display a message that the agent isn't running even when it is running. To make sure that it is, check the webjob on your application. If all the app settings values are correct and the Application Insights site extension is installed on your application, Profiler is running. If your application is receiving enough traffic, recent profiling sessions should be displayed in a list.
 
 ## <a id="profileondemand"></a> Manually trigger Profiler
 
