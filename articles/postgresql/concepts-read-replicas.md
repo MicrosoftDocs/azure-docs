@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 01/17/2019
 ---
 
 # Read Replicas in Azure Database for PostgreSQL
@@ -23,7 +23,7 @@ Since replicas are read-only, they do not directly alleviate write-capacity burd
 The read replica feature uses PostgreSQL's asynchronous replication and so is not meant for synchronous replication scenarios. There will be a measurable delay between the master and the replica. The data on the replica becomes eventually consistent with the data on the master. Use this feature for workloads that can accommodate this delay.
 
 ## Creating a replica
-The master server must have the **azure.replication_support** set to REPLICA. Changing this parameter requires a server restart to take effect. (**Azure.replication_support** parameter applies to General Purpose and Memory Optimized tiers only.)
+The master server must have the **azure.replication_support** set to REPLICA. Changing this parameter requires a server restart to take effect. (**Azure.replication_support** parameter applies to General Purpose and Memory Optimized tiers only).
 
 When you initiate the create replica workflow, a blank Azure Database for PostgreSQL server is created. The new server is filled with the data that was on the master server. The time it takes to create the new replica depends on the amount of data on the master and the time since the last weekly full backup. This may range from a few minutes to a few hours.
 
@@ -41,7 +41,7 @@ The replica inherits its admin account from the master server. All user accounts
 
 You can connect to the replica using its hostname and a valid user account, as you would on a regular Azure Database for PostgreSQL server. For instance, if the server's name is myreplica, and the admin username is myadmin you can connect to it from psql as follows:
 
-```SQL
+```
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 ```
 and at the prompt enter the password for the user account.
@@ -112,7 +112,7 @@ After a replica has been created, the pricing tier (except to and from Basic), c
 > [!IMPORTANT]
 > Before a master's server configuration is updated to new values, the replicas' configuration should be updated to equal or greater values. This ensures that the replicas are able to keep up with changes made to the master.
 
-In particular, Postgres requires the master server value for max_connections to be greater than the replica’s value otherwise the replica will not start. In Azure Database for PostgreSQL, the max_connections value is set depending on the sku. For more information, read the limits doc: https://docs.microsoft.com/en-us/azure/postgresql/concepts-limits. 
+In particular, Postgres requires the master server value for max_connections to be greater than the replica’s value otherwise the replica will not start. In Azure Database for PostgreSQL, the max_connections value is set depending on the sku. For more information, read [the limits doc](concepts-limits.md). 
 
 Attempting to do an update that violates this will lead to an error.
 
