@@ -347,9 +347,7 @@
           href: /stream-analytics-query/data-types-azure-stream-analytics 
         - name: Parsing JSON and AVRO data
           href: stream-analytics-parsing-json.md
-          maintainContext: true
     - name: Query Language Elements
-      expanded: true
       items: 
         - name: Query Language Elements Overview
           href: /stream-analytics-query/query-language-elements-azure-stream-analytics 

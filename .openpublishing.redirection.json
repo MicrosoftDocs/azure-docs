@@ -19006,11 +19006,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-stack/azure-stack-kv-manage-powershell.md",
-      "redirect_url": "/azure/azure-stack/user/azure-stack-kv-manage-powershell",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-stack/azure-stack-kv-push-secret-into-vm.md",
       "redirect_url": "/azure/azure-stack/user/azure-stack-kv-push-secret-into-vm",
       "redirect_document_id": false
@@ -25216,6 +25211,21 @@
     {
       "source_path": "articles/marketplace/enable-trial-using-azure-ad.md",
       "redirect_url": "/azure/marketplace/enable-appsource-marketplace-using-azure-ad",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/gtm-benefits.md",
+      "redirect_url": "/azure/marketplace/gtm-your-marketplace-benefits",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/grow-your-business-with-azure-marketplace.md",
+      "redirect_url": "/azure/marketplace/gtm-marketing-best-practices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/grow-your-business-with-appsource.md",
+      "redirect_url": "/azure/marketplace/marketplace-publishers-guide",
       "redirect_document_id": true
     },
     {
