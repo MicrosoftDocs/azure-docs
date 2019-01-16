@@ -1174,4 +1174,6 @@
         href: workplacebyfacebook-provisioning-tutorial.md
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md
+      - name: Zscaler One
+        href: zscaler-one-provisioning-tutorial.md
 
