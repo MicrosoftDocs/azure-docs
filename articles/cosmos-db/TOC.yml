@@ -458,8 +458,6 @@
     items:
     - name: Manage database account
       href: how-to-manage-database-account.md
-    - name: Configure time to live
-      href: how-to-time-to-live.md
     - name: Global distribution
       items:
       - name: Manage consistency
@@ -478,6 +476,8 @@
         href: how-to-create-container.md
       - name: Query a container
         href: how-to-query-container.md
+      - name: Configure time to live
+        href: how-to-time-to-live.md
     - name: Indexing
       items:
       - name: Configure indexing
