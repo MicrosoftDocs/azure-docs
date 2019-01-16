@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/11/2018
+ms.date: 01/15/2019
 ms.author: juliako
 ---
 
 # CLI example: Create an Azure Media Services account
 
-The Azure CLI script in this topic shows how to create an Azure Media Services account.
+The Azure CLI script in this topic shows how to create an Azure Media Services account. The Media Services account and the storage account associated with it have to be part of the same datacenter and the same resource group.
 
 ## Prerequisites 
 

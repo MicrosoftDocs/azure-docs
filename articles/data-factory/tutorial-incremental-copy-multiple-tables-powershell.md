@@ -153,7 +153,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 Run the following command to create a stored procedure in your SQL database. This stored procedure updates the watermark value after every pipeline run. 
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -179,7 +179,7 @@ CREATE TYPE DataTypeforCustomerTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
+CREATE PROCEDURE usp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
 AS
 
 BEGIN
@@ -202,7 +202,7 @@ CREATE TYPE DataTypeforProjectTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_project_table @project_table DataTypeforProjectTable READONLY
+CREATE PROCEDURE usp_upsert_project_table @project_table DataTypeforProjectTable READONLY
 AS
 
 BEGIN
@@ -610,7 +610,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     						"type": "SqlServerStoredProcedure",
     						"typeProperties": {
     
-    							"storedProcedureName": "sp_write_watermark",
+    							"storedProcedureName": "usp_write_watermark",
     							"storedProcedureParameters": {
     								"LastModifiedtime": {
     									"value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}",
@@ -677,13 +677,13 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     			"TABLE_NAME": "customer_table",
     			"WaterMark_Column": "LastModifytime",
     			"TableType": "DataTypeforCustomerTable",
-    			"StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
+    			"StoredProcedureNameForMergeOperation": "usp_upsert_customer_table"
     		},
     		{
     			"TABLE_NAME": "project_table",
     			"WaterMark_Column": "Creationtime",
     			"TableType": "DataTypeforProjectTable",
-    			"StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
+    			"StoredProcedureNameForMergeOperation": "usp_upsert_project_table"
     		}
     	]
     }
