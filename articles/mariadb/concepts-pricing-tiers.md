@@ -58,7 +58,7 @@ While the service attempts to make the server read-only, all new write transacti
 
 We recommend that you set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. 
 
-For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).
+For more information, see the documentation on [how to set up an alert](howto-alert-metric.md).
 
 ## Backup
 
