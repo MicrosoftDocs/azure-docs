@@ -10,8 +10,9 @@ ms.date: 01/09/2019
 ms.author: raynew
 ms.custom: mvc
 ---
+# What is Azure Backup?
 
-You can use the Azure Backup service to back up data to the Microsoft Azure cloud. You can back up on-premises machines using Azure Backup, and Azure virtual machines (VMs).
+The Azure Backup service backs up data to the Microsoft Azure cloud. You can back up on-premises machines and workloads, and Azure virtual machines (VMs).
 
 
 ## Why use Azure Backup?
@@ -28,7 +29,7 @@ Azure Backup delivers these key benefits:
 - **Automatic storage management** - Hybrid environments often require heterogeneous storage - some on-premises and some in the cloud. With Azure Backup, there is no cost for using on-premises storage devices. Azure Backup automatically allocates and manages backup storage, and it uses a pay-as-you-use model. Pay-as-you-use means that you only pay for the storage that you consume. For more information, see the [Azure pricing article](https://azure.microsoft.com/pricing/details/backup).
 - **Multiple storage options** - An aspect of high-availability is storage replication. Azure Backup offers two types of replication: [locally redundant storage](../storage/common/storage-redundancy-lrs.md) and [geo-redundant storage](../storage/common/storage-redundancy-grs.md). Choose the backup storage option based on need:
     - Locally redundant storage (LRS) replicates your data three times (it creates three copies of your data) in a storage scale unit in a datacenter. All copies of the data exist within the same region. LRS is a low-cost option for protecting your data from local hardware failures.
-    - Geo-redundant storage (GRS) is the default and recommended replication option. GRS replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but GRS provides a higher level of durability for yourdata, even if there is a regional outage.
+    - Geo-redundant storage (GRS) is the default and recommended replication option. GRS replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but GRS provides a higher level of durability for your data, even if there is a regional outage.
 
 
 ## What's the difference between Azure Backup and Azure Site Recovery?
@@ -38,8 +39,10 @@ Both the Azure Backup and Azure Site Recovery services contribute to a business 
 - Keep your business data safe and recoverable when outages occur.
 - Keep your apps and workloads up and running during planned and unplanned downtimes.
 
-Generally Azure Site Recovery provides a disaster recovery solution for on-premises machines, and for Azure VMs. You replicate machines from a primary location to a secondary. When disaster strikes, ou fail machines over to the secondary location, and access them from there. When everything's up and running normally again, you fail machines back to recovery them in the primary site.
-Azure Backup backs up data from on-premises machines, and Azure VMs. Data can be backed up and recovered at a granular level, including back up of files, folders, machine system state, and app-aware data backup. Azure Backup handles data at a more granular level than Site Recovery. As an example, if a presentation on your laptop became corrupted, you could use Azure Backup to restore the presentation. If you want to keep a VM configuration and data safe and accessible, you could use Site Recovery.  
+Both services provide complementary but different functionality.
+
+- **Azure Site Recovery**: Site Recovery provides a disaster recovery solution for on-premises machines, and for Azure VMs. You replicate machines from a primary location to a secondary. When disaster strikes, ou fail machines over to the secondary location, and access them from there. When everything's up and running normally again, you fail machines back to recovery them in the primary site.
+- **Azure Backup**: The Azure Backup service backs up data from on-premises machines, and Azure VMs. Data can be backed up and recovered at a granular level, including back up of files, folders, machine system state, and app-aware data backup. Azure Backup handles data at a more granular level than Site Recovery. As an example, if a presentation on your laptop became corrupted, you could use Azure Backup to restore the presentation. If you want to keep a VM configuration and data safe and accessible, you could use Site Recovery.  
 
 Use the table points to help figure out your BCDR needs. 
 
