@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer:
 manager: craigg
-ms.date: 12/17/2018
+ms.date: 01/15/2019
 ---
 # Getting started with JSON features in Azure SQL Database
 Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](http://www.json.org/) format, and export your relational data as JSON text. The following JSON scenarios are available in Azure SQL Database:
@@ -169,7 +169,7 @@ AS BEGIN
 
     insert into Orders(Number, Date, Customer, Quantity)
     select Number, Date, Customer, Quantity
-    OPENJSON (@orders)
+    FROM OPENJSON (@orders)
      WITH (
             Number varchar(200),
             Date datetime,
