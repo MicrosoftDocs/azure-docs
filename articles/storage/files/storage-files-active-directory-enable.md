@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/02/2019
 ms.author: tamram
 ---
 
@@ -57,9 +57,6 @@ Before you enable Azure AD over SMB for Azure Files, make sure you have complete
 4.  **Select or create an Azure file share.**
 
     Select a new or existing file share that's associated with the same subscription as your Azure AD tenant. For information about creating a new file share, see [Create a file share in Azure Files](storage-how-to-create-file-share.md). 
-
-    The Azure AD tenant must be deployed to a region supported for the preview of Azure AD over SMB. The preview is available in all public regions except for: West US, West US 2, South Central US, East US, East US 2, Central US, North Central US, Australia East, West Europe, North Europe.
-
     For optimal performance, Microsoft recommends that your file share is in the same region as the VM from which you plan to access the share.
 
 5.  **Verify Azure Files connectivity by mounting Azure file shares using your storage account key.**

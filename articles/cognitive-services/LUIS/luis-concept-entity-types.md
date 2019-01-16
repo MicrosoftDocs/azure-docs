@@ -22,6 +22,10 @@ The entity represents a word or phrase inside the utterance that you want extrac
 
 By comparison, the intent represents the prediction of the entire utterance. 
 
+## Entities help with data extraction only
+
+You label or mark entities for the purpose of entity extraction only, it does not help with intent prediction.
+
 ## Entities represent data
 
 Entities are data you want to pull from the utterance. This can be a name, date, product name, or any group of words. 

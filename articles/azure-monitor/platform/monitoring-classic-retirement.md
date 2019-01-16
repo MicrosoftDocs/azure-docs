@@ -13,7 +13,7 @@ ms.component: alerts
 
 Azure Monitor has now become a unified full stack monitoring service, which now supports ‘One Metric’ and ‘One Alerts’ across resources; for more information, see our [blog post on new Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/).The new Azure monitoring and alerting platforms has been built to be faster, smarter, and extensible – keeping pace with the growing expanse of cloud computing and in-line with Microsoft Intelligent Cloud philosophy. 
 
-With the new Azure monitoring and alerting platform in place, we will be retiring the "classic" monitoring and alerting platform  - hosted within *view classic alerts* section of Azure alerts, will be deprecated by June 2019.
+With the new Azure monitoring and alerting platform in place, we will be retiring the "classic" monitoring and alerting platform  - hosted within *view classic alerts* section of Azure alerts, **will be deprecated by June 2019**.
 
  ![Classic alert in Azure portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 

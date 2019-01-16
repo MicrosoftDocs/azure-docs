@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 01/02/2019
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
@@ -24,6 +24,10 @@ Yes.
 ### Can I connect to multiple sites from a single virtual network?
 
 You can connect to multiple sites by using Windows PowerShell and the Azure REST APIs. See the [Multi-Site and VNet-to-VNet Connectivity](#V2VMulti) FAQ section.
+
+### Is there an additional cost for setting up a VPN gateway as active-active?
+
+No. 
 
 ### What are my cross-premises connection options?
 

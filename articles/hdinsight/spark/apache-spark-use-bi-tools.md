@@ -101,7 +101,7 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
 
         The diagram looks like:
 
-        ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Create Spark data visualizations using Apache Spark BI")
+        ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Create Spark data visualizations using Apache Spark BI")
 
         By default the visualization shows the sum for **ActualTemp** and **TargetTemp**. Click the down arrow next to **ActualTemp** and **TragetTemp** in the Visualizations pane, you can see **Sum** is selected.
 
@@ -111,7 +111,7 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
 
         Your data visualization shall be similar to the one in the screenshot. Move your cursor over the visualization to get tool tips with relevant data.
 
-        ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Create Spark data visualizations using Apache Spark BI")
+        ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Create Spark data visualizations using Apache Spark BI")
 
 7. Click **File** then **Save**, and enter the name `BuildingTemperature.pbix` for the file. 
 
