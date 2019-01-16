@@ -221,17 +221,17 @@ A.  Azure Data Box service natively provides reports that you can use for your c
 ### What type of reporting is available to support chain of custody?
 A.  Following reporting is available to support chain of custody:
 
-- Transport logistics from DHL and UPS.
+- Transport logistics from UPS.
 - Logging of powering on and user share access.
 - Manifest file with a 64-bit cyclic redundancy check (CRC-64) or checksum for each file ingested successfully into the Data Box.
 - Reporting of files that failed to upload to Azure storage account.
 - Sanitization of the Data Box device (as per NIST 800 88R1 standards) after data is copied to your Azure storage account.
 
-### Are the carrier tracking logs ( from UPS/DHL) available? 
+### Are the carrier tracking logs (from UPS) available? 
 A.  Carrier tracking logs are captured in the Data Box order history. This report is available to you after the device has returned to Azure datacenter and the data on device disks is cleaned up. For immediate need, you can also go directly to the carrier’s website with the order tracking number and get the tracking information.
 
 ### Can I transport the Data Box to Azure datacenter? 
-A.  No. Currently Azure datacenter does not accept delivery of the Data Box from customers or from carriers other than UPS/DHL.
+A.  No. Currently Azure datacenter does not accept delivery of the Data Box from customers or from carriers other than UPS.
 
 
 ## Next steps
