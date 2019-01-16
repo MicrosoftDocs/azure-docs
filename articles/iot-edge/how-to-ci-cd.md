@@ -15,10 +15,7 @@ ms.custom: seodec18
 
 You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines. This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
 
-In this article, you learn how to:
-* Create and check in a sample IoT Edge solution.
-* Configure continuous integration (CI) to build the solution.
-* Configure continuous deployment (CD) to deploy the solution and view responses.
+In this article, you learn how to use the built-in Azure IoT Edge tasks for Azure Pipelines to create two pipelines for your IoT Edge solution. The first takes your code and builds the solution, pushing your module images to your container registry and creating a deployment manifest. The second deploys your modules to targeted IoT Edge devices.  
 
 ![Diagram - CI and CD branches for development and production](./media/how-to-ci-cd/cd.png)
 
@@ -29,11 +26,14 @@ In this article, you learn how to:
 * An IoT Edge solution committed and pushed to your repository. If you want to create a new sample solution for testing this article, follow the steps in [Develop and debug modules in Visual Studio Code](how-to-vs-code-develop-modules.md) or [Develop and debug C# modules in Visual Studio](how-to-visual-studio-develop-csharp-module.md).
    * For this article, all you need is the solution folder created by the IoT Edge templates in either Visual Studio Code or Visual Studio. You don't need to build, push, deploy, or debug this code before proceeding. You'll set those processes up in Azure Pipelines. 
    * If you're creating a new solution, clone your repository locally first. Then, when you create the solution you can choose to create it directly in the repository folder. You can easily commit and push the new files from there. 
+* A container registry where you can push module images. You can use [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or a third-party registry. 
+* An [IoT hub](../iot-hub/iot-hub-create-through-portal.md) with an IoT Edge device for testing. You can follow the quickstart articles to create an IoT Edge device on [Linux](quickstart-linux.md) or [Windows](quickstart.md)
+
 
 For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)
 
-## Configure Azure Pipelines for continuous integration
-In this section, you create a new build pipeline. Configure the pipeline to run automatically when you check in any changes to the sample IoT Edge solution, and retrieve build logs from Azure Pipelines.
+## Configure continuous integration
+In this section, you create a new build pipeline. Configure the pipeline to run automatically when you check in any changes to the sample IoT Edge solution, and publish build logs.
 
 >[!NOTE]
 >This article uses the Azure DevOps visual designer. Before you follow the steps in this section, turn off the preview feature for the new YAML pipeline creation experience. 
@@ -105,77 +105,91 @@ In this section, you create a new build pipeline. Configure the pipeline to run 
 
 10. Save the new build pipeline with **Save** button.
 
+This pipeline is now configured to run automatically when you push new code to your repo. The last task, publishing the pipeline artifacts, triggers a release pipeline. Continue to the next section to build the release pipeline. 
 
-## Configure Azure Pipelines for continuous deployment
-In this section, you will create a release pipeline that is configured to run automatically when your build pipeline drops artifacts, and it will show deployment logs in Azure Pipelines.
+## Configure continuous deployment
+In this section, you create a release pipeline that is configured to run automatically when your build pipeline drops artifacts, and it will show deployment logs in Azure Pipelines.
+
+In this section, you create two different stages, one for test deployments and one for production deployments. 
 
 1. In the **Releases** tab, choose **+ New pipeline**. Or, if you already have release pipelines, choose the **+ New** button and select **+ New release pipeline**.  
 
     ![Add release pipeline](./media/how-to-ci-cd/add-release-pipeline.png)
 
-    In **Select a template** window, choose **start with an Empty job.**
+2. When prompted to select a template, choose to start with an **Empty job**.
 
     ![Start with an empty job](./media/how-to-ci-cd/start-with-empty-job.png)
 
-2. Then the release pipeline would initialize with one stage: **Stage 1**. Rename the **Stage 1** to **QA** and treat it as a test environment. In a typical continuous deployment pipeline, it usually exists multiple stages, you can create more based on your DevOps practice.
+3. Your new release pipeline initializes with one stage, called **Stage 1**. Rename Stage 1 to **QA** and treat it as a test environment. Usually, continuous deployment pipelines have multiple stages. You can create more based on your DevOps practice.
 
     ![Create test environment stage](./media/how-to-ci-cd/QA-env.png)
 
-3. Link the release to the build artifacts. Click **Add** in artifacts area.
+3. Link the release to the build artifacts that are published by the build pipeline. Click **Add** in artifacts area, then follow these steps to configure the new artifact.
 
-    ![Add artifacts](./media/how-to-ci-cd/add-artifacts.png)  
+   ![Add artifacts](./media/how-to-ci-cd/add-artifacts.png)  
     
-    In **Add an artifact page**, choose Source type **Build**. Then select the project and the build pipeline you created. Then select **Add**.
+   1. In **Add an artifact page**, select source type **Build**. Then, select the project and the build pipeline you created. Then, select **Add**.
 
-    ![Add a build artifact](./media/how-to-ci-cd/add-an-artifact.png)
+   ![Add a build artifact](./media/how-to-ci-cd/add-an-artifact.png)
 
-    Open continuous deployment trigger so that new release will be created each time a new build is available.
+   2. Open the artifact triggers and select the toggle to enable the continuous deployment trigger. Now, a new release will be created each time a new build is available.
 
-    ![Configure continuous deployment trigger](./media/how-to-ci-cd/add-a-trigger.png)
+   ![Configure continuous deployment trigger](./media/how-to-ci-cd/add-a-trigger.png)
 
-4. Navigate to **QA stage** and configure the tasks in this stage.
+4. The **QA** stage is preconfigured with one job and zero tasks. From the pipeline menu, select **Tasks** then choose the **QA** stage.  Select the job and task count to configure the tasks in this stage.
 
     ![Configure QA tasks](./media/how-to-ci-cd/view-stage-tasks.png)
 
-   Deployment task is platform insensitive, which means you can choose either **Hosted VS2017** or **Hosted Ubuntu 1604** in the **Agent pool** (or any other agent managed by yourself). Select "+" and add one task.
+5. In the QA stage, you should see a default **Agent job**. You can configure details about the agent job, but the deployment task is platform insensitive so you can use either **Hosted VS2017** or **Hosted Ubuntu 1604** in the **Agent pool** (or any other agent managed by yourself). 
+
+6. Select the plush sign **+** to add one task. Search for and add **Azure IoT Edge**. 
 
     ![Add tasks for QA](./media/how-to-ci-cd/add-task-qa.png)
 
-5. In the Azure IoT Edge task, navigate to the **Action** dropdown list, select **Deploy to IoT Edge device**. Select your **Azure subscription** and input your **IoT Hub name**. You can choose to deploy to single or multiple devices. If you are deploying to **multiple devices**, you need to specify the device **target condition**. The target condition is a filter to match a set of Edge devices in IoT Hub. If you want to use Device Tags as the condition, you need to update your corresponding devices Tags with IoT Hub device twin. Update the **IoT Edge deployment ID** to "deploy-qa" in advanced settings. Assume you have several IoT Edge devices have been tagged as 'qa', then the task configuration should be as in the following screenshot. 
+7. Select the new Azure IoT Edge task and configure it with the following values:
 
-    ![Deploy to QA](./media/how-to-ci-cd/deploy-to-qa.png)
+   * **Action**: Use the dropdown list to select **Deploy to IoT Edge device**. Changing the action value also updates the task display name to match.
+   * **Azure subscription**: Select the subscription that contains your IoT Hub.
+   * **IoT Hub name**: Select your IoT hub. 
+   * **Choose single/multiple device**: Choose whether you want the release pipeline to deploy to one device or multiple devices. 
+      * If you deploy to a single device, enter the **IoT Edge device ID**. 
+      * If you are deploying to multiple devices, specify the device **target condition**. The target condition is a filter to match a set of Edge devices in IoT Hub. If you want to use Device Tags as the condition, you need to update your corresponding devices Tags with IoT Hub device twin. Update the **IoT Edge deployment ID** and **IoT Edge deployment priority** in the advanced settings. For more information about creating a deployment for multiple devices, see [Understand IoT Edge automatic deployments](module-deployment-monitoring.md).
 
-    Save the new release pipeline with the **Save** button. And then select **Pipeline** to go back to the pipeline.
+8. Select **Save** to save your changes to the new release pipeline. Return to the pipeline view by selecting **Pipeline** from the menu. 
 
-6. The second stage is for your production environment. To add a new stage "PROD", you can clone the Stage "QA" and rename cloned stage to **PROD**,
+9. Make a second stage for production by cloning the QA stage. Hover your cursor over the QA stage, then select the clone button. 
 
     ![Clone stage](./media/how-to-ci-cd/clone-stage.png)
 
-7. Configure the tasks for your production environment. Assume you have several IoT Edge devices have been tagged as 'prod', in the task configurations, update the Target Condition to "prod", and set the deployment ID as "deploy-prod" in advanced settings. Save it with the **Save** button. And then select **Pipeline** to go back to the pipeline.
+10. Select the new stage, called **Copy of QA**, to open its properties. Change the stage name to **PROD**, for production.
+
+11. To open the PROD stage tasks, select **Tasks** from the pipeline menu then choose the **PROD** stage. 
+
+12. Select the Azure IoT Edge task to configure if for your production environment. The deployment settings are probably the same for QA and for PROD, except that you want to target a different device or set of devices in production. Update the device ID field, or the target condition and deployment ID fields for your production devices. 
+
+13. Save it with the **Save** button. And then select **Pipeline** to go back to the pipeline view.
     
-    ![Deploy to production](./media/how-to-ci-cd/deploy-to-prod.png)
+14. The way this release pipeline is currently configured, build artifact will trigger the **QA** stage and then **PROD** stage every time a new build is completed. However, you usually want to integrate some test cases on the QA devices and manually approve the deployment for production. Use the following steps to create an approval condition for the PROD stage:
 
-7. Currently, our build artifact will be triggered continuously on **QA** stage and then **PROD** stage. But most of the times you need to integrate some test cases on the QA devices and manually approve the bits. Later the bits will be deployed to PROD environment. Set up an approval in PROD stage as the following screenshot.
-
-    1. Open **Pre-deployment conditions** setting panel.
+    1. Open the **Pre-deployment conditions** settings panel.
 
         ![Open pre-deployment conditions](./media/how-to-ci-cd/pre-deploy-conditions.png)    
 
-    2. Set **Enabled** in **Pre-deployment approvals**. And fill in the **Approvers** input. Then save it with **Save** button.
+    2. Toggle the **Pre-deployment approvals** condition to **Enabled**. Add one or more users or groups in the **Approvers** field, and customize any other approval policies that you want. To save your changes, close the pre-deployment conditions panel.
     
-        ![Set conditions](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
+       ![Set conditions](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
 
 
-8. Now your release pipeline has been set up as following screenshot.
-
-    ![Release pipeline](./media/how-to-ci-cd/release-pipeline.png)
+15. Save your release pipeline with the **Save** button. 
 
     
 ## Verify IoT Edge CI/CD with the build and release pipelines
 
-In this section, you will trigger a build to make the CI/CD pipeline work. Then verify the deployment succeeds.
+To trigger a build job, you can either push a commit to source code repository or manually trigger it. In this section, you manually trigger the CI/CD pipeline to test that it works. Then verify that the deployment succeeds.
 
-1. To trigger a build job, you can either push a commit to source code repository or manually trigger it. You can trigger a build job in your build pipeline by selecting the **Queue** button as in following screenshot.
+1. Navigate to the build pipeline that you created at the beginning of this article. 
+
+2. You can trigger a build job in your build pipeline by selecting the **Queue** button as in following screenshot.
 
     ![Manual trigger](./media/how-to-ci-cd/manual-trigger.png)
 
