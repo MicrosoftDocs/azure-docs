@@ -58,7 +58,6 @@ $virtualMachineName = 'yourVMName'
 $virtualMachineSize = 'Standard_DS3'
 $adminUserName = "youradminusername"
 $adminPassword = "yourpassword" | ConvertTo-SecureString -AsPlainText -Force
-$imageName = 'yourImageName'
 $osVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
 $dataVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/datadisk1.vhd'
 $dataDiskName = 'dataDisk1'
