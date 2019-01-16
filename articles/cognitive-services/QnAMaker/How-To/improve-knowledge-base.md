@@ -62,9 +62,13 @@ Active learning is off by default. It needs to be turned on to see suggested que
 
 ## Add active learning suggestion to knowledge base
 
-1. On the **Edit** knowledge base page, select **Show Suggestions**. Select **Filter by Suggestions** to see the suggested questions.
+1. In order to see the suggested questions, on the **Edit** knowledge base page, select **Show Suggestions**. 
 
     [![On the service settings page, toggle the Show Suggestions button](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+
+1. Reduce the questions list by selecting **Filter by Suggestions** to see the suggested questions.
+
+    [![On the service settings page, filter by suggestions to see just those question/answer pairs](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
 1.	Each question section with suggestions shows the new questions with a check mark, `✔` , to accept the question or an `x` to reject the suggestions. Select the check mark to add the question. 
 
