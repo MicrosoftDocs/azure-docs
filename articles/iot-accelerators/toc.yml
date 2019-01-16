@@ -52,7 +52,7 @@
         href: iot-accelerators-remote-monitoring-deploy-local.md
       - name: Deploy locally with Docker
         href: iot-accelerators-remote-monitoring-deploy-local-docker.md
-    - name: Connect a physical device
+    - name: Connect a real device
       items:
       - name: C on Windows
         href: iot-accelerators-connecting-devices.md
