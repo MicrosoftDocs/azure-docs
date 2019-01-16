@@ -165,6 +165,6 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 * [Learn how to review logs and get reports on provisioning activity](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
-[1]: ./media/zscaler-provisionining-tutorial/tutorial_general_01.png
-[2]: ./media/zscaler-provisionining-tutorial/tutorial_general_02.png
-[3]: ./media/zscaler-provisionining-tutorial/tutorial_general_03.png
+[1]: ./media/zscaler-provisioning-tutorial/tutorial_general_01.png
+[2]: ./media/zscaler-provisioning-tutorial/tutorial_general_02.png
+[3]: ./media/zscaler-provisioning-tutorial/tutorial_general_03.png
