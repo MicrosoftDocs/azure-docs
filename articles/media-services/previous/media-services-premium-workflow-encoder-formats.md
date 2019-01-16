@@ -7,13 +7,12 @@ author: juliako
 manager: femila
 editor: ''
 
-ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/15/2019
 ms.author: juliako;anilmur
 
 ---
@@ -88,6 +87,8 @@ The following section lists the codecs and file formats that are supported as ou
 * MPEG-1
 * Windows Media Video/VC-1
 * JPEG thumbnail creation
+* HEVC (H.265; 8 bit and 10 bit, Main and Main 10 Profile)<br/><br/>Support for HDR 10 is available in certain scenarios, please contact [mepd@microsoft.com](mepd@microsoft.com) for more information
+
 
 ### Output Audio Codecs
 * AES (SMPTE 331M and 302M, AES3-2003)
@@ -118,7 +119,8 @@ On output, the following options are available:
 5. SRT Subtitle file
 6. DVB subtitle streams
 
-Note: not all of the above output formats are supported for delivery via streaming in Azure Media Services.
+> [!NOTE]
+> Not all of the above output formats are supported for delivery via streaming in Azure Media Services.
 
 ## Known issues
 If your input video does not contain closed captioning, the output Asset will still contain an empty TTML file. 
