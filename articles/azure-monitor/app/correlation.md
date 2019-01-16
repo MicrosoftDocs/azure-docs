@@ -15,7 +15,7 @@ ms.author: lagayhar
 ---
 # Telemetry correlation in Application Insights
 
-In the world of microservices, every logical operation requires work to be done in various components of the service. Each of these components can be monitored separately by [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). The web-app component communicates with the authentication provider component to validate user credentials, and with the API component to get data for visualization. The API component can query data from other services and use cache-provider components and notify the billing component about this call. Application Insights supports distributed telemetry correlation, which you use to detect which component is responsible for failures or performance degradation.
+In the world of microservices, every logical operation requires work to be done in various components of the service. Each of these components can be monitored separately by [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). The web-app component communicates with the authentication provider component to validate user credentials, and with the API component to get data for visualization. The API component can query data from other services and use cache-provider components to notify the billing component about this call. Application Insights supports distributed telemetry correlation, which you use to detect which component is responsible for failures or performance degradation.
 
 This article explains the data model used by Application Insights to correlate telemetry sent by multiple components. It covers context-propagation techniques and protocols. It also covers the implementation of correlation concepts on different languages and platforms.
 
@@ -29,7 +29,7 @@ Every outgoing operation, such as an HTTP call to another component, is represen
 
 You can build a view of the distributed logical operation by using `operation_Id`, `operation_parentId`, and `request.id` with `dependency.id`. These fields also define the causality order of telemetry calls.
 
-In a microservices environment, traces from components can go to the different storages. Every component can have its own instrumentation key in Application Insights. To get telemetry for the logical operation, you must query data from every storage. When the number of storages is huge, you'll need a hint about where to look next. The Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request, and the second identifies which component returned the response of the dependency call.
+In a microservices environment, traces from components can go to different storage items. Every component can have its own instrumentation key in Application Insights. To get telemetry for the logical operation, you must query data from every storage item. When the number of storage items is huge, you'll need a hint about where to look next. The Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request, and the second identifies which component returned the response of the dependency call.
 
 ## Example
 
@@ -96,43 +96,37 @@ public void ConfigureServices(IServiceCollection services)
 
 #### Enable W3C distributed tracing support for Java apps
 
-##### Incoming configuration
+- **Incoming configuration**
 
-###### J2EE apps
+  - For J2EE apps, add the following to the `<TelemetryModules>` tag inside ApplicationInsights.xml:
 
-Add the following to the `<TelemetryModules>` tag inside ApplicationInsights.xml:
+    ```xml
+    <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
+       <Param name = "W3CEnabled" value ="true"/>
+       <Param name ="enableW3CBackCompat" value = "true" />
+    </Add>
+    ```
+  - For Spring Boot apps, add the following properties:
 
-```xml
-<Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
-   <Param name = "W3CEnabled" value ="true"/>
-   <Param name ="enableW3CBackCompat" value = "true" />
-</Add>
-```
+    - `azure.application-insights.web.enable-W3C=true`
+    - `azure.application-insights.web.enable-W3C-backcompat-mode=true`
 
-###### Spring Boot apps
+- **Outgoing configuration**
 
-Add the following properties:
+  Add the following to AI-Agent.xml:
 
-- `azure.application-insights.web.enable-W3C=true`
-- `azure.application-insights.web.enable-W3C-backcompat-mode=true`
+  ```xml
+  <Instrumentation>
+    <BuiltIn enabled="true">
+      <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+    </BuiltIn>
+  </Instrumentation>
+  ```
 
-##### Outgoing configuration
-
-Add the following to AI-Agent.xml:
-
-```xml
-<Instrumentation>
-        <BuiltIn enabled="true">
-            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
-        </BuiltIn>
-    </Instrumentation>
-```
-
-> [!NOTE]
-> Backward compatibility mode is enabled by default, and the `enableW3CBackCompat` parameter is optional. Use it only when you want to turn backward compatibility off.
->
-> Ideally, you would turn this off when all your services have been updated to newer versions of SDKs that support the W3C protocol. We highly recommend that you move to these newer SDKs as soon as possible.
-
+  > [!NOTE]
+  > Backward compatibility mode is enabled by default, and the `enableW3CBackCompat` parameter is optional. Use it only when you want to turn backward compatibility off.
+  >
+  > Ideally, you would turn this off when all your services have been updated to newer versions of SDKs that support the W3C protocol. We highly recommend that you move to these newer SDKs as soon as possible.
 
 > [!IMPORTANT]
 > Make sure that both incoming and outgoing configurations are exactly the same.
