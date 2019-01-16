@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 1/3/2019
+ms.date: 01/16/2019
 ms.author: jeedes
 
 ---
@@ -58,9 +58,8 @@ Therefore, the authorization for granting access to SAP applications and service
 
 By configuring SAP Cloud Platform Identity Authentication as an application through the Azure Active Directory Marketplace, you don't need to configure individual claims or SAML assertions.
 
-> [!NOTE] 
+> [!NOTE]
 > Currently only Web SSO has been tested by both parties. The flows that are necessary for App-to-API or API-to-API communication should work but have not been tested yet. They will be tested during subsequent activities.
-
 
 ## Adding SAP Cloud Platform Identity Authentication from the gallery
 
@@ -261,7 +260,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the SAP Cloud Platform Identity Authentication tile in the Access Panel, you should be automatically signed in to the SAP Cloud Platform Identity Authentication for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
