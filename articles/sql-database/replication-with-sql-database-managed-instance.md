@@ -1,6 +1,6 @@
 ---
 title: "Configure replication in Azure SQL Database Managed Instance| Microsoft Docs"
-description: Learn about configuring transactional replication with Azure SQL Database Managed Instance
+description: Learn about configuring transactional replication in Azure SQL Database Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
