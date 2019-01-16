@@ -15,7 +15,7 @@ As an organization, you need to figure out how you're going to keep your data sa
 
 Site Recovery can manage replication for:
 
-- Azure VMs replicating between Azure regions.
+- [Azure VMs replicating between Azure regions](azure-to-azure-tutorial-dr-drill.md).
 - On-premises virtual machines and physical servers replicating to Azure, or to a secondary site.
 To know more refer to the  documentation [here](https://docs.microsoft.com/azure/site-recovery) .
 
@@ -121,7 +121,7 @@ A reboot is recommended after every upgrade of Mobility agent to ensure that all
 | [Update Rollup 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)       |   5.1.3550.0      |    9.18.4946.1     | 5.1.3550.0         |2.0.9125.0
 
 
-## Previous update Rollups
+## Previous Update Rollups
 - [Update Rollup 26](https://support.microsoft.com/help/4344054/update-rollup-26-for-azure-site-recovery)  
 - [Update Rollup 25](https://support.microsoft.com/help/4278275/update-rollup-25-for-azure-site-recovery) 
 - [Update Rollup 23](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) 
