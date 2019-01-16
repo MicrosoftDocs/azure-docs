@@ -145,7 +145,7 @@ Azure virtual machines, virtual machine scale sets, Batch, and related compute s
 
 ### AI and machine learning
 
-* [Machine Learning Services](../articles/machine-learning/service/overview-what-is-azure-ml.md)
+* [Machine Learning Service](../articles/machine-learning/service/overview-what-is-azure-ml.md)
 * [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
 ### Networking
