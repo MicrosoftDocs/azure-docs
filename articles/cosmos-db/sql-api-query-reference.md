@@ -2539,7 +2539,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ```  
   
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
-Returns a Boolean indicating whether the array contains the specified value. Can specify if the match is full or partial. 
+Returns a Boolean indicating whether the array contains the specified value. You can check for a partial or full match of an object by using a boolean expression within the command. 
 
  **Syntax**  
   
@@ -2559,7 +2559,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 
 -   `bool_expr`  
   
-     Is any boolean expression.       
+     Is any boolean expression. If it's set to 'true'and if the specified search value is an object, the command checks for a partial match (the search object is a subset of one of the objects). If it's set to 'false', the command checks for a full match of all objects within the array. The default value if not specified is false. 
   
  **Return Types**  
   

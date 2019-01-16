@@ -103,6 +103,8 @@
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html
   - name: REST
     href: https://msdn.microsoft.com/library/mt163667.aspx
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.network/trafficmanagerprofiles
 - name: Related
   items:
   - name: Application Gateway
