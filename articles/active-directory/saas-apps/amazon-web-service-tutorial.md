@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 01/16/2019
 ms.author: jeedes
 
 ---
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ![Amazon Web Services (AWS)](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
-You can configure multiple Identifiers for multiple instances as below. 
+You can configure multiple Identifiers for multiple instances as below.
 
 * `https://signin.aws.amazon.com/saml#1`
 
@@ -230,7 +230,7 @@ To configure Azure AD single sign-on with Amazon Web Services (AWS), perform the
   
     d. Click **Next: Permissions**.
 
-9. On the **Attach Permissions Policies** dialog, please attach appropriate policy as per your organisation. Click **Next: Review**.  
+9. On the **Attach Permissions Policies** dialog, please attach appropriate policy as per your organization. Click **Next: Review**.  
 
     ![Configure Single Sign-On Policy][33]
 
@@ -439,7 +439,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Amazon Web Services (AWS) tile in the Access Panel, you should be automatically signed in to the Amazon Web Services (AWS) for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
