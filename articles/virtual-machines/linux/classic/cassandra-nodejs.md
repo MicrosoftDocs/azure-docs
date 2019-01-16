@@ -80,7 +80,7 @@ Cassandra supports two types of data integrity models: consistency and eventual 
 
 The eight-node cluster shown in Figure 1 has a replication factor of 3 and a QUORUM (two nodes are read or written for consistency) read/write consistency level. The cluster can survive the theoretical loss of one node per replication group before applications start to notice the failure. This scenario assumes that all the keyspaces have well-balanced read/write requests. 
 
-The following parameters are used for the deployed cluster.
+The following parameters are used for the deployed cluster:
 
 **Single-region Cassandra cluster**
 
@@ -142,15 +142,14 @@ For a system that needs high consistency, LOCAL_QUORUM for consistency level (fo
 | Snitch |GossipingPropertyFileSnitch For more information, see [Snitches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) in the Cassandra documentation. |NetworkTopologyStrategy uses the snitch concept to understand the topology. GossipingPropertyFileSnitch gives better control in mapping each node to the datacenter and the rack. The cluster then uses gossip to propagate this information. This configuration is simpler in a dynamic IP setting compared to PropertyFileSnitch. |
 
 ## Software configuration
-The following software versions are used during deployment.
+The following software versions are used during deployment:
 
-<table>
-<tr><th>Software</th><th>Source</th><th>Version</th></tr>
-<tr><td>JRE    </td><td>[JRE 8](https://aka.ms/azure-jdks) </td><td>8U5</td></tr>
-<tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
-<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
-</table>
+| Software | Source | Version |
+| --- | ---| ---|
+| JRE    | [JRE 8](https://aka.ms/azure-jdks) | 8U5 |
+| JNA    | [JNA](https://github.com/twall/jna) | 3.2.7 |
+| Cassandra | [Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/) | 2.0.8 |
+| Ubuntu    | [Microsoft Azure](https://azure.microsoft.com/) | 14.04 LTS |
 
 To simplify the deployment, download all the required software to the desktop. Then upload it to the Ubuntu template image to create a precursor to the cluster deployment.
 
@@ -450,7 +449,7 @@ Sign in to the VM, and then:
 * Edit **$CASS_HOME/conf/cassandra-rackdc.properties** to specify the datacenter and rack properties.
   
        dc =EASTUS, rack =rack1
-* Edit **cassandra.yaml** to configure the seed nodes.
+* Edit cassandra.yaml to configure the seed nodes.
   
        Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10"
 
@@ -599,7 +598,7 @@ Sign in to the VM, and follow these steps.
 
        dc =EASTUS
        rack =rack1
-- Edit **cassandra.yaml** to configure seed nodes:
+- Edit cassandra.yaml to configure seed nodes:
 
        Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
 
