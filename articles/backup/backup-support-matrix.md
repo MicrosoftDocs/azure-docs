@@ -11,6 +11,8 @@ ms.author: raynew
 ms.custom: mvc
 ---
 
+# Azure Backup support matrix
+
 You can use the [Azure Backup service](backup-overview.md) to back up data to the Microsoft Azure cloud. This articles summarizes support settings and limitations for Azure Backup scenarios and deployments.
 
 ## Vault support
@@ -21,7 +23,7 @@ Azure Backups uses Recovery Services vaults to orchestrate and manage backups, a
 --- | ---
 Number of vaults | Up to 500 Recovery Services vaults in a single subscription.
 Machines in a vault | Up to 1000 Azure VMs in a single vault.<br/><br/> Up to 50 on-premises machines running the Azure Backup agent (Microsoft Azure Recovery Services agent (MABS)) can be registered in a single vault.
-Move vault | You can move backup Recovery Services vaults across subscription. [Learn more](backup-azure-move-recovery-services-vault.md).
+Move vault | You can move backup Recovery Services vaults across subscriptions and resource groups. [Learn more](backup-azure-move-recovery-services-vault.md).
 Move data between vaults | Moving backed up data between vaults isn't supported.
 Storage replication type | You can modify the storage replication type (GRS/LRS) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
 
@@ -44,8 +46,8 @@ Here's what's supported if you want to back up on-premises machines.
 
 **Limit** | **Details**
 --- | ---
-Azure VM data disks | Limit of 32
-Azure VM data disk size | Individual disk can be up to 4095 GB
+Azure VM data disks | Limit of 16.
+Azure VM data disk size | Individual disk can be up to 4095 GB.
 
 
 ### Azure VM backup options
