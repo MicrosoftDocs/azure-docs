@@ -22,6 +22,7 @@ In Microsoft Azure Media Services (AMS), the [Streaming Endpoints](https://docs.
 ## Naming convention
 
 For the default endpoint: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+
 For any additional endpoints: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
 
 ## Types  
