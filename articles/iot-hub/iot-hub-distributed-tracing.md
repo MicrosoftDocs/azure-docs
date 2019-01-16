@@ -62,9 +62,25 @@ Once turned on, IoT Hub records logs when messages containing valid trace proper
 
 ## Set up device
 
-### **Bug bash**: get the zip from the Teams channel, which also contains the sample code
+### **Bug bash**
 
-Alternatively, modify the sample according to instructions:
+For bug bash, we prepared a Windows executable that you can run without having to build the whole SDK and modify code.
+
+1. Download the [iothub_ll_telemetry_sample.exe](https://microsoft.sharepoint-df.com/teams/AzureIoTBugbashes/Shared%20Documents/Distributed%20Tracing%20Public%20Preview%20Bug%20Bash/iothub_ll_telemetry_sample.exe) that we've compiled for Windows.
+
+1. Open a command prompt, and go to the folder where you downloaded the exe
+
+1. Run the sample with a device connection string and protocol following this format
+
+	```cmd
+	iothub_ll_telemetry_sample.exe -c:<Device Connection String> -p:(mqtt|amqp)
+	```
+
+1. Keep the program running, and move on to [Update sampling options](#update-sampling-options)
+
+### Build your own
+
+If you don't want to run the exe, modify and build the sample according to instructions:
 
 1. Install ["Desktop development with C++" workload](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2017) for either Visual Studio 2015 or 2017
 
@@ -153,7 +169,7 @@ https://portal.azure.com/?feature.canmodifyextensions=true
 
 1. (Optional) Change the sampling rate to a different value, and observe the different amount of messages that have `tracestate` in the application properties.
 
-Screenshot
+    ![Trace state](./media/iot-hub-distributed-tracing/MicrosoftTeams-image.png)
 
 This doesn't do anything unless your device is set up to listen to twin changes by following the [Deploy client application to your IoT device](#deploy-client-application-to-your-IoT-device) section.
 
@@ -174,7 +190,7 @@ To update the distributed tracing sampling configuration for multiple devices, u
 
 ### Update using Azure IoT Hub Toolkit for VS Code
 
-To use VS Code to configure distributed tracing, you have to install VS Code and preview version of Azure IoT Hub Toolkit as stated in **Prerequisites**
+1. Install VS Code, then download the preview version of Azure IoT Hub Toolkit for VS Code from [here](https://microsoft.sharepoint-df.com/teams/AzureIoTBugbashes/Shared%20Documents/Distributed%20Tracing%20Public%20Preview%20Bug%20Bash/azure-iot-toolkit-2.1.8.vsix), and install it ([how to install from a VSIX](https://code.visualstudio.com/docs/editor/extension-gallery#_install-from-a-vsix))
 
 1. Open VS Code, set up IoT Hub connection string for your IoT Hub just created. You may refer to [how to set up IoT Hub connection string](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites)
 
@@ -218,6 +234,8 @@ To understand the different types of logs, see [Azure IoT Hub diagnostic logs](i
 
 To visualize the flow of IoT messages participating distributed tracing, set up the Application Map sample app. It works by piping data from IoT Hub to Azure Monitor, which pipes to Event Hub, then to [Application Map](../application-insights/app-insights-app-map.md).
 
+For example, this is what distributed tracing in App Map looks like with 3 routing endpoints.
+
 ![IoT distributed tracing in App Map](./media/iot-hub-distributed-tracing/app-map.png)
 
 > [!div class="button"]
@@ -227,17 +245,17 @@ To visualize the flow of IoT messages participating distributed tracing, set up 
 
 1. Stop the telemetry app that was running
 
-1. Please delete IoT Hub, Storage Account, Event Hub, or Log Analytics Wrokspace you created for bug bash
+1. Please delete IoT Hub, Storage Account, Event Hub, or Log Analytics Workspace you created for bug bash
 
 1. Uninstall preview version of Azure IoT Hub Toolkit and re-install official version from Extension tab if necessary
 
-1. You should paste this in the console to remove the sideloaded testing environment:
+1. You should paste this in your browser console to remove the sideloaded portal extension:
 
 ```
 MsPortalImpl.Extension.unregisterTestExtension("Microsoft_Azure_IotHub")
 ```
 
-## Understand Azure IoT distributed tracing
+## Understand Azure IoT distributed tracing (work in progress)
 
 ### Context
 
