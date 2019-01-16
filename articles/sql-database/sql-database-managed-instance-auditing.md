@@ -109,7 +109,7 @@ The following section describes the configuration of auditing on your Managed In
 
       1. Continue by [creating a Server Audit Specification or Database Audit Specification](#createspec)
 
-   - <a id="blobssms"></a>Configure blob storage for audit logs using the SQL Server Management Studio (SSMS) UI:
+   - <a id="blobssms"></a>Configure blob storage for audit logs using the SQL Server Management Studio (SSMS) 18 (Preview):
 
      1. Connect to the managed instance using SQL Server Management Studio (SSMS) UI.
 
