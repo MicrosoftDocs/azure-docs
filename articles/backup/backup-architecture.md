@@ -10,6 +10,8 @@ ms.date: 01/15/2019
 ms.author: raynew
 ---
 
+# Azure Backup architecture
+
 You can use the [Azure Backup service](backup-overview.md) to back up data to the Microsoft Azure cloud. This article summarizes Azure Backup architecture, components, and processes. 
 
 
@@ -53,6 +55,7 @@ Azure Backup runs backup jobs based on a default or customized backup policy. Th
 **Back up machines and apps protected by DPM or MABS** | In this scenario, the machine/app is first backed up to DPM or MABS local storage. Then, the data in DPM/MABS is backed up to the vault by Azure Backup. On-premises machines can be protected by DPM/MABS running on-premises. Azure VMs can be protected by DPM/MABS running in Azure.
 
 [Get an overview](backup-overview.md), and see [what's supported](backup-support-matrix.md) for each scenario.
+
 
 ### Backup agents
 
