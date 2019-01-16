@@ -8,7 +8,7 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/16/2019
 ---
 
 # Authenticate and access resources with managed identities in Azure Logic Apps
@@ -190,9 +190,9 @@ for the resource you want to call.
 
    For example, suppose you're using Azure Active 
    Directory (Azure AD) authentication with 
-   [one of these Azure services](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   [one of these Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
    In the **URI** box, enter the endpoint URL for that Azure service. 
-   So, if you're using Azure Resource Manager, use this URL:
+   So, if you're using Azure Resource Manager, enter this value in the **URI** property:
 
    `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
 
@@ -200,9 +200,18 @@ for the resource you want to call.
 
 1. From the **Authentication** list, select **Managed Identity**. 
 After you select this authentication, the **Audience** property 
-appears with the default value:
+appears with the default resource ID value:
 
    ![Select "Managed Identity"](./media/create-managed-service-identity/select-managed-service-identity.png)
+
+   > [!IMPORTANT]
+   > 
+   > In the **Audience** property, the resource ID value must exactly match 
+   > what Azure AD expects, including any required trailing slashes. 
+   > You can find these resource ID values in this 
+   > [table describing Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   > For example, if you're using the Azure Resoruce Manager resource ID, 
+   > make sure the URI has a trailing slash.
 
 1. Continue building the logic app the way you want.
 
