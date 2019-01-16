@@ -117,33 +117,8 @@ Per the deployment requirement, the VM doesn't have internet access. Or, it migh
 
 To function correctly, the Backup extension requires connectivity to Azure public IP addresses. The extension sends commands to an Azure storage endpoint (HTTPs URL) to manage the snapshots of the VM. If the extension doesn't have access to the public internet, backup eventually fails.
 
-It is possible to deploy a proxy server to route the VM traffic.
-##### Create a path for HTTPs traffic
-
-1. If you have network restrictions in place (for example, a network security group), deploy an HTTPs proxy server to route the traffic.
-2. To allow access to the internet from the HTTPs proxy server, add rules to the network security group, if you have one.
-
-To learn how to set up an HTTPs proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-
-Either the backed up VM or the proxy server through which the traffic is routed requires access to Azure Public IP addresses
-
 ####  Solution
-To resolve the issue, try one of the following methods:
-
-##### Allow access to Azure storage that corresponds to the region
-
-You can use [service tags](../virtual-network/security-overview.md#service-tags) to allow connections to storage of the specific region. Ensure that the rule that allows access to the storage account has higher priority than the rule that blocks internet access.
-
-![Network security group with storage tags for a region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
-
-To understand the step by step procedure to configure service tags, watch [this video](https://youtu.be/1EjLQtbKm1M).
-
-> [!WARNING]
-> Storage service tags are in preview. They are available only in specific regions. For a list of regions, see [Service tags for storage](../virtual-network/security-overview.md#service-tags).
-
-If you use Azure Managed Disks, you might need an additional port opening (port 8443) on the firewalls.
-
-Furthermore, if your subnet doesn't have a route for internet outbound traffic, you need to add a service endpoint with service tag "Microsoft.Storage" to your subnet.
+To resolve the network issue, see [Establish network connectivity](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>The agent is installed in the VM, but it's unresponsive (for Windows VMs)
 
