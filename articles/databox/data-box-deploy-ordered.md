@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 01/15/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -18,7 +18,7 @@ Azure Data Box is a hybrid solution that allows you to import your on-premises d
 This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:
 
 > [!div class="checklist"]
-> * Sign up for Data Box
+> * Prerequisites to deploy Data Box
 > * Order a Data Box
 > * Track the order
 > * Cancel the order
