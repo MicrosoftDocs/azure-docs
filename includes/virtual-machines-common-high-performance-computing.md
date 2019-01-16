@@ -27,7 +27,7 @@ Use the Azure cloud to efficiently run compute-intensive Linux and Windows workl
     * Use cloud compute on-demand with your existing [workload manager](#workload-manager).
     * Take advantage of [HPC and GPU VM sizes](#hpc-and-gpu-sizes) for MPI or GPU workloads.
 * **Big Compute solutions as a service**
-    * Develop custom Big Compute solutions and workflows using [Azure Batch](#azure-batch) and related [Azure services](#related-azure-services).
+    * Develop custom Big Compute solutions and workflows using [Azure CycleCloud](#azure-cyclecloud), [Azure Batch](#azure-batch), and related [Azure services](#related-azure-services).
     * Run Azure-enabled engineering and simulation solutions from vendors including [Altair](http://www.altair.com/), [Rescale](https://www.rescale.com/azure/), and [Cycle Computing](https://cyclecomputing.com/) (now [joined with Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)).
     * Use a [Cray supercomputer](https://www.cray.com/solutions/supercomputing-as-a-service/cray-in-azure) as a service hosted in Azure.
 * **Marketplace solutions**
@@ -82,9 +82,16 @@ Learn more:
 * High performance compute sizes for [Linux](../articles/virtual-machines/linux/sizes-hpc.md) and [Windows](../articles/virtual-machines/windows/sizes-hpc.md) VMs 
 * GPU-enabled sizes for [Linux](../articles/virtual-machines/linux/sizes-gpu.md) and [Windows](../articles/virtual-machines/windows/sizes-gpu.md) VMs 
 
+## Azure CycleCloud
+
+Effectively manage common workloads with ease while creating and optimizing HPC clusters on Azure VMs with [Azure CycleCloud](../articles/cyclecloud/overview.md).
+
 Learn how to:
 
-* [Use GPU and RDMA instances in Batch pools](../articles/batch/batch-pool-compute-intensive-sizes.md)
+* [Install and set up CycleCloud with a Resource Manager template](../articles/cyclecloud/quickstart-install-cyclecloud.md)
+
+* [Set up CycleCloud manually](../articles/cyclecloud/quickstart-installation.md)
+
 
 ## Azure Batch
 
