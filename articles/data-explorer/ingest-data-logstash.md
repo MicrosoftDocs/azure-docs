@@ -104,15 +104,14 @@ output {
 }
 ```
 
-| Parameter Name | Description | Notes |
+| Parameter Name | Description |
 | --- | --- | --- |
-| **path** | The plugin writes events to temporary files before sending them to ADX. This parameter includes a path where files should be written and a time expression for file rotation to trigger an upload to the ADX service. The example above shows how to rotate the files every minute and check the Logstash docs for more information on time expressions. | Required
-| **ingest_url** | The Kusto endpoint for ingestion-related communication. See it on the Azure Portal.| Required|
-| **app_id, app_key, app_tenant**| Credentials required to connect to the ADX service. Be sure to use an application with 'ingest' privileges. | Required|
-| **database**| Database name to place events | Required |
-| **table** | Target table name to place events | Required
-| **mapping** | Mapping is used to map an incoming event json string into the correct row format (which property goes into which column) | Required |
-| |
+| **path** | The Logstash plugin writes events to temporary files before sending them to Azure Data Explorer. This parameter includes a path where files should be written and a time expression for file rotation to trigger an upload to the Azure Data Explorer service.|
+| **ingest_url** | The Kusto endpoint for ingestion-related communication.|
+| **app_id app_key app_tenant**| Credentials required to connect to Azure Data Explorer. Be sure to use an application with ingest privileges. |
+| **database**| Database name to place events |
+| **table** | Target table name to place events |
+| **mapping** | Mapping is used to map an incoming event json string into the correct row format (defines which property goes into which column) |
 
 ## Run Logstash
 
