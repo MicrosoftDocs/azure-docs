@@ -1,26 +1,28 @@
 ---
-title: "Quickstart: Perform a search with Java - Bing Web Search API"
+title: "Quickstart: Perform a web search with Java - Bing Web Search REST API"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you will learn how to make your first call to the Bing Web Search API using Java and receive a JSON response.
+description: Use this quickstart to send requests to the Bing Web Search REST API using Java, and receive a JSON response
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: erhopf
+ms.author: aahi
+ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Java.
 ---
 
-# Quickstart: Use Java to call the Bing Web Search API  
+# Quickstart: Search the web using the Bing Web Search REST API and Java
 
 Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response.  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## Prerequisites
+See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
+## Prerequisites
 Here are a few things that you'll need before running this quickstart:
 
 * [JDK 7 or 8](https://aka.ms/azure-jdks)

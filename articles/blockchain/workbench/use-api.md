@@ -5,16 +5,16 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 11/14/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 #customer intent: As a developer, I want to understand the  Azure Blockchain Workbench REST API to so that I can integrate apps with Blockchain Workbench.
 ---
-# Using the Azure Blockchain Workbench REST API 
+# Using the Azure Blockchain Workbench REST API
 
-Azure Blockchain Workbench REST API provides developers and information workers a way to build rich integrations to blockchain applications. This document walks you through several key methods of the Workbench REST API. Consider a scenario where a developer wants to create a custom blockchain client, which allows signed in users to view and interact with their assigned blockchain applications. The client allows users to view contract instances and take actions on smart contracts. The client uses the Workbench REST API in the context of the signed-in user to do the following:
+Azure Blockchain Workbench REST API provides developers and information workers a way to build rich integrations to blockchain applications. This document walks you through several key methods of the Workbench REST API. For example, suppose a developer wants to create a custom blockchain client. This blockchain client allows signed in users to view and interact with their assigned blockchain applications. The client allows users to view contract instances and take actions on smart contracts. The client uses the Workbench REST API in the context of the signed-in user to do the following actions:
 
 * List applications
 * List workflows for an application
@@ -22,23 +22,23 @@ Azure Blockchain Workbench REST API provides developers and information workers 
 * List available actions for a contract
 * Execute an action for a contract
 
-The example blockchain applications used in the scenarios, can be [downloaded from GitHub](https://github.com/Azure-Samples/blockchain). 
+The example blockchain applications used in the scenarios, can be [downloaded from GitHub](https://github.com/Azure-Samples/blockchain).
 
 ## List applications
 
 Once a user has signed into the blockchain client, the first task is to retrieve all Blockchain Workbench applications for the user. In this scenario, the user has access to two applications:
 
-1.  [Asset transfer](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
-2.  [Refrigerated transportation](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
+1. [Asset transfer](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
+2. [Refrigerated transportation](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
 
 Use the [Applications GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget):
 
 ``` http
-GET /api/v1/applications 
+GET /api/v1/applications
 Authorization : Bearer {access token}
 ```
 
-The response lists all blockchain applications to which a user has access in Blockchain Workbench. Blockchain Workbench administrators get all blockchain applications, while non-Workbench administrators get all blockchains for which they have at least one associated application role or an associated smart contract instance role.
+The response lists all blockchain applications to which a user has access in Blockchain Workbench. Blockchain Workbench administrators get every blockchain application. Non-Workbench administrators get all blockchains for which they have at least one associated application role or an associated smart contract instance role.
 
 ``` http
 HTTP/1.1 200 OK
@@ -72,7 +72,7 @@ Content-type: application/json
 
 ## List workflows for an application
 
-Once a user selects the applicable blockchain application, in this case, **Asset Transfer**, the blockchain client retrieves all workflows of the specific blockchain application. Users can then select the applicable workflow before being shown all smart contract instances for the workflow. Each blockchain application has one or more workflows and each workflow has zero or smart contract instances. When building blockchain client applications, it is recommended to skip the user experience flow allowing users to select the appropriate workflow when there is only one workflow for the blockchain application. In this case, **Asset Transfer** has only one workflow, also called **Asset Transfer**.
+Once a user selects the applicable blockchain application (such as **Asset Transfer**), the blockchain client retrieves all workflows of the specific blockchain application. Users can then select the applicable workflow before being shown all smart contract instances for the workflow. Each blockchain application has one or more workflows and each workflow has zero or smart contract instances. For a blockchain client application that has only one workflow, we recommend skipping the user experience flow that allows users to select the appropriate workflow. In this case, **Asset Transfer** has only one workflow, also called **Asset Transfer**.
 
 Use the [Applications Workflows GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget):
 
@@ -81,7 +81,7 @@ GET /api/v1/applications/{applicationId}/workflows
 Authorization: Bearer {access token}
 ```
 
-Response lists all workflows of the specified blockchain application to which a user has access in Blockchain Workbench. Blockchain Workbench administrators get all blockchain workflows, while non-Workbench administrators get all workflows for which they have at least one associated application role or is associated with a smart contract instance role.
+Response lists all workflows of the specified blockchain application to which a user has access in Blockchain Workbench. Blockchain Workbench administrators get every blockchain workflow. Non-Workbench administrators get all workflows for which they have at least one associated application role or is associated with a smart contract instance role.
 
 ``` http
 HTTP/1.1 200 OK
@@ -104,16 +104,16 @@ Content-type: application/json
 
 ## List smart contract instances for a workflow
 
-Once a user selects the applicable workflow, this case **Asset Transfer**, the blockchain client will retrieve all smart contract instances for the specified workflow. You can use this information to show all smart contract instances for the workflow and allow users to deep dive into any of the shown smart contract instances. In this example, consider a user would like to interact with one of the smart contract instances to take action.
+Once a user selects the applicable workflow, this case **Asset Transfer**, the blockchain client will retrieve all smart contract instances for the specified workflow. You can use this information to show all smart contract instances for the workflow. Or you can allow users to deep dive into any of the shown smart contract instances. In this example, consider a user would like to interact with one of the smart contract instances to take action.
 
-Use the [Contracts GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractsget):
+Use the [Contracts GET API](/rest/api/azure-blockchain-workbench/contractsv2/contractsget):
 
 ``` http
 GET api/v1/contracts?workflowId={workflowId}
 Authorization: Bearer {access token}
 ```
 
-Response lists all smart contract instances of the specified workflow. Workbench administrators get all smart contract instances, while non-Workbench administrators get all smart contract instances for which they have at least one associated application role or is associated with a smart contract instance role.
+Response lists all smart contract instances of the specified workflow. Workbench administrators get all smart contract instances. Non-Workbench administrators get every smart contract instance for which they have at least one associated application role or is associated with a smart contract instance role.
 
 ``` http
 HTTP/1.1 200 OK
@@ -203,12 +203,12 @@ Content-type: application/json
 
 ## List available actions for a contract
 
-Once a user has decided to deep dive into one of the contracts, the blockchain client can then show all available actions to the user given the state of the contract. In this example, the user is looking at all available actions for a new smart contract they created:
+Once a user decides to deep dive into a contract, the blockchain client can then show the available user actions given the state of the contract. In this example, the user is looking at all available actions for a new smart contract they created:
 
 * Modify: Allows the user to modify the description and price of an asset.
-* Terminate: Allows the user to terminate the contract of the asset.
+* Terminate: Allows the user to end the contract of the asset.
 
-Use the [Contract Action GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractactionget):
+Use the [Contract Action GET API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget):
 
 ``` http
 GET /api/v1/contracts/{contractId}/actions
@@ -270,12 +270,12 @@ Content-type: application/json
 
 ## Execute an action for a contract
 
-A user can then decide to take action for the specified smart contract instance. In this case, consider the scenario where a user would like to modify the description and price of an asset to the following:
+A user can then decide to take action for the specified smart contract instance. In this case, consider the scenario where a user would like to modify the description and price of an asset to the following action:
 
 * Description: "My updated car"
 * Price: 54321
 
-Use the [Contract Action POST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractactionpost):
+Use the [Contract Action POST API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost):
 
 ``` http
 POST /api/v1/contracts/{contractId}/actions

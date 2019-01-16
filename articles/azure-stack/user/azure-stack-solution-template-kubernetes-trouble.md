@@ -87,7 +87,7 @@ You can collect logs on the VMs that support your Kubernetes cluster. You can al
 3.  Review your VM creation files. You might have had the following issues:  
     - The public key might be invalid. Review the key that you created.  
     - VM creation might have triggered an internal error or triggered a creation error. A number of factors can cause errors, including capacity limitations for your Azure Stack subscription.
-    - Make sure that the fully qualified domain name (FDQN) for the VM begins with a duplicate prefix.
+    - Make sure that the fully qualified domain name (FQDN) for the VM begins with a duplicate prefix.
 4.  If the VM is **OK**, then evaluate the DVM. If the DVM has an error message:
 
     - The public key might be invalid. Review the key that you created.  
@@ -175,6 +175,6 @@ To get logs, take the following steps:
 
 [Deploy Kubernetes to Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
 
-[Add a Kubernetes cluster to the Marketplace (for the Azure Stack operator)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Add a Kubernetes cluster to the Marketplace (for the Azure Stack operator)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes on Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

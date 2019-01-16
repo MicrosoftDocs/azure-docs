@@ -15,31 +15,30 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 04/19/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
 # Azure AD audit activity reference
 
-With reporting in Azure Active Directory (Azure AD), you can get the information you need to determine how your environment is doing.
+With Azure Active Directory (Azure AD) reports, you can get the information you need to determine how your environment is doing.
 
 The reporting architecture in Azure AD consists of the following components:
 
-- **Activity** 
-    - **Sign-in activities** – Information about the usage of managed applications and user sign-in activities
-    - **Audit logs** - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like users, apps, groups, roles, policies, authentications etc..
-- **Security** 
-    - **Risky sign-ins** - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. For more details, see Risky sign-ins.
-    - **Users flagged for risk** - A risky user is an indicator for a user account that might have been compromised. For more details, see Users flagged for risk.
+- **Activity reports** 
+    - [Sign-ins](concept-sign-ins.md) – Provides information about the usage of managed applications and user sign-in activities
+    - [Audit logs](concept-audit-logs.md) - Provides traceability through logs for all changes done by various features within Azure AD. 
+    
+- **Security reports** 
+    - [Risky sign-ins](concept-risky-sign-ins.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
+    - [Users flagged for risk](concept-user-at-risk.md) - A risky user is an indicator for a user account that might have been compromised. 
 
 This articles lists the audit activities that can be logged in your audit logs.
- 
-
 
 ## Access reviews
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Directory Management|Add administrative unit|
 |Directory Management|Add member to administrative unit|
@@ -70,12 +69,9 @@ This articles lists the audit activities that can be logged in your audit logs.
 |User Management|Get V2 application|
 |User Management|Get V2 applications|
 
-
-
-
 ## Account provisioning
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Application Management|Retrieve V2 application permissions grants|
 |Application Management|Retrieve V2 application service principals in the current tenant|
@@ -87,7 +83,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Application proxy
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Application Management|Add application|
 |Application Management|Add owner to application|
@@ -108,14 +104,14 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Automated password rollover
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Application Management|Remove service principal credentials|
 
 
 ## B2C
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Application Management|Restore application|
 |Application Management|Revoke consent|
@@ -167,7 +163,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Authorization|Get V1 applications|
 |Authorization|Get V2 application|
 |Authorization|Get V2 applications|
-|Authorization|Get a B2C drectory resource|
+|Authorization|Get a B2C directory resource|
 |Authorization|Get a list of custom domains in the tenant|
 |Authorization|Get a user journey|
 |Authorization|Get allowed application claims for user journey|
@@ -232,7 +228,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Authorization|User Authorization: User granted access as 'Tenant Admin'|
 |Authorization|User Authorization: User was granted 'Authenticated Users' access rights|
 |Authorization|Verify if B2C feature is enabled|
-|Authorization|Verify if feature is enalbed|
+|Authorization|Verify if feature is enabled|
 |Authorization|Create program|
 |Authorization|Delete program|
 |Authorization|Link program control|
@@ -256,7 +252,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Directory Management|Get tenantDomains|
 |Key|Gets the type of tenant|
 |Key|Verify if B2C feature is enabled|
-|Key|Verify if feature is enalbed|
+|Key|Verify if feature is enabled|
 |Key|Add partner to company|
 |Key|Add unverified domain|
 |Key|Add verified domain|
@@ -344,7 +340,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Core directory
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Administrative Unit Management|Download a single risk event type|
 |Administrative Unit Management|Download admins and status of weekly digest opt-in|
@@ -396,7 +392,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Directory Management|Get B2C directory resources in a subscription|
 |Directory Management|Get Custom IDP|
 |Directory Management|Get IDP|
-|Directory Management|Get a B2C drectory resource|
+|Directory Management|Get a B2C directory resource|
 |Directory Management|Get a user journey|
 |Directory Management|Get allowed application claims for user journey|
 |Directory Management|Get allowed self-asserted claims for user journey|
@@ -478,7 +474,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Identity protection
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Directory Management|Elevate|
 |Directory Management|Removed|
@@ -497,7 +493,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Invited users
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Other|Create request approval|
 |Other|Delete access review|
@@ -511,21 +507,21 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Microsoft Identity Manager (MIM)
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Group Management|Review request approval request|
 |Group Management|Update Access Review|
 |Group Management|Update access review mail notification settings|
-|Group Management|Update access review reccurrence count setting|
-|Group Management|Update access review reccurrence duration in days setting|
-|User Management|Update access review reccurrence end type setting|
-|User Management|Update access review reccurrence type setting|
+|Group Management|Update access review recurrence count setting|
+|Group Management|Update access review recurrence duration in days setting|
+|User Management|Update access review recurrence end type setting|
+|User Management|Update access review recurrence type setting|
 
 
 
 ## Privileged Identity Management
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Role Management|Update access review reminder settings|
 |Role Management|Update request approval|
@@ -548,7 +544,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Self-service group management
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Group Management|Reset user password|
 |Group Management|Restore user|
@@ -563,7 +559,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Self-service password management
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Directory Management|Admins requires the user to reset their password|
 |Directory Management|Assign external user to application|
@@ -579,7 +575,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Terms of use
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Policy Management|Change password (self-service)|
 |Policy Management|Reset password (by admin)|
@@ -590,13 +586,8 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Policy Management|User registered for self-service password reset|
 
 
-
-
 ## Next steps
 
-For an overview of:
-
-- Reporting, see the [Azure Active Directory reporting](overview-reports.md).
-
-- Audit activity reports, see [Audit activity reports in the Azure Active Directory portal](concept-audit-logs.md). 
-
+- [Azure AD reports overview](overview-reports.md).
+- [Audit logs report](concept-audit-logs.md). 
+- [Programmatic access to Azure AD reports](concept-reporting-api.md)

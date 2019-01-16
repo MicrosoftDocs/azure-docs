@@ -1,28 +1,20 @@
 ---
-title: Azure AI Gallery competitions | Microsoft Docs
-description: Discover competitions in the Azure AI Gallery.
-services: machine-learning
-documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
-manager: hjerez
-editor: cgronlun
-
-ms.assetid: ef74f411-bce4-4b02-aa34-902fc8d7b519
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+title: Gallery competitions
+titleSuffix: Azure Machine Learning Studio
+description: Discover competitions in the Azure AI Gallery. Provides an exciting opportunity to compete with the community of data scientists to solve complex problems.
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
+ms.topic: article
+ 
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 03/31/2017
-
 ---
 # Discover competitions in the Azure AI Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## Cortana Intelligence Competitions
-**[Competitions](https://gallery.cortanaintelligence.com/competitions)**
+**[Competitions](https://gallery.cortanaintelligence.com/competitions)** in [Azure AI Gallery](http://gallery.cortanaintelligence.com)
 provide an exciting opportunity to compete with the community of data scientists to solve complex problems using Cortana Intelligence Suite.
 
 For answers to frequently-asked questions about Competitions, see [Microsoft Cortana Intelligence Competitions FAQ](competition-faq.md).
@@ -30,7 +22,7 @@ For answers to frequently-asked questions about Competitions, see [Microsoft Cor
 ## Discover
 The
 **[Competitions](https://gallery.cortanaintelligence.com/competitions)**
- page ([aka.ms/CIComp](http://aka.ms/CIComp)) displays a list of the most popular
+ page ([aka.ms/CIComp](https://aka.ms/CIComp)) displays a list of the most popular
 competitions.
 
 ![Select Competitions from the Gallery home page](./media/gallery-competitions/select-competitions-in-gallery.png)
@@ -63,5 +55,5 @@ If the competition has been completed, then a list of winners is shown.
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

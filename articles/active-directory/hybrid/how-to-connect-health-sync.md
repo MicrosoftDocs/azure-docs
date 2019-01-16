@@ -3,7 +3,7 @@ title: Using Azure AD Connect Health with sync | Microsoft Docs
 description: This is the Azure AD Connect Health page that will discuss how to monitor Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
@@ -56,7 +56,7 @@ This feature provides a graphical trend of the number of changes that are being 
 
 ![Sync Latency](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
-## Object Level Synchronization Error Report (Preview)
+## Object Level Synchronization Error Report
 This feature provides a report about synchronization errors that can occur when identity data is synchronized between Windows Server AD and Azure AD using Azure AD Connect.
 
 * The report covers errors recorded by the sync client (Azure AD Connect version 1.1.281.0 or higher)
@@ -69,7 +69,7 @@ This feature provides a report about synchronization errors that can occur when 
   * List of objects with error per category
   * All the data about the errors at one place
   * Side by side comparison of Objects with error due to a conflict
-  * Download the error report as a CVS (coming soon)
+  * Download the error report as a CVS
 
 ### Categorization of Errors
 The report categorizes the existing synchronization errors in the following categories:

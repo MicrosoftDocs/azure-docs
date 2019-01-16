@@ -61,7 +61,7 @@ To resolve this problem, [back up the operating system disk](../windows/snapshot
 
 ### Serial Console
 
-#### Step 1: Turn on Remote Desktop
+#### Step 1: Open CMD instance in Serial console
 
 1. Access the [Serial Console](serial-console-windows.md) by selecting **Support & Troubleshooting** > **Serial console (Preview)**. If the feature is enabled on the VM, you can connect the VM successfully.
 

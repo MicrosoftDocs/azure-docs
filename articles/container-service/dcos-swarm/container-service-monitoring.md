@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure DC/OS cluster - Datadog
+title: (DEPRECATED) Monitor Azure DC/OS cluster - Datadog
 description: Monitor an Azure Container Service cluster with Datadog. Use the DC/OS web UI to deploy the Datadog agents to your cluster.
 services: container-service
 author: sauryadas
@@ -12,7 +12,9 @@ ms.author: saudas
 ms.custom: mvc
 ---
 
-# Monitor an Azure Container Service DC/OS cluster with Datadog
+# (DEPRECATED) Monitor an Azure Container Service DC/OS cluster with Datadog
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In this article we will deploy Datadog agents to all the agent nodes in your Azure Container Service cluster. You will need an account with Datadog for this configuration. 
 

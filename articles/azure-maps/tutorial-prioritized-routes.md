@@ -3,7 +3,7 @@ title: Multiple routes with Azure Maps | Microsoft Docs
 description: Find routes for different modes of travel using Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/29/2018
+ms.date: 11/14/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -286,12 +286,7 @@ You can access the code sample for this tutorial here:
 
 [See the sample live here](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
-To learn more about the coverage and capabilities of Azure Maps:
+The next tutorial demonstrates the process of creating a simple store locator by using Azure Maps.
 
 > [!div class="nextstepaction"]
-> [Zoom levels and tile grid](zoom-levels-and-tile-grid.md)
-
-To see more code examples and an interactive coding experience:
-
-> [!div class="nextstepaction"]
-> [How to use the map control](how-to-use-map-control.md)
+> [Create a store locator using Azure Maps](./tutorial-create-store-locator.md)

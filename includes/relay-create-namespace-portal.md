@@ -1,3 +1,10 @@
+---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
+---
 1. Sign in to the [Azure portal][Azure portal].
 2. In the left menu, select **+ Create a resource**. Then, select **Integration** > **Relay**. If you don't see **Relay** in the list, select **See All** in the top-right corner. 
 3. Under **Create namespace**, enter a namespace name. The system immediately checks to see if the name is available.

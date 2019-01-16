@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/17/2018
+ms.date: 11/26/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to set up Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -26,7 +26,9 @@ In this tutorial, you learn how to:
 Before you begin, make sure that:
 
 1. You have completed the [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
-2. You have received your Data Box and the order status in the portal is **Delivered**. There is a shipping label in the clear pouch affixed to the device under the current label. Keep this label safe as you will use it for return shipment.
+2. You have received your Data Box and the order status in the portal is **Delivered**. 
+    - There is a shipping label in the clear pouch affixed to the device under the current label. Keep this label safe as you will use it for return shipment.
+    - Some regions in Europe may receive the device packaged in a box. Ensure that you unpack the device and save the box for return shipment.
 3. You have reviewed the [Data Box safety guidelines](data-box-safety.md).
 4. You have received one grounded power cord to use with your 100-TB storage device.
 5. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
@@ -63,7 +65,7 @@ Perform the following steps to cable your device.
 Perform the following steps to set up your device using the local web UI and the portal UI.
 
 1. Configure the Ethernet adapter on the laptop you are using to connect to the device with a static IP address of 192.168.100.5 and subnet 255.255.255.0. 
-2. Connect to MGMT port of your device and access its local web UI at https://192.168.100.10. This may take up to 5 minutes after you turned on the device.
+2. Connect to MGMT port of your device and access its local web UI at https\://192.168.100.10. This may take up to 5 minutes after you turned on the device.
 3. Click **Details** and then click **Go on to the webpage**.
 
    ![Connect to local web UI](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 

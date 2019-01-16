@@ -3,7 +3,7 @@ title: Automated Backup for SQL Server 2014 Azure Virtual Machines | Microsoft D
 description: Explains the Automated Backup feature for SQL Server 2014 VMs running in Azure. This article is specific to VMs using the Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
@@ -13,7 +13,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
-ms.author: jroth
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 
 # Automated Backup for SQL Server 2014 Virtual Machines (Resource Manager)
@@ -96,7 +97,7 @@ If you are enabling Automated Backup for the first time, Azure configures the SQ
 
 You can use PowerShell to configure Automated Backup. Before you begin, you must:
 
-- [Download and install the latest Azure PowerShell](http://aka.ms/webpi-azps).
+- [Download and install the latest Azure PowerShell](https://aka.ms/webpi-azps).
 - Open Windows PowerShell and associate it with your account with the **Connect-AzureRmAccount** command.
 
 ### Install the SQL IaaS Extension

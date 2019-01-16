@@ -17,7 +17,7 @@ ms.author: jomolesk
 The General Data Protection Regulation (GDPR) contains many requirements about collecting, storing, and using personal information, including how organizations identify and secure personal data, accommodate transparency requirements, detect and report personal data breaches, and train privacy personnel and other employees. The GDPR gives individuals greater control over their personal data and imposes many new obligations on organizations that collect, handle, or analyze personal data. The GDPR imposes new rules on organizations that offer goods and services to people in the European Union (EU), or that collect and analyze data tied to EU residents. The GDPR applies no matter where an organization is located.
 
 Microsoft designed Azure with industry-leading security measures and privacy policies to safeguard data in the cloud, including the categories of personal data identified by the GDPR. Microsoft's
-[contractual terms](http://aka.ms/Online-Services-Terms) commit Microsoft to the requirements of processors.
+[contractual terms](https://aka.ms/Online-Services-Terms) commit Microsoft to the requirements of processors.
 
 This Azure Security and Compliance Blueprint provides guidance to deploy a platform as a service (PaaS) environment suitable for a simple Internet-facing web application. This solution demonstrates ways in which customers can meet the specific security and compliance requirements of the GDPR and serves as a foundation for customers to build and configure their own PaaS web application solutions in Azure. Customers can utilize this reference architecture and follow Microsoft's [four-step process](https://aka.ms/gdprebook) in their journey to GDPR compliance:
 1. Discover: Identify which personal data exists and where it resides.
@@ -32,7 +32,7 @@ This reference architecture, associated implementation guide, and threat model a
 ## Architecture diagram and components
 This solution provides a reference architecture for a PaaS web application with an Azure SQL Database backend. The web application is hosted in an isolated Azure App Service Environment, which is a private, dedicated environment in an Azure datacenter. The environment load balances traffic for the web application across VMs managed by Azure. This architecture also includes network security groups, an Application Gateway, Azure DNS, and Load Balancer. Furthermore, Azure Monitor provides real-time analytics of system health. **Azure recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture subnet.**
 
-![PaaS Web Applicaiton for GDPR reference architecture diagram](images/gdpr-paaswa-architecture.png?raw=true "PaaS Web Applicaiton for GDPR reference architecture diagram")
+![PaaS Web Application for GDPR reference architecture diagram](images/gdpr-paaswa-architecture.png?raw=true "PaaS Web Application for GDPR reference architecture diagram")
 
 This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
@@ -79,7 +79,7 @@ Use of ASEs for this architecture are allowed for the following controls/configu
 - Allow [Azure SQL Database traffic](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
 **Azure Web App**:
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service/) enables customers to build and host web applications in the programming language of their choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo.
+[Azure App Service](https://docs.microsoft.com/azure/app-service/) enables customers to build and host web applications in the programming language of their choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo.
 
 ### Virtual Network
 The architecture defines a private VNet with an address space of 10.200.0.0/16.
@@ -187,7 +187,7 @@ Additionally, the following monitoring solutions are included as a part of this 
 
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/gdprPaaSdfd) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![PaaS Web Applicaiton for GDPR threat model](images/gdpr-paaswa-threat-model.png?raw=true "PaaS Web Applicaiton for GDPR threat model")
+![PaaS Web Application for GDPR threat model](images/gdpr-paaswa-threat-model.png?raw=true "PaaS Web Application for GDPR threat model")
 
 ## Compliance documentation
 The [Azure Security and Compliance Blueprint – GDPR Customer Responsibility Matrix](https://aka.ms/gdprCRM) lists controller and processor responsibilities for all GDPR articles. Please note that for Azure services, a customer is usually the controller and Microsoft acts as the processor.

@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure DC/OS cluster - Operations Management
+title: (DEPRECATED) Monitor Azure DC/OS cluster - Operations Management
 description: Monitor an Azure Container Service DC/OS cluster with Log Analytics.
 services: container-service
 author: keikhara
@@ -12,7 +12,9 @@ ms.author: keikhara
 ms.custom: mvc
 ---
 
-# Monitor an Azure Container Service DC/OS cluster with Log Analytics
+# (DEPRECATED) Monitor an Azure Container Service DC/OS cluster with Log Analytics
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Log Analytics is Microsoft's cloud-based IT
 management solution that helps you manage and protect your on-premises
@@ -26,7 +28,7 @@ excess container on a host.
 
 For more information about Container Solution, see the
 [Container Solution Log
-Analytics](../../log-analytics/log-analytics-containers.md).
+Analytics](../../azure-monitor/insights/containers.md).
 
 ## Setting up Log Analytics from the DC/OS universe
 
@@ -91,7 +93,7 @@ Once you’ve selected your workspace, click **Create**.
 
 For more information about the Log Analytics Container Solution, please refer to the
 [Container Solution Log
-Analytics](../../log-analytics/log-analytics-containers.md).
+Analytics](../../azure-monitor/insights/containers.md).
 
 ### How to scale Log Analytics agent with ACS DC/OS 
 
@@ -119,4 +121,4 @@ What works? What is missing? What else do you need for this to be useful for you
 
 ## Next steps
 
- Now that you have set up Log Analytics to monitor your containers,[see your container dashboard](../../log-analytics/log-analytics-containers.md).
+ Now that you have set up Log Analytics to monitor your containers,[see your container dashboard](../../azure-monitor/insights/containers.md).

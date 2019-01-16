@@ -116,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.clearcompany.com`
 	
 	> [!NOTE] 
-	> Sign-on URL value is not a real value. Update this value with the actual Sign-On URL. Contact [ClearCompany Client support team](http://www.clearcompany.com/support) to get this value. 
+	> Sign-on URL value is not a real value. Update this value with the actual Sign-On URL. Contact [ClearCompany Client support team](https://www.clearcompany.com/support) to get this value. 
 
 5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -130,7 +130,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![ClearCompany Configuration](./media/clearcompany-tutorial/tutorial_clearcompany_configure.png) 
 
-8. To configure single sign-on on **ClearCompany** side, you need to send the downloaded **Certificate(Base64)** and **SAML Single Sign-On Service URL** to [ClearCompany support team](http://www.clearcompany.com/support). They set this setting to have the SAML SSO connection set properly on both sides.
+8. To configure single sign-on on **ClearCompany** side, you need to send the downloaded **Certificate(Base64)** and **SAML Single Sign-On Service URL** to [ClearCompany support team](https://www.clearcompany.com/support). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -169,7 +169,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a ClearCompany test user
 
-In this section, you create a user called Britta Simon in ClearCompany. Work with [ClearCompany support team](http://www.clearcompany.com/support) to add the users in the ClearCompany platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in ClearCompany. Work with [ClearCompany support team](https://www.clearcompany.com/support) to add the users in the ClearCompany platform. Users must be created and activated before you use single sign-on.
 
 ### Assign the Azure AD test user
 

@@ -1,5 +1,5 @@
 ---
-title: Explore the Azure Time Series Insights JavaScript client library
+title: 'Tutorial: Explore the Azure Time Series Insights JavaScript client library | Microsoft Docs'
 description: Learn about the Azure Time Series Insights JavaScript client library and the related programming model.
 author: ashannon7
 manager: cshankar
@@ -8,6 +8,7 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
+ms.custom: seodec18
 # Customer intent: As a developer, I want to learn about the TSI JavaScript client library, so I can use the APIs in my own applications.
 ---
 
@@ -32,7 +33,7 @@ In this tutorial, you learn about:
 
 ## Prerequisites
 
-This tutorial uses the "Developer Tools" feature (also known as DevTools or F12) that's found in most modern web browsers, including [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), and others. If you're not already familiar with this feature, you might want to explore it in your browser before continuing.
+This tutorial uses the "Developer Tools" feature (also known as DevTools or F12) that's found in most modern web browsers, including [Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), and others. If you're not already familiar with this feature, you might want to explore it in your browser before continuing.
 
 ## Time Series Insights sample application
 

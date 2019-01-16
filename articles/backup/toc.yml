@@ -62,11 +62,13 @@
     - name: Install or upgrade
       items:
       - name: Install Azure Backup Server
-        href: backup-azure-microsoft-azure-backup.md        
+        href: backup-azure-microsoft-azure-backup.md
       - name: Add storage
         href: backup-mabs-add-storage.md
-      - name: Upgrade to v.2
-        href: backup-mabs-upgrade-to-v2.md
+      - name: What's New in MABS
+        href: backup-mabs-whats-new-mabs.md
+      - name: Release notes MABS V3
+        href: backup-mabs-release-notes-v3.md
       - name: Unattended installation
         href: backup-mabs-unattended-install.md
     - name: Protect workloads
@@ -119,8 +121,6 @@
         href: backup-azure-vms-encryption.md
       - name: Enable VM backup during VM creation
         href: backup-during-vm-creation.md
-      - name: Upgrade to VM backup stack V2
-        href: backup-upgrade-to-vm-backup-stack-v2.md
     - name: Manage and monitor VMs
       items:
       - name: Manage Azure VM backups in Azure portal
@@ -133,6 +133,8 @@
         href: backup-azure-restore-files-from-vm.md
       - name: Restore VMs in Azure portal
         href: backup-azure-arm-restore-vms.md
+      - name: Instant Restore capability
+        href: backup-instant-restore-capability.md
       - name: Restore encrypted VMs
         href: backup-azure-vms-encryption.md
       - name: Restore Key Vault key and secret for encrypted VMs
@@ -145,7 +147,7 @@
       href: backup-azure-reports-data-model.md
     - name: Log Analytics data model for Azure Backup
       href: backup-azure-log-analytics-data-model.md
-    - name: Updating Azure Backup Central Reporting Content Pack 
+    - name: Updating Azure Backup Central Reporting Content Pack
       href: backup-azure-central-reporting-updates.md
   - name: Data Protection Manager
     items:
@@ -167,6 +169,20 @@
       href: backup-dpm-automation.md
     - name: Windows Server in Azure portal
       href: backup-client-automation.md
+    - name: Azure File shares in Azure portal
+      href: backup-azure-afs-automation.md
+  - name: Use Azure Backup REST API
+    items:
+    - name: Create Recovery Services vault
+      href: backup-azure-arm-userestapi-createorupdatevault.md
+    - name: Create and update backup policy
+      href: backup-azure-arm-userestapi-createorupdatepolicy.md
+    - name: Back up Azure VMs
+      href: backup-azure-arm-userestapi-backupazurevms.md
+    - name: Restore Azure VMs
+      href: backup-azure-arm-userestapi-restoreazurevms.md
+    - name: Manage Azure Backup jobs
+      href: backup-azure-arm-userestapi-managejobs.md
   - name: SQL on Azure VMs
     items:
     - name: Back up SQL database in Azure
@@ -189,6 +205,8 @@
       href: backup-azure-recovery-services-vault-overview.md
     - name: Upgrading a Backup vault to Recovery Services vault
       href: backup-azure-upgrade-backup-to-recovery-services.md
+    - name: Move a Recovery Services vault
+      href: backup-azure-move-recovery-services-vault.md
     - name: Delete a Recovery Services vault
       href: backup-azure-delete-vault.md
   - name: Troubleshoot
@@ -221,6 +239,8 @@
     href: /rest/api/backup/
   - name: REST - Recovery Services vault
     href: /rest/api/recoveryservices/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -81,7 +81,7 @@ Users who are assigned the Administrator role have full access to management cap
 Set the Administrator and User client roles when you create the cluster. Assign roles by providing separate identities (for example, by using certificates or Azure AD) for each role type. For more information about default access control settings and how to change default settings, see [Role-Based Access Control for Service Fabric clients](service-fabric-cluster-security-roles.md).
 
 ## X.509 certificates and Service Fabric
-X.509 digital certificates commonly are used to authenticate clients and servers. They also are used to encrypt and digitally sign messages. Service Fabric uses X.509 certificates to secure a cluster and provide application security features. For more information about X.509 digital certificates, see [Working with certificates](http://msdn.microsoft.com/library/ms731899.aspx). You use [Key Vault](../key-vault/key-vault-get-started.md) to manage certificates for Service Fabric clusters in Azure.
+X.509 digital certificates commonly are used to authenticate clients and servers. They also are used to encrypt and digitally sign messages. Service Fabric uses X.509 certificates to secure a cluster and provide application security features. For more information about X.509 digital certificates, see [Working with certificates](https://msdn.microsoft.com/library/ms731899.aspx). You use [Key Vault](../key-vault/key-vault-get-started.md) to manage certificates for Service Fabric clusters in Azure.
 
 Some important things to consider:
 
@@ -105,7 +105,7 @@ Some other things to consider:
 
 * The **Subject** field can have multiple values. Each value is prefixed with an initialization to indicate the value type. Usually, the initialization is **CN** (for *common name*); for example, **CN = www.contoso.com**. 
 * The **Subject** field can be blank. 
-* If the optional **Subject Alternative Name** field is populated, it must have both the common name of the certificate and one entry per SAN. These are entered as **DNS Name** values. To learn how to generate certificates that have SANs, see [How to add a Subject Alternative Name to a secure LDAP certificate](http://support.microsoft.com/kb/931351).
+* If the optional **Subject Alternative Name** field is populated, it must have both the common name of the certificate and one entry per SAN. These are entered as **DNS Name** values. To learn how to generate certificates that have SANs, see [How to add a Subject Alternative Name to a secure LDAP certificate](https://support.microsoft.com/kb/931351).
 * The value of the **Intended Purposes** field of the certificate should include an appropriate value, such as **Server Authentication** or **Client Authentication**.
 
 ### Application certificates (optional)

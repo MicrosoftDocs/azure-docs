@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -63,7 +63,7 @@ To create an Azure Automation account in the Azure portal, complete the followin
   >
   > ![Add Automation account warning](media/automation-create-standalone-account/create-account-without-perms.png)
 
-1. In the **Add Automation Account** pane, in the **Name** box, enter a name for your new Automation account. This name cannot be changed after it is chosen. *Automation Account names are unique per region and resource group.*
+1. In the **Add Automation Account** pane, in the **Name** box, enter a name for your new Automation account. This name cannot be changed after it is chosen. *Automation Account names are unique per region and resource group. Names for Automation Accounts that were deleted may not be immediately available.*
 1. If you have more than one subscription, in the **Subscription** box, specify the subscription you want to use for the new account.
 1. For **Resource group**, enter or select a new or existing resource group.
 1. For **Location**, select an Azure datacenter location.

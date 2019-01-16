@@ -46,7 +46,7 @@ The following steps describe tasks involved in creating common live streaming ap
 >[!NOTE]
 >Make sure the streaming endpoint from which you want to stream content is in the **Running** state. 
 	
-1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that outputs a multi-bitrate RTMP or Fragmented MP4 stream. For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that outputs a multi-bitrate RTMP or Fragmented MP4 stream. For more information, see [Azure Media Services RTMP Support and Live Encoders](https://go.microsoft.com/fwlink/?LinkId=532824).
    
     This step could also be performed after you create your Channel.
 2. Create and start a pass-through Channel.

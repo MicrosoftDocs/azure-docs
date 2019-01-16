@@ -20,20 +20,6 @@ ms.custom: include file
 
 ## Register your application
 
-There are multiple ways to register an application. Select the option that best fits your needs:
-* [Express mode - Use the SPA quickstart to configure the app](#option-1-register-your-application-express-mode)
-* [Advanced mode - Manually configure the app settings](#option-2-register-your-application-advanced-mode)
-
-### Option 1: Register your application (Express mode)
-
-1. Sign in to the [Azure portal app registration (preview)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) to register an application.
-1. On the **Register an application** page, enter a name for your application.
-1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
-1. When finished, select **Register**.
-1. Follow the quickstart instructions to download and automatically configure your new application for you in one click.
-
-### Option 2: Register your application (Advanced mode)
-
 1. Sign in to the [Azure portal](https://portal.azure.com/) to register an application.
 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview) > New registration**.
@@ -64,7 +50,8 @@ There are multiple ways to register an application. Select the option that best 
 
     ```javascript
     var applicationConfig = {
-        clientID: "[Enter the application Id here]",
+        clientID: "Enter_the_Application_Id_here",
+        authority: "https://login.microsoftonline.com/common",
         graphScopes: ["user.read"],
         graphEndpoint: "https://graph.microsoft.com/v1.0/me"
     };

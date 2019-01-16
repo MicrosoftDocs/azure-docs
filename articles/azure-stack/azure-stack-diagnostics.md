@@ -9,10 +9,11 @@ cloud: azure-stack
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ---
+
 # Azure Stack diagnostics tools
 
 Azure Stack is a large collection of components working together and interacting with each other. All these components  generate their own unique logs. This can make diagnosing issues a challenging task, especially for errors coming from multiple, interacting Azure Stack components. 
@@ -67,14 +68,13 @@ if($s)
 }
 ```
 
-- The parameters **OutputSharePath** and **OutputShareCredential** are used to upload logs to an external shared folder.
-- As shown in the previous example, the **FromDate** and **ToDate** parameters can be used to collect logs for a particular time period. This can come in handy for scenarios like collecting logs after applying an update package on an integrated system.
 
 
- 
 ### To run Get-AzureStackLog on an Azure Stack Development Kit (ASDK) system
-1. Sign in as **AzureStack\CloudAdmin** on the host.
-2. Open a PowerShell window as an administrator.
+Use these steps to run Get-AzureStackLog on an ASDK host computer.
+
+1. Sign in as **AzureStack\CloudAdmin** on the ASDK host computer.
+2. Open a new PowerShell window as an administrator.
 3. Run the **Get-AzureStackLog** PowerShell cmdlet.
 
 **Examples:**
@@ -105,17 +105,22 @@ if($s)
 
 ### Parameter considerations for both ASDK and integrated systems
 
-- If the **FromDate** and **ToDate** parameters are not specified, logs are collected for the past four hours by default.
+- The parameters **OutputSharePath** and **OutputShareCredential** are used to store logs in a user specified location.
+
+- The **FromDate** and **ToDate** parameters can be used to collect logs for a particular time period. If these parameters are not specified, logs are collected for the past four hours by default.
+
 - Use the **FilterByNode** parameter to filter logs by computer name. For example:
-```powershell
-Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByNode azs-xrp01
-```
+
+    ```powershell
+    Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByNode azs-xrp01
+    ```
 - Use the **FilterByLogType** parameter to filter logs by type. You can choose to filter by File, Share or WindowsEvent. For example:
-```powershell
-Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByLogType File
-```
+
+    ```powershell
+    Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByLogType File
+    ```
 - You can use the **TimeOutInMinutes** parameter to set the timeout for log collection. It is set to 150 (2.5 hours) by default.
-- In version 1805 and later, dump file log collection is disabled by default. To enable it, use the **IncludeDumpFile** switch parameter. 
+- Dump file log collection is disabled by default. To enable it, use the **IncludeDumpFile** switch parameter. 
 - Currently, you can use the **FilterByRole** parameter to filter log collection by the following roles:
 
  |   |   |   |    |

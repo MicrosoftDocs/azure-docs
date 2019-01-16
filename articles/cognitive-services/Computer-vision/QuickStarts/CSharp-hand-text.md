@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Extract handwritten text - REST, C# - Computer Vision"
+title: "Quickstart: Extract handwritten text - REST, C#"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract handwritten text from an image using the Computer Vision API with C#.
 services: cognitive-services
@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
 # Quickstart: Extract handwritten text using the REST API and C&#35; in Computer Vision
 
@@ -62,7 +63,7 @@ namespace CSHttpClientSample
         // from the West US region, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the West Central US region.
+        // Free trial subscription keys are generated in the "westus" region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         const string uriBase =

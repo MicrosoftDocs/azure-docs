@@ -1,6 +1,7 @@
 # Overview
 ## [About Windows SQL Server VMs](virtual-machines-windows-sql-server-iaas-overview.md) 
- 
+## [Release notes](virtual-machines-windows-sql-server-iaas-release-notes.md) 
+
 # Quickstarts
 ## [Create SQL VM - Portal](quickstart-sql-vm-create-portal.md)
 ## [Create SQL VM - PowerShell](quickstart-sql-vm-create-powershell.md)
@@ -40,6 +41,7 @@
 #### [Multiple regions](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Failover Cluster Instance
 #### [Configure](virtual-machines-windows-portal-sql-create-failover-cluster.md)
+## [Change licensing model for SQL VM](virtual-machines-windows-sql-ahb.md)
 
 # Reference
 ## [Azure PowerShell](/powershell/azure/overview)

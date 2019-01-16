@@ -14,7 +14,7 @@ ms.component: disks
 
 ### Design and implement with Premium Storage
 * [Design for performance with Premium Storage](premium-storage-performance.md)
-* [Blob storage operations with Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969)
+* [Blob storage operations with Premium Storage](https://go.microsoft.com/fwlink/?LinkId=521969)
 
 ### Operational guidance
 * [Migrate to Azure Premium Storage](../../storage/common/storage-migration-to-premium-storage.md)

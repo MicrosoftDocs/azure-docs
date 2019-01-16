@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 12/10/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -71,6 +71,8 @@ On this page, users see previously registered authentication methods and authent
 Audit logs for this new experience exist under the Authentication Methods category of the audit log.  
 
 ## Known issues
+
+We have identified a bug with converged registration where B2B guest users who are enabled for converged registration are not able to register for MFA. When they are directed to the registration page, the page errors out. Our developers are aware of this issue and are working to provide a solution. For now, the recommendation is to create a group and exclude any B2B users from that group.
 
 **Default MFA method is set to phone call when a user registers a phone by using text message**
 

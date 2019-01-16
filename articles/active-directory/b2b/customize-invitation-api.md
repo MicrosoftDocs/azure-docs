@@ -73,7 +73,7 @@ In this mode, whoever is using the API needs to have the permissions to be creat
 ### App only mode
 In app only context, the app needs the User.Invite.All scope for the invitation to succeed.
 
-For more information, refer to: https://graph.microsoft.io/docs/authorization/permission_scopes
+For more information, refer to: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## PowerShell

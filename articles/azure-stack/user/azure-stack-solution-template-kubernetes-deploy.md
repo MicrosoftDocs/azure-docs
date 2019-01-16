@@ -98,7 +98,7 @@ Give the service principal access to your subscription so that the principal can
 
 1. Select the subscription created by your operator for using the Kubernetes Cluster.
 
-1. Select **Access control (IAM)** > Select **+ Add**.
+1. Select **Access control (IAM)** > Select **Add role assignment**.
 
 1. Select the **Contributor** role.
 
@@ -136,7 +136,7 @@ Give the service principal access to your subscription so that the principal can
 
 1. Enter the **SSH Public Key** used for authorization to all Linux machines created as part of the Kubernetes cluster and DVM.
 
-1. Enter the **Master Profile DNS Prefix** that is unique to the region. This must be a region-unique name, such as `k8s-12345`. Try to chose it same as the resource group name as best practice.
+1. Enter the **Master Profile DNS Prefix** that is unique to the region. This must be a region-unique name, such as `k8s-12345`. Try to make it the same as the resource group name as a best practice.
 
     > [!Note]  
     > For each cluster, use a new and unique master profile DNS prefix.
@@ -147,9 +147,9 @@ Give the service principal access to your subscription so that the principal can
 
 1. Select the **Kubernetes Node Pool Profile Count**. The count contains the number of agents in the cluster. 
 
-1. Select the **Storage Profile**. You can choose **Blob Disk** or **Managed Disk**. This specifies the VM Size of Kubernetes node VMs. 
+1. Select the **Storage Profile**. You can choose **Blob Disk** or **Managed Disk**. 
 
-1. Enter the **Service Principal ClientId** This is used by the Kubernetes Azure cloud provider. The Client ID identified as the Application ID when your created your service principal.
+1. Enter the **Service Principal ClientId** This is used by the Kubernetes Azure cloud provider. The Client ID was identified as the Application ID when your created your service principal.
 
 1. Enter the **Service Principal Client Secret** that you created when creating your service principal.
 
@@ -157,7 +157,7 @@ Give the service principal access to your subscription so that the principal can
 
 ### 3. Summary
 
-1. Select Summary. The blade displays a validation message for your Kubernetes Cluster configurations settings.
+1. Select Summary. The blade displays a validation message for your Kubernetes Cluster configuration settings.
 
     ![Deploy Solution Template](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
@@ -176,6 +176,6 @@ You may also find the **Helm** package manager useful for installing and deployi
 
 ## Next steps
 
-[Add a Kubernetes to the Marketplace (for the Azure Stack operator)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Add a Kubernetes to the Marketplace (for the Azure Stack operator)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes on Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

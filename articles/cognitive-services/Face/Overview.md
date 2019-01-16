@@ -61,12 +61,20 @@ After a database has been created and trained, you can perform identification ag
 
 For more information about person identification, see the [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
+## Use containers
+
+[Use the Face container](face-how-to-install-containers.md) to detect, recognize, and identify faces, by installing a standardized Docker container closer to your data.
+
 ## Sample apps
 
 The following sample applications showcase a few of the ways the Face API can be used.
 
 - [Microsoft Face API: Windows Client Library & Sample](https://github.com/Microsoft/Cognitive-Face-Windows) - a WPF app that demonstrates several scenarios of Face detection, analysis and identification.
 - [FamilyNotes UWP app](https://github.com/Microsoft/Windows-appsample-familynotes) - a Universal Windows Platform (UWP) app that uses face identification along with speech, Cortana, ink, and camera in a family note-sharing scenario.
+
+## Data privacy and security
+
+As with all of the Cognitive Services, developers using the Face service should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/en-us/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
 
 ## Next steps
 

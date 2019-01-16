@@ -130,7 +130,7 @@ You can use PowerShell or the classic CLI to import a network configuration file
 
 ### Azure classic CLI
 
-1. [Install the Azure classic CLI](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Complete the remaining steps from a classic CLI command prompt.
+1. [Install the Azure classic CLI](/cli/azure/install-classic-cli). Complete the remaining steps from a classic CLI command prompt.
 2. Log in to Azure by entering the `azure login` command.
 3. Ensure you're in asm mode by entering the `azure config mode asm` command.
 4. Change the directory and filename in the following command as necessary, then run the command to import the network configuration file:

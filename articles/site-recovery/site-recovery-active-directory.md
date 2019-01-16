@@ -7,7 +7,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
 
 ---
@@ -39,7 +39,7 @@ You can use Site Recovery to protect the virtual machine that hosts the domain c
 The domain controller that is replicated by using Site Recovery is used for [test failover](#test-failover-considerations). Ensure that it meets the following requirements:
 
 1. The domain controller is a global catalog server.
-2. The domain controller should be the FSMO role owner for roles that are needed during a test failover. Otherwise, these roles will need to be [seized](http://aka.ms/ad_seize_fsmo) after the failover.
+2. The domain controller should be the FSMO role owner for roles that are needed during a test failover. Otherwise, these roles will need to be [seized](https://aka.ms/ad_seize_fsmo) after the failover.
 
 ### Configure VM network settings
 For the virtual machine that hosts the domain controller or DNS, in Site Recovery, configure network settings under the **Compute and Network** settings of the replicated virtual machine. This ensures that the virtual machine is attached to the correct network after failover.
@@ -88,7 +88,7 @@ Most applications require the presence of a domain controller or a DNS server. T
 
 
 ### Remove references to other domain controllers
-When you initiate a test failover, don't include all the domain controllers in the test network. To remove references to other domain controllers that exist in your production environment, you might need to [seize FSMO Active Directory roles](http://aka.ms/ad_seize_fsmo) and do [metadata cleanup](https://technet.microsoft.com/library/cc816907.aspx) for missing domain controllers.
+When you initiate a test failover, don't include all the domain controllers in the test network. To remove references to other domain controllers that exist in your production environment, you might need to [seize FSMO Active Directory roles](https://aka.ms/ad_seize_fsmo) and do [metadata cleanup](https://technet.microsoft.com/library/cc816907.aspx) for missing domain controllers.
 
 
 ### Issues caused by virtualization safeguards
@@ -175,7 +175,7 @@ If the preceding conditions are satisfied, it's likely that the domain controlle
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
-    For more information, see [Disable the requirement that a global catalog server be available to validate user logons](http://support.microsoft.com/kb/241789).
+    For more information, see [Disable the requirement that a global catalog server be available to validate user logons](https://support.microsoft.com/kb/241789).
 
 ### DNS and domain controller on different machines
 

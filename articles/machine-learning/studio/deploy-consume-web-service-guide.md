@@ -1,25 +1,19 @@
-﻿---
-title: 'Azure Machine Learning Web Services: Deployment and consumption | Microsoft Docs'
-description: Resources for deploying and consuming web services.
-services: machine-learning
-documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
-manager: hjerez
-editor: cgronlun
-
-ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-
 ---
-# Azure Machine Learning Web Services: Deployment and consumption
-You can use Azure Machine Learning to deploy machine-learning workflows and models as web services. These web services can then be used to call the machine-learning models from applications over the Internet to do predictions in real time or in batch mode. Because the web services are RESTful, you can call them from various programming languages and platforms, such as .NET and Java, and from applications, such as Excel.
+title: Deployment and consumption
+titleSuffix: Azure Machine Learning Studio
+description: You can use Azure Machine Learning to deploy machine learning workflows and models as web services. These web services can then be used to call the machine learning models from applications over the internet to do predictions in real time or in batch mode. 
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
+ms.topic: article
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 04/19/2017
+---
+# Azure Machine Learning Studio Web Services: Deployment and consumption
+You can use Azure Machine Learning to deploy machine learning workflows and models as web services. These web services can then be used to call the machine learning models from applications over the Internet to do predictions in real time or in batch mode. Because the web services are RESTful, you can call them from various programming languages and platforms, such as .NET and Java, and from applications, such as Excel.
 
 The next sections provide links to walkthroughs, code, and documentation to help get you started.
 

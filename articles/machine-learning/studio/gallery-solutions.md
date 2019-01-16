@@ -1,29 +1,20 @@
 ---
-title: Azure AI Gallery Solutions | Microsoft Docs
-description: Discover Solutions in the Azure AI Gallery.
-services: machine-learning
-documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
+title: Azure AI Gallery Solutions
+titleSuffix: Azure Machine Learning Studio
+description: Discover Solutions in the Azure AI Gallery. A Solution provides a jumpstart to quickly build Cortana Intelligence Solutions from preconfigured solutions, reference architectures, and design patterns.
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
+ms.topic: article
 
-ms.assetid: c0be3f10-9e54-4fc1-b5df-725c2e919f65
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 03/31/2017
-
 ---
 # Discover Solutions in the Azure AI Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## Solutions
-A
-**[Solution](https://gallery.cortanaintelligence.com/solutions)** in the Gallery
+A **[Solution](https://gallery.cortanaintelligence.com/solutions)** in [Azure AI Gallery](http://gallery.cortanaintelligence.com)
 provides a jumpstart to quickly build Cortana Intelligence Solutions from preconfigured solutions, reference architectures, and design patterns.
 Make them your own with the included instructions or with a featured partner.  
 
@@ -62,5 +53,5 @@ If you want to use a Solution, click **Deploy**. Follow the steps presented to c
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

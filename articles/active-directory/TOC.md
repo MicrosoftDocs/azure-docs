@@ -274,7 +274,8 @@
 ##### [Problem configuring user provisioning - gallery app](manage-apps/application-provisioning-config-problem.md)
 ##### [Problem saving administrator credentials while configuring user provisioning gallery app](manage-apps/application-provisioning-config-problem-storage-limit.md)
 ##### [Users are not provisioned - gallery app](manage-apps/application-provisioning-config-problem-no-users-provisioned.md)
-##### [Wrong users provisioned - galler app](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [Wrong users provisioned - gallery app](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [SCIM compatibility issues - non-gallery app](manage-apps/application-provisioning-config-problem-scim-compatibility.md)
 
 #### Single sign-on
 ##### [Choose a method](manage-apps/single-sign-on-modes.md)
@@ -347,5 +348,5 @@
 ## [Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=active-directory)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

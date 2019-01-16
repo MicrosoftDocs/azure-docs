@@ -4,11 +4,10 @@ description: In this quickstart, you use the Azure portal in object (Blob) stora
 services: storage
 author: tamram
 
-
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/22/2018
+ms.date: 11/14/2018
 ms.author: tamram
 ---
 
@@ -18,9 +17,7 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## Create a container
 
