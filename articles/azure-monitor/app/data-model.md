@@ -15,7 +15,7 @@ ms.author: mbullwin
 ---
 # Application Insights telemetry data model
 
-[Azure Application Insights](../../application-insights/app-insights-overview.md) sends telemetry from your web application to the Azure portal, so that you can analyze the performance and usage of your application. The telemetry model is standardized so that it is possible to create platform and language-independent monitoring. 
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) sends telemetry from your web application to the Azure portal, so that you can analyze the performance and usage of your application. The telemetry model is standardized so that it is possible to create platform and language-independent monitoring. 
 
 Data collected by Application Insights models this typical application execution pattern:
 
@@ -49,5 +49,5 @@ To report data model or schema problems and suggestions use GitHub [ApplicationI
 
 - [Write custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md)
 - Learn how to [extend and filter telemetry](../../azure-monitor/app/api-filtering-sampling.md).
-- Use [sampling](../../application-insights/app-insights-sampling.md) to minimize amount of telemetry based on data model.
-- Check out [platforms](../../application-insights/app-insights-platforms.md) supported by Application Insights.
+- Use [sampling](../../azure-monitor/app/sampling.md) to minimize amount of telemetry based on data model.
+- Check out [platforms](../../azure-monitor/app/platforms.md) supported by Application Insights.

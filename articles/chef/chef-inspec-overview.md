@@ -1,9 +1,9 @@
 ---
 title: Use InSpec for compliance automation of your Azure infrastructure
 description: Learn how to use InSpec to detect issues in your Azure deployments
-keywords: azure, chef, devops, virtual machines, overview, automate, inspce
+keywords: azure, chef, devops, virtual machines, overview, automate, inspec
 ms.service: virtual-machines-linux
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018

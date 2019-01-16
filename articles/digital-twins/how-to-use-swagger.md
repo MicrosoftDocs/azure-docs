@@ -50,7 +50,7 @@ You can select each listed object model for a more detailed summary of key attri
 
 ![Swagger model][3]
 
-The generated Swagger object models are convenient to see all available Azure Digital Twins [objects and APIs](./concepts-objectmodel-spatialgraph.md). Developers can make use of this resource when they build solutions on Azure Digital Twins.
+The generated Swagger object models are convenient to see all available Azure Digital Twins [objects and APIs](./concepts-objectmodel-spatialgraph.md). Developers can use this resource when they build solutions on Azure Digital Twins.
 
 ## Endpoint summary
 
@@ -74,7 +74,7 @@ After you select a specific endpoint, you see **Try it out**.
 
 ![Swagger try][5]
 
-Expand that section to bring up input fields for each required and optional parameter. Enter the values accordingly, and select **Execute**.
+Expand that section to bring up input fields for each required and optional parameter. Enter the correct values, and select **Execute**.
 
 ![Swagger tried][6]
 
@@ -97,9 +97,9 @@ To learn more about interactively testing requests protected by OAuth 2.0, see t
 
 ## Next steps
 
-To read more about Azure Digital Twins object models and the spatial intelligence graph, read [Understand Azure Digital Twins object models](./concepts-objectmodel-spatialgraph.md).
+- To read more about Azure Digital Twins object models and the spatial intelligence graph, read [Understand Azure Digital Twins object models](./concepts-objectmodel-spatialgraph.md).
 
-To learn how to authenticate with your Management API, read [Authenticate with APIs](./security-authenticating-apis.md).
+- To learn how to authenticate with your Management API, read [Authenticate with APIs](./security-authenticating-apis.md).
 
 <!-- Images -->
 [1]: media/how-to-use-swagger/swagger_management_top.PNG

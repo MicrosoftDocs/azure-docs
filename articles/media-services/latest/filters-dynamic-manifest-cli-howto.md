@@ -74,7 +74,8 @@ Filters defined in REST, include the "Properties" wrapper JSON object.
 
 The following [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) command creates an account filter with filter track selections that were [defined earlier](#define-a-filter). 
 
-The following command allows an option `--tracks` that accepts a file. If you are using the Azure CLI locally, specify the whole file path:
+The command allows you to pass an optional `--tracks` parameter that contains JSON representing the track selections.  Use @{file} to load JSON from a file. If you are using the Azure CLI locally, specify the whole file path:
+
 
 ```azurecli
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @c:\tracks.json

@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure AD managed identities for Azure resources documentation
 metadata:
   document_id: 
-  title: Azure AD Managed identites for Azure resources documentation
+  title: Azure AD Managed identities for Azure resources documentation
   description: Learn how to use managed identities for Azure resources to securely authenticate to Azure cloud services without having to keep credentials in your source code.
   services: active-directory
   ms.component: msi

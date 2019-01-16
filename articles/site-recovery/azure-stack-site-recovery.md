@@ -136,7 +136,7 @@ For each machine you want to replicate, find the IP address:
 
 ## Step 2: Create a vault and select a replication goal
 
-1. In the Azure portal, select **Create a resource** > **Monitoring + Management** > **Backup and Site Recovery**.
+1. In the Azure portal, select **Create a resource** > **Management Tools** > **Backup and Site Recovery**.
 2. In **Name**, enter a friendly name to identify the vault. 
 3. In **Resource group**, create or select a resource group. We're using **contosoRG**.
 4. In **Location**, enter the Azure region. We're using **West Europe**.

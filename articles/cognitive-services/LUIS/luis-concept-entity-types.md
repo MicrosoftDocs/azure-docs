@@ -161,7 +161,6 @@ Pattern.any is a variable-length placeholder used only in a pattern's template u
 The entity is a good fit when:
 
 * The ending of the entity can be confused with the remaining text of the utterance. 
-
 [Tutorial](luis-tutorial-pattern.md)<br>
 [Example JSON response for entity](luis-concept-data-extraction.md#patternany-entity-data)
 
