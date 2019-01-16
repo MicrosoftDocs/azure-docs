@@ -52,6 +52,40 @@ The following are the supported match criteria operators:
 
 In all cases matching is case insensitive and regular expression aren't allowed as selectors.
 
+### Examples
+
+The following Azure PowerShell snippet demonstrates the use of exclusions:
+
+```azure-powershell
+// exclusion 1: exclude request head start with xyz
+// exclusion 2: exclude request args equals a
+
+$exclusion1 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
+
+$exclusion2 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
+
+// add exclusion lists to the firewall config
+
+$firewallConfig = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
+```
+
+The following json snippet demonstrates the use of exclusions:
+
+```json
+"webApplicationFirewallConfiguration": {
+          "enabled": "[parameters('wafEnabled')]",
+          "firewallMode": "[parameters('wafMode')]",
+          "ruleSetType": "[parameters('wafRuleSetType')]",
+          "ruleSetVersion": "[parameters('wafRuleSetVersion')]",
+          "disabledRuleGroups": [],
+          "exclusions": [
+            {
+                "matchVariable": "RequestArgNames",
+                "selectorMatchOperator": "StartsWith",
+                "selector": "a^bc"
+            }
+```
+
 ## Next steps
 
 After you configure your WAF settings, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](application-gateway-diagnostics.md#diagnostic-logging).
