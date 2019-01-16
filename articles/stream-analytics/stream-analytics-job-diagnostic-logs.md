@@ -24,6 +24,28 @@ Stream Analytics offers two types of logs:
 > You can use services like Azure Storage, Azure Event Hubs, and Azure Log Analytics to analyze nonconforming data. You are charged based on the pricing model for those services.
 >
 
+## Debugging using Activity logs
+
+Activity Logs are on by default and give high-level insights into operations performed by the job. Information present in activity logs may help find the root cause of the issues impacting your job. Here is how you can use Activity logs in Stream Analytics.
+
+1. Sign in to the Azure portal and go to the Activity log blade under Overview.
+
+   ![Stream Analytics activity log](./media/stream-analytics-job-diagnostic-logs/stream-analytics-menu.png)
+
+2. You can see the list of operations been performed. Any operation that caused your job to fail will have a red info bubble.
+
+3. Click on an operation to see the summary view. Info here is often very limited. To learn more details about the operation, click on JSON.
+
+   ![Stream Analytics activity log operation summary](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
+
+4. You can scroll down to the “Properties” section of the JSON which provides details of the error that resulted in the Failed operation. In this example, it was due to a runtime error resulting due to latitude values being out of bound.
+
+   ![JSON error details](./media/stream-analytics-job-diagnostic-logs/error-details.png)
+
+5. Looking at the error message in the JSON, you can take corrective actions. In this example, the query needs to be changed to add checks to ensure latitude value is between -90 and 90 degrees.
+
+6. If the error message in the Activity logs aren’t helpful in identifying root cause, it is recommended to enable diagnostic logs and use Log Analytics.
+
 ## Send diagnostics to Log Analytics
 
 Diagnostics logs are **off** by default. To turn on diagnostics logs, complete these steps:
