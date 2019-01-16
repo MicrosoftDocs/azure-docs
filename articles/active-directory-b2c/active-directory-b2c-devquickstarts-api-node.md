@@ -13,8 +13,7 @@ ms.author: davidmu
 ms.component: B2C
 ---
 
-# Azure AD B2C: Secure a web API by using Node.js
-<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
+# Secure a web API by using Node.js in Azure Active Directory B2C
 
 With Azure Active Directory (Azure AD) B2C, you can secure a web API by using OAuth 2.0 access tokens. These tokens allow your client apps that use Azure AD B2C to authenticate to the API. This article shows you how to create a "to-do list" API that allows users to add and list tasks. The web API is secured using Azure AD B2C and only allows authenticated users to manage their to-do list.
 
@@ -32,7 +31,7 @@ To do this sample, you need to:
 3. Configure a client application to call the "to-do list" web API.
 
 ## Get an Azure AD B2C directory
-Before you can use Azure AD B2C, you must create a directory, or tenant.  A directory is a container for all users, apps, groups, and more.  If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue.
+Before you can use Azure AD B2C, you must create a directory, or tenant.  A directory is a container for all users, apps, groups, and more.  If you don't have one already, [create a B2C directory](tutorial-create-tenant.md) before you continue.
 
 ## Create an application
 Next, you need to create an app in your B2C directory that gives Azure AD some information that it needs to securely communicate with your app. In this case, both the client app and web API are represented by a single **Application ID**, because they comprise one logical app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
@@ -43,18 +42,13 @@ Next, you need to create an app in your B2C directory that gives Azure AD some i
 * Copy the **Application ID** that is assigned to your app. You need this data later.
 
 ## Create your policies
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains two identity experiences: sign up and sign in. You need to create one policy of each type, as described in the
-[policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow).  When you create your three policies, be sure to:
+In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This application contains two identity experiences: sign up and sign in. You need to create one policy of each type.  When you create your policies, be sure to:
 
 * Choose the **Display name** and other sign-up attributes in your sign-up policy.
 * Choose the **Display name** and **Object ID** application claims in every policy.  You can choose other claims as well.
 * Copy down the **Name** of each policy after you create it. It should have the prefix `b2c_1_`.  You need those policy names later.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
-
-After you have created your three policies, you're ready to build your app.
-
-To learn about how policies work in Azure AD B2C, start with the [.NET web app getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md).
+After you have created your policies, you're ready to build your app.
 
 ## Download the code
 The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS). To build the sample as you go, you can [download a skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/skeleton.zip). You can also clone the skeleton:
