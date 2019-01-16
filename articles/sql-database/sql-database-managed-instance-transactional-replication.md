@@ -17,6 +17,13 @@ ms.date: 01/08/2019
 
 Transactional Replication is a feature of Azure SQL Database, Managed Instance and SQL Server that enables you to replicate data from a table in Azure SQL Database or SQL Server to the tables placed on remote databases. This feature allows you to synchronize multiple tables in different databases.
 
+## When to use Transactional replication
+
+Transactional replication is usefull in the following scenarios:
+- Publish changes made in one or more table in a database and distribute them to one or many SQL Server or Azure SQL databases that subscribed for the changes.
+- Keep several distributed database in synchronized state.
+- Migrate databases from one SQL Server or Managed Instance to another database bu continously publishing the changes.
+
 ## Overview 
 The key components in transactional replication are shown in the following picture:  
 
