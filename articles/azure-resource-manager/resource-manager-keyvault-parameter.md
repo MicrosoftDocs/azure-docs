@@ -11,30 +11,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 01/15/2019
 ms.author: tomfitz
 
 ---
 # Use Azure Key Vault to pass secure parameter value during deployment
 
-When you need to pass a secure value (like a password) as a parameter during deployment, you can retrieve the value from an [Azure Key Vault](../key-vault/key-vault-whatis.md). You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you are deploying to.
+Instead of passing a secure value (like a password) as a parameter during deployment, you can retrieve the value from an [Azure Key Vault](../key-vault/key-vault-whatis.md). You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you are deploying to.
 
-## Deploy a key vault and secret
+To go through a tutorial, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
 
-To create a key vault and secret, use either Azure CLI or PowerShell. `enabledForTemplateDeployment` is a key vault property. To access the secrets inside this Key Vault from Resource Manager deployment, `enabledForTemplateDeployment` must be `true`. 
+## Deploy Key Vaults and secrets
+
+To create Key Vaults and add secrets, see:
+
+- [Set and retrieve a secret by using CLI](../key-vault/quick-create-cli.md)
+- [Set and retrieve a secret by using Powershell](../key-vault/quick-create-powershell.md)
+- [Set and retrieve a secret by using the portal](../key-vault/quick-create-portal.md)
+- [Set and retrieve a secret by using .NET](../key-vault/quick-create-net.md)
+- [Set and retrieve a secret by using Node.js](../key-vault/quick-create-node.md)
+
+`enabledForTemplateDeployment` is a key vault property. To access the secrets inside this Key Vault from Resource Manager deployment, `enabledForTemplateDeployment` must be `true`. For example: 
 
 The following sample Azure PowerShell and Azure CLI script demonstrates how to create a Key Vault and a secret.
 
 For Azure CLI, use:
 
 ```azurecli-interactive
-keyVaultName='{your-unique-vault-name}'
-resourceGroupName='{your-resource-group-name}'
-location='centralus'
-userPrincipalName='{your-email-address-associated-with-your-subscription}'
-
-# Create a resource group
-az group create --name $resourceGroupName --location $location
 
 # Create a Key Vault
 az keyvault create \
@@ -44,22 +47,8 @@ az keyvault create \
   --enabled-for-template-deployment true
 az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
 
-# Create a secret with the name, vmAdminPassword
-password=$(openssl rand -base64 32)
-echo $password
-az keyvault secret set --vault-name $keyVaultName --name 'vmAdminPassword' --value $password
-```
-
-For PowerShell, use:
 
 ```azurepowershell-interactive
-$keyVaultName = "{your-unique-vault-name}"
-$resourceGroupName="{your-resource-group-name}"
-$location='Central US'
-$userPrincipalName='{your-email-address-associated-with-your-subscription}'
-
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-
 New-AzureRmKeyVault `
   -VaultName $keyVaultName `
   -resourceGroupName $resourceGroupName `
@@ -80,7 +69,7 @@ Add-Type -AssemblyName System.Web
 [System.Web.Security.Membership]::GeneratePassword(16,3)
 ```
 
-For using Resource Manager template:
+For using a Resource Manager template:
 See [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
 
 > [!NOTE]
@@ -350,5 +339,6 @@ New-AzureRmResourceGroupDeployment `
 ```
 
 ## Next steps
+
 * For general information about key vaults, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md).
 * For complete examples of referencing key secrets, see [Key Vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

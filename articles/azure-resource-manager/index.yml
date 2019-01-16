@@ -52,6 +52,7 @@ sections:
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac">Deploy SQL extensions</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-secure-artifacts">Secure template artifacts</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/deployment-manager-tutorial">Use safe deployment practices</a>.
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot">Troubleshoot template deployments</a>.
 - title: Samples
   items:
   - type: paragraph
