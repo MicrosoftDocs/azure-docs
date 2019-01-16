@@ -17,6 +17,7 @@ ms.author: juliako;anilmur
 
 ---
 # Media Encoder Premium Workflow formats and codecs
+
 > [!NOTE]
 > For premium encoder questions, email mepd@microsoft.com.
 > 
@@ -33,9 +34,11 @@ This document contains a list of input and output file formats and codecs that a
 **Media Encoder Premium Workflow** supports closed captioning described in [this](#closed_captioning) section. 
 
 ## <a id="input_formats"></a>Media Encoder Premium Workflow Input Formats and Codecs
+
 The following section lists the codecs and file formats that this media processor supports as input.
 
 ### Input Container/File Formats
+
 * Adobe® Flash® F4V
 * MXF/SMPTE 377M
 * GXF
@@ -46,6 +49,7 @@ The following section lists the codecs and file formats that this media processo
 * AVI (Uncompressed 8bit/10bit)
 
 ### Input Video Codecs
+
 * AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra
 * Avid DNxHD (in MXF)
 * DVCPro/DVCProHD (in MXF)
@@ -56,6 +60,7 @@ The following section lists the codecs and file formats that this media processo
 * Windows Media Video/VC-1
 
 ### Input Audio Codecs
+
 * AES (SMPTE 331M and 302M, AES3-2003)
 * Dolby® E
 * Dolby® Digital (AC3)
@@ -66,9 +71,11 @@ The following section lists the codecs and file formats that this media processo
 * WAV/PCM
 
 ## <a id="output_format"></a>Media Encoder Premium Workflow Output Formats and Codecs
+
 The following section lists the codecs and file formats that are supported as output from this media processor.
 
 ### Output Container/File Formats
+
 * Adobe® Flash® F4V
 * MXF (OP1a, XDCAM and AS02)
 * DPP (including AS11)
@@ -80,6 +87,7 @@ The following section lists the codecs and file formats that are supported as ou
 * MPEG-TS 
 
 ### Output Video Codecs
+
 * AVC (H.264; 8-bit; up to High Profile, Level 5.2; 4K Ultra HD; AVC Intra)
 * Avid DNxHD (in MXF)
 * DVCPro/DVCProHD (in MXF)
@@ -91,6 +99,7 @@ The following section lists the codecs and file formats that are supported as ou
 
 
 ### Output Audio Codecs
+
 * AES (SMPTE 331M and 302M, AES3-2003)
 * Dolby® Digital (AC3)
 * Dolby® Digital Plus (E-AC3) up to 7.1
@@ -103,6 +112,7 @@ The following section lists the codecs and file formats that are supported as ou
 >If you encode to Dolby® Digital (AC3), the output can only be written into an ISO MP4 file.
 
 ## <a id="closed_captioning"></a>Support for Closed Captioning
+
 On ingest, **Media Encoder Premium Workflow** supports:
 
 1. SCC files
@@ -123,11 +133,14 @@ On output, the following options are available:
 > Not all of the above output formats are supported for delivery via streaming in Azure Media Services.
 
 ## Known issues
+
 If your input video does not contain closed captioning, the output Asset will still contain an empty TTML file. 
 
 ## Media Services learning paths
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
