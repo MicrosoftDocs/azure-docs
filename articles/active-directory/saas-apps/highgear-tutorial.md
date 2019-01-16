@@ -104,6 +104,7 @@ To configure Azure AD single sign-on with your HighGear system, perform the foll
 
     ![The Service Provider Entity ID field](media/highgear-tutorial/service-provider-entity-id-field.png)
     
+	> [!NOTE]
     > You will need to log in to your HighGear system to access the Single Sign-On Settings page. Once you're logged in, move your mouse over the Administration tab in HighGear and click the Single Sign-On Settings menu item.
     >
     > ![The Single Sign-On Settings menu item](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
@@ -139,23 +140,23 @@ To configure Azure AD single sign-on with your HighGear system, perform the foll
 
 ### Configure HighGear Single Sign-On
 
-1. To configure HighGear for Single Sign-On, please log in to your HighGear system. Once you're logged in, move your mouse over the Administration tab in HighGear and click the Single Sign-On Settings menu item.
+To configure HighGear for Single Sign-On, please log in to your HighGear system. Once you're logged in, move your mouse over the Administration tab in HighGear and click the Single Sign-On Settings menu item.
 
-	![The Single Sign-On Settings menu item](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
+![The Single Sign-On Settings menu item](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
 
-	a. In the **Identity Provider Name**, type a short description that will appear in HighGear's Single Sign-On button on the Login page. For example: Azure AD
+1. In the **Identity Provider Name**, type a short description that will appear in HighGear's Single Sign-On button on the Login page. For example: Azure AD
 
-	b. In the **Single Sign-On (SSO) URL** field in HighGear, paste the value from the **Login URL** field that is in the **Set up HighGear** section in Azure.
+2. In the **Single Sign-On (SSO) URL** field in HighGear, paste the value from the **Login URL** field that is in the **Set up HighGear** section in Azure.
 
-	c. In the **Identity Provider Entity ID** field in HighGear, paste the value from the **Azure AD Identifier** field that is in the **Set up HighGear** section in Azure.
+3. In the **Identity Provider Entity ID** field in HighGear, paste the value from the **Azure AD Identifier** field that is in the **Set up HighGear** section in Azure.
 
-	d. In the **Single Logout (SLO) URL** field in HighGear, paste the value from the **Logout URL** field that is in the **Set up HighGear** section in Azure.
+4. In the **Single Logout (SLO) URL** field in HighGear, paste the value from the **Logout URL** field that is in the **Set up HighGear** section in Azure.
 
-	e. Use Notepad to open the certificate that you downloaded from the **SAML Signing Certificate** section in Azure. You should have downloaded the **Certificate (Base64)** format. Copy the contents of the certificate from Notepad and paste it into the **Identity Provider Certificate** field in HighGear.
+5. Use Notepad to open the certificate that you downloaded from the **SAML Signing Certificate** section in Azure. You should have downloaded the **Certificate (Base64)** format. Copy the contents of the certificate from Notepad and paste it into the **Identity Provider Certificate** field in HighGear.
 
-	f. Email the [HighGear Support Team](mailto:support@highgear.com) to request your HighGear Certificate. Follow the instructions you receive from them to fill out the **HighGear Certificate** and **HighGear Certificate Password** fields.
+6. Email the [HighGear Support Team](mailto:support@highgear.com) to request your HighGear Certificate. Follow the instructions you receive from them to fill out the **HighGear Certificate** and **HighGear Certificate Password** fields.
 
-	g. Click the **Save** button to save your HighGear Single Sign-On configuration.
+7. Click the **Save** button to save your HighGear Single Sign-On configuration.
 
 ### Create an Azure AD test user 
 
