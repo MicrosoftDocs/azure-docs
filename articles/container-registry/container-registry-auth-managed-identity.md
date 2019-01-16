@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 01/16/2019
 ms.author: danlep
 ---
 
@@ -21,7 +21,7 @@ For this article, you learn more about managed identities and how to:
 > * Grant the identity access to an Azure container registry
 > * Use the managed identity to access the registry and pull a container image 
 
-To create the Azure resources, this article requires that you run the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
+To create the Azure resources, this article requires that you run the Azure CLI version 2.0.55 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
 To set up a container registry and push a container image to it, you must also have Docker installed locally. Docker provides packages that easily configure Docker on any [macOS][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
@@ -98,7 +98,7 @@ This message shows that your installation appears to be working correctly.
 
 ### Install the Azure CLI
 
-Follow the steps in [Install Azure CLI with apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) to install the Azure CLI on your Ubuntu virtual machine. 
+Follow the steps in [Install Azure CLI with apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) to install the Azure CLI on your Ubuntu virtual machine. For this article, ensure that you install version 2.0.55 or later.
 
 Exit the SSH session.
 
@@ -150,10 +150,10 @@ Now configure the identity to access your container registry. First use the [az 
 resourceID=$(az acr show --resource-group myResourceGroup --name myContainerRegistry --query id --output tsv)
 ```
 
-Use the [az role assignment create][az-role-assignment-create] command to assign the Reader role to the registry. This role provides [pull permissions](container-registry-roles.md) to the registry as well as access to Azure Resource Manager.
+Use the [az role assignment create][az-role-assignment-create] command to assign the AcrPull role to the registry. This role provides [pull permissions](container-registry-roles.md) to the registry. To provide both pull and push permissions, assign the ACRPush role.
 
 ```azurecli
-az role assignment create --assignee $spID --scope $resourceID --role reader
+az role assignment create --assignee $spID --scope $resourceID --role acrpull
 ```
 
 ### Use the identity to access the registry
@@ -172,15 +172,10 @@ Then, log in to the registry with [az acr login][az-acr-login]. When you use thi
 az acr login --name myContainerRegistry
 ```
 
-You should see a `Login succeeded` message. You can then run `docker` commands without providing credentials. For example, pull the `aci-helloworld:v1` image, specifying the login server name of your registry:
-
-```azurecli
-# Get the login server name of the registry
-loginserver=$(az acr show --name myContainerRegistry --query loginServer --output tsv)
-```
+You should see a `Login succeeded` message. You can then run `docker` commands without providing credentials. For example, run [docker pull][docker-pull] to pull the `aci-helloworld:v1` image, specifying the login server name of your registry. The login server name consists of your container registry name (all lowercase) followed by `.azurecr.io` - for example, `mycontainerregistry.azurecr.io`.
 
 ```docker
-docker pull $loginserver/aci-helloworld:v1
+docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 
 ## Example 2: Use a system-assigned identity to access a container registry
@@ -207,10 +202,10 @@ Now configure the identity to access your container registry. First use the [az 
 resourceID=$(az acr show --resource-group myResourceGroup --name myContainerRegistry --query id --output tsv)
 ```
 
-Use the [az role assignment create][az-role-assignment-create] command to assign the Reader role to the identity. This role provides [pull permissions](container-registry-roles.md) to the registry as well as access to Azure Resource Manager.
+Use the [az role assignment create][az-role-assignment-create] command to assign the AcrPull role to the identity. This role provides [pull permissions](container-registry-roles.md) to the registry. To provide both pull and push permissions, assign the ACRPush role.
 
 ```azurecli
-az role assignment create --assignee $spID --scope $resourceID --role reader
+az role assignment create --assignee $spID --scope $resourceID --role acrpull
 ```
 
 ### Use the identity to access the registry
@@ -229,15 +224,10 @@ Then, log in to the registry with [az acr login][az-acr-login]. When you use thi
 az acr login --name myContainerRegistry
 ```
 
-You should see a `Login succeeded` message. You can then run `docker` commands without providing credentials. For example, run [docker pull][docker-pull] to pull the `aci-helloworld:v1` image, specifying the login server name of your registry:
-
-```azurecli
-# Get the login server name of the registry
-loginserver=$(az acr show --name myContainerRegistry --query loginServer --output tsv)
-```
+You should see a `Login succeeded` message. You can then run `docker` commands without providing credentials. For example, run [docker pull][docker-pull] to pull the `aci-helloworld:v1` image, specifying the login server name of your registry. The login server name consists of your container registry name (all lowercase) followed by `.azurecr.io` - for example, `mycontainerregistry.azurecr.io`.
 
 ```docker
-docker pull $loginserver/aci-helloworld:v1
+docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 
 ## Next steps
