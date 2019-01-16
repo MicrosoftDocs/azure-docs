@@ -201,7 +201,39 @@ On resource constrained devices, it is highly recommended that you set the *Opti
 
 If your network that has a proxy server, follow the steps in [Configure your IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
 
+## Uninstall IoT Edge
+
+If you want to remove the IoT Edge installation from your Linux device, use the following commands from the command line. 
+
+Remove the IoT Edge runtime. 
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+When the IoT Edge runtime is removed, the container that it created are stopped but still exist on your device. View all containers to see which ones remain. 
+
+```bash
+sudo docker ps -a
+```
+
+Delete the containers from your device, including the two runtime containers. 
+
+```bash
+sudo docker rm -f <container name>
+```
+
+Finally, remove the container runtime from your device. 
+
+```bash 
+sudo apt-get remove --purge moby-cli
+sudo apt-get remove --purge moby-engine
+```
+
 ## Next steps
+
+Now that you have an IoT Edge device provisioned with the runtime installed, you can [deploy IoT Edge modules](how-to-deploy-modules-portal.md).
 
 If you are having problems with the Edge runtime installing properly, check out the [troubleshooting](troubleshoot.md) page.
 
+To update an existing installation to the newest version of IoT Edge, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).

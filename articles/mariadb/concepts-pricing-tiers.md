@@ -3,8 +3,6 @@ title: Pricing tiers for Azure Database for MariaDB
 description: This article describes the pricing tiers for Azure Database for MariaDB.
 author: jan-eng
 ms.author: janeng
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018

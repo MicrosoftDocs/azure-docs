@@ -3,7 +3,7 @@ title: Managing your virtual machine image in the Azure Marketplace | Microsoft 
 description: Detailed guide on how to manage your virtual machine image in the Azure Marketplace after initial publication
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 
@@ -16,7 +16,10 @@ ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
 
+ROBOTS: NOINDEX
+
 ---
+
 # Post-production guide for virtual machine offers in the Azure Marketplace
 This article explains how you can update a live virtual machine offer in the Azure Marketplace. It guides you through the process of adding one or more new SKUs to an existing offer. It also guides you through the process of removing a live virtual machine offer or SKU from the Marketplace.
 
@@ -306,7 +309,7 @@ To revert the billing model to production values, follow these steps:
 
 2. Go to the **virtual machines** tab, and select your offer.
 3. In the menu on the left, click the **SKUS** tab.
-4. Click the **Edit** button to revert the billing model. In the window that opens, select or clear the **Billing and licensing is done externally from Azure (aka Bring Your Own License)** check box.
+4. Click the **Edit** button to revert the billing model. In the window that opens, select, or clear the **Billing and licensing is done externally from Azure (aka Bring Your Own License)** check box.
 
     ![Edit billing](media/marketplace-publishing-vm-image-post-publishing/img09-04.png)
 5. Follow the steps in "Revert the listing price to production values" in this article.
@@ -332,4 +335,4 @@ To revert the visibility setting of a listed SKU to the production value, follow
 * [Troubleshoot common publishing problems in the Marketplace](marketplace-publishing-support-common-issues.md)
 * [Get support as a publisher](marketplace-publishing-get-publisher-support.md)
 * [Create a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
-* [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Create a virtual machine running Windows in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

@@ -1,13 +1,10 @@
 ---
 title: Replicate data into Azure Database for MySQL.
 description: This article describes data-in replication for Azure Database for MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2018
 ---
 

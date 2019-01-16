@@ -1,6 +1,6 @@
 ---
-title: How to configure hybrid Azure Active Directory joined devices | Microsoft Docs
-description: Learn how to configure hybrid Azure Active Directory joined devices.
+title: Configure hybrid Azure Active Directory join for managed domains | Microsoft Docs
+description: Learn how to configure hybrid Azure Active Directory join for managed domains.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/01/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
 
-#Customer intent: As a IT admin, I want to setup hybrid Azure AD joined devices so that I can automatically bring AD domain-joined devices under control
+#Customer intent: As a IT admin, I want to setup hybrid Azure AD joined devices for managed domains so that I can automatically bring AD domain-joined devices under control
 
 ---
 # Tutorial: Configure hybrid Azure Active Directory join for managed domains

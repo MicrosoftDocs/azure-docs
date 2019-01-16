@@ -35,7 +35,7 @@ You must have the following components installed in your development environment
 
 * [Java JDK 8](https://aka.ms/azure-jdks) or an equivalent, such as OpenJDK.
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * An SSH client and the `scp` command. For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
@@ -78,7 +78,7 @@ The important things to understand in the `pom.xml` file are:
     </dependency>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > The `${kafka.version}` entry is declared in the `<properties>..</properties>` section of `pom.xml`, and is configured to the Kafka version of the HDInsight cluster.
 
 * Plugins: Maven plugins provide various capabilities. In this project, the following plugins are used:
@@ -216,7 +216,7 @@ This command uses `tmux` to split the terminal into two columns. A consumer is s
 
 Consumption by clients within the same group is handled through the partitions for the topic. In this code sample, the `test` topic created earlier has eight partitions. If you start eight consumers, each consumer reads records from a single partition for the topic.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > There cannot be more consumer instances in a consumer group than partitions. In this example, one consumer group can contain up to eight consumers since that is the number of partitions in the topic. Or you can have multiple consumer groups, each with no more than eight consumers.
 
 Records stored in Kafka are stored in the order they are received within a partition. To achieve in-ordered delivery for records *within a partition*, create a consumer group where the number of consumer instances matches the number of partitions. To achieve in-ordered delivery for records *within the topic*, create a consumer group with only one consumer instance.

@@ -1,5 +1,5 @@
 ---
-title: Tutorial for searching semi-structured data in Azure cloud storage - Azure Search
+title: Tutorial for searching JSON in Azure Blob storage - Azure Search
 description: In this tutorial, learn how to search semi-structured Azure blob data using Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -56,7 +56,7 @@ Contained in the sample are example JSON files, which were originally text files
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](http://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Upload the sample data
 

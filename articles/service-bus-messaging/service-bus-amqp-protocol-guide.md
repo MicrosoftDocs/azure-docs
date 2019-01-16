@@ -260,7 +260,7 @@ Every connection has to initiate its own control link to be able to start and en
 
 #### Starting a transaction
 
-To begin transactional work. the controller must obtain a `txn-id` from the coordinator. It does this by sending a `declare` type message. If the declaration is successful, the coordinator responds with a disposition outcome of, which carries the assigned `txn-id`.
+To begin transactional work. the controller must obtain a `txn-id` from the coordinator. It does this by sending a `declare` type message. If the declaration is successful, the coordinator responds with a disposition outcome, which carries the assigned `txn-id`.
 
 | Client (Controller) | | Service Bus (Coordinator) |
 | --- | --- | --- |

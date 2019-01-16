@@ -50,7 +50,7 @@ The following table summarizes the differences in key capabilities.
 
 | Feature                                       | Data Box Gateway (preview) | Data Box Edge (preview)  | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
-| Form factor                                   | Virtual device             | Physical device          | Serivce in Azure portal, agent on-premises                                                            |
+| Form factor                                   | Virtual device             | Physical device          | Service in Azure portal, agent on-premises                                                            |
 | Hardware                                      | Your hypervisor            | Supplied by Microsoft    | NA                                                            |
 | Initial setup effort                          | Low (<30 mins.)            | Moderate (~couple hours) | Large (~days)                                                 |
 | Data Format                                   | Azure Blobs, Azure Files   | Azure Blobs, Azure Files | [Supports 70+ data connectors for data stores and formats](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|

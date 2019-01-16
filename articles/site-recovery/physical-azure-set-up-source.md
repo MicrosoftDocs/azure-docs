@@ -2,11 +2,12 @@
 title: Set up the configuration server for disaster recovery of physical servers to Azure using Azure Site Recovery | Microsoft Docs'
 description: This article describes how to set up the on-premises configuration server for disaster recovery of on-premises physical servers to Azure.
 services: site-recovery
-author: rayne-wiselman
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: raynew
+ms.author: ramamill
 ---
 
 # Set up the configuration server for disaster recovery of physical servers to Azure

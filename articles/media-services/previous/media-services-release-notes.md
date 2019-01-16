@@ -41,6 +41,10 @@ These release notes for Azure Media Services summarize changes from previous rel
 ## <a id="rest_version_history"/>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
 
+## December 2018
+
+The [Media Hyperlapse Preview](media-services-hyperlapse-content.md) feature of Azure Media Services will soon be retired. Starting December 19, 2018, Media Services will no longer make changes or improvements to Media Hyperlapse. On March 29, 2019, it will be retired and no longer available.
+
 ## October 2018
 
 ### CMAF support

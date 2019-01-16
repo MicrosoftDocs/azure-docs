@@ -52,7 +52,7 @@ The workflow used in this document contains two actions. Actions are definitions
 
 2. A Sqoop action exports the contents of the new Hive table to a table created in Azure SQL Database. For more information about Sqoop, see [Use Apache Sqoop with HDInsight][hdinsight-use-sqoop].
 
-> [!NOTE]
+> [!NOTE]  
 > For supported Oozie versions on HDInsight clusters, see [What's new in the Hadoop cluster versions provided by HDInsight][hdinsight-versions].
 
 ## Create the working directory
@@ -295,7 +295,7 @@ The job definition describes where to find the workflow.xml. It also describes w
     ```
 
     > [!NOTE]  
-    > If the HDInsight cluster uses Azure Storage as the default storage, the `<value>` element contents begin with `wasb://`. If Azure Data Lake Store is used instead, it begins with `adl://`.
+    > If the HDInsight cluster uses Azure Storage as the default storage, the `<value>` element contents begin with `wasb://`. If Azure Data Lake Storage is used instead, it begins with `adl://`.
 
     Save the contents of the `<value>` element, as it's used in the next steps.
 
@@ -570,7 +570,7 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
     </coordinator-app>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > The `${...}` variables are replaced by values in the job definition at runtime. The variables are:
     >
     > * `${coordFrequency}`: The time between running instances of the job.
@@ -731,7 +731,7 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 * [Use Apache Pig with Apache Hadoop on HDInsight][hdinsight-use-pig]
 * [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
-[hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
+[hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563
 [azure-data-factory-pig-hive]: ../data-factory/transform-data.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
@@ -751,12 +751,12 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
-[apache-hadoop]: http://hadoop.apache.org/
-[apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
-[apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
+[apache-hadoop]: https://hadoop.apache.org/
+[apache-oozie-400]: https://oozie.apache.org/docs/4.0.0/
+[apache-oozie-332]: https://oozie.apache.org/docs/3.3.2/
 
 [powershell-download]: https://azure.microsoft.com/downloads/
-[powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
+[powershell-about-profiles]: https://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
@@ -767,4 +767,4 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

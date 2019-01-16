@@ -17,7 +17,7 @@ ms.author: hrasheed
 
 Learn how to fix an Apache Hive out of memory (OOM) error when processing large tables by configuring Hive memory settings.
 
-## Run Hive query against large tables
+## Run Apache Hive query against large tables
 
 A customer ran a Hive query:
 

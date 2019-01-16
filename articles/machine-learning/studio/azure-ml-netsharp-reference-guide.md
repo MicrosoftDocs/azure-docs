@@ -1,20 +1,15 @@
 ---
-title: Net# Neural Networks - Azure Machine Learning Studio | Microsoft Docs
+title: Net# Neural Networks
+titleSuffix: Azure Machine Learning Studio
 description: Syntax for the Net# neural networks specification language, together with examples of how to create a custom neural network model using Net# with Azure Machine Learning Studio.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
-ms.service: machine-learning
+ms.service: machine-learning
 ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ---
 # Guide to Net# neural network specification language for Azure Machine Learning Studio
@@ -383,7 +378,7 @@ The example illustrates some basic commands as follows:
 
 + The first line defines the input layer (named `Data`). When you use the  `auto` keyword, the neural network automatically includes all feature columns in the input examples. 
 + The second line creates the hidden layer. The name `H` is assigned to the hidden layer, which has 200 nodes. This layer is fully connected to the input layer.
-+ The third line defines the output layer (named `O`), which contains 10 output nodes. If the neural network is used for classification, there is one output node per class. The keyword **sigmoid** indicates that the output function is applied to the output layer.
++ The third line defines the output layer (named `Out`), which contains 10 output nodes. If the neural network is used for classification, there is one output node per class. The keyword **sigmoid** indicates that the output function is applied to the output layer.
 
 ### Define multiple hidden layers: computer vision example
 
