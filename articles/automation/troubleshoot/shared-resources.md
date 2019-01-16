@@ -44,7 +44,7 @@ A module fails to import or imports successfully, but no cmdlets are extracted.
 Some common reasons that a module might not successfully import to Azure Automation are:
 
 * The structure doesn't match the structure that Automation needs it to be in.
-* The module is dependent on another module that hasn't been deployed to your Automation account.
+* The module depends on another module that hasn't been deployed to your Automation account.
 * The module is missing its dependencies in the folder.
 * The `New-AzureRmAutomationModule` cmdlet is being used to upload the module, and you haven't given the full storage path or haven't loaded the module by using a publicly accessible URL.
 
@@ -69,12 +69,12 @@ The default setting to determine how many modules get updated simultaneously is 
 
 #### Resolution
 
-It is not common that all the AzureRM modules are actually required in the same Automation account. It is recommended to only import the AzureRM modules that you need.
+It's not common that all the AzureRM modules are required in the same Automation account. It's recommended to only import the AzureRM modules that you need.
 
 > [!NOTE]
 > Avoid importing the **AzureRM** module. Importing the **AzureRM** modules causes all **AzureRM.\*** modules to be imported, this is not recommened.
 
-If the update process suspends, you'll need to add the `SimultaneousModuleImportJobCount` parameter to the `Update-AzureModules.ps1` script and provide a lower value than the default that is 10. It is recommended if you do this to start with a value of 3 or 5. `SimultaneousModuleImportJobCount` is a parameter of the `Update-AutomationAzureModulesForAccount` system runbook that is used to update Azure modules. This will make the process run longer, but has a better chance of completing. The following example shows the parameter and where to put it in the runbook:
+If the update process suspends, you need to add the `SimultaneousModuleImportJobCount` parameter to the `Update-AzureModules.ps1` script and provide a lower value than the default that is 10. It's recommended if you implement this logic, to start with a value of 3 or 5. `SimultaneousModuleImportJobCount` is a parameter of the `Update-AutomationAzureModulesForAccount` system runbook that is used to update Azure modules. This change makes the process run longer, but has a better chance of completing. The following example shows the parameter and where to put it in the runbook:
 
  ```powershell
          $Body = @"
@@ -113,7 +113,7 @@ You don't have the permissions that you need to create or update the Run As acco
 
 To create or update a Run As account, you must have appropriate permissions to the various resources used by the Run As account. To learn about the permissions needed to create or update a Run As account, see [Run As account permissions](../manage-runas-account.md#permissions).
 
-If the issue is due to a lock, verify that the lock is ok to remove and navigate to the resource that is locked, right-click the lock and choose **Delete** to remove the lock.
+If the issue is because of a lock, verify that the lock is ok to remove it. Then navigate to the resource that is locked, right-click the lock and choose **Delete** to remove the lock.
 
 ## Next steps
 
