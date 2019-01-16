@@ -478,10 +478,10 @@
         href: how-to-query-container.md
       - name: Configure time to live
         href: how-to-time-to-live.md
-    - name: Indexing
-      items:
-      - name: Configure indexing
-        href: how-to-manage-indexing-policy.md
+      - name: Indexing
+        items:
+        - name: Configure indexing
+          href: how-to-manage-indexing-policy.md
     - name: Security
       items:
       - name: Configure IP firewall
