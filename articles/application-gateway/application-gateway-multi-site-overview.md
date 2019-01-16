@@ -4,7 +4,7 @@ description: This page provides an overview of the Azure Application Gateway mul
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 01/16/2019
+ms.date: 1/16/2019
 ms.author: amsriva
 
 ---
