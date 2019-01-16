@@ -354,6 +354,8 @@
         href: cloudfoundry-get-started.md
       - name: Deploy your first app
         href: cloudfoundry-deploy-your-first-app.md
+    - name: Cassandra
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: OpenShift
       items:
       - name: OpenShift overview

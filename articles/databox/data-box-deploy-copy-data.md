@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 01/16/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -81,9 +81,11 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
     You should now see the shares as folders.
     
+    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)    
+
     **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *$root* folder in the storage account.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
+     
 
 ## Copy data to Data Box
 
@@ -92,7 +94,11 @@ Once you're connected to the Data Box shares, the next step is to copy data. Bef
 - Make sure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format doesn't match the appropriate share type, then at a later step, the data upload to Azure will fail.
 -  While copying data, make sure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
-- We recommend that you don't use both SMB and NFS at the same or copy same data to same end destination on Azure. In these cases, the final outcome can't be determined.
+- We recommend that:
+    - You don't use both SMB and NFS at the same time.
+    - Copy the same data to same end destination on Azure. 
+     
+  In these cases, the final outcome can't be determined.
 - Always create a folder for the files that you intend to copy under the share and then copy the files to that folder. The folder created under block blob and page blob shares represents a container to which the data is uploaded as blobs. You cannot copy files directly to *$root* folder in the storage account.
 
 After you've connected to the SMB share, begin data copy. You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:

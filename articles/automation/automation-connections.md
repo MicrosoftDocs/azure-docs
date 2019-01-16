@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/15/2019
+ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -19,6 +19,16 @@ When you create a connection, you must specify a *connection type*. The connecti
 
 >[!NOTE]
 >Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each automation account. This key is stored in a system managed Key Vault. Before storing a secure asset, the key is loaded from Key Vault and then used to encrypt the asset. This process is managed by Azure Automation.
+
+## Connection types
+
+There are three types of built in connections available in Azure Automation:
+
+* **Azure** - This connection can be used to manage classic resources.
+* **AzureClassicCertificate** - This connection is used by the **AzureClassicRunAs** account.
+* **AzureServicePrincipal** - This connection is used by the **AzureRunAs** account.
+
+In most cases you do not need to create a connection resource as it is created when you create a [RunAs account](manage-runas-account.md).
 
 ## Windows PowerShell Cmdlets
 
