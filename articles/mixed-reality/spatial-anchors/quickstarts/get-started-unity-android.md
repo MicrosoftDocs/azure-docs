@@ -8,7 +8,7 @@ services: spatial-anchors
 ms.assetid: ba56ad7d-703b-4570-951e-c71ca670b5de
 ms.author: crtreasu
 ms.date: 12/13/2018
-ms.topic: tutorial
+ms.topic: quickstart
 ms.service: spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want to learn how to create a Spatial Anchor for my Android Unity app that can place, locate, and navigate to a 3D object that persists across devices and platforms.
