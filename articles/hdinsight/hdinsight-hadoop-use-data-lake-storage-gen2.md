@@ -18,7 +18,7 @@ Azure Data Lake Storage (ADLS) Gen2 is a set of capabilities dedicated to big da
 
 Azure Data Lake Storage Gen2 is available as a storage option for almost all Azure HDInsight cluster types as both a default and an additional storage account. HBase, however, can only have one ADLS Gen2 account.
 
-> [Note] 
+> [!Note] 
 > Once you select ADLS Gen2 as your **primary storage type**, you cannot select an ADLS Gen1 account as additional storage.
 
 ## Creating an HDInsight cluster with ADLS Gen2
@@ -41,24 +41,22 @@ To create a HDInsight cluster, which uses ADLS Gen2 for storage, use the followi
         ![Screen shot showing storage access control settings](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
     1. Click the **Add role assignment** button to add a new role.
-    1. In the **Add role assignment** window, select the **Contributor** role. Then, select the subscription that has the managed identity and storage account. Next, search to locate the user-assigned managed identity that you created previously. Finally, select the managed identity and it will be listed under **Selected members**.
+    1. In the **Add role assignment** window, select the **Storage Blob Data Contributor (Preview)** role. Then, select the subscription that has the managed identity and storage account. Next, search to locate the user-assigned managed identity that you created previously. Finally, select the managed identity and it will be listed under **Selected members**.
     
         ![Screenshot showing how to assign an RBAC role](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role2.png)
     
     1. Click **Save**. The user-assigned identity that you selected is now listed under the **Contributor** role.
 
-After this initial setup is complete, you can create a cluster through the portal.
-
-In the **Storage** section of the cluster creation menu, select the following options:
-
-* For **Primary storage type**, Click **Azure Data Lake Storage Gen2**. 
-* Under **Select a Storage Account**, search for and select the newly created ADLS Gen2 storage account.
-
-    ![Storage settings for using ADLS Gen2 with Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
-
-* Under **Identity** select the correct subscription and the newly created user-assigned managed Identity.
-
-    ![Identity settings for using ADLS Gen2 with Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
+    1. After this initial setup is complete, you can create a cluster through the portal. In the **Storage** section of the cluster creation menu, select the following options:
+        
+        * For **Primary storage type**, Click **Azure Data Lake Storage Gen2**. 
+        * Under **Select a Storage Account**, search for and select the newly created ADLS Gen2 storage account.
+        
+            ![Storage settings for using ADLS Gen2 with Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
+        
+        * Under **Identity** select the correct subscription and the newly created user-assigned managed Identity.
+        
+            ![Identity settings for using ADLS Gen2 with Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
 
 ## Access Control for ADLS Gen2 in HDInsight
 
